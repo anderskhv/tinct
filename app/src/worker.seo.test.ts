@@ -498,7 +498,7 @@ describe('approved brand entry metadata', () => {
 
 describe('temporary edition direct links', () => {
   it('explains holds before serving cached pages and retains exact recovery coordinates', async () => {
-    for (const path of ['/read/macbeth/chapter-8', '/as-you-like-it', '/read/jerusalem?edition=modern-en&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-en']) {
+    for (const path of ['/read/macbeth/chapter-8', '/as-you-like-it', '/read/jerusalem?edition=modern-en&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-en', '/jerusalem?edition=modern-en', '/?book=macbeth', '/app?book=as-you-like-it', '/read?book=macbeth']) {
       const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
       expect(response.status).toBe(200)
       expect(response.headers.get('Cache-Control')).toBe('no-store')
@@ -528,4 +528,12 @@ it('never labels a retained English static excerpt as Faust original German', as
   expect(response.status).toBe(302)
   expect(response.headers.get('Location')).toContain('edition=original-de')
   expect(response.headers.get('Location')).toContain('/library?')
+})
+
+it('retains one-based library start links when opening held-edition recovery', async () => {
+  const response = await handleSeoAndStaticRequest(new Request('https://tinct.app/library?book=macbeth&edition=modern-en&start=8.3'), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+  const html = await response.text()
+  expect(html).toContain('chapter=8')
+  expect(html).toContain('paragraph=2')
+  expect(html).toContain('heldEdition=modern-en')
 })

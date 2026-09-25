@@ -8,9 +8,9 @@ Baseline production bundle: `index-_UsWGnmb.js`.
 Prior deploy [36166609484](https://github.com/anderskhv/tinct/actions/runs/36166609484) succeeded.
 Release owner task “Tinct-coder” was contacted before edits and confirms no competing release.
 Its handoff requires resolving prior failed production checks before publication:
-- followups 36169994998 and Meditations 36169994976: HTTP 404 assertion in check-reviewed-characters.cjs:51; URL absent from log.
-- Chapter Preview 36169994984: Next chapter locator timeout at line 142.
-- Shakespeare 36166609436: smoke-wait timeout before the subsequently successful deploy.
+- followups 36169994998 and Meditations 36169994976: still FAIL on retry (jobs 108194378213 and 108194374336), HTTP 404 assertion in check-reviewed-characters.cjs:51; URL absent from log. Both completed all six phone cases before desktop. The desktop next-opening loader probes absent chapter shards before whole-book fallback; the observed missing shard endpoints and overly broad response assertion are a strong diagnosis lead, not a waived gate.
+- Chapter Preview 36169994984: PASS on retry, without code changes (job 108193638144).
+- Shakespeare 36166609436: PASS on retry after successful deployment (job 108193637574).
 These have not been waived. A separate prerequisite repair requires scope coordination; do not bundle unrelated repairs into this change.
 
 ## Decision boundary
@@ -84,6 +84,10 @@ URLs are `https://tinct.app/data/editions/{book}-{edition}.json` with that reade
 | vindication-rights-of-woman/original-en | `3e168f00ba7901f8a31cc36902f0046e9555d6fd5245566c437b029331e91aac` |
 | vindication-rights-of-woman/modern-en | `4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63` |
 | vindication-rights-of-woman/modern-da | `41ec7c251015ca8079dc88e5845757ac634fbf4c62f6ab03160ed5e686fc8880` |
+
+## Staging validation
+
+Availability acceptance [36171982452](https://github.com/anderskhv/tinct/actions/runs/36171982452) passed all 32 Chromium edition/viewport fixtures. Stronger [36172168491](https://github.com/anderskhv/tinct/actions/runs/36172168491) passed all 32 phone WebKit / desktop Chromium fixtures, including direct device resumes, explicit recovery and exact seeded position, highlights, notes and reading-memory preservation. A prior failing fixture correctly exposed completion writes in recovery; those are now guarded. These are isolated seeded contexts, not a claim of testing a real signed-in account. Current-head full CI remains required before merging.
 
 ## Recovery and verification contract
 

@@ -320,11 +320,11 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   // A temporary availability page preserves old links and content assets.
   // Run before static/cached SEO pages; raw data stays available for recovery.
   const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
-  const queryBook = ['/library', '/lab/', '/lab/library'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const queryBook = ['/', '/library', '/lab', '/lab/', '/lab/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
   const holdBook = queryBook || publicBook
-  const holdKey = url.searchParams.get('edition') || 'original-en'
+  const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' ? 'original-de' : 'original-en')
   if ((request.method === 'GET' || request.method === 'HEAD') && holdBook
-      && (isBookTemporarilyHeld(holdBook) || ((url.pathname.startsWith('/read/') || queryBook) && editionHold(holdBook, holdKey)))) {
+      && (isBookTemporarilyHeld(holdBook) || editionHold(holdBook, holdKey))) {
     const recovery = new URL('/reader', url.origin)
     recovery.searchParams.set('heldBook', holdBook)
     recovery.searchParams.set('heldEdition', holdKey)
@@ -334,6 +334,11 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
     const chapter = url.pathname.match(/\/chapter-(\d+)/)?.[1]
     if (chapter && !recovery.searchParams.has('chapter')) recovery.searchParams.set('chapter', chapter)
+    const explicitStart = /^(\d+)\.(\d+)$/.exec(url.searchParams.get('start') || '')
+    if (explicitStart && Number(explicitStart[1]) > 0 && Number(explicitStart[2]) > 0) {
+      recovery.searchParams.set('chapter', explicitStart[1])
+      recovery.searchParams.set('paragraph', String(Number(explicitStart[2]) - 1))
+    }
     const reason = editionHold(holdBook, holdKey)?.reason || 'No complete edition is currently available.'
     const title = GENERATED_BOOK_META[holdBook]?.bookName || ({ macbeth: 'Macbeth', 'as-you-like-it': 'As You Like It' } as Record<string, string>)[holdBook] || holdBook
     const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,noarchive"><title>Temporarily unavailable · Tinct</title></head><body><main style="max-width:680px;margin:8vh auto;padding:24px;line-height:1.6"><h1>' + htmlEscape(title) + '</h1><h2>Temporarily unavailable</h2><p>' + htmlEscape(reason) + '</p><p>' + htmlEscape(TEMPORARY_HOLD_NOTICE) + '</p><p><a href="' + htmlEscape(recovery.pathname + recovery.search) + '">Open recovery and saved annotations</a></p><p><a href="/library">Return to the library</a></p></main></body></html>'
