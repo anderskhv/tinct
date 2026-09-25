@@ -3946,6 +3946,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-book-id={book.bookId || 'bible'}
       data-cover-page={chapterCoverTitle ? 'true' : 'false'}
       data-reader-ready={readerReady ? 'true' : 'false'}
+      data-characters-ready={primaryCharacters ? 'true' : 'false'}
       data-position-resolving={initialResolving ? 'true' : 'false'}
       data-biblical-book={biblicalBook}
       data-place={`${placeRef.current.paragraphIndex}:${placeRef.current.wordIndex}`}
