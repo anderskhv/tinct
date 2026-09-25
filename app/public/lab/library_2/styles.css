@@ -246,3 +246,20 @@ html.returning .hero-shade{background:linear-gradient(0deg,var(--bg),#10180fbb 1
 
 /* The production assistant lives inside the existing draggable panel. */
 #librarian-live{display:flex;flex:1;min-height:0;overflow:hidden}#librarian-live[hidden]{display:none}.mode-buttons button:disabled{opacity:.5;cursor:wait}#librarian-loading{font-size:15px;margin-top:12px}
+
+/* On shallow landscape screens, scroll the author content between the two controls. */
+#slip-content{display:contents}
+@media(max-height:500px){
+ .compact-book .book-slip{padding-top:16px;padding-bottom:16px;overflow:hidden}
+ .compact-book #slip-content{display:block;flex:1;min-height:0;width:100%;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+ .compact-book #slip-next{margin-top:10px}
+}
+
+/* The first scene and cover can paint before the application modules finish loading. */
+#scene{background-image:var(--initial-scene);background-size:cover;background-position:70% center}
+#hero-book>canvas{position:absolute;inset:0}
+#hero-book>canvas:not([data-painted]){opacity:0}
+#hero-cover-preview{display:block;width:100%;height:100%;object-fit:fill}
+.hero-dots button[aria-busy=true]{cursor:progress}
+
+html:not(.library-ready) #librarian{visibility:hidden}

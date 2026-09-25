@@ -107,6 +107,14 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
           assert.equal(await choice.count(), scenario.phone ? 1 : 0)
           if (scenario.phone) {
             await choice.selectOption('flowing')
+            // Recovery intentionally creates no new saved place. Re-open the explicit
+            // fixture after reload while checking that appearance preferences persist.
+            if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
+              await page.evaluate(s => sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
+                kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en',
+                savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 },
+              })), scenario)
+            }
             await page.reload()
             if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
               await page.getByTestId('edition-hold').waitFor()
