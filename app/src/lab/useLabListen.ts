@@ -44,6 +44,8 @@ export interface UseLabListenOptions {
   bookId?: string
   bookTitle?: string
   chapterTitle?: string
+  /** Lock-screen artwork. */
+  coverSrc?: string
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
   chapterNumber?: number
@@ -148,6 +150,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const [speed, setSpeedState] = useState(() => parseHearingSpeed(options.playbackSpeed) ?? 1)
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
   const [clips, setClips] = useState<LabAudioClip[]>([])
+  const publishPositionRef = useRef<() => void>(() => {})
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
@@ -627,11 +630,15 @@ export function useLabListen(options: UseLabListenOptions) {
       }
       if (!waitingForNarration(clipsRef.current[clipIndexRef.current], audio)) setPending(false)
     }
+    const publishPosition = () => publishPositionRef.current()
+    const nowPlayingEvents = ['playing', 'timeupdate', 'seeked', 'ratechange', 'loadedmetadata'] as const
     audio.addEventListener('playing', handlePlaying)
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('ended', handleEnded)
     audio.addEventListener('error', handleError)
+    for (const type of nowPlayingEvents) audio.addEventListener(type, publishPosition)
     return () => {
+      for (const type of nowPlayingEvents) audio.removeEventListener(type, publishPosition)
       audio.removeEventListener('playing', handlePlaying)
       audio.removeEventListener('timeupdate', handleTimeUpdate)
       audio.removeEventListener('ended', handleEnded)
@@ -1172,9 +1179,13 @@ export function useLabListen(options: UseLabListenOptions) {
     if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
     const session = navigator.mediaSession
     try {
+      // iOS shows title and artist, not album: lead with the chapter.
+      const book = options.bookTitle || options.bookId || 'Tinct audiobook'
       if (typeof MediaMetadata !== 'undefined') session.metadata = new MediaMetadata({
-        title: options.bookTitle || options.bookId || 'Tinct audiobook',
-        album: options.chapterTitle || `Chapter ${options.chapterNumber ?? 1}`,
+        title: options.chapterTitle || `Chapter ${options.chapterNumber ?? 1}`,
+        artist: book,
+        album: book,
+        ...(options.coverSrc ? { artwork: [{ src: new URL(options.coverSrc, window.location.href).href, type: 'image/webp' }] } : {}),
       })
       session.setActionHandler('play', () => resume())
       session.setActionHandler('pause', pause)
@@ -1185,22 +1196,42 @@ export function useLabListen(options: UseLabListenOptions) {
     return () => {
       try { session.setActionHandler('play', null); session.setActionHandler('pause', null); session.setActionHandler('seekbackward', null); session.setActionHandler('seekforward', null); session.setActionHandler('seekto', null) } catch { /* unsupported */ }
     }
-  }, [options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, pause, resume, seek, seekChapter])
+  }, [options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, options.coverSrc, pause, resume, seek, seekChapter])
 
   useEffect(() => {
     if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
     try { navigator.mediaSession.playbackState = playing ? 'playing' : 'paused' } catch { /* unsupported */ }
   }, [playing])
 
-  useEffect(() => {
-    if (typeof navigator === 'undefined' || !('mediaSession' in navigator) || chapterTimeline.duration <= 0) return
+  // Each sentence group swaps the element's source, and a locked phone runs no
+  // animation frames to re-render. Publish the chapter clock from the native
+  // media events too, so the lock screen never falls back to the group's own.
+  publishPositionRef.current = () => {
+    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
+    const audio = audioRef.current
+    let elapsed = 0
+    let duration = 0
+    clipsRef.current.forEach((clip, index) => {
+      const clipDuration = estimatedClipDuration(clip)
+      if (index < clipIndexRef.current) elapsed += clipDuration
+      else if (index === clipIndexRef.current) {
+        const live = audio && !waitingForNarration(clip, audio) ? audio.currentTime || 0 : positionRef.current.time
+        elapsed += Math.max(0, Math.min(live, clipDuration))
+      }
+      duration += clipDuration
+    })
+    if (duration <= 0) return
     try {
       navigator.mediaSession.setPositionState({
-        duration: Math.max(0.001, chapterTimeline.duration),
-        playbackRate: speed,
-        position: Math.max(0, Math.min(chapterTimeline.elapsed, Math.max(0, chapterTimeline.duration - 0.001))),
+        duration: Math.max(0.001, duration),
+        playbackRate: audio?.playbackRate || speed,
+        position: Math.max(0, Math.min(elapsed, Math.max(0, duration - 0.001))),
       })
     } catch { /* unsupported or incomplete metadata */ }
+  }
+
+  useEffect(() => {
+    if (chapterTimeline.duration > 0) publishPositionRef.current()
   }, [chapterTimeline.duration, chapterTimeline.elapsed, speed])
 
   const cycleSpeed = useCallback(() => {

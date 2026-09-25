@@ -244,6 +244,28 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 2, wordIndex: layout[1].wordFrom })
   })
 
+  it('keeps the chapter clock moving forward across sentence-group boundaries', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 2, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { await h.answer(h.calls[0], { 2: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    await act(async () => { await h.answer(last(h), { 2: 2, 3: 0 }) })
+    h.audio.currentTime = 3
+    act(() => h.audio.dispatchEvent(new Event('timeupdate')))
+    const before = h.result.current.chapterTime
+    expect(before).toBeGreaterThan(3)
+    act(() => h.audio.dispatchEvent(new Event('ended')))
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
+    h.audio.currentTime = 0
+    await act(async () => h.pending[1].resolve())
+    h.audio.currentTime = 0.5
+    act(() => h.audio.dispatchEvent(new Event('timeupdate')))
+    expect(h.result.current.chapterTime).toBeGreaterThan(before)
+  })
+
   it('seeks to a word inside a later, unprepared sentence group after preparing it', async () => {
     const h = harness()
     const layout = chunkNarrationText(LONG)

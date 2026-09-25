@@ -52,7 +52,9 @@ p.on('response',response=>{const url=new URL(response.url());const paths=[`/data
 if(process.env.READER_BUILT==='1')await p.route('**/*',async r=>{const url=new URL(r.request().url());if(url.origin===origin){const name=['/reader','/lab/phone','/lab/desktop'].includes(url.pathname)?'/app.html':url.pathname;const file=require('node:path').resolve('dist','.'+name);if(file.startsWith(require('node:path').resolve('dist')+'/')){if(fs.existsSync(file)&&fs.statSync(file).isFile())return r.fulfill({path:file});return r.abort()}}return r.continue()});
 await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
 await p.addInitScript(({book,edition,ch,paragraphIndex,wordIndex})=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:edition,compareEditionKey:edition==='original-en'?'modern-en':'original-en',savedPlace:{bookId:book,chapterNumber:ch,paragraphIndex,wordIndex,page:0}})),{book,edition,ch,paragraphIndex:mention.paragraphIndex,wordIndex})
-await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(1200)
+await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')
+// Cards verify the complete source edition after the chapter renders; a slow runner can still be hashing when the reader is ready.
+await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.charactersReady==='true',null,{timeout:90000}).catch(()=>{throw new Error(`${device}-${edition}-${label}: verified character package never became available`)});await p.waitForTimeout(1200)
 const word=p.locator(`.lab-page-wrap [data-paragraph-index="${mention.paragraphIndex}"][data-word-index="${wordIndex}"]`).first()
 const onPage=async()=>{if(!await word.count())return false;const r=await word.boundingBox(),v=p.viewportSize();return r&&r.x>=0&&r.y>=0&&r.x+r.width<=v.width&&r.y+r.height<=v.height};
 for(let i=0;i<20&&!await onPage();i++){await p.keyboard.press('ArrowRight');await p.waitForTimeout(200)}
