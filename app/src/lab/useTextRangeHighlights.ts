@@ -106,12 +106,16 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
       }
     }
     const key = signature.join(',')
-    // Same words, same elements: nothing to repaint.
     const current = mounted.runs.every(run => run.range.startContainer.isConnected && run.range.endContainer.isConnected)
-    if (key === mounted.signature && current) return
-    mounted.signature = key
-    mounted.runs = runs
-    for (const color of Object.keys(COLORS)) registry.set(`${prefix}-${color}`, new HighlightClass(...(ranges[color] ?? [])))
+    // Nothing highlighted, before or now: nothing to register or paint.
+    if (!runs.length && !mounted.runs.length) return
+    // Same words, same elements: the registered ranges stand. The painted rows
+    // are still measured again, since lines can settle after the words do.
+    if (key !== mounted.signature || !current) {
+      mounted.signature = key
+      mounted.runs = runs
+      for (const color of Object.keys(COLORS)) registry.set(`${prefix}-${color}`, new HighlightClass(...(ranges[color] ?? [])))
+    }
     // Paint immediately so a render never exposes an unpainted frame, and
     // again after the later layout effects have placed the lines.
     paintRanges(mounted)
