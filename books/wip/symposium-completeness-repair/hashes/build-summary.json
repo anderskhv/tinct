@@ -106,9 +106,9 @@
     },
     "modern-en": {
       "path": "candidate/symposium-modern-en.json",
-      "sha256": "073ca5b4eeda36bb0293be8fab1d97f6f37d7feb9f4cc4d6fc82e0244d693eae",
-      "gitBlob": "2e14d4734f0a8b7b5ad5c89c7a1d9e701f0a4db4",
-      "bytes": 121375,
+      "sha256": "1e970b7beb3f098095ecf1a9fc7d78a8855d75e6ffc3bba14edc69db0e05374f",
+      "gitBlob": "8049f40fe1837595fcf0ceda718f2e51bedb632a",
+      "bytes": 121364,
       "chapters": 8,
       "paragraphs": 226,
       "paragraphCounts": [
@@ -138,7 +138,14 @@
     "candidateOriginalWordStreamEqualsSource": true,
     "sourceBoundariesPreserved": true,
     "preexistingSplits": 46,
-    "oldParagraphsCarriedByteForByte": 217,
+    "oldParagraphsCarriedByteForByte": {
+      "original-en": 217,
+      "modern-en": 214
+    },
+    "oldParagraphsTextCorrected": {
+      "original-en": 0,
+      "modern-en": 3
+    },
     "insertedParagraphsPerEdition": 9
   }
 }

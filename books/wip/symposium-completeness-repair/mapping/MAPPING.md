@@ -29,17 +29,17 @@ Three existing `modern-en` sentences were corrected for confirmed defects (`CHAN
 | Paragraph | UTF-16 length | Changed spans | Equal spans |
 |---|---|---|---|
 | modern-en 3.3 | 1103 → 1079 | delete old [986,1003) → new [986,986); insert old [1015,1015) → new [998,1005); delete old [1019,1045) → new [1009,1009); insert old [1055,1055) → new [1019,1031) | 5 |
-| modern-en 3.7 | 856 → 875 | insert old [560,560) → new [560,579) | 2 |
+| modern-en 3.7 | 856 → 876 | insert old [559,559) → new [559,579) | 2 |
 | modern-en 3.8 | 1440 → 1457 | insert old [1332,1332) → new [1332,1349); delete old [1336,1337) → new [1353,1353); delete old [1342,1359) → new [1358,1358); replace old [1394,1395) → new [1393,1407); replace old [1400,1407) → new [1412,1414); delete old [1409,1410) → new [1416,1416); insert old [1411,1411) → new [1417,1419); insert old [1412,1412) → new [1420,1429) | 9 |
 
 Offsets are handled as follows:
 
 - **Inside an equal span:** exact.
 - **In a replaced or deleted span:** approximate. Keep the recovery tuple; do not snap the annotation to the paragraph start or shorten it.
-- **Offsets strictly before the first change** (modern 3.3 < 986, 3.7 < 560, 3.8 < 1332): unchanged.
+- **Offsets strictly before the first change** (modern 3.3 < 986, 3.7 < 559, 3.8 < 1332): unchanged.
 - **A point exactly at an insertion boundary:** follows the caller's bias, as in `projectEditionCoordinate`. A selection start moves to after the inserted text; a selection end stays before it.
 
-Both character-card mentions in modern 3.3 (Aristogeiton, Harmodius) and their eight anchor offsets fall inside equal spans. They project exactly and are listed under `offsetChanges` in `impact/character-card-impact.json`. Modern 3.7 and 3.8 contain no card coordinates.
+Both character-card mentions in modern 3.3 (Aristogeiton, Harmodius) coincide with equal spans and project exactly. Their eight anchor offsets (old 1015 and 1055) sit at the ends of those spans, exactly where "'s love" and "'s constancy" are inserted. With end-of-span (left) bias they map to 998 and 1019. Apply the values listed under `offsetChanges` in `impact/character-card-impact.json` as given; do not re-project them. Modern 3.7 and 3.8 contain no card coordinates.
 
 ## What still needs care
 

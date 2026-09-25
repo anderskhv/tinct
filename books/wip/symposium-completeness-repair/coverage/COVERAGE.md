@@ -25,7 +25,7 @@ The missing opening is the part of the frame that:
 
 - has Apollodorus meet Glaucon on the road from Phalerum;
 - establishes when the banquet happened ("In our boyhood … when Agathon won the prize with his first tragedy, on the day after … the sacrifice of victory");
-- names Aristodemus of Cydathenaeum as the eyewitness source (with Phoenix, son of Philip, as a garbled second-hand source);
+- names Aristodemus of Cydathenaeum as the eyewitness source. Phoenix, son of Philip, heard the story from him and passed it on; it reached Glaucon only as a vague second-hand account;
 - ends with the companion's retort. Without it, the served text opened mid-exchange with "APOLLODORUS: Yes, friend, and the reason why I am said to be mad…", which answers a remark the reader never saw.
 
 Every one of the 180 source paragraphs is listed in `passage-coverage.tsv`, with its section, its hashes, its baseline coordinates (or `MISSING`), its candidate coordinates and its status. The build asserts that the candidate paragraphs listed for each source paragraph, joined with single spaces, reproduce that source paragraph exactly.
@@ -72,7 +72,7 @@ Findings:
   - the hedge "done his best" and the quotation 'uses base' (3.8).
 
   Both are restored by C-06. The same change fixes a garbled clause in 3.3. No other omission was found by either check.
-- **Jowett's inline notes are omitted in modern-en, by consistent convention (20 in the baseline):**
+- **Jowett's inline notes are omitted in modern-en, by consistent convention (20 notes, in 17 paragraphs of the baseline):**
   - (Iliad) twice, at 1.10 and 1.15; (Odyssey) at 6.9; the citation inside "(as Euripides would say (Eurip. Hyppolytus))" at 6.10 (the speaker's "as Euripides would say" is kept)
   - (compare Prot.) at 1.34; (compare Rep.) at 2.4; (compare Arist. Politics) at 3.3; (compare Arist. Pol.) twice at 5.5 and once at 7.92
   - (A fragment of the Sthenoaoea of Euripides.) at 6.4
@@ -93,7 +93,7 @@ Findings:
 
 The failure is pre-existing. Modern chapters 2 and 4–7 are, paragraph by paragraph, Jowett with typographic normalisation and light word substitution (mean token similarity 0.97–0.99). Chapter 8 turns LIGHT in the candidate only because the unchanged Alcibiades paragraphs move into it.
 
-The nine new modern paragraphs score **0.490** on the gate's own metric (length-weighted), at the boundary of the REAL and REAL-HEAVY bands, and keep 86–119% of source length. Chapter 1 falls from 0.831 to 0.743.
+The nine new modern paragraphs score **0.487** on the gate's own metric (length-weighted). That is just inside the REAL-HEAVY band (below 0.50), and they keep 86–119% of source length. Chapter 1 falls from 0.831 to 0.742.
 
 **How it got this way.** The live modern-en is byte-identical to its state after commit `67aa9c16` (2026-04-20, "Symposium modern-en regen complete (59 flags -> 0)"). Against today's Jowett text, the version before that commit (`a3b82787`) was a free modernisation of chapters 1, 2 and 4–7. It had token similarity 0.29–0.40 but was condensed to 68–79% of Jowett's length, which is consistent with the truncation flags then reported. `67aa9c16` cleared the flags by replacing those chapters with near-verbatim Jowett (similarity 0.91–0.95). Neither state is a complete, genuinely modern rendering. Chapter 3 had already been re-rendered in full by `c6384c19`, and chapter 8 was not touched.
 

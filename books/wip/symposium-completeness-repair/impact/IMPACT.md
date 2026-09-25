@@ -37,11 +37,11 @@ Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `
 
   In modern-en, the Aristogeiton and Harmodius mentions in 3.3 and their eight anchor offsets also change offset (C-06) and are listed under `offsetChanges`. They project exactly through equal spans.
 
-  All 510 and 506 existing mentions were verified to re-resolve to their exact recorded text in the candidates after the move, using UTF-16 offsets. No anchor offset exceeds its paragraph. No offset changes.
+  All 510 and 506 existing mentions were verified to re-resolve to their exact recorded text in the candidates after the move, using UTF-16 offsets. No anchor offset exceeds its paragraph. Offsets are unchanged except the ten modern-en 3.3 offset changes described below.
 - **Derived fields to recompute.**
   - `sourceSha256` becomes the candidate sha256.
   - `paragraphCount` goes 217→226, and `chapterCount` stays 8.
-  - `paragraphHashes` must be recomputed for chapters 1, 7 and 8. `hashes/paragraph-hashes-*.tsv` lists every candidate paragraph hash.
+  - `paragraphHashes` must be recomputed for chapters 1, 7 and 8 in original-en, and for chapters **1, 3, 7 and 8** in modern-en, because C-06 changes three chapter-3 paragraphs. `verifyCharacters` rejects the whole edition's card on any chapter mismatch. `hashes/paragraph-hashes-*.tsv` lists every candidate paragraph hash.
   - Bump `characterReleases.symposium.revision` and the card `contentVersion`.
 - **Proposed content additions (character-content decisions, staged, not applied).**
   - **New mentions in 1.0–1.8, covering every personal name there, each with exact UTF-16 offsets:**
@@ -89,9 +89,9 @@ Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `
 No audio generation is proposed or authorised by this package.
 
 - **Grok streaming (current provider).**
-  - Chunk audio is content-addressed by the exact displayed text, provider, model, voice and settings (`docs/grok-narration-2026-09-23.md`). All 217 old paragraphs per edition are unchanged, so their cached chunks stay valid and reusable. The nine new paragraphs per edition are uncached and would be prepared on Play under the existing contract.
+  - Chunk audio is content-addressed by the exact displayed text, provider, model, voice and settings (`docs/grok-narration-2026-09-23.md`). All 217 old original-en paragraphs and 214 of the 217 old modern-en paragraphs are unchanged, so their cached chunks stay valid and reusable. The nine new paragraphs per edition are uncached and would be prepared on Play under the existing contract.
   - **Modern-en 3.3, 3.7 and 3.8 have new text** (C-06), so any cached chunk containing their old text is invalid for the new text and they will be prepared on Play. Original-en chapter 3 is unchanged.
-  - **Edition/sparse seek maps** for chapters 1, 7 and 8 of both English editions were built against the old paragraph sequence and must be invalidated or rebuilt. A chunk that spans an old paragraph boundary now adjacent to new text also needs invalidating.
+  - **Edition/sparse seek maps** for chapters 1, 7 and 8 of both English editions, and for modern-en chapter 3 (text changed in 3.3, 3.7 and 3.8), were built against the old paragraph sequence and must be invalidated or rebuilt. A chunk that spans an old paragraph boundary now adjacent to new text also needs invalidating.
   - If chapter titles are narrated, the original-en chapter-5 heading text changes (C-04).
   - Symposium is not in the featured-ten opening prewarm set.
 - **Retained Bella (legacy female original-English path).** `symposium` is in `RETAINED_BELLA_ORIGINAL_BOOKS` (`app/src/narration/bellaRetention.ts`), and `usesRetainedBella()` selects it when the provider is not Grok.

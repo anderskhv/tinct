@@ -41,7 +41,7 @@ The live `original-en` keeps all 20 other inline notes verbatim, so the restored
 
 ## Upstream typographical slips (reproduced, not corrected)
 
-These are Gutenberg transcription slips. The live `original-en` reproduces them exactly, and this repair does not change them. Coordinates are candidate coordinates. `modern-en` renders the intended sense in each case.
+These are Gutenberg transcription slips. The live `original-en` reproduces them exactly, and this repair does not change them. Coordinates are candidate coordinates. `modern-en` renders the intended sense wherever the passage appears in it. The 6.4 and 6.10 slips sit inside Jowett notes that modern-en omits.
 
 | Candidate | PG #1600 reads | Intended |
 |---|---|---|
