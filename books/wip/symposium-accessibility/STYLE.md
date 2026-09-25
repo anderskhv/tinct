@@ -64,7 +64,9 @@ These rules keep the levels apart:
    - **Verse inside a quoted conversation** is nested in double quotes after the continuation mark: 1.15–1.19, 1.20–1.22, 1.44–1.46, 8.10–8.12. This way the speaker visibly keeps talking through the verse (Review 2).
    - **Verse inside an unquoted set speech** takes single quotes: 2.1, 2.3, 6.1, 6.5, 8.34.
 5. **Speaker tags.** Where the source's "he" or "I" could be read as the wrong person, name the speaker. The main case is Aristodemus's first-person narration inside Apollodorus's retelling (1.14, 1.26, 1.28, 1.32).
-   - **In exchanges, a new question or statement by the other speaker that follows a tagged line is itself tagged** ("she asked", "I asked", "She went on:"), because by normal convention an untagged line after "'…,' I said." continues the same speaker. A direct reply to the question just asked ("'Yes.'", "'Everyone.'") needs no tag. This was added after Review 2 and completed after the consistency pass: see 7.46, 7.47, 7.50, 7.51, 7.52, 7.54 and 8.29. Speakers are also named where a pronoun tag could point to the wrong person (1.15, 5.15, 7.30).
+   - **Where a paragraph holds more than one turn** (as in 7.45–7.58 and 8.29), a new question or statement by the other speaker that follows a tagged line is itself tagged ("she asked", "I asked", "She went on:"), because by normal convention an untagged line after "'…,' I said." continues the same speaker. A direct reply to the question just asked ("'Yes.'", "'Everyone.'") needs no tag. This was added after Review 2 and completed after the consistency pass and Recheck 3: see 7.46, 7.47, 7.50, 7.51, 7.52, 7.54 and 8.29.
+   - **Where each paragraph holds one turn** (as in 5.8–5.17, 7.0–7.44 and 8.13–8.22), the paragraph break marks the change of speaker. A tag is added only where the line could still be heard as the previous speaker's (5.15, 7.30).
+   - **A pronoun tag is replaced by the name** where it could point to the wrong person (1.15).
    - **Where an unquoted set speech resumes after quoted dialogue, it is introduced with a tag like any other set speech:** "Socrates went on:" at 7.45 (§3.1).
    - Nothing else is added.
 
