@@ -26,7 +26,7 @@ mapping={"revision":REV,"bookId":"symposium","editions":{}}
 outputs={};raws={}
 for ed in ("original-en","modern-en"):
  before=fetch(BASE,f"app/public/data/editions/symposium-{ed}.json")
- after=fetch(REF,PKG+f"/editions/symposium-{ed}.json")
+ after=fetch(REF,PKG+f"/candidate/symposium-{ed}.json")
  cfg=impact["editions"][ed]
  assert sha(before)==cfg["baselineSourceSha256"]
  assert sha(after)==cfg["candidateSourceSha256"]
