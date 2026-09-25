@@ -208,5 +208,9 @@ body.leaving::after{content:'';position:fixed;inset:0;z-index:1000;background:#e
 .save-toggle.on{background:#eee7d0;color:#222b20;font-size:12px}
 @media(hover:hover){.save-toggle{opacity:0}.card-wrap:hover .save-toggle,.save-toggle.on,.save-toggle:focus-visible{opacity:.95}}
 .my-books-head{grid-column:1/-1;font:650 19px/1.3 system-ui,sans-serif;margin:18px 0 0}.my-books-head:first-child{margin-top:0}
-/* Mobile flap: a quiet way on to the preface under the author text. */
-.slip-preface{display:block;align-self:flex-start;margin-top:14px;padding:4px 0;font:13px/1.4 system-ui,sans-serif;color:var(--page-soft,#626b52);text-decoration:underline;text-decoration-color:#626b5266;text-underline-offset:3px}
+/* Signed-in reader on a new device: hold the featured hero back until the shelf is known. */
+html.returning-pending .hero-copy,html.returning-pending #hero-book,html.returning-pending .hero-dots{opacity:0}
+.hero-copy,#hero-book,.hero-dots{transition:opacity .25s ease}
+/* Phones and tablets: Begin reading stays in view; Read more scrolls the rest of the preface. */
+.intro-more{display:block;margin:0 0 10px;padding:4px 0;font:13px/1.4 system-ui,sans-serif;color:var(--page-soft,#626b52);text-decoration:underline;text-decoration-color:#626b5266;text-underline-offset:3px;text-align:left}
+.intro-more[hidden]{display:none}

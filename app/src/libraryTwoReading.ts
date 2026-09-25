@@ -210,7 +210,11 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
     kind: 'open-reader',
     bookId,
     primaryEditionKey: edition,
-    ...(place ? { savedPlace: { bookId, chapterNumber: place.chapterNumber, page: place.pageIndex ?? 0, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex } } : {}),
+    // A new reader has already met the book in the library's introduction, so
+    // they start on page one rather than on the reader's own cover page.
+    savedPlace: place
+      ? { bookId, chapterNumber: place.chapterNumber, page: place.pageIndex ?? 0, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+      : { bookId, chapterNumber: book.readingStructure?.chapters?.[0]?.number ?? 1, page: 0, paragraphIndex: 0, wordIndex: 0 },
   }
   try {
     sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent))
