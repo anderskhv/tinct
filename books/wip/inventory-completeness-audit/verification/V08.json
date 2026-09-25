@@ -1,0 +1,507 @@
+{
+ "verifier": "V08",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "results": [
+  {
+   "claim_id": "G09-social-contract-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "PG #46333 has 47 footnotes; none of the 47 first lines is served (521 words, excluding markers; 3-14 words each). The remainders are served as 43 paragraphs at exactly the claimed slots (38 start lowercase; 31.10 is mid-chapter, as PG places it). Four one-line notes (L1815, 3039, 4209, 5814) are lost whole. 47 [n] markers remain in all 3 editions. The 1913 Everyman scan and the 1762 French text confirm these are Rousseau's notes. S2.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/46333/pg46333.txt",
+     "sha256": "65b006fe7288b2dd82c7c32f5b4c0fdd392407c3bc04ae8c822ea8f8723603de",
+     "retrieved_utc": "2026-09-25T12:35:23Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/46333/pg46333-images.html",
+     "sha256": "498ef70b5912fc0ff4505ba1309038a02bb28eb292a81d29db740ceadc501e50",
+     "retrieved_utc": "2026-09-25T12:46:17Z"
+    },
+    {
+     "url": "https://archive.org/stream/in.ernet.dli.2015.100084/2015.100084.The-Social-Contract-And-Discourses_djvu.txt",
+     "sha256": "e3399e1ac4ed4da2fd0a5676a9281903a9257bd4b9711000be4a7691b2d0ed05",
+     "retrieved_utc": "2026-09-25T12:47:30Z"
+    },
+    {
+     "url": "https://fr.wikisource.org/wiki/Du_contrat_social/%C3%89dition_1762/Texte_entier",
+     "sha256": "87b41d720b164fa186aa91e46f6d1bdcfd8f69386ea262dc2d66ca6d3400e5ed",
+     "retrieved_utc": "2026-09-25T12:50:29Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-social-contract-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "PG #46333 L1670-1683: epigraph \"Foederis aequas Dicamus leges\" plus FOREWORD \"This little treatise...\" to \"...The rest no longer exists.\" (57 words; 61 with the Latin, 64 with the attribution). Served 1.0 starts \"I mean to inquire\". No Foreword or epigraph phrase appears in any edition. The Foreword is authorial: Rousseau's 1762 Avertissement. Both texts are printed in the 1913 Everyman scan. SOURCE.md excluded it without giving a reason. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/46333/pg46333.txt",
+     "sha256": "65b006fe7288b2dd82c7c32f5b4c0fdd392407c3bc04ae8c822ea8f8723603de",
+     "retrieved_utc": "2026-09-25T12:35:23Z"
+    },
+    {
+     "url": "https://archive.org/stream/in.ernet.dli.2015.100084/2015.100084.The-Social-Contract-And-Discourses_djvu.txt",
+     "sha256": "e3399e1ac4ed4da2fd0a5676a9281903a9257bd4b9711000be4a7691b2d0ed05",
+     "retrieved_utc": "2026-09-25T12:47:30Z"
+    },
+    {
+     "url": "https://www.constitution.org/jjr/socon.htm",
+     "sha256": "fa8793a2e42229904e0fc5a01b0a81101236544eb2a4df35d0a11880b4cb8b6f",
+     "retrieved_utc": "2026-09-25T12:46:17Z"
+    },
+    {
+     "url": "https://fr.wikisource.org/wiki/Du_contrat_social/%C3%89dition_1762/Texte_entier",
+     "sha256": "87b41d720b164fa186aa91e46f6d1bdcfd8f69386ea262dc2d66ca6d3400e5ed",
+     "retrieved_utc": "2026-09-25T12:50:29Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-second-treatise-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "In chapters 1-18, the last served paragraph is a strict prefix of the PG #7370 source, missing exactly its final 4 characters: public g[ood.], very cl[ear.], judge of all [men.], Exod. [xxi.], housh[old.], Hooker, ib[id.)], usur[ped.], would let [him?] and so on. That is 18 words (13 cut mid-word, 5 lost whole) and 72 characters. Chapter 19 is intact. modern-en inherits every cut; in modern-da, 17 of 18 endings lack closing punctuation. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/7370/pg7370.txt",
+     "sha256": "3cd2baa0523ce2f5555576bf5af9079a887a497417a3217b61bc86ab12d543bb",
+     "retrieved_utc": "2026-09-25T12:35:23Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/7370/pg7370-images.html",
+     "sha256": "fff0f1339cfaaadfd4333cb842e1ab7cc4f3823ce4c907ca89229aa624e1c0ae",
+     "retrieved_utc": "2026-09-25T12:43:41Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Two_Treatises_of_Government/Book_II/Chapter_I",
+     "sha256": "f657f9762ac80b5160a8e64f02ac14e9bb7f93b9259da1c720b2cdb7895e59a1",
+     "retrieved_utc": "2026-09-25T12:43:42Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-second-treatise-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Locke's Preface (PG #7370 L81-150, \"Reader, thou hast here...\" to \"...Patriarcha, Edition 1680.\") is 776 words by whitespace count, not 783. None of 7 of its phrases appears in any edition. It is authorial; the PG text says it was taken entire from the Macpherson/Hackett edition. In the 1764 edition it prefaces both treatises, so the scope is unclear. SOURCE.md's label \"pre-chapter boilerplate\" is inaccurate. S3, unclear-scope.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/7370/pg7370.txt",
+     "sha256": "3cd2baa0523ce2f5555576bf5af9079a887a497417a3217b61bc86ab12d543bb",
+     "retrieved_utc": "2026-09-25T12:35:23Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Two_Treatises_of_Government_(1764)/Preface",
+     "sha256": "f07724ee4250b5a71d3cc558d850d13563d980a362bfffce92db61ac6c539833",
+     "retrieved_utc": "2026-09-25T12:49:56Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Two_Treatises_of_Government_(1764)",
+     "sha256": "bccc3eedcba35367ed8ca85a337e4643c80712cdef135334bd7495e251c4233f",
+     "retrieved_utc": "2026-09-25T12:49:47Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-second-treatise-03",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 1.6 reads \"distinguish these powers one from wealth, a father of a family\". PG #7370 L205, the PG HTML and constitution.org share the corruption. The Wikisource scan of the 1764 London edition reads \"one from another, and shew the difference betwixt a ruler of a common-wealth\": 11 words missing. modern-en and modern-da restore the sense, so only original-en is affected. S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/7370/pg7370.txt",
+     "sha256": "3cd2baa0523ce2f5555576bf5af9079a887a497417a3217b61bc86ab12d543bb",
+     "retrieved_utc": "2026-09-25T12:35:23Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Two_Treatises_of_Government/Book_II/Chapter_I",
+     "sha256": "f657f9762ac80b5160a8e64f02ac14e9bb7f93b9259da1c720b2cdb7895e59a1",
+     "retrieved_utc": "2026-09-25T12:43:42Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Index:Two_Treatises_of_Government.djvu",
+     "sha256": "52c54543db6e016743589f7e7ea94049c2f5f5804a821adc40fc35644ecd23f4",
+     "retrieved_utc": "2026-09-25T12:44:10Z"
+    },
+    {
+     "url": "https://www.constitution.org/jl/2ndtr01.htm",
+     "sha256": "5d18190c22272098a69c8dae1ac06e48f4ace4c76b7431c0c6a5f4f88dca433e",
+     "retrieved_utc": "2026-09-25T12:43:43Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 47: PG #1404 L10552-10581, 342 words, \"From these facts, by which Montesquieu was guided\" to \"...subordinate officers in the executive department.\" Absent between 47.5 and 47.6 in all editions and shards. Verbatim in LoC; Avalon has it, split in two. \"partial agency\" hits only 81.5 (unrelated); 4 other phrases 0 hits. 47.6 refers back to it; S1 accepted. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed47.asp",
+     "sha256": "e4e30d93b9ea45f45f9135c97e92c94ff6aa71ad3089e4f20a117f977c8d9ee9",
+     "retrieved_utc": "2026-09-25T12:38:06Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-41-50",
+     "sha256": "36a312640ee81573bf971b76212975194ff8b2d62d7314cb45ba4a170ea5c2ad",
+     "retrieved_utc": "2026-09-25T12:38:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 26: PG L5445-5469, 296 words, \"From the same source, the people of America\" to \"...a total silence upon the subject.\" Absent between 26.4 and 26.5 in all editions. Verbatim in both Avalon and LoC. 0 hits for \"hereditary impression of danger\", \"injudicious excess\", \"total silence upon the subject\" or \"superfluous, if not absurd\". S2. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed26.asp",
+     "sha256": "74cc365ccc77fc13977e66ef995afaccd5afb78b6ca1c359f808ec0d6c37c28c",
+     "retrieved_utc": "2026-09-25T12:38:06Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-21-30",
+     "sha256": "d4f7d55caf556a2f45659e408bd606c92b52956e784ab6f2c737d264b3e2ad62",
+     "retrieved_utc": "2026-09-25T12:38:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-03",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 83: PG L18282-18302, 237 words, \"From these observations it must appear unquestionably true\" to \"...alteration in our system of government.\" Absent between 83.8 and 83.9 in all editions. Verbatim in both Avalon and LoC. \"in no case abolished\" appears only at 83.32, a different sentence; \"all land causes\" and \"must appear unquestionably true\" have 0 hits. S2. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed83.asp",
+     "sha256": "46be92001e345ab7de4c515e970ca5dd6e39031d78b19dcc92bedb1157a5adfc",
+     "retrieved_utc": "2026-09-25T12:38:08Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-81-85",
+     "sha256": "1239ccff57983e3a70c844827442d91f7474a6b7e07c74f628285fce1c45535a",
+     "retrieved_utc": "2026-09-25T12:38:40Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 63: PG L13892-13905, 145 words, \"From these facts, to which many others might be added\" to \"...occupied by the democracies of Greece.\" Absent between 63.12 and 63.13 in all editions. Verbatim in both Avalon and LoC. 0 hits for \"total exclusion of the people\", \"neither unknown to the ancients\" or \"advantageous superiority\". S2. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed63.asp",
+     "sha256": "0d88948350622b27235c729d716b2b6831db69506d06433f158354163480ecf6",
+     "retrieved_utc": "2026-09-25T12:38:07Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-61-70",
+     "sha256": "c4e8b2dfde440c24ed8c9d2051786e0be46140af7f722267b6238bca338fb2ff",
+     "retrieved_utc": "2026-09-25T12:38:40Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-05",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 40: PG L8442-8451, 120 words, \"From these two acts, it appears, 1st\" to \"...confirmed by the latter.\" Absent between 40.4 and 40.5 in all editions. Verbatim in LoC; same text in Avalon, which joins it to 40.5. 0 hits for \"from these two acts\", \"recommendatory act from Annapolis\" or \"confirmed by the latter\". S2. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed40.asp",
+     "sha256": "3175a1f23f29493510ca0b456a5b0c7c4410cc7e966825294b4e5395f5159cbc",
+     "retrieved_utc": "2026-09-25T12:38:06Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-31-40",
+     "sha256": "630475035656793a639757f91cba5b4a59c8e6b818dee916aff8e8fc1d3ced59",
+     "retrieved_utc": "2026-09-25T12:38:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-06",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 9: PG L1612-1622, 110 words, \"From the disorders that disfigure the annals\" to \"...permanent monuments of their errors.\" Absent between 9.0 and 9.1 in all editions, so \"they\" in 9.1 has no antecedent. Verbatim in both Avalon and LoC. 0 hits for \"advocates of despotism\", \"stupendous fabrics\" or \"gloomy sophisms\". S2. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed09.asp",
+     "sha256": "393bce3ab0a8a649c3e749aff41a47f4bea43ae396a86f87e5aa05423344dd81",
+     "retrieved_utc": "2026-09-25T12:38:05Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-1-10",
+     "sha256": "cf6b0b602a9ea0099c4e6eca6f278021d535f7cd4498a772afb8c69c5a74c289",
+     "retrieved_utc": "2026-09-25T12:38:38Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-07",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 83: PG L18229-18237, 106 words, \"From these observations this conclusion results\" to \"...the true criterion of construction.\" Absent between 83.4 and 83.5 in all editions. Verbatim in both Avalon and LoC. 0 hits for \"this conclusion results\", \"true criterion of construction\" or \"natural and obvious sense of its provisions\". S2. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed83.asp",
+     "sha256": "46be92001e345ab7de4c515e970ca5dd6e39031d78b19dcc92bedb1157a5adfc",
+     "retrieved_utc": "2026-09-25T12:38:08Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-81-85",
+     "sha256": "1239ccff57983e3a70c844827442d91f7474a6b7e07c74f628285fce1c45535a",
+     "retrieved_utc": "2026-09-25T12:38:40Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-08",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 4: PG L621-626, 68 words, \"From these and such like considerations\" to \"...an eye of indifference and composure.\" Absent between 4.7 and 4.8 in all editions. Verbatim in both Avalon and LoC. 0 hits for \"such like considerations\", \"jealousies and uneasinesses\" or \"indifference and composure\". S3. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed04.asp",
+     "sha256": "376ea53bf88333de39dfecdd32048d1c68b2ca6e0bd83048c57d30da3a42e8f9",
+     "retrieved_utc": "2026-09-25T12:38:04Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-1-10",
+     "sha256": "cf6b0b602a9ea0099c4e6eca6f278021d535f7cd4498a772afb8c69c5a74c289",
+     "retrieved_utc": "2026-09-25T12:38:38Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-09",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 5: PG L833-838, 56 words, \"From these considerations it appears that those gentlemen\" to \"...against foreign enemies.\" Absent between 5.7 and 5.8 in all editions. Verbatim in both Avalon and LoC. 0 hits for \"alliances offensive and defensive might be formed\", \"those gentlemen are greatly mistaken\" or \"formidable state of defense\". S3. Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed05.asp",
+     "sha256": "48f34b0f9c797b4fa865747cb69f2355c2cc1ecdc6eaa5f5b132c807e052ceb6",
+     "retrieved_utc": "2026-09-25T12:38:05Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-1-10",
+     "sha256": "cf6b0b602a9ea0099c4e6eca6f278021d535f7cd4498a772afb8c69c5a74c289",
+     "retrieved_utc": "2026-09-25T12:38:38Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-federalist-papers-10",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "No. 52: PG L11472-11474, 34 words, the paper's opening \"FROM the more general inquiries pursued in the four last papers\" to \"...begin with the House of Representatives.\" The served paper opens at 52.0 \"The first view...\". Verbatim in LoC; Avalon joins it to the next paragraph. 0 hits for 3 phrases. Kept at S3 (a paper opening, not the book opening). Rule: all 53 PG blocks starting \"from the\" (43 datelines plus these 10) are dropped; \"From this/a/such/what\" paragraphs survive.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    },
+    {
+     "url": "https://avalon.law.yale.edu/18th_century/fed52.asp",
+     "sha256": "568694c8cb50a7489dca1fec7c7c62c93ec2f897a867d7c984f28cc9986e48c8",
+     "retrieved_utc": "2026-09-25T12:38:07Z"
+    },
+    {
+     "url": "https://guides.loc.gov/federalist-papers/text-51-60",
+     "sha256": "60ba0ce62429d624ad63f60c61a1fb67ad67ac013e39b6cec417cfa4922b744f",
+     "retrieved_utc": "2026-09-25T12:38:40Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-us-founding-documents-01",
+   "verdict": "REJECTED",
+   "corrected": null,
+   "evidence": "Editorial scope. Chapter 3 (\"Bill of Rights (1791)\") is NARA's separate \"The U.S. Bill of Rights\" transcription of the ten amendments, verbatim (100% token match, 463 words), and PG #2 likewise has only the ten amendments. The preamble (196 words, not 170) and the attestation (37 words) belong to the 1789 Joint Resolution proposing 12 articles, which NARA transcribes separately. SOURCE.md scopes the chapter to Amendments I-X.",
+   "sources": [
+    {
+     "url": "https://www.archives.gov/founding-docs/bill-of-rights-transcript",
+     "sha256": "5ef93f04d9e8f185572f7a03e652fa5508865f7a8bb100d49e6e45a0d816f4b8",
+     "retrieved_utc": "2026-09-25T12:40:55Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2/pg2.txt",
+     "sha256": "99eaccf0b9fe3d249269915bfd0d68c89acd771835a2efbdfa106d8fbfc2cfb7",
+     "retrieved_utc": "2026-09-25T12:52:56Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G09-us-founding-documents-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "PG #1, the declared source (L89), has \"IN CONGRESS, July 4, 1776\"; NARA's transcription heading is \"In Congress, July 4, 1776\". Served 1.0 in every edition is the \"unanimous Declaration\" line. No paragraph contains \"July 4\" or \"1776\"; the year is only in the section title. All other PG #1 Declaration blocks are served verbatim. 5 words, S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1/pg1.txt",
+     "sha256": "8fc7483413518ecf182d982a2e61289894e7fa3ccb1fa3d1db4c1be55debb1f0",
+     "retrieved_utc": "2026-09-25T12:52:56Z"
+    },
+    {
+     "url": "https://www.archives.gov/founding-docs/declaration-transcript",
+     "sha256": "b791fdf80987ccbf6555136d3315626becc673167584926d40bbf58c181590e6",
+     "retrieved_utc": "2026-09-25T12:40:54Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V08-NEW-1",
+   "book": "federalist-papers",
+   "type": "MISSING",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "location": "No. 6 notes 2-3 (after 6.20); No. 70 note 3 (after 70.26)",
+   "extent_words": 6,
+   "description": "PG #1404 L1109 \"2. Ibid.\", L1111 \"3. Ibid.\" and L15624 \"3. Ten.\" are not served; their markers (2) and (3) remain in 6.3, and (3) in 70.23. Every note of 10 or more characters is served, so a minimum-length filter is the likely cause.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    }
+   ]
+  },
+  {
+   "id": "V08-NEW-2",
+   "book": "federalist-papers",
+   "type": "EXTRANEOUS",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "location": "36.19, 56.11, 68.12, 70.14-15, 70.27, 77.11",
+   "extent_words": null,
+   "description": "Editorial notes and variant readings from the PG #1404 e-text are served as body text: five \"E1.\" notes, e.g. 70.27 \"E1. Two versions of these paragraphs appear in different editions.\", and both versions of variant passages, e.g. 70.14 and 70.15. No loss; S3 if counted as editorial matter in the middle of the text.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    }
+   ]
+  },
+  {
+   "id": "V08-NEW-3",
+   "book": "federalist-papers",
+   "type": "SCOPE-NOTE",
+   "severity": null,
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "location": "all 85 papers",
+   "extent_words": null,
+   "description": "The 85 salutations \"To the People of the State of New York:\", the 83 \"PUBLIUS\" sign-offs, newspaper datelines and author lines are not served; the author appears in the chapter title. Consistent with a deliberate header strip. Recorded only for a scope decision.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "retrieved_utc": "2026-09-25T12:35:22Z"
+    }
+   ]
+  },
+  {
+   "id": "V08-NEW-4",
+   "book": "second-treatise",
+   "type": "STRUCTURE",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "location": "6.9, 18.2, 18.3, 18.4",
+   "extent_words": 0,
+   "description": "Locke's text after a block quotation is appended to the quotation paragraph. For example, 18.2 ends with the next quote's lead-in \"And again, in his speech to the parliament, 1609, he hath these words:\". No text is lost.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/7370/pg7370.txt",
+     "sha256": "3cd2baa0523ce2f5555576bf5af9079a887a497417a3217b61bc86ab12d543bb",
+     "retrieved_utc": "2026-09-25T12:35:23Z"
+    }
+   ]
+  },
+  {
+   "id": "V08-NEW-5",
+   "book": "us-founding-documents",
+   "type": "PROVENANCE",
+   "severity": null,
+   "editions": [
+    "original-en"
+   ],
+   "location": "books/raw/us-founding-documents/raw-amendments.txt",
+   "extent_words": null,
+   "description": "The raw file is a saved Project Gutenberg \"404 | Project Gutenberg\" HTML page, not source text. The served chapter 4 still matches NARA amendments 11-27: 16 of 17 at 100% token alignment, XX at 354 of 355. Not a served-text defect.",
+   "sources": [
+    {
+     "url": "https://www.archives.gov/founding-docs/amendments-11-27",
+     "sha256": "95560fca4fe948ffa1d156f466c405592a7057e557b220b5308fef5ae51e784f",
+     "retrieved_utc": "2026-09-25T12:40:56Z"
+    }
+   ]
+  }
+ ]
+}
