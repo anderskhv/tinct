@@ -23,11 +23,13 @@ Fresh rendering from Pusey (original-en) checked against O'Donnell's Latin. The 
 - p23: Pusey's "as well as theirs, who have received and are held by the mysteries of theirs" is ambiguous. The Latin (*sicut in eam pergunt qui sacramentis eius imbuti sunt atque detinentur*) refers to those who go to *our* church having received *its* sacraments. I followed the Latin.
 - p24: Pusey's last sentence has "out of truth it sets this first, but out of habit sets not that aside" (*illud veritate praeponit, hoc familiaritate non ponit*). Rendered as "truth makes it put the first ahead, while habit keeps it from putting the second aside".
 - p27: *serena et non dissolute hilaris* became "calm and cheerful but not loose". *fecunda mater filiorum gaudiorum de marito te* became "a fruitful mother of children, of joys, born of You, O Lord, her Husband".
-- p30: The Latin shifts tense in "she leaps for joy and triumphs, and she blessed You" (*exultat et triumphat et benedicebat*). Pusey's present tense is kept, with the Latin imperfect for "blessed".
+- p30: The Latin shifts tense (*exultat et triumphat et benedicebat*). Fix pass: the series is now all present, as Pusey has it ("she leaps for joy and triumphs, and blesses You"); the sudden past tense read as an error in English.
+- p15: *apud Treveros* — Pusey's name form "Triers" kept (STYLE-NOTE §7). *circensium spectaculo* rendered "the games in the circus" (no "chariot races" gloss). *ubertates fecundas heremi* rendered "the rich fruitfulness of the desert".
+- p29: *quasi luce securitatis* — one noun, "a light of serenity" (Pusey); *amarissima contritione cordis mei* — "contrition" kept.
 
 ## Uncertainties / open issues
 
-- p3: This is Pusey's verse quotation (Virgil, Aeneid 8). It is rendered freshly and keeps Pusey's line breaks and capitals ("...every kind Of monster-god..."). Its similarity score is low, so nothing is flagged, but a reviewer may prefer it as prose.
+- p3: This is Pusey's verse quotation (Virgil, Aeneid 8). It is rendered freshly. The served text has no line breaks, so the stray verse capital "Of" was lowercased in the fix pass ("every kind of monster-god").
 - p2 to p4: I kept the paragraph split through the middle of the sentence exactly as Pusey has it (p2 ends "love of", p3 is the verse, p4 continues "gods whom Rome had once conquered..."). In p4 I added "gods" at the start so the sentence can be read after the verse.
 - p27: "a teasing that urged me on" renders "persuasive mockery" (*inrisione hortatoria*).
 - The mother is not named in p30, as in Pusey.

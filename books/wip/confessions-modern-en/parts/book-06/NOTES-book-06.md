@@ -12,6 +12,7 @@
 
 - 0: "she was not overjoyed, as at something unexpected" — Latin *non quasi inopinatum aliquid audierit, exilivit laetitia*; rendered "she did not leap for joy as though she had heard something unexpected." Her reply kept in quotation marks as reported speech, as Pusey has it.
 - 1: Pusey "cakes" (Latin *pultes*, porridge) — kept Pusey's "cakes".
+- 6: Pusey "the one true and most true God"; Latin *unius veri et veracissimi dei* — rendered "the one true and most truthful God". (Logged in fix pass after review.)
 - 8: Pusey prints lowercase "thou deridedst me"; Latin *tu inridebas* is addressed to God, so capitalized "You laughed at me".
 - 9: "Thou desiredst to joy in glory" — Pusey capitalizes "Thou", but the speakers are addressing Augustine (*tu gaudere cupiebas gloria*); rendered lowercase "you".
 - 9: "by fair wishes, had gotten wine" — Latin *bene optando* (begging with blessings); rendered "by wishing people well".
@@ -29,7 +30,7 @@
 
 - 23: "to open Your hand" comes from the Latin, not Pusey (see above); flag for a policy decision.
 - 18: "Life is wretched" departs from Pusey's "vain" per the Latin.
-- 24: "the woman I had been living with" for Pusey's "my concubine" — softer register; reviewer may prefer "concubine" if doctrinal/historical precision is wanted.
+- 24: resolved — the text now reads "My concubine" (STYLE-NOTE §8); the earlier "the woman I had been living with" is gone.
 - 22: "saving waters of baptism" for Pusey's "health-giving baptism" (*baptismus salutaris*); "waters" is a slight addition, could be "saving baptism".
 
 ## Check output

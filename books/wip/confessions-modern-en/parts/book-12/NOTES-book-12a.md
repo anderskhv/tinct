@@ -29,7 +29,7 @@
 
 ## Uncertainties / open issues
 
-- Genesis 1:1 quotation: this slice uses "In the beginning God made heaven and earth" (lowercase b, "made" = *fecit*) throughout, except where Pusey means the Son/Wisdom as "the Beginning" (6, 8, 14, 18, 23), which keep the capital. The 25-41 slice currently writes "In the Beginning God made" (capital B). A reviewer may want to harmonize one way across the book.
+- Genesis 1:1 quotation: this slice uses "In the beginning God made heaven and earth" (lowercase b, "made" = *fecit*) throughout, except where the Son/Wisdom is meant as "the Beginning" (6, 18, 23), which keep the capital. Resolved in the fix pass per STYLE §8: 8 (x2) and 14 lowercased, since neither the Latin (*in principio*) nor Pusey identifies the Beginning with Wisdom in those paragraphs and they cite the plain verse, like 7; the 25-41 slice was harmonized the same way.
 - Pusey capitalizes "Heaven/Earth/Firmament" in 14-15 and 24; lowercased here for consistency.
 - Relative pronouns for God follow the existing parts' convention (lowercase "who/whom").
 - 24 sim 0.70 and 23 sim 0.67: close to Pusey because of repeated technical phrases (earth invisible and unformed, darkness upon the deep, heaven and earth); content re-expressed.

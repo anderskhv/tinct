@@ -21,11 +21,14 @@ Fresh sentence-by-sentence rendering from Pusey, checked against O'Donnell's Lat
 - p3: "supererogatur tibi ut debeas" — rendered "More than is due is paid to You, so that You become the debtor" (Pusey "receivest over and above, that Thou mayest owe").
 - p7: last sentence — Latin "me talem fuisse magis mihi ipsi indicaverunt nescientes quam scientes nutritores mei": the unknowing infants showed me better than my knowing nurses. Rendered unambiguously (see corrections below).
 - p9: "auctoritatibus etiam muliercularum" — Pusey "weak females"; rendered "on the word of simple women". "amet non inveniendo invenire potius quam inveniendo non invenire te" — rendered "be glad to find You without working it out, rather than work it out and fail to find You" (object te shared by both halves).
+- p9 (fix pass): "omnia crastina ... hodie facies, hodie fecisti" — Pusey drops "hodie facies"; restored per §8 ("You will do today, You have done today"). "tu autem idem ipse es" rendered "You are still the same" (no "forever"). "non enim haberent vias transeundi" rendered "no way of passing away".
+- p10: "nec vidi quemquam scientem ... bona proicere" — rendered "I have never seen anyone ... knowingly throw away what is good", following the Latin (noted by reviewer, previously unlogged).
 - p10: "uberibus inhiabam plorans" — gaping/crying for the breast; Pusey "hung upon the breast and cried". Rendered "cried with my mouth wide open for the breast".
 - p14: Latin "diligens eos qui haec acerbissime formidant" = "while loving those who dread them most bitterly"; Pusey has "mocking at those by whom they are feared". Followed the Latin (the point is that our parents loved us yet laughed at our torments). Reviewer may prefer Pusey's reading.
 - p15: "ordinator et creator rerum omnium naturalium, peccatorum autem tantum ordinator" — Pusey "Disposer"; rendered "Creator of all things in nature and the One who orders them, but of sin only the One who orders it".
 - p16: Pusey omits "aestuarem" (fever) and "in Christum" — followed Pusey, did not add.
 - p32: Pusey prints "Latinum"; Latin "Italia ... avertere regem" (Virgil's Latium). Rendered "Latium".
+- p14 (fix pass): "non enim aut minus ea metuebamus aut minus te de his evadendis deprecabamur" — rendered "we did not fear our torments any less, nor pray to You any less" (the earlier "than they" had no referent).
 - p35: Latin "quam tu secretus es" = "How hidden You are"; Pusey "How deep are Thy ways". Followed the Latin: "How hidden You are, O God".
 - p36: "magis timebam barbarismum facere quam cavebam, si facerem, non facientibus invidere" — rendered per Latin ("more afraid of committing a barbarism than I was careful, if I did commit one, not to envy those who had not"), which is what Pusey's compressed sentence means.
 

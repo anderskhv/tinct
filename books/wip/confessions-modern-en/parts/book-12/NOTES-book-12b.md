@@ -2,12 +2,12 @@
 
 ## Pusey kept on purpose
 
-- 25, 33, 39 — "use the law lawfully", "the end of charity / the end of the commandment": Pauline formula (1 Tim 1:5, 8), kept.
+- 25, 33, 39 — "use the law lawfully", "the end of charity / the end of the commandment": Pauline formula (1 Tim 1:5, 8), kept. Under STYLE §8 (revised) these, "the two precepts of charity" and "offend charity itself" (33, referring back to those precepts) are the named-principle exception and keep "charity"; 30 "breadth of charity" → "breadth of love" (fix pass).
 - 32 — "he who speaks a lie speaks of his own" (John 8:44), kept in recognizable form.
 - 33 — "love the Lord our God with all our heart, with all our soul, and with all our mind, and our neighbor as ourselves"; "puffed up, one against another, beyond what is written" (1 Cor 4:6): cadence kept, pronouns modernized.
 - 34 — "what is man, except that You are mindful of him?" (Ps 8:4): cadence kept.
 - 41 — "lead me into the land of uprightness" (Ps 143:10), "not flesh and blood": kept.
-- Genesis 1:1-2 quoted as "In the Beginning God made (the) heaven and (the) earth" (Pusey's variation between "made" and "created" in 27 kept as Pusey has it) and "The earth was invisible and unformed, and darkness was upon the deep" — "unformed" per the coordinator's term list (Latin *incomposita*; Pusey "without form"); "upon the deep" to match the 0-24 slice.
+- Genesis 1:1-2 quoted as "In the beginning God made (the) heaven and (the) earth" (capital "Beginning" only where Wisdom/the Word is meant: 26, the four Word readings in 27, and 37 "Wisdom, the Beginning" / "In the Beginning to mean 'In Your Wisdom…'"; harmonized to STYLE §8 in the fix pass) (Pusey's variation between "made" and "created" in 27 kept as Pusey has it) and "The earth was invisible and unformed, and darkness was upon the deep" — "unformed" per the coordinator's term list (Latin *incomposita*; Pusey "without form"); "upon the deep" to match the 0-24 slice.
 
 ## Latin consulted
 
@@ -15,6 +15,7 @@
 - 26 — "vices temporum": rendered "the alternations of times". "habet magnas partes suas caelum et terram, brevi complexione": heaven and earth as the world's great parts, which in brief sum up all natures.
 - 29 — the objector's clause "ut id quod sequitur ... non tamen intellegamus nisi eam quam fecit deus" is a purpose clause; rendered "In that way ... we are to understand no other matter than the one God made". Pusey's typo "hook of Genesis" read as "book".
 - 31 — Pusey "Thy incommutable world" is a misprint for Word (*in tuo verbo incommutabili*); rendered "unchangeable Word".
+- 32 — Pusey "not because they have a divine Spirit"; Latin *quia divini sunt* (predicate adjective of persons: inspired, men of God). Rendered "not because they are divinely inspired" so that the text does not claim they have the Holy Spirit (fix pass, review #1).
 - 33 — Pusey capitalizes "Thou sayest ... I pray Thee ... return unto Him" though Augustine is addressing the human opponent (*huic refero*; *quod dicis*); rendered with lowercase "you"/"him". Pusey's "above our souls" (Latin *mentes*) kept as "souls" to follow Pusey. Pusey closes the quotation after "souls" whereas the Latin quotation runs to the end; Pusey's quotation marks kept.
 - 35 — "exterior to itself" (*extra se ipsam*, agreeing with *molem*): kept as "outside itself".
 - 36 — "recurring to Thy Unity" (*recurrens in te unum*): "turning back to Your unity".
@@ -26,7 +27,7 @@
 
 - Collective *creatura* ("the intelligible and sensible creature", "the spiritual and corporeal creature") is rendered "creation" in 27, 28, 30, 37, 38 for readability; individual created things remain "creature(s)" ("every visible and invisible creature", "no creature formed in time"). Reviewer may prefer "creature" throughout per STYLE-NOTE §3; check against the 0-24 slice, which appears to use "creature" for individual beings.
 - "heaven of heaven" used in 28 (Pusey there: "Heaven of heavens"), per STYLE-NOTE term list; the 0-24 slice also uses "heaven of heaven".
-- 32 — "not because they have a divine Spirit" follows Pusey; Latin is *quia divini sunt* ("because they are divinely inspired").
+- 32 — resolved in the fix pass: see "Latin consulted".
 
 ## Check output
 

@@ -29,7 +29,7 @@
 
 - 12: Pusey omits "smooth" from the tactile list (Latin "lene aut asperum"); followed Pusey ("rough") in the list, but his later "smooth before rugged" is kept as "smooth to rough".
 - 28: textual variant on "sat, est illic" noted above.
-- 25: "a fearful thing" (nescio quid horrendum) rendered "something awesome"; a reviewer may prefer "something to shudder at".
+- 25: "a fearful thing" (nescio quid horrendum): resolved in fix pass, now "a fearful thing" per review.
 - "happy life" (vita beata) kept as the fixed term throughout 28-33.
 
 ## Check output

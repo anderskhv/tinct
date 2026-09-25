@@ -15,10 +15,12 @@ Fresh sentence-by-sentence rendering from Pusey, checked against O'Donnell's Lat
 ## Latin consulted
 
 - p1: "o tardum gaudium meum" — rendered "O my joy so slow in coming".
+- p2: "modularetur aerumnam meam" — rendered "brought order to my distress" (reviewer-noted, previously unlogged).
 - p3: "abscisus propter regnum caelorum" — kept Pusey's literal sense ("cut off"), no gloss added.
 - p4: "dummodo essem disertus, vel desertus potius a cultura tua" — Latin pun (disertus/desertus) not reproducible; kept Pusey's "fluent in speech, however barren ... of Your cultivation".
 - p5: "gaudens vinulentia" — Pusey "tumult of the senses"; kept Pusey (the "invisible wine" image follows).
-- p7: Pusey's long sentence about the mother is syntactically broken. Latin: she did not take care to restrain within the bounds of married love what she had heard from her husband. Rendered as two clear sentences in that sense.
+- p6 (fix pass): "tanto gloriantes magis, quanto magis turpes essent" — the boys themselves are base, not only their deeds: "the more degraded they themselves were, the more they boasted".
+- p7: Pusey's long sentence about the mother is syntactically broken. Latin: she did not take care to restrain within the bounds of married love what she had heard from her husband. Rendered as two clear sentences in that sense. Fix pass: first sentence changed from an obligation ("she ought to have taken to heart") to Augustine's flat negative statement (*non … ita curavit*): "she did not take the same care … so as to keep within".
 - p8: "nec copiosus adactum inopia" — Pusey "not even a rich thief, one stealing through want" is ambiguous; rendered per Latin: "Not even a rich thief will put up with one who steals out of need." "penuria et fastidio iustitiae et sagina iniquitatis" — rendered "being sick of doing right and glutted with wickedness" (Pusey "cloyedness of well-doing, and a pamperedness of iniquity"). "dum tamen fieret a nobis quod eo liberet quo non liceret" — "simply for the sake of doing what we liked, because it was forbidden".
 - p10: Sallust quotation on Catiline — "saith he" rendered "the writer says" to keep the attribution without naming Sallust (Pusey does not name him).
 - p13: "potuitne libere quod non licebat" — rendered "Could I take pleasure in what was not allowed ...".

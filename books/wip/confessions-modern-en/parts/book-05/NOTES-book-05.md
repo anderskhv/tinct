@@ -21,6 +21,7 @@
 - 21: last sentence (*magis eos pati nolebam malos propter me, quam fieri propter te bonos volebam*) — rendered "I was more unwilling to put up with their wickedness for my own sake than I was wishing them to become good for Yours".
 - 22: "sent him at the public expense" = *impertita etiam evectione publica* (public transport warrant); rendered "to send him with travel at public expense". "showed me an Episcopal kindness on my coming" = *peregrinationem meam ... dilexit*; rendered "was kind about my coming there as a stranger". "flour of Thy wheat" (*adipem frumenti*) rendered "the finest flour of Your wheat".
 - 23: Pusey "ofttimes 'in a figure,' which when I understood literally, I was slain spiritually. Very many places then..." — Latin punctuation puts *spiritaliter* with the following clause (*occidebar. spiritaliter itaque plerisque ... locis expositis*). Followed the Latin: "passages which had been killing me when I took them literally. So when many passages of those books had been explained in a spiritual sense..." Reviewer may want to confirm this departure from Pusey.
+- 24: Pusey "the Catholic Church, to which I had been commended by my parents"; Latin *in catholica ecclesia mihi a parentibus commendata* (the Church commended to me by my parents) — rendered "the Catholic Church, which my parents had commended to me". (Logged in fix pass after review.)
 
 ## Uncertainties / open issues
 

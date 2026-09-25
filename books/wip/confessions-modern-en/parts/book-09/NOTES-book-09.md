@@ -17,6 +17,7 @@
 - 4: "he would not be a Christian on any other terms than on those he could not" — Latin *nec christianum esse alio modo se velle dicebat quam illo quo non poterat*; rendered "he did not want to be a Christian in any other way than the one that was impossible for him."
 - 5: Latin *veritatis filii tui carnem* ("the flesh of Your Son, the Truth"); Pusey omits "the Truth". Followed Pusey (no addition). "adopted of a freed man" = *ex liberto filius adoptivus*, rendered "Your son, adopted after being a freedman".
 - 9: Pusey "I was grieved" for *frendebam* (gnashed/chafed); kept Pusey's sense.
+- 9: Pusey "do lick their very shadows" — Latin *imagines eorum famelica cogitatione lambiunt*; rendered "lick at the mere images of them" (logged in fix pass, noted by reviewer).
 - 10: "O in peace, O for The Self-same! O what said he" = *o in pace! o in idipsum! o quid dixit?* — rendered as three exclamations.
 - 17: "the ruled turbulence of the tide of times" = *fluxum saeculorum ordinate turbulentum*; rendered "the deepest currents of the torrent, the ordered turbulence of the flow of the ages" (*profunda torrentis*).
 - 18: Pusey "bore even in their faces marks of shame" — Latin *plagarum vestigia etiam dehonestata facie gererent* (marks of blows, faces disfigured); rendered "still bore shameful marks of blows on their faces" so the contrast with Patricius not beating his wife is clear.

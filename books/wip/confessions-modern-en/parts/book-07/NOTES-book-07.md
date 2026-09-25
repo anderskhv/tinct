@@ -17,6 +17,7 @@ re-expressed.
 
 ## Latin consulted
 
+- 0: *corporeum tamen aliquid cogitare cogerer per spatia locorum* — Pusey drops *corporeum*; restored in fix pass: "forced to picture You as something bodily, spread through space" (STYLE-NOTE §8, words Pusey leaves out).
 - 1: *intentionem* — Pusey "notion of the mind"; rendered "the very act of mind".
 - 2: *prima voce abominandum* — "repulsive the moment it was spoken"; *sermo … servienti liber et contaminatae purus et corruptae integer* kept as free/pure/whole relieving the enslaved/stained/corrupted soul.
 - 4: *iam iamque animadvertebam* — "on the very point of seeing" (Pusey "all but saw").
@@ -27,7 +28,7 @@ re-expressed.
 - 10: *tu gaudium verum mihi subdito tibi* — Pusey "Thou art my true joy when subjected to Thee" is ambiguous; rendered "You were my true joy as long as I was subject to You". *cogitanti autem imagines corporum ipsae opponebantur redeunti* — "the images of bodies themselves stood in my way as I tried to turn back". *in cervice crassa scuti mei* — "the thick boss of my shield".
 - 11: *donec mihi per interiorem aspectum certus esses* — "until You became certain to me by my inward sight" (Pusey "manifested"). *acri collyrio salubrium dolorum* — "stinging salve of wholesome pains".
 - 12: *immanissimo typho turgidum* — "swollen with the most monstrous conceit" (Pusey "most unnatural pride"). *quod factum est in eo vita est* — "that which was made in Him is life" (Pusey "by Him"; Latin *in eo*).
-- 13: *cothurno tamquam doctrinae sublimioris elati* — "strut on the high boots of what they take to be a loftier learning" (the tragic buskin; Pusey "lofty walk"). Pusey's typo "how" read as "bow".
+- 13: *cothurno tamquam doctrinae sublimioris elati* — "strut on the high boots of what they take to be a loftier learning" (the tragic buskin; Pusey "lofty walk"). Pusey's typo "how" read as "bow". *participatione manentis in se sapientiae renovantur* — Pusey "wisdom abiding in them"; Latin *in se* (abiding in itself): rendered "renewed by sharing in the Wisdom that abides in itself". (Logged in fix pass after review.)
 - 17: *incorruptibilis substantia, magnum utique bonum* — "a great good" (Pusey "a chief good").
 - 18: Pusey's garbled sentence ("do yet with the inferior part … harmonising with it") rendered per Latin: the mutually ill-fitting things fit the lower part of the world, earth, with its cloudy and windy sky suited to it.
 - 19: *aliena loquebatur* — "talked wildly"; *fovisti caput nescientis* — "cradled my head, without my knowing it"; *cessavi de me paululum* — "I let go of myself a little".

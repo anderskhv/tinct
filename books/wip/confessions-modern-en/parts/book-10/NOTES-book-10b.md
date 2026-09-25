@@ -6,7 +6,7 @@
 - 39, 44, 59: "Give what You command, and command what You will" — the Augustinian formula (da quod iubes et iube quod vis), pronouns only modernized.
 - 40, 53, 65 (triad): "the lust of the flesh, the lust of the eyes" and "concupiscence" / "threefold concupiscence" / "all three of these concupiscences" (59) kept as terms. "Concupiscence" also kept at 41, 43, 46, 53 for consistency.
 - 40, 58: third member of the triad kept as Pusey's "the ambition of the world" / "the ambitions of the world" (Latin ambitione saeculi / ambitiones saeculi), NOT "pride of life" — Augustine's text here is the Old Latin 1 John 2:16, and Pusey does not use "pride of life". See open issues.
-- 66-67: Mediator passage kept term-exact: "the true Mediator", "that Mediator between God and man, the Man Christ Jesus", "mortal with men, just with God", "the wages of sin is death" / "the wages of righteousness is life and peace", "as Man, He is Mediator; but as the Word, He is not in the middle... equal to God, and God with God, and together with Him one God".
+- 66-67: Mediator passage kept term-exact: "the true Mediator", "that Mediator between God and man, the Man Christ Jesus", "mortal with men, just with God", "the wages of sin is death" / "the wages of righteousness is life and peace", "as Man, He is Mediator; but as the Word, He is not in the middle... equal to God, and God with God, and together one God" (fix pass: "with Him" removed per review, Latin *et simul unus deus*).
 - 68: "Victor and Victim, and Victor because Victim... Priest and Sacrifice, and Priest because Sacrifice"; "made flesh and dwelt among us" / "had He not become flesh and dwelt among us".
 - Scripture throughout kept recognizable with pronouns modernized (38 "Is not the life of man upon earth all trial?"; 44 Phil 4 "I can do all things through Christ who strengthens me"; 51 "You who keep Israel shall neither slumber nor sleep"; 69 2 Cor 5:15, "they shall praise the Lord who seek Him").
 
@@ -21,11 +21,13 @@
 - 45: Pusey's served text has a subject missing ("that endued with an admirable abstinence, was not polluted..."); Latin names Iohannem → restored "John". This adds a name not in the served Pusey text; flagged below.
 - 51: Pusey's hymn line "O all-creating Lord" = deus creator omnium (Ambrose) → "O God, Creator of all", quote marks kept as Pusey.
 - 52: "consecrate praise to Him who consecrateth me" = sacrifico laudem sacrificatori meo → kept Pusey's "consecrate... consecrates me".
+- 55: Pusey "wilderness" = Latin *silva* → "forest" (logged in fix pass, noted by reviewer).
 - 57: "the lust of vindicating myself" = libido vindicandi me → "the lust to vindicate myself".
 - 58: "pervertedly and crookedly imitating Thee" modifies the devil (te perversa et distorta via imitanti) → "as he imitates You in a perverse and crooked way".
 - 62: subject of "glories" kept as the love of praise ("it"), per Latin.
 - 64: Pusey "I know not what in it would not belong to the life to come" — Latin nescio quid erit quod vita ista non erit → "would be something, I know not what, that this present life is not" (follows Latin; Pusey's sense is similar).
 - 66: "was I to have recourse to Angels" (ambiendum... ad angelos) → "turn to the Angels"; "by the agreement of their heart" (per similitudinem cordis sui) → "through the likeness of their hearts"; "thou, Lord" (lowercase in Pusey) capitalized per style.
+- 66: Pusey "the princes of the air" = Latin *potestates aeris* → "the powers of the air" (logged in fix pass, noted by reviewer).
 - 69: "communicate it" = erogo → "share it out".
 
 ## Uncertainties / open issues
