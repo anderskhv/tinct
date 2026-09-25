@@ -1029,6 +1029,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
+    coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp`,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
@@ -3371,13 +3372,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
     if (chrome === 'talking' && !opts?.force) return
+    // Audio keeps its own chapter while the reader browses. Its follow place
+    // is only meaningful on the page when both are the same chapter; applied
+    // to another chapter it would resume, and persist, the wrong words.
+    const listeningHere = listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber
     if (chrome === 'hearing' && !opts?.force && (!chromeV2 || listen.playing)) {
       listen.pause()
       browseWhileListeningRef.current = false
       setBrowseWhileListening(false)
-      const follow = listen.follow
+      const follow = listeningHere ? listen.follow : { kind: 'none' as const }
       const page = readingPages[readingPageIndex]
-      if (follow.kind === 'word') {
+      if (!listeningHere && page) {
+        placeRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
+      } else if (follow.kind === 'word') {
         const jumpedBack = !!page && (
           follow.paragraphIndex < page.paragraphIndex
           || (follow.paragraphIndex === page.paragraphIndex && follow.wordIndex < page.from)
@@ -3409,7 +3416,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
     const follow = listen.follow
-    const onThisPage = follow.kind === 'word' && (showPhoneChrome && !chromeV2
+    const onThisPage = listeningHere && follow.kind === 'word' && (showPhoneChrome && !chromeV2
       ? !!page && follow.paragraphIndex === page.paragraphIndex
         && follow.wordIndex >= page.from && follow.wordIndex < page.to
       : followOnReadingPage(follow, readingPages, readingPageIndex))
@@ -3436,7 +3443,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
