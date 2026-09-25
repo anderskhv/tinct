@@ -163,10 +163,8 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
 .rt-spine{top:0;bottom:0;left:calc(50% - var(--d)/2);width:var(--d);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(var(--bh)*.07) 0;transform:rotateY(-90deg) translateZ(calc(var(--bw)/2));transition:filter .5s}
 .rt-spine em{display:block;writing-mode:vertical-rl;font:normal clamp(7px,min(calc(var(--d)*.3),calc(var(--bh)*.036)),14px)/1.18 Georgia,serif;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:#dcc793;text-shadow:0 1px 0 #0009,0 0 1px #0006;overflow:hidden;max-height:76%;max-width:86%;margin:auto 0}
 .rt-gilt{display:block;width:62%;height:calc(var(--bh)*.012);min-height:2px;border-top:1px solid #cdb67a99;border-bottom:1px solid #cdb67a99}
-.rt-fore{top:1.2%;bottom:.6%;left:calc(50% - var(--d)/2 + 1px);width:calc(var(--d) - 2px);background:repeating-linear-gradient(90deg,#efe6cb 0 1px,#d2c7a7 1px 2px);box-shadow:inset 0 0 8px #0004;transform:rotateY(90deg) translateZ(calc(var(--bw)/2 - 2px))}
-.rt-head{left:1px;right:3px;top:calc(50% - var(--d)/2 + 1px);height:calc(var(--d) - 2px);background:repeating-linear-gradient(180deg,#f2e9cf 0 1px,#d8cdae 1px 2px);transform:rotateX(90deg) translateZ(calc(var(--bh)/2 - 2px))}
-/* The bookmark stands in the pages at the reader's depth and rises above the head; chosen book only. */
-.rt-mark{position:absolute;left:62%;width:clamp(5px,5.5%,11px);height:calc(var(--bh)*.13);top:calc((1 - var(--p))*100%);transform-origin:50% 0;transform:rotateX(-90deg) translateY(-100%);background:linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 62%,#000),var(--ribbon) 40%,color-mix(in srgb,var(--ribbon) 80%,#fff) 55%,color-mix(in srgb,var(--ribbon) 70%,#000));clip-path:polygon(0 0,100% 0,100% 100%,50% 93%,0 100%);opacity:0;transition:opacity .35s .35s}
+.rt-fore{top:1.2%;bottom:.6%;left:calc(50% - var(--d)/2 + 1px);width:calc(var(--d) - 2px);background:repeating-linear-gradient(90deg,#0000 0 2px,#8a7a5a14 2px 3px),linear-gradient(90deg,#d9ceb1,#ebe2c7 18%,#e7ddc1 82%,#cbbf9f);box-shadow:inset 0 0 6px #0003;transform:rotateY(90deg) translateZ(calc(var(--bw)/2 - 2px))}
+.rt-head{left:1px;right:3px;top:calc(50% - var(--d)/2 + 1px);height:calc(var(--d) - 2px);background:repeating-linear-gradient(180deg,#0000 0 2px,#8a7a5a14 2px 3px),linear-gradient(180deg,#d9ceb1,#ece3c8 20%,#e6dcc0);transform:rotateX(90deg) translateZ(calc(var(--bh)/2 - 2px))}
 .rt-b.is-current .rt-mark{opacity:1}
 .rt-shadow{position:absolute;left:-12%;right:-12%;top:calc(50% - var(--d)*.9);height:calc(var(--d)*1.8);background:radial-gradient(closest-side,#000d,#0000);filter:blur(5px);transform:rotateX(90deg) translateZ(calc(var(--bh)/-2 + 1px));pointer-events:none}
 .rt-b:not(.is-current) .rt-spine{filter:brightness(.82)}
@@ -220,3 +218,22 @@ html.returning-pending .hero-copy,html.returning-pending #hero-book,html.returni
 .rt-spine.is-textured em{color:#e8d49a;text-shadow:0 1px 1px #000c,0 0 2px #0008}
 .rt-head{transform-style:preserve-3d}
 .character-sketch.no-sketch{background-image:none}
+/* A leather bookmark standing in the pages at the reader's depth, rising above the head. */
+.rt-mark{position:absolute;left:57%;bottom:95%;width:clamp(10px,10%,19px);height:15%;transform-origin:50% 100%;transform:translateZ(calc(var(--d)/2 - var(--p)*var(--d))) rotateZ(-2.5deg);opacity:0;transition:opacity .35s .35s;pointer-events:none}
+.rt-mark i{position:absolute;inset:0;border-radius:45% 45% 1px 1px/18% 18% 1px 1px;background:repeating-linear-gradient(88deg,#ffffff08 0 1px,#0000 1px 3px),linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 55%,#000),var(--ribbon) 35%,color-mix(in srgb,var(--ribbon) 85%,#fff) 52%,color-mix(in srgb,var(--ribbon) 65%,#000));box-shadow:inset 0 0 0 1px #0003,inset 0 2px 1px #ffffff22,1px 1px 2px #0006}
+.rt-mark i::after{content:'';position:absolute;left:22%;right:22%;top:14%;height:1px;background:#e3c77f99}
+.rt-b.is-current .rt-mark{opacity:1}
+/* Reflections on the polished table: the cover and spine mirrored below the base, fading out. */
+.rt-refl{pointer-events:none;opacity:.2;-webkit-mask-image:linear-gradient(180deg,#000,#0000 55%);mask-image:linear-gradient(180deg,#000,#0000 55%)}
+.rt-refl-front{left:0;right:0;top:100%;height:100%;background:var(--cover) 50% 50%/100% 100%;transform:translateZ(calc(var(--d)/2)) scaleY(-1);transform-origin:50% 0}
+.rt-refl-spine{top:100%;height:100%;left:calc(50% - var(--d)/2);width:var(--d);transform-origin:50% 0;transform:rotateY(-90deg) translateZ(calc(var(--bw)/2)) scaleY(-1)}
+.rt-b.is-current .rt-refl-spine,.rt-b:not(.is-current) .rt-refl-front{opacity:.12}
+.rt-shadow{background:radial-gradient(closest-side,#000f,#0008 45%,#0000);filter:blur(3px)}
+/* Desktop chooses by dots, like the hero; the old arrows only remain as hidden keyboard hooks. */
+.rt-hidden-nav{display:none}
+.rt-dots{display:none;position:absolute;left:0;right:0;bottom:calc(var(--bh)*-.16);justify-content:center;gap:4px}
+.rt-dots button{padding:12px 5px;background:none;border:0}
+.rt-dots button::after{content:'';display:block;width:7px;height:7px;border-radius:50%;background:#c0c0b06b}
+.rt-dots button.active::after{background:#eee7d0}
+@media(min-width:900px){.rt-dots{display:flex}.rt-arrows{display:none!important}}
+@media(max-width:699px){.rt-recap{height:calc(2.9em + 40px)}.rt-recap p{-webkit-line-clamp:2;max-height:2.9em}.reading-table{padding-bottom:6px}}
