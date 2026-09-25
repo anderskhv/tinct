@@ -7717,6 +7717,15 @@
   position:absolute; display:block; z-index:4; right:2px; bottom:2px; width:22px; height:22px;
   min-height:0; padding:0; border:0; border-radius:0 0 12px 0; color:var(--lab-ink-muted); background:transparent; cursor:nwse-resize; touch-action:none;
 }
+/* Every edge and corner resizes a reader window (useReaderWindow): the cursor wins over the window's contents there. */
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="n"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="n"] *,
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="s"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="s"] * { cursor:ns-resize!important; }
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="e"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="e"] *,
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="w"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="w"] * { cursor:ew-resize!important; }
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="nw"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="nw"] *,
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="se"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="se"] * { cursor:nwse-resize!important; }
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="ne"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="ne"] *,
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="sw"], .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-edge="sw"] * { cursor:nesw-resize!important; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-resize]::after { content:""; position:absolute; right:5px; bottom:5px; width:7px; height:7px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-ask[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] {
