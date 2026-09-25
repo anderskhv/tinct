@@ -30,6 +30,6 @@
 
 ## Check output
 
-`book 12: 35/42 paras, weighted sim 0.516 (target <=0.65), flagged 7` (the 7 flags are MISSING paragraphs 18-24 belonging to the other slice; run while it was in progress).
+`book 12: 42/42 paras, weighted sim 0.528 (target <=0.65), flagged 0`
 
-Range 25-41: all ratios 1.01-1.09, similarity 0.36-0.61, no THOU forms, no IDENTICAL. One "archaic?" hit in 38: "art" = craft ("put together by art"), a false positive.
+Range 25-41: all ratios 1.01-1.09, similarity 0.36-0.65 (28 is highest at 0.65 because the Genesis 1:2 quotation repeats five times), no THOU forms, no IDENTICAL. One "archaic?" hit in 38: "art" = craft ("put together by art"), a false positive.
