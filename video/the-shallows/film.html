@@ -1,0 +1,641 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Shallows</title>
+<link rel="stylesheet" href="/fonts/tinct-fonts.css">
+<style>
+  :root {
+    --cream: #eee8db;
+    --paper: #ece7db;
+    --ink: #0b0b0b;
+    --accent: #1f4a5c;
+    --glow: #7fb4c4;
+    --olive: #252820;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+  body { position: relative; color: var(--cream); -webkit-font-smoothing: antialiased; }
+  .layer { position: absolute; inset: 0; opacity: 0; }
+  #gl { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+
+  /* ---------- type ---------- */
+  .line { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; will-change: transform, opacity, filter; }
+  .big { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 92px; letter-spacing: -0.012em; line-height: 1.08; text-shadow: 0 4px 40px rgba(0,0,0,.7); }
+  .huge { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 210px; letter-spacing: -0.02em; text-shadow: 0 6px 60px rgba(0,20,30,.6); }
+  .doc { font-family: 'EB Garamond', serif; font-style: italic; font-size: 60px; letter-spacing: .005em; text-shadow: 0 2px 20px rgba(0,0,0,.9); }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-size: 20px; letter-spacing: .38em; text-transform: uppercase; color: rgba(238,232,219,.72); }
+  em.hl { font-style: normal; color: var(--glow); }
+
+  /* ---------- feed ---------- */
+  #feed .cols { position: absolute; left: 50%; top: 0; width: 1680px; margin-left: -840px; display: flex; gap: 40px; }
+  #feed .col { width: 533px; display: flex; flex-direction: column; gap: 28px; will-change: transform, filter; }
+  .post { background: #16171a; border: 1px solid #25272c; border-radius: 22px; padding: 26px 28px; font-family: 'IBM Plex Sans', sans-serif; color: #e8e8ea; }
+  .post .ph { display: flex; align-items: center; gap: 12px; font-size: 17px; color: #9a9ca3; margin-bottom: 14px; letter-spacing: .02em; }
+  .post .ph i { width: 38px; height: 38px; border-radius: 50%; display: block; }
+  .post .ph b { color: #cfd0d4; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: 14px; }
+  .post p { font-size: 30px; line-height: 1.22; font-weight: 600; letter-spacing: -.01em; }
+  .post .img { height: 190px; border-radius: 14px; margin-top: 18px; }
+  .post .act { margin-top: 16px; font-size: 18px; color: #7d7f86; letter-spacing: .1em; }
+  #feedScrim { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,.86), rgba(0,0,0,.35) 70%, rgba(0,0,0,.2)); }
+
+  /* ---------- slop pile ---------- */
+  .slop { position: absolute; left: 50%; top: 50%; width: 700px; background: #fbfbfa; color: #111; border-radius: 26px; padding: 34px 38px; box-shadow: 0 30px 80px rgba(0,0,0,.55); font-family: 'IBM Plex Sans', sans-serif; opacity: 0; will-change: transform, opacity; }
+  .slop .k { font-size: 17px; font-weight: 600; letter-spacing: .14em; color: #6b6f78; text-transform: uppercase; margin-bottom: 14px; }
+  .slop .h { font-size: 44px; font-weight: 700; line-height: 1.12; letter-spacing: -.02em; }
+  .slop .m { margin-top: 18px; font-size: 20px; color: #8a8e97; letter-spacing: .1em; }
+  .slop.chat { background: #f4f1ea; }
+  .slop.chat .q { font-size: 24px; background: #e6e1d6; border-radius: 16px; padding: 16px 20px; margin-bottom: 20px; line-height: 1.3; }
+  .slop.chat .a { font-family: 'IBM Plex Sans', sans-serif; font-size: 34px; font-weight: 500; line-height: 1.3; }
+
+  /* ---------- letterbox, grade ---------- */
+  .bar { position: absolute; left: 0; right: 0; height: 0; background: #000; z-index: 50; }
+  #barT { top: 0; } #barB { bottom: 0; }
+  #vig { position: absolute; inset: 0; z-index: 40; pointer-events: none; background: radial-gradient(ellipse 75% 70% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); }
+  #grain { position: absolute; inset: 0; width: 1920px; height: 1080px; z-index: 45; opacity: .11; mix-blend-mode: overlay; pointer-events: none; }
+  #flash { position: absolute; inset: 0; z-index: 44; background: #fff; opacity: 0; }
+
+  /* ---------- product ---------- */
+  #phone { position: absolute; left: 1080px; top: 90px; width: 452px; height: 920px; border-radius: 62px; background: #0c0c0c; padding: 14px; box-shadow: 0 60px 140px rgba(0,0,0,.65), 0 0 0 2px #2b2e30, inset 0 0 0 2px #1a1a1a; transform-origin: 50% 60%; scale: 1.1; }
+  #screen { position: relative; width: 100%; height: 100%; border-radius: 50px; overflow: hidden; background: #1b1a17; }
+  .notch { position: absolute; top: 12px; left: 50%; width: 118px; height: 32px; margin-left: -59px; background: #000; border-radius: 20px; z-index: 5; }
+  .topbar { position: absolute; top: 62px; left: 26px; right: 26px; display: flex; align-items: baseline; gap: 12px; font-family: 'EB Garamond', serif; border-bottom: 1px solid #34322c; padding-bottom: 14px; }
+  .topbar .wm { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 25px; color: var(--cream); }
+  .topbar .bk { font-style: italic; font-size: 20px; color: #a9a397; }
+  .pane { position: absolute; left: 0; right: 0; top: 120px; bottom: 0; padding: 22px 30px; opacity: 0; }
+  .chap { font-family: 'EB Garamond', serif; font-style: italic; font-size: 22px; color: #bdb6a8; text-align: center; margin-bottom: 18px; }
+  .who { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .28em; color: #7fb4c4; margin-bottom: 10px; }
+  .prose { font-family: 'EB Garamond', serif; font-size: 25px; line-height: 1.5; color: #e9e3d6; }
+  .toggle { display: flex; margin: 0 auto 22px; width: 264px; background: #2a2823; border-radius: 30px; padding: 4px; position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .2em; }
+  .toggle span { flex: 1; text-align: center; padding: 10px 0; position: relative; z-index: 2; color: #9b958a; }
+  .toggle .knob { position: absolute; top: 4px; bottom: 4px; left: 4px; width: 128px; border-radius: 26px; background: var(--cream); z-index: 1; }
+  .stack { position: relative; }
+  .stack > div { position: absolute; top: 0; left: 0; right: 0; }
+  .name { border-radius: 4px; padding: 0 3px; margin: 0 -3px; }
+  .pop { position: absolute; left: 22px; right: 22px; background: #26251f; border: 1px solid #3a382f; border-radius: 22px; padding: 20px 22px; box-shadow: 0 24px 60px rgba(0,0,0,.5); opacity: 0; }
+  .bubble { align-self: flex-end; background: #3b5f6d; color: #f2efe8; font-family: 'IBM Plex Sans', sans-serif; font-size: 19px; padding: 12px 16px; border-radius: 18px 18px 4px 18px; display: inline-block; float: right; margin-bottom: 14px; }
+  .answer { clear: both; font-family: 'IBM Plex Sans', sans-serif; font-size: 19px; line-height: 1.5; color: #e7e2d7; }
+  .answer .lbl { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .28em; color: #7fb4c4; display: block; margin-bottom: 6px; }
+  .resume { margin-top: 30px; background: #24231e; border: 1px solid #38362e; border-radius: 26px; padding: 30px 28px; }
+  .resume .ago { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .26em; color: #9b958a; }
+  .resume h3 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; margin: 12px 0 18px; color: var(--cream); }
+  .resume p { font-family: 'EB Garamond', serif; font-size: 23px; line-height: 1.45; color: #d9d3c6; margin-bottom: 14px; }
+  .resume p.you { color: #9fc6d2; font-style: italic; }
+  .btn { margin-top: 18px; display: inline-block; background: var(--cream); color: #1b1a17; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 19px; padding: 15px 24px; border-radius: 30px; }
+  .days { font-family: 'Playfair Display', serif; font-size: 120px; text-align: center; color: var(--cream); line-height: 1; margin-top: 14px; }
+  .days small { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .3em; color: #9b958a; margin-top: 8px; }
+  .cap { position: absolute; left: 170px; width: 820px; opacity: 0; }
+  .cap .mono { display: block; margin-bottom: 26px; }
+  .cap .t1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 84px; line-height: 1.04; letter-spacing: -.015em; }
+  .cap .t2 { font-family: 'EB Garamond', serif; font-style: italic; font-size: 46px; color: #c9d9dc; margin-top: 22px; line-height: 1.2; }
+
+  /* ---------- canon ---------- */
+  .hero { position: absolute; inset: 0; opacity: 0; overflow: hidden; background: #000; }
+  .hero .bg { position: absolute; inset: -80px; background-size: cover; background-position: center; filter: blur(40px) brightness(.45) saturate(1.1); }
+  .hero .cv { position: absolute; top: 60px; left: 250px; width: 640px; height: 960px; background-size: cover; box-shadow: 0 40px 120px rgba(0,0,0,.8); }
+  .hero .au { position: absolute; left: 980px; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-weight: 600; font-size: 128px; letter-spacing: .06em; text-transform: uppercase; }
+  .hero .ti { position: absolute; left: 986px; top: 700px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 42px; color: rgba(238,232,219,.75); }
+  #wall { position: absolute; left: 0; top: 0; width: 1920px; display: grid; grid-template-columns: repeat(20, 96px); grid-auto-rows: 144px; transform-origin: 50% 50%; }
+  #wall div { background-size: cover; background-position: center; }
+  #wallShade { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,0,0,.82), rgba(0,0,0,.45)); }
+
+  /* ---------- end ---------- */
+  .wm-end { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 190px; letter-spacing: -.02em; }
+  .cta { display: inline-flex; gap: 28px; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 26px; letter-spacing: .22em; text-transform: uppercase; }
+  .cta .pill { background: var(--cream); color: #111; padding: 18px 34px; border-radius: 40px; letter-spacing: .14em; font-weight: 600; text-transform: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 30px; }
+</style>
+</head>
+<body>
+<canvas id="gl" width="960" height="540"></canvas>
+
+<!-- A/B: the feed -->
+<div id="feed" class="layer"><div class="cols"></div><div id="feedScrim"></div></div>
+
+<!-- D: the slop pile -->
+<div id="pile" class="layer"></div>
+
+<!-- H: canon -->
+<div id="canon" class="layer"></div>
+<div id="wallLayer" class="layer"><div id="wall"></div><div id="wallShade"></div></div>
+
+<!-- G: product -->
+<div id="product" class="layer">
+  <div class="cap" id="cap1" style="top:330px"><span class="mono">The reader</span><div class="t1">Shakespeare, as he wrote it.</div><div class="t2">Or in plain English. One tap.</div></div>
+  <div class="cap" id="cap2" style="top:330px"><span class="mono">The companion</span><div class="t1">Lost the plot? Ask.</div><div class="t2">An AI that has actually read the book.</div></div>
+  <div class="cap" id="cap3" style="top:330px"><span class="mono">The thread</span><div class="t1">Gone for three weeks?</div><div class="t2">It remembers what you were thinking.</div></div>
+  <div id="phone"><div id="screen">
+    <div class="notch"></div>
+    <div class="topbar"><span class="wm">Tinct.</span><span class="bk" id="bk">Hamlet</span></div>
+
+    <div class="pane" id="p1">
+      <div class="toggle"><div class="knob" id="knob"></div><span id="tgO">ORIGINAL</span><span id="tgM">MODERN</span></div>
+      <div class="chap">Act I, Scene III</div>
+      <div class="who">POLONIUS</div>
+      <div class="stack prose">
+        <div id="orig">Those friends thou hast, and their adoption tried, Grapple them unto thy soul with hoops of steel; But do not dull thy palm with entertainment Of each new-hatch’d, unfledg’d comrade. Give every man thine ear, but few thy voice.</div>
+        <div id="mod">Hold tight to the friends you’ve tested and found true. Bind them to your soul with hoops of steel. But don’t waste your time on every new acquaintance you meet. Listen to everyone, but confide in few.</div>
+      </div>
+    </div>
+
+    <div class="pane" id="p2">
+      <div class="chap">Part I, Chapter V</div>
+      <div class="prose">The question why he was now going to <span class="name" id="razu">Razumihin</span> agitated him even more than he was himself aware; he kept uneasily seeking for some sinister significance in this apparently ordinary action.</div>
+      <div class="pop" id="pop" style="top:430px">
+        <div class="bubble" id="q">Who is this again?</div>
+        <div class="answer" id="ans"><span class="lbl">TINCT</span><span id="ansT"></span></div>
+      </div>
+    </div>
+
+    <div class="pane" id="p3">
+      <div class="days" id="days">21<small>DAYS LATER</small></div>
+      <div class="resume">
+        <div class="ago">LAST READ · THREE WEEKS AGO</div>
+        <h3>Apology</h3>
+        <p>Socrates was questioning people who were considered wise.</p>
+        <p class="you">You asked whether recognising what we don’t know is itself a kind of wisdom.</p>
+        <div class="btn" id="btn">Pick up the thread →</div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- all type lines -->
+<div id="lines"></div>
+
+<div id="flash"></div>
+<div id="vig"></div>
+<canvas id="grain" width="480" height="270"></canvas>
+<div class="bar" id="barT"></div><div class="bar" id="barB"></div>
+
+<script>
+// ============================================================
+//  THE SHALLOWS — a Tinct film. Deterministic: seek(t) renders frame t.
+// ============================================================
+const DUR = 48;
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const ss = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+const eOut = k => 1 - Math.pow(1 - clamp(k), 3);
+const eIn = k => Math.pow(clamp(k), 3);
+const eIO = k => { k = clamp(k); return k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; };
+function rng(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+
+// ---------------- type lines ----------------
+const LINES = [];
+function line(html, cls, top, t0, t1, o = {}) {
+  const el = document.createElement('div');
+  el.className = 'line ' + cls; el.innerHTML = html; el.style.top = top + 'px';
+  $('lines').appendChild(el);
+  LINES.push({ el, t0, t1, fi: o.fi ?? .55, fo: o.fo ?? .45, rise: o.rise ?? 18, blur: o.blur ?? 12, instant: o.instant, cut: o.cut, track: o.track ?? 0 });
+}
+// A — hook (visible on frame 0: this is the thumbnail)
+line('Your thumb scrolls <em class="hl">300 feet</em> a day.', 'big', 480, 0, 3.35, { instant: true, fo: .25 });
+// B
+line('Not one inch of it is deep.', 'big', 480, 3.55, 5.55, { fi: .5, fo: .5 });
+// C — the shallows
+line('I · The Shallows', 'mono', 190, 5.95, 7.7, { fi: .8, fo: .6, rise: 0, blur: 6, track: 1 });
+line('You meant to read more this year.', 'doc', 800, 7.15, 9.3, { fi: .6, fo: .4 });
+line('You read the summary instead.', 'doc', 800, 9.5, 11.5, { fi: .5, fo: .35 });
+// D/E
+line('This isn’t reading.', 'big', 480, 14.95, 16.2, { fi: .18, fo: 0, rise: 0, blur: 0, cut: true });
+line('It’s wading.', 'big', 480, 16.55, 18.25, { fi: .6, fo: .5, rise: 0, blur: 14 });
+// F — the dive
+line('Go deep.', 'huge', 400, 20.45, 22.95, { fi: .9, fo: .5, rise: 30, blur: 22, track: 1 });
+// H
+line('100 of the greatest books ever written.', 'big', 480, 38.95, 40.6, { fi: .45, fo: .3 });
+// I
+line('The algorithm won’t miss you.', 'big', 480, 40.95, 42.85, { fi: .5, fo: .4 });
+// J — end card
+line('<span class="wm-end">Tinct.</span>', '', 300, 43.2, 99, { fi: 1.0, rise: 0, blur: 18 });
+line('<span class="doc" style="font-size:62px">Read something great.</span>', '', 560, 43.8, 99, { fi: .9, rise: 10 });
+line('<span class="cta"><span>Free to read</span><span class="pill">tinct.app</span></span>', '', 700, 44.5, 99, { fi: .8, rise: 10, blur: 6 });
+
+function animLines(t) {
+  for (const L of LINES) {
+    const { el, t0, t1, fi, fo } = L;
+    if (t < t0 || t > t1) { el.style.opacity = 0; continue; }
+    let a, k;
+    if (L.instant && t < t0 + .01) { a = 1; k = 1; }
+    else { k = L.instant ? 1 : eOut((t - t0) / fi); a = k; }
+    if (fo > 0) a *= 1 - ss(t1 - fo, t1, t);
+    const blur = (1 - k) * L.blur + (1 - a) * 4;
+    el.style.opacity = a;
+    el.style.filter = blur > .05 ? `blur(${blur.toFixed(2)}px)` : 'none';
+    const drift = (t - t0) * 3; // slow documentary drift
+    el.style.transform = `translateY(${((1 - k) * L.rise - drift * (L.rise ? .6 : 0)).toFixed(2)}px)`;
+    if (L.track) el.style.letterSpacing = L.el.classList.contains('mono') ? (0.38 + (1 - k) * .25 + (t - t0) * .02) + 'em' : (-0.02 + (t - t0) * .006) + 'em';
+  }
+}
+
+// ---------------- A: feed ----------------
+const FEED = [
+  ['The Productivity Reset', 'You don’t need more time. You need a system.'],
+  ['A thread ↓', 'I studied the routines of 100 founders. Here’s what nobody tells you.'],
+  ['The Daily Briefing', 'The AI tools changing how we work.'],
+  ['Podcast', 'Building a business that runs without you.'],
+  ['Continue watching', 'One more episode. Next episode starts in 5.'],
+  ['YouTube Shorts', 'The morning routine I wish I’d started sooner.'],
+  ['Newsletter', 'The only AI tools you need this week.'],
+  ['Trending', 'Your second brain is your competitive advantage.'],
+  ['For you', 'Stop managing time. Start managing energy.'],
+  ['Daily digest', 'Everything you missed while you were offline.'],
+  ['Push notification', 'You’re falling behind. Catch up now.'],
+  ['For you', 'The 5 a.m. routine that changed everything.'],
+  ['Podcast', 'Why the most successful people never switch off.'],
+  ['A thread ↓', 'Ten frameworks that will change how you think.'],
+  ['Trending', 'Your calendar is the problem.'],
+  ['AI assistant', 'Repurpose this into 50 viral posts.'],
+  ['Up next', 'How to automate your entire morning.'],
+  ['For you', 'You’re using your notes app wrong.'],
+  ['Slack', 'Quick question. Got a minute?'],
+  ['Email', '7 new messages'],
+];
+(function buildFeed() {
+  const r = rng(7), cols = $('feed').querySelector('.cols');
+  const hues = [200, 340, 30, 160, 260, 10, 190];
+  for (let c = 0; c < 3; c++) {
+    const col = document.createElement('div'); col.className = 'col';
+    for (let i = 0; i < 26; i++) {
+      const [k, h] = FEED[Math.floor(r() * FEED.length)];
+      const hue = hues[Math.floor(r() * hues.length)];
+      const img = r() < .35 ? `<div class="img" style="background:linear-gradient(135deg,hsl(${hue},45%,32%),hsl(${hue + 40},55%,18%))"></div>` : '';
+      col.insertAdjacentHTML('beforeend', `<div class="post"><div class="ph"><i style="background:hsl(${hue},40%,45%)"></i><b>${k}</b><span>· ${1 + Math.floor(r() * 23)}h</span></div><p>${h}</p>${img}<div class="act">♡ ${(r() * 9 + .5).toFixed(1)}K &nbsp; ↻ ${Math.floor(r() * 900)} &nbsp; ↗ &nbsp; ···</div></div>`);
+    }
+    cols.appendChild(col);
+  }
+})();
+// thumb flicks: velocity impulses that decay; integrate for offset
+const FLICKS = []; { const r = rng(3); let t = -.2; while (t < 3.3) { FLICKS.push([t, 1900 + r() * 1400]); t += .26 + r() * .22; } }
+function feedVel(t) { let v = 0; for (const [tk, V] of FLICKS) if (t >= tk) v += V * Math.exp(-(t - tk) * 5.2); return v; }
+function feedOff(t) { let s = 0; const dt = 1 / 240; for (let x = -.5; x < t; x += dt) s += feedVel(x) * dt; return s; }
+const COL_SPEED = [1, .82, 1.14], COL_PHASE = [0, 900, 400];
+
+// ---------------- D: the slop pile ----------------
+const SLOP = [
+  ['A thread ↓', 'How to read 100 books a year.', '♡ 41K &nbsp; ↻ 9.2K'],
+  ['Book summary', 'Meditations. The key takeaways.', '▶ 4 min · Audio & text'],
+  ['LinkedIn', '7 leadership lessons from Hamlet ↗', '♡ 2.3K &nbsp; 318 comments'],
+  ['Book summary', 'The Odyssey. 5 key ideas.', '▶ 6 min'],
+  ['chat'],
+  ['YouTube Shorts', 'The Art of War. Your next competitive advantage.', '♡ 880K'],
+  ['AI summary', 'Here’s what you need to know.', '✳ Generated in 2 seconds'],
+];
+const SLOP_T0 = 11.62, SLOP_DT = .47;
+const SLOP_POS = [[-360, -150, -7], [330, -190, 5], [-260, 170, 4], [360, 150, -4], [0, -20, -2], [-420, 20, 8], [210, 30, -6]];
+(function buildPile() {
+  SLOP.forEach((s, i) => {
+    const el = document.createElement('div');
+    if (s[0] === 'chat') {
+      el.className = 'slop chat';
+      el.innerHTML = `<div class="q">Write a profound LinkedIn post connecting Hamlet to AI leadership. Make me sound insightful.</div><div class="a">I used to think Hamlet was indecisive.<br>I was wrong.<br><b>He was iterating.</b></div>`;
+    } else { el.className = 'slop'; el.innerHTML = `<div class="k">${s[0]}</div><div class="h">${s[1]}</div><div class="m">${s[2]}</div>`; }
+    $('pile').appendChild(el);
+  });
+})();
+
+// ---------------- H: canon ----------------
+const HEROES = [
+  ['hamlet', 'Shakespeare', 'Hamlet'], ['odyssey', 'Homer', 'The Odyssey'], ['apology', 'Plato', 'Apology'],
+  ['austen', 'Austen', 'Pride and Prejudice'], ['dostoevsky', 'Dostoevsky', 'Crime and Punishment'], ['shelley', 'Shelley', 'Frankenstein'],
+];
+const HERO_T0 = 35.0, HERO_DT = .62;
+const A = '/app-assets/about-v20/assets/';
+(function buildCanon() {
+  HEROES.forEach(([f, au, ti]) => {
+    const el = document.createElement('div'); el.className = 'hero';
+    el.innerHTML = `<div class="bg" style="background-image:url(${A}${f}.webp)"></div><div class="cv" style="background-image:url(${A}${f}.webp)"></div><div class="au">${au}</div><div class="ti">${ti}</div>`;
+    $('canon').appendChild(el);
+  });
+  const names = window.COVERS || [];
+  const wall = $('wall');
+  names.forEach(n => { const d = document.createElement('div'); d.style.backgroundImage = `url(${A}collection/${n})`; wall.appendChild(d); });
+  wall.style.top = (540 - 5 * 144 / 2) + 'px';
+})();
+
+// ---------------- product helpers ----------------
+const ANSWER = 'Raskolnikov’s friend from university. Some translations spell it Razumikhin.';
+
+// ---------------- WebGL water ----------------
+const gl = $('gl').getContext('webgl', { preserveDrawingBuffer: true, antialias: false });
+const VS = 'attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
+const FS = `precision highp float;
+varying vec2 v;
+uniform vec2 R; uniform float T,MODE,DIVE,DEPTH,BURST,BRIGHT,WALK,FIGX,ZOOM,BT;
+float h2(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+ return mix(mix(h2(i),h2(i+vec2(1,0)),f.x),mix(h2(i+vec2(0,1)),h2(i+1.),f.x),f.y);}
+float fbm(vec2 p){float s=0.,a=.5;for(int i=0;i<4;i++){s+=a*vn(p);p=p*2.03+17.1;a*=.5;}return s;}
+float cap(vec2 p,vec2 a,vec2 b,float r){vec2 pa=p-a,ba=b-a;float h=clamp(dot(pa,ba)/dot(ba,ba),0.,1.);return length(pa-ba*h)-r;}
+const float AS=1.7778;
+float figure(vec2 p){
+  float sw=sin(WALK)*.06, lift=max(0.,cos(WALK))*.018;
+  float d=length(p-vec2(.035,.9))-.061;             // head, bowed toward the phone
+  d=min(d,cap(p,vec2(.02,.85),vec2(0.,.79),.032));
+  d=min(d,cap(p,vec2(0.,.77),vec2(0.,.50),.078));    // coat
+  d=min(d,cap(p,vec2(-.012,.52),vec2(0.,.40),.08));
+  d=min(d,cap(p,vec2(-.02,.75),vec2(-.045,.53),.036)); // far arm, hand in pocket
+  d=min(d,cap(p,vec2(.03,.75),vec2(.06,.585),.034));    // near upper arm
+  d=min(d,cap(p,vec2(.06,.585),vec2(.165,.655),.03));   // forearm, phone up
+  d=min(d,cap(p,vec2(-.035,.42),vec2(-.035+sw,.0+lift),.037));
+  d=min(d,cap(p,vec2(.035,.42),vec2(.035-sw,.0+(.018-lift)),.037));
+  return d;
+}
+float phoneD(vec2 p){ vec2 b=abs(p-vec2(.185,.675))-vec2(.009,.026); return length(max(b,0.))+min(max(b.x,b.y),0.); }
+vec3 city(vec2 u,float H){
+  float y=u.y-H;
+  vec3 c=mix(vec3(.12,.085,.065),vec3(.01,.015,.025),clamp(y*2.2,0.,1.));
+  // low cloud deck lit from below by sodium light
+  float cl=fbm(vec2(u.x*AS*2.2-T*.01,y*6.));
+  c+=vec3(.22,.12,.06)*smoothstep(.45,.8,cl)*exp(-max(y,0.)*3.5)*.55;
+  for(int i=0;i<4;i++){
+    float fi=float(i), k=fi/3.;
+    float sc=mix(34.,10.5,k);
+    float xx=u.x*AS*sc*.25+fi*13.7-T*.003*(fi+1.);
+    float cx=floor(xx), lx=fract(xx);
+    float r=h2(vec2(cx,fi*3.1)), r2=h2(vec2(cx,fi*5.3+1.));
+    float bh=(.03+.3*pow(r,2.2))*mix(.5,.85,k);
+    if(r>.9) bh+=.1*(1.-k*.5);
+    float gap=.03+.12*r2;
+    // setbacks: upper part narrower
+    float inset=step(bh*.72,y)*step(.55,r2)*.18;
+    bool inB=y>0.&&y<bh&&lx>gap+inset&&lx<1.-gap-inset;
+    // antenna
+    bool ant=r>.9&&abs(lx-.5)<.012&&y>=bh&&y<bh+.05;
+    if(inB||ant){
+      float haze=mix(.7,.04,k);
+      vec3 bc=mix(vec3(.01,.012,.016),c*.95,haze);
+      bc+=vec3(.08,.05,.03)*(1.-k)*smoothstep(.1,0.,y); // haze at street level
+      vec2 g=vec2(lx*mix(14.,10.,k), y*sc*mix(4.4,3.6,k));
+      vec2 gi=floor(g), gf=fract(g);
+      float floorLit=step(.93,h2(vec2(cx,gi.y+fi)));
+      float lit=max(step(.8,h2(gi+cx*7.3+fi*31.)),floorLit*step(.3,h2(gi+4.)));
+      float win=lit*step(.28,gf.x)*step(gf.x,.72)*step(.3,gf.y)*step(gf.y,.7);
+      float tint=h2(gi+cx+2.);
+      vec3 wc=mix(vec3(1.,.64,.32),vec3(.6,.8,1.),step(.78,tint));
+      float flick=.85+.15*sin(T*(1.+tint*3.)+tint*40.);
+      c=bc+(inB?wc*win*(1.-haze*.8)*.75*flick:vec3(0.));
+      if(ant&&y>bh+.044) c=vec3(1.,.1,.05)*(.6+.6*step(.5,fract(T*.8+r*3.)));
+    }
+  }
+  // mist on the water line
+  c+=vec3(.16,.1,.06)*exp(-abs(y)*28.)*.6;
+  return c;
+}
+vec3 scene(vec2 uv){
+  vec2 q=(uv-.5)*vec2(AS,1.)/ZOOM; uv=q/vec2(AS,1.)+.5;
+  float H=mix(.585,1.45,smoothstep(0.,1.,DIVE));
+  vec2 feet=vec2(FIGX,H-.215-DIVE*.2);
+  float fh=.29;
+  vec2 fq=(feet-.5)*vec2(AS,1.);
+  vec3 col;
+  if(uv.y>=H){ col=city(uv,H); }
+  else{
+    float db=H-uv.y;
+    float z=.055*(1.-DIVE*.85)/(db+.003);
+    vec2 wp=vec2((uv.x-.5)*AS*z*6.,z*6.);
+    vec2 n=vec2(fbm(wp*vec2(1.2,.6)+vec2(T*.18,T*.05))-.5, fbm(wp*vec2(.9,.5)+vec2(4.1,T*.22))-.5);
+    // ripple rings from the feet
+    vec2 e2=vec2((q.x-fq.x)*1.,(q.y-fq.y)*4.2);
+    float e=length(e2);
+    float ring=sin(e*95.-T*5.2)*exp(-e*7.)*smoothstep(0.,.03,e);
+    n+=normalize(e2+1e-4)*ring*.35;
+    float amp=mix(.014,.05,smoothstep(0.,.45,db));
+    vec2 ru=vec2(uv.x+n.x*amp, H+db*1.0+n.y*amp*1.6);
+    vec3 refl=(city(ru,H)+city(ru+vec2(0.,.014),H)+city(ru-vec2(0.,.01),H)+city(ru+vec2(0.,.03),H))*.25;
+    // figure reflection
+    vec2 pr=vec2(q.x+n.x*amp*AS, fq.y+(fq.y-q.y)+n.y*amp);
+    float dr=figure((pr-fq)/fh);
+    refl=mix(refl,vec3(.006,.007,.009),smoothstep(.01,-.01,dr)*.9);
+    // wet stone under a thin skin of water: the shallows
+    vec2 gp=wp*.9;
+    vec2 cell=floor(gp*vec2(1.,1.6)); vec2 cf=fract(gp*vec2(1.,1.6));
+    float edge=smoothstep(0.,.08,cf.x)*smoothstep(0.,.08,cf.y)*smoothstep(1.,.92,cf.x)*smoothstep(1.,.92,cf.y);
+    vec3 ground=vec3(.045,.04,.035)*(.55+.9*h2(cell))*(.5+.5*edge)*(.7+.6*fbm(gp*3.));
+    float fres=mix(.97,.5,smoothstep(0.,.42,db));
+    col=mix(ground,refl*.9,fres);
+    col+=vec3(.55,.36,.2)*max(ring,0.)*.12;
+    // sheen line where water meets feet
+    col+=vec3(.5,.35,.22)*exp(-abs(e-.004)*60.)*.05*(1.-DIVE);
+  }
+  // the man, lit by his phone
+  vec2 fp=(q-fq)/fh;
+  if(uv.y>=feet.y-.004){
+    float d=figure(fp);
+    float m=smoothstep(.006,-.006,d);
+    float side=smoothstep(.0,-.08,fp.x-.0);
+    vec3 rim=vec3(.8,.45,.2)*smoothstep(-.022,0.,d)*.22*side;
+    col=mix(col,vec3(.007,.008,.01)+rim*step(d,0.),m);
+    float pd=phoneD(fp);
+    col=mix(col,vec3(.75,.88,1.)*1.3,smoothstep(.004,-.002,pd));
+    // phone light spills on face and hands
+    col+=vec3(.35,.55,.8)*exp(-max(pd,0.)*38.)*.35*(1.-m*.4);
+  }
+  // phone glow in the water
+  vec2 pr2=vec2(fp.x,-fp.y);
+  col+=vec3(.3,.5,.75)*exp(-phoneD(pr2)*22.)*.12*step(uv.y,feet.y);
+  return col;
+}
+vec3 under(vec2 uv){
+  float d=DEPTH;
+  vec3 top=vec3(.11,.30,.36), bot=vec3(.0,.012,.02);
+  vec3 c=mix(bot,top,pow(clamp(uv.y,0.,1.),1.5)*(1.-d*.72));
+  float S=mix(.88,1.7,d);
+  float sw=S+.02*sin(uv.x*13.+T*1.3)+.011*sin(uv.x*31.-T*2.1);
+  if(uv.y>sw){ c=mix(vec3(.30,.55,.58),vec3(.78,.92,.9),fbm(vec2(uv.x*7.,T*.5))*.9)*(1.-d*.5); }
+  else c+=vec3(.45,.8,.8)*exp(-(sw-uv.y)*35.)*.35;
+  vec2 src=vec2(.5+.08*sin(T*.13),S+.5);
+  vec2 dd=(uv-src)*vec2(AS,1.);
+  float a=atan(dd.x,-dd.y);
+  float r=fbm(vec2(a*9.,T*.12))*.9+fbm(vec2(a*23.,-T*.09))*.45;
+  r=pow(clamp(r-.38,0.,1.)*1.9,2.);
+  c+=vec3(.32,.58,.6)*r*exp(-length(dd)*.9)*(1.-d*.55);
+  // caustic shimmer near surface
+  vec2 cp=uv*vec2(AS,1.)*7.;
+  float cs=pow(abs(sin(cp.x+fbm(cp+T*.4)*4.)*sin(cp.y*1.3+fbm(cp-T*.3)*4.)),6.);
+  c+=vec3(.4,.7,.7)*cs*smoothstep(.55,.95,uv.y)*(1.-d)*.25;
+  // drifting motes
+  for(int l=0;l<2;l++){
+    float fl=float(l);
+    vec2 p=uv*vec2(AS,1.)*(18.+fl*14.)+vec2(sin(T*.2+fl)*.5,T*(.25+fl*.2));
+    vec2 id=floor(p), f=fract(p)-.5;
+    vec2 o=vec2(h2(id),h2(id+3.1))-.5;
+    float m=smoothstep(.09-fl*.03,0.,length(f-o*.6))*step(.82,h2(id+9.));
+    c+=m*vec3(.55,.8,.8)*(.35-fl*.12);
+  }
+  // bubbles from the plunge
+  if(BURST>0.){
+    for(int l=0;l<3;l++){
+      float fl=float(l);
+      float sc=6.+fl*7.;
+      vec2 p=uv*vec2(AS,1.)*sc+vec2(0.,-BT*(4.+fl*3.));
+      vec2 id=floor(p), f=fract(p)-.5;
+      vec2 o=(vec2(h2(id+fl),h2(id+1.7))-.5)*.6;
+      float rad=.12+.2*h2(id+5.);
+      float dist=length(f-o);
+      float b=smoothstep(rad,rad-.03,dist)*smoothstep(rad-.09,rad-.02,dist);
+      b+=smoothstep(.05,0.,length(f-o+vec2(rad*.35,-rad*.35)))*.8;
+      c+=b*vec3(.75,.95,.95)*BURST*step(.45,h2(id+11.))*(.7-fl*.15);
+    }
+  }
+  return c;
+}
+void main(){
+  vec3 c=MODE<.5?scene(v):under(v);
+  c*=BRIGHT;
+  c=1.-exp(-c*1.7);
+  c=pow(c,vec3(.95,.97,1.0));
+  gl_FragColor=vec4(c,1.);
+}`;
+function sh(type, src) { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
+const prog = gl.createProgram();
+gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog); gl.useProgram(prog);
+const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+const loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+const U = {}; ['R', 'T', 'MODE', 'DIVE', 'DEPTH', 'BURST', 'BRIGHT', 'WALK', 'FIGX', 'ZOOM', 'BT'].forEach(n => U[n] = gl.getUniformLocation(prog, n));
+gl.uniform2f(U.R, 960, 540);
+function drawGL(p) {
+  for (const k of ['T', 'MODE', 'DIVE', 'DEPTH', 'BURST', 'BRIGHT', 'WALK', 'FIGX', 'ZOOM', 'BT']) gl.uniform1f(U[k], p[k] ?? 0);
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+}
+
+// ---------------- grain ----------------
+const gctx = $('grain').getContext('2d');
+const gimg = gctx.createImageData(480, 270);
+function grain(frame) {
+  const r = rng(frame * 9973 + 1); const d = gimg.data;
+  for (let i = 0; i < d.length; i += 4) { const g = r() * 255; d[i] = d[i + 1] = d[i + 2] = g; d[i + 3] = 255; }
+  gctx.putImageData(gimg, 0, 0);
+}
+
+// ============================================================
+//  seek(t)
+// ============================================================
+function show(id, a) { $(id).style.opacity = a; $(id).style.display = a > 0.001 ? 'block' : 'none'; }
+window.seek = function (t, frame = 0) {
+  // ---- A/B feed ----
+  const feedA = t < 5.6 ? 1 - ss(4.3, 5.5, t) : 0;
+  show('feed', feedA);
+  if (feedA > 0) {
+    const off = feedOff(Math.min(t, 6)), vel = feedVel(t);
+    [...$('feed').querySelectorAll('.col')].forEach((c, i) => {
+      const y = -((off * COL_SPEED[i] + COL_PHASE[i]) % 3000) - 200;
+      c.style.transform = `translateY(${y.toFixed(1)}px)`;
+      c.style.filter = `blur(${Math.min(16, vel * COL_SPEED[i] / 260).toFixed(2)}px) brightness(${lerp(.9, .35, ss(3.3, 5, t))}) saturate(.7)`;
+    });
+    $('feedScrim').style.opacity = 1;
+  }
+
+  // ---- GL scenes ----
+  let glA = 0, P = { T: t };
+  if (t >= 5.3 && t < 11.75) { // the shallows
+    glA = ss(5.3, 6.6, t) * (1 - ss(11.45, 11.75, t));
+    P = { T: t, MODE: 0, BRIGHT: 1.1, WALK: (t - 5.3) * 2.2, FIGX: .40 + (t - 5.3) * .006, ZOOM: 1 + (t - 5.3) * .012 };
+  } else if (t >= 18.25 && t < 20.0) { // the dive
+    const k = (t - 18.25) / 1.75;
+    glA = ss(18.25, 18.6, t);
+    P = { T: t, MODE: 0, BRIGHT: 1.1, WALK: (t - 5.3) * 2.2, FIGX: .47, DIVE: eIn(k) * 1.0, ZOOM: 1 + eIn(k) * .9 };
+  } else if (t >= 20.0 && t < 35.05) { // deep water
+    glA = 1 - ss(34.7, 35.05, t);
+    const depth = t < 23 ? lerp(0, .55, eOut((t - 20) / 3)) : lerp(.55, .92, ss(23, 35, t));
+    P = { T: t, MODE: 1, DEPTH: depth, BURST: 1 - ss(20.0, 22.2, t), BT: t - 20, BRIGHT: t < 23 ? 1.05 : lerp(1.05, .62, ss(23, 23.8, t)) };
+  } else if (t >= 42.9) { // end card depths
+    glA = ss(42.9, 44, t);
+    P = { T: t, MODE: 1, DEPTH: .75, BRIGHT: .55 };
+  }
+  $('gl').style.opacity = glA;
+  if (glA > 0) drawGL(P);
+
+  // letterbox: the documentary frame closes in on the shallows, opens on the dive
+  const bar = 138 * (ss(5.4, 6.4, t) * (1 - ss(11.4, 11.7, t)) + ss(18.2, 18.5, t) * (1 - eIO((t - 19.4) / .6)) * (t < 20.1 ? 1 : 0));
+  $('barT').style.height = $('barB').style.height = bar.toFixed(1) + 'px';
+
+  // ---- D pile ----
+  const pileOn = t >= SLOP_T0 && t < 16.2;
+  show('pile', pileOn ? 1 : 0);
+  if (pileOn) {
+    [...$('pile').children].forEach((el, i) => {
+      const t0 = SLOP_T0 + i * SLOP_DT, [x, y, r] = SLOP_POS[i];
+      if (t < t0) { el.style.opacity = 0; return; }
+      const k = eOut((t - t0) / .16);
+      const settle = (t - t0) * 4;
+      el.style.opacity = 1;
+      el.style.transform = `translate(-50%,-50%) translate(${x}px,${y + settle}px) rotate(${r}deg) scale(${lerp(1.35, 1, k)})`;
+      el.style.filter = `brightness(${t > 14.9 ? .22 : 1}) blur(${t > 14.9 ? 5 : 0}px)`;
+    });
+  }
+  let fl = 0;
+  for (let i = 0; i < SLOP.length; i++) { const d = t - (SLOP_T0 + i * SLOP_DT); if (d >= 0 && d < .09) fl = Math.max(fl, .22 * (1 - d / .09)); }
+  const d20 = t - 20.0; if (d20 >= 0 && d20 < .35) fl = Math.max(fl, .75 * (1 - d20 / .35));
+  $('flash').style.opacity = fl;
+
+  // ---- G product ----
+  const prA = t >= 22.8 && t < 35.2 ? ss(22.8, 23.3, t) * (1 - ss(34.7, 35.05, t)) : 0;
+  show('product', prA);
+  if (prA > 0) {
+    const pk = eOut((t - 22.8) / .9);
+    $('phone').style.transform = `perspective(1800px) translateY(${(1 - pk) * 500 + Math.sin(t * .6) * 6}px) rotateY(${-9 + Math.sin(t * .35) * 2}deg) rotateX(${3 - (t - 23) * .1}deg)`;
+    const caps = [[23.1, 26.95], [27.1, 30.95], [31.1, 34.9]];
+    caps.forEach(([a, b], i) => {
+      const el = $('cap' + (i + 1));
+      if (t < a || t > b) { el.style.opacity = 0; return; }
+      const k = eOut((t - a) / .55), o = k * (1 - ss(b - .35, b, t));
+      el.style.opacity = o; el.style.transform = `translateY(${(1 - k) * 24 - (t - a) * 3}px)`; el.style.filter = `blur(${(1 - k) * 8}px)`;
+    });
+    const pane = t < 27 ? 1 : t < 31 ? 2 : 3;
+    [1, 2, 3].forEach(i => {
+      const a = i === 1 ? 1 - ss(26.8, 27.05, t) : i === 2 ? ss(26.95, 27.2, t) * (1 - ss(30.8, 31.05, t)) : ss(30.95, 31.2, t);
+      $('p' + i).style.opacity = a;
+    });
+    $('bk').textContent = pane === 1 ? 'Hamlet' : pane === 2 ? 'Crime and Punishment' : 'Library';
+    // p1: original -> modern
+    const m = eIO((t - 24.9) / .5);
+    $('knob').style.transform = `translateX(${m * 128}px)`;
+    $('tgO').style.color = m < .5 ? '#1b1a17' : '#9b958a'; $('tgM').style.color = m >= .5 ? '#1b1a17' : '#9b958a';
+    $('orig').style.opacity = 1 - m; $('orig').style.filter = `blur(${m * 6}px)`;
+    $('mod').style.opacity = m; $('mod').style.filter = `blur(${(1 - m) * 6}px)`;
+    // p2: tap the name, ask, answer
+    const hl = ss(27.7, 27.95, t);
+    $('razu').style.background = `rgba(127,180,196,${hl * .35})`; $('razu').style.boxShadow = `inset 0 -2px 0 rgba(127,180,196,${hl})`;
+    const pk2 = eOut((t - 28.2) / .35);
+    $('pop').style.opacity = t > 28.2 ? pk2 : 0; $('pop').style.transform = `translateY(${(1 - pk2) * 30}px)`;
+    const n = Math.floor(clamp((t - 28.75) / 1.25) * ANSWER.length);
+    $('ansT').textContent = ANSWER.slice(0, n);
+    $('ans').style.opacity = t > 28.6 ? 1 : 0;
+    // p3: resume
+    const dk = eOut((t - 31.2) / .8);
+    $('days').style.opacity = dk; $('days').firstChild.nodeValue = String(Math.round(lerp(1, 21, eOut((t - 31.2) / 1.1))));
+    const pulse = t > 32.8 ? .5 + .5 * Math.sin((t - 32.8) * 6) : 0;
+    $('btn').style.boxShadow = `0 0 0 ${pulse * 8}px rgba(238,232,219,${.25 * (1 - pulse * .6)})`;
+  }
+
+  // ---- H canon ----
+  const heroes = [...$('canon').children];
+  const canonOn = t >= HERO_T0 && t < HERO_T0 + HEROES.length * HERO_DT;
+  show('canon', canonOn ? 1 : 0);
+  heroes.forEach((el, i) => {
+    const a = HERO_T0 + i * HERO_DT, on = t >= a && t < a + HERO_DT;
+    el.style.opacity = on ? 1 : 0;
+    if (on) {
+      const k = (t - a) / HERO_DT;
+      el.querySelector('.cv').style.transform = `scale(${1.02 + k * .06}) translateY(${-k * 14}px)`;
+      el.querySelector('.au').style.transform = `translateY(-50%) translateX(${-k * 30}px)`;
+      el.querySelector('.au').style.letterSpacing = (.04 + k * .03) + 'em';
+    }
+  });
+  const wallA = t >= 38.72 && t < 40.7 ? 1 - ss(40.4, 40.7, t) : 0;
+  show('wallLayer', wallA);
+  if (wallA > 0) {
+    const k = eOut((t - 38.72) / 1.4);
+    $('wall').style.transform = `scale(${lerp(3.2, 1.08, k)})`;
+    $('wallShade').style.opacity = lerp(.2, 1, ss(38.8, 39.3, t));
+  }
+
+  animLines(t);
+  grain(frame);
+};
+window.READY = true;
+</script>
+</body>
+</html>
