@@ -108,6 +108,10 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
           if (scenario.phone) {
             await choice.selectOption('flowing')
             await page.reload()
+            if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
+              await page.getByTestId('edition-hold').waitFor()
+              await page.getByRole('button', { name: 'Open preserved edition and annotations' }).click()
+            }
             await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true')
             assert.equal(await page.getByTestId('lab-root').getAttribute('data-shakespeare-layout'), 'flowing')
             const prefs = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-prefs')))
