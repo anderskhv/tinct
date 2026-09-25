@@ -75,6 +75,7 @@ jobs:
         run: node scripts/check-brand.mjs
 
       - name: Install silent production browser
+        id: browser
         run: npx playwright install --with-deps chromium webkit
       - name: Verify production inline audio loading silently
         env:
@@ -114,7 +115,8 @@ jobs:
       - name: Verify production Shakespeare layout and library perimeter
         run: SHAKESPEARE_LIVE=1 node scripts/check-shakespeare-layout.mjs
       - name: Verify currently reading reel
-        if: ${{ !cancelled() }}
+        # Runs even after an earlier acceptance failure, but only with a browser to run in.
+        if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
         run: LIBRARY_LIVE=1 node scripts/check-reading-reel.mjs
       - name: Verify production hyphenation hardening
         env:

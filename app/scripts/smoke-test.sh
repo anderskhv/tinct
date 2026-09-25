@@ -174,7 +174,14 @@ fi
 echo "9. CSS"
 CSS_FILE=$(printf '%s\n' "$HTML" | sed -n 's/.*href="\(\/assets\/index-[^"]*\.css\)".*/\1/p' | head -1)
 if [ -n "$CSS_FILE" ]; then
-  CSS_STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "$URL$CSS_FILE" 2>/dev/null || echo "000")
+  # Straight after a deploy the edge can serve the new page a few seconds
+  # before the stylesheet it names. Retry briefly; a real miss still fails.
+  for attempt in 1 2 3 4 5 6; do
+    CSS_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL$CSS_FILE" 2>/dev/null)
+    [ -n "$CSS_STATUS" ] || CSS_STATUS="000"
+    [ "$CSS_STATUS" = "200" ] && break
+    sleep 5
+  done
   if [ "$CSS_STATUS" = "200" ]; then
     pass "CSS loads (200)"
   else
