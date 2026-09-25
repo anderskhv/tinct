@@ -138,6 +138,18 @@ describe('lab prefs', () => {
     expect(labChapterWordWeights(chapterWeights, 50_000).map(c => c.wordCount)).toEqual([30_000, 10_000, 10_000])
   })
 
+  it('counts the chapters before this one in reading order, not by number', () => {
+    // WEB Catholic reads Tobit (1190) after Nehemiah 13 (426) and before Esther (427).
+    const estimate = labBookPageEstimate({
+      currentPage: 1,
+      totalPages: 1,
+      chapterNumber: 1190,
+      chapterWeights: [{ number: 426, wordCount: 300 }, { number: 1190, wordCount: 300 }, { number: 427, wordCount: 300 }],
+      wordsPerPage: 300,
+    })
+    expect(estimate).toMatchObject({ page: 2, totalPages: 3 })
+  })
+
   it('falls back to a chapter-shaped guess when nothing weights the chapters', () => {
     const estimate = labBookPageEstimate({
       currentPage: 2,

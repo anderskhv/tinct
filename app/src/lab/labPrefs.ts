@@ -545,7 +545,9 @@ export function labChapterWordWeights(
   chapters: LabBookPageWeight[],
   bookWordCount?: number,
 ): Array<{ number: number; wordCount: number }> {
-  const ordered = [...chapters].sort((a, b) => a.number - b.number)
+  // Reading order is the list's order, not always the numbering (WEB Catholic
+  // reads Tobit, numbered 1190, after Nehemiah 13).
+  const ordered = [...chapters]
   const known = ordered.reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
   if (known > 0) return ordered.map(chapter => ({ number: chapter.number, wordCount: Math.max(0, chapter.wordCount || 0) }))
 
@@ -593,7 +595,8 @@ export function labBookPageEstimate(input: {
   }
 
   const capacity = Math.max(1, Math.round(input.wordsPerPage))
-  const before = weights.filter(chapter => chapter.number < input.chapterNumber)
+  const at = weights.findIndex(chapter => chapter.number === input.chapterNumber)
+  const before = (at >= 0 ? weights.slice(0, at) : weights.filter(chapter => chapter.number < input.chapterNumber))
     .reduce((total, chapter) => total + chapter.wordCount, 0)
   const chapterWords = weights.find(chapter => chapter.number === input.chapterNumber)?.wordCount ?? 0
   const after = Math.max(0, totalWords - before - chapterWords)
