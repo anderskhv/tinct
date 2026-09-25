@@ -1,0 +1,878 @@
+{
+ "group": "G06-novels-a",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "audit_date": "2026-09-25",
+ "books": [
+  {
+   "id": "don-quixote",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "f7f7785e59136d881566bd893f76d3661a027e7c094cfacc5937f350b4e4e2f3",
+     "source_url": "https://www.gutenberg.org/cache/epub/996/pg996.txt",
+     "source_sha256": "2864143e9addf498c1c5fd585db4a1ff3e06651c344cddf0931342f1a0ce24d4",
+     "source_retrieved_utc": "2026-09-25T11:54:15Z",
+     "source_title": "Don Quixote / Miguel de Cervantes Saavedra / tr. John Ormsby",
+     "source_covered_pct": 98.544,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 14,
+     "alignment_note": "All 15 MISSING runs >=12 (4,161 tokens) lie inside the Part I front matter; body otherwise complete, 0 EXTRA/ORDER/DUPLICATE."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-don-quixote-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (start of book)",
+     "extent_words": 2588,
+     "summary": "Cervantes's Prologue to Part I ('The Author's Preface', 'Idle reader…') absent; the book opens at Part 1 Chapter 1",
+     "served_before": "(start of book)",
+     "missing_start": "Idle reader: thou mayest believe me without any oath that I would this book, as it is the child",
+     "missing_end": "And so—may God give thee health, and not forget me. Vale.",
+     "served_after": "WHICH TREATS OF THE CHARACTER AND PURSUITS OF THE FAMOUS GENTLEMAN DON QUIXOTE OF LA MANCHA (1.0)",
+     "source_ref": "pg996.txt lines 2099-2331",
+     "local_raw_has_it": null,
+     "modern_en": "absent (1.0 = 'About the character and pursuits of the famous gentleman…')",
+     "modern_da": "absent (full JSON and shards)",
+     "existing_repair": "none; don-quixote-repair (origin/claude/friendly-albattani-qgyqfi @0252b80d) is modern-en fidelity only and does not mention it",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-don-quixote-02",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (Part I front matter)",
+     "extent_words": 1409,
+     "summary": "Part I 'Some Commendatory Verses' (Urganda the Unknown, Amadis, Belianis, Oriana, Gandalin, el Donoso, Orlando, Solisdan, Babieca/Rocinante dialogue) absent",
+     "served_before": "(start of book)",
+     "missing_start": "URGANDA THE UNKNOWN / To the book of Don Quixote of la Mancha / If to be welcomed by the good,",
+     "missing_end": "But, squire or master, where’s the difference? They’re both as sorry hacks as Rocinante.”",
+     "served_after": "WHICH TREATS OF THE CHARACTER AND PURSUITS OF THE FAMOUS GENTLEMAN DON QUIXOTE OF LA MANCHA (1.0)",
+     "source_ref": "pg996.txt lines 2335-2626",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-don-quixote-03",
+     "type": "MISSING",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (Part I front matter)",
+     "extent_words": 198,
+     "summary": "Dedication of Part I to the Duke of Béjar absent (the Part II dedication is served, see -04)",
+     "served_before": "(start of book)",
+     "missing_start": "TO THE DUKE OF BEJAR, MARQUIS OF GIBRALEON… In belief of the good reception and honours",
+     "missing_end": "will not disdain the littleness of so humble a service. Miguel de Cervantes",
+     "served_after": "WHICH TREATS OF THE CHARACTER AND PURSUITS OF THE FAMOUS GENTLEMAN DON QUIXOTE OF LA MANCHA (1.0)",
+     "source_ref": "pg996.txt lines 2634-2658",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-don-quixote-04",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "52.47-52.61 (inside 'Part 1, Chapter 52'); belongs before 53.0 ('Part 2, Chapter 1')",
+     "extent_words": 1971,
+     "summary": "Part II front matter ('Volume II', Dedication to the Count of Lemos, Part II Author's Preface) served as the last 15 paragraphs of Part 1 Chapter 52",
+     "served_before": "_“Forse altro cantera con miglior plettro.”_ (52.46, end of Part I)",
+     "missing_start": "Volume II (52.47) / DEDICATION OF VOLUME II. / TO THE COUNT OF LEMOS: These days past, when sending",
+     "missing_end": "the “Persiles,” which I am now finishing, and also the Second Part of “Galatea.” (52.61)",
+     "served_after": "OF THE INTERVIEW THE CURATE AND THE BARBER HAD WITH DON QUIXOTE ABOUT HIS MALADY (53.0)",
+     "source_ref": "pg996.txt lines 21695-21889 (source places it between Part I ch. LII and Part II ch. I)",
+     "local_raw_has_it": null,
+     "modern_en": "present at the same misplaced coordinates 52.47-52.61",
+     "modern_da": "present at 52.47-52.61 (full JSON and shards)",
+     "existing_repair": "none; dq-batchE notes/review (origin/claude/friendly-albattani-qgyqfi @0252b80d) describe 'ch. 52, paras 47-61' as content without flagging placement",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-don-quixote-05",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "x.0 in all 126 chapters",
+     "extent_words": null,
+     "summary": "Descriptive chapter headings served as body paragraph 0 in every chapter; chapter titles are generic 'Part N, Chapter M'",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg996.txt 'CHAPTER I.' + heading line(s), e.g. lines 2666-2668",
+     "local_raw_has_it": null,
+     "modern_en": "same pattern (translated heading at x.0)",
+     "modern_da": "same pattern",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Ormsby's translator introduction and the PG 'Ebook Editor's Note' are editorial and correctly excluded.",
+    "Standard Ebooks' Ormsby edition (toc sha 9b991718…) confirms the unit order: Part I Dedication, Preface, Some Commendatory Verses; Part II Dedication, Preface."
+   ],
+   "needs_investigation": [
+    "Source of the two dedication translations in PG #996 is not stated (possibly supplied by the PG editor rather than Ormsby); they are Cervantes's authorial matter either way."
+   ],
+   "notes": "modern-da full JSON and its chapter shards differ (all 126 titles, 1,653 paragraphs); the served modern-da text depends on the load path (client loads shards). Presence checks were done on both."
+  },
+  {
+   "id": "moby-dick",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "30974242d9ee3eae074671da0b424c0ef5d8b00258acf43cf27d92905136c952",
+     "source_url": "https://www.gutenberg.org/cache/epub/2701/pg2701.txt",
+     "source_sha256": "907420db6c4b68c70e2988cd2ad9c8cf79138667a01b63376d18dd17fef1a18b",
+     "source_retrieved_utc": "2026-09-25T11:54:16Z",
+     "source_title": "Moby Dick; Or, The Whale / Herman Melville",
+     "source_covered_pct": 97.998,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 6,
+     "alignment_note": "All 6 runs >=25 are Etymology+Extracts (src tokens 0-3731); remaining 4 runs >=12 are chapter-heading tokens (56, 57, 73, 120). 0 EXTRA/ORDER/DUPLICATE."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-moby-dick-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (start of book)",
+     "extent_words": 3600,
+     "summary": "Melville's 'Etymology' (Late Consumptive Usher) and 'Extracts' (Sub-Sub-Librarian) absent",
+     "served_before": "(start of book)",
+     "missing_start": "ETYMOLOGY. (Supplied by a Late Consumptive Usher to a Grammar School.) The pale Usher—threadbare in coat",
+     "missing_end": "A giant in might, where might is right, And King of the boundless sea.” —Whale Song.",
+     "served_after": "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, (1.0)",
+     "source_ref": "pg2701.txt lines 336-838 (Etymology 336-375 ~190 w; Extracts 376-838 ~3,410 w)",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "documented and restored in books/wip/moby-dick-structural/ (origin/claude/charming-shannon-mojaef @52c72004): front-matter.original-en.json 03e85576…, front-matter.modern-en.json 3cca436f…; accepted, not released. Package claims verified: body otherwise complete.",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-moby-dick-02",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (front matter)",
+     "extent_words": 15,
+     "summary": "Dedication to Nathaniel Hawthorne absent; not in PG #2701, but printed in the 1851 edition and in Standard Ebooks; not covered by moby-dick-structural",
+     "served_before": "(start of book)",
+     "missing_start": "In token of my admiration for his genius, this book is inscribed",
+     "missing_end": "to Nathaniel Hawthorne.",
+     "served_after": "Call me Ishmael. (1.0)",
+     "source_ref": "not in pg2701.txt; standardebooks herman-melville_moby-dick src/epub/text/dedication.xhtml (sha 7a8e7a2e…)",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none (moby-dick-structural restores Etymology/Extracts only)",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-moby-dick-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "56.0, 57.0, 73.0 (titles of ch 56, 57, 73)",
+     "extent_words": 11,
+     "summary": "Three chapter titles cut by the PG line wrap; tail fragments served as paragraph 0",
+     "served_before": "",
+     "missing_start": "Pictures of Whaling Scenes. (56.0)",
+     "missing_end": "over Him. (73.0)",
+     "served_after": "",
+     "source_ref": "pg2701.txt chapter headings 56, 57, 73",
+     "local_raw_has_it": null,
+     "modern_en": "same (fragments rendered)",
+     "modern_da": "same",
+     "existing_repair": "documented and fixed in moby-dick-structural (origin/claude/charming-shannon-mojaef @52c72004), not released",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-moby-dick-04",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter 136 title",
+     "extent_words": null,
+     "summary": "Epilogue is titled 'Epilogue — The Drama's Done'; the subtitle is not Melville's (source heading is just 'Epilogue')",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg2701.txt line 21933 'Epilogue'",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same ('Epilog — Dramaet er forbi')",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-moby-dick-05",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "modern-en 44.8, 53.8, 55.3, 55.12, 56.7, 56.8, 65.2, 65.4, 68.4, 75.2, 75.3, 75.7, 79.1, 80.1, 80.4, 80.5, 112.0, 115.3, 115.4, 118.1, 121.2, 125.0 (+30 more at 45-55%)",
+     "extent_words": 3236,
+     "summary": "Live modern-en drops whole sentence-blocks in 22 flagged paragraphs (5,283 source words rendered in 2,047), e.g. 80.5 loses the spinal-cord conclusion",
+     "served_before": "Apply this spinal branch of phrenology to the Sperm Whale. (80.5 modern-en)",
+     "missing_start": "Now, of course, this canal is filled with much the same strangely fibrous substance—the spinal cord",
+     "missing_end": "more than compensated by the wonderful comparative magnitude of his spinal cord.",
+     "served_after": "(modern-en 80.5 ends 'the canal tapers in size but maintains its proportions.')",
+     "source_ref": "original-en same coordinates (source edition complete)",
+     "local_raw_has_it": null,
+     "modern_en": "partial (whole sentence-blocks absent)",
+     "modern_da": "partial (flagged set 1,933 words; follows modern-en)",
+     "existing_repair": "all 52 compressed paragraphs rewritten in books/wip/green-moby-dick/candidate.json 1a3f31bb… (origin/claude/charming-shannon-mojaef @52c72004), accepted, not released",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "PG 'Original Transcriber's Notes' correctly excluded."
+   ],
+   "needs_investigation": [
+    "-02: confirm the dedication should be restored with the front matter (Standard Ebooks and the 1851 Harper edition print it; PG #2701 does not)."
+   ],
+   "notes": "Verified moby-dick-structural's claims: Etymology+Extracts absent (lines 336-843), split titles 56/57/73, no other missing or extra text from Chapter 1 to the Epilogue (Epilogue 136.0-136.2 complete incl. Job epigraph)."
+  },
+  {
+   "id": "brothers-karamazov",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "b8ada3e43c6f997a0d55f77e1f22bb769f021071aaeff3d0cb25dcd1acb80736",
+     "source_url": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
+     "source_sha256": "2e75c187cb750df3f7c910fa90970b264b9a4fee212be2a73c6bb507d9ad22fe",
+     "source_retrieved_utc": "2026-09-25T11:54:16Z",
+     "source_title": "The Brothers Karamazov / Fyodor Dostoyevsky / tr. Constance Garnett",
+     "source_covered_pct": 99.825,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "alignment_note": "6 runs >=12, all Book/Chapter heading tokens. Local raw books/raw/brothers-karamazov/raw.txt (sha 142c0d45…) = PG #28054 apart from BOM, 8 trailing spaces and the update date."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-brothers-karamazov-01",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (front matter)",
+     "extent_words": 35,
+     "summary": "Dostoevsky's epigraph (John 12:24) absent; missing from PG #28054 front matter but printed in Standard Ebooks' scan-checked Garnett edition",
+     "served_before": "(start of book)",
+     "missing_start": "Verily, verily, I say unto you, Except a corn of wheat fall into the ground and die,",
+     "missing_end": "but, if it die, it bringeth forth much fruit. John 12:24",
+     "served_after": "Alexey Fyodorovitch Karamazov was the third son of Fyodor Pavlovitch Karamazov, (1.0)",
+     "source_ref": "not in pg28054.txt front matter (verse only quoted in the narrative, lines 13170, 14404); standardebooks fyodor-dostoevsky_the-brothers-karamazov_constance-garnett src/epub/text/epigraph.xhtml (sha 31d878d2…)",
+     "local_raw_has_it": false,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-brothers-karamazov-02",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "24.42, 41.49, 62.37",
+     "extent_words": 6,
+     "summary": "Part headings 'PART II/III/IV' served as the last body paragraph of the preceding Book's final chapter; Part I heading absent; sections list Books only",
+     "served_before": "Alyosha murmured, crossing himself, and falling into peaceful sleep. (24.41)",
+     "missing_start": "PART II (24.42)",
+     "missing_end": "PART IV (62.37)",
+     "served_after": "Alyosha was roused early, before daybreak. (25.0)",
+     "source_ref": "pg28054.txt lines 7418, 15145, 24583",
+     "local_raw_has_it": true,
+     "modern_en": "same",
+     "modern_da": "same ('DEL II', 'TREDJE DEL', 'FJERDE DEL')",
+     "existing_repair": "none (brothers-karamazov-repair batch notes keep 'PART II/IV' as marker paragraphs by design)",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-brothers-karamazov-03",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "96.76-96.86 (end of Epilogue ch. 3)",
+     "extent_words": 124,
+     "summary": "'THE END', 'FOOTNOTES' and Garnett's nine translator footnotes served as the final 11 paragraphs after the novel's last line",
+     "served_before": "“And always so, all our lives hand in hand! Hurrah for Karamazov!” Kolya cried once more (96.75)",
+     "missing_start": "THE END (96.76) / FOOTNOTES / [1] In Russian, “silen.”",
+     "missing_end": "[9] Gogol is meant. (96.86)",
+     "served_after": "(end of book)",
+     "source_ref": "pg28054.txt lines 37251-37284",
+     "local_raw_has_it": true,
+     "modern_en": "same (footnotes rendered)",
+     "modern_da": "same",
+     "existing_repair": "none (bk-batchH notes record the footnote paragraphs as intentional)",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Dostoevsky's preface 'From the Author' is not part of Garnett's translation (absent from PG #28054 and from Standard Ebooks' Garnett edition): translation-scope omission, not an import loss."
+   ],
+   "needs_investigation": [
+    "-01: confirm from a scan of the 1912 Heinemann Garnett whether the John 12:24 epigraph was printed."
+   ],
+   "notes": "Body text complete; 'BIOGRAPHICAL NOTES' (39.17) and the (a)-(i) subheadings are authorial. modern-da full JSON and shards differ in 78 chapter titles."
+  },
+  {
+   "id": "war-and-peace",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "6112db117bbc36641e45240ff4a0ecd7d63a2975bdd691a6ad1624a6c6879864",
+     "source_url": "https://www.gutenberg.org/cache/epub/2600/pg2600.txt",
+     "source_sha256": "2d5bb2ad5f422765e714617e21fa31bbaf8958aa79682c86fca6660fcc5d1b2b",
+     "source_retrieved_utc": "2026-09-25T11:54:17Z",
+     "source_title": "War and Peace / graf Leo Tolstoy / tr. Aylmer Maude, Louise Maude",
+     "source_covered_pct": 99.863,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "alignment_note": "0 MISSING runs even at --min 3 except 17 heading runs; 365/365 chapters start at the right source chapter."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-war-and-peace-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter titles 28 'Book Two…Chapter 28' (=Book One ch28), 49, 68, 84, 106, 132, 145, 167, 190, 229, 263, 279, 298, 317, 337 'First Epilogue…Chapter 20' (=Book Fifteen ch20), 353 'Second Epilogue — Chapter 16' (=First Epilogue ch16)",
+     "extent_words": null,
+     "summary": "The final chapter of 16 of the 17 Books/Epilogues carries the NEXT Book's name, producing duplicate labels (e.g. two 'Book Five (1806 - 07) — Chapter 16')",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg2600.txt: each 'BOOK …' heading (e.g. line 6632 'BOOK TWO: 1805') follows the mislabelled chapter",
+     "local_raw_has_it": null,
+     "modern_en": "same 16, plus ch28-32 relabelled 'Book Two — Chapter 1-5' (ch32 and ch33 both 'Book Two (1805) — Chapter 5')",
+     "modern_da": "same 16 mislabels",
+     "existing_repair": "partially known: war-and-peace-repair/PROGRESS.md (origin/claude/friendly-albattani-qgyqfi @0252b80d) notes only ch337 and ch353 as source mislabels, not fixed",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-war-and-peace-02",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "modern-en 150.12, 334.21, 344.10, 345.8, 350.1-350.5 (drift), 355.x, 357.19, 358.14-358.18 (drift), 359.x, 360.13, 361.27, 362.x, 365.11",
+     "extent_words": null,
+     "summary": "Live modern-en omits whole paragraphs/sentence-blocks and drifts out of alignment in the essay chapters 333-365 (e.g. ch358 final paragraph gone; 350.1 presents paragraph gone; 150.12 is a '(French verse translated.)' placeholder)",
+     "served_before": "To explain the conditions of that relationship, we must first establish a concept of the expression of will (modern-en 358.18)",
+     "missing_start": "If the Deity issues a command, expresses His will, as ancient history tells us,",
+     "missing_end": "(original-en 358.18, 112 words, not rendered anywhere in modern-en ch358)",
+     "served_after": "(end of chapter 358)",
+     "source_ref": "original-en same coordinates (source edition complete)",
+     "local_raw_has_it": null,
+     "modern_en": "partial/absent at listed coordinates",
+     "modern_da": "present (e.g. 358.18, 350.1, 150.12 carry full content)",
+     "existing_repair": "documented and repaired in books/wip/war-and-peace-repair/ (origin/claude/friendly-albattani-qgyqfi @0252b80d): tail batches A-C (ch333-365) accepted, drift fix incl. ch358, batch G restores 150.12; not released",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Tolstoy's essay 'Some Words about War and Peace' is not in PG #2600 and not part of the novel text; not expected."
+   ],
+   "needs_investigation": [],
+   "notes": "modern-en MOD_DUP_ADJ flags (97.19, 207.33, 215.32, 236.29, 277.17, 307.14, 326.14, 326.20) are the inline translation + translated footnote convention, not duplication defects; 356.2/3 are distinct source paragraphs."
+  },
+  {
+   "id": "anna-karenina",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "6318124f6f65f5deef18f48553b01e219487ccd87fbfee1db90e36d63e25cbf0",
+     "source_url": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+     "source_sha256": "a3e29e08c15c63bb22069f4256316c2ebebd422ecb5c33462ddc00ae00b27571",
+     "source_retrieved_utc": "2026-09-25T11:54:18Z",
+     "source_title": "Anna Karenina / graf Leo Tolstoy / tr. Constance Garnett",
+     "source_covered_pct": 99.866,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "alignment_note": "0 MISSING runs >=12; paragraph-level check finds no dropped paragraphs."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-anna-karenina-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "all 239 chapter titles; Part headings at 34.29, 69.66, 101.32, 124.35, 157.73, 189.40, 220.22",
+     "extent_words": 14,
+     "summary": "The eight Parts are not represented: no sections, titles restart at 'Chapter 1' eight times (35 distinct titles for 239 chapters), and 'PART TWO'…'PART EIGHT' are served as the last paragraph of the previous Part",
+     "served_before": "he left home not meaning to return till late at night. (34.28)",
+     "missing_start": "PART TWO (34.29)",
+     "missing_end": "PART EIGHT (220.22)",
+     "served_after": "At the end of the winter, in the Shtcherbatskys’ house, a consultation was being held (35.0)",
+     "source_ref": "pg1399.txt lines 57 (PART ONE), 5833, 11868, 17439, 21522, 26969, 32777, 37549",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same ('ANDEN DEL' …)",
+     "existing_repair": "none (ak-batchB notes keep 'PART TWO' as a divider paragraph by design)",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Tolstoy's epigraph 'Vengeance is mine; I will repay' is absent from PG #1399 and from Standard Ebooks' scan-checked Garnett edition: translation-scope omission, not an import loss."
+   ],
+   "needs_investigation": [],
+   "notes": "SHORT_CHAPTER ch44 (Part 2 ch 10, one paragraph) matches the source."
+  },
+  {
+   "id": "great-expectations",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "e4c4863487b9b9ce4cabb8a64cb518ee3038cb31169dbac220569522dc1b6e70",
+     "source_url": "https://www.gutenberg.org/cache/epub/1400/pg1400.txt",
+     "source_sha256": "9a637118af8e953e9764ec603d9b0a032883384d465acac2e27966a80cf1c6f8",
+     "source_retrieved_utc": "2026-09-25T11:54:46Z",
+     "source_title": "Great Expectations / Charles Dickens ([1867 Edition])",
+     "source_covered_pct": 99.93,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "alignment_note": "Local raw books/raw/great-expectations/raw.txt (sha 097f25ad…) = PG #1400 apart from BOM. Only [Illustration] markers unserved."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-great-expectations-01",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "modern-en 26.0",
+     "extent_words": 215,
+     "summary": "modern-en 26.0 renders 297 source words in 65 and drops Jaggers's hand-washing passage (surgeon/dentist, closet, jack-towel, penknife)",
+     "served_before": "“No ceremony,” he said. “No dinner dress. No nonsense.” (modern-en 26.0 end)",
+     "missing_start": "I asked him where we should come to (for I had no idea where he lived),",
+     "missing_end": "he took out his penknife and scraped the case out of his nails before he put his coat on.",
+     "served_after": "Some people were lurking outside as usual when we stepped into the street (modern-en 26.1)",
+     "source_ref": "original-en 26.0; pg1400.txt chapter XXVI opening",
+     "local_raw_has_it": true,
+     "modern_en": "absent (partial paragraph)",
+     "modern_da": "absent (26.0 follows modern-en, 65 words)",
+     "existing_repair": "none found on any branch",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Label 'Original (1861)' vs PG #1400 '[1867 Edition]' text: edition-label nuance only."
+   ],
+   "needs_investigation": [
+    "modern-en 26.1-26.2 also contain sentences not in the source (Jaggers 'started on the subjects of capital punishment and flogging'); outside completeness scope but chapter 26 modern-en needs a fidelity pass."
+   ],
+   "notes": "Verdict refers to the source edition (original-en complete); the one defect is modern-en only."
+  },
+  {
+   "id": "the-awakening",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "78824e511ea979f2f1a1b41d67105d161559c0a9dcff3bbb826e9814dbf44703",
+     "source_url": "https://www.gutenberg.org/cache/epub/160/pg160.txt",
+     "source_sha256": "31d4577d255806b92c6296419adddd5ca460bdb788743878a09ded1e19f4161a",
+     "source_retrieved_utc": "2026-09-25T11:54:47Z",
+     "source_title": "The Awakening, and Selected Short Stories / Kate Chopin (novel body only: lines 105-5780)",
+     "source_covered_pct": 99.783,
+     "edition_covered_pct": 99.976,
+     "missing_runs_ge25": 0,
+     "alignment_note": "1 run >=12 (16 tokens, ch21); token runs at --min 1 and a paragraph-equality check expose 22 dropped one-line paragraphs."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-the-awakening-01",
+     "type": "MISSING",
+     "severity": "S2",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 8.27, 10.21, 10.23, 10.37, 12.17, 12.18, 12.32, 15.44, 21.8, 21.16, 21.17, 21.18, 22.11, 25.22, 27.9, 30.31, 31.17, 34.6, 34.19, 36.31",
+     "extent_words": 56,
+     "summary": "22 short dialogue paragraphs dropped at import (every source paragraph under ~20 characters was discarded; shortest served paragraph is 21 chars), leaving exchanges incoherent, e.g. Victor's song 'Ah! si tu savais!' before Edna's 'Stop!'",
+     "served_before": "Then, looking at Edna, he began to sing: (30.31)",
+     "missing_start": "“Ah! si tu savais!”",
+     "missing_end": "(22 lines; see dropped_lines)",
+     "served_after": "“Stop!” she cried, “don’t sing that. I don’t want you to sing it,” (30.32)",
+     "dropped_lines": [
+      {
+       "source_line": "1090",
+       "after": "8.27",
+       "text": "“He won’t look up.”"
+      },
+      {
+       "source_line": "1422",
+       "after": "10.21",
+       "text": "“Thought of what?”"
+      },
+      {
+       "source_line": "1428",
+       "after": "10.23",
+       "text": "“I know you are.”"
+      },
+      {
+       "source_line": "1494",
+       "after": "10.37",
+       "text": "“Are you chilly?”"
+      },
+      {
+       "source_line": "1703",
+       "after": "12.17",
+       "text": "“Shut up!”"
+      },
+      {
+       "source_line": "1707",
+       "after": "12.18",
+       "text": "“Oh, hush!”"
+      },
+      {
+       "source_line": "1758",
+       "after": "12.32",
+       "text": "“Oh, no.”"
+      },
+      {
+       "source_line": "2241",
+       "after": "15.44",
+       "text": "“I don’t know.”"
+      },
+      {
+       "source_line": "3113",
+       "after": "21.8",
+       "text": "“My friend?”"
+      },
+      {
+       "source_line": "3141",
+       "after": "21.16",
+       "text": "“Oh, no.”"
+      },
+      {
+       "source_line": "3145",
+       "after": "21.17",
+       "text": "“No.”"
+      },
+      {
+       "source_line": "3149",
+       "after": "21.18",
+       "text": "“No, and again, no.”"
+      },
+      {
+       "source_line": "3279",
+       "after": "22.11",
+       "text": "“Doing! Parbleu!”"
+      },
+      {
+       "source_line": "3800",
+       "after": "25.22",
+       "text": "“No!”"
+      },
+      {
+       "source_line": "3802",
+       "after": "25.22",
+       "text": "“Day after?”"
+      },
+      {
+       "source_line": "3804",
+       "after": "25.22",
+       "text": "“No, no.”"
+      },
+      {
+       "source_line": "4117",
+       "after": "27.9",
+       "text": "“For instance?”"
+      },
+      {
+       "source_line": "4480",
+       "after": "30.31",
+       "text": "“Ah! si tu savais!”"
+      },
+      {
+       "source_line": "4588",
+       "after": "31.17",
+       "text": "“Yes,” she replied."
+      },
+      {
+       "source_line": "5015",
+       "after": "34.6",
+       "text": "“Yes; it was lost.”"
+      },
+      {
+       "source_line": "5055",
+       "after": "34.19",
+       "text": "“Fairly well.”"
+      },
+      {
+       "source_line": "5368",
+       "after": "36.31",
+       "text": "“Your wife!”"
+      }
+     ],
+     "source_ref": "pg160.txt lines 1090-5368 (22 single-line paragraphs)",
+     "local_raw_has_it": null,
+     "modern_en": "absent at all 22 places",
+     "modern_da": "absent at all 22 places",
+     "existing_repair": "none found",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "The Selected Short Stories in PG #160 are out of scope (not part of the served work)."
+   ],
+   "needs_investigation": [
+    "The <20-character paragraph filter may have been applied to other books imported by the same parser; worth a library-wide check."
+   ],
+   "notes": "SHORT_CHAPTER ch28 (one paragraph) matches the source."
+  },
+  {
+   "id": "ulysses",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "ddc3418890b6a623e7c9bcb730272fe01539e86a2872c268eed43dbe01121428",
+     "source_url": "https://www.gutenberg.org/cache/epub/4300/pg4300.txt",
+     "source_sha256": "e03094626f9528cf3fc287a49d6edbdbf47cd40483cb13ceb301e74e15ebbf9e",
+     "source_retrieved_utc": "2026-09-25T11:54:40Z",
+     "source_title": "Ulysses / James Joyce",
+     "source_covered_pct": 99.991,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "alignment_note": "At --min 1 only the episode/part numerals and the 5-token closing dateline are unserved; no dropped short paragraphs."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-ulysses-01",
+     "type": "MISSING",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 18.7 (end of book)",
+     "extent_words": 2,
+     "summary": "Joyce's closing dateline 'Trieste-Zurich-Paris 1914-1921' absent",
+     "served_before": "and yes I said yes I will Yes. (18.7)",
+     "missing_start": "Trieste-Zurich-Paris",
+     "missing_end": "1914-1921",
+     "served_after": "(end of book)",
+     "source_ref": "pg4300.txt lines 32861-32863",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    },
+    {
+     "id": "G06-ulysses-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "book structure (no sections)",
+     "extent_words": null,
+     "summary": "Joyce's three-part division (I: episodes 1-3, II: 4-15, III: 16-18) is not represented; episodes carry editorial Homeric titles",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg4300.txt lines 72, 2505, 25730",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [
+    "Episode titles 'Telemachus'…'Penelope' are editorial (schema names, not in the 1922 text); acceptable as navigation labels."
+   ],
+   "needs_investigation": [],
+   "notes": "Aeolus headlines (HEADING_LIKE flags in ch7) and the Ithaca terminal dot (17.653) are authorial and correctly served."
+  },
+  {
+   "id": "notes-from-underground",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "c600f3f5ac6508240ab0bf733bff2b8944ef082c08d14b7834df52977698c237",
+     "source_url": "https://www.gutenberg.org/cache/epub/600/pg600.txt",
+     "source_sha256": "6ce7d6ff7288263f1fd07d7ecfc07e419735cbbb4dff5107964af1afd8b2079e",
+     "source_retrieved_utc": "2026-09-25T11:54:41Z",
+     "source_title": "Notes from the Underground / Fyodor Dostoyevsky / tr. Constance Garnett",
+     "source_covered_pct": 99.917,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "alignment_note": "Only headings unserved (title, PART I/II, chapter numerals). Local raw (sha 3761d2a3…) = PG #600 apart from BOM, date and blank lines."
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Author's note (1.0) and Nekrasov epigraph (12.0) are served; Part titles are carried by sections."
+   ],
+   "needs_investigation": [],
+   "notes": "SHORT_CHAPTER flags (Part 1 ch 4-7) are long single paragraphs in the source."
+  },
+  {
+   "id": "ivan-ilyich",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-ru",
+     "sha256": "3e9654b561b5e2c6d890b1292d37b88499a3c0ce8b112ba454979900ca0d5e93",
+     "source_url": "https://ru.wikisource.org/wiki/Смерть_Ивана_Ильича_(Толстой) (action=raw; text from az.lib.ru); cross-check https://ilibrary.ru/text/7/p.1-12/index.html",
+     "source_sha256": "ce05ddc070d5b96c5296bdda48ecf88a13c57db53bbab7313d6f93604da05533 (wikitext); ilibrary assembled text 2f7cb7361076702c1d4cb44a94aeb3536bdb85135b7bfeec2ee283dcbc3da873",
+     "source_retrieved_utc": "2026-09-25T12:07:46Z (wikisource); 2026-09-25T12:12:10Z-12:12:47Z (ilibrary)",
+     "source_title": "Смерть Ивана Ильича / Лев Николаевич Толстой (1886)",
+     "source_covered_pct": 99.812,
+     "edition_covered_pct": 99.949,
+     "missing_runs_ge25": 0,
+     "alignment_note": "vs ilibrary.ru: 99.727% / 99.88%, only difference a footnote. Russian/English word ratio per chapter 0.75-0.85 (no chapter-scale gap)."
+    },
+    {
+     "key": "original-en",
+     "sha256": "2b9d02f6a874058e212f44b6f0c978db24171aa66d4623a6ebf5242a11d4ccda",
+     "source_url": "https://en.wikisource.org/wiki/The_Death_of_Ivan_Ilych (+ /I … /XII, action=raw)",
+     "source_sha256": "11267756f5d42358c8cdd89d4dd430558dbd78d9d3587041536d08ae6450ab5b (assembled plain text)",
+     "source_retrieved_utc": "2026-09-25T12:06:28Z-12:07:08Z",
+     "source_title": "The Death of Ivan Ilych / Leo Tolstoy / tr. Louise and Aylmer Maude",
+     "source_covered_pct": 99.89,
+     "edition_covered_pct": 99.996,
+     "missing_runs_ge25": 0,
+     "alignment_note": "0 runs >=5; only chapter numerals and a Wikisource typo ('r' for 'replied', 1.3) differ; no dropped paragraphs."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G06-ivan-ilyich-01",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-ru"
+     ],
+     "location": "1.55, 2.31-2.36, 6.14 (+ stray marker 'passe4' in 2.8)",
+     "extent_words": 36,
+     "summary": "Editorial glosses of French/Latin phrases from the az.lib.ru transcription ('Prim.' notes 1-5, 7) served as body paragraphs at chapter ends",
+     "served_before": "так что ему удобно было вступить пятым. (1.54)",
+     "missing_start": "Prim. антикварном магазине (от франц. bric-a-brac). (1.55)",
+     "missing_end": "Prim. 7 устройство, сооружение (франц.). (6.14)",
+     "served_after": "Так шла жизнь Ивана Ильича в продолжение семнадцати лет (3.0, after 2.36)",
+     "source_ref": "ru.wikisource wikitext lines 319, 585-595, 1307 (same apparatus inline)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a (modern-en aligns to original-en)",
+     "modern_da": "n/a",
+     "existing_repair": "none (green-ivan-ilyich covers modern-en vs original-en only)",
+     "status": "PROPOSED"
+    }
+   ],
+   "scope_notes": [],
+   "needs_investigation": [
+    "original-ru has a few character-level transcription artefacts not in either witness (2.15 'Vпосле', 3.21 'к артах', 5.14 'н е', 8.31 'вс- врут', 4.10 'но переставая', 2.11 'следователями'): typo class, outside completeness scope."
+   ],
+   "notes": "original-ru (374 paragraphs) and original-en (298) are independent sources and not paragraph-aligned, as expected. green-ivan-ilyich (origin/claude/friendly-albattani-qgyqfi @0252b80d) source.json equals live original-en (2b9d02f6…)."
+  }
+ ]
+}
