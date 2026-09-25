@@ -408,10 +408,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
     return syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
   })
-  const bookEditions = selectableLabEditions(
-    book.bookId || 'bible',
-    book.editions?.length ? book.editions : bibleEditions(),
-  )
+  const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
+  const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
   const heldPrimary = editionHold(book.bookId || 'bible', prefs.primaryEdition)
   const heldCompare = prefs.compareOpen ? editionHold(book.bookId || 'bible', prefs.compareEdition) : undefined
   const temporaryHold = heldPrimary || heldCompare
@@ -611,7 +609,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // unaligned (Jane Eyre / Pride and Prejudice Danish keep the paragraphing
   // the English editions left on 2026-09-25) cannot be paired on any device.
   const unalignedCompare = (book.bookId || 'bible') !== 'bible'
-    && [prefs.primaryEdition, prefs.compareEdition].some(key => bookEditions.find(edition => edition.key === key)?.aligned === false)
+    && [prefs.primaryEdition, prefs.compareEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
   // Bible editions do not all have the same chapters (WEB Catholic has Tobit;
   // the others do not), and Greek Daniel 3 numbers its verses differently from
   // the Hebrew: Compare says so rather than pairing different passages.
@@ -636,8 +634,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const standbyEditionKey = mobileCompareActive && mobileCompareEnabled
     ? prefs.primaryEdition
     : prefs.compareEdition
-  const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, bookEditions)
-  const compareEditionLabel = editionLabelFor(prefs.compareEdition, bookEditions)
+  const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, allBookEditions)
+  const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
   const desktopPaging = chromeV2 && !showPhoneChrome && browserHasNativePaging()
   const desktopSpread = desktopPaging && !desktopCompareActive
   const measuredPaging = (showPhoneChrome || desktopPaging) && browserHasNativePaging()
@@ -2884,7 +2882,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (text.trim().split(/\s+/).length < 2) return
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
     void ask.explainSelection({ text, editionKey,
-      editionLabel: editionLabelFor(editionKey, bookEditions),
+      editionLabel: editionLabelFor(editionKey, allBookEditions),
       paragraphs: comparison ? book.compareParagraphs : book.paragraphs,
       paragraphIndex, speculative: true,
     }, () => {}).catch(() => { /* Speculation must never open an error or account prompt. */ })
@@ -3996,7 +3994,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
       bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
-      editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, bookEditions),
+      editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, allBookEditions),
       chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel,
       paragraphs: readerParagraphs, paragraphIndex: placeRef.current.paragraphIndex,
       chapterCount: book.chapters.length,
@@ -4086,7 +4084,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   return (
     <div
       ref={labRootRef}
-      lang={bookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      lang={allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
@@ -4455,7 +4453,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
             <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(bookPageEstimate.page)}</span></span>
-            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, bookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
+            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
@@ -4691,7 +4689,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
             >
               {chromeV2 && mobileCompareActive ? (
-                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, bookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
+                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
               ) : (
                 <span className="lab-chapter-progress-info">{footProgressLabel}</span>
               )}
@@ -5189,7 +5187,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               text: text ?? selectionPopup.text,
               intent,
               editionKey,
-              editionLabel: editionLabelFor(editionKey, bookEditions),
+              editionLabel: editionLabelFor(editionKey, allBookEditions),
               paragraphs: compare ? book.compareParagraphs : book.paragraphs,
               paragraphIndex: selectionPopup.paragraphIndex,
             }, onDelta)
