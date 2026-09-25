@@ -146,7 +146,7 @@ jobs:
           ARTIFACT_DIR: artifacts/lighthouse-publication-live
         run: |
           node scripts/check-book-publication.cjs
-          node scripts/check-reviewed-characters.cjs
+          node scripts/check-lighthouse-characters.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

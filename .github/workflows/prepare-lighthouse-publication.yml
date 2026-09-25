@@ -42,7 +42,7 @@ jobs:
           TEST_ORIGIN: https://tinct.app
           READER_BUILT: '1'
           ARTIFACT_DIR: artifacts/lighthouse-release
-        run: node scripts/check-reviewed-characters.cjs
+        run: node scripts/check-lighthouse-characters.cjs
       - name: Verify opening, Compare and streaming request identity
         env:
           TEST_BOOK: to-the-lighthouse
