@@ -1,10 +1,10 @@
-import {authorPortrait,warmPortrait} from './authors.js?v=20260925h';
-import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260925h';
-import {books} from './books.js?v=20260925h';
-import {loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260925h';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260925h';
-import {categories,eras,metadata} from './taxonomy.js?v=20260925h';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260925h';
+import {authorPortrait,warmPortrait} from './authors.js?v=20260925i';
+import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260925i';
+import {books} from './books.js?v=20260925i';
+import {loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260925i';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260925i';
+import {categories,eras,metadata} from './taxonomy.js?v=20260925i';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260925i';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let savedBooks=new Set();try{savedBooks=new Set(JSON.parse(localStorage.getItem('tinct-library-2-to-read')||'[]'));}catch{}
@@ -153,17 +153,37 @@ $('book-overlay').addEventListener('pointerup',e=>{const g=introGesture;introGes
 $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
 // One persistent particle sphere follows a single interpolated position. There
 // is no second orb to cross-fade, and chat never lays it over its controls.
-let mode='minimized',orbMotion=null,drag=null,micStream=null,micPending=0,muted=false;
+let mode='minimized',orbMotion=null,drag=null;
 let dock={x:innerWidth-52,y:innerHeight*.43,size:52,edge:'right'},orbPosition={...dock};
 function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(mode==='minimized')magnet();}
 function orbTarget(){const space=$(`librarian-${mode}`).querySelector('.orb-space').getBoundingClientRect();const size=Math.min(space.height,space.width,240);return {x:space.x+(space.width-size)/2,y:space.y+(space.height-size)/2,size};}
 function moveOrb(target,done){if(orbMotion)cancelAnimationFrame(orbMotion);const from={...orbPosition},start=performance.now();function frame(now){const t=reduced.matches?1:clamp((now-start)/450,0,1);placeOrb(orbFrame(from,target,t));if(t<1)orbMotion=requestAnimationFrame(frame);else{orbMotion=null;done?.();}}orbMotion=requestAnimationFrame(frame);}
-function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';$('chat-input').placeholder=activeBook?'Ask about the book…':'What would you like to read?';}
+function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';}
 let panelLastRect={x:20,y:80};
-function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;['welcome','talk','chat'].forEach(m=>$(`librarian-${m}`).hidden=m!==next);$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat';$('librarian').tabIndex=next==='minimized'?0:-1;if(next!=='minimized')$('librarian').classList.add('expanded');$('librarian').dataset.edge='none';if(next!=='minimized'){$('librarian').dataset.magnet='none';$('librarian').style.borderRadius='50%';}syncLock();if(next==='minimized'){$('librarian').classList.add('returning');const finish=()=>{$('librarian').classList.remove('expanded','returning');$('librarian').dataset.edge=dock.edge;};if(previous==='chat'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(dock,finish);}else if(next!=='chat'){requestAnimationFrame(()=>moveOrb(orbTarget()));}updateLibrarianContext();}
-function openLibrarian(){setMode('welcome');$('minimize').focus({preventScroll:true});}
-function stopMic(){micPending++;if(micStream)micStream.getTracks().forEach(t=>t.stop());micStream=null;muted=false;}
-function minimize(){stopMic();setMode('minimized');$('librarian').focus({preventScroll:true});}
+function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;if(next!=='minimized')$('librarian').classList.add('expanded');$('librarian').dataset.edge='none';if(next!=='minimized'){$('librarian').dataset.magnet='none';$('librarian').style.borderRadius='50%';}syncLock();if(next==='minimized'){$('librarian').classList.add('returning');const finish=()=>{$('librarian').classList.remove('expanded','returning');$('librarian').dataset.edge=dock.edge;};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(dock,finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrb(orbTarget()));}updateLibrarianContext();}
+let assistant=null,assistantLoading=null;
+async function loadAssistant(){
+ if(assistant)return assistant;
+ if(assistantLoading)return assistantLoading;
+ $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
+ assistantLoading=import('/lab/library-2-assistant.js?v=20260925i').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+  onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
+  getBookId:()=>activeBook?.id||null,
+  returnTo:location.pathname+location.search,
+  openBook:async id=>{
+   const book=books.find(b=>b.id===id);if(!book)return;
+   if(activeBook?.id===id)return;
+   if(activeBook)await closeBook();
+   const canvas=all('canvas[data-book]').find(c=>c.dataset.book===id&&c.getClientRects().length)||$('hero-book').querySelector('canvas');
+   await openBook(book,canvas);
+  }
+ })).then(api=>{assistant=api;$('librarian-loading').textContent='';return api;}).catch(()=>{
+  $('librarian-loading').textContent='The librarian could not connect. Tap Talk or Chat to try again.';assistantLoading=null;return null;
+ }).finally(()=>{$('talk').disabled=$('chat').disabled=false;});
+ return assistantLoading;
+}
+function openLibrarian(){setMode('welcome');$('minimize').focus({preventScroll:true});void loadAssistant();}
+function minimize(){if(assistant&&(mode==='talk'||mode==='chat'))assistant.close();else{setMode('minimized');$('librarian').focus({preventScroll:true});}}
 $('minimize').onclick=minimize;
 $('librarian').onclick=e=>{if(drag?.moved){drag=null;e.preventDefault();return;}if(mode==='minimized')openLibrarian();};
 function magnet(){const b=$('librarian'),p=orbPosition,size=p.size;const gaps=[p.x,innerWidth-p.x-size,p.y,innerHeight-p.y-size],distance=Math.max(0,Math.min(...gaps)),edge=['left','right','top','bottom'][gaps.indexOf(Math.min(...gaps))];const strength=1-ease(clamp(distance/72,0,1)),round=50*(1-strength);const radii={left:[round,50,50,round],right:[50,round,round,50],top:[round,round,50,50],bottom:[50,50,round,round]};b.style.borderRadius=(radii[edge]||[50,50,50,50]).map(n=>n+'%').join(' ');b.dataset.magnet=distance<72?edge:'none';b.style.setProperty('--tail-size',distance+'px');b.style.setProperty('--tail-opacity',String(strength));}
@@ -172,13 +192,27 @@ $('librarian').onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.
 $('librarian').onpointerup=()=>{if(!drag)return;if(drag.moved){dock=dockPosition(orbPosition.x,orbPosition.y,innerWidth,innerHeight);moveOrb(dock,()=>{$('librarian').dataset.edge=dock.edge;});}else drag=null;};
 $('librarian').onpointercancel=()=>{drag=null;dock=dockPosition(orbPosition.x,orbPosition.y,innerWidth,innerHeight);moveOrb(dock,()=>{$('librarian').dataset.edge=dock.edge;});};
 $('librarian').onkeydown=e=>{if(mode!=='minimized'||!e.key.startsWith('Arrow'))return;e.preventDefault();const step=e.shiftKey?40:10;dock=dockPosition(dock.x+(e.key==='ArrowRight'?step:e.key==='ArrowLeft'?-step:0),dock.y+(e.key==='ArrowDown'?step:e.key==='ArrowUp'?-step:0),innerWidth,innerHeight);$('librarian').dataset.edge=dock.edge;moveOrb(dock);};
-$('talk').onclick=async()=>{setMode('talk');$('voice-title').textContent='Let’s talk';$('voice-status').textContent='Connecting to your microphone…';const request=++micPending;try{if(!navigator.mediaDevices?.getUserMedia)throw Error('unavailable');const stream=await navigator.mediaDevices.getUserMedia({audio:true});if(request!==micPending||mode!=='talk'){stream.getTracks().forEach(t=>t.stop());return;}micStream=stream;$('voice-title').textContent='Ready';$('voice-status').textContent='Microphone connected. Live conversation is not connected in this design preview.';}catch(e){if(request!==micPending)return;$('voice-status').textContent=e.name==='NotAllowedError'?'Microphone access is off. You can still chat with your librarian.':'Your microphone is unavailable. You can still use Chat.';}};
-$('mute').onclick=()=>{muted=!muted;micStream?.getAudioTracks().forEach(t=>t.enabled=!muted);$('mute').innerHTML=icon(muted?'mute':'mic')+`<span>${muted?'Unmute':'Mute'}</span>`;$('mute').setAttribute('aria-pressed',String(muted));};
-$('end-talk').onclick=()=>{stopMic();$('mute').innerHTML=icon('mic')+'<span>Mute</span>';setMode('welcome');};
-function startChat(){stopMic();setMode('chat');const messages=$('messages');messages.replaceChildren();const prompts=activeBook?['What should I notice at the beginning?','Who are the main characters?','Help me find an angle that interests me.']:['Help me find a book.','Something atmospheric and unsettling.','A short, thought-provoking read.'];prompts.forEach(text=>{const b=el('button','suggestion',text);b.onclick=()=>sendMessage(text);messages.append(b);});}
-$('chat').onclick=startChat;
-function sendMessage(text){if(!text.trim())return;all('.suggestion').forEach(b=>b.remove());const m=$('messages');m.append(el('p','message-user',text));m.append(el('p','',activeBook?`For ${activeBook.title}, start with the introduction and the questions it raises. This preview shows the conversation layout; a live librarian will respond to your question in the complete experience.`:'For an atmospheric beginning, try Frankenstein or Dr Jekyll and Mr Hyde. This is a sample response in the design preview.'));m.scrollTop=m.scrollHeight;$('chat-input').value='';}
-$('chat-form').onsubmit=e=>{e.preventDefault();sendMessage($('chat-input').value);};
+function startAssistant(next){
+ if(!assistant){void loadAssistant();return;}
+ setMode(next);assistant.open(next);
+}
+$('talk').onclick=()=>startAssistant('talk');
+$('chat').onclick=()=>startAssistant('chat');
+// Focus stays inside the panel even though the production UI is shadow-scoped.
+$('librarian-live').addEventListener('keydown',e=>{
+ if(e.key!=='Tab')return;
+ const shadow=$('librarian-live').shadowRoot;
+ const controls=[...shadow.querySelectorAll('button:not([disabled]),a[href],input:not([disabled])')].filter(e=>e.getClientRects().length);
+ const i=controls.indexOf(shadow.activeElement);
+ if((e.shiftKey&&i===0)||(!e.shiftKey&&i===controls.length-1)){e.preventDefault();$('minimize').focus();}
+ e.stopPropagation();
+});
+$('minimize').addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||(mode!=='chat'&&mode!=='talk'))return;
+ const controls=[...($('librarian-live').shadowRoot?.querySelectorAll('button:not([disabled]),a[href],input:not([disabled])')||[])].filter(e=>e.getClientRects().length);
+ if(controls.length){e.preventDefault();e.stopPropagation();(e.shiftKey?controls.at(-1):controls[0]).focus();}
+});
+addEventListener('pagehide',()=>assistant?.close());
 const dots=Array.from({length:520},(_,i)=>{const y=1-(i+.5)/520*2,r=Math.sqrt(1-y*y),a=i*2.3999632297;return [Math.cos(a)*r,y,Math.sin(a)*r];});
 function drawOrb(time){const c=$('orb'),size=c.clientWidth,dpr=Math.min(devicePixelRatio||1,2);const pixels=Math.round(size*dpr);if(c.width!==pixels){c.width=pixels;c.height=pixels;}const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);const a=reduced.matches?.4:time*.00012,ca=Math.cos(a),sa=Math.sin(a);const projected=dots.map(([x,y,z])=>{const xx=x*ca+z*sa,zz=z*ca-x*sa;return [xx,y,zz];}).sort((a,b)=>a[2]-b[2]);for(const [x,y,z] of projected){const perspective=1/(1.8-z*.22);ctx.fillStyle=`rgba(236,237,222,${.2+(z+1)*.34})`;ctx.beginPath();ctx.arc(size/2+x*size*.76*perspective,size/2+y*size*.76*perspective,Math.max(.48,size*.0052)*(1+z*.27),0,Math.PI*2);ctx.fill();}}
 let lastFrame=0;function ambient(now){if(now-lastFrame>32&&!document.hidden){lastFrame=now;if($('hero').getBoundingClientRect().bottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}requestAnimationFrame(ambient);}placeOrb(dock);$('librarian').dataset.edge=dock.edge;requestAnimationFrame(ambient);
@@ -189,18 +223,18 @@ let landingWidth=0;function fitLanding(){if(innerWidth===landingWidth)return;lan
 function fitHero(){fitLanding();const hero=$('hero').getBoundingClientRect(),copy=document.querySelector('.hero-copy').getBoundingClientRect(),b=$('hero-book');document.documentElement.style.setProperty('--hero-height',hero.height+'px');if(innerWidth<700){const top=$('header').getBoundingClientRect().height+10,available=Math.max(90,copy.top-hero.top-top-18),height=Math.min((hero.height+parseFloat(getComputedStyle($('shelves')).marginTop||0))*.35,available);b.style.top=top+available-height+'px';b.style.height=height+'px';b.style.bottom='auto';}else{b.style.top='';b.style.height='';b.style.bottom='';}if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();dock={x:innerWidth-52,y:clamp(r.top+scrollY+r.height/2-26,70,innerHeight-65),size:52,edge:'right'};placeOrb(dock);}}
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitHero);observer.observe(document.querySelector('.hero-copy'));observer.observe($('hero'));}fitHero();
 let previousWidth=innerWidth,previousHeight=innerHeight;
-addEventListener('resize',()=>{fitHero();const free=dock.edge==='none';dock=dockPosition(free?dock.x/Math.max(1,previousWidth-52)*(innerWidth-52):dock.edge==='right'?innerWidth-52:dock.x,free?dock.y/Math.max(1,previousHeight-52)*(innerHeight-52):dock.edge==='bottom'?innerHeight-52:dock.y,innerWidth,innerHeight);previousWidth=innerWidth;previousHeight=innerHeight;if(mode==='minimized')placeOrb(dock);else if(mode!=='chat')requestAnimationFrame(()=>moveOrb(orbTarget()));if(activeBook){if(bookProgress===1)drawBook(1);else{sourceRect=rectOf(sourceCanvas);drawBook(bookProgress);}}drawScene(performance.now());});
+addEventListener('resize',()=>{fitHero();const free=dock.edge==='none';dock=dockPosition(free?dock.x/Math.max(1,previousWidth-52)*(innerWidth-52):dock.edge==='right'?innerWidth-52:dock.x,free?dock.y/Math.max(1,previousHeight-52)*(innerHeight-52):dock.edge==='bottom'?innerHeight-52:dock.y,innerWidth,innerHeight);previousWidth=innerWidth;previousHeight=innerHeight;if(mode==='minimized')placeOrb(dock);else if(mode==='welcome')requestAnimationFrame(()=>moveOrb(orbTarget()));if(activeBook){if(bookProgress===1)drawBook(1);else{sourceRect=rectOf(sourceCanvas);drawBook(bookProgress);}}drawScene(performance.now());});
 addEventListener('keydown',e=>{if(e.key==='Tab')document.documentElement.classList.add('keyboard-nav');if(e.key==='Escape'){if(mode!=='minimized')minimize();else if(activeBook){if(reading)$('reader-back').click();else closeBook();}else if(searchOpen)setSearch(false);else if(menuOpen)setMenu(false);}if(e.key==='Tab'){const modal=mode!=='minimized'?$('librarian-panel'):activeBook&&bookProgress===1?(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour&&tourProgress===0?$('book-overlay'):reading?$('reader'):$('intro')):searchOpen?$('search-panel'):menuOpen?$('library-menu'):null;if(!modal)return;const items=[...modal.querySelectorAll('button,input,select,[tabindex="0"]')].filter(x=>!x.hidden&&!x.disabled&&!x.closest('[aria-hidden="true"]')&&x.getClientRects().length);if(!items.length)return;const i=items.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();items.at(-1).focus();}else if(!e.shiftKey&&i===items.length-1){e.preventDefault();items[0].focus();}}});
 addEventListener('pointerdown',()=>document.documentElement.classList.remove('keyboard-nav'),true);
 function fitKeyboard(){document.documentElement.classList.toggle('vv-keyboard',!!window.visualViewport&&innerHeight-visualViewport.height>120);document.documentElement.style.setProperty('--visual-height',(window.visualViewport?.height||innerHeight)+'px');document.documentElement.style.setProperty('--visual-top',(window.visualViewport?.offsetTop||0)+'px');}window.visualViewport?.addEventListener('resize',()=>{fitKeyboard();if(activeBook&&bookProgress===1)drawBook(1);});fitKeyboard();
 // The desktop panel moves independently of the minimized docking point.
 const panel=$('librarian-panel'),handle=$('panel-handle'),grip=$('panel-resize');
 panel.append(grip);grip.hidden=false;let panelRect=null,panelGesture=null;
-function applyPanel(rect){panelRect=panelBounds(rect,innerWidth,innerHeight);if(innerWidth<700||innerHeight<500){for(const k of ['left','top','width','height','right','bottom'])panel.style[k]='';return;}Object.assign(panel.style,{left:panelRect.x+'px',top:panelRect.y+'px',width:panelRect.w+'px',height:panelRect.h+'px',right:'auto',bottom:'auto'});if(mode!=='minimized'&&mode!=='chat'){if(orbMotion)cancelAnimationFrame(orbMotion);placeOrb(orbTarget());}}
+function applyPanel(rect){panelRect=panelBounds(rect,innerWidth,innerHeight);if(innerWidth<700||innerHeight<500){for(const k of ['left','top','width','height','right','bottom'])panel.style[k]='';return;}Object.assign(panel.style,{left:panelRect.x+'px',top:panelRect.y+'px',width:panelRect.w+'px',height:panelRect.h+'px',right:'auto',bottom:'auto'});if(mode==='welcome'){if(orbMotion)cancelAnimationFrame(orbMotion);placeOrb(orbTarget());}}
 function beginPanel(e,resize){if(innerWidth<700||innerHeight<500||(!resize&&e.target.closest('button')))return;const r=panel.getBoundingClientRect();panelGesture={x:e.clientX,y:e.clientY,rect:{x:r.x,y:r.y,w:r.width,h:r.height},resize};e.currentTarget.setPointerCapture(e.pointerId);e.preventDefault();}
 for(const [element,resize] of [[handle,false],[grip,true]]){element.onpointerdown=e=>beginPanel(e,resize);element.onpointermove=e=>{if(!panelGesture)return;const g=panelGesture,dx=e.clientX-g.x,dy=e.clientY-g.y;applyPanel(g.resize?{...g.rect,w:g.rect.w+dx,h:g.rect.h+dy}:{...g.rect,x:g.rect.x+dx,y:g.rect.y+dy});};element.onpointerup=element.onpointercancel=()=>panelGesture=null;element.onkeydown=e=>{if(!e.key.startsWith('Arrow')||innerWidth<700)return;e.preventDefault();const r=panel.getBoundingClientRect(),dx=e.key==='ArrowRight'?12:e.key==='ArrowLeft'?-12:0,dy=e.key==='ArrowDown'?12:e.key==='ArrowUp'?-12:0;applyPanel({x:r.x+(resize?0:dx),y:r.y+(resize?0:dy),w:r.width+(resize?dx:0),h:r.height+(resize?dy:0)});};}
 addEventListener('resize',()=>{if(panelRect)applyPanel(panelRect);});
-addEventListener('pagehide',stopMic);
+
 
 // Library navigation uses the same forms and eras as the main catalogue.
 let collectionChoice='home';
@@ -229,4 +263,4 @@ const warmedSheets=new Set();function warmSheet(id){const art=signature[id];cons
 function warmCharacterArt(){const warm=()=>{if(!document.documentElement.classList.contains('returning'))featuredBooks.forEach(b=>{warmPortrait(b.author);warmSheet(b.id);if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});};if('requestIdleCallback' in window)window.requestIdleCallback(warm,{timeout:3000});else setTimeout(warm,1000);}
 if(document.readyState==='complete')warmCharacterArt();else addEventListener('load',warmCharacterArt,{once:true});
 // Returning readers see their own books on a reading table instead of the featured carousel.
-import('./reading-table.js?v=20260925h').then(m=>m.mountReadingTable({hero:$('hero'),shelves:$('shelves'),el})).catch(()=>{});
+import('./reading-table.js?v=20260925i').then(m=>m.mountReadingTable({hero:$('hero'),shelves:$('shelves'),el})).catch(()=>{});

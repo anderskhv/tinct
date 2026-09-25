@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const mocks = vi.hoisted(() => ({
@@ -121,4 +121,82 @@ it('introduces the same shared pill once per visit, with exactly three laps', as
     await waitFor(() => expect(animate).toHaveBeenCalledTimes(2))
     view.unmount(); host.remove()
   } finally { SVGElement.prototype.animate = original }
+})
+
+function embeddedHost() {
+  return { controls: { current: null as import('../labLibraryAssistant').LibraryAssistantControls | null }, ready: vi.fn(), onClose: vi.fn(), openBook: vi.fn(), returnTo: '/lab/library_2/', getBookId: () => 'republic' }
+}
+
+it('embeds without the old dock, sends current-book context, and opens recommendations through its host', async () => {
+  const host = embeddedHost()
+  let request: any
+  vi.mocked(fetch).mockImplementation(async (url, init) => {
+    if (String(url).includes('/api/chat')) {
+      request = JSON.parse(String(init?.body))
+      return new Response(JSON.stringify({ content: [{ type: 'text', text: 'Try The Republic. [[book:republic]]' }] }), { headers: { 'Content-Type': 'application/json' } })
+    }
+    return new Response(JSON.stringify(catalogue))
+  })
+  render(<LibraryAssistant host={host} />)
+  await waitFor(() => expect(host.ready).toHaveBeenCalled())
+  expect(screen.queryByRole('navigation')).toBeNull()
+  act(() => host.controls.current!.open('chat'))
+  const field = await screen.findByRole('textbox', { name: 'Message the librarian' })
+  fireEvent.change(field, { target: { value: 'Help me prepare' } })
+  fireEvent.submit(field.closest('form')!)
+  await waitFor(() => expect(request?.system).toContain('"id":"republic"'))
+  fireEvent.click(await screen.findByRole('button', { name: /The Republic/ }))
+  expect(host.openBook).toHaveBeenCalledWith('republic')
+  expect(host.onClose).toHaveBeenCalled()
+})
+
+it('embedded Talk starts only on the explicit action and stops when the host minimizes it', async () => {
+  const host = embeddedHost()
+  render(<LibraryAssistant host={host} />)
+  await waitFor(() => expect(host.ready).toHaveBeenCalled())
+  expect(mocks.start).not.toHaveBeenCalled()
+  act(() => host.controls.current!.open('talk'))
+  await waitFor(() => expect(mocks.start).toHaveBeenCalledWith({ authToken: 'token-a' }))
+  act(() => host.controls.current!.close())
+  expect(mocks.stop).toHaveBeenCalled()
+  expect(host.onClose).toHaveBeenCalled()
+  expect(screen.queryByTestId('lab-call')).toBeNull()
+})
+
+it('embedded exhausted guests keep the shared allowance and sign in back to the new library', async () => {
+  const host = embeddedHost()
+  mocks.auth = { user: null, session: null, isLoading: false }
+  localStorage.setItem('tinct:lab-ai-actions', '10')
+  try {
+    render(<LibraryAssistant host={host} />)
+    await waitFor(() => expect(host.ready).toHaveBeenCalled())
+    act(() => host.controls.current!.open('talk'))
+    expect(mocks.start).not.toHaveBeenCalled()
+    expect(screen.getByRole('link', { name: 'Sign in' }).getAttribute('href')).toContain('returnTo=%2Flab%2Flibrary_2%2F')
+    expect(localStorage.getItem('tinct:lab-ai-actions')).toBe('10')
+  } finally { localStorage.removeItem('tinct:lab-ai-actions') }
+})
+
+it('minimizing an embedded pending chat aborts it and offers a retry when reopened', async () => {
+  const host = embeddedHost()
+  let signal: AbortSignal | null = null
+  vi.mocked(fetch).mockImplementation((url, init) => {
+    if (String(url).includes('/api/chat')) {
+      signal = init?.signal as AbortSignal
+      return new Promise((_resolve, reject) => signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError'))))
+    }
+    return Promise.resolve(new Response(JSON.stringify(catalogue)))
+  })
+  render(<LibraryAssistant host={host} />)
+  await waitFor(() => expect(host.ready).toHaveBeenCalled())
+  act(() => host.controls.current!.open('chat'))
+  const field = await screen.findByRole('textbox', { name: 'Message the librarian' })
+  fireEvent.change(field, { target: { value: 'A book about justice' } })
+  fireEvent.submit(field.closest('form')!)
+  await waitFor(() => expect(signal).not.toBeNull())
+  act(() => host.controls.current!.close())
+  expect(signal?.aborted).toBe(true)
+  act(() => host.controls.current!.open('chat'))
+  expect(screen.queryByText('Thinking…')).toBeNull()
+  expect(screen.getByRole('button', { name: 'Retry' })).toBeTruthy()
 })
