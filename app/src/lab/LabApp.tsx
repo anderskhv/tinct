@@ -1083,6 +1083,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
     paragraphCount: book.paragraphs.length,
     currentParagraph: narrationCurrentParagraph,
+    speed: listen.speed,
     authToken,
     readToken: readSupabaseAccessToken,
   })

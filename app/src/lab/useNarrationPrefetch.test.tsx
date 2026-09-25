@@ -52,6 +52,14 @@ describe('useNarrationPrefetch', () => {
     expect(h.calls.filter(call => call.chapter === 2).length).toBe(6)
   })
 
+  it('warms the next chapter earlier at speed: at 3x it starts three times as far from the end', async () => {
+    const h = harness({ currentParagraph: 22, speed: 3 })
+    await new Promise(resolve => setTimeout(resolve, 20))
+    expect(h.calls.length).toBe(0)
+    h.rerender({ ...h.base, currentParagraph: 23 })
+    await waitFor(() => expect(h.calls.filter(call => call.chapter === 2).length).toBeGreaterThan(0))
+  })
+
   it('does nothing when the pilot is off or no voice is known', async () => {
     const off = harness({ active: false })
     await new Promise(resolve => setTimeout(resolve, 20))

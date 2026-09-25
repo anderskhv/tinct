@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { useLabListen } from './useLabListen'
+import { narrationLookAheadWidth, useLabListen } from './useLabListen'
 import { NarrationEnsureError, type NarrationParagraphResult, type NarrationParagraphState } from './labNarration'
 import { chunkNarrationText, narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
 
@@ -58,7 +58,7 @@ async function state(index: number, ready: number, options: { words?: boolean; d
 
 interface EnsureCall { fromChunks?: Record<number, number>; indexes: number[]; mode?: string; signal: AbortSignal; resolve: (results: NarrationParagraphResult[]) => void; reject: (error: Error) => void }
 
-function harness(options: { voice?: string } = {}) {
+function harness(options: { voice?: string; speed?: number } = {}) {
   const pending: Array<{ resolve: () => void; reject: (error: Error) => void }> = []
   const audio = new EventTarget() as HTMLAudioElement
   Object.assign(audio, {
@@ -90,6 +90,7 @@ function harness(options: { voice?: string } = {}) {
   const hook = renderHook(
     (props: Props) => useLabListen({
       guardPlaybackRequests: true,
+      playbackSpeed: options.speed,
       bookId: 'odyssey',
       chapterNumber: 1,
       audioEdition: props.edition,
@@ -242,6 +243,53 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     h.audio.currentTime = 0
     act(() => h.audio.dispatchEvent(new Event('timeupdate')))
     expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 2, wordIndex: layout[1].wordFrom })
+  })
+
+  it('at 3x prepares the next sentence groups side by side, so loading never becomes the barrier', async () => {
+    expect([1, 1.25, 1.5, 2, 2.5, 3].map(narrationLookAheadWidth)).toEqual([1, 1, 2, 2, 3, 3])
+    const h = harness({ speed: 3 })
+    const layout = chunkNarrationText(LONG)
+    expect(layout.length).toBeGreaterThanOrEqual(3)
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 2, wordIndex: 0 }) })
+    // The first group and the two after it are asked for at once, each by name.
+    await waitFor(() => expect(h.calls.length).toBe(3))
+    expect(h.calls.map(call => [call.indexes, call.fromChunks])).toEqual([[[2], { 2: 0 }], [[2], { 2: 1 }], [[2], { 2: 2 }]])
+    // Answers arrive out of order; none takes back what another made playable.
+    const only = async (call: EnsureCall, group: number) => {
+      const empty = await state(2, 0)
+      const full = await state(2, layout.length)
+      call.resolve([{ ...empty, status: 'partial', readyChunks: 1, chunks: empty.chunks.map((chunk, i) => i === group ? full.chunks[i] : chunk) }])
+    }
+    await act(async () => {
+      await only(h.calls[2], 2)
+      await only(h.calls[1], 1)
+      await only(h.calls[0], 0)
+    })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    expect(h.audio.playbackRate).toBe(3)
+    expect(h.audio.src).toContain('hash-2-0.mp3')
+    const clips = h.result.current.clips.filter(clip => clip.kind === 'paragraph' && clip.index === 2)
+    expect(clips[1]).toMatchObject({ url: expect.stringContaining('hash-2-1') })
+    expect(clips[2]).toMatchObject({ url: expect.stringContaining('hash-2-2') })
+    // Listening on, the look-ahead asks only for what is still missing, never twice for one group.
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(h.calls.length).toBeGreaterThanOrEqual(4))
+    const ahead = h.calls.slice(3)
+    expect(new Set(ahead.map(call => JSON.stringify(call.fromChunks))).size).toBe(ahead.length)
+    expect(ahead.map(call => call.fromChunks)).not.toContainEqual({ 2: 1 })
+    expect(ahead.map(call => call.fromChunks)).not.toContainEqual({ 2: 2 })
+  })
+
+  it('at normal speed keeps to one request at a time', async () => {
+    const h = harness()
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 2, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    await act(async () => { await h.answer(h.calls[0], { 2: 1 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    await new Promise(resolve => setTimeout(resolve, 50))
+    expect(h.calls.length).toBe(2)
   })
 
   it('keeps the chapter clock moving forward across sentence-group boundaries', async () => {
