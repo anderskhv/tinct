@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import type { SerializablePreReaderCatalogue } from './catalogue'
+import { defaultPrimaryEditionKey } from '../data/editionDefaults'
 
 export interface LibraryReadingChapter {
   number: number
@@ -40,9 +41,8 @@ type ChapterLike = { number?: unknown; title?: unknown; paragraphCount?: unknown
 
 function visibleReadingEdition(book: SerializablePreReaderCatalogue['books'][number]) {
   const visible = book.editions.filter(edition => edition.language !== 'da' && edition.availability.chapterText)
-  return visible.find(edition => edition.style === 'original' && edition.language === 'en')
-    || visible.find(edition => edition.style === 'modern' && edition.language === 'en')
-    || visible[0]
+  const key = defaultPrimaryEditionKey(book.id, visible)
+  return visible.find(edition => edition.key === key)
 }
 
 function normalizeChapters(chapters: ChapterLike[]): LibraryReadingChapter[] {

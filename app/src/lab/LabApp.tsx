@@ -100,6 +100,7 @@ import {
   type LabAppearanceProfile,
   type LabReaderProgressMode,
 } from './labPrefs'
+import { defaultPrimaryEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labChromeVersion, labLayoutOverride, labVoiceVersion } from './labRoute'
 import { useLabDictation } from './useLabDictation'
@@ -1351,7 +1352,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const activeBookId = book.bookId || 'bible'
     const primaryEditionKey = bookEditions.some(edition => edition.key === prefs.primaryEdition)
       ? prefs.primaryEdition
-      : (bookEditions.find(edition => edition.style === 'original' && edition.language === 'en') || bookEditions[0])?.key
+      // New readers arrive with an edition (library handoff, Bible default);
+      // a resumed place without one predates edition keys and reads the original.
+      : (bookEditions.find(edition => edition.style === 'original' && edition.language === 'en') || bookEditions.find(edition => edition.key === defaultPrimaryEditionKey(activeBookId, bookEditions)) || bookEditions[0])?.key
     if (!primaryEditionKey) {
       setReaderLoadError('This book does not currently have a readable edition.')
       return

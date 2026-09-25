@@ -1,4 +1,5 @@
 import { isEditionDiscoverable } from '../data/audioAvailability'
+import { defaultPrimaryEditionKey } from '../data/editionDefaults'
 import { useState, useEffect, useMemo } from 'react'
 import type { Book, Edition, EditionKey, Language } from '../types'
 import { inferOnboardingLanguage, loadOnboardingData, type OnboardingLanguage } from '../utils/onboardingData'
@@ -148,13 +149,14 @@ export function BookOnboarding({
   //      book has that edition. Carries forward the user's preference across
   //      books — if they read Modern English on the last book, default to
   //      Modern English here too. Anders explicitly asked for this consistency.
-  //   2. Original English if available — the authoritative text for new users
-  //      who don't yet have a previous choice on file.
+  //   2. The approved default (Tinct Modern English; BSB for the Bible) for
+  //      new users who don't yet have a previous choice on file.
   //   3. First available edition as final fallback.
   const [editionKey, setEditionKey] = useState<EditionKey>(() => {
     if (defaultEditionKey && editions.some(e => e.key === defaultEditionKey && isEditionDiscoverable(bookId, e))) return defaultEditionKey
-    const origEn = editions.find(e => e.style === 'original' && e.language === 'en' && isEditionDiscoverable(bookId, e))
-    if (origEn) return origEn.key
+    const discoverable = editions.filter(e => isEditionDiscoverable(bookId, e))
+    const approved = defaultPrimaryEditionKey(bookId, discoverable)
+    if (approved) return approved
     return editions.find(e => isEditionDiscoverable(bookId, e))?.key || ''
   })
   const [splitEditionKey, setSplitEditionKey] = useState<EditionKey | undefined>(undefined)

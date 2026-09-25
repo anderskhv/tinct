@@ -8,4 +8,10 @@ export const isAudioHeld = (bookId: string, editionKey: string, chapter?: number
   return held.has(key) || (chapter !== undefined && Boolean(heldChapters.get(key)?.has(chapter)))
 }
 export const isBookDiscoverable = (bookId: string): boolean => !heldBooks.has(bookId)
-export const isEditionDiscoverable = (bookId: string, edition: { key: string; language: string }): boolean => edition.language !== 'da' && !isAudioHeld(bookId, edition.key)
+/**
+ * Text discovery. Recording holds (the 2026-09-10 structural audio audit) keep
+ * old recordings from playing; they no longer hide the text, which narration
+ * now streams from (approved default editions, 2026-09-25). Danish stays out
+ * of discovery under the English-first language scope.
+ */
+export const isEditionDiscoverable = (_bookId: string, edition: { key: string; language: string }): boolean => edition.language !== 'da'

@@ -8,6 +8,7 @@ import {
   getBookDisplayYear,
 } from '../data/libraryTaxonomy'
 import type { Book, Edition, EditionKey, Language, Style } from '../types'
+import { defaultCompareEditionKey, defaultPrimaryEditionKey } from '../data/editionDefaults'
 
 const FALLBACK_COVER_BACKGROUND = '#2c2417'
 const FALLBACK_COVER_ACCENT = '#c9a45c'
@@ -126,6 +127,9 @@ export interface PreReaderBookViewModel {
   houseIds: string[]
   topics: string[]
   editions: PreReaderEditionViewModel[]
+  /** Approved default editions (2026-09-25); a reader's saved edition wins. */
+  defaultEditionKey: string | null
+  defaultCompareEditionKey: string | null
   availability: PreReaderAvailability
   catalogueIndex: number
 }
@@ -297,6 +301,8 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
   // not put it in front of a reader.
   const publishedEditions = book.editions.filter(edition => !isEditionWithheld(book.id, edition.key))
   const editions = editionViewModels(publishedEditions).map(edition => ({ ...edition, discoveryAvailable: isEditionDiscoverable(book.id, edition), audioHeld: isAudioHeld(book.id, edition.key) }))
+  const discoverable = editions.filter(edition => edition.discoveryAvailable)
+  const defaultEditionKey = defaultPrimaryEditionKey(book.id, discoverable.length ? discoverable : editions)
   const summary = book.description?.trim() || meta.blurb?.trim() || `${book.title} by ${book.author}.`
   const blurb = meta.blurb?.trim() || firstSentence(summary)
   const cover = {
@@ -328,6 +334,8 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
       }),
     ]),
     editions,
+    defaultEditionKey: defaultEditionKey ?? null,
+    defaultCompareEditionKey: defaultCompareEditionKey(book.id, discoverable.filter(edition => edition.availability.compare), defaultEditionKey, book.year) ?? null,
     availability: {
       cover: true,
       chapterText: editions.some(edition => edition.availability.chapterText),
@@ -446,9 +454,7 @@ export function getBookDetailViewModel(
 }
 
 function defaultEdition(book: PreReaderBookViewModel): PreReaderEditionViewModel | undefined {
-  return book.editions.find(edition => edition.style === 'modern' && edition.language === 'en')
-    || book.editions.find(edition => edition.style === 'original' && edition.language === 'en')
-    || book.editions[0]
+  return book.editions.find(edition => edition.key === book.defaultEditionKey) || book.editions[0]
 }
 
 export function getEditionSelectionViewModel(

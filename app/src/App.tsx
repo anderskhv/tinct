@@ -69,6 +69,7 @@ import { paragraphTargetFromPosition, shouldHoldReaderForCloudRestore } from './
 import { matchingAudioEditions, resolveAudioEditionKey, resolvedAudioIsAvailable } from './utils/audioEditionSelection'
 import { appendReaderSessionShadow, installReaderSessionShadowDebug } from './readerSession/shadow'
 import type { ReaderBookContext, ReaderSessionEvent } from './readerSession/types'
+import { defaultCompareEditionKey as approvedCompareEditionKey, defaultPrimaryEditionKey as approvedPrimaryEditionKey } from './data/editionDefaults'
 
 const AdminMetricsDashboard = lazy(() => import('./components/AdminMetricsDashboard').then(m => ({ default: m.AdminMetricsDashboard })))
 const BookStore = lazy(() => import('./components/BookStore').then(m => ({ default: m.BookStore })))
@@ -130,18 +131,12 @@ function editionExists(book: { editions: { key: EditionKey }[] }, key: EditionKe
   return !!key && book.editions.some(ed => ed.key === key)
 }
 
-function defaultPrimaryEditionKey(book: { editions: { key: EditionKey; style: Style; language: Language }[] }): EditionKey {
-  return book.editions.find(ed => ed.key === 'original-en')?.key
-    || book.editions.find(ed => ed.style === 'original' && ed.language === 'en')?.key
-    || book.editions.find(ed => ed.language === 'en')?.key
-    || book.editions[0]?.key
-    || 'original-en'
+function defaultPrimaryEditionKey(book: { id: string; editions: { key: EditionKey; style: Style; language: Language }[] }): EditionKey {
+  return approvedPrimaryEditionKey(book.id, book.editions) || 'original-en'
 }
 
-function defaultSplitEditionKey(book: { editions: { key: EditionKey; style: Style; language: Language; aligned?: boolean }[] }, primaryKey: EditionKey): EditionKey {
-  return book.editions.find(ed => ed.key === 'modern-en' && ed.aligned)?.key
-    || book.editions.find(ed => ed.style === 'modern' && ed.language === 'en' && ed.aligned)?.key
-    || book.editions.find(ed => ed.aligned && ed.key !== primaryKey)?.key
+function defaultSplitEditionKey(book: { id: string; year?: number; editions: { key: EditionKey; style: Style; language: Language; aligned?: boolean }[] }, primaryKey: EditionKey): EditionKey {
+  return approvedCompareEditionKey(book.id, book.editions, primaryKey, book.year)
     || book.editions.find(ed => ed.key !== primaryKey)?.key
     || primaryKey
 }

@@ -66,6 +66,7 @@ const signedIn = () => /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);
 function readerEdition(book, preferred) {
   const readable = (book.editions || []).filter(e => e.availability?.chapterText !== false && e.language !== 'da');
   return readable.find(e => e.key === preferred)?.key
+    || readable.find(e => e.key === book.defaultEditionKey)?.key
     || readable.find(e => e.style === 'original' && e.language === 'en')?.key
     || readable.find(e => e.style === 'modern' && e.language === 'en')?.key
     || readable[0]?.key

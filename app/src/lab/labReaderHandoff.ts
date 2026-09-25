@@ -1,4 +1,5 @@
 import { getBook } from '../data/bookRegistry'
+import { defaultCompareEditionKey } from '../data/editionDefaults'
 import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
@@ -66,7 +67,7 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     || (primary.hasAudio ? primary.key : book.editions.find(edition => edition.hasAudio)?.key)
     || primary.key
   const compare = handoff.compareEditionKey
-    || book.editions.find(edition => edition.aligned && edition.key !== primary.key)?.key
+    || defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
     || primary.key
   return {
     ...current,
