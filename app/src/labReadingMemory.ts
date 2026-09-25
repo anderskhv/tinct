@@ -43,7 +43,7 @@ import { loadRecap, type RecapAuth, type RecapLoadResult } from './readingMemory
 import { requestRecapSummary } from './readingMemory/summary'
 import type { ReadingAnchor } from './readingMemory/types'
 import { accountLabPositionRecord, mergeLabPositionStatesByTime, withHiddenFromReadingNow, type LabPositionState } from './lab/labPosition'
-import { fetchLabPositionCloud, putLabPositionCloud, readLabPositionLocal, writeLabPositionLocal } from './lab/labPositionStore'
+import { fetchLabPositionCloud, putLabPositionCloud, prepareLabPositionLocal, readLabPositionLocal, writeLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
@@ -169,7 +169,7 @@ function isOnline(): boolean {
 async function loadPositions(auth: RecapAuth): Promise<LabPositionState | null> {
   let local: LabPositionState
   try {
-    local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
+    local = await prepareLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
   } catch {
     return null
   }

@@ -2,12 +2,13 @@ import { describe, expect, it } from 'vitest'
 import { RETAINED_BELLA_ORIGINAL_BOOKS, usesRetainedBella } from './bellaRetention'
 
 describe('Bella whole-edition retention', () => {
-  it('retains exactly the verified 35 original female editions', () => {
-    expect(RETAINED_BELLA_ORIGINAL_BOOKS.size).toBe(35)
+  it('retains exactly the verified 34 original female editions', () => {
+    expect(RETAINED_BELLA_ORIGINAL_BOOKS.size).toBe(34)
     expect(usesRetainedBella('frankenstein', 'original-en', 'female')).toBe(true)
     expect(usesRetainedBella('candide', 'original-en', 'female')).toBe(true)
     expect(usesRetainedBella('federalist-papers', 'original-en', 'female')).toBe(true)
-    expect(usesRetainedBella('pride-and-prejudice', 'original-en', 'female')).toBe(true)
+    // Restructured 2026-09-25: the index-keyed recordings no longer line up.
+    expect(usesRetainedBella('pride-and-prejudice', 'original-en', 'female')).toBe(false)
     expect(usesRetainedBella('jekyll-and-hyde', 'original-en', 'female')).toBe(true)
     expect(usesRetainedBella('frankenstein', 'modern-en', 'female')).toBe(false)
     expect(usesRetainedBella('frankenstein', 'original-en', 'male')).toBe(false)

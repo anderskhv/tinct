@@ -39,8 +39,12 @@ export interface LabV2SheetProps {
   audioEditions?: Edition[]
   /** Present once a compare edition is chosen: the switch between the main and compare page. */
   compare?: { active: boolean; onToggle: () => void } | null
-  /** Desktop side-by-side needs matching paragraphs; say so instead of hiding the switch. */
-  compareUnavailable?: boolean
+  /**
+   * Compare needs something to pair; say so instead of hiding the switch.
+   * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
+   * 'paragraphs': an edition whose paragraphs do not match the other's.
+   */
+  compareUnavailable?: false | 'verses' | 'paragraphs'
   /**
    * Fish narration pilot row, present only for a reader who opted in with
    * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
@@ -335,7 +339,9 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
               )}
               {compareUnavailable && (
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
-                  Side by side isn’t available for these two versions: they share no verse numbers to pair.
+                  {compareUnavailable === 'verses'
+                    ? 'Side by side isn’t available for these two versions: they share no verse numbers to pair.'
+                    : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
                 </p>
               )}
             </div>

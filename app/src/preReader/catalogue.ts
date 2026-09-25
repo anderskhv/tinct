@@ -190,6 +190,15 @@ export interface SavedReaderPlaceInput {
   page?: number
   paragraphIndex?: number
   wordIndex?: number
+  /** Identity of the edition used for these coordinates; absent on legacy places. */
+  contentRevision?: string
+  contentRecovery?: {
+    editionKey: string
+    contentRevision: string
+    chapterNumber: number
+    paragraphIndex: number
+    wordIndex: number
+  }
 }
 
 export interface SavedProgressInput extends SavedReaderPlaceInput {
@@ -537,6 +546,9 @@ export function buildReturningReaderViewModel(
       chapterNumber: entry.chapterNumber,
       ...(entry.page === undefined ? {} : { page: entry.page }),
       ...(entry.paragraphIndex === undefined ? {} : { paragraphIndex: entry.paragraphIndex }),
+      ...(entry.wordIndex === undefined ? {} : { wordIndex: entry.wordIndex }),
+      ...(entry.contentRevision === undefined ? {} : { contentRevision: entry.contentRevision }),
+      ...(entry.contentRecovery === undefined ? {} : { contentRecovery: entry.contentRecovery }),
     }
     const handoff = createReaderHandoffIntent({
       bookId: book.id,

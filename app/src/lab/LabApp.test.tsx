@@ -1,3 +1,4 @@
+import { getBook } from '../data/bookRegistry'
 // @vitest-environment jsdom
 
 import { readFileSync } from 'node:fs'
@@ -1759,6 +1760,29 @@ describe('lab chrome', () => {
     expect(playSpy).toHaveBeenCalledTimes(playCalls)
     expect(pauseSpy).toHaveBeenCalledTimes(pauseCalls)
     expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('false')
+  })
+
+  it('does not pair an unaligned edition: Danish Jane Eyre keeps the old paragraphing', () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true, primaryEdition: 'original-en', compareEdition: 'modern-da' }))
+    const base = sourceWithWords()
+    const source = {
+      ...base,
+      bookId: 'jane-eyre',
+      bookTitle: 'Jane Eyre',
+      editions: getBook('jane-eyre')!.editions,
+      paragraphs: ['There was no possibility of taking a walk that day.'],
+      compareParagraphs: ['Der var ingen mulighed for at gå en tur den dag.'],
+    }
+    const { unmount } = render(<LabApp pathname="/lab/phone" source={source} />)
+    expect(screen.queryByTestId('lab-phone-compare')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('no possibility')
+    unmount()
+    // The aligned English pair still compares.
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true, primaryEdition: 'original-en', compareEdition: 'modern-en' }))
+    render(<LabApp pathname="/lab/phone" source={{ ...source, compareParagraphs: ['A walk was out of the question that day.'] }} />)
+    fireEvent.click(screen.getByTestId('lab-phone-compare'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
   })
 
   it('keeps a paused mid-page word when entering and leaving phone Compare', async () => {

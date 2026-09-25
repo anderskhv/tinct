@@ -9,7 +9,7 @@ const reviewedCases = {
   'jekyll-and-hyde': [['hyde',10,'hyde',23],['lanyon',10,'lanyon',23],['poole',10,'poole',23]],
   meditations: [['verus',1,'verus',0],['rusticus',1,'rusticus',6],['ruling-faculty',2,'the-ruling-part',1]],
   'jane-eyre': [['mrs-reed',1,'mrs-reed',0],['scatcherd',5,'miss-scatcherd',97],['grace-poole',11,'grace-poole',113]],
-  'pride-and-prejudice': [['darcy',3,'darcy',5],['lady-catherine',13,'lady-catherine',14],['fitzwilliam',30,'colonel-fitzwilliam',7]],
+  'pride-and-prejudice': [['darcy',3,'darcy',4],['lady-catherine',13,'lady-catherine',14],['fitzwilliam',30,'colonel-fitzwilliam',6]],
   'us-founding-documents': [['king',1,'george-iii',2],['divine-providence',1,'god',32],['dating-formula',2,'jesus',92]],
   'kant-groundwork': [['wolf',1,'wolff'],['sulzer',3,'sulzer'],['hutcheson',3,'hutcheson'],['gospel-epithet',3,'jesus']],
   'descartes-meditations': [['leo',1,'leo'],['apollonius',1,'apollonius'],['demon-first',4,'demon',11],['demon-later',5,'demon',2]],

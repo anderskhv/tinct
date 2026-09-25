@@ -10,6 +10,7 @@ import {
   unionFinishedChapters,
   type LabPositionState,
 } from './labPosition'
+import { migrateLoadedLabPlaces, prepareLabPositionMigrations } from './labContentMigration'
 
 const IDB_NAME = 'tinct-lab'
 const IDB_STORE = 'kv'
@@ -43,10 +44,18 @@ export function readLabPositionLocal(deviceId = readLabDeviceId()): LabPositionS
   try {
     const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
     if (!raw) return emptyLabPositionState(deviceId)
-    return parseLabPositionState(JSON.parse(raw), deviceId)
+    return migrateLoadedLabPlaces(parseLabPositionState(JSON.parse(raw), deviceId))
   } catch {
     return emptyLabPositionState(deviceId)
   }
+}
+
+/**
+ * The device record once any accepted edition repair it needs has loaded:
+ * entry points await this before the first synchronous read.
+ */
+export async function prepareLabPositionLocal(deviceId = readLabDeviceId()): Promise<LabPositionState> {
+  return prepareLabPositionMigrations(readLabPositionLocal(deviceId))
 }
 
 /**
@@ -127,7 +136,7 @@ export function writeLabPositionLocal(state: LabPositionState, options: WriteLab
       const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
       if (raw) {
         merged = mergeLabPositionStatesByTime(
-          parseLabPositionState(JSON.parse(raw), state.deviceId),
+          migrateLoadedLabPlaces(parseLabPositionState(JSON.parse(raw), state.deviceId)),
           state,
           { preferIncomingSettle: options.authoritative },
         )
@@ -182,7 +191,7 @@ export async function fetchLabPositionCloud(token: string | null | undefined): P
       ...(controller ? { signal: controller.signal } : {}),
     })
     if (!res.ok) return null
-    return parseLabPositionState(await res.json(), readLabDeviceId())
+    return await prepareLabPositionMigrations(parseLabPositionState(await res.json(), readLabDeviceId()))
   } catch {
     return null
   } finally {

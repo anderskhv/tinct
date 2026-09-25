@@ -4,6 +4,9 @@
  * closeout. This deliberately excludes the five unresolved repair editions,
  * plus Meditations, Faust, Bible and Histories exceptions. Do not expand
  * without fresh evidence.
+ *
+ * Pride and Prejudice left the set on 2026-09-25: its restructured original
+ * (seven paragraph merges) no longer matches the index-keyed recordings.
  */
 export const RETAINED_BELLA_ORIGINAL_BOOKS = new Set([
   'midsummer',
@@ -27,7 +30,6 @@ export const RETAINED_BELLA_ORIGINAL_BOOKS = new Set([
   'oedipus-at-colonus',
   'on-liberty',
   'phaedrus',
-  'pride-and-prejudice',
   'symposium',
   'the-aeneid',
   'the-art-of-war',

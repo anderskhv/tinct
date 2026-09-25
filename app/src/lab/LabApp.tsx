@@ -594,8 +594,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const pairedCompareUnavailable = useMemo(() => (book.bookId || 'bible') === 'bible'
     && needsVerseAlignment(book.paragraphs, book.compareParagraphs)
     && !buildVerseAlignment(book.paragraphs, book.compareParagraphs), [book.bookId, book.paragraphs, book.compareParagraphs])
-  const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0
-  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable
+  // Outside the Bible, compare pairs paragraph by paragraph: an edition marked
+  // unaligned (Jane Eyre / Pride and Prejudice Danish keep the paragraphing
+  // the English editions left on 2026-09-25) cannot be paired on any device.
+  const unalignedCompare = (book.bookId || 'bible') !== 'bible'
+    && [prefs.primaryEdition, prefs.compareEdition].some(key => bookEditions.find(edition => edition.key === key)?.aligned === false)
+  const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !unalignedCompare
+  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -4219,7 +4224,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
             : null}
-          compareUnavailable={!showPhoneChrome && prefs.compareOpen && pairedCompareUnavailable}
+          compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />

@@ -1,0 +1,56 @@
+{
+  "revision": "2026-09-25.1",
+  "baselineRef": "b91d4b8d8ceab2e3379cb6a83174ce97c7c47aec",
+  "structureRef": "7994156f131a0c382e3f1372518dcb55a44eaade",
+  "clarityRef": "88ebdd4c9779fe45871ce87777c5dd6a8e48dac0",
+  "books": {
+    "jane-eyre": {
+      "cardRef": "e0306303e172382d22d48f256f57ea9852491ecb",
+      "editions": {
+        "original-en": {
+          "retainedMentions": 1498,
+          "droppedMentions": [
+            {
+              "characterId": "mrs-reed",
+              "chapterNumber": 4,
+              "paragraphIndex": 83,
+              "startOffset": 12,
+              "endOffset": 21,
+              "text": "Mrs. Reed",
+              "resolution": "reviewed-name",
+              "reason": "paragraph removed (duplicate caption)"
+            }
+          ]
+        },
+        "modern-en": {
+          "retainedMentions": 1486,
+          "droppedMentions": [
+            {
+              "characterId": "mrs-reed",
+              "chapterNumber": 4,
+              "paragraphIndex": 83,
+              "startOffset": 12,
+              "endOffset": 21,
+              "text": "Mrs. Reed",
+              "resolution": "reviewed-name",
+              "reason": "paragraph removed (duplicate caption)"
+            }
+          ]
+        }
+      }
+    },
+    "pride-and-prejudice": {
+      "cardRef": "a771e4260730628c08ccd297554ef6a8db26c9a7",
+      "editions": {
+        "original-en": {
+          "retainedMentions": 3105,
+          "droppedMentions": []
+        },
+        "modern-en": {
+          "retainedMentions": 3206,
+          "droppedMentions": []
+        }
+      }
+    }
+  }
+}
