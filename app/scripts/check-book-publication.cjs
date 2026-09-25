@@ -45,7 +45,11 @@ async function boot(browser,phone,ed,fixture={}){
  return {context,page,calls,errors,legacy,bundle}
 }
 async function toggleCompare(page,phone){
- if(!phone)return page.getByTestId('lab-desktop-compare').click()
+ if(!phone){
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-editions').click()
+  return page.getByTestId('lab-v2-show-compare').click()
+ }
  await page.getByTestId('lab-book').evaluate(el=>{
   el.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:400}))
   el.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:270}))
