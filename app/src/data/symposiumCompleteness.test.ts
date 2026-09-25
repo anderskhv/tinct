@@ -2,7 +2,7 @@ import {readFileSync} from 'node:fs'
 import {describe,it,expect} from 'vitest'
 import mapData from './symposiumCoordinateMap.json'
 import {projectEditionCoordinate,projectExactEditionRange,type CoordinateMigration} from './editionCoordinateMigration'
-import {loadedCoordinateMigration} from './editionContentRevisions'
+import {loadedCoordinateMigration,writtenBeforeRelease} from './editionContentRevisions'
 import {migrateLabBookPlace} from '../lab/labEditionMigration'
 import {migrateLoadedLabPlaces} from '../lab/labContentMigration'
 import {migrateLabHighlight} from '../lab/labHighlightMigration'
@@ -13,6 +13,10 @@ import {usesRetainedBella} from '../narration/bellaRetention'
 const map=mapData as unknown as CoordinateMigration
 const current=(ed:string)=>JSON.parse(readFileSync(new URL('../../public/data/editions/symposium-'+ed+'.json',import.meta.url),'utf8'))
 describe('Symposium completeness compatibility',()=>{
+ it('migrates unstamped English records arriving later from an old offline client',()=>{
+  expect(writtenBeforeRelease('symposium','original-en',undefined,Date.parse('2027-01-01'))).toBe(true)
+  expect(writtenBeforeRelease('symposium','modern-da',undefined,Date.parse('2027-01-01'))).toBe(false)
+ })
  it('stamps new legacy records and keeps unresolved source revisions intact',()=>{
   const row={bookId:'symposium',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,timestamp:Date.now()}
   const fresh=stampNewSymposiumRecord(row)

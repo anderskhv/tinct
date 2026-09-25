@@ -10,6 +10,12 @@ export interface BookMetaEntry {
 }
 
 export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
+  'to-the-lighthouse': {
+    title: 'Read To the Lighthouse Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for To the Lighthouse.',
+    bookName: 'To the Lighthouse',
+    author: 'Virginia Woolf',
+  },
   'odyssey': {
     title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
     description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Odyssey.',

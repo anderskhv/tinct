@@ -94,6 +94,9 @@ export function writtenBeforeRelease(
   const edition = release?.editions[editionKey]
   if (!edition) return false
   if (contentRevision) return contentRevision === edition.before
+  // Every new Symposium write is stamped. An unstamped English record can
+  // still arrive from an old offline client after publication; retain its repair.
+  if (bookId === 'symposium') return true
   return typeof writtenAt === 'number' && Number.isFinite(writtenAt) && writtenAt < release.releasedAt
 }
 
