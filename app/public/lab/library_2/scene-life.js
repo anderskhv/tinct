@@ -62,22 +62,36 @@ function glow(ctx,x,y,r,colour,alpha) {
   g.addColorStop(0,`rgba(${colour},${alpha})`);g.addColorStop(.3,`rgba(${colour},${alpha*.5})`);g.addColorStop(1,`rgba(${colour},0)`);
   ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2);
 }
-function flame(ctx,x,y,h,t,seed,alpha) {
-  const f=flicker(t,seed), lean=Math.sin(t*.0047+seed)*h*.085;
-  glow(ctx,x,y-h*.4,h*3.4,'244,156,65',(.026+.022*f)*alpha);
-  ctx.save();ctx.globalAlpha=alpha*(.22+.18*f);ctx.fillStyle='#ffe8aa';
-  ctx.beginPath();ctx.moveTo(x-h*.11,y);
-  ctx.bezierCurveTo(x-h*.26,y-h*.42,x+lean-h*.05,y-h*.75,x+lean,y-h*(.87+.2*f));
-  ctx.bezierCurveTo(x+h*.07,y-h*.52,x+h*.24,y-h*.24,x+h*.1,y);ctx.closePath();ctx.fill();ctx.restore();
+// Move the painted flame itself. Merely adding a translucent flame over the
+// still painting made the motion disappear at normal phone/tablet scale.
+const flameTiles = new WeakMap();
+function flame(ctx,img,x,y,h,t,seed,alpha) {
+  let tiles=flameTiles.get(img);if(!tiles){tiles=new Map();flameTiles.set(img,tiles);}
+  const key=`${x},${y},${h}`;let tile=tiles.get(key);
+  if(!tile){
+    const w=Math.ceil(h*1.8),height=Math.ceil(h*2.1),base=h*1.6;
+    const mask=document.createElement('canvas');mask.width=w;mask.height=height;
+    const m=mask.getContext('2d'),g=m.createRadialGradient(w/2,base-h*.65,h*.25,w/2,base-h*.65,h*.9);
+    g.addColorStop(0,'#fff');g.addColorStop(.55,'#fff');g.addColorStop(1,'#fff0');m.fillStyle=g;m.fillRect(0,0,w,height);
+    const canvas=document.createElement('canvas');canvas.width=w;canvas.height=height;
+    tile={canvas,mask,w,height,base};tiles.set(key,tile);
+  }
+  const {canvas,mask,w,height,base}=tile,c=canvas.getContext('2d');
+  const f=flicker(t,seed),lean=Math.sin(t*.0047+seed)*.13,stretch=.88+.19*f;
+  c.clearRect(0,0,w,height);c.save();c.translate(w/2,base);c.transform(1,0,lean,stretch,0,0);
+  c.drawImage(img,x-w/2,y-base,w,height,-w/2,-base,w,height);c.restore();
+  c.globalCompositeOperation='destination-in';c.drawImage(mask,0,0);c.globalCompositeOperation='source-over';
+  ctx.save();ctx.globalAlpha=alpha;ctx.drawImage(canvas,x-w/2,y-base);ctx.restore();
+  glow(ctx,x,y-h*.4,h*3.4,'244,156,65',(.025+.055*f)*alpha);
 }
 function water(ctx,polygon,key,t,alpha) {
   const [x0,y0,x1,y1]=bounds(polygon),w=x1-x0,h=y1-y0;
   ctx.save();clip(ctx,polygon);ctx.lineCap='round';
   field(key,28).forEach(p=>{
     const phase=t*.0007+p.p,depth=p.y;
-    const x=x0+p.x*w+Math.sin(phase)*3,y=y0+depth*h+Math.sin(phase*.6)*.65;
+    const x=x0+p.x*w+Math.sin(phase)*5,y=y0+depth*h+Math.sin(phase*.6)*.65;
     const len=3+(5+depth*12)*p.s;
-    const g=ctx.createLinearGradient(x-len,y,x+len,y);const a=(.03+.07*Math.pow(Math.sin(phase),2))*alpha;
+    const g=ctx.createLinearGradient(x-len,y,x+len,y);const a=(.04+.17*Math.pow(Math.sin(phase),2))*alpha;
     g.addColorStop(0,'rgba(190,211,229,0)');g.addColorStop(.5,`rgba(190,211,229,${a})`);g.addColorStop(1,'rgba(190,211,229,0)');
     ctx.strokeStyle=g;ctx.lineWidth=.5+depth*.65;ctx.beginPath();ctx.moveTo(x-len,y);ctx.quadraticCurveTo(x,y-.6,x+len,y);ctx.stroke();
   });ctx.restore();
@@ -90,14 +104,14 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   // A little breeze in the painted foliage, confined inside the glass panes.
   // Reuse the painting itself; neither the mullions nor the bridge can move.
   (spec.foliage||[]).forEach((polygon,i)=>{
-    ctx.save();clip(ctx,polygon);ctx.globalAlpha=alpha*.55;
-    const dx=Math.sin(time*.00065+i*1.7)*.8,dy=Math.sin(time*.00041+i)*.22;
+    ctx.save();clip(ctx,polygon);ctx.globalAlpha=alpha*.85;
+    const dx=Math.sin(time*.00065+i*1.7)*2.4,dy=Math.sin(time*.00041+i)*.65;
     ctx.drawImage(scenePainting(img,id),dx,dy);ctx.restore();
   });
-  (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,x,y,h,time,x*.01+i,alpha));
+  (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,img,x,y,h,time,x*.01+i,alpha));
   if(spec.reflection){
     const [x,y,rx,ry]=spec.reflection,f=flicker(time,x*.01);
-    ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.014+.025*f)*alpha);ctx.restore();
+    ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
   }
   (spec.lights||[]).forEach(([x,y],i)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha));
   if(spec.water)water(ctx,spec.water,id+wide,time,alpha);
@@ -123,8 +137,8 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
     field(id+wide+'dust',18).forEach(p=>{
       const x=x0+(p.x*w+time*.0017)%w,y=y0+(p.y*h+time*.0011)%h;
       const edge=Math.sin((x-x0)/w*Math.PI)*Math.sin((y-y0)/h*Math.PI);
-      ctx.fillStyle=`rgba(235,225,183,${edge*(.07+.09*p.s)*alpha})`;
-      ctx.beginPath();ctx.arc(x,y,.35+p.s*.4,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=`rgba(235,225,183,${edge*(.12+.17*p.s)*alpha})`;
+      ctx.beginPath();ctx.arc(x,y,.45+p.s*.55,0,Math.PI*2);ctx.fill();
     });ctx.restore();
   }
   ctx.restore();

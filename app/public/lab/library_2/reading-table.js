@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260925i';
+import { readingApi } from './catalogue.js?v=20260925j';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -299,14 +299,13 @@ function wire(view, table, demo, keepBookId) {
   $('rt-prev').onclick = () => select(current - 1, true);
   $('rt-next').onclick = () => select(current + 1, true);
   $('rt-more').onclick = () => { const open = $('rt-recap-box').classList.toggle('open'); $('rt-more').textContent = open ? 'Show less' : 'Read more'; };
-  if (!window.__library2KeysWired) {
-    window.__library2KeysWired = true;
-    addEventListener('keydown', e => {
-      if (!document.documentElement.classList.contains('returning') || e.target.closest?.('input,textarea')) return;
-      if (e.key === 'ArrowLeft') document.getElementById('rt-prev')?.click();
-      if (e.key === 'ArrowRight') document.getElementById('rt-next')?.click();
-    });
-  }
+  // Arrow keys belong to the focused reading table, never to a dialog above it.
+  view.addEventListener('keydown', e => {
+    if (e.defaultPrevented || e.target.closest?.('input,textarea,select,[contenteditable]')) return;
+    if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    e.preventDefault();
+    select(current + (e.key === 'ArrowRight' ? 1 : -1), true);
+  });
   // Spines take the binding nearest the cover artwork's own colour.
   books.forEach((book, i) => {
     const img = book.querySelector('.rt-front img');
