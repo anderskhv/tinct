@@ -57,3 +57,32 @@ it('joins a split word fragment to the same painted range and includes its prece
   expect(ranges).toHaveLength(1)
   expect(ranges[0].toString()).toBe('you, inas')
 })
+
+it('installs its stylesheet once and keeps its class when React rewrites the passage classes', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  const made: number[] = []
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges; made.push(ranges.length) } })
+  function Spoken({ current }: { current: number }) {
+    const ref = useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref)
+    return <article ref={ref} className={`lab-passage word-${current}`}><p className="lab-hearing-line">
+      {['one', 'two', 'three'].map((word, index) => <span key={word} data-testid="lab-word" data-paragraph-index={0} data-word-index={index}
+        className={[index === current ? 'is-current' : '', index === 2 ? 'is-hl-sky' : ''].filter(Boolean).join(' ')}>{word} </span>)}
+    </p></article>
+  }
+  const styles = () => document.head.querySelectorAll('style').length
+  const view = render(<Spoken current={0} />)
+  const installed = styles()
+  const builds = made.length
+  const article = view.container.querySelector('article')!
+  expect(article.classList.contains('has-text-range-highlights')).toBe(true)
+  // The spoken word moves: the passage's className changes, the highlight does not.
+  view.rerender(<Spoken current={1} />)
+  view.rerender(<Spoken current={2} />)
+  expect(styles()).toBe(installed)
+  expect(made.length).toBe(builds)
+  expect(article.classList.contains('has-text-range-highlights')).toBe(true)
+  view.unmount()
+  expect(registry.size).toBe(0)
+})

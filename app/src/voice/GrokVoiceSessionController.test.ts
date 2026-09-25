@@ -419,6 +419,56 @@ describe('microphone lifecycle', () => {
     expect(controller.getSnapshot()).toMatchObject({ micMuted: true, isActive: true })
   })
 
+  it('tries once more with a fresh secret when the connection drops while setting up', async () => {
+    const secrets: string[] = []
+    const fetchMock = vi.fn(async () => {
+      secrets.push(`s${secrets.length + 1}`)
+      return { ok: true, status: 200, json: async () => ({ value: secrets[secrets.length - 1], model: 'grok-voice' }) }
+    })
+    const sockets: Array<{ protocols: string[]; listeners: Record<string, Array<() => void>>; close: () => void }> = []
+    class FakeSocket {
+      readyState = 0
+      listeners: Record<string, Array<() => void>> = {}
+      constructor(_url: string, public protocols: string[]) {
+        sockets.push(this)
+        // The first connection drops before the session is ready, as on a flaky mobile network.
+        if (sockets.length === 1) setTimeout(() => this.listeners.close?.forEach(listener => listener()), 5)
+      }
+      addEventListener(type: string, listener: () => void) { (this.listeners[type] ??= []).push(listener) }
+      send() {}
+      close() {}
+    }
+    vi.stubGlobal('fetch', fetchMock)
+    vi.stubGlobal('WebSocket', FakeSocket)
+    vi.stubGlobal('navigator', { mediaDevices: { getUserMedia: async () => ({ getTracks: () => [], getAudioTracks: () => [] }) } })
+    const controller = new GrokVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+    Object.assign(controller, { startCapture: vi.fn() })
+    const started = controller.start({ authToken: 'token', isAnonymous: false, context: { bookId: 'bible', bookTitle: 'The Bible', bookAuthor: 'Various', chapterLabel: 'Genesis 1' }, audio: { pausePlayback: () => null, resumePlayback: vi.fn() }, wasPlaying: false })
+    await vi.waitFor(() => expect(sockets).toHaveLength(2), { timeout: 3000 })
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(sockets[1].protocols).toEqual(['xai-client-secret.s2'])
+    expect(controller.getSnapshot()).toMatchObject({ isActive: true, error: null })
+    controller.handleEvent({ type: 'session.updated' })
+    await started
+    expect(controller.getSnapshot()).toMatchObject({ connection: 'connected', error: null })
+    controller.stop()
+    vi.unstubAllGlobals()
+  })
+
+  it('does not retry what the account decides: an exhausted balance fails at once', async () => {
+    const fetchMock = vi.fn(async () => ({ ok: false, status: 402, json: async () => ({ error: 'Out of messages.' }) }))
+    const onInsufficientBalance = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    vi.stubGlobal('navigator', { mediaDevices: { getUserMedia: async () => ({ getTracks: () => [], getAudioTracks: () => [] }) } })
+    const controller = new GrokVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn(), onInsufficientBalance })
+    Object.assign(controller, { startCapture: vi.fn() })
+    await controller.start({ authToken: 'token', isAnonymous: false, context: { bookId: 'bible', bookTitle: 'The Bible', bookAuthor: 'Various', chapterLabel: 'Genesis 1' }, audio: { pausePlayback: () => null, resumePlayback: vi.fn() }, wasPlaying: false })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(onInsufficientBalance).toHaveBeenCalled()
+    expect(controller.getSnapshot()).toMatchObject({ isActive: false, error: 'Out of messages.' })
+    vi.unstubAllGlobals()
+  })
+
   it('does not bill a session while microphone permission is pending', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)

@@ -35,11 +35,19 @@ export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 
 /** `src` reported while a narration chunk is being prepared: truthy so the shell resumes through the hook, never a URL. */
 export const NARRATION_PENDING_SRC = 'narration:pending'
-export const NARRATION_BUFFER_TARGET_SECONDS = 45
+/**
+ * Seconds of narration (at 1x) kept generated ahead of the playhead. Groups
+ * generate in ~4 s (median, 2026-09-25) but each ensure round and download
+ * crosses a phone's mobile network; 45 s kept playback only just ahead in a
+ * car and ran dry. Stopping early wastes at most this much text: about 2 KB.
+ */
+export const NARRATION_BUFFER_TARGET_SECONDS = 150
+/** Ready clips after the playing one whose audio is downloaded ahead of its turn. */
+export const NARRATION_DOWNLOAD_AHEAD = 2
 
 /**
- * How many sentence groups the look-ahead prepares at once: one at normal
- * speed (as always), more when playback outruns a single synthesis.
+ * How many sentence groups a round prepares at once, by playback speed: at
+ * speed a single synthesis cannot keep up with the listening.
  */
 export function narrationLookAheadWidth(rate: number): number {
   if (!Number.isFinite(rate) || rate < 1.5) return 1
@@ -183,6 +191,8 @@ export function useLabListen(options: UseLabListenOptions) {
   const narrationHashesRef = useRef<Map<number, string>>(new Map())
   const narrationRoundRef = useRef<Promise<NarrationParagraphResult[]> | null>(null)
   const narrationLookAheadRef = useRef<Promise<void> | null>(null)
+  /** Clip URLs already downloaded ahead of their turn (downloadAhead). */
+  const downloadedRef = useRef(new Set<string>())
   const narrationRetryRef = useRef<(() => void) | null>(null)
   const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
   const pendingPlaceRef = useRef<PlaceInput | null>(null)
@@ -476,12 +486,39 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [ensureRound, nextMissingGroups, setPending])
 
   /**
-   * Keep roughly 45 seconds ready ahead of the actual playhead,
-   * one sentence group per round, ahead of playback. One loop at a time; it
+   * Keep NARRATION_BUFFER_TARGET_SECONDS ready ahead of the actual playhead,
+   * one sentence group per round at normal speed (a group generates in a
+   * few seconds, well inside its own length), several side by side at speed. One loop at a time; it
    * follows the playing clip as it moves and ends on a tuple change, a stop,
    * or when nothing in the window is missing. Failures here are silent — the
    * clip that fails is retried, with a visible state, when playback reaches it.
    */
+  /**
+   * Download the next ready clips' audio before their turn, so a group
+   * boundary does not wait on a fresh fetch over a slow connection. The audio
+   * route sends long-lived public caching; the element's own request is then
+   * answered from the browser cache. Only the ready run right after the
+   * playing clip, only same-origin audio, each URL once.
+   */
+  const downloadAhead = useCallback(() => {
+    if (typeof fetch !== 'function') return
+    let queued = 0
+    for (let position = clipIndexRef.current + 1; position < clipsRef.current.length && queued < NARRATION_DOWNLOAD_AHEAD; position += 1) {
+      const clip = clipsRef.current[position]
+      if (clip.kind !== 'paragraph' || !clip.narration) continue
+      const url = clip.url
+      if (!url || !url.startsWith('/')) break
+      queued += 1
+      if (downloadedRef.current.has(url)) continue
+      downloadedRef.current.add(url)
+      // Never in the way of playback: a failed or odd fetch only forgets the URL.
+      void Promise.resolve()
+        .then(() => fetch(url, { cache: 'force-cache', credentials: 'same-origin' }))
+        .then(response => (response?.ok ? response.arrayBuffer() : Promise.reject(new Error(String(response?.status)))))
+        .catch(() => { downloadedRef.current.delete(url) })
+    }
+  }, [])
+
   const scheduleNarrationLookAhead = useCallback(() => {
     const narration = optionsRef.current.narration
     if (!narration || narrationLookAheadRef.current) return
@@ -519,6 +556,7 @@ export function useLabListen(options: UseLabListenOptions) {
         const before = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete), fromChunks, width > 1 ? targets : undefined)
         if (!outcome.ok && outcome.reason === 'cancelled') return
+        downloadAhead()
         const after = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         if (after === before) {
           idle += 1
@@ -530,7 +568,7 @@ export function useLabListen(options: UseLabListenOptions) {
       }
     }
     narrationLookAheadRef.current = loop().finally(() => { narrationLookAheadRef.current = null })
-  }, [ensureRound])
+  }, [ensureRound, downloadAhead])
 
   const retryNarration = useCallback(() => {
     const retry = narrationRetryRef.current
@@ -817,7 +855,7 @@ export function useLabListen(options: UseLabListenOptions) {
     syncFollow(index, offsetSeconds)
     playingRef.current = true
     setPlaying(true)
-    if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead()
+    if (clip.kind === 'paragraph' && clip.narration) { scheduleNarrationLookAhead(); downloadAhead() }
     void playAudioTransition(
       audio,
       expectedSrc,
