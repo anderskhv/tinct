@@ -1,0 +1,265 @@
+{
+ "verifier": "V03",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "results": [
+  {
+   "claim_id": "G05-frankenstein-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served original-en is PG #84 (100% of served 8-grams), which carries the 1831 revised text: 97.7% of served 8-grams occur in PG #42324 (1831) vs 81.7% in PG #41445 (1818); chapters 1-2 0.97 vs 0.28. The 'Original (1831)' label therefore implies the 1831 front matter. PG #42324 Introduction ll.60-264 (2,248 w), Preface ll.269-327 (572 w); Wikisource 1831 copy identical. Thirteen distinctive phrases: 0 hits in all editions. Extent 2,820 (claim adds 5-word half-title).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/84/pg84.txt",
+     "sha256": "7810cd483cffcf2cc8a1d8f0d5807931e69d4f48cd14149b8c76f88af82fead3",
+     "retrieved_utc": "2026-09-25T12:26:44Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/42324/pg42324.txt",
+     "sha256": "34a453edf60de4b66d9b918aeaf48313ddd712a89cc78555e3fc240681c03733",
+     "retrieved_utc": "2026-09-25T12:26:38Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/41445/pg41445.txt",
+     "sha256": "54b2faba2485a5697606ecd0e4afb574e14bab51820bef4efa72ce8c91eff787",
+     "retrieved_utc": "2026-09-25T12:26:39Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Frankenstein,_or_the_Modern_Prometheus_(Revised_Edition,_1831)/Introduction",
+     "sha256": "2c72e6bea316b1c03e71c4b04a72b705c09d7e9d25694538c530580fdd61e6fd",
+     "retrieved_utc": "2026-09-25T12:30:58Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Frankenstein,_or_the_Modern_Prometheus_(Revised_Edition,_1831)/Preface",
+     "sha256": "e5ea49607fe9a64ed3a3464b53c8764894413494ebf8c4995896ce659150f4f8",
+     "retrieved_utc": "2026-09-25T12:31:10Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-odyssey-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en 3.37 (208 w) = Butler's 12-word clause + 29-word invented Nestor speech + 167 words byte-identical to modern-en 3.36; modern-en 3.37 (207 w) and modern-da 3.37 (193 w) mirror it. PG #1727 (txt l.1539, HTML) and the MIT Classics copy end Book III 'Now when the sun had set and darkness was over the land,'; the speech occurs in neither. Staged fix 7994156f1 (unmerged) pins the served hash da03f6ac, so main still serves the splice.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1727/pg1727.txt",
+     "sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+     "retrieved_utc": "2026-09-25T12:28:42Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1727/pg1727-images.html",
+     "sha256": "16ecc8e7d62f6000190b2573bcc5201ba7731732f11cbb49508e63781281ac7e",
+     "retrieved_utc": "2026-09-25T12:28:42Z"
+    },
+    {
+     "url": "https://classics.mit.edu/Homer/odyssey.3.iii.html",
+     "sha256": "10fa96973345232055dc49b62ea5b3f71d4a7f3ee73150dd727b34cbecda342b",
+     "retrieved_utc": "2026-09-25T12:30:22Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-jekyll-and-hyde-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served original-en = PG #43 (99.99% of its 8-grams; 1.0 'countenance that' without PG #42's comma), and PG #43 has no dedication. PG #42 ll.40-46 and the scan-backed Wikisource 1886 Longmans first edition both print 'TO KATHARINE DE MATTOS.' plus the four-line verse before Contents; the label is 'Stevenson (1886)'. 4+44 = 48 words. Seven distinctive phrases: 0 hits in original-en, modern-en and modern-da.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/43/pg43.txt",
+     "sha256": "b43448a88391591f9cf82b25553df00faf47a2752a873185fcdd1156eebdb990",
+     "retrieved_utc": "2026-09-25T12:31:54Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/42/pg42.txt",
+     "sha256": "6f5ebfb79a24bb24e88c8f7e5f35515321e545bf4f137fce6e406c9da0bb2b59",
+     "retrieved_utc": "2026-09-25T12:31:54Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Strange_Case_of_Dr_Jekyll_and_Mr_Hyde",
+     "sha256": "d5a4cb2cdd9a653750131d4c72ec9e8777a5462b08ab820467a068363acb4d1e",
+     "retrieved_utc": "2026-09-25T12:32:33Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-jane-eyre-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions and the chapter shards open at Chapter 1. PG #1260 Preface ll.59-153 (794 w) + Note to the Third Edition ll.154-173 (98 w) = 892; ten distinctive phrases 0 hits in three editions. The first edition had neither: the Preface says so, and the Wikisource 1847 first-edition transcription runs title page to Chapter I. Defensible scope under 'Original (1847)', although the served body follows PG #1260's later text, which contains both.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1260/pg1260.txt",
+     "sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+     "retrieved_utc": "2026-09-25T12:32:50Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Jane_Eyre_(1st_edition)",
+     "sha256": "be99ba0d07623ebed22c48e37f6b8b090dd6f11308c78b92ab23e5b9d4a69cee",
+     "retrieved_utc": "2026-09-25T12:33:49Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-the-prince-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All 48 listed coordinates are standalone paragraphs equal to PG #1232's 48 footnote blocks (ll.645-3639; HTML class 'footnote'); the same coordinates carry renderings in modern-en and modern-da. 17 chapters, 48/254 paragraphs (18.9%), 1,618 words in original-en. Markers are stripped, so the notes are unanchored; 19.0 opens Chapter 18 with the Burd note, and 4.11 cites Marriott's unserved Introduction. The 1908 Dent first-issue scan prints these as back-matter 'NOTES AND REFERENCES': editorial, not Machiavelli.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1232/pg1232.txt",
+     "sha256": "33496a305f7a4b933784fb5aec95f920fbc3d4687794817e4cc444aa6578d2e4",
+     "retrieved_utc": "2026-09-25T12:34:39Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1232/pg1232-images.html",
+     "sha256": "b70e31faf96a3b3d5a3f6877e05feac639e7359844a163ce12786362b02a799f",
+     "retrieved_utc": "2026-09-25T12:34:40Z"
+    },
+    {
+     "url": "https://archive.org/download/princethe00machuoft/princethe00machuoft_djvu.txt",
+     "sha256": "c7e365be15ac013f5d85bda0c33d4709edc95a8aa6d3d9d5cec2425bf3e61e6a",
+     "retrieved_utc": "2026-09-25T12:36:31Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-the-prince-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "94 '[p. N modifica]' markers (N 4-102; 282 tokens) in 75/92 paragraphs and 25/27 chapters (none in chapters 2-3); first at 1.0 'da me non [p. 4 modifica]li possa'. They are it.wikisource ProofreadPage page-number chrome (span.numeropagina, ws-noexport noprint). The served marker sequence equals Wikisource's minus 27 heading-top markers; otherwise the Italian word sequence is identical to the 27 subpages (Italia, 1814; SAL 100%).",
+   "sources": [
+    {
+     "url": "https://it.wikisource.org/wiki/Il_Principe (Dedica + Capitolo_I..XXVI, 27 subpages; sha256 = concatenated HTML in that order)",
+     "sha256": "d1f9fdbd88742b2f2599240725092bc796ae4ea8f9daaeabd42d542618a84f5d",
+     "retrieved_utc": "2026-09-25T12:38:32Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-candide-01",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "edition label (app/src/data/bookRegistry.ts:2278-2280) and books/raw/candide/SOURCE.md",
+    "extent_words": 0,
+    "severity": "S2",
+    "type": "MISLABELED",
+    "editions": [
+     "original-en"
+    ]
+   },
+   "evidence": "Served original-en is PG #19942 (100% of served 6-grams; 16.4% in the 1901 set): Modern Library, Boni & Liveright 1918, introduction by Philip Littell, translator unnamed. Werner c1901 Works of Voltaire vol. 1 opens 'IN THE country of Westphalia, in the castle of the most noble baron' and ends 'let us take care of our garden'. The label 'Fleming (1901)' (bookRegistry.ts:2278-2280) is shown as 'Human translation by William F. Fleming'. Edition-wide misattribution: S2 'wholesale mislabelling'.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/19942/pg19942.txt",
+     "sha256": "fb3943df826f375c4ab78d21f2d30bc95a0b2cb448e8812447a807d678eb0b5c",
+     "retrieved_utc": "2026-09-25T12:39:40Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/19942/pg19942-images.html",
+     "sha256": "513550eb3394580db13e474736cd12f6a263c26e4363d9ad4fa34628ffcf11bf",
+     "retrieved_utc": "2026-09-25T12:39:41Z"
+    },
+    {
+     "url": "https://archive.org/download/worksofvoltairec01voltiala/worksofvoltairec01voltiala_djvu.txt",
+     "sha256": "9d141a78ae59b8797b032cf06fe0e2944d0e94fc0c91b5d4968de19a5aa5b7c7",
+     "retrieved_utc": "2026-09-25T12:40:06Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G05-candide-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en carries 34 numerals [1]-[33] and [35] exactly at the claimed coordinates (22.90 has [28][29][30]); modern-en and modern-da have none. PG #19942 FOOTNOTES ll.4152-4323 (35 editorial notes keyed to 1918 page numbers) are not served, so every marker dangles. [34] sat on the Chapter XXVI heading (ll.3528-3529) and was dropped with it. 34 tokens; cosmetic.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/19942/pg19942.txt",
+     "sha256": "fb3943df826f375c4ab78d21f2d30bc95a0b2cb448e8812447a807d678eb0b5c",
+     "retrieved_utc": "2026-09-25T12:39:40Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/19942/pg19942-images.html",
+     "sha256": "513550eb3394580db13e474736cd12f6a263c26e4363d9ad4fa34628ffcf11bf",
+     "retrieved_utc": "2026-09-25T12:39:41Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V03-N1",
+   "label": "NEW (not in claim)",
+   "book": "jane-eyre",
+   "editions": [
+    "modern-da"
+   ],
+   "type": "MISSING",
+   "severity_suggested": "S2",
+   "location": "ch.30 (e.g. 30.1, 30.11, 30.12 truncated); 34.80-34.130 (modern-da) standing for 34.80-34.128 (original-en)",
+   "extent_words": null,
+   "evidence": "Presence check only (Danish is out of delivery scope but still served). Ch.30: modern-da 2,233 vs original-en 3,693 words on equal paragraph counts (30.1: 52 vs 274; 30.11: 45 vs 212; 30.12: 47 vs 194). Ch.34: da 34.80-34.130 (1,244 w) stand where EN 34.80-34.128 (2,598 w) have St John's walk to the glen and his proposal; e.g. EN 34.111 (246 w) and 34.114 (355 w) have no counterparts; 'India' occurs 10x in EN vs 'Indien' once in DA; resync at da 34.131 = EN 34.129."
+  },
+  {
+   "id": "V03-N2",
+   "label": "NEW (not in claim)",
+   "book": "frankenstein",
+   "editions": [
+    "modern-da"
+   ],
+   "type": "MISSING",
+   "severity_suggested": "S3",
+   "location": "25.41, 25.42",
+   "extent_words": 54,
+   "evidence": "Presence check: modern-da 25.41 omits the Mr. Kirwin sentence (17 w in original-en; 'Kirwin' absent), and 25.42 omits 'Soon, oh, very soon, will death extinguish these throbbings... I shall also sink to rest.' (37 w). modern-en has both."
+  },
+  {
+   "id": "V03-N3",
+   "label": "NEW (not in claim)",
+   "book": "odyssey",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "type": "COSMETIC",
+   "severity_suggested": "S4",
+   "location": "3.0, 4.0",
+   "extent_words": 0,
+   "evidence": "Served 3.0 'But as the sun…' and 4.0 'They reached…' are capitalised where PG #1727 continues in lower case ('but', 'they'). This is already an owner-level typographic question in the staged package (ledger A7, options B/B+/C); it is independent of the 3.37 truncation.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1727/pg1727.txt",
+     "sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+     "retrieved_utc": "2026-09-25T12:28:42Z"
+    }
+   ]
+  },
+  {
+   "id": "V03-N4",
+   "label": "NEW (not in claim)",
+   "book": "jane-eyre",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "type": "SCOPE",
+   "severity_suggested": "S4",
+   "location": "before 1.0; edition label",
+   "extent_words": 13,
+   "evidence": "The separate second-edition dedication page 'TO W. M. THACKERAY, ESQ., This Work IS RESPECTFULLY INSCRIBED BY THE AUTHOR' (PG #1260 ll.47-54) is also unserved; same scope class as G05-jane-eyre-01. The served body follows PG #1260's later text, not the 1847 first edition: ch.1 'A breakfast-room' vs 1847 'A small breakfast-room', 'other ballads' vs 'older ballads', 'in my bones' vs 'on my bones'. 'Original (1847)' is a first-publication-year label.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1260/pg1260.txt",
+     "sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+     "retrieved_utc": "2026-09-25T12:32:50Z"
+    },
+    {
+     "url": "https://en.wikisource.org/wiki/Jane_Eyre_(1st_edition)/Volume_1/Chapter_1",
+     "sha256": "b34b75827ecb81eb2655aadb45b66ec74b968db8ed9b9090a1cbf18bf4ac9fbd",
+     "retrieved_utc": "2026-09-25T12:34:08Z"
+    }
+   ]
+  }
+ ]
+}
