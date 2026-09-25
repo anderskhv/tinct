@@ -294,11 +294,51 @@ async function readJsonObject<T>(bucket: R2Bucket, key: string): Promise<T | nul
   try { return await object.json() as T } catch { return null }
 }
 
-async function readMapEntry(bucket: R2Bucket, key: string): Promise<NarrationMapEntry | null> {
-  const entry = await readJsonObject<NarrationMapEntry>(bucket, key)
+function validMapEntry(entry: NarrationMapEntry | null): NarrationMapEntry | null {
   if (!entry || entry.version !== NARRATION_CACHE_VERSION || entry.chunker !== NARRATION_CHUNKER_VERSION) return null
   if (typeof entry.textHash !== 'string' || !Array.isArray(entry.chunks) || typeof entry.chunkCount !== 'number') return null
   return entry
+}
+
+async function readMapEntry(bucket: R2Bucket, key: string): Promise<NarrationMapEntry | null> {
+  return validMapEntry(await readJsonObject<NarrationMapEntry>(bucket, key))
+}
+
+/**
+ * Write a paragraph's map without losing another request's chunks. Two
+ * ensure requests for one paragraph run side by side (the reader's
+ * look-ahead and its playback round); a plain read-merge-put let the later
+ * put drop the chunk the earlier one had just listed (2026-09-25: 17
+ * Confessions paragraphs listed as incomplete with every chunk made), and
+ * readers saw it as not ready. Each attempt merges into the map as last read
+ * and is written only if nobody wrote in between (R2 etag condition);
+ * otherwise it reads again and re-merges.
+ */
+export async function publishNarrationMap(
+  bucket: R2Bucket,
+  key: string,
+  build: (existing: NarrationMapEntry | null) => NarrationMapEntry,
+  attempts = 4,
+): Promise<NarrationMapEntry> {
+  let entry: NarrationMapEntry | null = null
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const object = await withOneRetry(() => bucket.get(key))
+    let existing: NarrationMapEntry | null = null
+    if (object) { try { existing = validMapEntry(await object.json() as NarrationMapEntry) } catch { existing = null } }
+    entry = build(existing)
+    const body = JSON.stringify(entry)
+    const options: R2PutOptions = { httpMetadata: { contentType: 'application/json' } }
+    const etag = object && typeof (object as { etag?: unknown }).etag === 'string' ? (object as { etag: string }).etag : null
+    // With a map to replace, only replace that version; if another request
+    // wrote since our read, merge into theirs. A paragraph's first map has no
+    // version to condition on: two creators at the same moment can still
+    // race there (rare: it needs two groups of one new paragraph made side by
+    // side), and a later ensure re-lists the missing chunk by probe.
+    const written = await bucket.put(key, body, etag ? { ...options, onlyIf: { etagMatches: etag } } : options)
+    if (etag && written === null) continue
+    return entry
+  }
+  return entry!
 }
 
 interface ReadyChunk {
@@ -971,23 +1011,23 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const writeMap = async () => {
       // Never shorten the map: keep every chunk the existing entry lists
       // beyond our prefix whose identity still matches today's text.
-      const existing = await readMapEntry(bucket, mapKey)
-      const listed = listedChunksForMap(existing, state.ready, chunks, identities, textHash, voice.id, config.model)
-      const mapEntry: NarrationMapEntry = {
-        version: NARRATION_CACHE_VERSION,
-        textHash,
-        chunker: NARRATION_CHUNKER_VERSION,
-        chunkCount: chunks.length,
-        voiceKey: voice.key,
-        voiceId: voice.id,
-        model: config.model,
-        bookId, editionKey, chapter, paragraphIndex: index,
-        chunks: listed,
-        complete: listed.length === chunks.length,
-        publishedAt: new Date(now()).toISOString(),
-      }
-      await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
-      return listed
+      const written = await publishNarrationMap(bucket, mapKey, existing => {
+        const listed = listedChunksForMap(existing, state.ready, chunks, identities, textHash, voice.id, config.model)
+        return {
+          version: NARRATION_CACHE_VERSION,
+          textHash,
+          chunker: NARRATION_CHUNKER_VERSION,
+          chunkCount: chunks.length,
+          voiceKey: voice.key,
+          voiceId: voice.id,
+          model: config.model,
+          bookId, editionKey, chapter, paragraphIndex: index,
+          chunks: listed,
+          complete: listed.length === chunks.length,
+          publishedAt: new Date(now()).toISOString(),
+        }
+      })
+      return written.chunks
     }
 
     while (state.ready.length < chunks.length && !generationDone && !failure) {
