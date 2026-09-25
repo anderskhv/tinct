@@ -37,6 +37,15 @@ export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 export const NARRATION_PENDING_SRC = 'narration:pending'
 export const NARRATION_BUFFER_TARGET_SECONDS = 45
 
+/**
+ * How many sentence groups the look-ahead prepares at once: one at normal
+ * speed (as always), more when playback outruns a single synthesis.
+ */
+export function narrationLookAheadWidth(rate: number): number {
+  if (!Number.isFinite(rate) || rate < 1.5) return 1
+  return rate < 2.5 ? 2 : 3
+}
+
 export interface UseLabListenOptions {
   playbackUnavailable?: boolean
   /** V2: cancelled or superseded play requests cannot skip or repaint clips. */
@@ -148,6 +157,8 @@ export function useLabListen(options: UseLabListenOptions) {
   const [clipIndex, setClipIndex] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
   const [speed, setSpeedState] = useState(() => parseHearingSpeed(options.playbackSpeed) ?? 1)
+  const speedRef = useRef(speed)
+  speedRef.current = speed
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
   const [clips, setClips] = useState<LabAudioClip[]>([])
   const publishPositionRef = useRef<() => void>(() => {})
@@ -323,7 +334,13 @@ export function useLabListen(options: UseLabListenOptions) {
    * requested paragraph. Rounds are serialised so two loops never race the
    * same chunk; a caller that finds a round in flight awaits it.
    */
-  const ensureRound = useCallback(async (indexes: number[], satisfied?: () => boolean, fromChunks?: Record<number, number>): Promise<NarrationOutcome> => {
+  const ensureRound = useCallback(async (
+    indexes: number[],
+    satisfied?: () => boolean,
+    fromChunks?: Record<number, number>,
+    /** Several distinct sentence groups to prepare at once (fast playback); the first is the one reported on. */
+    parallel?: Array<{ index: number; chunk: number }>,
+  ): Promise<NarrationOutcome> => {
     const generation = playRequestRef.current
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
@@ -335,7 +352,13 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     if (generation !== playRequestRef.current) return { ok: false, reason: 'cancelled' }
     const signal = narrationSignal()
-    const round = fromChunks ? narration.ensure(indexes, signal, 'next', fromChunks) : narration.ensure(indexes, signal, 'next')
+    // Each parallel request names its own sentence group: the Worker makes
+    // the first missing group at or after it, and its per-group lease keeps
+    // two readers (or two requests) from ever paying for the same one.
+    const round = parallel && parallel.length > 1
+      ? Promise.all(parallel.map(target => narration.ensure([target.index], signal, 'next', { [target.index]: target.chunk })))
+        .then(answers => answers.flat())
+      : fromChunks ? narration.ensure(indexes, signal, 'next', fromChunks) : narration.ensure(indexes, signal, 'next')
     narrationRoundRef.current = round
     try {
       const results = await round
@@ -393,6 +416,18 @@ export function useLabListen(options: UseLabListenOptions) {
    * stop, another play) superseded this one. A reader who pauses while
    * "Preparing narration…" must not hear the recording start on its own.
    */
+  /** The next `count` sentence groups after `target` that are not ready yet, in playing order. */
+  const nextMissingGroups = useCallback((target: ChunkTarget, count: number): Array<{ index: number; chunk: number }> => {
+    const clips = clipsRef.current
+    const from = clips.findIndex(clip => clip.kind === 'paragraph' && clip.index === target.paragraphIndex && (clip.chunk?.index ?? 0) === target.chunkIndex)
+    const found: Array<{ index: number; chunk: number }> = []
+    for (let position = from + 1; from >= 0 && position < clips.length && found.length < count; position += 1) {
+      const clip = clips[position]
+      if (clip.kind === 'paragraph' && !clip.url) found.push({ index: clip.index, chunk: clip.chunk?.index ?? 0 })
+    }
+    return found
+  }, [])
+
   const prepareThenRun = useCallback(async (target: ChunkTarget, resume: () => void) => {
     const request = ++narrationRequestRef.current
     const playRequest = playRequestRef.current
@@ -404,7 +439,17 @@ export function useLabListen(options: UseLabListenOptions) {
     // Each round lands one chunk; a chunk beyond the ready prefix needs as
     // many rounds as it is deep, plus a few for waits on other generators.
     for (let round = 0; round < target.chunkIndex + 6 && !chunkReady(target); round += 1) {
-      outcome = await ensureRound([target.paragraphIndex], () => chunkReady(target), { [target.paragraphIndex]: target.chunkIndex })
+      // Starting at speed, the groups after this one are asked for alongside
+      // it: the first handoff would otherwise wait on a synthesis that takes
+      // longer than this group plays.
+      const width = round === 0 ? narrationLookAheadWidth(speedRef.current) : 1
+      const following = width > 1 ? nextMissingGroups(target, width - 1) : []
+      outcome = await ensureRound(
+        [target.paragraphIndex],
+        () => chunkReady(target),
+        { [target.paragraphIndex]: target.chunkIndex },
+        following.length ? [{ index: target.paragraphIndex, chunk: target.chunkIndex }, ...following] : undefined,
+      )
       if (superseded()) return
       if (!outcome.ok) {
         if (outcome.reason !== 'pending' || polls >= 3) break
@@ -428,7 +473,7 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     setNarrationState({ status: 'idle' })
     resume()
-  }, [ensureRound, setPending])
+  }, [ensureRound, nextMissingGroups, setPending])
 
   /**
    * Keep roughly 45 seconds ready ahead of the actual playhead,
@@ -442,6 +487,9 @@ export function useLabListen(options: UseLabListenOptions) {
     if (!narration || narrationLookAheadRef.current) return
     const loop = async () => {
       let idle = 0
+      // At speed the buffer drains faster than one synthesis at a time can
+      // refill it (a ~20 s sentence group lasts ~7 s at 3x). Fast listening
+      // asks for the next groups side by side instead of one after another.
       for (let round = 0; round < 60; round += 1) {
         if (!playingRef.current) return
         const current = clipsRef.current[clipIndexRef.current]
@@ -449,21 +497,27 @@ export function useLabListen(options: UseLabListenOptions) {
         const indexes: number[] = []
         const fromChunks: Record<number, number> = {}
         let buffered = 0
-        const targetSeconds = NARRATION_BUFFER_TARGET_SECONDS * (audioRef.current?.playbackRate || 1)
+        const rate = audioRef.current?.playbackRate || 1
+        const targetSeconds = NARRATION_BUFFER_TARGET_SECONDS * rate
+        const width = narrationLookAheadWidth(rate)
+        const targets: Array<{ index: number; chunk: number }> = []
         for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds; position += 1) {
           const clip = clipsRef.current[position]
           if (clip.kind !== 'paragraph') continue
           if (clip.url && typeof clip.duration === 'number' && indexes.length === 0) {
             buffered += Math.max(0, clip.duration - (position === clipIndexRef.current ? positionRef.current.time : 0))
-          } else if (!clip.url && !indexes.includes(clip.index)) {
-            indexes.push(clip.index)
-            fromChunks[clip.index] = clip.chunk?.index ?? 0
-            if (indexes.length >= 3) break
+          } else if (!clip.url) {
+            if (!indexes.includes(clip.index)) {
+              indexes.push(clip.index)
+              fromChunks[clip.index] = clip.chunk?.index ?? 0
+            }
+            if (targets.length < width) targets.push({ index: clip.index, chunk: clip.chunk?.index ?? 0 })
+            if (indexes.length >= 3 && targets.length >= width) break
           }
         }
         if (buffered >= targetSeconds || indexes.length === 0) return
         const before = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
-        const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete), fromChunks)
+        const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete), fromChunks, width > 1 ? targets : undefined)
         if (!outcome.ok && outcome.reason === 'cancelled') return
         const after = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         if (after === before) {

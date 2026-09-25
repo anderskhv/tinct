@@ -18,6 +18,8 @@ export interface NarrationPrefetchInput {
   paragraphCount: number
   /** The paragraph the reader is at: the one being narrated, else the page's first paragraph. */
   currentParagraph: number
+  /** Playback speed: faster listening reaches the end sooner, so the next chapter warms earlier. */
+  speed?: number
   authToken?: string | null
   readToken?: () => Promise<string | null>
   /** Test seam. */
@@ -49,7 +51,8 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
   const inputRef = useRef(input)
   inputRef.current = input
   const { active, voice, bookId, editionKey, chapter, nextChapter, paragraphCount, currentParagraph } = input
-  const nearEnd = paragraphCount > 0 && currentParagraph >= paragraphCount - NARRATION_PREFETCH_TAIL
+  const tail = Math.ceil(NARRATION_PREFETCH_TAIL * Math.max(1, Math.min(3, input.speed ?? 1)))
+  const nearEnd = paragraphCount > 0 && currentParagraph >= paragraphCount - tail
 
   const warmChapter = (target: number, key: string) => {
     const controller = new AbortController()

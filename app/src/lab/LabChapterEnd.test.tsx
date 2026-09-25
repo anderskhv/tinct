@@ -32,7 +32,7 @@ it('opens Preview only on an explicit click without triggering book gestures', (
   render(<div onClick={onReader}><LabChapterHeading title="Chapter One" preview onPreview={onPreview} /></div>)
   expect(onPreview).not.toHaveBeenCalled()
   expect(screen.getByRole('heading').textContent).toBe('Chapter One')
-  fireEvent.click(screen.getByRole('button', { name: 'Preview Chapter One' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
   expect(onPreview).toHaveBeenCalledTimes(1)
   expect(onReader).not.toHaveBeenCalled()
 })

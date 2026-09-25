@@ -88,7 +88,7 @@ for(const config of configs){
   await preview.click()
   await p.getByTestId('lab-ask-turn-assistant').waitFor()
   assert.equal(calls.length,1)
-  assert.equal(calls[0].messages.at(-1).content,'Preview this chapter.')
+  assert.equal(calls[0].messages.at(-1).content,'Give me a primer on this chapter.')
   assert.equal(calls[0].book.chapterNumber,config.chapter)
   assert.equal(calls[0].book.editionKey,'kjv-en')
   assert.match(calls[0].system,new RegExp('"targetChapterNumber":'+config.chapter+'[,}]'))

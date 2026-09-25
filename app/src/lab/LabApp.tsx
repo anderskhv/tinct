@@ -133,7 +133,7 @@ import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
-import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
+import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, splitLabPagesAtAnchor, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
@@ -743,6 +743,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
    * That overwrite is what the reader saw as the flicker.
    */
   const swapCommittedRef = useRef<{ paragraphs: string[]; pages: ChapterHearingPage[] } | null>(null)
+  /**
+   * Phone Compare's passage: the compare edition's equivalent [start, end) of
+   * the main page the flip started from, and the main place to return to
+   * from its first page. Every compare page map is cut to it (when it fits a
+   * page) so re-measuring cannot undo the cut.
+   */
+  const comparePassageRef = useRef<{ paragraphs: string[]; start: LabCompareAnchor; end: LabCompareAnchor; entryPlace: LabCompareAnchor } | null>(null)
+  const [comparePageEnd, setComparePageEnd] = useState<{ paragraphs: string[]; at: LabCompareAnchor } | null>(null)
+  const withComparePassage = useCallback((pages: ChapterHearingPage[], paragraphs: string[]) => {
+    const passage = comparePassageRef.current
+    return passage && passage.paragraphs === paragraphs ? labComparePassagePages(pages, passage.start, passage.end).pages : pages
+  }, [])
   /** The transient pill that names the version just swapped to. */
   const [versionPill, setVersionPill] = useState<{ label: string; nonce: number } | null>(null)
   // A later page or chapter action owns the reader. This prevents an older
@@ -779,6 +791,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useEffect(() => {
     if (!mobileCompareEnabled && book.paragraphs.length > 0) setMobileCompareActive(false)
   }, [book.paragraphs.length, mobileCompareEnabled])
+
+  // The passage belongs to one flip: it ends when Compare does.
+  useEffect(() => {
+    if (mobileCompareActive) return
+    comparePassageRef.current = null
+    setComparePageEnd(null)
+  }, [mobileCompareActive])
 
   useEffect(() => {
     if (!desktopCompareEnabled && book.paragraphs.length > 0) setDesktopCompareActive(false)
@@ -1064,6 +1083,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
     paragraphCount: book.paragraphs.length,
     currentParagraph: narrationCurrentParagraph,
+    speed: listen.speed,
     authToken,
     readToken: readSupabaseAccessToken,
   })
@@ -1480,7 +1500,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const naturalNext = settledPrimaryPages
       ?? swapped
       ?? chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
-    const next = explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext
+    const next = withComparePassage(explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext, readerParagraphs)
     swapCommittedRef.current = null
     if (settledPrimaryPages || swapped) {
       if (settledPrimaryPages) mobilePrimaryPagesRef.current = null
@@ -1543,7 +1563,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!canUseLabPageBudget(budget)) return
     didBudgetPageRef.current = true
     const naturalNext = chapterHearingPages(readerParagraphs, budget)
-    const next = explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext
+    const next = withComparePassage(explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext, readerParagraphs)
     const keep = pageAnchorRef.current
     const landing = chapterLandingRef.current
     readingPagesRef.current = next
@@ -1609,9 +1629,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const explicitPages = explicitStartAnchor
       ? chapterHearingPages(nativeContentRef.current, canUseLabPageBudget(explicitBudget) ? explicitBudget : null)
       : null
-    const next = explicitStartAnchor && explicitPages
+    const next = withComparePassage(explicitStartAnchor && explicitPages
       ? splitLabPagesAtAnchor(explicitPages, explicitStartAnchor)
-      : incoming
+      : incoming, nativeContentRef.current)
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
     // V1's bar never changes height, so a page map that arrives mid-playback
@@ -1687,7 +1707,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // rendered-page verification now that the font-settled preflight is the
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
-  }, [chromeV2, explicitStartAnchor, measuredPaging])
+  }, [chromeV2, explicitStartAnchor, measuredPaging, withComparePassage])
 
   /**
    * The standby map, off the critical path entirely: a ref write, no state,
@@ -2406,6 +2426,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDesktopLeafCapacity(capacity)
   }, [applyNativePages])
   const standbyKey = layoutKeyFor(standbyEditionKey)
+  // Marked only where the passage runs on: a page that ends exactly there needs no mark.
+  const comparePageEndMarker = showPhoneChrome && mobileCompareActive && comparePageEnd?.paragraphs === readerParagraphs
+    && !readingPages.some(page => {
+      const head = pageAnchorOf(page)
+      return head?.paragraphIndex === comparePageEnd.at.paragraphIndex && head.wordIndex === comparePageEnd.at.wordIndex
+    })
+    ? comparePageEnd.at
+    : null
   const standbyKeyRef = useRef(standbyKey)
   standbyKeyRef.current = standbyKey
   const readerLayoutKey = [
@@ -2923,11 +2951,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
   }, [])
 
-  const primaryAnchorFor = useCallback((anchor: { paragraphIndex: number; wordIndex: number }) => (
-    showPhoneChrome && mobileCompareActive
-      ? mapLabCompareAnchor(readerParagraphs, book.paragraphs, anchor)
-      : anchor
-  ), [book.paragraphs, mobileCompareActive, readerParagraphs, showPhoneChrome])
+  const primaryAnchorFor = useCallback((anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (!(showPhoneChrome && mobileCompareActive)) return anchor
+    // Back on the page the flip opened, the one holding the passage's start:
+    // the main place it came from, exactly.
+    const passage = comparePassageRef.current
+    if (passage?.paragraphs === readerParagraphs) {
+      const pages = readingPagesRef.current
+      const entry = pageAnchorOf(pages[pageIndexForPlace(pages, passage.start.paragraphIndex, passage.start.wordIndex)])
+      if (entry?.paragraphIndex === anchor.paragraphIndex && entry.wordIndex === anchor.wordIndex) return passage.entryPlace
+    }
+    return mapLabCompareAnchor(readerParagraphs, book.paragraphs, anchor)
+  }, [book.paragraphs, mobileCompareActive, readerParagraphs, showPhoneChrome])
 
   const goToPage = useCallback((index: number) => {
     setRecentChapterReturn(null)
@@ -2998,8 +3033,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // native pass would have produced 50ms later anyway: taking it here is
     // what turns the swap from two paints into one.
     const measured = standbyPagesRef.current?.key === standbyKey ? standbyPagesRef.current.pages : null
-    const nextPages = settledPrimaryPages
+    const naturalPages = settledPrimaryPages
       ?? (measured?.length ? measured : chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null))
+    // The whole main page, not just its first word: its end is carried over
+    // too, and the compare page is cut to exactly that passage when it fits
+    // one page. When it does not, pagination stays as it is and the end is
+    // marked. Nothing here writes a place; the font is the reader's own.
+    const mainTail = compareHead ? chapterPageTail(current[currentIndex]) : null
+    const compareEnd = mainTail
+      ? mapLabCompareEnd(readerParagraphs, targetParagraphs, { paragraphIndex: mainTail.paragraphIndex, wordIndex: mainTail.to })
+      : null
+    comparePassageRef.current = compareHead && compareEnd
+      ? { paragraphs: targetParagraphs, start: compareHead, end: compareEnd, entryPlace: { ...sourceAnchor } }
+      : null
+    setComparePageEnd(compareEnd ? { paragraphs: targetParagraphs, at: compareEnd } : null)
+    const nextPages = withComparePassage(naturalPages, targetParagraphs)
     // Find the natural page containing the mapped verse. Splitting at the
     // anchor creates a short leftover page without reflowing the chapter.
     if (chromeV2) swapCommittedRef.current = { paragraphs: targetParagraphs, pages: nextPages }
@@ -3040,7 +3088,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDraftPages(nextPages)
     setReadingPageIndex(nextIndex)
     setMobileCompareActive(nextActive)
-  }, [book.compareParagraphs, book.paragraphs, chromeV2, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs, standbyKey])
+  }, [book.compareParagraphs, book.paragraphs, chromeV2, compareEditionLabel, listen, mobileCompareActive, mobileCompareEnabled, notePlace, primaryEditionLabel, readerParagraphs, standbyKey, withComparePassage])
 
   const handleDesktopCompare = useCallback(() => {
     if (!desktopCompareEnabled) return
@@ -4242,6 +4290,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
+            pageEndMarker={comparePageEndMarker}
             compare={desktopCompareActive && desktopCompareEnabled}
             mode={showPhoneChrome && showHearing ? 'hearing' : 'reading'}
             follow={(showHearing && listen.playing && (chromeV2 || !browseWhileListening) || chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
