@@ -1,0 +1,505 @@
+{
+ "verifier": "V06",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "checkout_note": "HEAD 1d376b72f = audited commit + audit-WIP commits touching only reports/. All 15 served files checked are byte-identical to 1a7d89eb. The five books have no chapter shards.",
+ "word_count_convention": "'split' = tokens split on whitespace, hyphens and dashes (the claims' convention); 'ws' = whitespace tokens.",
+ "verdict_counts": {
+  "CONFIRMED": 19,
+  "CONFIRMED-WITH-CORRECTIONS": 3,
+  "REJECTED": 0,
+  "UNRESOLVED": 0
+ },
+ "results": [
+  {
+   "claim_id": "G01-macbeth-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en 5.1 ends with the letter ('…Lay it to thy heart, and farewell.”'), then 5.2 '[Enter a Messenger.]'. pg1533 L692–707 (pg100 L96676): LADY MACBETH 'Glamis thou art… crown’d withal', 134 w. Not found in original-en: 'milk of human kindness', 'pour my spirits in thine ear', 'metaphysical aid', 'golden round'. modern-en 5.1 and modern-da 5.1 contain the speech, so the claim's editions (original-en only) are correct. S1.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All three editions serve 5.7 '[Exit Messenger.]', 5.8 '[Enter Macbeth.]', 5.9 'MACBETH. My dearest love…'. pg1533 L733–749 + L753–757 (pg100 L96717, L96737), LADY MACBETH, 157 ws / 159 split. Not found in original-en: 'raven himself is hoarse', 'unsex me', 'Come, thick night', 'blanket of the dark', 'Great Glamis, worthy Cawdor'. Not found in modern-en: 'unsex', 'thick night', 'Great Glamis'. modern-da is structurally identical. S1.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-03",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 8.18 'Go bid thy mistress…', then 8.19–8.21 stage directions only, in all three editions. pg1533 L1070–1098 + L1102–1104 (pg100 L97051), MACBETH, 259 ws / 266 split. Not found in original-en: 'Is this a dagger', 'dagger of the mind', 'gouts of blood', 'firm-set earth', 'The bell invites me', 'heaven or to hell'. modern-en 'dagger' hits (7.12, 9.x, 10.x, 15.32) are other contexts; 'Tarquin' is absent from all editions. S1.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 12.20–12.22 stage directions, then 12.23 'FIRST MURDERER. It was, so please your Highness.', which answers an unserved question. All three editions. pg1533 L1772–1796, L1800, L1804 (pg100 L97750), MACBETH, 222 ws / 224 split. Not found in original-en: 'To be thus is nothing', 'barren sceptre', 'fruitless crown', 'Mark Antony', 'Was it not yesterday'. Not found in modern-en: 'Antony', 'fruitless', 'barren'. S1.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-05",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 23.8 'MACBETH. Take thy face hence.', 23.9 '[Exit Servant.]', 23.10 '[Enter Seyton.]' in all three editions. pg1533 L3709–3719 (pg100 L99681), MACBETH, 78 ws / 82 split. Not found in original-en: 'sick at heart', 'the sere, the yellow leaf', 'troops of friends', 'Curses, not loud but deep'. Not found in modern-en: 'yellow', 'curses', 'sick at heart'. S1 (famous speech).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-06",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 4.4 '[Enter Macbeth, Banquo, Ross and Angus.]', then 4.5 'MACBETH. The service and the loyalty I owe…' in all three editions. pg1533 L606–613 (pg100 L96590), DUNCAN, 62 w. Not found in original-en: 'worthiest cousin', 'sin of my ingratitude', 'swiftest wing of recompense', 'more than all can pay'. Not found in modern-en: 'worthiest', 'ingratitude', 'recompense'. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-07",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 10.34 '[Exeunt Macbeth and Lennox.]', then 10.35 '[Alarum-bell rings.]' in all three editions. pg1533 L1406–1413 (pg100 L97387), MACDUFF, 49 ws / 50 split. Not found in original-en: 'downy sleep', 'death's counterfeit', 'great doom's image', 'countenance this horror' ('Ring the alarum bell' occurs only at 25.15, an Act 5 line). Not found in modern-en: 'counterfeit', 'doom', 'Murder and treason'. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-08",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 10.58 'BANQUO. Look to the lady:—', 10.59 '[Lady Macbeth is carried out.]', 10.60 'MACDUFF. And so do I.' in all three editions. pg1533 L1521–1527 (pg100 L97502), BANQUO, 51 w. Not found in original-en: 'naked frailties', 'most bloody piece of work', 'great hand of God', 'treasonous malice'. Not found in modern-en: 'frailties', 'hand of God', 'scruples'. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-09",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 12.16 '[Exit Banquo.]', 12.17 '[Exeunt Lady Macbeth, Lords, &c.]', 12.18 'SERVANT. They are, my lord, without the palace gate.' in all three editions. pg1533 L1754–1757 + L1761–1762 (pg100 L97732), MACBETH, 42 w. Not found in original-en: 'master of his time', 'God be with you', 'Sirrah, a word with you'. Not found in modern-en: 'Sirrah', 'God be with you'. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-10",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 13.7 '[Enter Macbeth.]', then 13.8 'MACBETH. We have scorch’d the snake…' in all three editions. pg1533 L1948–1952 (pg100 L97926), LADY MACBETH, 40 w. Not found in original-en: 'why do you keep alone', 'sorriest fancies', 'what's done is done', 'without regard'. modern-en lacks 'done is done' (21.29 is the sleepwalking line). S3 accepted; S1 is arguable because of the proverbial line.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-11",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 18.40 '[Thunder. An Apparition of a Child crowned…rises.]', then 18.41 'ALL. Listen, but speak not to’t.' in all three editions. pg1533 L2711–2714 (pg100 L98686), MACBETH, 23 w. Not found in original-en: 'issue of a king', 'baby brow', 'top of sovereignty'. modern-en lacks 'sovereignty'; its 'What is this' hit (18.53) is the show of kings. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-12",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 21.7 '[Enter Lady Macbeth with a taper.]', then 21.8 'DOCTOR. How came she by that light?' in all three editions. pg1533 L3493–3494 (pg100 L99465), GENTLEWOMAN, 20 w. Not found in original-en or modern-en: 'here she comes', 'her very guise', 'stand close', 'fast asleep'. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-macbeth-13",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "17 locations as claimed (after 2.10, 5.2, 7.2, 8.6, 10.11, 10.39, 11.7, 12.39, 15.6, 15.41, 15.46, 16.3, 19.45, 23.2, 25.2, 25.6, 25.9); in modern-en and modern-da the item after 15.6 is present",
+    "extent_words": 147,
+    "severity": "S2",
+    "type": "MISSING",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ],
+    "note": "original-en: 17 items, 147 w. modern-en and modern-da: 16 items, 130 w (15.6 item present)."
+   },
+   "evidence": "The diff confirms all 17 items (147 split / 143 ws) and their speakers (DUNCAN, LADY MACBETH, MACBETH ×10, BANQUO, MACDUFF ×2, ROSS, HECATE, FIRST MURDERER). Correction: the item after 15.6 ('Be large in mirth… There’s blood upon thy face') is present in modern-en 15.6 ('Be free and easy… There's blood on your face') and in modern-da 15.6. Those editions lack 16 items (130 w). Book-wide, the diff finds exactly 34 passages / 1,300 w absent, equal to claims 01–13.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-henry-v-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions open at 1.0 'Enter the Archbishop of Canterbury and the Bishop of Ely.' (Act 1, Scene 1). pg1521 L138 'PROLOGUE.', L140 'Enter Chorus.', verse L143–176 'O for a Muse of fire… our play.' is 244 ws / 246 split; pg100 L51245. Not found in original-en: 'Muse of fire', 'wooden O', 'vasty fields of France', 'cockpit', 'Piece out our imperfections', 'prologue-like'. The book-wide diff shows the Prologue is the only missing passage. S1.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1521/pg1521.txt",
+     "sha256": "e660d11f3eb5fabbbe86dd0c3181a8d8062052bee6a32b8def9c20bf79f4ebf1",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-henry-v-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "In all three editions the Choruses sit at 2.38–2.40 (ch 'Act 1, Scene 2', section Act 1), 6.27–6.31 ('Act 2, Scene 4'), 13.78–13.80 ('Act 3, Scene 7') and 21.47–21.49 ('Act 4, Scene 8'). Each is followed by the next act's Scene 1 chapter. pg1521 verse L735–776, L1574–1611, L2684–2736, L4262–4306 give 320 + 264 + 389 + 354 = 1,327 split (1,307 ws). Reading order is correct. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1521/pg1521.txt",
+     "sha256": "e660d11f3eb5fabbbe86dd0c3181a8d8062052bee6a32b8def9c20bf79f4ebf1",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-as-you-like-it-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions open at 1.0 'A lawn before the DUKE'S palace', then 1.2 'CELIA. I pray thee, Rosalind…' (I.2). Source 1ws2510 L547–995 (I.1) is 1,493 split for L549–1002; pg1523 L117–346 is 1,484. No hits in any edition for 'As I remember, Adam', 'poor a thousand crowns', 'kindle the boy thither', 'Robin Hood', 'Dennis'. Served text = 1ws2510 (World Library; header L77 'December, 1997 [Etext #1121]'). Current PG #1121 is a First Folio text and does not match. S1.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/1ws2510/1ws2510.txt",
+     "sha256": "b30b9db29fe670195ccb182bdeabddefb5af705fb985ba40c485dc2defb6f39a",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1523/pg1523.txt",
+     "sha256": "1c0b8906545dafea408e06e988dbb036e1de1bddb33ce79eb9f09d3979645a10",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1121/pg1121.txt",
+     "sha256": "0b9e2c9b0e4a0846fcaa718e923e91b117f7d384bade70b3fa53fe715f0f64e2",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-as-you-like-it-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All 17 chapters in all three editions are titled 'Act 1, Scene N' (modern-da 'Akt 1') with section 'Act 1'. The content maps to I.2, I.3+II.1 (2.55–2.66), II.2–II.6, II.7+III.1 (8.43–8.47), III.2–III.4, III.5+IV.1 (12.31–12.114), IV.2, IV.3+V.1 (14.65–14.97), V.2, V.3, V.4+Epilogue. 15 of 17 titles are wrong. The 1ws2510 heading lines match the claim's list. S2.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/1ws2510/1ws2510.txt",
+     "sha256": "b30b9db29fe670195ccb182bdeabddefb5af705fb985ba40c485dc2defb6f39a",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1523/pg1523.txt",
+     "sha256": "1c0b8906545dafea408e06e988dbb036e1de1bddb33ce79eb9f09d3979645a10",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-as-you-like-it-03",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 17.70 'THE END', then 17.71–17.74 '<<THIS ELECTRONIC VERSION… WORLD LIBRARY, INC.… MEMBERSHIP.>>', then 17.75 'End of this Etext of The Complete Works of William Shakespeare, As You Like It': 91 w, the last paragraphs of the book. Source 1ws2510 L7551–7575. Present in modern-en (English) and in modern-da, where it is translated into Danish. Boilerplate at the end: S1.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/1ws2510/1ws2510.txt",
+     "sha256": "b30b9db29fe670195ccb182bdeabddefb5af705fb985ba40c485dc2defb6f39a",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-as-you-like-it-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Notice blocks served at 2.51–2.54, 12.27–12.30 and 14.61–14.64, 76 w each (228 w). Each sits between an 'Exeunt' and an 'ACT N. SCENE I.' paragraph. Source 1ws2510 L2045, L5263, L6315. There are no other notice paragraphs; the L1003 notice is not served because I.1 is dropped. All three editions carry them (modern-da translates the 14.61 block). S3.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/1ws2510/1ws2510.txt",
+     "sha256": "b30b9db29fe670195ccb182bdeabddefb5af705fb985ba40c485dc2defb6f39a",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-the-tempest-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All three editions: 2.116 'PROSPERO. ARIEL'S song. Come unto these yellow sands…', 2.118 'PROSPERO. The watch-dogs bark!', 2.120 'PROSPERO. Hark, hark!…', after 2.122 '[ARIEL sings]' 2.123/2.125 'FERDINAND. Full fathom five…', and 9.15 'PROSPERO. Where the bee sucks…'. The MIT HTML nests the songs inside speech98 PROSPERO, speech99 FERDINAND and the Act 5 PROSPERO block. pg23042 L849/863/877/889/3376 gives them to Ariel or the burden. Extent ≈147 split / 139 ws (claimed 153). S3.",
+   "sources": [
+    {
+     "url": "https://shakespeare.mit.edu/tempest/full.html",
+     "sha256": "c3ed4bec5e1f07801ac9ef0ee0ae93e892ded38796bda443d51a5c78b76c3440",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/23042/pg23042.txt",
+     "sha256": "d511c4b7ba963b316705b4b097415f59b4fcb03c9964bb65673fbaae4d730219",
+     "retrieved_utc": "2026-09-25T12:43:32Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-othello-01",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "43 paragraphs as claimed (chapters 3, 4, 6, 7, 9–15)",
+    "extent_words": 1062,
+    "severity": "S2",
+    "type": "MISLABELED",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ],
+    "note": "40 continuations after stage directions (speaker lost, 1,010 w) + 3 speeches whose source labels are malformed (3.4, 3.28, 15.146; label text inside the brackets; 52 w excluding labels). Severity raised from S3 under the rubric's 'wholesale mislabelling' clause; S3 only if S2 is reserved for chapter-level mislabelling."
+   },
+   "evidence": "All 43 paragraphs are bracketed with no speaker label in all three editions (e.g. 11.45 '[Othello withdraws.]', 11.46 '[Now will I question Cassio of Bianca…]'). Correction: 40 are continuations after a direction (1,010 w: IAGO 19, OTHELLO 9, CASSIO 6, DESDEMONA 5, EMILIA 1). 3 (3.4, 3.28, 15.146) are full speeches with malformed source labels (pg1531 L607 'SECOND SENATOR', L715 'DUKE and SENATORS.', L6056 'OTHELLO'); the label text is served inside the brackets. Total 1,062 w. Severity: S2 (systematic, 11 chapters, soliloquies).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1531/pg1531.txt",
+     "sha256": "340a08eb95d6404c0834906eb7b899ec6503c609ca76eb5b7430bb100cd1e462",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G01-othello-02",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "37 paragraphs: 3.6, 3.24, 3.33, 3.67, 4.77, 4.88, 4.89, 6.3, 6.28/6.29, 6.57, 6.74, 9.94, 9.96, 9.126, 9.171, 9.172, 10.22, 11.50, 11.52, 11.55, 11.90, 11.114, 11.130, 12.22, 13.25, 13.32, 14.46, 14.82, 14.95, 15.56, 15.58, 15.60, 15.62, 15.131, 15.154, 15.157, 15.197",
+    "extent_words": null,
+    "severity": "S4",
+    "type": "MISSING",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ],
+    "note": "37 of 39 inline stage directions dropped, including all 8 aside markers; the 2 kept are inside bracketed continuation paragraphs (4.47, 14.80)."
+   },
+   "evidence": "The pg1531 diff shows no speech text missing; only inline directions differ. 39 inline [_…_] directions sit in speech paragraphs and 37 are dropped in all three editions. The 2 survivors (4.47 'To Emilia', 14.80 'To Bianca') are inside bracketed continuation paragraphs. All 8 asides are dropped (L1527, 1583, 1963, 2018, 3466, 4051, 4060, 5487). Example: 4.77 'IAGO. He takes her by the palm…', where the source has '[_Aside._]'. The count is 37 of 39, not ~30 of 35. S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1531/pg1531.txt",
+     "sha256": "340a08eb95d6404c0834906eb7b899ec6503c609ca76eb5b7430bb100cd1e462",
+     "retrieved_utc": "2026-09-25T12:32:21Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/100/pg100.txt",
+     "sha256": "3cf4b3d44ee14cff4e14e78e2ad3318eff76f3f7f2afc3cee6bb925879110a37",
+     "retrieved_utc": "2026-09-25T12:32:28Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V06-NEW-1",
+   "book": "as-you-like-it",
+   "location": "17.57–17.63",
+   "type": "MISLABELED",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "description": "Jaques's final bequest speech is served as 7 separate unlabelled paragraphs after the labelled 17.56 (e.g. '[To DUKE] You to your former honour I bequeath;')."
+  },
+  {
+   "id": "V06-NEW-2",
+   "book": "as-you-like-it",
+   "location": "17.67–17.68",
+   "type": "EXTRANEOUS",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "description": "Duplicate heading paragraphs 'EPILOGUE' and 'EPILOGUE.' (modern-da 'EPILOG'/'EPILOG.'). The Epilogue is served inside the chapter titled 'Act 1, Scene 4'."
+  },
+  {
+   "id": "V06-NEW-3",
+   "book": "as-you-like-it",
+   "location": "whole book",
+   "type": "PROVENANCE",
+   "severity": null,
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "description": "Rights and provenance flag, not a completeness defect. The served text is the World Library 1990–93 etext (1ws2510). Its notice asserts copyright ('NEITHER SHAREWARE NOR PUBLIC DOMAIN') and prohibits distribution 'by any service that charges for download time or for membership'. bookRegistry.ts labels the edition 'Shakespeare (1623)'. DECISIONS.md 2026-09-11 lists an As You Like It re-ingest as on hold."
+  },
+  {
+   "id": "V06-NEW-4",
+   "book": "henry-v",
+   "location": "23.87–23.90; 6.30",
+   "type": "MISLABELED",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "description": "The Epilogue is served inside chapter 'Act 5, Scene 2' behind an 'EPILOGUE.' paragraph, with correct order and no chapter of its own. The Act 3 Chorus's final couplet (6.30 'And down goes all before them…') is served unlabelled after '[_Alarum, and chambers go off._]'."
+  },
+  {
+   "id": "V06-NEW-5",
+   "book": "othello",
+   "location": "13.27, 13.29",
+   "type": "MISLABELED",
+   "severity": "S4",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "description": "Desdemona's willow-song refrains are served as '[Sings.] Sing willow, willow, willow.' and '[Sings.] Sing all a green willow…' with no speaker label. Same cause as G01-othello-01, but not in its list."
+  }
+ ]
+}
