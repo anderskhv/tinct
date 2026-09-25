@@ -16,6 +16,15 @@ At the same time, nothing Plato's speakers say may be lost, strengthened, soften
 - **Baseline:** the accepted corrected modern-en, sha256 `1e970b7b…374f`.
 - **Structure:** 226 paragraphs, the same chapter boundaries and titles, and the same order. Paragraph *n* of the candidate renders paragraph *n* of the source.
 
+## 1a. Source policy: Jowett is the text (added after review, 2026-09-25)
+
+The rendering follows **Jowett**. This applies `books/CLAUDE.md` ("do not silently mix their readings; document substantive source variants"), and it was prompted by Reviews 1A and 1B.
+
+- **No Greek-based departures.** Plato's Greek and other translations are not used to change Jowett's meaning, qualifiers, ages, relationships, connectives or emphasis. Where v1 had followed the Greek instead of Jowett, the change was reverted. Examples: "at least" and "boys" in 5.3, "welcome" in 5.4, "conceived" in 7.48, "my dear Agathon" in 7.44 (`reviews/RESOLUTION.md`).
+- **A Jowett softening stays in Jowett's words.** Examples: "true love" in 7.64 and "hearing him tell what he knew" in 8.26. It is not "corrected" from the Greek.
+- **What is not a source variant:** modernizing a Jowett word whose Victorian sense is plain from his own text. Examples: "want" as lack; "bully", which in Jowett's usage means an insolent, overbearing person; "ingenuous". Nor is a §5 gloss that identifies what Jowett's words refer to.
+- **Documented exceptions.** Where Jowett's pronoun is genuinely ambiguous and the speech's own argument fixes the referent, the referent is named, and the exception is listed in `CHANGES.md`. The only case is 4.1, "under Love's rule": Jowett's "his dominion" follows a sentence about Asclepius, but Eryximachus's thesis (4.0) is Love's rule over all things.
+
 ## 2. What is preserved
 
 - **Every argument, example, qualification, image and proper name.** Qualifiers stay: "I think", "perhaps", "as they say", "if I am not mistaken", "so to speak", "as far as may be".
@@ -76,8 +85,13 @@ These rules keep the levels apart:
 | ribands | **ribbons** | |
 | revellers | **revelers** | |
 | hiccough | **hiccups** | As 3.10 |
-| Heracleitus, Diomede | **Heraclitus**, **Diomedes** | Standard modern forms |
+| Heracleitus, Diomede | **Heraclitus**, **Diomedes** | Standard modern forms. "Diomede" reads as an English name and hides Homer's Diomedes. Other names keep Jowett's forms (Otys, Athene, Kronos, Acusilaus), which are recognizable and are character-card mention texts |
 | Myrrhinusian | **of the deme of Myrrhinus** | Matches 1.7 "of the deme of Cydathenaeum" |
+| fair (moral sense, of a love or of conduct), foul | **noble**, **base** | Added after Review 1A. "Fair" describing people, bodies or things stays **beautiful** |
+| Heavenly / Common (capitals) | Capitalized only when **naming**: the Heavenly Aphrodite, the Common Aphrodite, Common Love | Lowercase when descriptive ("the heavenly love", "the common love", 4.3). 3.0 aligned with 3.1 ("the Heavenly Aphrodite") |
+| Love / love | As Jowett capitalizes | Jowett's capital is kept even where the sense may be the feeling, e.g. 6.4 "the Love of the beautiful" (Review 1B) |
+| the God of War | **the God of War** | Kept as Jowett's title for Ares |
+| beloved (as an address: "beloved Agathon") | **my beloved Agathon** | Kept: a charged address in a dialogue about love (7.44, Review 1B) |
 
 ## 5. Explanations
 
@@ -95,4 +109,7 @@ The gloss never becomes a speaker's opinion. No footnotes and no bracketed edito
 - Straight quotation marks: `'` for dialogue, `"` nested.
 - Spaced em-dashes ` — `, the only non-ASCII character used.
 - One paragraph for every source paragraph. No paragraph is added, removed, merged or split.
-- The contractions of spoken dialogue are allowed in conversation. The set speeches keep a fuller register.
+- **Contractions:**
+  - natural in conversation, including remembered dialogue inside a set speech (Socrates and Diotima), and in Alcibiades's drunken speech;
+  - avoided in the other set speeches, which keep a fuller register;
+  - the accepted wording of 3.0 and 3.4 is left as it was.
