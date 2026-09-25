@@ -9,6 +9,12 @@ fs.mkdirSync(dir, { recursive: true })
 const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5197'
 let server
 if (!process.env.TEST_ORIGIN) {
+  const hub=fs.readFileSync('dist/read/index.html','utf8')
+  const sitemap=fs.readFileSync('dist/sitemap.xml','utf8')
+  for(const id of manifest.wholeBooks){
+    assert.ok(!hub.includes('/read/'+id),id+' absent from static discovery')
+    assert.ok(!sitemap.includes('/read/'+id),id+' absent from sitemap')
+  }
   server = http.createServer((req,res) => {
     const url = new URL(req.url, origin)
     const file = path.resolve('dist', '.' + (['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname))

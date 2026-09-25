@@ -61,12 +61,19 @@ const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
 
 const BRAND_IMAGE = 'https://tinct.app/brand/20260921/share-tinct-1200x630.jpg'
 const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"/brand/20260921/favicon.ico\" sizes=\"any\">\n  <link rel=\"apple-touch-icon\" href=\"/brand/20260921/apple-touch-icon.png\" sizes=\"180x180\">\n  <link rel=\"manifest\" href=\"/brand/manifest.webmanifest\">\n"
+/** Filter navigation cards only; the preserved reading text is never rewritten. */
+export function filterHeldDiscoveryCards(html: string): string {
+  return html.replace(/<a\b[^>]*class=["'][^"']*\bguide-card\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, card => {
+    const bookId = card.match(/href=["']\/read\/([a-z0-9-]+)(?:[/?#"'])/i)?.[1]
+    return bookId && isBookTemporarilyHeld(bookId) ? '' : card
+  })
+}
 /** Public metadata uses only the catalogue, never saved passages or chat. */
 function brandedHtml(html: string, bookId?: string, bookPage = false): string {
   const meta = bookId && PUBLIC_BOOK_IDS.has(bookId) ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
   const image = meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
   const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — Fall in love with the books that matter.'
-  let next = html.replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
+  let next = filterHeldDiscoveryCards(html).replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
     .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?)["'][^>]*>\s*/gi, '')
   const tags = `<meta property="og:image" content="${image}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${htmlEscape(alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}"><meta name="twitter:image:alt" content="${htmlEscape(alt)}">`
   if (meta && bookPage) next = next.replace(/<title>[^<]*<\/title>/, `<title>${htmlEscape(meta.title)}</title><meta property="og:title" content="${htmlEscape(meta.bookName)}"><meta property="og:description" content="${htmlEscape(meta.description)}">`)
@@ -322,7 +329,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
   const queryBook = ['/', '/library', '/lab', '/lab/', '/lab/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
   const holdBook = queryBook || publicBook
-  const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' ? 'original-de' : 'original-en')
+  const germanBookLanding = /^\/(?:read\/)?faust-part-1\/?$/.test(url.pathname) && !url.search
+  const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' || germanBookLanding ? 'original-de' : 'original-en')
   if ((request.method === 'GET' || request.method === 'HEAD') && holdBook
       && (isBookTemporarilyHeld(holdBook) || editionHold(holdBook, holdKey))) {
     const recovery = new URL('/reader', url.origin)

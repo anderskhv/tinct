@@ -72,10 +72,12 @@ function hasSummaryPage(bookId) {
 }
 
 function bookHref(bookId) {
+  if (bookId === 'faust-part-1') return '/library?book=faust-part-1&edition=original-de&view=book-detail'
   return hasSummaryPage(bookId) ? `/read/${bookId}/summary` : `/read/${bookId}`
 }
 
 function oneLiner(book, taxEntry) {
+  if (book.id === 'faust-part-1') return 'Original German available. English and Danish editions are temporarily unavailable.'
   if (taxEntry && taxEntry.blurb) return taxEntry.blurb
   const d = book.description || ''
   if (d.length <= 140) return d
@@ -108,7 +110,7 @@ function build() {
   }
 
   const title = 'The Tinct Library — Read Classic Books Free Online | Tinct'
-  const description = `All ${books.length} classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online with summaries, themes, character guides, and a modern comparison translation.`
+  const description = `All ${books.length} classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online with summaries, themes, character guides, and available reading editions.`
   const canonical = `${ORIGIN}/read/`
 
   const breadcrumbLd = {
@@ -383,7 +385,7 @@ ${lis}
   <main>
     <div class="breadcrumb"><a href="/">Tinct</a> / <span>Library</span></div>
     <h1 class="title">The <em>Library</em></h1>
-    <p class="hook">${books.length} classics, free to read online — each with a summary, themes, character guide, and a modern comparison translation alongside the original.</p>
+    <p class="hook">${books.length} classics, free to read online — each with a summary, themes, character guide, and available reading editions.</p>
 
 ${houseSections.join('\n\n')}
   </main>

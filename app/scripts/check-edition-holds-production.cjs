@@ -30,7 +30,11 @@ const get = async path => {
    assert.equal(sha256,evidence.sha256,identity+' asset unchanged')
    results.push({identity,sha256,discovery:false,directLink:true})
  }
+ const hub=await (await get('/read/')).text()
+ const sitemap=await (await get('/sitemap.xml')).text()
  for(const id of manifest.wholeBooks){
+   assert.ok(!hub.includes('/read/'+id),id+' absent from static discovery hub')
+   assert.ok(!sitemap.includes('/read/'+id),id+' absent from sitemap')
    assert.equal(catalogue.books.find(b=>b.id===id)?.discoveryAvailable,false)
    assert.ok(!catalogue.houses.some(h=>h.shelves.some(s=>s.bookIds.includes(id))))
  }

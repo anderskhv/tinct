@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import worker, { serveSpaWithMetaForTest } from './worker'
-import { handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
+import { filterHeldDiscoveryCards, handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
 
 function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app</body></html>') {
   return {
@@ -516,7 +516,7 @@ describe('temporary edition direct links', () => {
     }
   })
   it('does not intercept sound edition links or the recovery reader', async () => {
-    for (const path of ['/reader?heldBook=macbeth&heldEdition=modern-en', '/read/jerusalem?edition=original-en', '/read/faust-part-1?edition=original-de']) {
+    for (const path of ['/reader?heldBook=macbeth&heldEdition=modern-en', '/read/jerusalem?edition=original-en', '/read/faust-part-1?edition=original-de', '/read/faust-part-1', '/faust-part-1']) {
       const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
       expect(await response.text()).not.toContain('<h2>Temporarily unavailable</h2>')
     }
@@ -536,4 +536,11 @@ it('retains one-based library start links when opening held-edition recovery', a
   expect(html).toContain('chapter=8')
   expect(html).toContain('paragraph=2')
   expect(html).toContain('heldEdition=modern-en')
+})
+
+it('hides held Read next cards without rewriting editorial text or sound links', () => {
+  const held = '<a href="/read/macbeth/summary" class="guide-card"><div>Macbeth</div></a>'
+  const sound = '<a href="/read/hamlet/summary" class="guide-card"><div>Hamlet</div></a>'
+  const editorial = '<p>Macbeth is mentioned here.</p>'
+  expect(filterHeldDiscoveryCards(held + sound + editorial)).toBe(sound + editorial)
 })

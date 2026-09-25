@@ -488,6 +488,11 @@ function buildSitemap(books) {
   const pagePath = (bookId, file) => path.join(READ_DIR, bookId, file)
 
   for (const b of fullBooks) {
+    if (b.id === 'faust-part-1') {
+      // The German book landing remains discoverable; existing chapter SEO pages contain held English text.
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html')) }))
+      continue
+    }
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
