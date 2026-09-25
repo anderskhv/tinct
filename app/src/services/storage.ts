@@ -1,4 +1,4 @@
-import { prepareLegacySymposiumRead, legacySymposiumAnnotationsReady } from './symposiumContentMigration'
+import { prepareLegacySymposiumRead, legacySymposiumAnnotationsReady, stampNewSymposiumRecord } from './symposiumContentMigration'
 
 /**
  * Persistence abstraction layer.
@@ -168,6 +168,10 @@ export const storage: StorageProvider = {
     if (key === 'position:symposium' && value && typeof value === 'object') {
       const old = activeProvider.get<{contentRecovery?: unknown}>(key)
       if (old?.contentRecovery && !('contentRecovery' in value)) value = {...value,contentRecovery:old.contentRecovery}
+    }
+    if (/^(position|notes|highlights):symposium(?::|$)/.test(key)) {
+      if (Array.isArray(value)) value = value.map(row => row && typeof row === 'object' ? stampNewSymposiumRecord(row) : row) as T
+      else if (value && typeof value === 'object') value = stampNewSymposiumRecord(value) as T
     }
     activeProvider.set<T>(key, value)
   },

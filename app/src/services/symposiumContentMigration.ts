@@ -102,3 +102,12 @@ export function prepareLegacySymposiumRead(provider: StorageProvider, key: strin
     }
   } finally { migrating=false }
 }
+
+/** Stamp genuinely new legacy records; preserved/unresolved records retain their source revision. */
+export function stampNewSymposiumRecord(value: RecordValue): RecordValue {
+  if (value.bookId !== 'symposium' || value.contentRevision || value.contentRecovery) return value
+  const edition = value.editionKey || value.primaryEditionKey
+  if (edition === 'modern-da') return value
+  const revision = edition ? CONTENT_RELEASES.symposium.editions[edition]?.after : CONTENT_RELEASES.symposium.revision
+  return revision ? {...value,contentRevision:revision} : value
+}

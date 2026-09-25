@@ -6,13 +6,20 @@ import {loadedCoordinateMigration} from './editionContentRevisions'
 import {migrateLabBookPlace} from '../lab/labEditionMigration'
 import {migrateLoadedLabPlaces} from '../lab/labContentMigration'
 import {migrateLabHighlight} from '../lab/labHighlightMigration'
-import {migrateSymposiumRecord,prepareLegacySymposiumRead} from '../services/symposiumContentMigration'
+import {migrateSymposiumRecord,prepareLegacySymposiumRead,stampNewSymposiumRecord} from '../services/symposiumContentMigration'
 import {narrationTokens,chunkNarrationTokens,narrationTextForParagraph} from '../narration/narrationCore'
 import {createHash} from 'node:crypto'
 import {usesRetainedBella} from '../narration/bellaRetention'
 const map=mapData as unknown as CoordinateMigration
 const current=(ed:string)=>JSON.parse(readFileSync(new URL('../../public/data/editions/symposium-'+ed+'.json',import.meta.url),'utf8'))
 describe('Symposium completeness compatibility',()=>{
+ it('stamps new legacy records and keeps unresolved source revisions intact',()=>{
+  const row={bookId:'symposium',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,timestamp:Date.now()}
+  const fresh=stampNewSymposiumRecord(row)
+  expect(migrateSymposiumRecord(fresh)).toBe(fresh)
+  const unresolved={...row,contentRecovery:{paragraphIndex:0},contentMigrationStatus:'unresolved'}
+  expect(stampNewSymposiumRecord(unresolved)).toBe(unresolved)
+ })
  it('rebuilds seek chunk layouts from current affected text, including Modern chapter 3',()=>{
   for(const ed of ['original-en','modern-en']){
    const source=current(ed),edition=map.editions[ed]
@@ -62,6 +69,12 @@ describe('Symposium completeness compatibility',()=>{
   const provider={get:<T>(_k:string)=>[row] as T,set:<T>(k:string,v:T)=>{writes.push([k,v])},delete:()=>{},getAll:<T>()=>[] as T[],isHeavyLoaded:()=>false}
   prepareLegacySymposiumRead(provider,'notes:symposium:8')
   expect(writes).toEqual([])
+ })
+ it('keeps the newest recent place when the repaired chapter boundary combines chapter keys',()=>{
+  const base={bookId:'symposium',headerBook:'Symposium',chapterNumber:7,sequentialChapter:7,paragraphIndex:69,wordIndex:1,primaryEditionKey:'original-en',updatedAt:1700000000100,deviceId:'test',rev:2}
+  const older={...base,chapterNumber:8,sequentialChapter:8,paragraphIndex:0,updatedAt:1700000000000}
+  const result=migrateLoadedLabPlaces({books:{symposium:base},recentChapters:{'symposium:7':base,'symposium:8':older}} as any)
+  expect(result.recentChapters?.['symposium:8']).toMatchObject({paragraphIndex:0,updatedAt:base.updatedAt})
  })
  it('moves all six structural boundary positions before validation and keeps Danish unchanged',()=>{
   for(const ed of ['original-en','modern-en','modern-da'])for(const [ch,pi,nc,np] of [[1,0,1,9],[1,39,1,48],[7,68,7,68],[7,69,8,0],[7,114,8,45],[8,0,8,46]]){
