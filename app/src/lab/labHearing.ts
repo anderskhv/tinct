@@ -448,18 +448,36 @@ export interface LabChapterProgress {
   wordsTotal: number
 }
 
+/**
+ * Words per paragraph, counted once per chapter text. The progress figures
+ * are recomputed on every spoken word; re-tokenizing a 17,000-word chapter
+ * each time held the main thread long enough that the word wash skipped
+ * words on a phone (2026-09-25).
+ */
+const paragraphWordCounts = new WeakMap<string[], { counts: number[]; before: number[]; total: number }>()
+
+function chapterWordCounts(paragraphs: string[]): { counts: number[]; before: number[]; total: number } {
+  let entry = paragraphWordCounts.get(paragraphs)
+  if (!entry) {
+    const counts = paragraphs.map(text => tokenizeHearingWords(text).length)
+    const before: number[] = []
+    let total = 0
+    for (const count of counts) { before.push(total); total += count }
+    entry = { counts, before, total }
+    paragraphWordCounts.set(paragraphs, entry)
+  }
+  return entry
+}
+
 function chapterWordCount(paragraphs: string[]): number {
-  return paragraphs.reduce((sum, text) => sum + tokenizeHearingWords(text).length, 0)
+  return chapterWordCounts(paragraphs).total
 }
 
 function wordsBeforePlace(paragraphs: string[], paragraphIndex: number, wordIndex: number): number {
-  let read = 0
-  for (let i = 0; i < paragraphs.length; i++) {
-    const words = tokenizeHearingWords(paragraphs[i])
-    if (i < paragraphIndex) read += words.length
-    else if (i === paragraphIndex) read += Math.max(0, Math.min(wordIndex, words.length))
-  }
-  return read
+  const { counts, before, total } = chapterWordCounts(paragraphs)
+  if (paragraphIndex >= counts.length) return total
+  if (paragraphIndex < 0) return 0
+  return before[paragraphIndex] + Math.max(0, Math.min(wordIndex, counts[paragraphIndex]))
 }
 
 /**

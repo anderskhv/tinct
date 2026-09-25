@@ -401,6 +401,20 @@
   box-decoration-break: clone;
 }
 
+/* While listening, every word carries an invisible background. Chrome lays a
+   plain inline span out without a box of its own; giving the current word a
+   background made one, which re-laid out the page (and the hidden
+   whole-chapter measure beside it) on every spoken word: ~60 ms each, so on a
+   phone the wash lit only every third word (2026-09-25). With a background at
+   rest, moving the wash is a repaint. */
+.lab-passage.is-hearing .lab-hearing-word,
+.lab-passage.is-inline-hearing .lab-hearing-word {
+  /* Important: later rules reset the words' background with the shorthand
+     (background: none) and would drop it; a transparent layer over any
+     wash or highlight colour paints nothing. */
+  background-image: linear-gradient(transparent, transparent) !important;
+}
+
 .lab-passage.is-hearing .lab-hearing-word.is-spoken {
   color: #0b0b0b;
 }
