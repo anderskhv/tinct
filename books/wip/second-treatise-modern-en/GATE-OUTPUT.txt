@@ -1,0 +1,73 @@
+Candidate sha256 f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2
+Command: books/classify-modern-en.py (unchanged, committed at main 8a50db7d) run via scratch runner with EDITIONS_DIR pointing at served original-en + this candidate as modern-en.
+
+== whole book: --gate --per-chapter ==
+  ch    1  sim 0.687  REAL        Chapter 1 — An Essay Concerning the True Original,
+  ch    2  sim 0.632  REAL        Chapter 2 — Of the State of Nature
+  ch    3  sim 0.599  REAL        Chapter 3 — Of the State of War
+  ch    4  sim 0.631  REAL        Chapter 4 — Of Slavery
+  ch    5  sim 0.640  REAL        Chapter 5 — Of Property
+  ch    6  sim 0.704  REAL        Chapter 6 — Of Paternal Power
+  ch    7  sim 0.710  REAL        Chapter 7 — Of Political or Civil Society
+  ch    8  sim 0.675  REAL        Chapter 8 — Of the Beginning of Political Societie
+  ch    9  sim 0.760  REAL        Chapter 9 — Of the Ends of Political Society and G
+  ch   10  sim 0.651  REAL        Chapter 10 — Of the Forms of a Commonwealth
+  ch   11  sim 0.729  REAL        Chapter 11 — Of the Extent of the Legislative Powe
+  ch   12  sim 0.626  REAL        Chapter 12 — Of the Legislative, Executive, and Fe
+  ch   13  sim 0.665  REAL        Chapter 13 — Of the Subordination of the Powers of
+  ch   14  sim 0.688  REAL        Chapter 14 — Of Prerogative
+  ch   15  sim 0.743  REAL        Chapter 15 — Of Paternal, Political, and Despotica
+  ch   16  sim 0.714  REAL        Chapter 16 — Of Conquest
+  ch   17  sim 0.505  REAL        Chapter 17 — Of Usurpation
+  ch   18  sim 0.656  REAL        Chapter 18 — Of Tyranny
+  ch   19  sim 0.741  REAL        Chapter 19 — Of the Dissolution of Government
+second-treatise original-en -> modern-en  (19 chapters)
+  weighted similarity : 0.689   (gate: <= 0.75)
+  light+mechanical    : 0/19 = 0.0%   (gate: <= 5%)
+  identical long paras: 4/291 = 1.4%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 19  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+== per batch: --gate --chapters N-M ==
+second-treatise original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.634   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/61 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+second-treatise original-en -> modern-en  (2 chapters)
+  weighted similarity : 0.707   (gate: <= 0.75)
+  light+mechanical    : 0/2 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/49 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 2  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+second-treatise original-en -> modern-en  (4 chapters)
+  weighted similarity : 0.698   (gate: <= 0.75)
+  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/67 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+second-treatise original-en -> modern-en  (5 chapters)
+  weighted similarity : 0.695   (gate: <= 0.75)
+  light+mechanical    : 0/5 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/56 = 1.8%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+second-treatise original-en -> modern-en  (3 chapters)
+  weighted similarity : 0.713   (gate: <= 0.75)
+  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)
+  identical long paras: 3/58 = 5.2%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 3  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL

@@ -1,6 +1,6 @@
 {
- "note": "Proposed modern-en mention anchors for app/public/data/characters/second-treatise.v1.json against the candidate. Codex owns applying these (and regenerating paragraphHashes with the production tool, whose hashing/normalization may differ from the plain sha256 shown in the handoff). Character ids, snapshots and original-en data are unaffected; firstMention/roleVisibleAt positions (paragraph starts, offset 0) are unchanged.",
- "candidate_sha256": "8dd746cd663d623478c3966d69fffd6bf0ec02ace4024522bed912e0b78352e7",
+ "note": "Proposed modern-en mention anchors for app/public/data/characters/second-treatise.v1.json against the candidate (offsets in UTF-16 code units, per offsetUnit). Codex applies these and regenerates the modern-en paragraphHashes/sourceSha256 with the production tool. Character ids, snapshots, firstMention/roleVisibleAt (paragraph starts, offset 0) and all original-en data are unaffected.",
+ "candidate_sha256": "f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2",
  "mentions": [
   {
    "characterId": "the-state-of-nature",
