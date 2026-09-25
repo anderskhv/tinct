@@ -67,13 +67,17 @@ In full, the following were read against the original:
 
 Findings:
 
-- **No content omission** apart from the restored opening, which was absent from both English editions.
+- **Content omissions.** Apart from the restored opening, which was absent from both English editions, the independent review (Review 1, F2 and F8) found two dropped elements in existing modern-en text. My screening had passed both, because they sit inside paragraphs that are otherwise close renderings:
+  - the qualification "which custom allows" (3.7);
+  - the hedge "done his best" and the quotation 'uses base' (3.8).
+
+  Both are restored by C-06. The same change fixes a garbled clause in 3.3. No other omission was found by either check.
 - **Jowett's inline notes are omitted in modern-en, by consistent convention (20 in the baseline):**
   - (Iliad) twice, at 1.10 and 1.15; (Odyssey) at 6.9; the citation inside "(as Euripides would say (Eurip. Hyppolytus))" at 6.10 (the speaker's "as Euripides would say" is kept)
   - (compare Prot.) at 1.34; (compare Rep.) at 2.4; (compare Arist. Politics) at 3.3; (compare Arist. Pol.) twice at 5.5 and once at 7.92
   - (A fragment of the Sthenoaoea of Euripides.) at 6.4
   - (compare 1 Alcibiades), (compare Gorgias) and (supra) at 7.45; (supra Will you have a very drunken man? etc.) at 7.69; (from Pope's Homer, Il.) at 7.80; (In allusion to two proverbs.) at 7.97; (compare supra) at 7.104; (Aristoph. Clouds) at 7.105; (compare Gorg.) at 7.106
-- The other 16 parentheses in the baseline are the speakers' own words: 1.31 "I do not include Socrates…", 2.7 on Aeschylus's error, 3.5 "so men say", 5.2 "the same which is called the navel", 6.3 "and here, like Eryximachus, I magnify my art", the outer "as Euripides would say" at 6.10, 7.46, 7.47 "daimon", 7.48 "there was no wine in those days", 7.64, 7.66, 7.93, 7.96, 7.99, and two at 7.104. All are kept in modern-en, some rephrased or without brackets.
+- The other 16 parentheses in the baseline are kept in modern-en, some rephrased or without brackets. Fifteen are the speakers' own words: 1.31 "I do not include Socrates…", 2.7 on Aeschylus's error, 3.5 "so men say", 5.2 "the same which is called the navel", 6.3 "and here, like Eryximachus, I magnify my art", the outer "as Euripides would say" at 6.10, 7.46, 7.48 "there was no wine in those days", 7.64, 7.66, 7.93, 7.96, 7.99, and two at 7.104. The sixteenth, "(daimon)" at 7.47, is Jowett's gloss of the Greek word (Review 1, F6).
 - Every negation and numeral difference was inspected. All are "any one" becoming "anyone", rephrasings, or dropped note text, and none reverses a meaning.
 - **Additions not in Jowett (note).** Baseline modern 8.0 (candidate 8.46) adds "from left to right" and "Aristodemus couldn't remember most of what was said". Both reflect Plato's Greek, not Jowett. This is recorded and not changed.
 - **Typography (note, not changed).** Modern 1.24 (candidate 1.33) has doubled quote marks: `''I may touch you,'` … `sought.''`. Modern 1.11 (candidate 1.20) ends with `',` before a verse quotation. Quotation-mark conventions also differ between chapters (chapter 1 quotes direct speech; chapter 3 does not). These are pre-existing, not completeness defects. They are left unchanged so every old paragraph keeps exact offsets for annotations and card mentions.
@@ -85,11 +89,11 @@ Findings:
 | | Weighted similarity (gate ≤ 0.75) | LIGHT + MECHANICAL chapters (gate ≤ 5%) | Result |
 |---|---|---|---|
 | Live baseline | 0.877 | 5/8 (ch 2, 4, 5, 6, 7) | FAIL |
-| Candidate | 0.868 | 6/8 (ch 2, 4, 5, 6, 7, 8) | FAIL |
+| Candidate | 0.866 | 6/8 (ch 2, 4, 5, 6, 7, 8) | FAIL |
 
 The failure is pre-existing. Modern chapters 2 and 4–7 are, paragraph by paragraph, Jowett with typographic normalisation and light word substitution (mean token similarity 0.97–0.99). Chapter 8 turns LIGHT in the candidate only because the unchanged Alcibiades paragraphs move into it.
 
-The nine new modern paragraphs score **0.549** on the gate's own metric (length-weighted), in the REAL band, and keep 88–119% of source length. Chapter 1 falls from 0.831 to 0.758.
+The nine new modern paragraphs score **0.490** on the gate's own metric (length-weighted), at the boundary of the REAL and REAL-HEAVY bands, and keep 86–119% of source length. Chapter 1 falls from 0.831 to 0.743.
 
 **How it got this way.** The live modern-en is byte-identical to its state after commit `67aa9c16` (2026-04-20, "Symposium modern-en regen complete (59 flags -> 0)"). Against today's Jowett text, the version before that commit (`a3b82787`) was a free modernisation of chapters 1, 2 and 4–7. It had token similarity 0.29–0.40 but was condensed to 68–79% of Jowett's length, which is consistent with the truncation flags then reported. `67aa9c16` cleared the flags by replacing those chapters with near-verbatim Jowett (similarity 0.91–0.95). Neither state is a complete, genuinely modern rendering. Chapter 3 had already been re-rendered in full by `c6384c19`, and chapter 8 was not touched.
 

@@ -11,7 +11,9 @@ Both files are stored here byte for byte, with the Project Gutenberg licence int
 
 ## Identity and rights
 
-The Gutenberg header reads `Title: Symposium`, `Author: Plato`, `Translator: Benjamin Jowett`, `Release date: January 1, 1999 [eBook #1600]`, `Most recently updated: November 7, 2008`, `Credits: Produced by Sue Asscher, and David Widger`. This matches the live registry edition label `Jowett (1871)` (`app/src/data/bookRegistry.ts`, `SYMPOSIUM.editions[original-en]`).
+The Gutenberg header reads `Title: Symposium`, `Author: Plato`, `Translator: Benjamin Jowett`, `Release date: January 1, 1999 [eBook #1600]` and `Credits: Produced by Sue Asscher, and David Widger`. The two files give different update dates: "Most recently updated: November 7, 2008" in the TXT and "March 4, 2013" in the HTML. Their dialogue texts are nevertheless identical (see below).
+
+The live registry labels this edition `Jowett (1871)` (`app/src/data/bookRegistry.ts`, `SYMPOSIUM.editions[original-en]`). The Gutenberg header does not say which Jowett edition (1871, 1875 or 1892) the text reproduces, so this source does not verify the year. The label is registry metadata owned by the coding agent and is not changed here.
 
 Jowett died in 1893 and the translation is in the public domain. Project Gutenberg distributes the eBook "for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever".
 
@@ -39,11 +41,19 @@ The live `original-en` keeps all 20 other inline notes verbatim, so the restored
 
 ## Upstream typographical slips (reproduced, not corrected)
 
-These are Gutenberg transcription slips. The live `original-en` reproduces them exactly, and this repair does not change them:
+These are Gutenberg transcription slips. The live `original-en` reproduces them exactly, and this repair does not change them. Coordinates are candidate coordinates. `modern-en` renders the intended sense in each case.
 
-- "Here Phaedrus interrupted them, saying: not answer him, my dear Agathon". This is source dialogue paragraph 74, candidate 5.16. "Do" appears to be missing.
-- "A fragment of the Sthenoaoea of Euripides" (candidate 6.4). Sthenoboea is meant.
-- "Hyppolytus" (candidate 6.10). Hippolytus is meant.
-- "the love of the heavenly godess" (candidate 3.9). The word should be "goddess".
+| Candidate | PG #1600 reads | Intended |
+|---|---|---|
+| 1.40 | "Well, as of none of the company seem disposed to drink much" | "as none of the company" |
+| 3.5 | "custom has decided … that there no loss of character in them" | "that there is no loss" |
+| 3.9 | "the love of the heavenly godess" | "goddess" |
+| 4.1 | "Now there is an absurdity saying that harmony is discord" | "an absurdity in saying" |
+| 5.4 | "a great proof of the truth of what I am saving" | "saying" |
+| 5.16 | "Here Phaedrus interrupted them, saying: not answer him, my dear Agathon" | "Do not answer him" |
+| 6.4 | "A fragment of the Sthenoaoea of Euripides" | "Sthenoboea" |
+| 6.10 | "(Eurip. Hyppolytus)" | "Hippolytus" |
+| 7.62 | "the beauty in every form is and the same" | "is one and the same" |
+| 8.29 | "'Do you know what I am meditating? 'What are you meditating?' he said." | A closing quotation mark is missing after the first question |
 
-Correcting them would be a separate, owner-approved source-emendation decision.
+Correcting them would be a separate, owner-approved source-emendation decision. Review 1 (F7) identified six of these: 1.40, 3.5, 4.1, 5.4, 7.62 and 8.29.

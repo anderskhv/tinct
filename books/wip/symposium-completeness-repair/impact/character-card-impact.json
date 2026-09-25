@@ -2247,6 +2247,7 @@
      "new": "8.46"
     }
    ],
+   "offsetChanges": [],
    "proposed": {
     "status": "PROPOSAL - character-content decision staged for integration; not applied to the live card",
     "newMentions": [
@@ -2483,7 +2484,7 @@
         },
         "name": "Phoenix",
         "subtitle": "",
-        "body": "Philip’s son, who heard about the banquet from Aristodemus and passed on a vague account of the speeches.",
+        "body": "Philip’s son, who heard about the banquet from Aristodemus and passed the story on; it reached Glaucon only as a vague second-hand account.",
         "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
         "evidence": [
          {
@@ -2888,16 +2889,76 @@
       "existingBody": "The unnamed companion asking Apollodorus to retell the banquet conversation."
      }
     ],
+    "optionalUnnamedInformant": {
+     "priority": "optional (Review 1 F11)",
+     "reason": "The card gives unnamed figures who act in the narrative their own entries (servants, flute-girls); Glaucon's informant carries the garbled account.",
+     "character": {
+      "id": "glaucon-informant",
+      "kind": "unnamed-person",
+      "storyRole": "reference",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 681
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 681
+      },
+      "snapshots": [
+       {
+        "id": "glaucon-informant-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 0,
+         "offset": 681
+        },
+        "name": "Glaucon’s informant",
+        "subtitle": "",
+        "body": "The unnamed man who gave Glaucon a vague account of the speeches, which he had heard from Phoenix.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 681
+         }
+        ]
+       }
+      ]
+     },
+     "mentions": [
+      {
+       "characterId": "glaucon-informant",
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "startOffset": 667,
+       "endOffset": 681,
+       "text": "another person",
+       "resolution": "reviewed-context"
+      },
+      {
+       "characterId": "glaucon-informant",
+       "chapterNumber": 1,
+       "paragraphIndex": 1,
+       "startOffset": 0,
+       "endOffset": 14,
+       "text": "Your informant",
+       "resolution": "reviewed-context"
+      }
+     ]
+    },
     "optionalSubtitleForExistingGlaucon": {
      "characterId": "glaucon",
-     "subtitle": "Charmides’s father",
+     "subtitle": "Charmides’ father",
      "reason": "Disambiguates the two people named Glaucon in the Cast list; optional."
     }
    }
   },
   "modern-en": {
    "baselineSourceSha256": "7816d1eb6ac9cc6d178c4c123bbeb8ad6daced1f7d7fc8c036f2bded3b8fcce8",
-   "candidateSourceSha256": "43f03333a255d90378a12ab1d1d384620e515e1725cb4ba8132e794fa504e550",
+   "candidateSourceSha256": "073ca5b4eeda36bb0293be8fab1d97f6f37d7feb9f4cc4d6fc82e0244d693eae",
    "paragraphCountBefore": 217,
    "paragraphCountAfter": 226,
    "paragraphCountsAfter": {
@@ -5103,6 +5164,82 @@
      "new": "8.46"
     }
    ],
+   "offsetChanges": [
+    {
+     "path": "mentions[144]",
+     "at": "3.3",
+     "text": "Aristogeiton",
+     "old": [
+      1003,
+      1015
+     ],
+     "new": [
+      986,
+      998
+     ]
+    },
+    {
+     "path": "mentions[145]",
+     "at": "3.3",
+     "text": "Harmodius",
+     "old": [
+      1046,
+      1055
+     ],
+     "new": [
+      1010,
+      1019
+     ]
+    },
+    {
+     "path": "characters[19].roleVisibleAt",
+     "at": "3.3",
+     "old": 1015,
+     "new": 998
+    },
+    {
+     "path": "characters[19].firstMention",
+     "at": "3.3",
+     "old": 1015,
+     "new": 998
+    },
+    {
+     "path": "characters[19].snapshots[0].availableAt",
+     "at": "3.3",
+     "old": 1015,
+     "new": 998
+    },
+    {
+     "path": "characters[19].snapshots[0].evidence[0]",
+     "at": "3.3",
+     "old": 1015,
+     "new": 998
+    },
+    {
+     "path": "characters[20].roleVisibleAt",
+     "at": "3.3",
+     "old": 1055,
+     "new": 1019
+    },
+    {
+     "path": "characters[20].firstMention",
+     "at": "3.3",
+     "old": 1055,
+     "new": 1019
+    },
+    {
+     "path": "characters[20].snapshots[0].availableAt",
+     "at": "3.3",
+     "old": 1055,
+     "new": 1019
+    },
+    {
+     "path": "characters[20].snapshots[0].evidence[0]",
+     "at": "3.3",
+     "old": 1055,
+     "new": 1019
+    }
+   ],
    "proposed": {
     "status": "PROPOSAL - character-content decision staged for integration; not applied to the live card",
     "newMentions": [
@@ -5110,8 +5247,8 @@
       "characterId": "apollodorus",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 269,
-      "endOffset": 280,
+      "startOffset": 264,
+      "endOffset": 275,
       "text": "Apollodorus",
       "resolution": "reviewed-name"
      },
@@ -5119,8 +5256,8 @@
       "characterId": "apollodorus",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 354,
-      "endOffset": 365,
+      "startOffset": 349,
+      "endOffset": 360,
       "text": "Apollodorus",
       "resolution": "reviewed-name"
      },
@@ -5128,8 +5265,8 @@
       "characterId": "socrates",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 466,
-      "endOffset": 474,
+      "startOffset": 452,
+      "endOffset": 460,
       "text": "Socrates",
       "resolution": "reviewed-name"
      },
@@ -5137,8 +5274,8 @@
       "characterId": "alcibiades",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 476,
-      "endOffset": 486,
+      "startOffset": 462,
+      "endOffset": 472,
       "text": "Alcibiades",
       "resolution": "reviewed-name"
      },
@@ -5146,8 +5283,8 @@
       "characterId": "agathon",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 507,
-      "endOffset": 514,
+      "startOffset": 493,
+      "endOffset": 500,
       "text": "Agathon",
       "resolution": "reviewed-name"
      },
@@ -5155,8 +5292,8 @@
       "characterId": "phoenix",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 525,
-      "endOffset": 532,
+      "startOffset": 550,
+      "endOffset": 557,
       "text": "Phoenix",
       "resolution": "reviewed-name"
      },
@@ -5164,8 +5301,8 @@
       "characterId": "philip",
       "chapterNumber": 1,
       "paragraphIndex": 0,
-      "startOffset": 545,
-      "endOffset": 551,
+      "startOffset": 570,
+      "endOffset": 576,
       "text": "Philip",
       "resolution": "reviewed-name"
      },
@@ -5191,8 +5328,8 @@
       "characterId": "socrates",
       "chapterNumber": 1,
       "paragraphIndex": 3,
-      "startOffset": 145,
-      "endOffset": 153,
+      "startOffset": 159,
+      "endOffset": 167,
       "text": "Socrates",
       "resolution": "reviewed-name"
      },
@@ -5200,8 +5337,8 @@
       "characterId": "agathon",
       "chapterNumber": 1,
       "paragraphIndex": 5,
-      "startOffset": 44,
-      "endOffset": 51,
+      "startOffset": 51,
+      "endOffset": 58,
       "text": "Agathon",
       "resolution": "reviewed-name"
      },
@@ -5215,11 +5352,20 @@
       "resolution": "reviewed-name"
      },
      {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 9,
+      "endOffset": 17,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
       "characterId": "phoenix",
       "chapterNumber": 1,
       "paragraphIndex": 7,
-      "startOffset": 51,
-      "endOffset": 58,
+      "startOffset": 61,
+      "endOffset": 68,
       "text": "Phoenix",
       "resolution": "reviewed-name"
      },
@@ -5227,8 +5373,8 @@
       "characterId": "aristodemus",
       "chapterNumber": 1,
       "paragraphIndex": 7,
-      "startOffset": 99,
-      "endOffset": 110,
+      "startOffset": 71,
+      "endOffset": 82,
       "text": "Aristodemus",
       "resolution": "reviewed-name"
      },
@@ -5236,8 +5382,8 @@
       "characterId": "agathon",
       "chapterNumber": 1,
       "paragraphIndex": 7,
-      "startOffset": 156,
-      "endOffset": 163,
+      "startOffset": 166,
+      "endOffset": 173,
       "text": "Agathon",
       "resolution": "reviewed-name"
      },
@@ -5245,8 +5391,8 @@
       "characterId": "socrates",
       "chapterNumber": 1,
       "paragraphIndex": 7,
-      "startOffset": 241,
-      "endOffset": 249,
+      "startOffset": 251,
+      "endOffset": 259,
       "text": "Socrates",
       "resolution": "reviewed-name"
      },
@@ -5254,17 +5400,26 @@
       "characterId": "socrates",
       "chapterNumber": 1,
       "paragraphIndex": 7,
-      "startOffset": 277,
-      "endOffset": 285,
+      "startOffset": 287,
+      "endOffset": 295,
       "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "aristodemus",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 326,
+      "endOffset": 337,
+      "text": "Aristodemus",
       "resolution": "reviewed-name"
      },
      {
       "characterId": "glaucon-questioner",
       "chapterNumber": 1,
       "paragraphIndex": 7,
-      "startOffset": 369,
-      "endOffset": 376,
+      "startOffset": 396,
+      "endOffset": 403,
       "text": "Glaucon",
       "resolution": "reviewed-name"
      },
@@ -5308,8 +5463,8 @@
       "characterId": "socrates",
       "chapterNumber": 1,
       "paragraphIndex": 8,
-      "startOffset": 382,
-      "endOffset": 390,
+      "startOffset": 372,
+      "endOffset": 380,
       "text": "Socrates",
       "resolution": "reviewed-name"
      }
@@ -5322,12 +5477,12 @@
       "roleVisibleAt": {
        "chapterNumber": 1,
        "paragraphIndex": 0,
-       "offset": 532
+       "offset": 557
       },
       "firstMention": {
        "chapterNumber": 1,
        "paragraphIndex": 0,
-       "offset": 532
+       "offset": 557
       },
       "snapshots": [
        {
@@ -5335,17 +5490,17 @@
         "availableAt": {
          "chapterNumber": 1,
          "paragraphIndex": 0,
-         "offset": 532
+         "offset": 557
         },
         "name": "Phoenix",
         "subtitle": "",
-        "body": "Philip’s son, who heard about the banquet from Aristodemus and passed on a vague account of the speeches.",
+        "body": "Philip’s son, who heard about the banquet from Aristodemus and passed the story on; it reached Glaucon only as a vague second-hand account.",
         "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
         "evidence": [
          {
           "chapterNumber": 1,
           "paragraphIndex": 0,
-          "throughOffset": 532
+          "throughOffset": 557
          }
         ]
        }
@@ -5358,12 +5513,12 @@
       "roleVisibleAt": {
        "chapterNumber": 1,
        "paragraphIndex": 0,
-       "offset": 551
+       "offset": 576
       },
       "firstMention": {
        "chapterNumber": 1,
        "paragraphIndex": 0,
-       "offset": 551
+       "offset": 576
       },
       "snapshots": [
        {
@@ -5371,7 +5526,7 @@
         "availableAt": {
          "chapterNumber": 1,
          "paragraphIndex": 0,
-         "offset": 551
+         "offset": 576
         },
         "name": "Philip",
         "subtitle": "",
@@ -5381,7 +5536,7 @@
          {
           "chapterNumber": 1,
           "paragraphIndex": 0,
-          "throughOffset": 551
+          "throughOffset": 576
          }
         ]
        }
@@ -5436,7 +5591,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 280
+        "offset": 275
        }
       },
       "roleVisibleAt": {
@@ -5448,7 +5603,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 280
+        "offset": 275
        }
       },
       "snapshots[0].availableAt": {
@@ -5460,7 +5615,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 280
+        "offset": 275
        }
       },
       "snapshots[0].evidence[0]": {
@@ -5472,7 +5627,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "throughOffset": 280
+        "throughOffset": 275
        }
       },
       "triggerText": "Apollodorus",
@@ -5489,7 +5644,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 474
+        "offset": 460
        }
       },
       "roleVisibleAt": {
@@ -5501,7 +5656,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 474
+        "offset": 460
        }
       },
       "snapshots[0].availableAt": {
@@ -5513,7 +5668,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 474
+        "offset": 460
        }
       },
       "snapshots[0].evidence[0]": {
@@ -5525,7 +5680,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "throughOffset": 474
+        "throughOffset": 460
        }
       },
       "triggerText": "Socrates",
@@ -5542,7 +5697,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 486
+        "offset": 472
        }
       },
       "roleVisibleAt": {
@@ -5554,7 +5709,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 486
+        "offset": 472
        }
       },
       "snapshots[0].availableAt": {
@@ -5566,7 +5721,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 486
+        "offset": 472
        }
       },
       "snapshots[0].evidence[0]": {
@@ -5578,7 +5733,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "throughOffset": 486
+        "throughOffset": 472
        }
       },
       "triggerText": "Alcibiades",
@@ -5595,7 +5750,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 514
+        "offset": 500
        }
       },
       "roleVisibleAt": {
@@ -5607,7 +5762,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 514
+        "offset": 500
        }
       },
       "snapshots[0].availableAt": {
@@ -5619,7 +5774,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "offset": 514
+        "offset": 500
        }
       },
       "snapshots[0].evidence[0]": {
@@ -5631,7 +5786,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 0,
-        "throughOffset": 514
+        "throughOffset": 500
        }
       },
       "triggerText": "Agathon",
@@ -5648,7 +5803,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 7,
-        "offset": 110
+        "offset": 82
        }
       },
       "roleVisibleAt": {
@@ -5660,7 +5815,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 7,
-        "offset": 110
+        "offset": 82
        }
       },
       "snapshots[0].availableAt": {
@@ -5672,7 +5827,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 7,
-        "offset": 110
+        "offset": 82
        }
       },
       "snapshots[0].evidence[0]": {
@@ -5684,7 +5839,7 @@
        "to": {
         "chapterNumber": 1,
         "paragraphIndex": 7,
-        "throughOffset": 110
+        "throughOffset": 82
        }
       },
       "triggerText": "Aristodemus",
@@ -5744,9 +5899,69 @@
       "existingBody": "The unnamed companion asking Apollodorus to retell the banquet conversation."
      }
     ],
+    "optionalUnnamedInformant": {
+     "priority": "optional (Review 1 F11)",
+     "reason": "The card gives unnamed figures who act in the narrative their own entries (servants, flute-girls); Glaucon's informant carries the garbled account.",
+     "character": {
+      "id": "glaucon-informant",
+      "kind": "unnamed-person",
+      "storyRole": "reference",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 518
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 518
+      },
+      "snapshots": [
+       {
+        "id": "glaucon-informant-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 0,
+         "offset": 518
+        },
+        "name": "Glaucon’s informant",
+        "subtitle": "",
+        "body": "The unnamed man who gave Glaucon a vague account of the speeches, which he had heard from Phoenix.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 518
+         }
+        ]
+       }
+      ]
+     },
+     "mentions": [
+      {
+       "characterId": "glaucon-informant",
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "startOffset": 511,
+       "endOffset": 518,
+       "text": "Someone",
+       "resolution": "reviewed-context"
+      },
+      {
+       "characterId": "glaucon-informant",
+       "chapterNumber": 1,
+       "paragraphIndex": 1,
+       "startOffset": 20,
+       "endOffset": 34,
+       "text": "your informant",
+       "resolution": "reviewed-context"
+      }
+     ]
+    },
     "optionalSubtitleForExistingGlaucon": {
      "characterId": "glaucon",
-     "subtitle": "Charmides’s father",
+     "subtitle": "Charmides’ father",
      "reason": "Disambiguates the two people named Glaucon in the Cast list; optional."
     }
    }

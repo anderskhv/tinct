@@ -9,7 +9,8 @@ Coordinates are written `chapter.index`: the chapter is 1-based and the paragrap
 Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `reading-log:*`, `progress:*`, audio/listening positions and any paragraph-anchored chat records use `(bookId, chapterNumber, paragraphIndex[, offset])` for `symposium` `original-en` and `modern-en`.
 
 - Apply `mapping/paragraph-map.tsv`. Its only operations are `keep`, `renumber` and `move`, and it shifts no offsets.
-- **Every old paragraph's text is byte-identical in the candidate.** Character, word and UTF-16 offsets inside any old paragraph therefore carry over exactly. Every highlight or note range maps exactly to its new coordinate. No precise annotation needs to be moved to a paragraph start or truncated.
+- **Every old paragraph's text is byte-identical in the candidate except modern-en 3.3, 3.7 and 3.8** (C-06). Elsewhere, character, word and UTF-16 offsets carry over exactly, and every highlight or note range maps exactly to its new coordinate.
+- **Modern-en 3.3, 3.7 and 3.8** keep their coordinates, but offsets inside them must be projected through `mapping/changed-paragraph-ops.json`. Equal spans are exact. A point inside a changed span is approximate and keeps its recovery tuple. No precise annotation may be moved to a paragraph start or truncated.
 - The inserted paragraphs 1.0–1.8 are new. No existing user coordinate can point into them.
 - **Do not let the Invariant 6 validator run on unmigrated data.** New chapter 7 has 69 paragraphs, so any old 7.69–7.114 position is out of range there. The validator would reset it and delete its storage key, losing the reader's place. Old 8.0 remains in range but refers to the wrong paragraph (new 8.0 is Alcibiades's entrance), and old chapter 1 positions land nine paragraphs early. The remap must run before validation and be keyed to the edition content version (candidate sha256). The recovery tuple of any unresolved record must be kept, never discarded.
 - **Page numbers are derived and must be recomputed.** Chapters 1, 7 and 8 change length (40→49, 115→69, 1→47), so a stored page or scroll fraction in those chapters is meaningless under the new layout. Restore from the migrated paragraph index and offset.
@@ -34,6 +35,8 @@ Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `
   | original-en | 222 | 288 | 176 |
   | modern-en | 220 | 286 | 172 |
 
+  In modern-en, the Aristogeiton and Harmodius mentions in 3.3 and their eight anchor offsets also change offset (C-06) and are listed under `offsetChanges`. They project exactly through equal spans.
+
   All 510 and 506 existing mentions were verified to re-resolve to their exact recorded text in the candidates after the move, using UTF-16 offsets. No anchor offset exceeds its paragraph. No offset changes.
 - **Derived fields to recompute.**
   - `sourceSha256` becomes the candidate sha256.
@@ -41,11 +44,14 @@ Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `
   - `paragraphHashes` must be recomputed for chapters 1, 7 and 8. `hashes/paragraph-hashes-*.tsv` lists every candidate paragraph hash.
   - Bump `characterReleases.symposium.revision` and the card `contentVersion`.
 - **Proposed content additions (character-content decisions, staged, not applied).**
-  - **23 new mentions per edition** in 1.0–1.8, covering every personal name there: Apollodorus ×4, Socrates ×7, Alcibiades, Agathon ×4, Aristodemus, Glaucon ×2, Phoenix ×2, Philip, and the `COMPANION` label. Each has exact UTF-16 offsets.
+  - **New mentions in 1.0–1.8, covering every personal name there, each with exact UTF-16 offsets:**
+    - original-en has 23: Apollodorus ×4, Socrates ×7, Alcibiades, Agathon ×4, Aristodemus, Glaucon ×2, Phoenix ×2, Philip, and the `COMPANION` label.
+    - modern-en has 25: the same, plus one more Socrates ("No, not Socrates") and one more Aristodemus ("Aristodemus's account") in 1.7.
   - **Three new identities:**
-    - `glaucon-questioner` is the prologue's Glaucon. The existing card id `glaucon` is *Charmides's father*, named in Alcibiades's speech (new 8.38), and is a different person. Following the `ptolemy-king`/`ptolemy-son` and `joseph-patriarch`/`joseph-husband-of-mary` precedents, the new person gets a new id. A subtitle, "Apollodorus's acquaintance", is proposed, with an optional "Charmides's father" subtitle for the existing `glaucon` entry.
-    - `phoenix` is a reference character: "Philip's son, who heard about the banquet from Aristodemus and passed on a vague account".
+    - `glaucon-questioner` is the prologue's Glaucon. The existing card id `glaucon` is *Charmides's father*, named in Alcibiades's speech (new 8.38), and is a different person. Following the `ptolemy-king`/`ptolemy-son` and `joseph-patriarch`/`joseph-husband-of-mary` precedents, the new person gets a new id. A subtitle, "Apollodorus's acquaintance", is proposed, with an optional "Charmides' father" subtitle for the existing `glaucon` entry.
+    - `phoenix` is a reference character: "Philip's son, who heard about the banquet from Aristodemus and passed the story on; it reached Glaucon only as a vague second-hand account". This wording follows Review 1 F3: the vagueness belongs to the go-between, not to Phoenix.
     - `philip` is Phoenix's father, following the card's patronymic convention (`acumenus`, `oeagrus`, `pelias`).
+  - **Optional (Review 1 F11).** An unnamed `glaucon-informant` with context mentions: "another person" and "Your informant" in original-en; "Someone" and "your informant" in modern-en. This follows the card's treatment of unnamed figures who act in the narrative.
   - **Anchor re-selection** for `apollodorus`, `socrates`, `alcibiades`, `agathon`, `aristodemus` and `listener`. The card places `firstMention`, `roleVisibleAt` and the identity snapshot at a character's first named mention, and the restored opening names these people earlier. The existing snapshot bodies remain true at the new anchors under the card's stated basis ("trigger is not a claim that every identity fact precedes the selected name").
     - The conservative alternative is to add the mentions but keep these anchors at their moved coordinates.
     - Alcibiades is the one case where the choice is visible to readers. Under the proposal his card becomes available from the prologue, where he is named as one of the speakers.
@@ -84,6 +90,7 @@ No audio generation is proposed or authorised by this package.
 
 - **Grok streaming (current provider).**
   - Chunk audio is content-addressed by the exact displayed text, provider, model, voice and settings (`docs/grok-narration-2026-09-23.md`). All 217 old paragraphs per edition are unchanged, so their cached chunks stay valid and reusable. The nine new paragraphs per edition are uncached and would be prepared on Play under the existing contract.
+  - **Modern-en 3.3, 3.7 and 3.8 have new text** (C-06), so any cached chunk containing their old text is invalid for the new text and they will be prepared on Play. Original-en chapter 3 is unchanged.
   - **Edition/sparse seek maps** for chapters 1, 7 and 8 of both English editions were built against the old paragraph sequence and must be invalidated or rebuilt. A chunk that spans an old paragraph boundary now adjacent to new text also needs invalidating.
   - If chapter titles are narrated, the original-en chapter-5 heading text changes (C-04).
   - Symposium is not in the featured-ten opening prewarm set.
@@ -91,7 +98,7 @@ No audio generation is proposed or authorised by this package.
   - The retained whole-edition recording, manifests (8/8) and word timings for `symposium/original-en` are keyed to the old chapter and paragraph sequence (`docs/bella-edition-inventory-2026-09-21.md`; the chapter 1 and 7 sidecars were published in audio-highlight run 1).
   - After the repair, chapters 1, 7 and 8 no longer match the recordings. Chapter 1 lacks the nine opening paragraphs. Chapter 7 now ends at Socrates's closing words. Chapter 8 recordings cover only the closing paragraph.
   - Before publication, the coding agent must remove `symposium` from the retained set or block chapters 1, 7 and 8 of it. Chapters 2–6 are unchanged. Mismatched recordings must not play against the new text.
-- **Legacy R2 per-paragraph audio** (`tinct-audio` bucket, per-chapter `manifest.json` and paragraph MP3s written by `app/tts/regen-symposium-en.py`). For `symposium/original-en` and `symposium/modern-en`, chapters 1, 7 and 8 are stale by coordinate, and the chapter-5 title clip, if present, is stale for original-en. Keep the assets for rollback and do not select them. The Danish (`modern-da`) R2 audio is unaffected unless Danish is restructured.
+- **Legacy R2 per-paragraph audio** (`tinct-audio` bucket, per-chapter `manifest.json` and paragraph MP3s written by `app/tts/regen-symposium-en.py`). For `symposium/original-en` and `symposium/modern-en`, chapters 1, 7 and 8 are stale by coordinate, the chapter-5 title clip (if present) is stale for original-en, and modern-en 3.3, 3.7 and 3.8 are stale by text. Keep the assets for rollback and do not select them. The Danish (`modern-da`) R2 audio is unaffected unless Danish is restructured.
 - `app/tts/regen-symposium*.{sh,py}` are retired Kokoro/Chirp tools. Do not run them.
 - The `artifacts/audio-highlight-*` files that mention Symposium are historical evidence. Do not edit them.
 

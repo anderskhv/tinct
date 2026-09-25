@@ -1,0 +1,404 @@
+{
+ "note": "UTF-16 code-unit and whitespace-word opcodes [tag, oldStart, oldEnd, newStart, newEnd] (difflib, autojunk off). Equal spans are exact; a point inside replace/delete/insert is approximate and must keep its recovery tuple.",
+ "paragraphs": [
+  {
+   "edition": "modern-en",
+   "old": "3.3",
+   "new": "3.3",
+   "change": "C-06",
+   "reason": "Garbled clause (\"the love between Aristogeiton and the steadfast devotion of Harmodius\"). Jowett: \"the love of Aristogeiton and the constancy of Harmodius had a strength which undid their power\".",
+   "oldText": "Now here in Athens, and in Lacedaemon, the rules about love are perplexing, but in most cities they are simple and easy to grasp. In Elis and Boeotia, and in countries that have no gift for eloquence, the rules are very straightforward — the law is simply in favor of these connections, and no one, young or old, says a word against them. The reason, I suppose, is that the men there are not eloquent, so lovers prefer not to take the trouble of pleading their case. In Ionia, on the other hand, and in other places generally subject to the barbarians, the custom is held to be dishonorable. There, love between males shares the evil reputation attached to philosophy and gymnastics, because all three are hostile to tyranny. Rulers' interests require that their subjects be poor in spirit and that no strong bond of friendship or fellowship form among them — and love, more than any other motive, is likely to inspire such bonds, as our own Athenian tyrants learned by experience. For the love between Aristogeiton and the steadfast devotion of Harmodius proved strong enough to bring down their power.",
+   "newText": "Now here in Athens, and in Lacedaemon, the rules about love are perplexing, but in most cities they are simple and easy to grasp. In Elis and Boeotia, and in countries that have no gift for eloquence, the rules are very straightforward — the law is simply in favor of these connections, and no one, young or old, says a word against them. The reason, I suppose, is that the men there are not eloquent, so lovers prefer not to take the trouble of pleading their case. In Ionia, on the other hand, and in other places generally subject to the barbarians, the custom is held to be dishonorable. There, love between males shares the evil reputation attached to philosophy and gymnastics, because all three are hostile to tyranny. Rulers' interests require that their subjects be poor in spirit and that no strong bond of friendship or fellowship form among them — and love, more than any other motive, is likely to inspire such bonds, as our own Athenian tyrants learned by experience. For Aristogeiton's love and Harmodius's constancy proved strong enough to bring down their power.",
+   "oldSha256": "800d9f905b820ef9f7509aedbfda0f81bf0b8a8636b490f908ebaab4109a6c0c",
+   "newSha256": "524ce031834ba928b910f3cd910c01243e60e0ecb79ca3ad456ac532ad4313ab",
+   "oldChars": 1103,
+   "newChars": 1079,
+   "oldWords": 192,
+   "newWords": 187,
+   "editedSentenceBefore": "For the love between Aristogeiton and the steadfast devotion of Harmodius proved strong enough to bring down their power.",
+   "editedSentenceAfter": "For Aristogeiton's love and Harmodius's constancy proved strong enough to bring down their power.",
+   "chars": [
+    [
+     "equal",
+     0,
+     986,
+     0,
+     986
+    ],
+    [
+     "delete",
+     986,
+     1003,
+     986,
+     986
+    ],
+    [
+     "equal",
+     1003,
+     1015,
+     986,
+     998
+    ],
+    [
+     "insert",
+     1015,
+     1015,
+     998,
+     1005
+    ],
+    [
+     "equal",
+     1015,
+     1019,
+     1005,
+     1009
+    ],
+    [
+     "delete",
+     1019,
+     1045,
+     1009,
+     1009
+    ],
+    [
+     "equal",
+     1045,
+     1055,
+     1009,
+     1019
+    ],
+    [
+     "insert",
+     1055,
+     1055,
+     1019,
+     1031
+    ],
+    [
+     "equal",
+     1055,
+     1103,
+     1031,
+     1079
+    ]
+   ],
+   "words": [
+    [
+     "equal",
+     0,
+     174,
+     0,
+     174
+    ],
+    [
+     "replace",
+     174,
+     175,
+     174,
+     175
+    ],
+    [
+     "equal",
+     175,
+     176,
+     175,
+     176
+    ],
+    [
+     "delete",
+     176,
+     178,
+     176,
+     176
+    ],
+    [
+     "equal",
+     178,
+     179,
+     176,
+     177
+    ],
+    [
+     "replace",
+     179,
+     184,
+     177,
+     179
+    ],
+    [
+     "equal",
+     184,
+     192,
+     179,
+     187
+    ]
+   ]
+  },
+  {
+   "edition": "modern-en",
+   "old": "3.7",
+   "new": "3.7",
+   "change": "C-06",
+   "reason": "Dropped qualification. Jowett: \"There remains, then, only one way of honourable attachment which custom allows in the beloved, and this is the way of virtue\".",
+   "oldText": "This is why, in the first place, a hasty attachment is considered dishonorable: time is the true test, here as in most other things. And secondly, there is dishonor in being overcome by the love of money, wealth, or political power — whether a man is frightened into surrender by the fear of losing them, or, having tasted the benefits of money and political corruption, cannot rise above their seductions. For none of these things is permanent or lasting, and besides, no generous friendship ever sprang from them. There remains, then, only one honorable way for the beloved to yield — the way of virtue. For just as we granted that any service the lover renders to his beloved is not to be counted as flattery or as a dishonor to himself, so the beloved has one, and only one, form of voluntary service that is not dishonorable: namely, virtuous service.",
+   "newText": "This is why, in the first place, a hasty attachment is considered dishonorable: time is the true test, here as in most other things. And secondly, there is dishonor in being overcome by the love of money, wealth, or political power — whether a man is frightened into surrender by the fear of losing them, or, having tasted the benefits of money and political corruption, cannot rise above their seductions. For none of these things is permanent or lasting, and besides, no generous friendship ever sprang from them. There remains, then, only one honorable way that custom allows for the beloved to yield — the way of virtue. For just as we granted that any service the lover renders to his beloved is not to be counted as flattery or as a dishonor to himself, so the beloved has one, and only one, form of voluntary service that is not dishonorable: namely, virtuous service.",
+   "oldSha256": "f3cd77c227ef7c672c6845d18f7798c773ccda4863f7da335d0ba016d3a62103",
+   "newSha256": "b3a639775ec792ab415e97b6222745096c74bddabffa75e0c8dd6b2c7d86855f",
+   "oldChars": 856,
+   "newChars": 875,
+   "oldWords": 151,
+   "newWords": 154,
+   "editedSentenceBefore": "There remains, then, only one honorable way for the beloved to yield — the way of virtue.",
+   "editedSentenceAfter": "There remains, then, only one honorable way that custom allows for the beloved to yield — the way of virtue.",
+   "chars": [
+    [
+     "equal",
+     0,
+     560,
+     0,
+     560
+    ],
+    [
+     "insert",
+     560,
+     560,
+     560,
+     579
+    ],
+    [
+     "equal",
+     560,
+     856,
+     579,
+     875
+    ]
+   ],
+   "words": [
+    [
+     "equal",
+     0,
+     95,
+     0,
+     95
+    ],
+    [
+     "insert",
+     95,
+     95,
+     95,
+     98
+    ],
+    [
+     "equal",
+     95,
+     151,
+     98,
+     154
+    ]
+   ]
+  },
+  {
+   "edition": "modern-en",
+   "old": "3.8",
+   "new": "3.8",
+   "change": "C-06",
+   "reason": "Dropped hedge and quotation. Jowett: \"for he has done his best to show that he would give himself up to any one's 'uses base' for the sake of money; but this is not honourable\".",
+   "oldText": "For we have a custom according to which, if someone serves another in the belief that he will be improved by him — whether in wisdom or in some other particular of virtue — such voluntary service is not to be considered a dishonor, and it is not open to the charge of flattery. These two customs — the love of youth, and the practice of philosophy and virtue generally — ought to meet in one; and when they do, the beloved may honorably yield to the lover. For when lover and beloved come together, each following his own law: the lover thinking he is right to do any service he can for his gracious loved one, and the beloved thinking he is right to show any kindness he can to the one who is making him wise and good — the first capable of communicating wisdom and virtue, the second seeking to acquire them for the sake of his education and wisdom — then, when the two laws of love are fulfilled and meet in one, and only then, may the beloved yield honorably to the lover. And when love is of this disinterested sort, there is no disgrace in being deceived; but in every other case there is equal disgrace in being deceived or not. For if someone yields to a lover under the impression that he is rich, and is then disappointed of his gains because the lover turns out to be poor, he is disgraced just the same — because he has shown that for money's sake he would give himself up to anyone, for any base use; and that is not honorable.",
+   "newText": "For we have a custom according to which, if someone serves another in the belief that he will be improved by him — whether in wisdom or in some other particular of virtue — such voluntary service is not to be considered a dishonor, and it is not open to the charge of flattery. These two customs — the love of youth, and the practice of philosophy and virtue generally — ought to meet in one; and when they do, the beloved may honorably yield to the lover. For when lover and beloved come together, each following his own law: the lover thinking he is right to do any service he can for his gracious loved one, and the beloved thinking he is right to show any kindness he can to the one who is making him wise and good — the first capable of communicating wisdom and virtue, the second seeking to acquire them for the sake of his education and wisdom — then, when the two laws of love are fulfilled and meet in one, and only then, may the beloved yield honorably to the lover. And when love is of this disinterested sort, there is no disgrace in being deceived; but in every other case there is equal disgrace in being deceived or not. For if someone yields to a lover under the impression that he is rich, and is then disappointed of his gains because the lover turns out to be poor, he is disgraced just the same — because he has done his best to show that he would give himself up to anyone's 'uses base' for the sake of money; and that is not honorable.",
+   "oldSha256": "11ab27fbcf5a9948471d9223d3432f884273c94919398ae38e4c39bae416b52e",
+   "newSha256": "0f34ee934b181dc0ca7f82568352353c1fe4dd32e954df890d80368ec570e9c3",
+   "oldChars": 1440,
+   "newChars": 1457,
+   "oldWords": 277,
+   "newWords": 281,
+   "editedSentenceBefore": "because he has shown that for money's sake he would give himself up to anyone, for any base use; and that is not honorable.",
+   "editedSentenceAfter": "because he has done his best to show that he would give himself up to anyone's 'uses base' for the sake of money; and that is not honorable.",
+   "chars": [
+    [
+     "equal",
+     0,
+     1332,
+     0,
+     1332
+    ],
+    [
+     "insert",
+     1332,
+     1332,
+     1332,
+     1349
+    ],
+    [
+     "equal",
+     1332,
+     1336,
+     1349,
+     1353
+    ],
+    [
+     "delete",
+     1336,
+     1337,
+     1353,
+     1353
+    ],
+    [
+     "equal",
+     1337,
+     1342,
+     1353,
+     1358
+    ],
+    [
+     "delete",
+     1342,
+     1359,
+     1358,
+     1358
+    ],
+    [
+     "equal",
+     1359,
+     1394,
+     1358,
+     1393
+    ],
+    [
+     "replace",
+     1394,
+     1395,
+     1393,
+     1407
+    ],
+    [
+     "equal",
+     1395,
+     1400,
+     1407,
+     1412
+    ],
+    [
+     "replace",
+     1400,
+     1407,
+     1412,
+     1414
+    ],
+    [
+     "equal",
+     1407,
+     1409,
+     1414,
+     1416
+    ],
+    [
+     "delete",
+     1409,
+     1410,
+     1416,
+     1416
+    ],
+    [
+     "equal",
+     1410,
+     1411,
+     1416,
+     1417
+    ],
+    [
+     "insert",
+     1411,
+     1411,
+     1417,
+     1419
+    ],
+    [
+     "equal",
+     1411,
+     1412,
+     1419,
+     1420
+    ],
+    [
+     "insert",
+     1412,
+     1412,
+     1420,
+     1429
+    ],
+    [
+     "equal",
+     1412,
+     1440,
+     1429,
+     1457
+    ]
+   ],
+   "words": [
+    [
+     "equal",
+     0,
+     256,
+     0,
+     256
+    ],
+    [
+     "replace",
+     256,
+     257,
+     256,
+     261
+    ],
+    [
+     "equal",
+     257,
+     258,
+     261,
+     262
+    ],
+    [
+     "delete",
+     258,
+     261,
+     262,
+     262
+    ],
+    [
+     "equal",
+     261,
+     267,
+     262,
+     268
+    ],
+    [
+     "replace",
+     267,
+     268,
+     268,
+     271
+    ],
+    [
+     "equal",
+     268,
+     269,
+     271,
+     272
+    ],
+    [
+     "replace",
+     269,
+     272,
+     272,
+     276
+    ],
+    [
+     "equal",
+     272,
+     277,
+     276,
+     281
+    ]
+   ]
+  }
+ ]
+}

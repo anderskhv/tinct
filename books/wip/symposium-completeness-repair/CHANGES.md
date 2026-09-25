@@ -1,6 +1,6 @@
 # Changed-passage ledger
 
-Baseline: `main` `38a97c63`. Candidates: original-en `3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6`, modern-en `43f03333a255d90378a12ab1d1d384620e515e1725cb4ba8132e794fa504e550`. The machine-readable ledger is `CHANGES.json`.
+Baseline: `main` `38a97c63`. Candidates: original-en `3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6`, modern-en `073ca5b4eeda36bb0293be8fab1d97f6f37d7feb9f4cc4d6fc82e0244d693eae`. The machine-readable ledger is `CHANGES.json`.
 
 Coordinates are candidate `chapter.index`: the chapter is 1-based and the paragraph index is 0-based.
 
@@ -13,8 +13,9 @@ Coordinates are candidate `chapter.index`: the chapter is 1-based and the paragr
 | C-03 | both | Chapter regroup, text unchanged | old 7.69–7.114 → 8.0–8.45; old 8.0 → 8.46 | Chapter 7 "Socrates & Diotima" contained Alcibiades's arrival, speech and aftermath, while chapter 8 "Alcibiades" held only the closing paragraph. The Alcibiades episode begins at "When Socrates had done speaking…" (dialogue ¶142), directly after Socrates's last words |
 | C-04 | original-en | Chapter 5 title "Agathon & Aristophanes" → "Aristophanes's Speech" | ch 5 title | Label disagreed with modern-en and modern-da for the same aligned chapter. Agathon's speech is chapter 6. Label only and separable: see the variant hash in `hashes/build-summary.json` |
 | C-05 | both | Renumber, text unchanged | old 1.0–1.39 → 1.9–1.48 | Consequence of C-01 and C-02 |
+| C-06 | modern-en | Correct three existing sentences | 3.3, 3.7, 3.8 | Confirmed defects found by the whole-book review (Review 1): a garbled clause (3.3), a dropped qualification "which custom allows" (3.7), and a dropped hedge and quotation, "done his best" and 'uses base' (3.8) |
 
-No other paragraph was changed. All 217 baseline paragraphs of each edition are carried byte for byte (`mapping/paragraph-map.tsv`).
+No other paragraph was changed. Every other baseline paragraph of each edition is carried byte for byte (`mapping/paragraph-map.tsv`). The three C-06 paragraphs are the only changed passages needing offset-aware migration (`mapping/changed-paragraph-ops.json`).
 
 ## C-01 and C-02: the restored opening
 
@@ -26,11 +27,11 @@ Speaker framing: Apollodorus is speaking to an unnamed companion. He recounts wh
 
 > Concerning the things about which you ask to be informed I believe that I am not ill-prepared with an answer. For the day before yesterday I was coming from my own home at Phalerum to the city, and one of my acquaintance, who had caught a sight of me from behind, calling out playfully in the distance, said: Apollodorus, O thou Phalerian (Probably a play of words on (Greek), 'bald-headed.') man, halt! So I did as I was bid; and then he said, I was looking for you, Apollodorus, only just now, that I might ask you about the speeches in praise of love, which were delivered by Socrates, Alcibiades, and others, at Agathon's supper. Phoenix, the son of Philip, told another person who told me of them; his narrative was very indistinct, but he said that you knew, and I wish that you would give me an account of them. Who, if not you, should be the reporter of the words of your friend? And first tell me, he said, were you present at this meeting?
 
-**Modern English (modern-en)**, sha256 `ab383055a73a3235b5f38aaf58fb092152e8eacc4d20df142c645dc3625c90da`:
+**Modern English (modern-en)**, sha256 `c1ef8b390417ddd557d8132bcc0762d13f0f94dea9566d4a7ef021925cba2b92`:
 
-> As for what you're asking about, I believe I'm well prepared to answer. In fact, only the day before yesterday I was on my way into the city from my home in Phalerum when an acquaintance of mine caught sight of me from behind and called out playfully from a distance, 'Apollodorus! You there — you Phalerian! Halt!' So I did as I was told, and he said, 'Apollodorus, I was looking for you only just now. I wanted to ask you about the speeches in praise of love that Socrates, Alcibiades, and others gave at Agathon's supper. Phoenix, the son of Philip, described them to someone, who then told me; but his account was very vague. He did say that you knew, though, so I'd like you to give me an account of them. Who better than you to report your friend's words? But first tell me,' he said, 'were you at that gathering yourself?'
+> As for what you're asking about, I believe I'm well prepared to answer. In fact, the day before yesterday I was on my way into the city from my home in Phalerum when an acquaintance of mine caught sight of me from behind and called out playfully from a distance, 'Apollodorus! You there — you Phalerian! Halt!' So I did as I was told, and he said, 'Apollodorus, I was just looking for you. I wanted to ask you about the speeches in praise of love that Socrates, Alcibiades, and others gave at Agathon's supper. Someone told me what he had heard from Phoenix, the son of Philip, but his account was very vague. He did say, though, that you knew about them, so I'd like to hear about them from you. Who better than you to report your friend's words? But first tell me,' he said, 'were you at that gathering yourself?'
 
-Editorial notes: Jowett's bracketed note "(Probably a play of words on (Greek), 'bald-headed.')" is omitted, as modern-en omits all 20 other Jowett notes (compare Republic 7.257). The original-en compare text keeps it. "Phalerian", the word the jest turns on, and "playfully" are both kept. "Not ill-prepared" becomes "well prepared", matching 1.7. Glaucon's words are in single quotes, following the chapter's convention for reported speech. "Supper" is kept, as in the surrounding modern text. The ambiguous "his account" (the intermediary's) mirrors Jowett.
+Editorial notes: Jowett's bracketed note "(Probably a play of words on (Greek), 'bald-headed.')" is omitted, as modern-en omits all 20 other Jowett notes (compare Republic 7.257). The original-en compare text keeps it. "Phalerian", the word the jest turns on, and "playfully" are kept. "Not ill-prepared" becomes "well prepared", matching 1.7. Glaucon's words are in single quotes, following the chapter's convention. The chain of informants is ordered so that "his account" can only be the go-between's, which is Jowett's sense (Review 2, finding 5). "Only" was trimmed from "the day before yesterday" (Review 1, F9).
 
 ### 1.1 (dialogue ¶1)
 
@@ -60,11 +61,11 @@ Editorial notes: Glaucon is named in the first words of the reply, which is his 
 
 > Impossible: I said. Are you ignorant that for many years Agathon has not resided at Athens; and not three have elapsed since I became acquainted with Socrates, and have made it my daily business to know all that he says and does. There was a time when I was running about the world, fancying myself to be well employed, but I was really a most wretched being, no better than you are now. I thought that I ought to do anything rather than be a philosopher.
 
-**Modern English (modern-en)**, sha256 `7c74abc689842a9fa0ab6eb09cf78f219c4c24eadb30c436223740325580b8e7`:
+**Modern English (modern-en)**, sha256 `7b275449b5095aebd17227f9b6b01355a9fb6d9883b64b304a8784785fb3250a`:
 
-> 'Impossible,' I said. 'Don't you know that Agathon hasn't lived in Athens for many years, and that it's not even three years since I got to know Socrates and made it my daily business to know everything he says and does? There was a time when I ran around from one thing to another, thinking I was well occupied, but I was really a thoroughly wretched creature — no better than you are now. I thought I ought to do anything rather than be a philosopher.'
+> 'Impossible,' I said. 'Don't you know that Agathon hasn't lived in Athens for many years, and that it's not yet three years since I began keeping company with Socrates and made it my daily business to know everything he says and does? There was a time when I ran around from one thing to another, thinking I was doing something worthwhile, but I was really a thoroughly wretched creature — no better than you are now. I thought I ought to do anything rather than be a philosopher.'
 
-Editorial notes: "Are you ignorant that…" is recast as a question. "Not three have elapsed" becomes "it's not even three years".
+Editorial notes: "Are you ignorant that…" is recast as a question. "Not three have elapsed" becomes "not yet three years" (Review 1, F9). "Became acquainted with" becomes "began keeping company with" (Review 2, finding 7). "Fancying myself to be well employed" becomes "thinking I was doing something worthwhile" (Review 2, finding 8).
 
 ### 1.4 (dialogue ¶4)
 
@@ -84,11 +85,11 @@ Editorial notes: "Jesting apart" becomes "joking aside". "Meeting" is rendered "
 
 > In our boyhood, I replied, when Agathon won the prize with his first tragedy, on the day after that on which he and his chorus offered the sacrifice of victory.
 
-**Modern English (modern-en)**, sha256 `24f4a89d91b5bee31448c41e64dc6dbcf79d65d974ad962ed4efb2fbd3bade81`:
+**Modern English (modern-en)**, sha256 `20666242c63eb53d28b62a5359de17007d10cd47115875fc6bf57f5921177cde`:
 
-> 'When we were still boys,' I replied, 'when Agathon won the prize with his first tragedy — the day after he and his chorus had offered their victory sacrifice.'
+> 'When we were still boys,' I replied, 'at the time Agathon won the prize with his first tragedy. It was the day after he and his chorus had offered their victory sacrifice.'
 
-Editorial notes: The time relation is preserved: the party took place the day after the victory sacrifice.
+Editorial notes: Split into two sentences so that "the day after … the sacrifice of victory" clearly dates the party, as in Jowett (Review 2, finding 9).
 
 ### 1.6 (dialogue ¶6)
 
@@ -108,11 +109,11 @@ Editorial notes: "Did Socrates?" becomes "was it Socrates?"
 
 > No indeed, I replied, but the same person who told Phoenix;--he was a little fellow, who never wore any shoes, Aristodemus, of the deme of Cydathenaeum. He had been at Agathon's feast; and I think that in those days there was no one who was a more devoted admirer of Socrates. Moreover, I have asked Socrates about the truth of some parts of his narrative, and he confirmed them. Then, said Glaucon, let us have the tale over again; is not the road to Athens just made for conversation? And so we walked, and talked of the discourses on love; and therefore, as I said at first, I am not ill-prepared to comply with your request, and will have another rehearsal of them if you like. For to speak or to hear others speak of philosophy always gives me the greatest pleasure, to say nothing of the profit. But when I hear another strain, especially that of you rich men and traders, such conversation displeases me; and I pity you who are my companions, because you think that you are doing something when in reality you are doing nothing. And I dare say that you pity me in return, whom you regard as an unhappy creature, and very probably you are right. But I certainly know of you what you only think of me--there is the difference.
 
-**Modern English (modern-en)**, sha256 `a91a5fdce3d590e8daa28ea0e753f0e9019b39edd7b660b2fb241ebcf253aa4b`:
+**Modern English (modern-en)**, sha256 `cc23c4e7e60e8cf46aa1d11f932185940296dea694872675b47cd1acf8dd26b6`:
 
-> 'No indeed,' I replied, 'but the same man who told Phoenix — a little fellow who never wore shoes, Aristodemus, of the deme of Cydathenaeum. He had been at Agathon's feast, and I think that in those days no one was a more devoted admirer of Socrates. What's more, I have asked Socrates about the truth of some parts of his account, and he confirmed them.' 'Then,' said Glaucon, 'let's have the whole story again. Isn't the road to Athens just made for conversation?' So we walked along and talked about the speeches on love. That is why, as I said at the start, I'm well prepared to do what you ask, and I'll go through them again if you like. For speaking about philosophy, or hearing others speak about it, always gives me the greatest pleasure — to say nothing of the benefit. But when I hear any other kind of talk, especially the talk of you rich men and businessmen, it annoys me; and I pity you, my friends, because you think you're doing something when in reality you're doing nothing. I dare say you pity me in return, and think me an unhappy creature — and very probably you're right. But what you only think about me, I know for certain about you. That's the difference.
+> 'No, not Socrates,' I replied. 'It was the same man who told Phoenix — Aristodemus, of the deme of Cydathenaeum, a little fellow who never wore shoes. He had been at Agathon's feast, and I think that in those days no one was a more devoted admirer of Socrates. What's more, I have asked Socrates himself whether some parts of Aristodemus's account were true, and he confirmed them.' 'Then,' said Glaucon, 'let's have the whole story. Isn't the road to Athens just made for conversation?' So we walked along and talked about the speeches on love. And that is why, as I told you at the start, I'm well prepared to do what you ask; I'll go through them again for you, if you like. For speaking about philosophy, or hearing others speak about it, always gives me the greatest pleasure — to say nothing of the benefit. But when I hear any other kind of talk — especially the talk of rich men and businessmen like you — it annoys me; and I pity you, my friends, because you think you're doing something when in reality you're doing nothing. I suppose you pity me in return and think I'm miserable — and very probably you're right. But what you only think about me, I know for certain about you. That's the difference.
 
-Editorial notes: "Deme" is kept as Jowett's term for the Athenian district. "Traders" becomes "businessmen" and "displeases me" becomes "annoys me". The plural address "you who are my companions" becomes "my friends". The closing antithesis is kept: "what you only think about me, I know for certain about you".
+Editorial notes: "No indeed" becomes "No, not Socrates", and the description now follows the name (Review 2, finding 10). "Deme" is kept as Jowett's term. "His narrative" is made explicit as "Aristodemus's account" (Review 2, finding 2). Glaucon's "let us have the tale over again" becomes "let's have the whole story" (Review 2, finding 11). The turn back to the companion is signalled with "as I told you at the start" and "for you" (Review 2, finding 1). The plural "you who are my companions" stays plural. The closing antithesis is kept.
 
 ### 1.8 (dialogue ¶8)
 
@@ -120,11 +121,34 @@ Editorial notes: "Deme" is kept as Jowett's term for the Athenian district. "Tra
 
 > COMPANION: I see, Apollodorus, that you are just the same--always speaking evil of yourself, and of others; and I do believe that you pity all mankind, with the exception of Socrates, yourself first of all, true in this to your old name, which, however deserved, I know not how you acquired, of Apollodorus the madman; for you are always raging against yourself and everybody but Socrates.
 
-**Modern English (modern-en)**, sha256 `3365abdee8fd00b744d48ba4e266b0d0fea2b3009a317097229090d05b833b26`:
+**Modern English (modern-en)**, sha256 `f3d9a5747c9af840948147ab23e1e1c76e0405bc8e26c88884c8aa64b2e67662`:
 
-> COMPANION: I see you're just the same as ever, Apollodorus — always speaking ill of yourself and of others. I really do believe you pity all mankind except Socrates, starting with yourself. In this you live up to your old nickname, 'Apollodorus the madman' — though I don't know how you came by it, deserved as it is — for you're always raging against yourself and everybody except Socrates.
+> COMPANION: I see you're just the same as ever, Apollodorus — always speaking ill of yourself and of others. I really do believe you pity all mankind except Socrates, starting with yourself. In this you live up to your old nickname, 'Apollodorus the madman.' I don't know how you came by it, but it suits you, for you're always raging against yourself and everybody except Socrates.
 
-Editorial notes: The nickname "Apollodorus the madman" is quoted. "Which, however deserved, I know not how you acquired" becomes "though I don't know how you came by it, deserved as it is". The text leads directly into the existing 1.9, "APOLLODORUS: Yes, friend, and the reason people say I'm crazy…".
+Editorial notes: The nickname sentence is split for readability. "However deserved" becomes "it suits you" (Review 2, finding 3). The text leads directly into the existing 1.9, "APOLLODORUS: Yes, friend, and the reason people say I'm crazy…".
+
+## C-06: corrections to existing modern-en sentences
+
+### 3.3
+
+- **Before:** For the love between Aristogeiton and the steadfast devotion of Harmodius proved strong enough to bring down their power.
+- **After:** For Aristogeiton's love and Harmodius's constancy proved strong enough to bring down their power.
+- **Why:** Confirmed defect found in the whole-book review (Review 1). Garbled clause ("the love between Aristogeiton and the steadfast devotion of Harmodius"). Jowett: "the love of Aristogeiton and the constancy of Harmodius had a strength which undid their power".
+- **Paragraph sha256:** `800d9f905b820ef9f7509aedbfda0f81bf0b8a8636b490f908ebaab4109a6c0c` → `524ce031834ba928b910f3cd910c01243e60e0ecb79ca3ad456ac532ad4313ab`
+
+### 3.7
+
+- **Before:** There remains, then, only one honorable way for the beloved to yield — the way of virtue.
+- **After:** There remains, then, only one honorable way that custom allows for the beloved to yield — the way of virtue.
+- **Why:** Confirmed defect found in the whole-book review (Review 1). Dropped qualification. Jowett: "There remains, then, only one way of honourable attachment which custom allows in the beloved, and this is the way of virtue".
+- **Paragraph sha256:** `f3cd77c227ef7c672c6845d18f7798c773ccda4863f7da335d0ba016d3a62103` → `b3a639775ec792ab415e97b6222745096c74bddabffa75e0c8dd6b2c7d86855f`
+
+### 3.8
+
+- **Before:** because he has shown that for money's sake he would give himself up to anyone, for any base use; and that is not honorable.
+- **After:** because he has done his best to show that he would give himself up to anyone's 'uses base' for the sake of money; and that is not honorable.
+- **Why:** Confirmed defect found in the whole-book review (Review 1). Dropped hedge and quotation. Jowett: "for he has done his best to show that he would give himself up to any one's 'uses base' for the sake of money; but this is not honourable".
+- **Paragraph sha256:** `11ab27fbcf5a9948471d9223d3432f884273c94919398ae38e4c39bae416b52e` → `0f34ee934b181dc0ca7f82568352353c1fe4dd32e954df890d80368ec570e9c3`
 
 ## C-03: chapter regroup evidence
 
@@ -140,6 +164,7 @@ Chapter divisions are Tinct's editorial reading aids, not Plato's. The transitio
 
 - **Paragraph split 8.0/8.1** (baseline 7.69/7.70). It leaves "Will you drink with me or not?'" as a short paragraph inside Alcibiades's entrance speech. It falls at a sentence end and loses no text. It is kept to avoid changing more coordinates.
 - **Upstream Gutenberg typos** reproduced in original-en: "saying: not answer him" (5.16), "Sthenoaoea" (6.4), "Hyppolytus" (6.10), "godess" (3.9). Correcting them is a separate source-emendation decision.
-- **Modern-en typography:** doubled quotes in 1.33 (`''I may touch you` … `sought.''`) and the `',` ending of 1.20. Also, quotation conventions differ between chapters. These are pre-existing and cosmetic. They are left unchanged so every old paragraph keeps exact offsets.
+- **Modern-en typography:** doubled quotes in 1.33 (`''I may touch you` … `sought.''`) and the `',` ending of 1.20. Also, quotation conventions differ between chapters, 7.68 and 8.1 have no opening quotation marks, the inner quotation marks around Phaedrus's complaint in 1.46 are missing, and British spellings remain ("theatre" 5.11–5.13, "marvellous" 8.5/8.26/8.31, "revellers" 8.0/8.24). These are pre-existing and cosmetic. They are left unchanged so those paragraphs keep exact offsets.
+- **Modern-en nuances judged not to be defects of meaning** (Review 1, F8): 3.2 "But surely" for Jowett's "for surely"; 3.6 "both lover and beloved" for "both of them"; 4.1 "the poets here" for "our friends the poets here". They are recorded here for any later modern-English pass.
 - **Modern-en closeness to Jowett in chapters 2 and 4–7.** The similarity gate fails before and after this repair. These are clear passages and were not rewritten (see `coverage/COVERAGE.md`).
 - **Jowett's inline notes** stay verbatim in original-en and stay omitted in modern-en, following each edition's existing convention.
