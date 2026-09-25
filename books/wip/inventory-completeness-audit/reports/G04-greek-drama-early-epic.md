@@ -80,7 +80,7 @@
   - Source covered 99.56%; edition covered 99.992%.
   - No MISSING or EXTRA runs of 12 or more tokens; 0 order anomalies; 0 duplicates.
   - The uncovered tokens are 28 strophic markers "(Str. 1)"/"(Ant. 1)" and 2 footnote markers.
-  - The 3 bracketed lacuna and variant lines are served, including 5.40 "[None but a fool would credit such as thou.]".
+  - Storr's single bracketed lacuna line, at 5.40 "[None but a fool would credit such as thou.]" (footnote 3), is served.
 - **Structure.** The opening (1.0 suppliants) and ending (11.55 "Look ye, countrymen and Thebans…") are correct. Chapter boundaries:
 
 | Standard unit (Jebb ll.) | Served under | Coordinates |
@@ -194,7 +194,7 @@
   - The Eumenides refrains (25.1 and 25.5) are repeated in the source too.
 - **Structure.**
   - The opening (the Watchman) and ending (the final chant, then "[Exeunt omnes]") are present.
-  - Agamemnon's labels are broadly correct. Clytemnestra's return (1035ff) sits at 8.16 under "Third Stasimon", which is minor.
+  - Agamemnon's labels are broadly correct. Clytemnestra's return (1035–1068) sits at 8.10–8.16 under "Third Stasimon", which is minor.
   - Libation Bearers:
     - "Kommos" (ch14, "Yea, and my heart o'erflows…", l.2967) is the recognition scene. The real kommos starts at 15.1 (l.3154) under "Second Episode".
     - "Second Stasimon" (ch16, l.3594) is the first stasimon.
@@ -297,7 +297,7 @@
   - The paragraph-by-paragraph diff per tablet is identical except for two points:
     1. Colavito prints the Enkidu/Shamhat paragraph twice, at the end of Tablet I and the start of Tablet II (a catch-line). It is served once, at 2.0; this is a defensible de-duplication. The Tablet VI/VII catch-line is served twice.
     2. "Niṣir" is served as "Niir".
-  - Source lacunae are few, and they are all carried over.
+  - The source's lacuna marks (43 ellipses) are carried over unchanged, since the paragraph diff is otherwise identical.
 - **Verdict: DEFECTS.** The text is complete against the source.
 
 | ID | Type | Sev | Editions | Location | Summary |

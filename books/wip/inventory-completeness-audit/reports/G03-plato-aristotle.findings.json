@@ -1,0 +1,794 @@
+{
+ "group": "G03-plato-aristotle",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "audit_date": "2026-09-25",
+ "books": [
+  {
+   "id": "symposium",
+   "verdict": "DEFECTS",
+   "method": "full-alignment (reconciliation of existing package)",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "e2943777fd54eaaa0888076c5c03a9104bc1b1ffa681a5362ab114e327f797c0",
+     "source_url": "https://www.gutenberg.org/cache/epub/1600/pg1600.txt",
+     "source_sha256": "8b5c599ea734ff0f5e8d83f399dead8c796800897b107c8d53fa909f74a05d6f",
+     "source_retrieved_utc": "2026-09-25T11:45:19Z (lead auditor cache, byte-equal to package source/pg1600.txt)",
+     "source_covered_pct": 97.047,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1
+    },
+    {
+     "key": "original-en (package candidate 3521a12d…)",
+     "sha256": "3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6",
+     "source_url": "https://www.gutenberg.org/cache/epub/1600/pg1600.txt",
+     "source_sha256": "8b5c599ea734ff0f5e8d83f399dead8c796800897b107c8d53fa909f74a05d6f",
+     "source_retrieved_utc": "2026-09-25T11:45:19Z",
+     "source_covered_pct": 100.0,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-symposium-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (start of work)",
+     "extent_words": 648,
+     "summary": "Frame opening absent (Apollodorus and the companion; Glaucon; dating of the banquet; Aristodemus as source). EXISTING-REPAIR, not a new finding.",
+     "served_before": "(start of work; chapter 'The Gathering')",
+     "missing_start": "Concerning the things about which you ask to be informed I believe that I am not ill-prepared",
+     "missing_end": "for you are always raging against yourself and everybody but Socrates.",
+     "served_after": "APOLLODORUS: Yes, friend, and the reason why I am said to be mad",
+     "source_ref": "pg1600.txt lines 988-1050 (sha256 8b5c599e…); align.py: single 657-token run, whole text otherwise 100%",
+     "local_raw_has_it": null,
+     "modern_en": "absent (1.0 = 'APOLLODORUS: Yes, friend, and the reason people say I'm crazy…')",
+     "modern_da": "absent (1.0 = 'APOLLODOROS: Ja, ven…')",
+     "existing_repair": "origin/claude/kind-fermi-a2b3g0 @ bebe95b4 books/wip/symposium-completeness-repair/ (content accepted, not published); C-01 (original-en) and C-02 (modern-en) restore 1.0-1.8; modern-da not repaired (decision pending)"
+    },
+    {
+     "id": "G03-symposium-02",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "7.69-7.114 (chapter boundary)",
+     "extent_words": 4745,
+     "summary": "Alcibiades's arrival and speech sit under ch7 'Socrates & Diotima'; ch8 'Alcibiades' holds only the closing paragraph. Text complete and in order. EXISTING-REPAIR.",
+     "served_before": "(7.68 end) may call an encomium of love, or anything else which you please.",
+     "missing_start": "(7.69) When Socrates had done speaking, the company applauded",
+     "missing_end": "(7.114 end) invented a specious reason for attracting Agathon to himself.",
+     "served_after": "(8.0) Agathon arose in order that he might take his place on the couch by Socrates",
+     "source_ref": "pg1600.txt; package coverage/passage-coverage.tsv",
+     "local_raw_has_it": null,
+     "modern_en": "same boundary",
+     "modern_da": "same boundary",
+     "existing_repair": "origin/claude/kind-fermi-a2b3g0 @ bebe95b4 books/wip/symposium-completeness-repair/ (content accepted, not published); C-03 regroups at 'When Socrates had done speaking' (ch7 69 / ch8 47 paragraphs)"
+    },
+    {
+     "id": "G03-symposium-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "chapter 5 title",
+     "extent_words": 0,
+     "summary": "original-en ch5 titled 'Agathon & Aristophanes' while modern-en/modern-da say 'Aristophanes's Speech'/'Aristofanes' tale'. EXISTING-REPAIR.",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "n/a (editorial title)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "n/a",
+     "existing_repair": "origin/claude/kind-fermi-a2b3g0 @ bebe95b4 books/wip/symposium-completeness-repair/ (content accepted, not published); C-04 (separable)"
+    }
+   ],
+   "scope_notes": [
+    "Jowett's Introduction (pg1600 lines 50-976) and 'PERSONS OF THE DIALOGUE'/'SCENE' lines (980-985) excluded, as in the package",
+    "Jowett's 14 inline bracketed cross-references (e.g. '(compare Rep.)') are part of the PG text and served in original-en"
+   ],
+   "needs_investigation": [],
+   "notes": "Reconciliation only. Live sha256s equal the package baseline (build-summary.json) for original-en, modern-en and modern-da. align.py vs PG #1600 (start '^Concerning the things about which', end at PG END marker): live original-en 22,250 src / 21,593 ed tokens, one 657-token MISSING run (the opening), 0 EXTRA/ORDER/DUP; package candidate original-en 100%/100%, 0 runs. Package status: CONTENT ACCEPTED, NOT PUBLISHED. Open decisions for Anders: (1) modern-da has the same missing opening and ch7/8 boundary plus its own misaligned ch3 and 33 condensed paragraphs; recommendation keep untouched and set modern-da aligned:false in the same release; (2) modern-en fails the mandatory similarity gate before and after (0.877 -> 0.866; ch2 and 4-7 near-verbatim Jowett since commit 67aa9c16); a waiver is needed or neither English edition can ship."
+  },
+  {
+   "id": "apology",
+   "verdict": "DEFECTS",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "a951009eaf834d24ac88e79ffdea2841d939897b88a52d821cd9a7710b303fe8",
+     "source_url": "https://www.gutenberg.org/cache/epub/1656/pg1656.txt",
+     "source_sha256": "f4cc548bd8c8b59e14effdbaab9df97f29bd48f317a466fe8c3c63ad288b964c",
+     "source_retrieved_utc": "2026-09-25T11:54:17Z",
+     "source_covered_pct": 100.0,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-apology-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.4 (modern-en/modern-da)",
+     "extent_words": 87,
+     "summary": "Translation-only omission: source ¶2.4, the exile argument (wandering from city to city, driven out by the young men's elders), is not rendered; modern 2.4 renders source ¶2.5 instead. original-en has it at 2.4.",
+     "served_before": "strangers would tolerate the conversations that my own fellow citizens couldn't bear. (modern-en 2.3 end)",
+     "missing_start": "No indeed, men of Athens, that is not very likely. And what a life should I lead",
+     "missing_end": "their fathers and friends will drive me out for their sakes.",
+     "served_after": "Someone would say: 'Can't you just stop talking, Socrates, and live quietly in exile?' (modern-en 2.4 start)",
+     "source_ref": "pg1656.txt lines 1294-1300 (sha256 f4cc548b…); = original-en 2.4",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent (2.4 'Nogen ville sige: Kan du ikke bare holde mund…' renders ¶2.5)",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi @ 0252b80d books/wip/green-apology/fidelity-review-1.md B1 (documented; package candidate.json is byte-equal to live modern-en paragraphs; no fixed candidate)"
+    },
+    {
+     "id": "G03-apology-02",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.4-2.5 (modern-en/modern-da)",
+     "extent_words": 139,
+     "summary": "Duplicated rendering: modern 2.4 and 2.5 both render source ¶2.5 (unexamined-life passage and thirty-minae proposal given twice); 2.5 opens with an invented bridge 'No, let me reconsider.' Same root cause as G03-apology-01.",
+     "served_before": "So let thirty minas be the fine — they're good for it. (modern-en 2.4 end)",
+     "missing_start": "No, let me reconsider. Someone would say: 'Can't you just keep quiet and go somewhere else?'",
+     "missing_end": "Let thirty minas be the penalty; they're reliable sureties.",
+     "served_after": "You haven't gained much time, men of Athens (modern-en 3.0)",
+     "source_ref": "pg1656.txt lines 1302-1321 (source ¶2.5)",
+     "local_raw_has_it": null,
+     "modern_en": "duplicate present",
+     "modern_da": "duplicate present (2.5 'Lad mig genoverveje…')",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi @ 0252b80d books/wip/green-apology/fidelity-review-1.md B1 (documented; package candidate.json is byte-equal to live modern-en paragraphs; no fixed candidate)"
+    }
+   ],
+   "scope_notes": [
+    "Jowett's Introduction (pg1656 lines 54-487) excluded; the PG text has no dramatis personae for the Apology",
+    "2 inline Jowett parentheticals ('(Aristoph., Clouds.)', '(Or, I am certain…)') are in the PG text and served"
+   ],
+   "needs_investigation": [],
+   "notes": "original-en is an exact word-stream match to PG #1656 (11,479 = 11,479 tokens; 0 runs of any length). Chapter breaks match the three speeches (verdict speech 1237, counter-penalty 1323). modern-en neighbour-similarity screen flags only 2.4. The green-apology fidelity review also lists clause/sentence-level drops in modern-en (B2-B16, e.g. 1.2, 1.5, 1.74); those are fidelity items tracked there and were not re-audited here."
+  },
+  {
+   "id": "crito",
+   "verdict": "DEFECTS",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "19dbc33de3076411f4abedfd1016529a244dc3ac9b31fe1f792e629e219fd0b7",
+     "source_url": "https://www.gutenberg.org/cache/epub/1657/pg1657.txt",
+     "source_sha256": "8f7e8c4cdb7ad512603f9359d5e7ce5c3aa281f7c83a07ac08c07bad90f9faae",
+     "source_retrieved_utc": "2026-09-25T11:54:46Z",
+     "source_covered_pct": 100.0,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-crito-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.9 (modern-en/modern-da)",
+     "extent_words": 10,
+     "summary": "Translation-only: Socrates's premise 'The good are to be regarded, and not the bad?' is not rendered; modern 2.9 restates 2.11 (wise/unwise opinions). Below the 20-word S3 floor but a dropped argument step plus neighbour duplicate. EXISTING-REPAIR (accepted, unreleased).",
+     "served_before": "CRITO. Certainly. (2.8)",
+     "missing_start": "SOCRATES. The good are to be regarded,",
+     "missing_end": "and not the bad?",
+     "served_after": "SOCRATES. And the good opinions are those of the wise, while the bad opinions are those of the unwise? (modern-en 2.9)",
+     "source_ref": "pg1657.txt line 349 (sha256 8f7e8c4c…); = original-en 2.9",
+     "local_raw_has_it": true,
+     "modern_en": "absent (2.9 duplicates 2.11)",
+     "modern_da": "absent (2.9 'Og de gode meninger er de vises…')",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi @ 0252b80d books/wip/green-crito/ (fidelity-review-1.md D1; accepted candidate.json sha256 511340f4… fixes 2.9; not released)"
+    }
+   ],
+   "scope_notes": [
+    "Jowett's Introduction (pg1657 lines 53-157) and 'PERSONS OF THE DIALOGUE'/'SCENE' (167-169) excluded",
+    "6 inline Jowett cross-references ('(compare Apol.)' etc.) are in the PG text and served"
+   ],
+   "needs_investigation": [],
+   "notes": "original-en exact word-stream match to PG #1657 (5,386 = 5,386 tokens). books/raw/crito/raw.txt equals the current PG file apart from the BOM and one header line. Chapter breaks sensible (3.0 = the Laws' prosopopoeia). The accepted green-crito candidate differs from live modern-en in 14 paragraphs (1.5, 1.16, 1.22, 2.4, 2.6, 2.7, 2.9, 2.22, 2.39, 2.55, 3.0, 3.2, 3.4, 3.6)."
+  },
+  {
+   "id": "phaedo",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "c2a1b3b99c2826d41e1692c521d889b3a324afd762723210c7817960ea6c3044",
+     "source_url": "https://www.gutenberg.org/cache/epub/1658/pg1658.txt",
+     "source_sha256": "164533dde5628e7cd2e51442c29367a132fc470271f0d7e77a2ef06170a008ca",
+     "source_retrieved_utc": "2026-09-25T11:54:31Z",
+     "source_covered_pct": 100.0,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-phaedo-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "6.0-6.2 / 7.0",
+     "extent_words": 0,
+     "summary": "Chapter 'The Objections' (3 paragraphs) holds only Simmias's objection; Cebes's objection opens ch7 'The Final Argument', which also holds the Echecrates interlude, misology, the reply to Simmias and the autobiography. Editorial titles only; text complete.",
+     "served_before": "(6.2) Please to tell me then, Cebes, he said, what was the difficulty which troubled you?",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "(7.0) Cebes said: I will tell you. My feeling is that the argument is where it was",
+     "source_ref": "pg1658.txt lines 2945 (Simmias) and 2979 (Cebes)",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "Jowett's Introduction (pg1658 lines 50-1377) and 'PERSONS OF THE DIALOGUE'/'SCENE'/'PLACE OF THE NARRATION: Phlius' (1381-1389) excluded",
+    "5 inline Jowett cross-references are in the PG text and served"
+   ],
+   "needs_investigation": [],
+   "notes": "Exact word-stream match to PG #1658 (27,484 = 27,484 tokens), frame opening (Echecrates) and closing ('wisest and justest and best') present. No local raw. modern-en screen: no whole-passage loss or duplicate."
+  },
+  {
+   "id": "phaedrus",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "687f5a5e9b73892ce4226633fa3371ba3394bc728edbed38d6147303df6c542c",
+     "source_url": "https://www.gutenberg.org/cache/epub/1636/pg1636.txt",
+     "source_sha256": "ce41cbe9eb5750163ef9084d253d7786d13c24968ae7f5079be3abda53114734",
+     "source_retrieved_utc": "2026-09-25T11:54:32Z",
+     "source_covered_pct": 100.0,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Jowett's Introduction (pg1636 lines 50-1390) and 'PERSONS OF THE DIALOGUE'/'SCENE: Under a plane-tree, by the banks of the Ilissus' (1394-1396) excluded",
+    "4 inline Jowett notes are in the PG text and served"
+   ],
+   "needs_investigation": [],
+   "notes": "Exact word-stream match to PG #1636 (23,206 = 23,206 tokens), first line 'My dear Phaedrus, whence come you' and last 'Let us go.' present. No local raw. Chapter titles match content (Lysias's speech, first speech, palinode, rhetoric, Theuth/writing). modern-en screen: nothing."
+  },
+  {
+   "id": "the-republic",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "338cc5908ed34b108c6775dad4e437feccb19ba86f6fdcd868ea5821d777b0a6",
+     "source_url": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
+     "source_sha256": "917c1cb469e1a8eba6083808764d7131da8d79140b575b4214c9d02a73ec4528",
+     "source_retrieved_utc": "2026-09-25T11:54:33Z",
+     "source_covered_pct": 99.985,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-the-republic-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "7.96-7.100 (modern-en)",
+     "extent_words": 25,
+     "summary": "Local paragraph drift in modern-en: the content of 7.98 is folded into 7.96, 7.98 already gives 7.100's 'one, two, and three… number and calculation' (rendered twice), and Glaucon's question 7.99 'What is that?' becomes 'Yes.'. No substantive loss.",
+     "served_before": "(7.97) What would that be?",
+     "missing_start": "What is that? (source 7.99)",
+     "missing_end": "",
+     "served_after": "(7.100) The humble matter of distinguishing one, two, and three",
+     "source_ref": "pg1497.txt lines 19185-19192",
+     "local_raw_has_it": true,
+     "modern_en": "partial (drifted)",
+     "modern_da": "not checked (presence only for real gaps)",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "Jowett's 'Introduction and Analysis' (pg1497 lines 45-~8600) excluded",
+    "'PERSONS OF THE DIALOGUE' and Jowett's note on the scene and the Timaeus framing (8610-8631) excluded (editorial)",
+    "Book headings 'BOOK I'…'BOOK X' served as chapter titles 'Book 1'…'Book 10'",
+    "6 inline Jowett parentheticals (e.g. '(Bendis, the Thracian Artemis.)') are in the PG text and served"
+   ],
+   "needs_investigation": [],
+   "notes": "Source body = pg1497 lines 8640-24567 ('I went down yesterday…' to '…which we have been describing.'). 119,083 src / 119,065 ed tokens; the only unmatched tokens are the nine 'BOOK II'-'BOOK X' headings (18 tokens), each falling exactly between the served chapters. 0 EXTRA/ORDER/DUP. books/raw/the-republic/raw.txt equals current PG #1497 (updated 2026-03-31) apart from the BOM. MIDSPLIT flags 3.113|114 and 5.341|342 are quoted verse set off as separate paragraphs (as in PG), not defects."
+  },
+  {
+   "id": "poetics",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "00113ffc33cceda9f2e3efd76a4e2c6f0d058b0174554248beba39c82354dd27",
+     "source_url": "https://www.gutenberg.org/cache/epub/1974/pg1974.txt",
+     "source_sha256": "3d0100ec20b93c814b07e0032b94582e649f4e7508b77959cb1d08a4fa6bb470",
+     "source_retrieved_utc": "2026-09-25T11:54:35Z",
+     "source_covered_pct": 99.832,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-poetics-01",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "20 paragraphs (e.g. 3.1, 20.3-22.2, 25.7-25.8)",
+     "extent_words": 788,
+     "summary": "Greek words and verse lines are served in the PG transcriber's letter-name brace notation ('{Theta omicron iota nu alpha tau alpha iota}'), 78 groups; the transcriber's note explaining the convention is not served. modern-en/modern-da transliterate (1 leftover group at 21.4).",
+     "served_before": "Euripides substitutes",
+     "missing_start": "{Theta omicron iota nu alpha tau alpha iota}",
+     "missing_end": "",
+     "served_after": "'feasts on' for {epsilon sigma theta iota epsilon iota} 'feeds on.'",
+     "source_ref": "pg1974.txt lines 47-58 (transcriber's note), 1237 (example)",
+     "local_raw_has_it": true,
+     "modern_en": "transliterated",
+     "modern_da": "transliterated",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "PG transcriber's note (pg1974 lines 47-58) and Butcher's 'Analysis of Contents' (62-95) excluded; chapter titles are Tinct paraphrases of that analysis",
+    "Roman chapter numerals I-XXVI served as chapter titles 'Chapter N — …'"
+   ],
+   "needs_investigation": [],
+   "notes": "Source body = pg1974 lines 107-1628. 14,908 src / 14,883 ed tokens; the only unmatched tokens are the 25 chapter numerals II-XXVI, each exactly at a chapter boundary. 0 EXTRA/ORDER/DUP. books/raw/poetics/raw.txt equals current PG #1974 apart from the BOM. Screen flags SHORT_VS_ORIG 22.1 and 25.8 are artefacts of the letter-name notation (the modern text transliterates); no omission. Butcher's bracketed chapter 12 is served as in the source."
+  },
+  {
+   "id": "nicomachean-ethics",
+   "verdict": "DEFECTS",
+   "method": "full-alignment + modern-en paragraph screen",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "214c4025cd1ef25c68685bf7207bc0d59552a3cdc5a85df6becb8ae99c90df1c",
+     "source_url": "https://www.gutenberg.org/cache/epub/8438/pg8438.txt",
+     "source_sha256": "a68264a6537bb58b899ed68e25d1c7d8ea1bcb3e9544b4d1b464f74d99c3d059",
+     "source_retrieved_utc": "2026-09-25T11:54:36Z",
+     "source_covered_pct": 99.478,
+     "edition_covered_pct": 99.988,
+     "missing_runs_ge25": 0
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-nicomachean-ethics-01",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "6.93-6.106",
+     "extent_words": 743,
+     "summary": "Chase's translator appendix 'On ἐπιστήμη, from I. Post. Analyt. chap. i. and ii.' (extracts from the Posterior Analytics, a different work) is served as the last 14 paragraphs of 'Book 6 — Intellectual Virtue', with 'APPENDIX' and 'CHAP. II' as body paragraphs. Keep only as a clearly labelled appendix, or drop (scope decision).",
+     "served_before": "πολιτικὴ governs the gods because it gives orders about all things in the communty. (6.92)",
+     "missing_start": "APPENDIX / On ἐπισπήμη, from I. Post. Analyt. chap. i. and ii.",
+     "missing_end": "he who _knows_, is to be simply and absolutely infallible.",
+     "served_after": "(7.0) Next we must take a different point to start from",
+     "source_ref": "pg8438.txt lines 6247-6329 (sha256 a68264a6…)",
+     "local_raw_has_it": null,
+     "modern_en": "present (same 14 paragraphs, 'CHAPTER II')",
+     "modern_da": "present ('TILLÆG', 'KAPITEL II')",
+     "existing_repair": "none (green-nicomachean-ethics candidate = live modern-en; keeps the appendix)"
+    },
+    {
+     "id": "G03-nicomachean-ethics-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "edition label",
+     "extent_words": 0,
+     "summary": "Label 'Chase (1847) / Ross tradition' is misleading: the served text is entirely D. P. Chase's translation (PG #8438, Everyman text; 99.99% of edition tokens match); W. D. Ross's 1908 translation is a different text.",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "inventory label; PG #8438 header/front matter",
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "n/a",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G03-nicomachean-ethics-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "7.95",
+     "extent_words": 9,
+     "summary": "Chase's heading 'APPENDIX. Book VII. Chapters 12 to 15. (Bekker.)' is served as a body paragraph; what follows (7.96-7.146, the Book VII treatise on pleasure) is genuine Nicomachean Ethics text, so 'APPENDIX' can mislead readers.",
+     "served_before": "Softness, and how these states are mutually related. (7.94)",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "To consider the subject of Pleasure and Pain falls within the province",
+     "source_ref": "pg8438.txt line 7155",
+     "local_raw_has_it": null,
+     "modern_en": "same heading",
+     "modern_da": "same ('TILLÆG…')",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "J. A. Smith's Introduction (pg8438 lines ~40-858) and Chase's NOTES (10339-11862) excluded; footnote markers [n] removed in the edition",
+    "Chase 'Chapter I.'-style chapter headings not served (206 tokens); book headings served as chapter titles"
+   ],
+   "needs_investigation": [
+    "Scope decision on the Posterior Analytics appendix (G03-nicomachean-ethics-01)"
+   ],
+   "notes": "Translation identified as D. P. Chase (first ed. 1847; Everyman text with J. A. Smith introduction), PG #8438 (header lists no translator; text and front matter identify Chase). Source body = pg8438 lines 869-10338. 93,591 src / 93,113 ed tokens; unmatched = 206 chapter-heading tokens, 219 footnote numerals, book headings and 3 short k-gram edge runs around removed markers (text present). 0 EXTRA runs ≥8, 0 ORDER/DUP. No local raw. Screen HEADING_LIKE 6.93/6.97 = the appendix headings; MIDSPLIT 5.10|11 = quoted verse set off. modern-en screen: nothing."
+  },
+  {
+   "id": "aristotle-politics",
+   "verdict": "DEFECTS",
+   "method": "full-alignment (edition vs its own raw OCR, the 1905 Davis/Jowett text) + cross-witnesses (second archive.org scan; MIT Classics revised Jowett; Wikisource Book 1)",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "0bf42e46f4c5c3738c11c437513f104b0e92847432128873d10a49f9fc16c2fc",
+     "source_url": "https://archive.org/download/aristotlespoliti00arisiala/aristotlespoliti00arisiala_djvu.txt (= books/raw/aristotle-politics/raw.txt, body lines 1007-12538); Book 1 cross-check https://en.wikisource.org/wiki/Politics_(Jowett)/Book_1",
+     "source_sha256": "97284af279f67506233e180d64f69f0d8f0d37156a4e0bed2dc0aa27a4a42105",
+     "source_retrieved_utc": "2026-09-25T12:20:51Z",
+     "source_covered_pct": 93.196,
+     "edition_covered_pct": 99.681,
+     "missing_runs_ge25": 52
+    }
+   ],
+   "findings": [
+    {
+     "id": "G03-aristotle-politics-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "6.4 (start)",
+     "extent_words": 53,
+     "summary": "Opening of the list of democratic characteristics lost; the footnote's alternative rendering and a running head ('T he Characteristics of Democracy') are served in its place.",
+     "served_before": "(6.3 end) and so it coincides with the freedom based upon equality [which was the first characteristic].",
+     "missing_start": "Such being our foundation and such the nature of democracy, its characteristics are as follows",
+     "missing_end": "or to all but those which require experience and",
+     "served_after": "Or (taking apXH •\" the sense of 'beginning'), 'Such being our foundation… T he Characteristics of Democracy skill ,",
+     "source_ref": "raw.txt lines 9402-9406 (sha256 97284af2…); present in both archive.org scans and in MIT Book VI",
+     "local_raw_has_it": true,
+     "modern_en": "present (6.4 'Such being the foundation… The election of officers by all out of all…')",
+     "modern_da": "present",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G03-aristotle-politics-02",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "inside 7.17",
+     "extent_words": 59,
+     "summary": "Book VII: the territory should be easy of egress, taken in at a single view; opening of the city-site clause lost (raw line began with an OCR '^' mark).",
+     "served_before": "they tell us that it should be difficult of access to the enemy, and",
+     "missing_start": "easy of egress to the inhabitants. Further, we require that the land as well as",
+     "missing_end": "As to the position of the city, if we could have what we wish, it should",
+     "served_after": "be well situated in regard both to sea or land.",
+     "source_ref": "raw.txt lines 10515-10519; present in both archive.org scans and in MIT Book VII",
+     "local_raw_has_it": true,
+     "modern_en": "absent (7.17 '…difficult of access to the enemy, and well situated in regard both to sea and land')",
+     "modern_da": "absent",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G03-aristotle-politics-03",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "17 sites: 1.43, 2.26, 2.55, 2.58, 2.59, 2.66, 2.72, 3.51, 3.73, 4.55, 5.18, 5.48, 5.59, 6.2, 6.17, 8.6, 8.14",
+     "extent_words": 87,
+     "summary": "Systematic line-level losses from OCR cleaning: body lines that begin or end with a marginal section number, or open with a quotation/marker character, were stripped as running heads. Mostly sentence subjects ('Plato in the Laws', 'But in Crete', 'The Cretans', 'The Carthaginians', 'Characteristic of Phaleas', 'At Rhodes') and quoted verse. Book 1 (Wikisource-based) lost one stand-alone quotation line.",
+     "served_before": "(see items)",
+     "missing_start": "(see items)",
+     "missing_end": "(see items)",
+     "served_after": "(see items)",
+     "source_ref": "raw.txt line numbers per item; Book 1 item also Wikisource Book_1 wikitext line 269",
+     "local_raw_has_it": true,
+     "modern_en": "restored at 11 sites, reconstructed at 6.2, absent at 1.43, 3.73 (both quotations), 5.18 ('At Rhodes'), 5.48 ('and continuance')",
+     "modern_da": "same pattern as modern-en",
+     "existing_repair": "none found",
+     "items": [
+      {
+       "coord": "1.43",
+       "words": 5,
+       "lost": "'Silence is a woman's glory,'",
+       "raw_txt_lines": "2067 (Wikisource Book 1 line 269)",
+       "served_before": "have their special attributes; as the poet says of women,",
+       "served_after": "but this is not equally the glory of man. The",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "coord": "2.26",
+       "words": 4,
+       "lost": "Plato in the Laws",
+       "raw_txt_lines": "2876",
+       "served_before": "(paragraph start; previous: poor not to give but to receive them.)",
+       "served_after": "was of opinion that, to a certain extent, accumulation should",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "2.55",
+       "words": 3,
+       "lost": "But in Crete",
+       "raw_txt_lines": "3557",
+       "served_before": "(paragraph start; previous: forbids him to exercise the rights of citizenship.)",
+       "served_after": "they are of a more popular character. There, of all",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "2.58",
+       "words": 2,
+       "lost": "The Cretans",
+       "raw_txt_lines": "3617",
+       "served_before": "characteristics of a constitutional state, is really a close oligarchy.",
+       "served_after": "have a habit, too, of setting up a chief; they",
+       "modern_en": "present (pronoun)",
+       "modern_da": "present (pronoun)"
+      },
+      {
+       "coord": "2.59",
+       "words": 2,
+       "lost": "The Carthaginians",
+       "raw_txt_lines": "3634",
+       "served_before": "Cretan constitution was revealed. Enough of the government of Crete.",
+       "served_after": "are also considered to have an excellent form of government,",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "2.66",
+       "words": 1,
+       "lost": "Such",
+       "raw_txt_lines": "3771",
+       "served_before": "(paragraph start; previous: no way of restoring peace by legal methods.)",
+       "served_after": "is the character of the Lacedaemonian, Cretan, and Carthaginian constitutions,",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "2.72",
+       "words": 3,
+       "lost": "Characteristic of Phaleas",
+       "raw_txt_lines": "3872",
+       "served_before": "(paragraph start; previous: expressed than even those of our modern legislators.)",
+       "served_after": "is the equalization of property ; of Plato, the community",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "3.51",
+       "words": 1,
+       "lost": "I",
+       "raw_txt_lines": "5008",
+       "served_before": "All men have a claim in a certain sense, as",
+       "served_after": "have already admitted, but they have not an absolute claim.",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "3.73",
+       "words": 10,
+       "lost": "'two going together;' … 'would that I had ten such counsellors!'",
+       "raw_txt_lines": "5553-5557",
+       "served_before": "better than one : this is the old saying, —",
+       "served_after": "and the prayer of Agamemnon, —",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "coord": "4.55",
+       "words": 8,
+       "lost": "Whereas in constitutional governments they take the contrary",
+       "raw_txt_lines": "7053",
+       "served_before": "but the proposal should be referred back to the magistrates.",
+       "served_after": "course ; the few have the negative not the affirmative",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "5.18",
+       "words": 2,
+       "lost": "At Rhodes",
+       "raw_txt_lines": "7824",
+       "served_before": "was overthrown because wicked demagogues arose, and the notables combined.",
+       "served_after": "' Cp. supra c. a. § I. the demagogues not",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "coord": "5.48",
+       "words": 2,
+       "lost": "and continuance.",
+       "raw_txt_lines": "8508",
+       "served_before": "and destruction of states, and the means of their preseiTation",
+       "served_after": "I have still to speak of monarchy, and the causes",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "coord": "5.59",
+       "words": 10,
+       "lost": "Another motive is contempt, as in the case of Sardanapalus,",
+       "raw_txt_lines": "8700",
+       "served_before": "of a meal, and that the offence would be forgiven.",
+       "served_after": "whom some one saw carding wool with his women, if",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "6.2",
+       "words": 10,
+       "lost": "I have shown already what forms of democracy are suited",
+       "raw_txt_lines": "9325",
+       "served_before": "a want of harmony in the composition of a state.",
+       "served_after": "to particular cities, and what of oligarchy to particular peoples,",
+       "modern_en": "partial (reconstructed with altered sense)",
+       "modern_da": "partial"
+      },
+      {
+       "coord": "6.17",
+       "words": 11,
+       "lost": "First among necessary offices is that which has the care of",
+       "raw_txt_lines": "9885",
+       "served_before": "consider which offices may properly be united and which separated.",
+       "served_after": "f 2 Offices — the Criminal Executive the market ;",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "8.6",
+       "words": 3,
+       "lost": "Although the Lacedaemonians",
+       "raw_txt_lines": "11998",
+       "served_before": "(paragraph start; previous: 7. '* Cp. Plato, Rep. vii. 535 ff.)",
+       "served_after": "have not fallen into this mistake, yet they brutalize their",
+       "modern_en": "present",
+       "modern_da": "present"
+      },
+      {
+       "coord": "8.14",
+       "words": 10,
+       "lost": "The habit of feeling pleasure or pain at mere representations",
+       "raw_txt_lines": "12235",
+       "served_before": "in listening to such strains our souls undergo a change.",
+       "served_after": "is not far removed from the same feeling about realities",
+       "modern_en": "present",
+       "modern_da": "present"
+      }
+     ]
+    },
+    {
+     "id": "G03-aristotle-politics-04",
+     "type": "EXTRANEOUS",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "throughout Books 2-8 (examples 3.6, 5.59, 5.79, 6.4, 6.17, 7.14, 7.39, 8.5)",
+     "extent_words": null,
+     "summary": "Davis's footnotes, running heads, section numbers and Bekker numbers are served as reading text: 119 of 478 paragraphs contain reference debris (71 'Cp.', 79 '§', 56 stray markers, 29 footnote openers, 5 Bekker numbers, 13 mid-line section numbers); 18 paragraphs open with a footnote (5.79 is entirely a footnote); at least 8 running heads (2.36, 3.6, 3.60, 4.10, 5.59, 5.80, 6.4, 6.17). modern-en/modern-da are clean, except modern-en 5.79, which renders the footnote's alternative translation as body text.",
+     "served_before": "(3.5 end) he enrolled in tribes a number of strangers and slaves and '' resident aliens. The doubt in these cases",
+     "missing_start": "An untranslatable play upon the word Srjiuovpyoi, which means either ' a magistrate ' or ' an artisan.'",
+     "missing_end": "When is a State the Same?",
+     "served_after": "be called citizens ; whether they ought to be so or not",
+     "source_ref": "raw.txt footnote blocks and running heads (e.g. 'When is a State the Same?', 'Criticism of Plato 235-')",
+     "local_raw_has_it": true,
+     "modern_en": "clean (except 5.79)",
+     "modern_da": "clean",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G03-aristotle-politics-05",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en"
+     ],
+     "location": "page-break paragraph splits (e.g. 1.16|17, 3.5|6, 5.50|51, 5.78-5.80, 7.36|37)",
+     "extent_words": 0,
+     "summary": "Paragraphs break mid-sentence at scan page boundaries (the 18 footnote-led paragraphs are all mid-sentence continuations). At 5.78-5.80 the sentence '…merely because [as Plato says] the ruling class are lovers and makers of money' is split over three paragraphs with a footnote and a running head in between, and modern-en duplicates 'the ruling class are lovers and makers of money' (5.78 and 5.80).",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "raw.txt lines 9238-9249",
+     "local_raw_has_it": true,
+     "modern_en": "MIDSPLIT carried over (61 flags)",
+     "modern_da": "MIDSPLIT carried over",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "Davis's Introduction, Analysis and Index (raw.txt 1-1006, 12539-end), footnotes, running heads, marginal section/Bekker numbers and Davis's marginal analysis headings (Wikisource Book 1) are apparatus, out of scope",
+    "Book III's closing incomplete sentence ('He who would proceed with the enquiry in due manner. . . .') is the MSS repetition translated by Jowett — authorial, correctly served"
+   ],
+   "needs_investigation": [
+    "Provenance: SOURCE.md names archive.org 'aristotlespoliti00arisuoft', but raw.txt is byte-identical to 'aristotlespoliti00arisiala' (UCLA copy, 1905 printing); arisuoft is a 1908 printing",
+    "SOURCE.md's 'one sentence fragment lost at the stain near Bekker 1297a' is not borne out: the stained line (raw 5590 of the body) hides no text (second scan continuous)",
+    "A clean full transcription of the 1885/1905 Jowett text would allow a stricter check; MIT Classics is a revised Jowett (e.g. a1/a2/b/c magistracy scheme at 1300a) and its Books 2 and 5 pages are truncated on the server"
+   ],
+   "notes": "Edition built from Wikisource (Book 1) + archive.org OCR (Books 2-8). Checks: (a) edition vs its dehyphenated raw body: edition 99.681% contained in raw; 52 raw runs ≥25 not served, 50 of them footnotes/running heads, 2 authorial (6.4, 7.17); token-level review of all body-line gaps ≥1 word found 17 further losses; (b) second archive.org scan (arisuoft, sha256 eb3233fe…) fully covered by raw (no runs ≥30), so the raw is not an incomplete import; (c) MIT Classics per book: 90.2-94.5% source coverage (revision variance); every MIT-only run ≥25 is absent from both 1905 scans except 6.4 and 7.17; (d) Wikisource Book 1 vs ch1: one loss (1.43). Total authorial loss ≈199 words at 19 sites. OCR errors are served as-is (e.g. 'preseiTation' 5.48, 'shaie' 4.23, 'whicli' 2.70)."
+  }
+ ]
+}
