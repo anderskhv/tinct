@@ -1,0 +1,110 @@
+{
+ "reviewer": "rev-C",
+ "chapters": [
+  10,
+  12
+ ],
+ "speeches_read": 355,
+ "findings": [
+  {
+   "id": "10.6",
+   "line": 0,
+   "category": "pun-bawdy",
+   "severity": "should-fix",
+   "original": "To tell you where he lodges is to tell you where I lie.",
+   "current": "If I told you where he's staying, I'd be telling you a lie.",
+   "issue": "The Clown's running lie (lodge/sleep) vs lie (tell untruth) pun is reduced to only the untruth sense; 'where I lie' is dropped.",
+   "proposed": "If I told you where he's staying, I'd be telling you where I lie — where I sleep, and a lie besides."
+  },
+  {
+   "id": "10.40",
+   "line": 2,
+   "category": "too-close",
+   "severity": "note",
+   "original": "The sun to course two hundred compasses,",
+   "current": "to watch the sun make two hundred trips around it",
+   "issue": "The point is that the sibyl was two hundred years old (annual circuits of the sun); 'trips around it' leaves the age unclear.",
+   "proposed": "to watch the sun complete two hundred yearly circuits — two hundred years —"
+  },
+  {
+   "id": "10.75",
+   "line": 3,
+   "category": "invention",
+   "severity": "note",
+   "original": "Puff’d his own brother, and can he be angry?",
+   "current": "right off his arm — and he stayed calm. Can he be angry?",
+   "issue": "'and he stayed calm' is an added assertion; the original leaves it implicit in the rhetorical question (defensible unpacking, but worth the editor's eye).",
+   "proposed": "right off his arm — and can he be angry?"
+  },
+  {
+   "id": "10.80",
+   "line": 0,
+   "category": "register",
+   "severity": "should-fix",
+   "original": "Alas the day, I never gave him cause!",
+   "current": "Oh, what a day! I never gave him any reason!",
+   "issue": "'Alas the day' is a lament (woe is me), but 'Oh, what a day!' reads in modern English as mild exasperation about a busy day.",
+   "proposed": "Oh, how terrible! I never gave him any reason!"
+  },
+  {
+   "id": "12.71",
+   "line": 0,
+   "category": "register",
+   "severity": "should-fix",
+   "original": "Do not weep, do not weep: alas the day!",
+   "current": "Don't cry, don't cry. Oh, what a day!",
+   "issue": "Same as 10.80: 'alas the day' is an expression of grief/sympathy, not weary exasperation.",
+   "proposed": "Don't cry, don't cry. Oh, this is awful!"
+  },
+  {
+   "id": "12.33",
+   "line": 8,
+   "category": "mis-gloss",
+   "severity": "should-fix",
+   "original": "To point his slow unmoving finger at.",
+   "current": "to point its slow, creeping finger at, like the hand of a clock!",
+   "issue": "'unmoving' (the paradox of a clock hand moving too slowly to be seen, so scorn points forever) is replaced by 'creeping', which drops the sense of the finger seeming fixed.",
+   "proposed": "to point its slow finger at — like a clock hand that never seems to move!"
+  },
+  {
+   "id": "12.37",
+   "line": 7,
+   "category": "pun-bawdy",
+   "severity": "note",
+   "original": "The bawdy wind, that kisses all it meets,",
+   "current": "the wind, that slut who kisses everything it meets,",
+   "issue": "'bawdy' (lewd) becomes the noun 'slut', slightly coarser than the original adjective.",
+   "proposed": "the lewd, promiscuous wind that kisses everything it meets"
+  },
+  {
+   "id": "12.80",
+   "line": 0,
+   "category": "register",
+   "severity": "note",
+   "original": "Speak within door.",
+   "current": "Keep your voice down, indoors.",
+   "issue": "Meaning is right but the phrasing is awkward; 'indoors' reads as a location rather than 'don't let the whole street hear'.",
+   "proposed": "Keep your voice down — people will hear."
+  },
+  {
+   "id": "12.93",
+   "line": 0,
+   "category": "mis-gloss",
+   "severity": "note",
+   "original": "What in the contrary?",
+   "current": "What makes you think otherwise?",
+   "issue": "Iago asks what evidence Roderigo has of unjust dealing; 'think otherwise' has no clear referent and seems to ask the opposite.",
+   "proposed": "What have I done to make you say that?"
+  },
+  {
+   "id": "12.115",
+   "line": 0,
+   "category": "mis-gloss",
+   "severity": "should-fix",
+   "original": "(prose unit, final sentences) It is now high supper-time, and the night grows to waste. About it.",
+   "current": "It's already well past supper-time, and the night is wasting away.",
+   "issue": "'high supper-time' means it is fully supper-time now (Desdemona has just been called in to supper), not 'well past' it; in the prose unit only this sentence needs changing.",
+   "proposed": "Yes, if you dare to do yourself some good and claim what's yours by right. He's having supper tonight with a tart, and I'll go there to see him. He doesn't know yet about his honorable promotion. If you watch for him leaving there — and I'll arrange for that to happen between twelve and one — you can take him whenever you like. I'll be close by to back up your attack, and between the two of us he'll go down. Come on, don't stand there stunned by it, but come along with me. I'll show you why his death is so necessary that you'll feel duty-bound to deal it to him. It's right in the middle of supper-time now, and the night is wasting away. Get to it."
+  }
+ ]
+}
