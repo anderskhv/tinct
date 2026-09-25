@@ -2,26 +2,29 @@
 
 ## Release state
 
-Prepared against main `447a7a650b9aec567251a638dc85b303d3b10477`; subsequently reconciled with #200 and #199 main `6dc6c76e0fbe76323d7e4ab0e02de2e23c40b2a5`, preserving their content and defaults.
-Implementation and CI/browser acceptance are in progress. Not merged, not deployed, not production-verified.
+Prepared against main `447a7a650b9aec567251a638dc85b303d3b10477`; subsequently reconciled with #200, #199 and #202 main `c3a72bea58cf3e0e0e59300d16ec0ef1708aa500`, preserving their content and defaults.
+Implementation is complete. Prior head `9fac9541` passed full verify (2,779 tests and full browser checks), availability's 32 cases, Chapter Preview and Shakespeare. Final integrated-head checks are required. Not merged, not deployed, not production-verified.
 Baseline production bundle: `index-_UsWGnmb.js`.
 Prior deploy [36166609484](https://github.com/anderskhv/tinct/actions/runs/36166609484) succeeded.
 Release owner task “Tinct-coder” was contacted before edits and confirms no competing release.
-Its handoff requires resolving prior failed production checks before publication:
-- followups 36169994998 and Meditations 36169994976: still FAIL on retry (jobs 108194378213 and 108194374336), HTTP 404 assertion in check-reviewed-characters.cjs:51; URL absent from log. Both completed all six phone cases before desktop. The desktop next-opening loader probes absent chapter shards before whole-book fallback; the observed missing shard endpoints and overly broad response assertion are a strong diagnosis lead, not a waived gate.
-- Chapter Preview 36169994984: PASS on retry, without code changes (job 108193638144).
-- Shakespeare 36166609436: PASS on retry after successful deployment (job 108193637574).
-These have not been waived. The Lighthouse/Symposium release owner has included the narrow shard-registry prerequisite in #199 (commit `ff853fbf09e7b1a58257c83174ec9ed34201941b`), with actual production gates pending. Agreed serialized order: their verified Lighthouse release, then Symposium, then this availability release. No unrelated repair is bundled into the availability diff.
+Its handoff required resolving prior failed production checks before publication. These were not waived:
+- Chapter Preview 36169994984 passed on retry without code changes (job 108193638144).
+- Shakespeare 36166609436 passed after deployment (job 108193637574).
+- Meditations 36169994976 and followups 36169994998 initially failed on absent chapter-shard probes. The narrow shard-registry prerequisite shipped in #199 (`ff853fbf09e7b1a58257c83174ec9ed34201941b`).
+- Read-only production run [36176847163](https://github.com/anderskhv/tinct/actions/runs/36176847163), job 108209420543, passed the unchanged strict Meditations/Prince/Julius Caesar/Jekyll checks on deployed main `6dc6c76e`, bundle `index-E77vrs5x.js`. It also passed exact Lighthouse assets, Worker-transformed HTML and phone/desktop cases. The initial Lighthouse deploy's raw-HTML hash assertion was corrected to compare the actual Worker transformation; raw reading-asset SHA equality remained unchanged.
+Agreed serialized order: verified Lighthouse, then verified Symposium, then this availability release. No unrelated repair is bundled into the availability diff.
 
 ## Decision boundary
 
 Audit branch `claude/laughing-maxwell-3d7f5l`, commit `e24c16e8`, is a lead, not production proof.
 Whole-book JSON was fetched directly from tinct.app on September 25 after release-owner coordination. Exact hashes below.
+None of the 16 held identities is registered for chapter-sharded loading on current main; these whole-book files are the reader's actual text source.
 Fresh source copies were separately retrieved. The decisive passages were inspected in current served JSON, not merely inferred from scores.
-Current main history through #198 and open PRs contain no repair for the severe defects below.
+Current main history through #202 and open PRs contain no repair for the severe defects below.
 The audit's EXISTING-REPAIRS register says Macbeth candidates inherit the omissions; no As You Like It, Faust or Jerusalem text repair is ready. Named-branch searches found no newer repair for those gaps.
 Confessions #192 repairs modern-en, not modern-da. Vindication's English candidate does not repair Danish.
 All 16 live `/api/edition-patches` responses were also checked: 15 were empty; Macbeth modern-da has only chapter 2 paragraph 21 and chapter 4 paragraph 8 patches. Neither restores the missing chapter 8 dagger speech. No live patch resolves these holds.
+The existing Translation owner also confirmed on September 25 that none of these exact 16 editions has an accepted deployable repair returned in its handoffs. Assignments to repair content are not treated as completed repairs.
 No translation is authored or semantically approved here.
 
 | Book | Editions held | Current production evidence | Remains available | Restore only when |

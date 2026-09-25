@@ -46,17 +46,29 @@ export async function migrateStoredLabHighlights(loadChapter: ChapterLoader = lo
   }
   await Promise.all([...groups.values()].map(async group => {
     const { bookId, editionKey, chapterNumber } = group[0] as Required<Pick<MigratableHighlight, 'bookId' | 'editionKey' | 'chapterNumber'>>
-    const [migration, chapter] = await Promise.all([
-      loadCoordinateMigration('highlights', bookId),
-      loadChapter({ bookId, editionKey, chapterNumber, version: currentContentRevision(bookId, editionKey) }).catch(() => null),
-    ])
-    const expected = migration?.editions[editionKey]?.paragraphCountsAfter[String(chapterNumber)]
-    // Only against the released text: an old cached chapter would leave every mark unresolved.
-    if (!migration || !chapter || chapter.paragraphs.length !== expected) return
-    for (const highlight of group) moved.set(highlight.id, migrateLabHighlight(highlight, migration, chapter.paragraphs))
+    const migration = await loadCoordinateMigration('highlights', bookId)
+    if (!migration) return
+    // A structural repair may move a complete passage into another chapter.
+    // Verify the quote against its destination, never the old chapter's text.
+    const chapters = new Map<number, Promise<{ paragraphs: string[] } | null>>()
+    for (const highlight of group) {
+      const entry = migration.editions[editionKey]?.entries[chapterNumber + '.' + highlight.paragraphIndex]
+      const targetChapter = entry?.chapter ?? chapterNumber
+      if (!chapters.has(targetChapter)) chapters.set(targetChapter,
+        loadChapter({ bookId, editionKey, chapterNumber: targetChapter, version: currentContentRevision(bookId, editionKey) }).catch(() => null))
+      const chapter = await chapters.get(targetChapter)
+      const expected = migration.editions[editionKey]?.paragraphCountsAfter[String(targetChapter)]
+      if (!chapter || chapter.paragraphs.length !== expected) continue
+      moved.set(highlight.id, migrateLabHighlight(highlight, migration, chapter.paragraphs))
+    }
   }))
   if (!moved.size) return false
   // Re-read: nothing written meanwhile is lost.
-  writeLabHighlights(readLabHighlights().map(highlight => moved.get(highlight.id) ?? highlight))
+  writeLabHighlights(readLabHighlights().map(highlight => {
+    const before = stored.find(item => item.id === highlight.id)
+    // A note edited while the chapter was loading belongs to the reader.
+    // Retry its projection later instead of replacing it with our snapshot.
+    return JSON.stringify(before) === JSON.stringify(highlight) ? moved.get(highlight.id) ?? highlight : highlight
+  }))
   return true
 }
