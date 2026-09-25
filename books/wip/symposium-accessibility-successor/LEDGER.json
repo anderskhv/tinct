@@ -1,6 +1,6 @@
 {
  "accepted_sha256": "1e970b7beb3f098095ecf1a9fc7d78a8855d75e6ffc3bba14edc69db0e05374f",
- "successor_sha256": "61d0919dcf599b2162220bae9bc85254cc8d622e3b887a79a0641bf4dde9198c",
+ "successor_sha256": "7eb73e3acfd5dfb1a9b13086b3097a505df8db49300c2a9abbab0caf9299844f",
  "changed_paragraphs": 170,
  "entries": [
   {
@@ -332,7 +332,11 @@
      "src": "SRC1 revise of R2-10",
      "find": "for I was one of the people who got drowned in drink yesterday.'",
      "replace": "for I myself was one of the people who got drowned in drink yesterday.'",
-     "reason": "Restores Jowett's emphatic 'myself' (Plato: 'I too'), which confirms Pausanias's 'most of you are in the same state'."
+     "reason": "Restores Jowett's emphatic 'myself' (Plato: 'I too'), which confirms Pausanias's 'most of you are in the same state'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -564,7 +568,11 @@
      "src": "SRC1 note on R2-18",
      "find": "'First of all the gods, he fashioned Love.'",
      "replace": "'He fashioned Love, the first of all the gods.'",
-     "reason": "'First of all' could be heard as the everyday discourse marker; the reordered line keeps the sense (Love fashioned first among the gods)."
+     "reason": "'First of all' could be heard as the everyday discourse marker; the reordered line keeps the sense (Love fashioned first among the gods).",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -857,7 +865,11 @@
      "src": "SRC1 note on R2-36; Glossary",
      "find": "can fairly be blamed",
      "replace": "can justly be blamed",
-     "reason": "Glossary: never 'fair' meaning just."
+     "reason": "Glossary: never 'fair' meaning just.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -885,7 +897,11 @@
      "src": "BL3 note; BL1 ¶3.4",
      "find": "if he succeeds he is praised, and if he fails he is blamed",
      "replace": "if he wins his beloved he is admired, and if he fails he is thought disgraced",
-     "reason": "'blamed' seemed to contradict the encouragement in the same sentence (two blind readers). Plato: it is thought fine if he wins and shameful if he fails."
+     "reason": "'blamed' seemed to contradict the encouragement in the same sentence (two blind readers). Plato: it is thought fine if he wins and shameful if he fails.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -893,7 +909,7 @@
    "id": "3.5",
    "kind": "review-repair",
    "before": "He may pray, beg, supplicate, swear oaths, sleep on a mat at the door, and endure a servitude worse than any slave's. In any other situation his friends and enemies alike would step in to stop him; but here no friend will be ashamed of him or admonish him, and no enemy will accuse him of meanness or flattery. The actions of a lover have a grace that ennobles them, and custom has decided they are highly commendable and bring no loss of character. And strangest of all, he alone may swear and forswear himself — so people say — and the gods will forgive his transgression, for there is no such thing as a lover's oath. Such is the complete liberty that gods and men have allowed the lover, according to the custom that prevails in our part of the world. From this point of view a man could fairly argue that in Athens to love and to be loved is considered a most honorable thing. But then again — when fathers forbid their sons to speak with their lovers and place them under a tutor whose job is to prevent any such thing, and when their companions and peers taunt them for anything of the sort they observe, and their elders refuse to silence these reproaches or rebuke them — anyone reflecting on all this would, on the contrary, conclude that we hold these practices to be utterly disgraceful.",
-   "after": "He may pray, beg, plead, swear oaths, sleep on a mat at the door, and endure a servitude worse than any slave's. In any other situation his friends and enemies alike would step in to stop him; but here no friend will be ashamed of him or admonish him, and no enemy will accuse him of servility or flattery. The actions of a lover have a grace that ennobles them, and custom has decided they are highly commendable and bring no loss of character. And strangest of all, he alone may swear an oath and break it — so people say — and the gods will forgive his transgression, for there is no such thing as a lover's oath. Such is the complete liberty that gods and men have allowed the lover, according to the custom that prevails in our part of the world. From this point of view a man could fairly argue that in Athens to love and to be loved is considered a most honorable thing. But then consider the other side. Fathers forbid their sons to talk with their lovers and put them in the care of a tutor whose job is to prevent any such thing; their companions and friends of their own age taunt them if they see anything of the sort; and their elders do not silence these taunts or scold those who make them. Anyone reflecting on all this would conclude, on the contrary, that we hold these practices to be utterly disgraceful.",
+   "after": "He may pray, beg, plead, swear oaths, sleep on a mat at the door, and endure a servitude worse than any slave's. In any other situation his friends and enemies alike would step in to stop him; but here no friend will be ashamed of him or admonish him, and no enemy will accuse him of servility or flattery. The actions of a lover have a grace that ennobles them, and custom has decided they are highly commendable and bring no loss of character. And strangest of all, he alone may swear an oath and break it — so people say — and the gods will forgive his transgression, for there is no such thing as a lover's oath. Such is the complete liberty that gods and men have allowed the lover, according to the custom that prevails in our part of the world. From this point of view a man could reasonably argue that in Athens to love and to be loved is considered a most honorable thing. But then consider the other side. Fathers forbid their sons to talk with their lovers and put them in the care of a tutor whose job is to prevent any such thing; their companions and friends of their own age taunt them if they see anything of the sort; and their elders do not silence these taunts or scold those who make them. Anyone reflecting on all this would conclude, on the contrary, that we hold these practices to be utterly disgraceful.",
    "round2_edits": [
     {
      "n": "R2-38",
@@ -935,7 +951,19 @@
      "src": "BL3 note",
      "find": "He may pray, beg, supplicate, swear oaths",
      "replace": "He may pray, beg, plead, swear oaths",
-     "reason": "'supplicate' is a hard word by ear."
+     "reason": "'supplicate' is a hard word by ear.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
+    },
+    {
+     "n": "R3-31",
+     "src": "SFC paragraph note; Glossary",
+     "find": "a man could fairly argue",
+     "replace": "a man could reasonably argue",
+     "reason": "Same class as R3-20 and R3-26: 'fair' meaning just.",
+     "resolution": "Added from SFC's paragraph note, in the confirmer's wording; not separately re-confirmed."
     }
    ]
   },
@@ -973,14 +1001,22 @@
      "src": "SRC1 revise of R2-41",
      "find": "There is dishonor in yielding — that is, in a beloved's granting his lover physical favors — to a bad lover",
      "replace": "There is dishonor in yielding — that is, in a beloved's granting physical favors — to a bad lover",
-     "reason": "'his lover' right before 'to a bad lover' invited a misparse by ear; the gloss stays attached to 'yielding'."
+     "reason": "'his lover' right before 'to a bad lover' invited a misparse by ear; the gloss stays attached to 'yielding'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     },
     {
      "n": "R3-19",
      "src": "SRC1 paragraph note; BL1 ¶3.6",
      "find": "wants us to yield to the one sort",
      "replace": "wants the beloved to yield to the one sort",
-     "reason": "With 'yield' now defined as the beloved's act, Jowett's 'us' (Pausanias, a lover) sounded wrong (BL1 asked 'Why us?'); Plato's Greek means the beloved."
+     "reason": "With 'yield' now defined as the beloved's act, Jowett's 'us' (Pausanias, a lover) sounded wrong (BL1 asked 'Why us?'); Plato's Greek means the beloved.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -1209,7 +1245,11 @@
      "src": "SRC1 note on R2-51",
      "find": "the same argument comes back again:",
      "replace": "the same argument comes back:",
-     "reason": "Redundant 'again'."
+     "reason": "Redundant 'again'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -1498,7 +1538,11 @@
      "src": "BL2 note D; SRC2 optional",
      "find": "just as the Lacedaemonians, the Spartans, dispersed",
      "replace": "just as the Lacedaemonians, that is, the Spartans, dispersed",
-     "reason": "Without 'that is', the apposition sounds like two peoples (BL2); matches 7.60 'Lacedaemon, that is, Sparta'."
+     "reason": "Without 'that is', the apposition sounds like two peoples (BL2); matches 7.60 'Lacedaemon, that is, Sparta'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -1556,7 +1600,11 @@
      "src": "SRC2 revise of R2-89",
      "find": "after the world of things that have been said already",
      "replace": "after the vast number of things that have been said already",
-     "reason": "'the world of things' is Jowett's Victorian idiom and can be heard as the physical world; 'vast number' keeps the hyperbole (Plato: many and varied things)."
+     "reason": "'the world of things' is Jowett's Victorian idiom and can be heard as the physical world; 'vast number' keeps the hyperbole (Plato: many and varied things).",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -1680,7 +1728,11 @@
      "src": "SRC2 optional (accept note)",
      "find": "'I would be very wrong to attribute to you, Agathon, that or any other lack of refinement.",
      "replace": "'I would be very wrong, Agathon, to attribute that or any other lack of refinement to you.",
-     "reason": "Reordered so 'that' is not heard as the start of a clause."
+     "reason": "Reordered so 'that' is not heard as the start of a clause.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2053,7 +2105,11 @@
      "src": "SRC3 revise of R2-103",
      "find": "the brother of someone?'",
      "replace": "the brother of something?'",
-     "reason": "Plato uses the same word in all three questions (father, brother, Love) and Jowett has 'something' each time; 7.0 and 7.8 still say 'something'."
+     "reason": "Plato uses the same word in all three questions (father, brother, Love) and Jowett has 'something' each time; 7.0 and 7.8 still say 'something'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2252,7 +2308,11 @@
      "src": "SRC3 paragraph note",
      "find": "that a man lacks",
      "replace": "that one lacks",
-     "reason": "Matches 7.32 'what one lacks' (Plato has no 'man' here)."
+     "reason": "Matches 7.32 'what one lacks' (Plato has no 'man' here).",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2301,7 +2361,11 @@
      "src": "SRC3 revise of R2-111",
      "find": "and it was a fair point.",
      "replace": "and you were right to say so.",
-     "reason": "Glossary: never 'fair' meaning just, one sentence before 'Love is the love of beauty'."
+     "reason": "Glossary: never 'fair' meaning just, one sentence before 'Love is the love of beauty'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2405,7 +2469,11 @@
      "src": "BL4 H; BL2 ¶7.40",
      "find": "isn't what is good also beautiful?'",
      "replace": "isn't what is good also beautiful — fine and noble?'",
-     "reason": "To a modern ear 'beautiful' means good-looking, so the premise the argument rests on sounded arbitrary (two blind readers). Jowett's 'the beautiful' renders a Greek word that also means fine and noble; the gloss is given once, here."
+     "reason": "To a modern ear 'beautiful' means good-looking, so the premise the argument rests on sounded arbitrary (two blind readers). Jowett's 'the beautiful' renders a Greek word that also means fine and noble; the gloss is given once, here.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2427,7 +2495,11 @@
      "src": "SRC3 paragraph note",
      "find": "love also lacks the good",
      "replace": "Love also lacks the good",
-     "reason": "Plato has the god's name; matches 7.34 and 7.38."
+     "reason": "Plato has the god's name; matches 7.34 and 7.38.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2779,7 +2851,11 @@
      "src": "BL4 H",
      "find": "The goal they have in view is birth in beauty, whether of body or of soul.",
      "replace": "The goal they have in view is birth in beauty — giving birth in the presence of beauty — whether of body or of soul.",
-     "reason": "The chapter's core metaphor was never plainly explained; the reader pieced 'in beauty' together from 7.54 and 7.60. A few words unpack it where it is introduced."
+     "reason": "The chapter's core metaphor was never plainly explained; the reader pieced 'in beauty' together from 7.54 and 7.60. A few words unpack it where it is introduced.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2837,7 +2913,11 @@
      "src": "SRC3 paragraph note",
      "find": "love is of the everlasting possession of the good",
      "replace": "love is the love of the everlasting possession of the good",
-     "reason": "The premise now matches the round-2 conclusion 'the love of immortality'."
+     "reason": "The premise now matches the round-2 conclusion 'the love of immortality'.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -2884,7 +2964,11 @@
      "src": "SRC3 paragraph note",
      "find": "love is of the immortal",
      "replace": "love is the love of the immortal",
-     "reason": "Same formula as 7.54."
+     "reason": "Same formula as 7.54.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -3107,7 +3191,7 @@
    "id": "7.63",
    "kind": "accessibility-repair",
    "before": "So that if a virtuous soul have but a little comeliness, he will be content to love and tend him, and will search out and bring to the birth thoughts which may improve the young, until he is compelled to contemplate and see the beauty of institutions and laws, and to understand that the beauty of them all is of one family, and that personal beauty is a trifle; and after laws and institutions he will go on to the sciences, that he may see their beauty, being not like a servant in love with the beauty of one youth or man or institution, himself a slave mean and narrow-minded, but drawing toward and contemplating the vast sea of beauty, he will create many fair and noble thoughts and notions in boundless love of wisdom; until on that shore he grows and waxes strong, and at last the vision is revealed to him of a single science, which is the science of beauty everywhere. To this I will proceed — please to give me your very best attention:",
-   "after": "'\"So even if someone with a virtuous soul has only a little physical beauty, he will be content to love him and care for him, and will seek out and give birth to thoughts that may make the young better, until he is compelled to contemplate and see the beauty of institutions and laws, and to understand that the beauty of them all is of one family, and that bodily beauty is a small thing. After laws and institutions he will go on to the branches of knowledge, so that he may see their beauty. He will not be like a servant in love with the beauty of one young man, or one man, or one institution, himself a slave, petty and narrow-minded. Instead, turning toward the vast sea of beauty and contemplating it, he will create many beautiful and noble thoughts and notions in a boundless love of wisdom, until, growing and gaining strength on that shore, he is at last granted the vision of a single kind of knowledge, the knowledge of a beauty of a very special kind. I will now go on to that beauty; please give me your very best attention:",
+   "after": "'\"So even if someone with a virtuous soul has only a little physical beauty, he will be content to love him and care for him, and will seek out and give birth to thoughts that may make the young better, until he is compelled to contemplate and see the beauty of institutions and laws, and to understand that the beauty of them all is of one family, and that bodily beauty is a small thing. After laws and institutions he will go on to the branches of knowledge, so that he may see their beauty. He will not be like a servant in love with the beauty of one young man, or one man, or one institution, himself a slave, petty and narrow-minded. Instead, turning toward the vast sea of beauty and contemplating it, he will create many beautiful and noble thoughts and notions in a boundless love of wisdom, until, growing and gaining strength on that shore, he is at last granted the vision of a single kind of knowledge, the knowledge of the beauty I will now describe; please give me your very best attention:",
    "renderer": "R4",
    "assessor_issues": [
     "archaic-wording",
@@ -3119,10 +3203,15 @@
    "round3_edits": [
     {
      "n": "R3-6",
-     "src": "BL2 ¶7.63; BL4 H",
+     "src": "BL2 ¶7.63; BL4 H; wording per SFC revise",
      "find": "he is at last granted the vision of a single kind of knowledge, the knowledge of beauty everywhere. I will now go on to this;",
-     "replace": "he is at last granted the vision of a single kind of knowledge, the knowledge of a beauty of a very special kind. I will now go on to that beauty;",
-     "reason": "'the knowledge of beauty everywhere' flatly contradicted 7.64, where this beauty exists in no other being or place (both blind readers). Plato: 'a single knowledge, which is of beauty of this kind', i.e. the beauty described next."
+     "replace": "he is at last granted the vision of a single kind of knowledge, the knowledge of the beauty I will now describe;",
+     "reason": "'the knowledge of beauty everywhere' flatly contradicted 7.64, where this beauty exists in no other being or place (both blind readers). Plato: 'a single knowledge, which is of beauty of this kind', i.e. the beauty described next.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "revise"
+     },
+     "resolution": "SFC revise: replacement applied in the confirmer's wording ('the knowledge of the beauty I will now describe'), which keeps Jowett's forward reference and drops the intensifier; not separately re-confirmed."
     }
    ]
   },
@@ -3130,7 +3219,7 @@
    "id": "7.64",
    "kind": "accessibility-repair",
    "before": "\"He who has been instructed thus far in the things of love, and who has learned to see the beautiful in due order and succession, when he comes toward the end will suddenly perceive a nature of wondrous beauty (and this, Socrates, is the final cause of all our former toils) — a nature which in the first place is everlasting, not growing and decaying, or waxing and waning; secondly, not fair in one point of view and foul in another, or at one time or in one relation or at one place fair, at another time or in another relation or at another place foul, as if fair to some and foul to others, or in the likeness of a face or hands or any other part of the bodily frame, or in any form of speech or knowledge, or existing in any other being, as for example, in an animal, or in heaven, or in earth, or in any other place; but beauty absolute, separate, simple, and everlasting, which without diminution and without increase, or any change, is imparted to the ever-growing and perishing beauties of all other things. He who from these ascending under the influence of true love begins to perceive that beauty, is not far from the end.",
-   "after": "'\"Whoever has been instructed this far in the things of love, and has learned to see beautiful things in their proper order and succession, will, as he comes toward the end, suddenly perceive something wondrously beautiful in its nature — and this, Socrates, is the goal of all our earlier efforts. In the first place, it is everlasting: it does not grow and decay, or wax and wane. Secondly, it is not beautiful from one point of view and ugly from another; not beautiful at one time, or in one relation, or in one place, and ugly at another time, or in another relation, or in another place, as if it were beautiful to some and ugly to others. Nor does it take the likeness of a face or hands or any other part of the body; nor does it take the form of any speech or knowledge; nor does it exist in any other being, such as an animal, or the heavens, or the earth, or any other place. It is beauty itself, existing by itself and in itself, always one in form, and everlasting. Without growing less or greater, or changing in any way, it is shared by all the other beautiful things, which come into being and pass away. When someone rises from these through loving a young man in the right way and begins to perceive that beauty, he is not far from the end.",
+   "after": "'\"Whoever has been instructed this far in the things of love, and has learned to see beautiful things in their proper order and succession, will, as he comes toward the end, suddenly perceive something wondrously beautiful in its nature — and this, Socrates, is the goal of all our earlier efforts. In the first place, it is everlasting: it does not grow and decay, or wax and wane. Secondly, it is not beautiful from one point of view and ugly from another; not beautiful at one time, or in one relation, or in one place, and ugly at another time, or in another relation, or in another place, as if it were beautiful to some and ugly to others. Nor does it take the likeness of a face or hands or any other part of the body; nor does it take the form of any speech or knowledge; nor does it exist in any other being, such as an animal, or the heavens, or the earth, or any other place. It is absolute beauty — beauty itself, existing by itself and in itself, always one in form, and everlasting. Without growing less or greater, or changing in any way, it is shared by all the other beautiful things, which come into being and pass away. When someone rises from these through loving a young man in the right way and begins to perceive that beauty, he is not far from the end.",
    "renderer": "R4",
    "assessor_issues": [
     "misleading",
@@ -3142,17 +3231,26 @@
    "round3_edits": [
     {
      "n": "R3-7",
-     "src": "BL4 H",
+     "src": "BL4 H; opening per SFC note",
      "find": "It is beauty absolute, separate, simple and everlasting, which, without growing less or greater, or changing in any way, is imparted to the ever-growing and perishing beauties of all other things.",
-     "replace": "It is beauty itself, existing by itself and in itself, always one in form, and everlasting. Without growing less or greater, or changing in any way, it is shared by all the other beautiful things, which come into being and pass away.",
-     "reason": "The climax was delivered in philosophers' vocabulary ('absolute, separate, simple', 'imparted to'). Every element is kept: absolute (itself), separate (by itself), simple (one in form), everlasting, no diminution, increase or change, and all other beautiful things sharing in it while they grow and perish."
+     "replace": "It is absolute beauty — beauty itself, existing by itself and in itself, always one in form, and everlasting. Without growing less or greater, or changing in any way, it is shared by all the other beautiful things, which come into being and pass away.",
+     "reason": "The climax was delivered in philosophers' vocabulary ('absolute, separate, simple', 'imparted to'). Every element is kept: absolute (itself), separate (by itself), simple (one in form), everlasting, no diminution, increase or change, and all other beautiful things sharing in it while they grow and perish.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     },
+     "resolution": "SFC accept; SFC's optional follow-up applied in its wording ('It is absolute beauty — beauty itself, …') to keep the echo with 7.65; not separately re-confirmed."
     },
     {
      "n": "R3-8",
      "src": "BL4 M",
      "find": "under the influence of true love",
      "replace": "through loving a young man in the right way",
-     "reason": "'true love' is heard as the romantic cliché, the opposite of what is meant (BL4). Jowett's 'true love' renders Plato's 'loving boys rightly'; the successor keeps sexual and social content frank and accurate."
+     "reason": "'true love' is heard as the romantic cliché, the opposite of what is meant (BL4). Jowett's 'true love' renders Plato's 'loving boys rightly'; the successor keeps sexual and social content frank and accurate.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -3199,21 +3297,33 @@
      "src": "BL2 ¶7.65; BL4 M",
      "find": "from beautiful bodies to beautiful practices, and from beautiful practices to beautiful branches of knowledge;",
      "replace": "from beautiful bodies to beautiful institutions, and from beautiful institutions to beautiful branches of knowledge;",
-     "reason": "The recap renamed 7.63's 'institutions and laws' as 'practices', so listeners could not match the two ladders (both blind readers). Plato uses the same word at both places."
+     "reason": "The recap renamed 7.63's 'institutions and laws' as 'practices', so listeners could not match the two ladders (both blind readers). Plato uses the same word at both places.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     },
     {
      "n": "R3-10",
      "src": "BL4 L",
      "find": "gold, and clothes",
      "replace": "gold, and fine clothes",
-     "reason": "'clothes' sounded bathetic; Jowett's 'garments' here means finery."
+     "reason": "'clothes' sounded bathetic; Jowett's 'garments' here means finery.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     },
     {
      "n": "R3-11",
      "src": "BL4 L",
      "find": "colors and vanities of human life",
      "replace": "colors and empty trifles of human life",
-     "reason": "'vanities' is heard as conceit; it means empty trifles."
+     "reason": "'vanities' is heard as conceit; it means empty trifles.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -3334,7 +3444,11 @@
      "src": "SRC4 paragraph note; Glossary",
      "find": "the handsomest and wisest of men",
      "replace": "the most beautiful and wisest of men",
-     "reason": "Last rendering of Jowett's 'fair' (of persons) in chapter 8 outside the glossary; 8.3 uses 'the most beautiful person here' for the same man and the same Greek word."
+     "reason": "Last rendering of Jowett's 'fair' (of persons) in chapter 8 outside the glossary; 8.3 uses 'the most beautiful person here' for the same man and the same Greek word.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -3495,7 +3609,11 @@
      "src": "SRC4 paragraph note",
      "find": "'\"The wise physician skilled our wounds to heal\"'",
      "replace": "'\"The wise physician skilled our wounds to heal\"",
-     "reason": "Alcibiades' sentence continues into 8.12, which reopens the quote; the single quote stays open, as at 8.34."
+     "reason": "Alcibiades' sentence continues into 8.12, which reopens the quote; the single quote stays open, as at 8.34.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -3526,7 +3644,11 @@
      "src": "SRC4 revise of R2-149",
      "find": "we had agreed",
      "replace": "we had passed a resolution",
-     "reason": "Restores Eryximachus's pompous officialese (Plato's decree formula), echoing the 'proposal' and 'motion' of 1.43-1.47; not archaic and not among BL2's obstacles."
+     "reason": "Restores Eryximachus's pompous officialese (Plato's decree formula), echoing the 'proposal' and 'motion' of 1.43-1.47; not archaic and not among BL2's obstacles.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },
@@ -3753,14 +3875,22 @@
      "src": "SRC4 revise of R2-158",
      "find": "what I have admitted to him",
      "replace": "what I have confessed to him",
-     "reason": "Keeps the echo of 8.24 'he makes me confess' (Plato uses the same verb)."
+     "reason": "Keeps the echo of 8.24 'he makes me confess' (Plato uses the same verb).",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     },
     {
      "n": "R3-14",
      "src": "SRC4 revise of R2-158",
      "find": "so I am at my wits' end.",
      "replace": "so I am at my wit's end.",
-     "reason": "Matches 'wit's end' in 8.31, the same phrase in the same speech."
+     "reason": "Matches 'wit's end' in 8.31, the same phrase in the same speech.",
+     "confirmation": {
+      "by": "SFC",
+      "verdict": "accept"
+     }
     }
    ]
   },

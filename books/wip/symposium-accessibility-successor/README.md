@@ -20,14 +20,14 @@ This successor assesses that text, paragraph by paragraph, for a first-time read
 
 | File | What it is | SHA-256 |
 |---|---|---|
-| `candidate/symposium-modern-en.json` | Successor modern-en: 8 chapters and 226 paragraphs, 1:1 with `original-en` `3521a12d…`. Serialized like the live file | `61d0919dcf599b2162220bae9bc85254cc8d622e3b887a79a0641bf4dde9198c` |
-| `cards/symposium-characters-modern-en.successor.proposed.json` | Proposed `editions["modern-en"]` card block, re-anchored and verified | `7530d25249ff6348f542d7114b2b1c262e9d09822fe549e04e1ca932819c3d49` |
-| `CHANGED-PARAGRAPHS.json` | 170 paragraphs that differ from the accepted `1e970b7b…`, for narration-cache invalidation | `865d3396246b65084de26708d1c29890dbb2df297efbfdd1b2267415d0dfcdc4` |
-| `LEDGER.json` | Every changed paragraph, with before and after, assessor issues, renderer, and every later edit with its source, reason and independent verdict | `8012d1f5948e4d89fc62485451eae204675ac65c981e511d15640cc70af530aa` |
+| `candidate/symposium-modern-en.json` | Successor modern-en: 8 chapters and 226 paragraphs, 1:1 with `original-en` `3521a12d…`. Serialized like the live file | `7eb73e3acfd5dfb1a9b13086b3097a505df8db49300c2a9abbab0caf9299844f` |
+| `cards/symposium-characters-modern-en.successor.proposed.json` | Proposed `editions["modern-en"]` card block, re-anchored and verified | `b06768e5716e4096e517d92977f64d142aee8da7bdeb76afb409629746e62556` |
+| `CHANGED-PARAGRAPHS.json` | 170 paragraphs that differ from the accepted `1e970b7b…`, for narration-cache invalidation | `63a812b505bf0758d341e3dc55f123f5f68e2af10c7c5f50c9ee31aec5348f6d` |
+| `LEDGER.json` | Every changed paragraph, with before and after, assessor issues, renderer, and every later edit with its source, reason and independent verdict | `18cd4d157fafb5f3059126d957664a3bc075c9ca4a230bbc9d1957067b7c046f` |
 | `PROTECTED-NOTES.md` | Blind-reader findings on the protected passages, as optional proposals. **Not applied** | |
 | `assessment/` | The round-1 assessment (SA1 and SA2) and its summary | |
 | `render/` | The round-1 renderer outputs (R1–R5), the render brief and the shared glossary | |
-| `review/` | Every independent review, listed under "Review record" below | |
+| `review/` | Every independent review, listed under "How it was made" below | |
 | `gate/gate-output.txt` | Similarity gate result | |
 | `HASHES.sha256` | Every file in this folder | |
 
@@ -61,8 +61,8 @@ The review record in detail:
 | Round-2 edits | Editor | 165 edits, from F1–F4, BL1 and BL2 and the glossary. Many touch paragraphs first kept |
 | Re-check of round 2 | SRC1 (chapters 1–4), SRC2 (5–6), SRC3 (7), SRC4 (8), independent | SRC1: 56 accept, 2 revise, 0 reject; SRC2: 21 accept, 1 revise, 0 reject; SRC3: 48 accept, 2 revise, 0 reject; SRC4: 33 accept, 2 revise, 0 reject. In all, 158 of 165 accepted; the 7 revisions were applied in the re-checkers' own wording |
 | Fresh blind reads of the round-2 text | BL3 (chapters 1 and 3) and BL4 (chapter 7), new readers | Chapters 1, 3 and 7 rated **3/5**, unchanged from round 1. Details below |
-| Round-3 edits | Editor | 30 edits: every re-checker revision, and the fixable points from BL3 and BL4 |
-| Final confirmation of round 3 | SFC, independent | PENDING |
+| Round-3 edits | Editor | 31 edits: every re-checker revision, and the fixable points from BL3 and BL4 |
+| Final confirmation of round 3 | SFC, independent | 29 accept, 1 revise, 0 reject (resolutions in `LEDGER.json`). SFC's revision (7.63) and two of its follow-up suggestions (7.64, 3.5) were applied in its own wording and were **not** separately re-confirmed |
 
 ## Honest limits
 
@@ -79,9 +79,9 @@ The review record in detail:
 
 After this work began, the completeness-repair owner started its own accessibility pass on the same base:
 
-- **Branch:** `claude/kind-fermi-a2b3g0`, commit `dbc98ad9`, 2026-09-25 15:50 UTC
+- **Branch:** `claude/kind-fermi-a2b3g0`. Work started at commit `dbc98ad9` (2026-09-25 15:50 UTC); the head is `9174a904` as of 16:39 UTC
 - **Folder:** `books/wip/symposium-accessibility/`
-- **Contents:** an assessment, a style guide and "review candidate v1", `46fa34ea4821eb2fa5e713915acb40bbf10fe224d79682adde9f68feb2b0113e`
+- **Contents:** an assessment, a style guide, "review candidate v1" (`46fa34ea4821eb2fa5e713915acb40bbf10fe224d79682adde9f68feb2b0113e`, unchanged at `9174a904`), four source reviews (1A–1D), a blind-reader review and source notes
 
 That folder was **not touched**. Neutral comparison figures, from this package's scratch run of the same gate script:
 
@@ -91,7 +91,7 @@ That folder was **not touched**. Neutral comparison figures, from this package's
 | Paragraphs changed from `1e970b7b…` | 170 | 151 |
 | Changed in both | 146 | |
 | Protected 3.3, 3.7, 3.8 | unchanged | changed |
-| Independent reviews | complete (above) | none recorded at `dbc98ad9` |
+| Independent reviews | complete, fixes applied and confirmed (above) | four source reviews and one blind read of v1 recorded at `9174a904`; fixes not yet applied |
 
 **Only one should proceed.** Two routes are possible:
 
