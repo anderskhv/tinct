@@ -20,10 +20,27 @@ const SCENES = {
     phone: { flames:[[350,364,18]], water:[[694,403],[932,400],[932,463],[858,467],[814,497],[789,464],[742,443],[694,430]], reflection:[120,930,80,145] },
   },
   'pride-and-prejudice': {
-    wide: { sun:[1242,315,190,280], motes:[[1082,230],[1172,262],[1005,506],[907,490]], water:[[1260,299],[1327,299],[1327,322],[1260,322]] },
-    phone: { sun:[790,410,155,350], motes:[[649,251],[711,310],[615,632],[545,604]], water:[[806,394],[884,394],[884,422],[806,422]] },
+    wide: { foliage:[[[1189,116],[1247,114],[1247,218],[1190,217]],[[1263,114],[1328,107],[1328,216],[1263,218]]], sun:[1242,315,190,280], motes:[[1082,230],[1172,262],[1005,506],[907,490]], water:[[1260,299],[1327,299],[1327,322],[1260,322]] },
+    phone: { foliage:[[[729,175],[791,169],[791,293],[721,292]],[[806,170],[883,163],[883,291],[806,294]]], sun:[790,410,155,350], motes:[[649,251],[711,310],[615,632],[545,604]], water:[[806,394],[884,394],[884,422],[806,422]] },
   },
 };
+
+// Grade once, not on every animation frame. This also works in browsers which
+// don't implement CanvasRenderingContext2D.filter (including older iOS Safari).
+const paintings = new WeakMap();
+export function scenePainting(img, id) {
+  if (id !== 'pride-and-prejudice') return img;
+  if (!paintings.has(img)) {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    ctx.fillStyle = 'rgba(8,23,17,.24)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    paintings.set(img, canvas);
+  }
+  return paintings.get(img);
+}
 const particles = new Map();
 function field(key, n) {
   if (!particles.has(key)) {
@@ -70,6 +87,13 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   // coordinates across them. Their stillness is intentional for reading.
   const spec=SCENES[id]?.[wide?'wide':'phone'];if(!spec||alpha<=0||!img)return;
   ctx.save();ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);
+  // A little breeze in the painted foliage, confined inside the glass panes.
+  // Reuse the painting itself; neither the mullions nor the bridge can move.
+  (spec.foliage||[]).forEach((polygon,i)=>{
+    ctx.save();clip(ctx,polygon);ctx.globalAlpha=alpha*.55;
+    const dx=Math.sin(time*.00065+i*1.7)*.8,dy=Math.sin(time*.00041+i)*.22;
+    ctx.drawImage(scenePainting(img,id),dx,dy);ctx.restore();
+  });
   (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,x,y,h,time,x*.01+i,alpha));
   if(spec.reflection){
     const [x,y,rx,ry]=spec.reflection,f=flicker(time,x*.01);
