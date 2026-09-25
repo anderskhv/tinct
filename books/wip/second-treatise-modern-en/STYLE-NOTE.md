@@ -140,3 +140,35 @@ the phrase is Locke's paraphrase, not a direct Scripture quotation.
 Revise, don't discard: keep sentences that are already clear, accurate modern
 English. Change only archaisms left in place, fidelity problems, inconsistent
 terms, Hooker handling, and sentences still in 1689 syntax.
+
+## Decisions added during rendering and review (2026-09-25)
+
+- **Latin phrases inside Locke's English** (*jure divino, caeteris paribus,
+  pro tempore, de facto, ipso facto, Salus populi suprema lex, in vacuis
+  locis, amor sceleratus habendi, rebellare*) stay in Latin, in Locke's word
+  order, with **no added English gloss** unless Locke supplies one. Where
+  Locke gives his own English beside the Latin ("in vacuis locis, in any part
+  of the world they can find free and unpossessed"; "amor sceleratus habendi,
+  evil concupiscence"), his English is kept, modernized ("evil craving for
+  possession"). Glosses the renderers added were removed after review.
+- **Scripture.** Direct quotations keep King James wording, including archaic
+  pronouns and verb forms ("the Lord hath sought him a man", "remaineth").
+  References keep **Locke's own abbreviated form** ("Judg. xi. 11",
+  "2 Kings xviii. 7", "Exod. xx. 12"), not converted to chapter:verse.
+- **Spellings.** "Jephthah" throughout (source varies "Jephtha"/"Jeptha").
+  "Melchizedec", "Mispah", "Salmanasser", "Josephus Acosta", "Drawcansirs",
+  "wampompeke" kept as Locke spells them.
+- **"possessions"** appears only where Locke himself writes "possession(s)"
+  (checked by every reviewer, paragraph by paragraph). Broad-sense
+  "property" is never replaced.
+- **"legislature"** appears once (ch7 p19), because Locke himself writes it
+  there. Everywhere else: "the legislative".
+- **"councils" → "counsels"** (ch18 p14): Locke means designs/plans; modern
+  "councils" would mislead.
+- **Money** "5l." → "£5"; "50l. or 500l. per ann." → "£50 or £500 a year".
+- **Hooker "ibid." citations** in ch11 stay "Ibid." as in Locke; ch7's
+  truncated "Hooker, ib[id.]" is completed as the full citation (book I,
+  section 10), which is what the ibid. points to.
+- **Man/men, he** kept as Locke's generic usage; "brethren" (ch16 p16) is
+  rendered "brothers and sisters" because Locke's inheritance argument there
+  covers all the children.
