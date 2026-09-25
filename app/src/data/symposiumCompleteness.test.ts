@@ -5,10 +5,28 @@ import {projectEditionCoordinate,projectExactEditionRange,type CoordinateMigrati
 import {loadedCoordinateMigration} from './editionContentRevisions'
 import {migrateLabHighlight} from '../lab/labHighlightMigration'
 import {migrateSymposiumRecord,prepareLegacySymposiumRead} from '../services/symposiumContentMigration'
+import {narrationTokens,chunkNarrationTokens,narrationTextForParagraph} from '../narration/narrationCore'
+import {createHash} from 'node:crypto'
 import {usesRetainedBella} from '../narration/bellaRetention'
 const map=mapData as unknown as CoordinateMigration
 const current=(ed:string)=>JSON.parse(readFileSync(new URL('../../public/data/editions/symposium-'+ed+'.json',import.meta.url),'utf8'))
 describe('Symposium completeness compatibility',()=>{
+ it('rebuilds seek chunk layouts from current affected text, including Modern chapter 3',()=>{
+  for(const ed of ['original-en','modern-en']){
+   const source=current(ed),edition=map.editions[ed]
+   const chapters=ed==='modern-en'?[1,3,7,8]:[1,7,8]
+   for(const ch of chapters)for(const [pi,text] of source.chapters[ch-1].paragraphs.entries()){
+    const tokens=narrationTokens(text),chunks=chunkNarrationTokens(tokens)
+    expect(chunks.flatMap(c=>tokens.slice(c.wordFrom,c.wordTo))).toEqual(tokens)
+    const old=edition.entries[ch+'.'+pi]
+    if(old && old.oldText!==text){
+     const hash=(s:string)=>createHash('sha256').update(narrationTextForParagraph(s)).digest('hex')
+     expect(hash(old.oldText!)).not.toBe(hash(text))
+    }
+   }
+  }
+ })
+
  it('bundles the map before synchronous bounds validation and never selects stale original recordings',()=>{
   expect(loadedCoordinateMigration('positions','symposium')?.revision).toBe(map.revision)
   expect(usesRetainedBella('symposium','original-en','female')).toBe(false)

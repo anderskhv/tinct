@@ -43,7 +43,7 @@ jobs:
           TEST_ORIGIN: https://tinct.app
           READER_BUILT: '1'
           ARTIFACT_DIR: artifacts/symposium-release
-        run: node scripts/check-reviewed-characters.cjs
+        run: node scripts/check-symposium-characters.cjs
       - name: Commit generated integration for independent final review
         run: |
           git status --short
