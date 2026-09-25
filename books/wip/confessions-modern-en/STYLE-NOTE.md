@@ -124,3 +124,7 @@ where Pusey names her.
 - **Lost words in the served Pusey text** (e.g. Book 10 ¶45, where the subject
   "John" dropped out before "locusts") are restored from the Latin.
 - **concubitus → "sexual union"**, not "concubinage" (Book 10 ¶40, ¶46).
+- **Spelling: American**, matching Tinct's other modern-en editions
+  (honor, neighbor, theater, Savior, offense, defense). The few British forms
+  that came over from Pusey were normalized in one spelling-only pass after
+  rendering.
