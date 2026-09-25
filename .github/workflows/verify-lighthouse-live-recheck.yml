@@ -1,0 +1,46 @@
+name: Verify Lighthouse live publication and shared gates
+on:
+  push:
+    branches: [codex/lighthouse-live-recheck-20260925]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify exact Lighthouse publication and phone/desktop reader
+        env:
+          TEST_BOOK: to-the-lighthouse
+          TEST_ORIGIN: https://tinct.app
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: /assets/index-E77vrs5x.js
+          ARTIFACT_DIR: artifacts/lighthouse-live-recheck
+        run: |
+          node scripts/check-book-publication.cjs
+          node scripts/check-lighthouse-characters.cjs
+      - name: Verify unchanged strict Meditations and followups production gates
+        env:
+          TEST_ORIGIN: https://tinct.app
+        run: |
+          for book in meditations the-prince julius-caesar jekyll-and-hyde; do
+            TEST_BOOK="$book" ARTIFACT_DIR="artifacts/shared-live-recheck/$book" node scripts/check-reviewed-characters.cjs
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-and-shared-live-recheck
+          path: |
+            app/artifacts/lighthouse-live-recheck
+            app/artifacts/shared-live-recheck
