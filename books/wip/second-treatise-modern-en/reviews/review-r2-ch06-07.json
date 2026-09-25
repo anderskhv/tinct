@@ -1,0 +1,165 @@
+{
+ "reviewer": "review-r2",
+ "chapters": [
+  6,
+  7
+ ],
+ "paragraphs_reviewed": 49,
+ "findings": [
+  {
+   "chapter": 6,
+   "paragraph_index": 16,
+   "severity": "minor",
+   "type": "reversal",
+   "source_text": "kept them under no severer discipline than what was absolutely best for them, and had been less kindness to have slackened",
+   "candidate_text": "keeping them under no severer discipline than was absolutely best for them, and than it would have been less kind to relax",
+   "problem": "Renderer-flagged (their index 17 = 0-based 16): 'and than it would have been less kind to relax' is ungrammatical and blurs Locke's point that the discipline was both best for them and something it would have been less kind to relax; fix before release.",
+   "suggested_fix": "keeping them under no severer discipline than was absolutely best for them — discipline that it would have been less kind to relax."
+  },
+  {
+   "chapter": 6,
+   "paragraph_index": 1,
+   "severity": "note",
+   "type": "source",
+   "source_text": "would yet have founded but oddly",
+   "candidate_text": "it would have sounded strange",
+   "problem": "Renderer-flagged (their index 2 = 0-based 1): Gutenberg 'founded' is a long-s misreading of 'sounded'; candidate correctly renders 'sounded'. Confirmed.",
+   "suggested_fix": "No change."
+  },
+  {
+   "chapter": 6,
+   "paragraph_index": 1,
+   "severity": "minor",
+   "type": "omission",
+   "source_text": "their government of a single person only, was not placed in one, but two persons jointly",
+   "candidate_text": "derive the government of a single person was placed not in one person but in two jointly",
+   "problem": "'only' dropped from 'government of a single person only'; the contrast survives but Locke's emphasis on sole rule is weakened.",
+   "suggested_fix": "from which they want to derive the government of a single person alone was placed not in one person but in two jointly."
+  },
+  {
+   "chapter": 6,
+   "paragraph_index": 8,
+   "severity": "minor",
+   "type": "quotation",
+   "source_text": "And so lunatics and ideots are never set free from the government of their parents;",
+   "candidate_text": "And so lunatics and idiots are never set free from the government of their parents.",
+   "problem": "Renderer-flagged (their 9–10 = 0-based 8–9). §60 runs across p8–p9 and Locke's sentence continues into the Hooker list; closing p8 with a full stop severs the visible link, so p9 reads as an unintroduced quotation. The boundary itself is correct (section map: §60 starts p8, §61 at p10), and no content moved.",
+   "suggested_fix": "End p8 with a colon ('…from the government of their parents:') so the quotation in p9 reads as its continuation; keep p9 as is."
+  },
+  {
+   "chapter": 6,
+   "paragraph_index": 9,
+   "severity": "minor",
+   "type": "quotation",
+   "source_text": "children, who are not as yet come unto those years whereat they may have; and innocents which are excluded by a natural defect from ever having",
+   "candidate_text": "“Children, who have not yet come to those years at which they may have it; and innocents, who are excluded by a natural defect from ever having it",
+   "problem": "Hooker's elliptical 'may have' (= have the use of reason) is rendered 'may have it' with no antecedent until 'right reason' later; the reader cannot tell what 'it' is. Otherwise the quotation is complete, in quotation marks, and cited correctly (lib. i. sec. 7 → book I, section 7).",
+   "suggested_fix": "“Children, who have not yet come to those years at which they may have the use of reason; and innocents, who are excluded by a natural defect from ever having it; …"
+  },
+  {
+   "chapter": 6,
+   "paragraph_index": 26,
+   "severity": "note",
+   "type": "source",
+   "source_text": "as that he was ruler in his own housh",
+   "candidate_text": "as that he was ruler in his own household.",
+   "problem": "Renderer-flagged: Gutenberg truncates at 'housh'; Locke's §76 (end of ch 6) ends 'ruler in his own household.' Candidate's completion is correct and adds nothing further.",
+   "suggested_fix": "No change; record the truncation in REVIEW-RECORD.md."
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 19,
+   "severity": "minor",
+   "type": "reversal",
+   "source_text": "yet when time, giving authority, and (as some men would persuade us) sacredness of customs, which the negligent, and unforeseeing innocence of the first ages began, had brought in successors of another stamp",
+   "candidate_text": "Yet in time — which gave authority and (as some men would persuade us) sacredness to customs that the careless and unforeseeing innocence of the first ages had begun — successors of another kind came in.",
+   "problem": "Renderer-flagged (their index 20 = 0-based 19): the reading 'time giving authority and sacredness to customs' is right, but 'successors … came in' drops Locke's causal agency: time and hallowed custom brought those successors in (as the hereditary succession of custom), which is the point of the sentence.",
+   "suggested_fix": "Yet when time — giving authority and (as some men would persuade us) sacredness to customs that the careless and unforeseeing innocence of the first ages had begun — had brought in successors of another kind, the people found …"
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 19,
+   "severity": "minor",
+   "type": "omission",
+   "source_text": "And therefore, though perhaps at first,",
+   "candidate_text": "Perhaps at first (as will be shown",
+   "problem": "The connective 'And therefore' is dropped, so the historical sketch no longer reads as following from the preceding point that men who lack an appeal seek security in civil society.",
+   "suggested_fix": "And so, although perhaps at first (as will be shown more fully later in this discourse) …"
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 19,
+   "severity": "note",
+   "type": "term",
+   "source_text": "till the legislature was placed in collective bodies of men",
+   "candidate_text": "until the legislature was placed in collective bodies of men",
+   "problem": "Grep hit for 'legislature': Locke himself uses 'legislature' here, so keeping it is correct under the style note.",
+   "suggested_fix": "No change."
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 16,
+   "severity": "minor",
+   "type": "omission",
+   "source_text": "except they gave their common consent, all to be ordered by some, whom they should agree upon",
+   "candidate_text": "unless they gave their common consent to be ordered by some persons they should agree on",
+   "problem": "Hooker's 'all' (all of them to be ordered by some) is dropped, which loses the point that everyone submits to the chosen few.",
+   "suggested_fix": "unless they all gave their common consent to be ordered by some persons they should agree on."
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 16,
+   "severity": "note",
+   "type": "source",
+   "source_text": "some kind of govemment public … to rule and govem",
+   "candidate_text": "some kind of public government … to rule and govern",
+   "problem": "The Gutenberg source has OCR 'rn'→'m' errors ('govemment', 'govem'; also 'goveming' at p20). Candidate reads them correctly.",
+   "suggested_fix": "No change; record in REVIEW-RECORD.md."
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 20,
+   "severity": "note",
+   "type": "quotation",
+   "source_text": "till by experience they found this for all parts very inconvenient",
+   "candidate_text": "Then, by experience, they found this very inconvenient for all parties",
+   "problem": "'till' is turned into a plain sequence ('Then') and 'for all parts' (probably 'in every respect / for everyone') is narrowed to 'for all parties'. The meaning is close enough, but the 'until' construction is more faithful.",
+   "suggested_fix": "…but everything was left to the wisdom and discretion of those who were to rule, until experience showed them that this was very inconvenient on every side, …"
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 21,
+   "severity": "note",
+   "type": "source",
+   "source_text": "Hooker, ib",
+   "candidate_text": "Hooker, Ecclesiastical Polity, book I, section 10.)",
+   "problem": "Renderer-flagged: the source is truncated at 'Hooker, ib' (Locke: 'Hooker, ib.)'). 'ib.' points back to the preceding note (p20, l. i. sect. 10), and the sentence 'civil law being the act of the whole body politic doth therefore overrule each several part of the same body' is in Eccl. Pol. I.10. The de-abbreviated citation, book I, section 10, is correct under the style note.",
+   "suggested_fix": "No change; record the truncation in REVIEW-RECORD.md."
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 2,
+   "severity": "note",
+   "type": "source",
+   "source_text": "thisconjunction",
+   "candidate_text": "So this union",
+   "problem": "The source has a missing space ('thisconjunction'). Candidate unaffected.",
+   "suggested_fix": "No change."
+  },
+  {
+   "chapter": 7,
+   "paragraph_index": 15,
+   "severity": "note",
+   "type": "source",
+   "source_text": "inconviency",
+   "candidate_text": "inconvenience",
+   "problem": "The source has a typo ('inconviency'); candidate correct.",
+   "suggested_fix": "No change."
+  }
+ ],
+ "chapter_verdicts": {
+  "6": "pass-with-fixes",
+  "7": "pass-with-fixes"
+ },
+ "summary": "I compared every paragraph of chapters 6 (27) and 7 (22) with the source, including all 17 sampled paragraphs and all 6 renderer-flagged ones. The renderer's flagged indices are 1-based: ch6 '17' is 0-based 16, ch6 '2' is 1, ch6 '9–10' is 8–9, and ch7 '20' is 19; this file uses 0-based indices. I found no major fidelity problems. Terms are stable (state of nature, legislative, property, consent, commonwealth, executive power of the law of nature), and the Hooker notes are modernized, complete, quoted, and cited as 'Hooker, Ecclesiastical Polity, book I, section N' with the (* and (** markers kept. Scripture is left in KJV wording. The must-fix is the ungrammatical 'and than it would have been less kind to relax' (ch6 p16). The other fixes are small: dropped connectives and qualifiers ('only', 'all', 'And therefore'), the lost causal agency of 'time … had brought in successors' (ch7 p19), and the dangling 'it' at the start of the ch6 p9 Hooker quotation. A whole-chapter grep found no term drift and no residual archaisms: every 'possession(s)' matches Locke's own word, and 'legislature' at ch7 p19 is Locke's."
+}
