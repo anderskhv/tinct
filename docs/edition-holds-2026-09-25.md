@@ -49,7 +49,9 @@ No rights-based withdrawal is made. No source text, audio, card, user data, sche
 
 ## Production SHA-256 inventory
 
-All URLs are `https://tinct.app/data/editions/{book}-{edition}.json`.
+Reader-versioned URLs were also fetched with `?v=447a7a650b9aec567251a638dc85b303d3b10477`. All 16 held hashes match both variants. Of all 28 inspected assets, only Confessions modern-en differs: the unversioned cached URL serves `420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e`; the versioned current reader serves the accepted repair shown below.
+
+URLs are `https://tinct.app/data/editions/{book}-{edition}.json` with that reader version parameter.
 
 | Book/edition | SHA-256 |
 |---|---|
@@ -67,7 +69,7 @@ All URLs are `https://tinct.app/data/editions/{book}-{edition}.json`.
 | jerusalem/modern-en | `6cdbf3a5904a26d5edffc0ad45325f29af16e8cd6bc0a959f92450c3b33c00ee` |
 | jerusalem/modern-da | `c1552e9a9a3a311b75e1d83ee104ff33c71c1a538bf68fd4bfd5d4f000a78223` |
 | confessions/original-en | `64b39a8ae77d7175c904625fcc0bf3de13cb59e346e964b37ec8f5e47d95a6d7` |
-| confessions/modern-en | `420b17153b6cb46f6a74e41bb633dcbc88099975720dac27c6bfb0bf6be51b4e` |
+| confessions/modern-en | `949e4f77fd317601cc39dc701cfbc3f5f82a5b5a842c34e93c9a6328ef78add7` |
 | confessions/modern-da | `4935d43ca05f87da69b94c37d3b2079ed8591a7769cf45f57a213690ec0b19bb` |
 | paradise-lost/original-en | `56c47aa192f17e38ae996d1abfc268dc0090a8c365a2e8f7578160dea2f81185` |
 | paradise-lost/modern-en | `87727e7760ea487d5b4527570d9bdaeaeb3158c782ed372f9c0a554cbf8562ba` |

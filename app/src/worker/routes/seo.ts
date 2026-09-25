@@ -324,7 +324,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   const holdBook = queryBook || publicBook
   const holdKey = url.searchParams.get('edition') || 'original-en'
   if ((request.method === 'GET' || request.method === 'HEAD') && holdBook
-      && (isBookTemporarilyHeld(holdBook) || (url.pathname.startsWith('/read/') && editionHold(holdBook, holdKey)))) {
+      && (isBookTemporarilyHeld(holdBook) || ((url.pathname.startsWith('/read/') || queryBook) && editionHold(holdBook, holdKey)))) {
     const recovery = new URL('/reader', url.origin)
     recovery.searchParams.set('heldBook', holdBook)
     recovery.searchParams.set('heldEdition', holdKey)

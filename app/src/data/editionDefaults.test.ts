@@ -13,7 +13,7 @@ const defaults = (id: string) => {
 describe('default editions (approved 2026-09-25)', () => {
   it('uses approved defaults only where an edition remains available', () => {
     for (const book of BOOKS) {
-      const overrides: Record<string, string | undefined> = { bible: 'bsb-en', macbeth: undefined, 'as-you-like-it': undefined, jerusalem: 'original-en', faust: 'original-de' }
+      const overrides: Record<string, string | undefined> = { bible: 'bsb-en', macbeth: undefined, 'as-you-like-it': undefined, jerusalem: 'original-en', 'faust-part-1': 'original-de' }
       expect(defaultPrimaryEditionKey(book.id, book.editions), book.id).toBe(book.id in overrides ? overrides[book.id] : 'modern-en')
     }
   })

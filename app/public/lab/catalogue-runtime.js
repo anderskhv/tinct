@@ -983,7 +983,7 @@ import {
     const changingBook = state.selectedBookId !== book.id || !state.selectedEditionKey
     state.selectedBookId = book.id
     state.pendingResume = state.continuations.find(item => item.bookId === book.id) || null
-    const resumePrimary = v1Editions(book).find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
+    const resumePrimary = book.editions.find(edition => edition.key === state.pendingResume?.primaryEditionKey && edition.availability.chapterText)
     if (changingBook) state.selectedEditionKey = resumePrimary?.key || defaultEdition(book)?.key || null
     const explicitSetup = explicitReaderLinkSetup(location.search, book)
     state.explicitStart = explicitSetup?.start ?? explicitReaderStart(location.search, book)
@@ -992,7 +992,7 @@ import {
       const requestedEdition = v1Editions(book).find(edition => edition.key === explicitSetup?.primaryEditionKey && edition.availability.chapterText)
       if (requestedEdition) state.selectedEditionKey = requestedEdition.key
     }
-    const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
+    const resumeCompare = book.editions.find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
     if (changingBook) {
       const humanEditions = v1Editions(book).filter(edition => edition.key !== state.selectedEditionKey && edition.group === 'human' && edition.language === 'en' && edition.availability.compare)
       // catalogue.json carries the approved default; null means no default Compare.
@@ -1129,7 +1129,7 @@ import {
 
   function renderVersions(book) {
     const editions = selectableEditions(book).filter(edition => edition.availability.chapterText)
-    const retained = v1Editions(book).find(edition => edition.key === state.selectedEditionKey && edition.discoveryAvailable === false)
+    const retained = book.editions.find(edition => edition.key === state.selectedEditionKey && edition.discoveryAvailable === false)
     if (retained) editions.unshift(retained)
     const host = root.querySelector('[data-book-versions]')
     const primaryKey = state.selectedEditionKey

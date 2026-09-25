@@ -3316,7 +3316,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Hearing a chapter out is finishing it, same as turning past the last
     // page — on the book's final chapter too, where there is nothing to open.
-    markChapterFinished(book.chapterNumber)
+    if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next == null) return false
     void goToChapter(next, 'start', true)
     return true
@@ -3377,14 +3377,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
     if (resolved.chapterChanged) {
       if (resolved.chapterNumber > book.chapterNumber) {
-        markChapterFinished(book.chapterNumber)
+        if (!temporaryHold) markChapterFinished(book.chapterNumber)
       }
       await goToChapter(resolved.chapterNumber, resolved.landing)
       return outcome
     }
     goToParagraph(resolved.paragraphIndex, { seekAudio: outcome.resumePlayback })
     return outcome
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph, markChapterFinished])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph, markChapterFinished, temporaryHold])
   skipRef.current = applyPlaybackSkip
 
   const quietDesktopAfterTurn = useCallback(() => {
@@ -3432,12 +3432,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without
     // depending on a reading-memory session that may since have been pruned.
-    markChapterFinished(book.chapterNumber)
+    if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next != null) {
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn])
 
   const goPrev = useCallback(() => {
     quietDesktopAfterTurn()
@@ -3477,7 +3477,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
   // overlays keep their keys; the chapter cover handles its own arrows and
   // marks the event handled, so it never double-turns here.
-  const keyboardPageTurnsBlocked = prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
+  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
   useEffect(() => {
     if (keyboardPageTurnsBlocked) return
     const onKey = (event: KeyboardEvent) => {
@@ -3495,6 +3495,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
+    if (temporaryHold) return
     if (listen.isPending()) { listen.pause(); return }
     if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
@@ -3572,7 +3573,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [temporaryHold, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 

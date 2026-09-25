@@ -495,3 +495,30 @@ describe('approved brand entry metadata', () => {
     expect(html).not.toContain('private-secret')
   })
 })
+
+describe('temporary edition direct links', () => {
+  it('explains holds before serving cached pages and retains exact recovery coordinates', async () => {
+    for (const path of ['/read/macbeth/chapter-8', '/as-you-like-it', '/read/jerusalem?edition=modern-en&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-en']) {
+      const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+      expect(response.status).toBe(200)
+      expect(response.headers.get('Cache-Control')).toBe('no-store')
+      expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
+      const html = await response.text()
+      expect(html).toContain('Temporarily unavailable')
+      expect(html).toContain('heldBook=')
+      expect(html).toContain('saved')
+      if (path.includes('chapter-8')) expect(html).toContain('chapter=8')
+      if (path.includes('paragraph=59')) {
+        expect(html).toContain('heldEdition=modern-en')
+        expect(html).toContain('paragraph=59')
+        expect(html).toContain('word=2')
+      }
+    }
+  })
+  it('does not intercept sound edition links or the recovery reader', async () => {
+    for (const path of ['/reader?heldBook=macbeth&heldEdition=modern-en', '/read/jerusalem?edition=original-en', '/read/faust-part-1?edition=original-de']) {
+      const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+      expect(await response.text()).not.toContain('<h2>Temporarily unavailable</h2>')
+    }
+  })
+})
