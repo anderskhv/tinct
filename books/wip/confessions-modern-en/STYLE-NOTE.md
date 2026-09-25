@@ -102,8 +102,13 @@ where Pusey names her.
 
 ## 8. Decisions made during rendering (apply to all books)
 
-- **caritas → "love"** (not "charity"), since modern "charity" means almsgiving.
-  Pauline and Johannine quotations use "love" as well.
+- **caritas: "love" by default** (not "charity"), since modern "charity" means
+  almsgiving. **Exception (revised after review):** "charity" is kept where
+  Augustine uses *caritas* as a named principle ("the end of the commandment
+  is charity", 1 Tim 1:5; "the two precepts of charity"; "mother Charity"; the
+  invocation "O Love … O Charity, my God", where *amor* and *caritas* stand
+  side by side), and where "love" would collide with *amor*/*dilectio* in the
+  same sentence. Each kept "charity" is checked in the fix pass.
 - **Pusey's plain errors and gaps.** Pusey is followed for meaning. Where he
   mistranslates, has a misprint, or leaves out words of Augustine's that the
   Latin plainly has (e.g. Book 6 ¶23 "to open Your hand", Ps 145:16), the Latin
