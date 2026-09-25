@@ -182,7 +182,7 @@ It does **not** cover the Hawthorne dedication or the Epilogue subtitle.
 |---|---|---|---|---|---|---|
 | 01 | UNCERTAIN | S3 | before 1.0 | 35 w | The novel's epigraph is absent: "Verily, verily, I say unto you, Except a corn of wheat fall into the ground and die…" (John 12:24) | Not in the PG #28054 front matter; the verse is only quoted inside the narrative (lines 13170 and 14404). Standard Ebooks' Garnett edition, checked against archive.org scans, prints it (`epigraph.xhtml`, sha `31d878d2…`). Absent in all editions. |
 | 02 | MISPLACED | S4 | 24.42, 41.49, 62.37 | 6 w | "PART II", "PART III" and "PART IV" are served as the last body paragraph of the previous Book's final chapter. "PART I" is absent, and the sections list Books only | Source lines 7418, 15145, 24583. Same in modern-en and modern-da. The repair batch notes keep these markers by design. |
-| 03 | EXTRANEOUS | S4 | 96.76–96.86 | 124 w | "THE END", "FOOTNOTES" and Garnett's nine translator footnotes are served after "Hurrah for Karamazov!" (96.75). The book ends on "[9] Gogol is meant." | Source lines 37251–37284. Markers [1]–[9] remain in the body (16.34 … 85.5). Same in modern-en and modern-da. |
+| 03 | EXTRANEOUS | S4 | 96.76–96.86 | 122 w | "THE END", "FOOTNOTES" and Garnett's nine translator footnotes are served after "Hurrah for Karamazov!" (96.75). The book ends on "[9] Gogol is meant." | Source lines 37251–37284. Markers [1]–[9] remain in the body (16.34 … 85.5). Same in modern-en and modern-da. |
 
 **SCOPE:** Dostoevsky's preface "From the Author" is not part of Garnett's translation. It is absent from PG #28054 and from Standard Ebooks' Garnett edition, so this is not an import loss.
 
@@ -393,7 +393,7 @@ It does **not** cover the Hawthorne dedication or the Epilogue subtitle.
 
 | ID | Type | Sev | Location | Extent | Summary | Evidence |
 |---|---|---|---|---|---|---|
-| 01 | EXTRANEOUS | S4 | original-ru 1.55, 2.31–2.36, 6.14, plus the marker "passe4" in 2.8 | 36 w | The az.lib.ru editorial glosses of French and Latin phrases ("Prim. антикварном магазине (от франц. bric-a-brac).", "1 гордость семьи (франц.)" … "Prim. 7 устройство, сооружение (франц.).") are served as body paragraphs at chapter ends | The Wikisource wikitext has the same apparatus inline (lines 319, 585–595, 1307). Not applicable to modern-en or modern-da. |
+| 01 | EXTRANEOUS | S4 | original-ru 1.55, 2.31–2.36, 6.14, plus the marker "passe4" in 2.8 | 33 w | The az.lib.ru editorial glosses of French and Latin phrases ("Prim. антикварном магазине (от франц. bric-a-brac).", "1 гордость семьи (франц.)" … "Prim. 7 устройство, сооружение (франц.).") are served as body paragraphs at chapter ends | The Wikisource wikitext has the same apparatus inline (lines 319, 585–595, 1307). Not applicable to modern-en or modern-da. |
 
 **Needs investigation** (typo class, outside completeness): original-ru has a few character-level artefacts that are not in either witness:
 

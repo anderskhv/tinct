@@ -1,0 +1,1061 @@
+{
+ "group": "G07-novels-b",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "date": "2026-09-25",
+ "books": [
+  {
+   "id": "faust-part-1",
+   "title": "Faust, Part One",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-de",
+     "label": "Goethe (1808)",
+     "sha256": "edb0081f759c0eb256ed303711932af743784a87f1cc6716dab7d15365bc83e5",
+     "source_url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "source_sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "source_retrieved_utc": "2026-09-25T11:57:16Z",
+     "source_body_lines": "64-8333 (Zueignung .. Heinrich! Heinrich!)",
+     "source_covered_pct": 98.593,
+     "edition_covered_pct": 99.104,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 9,
+     "notes": "local raw-de.txt identical to PG #21000 (BOM only). All 9 runs >=12 are scene-opening stage directions / speaker labels; the one EXTRA run (120 tok) is the transcriber note in 28.69."
+    },
+    {
+     "key": "original-en",
+     "label": "Bayard Taylor (1870)",
+     "sha256": "bff236838e6e5ee6baeb7afd16c6b1c1b2872f87605f21e79e4cd5198a997395",
+     "source_url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "source_sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "source_retrieved_utc": "2026-09-25T12:01:56Z",
+     "source_body_lines": "958-20219 (DEDICATION .. Henry! Henry!; German and English pages interleaved)",
+     "source_covered_pct": 90.57,
+     "edition_covered_pct": 99.18,
+     "missing_runs_ge25": 11,
+     "notes": "Matched source = Hayward prose translation rev. C. A. Buchheim (Bell/Bohn 1892), bilingual OCR. Coverage = share of English-labelled OCR tokens covered (noise: running heads, line numbers). edition_covered = edition tokens found anywhere in the OCR; ~2,500 of them (~7%) match German pages. 11 uncovered English runs >=25 = 9 distinct passages (~1,873 words). vs Taylor PG #14591 (label): 4.5% source coverage."
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "9e66da5b45267bfb3cae70905897d9f9c1397bd1d1c8b080bf325cda0046d28b",
+     "notes": "rendering of the Hayward-based original-en; checked for each gap by phrase search and paragraph comparison"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "ce719108b40e89f1f008d16a62e1fa7dc9e1f1600b2481439696873f9b471191",
+     "notes": "presence check only"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-faust-part-1-01",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "edition label/translator (bookRegistry.ts FAUST_PART_1 original-en); whole edition",
+     "extent_words": 35368,
+     "summary": "original-en is labelled 'Bayard Taylor (1870)' / translator Bayard Taylor, but serves Abraham Hayward's prose translation as revised by C. A. Buchheim (Bell 1892), OCR'd from a bilingual German/English scan (IA cu31924026191910). 6-gram overlap with Taylor (PG #14591) is 4.5%. SOURCE.md also documents Taylor/PG 14591; books/parse-faust.py says 'EN source: Hayward 1833/1892 interlinear OCR edition' and reads raw-en-hayward.txt, which is not in the repo.",
+     "served_before": null,
+     "missing_start": "served 1.0: 'Ye approach again, ye wavering forms, which once, in the morning of life, presented yourselves'",
+     "missing_end": "Taylor (label) begins: 'Again ye come, ye hovering Forms! I find ye,'",
+     "served_after": null,
+     "source_ref": "IA djvu.txt line 963 (Hayward/Buchheim DEDICATION); pg14591.txt (Taylor) DEDICATION",
+     "local_raw_has_it": false,
+     "modern_en": "derived from the Hayward-based original-en (not Taylor); inherits its gaps",
+     "modern_da": "derived from modern-en",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-02",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 3.16 (4.0 starts mid-sentence)",
+     "extent_words": 242,
+     "summary": "End of the Prologue in Heaven (Mephistopheles alone: 'I like to see the Ancient One occasionally...'), the NIGHT scene heading/stage direction and the first ~207 words of Faust's opening monologue ('I have now, alas... mastered philosophy...') are absent.",
+     "served_before": "THE LORD. ... do ye fix firm with everlasting thoughts. [Heaven closes, the Archangels disperse. |",
+     "missing_start": "Mephistopheles (alone). I like to see the Ancient One occasionally, and take care not to break with him.",
+     "missing_end": "many a mystery might not become known to me; that I may no longer, with",
+     "served_after": "4.0: bitter sweat, be obliged to speak of what I do no know;",
+     "source_ref": "IA djvu.txt lines 2016-2019 and 2096-2149 (English pages)",
+     "local_raw_has_it": false,
+     "modern_en": "absent (4.0 begins 'FAUST. ... with bitter sweat')",
+     "modern_da": "absent (4.0 begins 'FAUST. ... med bitter sved')",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-03",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "inside 4.26 (after '...display my wit on your')",
+     "extent_words": 398,
+     "summary": "Easter-morning sequence absent: Faust raises the poison goblet, the bells and 'Christ is arisen!' chorus, Faust's reply ending 'The tear is flowing, earth has me again', choruses of women and angels, first part of the disciples' chorus. The paragraph jumps mid-sentence.",
+     "served_before": "I shall not now pass you to a neighbour : I shall not now display my wit on your",
+     "missing_start": "devices. Here is a juice which soon intoxicates. It fills your cavity with its brown flood.",
+     "missing_end": "Has already on high Gloriously raised himself! Whilst he is, in reviving bliss, Near to creative joy.",
+     "served_after": "Ah! on earth's bosom Are we for suffering here ! He left us, his own,",
+     "source_ref": "IA djvu.txt lines 3383-3533 (English pages; German pp. between)",
+     "local_raw_has_it": false,
+     "modern_en": "absent (4.26 marks the gap: 'display my wit on your ... CHORUS OF DISCIPLES.')",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-04",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "inside 6.0",
+     "extent_words": 274,
+     "summary": "Faust's Bible-translation passage ('It is written: In the beginning was the Word... the Sense... the Power... the Deed') with the lines around it is absent; 6.0 jumps mid-sentence ('my whole' -> 'troublesome a companion').",
+     "served_before": "The brutish sound ill harmonizes with the hallowed tones which now possess my whole",
+     "missing_start": "soul. We are accustomed to see men deride what they do not understand",
+     "missing_end": "If I am to share the chamber with you, poodle, cease your howling—cease your barking. I cannot endure so",
+     "served_after": "troublesome a companion near to me. One of us two must quit the cell.",
+     "source_ref": "IA djvu.txt lines 5184-5222",
+     "local_raw_has_it": false,
+     "modern_en": "absent (no 'In the beginning was the Word/Deed' anywhere)",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-05",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "inside 6.1 (after 'Undine twine,')",
+     "extent_words": 110,
+     "summary": "Most of Faust's spell of the four elements and the conjuration of the poodle ('Sylph vanish, Kobold shall toil... Reprobate! Canst thou read him?') is absent.",
+     "served_before": "Use I the spell of the four: Salamander shall glow,\" Undine twine,",
+     "missing_start": "Sylph vanish, Kobold shall toil. Who does not know The elements,",
+     "missing_end": "Reprobate! Canst thou read him?— The unoriginated, Unpronounceable,",
+     "served_after": "Through all heaven diffused, : Vilely transpierced ?",
+     "source_ref": "IA djvu.txt lines 5411-5456",
+     "local_raw_has_it": false,
+     "modern_en": "absent (no 'Sylph'/'unoriginated')",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-06",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 13.5",
+     "extent_words": 185,
+     "summary": "Martha dressing Margaret in the jewels, the knock at the door and Mephistopheles' entrance ('I came to inquire after Mrs. Martha Schwerdtlein') are absent; 13.6 continues with his aside.",
+     "served_before": "MARGARET. Now, only see! do but look at them ! Q",
+     "missing_start": "Martha (dresses her up in them). Oh! you happy creature.",
+     "missing_end": "I came to inquire after Mrs. Martha Schwerdtlein. Martha. I am she. What is your pleasure, Sir?",
+     "served_after": "13.6: MEPHISTOPHELES (ASIDE TO HER). I know you now—that is enough.",
+     "source_ref": "IA djvu.txt lines 12316-12358",
+     "local_raw_has_it": false,
+     "modern_en": "absent (no 'two caskets')",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-07",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "19.21 ends mid-sentence (before 19.22)",
+     "extent_words": 192,
+     "summary": "Margaret's account of her horror of Mephistopheles ('It is written on his forehead, that he can love no living soul') and Faust's replies are absent.",
+     "served_before": "I have kind feelmgs towards everybody else; but, much as I long",
+     "missing_start": "to see you, I have an unaccountable horror of that man, and hold him for a rogue besides.",
+     "missing_end": "Ah, can I never recline one little hour undisturbed upon thy bosom, and press heart to heart and soul to soul?",
+     "served_after": "19.22: MARGARET. Ah, did I but sleep alone!",
+     "source_ref": "IA djvu.txt lines 15271-15319",
+     "local_raw_has_it": false,
+     "modern_en": "absent (no 'unaccountable horror'/'no living soul')",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-08",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "inside 24.9 (after 'witch-song streams along the whole mountain.')",
+     "extent_words": 157,
+     "summary": "Witches' chorus on the way to the Brocken and the following Voices/Chorus exchange (Old Baubo, Ilsenstein) are absent.",
+     "served_before": "—Ay, a raving witch-song streams along the whole mountain.",
+     "missing_start": "The Witches (in chorus). To the Brocken the witches repair! The stubble is yellow, the corn is green.",
+     "missing_end": "The pitchfork pricks—the besom scratches: the child is suffocated—the mother bursts.",
+     "served_after": "Wizards (half-chorus). We steal along like snails in their house;",
+     "source_ref": "IA djvu.txt lines 17271-17313",
+     "local_raw_has_it": false,
+     "modern_en": "absent (no 'Baubo'/'Brocken' chorus)",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-09",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 24.23",
+     "extent_words": 235,
+     "summary": "Parvenu, Author, Mephistopheles grown suddenly old ('I feel the people ripe for doomsday'), the Huckster-Witch and Mephistopheles' reply are absent.",
+     "served_before": "Minister. At present people are wide astray from the right path —the good old ones for me!",
+     "missing_start": "Parvenu. We, too, were certainly no fools, and often did what we ought not;",
+     "missing_end": "Done, happened! Happened, done! Take to dealing in novelties; novelties only have any attraction for us.",
+     "served_after": "24.24: FAUST. I must endeavour to keep my senses! This is a fair with a vengeance !",
+     "source_ref": "IA djvu.txt lines 17760-17800",
+     "local_raw_has_it": false,
+     "modern_en": "absent (no Parvenu/Huckster/'doomsday')",
+     "modern_da": "absent",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-10",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.11 ends mid-sentence (end of Prelude)",
+     "extent_words": 80,
+     "summary": "Close of the Prelude on the Stage is absent (Manager: 'spare me neither scenery nor machinery... from Heaven, through the World, to Hell'); 2.11 ends with the OCR fragment 'and birds,'.",
+     "served_before": "Resolution should boldly seize the possible by the forelock at once. She will then and birds,",
+     "missing_start": "not let it go, and works on, because she cannot help it.",
+     "missing_end": "and travel, with considerate speed, from Heaven, through the World, to Hell.",
+     "served_after": "3.0: Prologue in Heaven (Raphael)",
+     "source_ref": "IA djvu.txt lines 1617-1625",
+     "local_raw_has_it": false,
+     "modern_en": "partial (completes only the first clause: 'It will not then let go, and works on, because it must.')",
+     "modern_da": "partial (same as modern-en)",
+     "existing_repair": "none found",
+     "note_raw": "repo has no Hayward raw: books/parse-faust.py reads raw-en-hayward.txt (absent); books/raw/faust-part-1/raw-en.txt is Taylor PG #14591 (complete, different translation)"
+    },
+    {
+     "id": "G07-faust-part-1-11",
+     "type": "EXTRANEOUS",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "68 paragraphs in 15 chapters, e.g. 2.1, 2.4, 4.26, 6.12-6.15, 7.24-7.26, 9.12-9.17, 9.27-9.28, 9.47, 11.16, 17.1-17.3, 21.0, 26.4-26.7, 26.14-26.17, 27.6-27.12",
+     "extent_words": 2500,
+     "summary": "German facing-page text from the bilingual OCR is served inside the English edition: 55 paragraphs are majority German (whole speeches, Gretchen's prayer at 21.0, the Kerker opening at 27.6-27.12 inside 'Night. Open Field'), mostly duplicating English text that follows; plus OCR residue (line numbers, running heads such as '96 STU DIRZIMMER.', 'A= neige, 3230', 'T02¢', '8%', 25.0 heading 'OR, OBERON AND TITANIA'S GOLDEN WEDDING. INTERMEZZO. 8%').",
+     "served_before": null,
+     "missing_start": "6.12: 'FAUST. Du kannst im Groszen nichts vernichten Mephistopheles, Und freilich ist nicht viel damit gethan.'",
+     "missing_end": "27.11: 'MARGARETE (SICH AUF DEM LAGER VERBERGEND). Weh! Weh! Sie kommen. Bittrer Tod!'",
+     "served_after": null,
+     "source_ref": "German pages of IA cu31924026191910 (bi_align: ~2,500 edition tokens matched only to German-labelled OCR lines)",
+     "local_raw_has_it": null,
+     "modern_en": "positions re-rendered in English: see G07-faust-part-1-12",
+     "modern_da": "follows modern-en",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-faust-part-1-12",
+     "type": "EXTRANEOUS",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "the 55 German-majority positions of original-en, e.g. 6.12-6.15, 9.13, 9.47, 17.1-17.5, 26.4-26.23, 27.7-27.12",
+     "extent_words": 2307,
+     "summary": "Where original-en has German text, modern-en supplies English renderings that duplicate adjacent passages (17.1-17.4 ~ 17.6-17.9; 9.13 ~ 9.15; 6.12 ~ 6.16), misattribute speakers (9.47 FAUST for Mephistopheles' 'I know it well...'; 17.5 MEPHISTOPHELES for the end of Faust's monologue; 27.8/27.10 MEPHISTOPHELES for Faust's Dungeon lines), move the Dungeon opening into 'Night. Open Field' (27.7-27.10, again at 28.0) and add lines with no source counterpart (27.11 'I will not falter! Forward—I must save her!'; 27.12 'The horses know the way. Onward, then, into the night!'). modern-da follows (27.11-27.12 left in English). Needs paragraph-by-paragraph review.",
+     "served_before": null,
+     "missing_start": "me 27.11: 'FAUST. I will not falter! Forward—I must save her!'",
+     "missing_end": "me 27.12: 'MEPHISTOPHELES. The horses know the way. Onward, then, into the night!'",
+     "served_after": "me 28.0: '[FAUST, with a bunch of keys and a lamp, before an iron wicket.] A trembling, long unfelt, seizes me'",
+     "source_ref": "Hayward Dungeon opening: IA djvu.txt lines 19424-19431; German Kerker: pg21000.txt (Kerker scene)",
+     "local_raw_has_it": null,
+     "modern_en": "defective (this finding)",
+     "modern_da": "same positions; 27.11/27.12 present in English",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-faust-part-1-13",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-da"
+     ],
+     "location": "77 paragraphs in ch7, 11-14, 25-28 (e.g. 7.1, 13.10, 27.11, 28.53-28.54)",
+     "extent_words": 786,
+     "summary": "77 paragraphs of the 'Moderne Dansk' edition are untranslated English (byte-copies of modern-en), incl. the ending (28.53 '[He disappears with FAUST.]', 28.54 'VOICE (FROM WITHIN, DYING AWAY). Henry! Henry!').",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": null,
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "defective (this finding)",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-faust-part-1-14",
+     "type": "EXTRANEOUS",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-de"
+     ],
+     "location": "28.69 (final paragraph)",
+     "extent_words": 95,
+     "summary": "The PG transcriber's note (German and English, ~95 words) is appended to the play's final line inside the last served paragraph.",
+     "served_before": "28.69: STIMME. Heinrich! Heinrich!",
+     "missing_start": "[Anmerkungen zur Transkription: Dieses elektronische Buch wurde auf Grundlage der 1808 erschienenen Erstausgabe erstellt.",
+     "missing_end": "Spaced-out: spaced out text / Antiqua: #text in Antiqua font# ]",
+     "served_after": "(end of edition)",
+     "source_ref": "pg21000.txt lines 8335-8363 (transcriber note, outside the work)",
+     "local_raw_has_it": true,
+     "modern_en": "n/a (modern-en follows original-en; ends cleanly)",
+     "modern_da": "n/a",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-faust-part-1-15",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-de"
+     ],
+     "location": "5.0-5.10, 5.19 (Vor dem Thor)",
+     "extent_words": 674,
+     "summary": "About 17 speaker labels of the Vor dem Thor crowd scene are dropped, so different characters' lines are merged under one speaker (5.1 'ANDRE.' carries the lines of Die Ersten, Ein Handwerksbursch, Zweyter, Die Zweyten, Ein Dritter and Vierter; 5.2 Dienstmädchen under FÜNFTER; 5.5/5.7/5.9/5.10 Bürgermädchen, Erster, Bürger, Andrer/Dritter Bürger, Soldaten; 5.19 Alle). Text itself is complete.",
+     "served_before": "5.0: 'Warum denn dort hinaus?' (speaker 'Einige Handwerksbursche' also missing)",
+     "missing_start": "5.1: 'ANDRE. Wir gehn hinaus auf's Jägerhaus. / Wir aber wollen nach der Mühle wandern.'",
+     "missing_end": "source: '_Die Ersten._ Wir aber wollen nach der Mühle wandern.'",
+     "served_after": null,
+     "source_ref": "pg21000.txt lines 1162-1320, 1468",
+     "local_raw_has_it": true,
+     "modern_en": "n/a (modern-en follows original-en, whose Before the Gate keeps names inline)",
+     "modern_da": "n/a",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-faust-part-1-16",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-de"
+     ],
+     "location": "first paragraph of chapters 2, 3, 5-8, 10-20, 22-24, 26-28; between 28.67 and 28.68",
+     "extent_words": 150,
+     "summary": "Scene-opening stage directions and the first speaker label are dropped in most scenes: 17 scenes open with an unattributed speech (e.g. 23.0 Böser Geist's 'Wie anders, Gretchen...' with the setting 'Amt, Orgel und Gesang. Gretchen unter vielem Volke. Böser Geist hinter Gretchen.' absent; 22.0 Valentin unnamed) and 7 open with a truncated fragment (2.0 'lustige Person._', 3.0 'nachher Mephistopheles.', 16.0 'Fingerspitze an die Lippen...', 18.0 'am Spinnrade allein.', 27.0 'auf schwarzen Pferden daher brausend.', 28.0 'Thürchen.'). '(verschwindet mit Faust.)' is also absent at the end.",
+     "served_before": "22.44: '...Zu Gott ein als Soldat und brav.'",
+     "missing_start": "source: 'Dom. / Amt, Orgel und Gesang. / Gretchen unter vielem Volke. Böser Geist hinter Gretchen.'",
+     "missing_end": "source: '_Böser Geist._'",
+     "served_after": "23.0: 'Wie anders, Gretchen, war dir's,'",
+     "source_ref": "pg21000.txt e.g. lines 6708-6712 (Dom setting + _Böser Geist._), 1160-1166 (Vor dem Thor), 8327 ((verschwindet mit Faust.))",
+     "local_raw_has_it": true,
+     "modern_en": "n/a (original-en keeps its own stage directions)",
+     "modern_da": "n/a",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-faust-part-1-17",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-de"
+     ],
+     "location": "2.0, 3.20, 25.0-25.2, 7.85, 21.0, 25.23",
+     "extent_words": 12,
+     "summary": "Heading fragments and markup served as text: 2.0 'lustige Person._'; 3.20 ends with 'Der Tragödie' (from the heading 'Der Tragödie erster Theil.'); 25.0 'Walpurgisnachtstraum / oder' as body and 25.2 'OBERONS. Intermezzo.' (subtitle parsed as a speech by 'OBERONS'); Antiqua markers '#...#' (7.85 '#Eritis sicut Deus...#', 21.0 '#Mater dolorosa,#', 25.23 '#CI-DEVANT#').",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": "pg21000.txt lines 106-112 (Vorspiel heading), 547 (_Der Tragödie_), 7481-7490 (Walpurgisnachtstraum heading)",
+     "local_raw_has_it": true,
+     "modern_en": "n/a",
+     "modern_da": "n/a",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "original-en: Hayward/Buchheim introduction, notes and appendices (OCR lines 1-957, 20220-) are editorial; correctly excluded. Taylor preface/\"An Goethe\" (raw-en.txt) not relevant to the served text.",
+    "original-de: bracketed later-edition corrections of PG #21000 (e.g. \"[Lied]\", \"[farzt]\", \"[rechten Pfropf]\") are dropped, the 1808 dashes kept (24.12, 24.69): VARIANT consistent with the 1808 first edition, not a defect.",
+    "The two source editions are independent (1056 vs 895 paragraphs); each was checked against its own source."
+   ],
+   "needs_investigation": [
+    "Decide the intended English source: the label says Taylor (local raw-en.txt = PG #14591 is complete), the served text is Hayward/Buchheim with 9 missing passages and German bleed-through; modern-en/modern-da are built on the defective Hayward text.",
+    "modern-en contains lines with no source counterpart at German-bleed positions (27.11, 27.12; see -12); a full review of all 55 positions is needed."
+   ],
+   "notes": "Macbeth-type parser defect (speech continuations dropped after inline stage directions) not observed: original-de gaps are only scene headings/labels; original-en gaps are whole OCR page(s) skipped by the parser (two English pages for the Easter scene). Dedication, Prelude, Prologue, all scenes incl. Walpurgisnacht, Walpurgisnachtstraum (Oberon and Titania's Golden Wedding) and Kerker/Dungeon are present in both source editions, apart from the listed gaps."
+  },
+  {
+   "id": "werther",
+   "title": "The Sorrows of Young Werther",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Boylan (1779)",
+     "sha256": "db7393bfc33628a2f6eda4afbdac9918093740440ed4d6c5e23fe0e29dfdc374",
+     "source_url": "https://www.gutenberg.org/cache/epub/2527/pg2527.txt",
+     "source_sha256": "d3d603003a385308491ec2c7235db9695a4d7d35251c97d509ca2f976fae5ec0",
+     "source_retrieved_utc": "2026-09-25T11:56:59Z",
+     "source_body_lines": "47-4085 (PREFACE .. No priest attended.)",
+     "source_covered_pct": 99.59,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "Residue = 5 runs of 3-4 tokens, all letter-date/book headings (carried as chapter titles). Preface, all 82 dated letters (Book I May 4 1771 - Sep 10 1771; Book II Oct 20 1771 - Dec 6 1772) and The Editor to the Reader (final letters, Ossian, death and burial) present in source order."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "f45d353204e356b34bd473e250ed557c8ec899d83cfd8076aeb7ee16b1a05bc0",
+     "notes": "no paragraph < 60% of original (>=80w)"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "e97c294c690fe118eb1a5556a5b399de7a1a7689f658a650d25deebb2b446916",
+     "notes": "no English-majority paragraphs"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-werther-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "registry label/year; chapter 1 section metadata",
+     "extent_words": 0,
+     "summary": "Label 'Boylan (1779)' / year 1779: R. D. Boylan's translation dates from 1854 (Bohn); PG #2527 is the Dole-edited reprint. The Preface (ch1) carries section 'Book One', although it precedes BOOK I in the source.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": "pg2527.txt lines 36-63 (title page: Translated by R.D. Boylan, Edited by Nathen Haskell Dole; PREFACE; BOOK I)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "n/a",
+     "existing_repair": "green-werther (origin/claude/friendly-albattani-qgyqfi, 0252b80d) is a modern-en package; its source.json equals live original-en; no completeness issue recorded"
+    }
+   ],
+   "scope_notes": [
+    "books/wip/werther on main = modern-en/modern-da drafting batches (not a completeness package)."
+   ],
+   "needs_investigation": [
+    "app/public/data/editions/werther-original-de.json (83 chapters, starts \"Am 4. Mai 1771\") exists but is not in the registry; not audited."
+   ],
+   "notes": "green-werther fidelity-review-1-partD notes a modern-en clause (Eucharist simile) absent from Boylan but present in the German: translation variance, not a source-completeness gap."
+  },
+  {
+   "id": "frederick-douglass",
+   "title": "Narrative of the Life of Frederick Douglass",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Douglass (1845)",
+     "sha256": "64bc808575f553642c412702be86b9a26164b15d63bc4266471645858b5e930a",
+     "source_url": "https://www.gutenberg.org/cache/epub/23/pg23.txt",
+     "source_sha256": "234c15348a66919bad1d534cdd48ee8ddf91f50115a706cbefaa8edd049672fd",
+     "source_retrieved_utc": "2026-09-25T11:57:00Z",
+     "source_body_lines": "520-3740 (CHAPTER I .. LYNN, Mass., April 28, 1845)",
+     "source_covered_pct": 99.929,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "Chapters I-XI and Appendix (incl. \"A Parody\", signature, date) complete. Including the 1845 front matter (PREFACE line 79) coverage is 88.955% with one run of 4,533 tokens = Garrison Preface + Phillips letter + PG biographical note (see scope)."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "695db129557f339345670d8ea3abeceae6625101d91c530891ee303fe8321b0b",
+     "notes": "no paragraph < 60% of original"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "45495079dc5f8ac4ce50d97bd56b9d4eab9f8117cf6218e85f114daa56a33bfe",
+     "notes": "no English-majority paragraphs"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-frederick-douglass-01",
+     "type": "SCOPE",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 4185,
+     "summary": "The 1845 edition's prefatory documents are not served: William Lloyd Garrison's Preface (~3,115 words) and Wendell Phillips's letter (~1,070 words). Not by Douglass (authenticating front matter), so exclusion is defensible, but they are part of the 1845 book; flagged for an editorial decision.",
+     "served_before": null,
+     "missing_start": "PREFACE: 'In the month of August, 1841, I attended an anti-slavery convention in Nantucket'",
+     "missing_end": "LETTER FROM WENDELL PHILLIPS, ESQ. ... 'WENDELL PHILLIPS' (Boston, April 22, 1845)",
+     "served_after": "1.0: 'I was born in Tuckahoe, near Hillsborough, and about twelve miles from Easton'",
+     "source_ref": "pg23.txt lines 79-371 (Preface), 378-486 (Phillips letter); lines 488-518 = PG-added biographical note (correctly excluded)",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "green-frederick-douglass (origin/claude/friendly-albattani-qgyqfi) is a PARKED modern-en package (Matthew 23 wording); source.json = live original-en; front matter not discussed",
+     "scope_decision_needed": true
+    },
+    {
+     "id": "G07-frederick-douglass-02",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "throughout, e.g. 12.10, ch2 \"_Great House Farm._\"",
+     "extent_words": 0,
+     "summary": "PG underscore italics are served literally (~45 _..._ spans in original-en, ~30 in modern-en, ~27 in modern-da); the reader renders *...* but not _..._, e.g. 12.10 'LYNN, _Mass., April_ 28, 1845.'",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": "pg23.txt (transcriber markup)",
+     "local_raw_has_it": null,
+     "modern_en": "present (same markup)",
+     "modern_da": "present (same markup)",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "PG biographical note \"FREDERICK DOUGLASS. Frederick Douglass was born in slavery...\" (pg23 lines 488-518) is PG-added and correctly excluded.",
+    "10.26|10.27 paragraph break before the Hamlet quotation mirrors the source (set-off verse); not a defect."
+   ],
+   "needs_investigation": [
+    "Editorial decision whether Garrison Preface and Phillips letter should be offered as front matter (G07-frederick-douglass-01)."
+   ],
+   "notes": ""
+  },
+  {
+   "id": "jerusalem",
+   "title": "Jerusalem",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Howard (1915)",
+     "sha256": "747b53bedd58d9ba65877185247a8545dac4bddcd1e8219cf5315da00cdac47c",
+     "source_url": "https://www.gutenberg.org/cache/epub/15837/pg15837.txt",
+     "source_sha256": "cc5df0ba5e17cba5dbfebc6ce71eeb0571d8910a9e981df97cd84dcd1ebcff98",
+     "source_retrieved_utc": "2026-09-25T12:14:48Z",
+     "source_body_lines": "285-9362 (BOOK ONE .. we want to go home.)",
+     "source_covered_pct": 99.936,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "Text-complete vs Howard 1915 (Part I, In Dalarna: Books One-Three, 17 chapters). Defects are structural (spurious chapter) and in the modern editions."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "6cdbf3a5904a26d5edffc0ad45325f29af16e8cd6bc0a959f92450c3b33c00ee",
+     "notes": "17 truncated paragraphs (ch1-8); ch15-18 byte-identical to original-en"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "c1552e9a9a3a311b75e1d83ee104ff33c71c1a538bf68fd4bfd5d4f000a78223",
+     "notes": "mirrors modern-en truncations"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-jerusalem-01",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "9.74 / chapter 10",
+     "extent_words": 2,
+     "summary": "Spurious chapter: the last line of a quotation ('UNITY, UNITY.') was parsed as a heading, splitting the source chapter 'Loss of \"L'Univers\"' into ch9 and a new ch10 titled 'Book Three — Unity, Unity.'; the climactic quotation in 9.74 is cut off ('...is UNITY,') and its end survives only as a chapter title. The edition has 18 chapters for the source's 17.",
+     "served_before": "9.74: '\"That which is needed to make life as easy as death is UNITY,'",
+     "missing_start": "source: UNITY, UNITY.\"",
+     "missing_end": null,
+     "served_after": "10.0: 'It seemed to her that the Lord of all the earth had converted these noises into a speaking tube'",
+     "source_ref": "pg15837.txt lines 6024 (chapter heading), 6473-6474 (quotation), 6552 (next chapter HELLGUM'S LETTER)",
+     "local_raw_has_it": null,
+     "modern_en": "same split ('Book Three — Unity, Unity.')",
+     "modern_da": "same split ('Tredje Bog — Enhed, enhed.')",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-jerusalem-02",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.11, 1.17, 1.24, 1.103, 1.109, 1.115, 3.33, 5.0, 5.8, 5.21, 5.22, 5.50, 6.59, 7.7, 7.13, 8.47, 8.148",
+     "extent_words": 1734,
+     "summary": "17 modern-en paragraphs in chapters 1-8 drop their closing sentence blocks (40-184 words each, ~1,730 words in total; e.g. 1.24 orig 284 -> 87 words, 6.59 orig 342 -> 92). original-en is complete; modern-da mirrors the truncations.",
+     "served_before": "me 1.24 ends: 'and she was arrested and charged with murder.'",
+     "missing_start": "orig 1.24: 'But she couldn't have been in her right mind.'",
+     "missing_end": "orig 1.24: 'It comes to the same thing,' says father.",
+     "served_after": "1.25: 'Now that father seems to side with me, I say:'",
+     "source_ref": "pg15837.txt lines 500-518 (1.24), 3877-3897 (6.59); others located via original-en coordinates",
+     "local_raw_has_it": null,
+     "modern_en": "defective (this finding)",
+     "modern_da": "absent (same truncation, e.g. 1.24 ends \"anklaget for mord.\")",
+     "existing_repair": "none found"
+    },
+    {
+     "id": "G07-jerusalem-03",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "chapters 15-18 (338 paragraphs)",
+     "extent_words": 16179,
+     "summary": "modern-en chapters 15-18 ('The Auction' to 'The Departure of the Pilgrims', ~16,180 words) are byte-identical to original-en: the 1915 text is served under the 'Modern English' label. Content complete.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": null,
+     "local_raw_has_it": null,
+     "modern_en": "defective (this finding)",
+     "modern_da": "translated (Danish present)",
+     "existing_repair": "docs/edition-divergence-audit-2026-09-12.md lists jerusalem modern-en at 28.7% verbatim (not acted on)"
+    },
+    {
+     "id": "G07-jerusalem-04",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.55, 1.87, 1.132, 1.307, 8.235",
+     "extent_words": 6,
+     "summary": "Headings served as body paragraphs: Book One sub-numerals 'II', 'III', 'IV' and 'BOOK TWO' / 'BOOK THREE' as the last paragraph of the preceding chapter.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": "pg15837.txt lines 681, 817, 1046, 1679, 6021",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same ('ANDEN BOG', 'BOG TRE')",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "Howard's 1915 'Jerusalem' = Part I (I Dalarne, 1901). Part II (I Jerusalem, 1902; Howard's separate 1918 volume 'The Holy City: Jerusalem II') is not served; registry year 1901 and description fit Part I. SCOPE; confirm intent.",
+    "Henry Goddard Leach's Introduction (pg15837 lines 90-284) is editorial; correctly excluded."
+   ],
+   "needs_investigation": [],
+   "notes": ""
+  },
+  {
+   "id": "niels-lyhne",
+   "title": "Niels Lyhne",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-da",
+     "label": "Original (1880)",
+     "sha256": "3e90c0967db4e2147ae055608a28336af15e7eb8605eb3b47264f9d8f595ea94",
+     "source_url": "https://runeberg.org/download.pl?mode=ocrtext&work=nielslyhne",
+     "source_sha256": "00245873d94d88d6e884dc1513056c0cfa1ef2f3a13b7d97251092c3d0ebb55e",
+     "source_retrieved_utc": "2026-09-25T12:18:55Z",
+     "source_body_lines": "from <chapter name=\"I.\"> to end",
+     "source_covered_pct": 99.531,
+     "edition_covered_pct": 99.877,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "Runeberg OCR text of the 5th edition (Gyldendal 1923, \"FEMTE UDGAVE\"), the edition named in SOURCE-da.md; residue = Runeberg markup (<chapter>, <h2>, <sp>). Local raw-da-pages.txt: pages 6-272 consecutive, none empty. Per-chapter DA/EN word ratios 0.99-1.06 (no chapter-level gap vs Larsen). kb.dk/ADL unreachable via proxy (502); no Danish PG text exists."
+    },
+    {
+     "key": "original-en",
+     "label": "Larsen (1919)",
+     "sha256": "5f30145593a20bee6deb22f8a524314193b9bf5319c053c6e0b6afd547872d37",
+     "source_url": "https://www.gutenberg.org/cache/epub/55389/pg55389.txt",
+     "source_sha256": "f74540e73c74397b748ff113cb279e8bb170c05b38246d6cd8a5b7c7cbc5c53a",
+     "source_retrieved_utc": "2026-09-25T11:57:31Z",
+     "source_body_lines": "247-7053 (_Chapter I_ .. the difficult death.)",
+     "source_covered_pct": 99.96,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "local raw-en.txt identical to PG #55389 (BOM only); 14 chapters."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "88dc925851aae72fa3602b26917ec696e13a8499117c98298e71c6909f87521a",
+     "notes": "no paragraph < 60% of original-en"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "497ef5e8a0d3c3d8b6081d3facf886daa965b53f59558bf1ee2ad58d0b20d005",
+     "notes": "paragraph-aligned to original-da; inherits page-break splits"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-niels-lyhne-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-da",
+      "modern-da"
+     ],
+     "location": "152 paragraph boundaries, e.g. 1.8|1.9, 1.12|1.13, 1.15|1.16, 2.8|2.9",
+     "extent_words": 0,
+     "summary": "Paragraphs are split mid-sentence at page breaks of the page-based raw (152 splits in original-da with a lowercase continuation; modern-da inherits them). No text lost.",
+     "served_before": "1.8 ends: 'for deres Tanker løftede sig ingensinde fra'",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "1.9: 'den Jord eller den Bedrift, de havde under Hænder'",
+     "source_ref": "books/raw/niels-lyhne/raw-da-pages.txt line 139-143 (=== PAGE 8 ===)",
+     "local_raw_has_it": true,
+     "modern_en": "n/a (Larsen paragraphing)",
+     "modern_da": "same splits",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [
+    "Larsen's Introduction and translator's note (pg55389 lines 89-239) are editorial; correctly excluded.",
+    "The 1923 edition opens with a short signed composition note by Jacobsen ('Niels Lyhne paabegyndtes sidst i 1874...'); not served, not part of the novel.",
+    "Label 'Original (1880)' is the first-publication year; the served Danish text is the 1923 5th edition (Runeberg), per SOURCE-da.md."
+   ],
+   "needs_investigation": [],
+   "notes": ""
+  },
+  {
+   "id": "heart-of-darkness",
+   "title": "Heart of Darkness",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Conrad (1899)",
+     "sha256": "9d7234592e087f7d60a6dd460551347da283d5225fdcf81099a4b78b62bcede8",
+     "source_url": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+     "source_sha256": "c0b0bc91c7695f9d01aacb240e82a9b559f57558f98ad0b1f167eba21f6be6f7",
+     "source_retrieved_utc": "2026-09-25T11:57:01Z",
+     "source_body_lines": "49-3379 (The Nellie .. heart of an immense darkness.)",
+     "source_covered_pct": 99.995,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "Matches PG #219 (British spelling \"sombre\"); PG #526 (American spelling) gives 99.28%/99.35%. Parts I-III = chapters 1-3."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "169c288c26f0c8c07be6d181855123cd982023a0b780262576944f5833afa435",
+     "notes": "no paragraph < 60% of original"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "b0d43952a120819a451538113d82947f922ddaba0535257fb19bd909ba834444",
+     "notes": "Part III untranslated"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-heart-of-darkness-01",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-da"
+     ],
+     "location": "chapter 3 (3.0-3.86)",
+     "extent_words": 11593,
+     "summary": "The whole of Part III in the 'Moderne Dansk' edition (87/87 paragraphs, ~11,600 words) is byte-identical to original-en: Conrad's English is served under the Danish label (Danish rendering absent).",
+     "served_before": "modern-da 2.36 (Danish)",
+     "missing_start": "modern-da 3.0 = original-en 3.0 (English)",
+     "missing_end": "modern-da 3.86: 'Marlow ceased, and sat apart, indistinct and silent, in the pose of a meditating Buddha.'",
+     "served_after": "(end)",
+     "source_ref": null,
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "defective (this finding)",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [],
+   "needs_investigation": [],
+   "notes": "docs/edition-divergence-audit-2026-09-12.md lists heart-of-darkness modern-en at 46.2% verbatim (quote-normalised); quality, not completeness."
+  },
+  {
+   "id": "walden",
+   "title": "Walden",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Thoreau (1854)",
+     "sha256": "880a909fb8da73db303b4b2ea43be64a1800bdafd82ffcac7cb2847232ed5cb3",
+     "source_url": "https://www.gutenberg.org/cache/epub/205/pg205.txt",
+     "source_sha256": "2d9a76a2e3e8195c69430516ebd33c4d0757a53ad432ff6186b7b794e6fe99f9",
+     "source_retrieved_utc": "2026-09-25T11:57:04Z",
+     "source_body_lines": "81-9419 (Economy .. THE END)",
+     "source_covered_pct": 99.957,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "All 18 chapters Economy..Conclusion complete incl. Complemental Verses; ends \"The sun is but a morning star.\""
+    },
+    {
+     "key": "modern-en",
+     "sha256": "d2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec",
+     "notes": "no paragraph < 60% of original"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "a289d165e360133b36b93d897734bdcd46ff440779413d1d6c381ff804aa081a",
+     "notes": "6 paragraphs keep quoted English verse (e.g. 1.135 Carew poem) - deliberate-looking, not a gap"
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "PG #205 appends 'On the Duty of Civil Disobedience' (lines 9421-10248, ~9,330 words), a separate essay; not served. SCOPE (defensible)."
+   ],
+   "needs_investigation": [],
+   "notes": "MIDSPLIT flags (1.84|85, 1.97|98 account tables; 4.13|14, 4.16|17, 11.2|3 set-off quotations) mirror source layout."
+  },
+  {
+   "id": "jungle-book",
+   "title": "The Jungle Book",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Kipling (1894)",
+     "sha256": "f1a9afbb1c7ee5ab30915e4c394588f6537ed74adc0880d514ff850b61e17d0b",
+     "source_url": "https://www.gutenberg.org/cache/epub/236/pg236.txt",
+     "source_sha256": "571353c4c69d127020fb16cd6a566f1d80101bc0fc3cf2b0c2ea5678bf4c769f",
+     "source_retrieved_utc": "2026-09-25T11:57:05Z",
+     "source_body_lines": "56-5412 (Mowgli's Brothers .. Parade Song)",
+     "source_covered_pct": 99.958,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 0,
+     "notes": "Matches PG #236 (PG #35997, Century 1910 ed.: 98.35%, variant wording). All 7 stories with epigraph verses and the 7 songs (Hunting-Song, Road-Song, Mowgli's Song, Lukannon, Darzee's Chant, Shiv and the Grasshopper, Parade Song) present; song titles served as body paragraphs."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640",
+     "notes": "ch1 identical to original-en"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "574838d49e38cec0d3d8dae6b2e1c20ba89a2dd1dbd81867e020489769f8fa16",
+     "notes": "no English-majority paragraphs"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-jungle-book-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "chapter 1 \"Mowgli's Brothers\" (154/154 paragraphs)",
+     "extent_words": 7534,
+     "summary": "modern-en chapter 1 is byte-identical to original-en (154/154 paragraphs); Kipling's 1894 text is served under the 'Modern English' label for the whole story. Content complete.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": null,
+     "local_raw_has_it": null,
+     "modern_en": "defective (this finding)",
+     "modern_da": "translated",
+     "existing_repair": "docs/edition-divergence-audit-2026-09-12.md lists jungle-book modern-en at 42.8% verbatim (not acted on)"
+    }
+   ],
+   "scope_notes": [
+    "No preface in either PG edition; none expected."
+   ],
+   "needs_investigation": [],
+   "notes": ""
+  },
+  {
+   "id": "a-little-princess",
+   "title": "A Little Princess",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Original (1905)",
+     "sha256": "db6f42f1bdcc817ab8762339790b40606fd6512e95464ef4222af6e86aed1cdb",
+     "source_url": "https://www.gutenberg.org/cache/epub/146/pg146.txt",
+     "source_sha256": "004c4e47ab69973d8e8b164e950b9d77fd605a4ee8a42ce6a87fe42ab4c9fe21",
+     "source_retrieved_utc": "2026-09-25T11:57:07Z",
+     "source_body_lines": "77-7849 (1 / Sara .. drove away.)",
+     "source_covered_pct": 99.887,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 1,
+     "notes": "local raw.txt identical to PG #146 (BOM only). The one run >=12 is PG's closing line 'End of Project Gutenberg's A Little Princess' (correctly excluded). 19 chapters complete."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020",
+     "notes": "no paragraph < 60% of original"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "3df7d45b3c5249db64d9b08b123489ee0efa1829c8c8cb8a352ca0062f823f99",
+     "notes": "no English-majority paragraphs"
+    }
+   ],
+   "findings": [],
+   "scope_notes": [],
+   "needs_investigation": [],
+   "notes": "HEADING_LIKE 1.17 'MISS MINCHIN,' is the school's brass-plate text displayed in the source; not a defect."
+  },
+  {
+   "id": "around-the-world-80-days",
+   "title": "Around the World in Eighty Days",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "George Towle (1873)",
+     "sha256": "e23ae1708c6e03657d0f542e70465cc32ba772fd21a6936d9cf7f1a63b5417d9",
+     "source_url": "https://www.gutenberg.org/cache/epub/103/pg103.txt",
+     "source_sha256": "6f608ea2da50caf73245ad2996e4ee3c02ef1aa2152f7fcfe209df9aa39e7512",
+     "source_retrieved_utc": "2026-09-25T11:57:08Z",
+     "source_body_lines": "82-7961 (CHAPTER I .. make the tour around the world?)",
+     "source_covered_pct": 99.123,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "missing_runs_ge12": 32,
+     "notes": "All 32 runs >=12 (max 23 tokens) are chapter headings carried as chapter titles; 37 chapters complete."
+    },
+    {
+     "key": "modern-en",
+     "sha256": "13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af",
+     "notes": "no paragraph < 60% of original"
+    },
+    {
+     "key": "modern-da",
+     "sha256": "2d9a0c994c7eac94a2031ac7673ec4db5d392ad09a1d540d0eb715f42cff0c61",
+     "notes": "no English-majority paragraphs"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G07-around-the-world-80-days-01",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "34.22 (marker in 34.20)",
+     "extent_words": 11,
+     "summary": "Towle's translator footnote is served as a body paragraph at the end of chapter 34 ('[1] A somewhat remarkable eccentricity on the part of the London clocks!—TRANSLATOR.'), with the '[1]' marker left in 34.20; modern-da renders it as '— OVERSÆTTEREN'.",
+     "served_before": "34.21: 'Having made the tour of the world, he was behind-hand five minutes. He had lost the wager!'",
+     "missing_start": "[1] A somewhat remarkable eccentricity on the part of the London clocks!—TRANSLATOR.",
+     "missing_end": null,
+     "served_after": "35.0 (chapter 35 begins)",
+     "source_ref": "pg103.txt lines 7449 (marker), 7455-7456 (footnote)",
+     "local_raw_has_it": null,
+     "modern_en": "present (same)",
+     "modern_da": "present ('[1] En noget bemærkelsesværdig særhed hos Londons ure! — OVERSÆTTEREN.')",
+     "existing_repair": "none found"
+    }
+   ],
+   "scope_notes": [],
+   "needs_investigation": [],
+   "notes": ""
+  }
+ ]
+}

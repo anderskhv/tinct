@@ -1,0 +1,1201 @@
+{
+ "group": "G09-political-historical",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "books": [
+  {
+   "id": "wealth-of-nations",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "986785410f5c74e8e0d6efd4b963e93e80461eb2ec619788eb3e772d87f90c4b",
+     "source_url": "https://www.gutenberg.org/cache/epub/3300/pg3300.txt",
+     "source_sha256": "e91d52dca43fd0fd69baf7776b00a5d8e74b69675b6b608ca8a0378aaf3ae58d",
+     "source_retrieved_utc": "2026-09-25T11:55:47Z",
+     "source_covered_pct": 99.79,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 12,
+     "note": "Body delimited from 'INTRODUCTION AND PLAN OF THE WORK.' (l.110) to the PG end marker. All 20 missing runs >=12 tokens lie in source tokens 0-1092 = the Introduction and Plan of the Work (fragments of its 6-grams recur by chance elsewhere). No EXTRA, ORDER or DUPLICATE runs. No local raw (books/raw/wealth-of-nations absent)."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-wealth-of-nations-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 1060,
+     "summary": "Smith's 'Introduction and Plan of the Work' (the work's opening, which lays out the plan of all five Books) and the Book I title are absent; the edition opens at Book I ch. I.",
+     "served_before": "(none - edition opens here)",
+     "missing_start": "The annual labour of every nation is the fund which originally supplies it with all the necessaries",
+     "missing_end": "...the annual produce of the land and labour of the society.",
+     "served_after": "1.0 'OF THE DIVISION OF LABOUR.' / 1.1 'The greatest improvements in the productive powers of labour'",
+     "source_ref": "pg3300.txt lines 110-211 (Introduction) + 215-218 (Book I title)",
+     "local_raw_has_it": null,
+     "modern_en": "absent (1.0 'The Division of Labour')",
+     "modern_da": "absent (1.0 'Arbejdsdelingen')",
+     "existing_repair": "none; wealth-of-nations-repair (origin/claude/friendly-albattani-qgyqfi) reviews modern-en against the served original-en and does not record it"
+    },
+    {
+     "id": "G09-wealth-of-nations-02",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "11.290-11.297",
+     "extent_words": 873,
+     "summary": "Book II title and Smith's Introduction to Book II are served as the last 8 paragraphs of Book I ch. XI ('Chapter 11'), after the wheat-price tables, instead of opening Book II (ch12).",
+     "served_before": "11.289 '1751 1 18 6 1752 2 1 10 ... Average 2 0 6' (price table)",
+     "missing_start": "BOOK II. OF THE NATURE, ACCUMULATION, AND EMPLOYMENT OF STOCK. INTRODUCTION. In that rude state of society",
+     "missing_end": "...both of national industry, and of the annual produce of land and labour.",
+     "served_after": "12.0 'OF THE DIVISION OF STOCK.'",
+     "source_ref": "pg3300.txt lines 9660-9745",
+     "local_raw_has_it": null,
+     "modern_en": "same misplacement (11.290-11.297)",
+     "modern_da": "same misplacement (11.290-11.297)",
+     "existing_repair": "wn-batchC-review.md (origin/claude/friendly-albattani-qgyqfi) lists 'Book II heading, INTRODUCTION' in ch11 as 'Nothing dropped or reordered' (not recognised)"
+    },
+    {
+     "id": "G09-wealth-of-nations-03",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "20.25-20.27",
+     "extent_words": 156,
+     "summary": "Book IV title and Smith's Introduction to Book IV are served at the end of Book III ch. IV ('Chapter 4') instead of opening Book IV (ch21).",
+     "served_before": "20.24 '...and after the fall of the Roman empire in the western provinces of Europe.'",
+     "missing_start": "BOOK IV. OF SYSTEMS OF POLITICAL ECONOMY. Political economy, considered as a branch of the science of a statesman",
+     "missing_end": "...is best understood in our own country and in our own times.",
+     "served_after": "21.0 'OF THE PRINCIPLE OF THE COMMERCIAL OR MERCANTILE SYSTEM.'",
+     "source_ref": "pg3300.txt lines 14930-14948",
+     "local_raw_has_it": null,
+     "modern_en": "same misplacement",
+     "modern_da": "same misplacement",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-wealth-of-nations-04",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "chapter titles ch1-ch32; 16.38; 29.71",
+     "extent_words": 0,
+     "summary": "No Book I-V structure: titles run 'Chapter 1'...'Chapter 11' then restart at 'Chapter 1' for ch12, ch17, ch21 and ch30 (sections=0); Book III and Book V titles are served as the final paragraph of the preceding chapter (16.38, 29.71); real chapter headings appear only as body paragraph 0 of each chapter. modern-en titles are inconsistent (ch14, ch19, ch20, ch24, ch26 carry uppercase source headings).",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg3300.txt headings (BOOK I-V at lines 215, 9660, 13443, 14930, 24794)",
+     "local_raw_has_it": null,
+     "modern_en": "same labels",
+     "modern_da": "same labels",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-wealth-of-nations-05",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "11.207 (tail)",
+     "extent_words": 64,
+     "summary": "modern-en 11.207 stops mid-word ('as a result of these im'); the rest of the paragraph (clover/turnips and the London butcher's-meat price) is missing. original-en is complete.",
+     "served_before": "11.207 '...The plenty not only forces him to sell cheaper but, as a result of these im'",
+     "missing_start": "improvements, he can afford to sell cheaper; for if he could not afford it",
+     "missing_end": "...somewhat below what it was about the beginning of the last century.",
+     "served_after": "11.208 (next paragraph)",
+     "source_ref": "pg3300.txt ch. XI; served original-en 11.207 has the full text",
+     "local_raw_has_it": null,
+     "modern_en": "partial (truncated)",
+     "modern_da": "not checked (presence-only scope)",
+     "existing_repair": "documented and fixed in origin/claude/friendly-albattani-qgyqfi books/wip/wealth-of-nations-repair/wn-batchC-notes.md + wn-batchC-corrected.json (not released)"
+    },
+    {
+     "id": "G09-wealth-of-nations-06",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "app/public/data/editions-chapters/wealth-of-nations-modern-en/ (all 32 shards)",
+     "extent_words": 0,
+     "summary": "The chapter shards that the reader loads by default for the primary edition (App.tsx loadEditionWindow -> editionLoader chapter window; wealth-of-nations-modern-en is in editionShardRegistry) hold an older text: 1,751 of 2,173 shard paragraphs are byte-identical to original-en (1.0 is 'OF THE DIVISION OF LABOUR.') and 2,145 differ from the whole-book modern-en JSON. A reader who picks 'Modern English' as primary sees mostly the original text. All other sharded editions in G09 match their JSON (Montaigne modern-en/da differ only by bracket characters in 117/178 paragraphs).",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "shard manifest format tinct-edition-chapters-v1, revision 1",
+     "local_raw_has_it": null,
+     "modern_en": "whole-book JSON is modernized; shard path serves mostly original text",
+     "modern_da": "not sharded",
+     "existing_repair": "none known; delivery-path defect, verify in production"
+    }
+   ],
+   "scope_notes": [
+    "PG #3300 places the 'APPENDIX TO BOOK IV' (herring-bounty accounts) after Book IV ch. IX; served identically at 29.53-29.70.",
+    "Price tables (e.g. 11.274-11.289 'PRICES OF WHEAT') are served as run-on numeric paragraphs (cosmetic, S4).",
+    "Label 'Smith (1776)': the text includes later-edition matter (e.g. Book IV ch. VIII 'Conclusion of the Mercantile System', added 1784); cosmetic label note.",
+    "origin/codex/emergency-checkpoint-2026-08-29 books/wip/wealth-of-nations holds 16 bare chapter JSONs (modern-en/modern-da) with no notes; nothing about completeness."
+   ],
+   "needs_investigation": [
+    "G09-wealth-of-nations-06: confirm in production which modern-en text the primary reader shows (shards vs whole-book JSON)."
+   ],
+   "notes": "Body text otherwise complete (100% of served text found in source; no order anomalies). The DUP_ADJ flag 26.24~25 is authorial (two parallel seignorage paragraphs in the source)."
+  },
+  {
+   "id": "essays-montaigne",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "2d7353e85164e3a1426003ae17857136460edc0e2dab21a1ee0ee507c8076dd5",
+     "source_url": "https://www.gutenberg.org/cache/epub/3600/pg3600.txt",
+     "source_sha256": "1b4c87312f0890e04cecee48e3a5fa263de65743230b819e16cb1bd72f7aee59",
+     "source_retrieved_utc": "2026-09-25T11:55:48Z",
+     "source_covered_pct": 98.488,
+     "edition_covered_pct": 99.997,
+     "missing_runs_ge25": 49,
+     "note": "Body delimited from 'THE AUTHOR TO THE READER' (l.2028) to the PG end marker (Hazlitt's Preface, Life and Letters, ll.53-2027, excluded as editorial/other works). 123 missing runs >=12: 1 = 'The Author to the Reader'; 79 = editorial notes (Coste/Hazlitt/D.W./Florio) stripped by design; 44 = chapter headings, the 19 repeated volume title/contents blocks and ETEXT EDITOR'S BOOKMARKS lists. No authorial body text missing. No EXTRA, ORDER or DUPLICATE runs. No local raw."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-essays-montaigne-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 238,
+     "summary": "Montaigne's preface 'The Author to the Reader' ('Au lecteur': 'thou hast here an honest book ... myself am the matter of my book') is absent; Hazlitt's edition, which the label names, supplies it (Cotton had omitted it).",
+     "served_before": "(none - edition opens here)",
+     "missing_start": "READER, thou hast here an honest book; it doth at the outset forewarn thee",
+     "missing_end": "...about so frivolous and vain a subject. Therefore farewell. From Montaigne, the 12th June 1580",
+     "served_after": "1.0 'The most usual way of appeasing the indignation of such as we have any way offended'",
+     "source_ref": "pg3600.txt lines 2028-2051",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none; montaigne-repair (origin/claude/friendly-albattani-qgyqfi) uses the served original-en as locked ground truth and does not record it"
+    },
+    {
+     "id": "G09-essays-montaigne-02",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "24.59, 28.1, 28.2, 36.0, 38.51, 54.1, 57.11, 67.25, 68.1, 94.39, 99.99, 100.49, 100.52, 103.1, 107.70",
+     "extent_words": 914,
+     "summary": "At least 15 editorial notes (Coste, Hazlitt/W.C.H., D.W., Florio's 1613 version, 'The edition of 1588 adds') are served as reading paragraphs, although the edition otherwise strips notes. Essay 'Of Cato the Younger' opens (36.0) with Florio's archaic version before Cotton's text (36.1); the whole body of 'Nine and twenty sonnets' (ch28) is two editorial notes.",
+     "served_before": "e.g. 36 title 'Of Cato the Younger'",
+     "missing_start": "36.0 '[“I am not possessed with this common errour, to judge of others'",
+     "missing_end": "e.g. 103.1 '...--Coste.' / 99.99 '(If a man hate superstition he cannot love religion. D.W.)'",
+     "served_after": "36.1 'I am not guilty of the common error of judging another by myself.'",
+     "source_ref": "pg3600.txt e.g. line 11246 (Florio note at head of ch. XXXVI of Book I)",
+     "local_raw_has_it": null,
+     "modern_en": "present (same notes rendered as text)",
+     "modern_da": "present (same notes rendered)",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-essays-montaigne-03",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "29.4|5, 29.5|6, 69.10|11, 69.11|12, 69.242|243, 69.418|419, 69.469|470, 69.471|472, 69.479|480, 69.573|574, 86.18|19, 106.114|115",
+     "extent_words": 0,
+     "summary": "Sentences are split across two paragraphs where an editorial note was removed (12 places in original-en, 41 MIDSPLIT flags across the three editions); no words lost. The 107 essays also carry no Book I/II/III grouping (sections=0).",
+     "served_before": "29.5 '...Neither the mother of Pausanias,'",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "29.6 'who was the first instructor of her son's process'",
+     "source_ref": "pg3600.txt note positions (e.g. lines 9993-10011)",
+     "local_raw_has_it": null,
+     "modern_en": "same splits",
+     "modern_da": "same splits",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Hazlitt's Preface, 'The Life of Montaigne' and 'The Letters of Montaigne' (pg3600 ll.53-2027) are not served: editorial matter / separate works.",
+    "The 29 sonnets of La Boetie (ch28) are absent in PG #3600 too (Hazlitt: they 'do not really belong to the book'; the dedicatory epistle was moved to his Correspondence).",
+    "Final lines 'Or: [alternative translation]' and the 'APOLOGY' note after Book III ch. XIII are editorial and not served (correct).",
+    "Chapter shards for modern-en/modern-da differ from the whole-book JSON only by leading '[' bracket characters (117/178 paragraphs); cosmetic."
+   ],
+   "needs_investigation": [],
+   "notes": "107 essays = 57 + 37 + 13, all present and in order; the served ending (107.239, Horace translation) matches the source's last authorial words."
+  },
+  {
+   "id": "democracy-in-america",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "9fbec200460aebc0c454ac87814dd7c13d93a1eff0c4c467078591c3bd5f35a4",
+     "source_url": "https://www.gutenberg.org/cache/epub/815/pg815.txt + https://www.gutenberg.org/cache/epub/816/pg816.txt",
+     "source_sha256": "pg815 734b3b0352dc2ec312a6b2b9e9165aac054439eee2d6e8d83d1fd9a35d1c9e2d; pg816 1c9c747231b90370f0cd79bf0758be5df7dcb33d0354a050467328c679d0ccf4",
+     "source_retrieved_utc": "2026-09-25T11:55:50Z / 11:55:51Z",
+     "source_covered_pct": 99.437,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 13,
+     "note": "Aligned against vol.1 ll.123-19417 + vol.2 ll.30-11660 (main text through Book Four ch. VIII). 45 missing runs >=12 are all chapter headings and the 12 Vol.1 'Chapter Summary' lists. No EXTRA, ORDER or DUPLICATE runs. Separately, vol.2 Appendices A-Z + the Constitution (ll.11661-13735) are 3.6% covered (i.e. not served). books/raw/democracy-in-america/raw.txt = pg815 + separator line + pg816, line-identical."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-democracy-in-america-01",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 96.3 (back matter)",
+     "extent_words": 12225,
+     "summary": "Tocqueville's own notes 'Appendix A'-'Appendix Z' to Vol. 1 are not served; 9 served paragraphs still say 'See Appendix X' (6.147, 72.5, 73.2, 78.2, 86.5, 91.2, 91.8, 94.3, 94.7). Authorial back matter; scope decision unrecorded.",
+     "served_before": "96.3 '...to knowledge or barbarism, to prosperity or to wretchedness.'",
+     "missing_start": "Appendix A. For information concerning all the countries of the West which have not been visited",
+     "missing_end": "...(end of Appendix Z)",
+     "served_after": "(end of edition)",
+     "source_ref": "pg816.txt lines 11661-12930",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-democracy-in-america-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "sections: Volume 1 / Part 1 = ch1-8, Part 2 = ch9-20",
+     "extent_words": 0,
+     "summary": "Vol. 1 part grouping is off by one: ch9 'Chapter 8 - The Federal Constitution' is filed under 'Part 2', but Tocqueville's Part I ends with that chapter; Part II begins with 'Why the People May Strictly Be Said to Govern' (ch10).",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "Tocqueville 1835 structure (Premiere partie ch. 1-8)",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-democracy-in-america-03",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "19.76, 42.10, 62.8, 88.10, 3.0, 43.0; 87 footnote splits",
+     "extent_words": 0,
+     "summary": "Cosmetic structure: PG part heading 'Chapter XVIII ... Part III' served as body (19.76); Vol. 2 Book II/III/IV headings served as the last paragraph of the previous book's final chapter (42.10, 62.8, 88.10); split titles served as body (3.0, 43.0 'Of Equality Than Of Liberty'); Reeve/Tocqueville footnotes served as separate paragraphs after raw markers ('...incapable. *h' / 'g [ With the progress...'), producing the 87 MIDSPLIT flags. No text lost.",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg815/pg816 headings",
+     "local_raw_has_it": true,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-democracy-in-america-04",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "edition label",
+     "extent_words": 0,
+     "summary": "Label 'Reeve / Bowen (1862)' / 'Henry Reeve, revised by Francis Bowen' does not match the text: PG #815/816 credit Henry Reeve only and carry 'Translator's Note, 1874' footnotes (Reeve's later edition), with no Bowen revision.",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "pg815.txt line 2239 ('...not so in 1874'), line 4364",
+     "local_raw_has_it": true,
+     "modern_en": "n/a",
+     "modern_da": "n/a",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "The 12 Vol. 1 'Chapter Summary' lists (Tocqueville's analytic sommaires, ~790 words) are not served.",
+    "The U.S. Constitution printed as an appendix in PG #816 (6,206 words) is not served (editorial appendix).",
+    "The lead's concern about the ending is unfounded: 96.3 begins 'But as yet these things are imperfectly understood' and ends with the work's last words '...to prosperity or to wretchedness.'",
+    "Author's Introduction (ch1), the three-races chapter (ch19, 372 paragraphs, all 10 PG parts), the Vol. 1 Conclusion (ch20) and the Author's Preface to Vol. 2 (ch21) are all present."
+   ],
+   "needs_investigation": [
+    "G09-democracy-in-america-01: decide whether Tocqueville's Appendix notes belong to the Tinct edition."
+   ],
+   "notes": "modern-en has 229 paragraphs identical to original-en (mostly footnotes and headings, ~11,100 words); not a completeness issue."
+  },
+  {
+   "id": "discourse-on-inequality",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-fr",
+     "sha256": "6d62dac119c1f5cea89b175a3cc20ae2f1a9a7829c0475845360be4648f92cb8",
+     "source_url": "https://fr.wikisource.org/wiki/%C3%80_la_R%C3%A9publique_de_Gen%C3%A8ve + https://fr.wikisource.org/wiki/Discours_sur_l%E2%80%99origine_et_les_fondements_de_l%E2%80%99in%C3%A9galit%C3%A9_parmi_les_hommes/{Pr%C3%A9face,Premi%C3%A8re_partie,Seconde_partie,Notes}",
+     "source_sha256": "pages: 050266becbe1ae83, 22e1f6cc9ae90bab, 8b5f979f28b0bcf2, 44bc89faf09a5fcb, ca606b02d87168d0 (extracted text d158e2c3fe8644fc12c094cee3e62ef02f4a482ad35b39b7a54d09e9c42a3586)",
+     "source_retrieved_utc": "2026-09-25T12:06:15Z-12:06:29Z",
+     "source_covered_pct": 99.725,
+     "edition_covered_pct": 99.963,
+     "missing_runs_ge25": 0,
+     "note": "Wikisource text of Rousseau, Philosophie (1823) [Livre:Rousseau - Philosophie, 1823.djvu]; matches the served orthography ('tres-honores'). Dedication..Seconde partie aligned; the only missing runs are my page separators/navigation. The Notes page (~15,000 words) is 0.8% covered, i.e. not served."
+    },
+    {
+     "key": "original-en",
+     "sha256": "d3e7e7975ac634b98f685abcd7f6aae64b3621a74db31e1d229f2b6cfc4ba3bd",
+     "source_url": "https://www.gutenberg.org/cache/epub/46333/pg46333.txt",
+     "source_sha256": "65b006fe7288b2dd82c7c32f5b4c0fdd392407c3bc04ae8c822ea8f8723603de",
+     "source_retrieved_utc": "2026-09-25T11:55:52Z",
+     "source_covered_pct": 88.908,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 4,
+     "note": "Cole translation, pg46333 ll.7543-10855 (title page to end of APPENDIX). Missing: title+epigraph (77 tok), footnotes [1]-[4] (344 tok) and [5]-[8] (76 tok), and the APPENDIX = Rousseau's Note IX (3,460 tok incl. footnote tail). Main text otherwise fully covered; no EXTRA/ORDER/DUP. No local raw."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-discourse-on-inequality-01",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-fr",
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 4.66 (back matter)",
+     "extent_words": 15000,
+     "summary": "Rousseau's own 19 endnotes (Notes I-XIX, about a third of the work's length, e.g. Note X on the orang-outang, Note XV amour-propre) are not served in any edition. Authorial; scope decision unrecorded.",
+     "served_before": "4.66 (fr) '...tandis que la multitude affamee manque du necessaire.'",
+     "missing_start": "Note 1. Herodote raconte qu'apres le meurtre du faux Smerdis",
+     "missing_end": "(end of Note XIX)",
+     "served_after": "(end of edition)",
+     "source_ref": "https://fr.wikisource.org/wiki/Discours_sur_l%E2%80%99origine_et_les_fondements_de_l%E2%80%99in%C3%A9galit%C3%A9_parmi_les_hommes/Notes (ws_5.html)",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-discourse-on-inequality-02",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 4.66 (Appendix); footnotes after 3.51 and 4.66",
+     "extent_words": 3560,
+     "summary": "Cole's APPENDIX (Rousseau's Note IX, 'A famous author, reckoning up the good and evil of human life...', 3,112 words) and Cole's 9 footnotes (~450 words, incl. Rousseau's Notes XV and XIX) are absent; their markers [1]-[8] remain in 3.16, 3.33, 3.35, 4.34, 4.44, 4.47, 4.59, and footnote [1] itself read 'See Appendix.'",
+     "served_before": "4.66 '...while the starving multitude are in want of the bare necessities of life.'",
+     "missing_start": "APPENDIX. A famous author, reckoning up the good and evil of human life, and comparing the aggregates",
+     "missing_end": "...there always arise more real calamities than even apparent advantages.",
+     "served_after": "(end of edition)",
+     "source_ref": "pg46333.txt lines 10563-10855 (Appendix); 9351-9385 and 10515-10530 (footnotes)",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-discourse-on-inequality-03",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-fr"
+     ],
+     "location": "3.51 (appended 87 words) and 4.66 (appended 39 words)",
+     "extent_words": 126,
+     "summary": "The 1823 edition's page footnotes are appended, with Wikisource '↑' back-link glyphs, to the last paragraph of each Part: Rousseau's footnote on the Nicaragua animal + 'Juven, sat. XV' at 3.51, and the 'Ce chien est a moi ... Pascal, Pensees' note at 4.66, so the French text now ends with a footnote citing Pascal (attribution of that note, author vs 1823 editor, to be verified).",
+     "served_before": "4.66 '...tandis que la multitude affamee manque du necessaire.'",
+     "missing_start": "↑ « Ce chien est a moi, disaient ces pauvres enfants",
+     "missing_end": "...Pascal, Pensees, Ire partie, art. 9, §. 53.",
+     "served_after": "(end of edition)",
+     "source_ref": "ws_4.html / ws_3.html page footnotes",
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "n/a",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-discourse-on-inequality-04",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-da"
+     ],
+     "location": "4.0-4.66 (+2.15 Latin epigraph, legitimately identical)",
+     "extent_words": 12092,
+     "summary": "The Danish edition's whole Part 2 (all 67 paragraphs of ch4 'Del 2') is the English modern-en text, byte-identical. Danish is outside the current delivery scope (2026-09-21), but the edition is served as 'Moderne Dansk'.",
+     "served_before": "3.51 (Danish)",
+     "missing_start": "4.0 'The first man who, having enclosed a piece of ground'",
+     "missing_end": "4.66 '...lack the bare necessities of life.'",
+     "served_after": "(end of edition)",
+     "source_ref": "n/a (label defect)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "English text served",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-discourse-on-inequality-05",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "original-fr",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0; 2.16-2.24",
+     "extent_words": 77,
+     "summary": "original-en lacks Cole's title page with the Academy question and Rousseau's epigraph from Aristotle ('Non in depravatis...'); in all editions the Discourse's own title (2.16-2.17, split) and exordium ('It is of man that I have to speak', 2.18-2.24) are served inside the chapter labelled 'Preface'.",
+     "served_before": "",
+     "missing_start": "A DISCOURSE ON A SUBJECT PROPOSED BY THE ACADEMY OF DIJON",
+     "missing_end": "...rightly ordered according to nature.]",
+     "served_after": "1.0 'MOST HONOURABLE, MAGNIFICENT AND SOVEREIGN LORDS'",
+     "source_ref": "pg46333.txt lines 7543-7560",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Cole's Introduction (pg46333 ll.73-1569) is editorial and correctly excluded."
+   ],
+   "needs_investigation": [
+    "G09-discourse-on-inequality-01: decide whether Rousseau's notes belong to the Tinct edition (they do in every critical edition).",
+    "G09-discourse-on-inequality-03: confirm whether the 'Ce chien est a moi' footnote is Rousseau's or the 1823 editor's."
+   ],
+   "notes": "original-fr and original-en are each complete for Dedication, Preface, exordium, Part 1 and Part 2."
+  },
+  {
+   "id": "social-contract",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "7bf5ababb7c4dfe1cec0230d44f64960d8b447c4802b6a716b52d770a5854157",
+     "source_url": "https://www.gutenberg.org/cache/epub/46333/pg46333.txt",
+     "source_sha256": "65b006fe7288b2dd82c7c32f5b4c0fdd392407c3bc04ae8c822ea8f8723603de",
+     "source_retrieved_utc": "2026-09-25T11:55:52Z",
+     "source_covered_pct": 97.952,
+     "edition_covered_pct": 99.991,
+     "missing_runs_ge25": 2,
+     "note": "pg46333 ll.1662-6504 (title to the next 'A DISCOURSE'). Missing: title/epigraph/Foreword (75 tok) and the first line of each of 47 footnotes (runs of 12-29 tok). books/raw/social-contract/raw.txt = pg46333 without the PG header/footer (line-identical)."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-social-contract-01",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "47 footnotes; fragments at 2.9, 4.14, 6.11, 10.4, 11.5, 12.4-5, 13.10, 15.10, 16.12-14, 19.6, 20.5-6, 22.23, 25.8, 26.10-11, 27.16-17, 29.17, 30.4, 31.10, 31.15, 35.3, 36.12-13, 39.9, 41.11-12, 43.38, 45.11-12, 46.8-9, 47.35-41",
+     "extent_words": 521,
+     "summary": "The parser dropped the first line (the '[n]' line) of every one of the 47 footnotes, most of them Rousseau's own notes. The remaining lines are served as 43 separate paragraphs that begin mid-sentence at chapter ends, and 4 one-line notes vanish completely (Plutarch 'That Animals Reason', Montesquieu, 'In the Politicus', 'Custodes, diribitores...'). The [n] markers remain in 47 body paragraphs. The fragments were translated as they are in modern-en/modern-da.",
+     "served_before": "13.9 '...as soon as we lost it?'",
+     "missing_start": "[1] Attentive readers, do not, I pray, be in a hurry to charge me with",
+     "missing_end": "(first line of each note; 10-14 words each)",
+     "served_after": "13.10 'contradicting myself. The terminology made it unavoidable...'",
+     "source_ref": "pg46333.txt e.g. lines 2703-2705, 5362-5364; 47 notes between lines 1809 and 6467",
+     "local_raw_has_it": true,
+     "modern_en": "same fragments (e.g. 13.10 'of contradicting myself...')",
+     "modern_da": "same fragments",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-social-contract-02",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 60,
+     "summary": "Rousseau's Foreword ('This little treatise is part of a longer work...') and the title epigraph ('Foederis aequas Dicamus leges') are absent. SOURCE.md says parsing began with the text 'following' the Foreword.",
+     "served_before": "(none - edition opens here)",
+     "missing_start": "This little treatise is part of a longer work which I began years ago",
+     "missing_end": "...the least unworthy of being offered to the public. The rest no longer exists.",
+     "served_after": "1.0 'I mean to inquire if, in the civil order, there can be any sure'",
+     "source_ref": "pg46333.txt lines 1670-1683",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-social-contract-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.0-1.2",
+     "extent_words": 0,
+     "summary": "The Book I preamble (three paragraphs) is served inside 'Book 1, Chapter 1 - Subject of the First Book', so the chapter's own opening 'Man is born free' appears only at 1.3.",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "1.3 'Man is born free; and everywhere he is in chains.'",
+     "source_ref": "pg46333.txt lines 1688-1712",
+     "local_raw_has_it": true,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Cole's Introduction and the three Discourses in PG #46333 are other works/editorial and correctly excluded."
+   ],
+   "needs_investigation": [],
+   "notes": "All 48 chapters (Books I-IV: 9+12+18+9) present in order; Book IV ch. 9 'Conclusion' is genuinely one paragraph."
+  },
+  {
+   "id": "communist-manifesto",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "8b5b839176167eefeff135ee6e2a66d631af44293367540d09fa92e18cbdd5d3",
+     "source_url": "https://www.gutenberg.org/cache/epub/61/pg61.txt",
+     "source_sha256": "ba4623f09e411351ad4f34488289c70eceda8fb9d7977c1db64f0f01ed80cb59",
+     "source_retrieved_utc": "2026-09-25T11:55:54Z",
+     "source_covered_pct": 99.775,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "pg61 from 'A spectre is haunting' to the end marker; only missing run = the Section IV heading (13 tok, carried in the chapter title). books/raw/communist-manifesto/raw.txt is line-identical to pg61."
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Engels's prefaces (1872/1883/1888/1890) are absent from PG #61 and from the edition (scope per group notes)."
+   ],
+   "needs_investigation": [
+    "The label 'Moore (1888), edited by Engels' implies the 1888 English edition, which carries Engels's own footnotes (e.g. on 'bourgeoisie' and 'the history of all hitherto existing society'); PG #61 and the served text have none. Decide whether the 1888 annotations belong to the edition."
+   ],
+   "notes": "Preamble, Sections I-IV (with III.1-3 subheadings) and the closing 'WORKING MEN OF ALL COUNTRIES, UNITE!' present. origin/codex/bella-focused-communist-boundaries-20260921 is an audio-timing branch, not a text package."
+  },
+  {
+   "id": "second-treatise",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "efbd7cabd14ed99f98aabae7a95f48e8102db75f0b7aaae0054d0ffe4675b0d0",
+     "source_url": "https://www.gutenberg.org/cache/epub/7370/pg7370.txt",
+     "source_sha256": "3cd2baa0523ce2f5555576bf5af9079a887a497417a3217b61bc86ab12d543bb",
+     "source_retrieved_utc": "2026-09-25T11:55:55Z",
+     "source_covered_pct": 97.439,
+     "edition_covered_pct": 99.955,
+     "missing_runs_ge25": 2,
+     "note": "pg7370 from PREFACE (l.81) to the end marker. Missing >=25: the Preface (725+68 tok). Remaining runs: chapter headings, stripped 'Sect. n.' labels (by design), and the last 4 characters of chapters 1-18. books/raw/second-treatise/raw.txt is line-identical to pg7370."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-second-treatise-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "last paragraph of ch1-ch18",
+     "extent_words": 18,
+     "summary": "Every chapter 1-18 ends mid-word: the last 4 characters are cut ('public g[ood.]', 'very cl[ear.]', 'judge of all [men.]', 'Exod. [xxi.]', 'housh[old.]', 'Hooker, ib[id.)]', 'usur[ped.]', 'would let [him?]', ...). Inherited by modern-en and modern-da.",
+     "served_before": "e.g. 1.last '...and all this only for the public g'",
+     "missing_start": "ood.",
+     "missing_end": "(one word per chapter, 18 chapters)",
+     "served_after": "next chapter",
+     "source_ref": "pg7370.txt chapter ends (e.g. lines 212-213 '...only for the public good.')",
+     "local_raw_has_it": true,
+     "modern_en": "partial (same truncations, e.g. 'public g', 'househ')",
+     "modern_da": "partial (truncated, e.g. 'fremmed g')",
+     "existing_repair": "origin/claude/gracious-fermat-bjef6w books/wip/second-treatise-modern-en/HANDOFF.md item 6 and REVIEW-RECORD.md 'Source corrections' (modern-en candidate completes them; original-en not fixed)"
+    },
+    {
+     "id": "G09-second-treatise-02",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 783,
+     "summary": "Locke's Preface to the Two Treatises ('Reader, thou hast here the beginning and end of a discourse concerning government...') is not served; SOURCE.md records it as 'pre-chapter boilerplate', but it is authorial and printed in the source edition (Macpherson/Hackett).",
+     "served_before": "(none - edition opens here)",
+     "missing_start": "Reader, thou hast here the beginning and end of a discourse concerning government",
+     "missing_end": "...a bare quotation of pages always means pages of his Patriarcha, Edition 1680.",
+     "served_after": "1.0 'It having been shewn in the foregoing discourse,'",
+     "source_ref": "pg7370.txt lines 81-150",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-second-treatise-03",
+     "type": "MISSING",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "1.6 (sect. 2)",
+     "extent_words": 11,
+     "summary": "Source corruption inherited from PG #7370: 'distinguish these powers one from wealth, a father of a family' drops 'another, and shew the difference betwixt a ruler of a common-' (standard text).",
+     "served_before": "1.6 '...it may help us to distinguish these powers one from'",
+     "missing_start": "another, and shew the difference betwixt",
+     "missing_end": "a ruler of a common-",
+     "served_after": "'wealth, a father of a family, and a captain of a galley.'",
+     "source_ref": "pg7370.txt line 205 (corrupt in source)",
+     "local_raw_has_it": true,
+     "modern_en": "present (standard reading restored)",
+     "modern_da": "not checked",
+     "existing_repair": "origin/claude/gracious-fermat-bjef6w books/wip/second-treatise-modern-en/REVIEW-RECORD.md (ch 1 p6) and HANDOFF.md item 6"
+    }
+   ],
+   "scope_notes": [
+    "Section labels ('Sect. n.') are stripped by design (SOURCE.md)."
+   ],
+   "needs_investigation": [
+    "G09-second-treatise-02: decide whether Locke's Preface belongs to a Second-Treatise-only edition.",
+    "Package open issue: ch17 p1 (sect. 198) duplicated clause in PG #7370 - needs a pinned critical edition."
+   ],
+   "notes": "All 19 chapters present in order; the book ending (ch19 '...as they think good.') is intact."
+  },
+  {
+   "id": "federalist-papers",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "c733011184b5b42d48ac29dc73660ee631d039df0ff0572761724c7e0509d7e8",
+     "source_url": "https://www.gutenberg.org/cache/epub/1404/pg1404.txt",
+     "source_sha256": "0b92fadc9d7afd767eefd27805a20e44417ff26d1fb2f964229f39dcc7b2a65d",
+     "source_retrieved_utc": "2026-09-25T11:55:56Z",
+     "source_covered_pct": 98.332,
+     "edition_covered_pct": 99.995,
+     "missing_runs_ge25": 37,
+     "note": "pg1404 from 'FEDERALIST No. 1' to the end marker. Missing runs: paper subtitles/datelines/author lines/'PUBLIUS' (by design) and 10 whole body paragraphs (1,514 words). Paragraph-level check (6-gram coverage <50%) finds no other body paragraph missing. No EXTRA/ORDER/DUP. books/raw/federalist-papers/raw.txt is line-identical to pg1404."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-federalist-papers-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 47.5",
+     "extent_words": 342,
+     "summary": "No. 47 (Madison): the paragraph that draws Montesquieu's meaning ('he did not mean that these departments ought to have no PARTIAL AGENCY in, or no CONTROL over, the acts of each other'), the core of the paper's separation-of-powers argument, is absent; 47.6 then refers to 'the meaning which we have put on this celebrated maxim'. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "47.5 '...to attend and participate in its deliberations, though not admitted to a legislative vote.'",
+     "missing_start": "From these facts, by which Montesquieu was guided, it may clearly be inferred that",
+     "missing_end": "...can try and condemn all the subordinate officers in the executive department.",
+     "served_after": "47.6 'The reasons on which Montesquieu grounds his maxim are a further demonstration'",
+     "source_ref": "pg1404.txt lines 10552-10581",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-02",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 26.4",
+     "extent_words": 296,
+     "summary": "No. 26 (Hamilton): the paragraph on the 'hereditary impression of danger to liberty, from standing armies in time of peace' is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "26.4 '...the ultimate point of precaution which was reconcilable with the safety of the community.'",
+     "missing_start": "From the same source, the people of America may be said to have derived",
+     "missing_end": "...established in this country, there is a total silence upon the subject.",
+     "served_after": "26.5 'It is remarkable, that even in the two States which seem to have meditated'",
+     "source_ref": "pg1404.txt lines 5445-5469",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-03",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 83.8",
+     "extent_words": 237,
+     "summary": "No. 83 (Hamilton): the paragraph concluding that 'trial by jury is in no case abolished by the proposed Constitution' is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "83.8 '...because it is expressly provided for in cases of a criminal nature.'",
+     "missing_start": "From these observations it must appear unquestionably true, that trial by jury is in",
+     "missing_end": "...to any great extent by the proposed alteration in our system of government.",
+     "served_after": "83.9 'The friends and adversaries of the plan of the convention, if they agree in'",
+     "source_ref": "pg1404.txt lines 18282-18302",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-04",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 63.12",
+     "extent_words": 145,
+     "summary": "No. 63 (Madison): the paragraph stating that the true distinction of American government 'lies in the total exclusion of the people, in their collective capacity' is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "63.12 '...body the right of suffrage was communicated to a part only of the people.'",
+     "missing_start": "From these facts, to which many others might be added, it is clear that",
+     "missing_end": "...have succeeded within the narrow limits occupied by the democracies of Greece.",
+     "served_after": "63.13 'In answer to all these arguments, suggested by reason, illustrated by examples'",
+     "source_ref": "pg1404.txt lines 13892-13905",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-05",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 40.4",
+     "extent_words": 120,
+     "summary": "No. 40 (Madison): the paragraph listing what the two acts required of the convention ('1st, that the object of the convention was to establish... A FIRM NATIONAL GOVERNMENT') is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "40.4 '...ADEQUATE TO THE EXIGENCIES OF GOVERNMENT AND THE PRESERVATION OF THE UNION.\"'",
+     "missing_start": "From these two acts, it appears, 1st, that the object of the convention was",
+     "missing_end": "...to be agreed to by the former and confirmed by the latter.",
+     "served_after": "40.5 'From a comparison and fair construction of these several modes of expression'",
+     "source_ref": "pg1404.txt lines 8442-8451",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-06",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 9.0",
+     "extent_words": 110,
+     "summary": "No. 9 (Hamilton): the paragraph on how 'the advocates of despotism have drawn arguments' from the disorders of the ancient republics is absent, so 9.1 ('the portraits they have sketched') has no antecedent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "9.0 '...for which the favored soils that produced them have been so justly celebrated.'",
+     "missing_start": "From the disorders that disfigure the annals of those republics the advocates of despotism",
+     "missing_end": "...not less magnificent, which will be equally permanent monuments of their errors.",
+     "served_after": "9.1 'But it is not to be denied that the portraits they have sketched of'",
+     "source_ref": "pg1404.txt lines 1612-1622",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-07",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 83.4",
+     "extent_words": 106,
+     "summary": "No. 83 (Hamilton): the paragraph 'From these observations this conclusion results: that the trial by jury in civil cases would not be abolished' is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "83.4 '...is a pretense destitute of all just foundation.'",
+     "missing_start": "From these observations this conclusion results: that the trial by jury in civil cases",
+     "missing_end": "...apart from any technical rules, is the true criterion of construction.",
+     "served_after": "83.5 'Having now seen that the maxims relied upon will not bear the use made'",
+     "source_ref": "pg1404.txt lines 18229-18237",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-08",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 4.7",
+     "extent_words": 68,
+     "summary": "No. 4 (Jay): the paragraph 'From these and such like considerations...' is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "4.7 '...are between them and us to become the means of mutual intercourse and traffic.'",
+     "missing_start": "From these and such like considerations, which might, if consistent with prudence, be more",
+     "missing_end": "...by land and by sea, with an eye of indifference and composure.",
+     "served_after": "4.8 'The people of America are aware that inducements to war may arise out of'",
+     "source_ref": "pg1404.txt lines 621-626",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-09",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 5.7",
+     "extent_words": 56,
+     "summary": "No. 5 (Jay): the paragraph 'From these considerations it appears that those gentlemen are greatly mistaken...' is absent. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "5.7 '...viz., FORMIDABLE ONLY TO EACH OTHER.'",
+     "missing_start": "From these considerations it appears that those gentlemen are greatly mistaken who suppose that",
+     "missing_end": "...and keep them in a formidable state of defense against foreign enemies.",
+     "served_after": "5.8 'When did the independent states, into which Britain and Spain were formerly divided'",
+     "source_ref": "pg1404.txt lines 833-838",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-federalist-papers-10",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 52.0",
+     "extent_words": 34,
+     "summary": "No. 52 (Madison): the paper's opening paragraph ('FROM the more general inquiries pursued in the four last papers, I pass on...') is absent; the paper now opens at its second paragraph. One of 10 body paragraphs beginning 'From the...'/'From these...' that the parser dropped (it apparently treats them like the newspaper datelines 'From the New York Packet'); paragraphs starting 'From this/such/a/what' survive.",
+     "served_before": "(start of No. 52)",
+     "missing_start": "FROM the more general inquiries pursued in the four last papers, I pass on",
+     "missing_end": "...I shall begin with the House of Representatives.",
+     "served_after": "52.0 'The first view to be taken of this part of the government relates to'",
+     "source_ref": "pg1404.txt lines 11472-11474",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Newspaper datelines, the author line and the 'PUBLIUS' signature of each paper are not served (by design); paper subtitles are carried in the chapter titles."
+   ],
+   "needs_investigation": [],
+   "notes": "All 85 papers present in order. The 10 lost paragraphs total 1,514 words; all three editions lack them."
+  },
+  {
+   "id": "us-founding-documents",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "0972836459be1c06334145b4ae0130ae75f6355bdefab52e10fa9b3f2e2e953a",
+     "source_url": "https://www.archives.gov/founding-docs/{declaration-transcript,constitution-transcript,bill-of-rights-transcript,amendments-11-27}",
+     "source_sha256": "pages b791fdf80987ccbf (decl), 8e33e6ad173184d9 (const), 25c592576737ce70 (BoR), 95560fca4fe948ff (11-27); extracted text ebc4618bd4e8ce256731fae52faa62ba351d69a9bd4d264e886a8e9737a3f4f3",
+     "source_retrieved_utc": "2026-09-25T12:14:26Z-12:14:32Z",
+     "source_covered_pct": 83.781,
+     "edition_covered_pct": 99.573,
+     "missing_runs_ge25": 16,
+     "note": "Against the National Archives transcriptions. Every missing run is NARA page furniture, NARA 'Passed by Congress/ratified/Note' annotations, the signers of the Declaration and Constitution (excluded by SOURCE.md), the Constitution's interlineation note, or the Bill of Rights preamble and 'Article the first' (see finding 01). Edition text: 3 EXTRA runs of 2-4 tokens (spelling 'attention/British' vs NARA 'attentions/Brittish', 'it's'). Local raws: raw-declaration/constitution/bill-of-rights = PG #1/#5/#2 (line-identical); raw-amendments.txt is a Gutenberg 404 HTML page (sha 8d27d026e5fad8cb...), so Amendments XI-XXVII have no raw provenance, but the served text matches NARA."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-us-founding-documents-01",
+     "type": "UNCERTAIN",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 3.0",
+     "extent_words": 170,
+     "summary": "The Bill of Rights chapter serves only Amendments I-X; the 1789 joint resolution's preamble ('THE Conventions of a number of the States, having at the time of their adopting the Constitution, expressed a desire...') and the attestation are absent (SOURCE.md defines the chapter as the ten amendments).",
+     "served_before": "2.92 '...In Witness whereof We have hereunto subscribed our Names,'",
+     "missing_start": "Congress of the United States begun and held at the City of New-York",
+     "missing_end": "...pursuant to the fifth Article of the original Constitution.",
+     "served_after": "3.0 'Amendment I. Congress shall make no law respecting an establishment of religion'",
+     "source_ref": "https://www.archives.gov/founding-docs/bill-of-rights-transcript",
+     "local_raw_has_it": false,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G09-us-founding-documents-02",
+     "type": "MISSING",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0",
+     "extent_words": 5,
+     "summary": "The Declaration's heading 'In Congress, July 4, 1776' is absent (1.0 begins 'The unanimous Declaration...').",
+     "served_before": "(none)",
+     "missing_start": "In Congress, July 4, 1776",
+     "missing_end": "",
+     "served_after": "1.0 'The unanimous Declaration of the thirteen united States of America'",
+     "source_ref": "https://www.archives.gov/founding-docs/declaration-transcript",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Signer lists of the Declaration and Constitution are stripped by design (SOURCE.md).",
+    "Constitution article headings are inconsistent ('Article 1', 'ARTICLE 2', 'ARTICLE THREE'...), inherited from PG #5 (cosmetic)."
+   ],
+   "needs_investigation": [
+    "G09-us-founding-documents-01: decide whether the Bill of Rights preamble belongs to the chapter.",
+    "Replace books/raw/us-founding-documents/raw-amendments.txt (a 404 page) with a real source record."
+   ],
+   "notes": "Declaration text, Constitution (Preamble, Articles I-VII, closing), Amendments I-X and XI-XXVII all present and matching NARA wording."
+  },
+  {
+   "id": "magna-carta",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "ca7447fb99a427bd9e12b00dcb4a0f5c7452f6da410b4111eb35d47bfacc560f",
+     "source_url": "https://www.gutenberg.org/cache/epub/10000/pg10000.txt",
+     "source_sha256": "69785cf312795c562a003ebc7cf90d969df05813a0fd3fb084c524279ce05a33",
+     "source_retrieved_utc": "2026-09-25T11:56:00Z",
+     "source_covered_pct": 99.694,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "First version in pg10000 ('The Text of Magna Carta', British Library translation), ll.59-529. Only missing runs = two PG transcriber notes ('here were some strange characters...'), correctly excluded. Structural check: clauses 1-63 all present (1-49 numbered, 50 merged into 1.50, 51-60 and the security clause 61 with its sub-clauses, 62, 63, witness and Runnymede dating). books/raw/magna-carta/raw.txt is line-identical to pg10000. The British Library's own page now 404s and web.archive.org was unreachable, so no second-source check."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-magna-carta-01",
+     "type": "MISPLACED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.50",
+     "extent_words": 0,
+     "summary": "Clause (50) is merged into the paragraph of clause (49), and the PG 'strange characters' damage survives in names ('Gerard de Ath', 'Engelard de Cigogn' for Athee/Cigogne).",
+     "served_before": "1.50 '(49) We will at once return all hostages and charters'",
+     "missing_start": "(50) We will remove completely from their offices the kinsmen of Gerard de Ath",
+     "missing_end": "...and all their followers.",
+     "served_after": "1.51 'As soon as peace is restored, we will remove from the kingdom'",
+     "source_ref": "pg10000.txt lines 361-371",
+     "local_raw_has_it": true,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "pg10000 also holds two other translations (ll.537ff, 1030ff); correctly not served. Label 'English Translation' gives no translator (it is the British Library translation)."
+   ],
+   "needs_investigation": [],
+   "notes": ""
+  },
+  {
+   "id": "vindication-rights-of-woman",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "3e168f00ba7901f8a31cc36902f0046e9555d6fd5245566c437b029331e91aac",
+     "source_url": "https://www.gutenberg.org/cache/epub/3420/pg3420.txt",
+     "source_sha256": "7d79652f43541759d8ff0ce467372fa4a534d3f9dc32013e01ca99ea04b286a8",
+     "source_retrieved_utc": "2026-09-25T11:56:01Z",
+     "source_covered_pct": 99.802,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1,
+     "note": "pg3420 from the dedication (l.272) to the end marker; only chapter headings missing. Cross-check vs Standard Ebooks single-page text (https://standardebooks.org/ebooks/mary-wollstonecraft/a-vindication-of-the-rights-of-woman/text/single-page, sha256 d58a09d2eaf7c48b..., 2026-09-25T12:23:45Z): 99.539% of SE body covered; edition-only text = Wollstonecraft's footnotes (SE has them as endnotes). The source edition is complete; the defects are in the derived editions. No local raw."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G09-vindication-rights-of-woman-01",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en"
+     ],
+     "location": "ch7-ch9 (all 234 paragraphs)",
+     "extent_words": 23392,
+     "summary": "modern-en chapters 7-9 (Wollstonecraft's Chapters 5, 6 and 7) are byte-identical to original-en: 234 of 234 paragraphs are unmodernized text served as 'Modern English'.",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "n/a (label defect)",
+     "local_raw_has_it": null,
+     "modern_en": "original text served",
+     "modern_da": "n/a",
+     "existing_repair": "fixed by accepted, unpublished origin/claude/sleepy-hamilton-0f1kqi books/wip/vindication-modern-en (commit 1748c0aa6, candidate sha256 6a398f5b...) (752 of 778 paragraphs re-rendered; only 3 quotation paragraphs in ch7 remain identical)"
+    },
+    {
+     "id": "G09-vindication-rights-of-woman-02",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-da"
+     ],
+     "location": "ch1-ch6 and ch10-ch15 (~500 of 778 paragraphs)",
+     "extent_words": 0,
+     "summary": "The Danish edition serves the English original in most chapters (e.g. ch2 17/17, ch4 76/76, ch11 33/33 paragraphs byte-identical to original-en); only ch7-ch9 are Danish. Danish is outside the current delivery scope (2026-09-21).",
+     "served_before": "",
+     "missing_start": "",
+     "missing_end": "",
+     "served_after": "",
+     "source_ref": "n/a (label defect)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a",
+     "modern_da": "English original served",
+     "existing_repair": "none (vindication-modern-en package does not touch modern-da)"
+    }
+   ],
+   "scope_notes": [
+    "PG #3420's 'Brief sketch of the life' is editorial and correctly excluded."
+   ],
+   "needs_investigation": [
+    "The 1792 'Advertisement' (author's note on the planned second volume) is absent from PG #3420, Standard Ebooks and the edition; confirm against a 1792 scan whether it should be added."
+   ],
+   "notes": "Dedication to Talleyrand, Introduction and Chapters 1-13 (with Sections 5.1-5.5 and 13.1-13.6) present in order."
+  }
+ ]
+}
