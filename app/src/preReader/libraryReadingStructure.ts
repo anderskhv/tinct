@@ -1,3 +1,4 @@
+import { isBookTemporarilyHeld } from '../data/editionAvailability'
 import fs from 'node:fs'
 import path from 'node:path'
 import type { SerializablePreReaderCatalogue } from './catalogue'
@@ -42,7 +43,8 @@ type ChapterLike = { number?: unknown; title?: unknown; paragraphCount?: unknown
 function visibleReadingEdition(book: SerializablePreReaderCatalogue['books'][number]) {
   const visible = book.editions.filter(edition => edition.language !== 'da' && edition.availability.chapterText)
   const key = defaultPrimaryEditionKey(book.id, visible)
-  return visible.find(edition => edition.key === key)
+  // A held book retains its structure for saved-reader recovery, not selection.
+  return visible.find(edition => edition.key === key) || (isBookTemporarilyHeld(book.id) ? visible.find(edition => edition.key === 'original-en') : undefined)
 }
 
 function normalizeChapters(chapters: ChapterLike[]): LibraryReadingChapter[] {

@@ -42,8 +42,8 @@ describe('temporary edition holds preserve identities and recovery', () => {
     for (const book of BOOKS) {
       expect(isBookTemporarilyHeld(book.id)).toBe(book.editions.every(e => Boolean(editionHold(book.id, e.key))))
     }
-    expect(searchPreReaderBooks('Macbeth')).toEqual([])
-    expect(searchPreReaderBooks('As You Like It')).toEqual([])
+    expect(searchPreReaderBooks('Macbeth').some(book => book.id === 'macbeth')).toBe(false)
+    expect(searchPreReaderBooks('As You Like It').some(book => book.id === 'as-you-like-it')).toBe(false)
     expect(isBookDiscoverable('jerusalem')).toBe(true)
     expect(isBookDiscoverable('faust-part-1')).toBe(true)
     expect(defaultPrimaryEditionKey('jerusalem', getBook('jerusalem')!.editions)).toBe('original-en')

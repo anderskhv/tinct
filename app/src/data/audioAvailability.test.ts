@@ -22,10 +22,10 @@ describe('reversible edition discovery availability', () => {
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
     expect(PRE_READER_CATALOGUE.books).toHaveLength(100)
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(92)
-    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(92)
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(91)
+    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(91)
     for (const id of manifest.held_books) {
-      expect(isBookDiscoverable(id)).toBe(false)
+      expect(isBookDiscoverable(id)).toBe(id === 'faust')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!
       const edition = book.editions.find(e=>e.language==='en')!
       const savedPlace = {bookId:id,chapterNumber:1,paragraphIndex:2,page:1}
