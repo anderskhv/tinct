@@ -1,0 +1,5755 @@
+{
+ "card": {
+  "path": "app/public/data/characters/symposium.v1.json",
+  "sha256": "83f8a6a9824cdf1f718b5ebfeb78a20b9d8671d7df5218c5c96d345efd5f8628",
+  "contentVersion": "2026-09-10.1",
+  "offsetUnit": "utf16",
+  "baselineCommit": "38a97c6315fdad4fe01fe326c203f870e22e615b"
+ },
+ "editions": {
+  "original-en": {
+   "baselineSourceSha256": "e2943777fd54eaaa0888076c5c03a9104bc1b1ffa681a5362ab114e327f797c0",
+   "candidateSourceSha256": "3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6",
+   "paragraphCountBefore": 217,
+   "paragraphCountAfter": 226,
+   "paragraphCountsAfter": {
+    "1": 49,
+    "2": 8,
+    "3": 12,
+    "4": 10,
+    "5": 18,
+    "6": 13,
+    "7": 69,
+    "8": 47
+   },
+   "existingMentions": 510,
+   "existingMentionsVerifiedInCandidate": 510,
+   "existingMentionsMoved": 222,
+   "existingMentionsUnmoved": 288,
+   "anchorCoordinatesChecked": 372,
+   "anchorCoordinatesMoved": 176,
+   "paragraphHashesChaptersToRecompute": [
+    1,
+    7,
+    8
+   ],
+   "moves": [
+    {
+     "path": "mentions[0]",
+     "old": "1.0",
+     "new": "1.9",
+     "text": "APOLLODORUS"
+    },
+    {
+     "path": "mentions[1]",
+     "old": "1.1",
+     "new": "1.10",
+     "text": "COMPANION"
+    },
+    {
+     "path": "mentions[2]",
+     "old": "1.1",
+     "new": "1.10",
+     "text": "Apollodorus"
+    },
+    {
+     "path": "mentions[3]",
+     "old": "1.2",
+     "new": "1.11",
+     "text": "APOLLODORUS"
+    },
+    {
+     "path": "mentions[4]",
+     "old": "1.2",
+     "new": "1.11",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[5]",
+     "old": "1.3",
+     "new": "1.12",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[6]",
+     "old": "1.4",
+     "new": "1.13",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[7]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Homer"
+    },
+    {
+     "path": "mentions[8]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Agamemnon"
+    },
+    {
+     "path": "mentions[9]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Menelaus"
+    },
+    {
+     "path": "mentions[10]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Agamemnon"
+    },
+    {
+     "path": "mentions[11]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[12]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[13]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Menelaus"
+    },
+    {
+     "path": "mentions[14]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Homer"
+    },
+    {
+     "path": "mentions[15]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[16]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[17]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[18]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "A servant"
+    },
+    {
+     "path": "mentions[19]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[20]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[21]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[22]",
+     "old": "1.17",
+     "new": "1.26",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[23]",
+     "old": "1.18",
+     "new": "1.27",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[24]",
+     "old": "1.20",
+     "new": "1.29",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[25]",
+     "old": "1.20",
+     "new": "1.29",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[26]",
+     "old": "1.20",
+     "new": "1.29",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[27]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "The servant"
+    },
+    {
+     "path": "mentions[28]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "another servant"
+    },
+    {
+     "path": "mentions[29]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[30]",
+     "old": "1.22",
+     "new": "1.31",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[31]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[32]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "servants"
+    },
+    {
+     "path": "mentions[33]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[34]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[35]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[36]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[37]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[38]",
+     "old": "1.25",
+     "new": "1.34",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[39]",
+     "old": "1.26",
+     "new": "1.35",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[40]",
+     "old": "1.26",
+     "new": "1.35",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[41]",
+     "old": "1.26",
+     "new": "1.35",
+     "text": "Dionysus"
+    },
+    {
+     "path": "mentions[42]",
+     "old": "1.27",
+     "new": "1.36",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[43]",
+     "old": "1.27",
+     "new": "1.36",
+     "text": "Pausanias"
+    },
+    {
+     "path": "mentions[44]",
+     "old": "1.28",
+     "new": "1.37",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[45]",
+     "old": "1.29",
+     "new": "1.38",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[46]",
+     "old": "1.29",
+     "new": "1.38",
+     "text": "Acumenus"
+    },
+    {
+     "path": "mentions[47]",
+     "old": "1.29",
+     "new": "1.38",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[48]",
+     "old": "1.30",
+     "new": "1.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[49]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[50]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[51]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[52]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[53]",
+     "old": "1.32",
+     "new": "1.41",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[54]",
+     "old": "1.34",
+     "new": "1.43",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[55]",
+     "old": "1.34",
+     "new": "1.43",
+     "text": "flute-girl"
+    },
+    {
+     "path": "mentions[56]",
+     "old": "1.34",
+     "new": "1.43",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[57]",
+     "old": "1.35",
+     "new": "1.44",
+     "text": "Melanippe"
+    },
+    {
+     "path": "mentions[58]",
+     "old": "1.35",
+     "new": "1.44",
+     "text": "Euripides"
+    },
+    {
+     "path": "mentions[59]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[60]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[61]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[62]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Prodicus"
+    },
+    {
+     "path": "mentions[63]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Heracles"
+    },
+    {
+     "path": "mentions[64]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[65]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[66]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[67]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[68]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[69]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[70]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[71]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[72]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Pausanias"
+    },
+    {
+     "path": "mentions[73]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[74]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Dionysus"
+    },
+    {
+     "path": "mentions[75]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Aphrodite"
+    },
+    {
+     "path": "mentions[76]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[77]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[78]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[79]",
+     "old": "1.39",
+     "new": "1.48",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[368]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[369]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[370]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[371]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "flute-girl"
+    },
+    {
+     "path": "mentions[372]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[373]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "attendants"
+    },
+    {
+     "path": "mentions[374]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[375]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[376]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[377]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "flute-girl"
+    },
+    {
+     "path": "mentions[378]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "his attendants"
+    },
+    {
+     "path": "mentions[379]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[380]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[381]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[382]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[383]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[384]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[385]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[386]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[387]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[388]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[389]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[390]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Heracles"
+    },
+    {
+     "path": "mentions[391]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[392]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[393]",
+     "old": "7.73",
+     "new": "8.4",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[394]",
+     "old": "7.73",
+     "new": "8.4",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[395]",
+     "old": "7.73",
+     "new": "8.4",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[396]",
+     "old": "7.74",
+     "new": "8.5",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[397]",
+     "old": "7.74",
+     "new": "8.5",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[398]",
+     "old": "7.74",
+     "new": "8.5",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[399]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[400]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[401]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[402]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[403]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[404]",
+     "old": "7.76",
+     "new": "8.7",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[405]",
+     "old": "7.76",
+     "new": "8.7",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[406]",
+     "old": "7.77",
+     "new": "8.8",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[407]",
+     "old": "7.78",
+     "new": "8.9",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[408]",
+     "old": "7.79",
+     "new": "8.10",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[409]",
+     "old": "7.80",
+     "new": "8.11",
+     "text": "Pope"
+    },
+    {
+     "path": "mentions[410]",
+     "old": "7.80",
+     "new": "8.11",
+     "text": "Homer"
+    },
+    {
+     "path": "mentions[411]",
+     "old": "7.82",
+     "new": "8.13",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[412]",
+     "old": "7.82",
+     "new": "8.13",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[413]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[414]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[415]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[416]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "God"
+    },
+    {
+     "path": "mentions[417]",
+     "old": "7.84",
+     "new": "8.15",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[418]",
+     "old": "7.85",
+     "new": "8.16",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[419]",
+     "old": "7.85",
+     "new": "8.16",
+     "text": "Poseidon"
+    },
+    {
+     "path": "mentions[420]",
+     "old": "7.86",
+     "new": "8.17",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[421]",
+     "old": "7.86",
+     "new": "8.17",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[422]",
+     "old": "7.87",
+     "new": "8.18",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[423]",
+     "old": "7.87",
+     "new": "8.18",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[424]",
+     "old": "7.88",
+     "new": "8.19",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[425]",
+     "old": "7.91",
+     "new": "8.22",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[426]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[427]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[428]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[429]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[430]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[431]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Olympus"
+    },
+    {
+     "path": "mentions[432]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Arist."
+    },
+    {
+     "path": "mentions[433]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[434]",
+     "old": "7.93",
+     "new": "8.24",
+     "text": "Pericles"
+    },
+    {
+     "path": "mentions[435]",
+     "old": "7.93",
+     "new": "8.24",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[436]",
+     "old": "7.93",
+     "new": "8.24",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[437]",
+     "old": "7.95",
+     "new": "8.26",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[438]",
+     "old": "7.95",
+     "new": "8.26",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[439]",
+     "old": "7.95",
+     "new": "8.26",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[440]",
+     "old": "7.96",
+     "new": "8.27",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[441]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[442]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[443]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[444]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[445]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Pausanias"
+    },
+    {
+     "path": "mentions[446]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[447]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[448]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[449]",
+     "old": "7.98",
+     "new": "8.29",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[450]",
+     "old": "7.98",
+     "new": "8.29",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[451]",
+     "old": "7.98",
+     "new": "8.29",
+     "text": "Diomede"
+    },
+    {
+     "path": "mentions[452]",
+     "old": "7.99",
+     "new": "8.30",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[453]",
+     "old": "7.99",
+     "new": "8.30",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[454]",
+     "old": "7.100",
+     "new": "8.31",
+     "text": "Ajax"
+    },
+    {
+     "path": "mentions[455]",
+     "old": "7.100",
+     "new": "8.31",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[456]",
+     "old": "7.101",
+     "new": "8.32",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[457]",
+     "old": "7.104",
+     "new": "8.35",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[458]",
+     "old": "7.104",
+     "new": "8.35",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[459]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Laches"
+    },
+    {
+     "path": "mentions[460]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[461]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Aristoph."
+    },
+    {
+     "path": "mentions[462]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Laches"
+    },
+    {
+     "path": "mentions[463]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[464]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Brasidas"
+    },
+    {
+     "path": "mentions[465]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Achilles"
+    },
+    {
+     "path": "mentions[466]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Nestor"
+    },
+    {
+     "path": "mentions[467]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Antenor"
+    },
+    {
+     "path": "mentions[468]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Pericles"
+    },
+    {
+     "path": "mentions[469]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[470]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[471]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[472]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Charmides"
+    },
+    {
+     "path": "mentions[473]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Glaucon"
+    },
+    {
+     "path": "mentions[474]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Euthydemus"
+    },
+    {
+     "path": "mentions[475]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Diocles"
+    },
+    {
+     "path": "mentions[476]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[477]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[478]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[479]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[480]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[481]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[482]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[483]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[484]",
+     "old": "7.109",
+     "new": "8.40",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[485]",
+     "old": "7.110",
+     "new": "8.41",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[486]",
+     "old": "7.111",
+     "new": "8.42",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[487]",
+     "old": "7.111",
+     "new": "8.42",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[488]",
+     "old": "7.112",
+     "new": "8.43",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[489]",
+     "old": "7.113",
+     "new": "8.44",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[490]",
+     "old": "7.113",
+     "new": "8.44",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[491]",
+     "old": "7.114",
+     "new": "8.45",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[492]",
+     "old": "7.114",
+     "new": "8.45",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[493]",
+     "old": "7.114",
+     "new": "8.45",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[494]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[495]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[496]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "band of revellers"
+    },
+    {
+     "path": "mentions[497]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[498]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[499]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[500]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[501]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[502]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[503]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[504]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[505]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[506]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[507]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[508]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[509]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "characters[0].roleVisibleAt",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[0].firstMention",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[0].snapshots[0].availableAt",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[0].snapshots[0].evidence[0]",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[1].roleVisibleAt",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[1].firstMention",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[1].snapshots[0].availableAt",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[1].snapshots[0].evidence[0]",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[2].roleVisibleAt",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[2].firstMention",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[2].snapshots[0].availableAt",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[2].snapshots[0].evidence[0]",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[3].roleVisibleAt",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[3].firstMention",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[3].snapshots[0].availableAt",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[3].snapshots[0].evidence[0]",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[4].roleVisibleAt",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[4].firstMention",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[4].snapshots[0].availableAt",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[4].snapshots[0].evidence[0]",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[5].roleVisibleAt",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[5].firstMention",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[5].snapshots[0].availableAt",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[5].snapshots[0].evidence[0]",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[6].roleVisibleAt",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[6].firstMention",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[6].snapshots[0].availableAt",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[6].snapshots[0].evidence[0]",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[7].roleVisibleAt",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[7].firstMention",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[7].snapshots[0].availableAt",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[7].snapshots[0].evidence[0]",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[9].roleVisibleAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[9].firstMention",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[9].snapshots[0].availableAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[9].snapshots[0].evidence[0]",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[10].roleVisibleAt",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[10].firstMention",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[10].snapshots[0].availableAt",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[10].snapshots[0].evidence[0]",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[11].roleVisibleAt",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[11].firstMention",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[11].snapshots[0].availableAt",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[11].snapshots[0].evidence[0]",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[12].roleVisibleAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[12].firstMention",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[12].snapshots[0].availableAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[12].snapshots[0].evidence[0]",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[13].roleVisibleAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[13].firstMention",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[13].snapshots[0].availableAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[13].snapshots[0].evidence[0]",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[14].roleVisibleAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[14].firstMention",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[14].snapshots[0].availableAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[14].snapshots[0].evidence[0]",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[25].roleVisibleAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[25].firstMention",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[25].snapshots[0].availableAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[25].snapshots[0].evidence[0]",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[26].roleVisibleAt",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[26].firstMention",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[26].snapshots[0].availableAt",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[26].snapshots[0].evidence[0]",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[27].roleVisibleAt",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[27].firstMention",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[27].snapshots[0].availableAt",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[27].snapshots[0].evidence[0]",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[28].roleVisibleAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[28].firstMention",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[28].snapshots[0].availableAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[28].snapshots[0].evidence[0]",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[29].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[29].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[29].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[29].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[34].roleVisibleAt",
+     "old": "7.80",
+     "new": "8.11"
+    },
+    {
+     "path": "characters[34].firstMention",
+     "old": "7.80",
+     "new": "8.11"
+    },
+    {
+     "path": "characters[34].snapshots[0].availableAt",
+     "old": "7.80",
+     "new": "8.11"
+    },
+    {
+     "path": "characters[34].snapshots[0].evidence[0]",
+     "old": "7.80",
+     "new": "8.11"
+    },
+    {
+     "path": "characters[35].roleVisibleAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[35].firstMention",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[35].snapshots[0].availableAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[35].snapshots[0].evidence[0]",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[36].roleVisibleAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[36].firstMention",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[36].snapshots[0].availableAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[36].snapshots[0].evidence[0]",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[37].roleVisibleAt",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[37].firstMention",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[37].snapshots[0].availableAt",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[37].snapshots[0].evidence[0]",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[38].roleVisibleAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[38].firstMention",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[38].snapshots[0].availableAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[38].snapshots[0].evidence[0]",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[39].roleVisibleAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[39].firstMention",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[39].snapshots[0].availableAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[39].snapshots[0].evidence[0]",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[40].roleVisibleAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[40].firstMention",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[40].snapshots[0].availableAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[40].snapshots[0].evidence[0]",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[41].roleVisibleAt",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[41].firstMention",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[41].snapshots[0].availableAt",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[41].snapshots[0].evidence[0]",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[76].roleVisibleAt",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[76].firstMention",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[76].snapshots[0].availableAt",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[76].snapshots[0].evidence[0]",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[77].roleVisibleAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[77].firstMention",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[77].snapshots[0].availableAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[77].snapshots[0].evidence[0]",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[78].roleVisibleAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[78].firstMention",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[78].snapshots[0].availableAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[78].snapshots[0].evidence[0]",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[79].roleVisibleAt",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[79].firstMention",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[79].snapshots[0].availableAt",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[79].snapshots[0].evidence[0]",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[80].roleVisibleAt",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[80].firstMention",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[80].snapshots[0].availableAt",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[80].snapshots[0].evidence[0]",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[81].roleVisibleAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[81].firstMention",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[81].snapshots[0].availableAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[81].snapshots[0].evidence[0]",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[82].roleVisibleAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[82].firstMention",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[82].snapshots[0].availableAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[82].snapshots[0].evidence[0]",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[84].roleVisibleAt",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[84].firstMention",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[84].snapshots[0].availableAt",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[84].snapshots[0].evidence[0]",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[85].roleVisibleAt",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[85].firstMention",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[85].snapshots[0].availableAt",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[85].snapshots[0].evidence[0]",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[86].roleVisibleAt",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[86].firstMention",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[86].snapshots[0].availableAt",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[86].snapshots[0].evidence[0]",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[87].roleVisibleAt",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[87].firstMention",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[87].snapshots[0].availableAt",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[87].snapshots[0].evidence[0]",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[88].roleVisibleAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[88].firstMention",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[88].snapshots[0].availableAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[88].snapshots[0].evidence[0]",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[89].roleVisibleAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[89].firstMention",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[89].snapshots[0].availableAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[89].snapshots[0].evidence[0]",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[90].roleVisibleAt",
+     "old": "8.0",
+     "new": "8.46"
+    },
+    {
+     "path": "characters[90].firstMention",
+     "old": "8.0",
+     "new": "8.46"
+    },
+    {
+     "path": "characters[90].snapshots[0].availableAt",
+     "old": "8.0",
+     "new": "8.46"
+    },
+    {
+     "path": "characters[90].snapshots[0].evidence[0]",
+     "old": "8.0",
+     "new": "8.46"
+    }
+   ],
+   "proposed": {
+    "status": "PROPOSAL - character-content decision staged for integration; not applied to the live card",
+    "newMentions": [
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 309,
+      "endOffset": 320,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 468,
+      "endOffset": 479,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 579,
+      "endOffset": 587,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "alcibiades",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 589,
+      "endOffset": 599,
+      "text": "Alcibiades",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 616,
+      "endOffset": 623,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "phoenix",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 634,
+      "endOffset": 641,
+      "text": "Phoenix",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "philip",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 654,
+      "endOffset": 660,
+      "text": "Philip",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "glaucon-questioner",
+      "chapterNumber": 1,
+      "paragraphIndex": 1,
+      "startOffset": 16,
+      "endOffset": 23,
+      "text": "Glaucon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "startOffset": 57,
+      "endOffset": 64,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "startOffset": 150,
+      "endOffset": 158,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 5,
+      "startOffset": 32,
+      "endOffset": 39,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 6,
+      "startOffset": 72,
+      "endOffset": 80,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "phoenix",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 51,
+      "endOffset": 58,
+      "text": "Phoenix",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "aristodemus",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 111,
+      "endOffset": 122,
+      "text": "Aristodemus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 168,
+      "endOffset": 175,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 267,
+      "endOffset": 275,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 300,
+      "endOffset": 308,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "glaucon-questioner",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 391,
+      "endOffset": 398,
+      "text": "Glaucon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "listener",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 0,
+      "endOffset": 9,
+      "text": "COMPANION",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 18,
+      "endOffset": 29,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 174,
+      "endOffset": 182,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 295,
+      "endOffset": 306,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 380,
+      "endOffset": 388,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     }
+    ],
+    "newCharacters": [
+     {
+      "id": "phoenix",
+      "kind": "person",
+      "storyRole": "reference",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 641
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 641
+      },
+      "snapshots": [
+       {
+        "id": "phoenix-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 0,
+         "offset": 641
+        },
+        "name": "Phoenix",
+        "subtitle": "",
+        "body": "Philip’s son, who heard about the banquet from Aristodemus and passed on a vague account of the speeches.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 641
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "philip",
+      "kind": "person",
+      "storyRole": "reference",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 660
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 660
+      },
+      "snapshots": [
+       {
+        "id": "philip-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 0,
+         "offset": 660
+        },
+        "name": "Philip",
+        "subtitle": "",
+        "body": "Phoenix’s father, named only in passing.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 660
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "glaucon-questioner",
+      "kind": "person",
+      "storyRole": "supporting",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 1,
+       "offset": 23
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 1,
+       "offset": 23
+      },
+      "snapshots": [
+       {
+        "id": "glaucon-questioner-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 1,
+         "offset": 23
+        },
+        "name": "Glaucon",
+        "subtitle": "Apollodorus’s acquaintance",
+        "body": "An acquaintance who stops Apollodorus on the road into Athens to ask about the speeches at Agathon’s supper.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "throughOffset": 23
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "anchorChanges": [
+     {
+      "characterId": "apollodorus",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "offset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 320
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "offset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 320
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "offset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 320
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "throughOffset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 320
+       }
+      },
+      "triggerText": "Apollodorus",
+      "existingBody": "The narrator retelling the banquet conversation from Aristodemus’s account."
+     },
+     {
+      "characterId": "socrates",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "offset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 587
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "offset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 587
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "offset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 587
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "throughOffset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 587
+       }
+      },
+      "triggerText": "Socrates",
+      "existingBody": "The Athenian philosopher attending Agathon’s banquet."
+     },
+     {
+      "characterId": "alcibiades",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "offset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 599
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "offset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 599
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "offset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 599
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "throughOffset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 599
+       }
+      },
+      "triggerText": "Alcibiades",
+      "existingBody": "The Athenian statesman and commander, an admirer of Socrates, who joins the banquet."
+     },
+     {
+      "characterId": "agathon",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "offset": 23
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 623
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "offset": 23
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 623
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "offset": 23
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 623
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "throughOffset": 23
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 623
+       }
+      },
+      "triggerText": "Agathon",
+      "existingBody": "The tragic playwright hosting the banquet to celebrate his victory."
+     },
+     {
+      "characterId": "aristodemus",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "offset": 160
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "offset": 122
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "offset": 160
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "offset": 122
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "offset": 160
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "offset": 122
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "throughOffset": 160
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "throughOffset": 122
+       }
+      },
+      "triggerText": "Aristodemus",
+      "existingBody": "Socrates’ companion at the banquet, whose eyewitness account Apollodorus retells."
+     },
+     {
+      "characterId": "listener",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "offset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "offset": 9
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "offset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "offset": 9
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "offset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "offset": 9
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "throughOffset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "throughOffset": 9
+       }
+      },
+      "triggerText": "COMPANION",
+      "existingBody": "The unnamed companion asking Apollodorus to retell the banquet conversation."
+     }
+    ],
+    "optionalSubtitleForExistingGlaucon": {
+     "characterId": "glaucon",
+     "subtitle": "Charmides’s father",
+     "reason": "Disambiguates the two people named Glaucon in the Cast list; optional."
+    }
+   }
+  },
+  "modern-en": {
+   "baselineSourceSha256": "7816d1eb6ac9cc6d178c4c123bbeb8ad6daced1f7d7fc8c036f2bded3b8fcce8",
+   "candidateSourceSha256": "43f03333a255d90378a12ab1d1d384620e515e1725cb4ba8132e794fa504e550",
+   "paragraphCountBefore": 217,
+   "paragraphCountAfter": 226,
+   "paragraphCountsAfter": {
+    "1": 49,
+    "2": 8,
+    "3": 12,
+    "4": 10,
+    "5": 18,
+    "6": 13,
+    "7": 69,
+    "8": 47
+   },
+   "existingMentions": 506,
+   "existingMentionsVerifiedInCandidate": 506,
+   "existingMentionsMoved": 220,
+   "existingMentionsUnmoved": 286,
+   "anchorCoordinatesChecked": 364,
+   "anchorCoordinatesMoved": 172,
+   "paragraphHashesChaptersToRecompute": [
+    1,
+    7,
+    8
+   ],
+   "moves": [
+    {
+     "path": "mentions[0]",
+     "old": "1.0",
+     "new": "1.9",
+     "text": "APOLLODORUS"
+    },
+    {
+     "path": "mentions[1]",
+     "old": "1.1",
+     "new": "1.10",
+     "text": "COMPANION"
+    },
+    {
+     "path": "mentions[2]",
+     "old": "1.1",
+     "new": "1.10",
+     "text": "Apollodorus"
+    },
+    {
+     "path": "mentions[3]",
+     "old": "1.2",
+     "new": "1.11",
+     "text": "APOLLODORUS"
+    },
+    {
+     "path": "mentions[4]",
+     "old": "1.2",
+     "new": "1.11",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[5]",
+     "old": "1.3",
+     "new": "1.12",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[6]",
+     "old": "1.4",
+     "new": "1.13",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[7]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Homer"
+    },
+    {
+     "path": "mentions[8]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Agamemnon"
+    },
+    {
+     "path": "mentions[9]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Menelaus"
+    },
+    {
+     "path": "mentions[10]",
+     "old": "1.10",
+     "new": "1.19",
+     "text": "Agamemnon"
+    },
+    {
+     "path": "mentions[11]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[12]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[13]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Menelaus"
+    },
+    {
+     "path": "mentions[14]",
+     "old": "1.11",
+     "new": "1.20",
+     "text": "Homer"
+    },
+    {
+     "path": "mentions[15]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[16]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[17]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[18]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[19]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "A servant"
+    },
+    {
+     "path": "mentions[20]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[21]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[22]",
+     "old": "1.16",
+     "new": "1.25",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[23]",
+     "old": "1.17",
+     "new": "1.26",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[24]",
+     "old": "1.18",
+     "new": "1.27",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[25]",
+     "old": "1.20",
+     "new": "1.29",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[26]",
+     "old": "1.20",
+     "new": "1.29",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[27]",
+     "old": "1.20",
+     "new": "1.29",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[28]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "The servant"
+    },
+    {
+     "path": "mentions[29]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "another servant"
+    },
+    {
+     "path": "mentions[30]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[31]",
+     "old": "1.21",
+     "new": "1.30",
+     "text": "the servant"
+    },
+    {
+     "path": "mentions[32]",
+     "old": "1.22",
+     "new": "1.31",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[33]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[34]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "servants"
+    },
+    {
+     "path": "mentions[35]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[36]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[37]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[38]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[39]",
+     "old": "1.24",
+     "new": "1.33",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[40]",
+     "old": "1.25",
+     "new": "1.34",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[41]",
+     "old": "1.26",
+     "new": "1.35",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[42]",
+     "old": "1.26",
+     "new": "1.35",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[43]",
+     "old": "1.26",
+     "new": "1.35",
+     "text": "Dionysus"
+    },
+    {
+     "path": "mentions[44]",
+     "old": "1.27",
+     "new": "1.36",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[45]",
+     "old": "1.27",
+     "new": "1.36",
+     "text": "Pausanias"
+    },
+    {
+     "path": "mentions[46]",
+     "old": "1.28",
+     "new": "1.37",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[47]",
+     "old": "1.29",
+     "new": "1.38",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[48]",
+     "old": "1.29",
+     "new": "1.38",
+     "text": "Acumenus"
+    },
+    {
+     "path": "mentions[49]",
+     "old": "1.29",
+     "new": "1.38",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[50]",
+     "old": "1.30",
+     "new": "1.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[51]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[52]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[53]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[54]",
+     "old": "1.31",
+     "new": "1.40",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[55]",
+     "old": "1.32",
+     "new": "1.41",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[56]",
+     "old": "1.34",
+     "new": "1.43",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[57]",
+     "old": "1.34",
+     "new": "1.43",
+     "text": "flute-girl"
+    },
+    {
+     "path": "mentions[58]",
+     "old": "1.34",
+     "new": "1.43",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[59]",
+     "old": "1.35",
+     "new": "1.44",
+     "text": "Melanippe"
+    },
+    {
+     "path": "mentions[60]",
+     "old": "1.35",
+     "new": "1.44",
+     "text": "Euripides"
+    },
+    {
+     "path": "mentions[61]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[62]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[63]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[64]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Prodicus"
+    },
+    {
+     "path": "mentions[65]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Heracles"
+    },
+    {
+     "path": "mentions[66]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[67]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[68]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[69]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[70]",
+     "old": "1.37",
+     "new": "1.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[71]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[72]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[73]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[74]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Pausanias"
+    },
+    {
+     "path": "mentions[75]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[76]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Dionysus"
+    },
+    {
+     "path": "mentions[77]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Aphrodite"
+    },
+    {
+     "path": "mentions[78]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[79]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Love"
+    },
+    {
+     "path": "mentions[80]",
+     "old": "1.38",
+     "new": "1.47",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[81]",
+     "old": "1.39",
+     "new": "1.48",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[368]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[369]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[370]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[371]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "flute-girl"
+    },
+    {
+     "path": "mentions[372]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[373]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "attendants"
+    },
+    {
+     "path": "mentions[374]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[375]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[376]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[377]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "flute-girl"
+    },
+    {
+     "path": "mentions[378]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "his attendants"
+    },
+    {
+     "path": "mentions[379]",
+     "old": "7.69",
+     "new": "8.0",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[380]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[381]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[382]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[383]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[384]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[385]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[386]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[387]",
+     "old": "7.71",
+     "new": "8.2",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[388]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[389]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[390]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Heracles"
+    },
+    {
+     "path": "mentions[391]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[392]",
+     "old": "7.72",
+     "new": "8.3",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[393]",
+     "old": "7.73",
+     "new": "8.4",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[394]",
+     "old": "7.73",
+     "new": "8.4",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[395]",
+     "old": "7.73",
+     "new": "8.4",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[396]",
+     "old": "7.74",
+     "new": "8.5",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[397]",
+     "old": "7.74",
+     "new": "8.5",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[398]",
+     "old": "7.74",
+     "new": "8.5",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[399]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[400]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[401]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[402]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[403]",
+     "old": "7.75",
+     "new": "8.6",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[404]",
+     "old": "7.76",
+     "new": "8.7",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[405]",
+     "old": "7.76",
+     "new": "8.7",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[406]",
+     "old": "7.77",
+     "new": "8.8",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[407]",
+     "old": "7.78",
+     "new": "8.9",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[408]",
+     "old": "7.79",
+     "new": "8.10",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[409]",
+     "old": "7.82",
+     "new": "8.13",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[410]",
+     "old": "7.82",
+     "new": "8.13",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[411]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[412]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[413]",
+     "old": "7.83",
+     "new": "8.14",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[414]",
+     "old": "7.84",
+     "new": "8.15",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[415]",
+     "old": "7.85",
+     "new": "8.16",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[416]",
+     "old": "7.85",
+     "new": "8.16",
+     "text": "Poseidon"
+    },
+    {
+     "path": "mentions[417]",
+     "old": "7.86",
+     "new": "8.17",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[418]",
+     "old": "7.86",
+     "new": "8.17",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[419]",
+     "old": "7.87",
+     "new": "8.18",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[420]",
+     "old": "7.87",
+     "new": "8.18",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[421]",
+     "old": "7.88",
+     "new": "8.19",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[422]",
+     "old": "7.91",
+     "new": "8.22",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[423]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[424]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[425]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[426]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[427]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[428]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Olympus"
+    },
+    {
+     "path": "mentions[429]",
+     "old": "7.92",
+     "new": "8.23",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[430]",
+     "old": "7.93",
+     "new": "8.24",
+     "text": "Pericles"
+    },
+    {
+     "path": "mentions[431]",
+     "old": "7.93",
+     "new": "8.24",
+     "text": "Marsyas"
+    },
+    {
+     "path": "mentions[432]",
+     "old": "7.93",
+     "new": "8.24",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[433]",
+     "old": "7.95",
+     "new": "8.26",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[434]",
+     "old": "7.95",
+     "new": "8.26",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[435]",
+     "old": "7.95",
+     "new": "8.26",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[436]",
+     "old": "7.96",
+     "new": "8.27",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[437]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[438]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[439]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[440]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[441]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Pausanias"
+    },
+    {
+     "path": "mentions[442]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[443]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[444]",
+     "old": "7.97",
+     "new": "8.28",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[445]",
+     "old": "7.98",
+     "new": "8.29",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[446]",
+     "old": "7.98",
+     "new": "8.29",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[447]",
+     "old": "7.98",
+     "new": "8.29",
+     "text": "Diomede"
+    },
+    {
+     "path": "mentions[448]",
+     "old": "7.99",
+     "new": "8.30",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[449]",
+     "old": "7.99",
+     "new": "8.30",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[450]",
+     "old": "7.100",
+     "new": "8.31",
+     "text": "Ajax"
+    },
+    {
+     "path": "mentions[451]",
+     "old": "7.100",
+     "new": "8.31",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[452]",
+     "old": "7.101",
+     "new": "8.32",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[453]",
+     "old": "7.104",
+     "new": "8.35",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[454]",
+     "old": "7.104",
+     "new": "8.35",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[455]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Laches"
+    },
+    {
+     "path": "mentions[456]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[457]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Laches"
+    },
+    {
+     "path": "mentions[458]",
+     "old": "7.105",
+     "new": "8.36",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[459]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Brasidas"
+    },
+    {
+     "path": "mentions[460]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Achilles"
+    },
+    {
+     "path": "mentions[461]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Nestor"
+    },
+    {
+     "path": "mentions[462]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Antenor"
+    },
+    {
+     "path": "mentions[463]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Pericles"
+    },
+    {
+     "path": "mentions[464]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[465]",
+     "old": "7.106",
+     "new": "8.37",
+     "text": "Silenus"
+    },
+    {
+     "path": "mentions[466]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[467]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Charmides"
+    },
+    {
+     "path": "mentions[468]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Glaucon"
+    },
+    {
+     "path": "mentions[469]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Euthydemus"
+    },
+    {
+     "path": "mentions[470]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Diocles"
+    },
+    {
+     "path": "mentions[471]",
+     "old": "7.107",
+     "new": "8.38",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[472]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[473]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[474]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[475]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[476]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[477]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[478]",
+     "old": "7.108",
+     "new": "8.39",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[479]",
+     "old": "7.109",
+     "new": "8.40",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[480]",
+     "old": "7.110",
+     "new": "8.41",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[481]",
+     "old": "7.111",
+     "new": "8.42",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[482]",
+     "old": "7.111",
+     "new": "8.42",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[483]",
+     "old": "7.112",
+     "new": "8.43",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[484]",
+     "old": "7.113",
+     "new": "8.44",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[485]",
+     "old": "7.113",
+     "new": "8.44",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[486]",
+     "old": "7.114",
+     "new": "8.45",
+     "text": "Alcibiades"
+    },
+    {
+     "path": "mentions[487]",
+     "old": "7.114",
+     "new": "8.45",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[488]",
+     "old": "7.114",
+     "new": "8.45",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[489]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[490]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[491]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "crowd of revelers"
+    },
+    {
+     "path": "mentions[492]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[493]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Eryximachus"
+    },
+    {
+     "path": "mentions[494]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Phaedrus"
+    },
+    {
+     "path": "mentions[495]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[496]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[497]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[498]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[499]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[500]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[501]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristophanes"
+    },
+    {
+     "path": "mentions[502]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Agathon"
+    },
+    {
+     "path": "mentions[503]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "mentions[504]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Aristodemus"
+    },
+    {
+     "path": "mentions[505]",
+     "old": "8.0",
+     "new": "8.46",
+     "text": "Socrates"
+    },
+    {
+     "path": "characters[0].roleVisibleAt",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[0].firstMention",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[0].snapshots[0].availableAt",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[0].snapshots[0].evidence[0]",
+     "old": "1.3",
+     "new": "1.12"
+    },
+    {
+     "path": "characters[1].roleVisibleAt",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[1].firstMention",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[1].snapshots[0].availableAt",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[1].snapshots[0].evidence[0]",
+     "old": "1.0",
+     "new": "1.9"
+    },
+    {
+     "path": "characters[2].roleVisibleAt",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[2].firstMention",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[2].snapshots[0].availableAt",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[2].snapshots[0].evidence[0]",
+     "old": "1.2",
+     "new": "1.11"
+    },
+    {
+     "path": "characters[3].roleVisibleAt",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[3].firstMention",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[3].snapshots[0].availableAt",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[3].snapshots[0].evidence[0]",
+     "old": "1.4",
+     "new": "1.13"
+    },
+    {
+     "path": "characters[4].roleVisibleAt",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[4].firstMention",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[4].snapshots[0].availableAt",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[4].snapshots[0].evidence[0]",
+     "old": "1.31",
+     "new": "1.40"
+    },
+    {
+     "path": "characters[5].roleVisibleAt",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[5].firstMention",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[5].snapshots[0].availableAt",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[5].snapshots[0].evidence[0]",
+     "old": "1.27",
+     "new": "1.36"
+    },
+    {
+     "path": "characters[6].roleVisibleAt",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[6].firstMention",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[6].snapshots[0].availableAt",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[6].snapshots[0].evidence[0]",
+     "old": "1.20",
+     "new": "1.29"
+    },
+    {
+     "path": "characters[7].roleVisibleAt",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[7].firstMention",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[7].snapshots[0].availableAt",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[7].snapshots[0].evidence[0]",
+     "old": "1.28",
+     "new": "1.37"
+    },
+    {
+     "path": "characters[9].roleVisibleAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[9].firstMention",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[9].snapshots[0].availableAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[9].snapshots[0].evidence[0]",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[10].roleVisibleAt",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[10].firstMention",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[10].snapshots[0].availableAt",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[10].snapshots[0].evidence[0]",
+     "old": "1.1",
+     "new": "1.10"
+    },
+    {
+     "path": "characters[11].roleVisibleAt",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[11].firstMention",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[11].snapshots[0].availableAt",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[11].snapshots[0].evidence[0]",
+     "old": "1.29",
+     "new": "1.38"
+    },
+    {
+     "path": "characters[12].roleVisibleAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[12].firstMention",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[12].snapshots[0].availableAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[12].snapshots[0].evidence[0]",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[13].roleVisibleAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[13].firstMention",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[13].snapshots[0].availableAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[13].snapshots[0].evidence[0]",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[14].roleVisibleAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[14].firstMention",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[14].snapshots[0].availableAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[14].snapshots[0].evidence[0]",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[25].roleVisibleAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[25].firstMention",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[25].snapshots[0].availableAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[25].snapshots[0].evidence[0]",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[26].roleVisibleAt",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[26].firstMention",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[26].snapshots[0].availableAt",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[26].snapshots[0].evidence[0]",
+     "old": "7.93",
+     "new": "8.24"
+    },
+    {
+     "path": "characters[27].roleVisibleAt",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[27].firstMention",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[27].snapshots[0].availableAt",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[27].snapshots[0].evidence[0]",
+     "old": "7.105",
+     "new": "8.36"
+    },
+    {
+     "path": "characters[28].roleVisibleAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[28].firstMention",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[28].snapshots[0].availableAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[28].snapshots[0].evidence[0]",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[29].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[29].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[29].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[29].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[30].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[31].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].roleVisibleAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].firstMention",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].snapshots[0].availableAt",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[32].snapshots[0].evidence[0]",
+     "old": "7.107",
+     "new": "8.38"
+    },
+    {
+     "path": "characters[33].roleVisibleAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[33].firstMention",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[33].snapshots[0].availableAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[33].snapshots[0].evidence[0]",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[34].roleVisibleAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[34].firstMention",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[34].snapshots[0].availableAt",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[34].snapshots[0].evidence[0]",
+     "old": "1.10",
+     "new": "1.19"
+    },
+    {
+     "path": "characters[35].roleVisibleAt",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[35].firstMention",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[35].snapshots[0].availableAt",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[35].snapshots[0].evidence[0]",
+     "old": "1.26",
+     "new": "1.35"
+    },
+    {
+     "path": "characters[36].roleVisibleAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[36].firstMention",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[36].snapshots[0].availableAt",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[36].snapshots[0].evidence[0]",
+     "old": "1.35",
+     "new": "1.44"
+    },
+    {
+     "path": "characters[37].roleVisibleAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[37].firstMention",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[37].snapshots[0].availableAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[37].snapshots[0].evidence[0]",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[38].roleVisibleAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[38].firstMention",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[38].snapshots[0].availableAt",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[38].snapshots[0].evidence[0]",
+     "old": "1.37",
+     "new": "1.46"
+    },
+    {
+     "path": "characters[39].roleVisibleAt",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[39].firstMention",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[39].snapshots[0].availableAt",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[39].snapshots[0].evidence[0]",
+     "old": "1.38",
+     "new": "1.47"
+    },
+    {
+     "path": "characters[74].roleVisibleAt",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[74].firstMention",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[74].snapshots[0].availableAt",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[74].snapshots[0].evidence[0]",
+     "old": "7.85",
+     "new": "8.16"
+    },
+    {
+     "path": "characters[75].roleVisibleAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[75].firstMention",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[75].snapshots[0].availableAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[75].snapshots[0].evidence[0]",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[76].roleVisibleAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[76].firstMention",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[76].snapshots[0].availableAt",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[76].snapshots[0].evidence[0]",
+     "old": "7.92",
+     "new": "8.23"
+    },
+    {
+     "path": "characters[77].roleVisibleAt",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[77].firstMention",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[77].snapshots[0].availableAt",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[77].snapshots[0].evidence[0]",
+     "old": "7.98",
+     "new": "8.29"
+    },
+    {
+     "path": "characters[78].roleVisibleAt",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[78].firstMention",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[78].snapshots[0].availableAt",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[78].snapshots[0].evidence[0]",
+     "old": "7.100",
+     "new": "8.31"
+    },
+    {
+     "path": "characters[79].roleVisibleAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[79].firstMention",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[79].snapshots[0].availableAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[79].snapshots[0].evidence[0]",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[80].roleVisibleAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[80].firstMention",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[80].snapshots[0].availableAt",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[80].snapshots[0].evidence[0]",
+     "old": "7.106",
+     "new": "8.37"
+    },
+    {
+     "path": "characters[82].roleVisibleAt",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[82].firstMention",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[82].snapshots[0].availableAt",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[82].snapshots[0].evidence[0]",
+     "old": "1.16",
+     "new": "1.25"
+    },
+    {
+     "path": "characters[83].roleVisibleAt",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[83].firstMention",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[83].snapshots[0].availableAt",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[83].snapshots[0].evidence[0]",
+     "old": "1.21",
+     "new": "1.30"
+    },
+    {
+     "path": "characters[84].roleVisibleAt",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[84].firstMention",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[84].snapshots[0].availableAt",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[84].snapshots[0].evidence[0]",
+     "old": "1.24",
+     "new": "1.33"
+    },
+    {
+     "path": "characters[85].roleVisibleAt",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[85].firstMention",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[85].snapshots[0].availableAt",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[85].snapshots[0].evidence[0]",
+     "old": "1.34",
+     "new": "1.43"
+    },
+    {
+     "path": "characters[86].roleVisibleAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[86].firstMention",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[86].snapshots[0].availableAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[86].snapshots[0].evidence[0]",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[87].roleVisibleAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[87].firstMention",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[87].snapshots[0].availableAt",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[87].snapshots[0].evidence[0]",
+     "old": "7.69",
+     "new": "8.0"
+    },
+    {
+     "path": "characters[88].roleVisibleAt",
+     "old": "8.0",
+     "new": "8.46"
+    },
+    {
+     "path": "characters[88].firstMention",
+     "old": "8.0",
+     "new": "8.46"
+    },
+    {
+     "path": "characters[88].snapshots[0].availableAt",
+     "old": "8.0",
+     "new": "8.46"
+    },
+    {
+     "path": "characters[88].snapshots[0].evidence[0]",
+     "old": "8.0",
+     "new": "8.46"
+    }
+   ],
+   "proposed": {
+    "status": "PROPOSAL - character-content decision staged for integration; not applied to the live card",
+    "newMentions": [
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 269,
+      "endOffset": 280,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 354,
+      "endOffset": 365,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 466,
+      "endOffset": 474,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "alcibiades",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 476,
+      "endOffset": 486,
+      "text": "Alcibiades",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 507,
+      "endOffset": 514,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "phoenix",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 525,
+      "endOffset": 532,
+      "text": "Phoenix",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "philip",
+      "chapterNumber": 1,
+      "paragraphIndex": 0,
+      "startOffset": 545,
+      "endOffset": 551,
+      "text": "Philip",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "glaucon-questioner",
+      "chapterNumber": 1,
+      "paragraphIndex": 1,
+      "startOffset": 1,
+      "endOffset": 8,
+      "text": "Glaucon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "startOffset": 43,
+      "endOffset": 50,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 3,
+      "startOffset": 145,
+      "endOffset": 153,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 5,
+      "startOffset": 44,
+      "endOffset": 51,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 6,
+      "startOffset": 78,
+      "endOffset": 86,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "phoenix",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 51,
+      "endOffset": 58,
+      "text": "Phoenix",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "aristodemus",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 99,
+      "endOffset": 110,
+      "text": "Aristodemus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "agathon",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 156,
+      "endOffset": 163,
+      "text": "Agathon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 241,
+      "endOffset": 249,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 277,
+      "endOffset": 285,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "glaucon-questioner",
+      "chapterNumber": 1,
+      "paragraphIndex": 7,
+      "startOffset": 369,
+      "endOffset": 376,
+      "text": "Glaucon",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "listener",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 0,
+      "endOffset": 9,
+      "text": "COMPANION",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 47,
+      "endOffset": 58,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 156,
+      "endOffset": 164,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "apollodorus",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 233,
+      "endOffset": 244,
+      "text": "Apollodorus",
+      "resolution": "reviewed-name"
+     },
+     {
+      "characterId": "socrates",
+      "chapterNumber": 1,
+      "paragraphIndex": 8,
+      "startOffset": 382,
+      "endOffset": 390,
+      "text": "Socrates",
+      "resolution": "reviewed-name"
+     }
+    ],
+    "newCharacters": [
+     {
+      "id": "phoenix",
+      "kind": "person",
+      "storyRole": "reference",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 532
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 532
+      },
+      "snapshots": [
+       {
+        "id": "phoenix-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 0,
+         "offset": 532
+        },
+        "name": "Phoenix",
+        "subtitle": "",
+        "body": "Philip’s son, who heard about the banquet from Aristodemus and passed on a vague account of the speeches.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 532
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "philip",
+      "kind": "person",
+      "storyRole": "reference",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 551
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 0,
+       "offset": 551
+      },
+      "snapshots": [
+       {
+        "id": "philip-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 0,
+         "offset": 551
+        },
+        "name": "Philip",
+        "subtitle": "",
+        "body": "Phoenix’s father, named only in passing.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "throughOffset": 551
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "glaucon-questioner",
+      "kind": "person",
+      "storyRole": "supporting",
+      "roleVisibleAt": {
+       "chapterNumber": 1,
+       "paragraphIndex": 1,
+       "offset": 8
+      },
+      "firstMention": {
+       "chapterNumber": 1,
+       "paragraphIndex": 1,
+       "offset": 8
+      },
+      "snapshots": [
+       {
+        "id": "glaucon-questioner-identity",
+        "availableAt": {
+         "chapterNumber": 1,
+         "paragraphIndex": 1,
+         "offset": 8
+        },
+        "name": "Glaucon",
+        "subtitle": "Apollodorus’s acquaintance",
+        "body": "An acquaintance who stops Apollodorus on the road into Athens to ask about the speeches at Agathon’s supper.",
+        "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+        "evidence": [
+         {
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "throughOffset": 8
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "anchorChanges": [
+     {
+      "characterId": "apollodorus",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "offset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 280
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "offset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 280
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "offset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 280
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 9,
+        "throughOffset": 11
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 280
+       }
+      },
+      "triggerText": "Apollodorus",
+      "existingBody": "The narrator retelling the banquet conversation from Aristodemus’s account."
+     },
+     {
+      "characterId": "socrates",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "offset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 474
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "offset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 474
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "offset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 474
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 12,
+        "throughOffset": 28
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 474
+       }
+      },
+      "triggerText": "Socrates",
+      "existingBody": "The Athenian philosopher attending Agathon’s banquet."
+     },
+     {
+      "characterId": "alcibiades",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "offset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 486
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "offset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 486
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "offset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 486
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 8,
+        "paragraphIndex": 0,
+        "throughOffset": 525
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 486
+       }
+      },
+      "triggerText": "Alcibiades",
+      "existingBody": "The Athenian statesman and commander, an admirer of Socrates, who joins the banquet."
+     },
+     {
+      "characterId": "agathon",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "offset": 24
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 514
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "offset": 24
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 514
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "offset": 24
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "offset": 514
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 13,
+        "throughOffset": 24
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 0,
+        "throughOffset": 514
+       }
+      },
+      "triggerText": "Agathon",
+      "existingBody": "The tragic playwright hosting the banquet to celebrate his victory."
+     },
+     {
+      "characterId": "aristodemus",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "offset": 149
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "offset": 110
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "offset": 149
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "offset": 110
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "offset": 149
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "offset": 110
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 11,
+        "throughOffset": 149
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 7,
+        "throughOffset": 110
+       }
+      },
+      "triggerText": "Aristodemus",
+      "existingBody": "Socrates’ companion at the banquet, whose eyewitness account Apollodorus retells."
+     },
+     {
+      "characterId": "listener",
+      "firstMention": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "offset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "offset": 9
+       }
+      },
+      "roleVisibleAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "offset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "offset": 9
+       }
+      },
+      "snapshots[0].availableAt": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "offset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "offset": 9
+       }
+      },
+      "snapshots[0].evidence[0]": {
+       "from": {
+        "chapterNumber": 1,
+        "paragraphIndex": 10,
+        "throughOffset": 9
+       },
+       "to": {
+        "chapterNumber": 1,
+        "paragraphIndex": 8,
+        "throughOffset": 9
+       }
+      },
+      "triggerText": "COMPANION",
+      "existingBody": "The unnamed companion asking Apollodorus to retell the banquet conversation."
+     }
+    ],
+    "optionalSubtitleForExistingGlaucon": {
+     "characterId": "glaucon",
+     "subtitle": "Charmides’s father",
+     "reason": "Disambiguates the two people named Glaucon in the Cast list; optional."
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,144 @@
+{
+  "baseline": {
+    "commit": "38a97c6315fdad4fe01fe326c203f870e22e615b",
+    "original-en": {
+      "path": "app/public/data/editions/symposium-original-en.json",
+      "sha256": "e2943777fd54eaaa0888076c5c03a9104bc1b1ffa681a5362ab114e327f797c0",
+      "gitBlob": "88b423bc98252e3164a367b07d1f478b6265c041",
+      "bytes": 117814,
+      "paragraphCounts": [
+        40,
+        8,
+        12,
+        10,
+        18,
+        13,
+        115,
+        1
+      ]
+    },
+    "modern-en": {
+      "path": "app/public/data/editions/symposium-modern-en.json",
+      "sha256": "7816d1eb6ac9cc6d178c4c123bbeb8ad6daced1f7d7fc8c036f2bded3b8fcce8",
+      "gitBlob": "d9f2a1b2f6c911fb9b06506c76c741810fb97429",
+      "bytes": 117816,
+      "paragraphCounts": [
+        40,
+        8,
+        12,
+        10,
+        18,
+        13,
+        115,
+        1
+      ]
+    },
+    "modern-da": {
+      "path": "app/public/data/editions/symposium-modern-da.json",
+      "sha256": "2a98c5281c40f5e309f8b33d5ad42661fad045b8b857142cfee0a2ab95a2b215",
+      "gitBlob": "9c0b5a777f3e81797ab79df07958036ddd7e28a7",
+      "bytes": 94104,
+      "paragraphCounts": [
+        40,
+        8,
+        12,
+        10,
+        18,
+        13,
+        115,
+        1
+      ]
+    }
+  },
+  "source": {
+    "txt": {
+      "path": "source/pg1600.txt",
+      "sha256": "8b5c599ea734ff0f5e8d83f399dead8c796800897b107c8d53fa909f74a05d6f",
+      "bytes": 200974
+    },
+    "html": {
+      "path": "source/pg1600-images.html",
+      "sha256": "c69cb6e73dbf4c855a5e9f4b01d838445c7ad2dc069a1fa3ce8b8163a2fece0d",
+      "bytes": 226817
+    },
+    "dialogueParagraphs": 180,
+    "dialogueWords": 22077,
+    "frontMatterExcluded": [
+      "PERSONS OF THE DIALOGUE: Apollodorus, who repeats to his companion the dialogue which he had heard from Aristodemus, and had already once narrated to Glaucon. Phaedrus, Pausanias, Eryximachus, Aristophanes, Agathon, Socrates, Alcibiades, A Troop of Revellers.",
+      "SCENE: The House of Agathon."
+    ],
+    "introductionParagraphs": 52
+  },
+  "candidates": {
+    "original-en": {
+      "path": "candidate/symposium-original-en.json",
+      "sha256": "3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6",
+      "gitBlob": "5d5be8c31348aa4fc6dd3be5b8a452dd137a375c",
+      "bytes": 121441,
+      "chapters": 8,
+      "paragraphs": 226,
+      "paragraphCounts": [
+        49,
+        8,
+        12,
+        10,
+        18,
+        13,
+        69,
+        47
+      ],
+      "titles": [
+        "The Gathering",
+        "Phaedrus's Speech",
+        "Pausanias's Speech",
+        "Eryximachus's Speech",
+        "Aristophanes's Speech",
+        "Agathon's Speech",
+        "Socrates & Diotima",
+        "Alcibiades"
+      ],
+      "variantWithoutC04": {
+        "sha256": "0615b9566818ba69f8bc45dfdb5ef4c6d3f2300c947494fd29fe4590354c506a",
+        "gitBlob": "0a5246285d1e15d48f52a052e86a6efa97ba5c68",
+        "bytes": 121442,
+        "note": "Identical except chapter 5 title left as \"Agathon & Aristophanes\" (i.e. without change C-04)."
+      }
+    },
+    "modern-en": {
+      "path": "candidate/symposium-modern-en.json",
+      "sha256": "43f03333a255d90378a12ab1d1d384620e515e1725cb4ba8132e794fa504e550",
+      "gitBlob": "3059225d503a0c47a326fcaaa589e3facd600ca1",
+      "bytes": 121319,
+      "chapters": 8,
+      "paragraphs": 226,
+      "paragraphCounts": [
+        49,
+        8,
+        12,
+        10,
+        18,
+        13,
+        69,
+        47
+      ],
+      "titles": [
+        "The Gathering",
+        "Phaedrus's Speech",
+        "Pausanias's Speech",
+        "Eryximachus's Speech",
+        "Aristophanes's Speech",
+        "Agathon's Speech",
+        "Socrates & Diotima",
+        "Alcibiades"
+      ]
+    }
+  },
+  "verification": {
+    "baselineGap": "source dialogue paragraphs 0-8 (648 words) missing; no other word-level difference",
+    "candidateOriginalWordStreamEqualsSource": true,
+    "sourceBoundariesPreserved": true,
+    "preexistingSplits": 46,
+    "oldParagraphsCarriedByteForByte": 217,
+    "insertedParagraphsPerEdition": 9
+  }
+}

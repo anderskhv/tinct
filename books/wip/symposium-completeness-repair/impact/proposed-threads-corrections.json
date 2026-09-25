@@ -1,0 +1,61 @@
+{
+ "status": "PROPOSED content corrections, staged for the coding agent. Nothing here is applied to live files.",
+ "baseline": {
+  "commit": "38a97c6315fdad4fe01fe326c203f870e22e615b",
+  "threadsPath": "app/public/data/editions/symposium-threads.json",
+  "threadsSha256": "4d2bd7f15cb9bb8e55ccfc80783fb35711969884cea447ef7cf3d2a9eadd0dc0",
+  "onboardingPath": "app/public/data/onboarding/symposium.json"
+ },
+ "threads": [
+  {
+   "priority": "recommended",
+   "characterId": "glaucon",
+   "field": "chapters[\"1\"][\"modern-en\"]",
+   "old": "Glaucon is the unnamed companion at the dialogue's opening who asks Apollodorus to repeat the conversation about love that was held at Agathon's symposium. He serves as the occasion for Apollodorus's narration.",
+   "new": "Glaucon is the acquaintance who, two days before the dialogue opens, stopped Apollodorus on the road into Athens to ask about the speeches on love at Agathon's party. He had heard only a vague account, passed on from Phoenix, and assumed the party was recent; Apollodorus told him it had happened long ago, when they were boys, and that his own source was Aristodemus. They went over the story as they walked, which is why Apollodorus is ready to tell it again to the unnamed companion who asks him now.",
+   "reason": "The restored opening (candidate 1.0-1.8) shows that Glaucon and the companion are different people: Glaucon questioned Apollodorus two days earlier; the companion who asks now is unnamed. The current text says Glaucon IS the unnamed companion.",
+   "evidence": [
+    "candidate 1.0 \"the day before yesterday ... one of my acquaintance ... said: Apollodorus ... halt!\"",
+    "candidate 1.1 \"Your informant, Glaucon, I said\"",
+    "candidate 1.7 \"Then, said Glaucon, let us have the tale over again ... as I said at first, I am not ill-prepared to comply with your request\"",
+    "candidate 1.8 \"COMPANION: I see, Apollodorus\""
+   ]
+  },
+  {
+   "priority": "flag-only",
+   "characterId": "glaucon",
+   "field": "chapters[\"1\"][\"modern-da\"]",
+   "current": "Glaukon er den unavngivne ledsager i dialogens indledning, der beder Apollodoros gentage samtalen om kærlighed fra Agathons symposium. Han er anledningen til Apollodoros' beretning.",
+   "note": "Danish string repeats the same identification error (\"Glaukon er den unavngivne ledsager\"). Not rewritten: no new Danish text is produced under the 2026-09-21 language scope. Options for Anders: leave as is (known error), or have a Danish owner correct it later."
+  },
+  {
+   "priority": "optional",
+   "characterId": "glaucon",
+   "field": "epithet.en",
+   "old": "Friend who requests the account of the symposium",
+   "new": "Acquaintance who asked Apollodorus about the banquet",
+   "reason": "Current epithet is not wrong (he did request the account, two days earlier) but can be read as describing the companion. Optional."
+  },
+  {
+   "priority": "optional",
+   "characterId": "apollodorus",
+   "field": "chapters[\"1\"][\"modern-en\"]",
+   "old": "Apollodorus introduces himself as someone obsessed with Socrates and his conversations. He agrees to recount the symposium held at Agathon's house years earlier, relaying what Aristodemus told him. He frames the whole dialogue as a chain of hearsay: Glaucon asked him, who heard it from Aristodemus.",
+   "new": "Apollodorus introduces himself as someone obsessed with Socrates and his conversations. He agrees to recount the symposium held at Agathon's house years earlier, relaying what Aristodemus told him. He frames the whole dialogue as a chain of hearsay: Glaucon asked him about the party two days earlier, and he knows it only from Aristodemus, who was there.",
+   "reason": "Grammar/clarity of the last sentence only; the substance is already consistent with the restored opening. Optional."
+  }
+ ],
+ "threadsNotes": [
+  "Chapter keys need no re-keying: the threads already place Alcibiades under \"8\" and Diotima/Socrates under \"7\", which the candidate structure now matches.",
+  "The Cast tab finds mentions by runtime name search; \"Glaucon\" will also match Charmides's father at candidate 8.38. Pre-existing limitation; needs code-level disambiguation if it matters."
+ ],
+ "onboardingOptional": {
+  "priority": "optional (pre-existing, not caused by this repair)",
+  "file": "app/public/data/onboarding/symposium.json",
+  "field": "openingText",
+  "old": "And now I will tell you the reason why, and what the original nature of man was, and the great change which was made in him. The sexes were not two as they are now, but originally three in number; there was man, woman, and the union of the two, having a name corresponding to this double nature, which had once a real existence, but is now lost, though a word of ill omen.",
+  "new": "In the first place, let me treat of the nature of man and what has happened to it; for the original human nature was not like the present, but different. The sexes were not two as they are now, but originally three in number; there was man, woman, and the union of the two, having a name corresponding to this double nature, which had once a real existence, but is now lost, and the word 'Androgynous' is only preserved as a term of reproach.",
+  "newSource": "candidate original-en 5.0 (PG #1600 dialogue paragraph 65), verbatim Jowett",
+  "reason": "The current excerpt is presented as the text but is not verbatim Jowett (\"And now I will tell you the reason why...\"; \"though a word of ill omen\"). Replace only if the onboarding owner wants the excerpt to be the edition's own words."
+ }
+}
