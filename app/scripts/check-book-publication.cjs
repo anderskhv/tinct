@@ -44,6 +44,13 @@ async function boot(browser,phone,ed,fixture={}){
  if(process.env.TINCT_EXPECTED_BUNDLE)assert.equal(bundle,process.env.TINCT_EXPECTED_BUNDLE)
  return {context,page,calls,errors,legacy,bundle}
 }
+async function toggleCompare(page,phone){
+ if(!phone)return page.getByTestId('lab-desktop-compare').click()
+ await page.getByTestId('lab-book').evaluate(el=>{
+  el.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:400}))
+  el.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:270}))
+ })
+}
 async function main(){
  if(live){
   const files=[...['original-en','modern-en'].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json','read/'+book+'/book.html']
@@ -72,11 +79,12 @@ async function main(){
     assert.equal(calls.length,0,'reading alone must not synthesize')
     await page.screenshot({path:out+'/'+device+'-'+ed+'-opening.png'})
     const place=await root.getAttribute('data-place')
-    await page.getByTestId(phone?'lab-phone-compare':'lab-desktop-compare').click()
+    console.log(JSON.stringify({device,ed,stage:'opening',place,buttons:await page.locator('button:visible').allTextContents()}))
+    await toggleCompare(page,phone)
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
     await page.waitForTimeout(300)
     await page.screenshot({path:out+'/'+device+'-'+ed+'-compare.png'})
-    await page.getByTestId(phone?'lab-phone-compare':'lab-desktop-compare').click()
+    await toggleCompare(page,phone)
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
     assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
     await page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first().click()
