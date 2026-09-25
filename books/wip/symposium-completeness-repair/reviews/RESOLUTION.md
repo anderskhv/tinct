@@ -72,3 +72,16 @@ Verified v2: original-en `3521a12d…95a6`, modern-en `073ca5b4…3eae`. Verdict
 | N13 | Similarity-gate failure (pre-existing) still open | **Escalated** | Decision for Anders (`RELEASE-PACKET.md` §6) |
 
 The final text changes (N5, N11: modern-en 1.0, 1.3, 1.7 and 3.7) and the corrected records were re-verified by the same independent re-verifier. See `REVERIFY-DELTA.md`.
+
+## Delta re-verification (v2 → v3): resolution
+
+Verified v3: original-en `3521a12d…95a6` (unchanged), modern-en `1e970b7beb3f098095ecf1a9fc7d78a8855d75e6ffc3bba14edc69db0e05374f`. Verdicts: D1–D3 CONFIRMED; D4 PARTLY (two wording errors in `IMPACT.md`); D5 notes only. Nothing blocking. No text changed after this check. The fixes below touch records only.
+
+| # | Finding | Decision | Result |
+|---|---|---|---|
+| D-N1 | 3.7 "allowed by custom" is an aside where Jowett's clause restricts; the qualification is present | **No action** (the reviewer required none) | Kept. The Greek, "by our custom … one way", supports it. A later modern-English pass may tighten it |
+| D-N2 | `CHANGES.md` gave the wrong reason for dropping "over again" in 1.7 | **Fixed** | The note now gives the Greek (no "again") as the reason |
+| D-N3 | `IMPACT.md` said "described below" | **Fixed** | Now "described above" |
+| D-N4 | `IMPACT.md` said the 3.3 anchors "project exactly through equal spans" | **Fixed** | Now says to apply the listed values (998, 1019) as given, matching `MAPPING.md` |
+| D-N5 | Statements about the final commit cannot be checked until it exists | **Done in the final commit** | `STATUS.md` removed; `README.md`, `RELEASE-PACKET.md` (§3.5 Danish dependency; §6 decisions, including the gate), `ACCEPTANCE.md`, `reviews/REVERIFY-DELTA.md` and `HASHES.sha256` (every package file) present |
+| D-N6 | Chapter-3 nuance list missed a 3.4 shift | **Fixed** | Added to `CHANGES.md` |

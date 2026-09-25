@@ -113,7 +113,7 @@ Editorial notes: "Did Socrates?" becomes "was it Socrates?"
 
 > 'No, not Socrates,' I replied. 'It was the same man who told Phoenix — Aristodemus, of the deme of Cydathenaeum, a little fellow who never wore shoes. He had been at Agathon's feast, and I think that in those days no one was a more devoted admirer of Socrates. What's more, I have asked Socrates himself whether some parts of Aristodemus's account were true, and he confirmed them.' 'Then,' said Glaucon, 'let's hear the story. Isn't the road to Athens just made for conversation?' So we walked along and talked about the speeches on love. And that is why, as I told you at the start, I'm well prepared to do what you ask; I'll go through them again for you, if you like. For speaking about philosophy, or hearing others speak about it, always gives me the greatest pleasure — to say nothing of the benefit. But when I hear any other kind of talk — especially the talk of rich men and businessmen like you — it annoys me; and I pity you, my friends, because you think you're doing something when in reality you're doing nothing. I suppose you pity me in return and think I'm miserable — and very probably you're right. But what you only think about me, I know for certain about you. That's the difference.
 
-Editorial notes: "No indeed" becomes "No, not Socrates", and the description now follows the name (Review 2, finding 10). "Deme" is kept as Jowett's term. "His narrative" is made explicit as "Aristodemus's account" (Review 2, finding 2). Glaucon's "let us have the tale over again" becomes "let's hear the story". "Over again" is dropped because it implied Glaucon had heard the story before (Review 2, finding 11). The Greek is simply "why not tell it to me?". An interim "whole" was removed because it is not in Jowett (re-verification N5). The turn back to the companion is signalled with "as I told you at the start" and "for you" (Review 2, finding 1). The plural "you who are my companions" stays plural. The closing antithesis is kept.
+Editorial notes: "No indeed" becomes "No, not Socrates", and the description now follows the name (Review 2, finding 10). "Deme" is kept as Jowett's term. "His narrative" is made explicit as "Aristodemus's account" (Review 2, finding 2). Glaucon's "let us have the tale over again" becomes "let's hear the story". "Over again" is dropped because the Greek has no "again" (simply "why not tell it to me?"). In modern English it would also suggest that Apollodorus had already told Glaucon the story (Review 2, finding 11). An interim "whole" was removed because it is not in Jowett (re-verification N5). The turn back to the companion is signalled with "as I told you at the start" and "for you" (Review 2, finding 1). The plural "you who are my companions" stays plural. The closing antithesis is kept.
 
 ### 1.8 (dialogue ¶8)
 
@@ -170,7 +170,7 @@ Chapter divisions are Tinct's editorial reading aids, not Plato's. The transitio
   - 3.1 "apt to be" becomes "equally".
   - 3.2 "But surely" for Jowett's "for surely".
   - 3.3 "loves of youths" becomes "love between males", and the "generally in countries subject to the barbarians" clause is restructured.
-  - 3.4 drops "of mankind".
+  - 3.4 drops "of mankind", and "the explanation of it is rather perplexing" becomes "it's a rather perplexing one".
   - 3.5 "parents" becomes "fathers".
   - 3.6 "both lover and beloved" for "both of them".
   - 3.7 "by the loss of them" becomes "by the fear of losing them".

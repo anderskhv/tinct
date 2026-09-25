@@ -45,7 +45,7 @@ Both character-card mentions in modern 3.3 (Aristogeiton, Harmodius) coincide wi
 
 1. **Inserted paragraphs 1.0–1.8.** No old coordinate points into them, and no old data should be moved into them.
 2. **Ordering against validation.** Old 7.69–7.114 are out of range for the new 69-paragraph chapter 7. Old 8.0 is in range but means a different paragraph, and old chapter-1 indices point nine paragraphs early. The remap must happen before the Invariant 6 bounds check, and be keyed to the content revision (candidate sha256), so no position is reset or deleted and none is applied twice.
-3. **Derived layout.** Pages, scroll fractions and chapter lengths for chapters 1, 7 and 8 must be recomputed from the migrated paragraph coordinates.
+3. **Derived layout.** Pages, scroll fractions and chapter lengths for chapters 1, 7 and 8 must be recomputed from the migrated paragraph coordinates. So must modern-en chapter 3's page layout, whose three C-06 paragraphs change length.
 4. **Chapter-only records.** Records carrying just a chapter number keep it. A chapter-7 record may now concern chapter-8 text; keep it.
 
 ## Format compatibility

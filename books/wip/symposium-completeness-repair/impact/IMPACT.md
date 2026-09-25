@@ -13,7 +13,7 @@ Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `
 - **Modern-en 3.3, 3.7 and 3.8** keep their coordinates, but offsets inside them must be projected through `mapping/changed-paragraph-ops.json`. Equal spans are exact. A point inside a changed span is approximate and keeps its recovery tuple. No precise annotation may be moved to a paragraph start or truncated.
 - The inserted paragraphs 1.0–1.8 are new. No existing user coordinate can point into them.
 - **Do not let the Invariant 6 validator run on unmigrated data.** New chapter 7 has 69 paragraphs, so any old 7.69–7.114 position is out of range there. The validator would reset it and delete its storage key, losing the reader's place. Old 8.0 remains in range but refers to the wrong paragraph (new 8.0 is Alcibiades's entrance), and old chapter 1 positions land nine paragraphs early. The remap must run before validation and be keyed to the edition content version (candidate sha256). The recovery tuple of any unresolved record must be kept, never discarded.
-- **Page numbers are derived and must be recomputed.** Chapters 1, 7 and 8 change length (40→49, 115→69, 1→47), so a stored page or scroll fraction in those chapters is meaningless under the new layout. Restore from the migrated paragraph index and offset.
+- **Page numbers are derived and must be recomputed.** Chapters 1, 7 and 8 change length (40→49, 115→69, 1→47), so a stored page or scroll fraction in those chapters is meaningless under the new layout. In modern-en, chapter 3's pages also shift slightly, because three paragraphs change length (C-06). Restore from the migrated paragraph index and offset.
 - **Chapter-level records.** Records keyed only by chapter, such as a completed chapter or chapter-scoped chat context, keep their chapter number. Some chapter-7 records concern text that now sits in chapter 8. Keep them and do not delete them. `book-completed:symposium` is unaffected.
 - **modern-da.** No Danish data migration is needed unless the Danish edition is restructured; see §7.
 
@@ -35,9 +35,9 @@ Reading positions, the heartbeat position tuple, highlights, notes, bookmarks, `
   | original-en | 222 | 288 | 176 |
   | modern-en | 220 | 286 | 172 |
 
-  In modern-en, the Aristogeiton and Harmodius mentions in 3.3 and their eight anchor offsets also change offset (C-06) and are listed under `offsetChanges`. They project exactly through equal spans.
+  In modern-en, the Aristogeiton and Harmodius mentions in 3.3 and their eight anchor offsets also change offset (C-06). They are listed under `offsetChanges`. The two mentions coincide with equal spans. The eight anchors sit exactly at insertion boundaries, so apply the listed values (998 and 1019) as given rather than re-projecting them (`mapping/MAPPING.md`).
 
-  All 510 and 506 existing mentions were verified to re-resolve to their exact recorded text in the candidates after the move, using UTF-16 offsets. No anchor offset exceeds its paragraph. Offsets are unchanged except the ten modern-en 3.3 offset changes described below.
+  All 510 and 506 existing mentions were verified to re-resolve to their exact recorded text in the candidates after the move, using UTF-16 offsets. No anchor offset exceeds its paragraph. Offsets are unchanged except the ten modern-en 3.3 offset changes described above.
 - **Derived fields to recompute.**
   - `sourceSha256` becomes the candidate sha256.
   - `paragraphCount` goes 217→226, and `chapterCount` stays 8.
