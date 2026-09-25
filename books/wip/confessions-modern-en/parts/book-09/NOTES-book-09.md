@@ -30,10 +30,10 @@
 
 - 32 (hymn) is rendered as unrhymed lines inside one paragraph; reviewer may prefer a rhymed modern version. Word count and similarity are within range.
 - 29: "a good son" for Pusey's "dutiful" — reviewer may prefer "dutiful son".
-- 13: Pusey's "The Master" (De Magistro) rendered "The Teacher"; revert to "The Master" if book titles should match Pusey.
+- 13: Book title "The Master" (De Magistro) kept as Pusey has it.
 
 ## Check output
 
-`book 9: 38/38 paras, weighted sim 0.473 (target <=0.65), flagged 0`
+`book 9: 38/38 paras, weighted sim 0.474 (target <=0.65), flagged 0`
 
 All paragraphs 0-37: ratio 0.97-1.18, sim 0.34-0.60; no THOU forms, no IDENTICAL, no archaic hits.
