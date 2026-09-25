@@ -27,7 +27,7 @@ import { productionPlaces, withProductionPlaces } from './preReader/productionPo
 import { migrateWithheldEdition } from './data/withheldEditions'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
-import { LAB_CATALOGUE_URL, readReaderOrigin } from '../public/lab/library-model.js'
+import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
 import { catalogueBookIdForPlace, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
 
@@ -55,8 +55,6 @@ export interface ReadingTableBook {
   percent: number | null
   /** Stored automatic summary for the chapter Continue resumes in, if any. */
   recap: string | null
-  /** Opens the production reader at the reader's place. */
-  continueHref: string
 }
 
 export interface ReadingTableFinished {
@@ -83,6 +81,7 @@ const LIBRARY_POSITION_DEVICE_ID = 'lab-library'
 
 let catalogue: Map<string, CatalogueBook> | null = null
 let lastRows = new Map<string, ReadingListRow>()
+let lastPositions: LabPositionState | null = null
 const summaryOutcomes = new Map<string, Promise<SummaryResult>>()
 
 const isOnline = () => typeof navigator === 'undefined' || navigator.onLine !== false
@@ -168,14 +167,48 @@ function defaultEditionKey(book: CatalogueBook | undefined): string | null {
     ?? null
 }
 
-/** The production library's explicit reader link, at the reader's true place and edition. */
-function continueHref(row: ReadingListRow, book: CatalogueBook | undefined): string {
-  const { target } = row
-  const saved = target.editionKey === null ? null : migrateWithheldEdition(target.bookId, target.editionKey)
-  const edition = saved ?? defaultEditionKey(book)
-  const id = encodeURIComponent(target.bookId)
-  if (!edition) return `/library?book=${id}&view=book-detail`
-  return `/library?book=${id}&start=${target.chapterNumber}.${target.paragraphIndex + 1}&edition=${encodeURIComponent(edition)}&direct=reader`
+const READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
+
+interface Place { chapterNumber: number; pageIndex?: number; paragraphIndex: number; wordIndex: number; editionKey: string | null }
+
+/** The reader's true place in a book: the reading-list target, else the merged position record. */
+async function placeFor(bookId: string): Promise<Place | null> {
+  const row = lastRows.get(bookId)
+  if (row) return row.target
+  if (!lastPositions) lastPositions = positionsWithProduction(await loadPositions(await readAuth()), await loadCatalogue())
+  const place = lastPositions?.books?.[bookId]
+  if (!place) return null
+  return { chapterNumber: place.chapterNumber, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
+}
+
+/**
+ * Hand a book straight to the production reader, at the reader's place
+ * (device merged with the account's cloud copy) in the edition it was read
+ * in, else from the beginning in `preferredEdition`. Writes the same session
+ * hand-off the production library writes and returns the URL to open; the
+ * book page is the fallback when no readable edition is known.
+ */
+export async function readerDestination(bookId: string, preferredEdition?: string | null): Promise<string> {
+  const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
+  const book = books.get(bookId)
+  const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
+  const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
+  const edition = [saved, preferredEdition].find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book)
+  if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
+  const intent = {
+    kind: 'open-reader',
+    bookId,
+    primaryEditionKey: edition,
+    ...(place ? { savedPlace: { bookId, chapterNumber: place.chapterNumber, page: place.pageIndex ?? 0, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex } } : {}),
+  }
+  try {
+    sessionStorage.setItem(READER_HANDOFF_KEY, JSON.stringify(intent))
+  } catch {
+    return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
+  }
+  // So the library it returns to does not recap the book just left.
+  writeReaderOrigin(storage('session'), bookId, Date.now())
+  return '/reader'
 }
 
 /** Every book in progress, newest first, and every finished book, for this viewer. */
@@ -192,6 +225,7 @@ export async function loadReadingTable(): Promise<ReadingTable> {
     allowSummary: false,
   }).catch(() => null)
   const positions = await loadPositions(auth)
+  lastPositions = positionsWithProduction(positions, books)
   if (auth.userId && supabase) {
     // Completion marks and terminal progress records synced from the account, as the production library does.
     await supabase.from('user_data').select('key,value').eq('user_id', auth.userId).or('key.like.book-completed:*,key.like.progress:*').then(({ data, error }) => {
@@ -225,7 +259,6 @@ export async function loadReadingTable(): Promise<ReadingTable> {
         headline: heroHeadline(row),
         percent: typeof percent === 'number' && Number.isFinite(percent) ? percent : null,
         recap: row.recap,
-        continueHref: continueHref(row, book),
       }
     }),
     finished: list.finished.map(row => {
@@ -302,4 +335,4 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination }
