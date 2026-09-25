@@ -1,0 +1,219 @@
+{
+  "verifier": "V04",
+  "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+  "checkout_note": "HEAD 1d376b72f differs from 1a7d89eb only in 16 files under books/wip/inventory-completeness-audit/reports/; app/ identical.",
+  "results": [
+    {
+      "claim_id": "G04-oedipus-rex-01",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "Token diff pg31 l.103-3012 vs original-en: only Storr's (Str./Ant.) markers and footnote numerals differ; text complete and in order. 4.0-4.2 is the 1st stasimon; 4.3-4.8 is Creon's entrance (l.952). ch6 is kommos Ant.1/Ant.2 (l.1355, l.1390) with actors speaking. ch7 is the rest of the 2nd episode. 8.0-8.3 'My lot be still to lead' (l.1701) is the 2nd stasimon; 8.4 '[Enter JOCASTA.]' (l.1749). 9.88-9.89 'If my soul prophetic' (l.2230) is the 3rd stasimon. All 3 editions aligned. Labels only.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/31/pg31.txt", "sha256": "be8419a2713178f45584eb7421760ff3e5b1a1af4a002cb5c53483ed37041794", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/31/pg31-images.html", "sha256": "6a1903936f324dcae1c26d7b2a19922365dd8711ba6a0c6741e37e9b1f7e98bc", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-antigone-01",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "Token diff l.6671-8851: only strophe markers differ. ch8 'Third Stasimon' (8.0-8.5, l.7950-7981) is Chorus/Creon dialogue with no ode. 9.0-9.1 'Love resistless in fight' (l.7985) and 9.20-9.23 Danae ode (l.8192) sit inside 'Fourth Episode', which also holds Teiresias 9.24-9.52. ch10 is the end of that episode (10.0-10.10) plus the Hymn to Dionysus 10.11-10.17 (l.8486). 6.0-6.3 is 2nd-episode dialogue before the ode at 6.4 (l.7627-7649). All 3 editions aligned.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/31/pg31.txt", "sha256": "be8419a2713178f45584eb7421760ff3e5b1a1af4a002cb5c53483ed37041794", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/31/pg31-images.html", "sha256": "6a1903936f324dcae1c26d7b2a19922365dd8711ba6a0c6741e37e9b1f7e98bc", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-oedipus-at-colonus-01",
+      "verdict": "CONFIRMED-WITH-CORRECTIONS",
+      "corrected": {
+        "location": "ch2-ch11 (2.62-2.76, 4.0-4.64, ch5, 6.0-6.7, ch7, 8.0-8.14, 9.39-9.40, 10.0-10.12, 11.0-11.13)",
+        "extent_words": 0,
+        "severity": "S3 (borderline S2: 7 of 11 labels wrong, 2 partial; no 'Stasimon' chapter holds the stasimon of its number)",
+        "type": "MISLABELED",
+        "editions": ["original-en", "modern-en", "modern-da"]
+      },
+      "evidence": "All claimed points verified against pg31 (l.3669, 4080, 4208, 4390, 4666, 4720, 5222, 5363, 5664); text complete. Additions: 6.4-6.7 is 2nd-episode dialogue (l.4720). ch10 'Fourth Stasimon' is the thunder kommos, with chorus stanzas alternating with Oedipus/Antigone (l.5995ff). 11.0-11.11 ends the 4th episode. The real 4th stasimon 'If mortal prayers are heard in hell' (l.6173-6195, stage empty) is 11.12-11.13 inside 'Exodos'. All 3 editions aligned.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/31/pg31.txt", "sha256": "be8419a2713178f45584eb7421760ff3e5b1a1af4a002cb5c53483ed37041794", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/31/pg31-images.html", "sha256": "6a1903936f324dcae1c26d7b2a19922365dd8711ba6a0c6741e37e9b1f7e98bc", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-oresteia-01",
+      "verdict": "CONFIRMED-WITH-CORRECTIONS",
+      "corrected": {
+        "location": "Agamemnon 8.9-8.16 (minor); Libation Bearers ch14-ch18; Eumenides ch20-ch25 (incl. ch25)",
+        "extent_words": 0,
+        "severity": "S3",
+        "type": "MISLABELED",
+        "editions": ["original-en", "modern-en", "modern-da"]
+      },
+      "evidence": "Libation Bearers and Eumenides points verified (pg8604 l.2967, 3154, 3594, 3868, 4128, 4183, 4314, 4821, 5097); no verse missing. Additions: Eumenides ch25 'Second Stasimon' is the exodos epirrhematic exchange, Chorus 'Woe on you, younger gods!' (l.5551) alternating with Athena. ch20 also holds the real parodos (20.14) and the 1st-episode opening (20.15-20.37). Agamemnon 8.9-8.16 ('[Re-enter CLYTEMNESTRA]', l.1548) opens the 4th episode under 'Third Stasimon'. All 3 editions aligned.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt", "sha256": "45a053562a54a4cd710a045029189de7e8d785d394064ffa048c26e509a5abaf", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/8604/pg8604-images.html", "sha256": "f406cf7a399fe1871f7f96b515f6bb6fdeb8d5fb2952025f2d42fb4d6339a267", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-oresteia-03",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "20.37 '[Exeunt omnes]' is followed directly by 21.0 'ORESTES. Look on me, queen Athena'. pg8604 l.4715-4717 has 'The scene changes to Athens. ... Orestes is seen clinging to it.' (27 words); the HTML copy has it once. Phrase search in all 3 editions: 0 hits for 'scene changes', 'clinging to it', 'her statue stands', 'in the foreground', 'temple of athena', 'acropolis'. The Eumenides opening setting (l.4349-4353) is also absent, so no Athens marker exists. Translator direction: S4.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt", "sha256": "45a053562a54a4cd710a045029189de7e8d785d394064ffa048c26e509a5abaf", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/8604/pg8604-images.html", "sha256": "f406cf7a399fe1871f7f96b515f6bb6fdeb8d5fb2952025f2d42fb4d6339a267", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-oresteia-04",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "original-en 17.1 reads 'CHORUS.\\nORESTES (_knocking at the palace gate_)\\nWhat ho! slave, ho!'. Source l.3658 is the entrance direction and l.3660 is 'ORESTES (_knocking...)', with no CHORUS label (the HTML is the same). The token diff flags only this token. modern-en and modern-da 17.1 start 'ORESTES (knocking at the palace gate).' / 'ORESTES (banker på paladsporten).' The Agamemnon-inserted labels (3.1, 4.1, 5.1, 5.21, 8.10) are correct speaker attributions, not defects.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt", "sha256": "45a053562a54a4cd710a045029189de7e8d785d394064ffa048c26e509a5abaf", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/8604/pg8604-images.html", "sha256": "f406cf7a399fe1871f7f96b515f6bb6fdeb8d5fb2952025f2d42fb4d6339a267", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-medea-01",
+      "verdict": "CONFIRMED-WITH-CORRECTIONS",
+      "corrected": {
+        "location": "claimed 32 locations plus 3.23 (l.1020 MEDEA goes into the House), 4.76 (l.1713 AEGEUS departs), 6.29 (l.2320 MEDEA comes out alone)",
+        "extent_words": 363,
+        "severity": "S2",
+        "type": "MISPLACED",
+        "editions": ["original-en", "modern-en", "modern-da"]
+      },
+      "evidence": "All 35 bracketed Murray directions in pg35451 (l.361-2905), not 32 of 34, are served one speech early. For each, the source's preceding line sits in the next served paragraph. Examples: 7.5 ends '[Exit MESSENGER.' before the Messenger's speech 7.6 (source l.2483 follows it); 7.49 chariot exit precedes 7.50. The HTML copy has the same order as the TXT. The token diff shows no verse lost. Translations share the positions. The 2 heading-embedded directions are placed correctly.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt", "sha256": "e428f259d7b438517e01deeb05a4cac06645ff1a90e4e650a4a5cde84779264e", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/35451/pg35451-images.html", "sha256": "73a8e5c73b3f315354d565b7bb66ef67fe899653de27331c4aedfdc815469023", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-medea-02",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "The 7-chapter scheme verified. 'Second Episode' (ch4) = 1st stasimon 4.0-4.2 'Back streams the wave' (l.1024), the Jason agon, the 2nd stasimon 4.23-4.24 (l.1380) and the Aegeus scene 4.25-4.78. 'Third Episode' = the plan plus the 3rd stasimon 5.7-5.9 (l.1827). 'Fourth Episode' = 4th episode, 4th stasimon 6.15-6.17 (l.2095), monologue and anapaests. 'Exodos' = Messenger scene, murder stasimon 7.10-7.20, then Jason 7.21. Murray's separators at l.1376/1823/2091 are not served. All 3 editions aligned.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt", "sha256": "e428f259d7b438517e01deeb05a4cac06645ff1a90e4e650a4a5cde84779264e", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/35451/pg35451-images.html", "sha256": "73a8e5c73b3f315354d565b7bb66ef67fe899653de27331c4aedfdc815469023", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-bacchae-01",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "2.8 and 3.0 are an identical Teiresias entrance (27 words). 4.3 is the first line of the guards' direction (13 words), repeated in full at 5.0. 10.7 is the Messenger entrance (10 words), repeated at the start of 11.0. 9.29 and 11.11 end with a stray 'CHORUS.' before the next 'CHORUS.' heading. The source prints each once (l.407, 821, 2212; headings at l.2123/2387 are followed by 'Some Maidens'). The token diff shows exactly +27/+13/+10. All 3 editions reproduce every item.",
+      "sources": [
+        {"url": "https://www.gutenberg.org/cache/epub/35173/pg35173.txt", "sha256": "0394fd09ceb66b21c00b96d68be38fbeaa1408d2e30fd8128b8db7bbd708e83f", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.gutenberg.org/cache/epub/35173/pg35173-images.html", "sha256": "86441561a8acdb98647e05496b92c541172f23699bf6dcdcb4ee3af201322c99", "retrieved_utc": "2026-09-25T12:26:54Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-gilgamesh-01",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "Served original-en is Colavito's page text verbatim: 99.4% of its 8-gram shingles occur there, against 29.8% in his 2014 Muss-Arnolt page and 20.2% in the 1901 Harper scan. Page: 'adapted and modernized from the translation of William Muss-Arnolt'; footer '© 2010–2026 Jason Colavito. All rights reserved.' Terms: licence for 'personal, non-commercial transitory viewing only', and 'you may not: modify or copy the materials'. Registry: label 'Prose Compilation', no translator. modern-en/da derive from it. A rights review is warranted.",
+      "sources": [
+        {"url": "https://www.jasoncolavito.com/epic-of-gilgamesh.html", "sha256": "be5fbeff9bc5a55fc3d51b6bd5b96061cee5115f8462907e6ef2949117d19417", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://www.jasoncolavito.com/terms-and-conditions.html", "sha256": "5533c46cc7d4aca24787fa3b05f7406d38a74d75c3eb25d717c1ec7e65803602", "retrieved_utc": "2026-09-25T12:44:15Z"},
+        {"url": "http://www.argonauts-book.com/english-translation-of-gilgamesh.html", "sha256": "1042d084a8a488bb010d96c6fb81250b6d86ffa386c669c8462be82f9294f7eb", "retrieved_utc": "2026-09-25T12:44:15Z"},
+        {"url": "https://archive.org/download/cu31924083983944/cu31924083983944_djvu.txt", "sha256": "0bb5df2ea0f03e8ffd32ebe0e7a0fc4bfbe73c4c62e57763dd410bbd02997c65", "retrieved_utc": "2026-09-25T12:49:02Z"}
+      ]
+    },
+    {
+      "claim_id": "G04-gilgamesh-02",
+      "verdict": "CONFIRMED",
+      "corrected": null,
+      "evidence": "The page HTML has 'Ni&#7779;ir' (ṣ, U+1E63) five times. books/raw/gilgamesh/raw.txt l.8326 keeps the entity unresolved. Served original-en 11.14 has 'Niir' five times and contains no ṣ anywhere, so numeric entities were stripped at import. The same stripping removed a combining breve (Ḫumbaba→Humbaba, harmless) and zero-width spaces. modern-en and modern-da 11.14 read 'Nisir' (twice each), so they are unaffected. The 1901 scan reads 'To Mount Nisir the ship drifted.'",
+      "sources": [
+        {"url": "https://www.jasoncolavito.com/epic-of-gilgamesh.html", "sha256": "be5fbeff9bc5a55fc3d51b6bd5b96061cee5115f8462907e6ef2949117d19417", "retrieved_utc": "2026-09-25T12:26:54Z"},
+        {"url": "https://archive.org/download/cu31924083983944/cu31924083983944_djvu.txt", "sha256": "0bb5df2ea0f03e8ffd32ebe0e7a0fc4bfbe73c4c62e57763dd410bbd02997c65", "retrieved_utc": "2026-09-25T12:49:02Z"}
+      ]
+    }
+  ],
+  "new_observations": [
+    {
+      "id": "V04-NEW-1",
+      "book": "oresteia",
+      "type": "MISSING",
+      "severity": "S4",
+      "editions": ["original-en", "modern-en", "modern-da"],
+      "location": "20.14",
+      "extent_words": 3,
+      "note": "The speaker heading 'CHORUS OF FURIES' (pg8604 l.4563) is dropped at the start of the true Eumenides parodos, so 'Alack, alack, O sisters' reads as a continuation of FIRST FURY (20.13)."
+    },
+    {
+      "id": "V04-NEW-2",
+      "book": "oresteia",
+      "type": "MISFORMATTED",
+      "severity": "S4",
+      "editions": ["original-en", "modern-en", "modern-da"],
+      "location": "6.14, 10.2, 17.16, 23.3, 26.31",
+      "extent_words": 0,
+      "note": "Five sung/spoken italic lines (pg8604 l.1230, 2077, 3767, 5123, 5933) are served as bracketed stand-alone paragraphs that look like stage directions, e.g. '[O Justice, aid! aid, O ye thrones of Hell!]'. modern-en and modern-da bracket 4 of the 5 (not 23.3)."
+    },
+    {
+      "id": "V04-NEW-3",
+      "book": "oresteia",
+      "type": "MISSING",
+      "severity": "S4",
+      "editions": ["original-en", "modern-en", "modern-da"],
+      "location": "before 1.0, 11.0, 19.0",
+      "extent_words": 72,
+      "note": "The opening scene-setting directions are absent: Agamemnon l.118-119 (24 words), Libation Bearers l.2652-2653 (18), Eumenides l.4349-4351 (26) plus 'The Temple at Delphi' (4). This is editorial matter that may count as front matter."
+    },
+    {
+      "id": "V04-NEW-4",
+      "book": "oresteia",
+      "type": "COSMETIC",
+      "severity": "S4",
+      "editions": ["original-en"],
+      "location": "11.0, 19.0",
+      "extent_words": 0,
+      "note": "Drop-cap splits 'L ord of the shades' and 'F irst, in this prayer' are inherited from the PG TXT (l.2657, 4357); the HTML uses dropcap spans."
+    },
+    {
+      "id": "V04-NEW-5",
+      "book": "medea; bacchae",
+      "type": "MISFORMATTED",
+      "severity": "S4",
+      "editions": ["original-en", "modern-en", "modern-da"],
+      "location": "medea 1.17, 1.18, 2.1, 2.2, 3.6, 3.21, 4.25; bacchae 3.15, 3.17, 5.9, 7.14, 7.37, 7.38, 7.39, 7.60, 7.61, 7.66, 9.6, 9.9, 9.10, 9.15, 11.20, 11.35, 11.48, 11.52, 11.56, 11.63, 11.81, 11.95",
+      "extent_words": 0,
+      "note": "Where Murray's speaker heading carries a parenthetical direction (e.g. 'MEDEA (_rising_)', 'PENTHEUS (_brutally_)', 'VOICE (_within_)'), the speech is merged into the previous speaker's paragraph. The inline label is kept and the text is intact."
+    },
+    {
+      "id": "V04-NEW-6",
+      "book": "oedipus-rex; oedipus-at-colonus",
+      "type": "EXTRANEOUS",
+      "severity": "S4",
+      "editions": ["original-en"],
+      "location": "oedipus-rex 3.23; oedipus-at-colonus 2.71, 3.41, 11.10",
+      "extent_words": 4,
+      "note": "Stray Gutenberg footnote numerals remain ('thine.2', 'himself. 5', 'stand. 6', 'brood. 7'); the footnote texts are not served."
+    },
+    {
+      "id": "V04-NEW-7",
+      "book": "bacchae",
+      "type": "MISLABELED",
+      "severity": "S4",
+      "editions": ["original-en", "modern-en", "modern-da"],
+      "location": "6.5-6.18; 11.0-11.14",
+      "extent_words": 0,
+      "note": "Two labels overrun their units; text intact. 'Second Stasimon' (ode 6.0-6.4) runs into the Third Episode's palace-miracle scene (6.5-6.18). 'Exodos' opens with the Fifth Episode (Messenger, 11.0-11.11) and contains the Fifth Stasimon 'Weave ye the dance' (11.12-11.14)."
+    },
+    {
+      "id": "V04-NEW-8",
+      "book": "antigone",
+      "type": "SOURCE-ERROR (informational)",
+      "severity": "S4",
+      "editions": ["original-en", "modern-en", "modern-da"],
+      "location": "10.3",
+      "extent_words": 0,
+      "note": "'CHORUS. What should I do. Advise me. I will heed.' is Creon's line, but pg31 TXT l.8447-8448 and the HTML both print 'CHORUS.'; this is faithfully reproduced, not an import defect."
+    }
+  ]
+}

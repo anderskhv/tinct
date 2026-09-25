@@ -1,0 +1,444 @@
+{
+ "verifier": "V01",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "checkout_note": "HEAD 6081f873 = 1a7d89eb plus report files only; served data identical",
+ "results": [
+  {
+   "claim_id": "G10-the-histories-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All three editions open at 1.0 'Those of the Persians who have knowledge of history…' (shard identical). pg2707.txt lines 189-194 hold the 65-word proem ('This is the Showing forth…waged war with one another.'); HTML copy line 505 identical. 'Showing forth', 'Inquiry of Herodotus', 'lose their renown', 'waged war with one another' score 0 in original-en/modern-en; modern-da 'Herodot' only at 8.132. 6-gram coverage of Books I-IX: the proem is the sole missing run ≥8 words.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2707/pg2707.txt",
+     "sha256": "b4a845d38e9051690201561803d2aa83f6589a7b3f80273b97d79801981e64a3",
+     "retrieved_utc": "2026-09-25T12:23:16Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2707/pg2707-images.html",
+     "sha256": "3c3907df2d104a66428ce99c741195985b2c5bdb9e0879397fbd57bed8f97247",
+     "retrieved_utc": "2026-09-25T12:24:26Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-the-histories-11",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "passim: 879 paragraphs, e.g. 2.0, 3.0, 5.0",
+    "extent_words": 1449,
+    "severity": "S4",
+    "type": "EXTRANEOUS",
+    "editions": [
+     "original-en"
+    ]
+   },
+   "evidence": "Served 2.0 '…with the Hellenes, 3 and this…'; 3.0 '4'; 5.0 '401' (note 401 exists). Parsed NOTES TO BOOK I-IX (1,449 notes); each served standalone numeral checked against the same context in the source body and the book's note numbers: 1,449 align, in 879 paragraphs (not ≈1,316/818). Only non-note numeral: 878.0 '118.' (chapter number). Note texts absent ('inferior MSS', 'Aldine edition' = 0). modern-en/-da contain no footnote numerals. Shards identical.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2707/pg2707.txt",
+     "sha256": "b4a845d38e9051690201561803d2aa83f6589a7b3f80273b97d79801981e64a3",
+     "retrieved_utc": "2026-09-25T12:23:16Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2456/pg2456.txt",
+     "sha256": "7b28f25dbed0064cd8f66c662eaa776cccd535cdeb6e3ff94c37dd1cc2a752db",
+     "retrieved_utc": "2026-09-25T12:23:17Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-the-manual-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en 42.0 keeps 'for if a man shall suppose the true conjunction to be false, it is not the conjunction which is hindered, but the man who has been deceived about it.' (29 words; pg10661 lines 5211-5213; HTML copy identical). modern-en 42.0 goes '…has been deceived. When you understand this…': 'conjunction' = 0. modern-da follows modern-en and has no counterpart. Authorial (Ench. 42). It is a clause after a semicolon, not a whole sentence.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10661/pg10661.txt",
+     "sha256": "7915eac7442daed1fbc461b8a281ecc315c5e619126d50d914c29c39fa3b2209",
+     "retrieved_utc": "2026-09-25T12:23:17Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10661/pg10661-images.html",
+     "sha256": "cba47c73058c6424a76b0ffbb87bb215ed3e3ba76843aadb96b0753aa5082f77",
+     "retrieved_utc": "2026-09-25T12:47:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-the-manual-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "pg10661 has exactly 13 '[Greek: …]' glosses (lines 4548-4549 ×3, 4790, 4832, 4970, 5013, 5026, 5131, 5189, 5287, 5341, 5342; 14 transliterated words). Served original-en has 0 'Greek'; the residues are exactly 40.0 '(, dominæ)', 51.0 '(part, )' and '(precepts, )', other sites clean. modern-en/-da unaffected. These are translator's glosses, so S4 cosmetic.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10661/pg10661.txt",
+     "sha256": "7915eac7442daed1fbc461b8a281ecc315c5e619126d50d914c29c39fa3b2209",
+     "retrieved_utc": "2026-09-25T12:23:17Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10661/pg10661-images.html",
+     "sha256": "cba47c73058c6424a76b0ffbb87bb215ed3e3ba76843aadb96b0753aa5082f77",
+     "retrieved_utc": "2026-09-25T12:47:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-confessions-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "modern-da ch 10-13: 70+41+42+53 = 206 paragraphs, every one exactly '[TBD]'; Books 1-9 full. pg3296 lines 5345-9367 (Books X-XIII) = 48,618 words excluding headings, equal to served original-en 16,315+9,501+10,205+12,597. modern-en Books 10-13 present. Registry CONFESSIONS modern-da {aligned:true, hasAudio:true}. Danish is excluded from discovery (audioAvailability.ts:17) but the edition is still registered, served and selectable via saved prefs.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/3296/pg3296.txt",
+     "sha256": "ef3fa6267968c875def9091a1882d14b525a85bbf6996a3e2f130a775b2e22d2",
+     "retrieved_utc": "2026-09-25T12:23:17Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-paradise-lost-01",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "before 1.0, 2.0, … 12.0 (one Argument per Book)",
+    "extent_words": 2399,
+    "severity": "S2",
+    "type": "MISSING",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ]
+   },
+   "evidence": "Books open directly with verse in all editions; 48 Argument probes = 0 hits. SE argument-1…12 total 2,399 words; Dartmouth (1674 text) has 'THE ARGUMENT… sit in Councel' (296 words). PG #26 lacks them (inherited, Symposium-class). The label 'Original (1674)' names the edition that heads each Book with Milton's Argument, and the served text follows the 1674 12-book structure, so the Arguments are in scope: authorial ≥100 words = S2, not unclear-scope S3.",
+   "sources": [
+    {
+     "url": "https://standardebooks.org/ebooks/john-milton/paradise-lost/text/single-page",
+     "sha256": "81b6f57a9c72d91bce4b46892fefd2e83c48088c0cc9a78a67812996eef0d005",
+     "retrieved_utc": "2026-09-25T12:29:54Z"
+    },
+    {
+     "url": "https://milton.host.dartmouth.edu/reading_room/pl/book_1/text.shtml",
+     "sha256": "7418279f54072a7f76f977c79d6737231e0ff236847f38af57d2a016f24b20a5",
+     "retrieved_utc": "2026-09-25T12:31:44Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/26/pg26.txt",
+     "sha256": "aeedc9f33e0c2a6422d2f557462fb87cd2430974c6aed30a26803be5394a741a",
+     "retrieved_utc": "2026-09-25T12:23:18Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-paradise-lost-02",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "before 1.0 (front matter)",
+    "extent_words": 236,
+    "severity": "S2",
+    "type": "MISSING",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ]
+   },
+   "evidence": "Wikisource 1674 'The Verse' = 236 words ('THE measure is English Heroic Verse without Rime…bondage of Rimeing.'); Dartmouth front matter 'THE VERSE' (234 by my tokenisation) after the Barrow and Marvell poems. Absent from PG #26 (inherited). Served: no front matter, and 'Heroic Verse', 'without Rime', 'jingling sound', 'Homer in Greek', 'ancient liberty' score 0; also not in prefaces or onboarding. Milton's note belongs to the 1668/1674 edition the label names, so S2.",
+   "sources": [
+    {
+     "url": "https://en.wikisource.org/w/index.php?title=Paradise_Lost_(1674)/The_Verse&action=raw",
+     "sha256": "9fd300ae5b0dbc14a2d19ae8a4b0320b0bd3df44d50c705023cca4d0dca947f1",
+     "retrieved_utc": "2026-09-25T12:29:54Z"
+    },
+    {
+     "url": "https://milton.host.dartmouth.edu/reading_room/pl/note/text.shtml",
+     "sha256": "8e1dd7ce348312d812ace3ec6bdc50758d1b2e96a8f259de5edd2fd712d5290c",
+     "retrieved_utc": "2026-09-25T12:31:54Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/26/pg26.txt",
+     "sha256": "aeedc9f33e0c2a6422d2f557462fb87cd2430974c6aed30a26803be5394a741a",
+     "retrieved_utc": "2026-09-25T12:23:18Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-paradise-lost-03",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "modern-da Book 5 ending (orig 5.70-5.101 ≈ PL 5.642-907 absent; da ends at the Heaven feast 5.101); Book 6 opening (orig 6.0-6.5) plus condensation throughout; Book 2 condensed throughout; Book 1 condensed",
+    "extent_words": 11400,
+    "severity": "S1",
+    "type": "MISSING",
+    "editions": [
+     "modern-da"
+    ]
+   },
+   "evidence": "Danish/original word ratios: Book 1 0.84, Book 2 0.35, Book 5 0.74, Book 6 0.54; other Books 1.00-1.06. Paragraph counts are equal, so content drifts (da 2.26 = orig 2.23, as claimed). Danish Book 5 stops at the Heaven feast: Satan's revolt and Abdiel (1,974 source words) are absent ('Abdiel' 0 vs 2). Book 6 lacks its opening and combats; Book 2 lacks Styx, Acheron, Lethe, Medusa. The shortfall is ≈11,400 source words. Whole section plus plot-critical speeches = S1.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/26/pg26.txt",
+     "sha256": "aeedc9f33e0c2a6422d2f557462fb87cd2430974c6aed30a26803be5394a741a",
+     "retrieved_utc": "2026-09-25T12:23:18Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-imitation-of-christ-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions: 96.6 notes → 96.7 'OF THE SACRAMENT OF THE ALTAR', 96.8 'A devout exhortation to the Holy Communion', 96.9 'The Voice of Christ', 96.10 'Come unto Me…spirit, and they are life.(4)', 96.11 notes → 97.0 'With how great reverence…' titled 'Chapter 1'. pg1653 lines 5670-5688 (HTML copy identical) place this before CHAPTER I of Book IV. Extent 95 words (7+4+84), or 101 with the title line; 20-token note line extra. Reading order preserved.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1653/pg1653.txt",
+     "sha256": "7631799607b0ede62f1bd7ed2a8eb62d89524451a3c41e9ad2b5cbf4c2aa5383",
+     "retrieved_utc": "2026-09-25T12:23:18Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1653/pg1653-images.html",
+     "sha256": "a425da09c040cb13a78d3320669023b3cb65a0bcc80ae4583efe662f5d83f31d",
+     "retrieved_utc": "2026-09-25T12:47:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-imitation-of-christ-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "JSONs have only 'chapters' (no sections). Titles restart at 'Chapter 1' at 26, 38 and 97 with no book label (modern-da 'Kapitel N'). Book titles are served as the last paragraph of the previous book: 25.12 'ADMONITIONS CONCERNING THE INNER LIFE', 37.17 'ON INWARD CONSOLATION', 96.7 'OF THE SACRAMENT OF THE ALTAR'. 'THE FIRST…FOURTH BOOK' and 'ADMONITIONS PROFITABLE FOR THE SPIRITUAL LIFE' score 0 in all editions (source lines 217-218, 1595-1596, 2376-2377, 5670-5671). No section metadata elsewhere.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1653/pg1653.txt",
+     "sha256": "7631799607b0ede62f1bd7ed2a8eb62d89524451a3c41e9ad2b5cbf4c2aa5383",
+     "retrieved_utc": "2026-09-25T12:23:18Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1653/pg1653-images.html",
+     "sha256": "a425da09c040cb13a78d3320669023b3cb65a0bcc80ae4583efe662f5d83f31d",
+     "retrieved_utc": "2026-09-25T12:47:39Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G10-imitation-of-christ-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "76 note-block paragraphs in each edition (e.g. 1.6, 25.11, 96.6, 114.7), matching the source's 76 note blocks. original-en keeps all 180 inline '(n)' markers (144 paragraphs); modern-en/-da have 0, so their notes are orphaned. Final paragraph 114.7 = '(1) Proverbs xxv. 27 (Vulg.).' (pg1653 line 6912), after 114.6 '…wonderful or unspeakable.' These are Benham's editorial references, so S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1653/pg1653.txt",
+     "sha256": "7631799607b0ede62f1bd7ed2a8eb62d89524451a3c41e9ad2b5cbf4c2aa5383",
+     "retrieved_utc": "2026-09-25T12:23:18Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "kjv-en 481.0 '¹ Lord, how are they increased…' follows Ps 2 with no title; 'chief Musician', 'Maschil', 'Michtam', 'A Song of degrees', 'fled from Absalom' = 0 (whole edition and shards). eBible 20-PSAeng-kjv.usfm has 116 \\d titles, lines 49-5255, 1,034 words by my count (claim 1,046). Wikisource KJV (1769 Oxford scans) has the same 116. PG #10 and PG #30 have none, so the absence comes from the imported PG edition (Symposium-class), not the parser. Canonical text: S2.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+     "sha256": "0204adaed1f25700aa854218cae63c7172228c41088f335e99167a071eed83c0",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/30/pg30.txt",
+     "sha256": "dfed950e8e6719a2536a9e70a171a4addb3093e024acc1cfc0c7d3bdc7ed9d76",
+     "retrieved_utc": "2026-09-25T12:38:46Z"
+    },
+    {
+     "url": "https://ebible.org/Scriptures/eng-kjv_usfm.zip",
+     "sha256": "f01d1af83ab7137d280c105b3dd09fd9d504a0a3e51d142f881d2fdfb360adfe",
+     "retrieved_utc": "2026-09-25T12:38:15Z"
+    },
+    {
+     "url": "https://en.wikisource.org/w/index.php?title=Bible_(King_James)/Psalms&action=raw",
+     "sha256": "dd443bf09605abe1711eb6798ca61f91466bc9c34bd394e53f2b6dc74c90f635",
+     "retrieved_utc": "2026-09-25T12:38:54Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 597 (36 paragraphs): stanza verses at 597.0, 597.1 (mid-paragraph), 597.3 … 597.33 as claimed; 'ALEPH', 'GIMEL', 'SCHIN', 'KOPH' = 0 (BETH/TAU hits are words like Beth-el). eBible KJV \\s1 has 22 headings, lines 4282 'א ALEPH.' to 4676 'ת TAU.'; Wikisource KJV also has 22. PG #10 and PG #30 have none, so inherited from the imported source (Symposium-class). Translators' apparatus, S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+     "sha256": "0204adaed1f25700aa854218cae63c7172228c41088f335e99167a071eed83c0",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/30/pg30.txt",
+     "sha256": "dfed950e8e6719a2536a9e70a171a4addb3093e024acc1cfc0c7d3bdc7ed9d76",
+     "retrieved_utc": "2026-09-25T12:38:46Z"
+    },
+    {
+     "url": "https://ebible.org/Scriptures/eng-kjv_usfm.zip",
+     "sha256": "f01d1af83ab7137d280c105b3dd09fd9d504a0a3e51d142f881d2fdfb360adfe",
+     "retrieved_utc": "2026-09-25T12:38:15Z"
+    },
+    {
+     "url": "https://en.wikisource.org/w/index.php?title=Bible_(King_James)/Psalms&action=raw",
+     "sha256": "dd443bf09605abe1711eb6798ca61f91466bc9c34bd394e53f2b6dc74c90f635",
+     "retrieved_utc": "2026-09-25T12:38:54Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 929.1 (and shard ch0929) ends '…smite the earth with a curse. ***'; it is the only '***' in kjv-en. pg10.txt: Malachi ends line 76398, '***' at 76401, 'The New Testament of the King James Bible' at 76406. The separator comes from PG; appending it to Mal 4:6 is a Tinct parser artefact. Cosmetic, S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+     "sha256": "0204adaed1f25700aa854218cae63c7172228c41088f335e99167a071eed83c0",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-07",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "687.2 (Isaiah 8:14)",
+    "extent_words": 11,
+    "severity": "S3",
+    "type": "MISSING",
+    "editions": [
+     "web-en"
+    ]
+   },
+   "evidence": "Served 687.2 matches PG #8294 lines 44849-44850 verbatim, so the parser is faithful. Wikisource WEB (a later revision; line 432) and getBible WEB also omit the phrase. The current eBible WEB (24-ISA line 578) reads 'a stumbling stone and a rock that makes them fall' (11 words); KJV/BSB/ASV render it; v15 'it' lacks its antecedent. This is an omission inherited from the source revision (Symposium-class), not a parser error. Type MISSING; kept S3 because it breaks v15.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/8294/pg8294.txt",
+     "sha256": "abf7c2da851fc68e770a5f88d3dcea650115c0daa0f0a56f54418d282d4afe7d",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    },
+    {
+     "url": "https://en.wikisource.org/w/index.php?title=Bible_(World_English)/Isaiah&action=raw",
+     "sha256": "6aa6a482df9a20f37223b52148958d21f452e8490a96e9397bd69e06b6cca5b0",
+     "retrieved_utc": "2026-09-25T12:43:04Z"
+    },
+    {
+     "url": "https://api.getbible.net/v2/web/23/8.json",
+     "sha256": "8d596b2d286d9071068aa0c62604ef599280a7a2376735fcfe71c3bb41febf53",
+     "retrieved_utc": "2026-09-25T12:43:05Z"
+    },
+    {
+     "url": "https://ebible.org/Scriptures/eng-web_usfm.zip",
+     "sha256": "cc5d6cc5c4cef69efa1bd52aee1459211104c945bd685a5bcb247209fc30c792",
+     "retrieved_utc": "2026-09-25T12:38:15Z"
+    },
+    {
+     "url": "https://api.getbible.net/v2/asv/23/8.json",
+     "sha256": "fc7f8bd1b996a475b55d8ae14902dc969a471bddc3acdb5060beecadf9019250",
+     "retrieved_utc": "2026-09-25T12:54:07Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-09",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "web-en has exactly 117 '<<…>>' spans, all opening verse 1 of chapters 481-623 (e.g. 481.0 '¹ <<A Psalm by David, when he fled…>> Yahweh…', 597.0 '<<ALEPH>>'). pg8294 has exactly 117 '<<' (line 37234 Ps 3:1), so this is a source convention, not a parser artefact. Current eBible WEB: 116 superscriptions (plus 22 Ps 119 letters) over the same psalm set; 111 identical, Ps 34/46/145 carry merged notes, and Ps 52 'Abimelech' and Ps 62 'Jeduthan' are old-revision spellings.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/8294/pg8294.txt",
+     "sha256": "abf7c2da851fc68e770a5f88d3dcea650115c0daa0f0a56f54418d282d4afe7d",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    },
+    {
+     "url": "https://ebible.org/Scriptures/eng-web_usfm.zip",
+     "sha256": "cc5d6cc5c4cef69efa1bd52aee1459211104c945bd685a5bcb247209fc30c792",
+     "retrieved_utc": "2026-09-25T12:38:15Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-10",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 512.0 '…departed.Psalm 34 is an acrostic poem…(ordered from Alef to Tav).>>', 524.0 '…Alamoth.Alamoth is a musical term.>>', 623.0 '…David.This is an acrostic psalm…Hebrew alphabet.>>': 21+5+24 = 50 words. pg8294 lines 38097-38100, 38560-38561, 41736-41738 have the notes inside << >> without braces, with an empty '{}' left at 38096, 38559, 41735. Tinct strips all brace notes, so these three survive. Current WEB has them as footnotes (\\fr 34:1, 46:0, 145:0).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/8294/pg8294.txt",
+     "sha256": "abf7c2da851fc68e770a5f88d3dcea650115c0daa0f0a56f54418d282d4afe7d",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    },
+    {
+     "url": "https://ebible.org/Scriptures/eng-web_usfm.zip",
+     "sha256": "cc5d6cc5c4cef69efa1bd52aee1459211104c945bd685a5bcb247209fc30c792",
+     "retrieved_utc": "2026-09-25T12:38:15Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G11-bible-11",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "web-en 597 has only '<<ALEPH>>' (597.0); 'GIMEL', 'DALETH', 'ZAYIN', 'LAMEDH', 'SAMEKH', 'TZADHE', 'QOPH' = 0. pg8294 line 41000 '119:001 <<ALEPH>>…', with no other letter name anywhere in the file. Current eBible WEB has 22 \\d letters (ALEPH…TAV); Wikisource WEB has 22 in another spelling (BET, DALED, KUF…). So later WEB revisions carry them and the imported PG edition does not: inherited from the source, not the parser (Symposium-class). S4 apparatus.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/8294/pg8294.txt",
+     "sha256": "abf7c2da851fc68e770a5f88d3dcea650115c0daa0f0a56f54418d282d4afe7d",
+     "retrieved_utc": "2026-09-25T12:23:23Z"
+    },
+    {
+     "url": "https://ebible.org/Scriptures/eng-web_usfm.zip",
+     "sha256": "cc5d6cc5c4cef69efa1bd52aee1459211104c945bd685a5bcb247209fc30c792",
+     "retrieved_utc": "2026-09-25T12:38:15Z"
+    },
+    {
+     "url": "https://en.wikisource.org/w/index.php?title=Bible_(World_English)/Psalms&action=raw",
+     "sha256": "3afbf6652b1d4a59dd9edf05420ec0a8d84c7060ba3a201b5d215949fd909c4b",
+     "retrieved_utc": "2026-09-25T12:45:03Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V01-NEW-1",
+   "book": "the-histories",
+   "editions": [
+    "original-en"
+   ],
+   "type": "MISLABELED",
+   "severity": "S4",
+   "location": "878.0 and chapter titles at Tinct ch 44, 575, 879, 1061, 1064, 1091, 1099, 1238, 1348",
+   "description": "Nine Herodotus chapter numbers are skipped (1.44, 4.18, 5.118, 7.35, 7.39, 7.67, 7.76, 7.216, 8.88) because PG #2707/#2456 do not mark those breaks at line start; that text sits under the previous chapter. 5.118 is marked inline, so 878.0 reads '…marched his army upon Caria. 118. And, as it chanced…'. No text is lost (6-gram coverage).",
+   "source": "pg2707.txt/pg2456.txt (e.g. pg2456 line 2008)"
+  },
+  {
+   "id": "V01-NEW-2",
+   "book": "the-histories",
+   "editions": [
+    "modern-en",
+    "modern-da"
+   ],
+   "type": "MISLABELED",
+   "severity": "S3",
+   "location": "chapter titles of Tinct ch 44-450 (whole-book JSON and shard manifests)",
+   "description": "407 chapter titles disagree with original-en and with Herodotus' numbering. Book 1 ch 44-215 are numbered one too low; all of Book 2 is titled 'Chapter 216…397' (should be 1-182); Book 3 ch 1-53 are titled 'Chapter 398…450', and then 'Chapter 54' resumes. Introduced by Tinct; the text is aligned correctly.",
+   "source": "edition-internal comparison with original-en titles"
+  },
+  {
+   "id": "V01-NEW-3",
+   "book": "paradise-lost",
+   "editions": [
+    "original-en"
+   ],
+   "type": "MISLABELED",
+   "severity": "S4",
+   "location": "edition label 'Original (1674)'",
+   "description": "The served text is PG #26 (the Raben etext; per PG's own introduction its base edition is unknown) in modernised spelling. It follows the 1674 twelve-book structure but not the 1674 text. Label and provenance only; context for G10-paradise-lost-01/-02.",
+   "source": "pg26.txt introduction (line 74: 'never able to determine … which of a variety of editions he may have used')"
+  }
+ ]
+}
