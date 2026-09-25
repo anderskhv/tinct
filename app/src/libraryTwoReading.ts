@@ -37,6 +37,8 @@ interface CatalogueBook {
   author: string
   wordCount?: number | null
   art?: { src: string; srcSet: string } | null
+  /** Generated-cover palette; its background is the book's dominant tone. */
+  cover?: { background?: string } | null
   editions: Array<{ key: string; style?: string; language?: string; availability?: { chapterText?: boolean } }>
   readingStructure?: { totalParagraphs?: number; chapters?: Array<{ number: number; title: string; paragraphCount?: number }> } | null
 }
@@ -47,6 +49,8 @@ export interface ReadingTableBook {
   author: string
   cover: string | null
   wordCount: number | null
+  /** The book's dominant cover tone, for its spine. */
+  tone: string | null
   /** "Chapter 7" style label of the chapter Continue resumes in. */
   chapterLabel: string
   /** "You’re in the middle of Chapter 7" — the production hero headline. */
@@ -259,6 +263,7 @@ export async function loadReadingTable(): Promise<ReadingTable> {
         author: book?.author ?? '',
         cover: book?.art?.src ?? null,
         wordCount: book?.wordCount ?? null,
+        tone: book?.cover?.background ?? null,
         chapterLabel: row.target.chapterLabel,
         headline: heroHeadline(row),
         percent: typeof percent === 'number' && Number.isFinite(percent) ? percent : null,

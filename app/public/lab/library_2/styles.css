@@ -149,26 +149,28 @@ html #librarian-panel .orb-space{height:clamp(90px,15svh,140px);min-height:72px;
 /* Returning readers: the hero becomes a reading table (reading-table.js). The html
    class is set before first paint from the last known shelf, so the featured hero never flashes. */
 html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{display:none}
-.reading-table{--cw:150px;--ch:225px;position:absolute;z-index:3;inset:0;display:flex;flex-direction:column;padding:70px 0 20px}
-.rt-stage{flex:1 1 0;min-height:150px;position:relative}
-.rt-track{position:absolute;inset:0;display:flex;align-items:flex-end;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 calc(50% - var(--cw)/2) calc(var(--ch)*.16);gap:18px;overscroll-behavior-x:contain}
-.rt-track::-webkit-scrollbar{display:none}
-/* Seen from a little above: the books stand upright on the table and the camera looks down on them. */
-.rt-slot{flex:none;width:var(--cw);height:var(--ch);scroll-snap-align:center;perspective:1200px;perspective-origin:50% -95%;position:relative;cursor:pointer;--mh:calc(var(--ch)*.14)}
-.rt-slot::after{content:'';position:absolute;left:-4%;right:-4%;bottom:-7px;height:14px;border-radius:50%;background:radial-gradient(#000d,#0000 70%);filter:blur(3px);z-index:-1}
-.rt-book{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 100%;will-change:transform}
-.rt-cover{position:absolute;inset:0;border-radius:2px 3px 3px 2px;overflow:hidden;box-shadow:0 8px 16px #0009;transform:translateZ(1px)}
-.rt-cover img{width:100%;height:100%;object-fit:cover;display:block}
-.rt-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0005 0,#0000 4%,#ffffff12 5.5%,#0000 9%)}
-.rt-pages{position:absolute;top:.35%;bottom:0;left:1px;right:3px;transform-style:preserve-3d;pointer-events:none}
-.rt-pages i{position:absolute;display:block}
-.rt-leaf{inset:0;background:#efe6cc}
-.rt-fore{top:0;bottom:0;right:0;width:var(--t);transform-origin:100% 50%;transform:rotateY(-90deg);background:repeating-linear-gradient(90deg,#f0e7cd 0 1px,#d3c8a9 1px 2px);box-shadow:inset 0 0 10px #0003}
-.rt-head{left:0;right:0;top:0;height:var(--t);transform-origin:50% 0;transform:rotateX(-90deg);background:repeating-linear-gradient(180deg,#f3ead1 0 1px,#d9ceb0 1px 2px)}
-.rt-spine{top:-1.4%;bottom:0;left:-1px;width:calc(var(--t) + 2px);transform-origin:0 50%;transform:rotateY(90deg);background:var(--cover) 0 50%/auto 100%;filter:brightness(.62) saturate(.9);box-shadow:inset -3px 0 6px #0006}
-.rt-slot[data-side="pages"] .rt-spine,.rt-slot[data-side="spine"] .rt-fore{display:none}
-.rt-mark{left:62%;width:clamp(6px,5.5%,11px);top:calc(-1*var(--mh));height:calc(var(--mh) + 40%);transform:translateZ(var(--dz));opacity:var(--o,0);background:linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 62%,#000),var(--ribbon) 40%,color-mix(in srgb,var(--ribbon) 80%,#fff) 55%,color-mix(in srgb,var(--ribbon) 70%,#000));clip-path:polygon(0 0,50% 7%,100% 0,100% 100%,0 100%);box-shadow:inset 0 -6px 6px #0004;filter:drop-shadow(0 0 1px #0008)}
-.rt-back{position:absolute;inset:0;border-radius:2px;background:#1b1d18;transform:translateZ(calc(-1*var(--t) - 1px))}
+.reading-table{--bh:260px;--bw:173px;position:absolute;z-index:3;inset:0;display:flex;flex-direction:column;padding:70px 0 20px}
+/* One camera for the whole row, a little above the books, so their tops show and nothing is skewed per book. */
+.rt-stage{flex:1 1 0;min-height:150px;position:relative;perspective:1800px;perspective-origin:50% -25%;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.rt-row{position:absolute;left:50%;bottom:calc(var(--bh)*.05);width:0;height:0;transform-style:preserve-3d}
+.rt-b{--d:calc(var(--bh)*var(--dr));position:absolute;left:calc(var(--bw)/-2);bottom:0;width:var(--bw);height:var(--bh);padding:0;margin:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.22,.8,.24,1);-webkit-tap-highlight-color:transparent}
+.rt-b:focus-visible{outline:none}
+.rt-f{position:absolute;display:block;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.rt-front{inset:0;overflow:hidden;border-radius:1px 3px 3px 1px;transform:translateZ(calc(var(--d)/2))}
+.rt-front img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.rt-front::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0006 0,#0000 3.5%,#ffffff14 5%,#0000 8%);transition:background .5s}
+.rt-back{inset:0;border-radius:3px 1px 1px 3px;background:var(--binding);transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
+.rt-spine{top:0;bottom:0;left:calc(50% - var(--d)/2);width:var(--d);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(var(--bh)*.07) 0;transform:rotateY(-90deg) translateZ(calc(var(--bw)/2));transition:filter .5s}
+.rt-spine em{display:block;writing-mode:vertical-rl;font:normal clamp(7px,min(calc(var(--d)*.3),calc(var(--bh)*.036)),14px)/1.18 Georgia,serif;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:#dcc793;text-shadow:0 1px 0 #0009,0 0 1px #0006;overflow:hidden;max-height:76%;max-width:86%;margin:auto 0}
+.rt-gilt{display:block;width:62%;height:calc(var(--bh)*.012);min-height:2px;border-top:1px solid #cdb67a99;border-bottom:1px solid #cdb67a99}
+.rt-fore{top:1.2%;bottom:.6%;left:calc(50% - var(--d)/2 + 1px);width:calc(var(--d) - 2px);background:repeating-linear-gradient(90deg,#efe6cb 0 1px,#d2c7a7 1px 2px);box-shadow:inset 0 0 8px #0004;transform:rotateY(90deg) translateZ(calc(var(--bw)/2 - 2px))}
+.rt-head{left:1px;right:3px;top:calc(50% - var(--d)/2 + 1px);height:calc(var(--d) - 2px);background:repeating-linear-gradient(180deg,#f2e9cf 0 1px,#d8cdae 1px 2px);transform:rotateX(90deg) translateZ(calc(var(--bh)/2 - 2px))}
+/* The bookmark stands in the pages at the reader's depth and rises above the head; chosen book only. */
+.rt-mark{position:absolute;left:62%;width:clamp(5px,5.5%,11px);height:calc(var(--bh)*.13);top:calc((1 - var(--p))*100%);transform-origin:50% 0;transform:rotateX(-90deg) translateY(-100%);background:linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 62%,#000),var(--ribbon) 40%,color-mix(in srgb,var(--ribbon) 80%,#fff) 55%,color-mix(in srgb,var(--ribbon) 70%,#000));clip-path:polygon(0 0,100% 0,100% 100%,50% 93%,0 100%);opacity:0;transition:opacity .35s .35s}
+.rt-b.is-current .rt-mark{opacity:1}
+.rt-shadow{position:absolute;left:-12%;right:-12%;top:calc(50% - var(--d)*.9);height:calc(var(--d)*1.8);background:radial-gradient(closest-side,#000d,#0000);filter:blur(5px);transform:rotateX(90deg) translateZ(calc(var(--bh)/-2 + 1px));pointer-events:none}
+.rt-b:not(.is-current) .rt-spine{filter:brightness(.82)}
+.rt-b.is-current .rt-spine{filter:brightness(.7)}
 .rt-arrows{display:none}
 .rt-info{padding:6px 20px 0;flex:none}
 .rt-fade{transition:opacity .16s ease,transform .16s ease}.rt-fade.out{opacity:0;transform:translateY(4px)}
@@ -196,7 +198,6 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
  .rt-recap{max-width:520px;margin-top:18px;font-size:17px}.rt-recap p{font-size:17px}.rt-continue{margin-top:18px}
  .rt-arrows{display:flex;position:absolute;left:50%;bottom:-52px;transform:translateX(-50%);gap:10px}
  .rt-arrows button{width:36px;height:36px;border-radius:50%;border:1px solid #eee7d02d;background:#0c1a13b3;font:16px system-ui;color:#eee7d0}
- .rt-track{bottom:0}
 }
 /* Leaving for the reader: one quiet fade to paper, instead of intermediate pages. */
 body.leaving::after{content:'';position:fixed;inset:0;z-index:1000;background:#efe6cc;animation:leave-fade .24s ease-out both}
@@ -214,3 +215,7 @@ html.returning-pending .hero-copy,html.returning-pending #hero-book,html.returni
 /* Phones and tablets: Begin reading stays in view; Read more scrolls the rest of the preface. */
 .intro-more{display:block;margin:0 0 10px;padding:4px 0;font:13px/1.4 system-ui,sans-serif;color:var(--page-soft,#626b52);text-decoration:underline;text-decoration-color:#626b5266;text-underline-offset:3px;text-align:left}
 .intro-more[hidden]{display:none}
+/* Painted bindings carry their own gilt bands. */
+.rt-spine.is-textured .rt-gilt{visibility:hidden}
+.rt-spine.is-textured em{color:#e8d49a;text-shadow:0 1px 1px #000c,0 0 2px #0008}
+.rt-head{transform-style:preserve-3d}
