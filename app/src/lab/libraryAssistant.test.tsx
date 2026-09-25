@@ -66,10 +66,15 @@ describe('library assistant lifecycle', () => {
   it('aborts a pending librarian response and clears its isolated thread when the account signs out', async () => {
     let chatSignal: AbortSignal | null = null
     const fetchMock = vi.mocked(fetch)
-    fetchMock.mockImplementationOnce(async () => new Response(JSON.stringify(catalogue), { status: 200, headers: { 'Content-Type': 'application/json' } }))
-    fetchMock.mockImplementationOnce((_url, init) => {
-      chatSignal = init?.signal as AbortSignal
-      return new Promise((_resolve, reject) => chatSignal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError'))))
+    // Routed by URL, not call order: with Supabase configured (a developer's
+    // environment) the account's preferences are fetched in between.
+    fetchMock.mockImplementation((url, init) => {
+      if (String(url).includes('/api/chat')) {
+        chatSignal = init?.signal as AbortSignal
+        return new Promise((_resolve, reject) => chatSignal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError'))))
+      }
+      if (String(url).includes('catalogue.json')) return Promise.resolve(new Response(JSON.stringify(catalogue), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+      return Promise.resolve(new Response('[]', { status: 200, headers: { 'Content-Type': 'application/json' } }))
     })
     const view = render(<LibraryAssistant />)
     fireEvent.click(screen.getByRole('button', { name: 'Chat' }))

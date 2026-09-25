@@ -1596,7 +1596,8 @@ export const NIELS_LYHNE: Book = {
       style: 'original',
       label: 'Original (1880)',
       year: 1880,
-      aligned: true,
+      // Danish paragraphing (1,159) differs from the English editions (912).
+      aligned: false,
     },
     {
       key: 'original-en',
@@ -1621,7 +1622,8 @@ export const NIELS_LYHNE: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // Danish paragraphing (1,159) differs from the English editions (912).
+      aligned: false,
     },
   ],
 }
@@ -2064,7 +2066,8 @@ export const FAUST_PART_1: Book = {
       style: 'original',
       label: 'Goethe (1808)',
       year: 1808,
-      aligned: true,
+      // Verse set line by line: 1,056 paragraphs against the English editions' 895.
+      aligned: false,
     },
     {
       key: 'original-en',
