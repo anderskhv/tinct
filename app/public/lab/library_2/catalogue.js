@@ -2,7 +2,6 @@
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 const CATALOGUE_URL = '/lab/catalogue.json';
-const POSITION_KEY = 'tinct-lab-position';
 
 let catalogue = null;
 
@@ -52,39 +51,30 @@ export async function loadIntroduction(book) {
   if (!book.characters) book.characters = (onboarding?.cast || []).map(c => ({ aliases: [c.name], subtitle: c.role, body: c.description }));
 }
 
-function savedPlace(bookId) {
-  try {
-    const state = JSON.parse(localStorage.getItem(POSITION_KEY) || 'null');
-    return state?.books?.[bookId] || null;
-  } catch {
-    return null;
-  }
-}
 
-const signedIn = () => /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);
 
-function readerEdition(book, preferred) {
-  const readable = (book.editions || []).filter(e => e.availability?.chapterText !== false && e.language !== 'da');
-  return readable.find(e => e.key === preferred)?.key
-    || readable.find(e => e.key === book.defaultEditionKey)?.key
-    || readable.find(e => e.style === 'original' && e.language === 'en')?.key
-    || readable.find(e => e.style === 'modern' && e.language === 'en')?.key
-    || readable[0]?.key
-    || null;
+
+/** The production reading engine (device + cloud places, recaps), loaded once on demand. */
+let readingApiPromise = null;
+export function readingApi() {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js').then(() => {
+    if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
+    return window.__tinctLibraryTwoReading;
+  });
+  readingApiPromise.catch(() => { readingApiPromise = null; });
+  return readingApiPromise;
 }
 
 /**
- * Where "Begin reading" goes. Signed-in readers go through the production
- * book page, which merges this device's place with the account's newer cloud
- * place; a signed-out reader's place on this device resumes exactly; everyone
- * else starts at the first chapter.
+ * Where "Begin reading" and "Continue" go: straight into the production
+ * reader at the reader's place (merged device and cloud), else from the start
+ * in the chosen edition. Without the engine, the production book page.
  */
-export function readerHref(book, preferredEdition) {
-  const id = encodeURIComponent(book.id);
-  if (signedIn()) return `/library?book=${id}&view=book-detail`;
-  const place = savedPlace(book.id);
-  const edition = readerEdition(book, place?.primaryEditionKey || preferredEdition);
-  if (!edition) return `/library?book=${id}&view=book-detail`;
-  if (place) return `/library?book=${id}&start=${place.chapterNumber}.${(place.paragraphIndex || 0) + 1}&edition=${encodeURIComponent(edition)}&direct=reader`;
-  return `/library?book=${id}&start=${book.firstChapter || 1}.1&edition=${encodeURIComponent(edition)}&direct=reader`;
+export async function readerDestination(book, preferredEdition) {
+  try {
+    const api = await readingApi();
+    return await api.readerDestination(book.id, preferredEdition || null);
+  } catch {
+    return `/library?book=${encodeURIComponent(book.id)}&view=book-detail`;
+  }
 }
