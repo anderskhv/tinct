@@ -335,7 +335,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
               )}
               {compareUnavailable && (
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
-                  Side by side isn’t available for these two versions on a wide screen: they set out their verses differently.
+                  Side by side isn’t available for these two versions: they share no verse numbers to pair.
                 </p>
               )}
             </div>

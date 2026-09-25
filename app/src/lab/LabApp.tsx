@@ -134,6 +134,7 @@ import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
+import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -587,11 +588,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [marks, setMarks] = useState<LabMark[]>([])
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [chrome, setChrome] = useState<LabChromeState>('reading')
-  // Bible editions keep their own paragraphing (BSB sets poetry line by line).
-  // Desktop pairs rows by paragraph, so it needs the same paragraphing; the
-  // phone pages each edition on its own and meets it at the same verse.
-  const pairedCompareUnavailable = (book.bookId || 'bible') === 'bible'
-    && book.compareParagraphs.length > 0 && book.compareParagraphs.length !== book.paragraphs.length
+  // Bible editions keep their own paragraphing (BSB sets poetry line by line):
+  // desktop pairs those verse by verse (labVerseAlignment). Only a Bible pair
+  // with no shared verse numbers cannot be set side by side.
+  const pairedCompareUnavailable = useMemo(() => (book.bookId || 'bible') === 'bible'
+    && needsVerseAlignment(book.paragraphs, book.compareParagraphs)
+    && !buildVerseAlignment(book.paragraphs, book.compareParagraphs), [book.bookId, book.paragraphs, book.compareParagraphs])
   const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0
   const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
