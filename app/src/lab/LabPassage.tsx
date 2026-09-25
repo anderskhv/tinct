@@ -36,6 +36,12 @@ interface LabPassageProps {
   chapterActionsBusy?: boolean
   desktopSpread?: boolean
   nextReadingPage?: ChapterHearingPage
+  /**
+   * Desktop spread whose chapter ends on the left leaf: the next chapter's
+   * first leaf, shown on the right instead of a blank page. It is a view of
+   * the next chapter, not part of this one: no word indexes, no selection.
+   */
+  nextChapterOpening?: { title: string; paragraphs: string[]; page: ChapterHearingPage; onPrimer?: () => void }
   alignCompare?: boolean
   chapterTitle: string
   paragraphs: string[]
@@ -271,7 +277,10 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
   return lines.map((line, lineIndex) => (
     <p key={lineIndex} className={`lab-hearing-line${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
-      {renderWordGroups(line.words, (word, wordIndex, spacing) => (
+      {renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
+        // The page-edge fragment: its hyphen is drawn by CSS, as on the reading page.
+        ? <span key={`${lineIndex}-${wordIndex}`} className="lab-word-fragment" aria-hidden="true">{spacing}{word.text}</span>
+        : (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
           {renderWordText(word.text, word.emphasis)}
@@ -389,6 +398,7 @@ export function LabPassage({
   chapterActionsBusy = false,
   desktopSpread = false,
   nextReadingPage,
+  nextChapterOpening,
   alignCompare = false,
   chapterTitle,
   paragraphs,
@@ -1005,8 +1015,16 @@ export function LabPassage({
           {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
+          {!nextReadingPage && nextChapterOpening && (
+            <LabChapterHeading title={nextChapterOpening.title} preview={Boolean(nextChapterOpening.onPrimer)} onPreview={nextChapterOpening.onPrimer} measuring />
+          )}
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
+            {!nextReadingPage && nextChapterOpening && (
+              <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
+                {renderPlainWords(readingPageLines(nextChapterOpening.paragraphs, nextChapterOpening.page), nextChapterOpening.paragraphs)}
+              </div>
+            )}
           </div>
           {nextReadingPage && chapterEnd}
         </div>}

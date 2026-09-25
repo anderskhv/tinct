@@ -530,6 +530,26 @@ describe('the end-of-chapter card on the desktop spread', () => {
     expect(screen.getByTestId('end-card').closest('.lab-book-col-next')).toBeTruthy()
   })
 
+  it('shows the next chapter’s opening on the otherwise blank right leaf, outside this chapter’s words', () => {
+    const onPrimer = vi.fn()
+    render(<LabPassage {...props()} desktopSpread chapterEnd={card}
+      nextChapterOpening={{ title: 'Chapter 2', paragraphs: ['five six seven eight nine'], page: { paragraphIndex: 0, from: 0, to: 3 }, onPrimer }} />)
+    const opening = screen.getByTestId('lab-next-chapter-opening')
+    expect(opening.closest('.lab-book-col-next')).toBeTruthy()
+    expect(opening.textContent).toBe('five six seven')
+    // Only this chapter's words are indexed and selectable; the card stays with them.
+    expect(screen.getAllByTestId('lab-word').map(word => word.textContent)).toEqual(text[0].split(' '))
+    expect(screen.getByTestId('end-card').closest('.lab-book-col-next')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter 2' }))
+    expect(onPrimer).toHaveBeenCalledTimes(1)
+  })
+
+  it('leaves the opening out while the right leaf still has this chapter’s text', () => {
+    render(<LabPassage {...props()} desktopSpread chapterEnd={card} nextReadingPage={{ paragraphIndex: 0, from: 0, to: 4 }}
+      nextChapterOpening={{ title: 'Chapter 2', paragraphs: ['five'], page: { paragraphIndex: 0, from: 0, to: 1 } }} />)
+    expect(screen.queryByTestId('lab-next-chapter-opening')).toBeNull()
+  })
+
   it('is left in the single column on the phone', () => {
     render(<LabPassage {...props()} chapterEnd={card} />)
     const found = screen.getByTestId('end-card')
