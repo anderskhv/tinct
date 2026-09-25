@@ -23,7 +23,7 @@ The rendering follows **Jowett**. This applies `books/CLAUDE.md` ("do not silent
 - **No Greek-based departures.** Plato's Greek and other translations are not used to change Jowett's meaning, qualifiers, ages, relationships, connectives or emphasis. Where v1 had followed the Greek instead of Jowett, the change was reverted. Examples: "at least" and "boys" in 5.3, "welcome" in 5.4, "conceived" in 7.48, "my dear Agathon" in 7.44 (`reviews/RESOLUTION.md`).
 - **A Jowett softening stays in Jowett's words.** Examples: "true love" in 7.64 and "hearing him tell what he knew" in 8.26. It is not "corrected" from the Greek.
 - **What is not a source variant:** modernizing a Jowett word whose Victorian sense is plain from his own text. Examples: "want" as lack; "bully", which in Jowett's usage means an insolent, overbearing person; "ingenuous". Nor is a §5 gloss that identifies what Jowett's words refer to.
-- **Documented exceptions.** Where Jowett's pronoun is genuinely ambiguous and the speech's own argument fixes the referent, the referent is named, and the exception is listed in `CHANGES.md`. The only case is 4.1, "under Love's rule": Jowett's "his dominion" follows a sentence about Asclepius, but Eryximachus's thesis (4.0) is Love's rule over all things.
+- **Documented exceptions.** Where Jowett's pronoun is genuinely ambiguous and the speech's own argument fixes the referent, the referent is named, and the exception is listed in `CHANGES.md`. The only case is 4.1, "under the rule of love": Jowett's "his dominion" follows a sentence about Asclepius, but Eryximachus's thesis (4.0) is that love rules over all things.
 
 ## 2. What is preserved
 
@@ -99,7 +99,7 @@ Unfamiliar references get the smallest gloss that makes the sentence work, place
 
 - as an appositive ("Olympus, Marsyas's pupil");
 - as a plain-English version of the image ("like a token broken in half, each half matching the other");
-- as a phrase attached to a quotation ("as Homer says of Odysseus").
+- as a phrase attached to a quotation ("a tale, as Homer puts it", 8.33). A gloss does not add a name that Jowett does not use.
 
 The gloss never becomes a speaker's opinion. No footnotes and no bracketed editorial notes.
 
