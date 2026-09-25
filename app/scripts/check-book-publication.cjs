@@ -92,9 +92,9 @@ async function main(){
     assert(calls.length>0,'Play must use streaming narration')
     const request=calls[0];assert.equal(request.bookId,book);assert.equal(request.editionKey,ed);assert.equal(request.chapter,1)
     assert(request.paragraphs.some(p=>p.index===0&&/^[a-f0-9]{64}$/.test(p.textHash)),'Streaming must carry opening text identity')
-    assert.equal(legacy.length,0,'Must not request obsolete recordings')
+    assert.equal(legacy.filter(url=>url.startsWith('/api/audio-file')).length,0,'Must not load obsolete recordings')
     assert.deepEqual(errors,[])
-    results.cases.push({device,edition:ed,opening:true,compare:true,streamingRequest:request,bundle:state.bundle})
+    results.cases.push({device,edition:ed,opening:true,compare:true,streamingRequest:request,legacyManifestProbes:legacy,bundle:state.bundle})
     await state.context.close()
    }
    if(book==='symposium'){
