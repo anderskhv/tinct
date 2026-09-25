@@ -1,7 +1,7 @@
 // Returning readers: the hero becomes a reading table with the reader's own
 // books. Data and rules come from the production library
 // (/lab/library-2-reading.js, src/libraryTwoReading.ts); this file only draws.
-import { readingApi } from './catalogue.js';
+import { readingApi } from './catalogue.js?v=20260925b';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -66,6 +66,7 @@ export async function mountReadingTable({ hero, shelves, el }) {
   const demo = new URLSearchParams(location.search).get('demo') === 'reading';
   const root = document.documentElement;
   let api = null, view = null, table = null;
+  const settle = () => root.classList.remove('returning-pending');
 
   const render = (next, keepBookId) => {
     table = next;
@@ -84,7 +85,7 @@ export async function mountReadingTable({ hero, shelves, el }) {
     wire(view, table, api, demo, keepBookId);
   };
 
-  if (demo) { render(DEMO); return true; }
+  if (demo) { render(DEMO); settle(); return true; }
   // Paint the last known shelf at once (no featured-hero flash), then refresh from the engine.
   const cached = readCache();
   if (cached) render(cached);
@@ -97,6 +98,7 @@ export async function mountReadingTable({ hero, shelves, el }) {
   } catch {
     if (!cached) root.classList.remove('returning');
   }
+  settle();
   return root.classList.contains('returning');
 }
 
