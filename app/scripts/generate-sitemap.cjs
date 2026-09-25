@@ -309,7 +309,9 @@ function buildBookIndexPage(book, edition) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
-  const readerHref = `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
+  const readerHref = book.id === 'to-the-lighthouse'
+    ? `/read/${book.id}?chapter=1&edition=modern-en&compare=original-en`
+    : `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`

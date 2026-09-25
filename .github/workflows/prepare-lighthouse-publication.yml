@@ -43,6 +43,11 @@ jobs:
           READER_BUILT: '1'
           ARTIFACT_DIR: artifacts/lighthouse-release
         run: node scripts/check-reviewed-characters.cjs
+      - name: Verify opening, Compare and streaming request identity
+        env:
+          TEST_BOOK: to-the-lighthouse
+          ARTIFACT_DIR: artifacts/lighthouse-release
+        run: node scripts/check-book-publication.cjs
       - name: Commit verified generated assets
         run: |
           git config user.name "github-actions[bot]"
