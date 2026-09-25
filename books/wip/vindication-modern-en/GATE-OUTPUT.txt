@@ -1,0 +1,69 @@
+$ python3 books/classify-modern-en.py vindication-rights-of-woman --gate --per-chapter   # run on a scratch mirror: served original-en + candidate.json as modern-en
+tool: byte-identical copy of books/classify-modern-en.py (sha256 950700285d86e213…)
+  ch    1  sim 0.722  REAL        Dedication. To M. Talleyrand Perigord, Late Bishop
+  ch    2  sim 0.724  REAL        Introduction
+  ch    3  sim 0.693  REAL        Chapter 1. The Rights and Involved Duties of Manki
+  ch    4  sim 0.710  REAL        Chapter 2. The Prevailing Opinion of a Sexual Char
+  ch    5  sim 0.712  REAL        Chapter 3. The Same Subject Continued
+  ch    6  sim 0.719  REAL        Chapter 4. Observations on the State of Degradatio
+  ch    7  sim 0.701  REAL        Chapter 5. Animadversions on Some of the Writers W
+  ch    8  sim 0.614  REAL        Chapter 6. The Effect Which an Early Association o
+  ch    9  sim 0.712  REAL        Chapter 7. Modesty. Comprehensively Considered, an
+  ch   10  sim 0.666  REAL        Chapter 8. Morality Undermined by Sexual Notions o
+  ch   11  sim 0.703  REAL        Chapter 9. Of the Pernicious Effects Which Arise f
+  ch   12  sim 0.646  REAL        Chapter 10. Parental Affection
+  ch   13  sim 0.709  REAL        Chapter 11. Duty to Parents
+  ch   14  sim 0.693  REAL        Chapter 12. On National Education
+  ch   15  sim 0.672  REAL        Chapter 13. Some Instances of the Folly Which the 
+vindication-rights-of-woman original-en -> modern-en  (15 chapters)
+  weighted similarity : 0.698   (gate: <= 0.75)
+  light+mechanical    : 0/15 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/747 = 0.1%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 15  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+$ ... --gate --chapters 1-3
+vindication-rights-of-woman original-en -> modern-en  (3 chapters)
+  weighted similarity : 0.710   (gate: <= 0.75)
+  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/65 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 3  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+$ ... --gate --chapters 4-7
+vindication-rights-of-woman original-en -> modern-en  (4 chapters)
+  weighted similarity : 0.709   (gate: <= 0.75)
+  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/371 = 0.3%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+$ ... --gate --chapters 8-11
+vindication-rights-of-woman original-en -> modern-en  (4 chapters)
+  weighted similarity : 0.681   (gate: <= 0.75)
+  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/124 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+$ ... --gate --chapters 12-15
+vindication-rights-of-woman original-en -> modern-en  (4 chapters)
+  weighted similarity : 0.685   (gate: <= 0.75)
+  light+mechanical    : 0/4 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/187 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 4  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+$ audit-truncation (en), local-path copy
+== vindication-rights-of-woman: modern-en vs original-en ==
+  TOTAL: 0
