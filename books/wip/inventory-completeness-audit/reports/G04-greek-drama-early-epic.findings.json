@@ -1,0 +1,673 @@
+{
+ "group": "G04-greek-drama-early-epic",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "date": "2026-09-25",
+ "books": [
+  {
+   "id": "oedipus-rex",
+   "title": "Oedipus Rex",
+   "verdict": "DEFECTS",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "44edb377baee3bf5968e15927e1e6e9d581e4a8052eac4609fb49db9253b7926",
+     "source_url": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+     "source_sha256": "be8419a2713178f45584eb7421760ff3e5b1a1af4a002cb5c53483ed37041794",
+     "source_retrieved_utc": "2026-09-25T11:53:32Z",
+     "source_covered_pct": 99.56,
+     "edition_covered_pct": 99.992,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "pg31.txt lines 105-3016",
+     "source_title": "Plays of Sophocles: Oedipus the King; Oedipus at Colonus; Antigone",
+     "source_translator": "Francis Storr (Loeb, 1912)",
+     "local_raw": "books/raw/sophocles/raw.txt = PG file + leading UTF-8 BOM (otherwise byte-identical)",
+     "uncovered": "28 Storr strophic markers (Str./Ant.), 2 footnote markers"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "ch6 'Second Stasimon' opens: CHORUS. Lady, lead indoors thy consort; wherefore longer here delay?",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "ch8 'Third Stasimon' opens: CHORUS. My lot be still to lead The life of innocence",
+     "local_raw_has_it": true,
+     "modern_en": "inherits (identical titles/boundaries)",
+     "modern_da": "inherits (Danish equivalents of the same labels)",
+     "existing_repair": "none; green-oedipus-rex (origin/claude/friendly-albattani-qgyqfi @81da10b5e) locks this source.json and copies the 11 titles; its ACCEPTANCE-RECORD.md l.5 calls the source a 'R.C. Jebb-lineage translation' (it is Storr 1912)",
+     "id": "G04-oedipus-rex-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "ch4-ch9 (4.3-4.8, 6.0-6.8, 7.0-7.43, 8.0-8.18, 9.88-9.89)",
+     "extent_words": 0,
+     "summary": "Chapter labels ch4-ch9 do not match the play's units. 'First Stasimon' (ch4) ends with Creon's Second-Episode entrance (4.3-4.8); 'Second Stasimon' (ch6) is the kommos antistrophes of the Second Episode, no stasimon; 'Third Episode' (ch7) is the rest of the Second Episode; the real Second Stasimon ('My lot be still to lead') is 8.0-8.3 under 'Third Stasimon', followed by the Third Episode opening (8.4-8.18); the real Third Stasimon ('If my soul prophetic err not') is 9.88-9.89 inside 'Fourth Episode'. Text complete and in order.",
+     "source_ref": "pg31.txt l.912 (1st stasimon), l.953 (Creon enters, 2nd ep.), l.1356 (kommos Ant.1), l.1702 (2nd stasimon), l.1753 (3rd ep.), l.2231 (3rd stasimon), l.2249 (4th ep.), l.2503 (4th stasimon)"
+    }
+   ],
+   "scope_notes": [
+    "Storr's Argument (pg31 l.61-84), Dramatis Personae and 'Scene: Thebes' line (l.85-100) and 3 footnotes (l.3017-3037) not served: translator/editorial apparatus (SCOPE).",
+    "Storr's 28 strophic markers '(Str. 1)', '(Ant. 1)' etc. not served; ode text itself complete (SCOPE, but they would expose the unit structure)."
+   ],
+   "needs_investigation": [],
+   "notes": "No dropped speech continuations; 0 missing runs >=12; order clean."
+  },
+  {
+   "id": "antigone",
+   "title": "Antigone",
+   "verdict": "DEFECTS",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "628086763bedd01d73e653b9a372cb0f679a2870f524e8f25bf2703e663bf61b",
+     "source_url": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+     "source_sha256": "be8419a2713178f45584eb7421760ff3e5b1a1af4a002cb5c53483ed37041794",
+     "source_retrieved_utc": "2026-09-25T11:53:32Z",
+     "source_covered_pct": 99.332,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "pg31.txt lines 6668-8857",
+     "source_translator": "Francis Storr (Loeb, 1912)",
+     "local_raw": "books/raw/sophocles/raw.txt = PG file + BOM",
+     "uncovered": "play heading, 35 Storr strophic markers"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "ch8 'Third Stasimon' opens: CHORUS. Thy son has gone, my liege, in angry haste.",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "ch9 'Fourth Episode' opens: CHORUS. Love resistless in fight, all yield at a glance of thine eye",
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none; green-antigone (origin/claude/friendly-albattani-qgyqfi @a6c39aaa4) verified 'titles ... exact match to source' (inherits)",
+     "id": "G04-antigone-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "ch8-ch10 (8.0-8.5, 9.0-9.1, 9.20-9.23, 10.0-10.17); minor ch6 6.0-6.3",
+     "extent_words": 0,
+     "summary": "'Third Stasimon' (ch8) contains no choral ode, only the dialogue closing the Third Episode (766-780); the real Third Stasimon (Ode to Eros, 'Love resistless in fight') is 9.0-9.1 and the real Fourth Stasimon (Danae ode) is 9.20-9.23, both inside 'Fourth Episode', which also holds the Teiresias (fifth) episode 9.24-9.52; 'Fourth Stasimon' (ch10) is the end of that episode (10.0-10.10) plus the Hymn to Dionysus (fifth stasimon, 10.11-10.17). Text complete and in order.",
+     "source_ref": "pg31.txt l.7628 (end 2nd ep.), l.7649 (2nd stasimon), l.7951 (end 3rd ep.), l.7986 (3rd stasimon), l.8008 (4th ep.), l.8193 (4th stasimon), l.8243 (5th ep.), l.8431, l.8487 (5th stasimon)"
+    }
+   ],
+   "scope_notes": [
+    "Storr's Argument and Dramatis Personae not served (SCOPE).",
+    "35 strophic markers not served; ode text complete (SCOPE)."
+   ],
+   "needs_investigation": [],
+   "notes": "0 missing runs; edition covered 100%."
+  },
+  {
+   "id": "oedipus-at-colonus",
+   "title": "Oedipus at Colonus",
+   "verdict": "DEFECTS",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "72f7f95bf433c0ba963a3e14521b6ca31c5811f1ba3478fb7af52f6f59c29b6e",
+     "source_url": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+     "source_sha256": "be8419a2713178f45584eb7421760ff3e5b1a1af4a002cb5c53483ed37041794",
+     "source_retrieved_utc": "2026-09-25T11:53:32Z",
+     "source_covered_pct": 99.573,
+     "edition_covered_pct": 99.811,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "pg31.txt lines 3103-6593",
+     "source_translator": "Francis Storr (Loeb, 1912)",
+     "local_raw": "books/raw/sophocles/raw.txt = PG file + BOM",
+     "extra_runs_ge12": "1 (14 tok: '[Text lost in manuscript.]' placeholders 2.18-2.22 for Storr's asterisk lacuna rows l.3462-3477)",
+     "uncovered": "heading, 29 strophic markers, footnote markers"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "ch4 'First Stasimon' opens: CHORUS. Our pity, Oedipus, thou needs must move",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "ch6 'Second Stasimon' opens: CHORUS. Thou hast come to a steed-famed land for rest",
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none; green-oedipus-at-colonus (origin/claude/friendly-albattani-qgyqfi @63fd17792) copies the titles (inherits)",
+     "id": "G04-oedipus-at-colonus-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "ch2-ch9 (2.62-2.76, 4.0-4.64, 5.0-5.51, 6.0-6.7, 8.0-8.14, 9.39-9.40)",
+     "extent_words": 0,
+     "summary": "Labels ch2-ch9 are displaced: the First Episode runs across 'Parodos' (2.62-2.76), 'First Episode', 'First Stasimon' (ch4: purification + kommos 4.26ff, no stasimon) and 'Second Episode' (ch5, Theseus); the real First Stasimon (Ode to Colonus, 'Thou hast come to a steed-famed land') is ch6 'Second Stasimon'; the real Second Stasimon ('O when the flying foe') is 8.11-8.14 after 11 paragraphs of Second-Episode dialogue under 'Third Stasimon'; the real Third Stasimon ('Not to be born at all') is 9.39-9.40 inside 'Fourth Episode'. Text complete and in order.",
+     "source_ref": "pg31.txt l.3669 (1st ep.), l.4080, l.4208 (kommos), l.4390 (Theseus), l.4666 (1st stasimon), l.4720 (2nd ep.), l.5222, l.5363 (2nd stasimon), l.5664-5695 (3rd stasimon)"
+    }
+   ],
+   "scope_notes": [
+    "Storr's Argument, Dramatis Personae, ~4 footnotes not served (SCOPE).",
+    "Storr's asterisk lacuna rows rendered as '[Text lost in manuscript.]' (2.18-2.22): Tinct placeholder text, faithful to the lacuna, documented in SOURCE.md (VARIANT, not a defect).",
+    "29 strophic markers not served (SCOPE)."
+   ],
+   "needs_investigation": [
+    "PG #31 itself mislabels speakers at 3.32-3.34 (OEDIPUS for ISMENE) and 5.25-5.26 (THESEUS twice); served faithfully; green-oedipus-at-colonus documented it; a print check of Storr/Loeb could correct it."
+   ],
+   "notes": "0 missing runs >=12."
+  },
+  {
+   "id": "oresteia",
+   "title": "The Oresteia",
+   "verdict": "DEFECTS",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "c6189c462535c35845f110ed8a4c4fab2ac5be8ca9e5ce0879fc185fea54818c",
+     "source_url": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt",
+     "source_sha256": "45a053562a54a4cd710a045029189de7e8d785d394064ffa048c26e509a5abaf",
+     "source_retrieved_utc": "2026-09-25T11:53:33Z",
+     "source_covered_pct": 99.581,
+     "edition_covered_pct": 99.957,
+     "missing_runs_ge12": 4,
+     "missing_runs_ge25": 3,
+     "body": "pg8604.txt lines 118-5941",
+     "source_title": "The House of Atreus; Being the Agamemnon, the Libation bearers, and the Furies",
+     "source_translator": "E. D. A. Morshead",
+     "local_raw": "books/raw/oresteia/raw.txt = PG file + BOM",
+     "missing_runs_explained": "Dramatis Personae + opening scene-settings of the 3 plays (52/36/24 tok, SCOPE) and the Athens scene change (27 tok, G04-oresteia-03)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "ch14 'Kommos' opens: ELECTRA. Yea, and my heart o'erflows with gall of grief",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "ch18 'Exodos' opens: [Exit] / CHORUS. Farewell then as thou mayst",
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none; green-oresteia (origin/claude/friendly-albattani-qgyqfi @2677b9a8c) ACCEPTANCE-RECORD.md l.49 states 'All 26 are real Act/Scene-equivalent reading units' (inherits)",
+     "id": "G04-oresteia-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "Libation Bearers ch14-ch18; Eumenides ch20-ch25",
+     "extent_words": 0,
+     "summary": "Libation Bearers: 'Kommos' (ch14) is the recognition scene of the First Episode; the real kommos begins 15.1 under 'Second Episode'; 'Second Stasimon' (ch16) is the first stasimon; 'Third Episode' (ch17, 105 p) also holds the 2nd stasimon (17.33-17.39), 4th episode, 3rd stasimon (17.88-17.90) and most of the exodos (17.91-17.104, Orestes' madness); 'Exodos' (ch18) is only the final chorus. Eumenides: the Binding Song (true 1st stasimon) is 21.6-21.13 inside 'First Episode'; 'First Stasimon' (ch23) is the 2nd stasimon; 'Parodos' (ch20) opens with the Ghost scene. Agamemnon broadly correct.",
+     "source_ref": "pg8604.txt l.2967, l.3154 (kommos), l.3594, l.3868 (2nd stasimon), l.4128 (3rd stasimon), l.4183 (exodos), l.4314; Eumenides l.4820 (Binding Song), l.5097, l.5551"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "26.30 ... All-seeing Zeus and Fate come down / To battle fair for Pallas' town!",
+     "missing_start": "_Ring out your chant, ring out your joy's acclaim!_ (italic sung line, pg8604 l.5933)",
+     "missing_end": null,
+     "served_after": "26.32 [Exeunt omnes]",
+     "local_raw_has_it": true,
+     "modern_en": "inherits at 6.14, 10.2, 17.16, 26.31; 23.3 rendered unbracketed",
+     "modern_da": "inherits at 6.14, 10.2, 17.16, 26.31; 23.3 unbracketed",
+     "existing_repair": "green-oresteia (origin/claude/friendly-albattani-qgyqfi @2677b9a8c) ACCEPTANCE-RECORD.md l.167-172 claims 'the source sets certain interjected/quoted cries inside square brackets' and re-bracketed 23.3 in its candidate: entrenches the import artefact",
+     "id": "G04-oresteia-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "6.14, 10.2, 17.16, 23.3, 26.31",
+     "extent_words": 34,
+     "summary": "Five italic verse lines inside choral/chant passages are served as bracketed stage-direction paragraphs that split their stanzas, including the trilogy's final line (26.31 '[Ring out your chant, ring out your joy's acclaim!]'). PG prints them as italic verse, not brackets.",
+     "source_ref": "pg8604.txt l.1230, l.2077, l.3767, l.5123, l.5933"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "20.36 APOLLO. ... And in me Fear and Will say Leave him not. / 20.37 [Exeunt omnes]",
+     "missing_start": "The scene changes to Athens. In the foreground, the Temple of Athena",
+     "missing_end": "her statue stands in the centre; Orestes is seen clinging to it.",
+     "served_after": "21.0 ORESTES. Look on me, queen Athena; lo, I come By Loxias' behest",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none (green-oresteia inherits)",
+     "id": "G04-oresteia-03",
+     "type": "MISSING",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 20.37",
+     "extent_words": 27,
+     "summary": "Eumenides mid-play scene-change direction (Delphi to Athens) absent; no other marker of the move to Athens.",
+     "source_ref": "pg8604.txt lines 4714-4716"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "17.0 [Enter Orestes and Pylades, in guise of travellers]",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "17.1 CHORUS. / ORESTES (_knocking at the palace gate_) / What ho! slave, ho!",
+     "local_raw_has_it": false,
+     "modern_en": "not present (rendering dropped the stray label)",
+     "modern_da": "not present",
+     "existing_repair": "none",
+     "id": "G04-oresteia-04",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "17.1",
+     "extent_words": 1,
+     "summary": "Stray 'CHORUS.' speaker label prefixed to Orestes' speech: 'CHORUS. / ORESTES (knocking at the palace gate)'.",
+     "source_ref": "pg8604.txt l.3658-3661 (SD at l.3658, then ORESTES heading at l.3660; no CHORUS label)"
+    }
+   ],
+   "scope_notes": [
+    "Introductory Note (editorial, pg8604 l.58-105), three Dramatis Personae lists and three opening scene-settings not served; SOURCE.md documents the stripping (SCOPE).",
+    "Speaker labels normalised (KILISSA -> A NURSE, CHORUS OF FURIES -> CHORUS) (VARIANT).",
+    "Drop-cap splits 'L ord' (11.0) and 'F irst' (19.0) are present in the PG file itself (source artefact)."
+   ],
+   "needs_investigation": [],
+   "notes": "0 extra runs; no dropped continuations after stage directions; Eumenides refrains (25.1/25.5) are source repeats."
+  },
+  {
+   "id": "medea",
+   "title": "Medea",
+   "verdict": "DEFECTS",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731",
+     "source_url": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt",
+     "source_sha256": "e428f259d7b438517e01deeb05a4cac06645ff1a90e4e650a4a5cde84779264e",
+     "source_retrieved_utc": "2026-09-25T11:53:36Z",
+     "source_covered_pct": 99.689,
+     "edition_covered_pct": 99.717,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "pg35451.txt lines 297-2918",
+     "source_title": "Medea of Euripides",
+     "source_translator": "Gilbert Murray",
+     "local_raw": "books/raw/medea/raw.txt = PG file + BOM",
+     "stage_directions": "34 in source; 32 displaced (see G04-medea-01)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "7.5 ... How died they? ... That were comfort to my soul. [Exit MESSENGER.",
+     "missing_start": "source order: MESSENGER. When thy two children, hand in hand entwined ...",
+     "missing_end": "... but to no man happiness. [Exit MESSENGER.",
+     "served_after": "7.6 MESSENGER. When thy two children, hand in hand entwined, Came with their father",
+     "local_raw_has_it": true,
+     "modern_en": "inherits (same positions)",
+     "modern_da": "inherits (same positions)",
+     "existing_repair": "none; green-medea (origin/claude/friendly-albattani-qgyqfi @bd06d1791) fidelity-review-1.md l.105-111 examined 3.21/3.22 and cleared it because it 'exists in source.json itself'; candidate 8aafd12a3fab2c... inherits all 32",
+     "id": "G04-medea-01",
+     "type": "MISPLACED",
+     "severity": "S2",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.0, 1.5, 1.16, 1.18, 2.4, 2.6, 3.21, 4.3, 4.20, 4.23, 5.5(x2), 6.0(x3), 6.11(x2), 6.13, 6.16, 6.28(x4), 6.30, 7.5, 7.8, 7.10, 7.17, 7.19, 7.28, 7.49, 7.64",
+     "extent_words": 327,
+     "summary": "32 of Murray's 34 stage directions are attached to the paragraph before the speech they follow, moving the action one speech early: '[Exit MESSENGER]' ends 7.5, before the Messenger's speech 7.6; '[She rises on the chariot and is slowly borne away]' ends 7.49, before Medea's final speech 7.50; '[A cry is heard within]' comes a stanza early (7.10); '[Exit CREON with his suite]' precedes Creon's reply (3.21/3.22); all stage business of the great monologue (6.29) is served before it (6.28).",
+     "source_ref": "pg35451.txt stage directions l.361-2905 (e.g. l.950, l.2252-2275, l.2483, l.2562, l.2823, l.2905)"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "ch4 'Second Episode' opens: CHORUS. Back streams the wave on the ever running river",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none; green-medea (origin/claude/friendly-albattani-qgyqfi) locks the 7-chapter structure",
+     "id": "G04-medea-02",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "ch4-ch7",
+     "extent_words": 0,
+     "summary": "The 7-chapter scheme gives no stasimon its own unit and misnumbers episodes: 'Second Episode' (ch4) spans the 1st stasimon (4.0-4.2), the Jason agon, the 2nd stasimon (4.23-4.24) and the Aegeus scene (4.25-4.78); 'Third Episode' (ch5) is Medea's plan + 3rd stasimon (5.7-5.9); 'Fourth Episode' (ch6) spans the 4th episode, 4th stasimon (6.15-6.17), 5th episode with the great monologue and the anapaests; 'Exodos' (ch7) includes the Messenger scene and the murder stasimon (7.10-7.20). Murray's own separators (l.1376, 1823, 2091) mark the stasima.",
+     "source_ref": "pg35451.txt l.1023, 1376-1379, 1716-1725, 1823-1826, 1890, 2091-2094, 2131, 2323, 2334, 2525, 2622"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "4.25 AEGEUS. Have joy, Medea! ... MEDEA (_looking up, surprised_). Oh, joy on thee, too",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none",
+     "id": "G04-medea-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.17, 1.18, 2.1, 2.2, 3.21, 4.25",
+     "extent_words": 0,
+     "summary": "Speaker headings carrying a parenthetical direction (e.g. 'MEDEA (_rising_).', 'VOICE (_within_).') were merged into the preceding speaker's paragraph; text present, inline label kept.",
+     "source_ref": "pg35451.txt l.1433-1441"
+    }
+   ],
+   "scope_notes": [
+    "Murray's Introduction (pg35451 l.81-260), Characters list with the production note, NOTES TO MEDEA (l.2919ff), publisher list, Transcriber's note not served (SCOPE).",
+    "Murray's '* * * * *' separators (l.1376, 1823, 2091) not served; they mark the 2nd-4th stasima."
+   ],
+   "needs_investigation": [],
+   "notes": "Text complete; defect is order/segmentation only."
+  },
+  {
+   "id": "bacchae",
+   "title": "The Bacchae",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539",
+     "source_url": "https://www.gutenberg.org/cache/epub/35173/pg35173.txt",
+     "source_sha256": "0394fd09ceb66b21c00b96d68be38fbeaa1408d2e30fd8128b8db7bbd708e83f",
+     "source_retrieved_utc": "2026-09-25T11:53:34Z",
+     "source_covered_pct": 99.541,
+     "edition_covered_pct": 99.789,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "pg35173.txt lines 165-3027",
+     "source_title": "The Bacchae of Euripides",
+     "source_translator": "Gilbert Murray",
+     "local_raw": "books/raw/bacchae/raw.txt = PG file + BOM",
+     "duplicate_runs": "1 (27 tok, Teiresias entrance 2.8/3.0)"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "2.8 ... _Enter_ TEIRESIAS. _He is an old man and blind, leaning upon a staff",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "3.0 _Enter_ TEIRESIAS. _He is an old man and blind, leaning upon a staff",
+     "local_raw_has_it": false,
+     "modern_en": "inherits duplicates",
+     "modern_da": "inherits duplicates",
+     "existing_repair": "none; green-bacchae (origin/claude/friendly-albattani-qgyqfi @e00564cdc) candidate inherits",
+     "id": "G04-bacchae-01",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.8/3.0, 4.3/5.0, 10.7/11.0 (duplicates); 9.29, 11.11 (stray labels)",
+     "extent_words": 50,
+     "summary": "Entrance directions duplicated across chapter boundaries: Teiresias's entrance (27 words) ends 2.8 and opens 3.0; first line of the guards' entrance ends 4.3 and the full direction opens 5.0; the Messenger's entrance ends 10.7 and opens 11.0. Paragraphs 9.29 and 11.11 end with a stray 'CHORUS.' label duplicating the next paragraph's heading.",
+     "source_ref": "pg35173.txt l.407-408, l.821-823, l.2212, l.2121-2123, l.2385-2387 (each printed once)"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "7.37 DIONYSUS. Verily, That is my compact ... PENTHEUS (_turning from him_). Ho, armourers!",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none",
+     "id": "G04-bacchae-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "21 merged paragraphs (3.15, 5.9, 7.14, 7.37-7.39, 7.60-7.61, 7.66, 9.6, 9.9-9.10, 9.15, 11.20, 11.35, 11.48, 11.52, 11.56, 11.63, 11.81, 11.95); ~35 part-labels in ch2, 4, 6, 8, 10, 11",
+     "extent_words": 0,
+     "summary": "Murray's speaker headings with a parenthetical direction are merged into the previous speech (e.g. 7.37 holds DIONYSUS + PENTHEUS (turning from him) + DIONYSUS (after regarding him fixedly)); Murray's choral part-labels (A MAIDEN, SOME MAIDENS, OTHERS, A BACCHANAL, ALL THE CHORUS, A VOICE WITHIN) are replaced by 'CHORUS.'/'THE VOICE.'.",
+     "source_ref": "pg35173.txt 20 parenthetical headings; part-labels e.g. l.1211-1265"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none",
+     "id": "G04-bacchae-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "ch6, ch11",
+     "extent_words": 0,
+     "summary": "'Exodos' (ch11) also holds the Fifth Episode (Second Messenger) and the short Fifth Stasimon ('Weave ye the dance', 11.12-11.14); 'Second Stasimon' (ch6) includes the palace-miracle exchange (6.4-6.18). All other labels match the units.",
+     "source_ref": "pg35173.txt l.2212 (5th ep.), l.2385-2387 (5th stasimon)"
+    }
+   ],
+   "scope_notes": [
+    "Title pages, Characters list, NOTES ON THE BACCHAE (l.3028ff) and [Illustration] tags not served (SCOPE).",
+    "Manuscript lacuna after 11.87 served faithfully (asterisk rows + Murray's bracketed note 11.88)."
+   ],
+   "needs_investigation": [],
+   "notes": "Stage directions correctly placed (unlike Medea). Verdict COMPLETE-VS-SOURCE with S4 cosmetic findings only."
+  },
+  {
+   "id": "gilgamesh",
+   "title": "The Epic of Gilgamesh",
+   "verdict": "DEFECTS",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc",
+     "source_url": "https://www.jasoncolavito.com/epic-of-gilgamesh.html",
+     "source_sha256": "be5fbeff9bc5a55fc3d51b6bd5b96061cee5115f8462907e6ef2949117d19417",
+     "source_retrieved_utc": "2026-09-25T11:53:59Z",
+     "source_covered_pct": 99.822,
+     "edition_covered_pct": 99.947,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "Colavito page, 'TABLET I' to 'Sources:'",
+     "source_title": "Epic of Gilgamesh - JASON COLAVITO ('adapted and modernized from the translation of William Muss-Arnolt')",
+     "source_translator": "Jason Colavito (adaptation of Muss-Arnolt 1901 + Jastrow/Clay 1920 + King 1903)",
+     "local_raw": "books/raw/gilgamesh/raw.txt (page HTML captured 2026-03-31, sha256 be5bedc7...): epic text identical to current page; diffs only in site navigation",
+     "paragraph_diff": "identical per tablet except Tablet I catch-line (served once, at 2.0) and Niṣir/Niir"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "local_raw_has_it": true,
+     "modern_en": "derived from the same text",
+     "modern_da": "derived from the same text",
+     "existing_repair": "none; green-gilgamesh (origin/claude/friendly-albattani-qgyqfi @356b3696d) is PARKED for fidelity reasons, not provenance",
+     "id": "G04-gilgamesh-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "edition label/translator",
+     "extent_words": 0,
+     "summary": "Served text is Jason Colavito's modernized adaptation (page: 'adapted and modernized from the translation of William Muss-Arnolt'; footer '© 2010–2026 Jason Colavito. All rights reserved.'), labelled 'Prose Compilation' with translator null; label hides the adapter and the rights question.",
+     "source_ref": "colavito page intro + footer; books/raw/gilgamesh/SOURCE.md"
+    },
+    {
+     "status": "PROPOSED",
+     "served_before": "11.14 ... there rose (out of the water) a strip of land. To Mount Niir the ship drifted.",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "local_raw_has_it": true,
+     "modern_en": "correct ('Nisir')",
+     "modern_da": "correct ('Nisir')",
+     "existing_repair": "green-gilgamesh (origin/claude/friendly-albattani-qgyqfi @356b3696d) fidelity-review-1.md l.87-89 'restored' Niir in its candidate as the source spelling: entrenches the import error",
+     "id": "G04-gilgamesh-02",
+     "type": "MISSING",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "11.14",
+     "extent_words": 0,
+     "summary": "Character 'ṣ' dropped at import: 'Mount Niṣir' served as 'Mount Niir' (5 occurrences).",
+     "source_ref": "Colavito page, Tablet XI paragraph 15 ('Niṣir' x5)"
+    }
+   ],
+   "scope_notes": [
+    "Colavito's 3-paragraph introduction and 'Sources:' list not served (SCOPE).",
+    "Tablet subtitles ('He Who Saw the Deep', ...) are Tinct additions (editorial).",
+    "Colavito prints the Enkidu/Shamhat paragraph twice (end of Tablet I and start of Tablet II, catch-line); served once at 2.0 (defensible de-duplication; the Tablet VI/VII catch-line is served twice)."
+   ],
+   "needs_investigation": [
+    "Rights: the served text is a modern adaptation whose page asserts all rights reserved; SOURCE.md treats it as public domain via its PD base translations. Needs a rights/provenance decision."
+   ],
+   "notes": "modern-en 9.12 compresses the formulaic double-hour march (0.59 ratio) but keeps every beat (VARIANT). DUP_ADJ 12.5-12.7 are source repetitions."
+  },
+  {
+   "id": "beowulf",
+   "title": "Beowulf",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "18c82694331e87f4cdde7be99e9aba59cb4181b98a74a4bdc446e651c77e5c6a",
+     "source_url": "https://www.gutenberg.org/cache/epub/16328/pg16328.txt",
+     "source_sha256": "8909085dc48daf123d29c40ecbb3837b16ba7f96bf0cbb9fe72de133a2d35348",
+     "source_retrieved_utc": "2026-09-25T11:53:37Z",
+     "source_covered_pct": 98.964,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge12": 1,
+     "missing_runs_ge25": 0,
+     "body": "pg16328.txt lines 937-6560 minus Hall's side-notes, footnotes, line numbers",
+     "source_title": "Beowulf: An Anglo-Saxon Epic Poem",
+     "source_translator": "J. Lesslie Hall (D.C. Heath, 1892)",
+     "local_raw": "none (SOURCE.md only)",
+     "uncovered": "the 43 fitt headings (served as chapter titles; every fitt boundary matches)"
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Hall's dedication, Preface, Abbreviations, Bibliography, Glossary of proper names, word list, 448 marginal side-notes {...}, footnotes, Addenda and verse line numbers not served (editorial apparatus, SCOPE)."
+   ],
+   "needs_investigation": [],
+   "notes": "Label 'Hall (1892)' matches PG #16328 (not Gummere #981)."
+  },
+  {
+   "id": "the-aeneid",
+   "title": "The Aeneid",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "text_completeness": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "4a763d99af704695d1fbe4fc6c9740c2335dedc7bbf7e2b22aff8af23903aaf0",
+     "source_url": "https://www.gutenberg.org/cache/epub/228/pg228.txt",
+     "source_sha256": "398117fc34d7876e681e1feae1ebabfc72485be17f819779796d3dcfe886a504",
+     "source_retrieved_utc": "2026-09-25T11:53:39Z",
+     "source_covered_pct": 99.958,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge12": 0,
+     "missing_runs_ge25": 0,
+     "body": "pg228.txt lines 70-14521",
+     "source_title": "The Aeneid",
+     "source_translator": "John Dryden",
+     "local_raw": "books/raw/the-aeneid/raw.txt = PG file + BOM",
+     "uncovered": "12 x 'BOOK N' / 'THE ARGUMENT.' headings"
+    }
+   ],
+   "findings": [
+    {
+     "status": "PROPOSED",
+     "served_before": "(book start)",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "1.1 Arms, and the man I sing, who, forc'd by fate",
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none",
+     "id": "G04-the-aeneid-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "1.0, 2.0, ... 12.0",
+     "extent_words": 0,
+     "summary": "Dryden's prose Argument is served as the first paragraph of each book with its 'THE ARGUMENT.' heading dropped, so the editorial summary reads as the opening of Virgil's text.",
+     "source_ref": "pg228.txt l.72, 1199, 2342, 3341, 4414, 5613, 6906, 8080, 9098, 10273, 11668, 13053"
+    }
+   ],
+   "scope_notes": [
+    "PG #228 contains no Dryden Dedication, Postscript or notes; nothing of Dryden's framing is served beyond the Arguments (recorded scope decision: served text = PG #228 in full)."
+   ],
+   "needs_investigation": [
+    "modern-da is 38,520 words vs 107,470 (36%; ch10 24%): a condensed retelling, so whole passages are absent there (Danish is presence-only under the 2026-09-21 language scope)."
+   ],
+   "notes": "0 missing runs; order clean."
+  }
+ ]
+}

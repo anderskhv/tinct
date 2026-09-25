@@ -1,0 +1,1678 @@
+{
+ "group": "G01-shakespeare-a",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "date": "2026-09-25",
+ "tools": "align.py (k=6) + group tools gaps.py (line-level), contcheck.py (continuation blocks), show.py; sources normalised CRLF->LF before alignment (line numbers unchanged)",
+ "books": [
+  {
+   "id": "macbeth",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Original Text",
+     "sha256": "2650bcc666428a808584fd6f99534f71474a4e99a085c7ae6b87234e24e30608",
+     "source_url": "https://www.gutenberg.org/cache/epub/1533/pg1533.txt",
+     "source_sha256": "1371a47e68246197f7f57017a83386fed75dbfebfd0ff51b4524921a3b38ff5e",
+     "source_retrieved_utc": "2026-09-25T11:53:24Z",
+     "source_edition": "PG #1533 Macbeth (PG Shakespeare Team; updated 2025-09-19)",
+     "source_covered_pct": 91.516,
+     "edition_covered_pct": 99.872,
+     "missing_runs_ge10": 24,
+     "missing_runs_ge25": 11,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "0c85273086804fdd02abee81842de15338b61a2288bb26805e9b2f2d505d02f1",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "c10696221af2265dfa00fdc8f09a27dfd1d2a5289da347d3a6fd82a1de125d57",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-macbeth-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "after 5.1",
+     "extent_words": 134,
+     "summary": "Lady Macbeth's response to the letter ('Glamis thou art, and Cawdor… milk of human kindness… crown'd withal') absent after the letter at 5.1",
+     "served_before": "what greatness is promis’d thee. Lay it to thy heart, and farewell.”",
+     "missing_start": "Glamis thou art, and Cawdor; and shalt be What thou art promis’d.",
+     "missing_end": "and metaphysical aid doth seem To have thee crown’d withal.",
+     "served_after": "5.2: [Enter a Messenger.]",
+     "source_ref": "pg1533.txt lines 692-707",
+     "local_raw_has_it": true,
+     "modern_en": "present (appended to 5.1; modern-en has content original-en lacks)",
+     "modern_da": "present (appended to 5.1)",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-02",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 5.7 and after 5.8",
+     "extent_words": 159,
+     "summary": "Lady Macbeth's 'The raven himself is hoarse… unsex me here… Come, thick night' soliloquy and her greeting 'Great Glamis, worthy Cawdor!' absent (Act 1 Sc 5)",
+     "served_before": "[Exit Messenger.]",
+     "missing_start": "The raven himself is hoarse That croaks the fatal entrance of Duncan",
+     "missing_end": "present, and I feel now The future in the instant.",
+     "served_after": "5.9: MACBETH. My dearest love, Duncan comes here tonight.",
+     "source_ref": "pg1533.txt lines 733-749; pg1533.txt lines 753-757",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi books/wip/green-macbeth/PARKED.md (commit 66dda6f41, 2026-09-21) records this gap",
+     "items": [
+      {
+       "location": "after 5.7",
+       "speaker": "LADY MACBETH",
+       "extent_words": 129,
+       "source_ref": "pg1533.txt lines 733-749",
+       "served_before": "[Exit Messenger.]",
+       "missing_start": "The raven himself is hoarse That croaks the fatal entrance of Duncan",
+       "missing_end": "through the blanket of the dark To cry, “Hold, hold!”",
+       "served_after": "5.8: [Enter Macbeth.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 5.8",
+       "speaker": "LADY MACBETH",
+       "extent_words": 30,
+       "source_ref": "pg1533.txt lines 753-757",
+       "served_before": "[Enter Macbeth.]",
+       "missing_start": "Great Glamis, worthy Cawdor! Greater than both, by the all-hail hereafter! Thy",
+       "missing_end": "present, and I feel now The future in the instant.",
+       "served_after": "5.9: MACBETH. My dearest love, Duncan comes here tonight.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      }
+     ]
+    },
+    {
+     "id": "G01-macbeth-03",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 8.19 and after 8.20",
+     "extent_words": 266,
+     "summary": "Macbeth's dagger soliloquy 'Is this a dagger which I see before me' and closing 'I go, and it is done… to heaven or to hell' absent (Act 2 Sc 1); only the stage directions 8.19-8.21 are served",
+     "served_before": "[Exit Servant.]",
+     "missing_start": "Is this a dagger which I see before me, The handle toward",
+     "missing_end": "a knell That summons thee to heaven or to hell.",
+     "served_after": "8.21: [Exit.]",
+     "source_ref": "pg1533.txt lines 1070-1098; pg1533.txt lines 1102-1104",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi books/wip/green-macbeth/PARKED.md (commit 66dda6f41, 2026-09-21) records this gap",
+     "items": [
+      {
+       "location": "after 8.19",
+       "speaker": "MACBETH",
+       "extent_words": 239,
+       "source_ref": "pg1533.txt lines 1070-1098",
+       "served_before": "[Exit Servant.]",
+       "missing_start": "Is this a dagger which I see before me, The handle toward",
+       "missing_end": "Words to the heat of deeds too cold breath gives.",
+       "served_after": "8.20: [A bell rings.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 8.20",
+       "speaker": "MACBETH",
+       "extent_words": 27,
+       "source_ref": "pg1533.txt lines 1102-1104",
+       "served_before": "[A bell rings.]",
+       "missing_start": "I go, and it is done. The bell invites me. Hear it",
+       "missing_end": "a knell That summons thee to heaven or to hell.",
+       "served_after": "8.21: [Exit.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      }
+     ]
+    },
+    {
+     "id": "G01-macbeth-04",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 12.20 and after 12.21 and after 12.22",
+     "extent_words": 224,
+     "summary": "Macbeth's soliloquy 'To be thus is nothing, But to be safely thus' (Banquo's royalty of nature, the 'barren sceptre') plus two follow-on lines to the servant/murderers absent (Act 3 Sc 1)",
+     "served_before": "[Exit Servant.]",
+     "missing_start": "To be thus is nothing, But to be safely thus. Our fears",
+     "missing_end": "Was it not yesterday we spoke together?",
+     "served_after": "12.23: FIRST MURDERER. It was, so please your Highness.",
+     "source_ref": "pg1533.txt lines 1772-1796; pg1533.txt lines 1800-1800; pg1533.txt lines 1804-1804",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)",
+     "items": [
+      {
+       "location": "after 12.20",
+       "speaker": "MACBETH",
+       "extent_words": 206,
+       "source_ref": "pg1533.txt lines 1772-1796",
+       "served_before": "[Exit Servant.]",
+       "missing_start": "To be thus is nothing, But to be safely thus. Our fears",
+       "missing_end": "into the list, And champion me to th’ utterance!—Who’s there?—",
+       "served_after": "12.21: [Enter Servant with two Murderers.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 12.21",
+       "speaker": "MACBETH",
+       "extent_words": 11,
+       "source_ref": "pg1533.txt lines 1800-1800",
+       "served_before": "[Enter Servant with two Murderers.]",
+       "missing_start": "Now go to the door, and stay there till we call.",
+       "missing_end": "go to the door, and stay there till we call.",
+       "served_after": "12.22: [Exit Servant.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 12.22",
+       "speaker": "MACBETH",
+       "extent_words": 7,
+       "source_ref": "pg1533.txt lines 1804-1804",
+       "served_before": "[Exit Servant.]",
+       "missing_start": "Was it not yesterday we spoke together?",
+       "missing_end": "Was it not yesterday we spoke together?",
+       "served_after": "12.23: FIRST MURDERER. It was, so please your Highness.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      }
+     ]
+    },
+    {
+     "id": "G01-macbeth-05",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 23.9",
+     "extent_words": 82,
+     "summary": "Macbeth's 'Seyton!—I am sick at heart… my way of life Is fall'n into the sere, the yellow leaf' speech absent (Act 5 Sc 3)",
+     "served_before": "[Exit Servant.]",
+     "missing_start": "Seyton!—I am sick at heart, When I behold—Seyton, I say!—This push Will",
+     "missing_end": "the poor heart would fain deny, and dare not. Seyton!—",
+     "served_after": "23.10: [Enter Seyton.]",
+     "source_ref": "pg1533.txt lines 3709-3719",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-06",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 4.4",
+     "extent_words": 62,
+     "summary": "Duncan's welcome to Macbeth 'O worthiest cousin! The sin of my ingratitude…' absent (Act 1 Sc 4)",
+     "served_before": "[Enter Macbeth, Banquo, Ross and Angus.]",
+     "missing_start": "O worthiest cousin! The sin of my ingratitude even now Was heavy",
+     "missing_end": "More is thy due than more than all can pay.",
+     "served_after": "4.5: MACBETH. The service and the loyalty I owe, In doing",
+     "source_ref": "pg1533.txt lines 606-613",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-07",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 10.34",
+     "extent_words": 50,
+     "summary": "Macduff's alarm 'Awake, awake! Ring the alarum bell… Shake off this downy sleep, death's counterfeit' absent (Act 2 Sc 3)",
+     "served_before": "[Exeunt Macbeth and Lennox.]",
+     "missing_start": "Awake, awake!— Ring the alarum bell.—Murder and treason! Banquo and Donalbain! Malcolm!",
+     "missing_end": "rise up, and walk like sprites To countenance this horror!",
+     "served_after": "10.35: [Alarum-bell rings.]",
+     "source_ref": "pg1533.txt lines 1406-1413",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-08",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 10.59",
+     "extent_words": 51,
+     "summary": "Banquo's 'And when we have our naked frailties hid… In the great hand of God I stand' absent (Act 2 Sc 3)",
+     "served_before": "[Lady Macbeth is carried out.]",
+     "missing_start": "And when we have our naked frailties hid, That suffer in exposure,",
+     "missing_end": "thence Against the undivulg’d pretence I fight Of treasonous malice.",
+     "served_after": "10.60: MACDUFF. And so do I.",
+     "source_ref": "pg1533.txt lines 1521-1527",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-09",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 12.16 and after 12.17",
+     "extent_words": 42,
+     "summary": "Macbeth's dismissal of the court 'Let every man be master of his time… God be with you' and 'Sirrah, a word with you…' absent (Act 3 Sc 1)",
+     "served_before": "[Exit Banquo.]",
+     "missing_start": "Let every man be master of his time Till seven at night;",
+     "missing_end": "Sirrah, a word with you. Attend those men Our pleasure?",
+     "served_after": "12.18: SERVANT. They are, my lord, without the palace gate.",
+     "source_ref": "pg1533.txt lines 1754-1757; pg1533.txt lines 1761-1762",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)",
+     "items": [
+      {
+       "location": "after 12.16",
+       "speaker": "MACBETH",
+       "extent_words": 32,
+       "source_ref": "pg1533.txt lines 1754-1757",
+       "served_before": "[Exit Banquo.]",
+       "missing_start": "Let every man be master of his time Till seven at night;",
+       "missing_end": "Till supper time alone: while then, God be with you.",
+       "served_after": "12.17: [Exeunt Lady Macbeth, Lords, &c.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 12.17",
+       "speaker": "MACBETH",
+       "extent_words": 10,
+       "source_ref": "pg1533.txt lines 1761-1762",
+       "served_before": "[Exeunt Lady Macbeth, Lords, &c.]",
+       "missing_start": "Sirrah, a word with you. Attend those men Our pleasure?",
+       "missing_end": "Sirrah, a word with you. Attend those men Our pleasure?",
+       "served_after": "12.18: SERVANT. They are, my lord, without the palace gate.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      }
+     ]
+    },
+    {
+     "id": "G01-macbeth-10",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 13.7",
+     "extent_words": 40,
+     "summary": "Lady Macbeth's 'How now, my lord, why do you keep alone… what's done is done' absent (Act 3 Sc 2)",
+     "served_before": "[Enter Macbeth.]",
+     "missing_start": "How now, my lord, why do you keep alone, Of sorriest fancies",
+     "missing_end": "all remedy Should be without regard: what’s done is done.",
+     "served_after": "13.8: MACBETH. We have scorch’d the snake, not kill’d it. She’ll",
+     "source_ref": "pg1533.txt lines 1948-1952",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-11",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 18.40",
+     "extent_words": 23,
+     "summary": "Macbeth's 'What is this, That rises like the issue of a king… top of sovereignty?' absent (Act 4 Sc 1, third apparition)",
+     "served_before": "Apparition of a Child crowned, with a tree in his hand, rises.]",
+     "missing_start": "What is this, That rises like the issue of a king, And",
+     "missing_end": "upon his baby brow the round And top of sovereignty?",
+     "served_after": "18.41: ALL. Listen, but speak not to’t.",
+     "source_ref": "pg1533.txt lines 2711-2714",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-12",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "after 21.7",
+     "extent_words": 20,
+     "summary": "Gentlewoman's 'Lo you, here she comes! This is her very guise… stand close' absent (Act 5 Sc 1, sleepwalking scene)",
+     "served_before": "[Enter Lady Macbeth with a taper.]",
+     "missing_start": "Lo you, here she comes! This is her very guise; and, upon",
+     "missing_end": "and, upon my life, fast asleep. Observe her; stand close.",
+     "served_after": "21.8: DOCTOR. How came she by that light?",
+     "source_ref": "pg1533.txt lines 3493-3494",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none recorded (new)"
+    },
+    {
+     "id": "G01-macbeth-13",
+     "type": "MISSING",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "17 locations (see items): after 2.10, 5.2, 7.2, 8.6, 10.11, 10.39, 11.7, 12.39, 15.6, 15.41, 15.46, 16.3, 19.45, 23.2, 25.2, 25.6, 25.9",
+     "extent_words": 147,
+     "summary": "17 short speech continuations (3-17 words each) dropped after stage directions, e.g. 'Who comes here?', 'The devil damn thee black, thou cream-fac'd loon!', 'What is that noise?', 'Wherefore was that cry?', 'It is concluded. Banquo, thy soul's flight…'",
+     "served_before": "[Enter Ross and Angus.]",
+     "missing_start": "Who comes here?",
+     "missing_end": "Thou com’st to use thy tongue; thy story quickly.",
+     "served_after": "25.10: MESSENGER. Gracious my lord, I should report that which I",
+     "source_ref": "pg1533.txt, 17 ranges (see items)",
+     "local_raw_has_it": true,
+     "modern_en": "absent for 15 items; present for 2 (after 15.6 and after 15.41)",
+     "modern_da": "absent for 15 items; present for the same 2",
+     "existing_repair": "only 'Who comes here?' recorded, in origin/claude/macbeth-modern-en-20260911 books/staged-replacements/macbeth/PROVENANCE.md §3 (commit 5608dfa81; covers ch1-2 only, drafted against served text, inherits)",
+     "items": [
+      {
+       "location": "after 2.10",
+       "speaker": "DUNCAN",
+       "extent_words": 3,
+       "source_ref": "pg1533.txt lines 242-242",
+       "served_before": "[Enter Ross and Angus.]",
+       "missing_start": "Who comes here?",
+       "missing_end": "Who comes here?",
+       "served_after": "2.11: MALCOLM. The worthy Thane of Ross.",
+       "modern_en": "absent",
+       "modern_da": "absent",
+       "existing_repair": "origin/claude/macbeth-modern-en-20260911 books/staged-replacements/macbeth/PROVENANCE.md §3 (commit 5608dfa81; covers ch1-2 only, drafted against served text, inherits) records this line"
+      },
+      {
+       "location": "after 5.2",
+       "speaker": "LADY MACBETH",
+       "extent_words": 4,
+       "source_ref": "pg1533.txt lines 711-711",
+       "served_before": "[Enter a Messenger.]",
+       "missing_start": "What is your tidings?",
+       "missing_end": "What is your tidings?",
+       "served_after": "5.3: MESSENGER. The King comes here tonight.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 7.2",
+       "speaker": "MACBETH",
+       "extent_words": 4,
+       "source_ref": "pg1533.txt lines 891-891",
+       "served_before": "[Enter Lady Macbeth.]",
+       "missing_start": "How now! what news?",
+       "missing_end": "How now! what news?",
+       "served_after": "7.3: LADY MACBETH. He has almost supp’d. Why have you left",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 8.6",
+       "speaker": "BANQUO",
+       "extent_words": 6,
+       "source_ref": "pg1533.txt lines 1014-1014",
+       "served_before": "[Enter Macbeth and a Servant with a torch.]",
+       "missing_start": "Give me my sword.—Who’s there?",
+       "missing_end": "Give me my sword.—Who’s there?",
+       "served_after": "8.7: MACBETH. A friend.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 10.11",
+       "speaker": "MACDUFF",
+       "extent_words": 8,
+       "source_ref": "pg1533.txt lines 1320-1320",
+       "served_before": "[Enter Macbeth.]",
+       "missing_start": "Our knocking has awak’d him; here he comes.",
+       "missing_end": "Our knocking has awak’d him; here he comes.",
+       "served_after": "10.12: LENNOX. Good morrow, noble sir!",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 10.39",
+       "speaker": "MACDUFF",
+       "extent_words": 7,
+       "source_ref": "pg1533.txt lines 1432-1433",
+       "served_before": "[Enter Banquo.]",
+       "missing_start": "O Banquo, Banquo! Our royal master’s murder’d!",
+       "missing_end": "O Banquo, Banquo! Our royal master’s murder’d!",
+       "served_after": "10.40: LADY MACBETH. Woe, alas! What, in our house?",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 11.7",
+       "speaker": "ROSS",
+       "extent_words": 6,
+       "source_ref": "pg1533.txt lines 1607-1607",
+       "served_before": "[Enter Macduff.]",
+       "missing_start": "How goes the world, sir, now?",
+       "missing_end": "How goes the world, sir, now?",
+       "served_after": "11.8: MACDUFF. Why, see you not?",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 12.39",
+       "speaker": "MACBETH",
+       "extent_words": 16,
+       "source_ref": "pg1533.txt lines 1916-1917",
+       "served_before": "[Exeunt Murderers.]",
+       "missing_start": "It is concluded. Banquo, thy soul’s flight, If it find heaven, must",
+       "missing_end": "flight, If it find heaven, must find it out tonight.",
+       "served_after": "12.40: [Exit.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 15.6",
+       "speaker": "MACBETH",
+       "extent_words": 17,
+       "source_ref": "pg1533.txt lines 2133-2134",
+       "served_before": "hearts’ thanks. Both sides are even: here I’ll sit i’ th’ midst.",
+       "missing_start": "Be large in mirth; anon we’ll drink a measure The table round.",
+       "missing_end": "a measure The table round. There’s blood upon thy face.",
+       "served_after": "15.7: MURDERER. ’Tis Banquo’s then.",
+       "modern_en": "present (15.6, with an added \"[Goes to the door.]\")",
+       "modern_da": "present (15.6)"
+      },
+      {
+       "location": "after 15.41",
+       "speaker": "MACBETH",
+       "extent_words": 10,
+       "source_ref": "pg1533.txt lines 2299-2300",
+       "served_before": "[Ghost rises again.]",
+       "missing_start": "To all, and him, we thirst, And all to all.",
+       "missing_end": "To all, and him, we thirst, And all to all.",
+       "served_after": "15.42: LORDS. Our duties, and the pledge.",
+       "modern_en": "present but moved before the stage direction (end of 15.40)",
+       "modern_da": "present (end of 15.40)"
+      },
+      {
+       "location": "after 15.46",
+       "speaker": "MACBETH",
+       "extent_words": 13,
+       "source_ref": "pg1533.txt lines 2329-2330",
+       "served_before": "[Ghost disappears.]",
+       "missing_start": "Why, so;—being gone, I am a man again.—Pray you, sit still.",
+       "missing_end": "so;—being gone, I am a man again.—Pray you, sit still.",
+       "served_after": "15.47: LADY MACBETH. You have displaced the mirth, broke the good",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 16.3",
+       "speaker": "HECATE",
+       "extent_words": 17,
+       "source_ref": "pg1533.txt lines 2446-2447",
+       "served_before": "[Music and song within, “Come away, come away” &c.]",
+       "missing_start": "Hark! I am call’d; my little spirit, see, Sits in a foggy",
+       "missing_end": "see, Sits in a foggy cloud and stays for me.",
+       "served_after": "16.4: [Exit.]",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 19.45",
+       "speaker": "FIRST MURDERER",
+       "extent_words": 4,
+       "source_ref": "pg1533.txt lines 3027-3027",
+       "served_before": "[Stabbing him.]",
+       "missing_start": "Young fry of treachery!",
+       "missing_end": "Young fry of treachery!",
+       "served_after": "19.46: SON. He has kill’d me, mother: Run away, I pray",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 23.2",
+       "speaker": "MACBETH",
+       "extent_words": 15,
+       "source_ref": "pg1533.txt lines 3683-3684",
+       "served_before": "[Enter a Servant.]",
+       "missing_start": "The devil damn thee black, thou cream-fac’d loon! Where gott’st thou that",
+       "missing_end": "black, thou cream-fac’d loon! Where gott’st thou that goose look?",
+       "served_after": "23.3: SERVANT. There is ten thousand—",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 25.2",
+       "speaker": "MACBETH",
+       "extent_words": 4,
+       "source_ref": "pg1533.txt lines 3861-3861",
+       "served_before": "[A cry of women within.]",
+       "missing_start": "What is that noise?",
+       "missing_end": "What is that noise?",
+       "served_after": "25.3: SEYTON. It is the cry of women, my good lord.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 25.6",
+       "speaker": "MACBETH",
+       "extent_words": 4,
+       "source_ref": "pg1533.txt lines 3879-3879",
+       "served_before": "[Enter Seyton.]",
+       "missing_start": "Wherefore was that cry?",
+       "missing_end": "Wherefore was that cry?",
+       "served_after": "25.7: SEYTON. The Queen, my lord, is dead.",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      },
+      {
+       "location": "after 25.9",
+       "speaker": "MACBETH",
+       "extent_words": 9,
+       "source_ref": "pg1533.txt lines 3900-3900",
+       "served_before": "[Enter a Messenger.]",
+       "missing_start": "Thou com’st to use thy tongue; thy story quickly.",
+       "missing_end": "Thou com’st to use thy tongue; thy story quickly.",
+       "served_after": "25.10: MESSENGER. Gracious my lord, I should report that which I",
+       "modern_en": "absent",
+       "modern_da": "absent"
+      }
+     ]
+    }
+   ],
+   "scope_notes": [
+    "Dramatis Personae and scene headings are not served as body text (headings become chapter titles): SCOPE.",
+    "Chapter 1 title 'A Desert Place' vs PG 'An open Place.' and paraphrased locations (2.2, 2.3, 3.3): VARIANT, not a defect (also noted in the staged package)."
+   ],
+   "needs_investigation": [],
+   "notes": "Root cause: the Macbeth parser drops every blank-line-separated speech block that is not directly headed by a speaker line (continuations after inline stage directions, and verse/letter paragraph breaks). 34 blocks at 34 served locations, 1,300 words, grouped here into 13 findings; stage directions around them are served. All 28 non-heading alignment runs are accounted for. Local raw books/raw/macbeth/raw.txt equals current PG #1533 except a UTF-8 BOM; PG #100 Macbeth gives identical alignment. green-macbeth/PARKED.md records only the raven/Great Glamis and dagger passages; it attributes \"Great Glamis! worthy Cawdor!\" to Macbeth, but it is Lady Macbeth's greeting."
+  },
+  {
+   "id": "julius-caesar",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "5368eeed767055335f97e708cd163dfb2fa17576a7cf4909844236438d8c087c",
+     "source_url": "https://www.gutenberg.org/cache/epub/1522/pg1522.txt",
+     "source_sha256": "795e5480b3ce816a78657aefddad4cfb624882c5b7034de26ea65db02a2766cf",
+     "source_retrieved_utc": "2026-09-25T11:53:27Z",
+     "source_edition": "PG #1522 Julius Caesar (PG Shakespeare Team; updated 2025-09-19)",
+     "source_covered_pct": 99.326,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge10": 4,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "95a3e5b7516276f703bd77fb42992c6d76f27894619e1d7f147c290170baa952",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "977a7ebb2044578e99c50ce80ca0e68cef3160b4dc5abdd46851c5f8d94b6ee3",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-julius-caesar-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "speaker-only paragraphs 5.44, 8.90, 8.93, 13.50, 13.53, 13.55, 16.13, 16.16; mid-sentence splits at 5.45|46, 7.4|5, 7.24|25, 8.88|89, 16.17|18",
+     "extent_words": null,
+     "summary": "Parser splits speeches at inline stage-direction lines ('[_Aside._]', '[_Within._]', '[_Above._]'): the speaker label stands alone as a paragraph and the speech continues in 1-2 unlabelled paragraphs, sometimes mid-sentence. Text complete.",
+     "served_before": "5.44: BRUTUS.",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "5.45: [_Aside._] That every like is not the same, O Caesar,",
+     "source_ref": "pg1522.txt (e.g. Brutus aside after Caesar's invitation)",
+     "local_raw_has_it": null,
+     "modern_en": "inherits (same paragraphing; screening MIDSPLIT flags)",
+     "modern_da": "inherits",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Dramatis Personae not served; scene headings become chapter titles: SCOPE.",
+    "Continuation paragraphs after a stage direction carry no repeated speaker label (34 cases). This matches the printed source layout and is not a defect.",
+    "'VARRO. CLAUDIUS.' joint label (13.171, 13.176) is verbatim from PG."
+   ],
+   "needs_investigation": [],
+   "notes": "Featured book. 100% of served tokens found in PG #1522; the only source text not served is the 18 scene headings (143 tokens), which are served as chapter titles. PG #100 slice gives identical results. green-julius-caesar (friendly-albattani 656fdbfe2; lucid-turing c287c609f) is a modern-en quality package with the same 18/997 structure and no completeness issue."
+  },
+  {
+   "id": "henry-v",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1600)",
+     "sha256": "c66a930a2d877fc78b00c4a793a4c63d550f2042609b51c922ec3d9a18da081b",
+     "source_url": "https://www.gutenberg.org/cache/epub/1521/pg1521.txt",
+     "source_sha256": "e660d11f3eb5fabbbe86dd0c3181a8d8062052bee6a32b8def9c20bf79f4ebf1",
+     "source_retrieved_utc": "2026-09-25T11:53:28Z",
+     "source_edition": "PG #1521 King Henry V (PG Shakespeare Team; updated 2025-09-19)",
+     "source_covered_pct": 98.532,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge10": 1,
+     "missing_runs_ge25": 1,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "f2b9cab47fef45f65a6bb9b53aec30aaaaa33e9944de3e62ee482df133b9bb42",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "a31bc433de6026f9c34f84022e6fd0a1aa72fae9ed0dd49bb861ad05f4f6a85e",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-henry-v-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (book opening)",
+     "extent_words": 246,
+     "summary": "Opening Prologue (Chorus: 'O for a Muse of fire… this wooden O') absent from all editions; the book opens at Act 1 Scene 1.",
+     "served_before": "(start of book)",
+     "missing_start": "O for a Muse of fire, that would ascend The brightest heaven of invention,",
+     "missing_end": "Who prologue-like your humble patience pray, Gently to hear, kindly to judge, our play.",
+     "served_after": "1.0: Enter the Archbishop of Canterbury and the Bishop of Ely.",
+     "source_ref": "pg1521.txt lines 138-178 (PROLOGUE. … [_Exit._])",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "origin/claude/friendly-albattani-qgyqfi books/wip/green-henry-v/PARKED.md (commit 99336c6ac) records this gap; not repaired"
+    },
+    {
+     "id": "G01-henry-v-02",
+     "type": "MISPLACED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.38-2.40 (Act 2 Chorus), 6.27-6.29 (Act 3 Chorus), 13.78-13.80 (Act 4 Chorus), 21.47-21.49 (Act 5 Chorus)",
+     "extent_words": 1327,
+     "summary": "The Choruses that open Acts 2-5 are served as the last paragraphs of the previous act's final scene, under titles 'Act 1, Scene 2', 'Act 2, Scene 4', 'Act 3, Scene 7', 'Act 4, Scene 8'. Order is preserved but act membership and labels are wrong.",
+     "served_before": "2.37: …and then to breakfast with What appetite you have.",
+     "missing_start": "Now all the youth of England are on fire,",
+     "missing_end": "After your thoughts, straight back again to France.",
+     "served_after": "3.0 (Act 2 Sc 1): Enter Corporal Nym and Lieutenant Bardolph.",
+     "source_ref": "pg1521.txt lines 730-779 (320 w), 1569-1614 (264 w), 2679-2739 (389 w), 4257-4309 (354 w)",
+     "local_raw_has_it": null,
+     "modern_en": "present, same misplacement",
+     "modern_da": "present, same misplacement",
+     "existing_repair": "green-henry-v/PARKED.md describes this placement but treats it as an internally consistent convention (not flagged)"
+    },
+    {
+     "id": "G01-henry-v-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "23.88-23.90",
+     "extent_words": 113,
+     "summary": "Epilogue sonnet ('Thus far, with rough and all-unable pen') served without an Epilogue label as the end of 'Act 5, Scene 2'.",
+     "served_before": "23.87: [_Sennet. Exeunt._]",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "(end of book)",
+     "source_ref": "pg1521.txt lines 4943-4963 (EPILOGUE.)",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "green-henry-v/PARKED.md mentions placement only"
+    }
+   ],
+   "scope_notes": [
+    "Registry label 'Shakespeare (1600)' is the first-quarto date. The served text is the modern-spelling PG #1521 conflated text, which includes the Folio choruses the 1600 quarto lacks. This is a labelling note, not a completeness defect."
+   ],
+   "needs_investigation": [],
+   "notes": "Apart from the Prologue, 100% of the source text is served; edition_covered 100%. Local raw: none (books/raw/henry-v absent). Modern-en long paragraphs 17.19-17.27 and 23.46 add English glosses of the French; not a completeness issue."
+  },
+  {
+   "id": "as-you-like-it",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "2c04249b4ea528612cfa8f41031ed7a78fff2e453f15fbccf7d55f03905ce179",
+     "source_url": "https://archive.org/download/1ws2510/1ws2510.txt",
+     "source_sha256": "b30b9db29fe670195ccb182bdeabddefb5af705fb985ba40c485dc2defb6f39a",
+     "source_retrieved_utc": "2026-09-25T12:04:58Z",
+     "source_edition": "World Library (1990-93) etext, original PG Etext #1121 of Dec 1997 (archive.org item 1ws2510)",
+     "source_covered_pct": 93.449,
+     "edition_covered_pct": 99.918,
+     "missing_runs_ge10": 2,
+     "missing_runs_ge25": 2,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "df270fa2b605950982107d654d395fe0eaa0226208f9a5b185d06d7da2b5f8e4",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "80064e115bd31f194fa60e16f1ec08ee4b99efc5f1cc199ec7a4ac34dd52d8ef",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-as-you-like-it-01",
+     "type": "MISSING",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (book opening)",
+     "extent_words": 1493,
+     "summary": "Act 1 Scene 1 (Oliver's orchard: Orlando and Adam, Orlando and Oliver quarrel, Charles the wrestler, Oliver's closing soliloquy) is entirely absent. The book opens at Act 1 Scene 2's location line.",
+     "served_before": "(start of book)",
+     "missing_start": "ORLANDO. As I remember, Adam, it was upon this fashion bequeathed me by will but poor a thousand crowns",
+     "missing_end": "Nothing remains but that I kindle the boy thither, which now I'll go about. Exit",
+     "served_after": "1.0: A lawn before the DUKE'S palace / 1.2: CELIA. I pray thee, Rosalind, sweet my coz, be merry.",
+     "source_ref": "1ws2510.txt lines 547-1002 (ACT I. SCENE I. … Exit); same scene = pg1523.txt lines 116-346 (1,484 words)",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G01-as-you-like-it-02",
+     "type": "MISLABELED",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "all 17 chapter titles; merged scenes at 2.55-2.66, 8.43-8.47, 12.31-12.114, 14.65-14.97",
+     "extent_words": null,
+     "summary": "Wholesale chapter mislabelling. Every chapter is titled 'Act 1, Scene N' and every chapter's section is 'Act 1'; 15 of 17 titles are wrong. The first scenes of Acts 2-5 are merged into the preceding chapter behind heading paragraphs. See chapter_map.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": "1ws2510.txt headings at lines 547, 1027, 1723, 2067, 2231, 2291, 2463, 2709, 2879, 2939, 3395, 3449, 4517, 4785, 4945, 5285, 5811, 5879, 6337, 6521, 6855, 6979, 7465",
+     "local_raw_has_it": null,
+     "modern_en": "same titles and merges",
+     "modern_da": "same ('Akt 1, Scene N')",
+     "existing_repair": "none",
+     "chapter_map": [
+      {
+       "chapter": "1",
+       "served_title": "Act 1, Scene 2",
+       "actual_content": "Act 1 Sc 2",
+       "status": "correct"
+      },
+      {
+       "chapter": "2",
+       "served_title": "Act 1, Scene 3",
+       "actual_content": "Act 1 Sc 3 (2.0-2.50) + notice (2.51-2.54) + heading (2.55) + Act 2 Sc 1 (2.56-2.66)",
+       "status": "merged"
+      },
+      {
+       "chapter": "3",
+       "served_title": "Act 1, Scene 2",
+       "actual_content": "Act 2 Sc 2",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "4",
+       "served_title": "Act 1, Scene 3",
+       "actual_content": "Act 2 Sc 3",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "5",
+       "served_title": "Act 1, Scene 4",
+       "actual_content": "Act 2 Sc 4",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "6",
+       "served_title": "Act 1, Scene 5",
+       "actual_content": "Act 2 Sc 5",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "7",
+       "served_title": "Act 1, Scene 6",
+       "actual_content": "Act 2 Sc 6",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "8",
+       "served_title": "Act 1, Scene 7",
+       "actual_content": "Act 2 Sc 7 (8.0-8.42) + heading (8.43) + Act 3 Sc 1 (8.44-8.47)",
+       "status": "mislabelled+merged"
+      },
+      {
+       "chapter": "9",
+       "served_title": "Act 1, Scene 2",
+       "actual_content": "Act 3 Sc 2",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "10",
+       "served_title": "Act 1, Scene 3",
+       "actual_content": "Act 3 Sc 3",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "11",
+       "served_title": "Act 1, Scene 4",
+       "actual_content": "Act 3 Sc 4",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "12",
+       "served_title": "Act 1, Scene 5",
+       "actual_content": "Act 3 Sc 5 (12.0-12.26) + notice (12.27-12.30) + heading (12.31) + Act 4 Sc 1 (12.32-12.114)",
+       "status": "mislabelled+merged"
+      },
+      {
+       "chapter": "13",
+       "served_title": "Act 1, Scene 2",
+       "actual_content": "Act 4 Sc 2",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "14",
+       "served_title": "Act 1, Scene 3",
+       "actual_content": "Act 4 Sc 3 (14.0-14.60) + notice (14.61-14.64) + heading (14.65) + Act 5 Sc 1 (14.66-14.97)",
+       "status": "mislabelled+merged"
+      },
+      {
+       "chapter": "15",
+       "served_title": "Act 1, Scene 2",
+       "actual_content": "Act 5 Sc 2",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "16",
+       "served_title": "Act 1, Scene 3",
+       "actual_content": "Act 5 Sc 3",
+       "status": "mislabelled"
+      },
+      {
+       "chapter": "17",
+       "served_title": "Act 1, Scene 4",
+       "actual_content": "Act 5 Sc 4 (17.0-17.66) + Epilogue (17.67-17.69) + THE END (17.70) + notice (17.71-17.74) + end line (17.75)",
+       "status": "mislabelled+merged"
+      }
+     ]
+    },
+    {
+     "id": "G01-as-you-like-it-03",
+     "type": "EXTRANEOUS",
+     "severity": "S1",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "17.71-17.75 (book end)",
+     "extent_words": 90,
+     "summary": "World Library/Project Gutenberg licence notice ('<<THIS ELECTRONIC VERSION OF THE COMPLETE WORKS… WORLD LIBRARY, INC.…>>') and 'End of this Etext of The Complete Works of William Shakespeare, As You Like It' served as the last reading paragraphs.",
+     "served_before": "17.70: THE END",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "(end of book)",
+     "source_ref": "1ws2510.txt lines 7551-7573",
+     "local_raw_has_it": null,
+     "modern_en": "present (English)",
+     "modern_da": "present (translated into Danish)",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G01-as-you-like-it-04",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.51-2.54, 12.27-12.30, 14.61-14.64",
+     "extent_words": 225,
+     "summary": "World Library licence notice served three times mid-text, between acts.",
+     "served_before": "2.50: …",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "2.55: ACT II. SCENE I. The Forest of Arden",
+     "source_ref": "1ws2510.txt lines 2045-2059, 5263-5277, 6315-6329",
+     "local_raw_has_it": null,
+     "modern_en": "present (English)",
+     "modern_da": "present (English at 2.51-2.54 and 12.27-12.30, Danish at 14.61-14.64)",
+     "existing_repair": "none"
+    },
+    {
+     "id": "G01-as-you-like-it-05",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "paragraph 0 of every chapter; 2.55, 8.43, 12.31, 14.65; 17.67-17.68; 17.70",
+     "extent_words": null,
+     "summary": "Headings served as body text: each chapter opens with its location line (e.g. 1.0 'A lawn before the DUKE'S palace'); 'ACT II. SCENE I. The Forest of Arden' and three similar headings sit mid-chapter; 'EPILOGUE', 'EPILOGUE.' and 'THE END' are served as paragraphs.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": null,
+     "source_ref": "1ws2510.txt",
+     "local_raw_has_it": null,
+     "modern_en": "same",
+     "modern_da": "same (translated)",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Registry label 'Shakespeare (1623)', but the served text is the World Library etext (modernised spelling), not the First Folio."
+   ],
+   "needs_investigation": [
+    "Which edition should replace the World Library text? Current PG #1523 (PG Shakespeare Team) covers only 90.2% of the served tokens (a different edition). Current PG #1121 and #2244 are First Folio transcriptions."
+   ],
+   "notes": "Source identification: served text = World Library etext exactly (edition_covered 99.92%; the only uncovered tokens are the final \"End of this Etext\" line, which falls outside the body delimiter). PG #1121 today serves a First Folio text, so the matching text was retrieved from archive.org item 1ws2510 (header \"December, 1997 [Etext #1121]\"). Root cause: the parser recognised only bare \"SCENE N.\" headings. It skipped \"ACT N. SCENE I.\" headings (losing 1.1, which precedes the first bare heading, and merging each later Scene 1), and never advanced the act counter. MOD_DUP_ADJ flags 12.88/89, 17.41/42, 17.43/44 and DUP_ADJ 15.39-41 are authentic repetitions. The 12.99 merge (Orlando + Rosalind) is verbatim from the source layout. No local raw."
+  },
+  {
+   "id": "hamlet",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Original Text",
+     "sha256": "77f9bf6e33516a710b6e7a747cd0ae3e1518eca29483c0470341f69d8de6e58f",
+     "source_url": "https://www.gutenberg.org/cache/epub/1524/pg1524.txt",
+     "source_sha256": "31584c19795779431b5933499a45b9cecb03e8c246b6ea7e245a2b6d65e8e784",
+     "source_retrieved_utc": "2026-09-25T11:53:30Z",
+     "source_edition": "PG #1524 Hamlet (credits Dianne Bean; updated 2025-09-19)",
+     "source_covered_pct": 99.487,
+     "edition_covered_pct": 99.761,
+     "missing_runs_ge10": 3,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "b355830766b696812decba35f95dee0ee68ff7662e36370194a129bc2147fda5",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "fea31e2b8d327f0fb7d7b11e4942ff6d73e048446304070b0edfa7962e7022d4",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-hamlet-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.3, 2.54, 2.69, 5.22, 5.36, 5.45, 7.110, 9.12, 10.4, 13.1, 16.52, 16.69, 17.1, 20.149",
+     "extent_words": null,
+     "summary": "14 short replies are merged into the preceding speaker's paragraph with their label inline. Mostly joint labels ('MARCELLUS and BARNARDO.', 'ROSENCRANTZ and GUILDENSTERN.', 'OSRIC and LORDS.'), plus DANES and SERVANT. Text present.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "e.g. 2.54: HAMLET. … Hold you the watch tonight? MARCELLUS and BARNARDO. We do, my lord.",
+     "source_ref": "pg1524.txt",
+     "local_raw_has_it": true,
+     "modern_en": "not checked per item (paragraph-aligned)",
+     "modern_da": "not checked",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Dramatis Personae not served: SCOPE."
+   ],
+   "needs_investigation": [],
+   "notes": "Local raw books/raw/hamlet/raw.txt equals current PG #1524 (BOM only). All 105 continuation blocks after stage directions are present (100 re-labelled). No text lost; 20/20 scenes. The staged successor origin/claude/hamlet-modern-en-20260911 (121d8c718; ch1 only) confirms PG #1524 as the source and records no completeness issue."
+  },
+  {
+   "id": "midsummer",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Original Text",
+     "sha256": "9ddba0b7d8617c6c0d2c0f5a31659f43ded8b51f03cb95808a63ae04c341ad4e",
+     "source_url": "https://www.gutenberg.org/cache/epub/1514/pg1514.txt",
+     "source_sha256": "e8626a628112990c8505dd1098276e6f75040cc268690d018ee6694c71888ea4",
+     "source_retrieved_utc": "2026-09-25T11:53:32Z",
+     "source_edition": "PG #1514 A Midsummer Night's Dream (PG Shakespeare Team; updated 2025-09-18)",
+     "source_covered_pct": 99.555,
+     "edition_covered_pct": 99.903,
+     "missing_runs_ge10": 2,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "f9eca722e0488f7a4f44fd865e487d2ed0361fab9b783b11ff3ccd32b43a8666",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "5b516f16b544ccb0e30e21e1af9a29d98104acb40f7f3b6dc163ccc006d43e4d",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-midsummer-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "6.123",
+     "extent_words": 18,
+     "summary": "Lysander's couplet after '[Lies down.]' is an unlabelled paragraph with malformed brackets ('… revenge this spite. [Sleeps' … ']]').",
+     "served_before": "6.122: LYSANDER. … And here will rest me. Come, thou gentle day!",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "6.124: [Enter Puck and Demetrius.]",
+     "source_ref": "pg1514.txt",
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Puck's epilogue is served at 9.132 inside Act 5 Sc 1, as in PG #1514, which gives it no separate heading."
+   ],
+   "needs_investigation": [],
+   "notes": "Local raw books/raw/midsummer/raw.txt is exactly the body of current PG #1514 (header, contents and Dramatis Personae trimmed). 9/9 scenes. The mechanicals' Prologue (5.1) is present."
+  },
+  {
+   "id": "romeo-and-juliet",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Original Text",
+     "sha256": "d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276",
+     "source_url": "https://www.gutenberg.org/cache/epub/1513/pg1513.txt",
+     "source_sha256": "5a2037a19e60cccb67b3f5fc93a12cb65c58694ce6a1dc61d0d67d0d2502b3b4",
+     "source_retrieved_utc": "2026-09-25T11:53:33Z",
+     "source_edition": "PG #1513 Romeo and Juliet (PG Shakespeare Team; updated 2025-09-18)",
+     "source_covered_pct": 99.272,
+     "edition_covered_pct": 99.792,
+     "missing_runs_ge10": 2,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "47fdf4f9a1b309f6747b48d00add73181cff9cd0a4c0063f81774a1a8a95bae6",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "bed47cb3281aa1e9f70885921ff6cb79b603f4a5a124e2445c19167778877046",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-romeo-and-juliet-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "6.29, 8.42, 8.44, 13.28, 13.32, 15.29, 17.23, 25.58",
+     "extent_words": 58,
+     "summary": "8 speech lines that open with an inline stage direction are served bracket-wrapped, as '[Within.] Madam.]', with the speaker label lost or moved to the next paragraph: Romeo's sonnet opening 6.29, Nurse 8.42/8.44/15.29, Mercutio 13.28, Tybalt 13.32, Lady Capulet 17.23, First Watch 25.58.",
+     "served_before": "6.28: [Exit.]",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "6.29: [To Juliet.] If I profane with my unworthiest hand] / 6.30: ROMEO. This holy shrine…",
+     "source_ref": "pg1513.txt lines 1301, 1757, 1764, 2689, 2702, 3251, 3563, 5063",
+     "local_raw_has_it": true,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none. green-romeo-and-juliet/PARKED-RESOLVED.md (90493e721) states 'all speaker attributions correct', but that compared against the served source."
+    },
+    {
+     "id": "G01-romeo-and-juliet-02",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "7.0-7.1",
+     "extent_words": 104,
+     "summary": "Act 2 Chorus ('Now old desire doth in his deathbed lie') is present in the correct place but unlabelled at the head of chapter 'Act 2, Scene 1'; its 'Enter Chorus.' direction is dropped.",
+     "served_before": "6.62: [Exeunt.]",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "7.2: [Enter Romeo.]",
+     "source_ref": "pg1513.txt lines 1425-1446",
+     "local_raw_has_it": true,
+     "modern_en": "same",
+     "modern_da": "same",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "The Prologue is its own chapter 1: correct."
+   ],
+   "needs_investigation": [],
+   "notes": "Local raw equals current PG #1513 (BOM only). 24/24 scenes plus Prologue. Other cosmetic items: stage direction split over 5.0/5.1; 10.76 merges the Nurse's and Romeo's speeches because PG prints 'ROMEO. Nurse, commend me…' on one line (source quirk)."
+  },
+  {
+   "id": "the-tempest",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Original Text",
+     "sha256": "c7b057ac30de314a239d6ebc1f133bf36195d1e4a0109650ceb97a25a972ac23",
+     "source_url": "https://shakespeare.mit.edu/tempest/full.html",
+     "source_sha256": "c3ed4bec5e1f07801ac9ef0ee0ae93e892ded38796bda443d51a5c78b76c3440",
+     "source_retrieved_utc": "2026-09-25T12:06:41Z",
+     "source_edition": "MIT Complete Works of Shakespeare (Moby text), The Tempest: Entire Play",
+     "source_covered_pct": 99.514,
+     "edition_covered_pct": 99.754,
+     "missing_runs_ge10": 1,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "ddbade7e7141e485ae8a36fb6b34401a95c87de48054ff9d2053c5fb8d1e063f",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "82dcfbf3e42e6ebd5485e19ac7fdcc23e278794e7d7c709b38ac953955932417",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-the-tempest-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.116, 2.118, 2.120; 2.123, 2.125; 9.15",
+     "extent_words": 150,
+     "summary": "Ariel's three songs are served under the wrong speaker: 'Come unto these yellow sands' (2.116-2.120) and 'Where the bee sucks' (9.15) as PROSPERO, and 'Full fathom five thy father lies' (2.123, 2.125) as FERDINAND. The source nests the songs inside those speakers' blocks after an 'ARIEL sings' direction, and the parser prefixed the enclosing speaker.",
+     "served_before": "2.122: [ARIEL sings]",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "2.123: FERDINAND. Full fathom five thy father lies; Of his bones are coral made;",
+     "source_ref": "mit-tempest full.html speeches 98, 99 (1.2.440-451, 1.2.461-468) and 5.1.93-99",
+     "local_raw_has_it": true,
+     "modern_en": "inherits (2.116, 2.123, 9.15)",
+     "modern_da": "inherits",
+     "existing_repair": "none. green-the-tempest ACCEPTANCE-RECORD.md (0252b80db) checked that the songs are present, not who sings them."
+    }
+   ],
+   "scope_notes": [
+    "Epilogue is its own chapter 10 with a \"[Spoken by Prospero]\" line: correct."
+   ],
+   "needs_investigation": [],
+   "notes": "Local raw books/raw/the-tempest/raw.txt is byte-identical to the current MIT page. Against PG #1540 coverage is only 95.8% (different edition), which confirms MIT as the match. 9/9 scenes plus Epilogue. The only non-heading difference is a \"[To ARIEL]\" direction served as its own paragraph (2.168)."
+  },
+  {
+   "id": "othello",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1622)",
+     "sha256": "a8e8ae40b054bce1b60dcba35fcd194f08e74829fcc0faa6665456f962b5d1df",
+     "source_url": "https://www.gutenberg.org/cache/epub/1531/pg1531.txt",
+     "source_sha256": "340a08eb95d6404c0834906eb7b899ec6503c609ca76eb5b7430bb100cd1e462",
+     "source_retrieved_utc": "2026-09-25T11:53:36Z",
+     "source_edition": "PG #1531 Othello (PG Shakespeare Team; updated 2025-09-19)",
+     "source_covered_pct": 99.422,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge10": 1,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "5beb0f0093ef10f1d725b797c3eef7cdfe370b3d74be8738f4fd01431dbdb04d",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "048b82fecf563ec728efa40b1a0bcb94cfc7cef907ef6c07c3e780a842d5b168",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-othello-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "3.4, 3.28, 3.43, 4.31, 4.37, 4.47, 4.79, 6.29, 6.30, 6.39, 6.40, 6.76, 6.78, 6.95, 6.99, 6.126, 6.130, 7.23, 7.29, 9.109, 9.130, 9.132, 10.68, 10.78, 10.93, 11.28, 11.34, 11.46, 11.48, 11.157, 12.15, 12.47, 12.88, 12.91, 13.26, 13.28, 13.30, 13.33, 14.80, 14.84, 15.4, 15.66, 15.146",
+     "extent_words": 1062,
+     "summary": "43 speech continuations after inline stage directions (1,062 words) are served wrapped in [ ] as if they were stage directions, with the speaker label lost. They include Iago's napkin soliloquy (9.130), Desdemona's 'Something sure of state' (10.78), Iago's 'Now will I question Cassio of Bianca' (11.46) and Othello's 'O, balmy breath' (15.4).",
+     "served_before": "11.45: [Othello withdraws.]",
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "11.46: [Now will I question Cassio of Bianca, A housewife that by selling her desires…]]",
+     "source_ref": "pg1531.txt (e.g. lines after \"[_Othello withdraws._]\")",
+     "local_raw_has_it": null,
+     "modern_en": "inherits (the staged successor keeps the bracket shape too)",
+     "modern_da": "inherits",
+     "existing_repair": "origin/claude/cool-galileo-tyen9m books/wip/othello-modern-en/HANDOFF.md \"Open issues\" 1 (commit 15d3d67e5) documents these 43 ids. The fix is deferred as a structural repair."
+    },
+    {
+     "id": "G01-othello-02",
+     "type": "MISSING",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "e.g. 4.77, 4.89, 6.57, 6.74, 10.22, 11.52, 11.55, 14.95 (asides); 3.24, 3.33, 3.67, 6.3, 9.94, 9.96, 9.126, 11.50, 11.90, 11.114, 11.130, 12.22, 14.46, 14.82, 15.131, 15.197",
+     "extent_words": null,
+     "summary": "About 30 of 35 inline stage directions inside speech lines are dropped, among them all 8 aside markers. Iago's and Othello's asides are therefore served as ordinary speech (e.g. 4.77 'He takes her by the palm'; 11.52 'Look how he laughs already!').",
+     "served_before": null,
+     "missing_start": "[_Aside._]",
+     "missing_end": null,
+     "served_after": "4.77: IAGO. He takes her by the palm. Ay, well said, whisper.",
+     "source_ref": "pg1531.txt lines 1527, 1583, 1963, 2018, 3466, 4051, 4060, 5487 (asides) and others",
+     "local_raw_has_it": null,
+     "modern_en": "inherits (4.77 has no aside marker)",
+     "modern_da": "inherits",
+     "existing_repair": "none (not in the othello-modern-en HANDOFF)"
+    }
+   ],
+   "scope_notes": [
+    "Registry label 'Shakespeare (1622)' is the first-quarto date. The text is the PG #1531 modern-spelling edition."
+   ],
+   "needs_investigation": [],
+   "notes": "All source speech text is served (edition_covered 100%, source 99.42%; the remainder is scene headings plus one stage direction). No local raw. 15/15 scenes. green-othello (aed78ec4e) does not record the bracket defect."
+  },
+  {
+   "id": "comedy-of-errors",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "84bba3a2afd91e5fa77f769259098cb68b45748e9e3f8a8f355a82215e0f354c",
+     "source_url": "https://www.gutenberg.org/cache/epub/1504/pg1504.txt",
+     "source_sha256": "bfaaac3d906996e171ff9fbb19e7a07556ed2aa6157c91b9d6600e5505a2cbe8",
+     "source_retrieved_utc": "2026-09-25T11:53:37Z",
+     "source_edition": "PG #1504 The Comedy of Errors (PG Shakespeare Team; updated 2025-09-18)",
+     "source_covered_pct": 99.63,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge10": 1,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "6319d77729e29c7b62f5f8f651469fcbd2cffb337b4e3b67367c364ee2698353",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "8c099fc4f43b2bd269d7c9161abcaab3e24adf75fb60a0a7bb9db116129beda2",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-comedy-of-errors-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "5.13, 5.26, 5.44",
+     "extent_words": null,
+     "summary": "3 speeches that open with an inline stage direction are split: the speaker label stands alone as a paragraph and the speech follows unlabelled (sometimes split again mid-sentence). Text complete.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "5.13: DROMIO OF SYRACUSE. / 5.14: [_Within._] Mome, malt-horse, capon, coxcomb, idiot, patch!",
+     "source_ref": "PG layout \"SPEAKER.\\n[_Aside._] …\"",
+     "local_raw_has_it": null,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Dramatis Personae not served: SCOPE."
+   ],
+   "needs_investigation": [],
+   "notes": "11/11 scenes; edition_covered 100%, source 99.63% (headings only). No local raw. green-comedy-of-errors (2dd323bd2) is an accepted modern-en with the same structure; no completeness issue."
+  },
+  {
+   "id": "merchant-of-venice",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1600)",
+     "sha256": "4897042eb44535622771253d9f1155d184c56b1b7450e17a3b2fcfa98ecbad20",
+     "source_url": "https://www.gutenberg.org/cache/epub/1515/pg1515.txt",
+     "source_sha256": "9389e97b1c83bf83895050b0ecd9d771dd5af1a1f3f0cc3b12a7edee77fad78f",
+     "source_retrieved_utc": "2026-09-25T11:53:38Z",
+     "source_edition": "PG #1515 The Merchant of Venice (PG Shakespeare Team; updated 2025-09-18)",
+     "source_covered_pct": 99.334,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge10": 3,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "a15d3a630dbfe538acdc0adc6db09ba391483c375fd24a02746a9a43b8443641",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "17d56d29af1104af20658b8d288d94cfa19919616e181011aed04fbbe9916c8e",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-merchant-of-venice-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "3.18, 5.4, 5.18, 14.14, 19.9, 20.59, 20.69",
+     "extent_words": null,
+     "summary": "7 speeches that open with an inline stage direction are split: the speaker label stands alone as a paragraph and the speech follows unlabelled (sometimes split again mid-sentence). Text complete.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "3.18: SHYLOCK. / 3.19: [_Aside._] How like a fawning publican he looks!",
+     "source_ref": "PG layout \"SPEAKER.\\n[_Aside._] …\"",
+     "local_raw_has_it": null,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Registry label 'Shakespeare (1600)' is the first-quarto date. The text is the PG #1515 modern-spelling edition."
+   ],
+   "needs_investigation": [],
+   "notes": "20/20 scenes; edition_covered 100%, source 99.33% (headings only). No local raw. green-merchant-of-venice (0de2cf96c) is parked for fidelity reasons unrelated to completeness."
+  },
+  {
+   "id": "winters-tale",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "label": "Shakespeare (1623)",
+     "sha256": "e725492b2ca705fc0dc46687b555a88e106100dff1b76a2cc0900473ea0b4295",
+     "source_url": "https://www.gutenberg.org/cache/epub/1539/pg1539.txt",
+     "source_sha256": "c6a3e762754ee9c7660ab34d9ba655965850b0f6e98710c14c2799f733a38236",
+     "source_retrieved_utc": "2026-09-25T11:53:40Z",
+     "source_edition": "PG #1539 The Winter's Tale (PG Shakespeare Team; updated 2025-09-19)",
+     "source_covered_pct": 99.482,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge10": 9,
+     "missing_runs_ge25": 0,
+     "extra_runs_ge10": 0,
+     "order_anomalies": 0,
+     "duplicate_runs": 0
+    },
+    {
+     "key": "modern-en",
+     "label": "Modern English",
+     "sha256": "b85a81abca26b0a3d5ba2afe80e39afc13618c44b1de3addff024be57d53c346",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    },
+    {
+     "key": "modern-da",
+     "label": "Moderne Dansk",
+     "sha256": "dc48224cf47bdced5c1ee828517ae300d7ed9cc8a5dad6c9604d9ffad832a553",
+     "note": "rendering of original-en (paragraph-aligned); not token-aligned"
+    }
+   ],
+   "findings": [
+    {
+     "id": "G01-winters-tale-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "2.37, 3.59, 7.5, 7.24, 11.10, 11.13, 12.12, 12.87, 12.103, 12.105, 12.146, 12.197, 12.200, 12.221, 12.237, 12.240, 12.244, 15.35",
+     "extent_words": null,
+     "summary": "18 speeches that open with an inline stage direction are split: the speaker label stands alone as a paragraph and the speech follows unlabelled (sometimes split again mid-sentence). Text complete.",
+     "served_before": null,
+     "missing_start": null,
+     "missing_end": null,
+     "served_after": "2.37: LEONTES. / 2.38: [_Aside._] Too hot, too hot! / 2.39: To mingle friendship far…",
+     "source_ref": "PG layout \"SPEAKER.\\n[_Aside._] …\"",
+     "local_raw_has_it": null,
+     "modern_en": "inherits",
+     "modern_da": "inherits",
+     "existing_repair": "none"
+    }
+   ],
+   "scope_notes": [
+    "Time the Chorus (Act 4 Sc 1) is its own chapter 9 (9.0-9.2): correct. Dramatis Personae not served: SCOPE."
+   ],
+   "needs_investigation": [],
+   "notes": "15/15 scenes; edition_covered 100%, source 99.48% (headings only). No local raw. The inventory title 'winters-tale' is an inv.py parsing artefact (the registry title is double-quoted \"The Winter's Tale\"); not a defect. green-winters-tale (9cf18e066) is an accepted modern-en with the same structure."
+  }
+ ]
+}

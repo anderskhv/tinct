@@ -1,0 +1,489 @@
+{
+ "group": "G05-featured",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "audit_date": "2026-09-25",
+ "books": [
+  {
+   "id": "frankenstein",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
+     "source_url": "https://www.gutenberg.org/cache/epub/84/pg84.txt",
+     "source_sha256": "7810cd483cffcf2cc8a1d8f0d5807931e69d4f48cd14149b8c76f88af82fead3",
+     "source_retrieved_utc": "2026-09-25T11:55:59Z",
+     "source_covered_pct": 99.926,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "Body identical to PG #84 (only the 28 Letter/Chapter headings unmatched). Also aligned vs PG #42324 (1831 ed. with front matter): source 95.888% / edition 99.677%, 4 runs >=25 = the 1831 Introduction + 1818 Preface; vs PG #41445 (1818): 90.12% / 87.269%, 187 order anomalies -> served text is the 1831 text."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-frankenstein-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (book front matter)",
+     "extent_words": 2825,
+     "summary": "Mary Shelley's 1831 Introduction (~2,250 words, 'my hideous progeny') and the 1818 Preface (~575 words) are absent although the edition is labelled 'Original (1831)'; the imported PG #84 lacks both.",
+     "served_before": "(none - book opens here)",
+     "missing_start": "The Publishers of the Standard Novels, in selecting \"Frankenstein\" for one of their series, expressed a wish",
+     "missing_end": "...has been completed. Marlow, September, 1817.",
+     "served_after": "1.0 \"_To Mrs. Saville, England._\" / 1.1 \"St. Petersburgh, Dec. 11th, 17—.\"",
+     "source_ref": "pg42324.txt lines 60-268 (INTRODUCTION, signed M. W. S., London, October 15, 1831; 2,248 words) and 269-340 (PREFACE, Marlow, September 1817; 577 words)",
+     "local_raw_has_it": false,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none. green-frankenstein (main, released) checked completeness only against books/raw/frankenstein/raw.txt (= PG #84), which lacks the front matter; the successor inherits the gap.",
+     "scope_decision_needed": true
+    }
+   ],
+   "scope_notes": [
+    "Brief premise corrected: PG #84 is NOT the 1818 text. Current pg84.txt carries the 1831 revisions (e.g. served 5.7-5.9: Elizabeth adopted from a peasant family on Lake Como; 1818 PG #41445 has her as Alphonse's niece) with modernised spelling (ribbons/ribands, inquirers/enquirers). Label \"Original (1831)\" and SOURCE.md \"1831 revised edition\" are correct.",
+    "books/raw/frankenstein/raw.txt is token-identical to the current PG #84 body.",
+    "The 1818 Godwin dedication and Paradise Lost epigraph are not in the 1831 edition (PG #42324) and are therefore not counted."
+   ],
+   "needs_investigation": [
+    "Owner decision: serve the 1831 Introduction (and the Preface) as front matter, given the 1831 label."
+   ],
+   "notes": "Body text complete; chapter boundaries (Letters 1-4, Chapters 1-24) match the source; no modern-en paragraph drops/duplicates found (ratio + adjacency scan)."
+  },
+  {
+   "id": "odyssey",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+     "source_url": "https://www.gutenberg.org/cache/epub/1727/pg1727.txt",
+     "source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+     "source_retrieved_utc": "2026-09-25T11:55:51Z",
+     "source_covered_pct": 99.48,
+     "edition_covered_pct": 99.87,
+     "missing_runs_ge25": 6,
+     "note": "All 6 missing runs >=25 (and all other headings) are Butler's book argument headlines, which are served verbatim as the 24 chapter titles (checked: 24/24 identical). Only EXTRA run >=25 is the 3.37 splice."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-odyssey-01",
+     "type": "EXTRANEOUS",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "3.37",
+     "extent_words": 196,
+     "summary": "Known splice: original-en 3.37 appends an invented Nestor speech plus a modern paraphrase of 3.36 to Butler's last clause of Book III; modern-en/-da 3.37 mirror it (near-duplicate of 3.36).",
+     "served_before": "3.36 \"...and in the course of time completed their journey, so well did their steeds take them.\"",
+     "missing_start": "(extraneous text) Nestor said, \"It is getting late; it is time we were all in bed.",
+     "missing_end": "(extraneous text) ...and in due time completed their journey, so well did their steeds carry them.",
+     "served_after": "4.0 \"They reached the low lying city of Lacedaemon, where they drove straight to the abode of Menelaus\"",
+     "source_ref": "pg1727.txt line 1539 (\"Now when the sun had set and darkness was over the land,\") is the whole of Butler's 3.37; Book IV follows at line 1544",
+     "local_raw_has_it": null,
+     "modern_en": "present (spliced; MOD_DUP_ADJ 3.36~37)",
+     "modern_da": "present (spliced)",
+     "existing_repair": "origin/claude/admiring-brahmagupta-rb9sws books/wip/featured-source-cleanup/odyssey (commit 7994156f; truncates original-en 3.37 to the PG clause; not released, PR #163 on hold); modern-en fixed in origin/claude/odyssey-modern-en-completion books/staged-replacements/odyssey/edition/odyssey-modern-en.candidate.json (commit 0a76d6ce; 3.37 = Butler clause only); modern-da listed report-only in featured-source-cleanup/odyssey/downstream-impact.json (no fix)."
+    }
+   ],
+   "scope_notes": [
+    "Butler's 'Preface to First Edition' and 'Preface to Second Edition' (translator's, pg1727 lines 86-369) and his 186 footnotes are not served: translator apparatus, SCOPE.",
+    "No local raw (books/raw/odyssey absent)."
+   ],
+   "needs_investigation": [],
+   "notes": "Apart from 3.37, whole-text alignment shows no missing Butler text. Cosmetic, outside this audit: 1,023 of 1,027 original-en paragraphs keep the Gutenberg hard line wraps (embedded newlines)."
+  },
+  {
+   "id": "jekyll-and-hyde",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "dc134b812fa478e45dfbe647db97ad0294463587b4b68a01a956f5c9fb34532b",
+     "source_url": "https://www.gutenberg.org/cache/epub/43/pg43.txt",
+     "source_sha256": "b43448a88391591f9cf82b25553df00faf47a2752a873185fcdd1156eebdb990",
+     "source_retrieved_utc": "2026-09-25T11:56:00Z",
+     "source_covered_pct": 99.826,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "Only the 10 chapter headings unmatched. Also aligned vs PG #42 (has the 1886 dedication): 98.86% / 99.571%, one run >=25 (101 tokens = dedication + contents list); other differences are #42/#43 variant readings."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-jekyll-and-hyde-01",
+     "type": "MISSING",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (book front matter)",
+     "extent_words": 48,
+     "summary": "Stevenson's dedication 'To Katharine de Mattos' with its four-line verse (1886 first edition; present in PG #42) is absent; the imported PG #43 text omits it.",
+     "served_before": "(none - book opens here)",
+     "missing_start": "TO KATHARINE DE MATTOS. It’s ill to loose the bands that God decreed to bind;",
+     "missing_end": "That the broom is blowing bonnie in the north countrie.",
+     "served_after": "1.0 \"Mr. Utterson the lawyer was a man of a rugged countenance that was never lighted by a smile\"",
+     "source_ref": "pg42.txt lines 40-46",
+     "local_raw_has_it": null,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none. green-jekyll-and-hyde (main, released) verified completeness against PG #43 only; inherits the gap.",
+     "scope_decision_needed": true
+    }
+   ],
+   "scope_notes": [
+    "No local raw (books/raw/jekyll-and-hyde absent). Label \"Stevenson (1886)\" names the edition that carries the dedication."
+   ],
+   "needs_investigation": [
+    "Owner decision: serve the dedication as front matter."
+   ],
+   "notes": "All 10 chapters present, boundaries match; ch.6 title follows the 1886 heading (\"Remarkable Incident of ...\")."
+  },
+  {
+   "id": "pride-and-prejudice",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "6d968f00645655554e44156a16a2713a3c1f60e74cb533d56aa5231847ca183c",
+     "source_url": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+     "source_sha256": "3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75",
+     "source_retrieved_utc": "2026-09-25T11:56:03Z",
+     "source_covered_pct": 99.467,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "All unmatched source runs are George Allen 1894 illustration captions/copyright lines, a \"H.T. Feb 94\" caption signature and chapter headings; 61/61 chapter starts and ends match."
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Saintsbury's 1894 Preface (pg1342 lines 95-695) and the illustration captions are editorial apparatus: SCOPE. No authorial front matter exists.",
+    "books/raw/pride-and-prejudice/raw.txt is token-identical to the current PG #1342 body (the two upstream typo fixes are punctuation-only).",
+    "modern-da (registry aligned=false) still has the pre-#192 structure: 2,060 paragraphs with the 7 mid-sentence illustration splits (presence only; Danish is out of delivery scope)."
+   ],
+   "needs_investigation": [],
+   "notes": "#192 structural cleanup verified on the served files (hashes equal the featured-source-cleanup outputs). Nothing else missing."
+  },
+  {
+   "id": "meditations",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
+     "source_url": "https://www.gutenberg.org/cache/epub/15877/pg15877.txt",
+     "source_sha256": "6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b",
+     "source_retrieved_utc": "2026-09-25T12:00:19Z",
+     "source_covered_pct": 99.903,
+     "edition_covered_pct": 99.974,
+     "missing_runs_ge25": 0,
+     "note": "Aligned against Long's text with his indented footnotes and [A]-style note markers removed (scratch pg15877.clean.txt, sha256 2d77e923...). Unfiltered: 90.822% / 99.899% (all gaps = Long's footnotes). Residue: book headings, 2 illustration captions, 1 missed footnote."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-meditations-01",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [],
+     "location": "books/raw/meditations/SOURCE.md + raw.txt (provenance record, not reader-facing)",
+     "extent_words": 0,
+     "summary": "Repository provenance points to the wrong translation: SOURCE.md says 'George Long' but cites PG #2680, and raw.txt is PG #2680 = Meric Casaubon's 1634 translation; the served Long text comes from PG #15877.",
+     "served_before": "n/a",
+     "missing_start": "n/a",
+     "missing_end": "n/a",
+     "served_after": "n/a",
+     "source_ref": "raw.txt sha256 b6e3eb0d68f933e6... (= pg2680 body, \"I. Of my grandfather Verus I have learned to be gentle and meek\"); served 1.0 = pg15877 \"From my grandfather Verus [I learned] good morals\"",
+     "local_raw_has_it": false,
+     "modern_en": "n/a",
+     "modern_da": "n/a (no modern-da edition)",
+     "existing_repair": "Already recorded as \"Stale repository record\" in origin/claude/wonderful-archimedes-nhig2x books/wip/green-meditations/ACCEPTANCE-RECORD.md (commit eb856817); not fixed on main."
+    }
+   ],
+   "scope_notes": [
+    "Long's Biographical Sketch, 'Philosophy of Marcus Aurelius Antoninus' essay, footnotes and indexes (PG #15877) are translator apparatus and are not served: SCOPE.",
+    "All 12 books present with Long's section counts 17/17/16/51/36/59/75/61/42/38/39/36 (487 paragraphs), ending \"...for he also who releases thee is satisfied.\""
+   ],
+   "needs_investigation": [],
+   "notes": "Served text complete vs Long (PG #15877). Label \"Long Translation (1862)\" is correct."
+  },
+  {
+   "id": "crime-and-punishment",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "6609777b2dfca00fa10c7d0f4d2599b2b617f029f8a1689714ce96c60627a978",
+     "source_url": "https://www.gutenberg.org/cache/epub/2554/pg2554.txt",
+     "source_sha256": "d139120965c81f10e3f747d891a49babdb49d986b25f7ab25299b1bbf4731146",
+     "source_retrieved_utc": "2026-09-25T11:56:10Z",
+     "source_covered_pct": 99.955,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "Only the 41 Part/Chapter/Epilogue headings unmatched; chapter shards (editions-chapters/) verified identical to the full JSON for all three editions."
+    }
+   ],
+   "findings": [],
+   "scope_notes": [
+    "Translator's Preface (pg2554 lines 45-135, ~790 words, biographical note on Dostoevsky) is editorial: SCOPE.",
+    "books/raw/crime-and-punishment/raw.txt is token-identical to the current PG #2554 body.",
+    "modern-en MIDSPLIT 37.0|37.1 reproduces the source layout (the quoted song line \"began kissing Katia.\" is set as its own indented line in PG): not a defect."
+   ],
+   "needs_investigation": [],
+   "notes": "Structure Part I (7) / II (7) / III (6) / IV (6) / V (5) / VI (8) / Epilogue (2) = 41 chapters, matches Garnett."
+  },
+  {
+   "id": "jane-eyre",
+   "verdict": "COMPLETE-VS-SOURCE",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "d05d18103f439a8267be407ac8e6d44068236c262321f386174050bbf2109257",
+     "source_url": "https://www.gutenberg.org/cache/epub/1260/pg1260.txt",
+     "source_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+     "source_retrieved_utc": "2026-09-25T11:56:11Z",
+     "source_covered_pct": 99.471,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 1,
+     "note": "The single run >=25 (920 tokens) is the Preface + Note to the Third Edition (see SCOPE finding). Other unmatched source text: 38 chapter headings and one removed illustration caption (\"I said my evening prayers\", after 28.5). Shards verified identical to the full JSON."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-jane-eyre-01",
+     "type": "SCOPE",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "before 1.0 (book front matter)",
+     "extent_words": 892,
+     "summary": "Charlotte Brontë's Preface to the second edition (dedication to Thackeray, signed Currer Bell, Dec 1847) and the Note to the Third Edition (Apr 1848) are not served. Defensible for an edition labelled 'Original (1847)', since the first edition had no preface.",
+     "served_before": "(none - book opens here)",
+     "missing_start": "A preface to the first edition of “Jane Eyre” being unnecessary, I gave none",
+     "missing_end": "...to rectify mistakes which may already have been made, and to prevent future errors.",
+     "served_after": "1.0 \"There was no possibility of taking a walk that day.\"",
+     "source_ref": "pg1260.txt lines 59-153 (PREFACE, 794 words) and 154-173 (NOTE TO THE THIRD EDITION, 98 words)",
+     "local_raw_has_it": true,
+     "modern_en": "absent",
+     "modern_da": "absent",
+     "existing_repair": "none; not discussed in featured-source-cleanup (#192) or green-jane-eyre (origin/claude/laughing-hypatia-svxsjf, d47d80f8), whose completeness checks started at Chapter I.",
+     "scope_decision_needed": true
+    }
+   ],
+   "scope_notes": [
+    "books/raw/jane-eyre/raw.txt is token-identical to the current PG #1260 body.",
+    "#192 caption cleanup verified: no illustration captions remain in original-en or modern-en.",
+    "modern-da (registry aligned=false) still has the pre-#192 4,047-paragraph structure with the 13 caption paragraphs (11 chapters off by 1-3 paragraphs; screening DUP_ADJ 25.82~83). Presence only; Danish out of delivery scope."
+   ],
+   "needs_investigation": [
+    "Owner decision whether to serve the authorial Preface/Note as front matter."
+   ],
+   "notes": "Nothing else missing; ends \"Amen; even so come, Lord Jesus!\" as in the source."
+  },
+  {
+   "id": "the-prince",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "288e7bcf4427ef042d2d90214c130756d32273c2ae75ea7da84ad7dd97ff1e95",
+     "source_url": "https://www.gutenberg.org/cache/epub/1232/pg1232.txt",
+     "source_sha256": "33496a305f7a4b933784fb5aec95f920fbc3d4687794817e4cc444aa6578d2e4",
+     "source_retrieved_utc": "2026-09-25T11:56:13Z",
+     "source_covered_pct": 98.784,
+     "edition_covered_pct": 99.988,
+     "missing_runs_ge25": 0,
+     "note": "Source body = DEDICATION..'Edward Dacre, 1640.' (lines 495-3699). Only headings and footnote reference numerals unmatched - because Marriott's 48 footnote TEXTS are themselves served as paragraphs (found by footnote-block matching, see G05-the-prince-01)."
+    },
+    {
+     "key": "original-it",
+     "sha256": "f5d8ecdaa3b7380fe8fdd1e8f42b6db7357133aa2d0c691d01df4b854df5f95f",
+     "source_url": "https://it.wikisource.org/wiki/Il_Principe (Dedica + Capitolo_I..XXVI; edition \"Italia, 1814\", SAL 100%); sha256 is of the 27 pages' extracted text as assembled in scratch (ws_principe.txt)",
+     "source_sha256": "5ca5c2674425882279650995a920f2447a3fceb3a6bc9abd37d85c4f478376f2",
+     "source_retrieved_utc": "2026-09-25T12:05Z-12:07Z",
+     "source_covered_pct": 98.698,
+     "edition_covered_pct": 98.991,
+     "missing_runs_ge25": 0,
+     "note": "Unmatched source = chapter headings only; the 94 unmatched edition runs (282 tokens) are exactly the 94 Wikisource \"[p. N modifica]\" markers (G05-the-prince-02). Without them the edition is fully covered. No Italian text on PG; liberliber.it returned 404."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-the-prince-01",
+     "type": "EXTRANEOUS",
+     "severity": "S2",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en",
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "4.3, 4.11, 4.13, 4.14, 4.21, 4.22, 7.8, 8.2, 8.4, 8.8, 8.10, 8.14, 8.15, 8.18, 9.2, 9.7, 10.6, 10.7, 12.3, 12.6, 13.3, 13.8, 13.9, 13.10, 13.11, 13.12, 13.13, 13.16, 14.1, 14.5, 14.11, 14.12, 14.14, 15.3, 18.1, 18.5, 19.0, 19.2, 19.4, 19.9, 19.13, 20.7, 21.6, 22.8, 24.3, 26.1, 27.4, 27.8",
+     "extent_words": 1618,
+     "summary": "All 48 of Marriott's translator/editor footnotes are served as standalone body paragraphs in 17 chapters (19% of paragraphs), e.g. Chapter 18 opens with a note citing Burd; notes quote a House of Commons debate and Frederick the Great.",
+     "served_before": "4.2 \"...his armies should be defeated and driven out of Italy; which followed from the causes above mentioned.\"",
+     "missing_start": "(extraneous, 4.3) Duke Lodovico was Lodovico Moro, a son of Francesco Sforza, who married Beatrice d’Este.",
+     "missing_end": "(extraneous, 19.0 = first paragraph of Chapter 18) “The present chapter has given greater offence than any other portion...” Burd",
+     "served_after": "4.4 \"Nevertheless Milan was taken from France both the first and the second time.\"",
+     "source_ref": "pg1232.txt footnote blocks \" [n] ...\" lines 645-3639 (48 blocks, 1,666 words incl. markers); e.g. [1] of ch. XVIII at lines 2514-2515",
+     "local_raw_has_it": null,
+     "modern_en": "present (all 48 rendered as paragraphs)",
+     "modern_da": "present (all 48 translated as paragraphs)",
+     "existing_repair": "none. origin/claude/lucid-turing-vhssi3 books/wip/green-the-prince/ACCEPTANCE-RECORD.md (c287c609) explicitly accepts \"translator's footnotes/apparatus retained as footnote-style paragraphs\" as an intentional pattern; that modern-en was released (books/wip/three-book-release-20260923.json) and inherits the defect."
+    },
+    {
+     "id": "G05-the-prince-02",
+     "type": "EXTRANEOUS",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-it"
+     ],
+     "location": "94 inline markers in 75 of 92 paragraphs, 25 of 27 chapters (all except ch. 2-3); first at 1.0, e.g. 4.0-4.4 (8), 20.x (11)",
+     "extent_words": 282,
+     "summary": "Wikisource page-number/edit links \"[p. N modifica]\" (N = 4-102) scraped into the Italian reading text mid-sentence.",
+     "served_before": "1.0 \"...considerato che da me non\"",
+     "missing_start": "(extraneous) [p. 4 modifica]",
+     "missing_end": "(extraneous) [p. 4 modifica]",
+     "served_after": "1.0 \"li possa essere fatto maggior dono, che darle facultà\"",
+     "source_ref": "it.wikisource.org/wiki/Il_Principe subpages render ProofreadPage page links \"[p. N modifica]\"; the text between them is the served text",
+     "local_raw_has_it": null,
+     "modern_en": "n/a (modern editions derive from original-en)",
+     "modern_da": "n/a",
+     "existing_repair": "none found (green-the-prince covers modern-en only)."
+    },
+    {
+     "id": "G05-the-prince-03",
+     "type": "MISLABELED",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "modern-en",
+      "modern-da"
+     ],
+     "location": "27.14 (with 27.13)",
+     "extent_words": 3,
+     "summary": "'Edward Dacre, 1640.' credits Dacres' 1640 verse translation (correct in original-en, as Marriott prints it), but modern-en 27.13 is a new prose paraphrase and modern-da a Danish verse, so the credit now misattributes them.",
+     "served_before": "modern-en 27.13 \"Virtue will advance into battle against fury and soon put it to flight\"",
+     "missing_start": "(apparatus) Edward Dacre, 1640.",
+     "missing_end": "(apparatus) Edward Dacre, 1640.",
+     "served_after": "(end of book)",
+     "source_ref": "pg1232.txt lines 3685-3695",
+     "local_raw_has_it": null,
+     "modern_en": "present (misattributed)",
+     "modern_da": "present (misattributed)",
+     "existing_repair": "none."
+    }
+   ],
+   "scope_notes": [
+    "original-en = W. K. Marriott (PG #1232), not Dacres 1640 and not a mix: \"Edward Dacre, 1640.\" is Marriott's credit line for the quoted Petrarch verse translation.",
+    "Marriott's Introduction (lines 91-494) and the two appended works 'Description of the Methods adopted by the Duke Valentino...' and 'The Life of Castruccio Castracani' (lines 3700-4828) are editorial/other works: correctly not served. But 4.11 (a served footnote) refers readers to 'the introduction', which is not served.",
+    "original-it = the Wikisource \"Italia, 1814\" text (19th-c. vulgate with Italian chapter titles); label \"Il Principe (1532)\" is the first-printing date, not the text edition (VARIANT). Two titles are normalised vs the 1814 print (ch.6 \"prima che fossero occupati\"; ch.18 adds \"o più presto temuto che amato\").",
+    "Both source editions have the dedication, all 26 chapters and the closing Petrarch verses. 1.0 of original-en/modern-en is the dedication's salutation line served as a paragraph (S4 cosmetic, not listed)."
+   ],
+   "needs_investigation": [
+    "Decide the treatment of Marriott notes (drop, or render as notes) before any further modern-en work; the accepted green-the-prince package treats them as body text."
+   ],
+   "notes": "No authorial text missing from original-en or original-it. The defects are non-work text served as reading text."
+  },
+  {
+   "id": "candide",
+   "verdict": "DEFECTS",
+   "method": "full-alignment",
+   "editions": [
+    {
+     "key": "original-en",
+     "sha256": "fd3eff9b64e01756c82a13f9fda47f0553a379377077f8feb5b7e3ff8e01a37d",
+     "source_url": "https://www.gutenberg.org/cache/epub/19942/pg19942.txt",
+     "source_sha256": "fb3943df826f375c4ab78d21f2d30bc95a0b2cb448e8812447a807d678eb0b5c",
+     "source_retrieved_utc": "2026-09-25T11:56:14Z",
+     "source_covered_pct": 98.944,
+     "edition_covered_pct": 100.0,
+     "missing_runs_ge25": 0,
+     "note": "Unmatched source = the 30 chapter headings only. Cross-check vs the actual 1901 Fleming/Smollett text (archive.org Works of Voltaire vol. 1 OCR, sha256 9d141a78...): source 26.269% / edition 31.271% -> different translation."
+    }
+   ],
+   "findings": [
+    {
+     "id": "G05-candide-01",
+     "type": "MISLABELED",
+     "severity": "S3",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "edition label (app/src/data/bookRegistry.ts:2278-2280) and books/raw/candide/SOURCE.md",
+     "extent_words": 0,
+     "summary": "original-en is labelled 'Fleming (1901)', translator William F. Fleming, but the served text is PG #19942, the uncredited translation of the 1918 Boni & Liveright Modern Library edition (introduction by Philip Littell).",
+     "served_before": "n/a",
+     "missing_start": "served 1.0: \"In a castle of Westphalia, belonging to the Baron of Thunder-ten-Tronckh, lived a youth\"",
+     "missing_end": "Fleming 1901: \"In the country of Westphalia, in the castle of the most noble baron of Thunder-ten-tronckh\"",
+     "served_after": "served 30.32 \"let us cultivate our garden\" vs Fleming 1901 \"let us take care of our garden\"",
+     "source_ref": "pg19942.txt lines 53-88 (Modern Library title page, Boni & Liveright 1918); ia worksofvoltairec01voltiala_djvu.txt lines 2316-2330 (Fleming 1901 opening)",
+     "local_raw_has_it": null,
+     "modern_en": "n/a (label only)",
+     "modern_da": "n/a",
+     "existing_repair": "none. green-candide (origin/claude/lucid-turing-vhssi3, released per three-book-release-20260923) does not name the translation.",
+     "severity_note": "Label-only (text complete); a reviewer may read this as S2 \"wholesale mislabelling\"."
+    },
+    {
+     "id": "G05-candide-02",
+     "type": "EXTRANEOUS",
+     "severity": "S4",
+     "status": "PROPOSED",
+     "edition_keys": [
+      "original-en"
+     ],
+     "location": "1.2[1] 2.18[2] 4.13[3] 5.1[4] 5.6[5] 6.0[6] 6.1[7] 6.1[8] 7.1[9] 11.0[10] 11.4[11] 11.6[12] 12.1[13] 12.17[14] 14.9[15] 15.0[16] 16.1[17] 17.7[18] 17.18[19] 19.7[20] 20.3[21] 22.8[22] 22.14[23] 22.17[24] 22.27[25] 22.37[26] 22.39[27] 22.90[28-30] 23.3[31] 23.6[32] 24.13[33] 27.7[35]",
+     "extent_words": 34,
+     "summary": "34 bracketed note-reference numerals ([1]-[33], [35]) are served inline, but the 1918 edition's endnotes are not served, so every marker dangles.",
+     "served_before": "1.2 \"The Preceptor Pangloss\"",
+     "missing_start": "(extraneous) [1]",
+     "missing_end": "(extraneous) [1]",
+     "served_after": "1.2 \"was the oracle of the family, and little Candide heard his lessons\"",
+     "source_ref": "pg19942.txt FOOTNOTES lines 4152-4323 (35 editorial notes, not served; SCOPE)",
+     "local_raw_has_it": null,
+     "modern_en": "absent (markers removed)",
+     "modern_da": "not checked in detail (derived from modern-en)",
+     "existing_repair": "none."
+    }
+   ],
+   "scope_notes": [
+    "Chapter 22 carries the 1761 additions (Parolignac episode), so the served 1918 translation is the long text; 30/30 chapters present, ending \"let us cultivate our garden.\"",
+    "Littell's Introduction and the 1918 endnotes are editorial: SCOPE. Voltaire's title-page fiction ('translated from the German of Doctor Ralph...', PG #4650 line 216) is absent from the 1918 translation itself: SCOPE (property of the translation).",
+    "No local raw text (books/raw/candide has SOURCE.md only), which repeats the Fleming attribution."
+   ],
+   "needs_investigation": [
+    "Choose a correct label for the 1918 Modern Library translation (translator uncredited in PG #19942) or re-source from the actual Fleming 1901 text."
+   ],
+   "notes": "Served text complete vs its real source (PG #19942)."
+  }
+ ]
+}
