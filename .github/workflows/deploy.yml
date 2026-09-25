@@ -136,3 +136,19 @@ jobs:
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening
+
+      - name: Verify Lighthouse publication on production
+        env:
+          TEST_BOOK: to-the-lighthouse
+          TEST_ORIGIN: https://tinct.app
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+          ARTIFACT_DIR: artifacts/lighthouse-publication-live
+        run: |
+          node scripts/check-book-publication.cjs
+          node scripts/check-lighthouse-characters.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-publication-live
+          path: app/artifacts/lighthouse-publication-live

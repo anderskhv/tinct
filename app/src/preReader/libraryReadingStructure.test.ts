@@ -10,7 +10,7 @@ describe('Library 2 published reading structures', () => {
   )
 
   it('gives every published book an honest, non-Danish structure', () => {
-    expect(catalogue.books).toHaveLength(100)
+    expect(catalogue.books).toHaveLength(101)
     for (const book of catalogue.books) {
       expect(book.readingStructure.editionKey).toBeTruthy()
       expect(book.editions.find(edition => edition.key === book.readingStructure.editionKey)?.language).not.toBe('da')

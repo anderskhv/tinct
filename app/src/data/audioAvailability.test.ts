@@ -14,16 +14,16 @@ describe('reversible edition discovery availability', () => {
     expect(reviewed).toEqual(actual)
     // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text);
     // 201 with the Berean Standard Bible (streamed narration) on 2026-09-25;
-    // 202 with the WEB Catholic Edition (streamed narration) the same day.
-    expect(new Set(reviewed).size).toBe(202)
-    expect(manifest.eligible_editions).toHaveLength(156)
+    // 202 with the WEB Catholic Edition; 204 with both Lighthouse editions.
+    expect(new Set(reviewed).size).toBe(204)
+    expect(manifest.eligible_editions).toHaveLength(158)
     expect(manifest.held_editions).toHaveLength(46)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
-    expect(PRE_READER_CATALOGUE.books).toHaveLength(100)
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(91)
-    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(91)
+    expect(PRE_READER_CATALOGUE.books).toHaveLength(101)
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(92)
+    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(92)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!
