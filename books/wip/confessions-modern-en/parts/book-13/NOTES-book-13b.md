@@ -27,7 +27,8 @@
 
 ## Uncertainties / open issues
 
-- 46 jussive vs indicative (see above) — a deliberate departure from Pusey following the Latin.
+- 46 jussive vs indicative (see above) — a deliberate departure from Pusey following the Latin; accepted by the reviewer.
+- 35 — fix pass (STYLE §4): Pusey's quotation marks around "multitude" restored ("we do find "multitude" among creatures…"; previously "multitudes" unmarked).
 - 45 "husband" -> "male sex" and 40 singular -> plural "servants" are Latin-driven departures from Pusey's wording; meaning otherwise unchanged.
 - Relative pronouns referring to God/the Spirit ("who", "whom") are lowercase; only He/Him/His/You forms are capitalized, consistent with the style note.
 - British spelling (neighbour, honour, vapour, vigour, defence) follows Pusey; flag if the book standard is American.

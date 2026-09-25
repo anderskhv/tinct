@@ -27,8 +27,10 @@
 
 ## Uncertainties / open issues
 
-- 21: reviewer should confirm the fix of Pusey's corrupted gifts list (greater/lesser light) is acceptable, since it departs from the served original-en wording.
-- 17: added clause "though it is not yet ours" is not in Pusey's text (Latin only).
+- 21: fix of Pusey's corrupted gifts list (greater/lesser light) — confirmed against the Latin by the reviewer; accepted.
+- 17: added clause "though it is not yet ours" is not in Pusey's text (Latin only) — confirmed by the reviewer; accepted.
+- Quotation marks (fix pass, STYLE §4): the quotation marks this slice had added around scripture and speech that Pusey leaves unmarked were removed in 3, 7, 8, 9, 10, 12, 13, 14, 15, 19, 22, 23, 24; every paragraph now has Pusey's count of double quotation marks (0).
+- 7: "a more excellent way of charity" and "how charity raises up" (*caritas*) → "love" per STYLE §8; 6 "our mother charity" (*per matrem caritatem*) is the named "mother Charity" exception and is kept.
 - 8: "Angels fell away" kept plural as Pusey (Latin singular "angelus").
 - Sim scores 0.70-0.72 on 12, 22, 23 are driven by dense scripture quotation.
 

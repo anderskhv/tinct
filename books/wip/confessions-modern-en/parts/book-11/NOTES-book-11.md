@@ -9,7 +9,7 @@ Book 11 was re-rendered afresh, paragraph by paragraph from Pusey with the Latin
 - *distentio* → **distension** everywhere it occurs in the Latin (p29 "time is a kind of distension"; p32 "a distension ... of the mind itself"; p38 "my life is nothing but distension ... not distended but extended"; p40 "without any distension in Your action"). Pusey uses different words for this term: "extension" (p29), "protraction" (p32), "distraction" (p38, p40). Using one term makes the argument's key concept visible.
 - *attentio / attendit* → **attention / attends** (p36, p37). Pusey has "consideration / considers".
 - *expectatio* → expectation; *memoria* → memory; *contuitus* (p25) → "sight" (Pusey's word, kept).
-- *praesens intentio* (p35) → "the present intent of the mind"; *secundum intentionem* (p38) → "intently" (Pusey).
+- *praesens intentio* (p35) → "the present intent of the mind"; *secundum intentionem* (p38) → "in intention" (fix pass; was Pusey's "intently").
 - *spatium* → "extent" (for "the present has no extent", p19, p26, p32, p33) or "span" (span of time). Pusey's "space" was avoided because modern readers take it spatially.
 - past/present/future and "exist / no longer exist / does not exist yet" are kept strictly distinct throughout pp16-23 and 32-37. Pusey's tense of each verb was checked against the Latin.
 
@@ -24,7 +24,7 @@ Book 11 was re-rendered afresh, paragraph by paragraph from Pusey with the Latin
 - p33 "He made us, and not we ourselves".
 - p34 "Deus Creator omnium" left in Latin, as in Pusey (Ambrose's hymn line whose syllables are being measured).
 - p37 "the sons of men" (biblical phrase).
-- p38 "Your loving-kindness is better than all lives"; "forgetting what lies behind"; "the prize of my heavenly calling"; "not distractedly but intently" (Pusey's adverbs kept; they are ordinary modern English).
+- p38 "Your loving-kindness is better than all lives"; "forgetting what lies behind"; "the prize of my heavenly calling". (Pusey's "not distractedly but intently" was replaced in the fix pass; see Latin consulted, p38.)
 - p40 "the humble in heart are Your dwelling place".
 
 ## Latin consulted
@@ -36,13 +36,15 @@ Book 11 was re-rendered afresh, paragraph by paragraph from Pusey with the Latin
 - p10 "hear Thee inwardly discoursing out of Thy oracle: I will boldly cry out": Latin attaches *ex oraculo tuo* to *clamabo* → "I will cry out boldly from Your own oracle". The obscure "severing my cloudiness which yet again mantles over me, fainting from it" was checked (*discindens nubilum meum, quod me rursus cooperit deficientem ab ea caligine atque aggere poenarum mearum*) and rendered as a clear sequence.
 - p12 "uttereth the times": Latin *dictat*; kept "utters".
 - p17 Pusey "often days since ... often days hence" is a misprint for "ten days" (Latin *decem dies*) → "ten days ago / ten days from now".
+- p18 Pusey "neither is the year now current present": Latin *nec annus qui agitur totus est praesens* → "not even the year now under way is present as a whole" (likewise *nec unus dies totus* → "not even one day is present as a whole"). Logged in fix pass, noted by reviewer.
 - p21 "could not relate them": Latin *non ... vera narrarent* → "could not tell of them truly". p22 "when past facts are related": Latin *cum vera narrantur* → "recounted truly".
 - p27 "How long time is it since he said this" / "since he did this": Latin *quamdiu dixit / fecit* = how long did he take → "How long did he take to say this? ... to do this?"; the third (*quam longo tempore illud non vidi*) → "How long it is since I saw that!".
 - p28 Pusey reverses the syllables ("because those sounded in a shorter time, these in a longer" after "some short, others long"). Latin *illae longiore tempore ... istae breviore* → long syllables sounded longer, short ones shorter. Fixed.
 - p29 "a certain extension": Latin *distentionem* → "a kind of distension" (see terminology).
-- p32 "the space of a rood": Latin *spatium transtri* (a beam) → "the length of a beam"; "protraction" → "distension".
+- p32 "the space of a rood": Latin *spatium transtri* (a beam) → "the length of a beam"; "protraction" → "distension". Pusey "verse" in the closing list = Latin *ita carmen, ita pes, ita syllaba* → "The same goes for a stanza, a foot, a syllable" (logged in fix pass, noted by reviewer).
 - p36/p37 "consideration" → "attention" (*attentio*). p37 "divided between my memory ... and expectation": Latin *distenditur vita ... in memoriam ... et in expectationem* → "stretched out two ways: into my memory ... and into my expectation".
-- p38 "distraction" (*distentio*) → "distension"; "re-collected from my old conversation" (*a veteribus diebus conligar*) → "gathered back from my old way of life".
+- p38 "distraction" (*distentio*) → "distension"; "re-collected from my old conversation" (*a veteribus diebus conligar*) → "gathered back from my old way of life". Fix pass: Pusey "not distractedly but intently" = *non secundum distentionem sed secundum intentionem* → "not in distension but in intention" (review #3), so the distentio/intentio contrast is visible; "that by Him I may apprehend in Whom I have been apprehended" (*ut per eum apprehendam in quo et apprehensus sum*) → "so that through Him I may lay hold, as in Him I have been laid hold of" (purpose clause, no added object; review #2).
+- p40 fix pass: *sensusque distenditur* (Pusey "his senses divided") → "his senses are distended", linking to *sine distentione* at the close (review #4).
 - p39 "even if there be any creature before all times": Latin *supra tempora* → "above all times".
 - p40 "unchangeably eternal, that is, the eternal Creator of minds": Latin *vere aeterno creatori mentium* → "that is, truly eternal, the Creator of minds". "distraction of Thy action" → "distension in Your action".
 
