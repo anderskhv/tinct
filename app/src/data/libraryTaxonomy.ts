@@ -2470,7 +2470,6 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "form": "novel",
     "era": "contemporary",
     "hue": 200,
-    "stub": true,
     "blurb": "A summer house, a postponed trip, time itself as the protagonist.",
     "themes": [
       "time",
@@ -2481,8 +2480,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "modernist-novels"
     ],
     "langs": [
-      "EN",
-      "DA"
+      "EN"
     ]
   },
   {
@@ -3402,9 +3400,7 @@ export const LIBRARY_READING_LISTS: LibraryReadingList[] = [
         "author": "Sigmund Freud"
       },
       {
-        "missing": true,
-        "title": "To the Lighthouse",
-        "author": "Virginia Woolf"
+        "id": "to-the-lighthouse"
       },
       {
         "missing": true,
@@ -3817,9 +3813,7 @@ export const LIBRARY_READING_LISTS: LibraryReadingList[] = [
         "id": "ulysses"
       },
       {
-        "missing": true,
-        "title": "To the Lighthouse",
-        "author": "Virginia Woolf"
+        "id": "to-the-lighthouse"
       },
       {
         "missing": true,

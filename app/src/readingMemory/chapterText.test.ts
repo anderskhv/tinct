@@ -26,14 +26,19 @@ describe('chapter text resolver', () => {
     expect(calls).toEqual(['/data/editions-chapters/bible-kjv-en/ch1147.json?v=abc'])
   })
 
-  it('falls back to the whole-book edition file and returns null when neither exists', async () => {
+  it('falls back when a registered shard is unavailable', async () => {
+    const {fetchImpl,calls}=fetchFrom({'/data/editions/bible-kjv-en.json':{chapters:[{number:1,title:'Genesis 1',paragraphs:['In the beginning']}]}})
+    expect(await loadChapterText({bookId:'bible',editionKey:'kjv-en',chapterNumber:1,fetchImpl})).toEqual({title:'Genesis 1',paragraphs:['In the beginning']})
+    expect(calls).toEqual(['/data/editions-chapters/bible-kjv-en/ch0001.json','/data/editions/bible-kjv-en.json'])
+  })
+
+  it('loads unsharded editions directly and returns null for a missing chapter', async () => {
     const { fetchImpl, calls } = fetchFrom({
       '/data/editions/plato-republic-original-en.json': { chapters: [{ number: 1, title: 'Book I', paragraphs: ['I went down yesterday'] }] },
     })
     const chapter = await loadChapterText({ bookId: 'plato-republic', editionKey: 'original-en', chapterNumber: 1, fetchImpl })
     expect(chapter).toEqual({ title: 'Book I', paragraphs: ['I went down yesterday'] })
     expect(calls).toEqual([
-      '/data/editions-chapters/plato-republic-original-en/ch0001.json',
       '/data/editions/plato-republic-original-en.json',
     ])
     expect(await loadChapterText({ bookId: 'plato-republic', editionKey: 'original-en', chapterNumber: 9, fetchImpl })).toBeNull()

@@ -1,3 +1,5 @@
+import { CHAPTER_SHARDED_EDITION_IDS } from '../data/editionShardRegistry'
+
 /**
  * Resolve the exact edition chapter text a session's anchors point at.
  * Chapter-sharded editions live under
@@ -40,7 +42,7 @@ export async function loadChapterText(input: {
   const suffix = input.version ? `?v=${encodeURIComponent(input.version)}` : ''
   const fallbackTitle = `Chapter ${input.chapterNumber}`
   const shard = `/data/editions-chapters/${input.bookId}-${input.editionKey}/${chapterShardPath(input.chapterNumber)}${suffix}`
-  try {
+  if ((CHAPTER_SHARDED_EDITION_IDS as readonly string[]).includes(`${input.bookId}-${input.editionKey}`)) try {
     const res = await fetchImpl(shard)
     if (res.ok) {
       const data = await res.json()
