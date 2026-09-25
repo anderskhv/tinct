@@ -21,6 +21,7 @@ Fresh source copies were separately retrieved. The decisive passages were inspec
 Current main history through #198 and open PRs contain no repair for the severe defects below.
 The audit's EXISTING-REPAIRS register says Macbeth candidates inherit the omissions; no As You Like It, Faust or Jerusalem text repair is ready. Named-branch searches found no newer repair for those gaps.
 Confessions #192 repairs modern-en, not modern-da. Vindication's English candidate does not repair Danish.
+All 16 live `/api/edition-patches` responses were also checked: 15 were empty; Macbeth modern-da has only chapter 2 paragraph 21 and chapter 4 paragraph 8 patches. Neither restores the missing chapter 8 dagger speech. No live patch resolves these holds.
 No translation is authored or semantically approved here.
 
 | Book | Editions held | Current production evidence | Remains available | Restore only when |
