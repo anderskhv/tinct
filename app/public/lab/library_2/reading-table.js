@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260925g';
+import { readingApi } from './catalogue.js?v=20260925h';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -69,19 +69,16 @@ function bindingFor(book) {
 }
 
 // Bookmark ribbons: one colour per book, stable across visits.
-const RIBBONS = ['#b03a2e', '#a8325e', '#7a4fa3', '#c07a2a', '#4f8a3f', '#c9b98f'];
+const RIBBONS = ['#69413e', '#6b6045', '#58634c', '#86724b'];
 const ribbonFor = id => RIBBONS[hash(id) % RIBBONS.length];
 const monthName = at => (at ? new Date(at).toLocaleString('en', { month: 'long' }) : null);
 const percentLabel = p => (p == null ? '' : p > 0 && p < 1 ? '<1%' : `${Math.round(p)}%`);
 /** Thickness as a fraction of the book's height, from its length. */
 const depthRatio = book => Math.max(0.085, Math.min(0.2, 0.065 + (book.wordCount || 90000) / 1_600_000));
 
-function readCache() {
-  try { return JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch { return null; }
-}
 function writeCache(table) {
   try {
-    if (table.mode === 'returning' && table.reading.length) localStorage.setItem(CACHE_KEY, JSON.stringify(table));
+    if (table.mode === 'returning' && table.reading.length) localStorage.setItem(CACHE_KEY, JSON.stringify({ mode: 'returning' }));
     else localStorage.removeItem(CACHE_KEY);
   } catch { /* private mode */ }
 }
@@ -95,7 +92,7 @@ function bookMarkup(b, i) {
       <span class="rt-f rt-back"></span>
       <span class="rt-f rt-fore"></span>
       <span class="rt-f rt-head"></span>
-      <span class="rt-mark"><i></i></span>
+      <span class="rt-mark" aria-hidden="true"><i></i></span>
       <span class="rt-f rt-refl rt-refl-front"></span>
       <span class="rt-f rt-refl rt-refl-spine" style="background:${texture}var(--binding)"></span>
       <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" data-binding="${name}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
@@ -141,17 +138,16 @@ export async function mountReadingTable({ hero, shelves, el }) {
   };
 
   if (demo) { render(DEMO); settle(); return true; }
-  // Paint the last known shelf at once (no featured-hero flash), then refresh from the engine.
-  const cached = readCache();
-  if (cached) render(cached);
+  // Resolve the production account before showing personal books or summaries.
+  // The old unscoped cache must never paint a previous account's shelf.
   try {
     api = await readingApi();
     if (view) view.api = api;
     const fresh = await api.loadReadingTable();
     writeCache(fresh);
-    if (JSON.stringify(fresh) !== JSON.stringify(cached)) render(fresh, view?.dataset.current);
+    render(fresh, view?.dataset.current);
   } catch {
-    if (!cached) root.classList.remove('returning');
+    root.classList.remove('returning');
   }
   settle();
   return root.classList.contains('returning');

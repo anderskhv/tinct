@@ -1,144 +1,131 @@
-// Quiet life in each signature scene, drawn over the painting in the same
-// canvas pass as Frankenstein's rain: flames that flicker and throw light,
-// snow and distant lights outside the Roman tent, glints on water, dust in a
-// sunbeam. Coordinates are in each image's own pixels (wide 1536x864; phone
-// 1024x1408, The Prince phone 1024x1344), so the effects stay on their
-// objects whatever the crop.
-
-const flicker = (t, seed) => 0.62 + 0.2 * Math.sin(t * 0.0131 + seed) + 0.11 * Math.sin(t * 0.0317 + seed * 2.1) + 0.07 * Math.sin(t * 0.0719 + seed * 3.7);
-
+// Effects are pinned to the actual artwork, in source-image coordinates.
+// Tiny moving flames, coherent water ripples, and snow confined to the tent
+// opening: never a layer of particles over the furniture or foreground book.
+const flicker = (t, seed) => .65 + .17 * Math.sin(t * .0071 + seed) + .1 * Math.sin(t * .0197 + seed * 2.1);
 const SCENES = {
   meditations: {
-    wide: { flames: [[938, 128, 170]], snow: [1245, 0, 1536, 560], lights: [[1276, 276], [1300, 283], [1330, 280], [1392, 276], [1445, 272]] },
-    phone: { flames: [[410, 150, 150]], snow: [790, 0, 1024, 720], lights: [[826, 330], [852, 338], [884, 342], [930, 335]] },
+    wide: { flames:[[938,134,13]], snow:[[1328,0],[1366,0],[1536,240],[1515,545],[1250,544],[1235,244]], lights:[[1263,295],[1295,295],[1385,285]], reflection:[938,665,70,120] },
+    phone: { flames:[[419,153,16]], snow:[[885,0],[920,0],[1024,179],[1024,722],[849,722],[792,409],[788,286]], lights:[[809,341],[841,343],[929,332]], reflection:[419,870,70,140] },
   },
   'the-prince': {
-    wide: { flames: [[822, 278, 190]], reflections: [[822, 640, 22, 150]], sky: [1072, 0, 1425, 330] },
-    phone: { flames: [[302, 280, 170]], reflections: [[302, 780, 20, 150]], sky: [606, 0, 940, 380] },
+    wide: { flames:[[824,297,27]], reflection:[824,645,55,105] },
+    phone: { flames:[[304,301,31]], reflection:[304,825,50,130] },
   },
   'crime-and-punishment': {
-    wide: { flames: [[1110, 278, 150]], reflections: [[1110, 640, 18, 120]], water: [1100, 222, 1345, 298] },
-    phone: { flames: [[704, 316, 130]], reflections: [[704, 820, 16, 120]], water: [690, 214, 900, 320] },
+    wide: { flames:[[1111,282,17]], water:[[1125,269],[1171,252],[1231,264],[1349,272],[1349,300],[1158,297]], reflection:[1111,650,50,115] },
+    phone: { flames:[[704,314,17]], water:[[721,288],[750,258],[800,268],[895,274],[895,325],[720,323]], reflection:[704,877,50,125] },
   },
   odyssey: {
-    wide: { flames: [[680, 270, 150]], reflections: [[680, 620, 20, 120]], water: [1035, 330, 1400, 410] },
-    phone: { flames: [[344, 356, 140]], reflections: [[344, 800, 18, 130]], water: [668, 392, 940, 470] },
+    wide: { flames:[[681,277,18]], water:[[1040,331],[1278,334],[1333,337],[1397,334],[1397,398],[1343,397],[1307,422],[1234,413],[1140,386],[1040,367]], reflection:[180,640,70,120] },
+    phone: { flames:[[350,364,18]], water:[[694,403],[932,400],[932,463],[858,467],[814,497],[789,464],[742,443],[694,430]], reflection:[120,930,80,145] },
   },
   'pride-and-prejudice': {
-    wide: { motes: [950, 60, 1460, 580], beam: [[1300, 60], [980, 580]] },
-    phone: { motes: [520, 60, 1000, 780], beam: [[860, 60], [560, 780]] },
+    wide: { foliage:[[[1189,116],[1247,114],[1247,218],[1190,217]],[[1263,114],[1328,107],[1328,216],[1263,218]]], sun:[1242,315,190,280], motes:[[1082,230],[1172,262],[1005,506],[907,490]], water:[[1260,299],[1327,299],[1327,322],[1260,322]] },
+    phone: { foliage:[[[729,175],[791,169],[791,293],[721,292]],[[806,170],[883,163],[883,291],[806,294]]], sun:[790,410,155,350], motes:[[649,251],[711,310],[615,632],[545,604]], water:[[806,394],[884,394],[884,422],[806,422]] },
   },
 };
 
-// Stable pseudo-random particles, generated once per scene.
-const rnd = seed => { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); };
+// Grade once, not on every animation frame. This also works in browsers which
+// don't implement CanvasRenderingContext2D.filter (including older iOS Safari).
+const paintings = new WeakMap();
+export function scenePainting(img, id) {
+  if (id !== 'pride-and-prejudice') return img;
+  if (!paintings.has(img)) {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    ctx.fillStyle = 'rgba(8,23,17,.24)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    paintings.set(img, canvas);
+  }
+  return paintings.get(img);
+}
 const particles = new Map();
 function field(key, n) {
   if (!particles.has(key)) {
-    const r = rnd([...key].reduce((h, c) => h * 31 + c.charCodeAt(0), 7));
-    particles.set(key, Array.from({ length: n }, () => ({ x: r(), y: r(), s: r(), p: r() * Math.PI * 2 })));
+    let seed = [...key].reduce((h,c)=>(h*31+c.charCodeAt(0))>>>0,7);
+    const rand=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);
+    particles.set(key,Array.from({length:n},()=>({x:rand(),y:rand(),s:rand(),p:rand()*Math.PI*2})));
   }
   return particles.get(key);
 }
-
-function glow(ctx, x, y, r, colour, alpha) {
-  const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-  g.addColorStop(0, `rgba(${colour},${alpha})`);
-  g.addColorStop(0.35, `rgba(${colour},${alpha * 0.45})`);
-  g.addColorStop(1, `rgba(${colour},0)`);
-  ctx.fillStyle = g;
-  ctx.fillRect(x - r, y - r, r * 2, r * 2);
+function clip(ctx, polygon) {
+  ctx.beginPath(); polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.clip();
 }
-
-/**
- * Draw the scene's life for image `img` placed with `crop` (from sceneCrop).
- * `alpha` fades it with the scene crossfade.
- */
-export function drawSceneLife(ctx, id, wide, img, crop, alpha, time) {
-  const spec = SCENES[id]?.[wide ? 'wide' : 'phone'];
-  if (!spec || alpha <= 0 || !img) return;
-  ctx.save();
-  ctx.scale(crop.scale, crop.scale);
-  ctx.translate(-crop.x, -crop.y);
-  ctx.globalCompositeOperation = 'lighter';
-
-  (spec.flames || []).forEach(([x, y, r], i) => {
-    const f = flicker(time, i * 1.7 + x * 0.01);
-    glow(ctx, x, y, r * (0.9 + 0.12 * f), '255,160,70', 0.16 * f * alpha);
-    glow(ctx, x, y - 4, 16 + 6 * f, '255,215,150', 0.28 * f * alpha);
+function bounds(polygon) {
+  const xs=polygon.map(p=>p[0]),ys=polygon.map(p=>p[1]);
+  return [Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)];
+}
+function glow(ctx,x,y,r,colour,alpha) {
+  const g=ctx.createRadialGradient(x,y,0,x,y,r);
+  g.addColorStop(0,`rgba(${colour},${alpha})`);g.addColorStop(.3,`rgba(${colour},${alpha*.5})`);g.addColorStop(1,`rgba(${colour},0)`);
+  ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2);
+}
+function flame(ctx,x,y,h,t,seed,alpha) {
+  const f=flicker(t,seed), lean=Math.sin(t*.0047+seed)*h*.085;
+  glow(ctx,x,y-h*.4,h*3.4,'244,156,65',(.026+.022*f)*alpha);
+  ctx.save();ctx.globalAlpha=alpha*(.22+.18*f);ctx.fillStyle='#ffe8aa';
+  ctx.beginPath();ctx.moveTo(x-h*.11,y);
+  ctx.bezierCurveTo(x-h*.26,y-h*.42,x+lean-h*.05,y-h*.75,x+lean,y-h*(.87+.2*f));
+  ctx.bezierCurveTo(x+h*.07,y-h*.52,x+h*.24,y-h*.24,x+h*.1,y);ctx.closePath();ctx.fill();ctx.restore();
+}
+function water(ctx,polygon,key,t,alpha) {
+  const [x0,y0,x1,y1]=bounds(polygon),w=x1-x0,h=y1-y0;
+  ctx.save();clip(ctx,polygon);ctx.lineCap='round';
+  field(key,28).forEach(p=>{
+    const phase=t*.0007+p.p,depth=p.y;
+    const x=x0+p.x*w+Math.sin(phase)*3,y=y0+depth*h+Math.sin(phase*.6)*.65;
+    const len=3+(5+depth*12)*p.s;
+    const g=ctx.createLinearGradient(x-len,y,x+len,y);const a=(.03+.07*Math.pow(Math.sin(phase),2))*alpha;
+    g.addColorStop(0,'rgba(190,211,229,0)');g.addColorStop(.5,`rgba(190,211,229,${a})`);g.addColorStop(1,'rgba(190,211,229,0)');
+    ctx.strokeStyle=g;ctx.lineWidth=.5+depth*.65;ctx.beginPath();ctx.moveTo(x-len,y);ctx.quadraticCurveTo(x,y-.6,x+len,y);ctx.stroke();
+  });ctx.restore();
+}
+export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
+  // Each time-of-day image is a different painting: don't recycle fireplace
+  // coordinates across them. Their stillness is intentional for reading.
+  const spec=SCENES[id]?.[wide?'wide':'phone'];if(!spec||alpha<=0||!img)return;
+  ctx.save();ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);
+  // A little breeze in the painted foliage, confined inside the glass panes.
+  // Reuse the painting itself; neither the mullions nor the bridge can move.
+  (spec.foliage||[]).forEach((polygon,i)=>{
+    ctx.save();clip(ctx,polygon);ctx.globalAlpha=alpha*.55;
+    const dx=Math.sin(time*.00065+i*1.7)*.8,dy=Math.sin(time*.00041+i)*.22;
+    ctx.drawImage(scenePainting(img,id),dx,dy);ctx.restore();
   });
-  (spec.reflections || []).forEach(([x, y, rx, ry], i) => {
-    const f = flicker(time, i * 1.7 + x * 0.01);
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(1, ry / rx);
-    glow(ctx, 0, 0, rx * 1.6, '255,170,90', 0.1 * f * alpha);
-    ctx.restore();
-  });
-  if (spec.sky) {
-    const [x0, y0, x1, y1] = spec.sky;
-    const breathe = 0.5 + 0.5 * Math.sin(time * 0.00045);
-    const g = ctx.createLinearGradient(0, y1, 0, y0);
-    g.addColorStop(0, `rgba(255,140,80,${0.07 * breathe * alpha})`);
-    g.addColorStop(1, 'rgba(255,140,80,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(x0, y0, x1 - x0, y1 - y0);
+  (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,x,y,h,time,x*.01+i,alpha));
+  if(spec.reflection){
+    const [x,y,rx,ry]=spec.reflection,f=flicker(time,x*.01);
+    ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.014+.025*f)*alpha);ctx.restore();
   }
-  (spec.lights || []).forEach(([x, y], i) => {
-    const tw = 0.55 + 0.45 * Math.sin(time * (0.0011 + i * 0.00023) + i * 2.3);
-    glow(ctx, x, y, 12, '255,190,110', 0.35 * tw * alpha);
-  });
-  if (spec.water) {
-    const [x0, y0, x1, y1] = spec.water;
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(x0, y0, x1 - x0, y1 - y0);
-    ctx.clip();
-    field(`${id}-water-${wide}`, 46).forEach(g => {
-      const a = Math.max(0, Math.sin(time * (0.0008 + g.s * 0.0014) + g.p));
-      if (a < 0.05) return;
-      const x = x0 + g.x * (x1 - x0) + Math.sin(time * 0.0004 + g.p) * 6;
-      const y = y0 + g.y * (y1 - y0);
-      const len = 5 + g.s * 16 * (0.4 + (y - y0) / (y1 - y0));
-      ctx.fillStyle = `rgba(255,236,200,${0.32 * a * a * alpha})`;
-      ctx.fillRect(x - len / 2, y, len, 1.4);
-    });
-    ctx.restore();
+  (spec.lights||[]).forEach(([x,y],i)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha));
+  if(spec.water)water(ctx,spec.water,id+wide,time,alpha);
+  if(spec.snow){
+    const [x0,y0,x1,y1]=bounds(spec.snow),w=x1-x0,h=y1-y0;
+    ctx.save();clip(ctx,spec.snow);
+    field(id+wide+'snow',65).forEach(p=>{
+      const speed=.012+p.s*.021;
+      const y=y0+((p.y*h+time*speed)%h),x=x0+((p.x*w+time*speed*.16+Math.sin(time*.0004+p.p)*7)%w);
+      ctx.strokeStyle=`rgba(221,231,242,${(.17+p.s*.3)*alpha})`;ctx.lineWidth=.45+p.s*.75;
+      ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1-p.s,y-2-p.s*2);ctx.stroke();
+    });ctx.restore();
   }
-  ctx.globalCompositeOperation = 'source-over';
-  if (spec.snow) {
-    const [x0, y0, x1, y1] = spec.snow;
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(x0, y0, x1 - x0, y1 - y0);
-    ctx.clip();
-    field(`${id}-snow-${wide}`, 70).forEach(f => {
-      const h = y1 - y0, speed = 0.012 + f.s * 0.02;
-      const y = y0 + ((f.y * h + time * speed) % h);
-      const x = x0 + f.x * (x1 - x0) + Math.sin(time * 0.0007 + f.p) * 10;
-      ctx.fillStyle = `rgba(235,240,245,${(0.35 + f.s * 0.4) * alpha})`;
-      ctx.beginPath();
-      ctx.arc(x, y, 0.9 + f.s * 1.7, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    ctx.restore();
+  if(spec.sun){
+    // Slow changes in window light and its reflected pool. No orange sky pulse.
+    const [x,y,rx,ry]=spec.sun,drift=Math.sin(time*.00021)*7;
+    ctx.save();ctx.translate(x+drift,y);ctx.scale(1,ry/rx);
+    glow(ctx,0,0,rx,'212,224,175',(.015+.012*Math.sin(time*.00033))*alpha);ctx.restore();
   }
-  if (spec.motes) {
-    const [x0, y0, x1, y1] = spec.motes, [[bx0, by0], [bx1, by1]] = spec.beam;
-    const bdx = bx1 - bx0, bdy = by1 - by0, blen = Math.hypot(bdx, bdy);
-    field(`${id}-motes-${wide}`, 80).forEach(m => {
-      const x = x0 + ((m.x * (x1 - x0) + time * (0.004 + m.s * 0.006) + Math.sin(time * 0.0005 + m.p) * 18) % (x1 - x0));
-      const y = y0 + ((m.y * (y1 - y0) + time * (0.003 + m.s * 0.004)) % (y1 - y0));
-      // Brightest inside the sunbeam: distance from the beam's axis.
-      const d = Math.abs((x - bx0) * bdy - (y - by0) * bdx) / blen;
-      const inBeam = Math.max(0, 1 - d / 150);
-      const a = inBeam * (0.35 + 0.35 * Math.sin(time * 0.002 + m.p)) * alpha;
-      if (a < 0.02) return;
-      ctx.fillStyle = `rgba(255,236,196,${a})`;
-      ctx.beginPath();
-      ctx.arc(x, y, 0.8 + m.s * 1.6, 0, Math.PI * 2);
-      ctx.fill();
-    });
+  if(spec.motes){
+    const [x0,y0,x1,y1]=bounds(spec.motes),w=x1-x0,h=y1-y0;
+    ctx.save();clip(ctx,spec.motes);
+    field(id+wide+'dust',18).forEach(p=>{
+      const x=x0+(p.x*w+time*.0017)%w,y=y0+(p.y*h+time*.0011)%h;
+      const edge=Math.sin((x-x0)/w*Math.PI)*Math.sin((y-y0)/h*Math.PI);
+      ctx.fillStyle=`rgba(235,225,183,${edge*(.07+.09*p.s)*alpha})`;
+      ctx.beginPath();ctx.arc(x,y,.35+p.s*.4,0,Math.PI*2);ctx.fill();
+    });ctx.restore();
   }
   ctx.restore();
 }
