@@ -1,0 +1,132 @@
+{
+ "note": "Proposed modern-en mention anchors for app/public/data/characters/second-treatise.v1.json against the candidate. Codex owns applying these (and regenerating paragraphHashes with the production tool, whose hashing/normalization may differ from the plain sha256 shown in the handoff). Character ids, snapshots and original-en data are unaffected; firstMention/roleVisibleAt positions (paragraph starts, offset 0) are unchanged.",
+ "candidate_sha256": "8dd746cd663d623478c3966d69fffd6bf0ec02ace4024522bed912e0b78352e7",
+ "mentions": [
+  {
+   "characterId": "the-state-of-nature",
+   "chapterNumber": 2,
+   "paragraphIndex": 0,
+   "startOffset": 137,
+   "endOffset": 163,
+   "text": "a state of perfect freedom",
+   "status": "re-anchored text"
+  },
+  {
+   "characterId": "the-state-of-war",
+   "chapterNumber": 3,
+   "paragraphIndex": 0,
+   "startOffset": 20,
+   "endOffset": 53,
+   "text": "a state of enmity and destruction",
+   "status": "unchanged"
+  },
+  {
+   "characterId": "the-state-of-war",
+   "chapterNumber": 3,
+   "paragraphIndex": 5,
+   "startOffset": 47,
+   "endOffset": 70,
+   "text": "no appeal but to heaven",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "labour-and-property",
+   "chapterNumber": 5,
+   "paragraphIndex": 2,
+   "startOffset": 316,
+   "endOffset": 337,
+   "text": "mixed his labour with",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "consent-and-political-society",
+   "chapterNumber": 8,
+   "paragraphIndex": 0,
+   "startOffset": 160,
+   "endOffset": 183,
+   "text": "without his own consent",
+   "status": "unchanged"
+  },
+  {
+   "characterId": "the-legislative-power",
+   "chapterNumber": 11,
+   "paragraphIndex": 0,
+   "startOffset": 277,
+   "endOffset": 294,
+   "text": "legislative power",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "tyranny",
+   "chapterNumber": 18,
+   "paragraphIndex": 0,
+   "startOffset": 81,
+   "endOffset": 113,
+   "text": "tyranny is the exercise of power",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "dissolution-of-government",
+   "chapterNumber": 19,
+   "paragraphIndex": 0,
+   "startOffset": 49,
+   "endOffset": 78,
+   "text": "the dissolution of government",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "richard-hooker",
+   "chapterNumber": 2,
+   "paragraphIndex": 2,
+   "startOffset": 0,
+   "endOffset": 20,
+   "text": "The judicious Hooker",
+   "status": "re-anchored text"
+  },
+  {
+   "characterId": "richard-hooker",
+   "chapterNumber": 2,
+   "paragraphIndex": 13,
+   "startOffset": 121,
+   "endOffset": 141,
+   "text": "the judicious Hooker",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "robert-filmer",
+   "chapterNumber": 1,
+   "paragraphIndex": 5,
+   "startOffset": 851,
+   "endOffset": 868,
+   "text": "Sir Robert Filmer",
+   "status": "unchanged"
+  },
+  {
+   "characterId": "robert-filmer",
+   "chapterNumber": 4,
+   "paragraphIndex": 0,
+   "startOffset": 482,
+   "endOffset": 499,
+   "text": "Sir Robert Filmer",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "robert-filmer",
+   "chapterNumber": 6,
+   "paragraphIndex": 10,
+   "startOffset": 960,
+   "endOffset": 977,
+   "text": "Sir Robert Filmer",
+   "status": "offset moved"
+  },
+  {
+   "characterId": "adam",
+   "chapterNumber": 6,
+   "paragraphIndex": 4,
+   "startOffset": 0,
+   "endOffset": 30,
+   "text": "Adam was created a perfect man",
+   "status": "unchanged"
+  }
+ ]
+}
