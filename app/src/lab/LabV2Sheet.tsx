@@ -39,6 +39,8 @@ export interface LabV2SheetProps {
   audioEditions?: Edition[]
   /** Present once a compare edition is chosen: the switch between the main and compare page. */
   compare?: { active: boolean; onToggle: () => void } | null
+  /** Desktop side-by-side needs matching paragraphs; say so instead of hiding the switch. */
+  compareUnavailable?: boolean
   /**
    * Fish narration pilot row, present only for a reader who opted in with
    * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
@@ -167,7 +169,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, returnTo }: LabV2SheetProps) {
   const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
@@ -330,6 +332,11 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   <span className="lab-v2-row-label">Show compare</span>
                   <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
                 </button>
+              )}
+              {compareUnavailable && (
+                <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
+                  Side by side isn’t available for these two versions on a wide screen: they set out their verses differently.
+                </p>
               )}
             </div>
           )}

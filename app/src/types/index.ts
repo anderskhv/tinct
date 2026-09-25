@@ -1,7 +1,7 @@
 // === Languages & Styles ===
 
 export type Language = 'en' | 'da' | 'de' | 'fr' | 'it' | 'ru'
-export type Style = 'original' | 'modern' | 'verse' | 'kjv' | 'web'
+export type Style = 'original' | 'modern' | 'verse' | 'kjv' | 'web' | 'bsb'
 
 /** Composite key identifying an edition, e.g. 'modern-en', 'kids-da' */
 export type EditionKey = string

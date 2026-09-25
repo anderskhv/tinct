@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { labVerseAtOrBefore, labVerseWordIndex, mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
+import { labVerseAtOrBefore, labVerseWordIndex, mapLabCompareAnchor, labVerseLocation, splitLabPagesAtAnchor } from './labCompare'
 
 describe('mobile compare anchors', () => {
   it('keeps aligned paragraphs and maps relative word progress', () => {
@@ -124,5 +124,26 @@ describe('verse-marked editions', () => {
     expect(mapped.paragraphIndex).toBe(0)
     expect(mapped.wordIndex).toBeGreaterThanOrEqual(0)
     expect(mapped.wordIndex).toBeLessThan(words(plain).length)
+  })
+})
+
+describe('Bible editions with their own paragraphing (BSB)', () => {
+  // KJV-style prose paragraphs vs BSB-style one-line paragraphs.
+  const prose = ['¹ In the beginning God created. ² And the earth was void. ³ And God said, Let there be light.', '⁴ And God saw the light.']
+  const lines = ['¹ In the beginning God created.', '² Now the earth was formless', 'and void.', '³ And God said, “Let there be light.”', '⁴ And God saw that the light was good.']
+  it('finds the verse in another paragraph of the target chapter', () => {
+    const verse3 = prose[0].split(' ').indexOf('³')
+    expect(mapLabCompareAnchor(prose, lines, { paragraphIndex: 0, wordIndex: verse3 + 2 })).toEqual({ paragraphIndex: 3, wordIndex: 0 })
+    expect(mapLabCompareAnchor(lines, prose, { paragraphIndex: 3, wordIndex: 2 })).toEqual({ paragraphIndex: 0, wordIndex: verse3 })
+  })
+  it('gives an unmarked poetry line the verse opened before it', () => {
+    const verse2 = prose[0].split(' ').indexOf('²')
+    expect(mapLabCompareAnchor(lines, prose, { paragraphIndex: 2, wordIndex: 1 })).toEqual({ paragraphIndex: 0, wordIndex: verse2 })
+  })
+  it('lands on the nearest earlier verse an edition has when it omits one', () => {
+    const withGap = ['²⁰ He replied.', '²² As they gathered.']
+    const full = ['²⁰ He replied. ²¹ But this kind does not go out.', '²² As they gathered.']
+    expect(labVerseLocation(withGap, '21')).toEqual({ paragraphIndex: 0, wordIndex: 0 })
+    expect(mapLabCompareAnchor(full, withGap, { paragraphIndex: 0, wordIndex: 4 })).toEqual({ paragraphIndex: 0, wordIndex: 0 })
   })
 })

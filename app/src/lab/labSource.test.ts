@@ -117,10 +117,10 @@ describe('loadLabSource', () => {
     }
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
-      if (url.includes('bible-kjv-en/manifest.json')) {
+      if (url.includes('bible-bsb-en/manifest.json')) {
         return { ok: true, json: async () => manifest }
       }
-      if (url.includes('bible-kjv-en/ch0001.json')) {
+      if (url.includes('bible-bsb-en/ch0001.json')) {
         return { ok: true, json: async () => ({ number: 1, title: 'Genesis 1', paragraphs: ['In the beginning God created the heaven and the earth.'] }) }
       }
       if (url.includes('bible-web-en/ch0001.json')) {

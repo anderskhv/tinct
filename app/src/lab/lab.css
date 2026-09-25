@@ -7753,6 +7753,7 @@
 .lab[data-chrome-version="v2"] .lab-v2-edition-text { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-current { font: 12px/1.4 'IBM Plex Mono', monospace; opacity: .75; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-divider { height: 1px; background: var(--lab-v2-hairline); margin: 8px 0; }
+.lab[data-chrome-version="v2"] .lab-v2-row-note { margin: 6px 0 2px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; line-height: 1.35; color: var(--lab-v2-muted, currentColor); opacity: .8; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px;
   padding: 10px 0; border: 0; background: transparent; color: inherit; font: 16px/1.5 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-name { flex: 1; min-width: 0; }

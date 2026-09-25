@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { act, cleanup, createEvent, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LAB_DESKTOP_PANES, PRODUCTION_DESKTOP_PANES } from './labChrome'
 import { LabApp } from './LabApp'
 import { LabPassage } from './LabPassage'
@@ -25,6 +25,12 @@ vi.mock('./labNarration', async importOriginal => ({
   initialNarrationPilotInfo: () => ({ enabled:false, provider:'google', voices:[] }),
   fetchNarrationPilotInfo: async () => ({ enabled:false, provider:'google', voices:[] }),
 }))
+
+// The Bible fixtures below are KJV text with KJV recordings: these readers
+// chose KJV. New readers default to BSB (labPrefs.test.ts).
+beforeEach(() => {
+  try { localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en' })) } catch { /* jsdom */ }
+})
 
 afterEach(() => {
   cleanup()

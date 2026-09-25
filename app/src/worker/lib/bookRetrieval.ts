@@ -29,7 +29,7 @@ export type AssetsBinding = { fetch: (request: Request) => Promise<Response> }
  * Probing is one asset fetch per candidate and only happens when the
  * requested edition is genuinely missing.
  */
-export const RETRIEVAL_FALLBACK_EDITION_KEYS = ['original-en', 'kjv-en', 'web-en', 'modern-en'] as const
+export const RETRIEVAL_FALLBACK_EDITION_KEYS = ['original-en', 'bsb-en', 'kjv-en', 'web-en', 'modern-en'] as const
 
 /** The requested edition first (successor-migrated), then the generic fallbacks. */
 export function editionCandidates(book: BookRef): string[] {
