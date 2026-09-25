@@ -1,0 +1,24 @@
+{
+ "book": 6,
+ "paragraphs": [
+  {
+   "p": 8,
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "B06-01 ‘a high beach of shingle’ → ‘a high beach of pebbles’: a real barrier for the edition's American-English readers, for whom ‘shingle’ is a roofing tile or signboard; the beach sense is chiefly British. ‘pebbles’ is Homer's λάιγγας (6.94–95) and plain on both sides of the Atlantic. It is not a regionalism (unlike ‘checkers’ for ‘draughts’, which the Glossary refuses). This is Butler's only ‘shingle’, and his paragraph has no ‘pebble’, so there is no collision. Not merely a rewording: the BEFORE does not picture correctly for the target reader."
+  },
+  {
+   "p": 11,
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "B06-02 ‘for he was in great want’ → ‘for he was in great need’: a listed dead sense, plus a decorum hazard. With a naked man approaching young women, ‘want’ can be read as desire. Verified precedent: the edition already renders Butler's identical phrase ‘I am in great want’ (14 ¶8, Odysseus as a beggar) as ‘I am in great need’, so this brings the two into line. Homer has χρειὼ γὰρ ἵκανε (6.136). The living idioms are kept, verified in the AFTER: 5 ¶30 ‘for want of a foothold’ and 6 ¶14 ‘you shall not want for clothes’. Butler's paragraph has no ‘need’, so there is no collision."
+  },
+  {
+   "p": 20,
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "B06-03 ‘in the middle of it, paved with large stones’ → ‘in the middle of it, and paved with large stones’: restores Butler's own ‘and’ (D29), which makes ‘paved’ a second attribute of the marketplace. In Homer 6.266–267 the agora is paved. This removes the reported guess about which noun is paved. A with-absolute parse, in which the temple is paved, is still grammatically possible but is Butler's own structure and pragmatically unlikely, so the problem is fixed and nothing new is introduced. No other word moves. The quotation structure is unchanged: the speech continues into ¶21, so there is no closing quote, as in Butler."
+  }
+ ],
+ "summary": "Book 6: 3 changed paragraphs, 3 edits (B06-01, B06-02, B06-03). 3 VERIFIED CLEAN, 0 DEFECT. B06-01 and B06-02 are labelled optional in the packet, but both remove a real barrier for this edition's readers, and B06-02 matches an existing edition rendering (14 ¶8). Scope exact, coverage complete. OVERALL: VERIFIED CLEAN. Mechanical check (independent script ody-verify/mech_check.py): BEFORE sha256 bd05c7f4…9afc9c confirmed; AFTER successor-current.json sha256 ebe6962a…f8fd19. (a) structure identical: 24 chapters, 1,027 paragraphs, identical chapter numbers, titles and per-chapter counts, no other fields. (b) the only paragraphs that differ anywhere in the poem are the 13 in packets book03/05/06 (3 ¶7, ¶19, ¶23; 5 ¶1, ¶5, ¶19, ¶22, ¶23, ¶34, ¶36; 6 ¶8, ¶11, ¶20); nothing differs outside Books 3, 5, 6. (c) applying the 17 listed edits to BEFORE (each old string occurs exactly once) reproduces AFTER byte-for-byte in every paragraph, so there are no unlisted edits. Packet BEFORE/AFTER/CONTEXT texts equal the files verbatim; packet BUTLER equals the served original-en paragraph after normalizing PG hard line breaks."
+}

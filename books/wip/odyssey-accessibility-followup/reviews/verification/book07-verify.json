@@ -1,0 +1,63 @@
+{
+ "book": 7,
+ "packet": "packets/book07.md",
+ "mechanical": {
+  "script": "mech_b07_b08_ff.py (independent; exit 0)",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-b2-8-17.json",
+  "after_sha256": "34f2113c2cc06f0a4d3f7698c598e4fbe2073732d4a3c22bbad0372114ac8318",
+  "structure": "identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45]",
+  "texts": "packet BUTLER equals the served original-en (after joining PG's hard line wraps); packet BEFORE, AFTER and CONTEXT equal the files",
+  "conventions_scan": "no ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces in any AFTER paragraph in scope",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run",
+  "scope": "Book 7 paragraphs differing BEFORE->AFTER = {6, 7, 12, 17} = packet set. For each, the listed edits (each old string present exactly once) applied to BEFORE reproduce AFTER byte for byte: no unlisted edits."
+ },
+ "paragraphs": [
+  {
+   "p": 6,
+   "edits": [
+    "B07-01"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Butler's 'his daughter' opens a new paragraph with Poseidon as subject, so English binds 'his' to Poseidon and the genealogy reads as incest. The referent is certain: Od. 7.61 τῇ δὲ Ποσειδάων ἐμίγη ('with her'), i.e. Periboea, 'the youngest daughter of Eurymedon' in the sentence before (¶5). 'Eurymedon’s daughter' names Butler's own antecedent and keeps his noun 'daughter'. It adds no fact and no gloss, and 'however' still contrasts with Eurymedon's ruin. This is the same repair type as the accepted 'But Rhexenor left a daughter'. Butler ¶6 has no 'Eurymedon', so there is no collision, and the apostrophe is U+2019."
+  },
+  {
+   "p": 7,
+   "edits": [
+    "B07-02"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed: Od. 7.76 φίλους τ' ἰδέειν καὶ ἱκέσθαι οἶκον ἐς ὑψόροφον ('to see your dear ones and reach your high-roofed house'). 'Loved ones' is current, register-neutral English for that circle. The earlier 'when any women are friends of hers' (Od. 7.74, those she is well disposed to) is the current sense and rightly stays. One Butler word is now rendered two ways by sense. That is a split to record, not a D26 collision, and it does not mislead. Butler ¶7 has no 'love' or 'dear'. See formula-friends-verify.json F1: the rule misses Butler 1.4."
+  },
+  {
+   "p": 12,
+   "edits": [
+    "B07-03"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Od. 7.152 ἐπεὶ δὴ δηθὰ φίλων ἄπο πήματα πάσχω ('I have long suffered far from my dear ones') is the kin sense, and the rendering matches 7.7. Butler ¶12 has no 'love' or 'dear'. The identical half-line is Od. 1.49, Butler 1.4 'far away, poor man, from all his friends', which AFTER leaves as 'friends' (formula-friends F1)."
+  },
+  {
+   "p": 17,
+   "edits": [
+    "B07-04"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Od. 7.201-202 θεοὶ φαίνονται ἐναργεῖς ἡμῖν: the gods appear to us manifest, in visible form. Present-day readers hear 'made themselves perfectly clear' as 'explained themselves unambiguously', which loses Alcinous's point: the gods show themselves openly, and this stranger does not. 'Plainly visible' gives the Greek sense exactly and is backed by the next sentence ('they make no attempt at concealment'). 'Plainly' carries Butler's intensifier 'perfectly', and nothing else in the clause moves. Butler ¶17 has no 'plain' or 'visible', so there is no collision. 'Visible' at 7.11 and the fixed formula 'spoke to them plainly and in all honesty' at 7.13 are in other paragraphs and cannot be confused with this use. The adjudicator's 'perfectly manifest' would also be faithful; 'plainly visible' is plainer and no less exact."
+  }
+ ],
+ "follow_ups": [
+  {
+   "id": "cross-ref F1",
+   "site": "1.4",
+   "finding": "The formula rule applied at 7.7 and 7.12 misses Butler 1.4 (Od. 1.49), the same Greek half-line as 7.12. See formula-friends-verify.json."
+  }
+ ],
+ "summary": "Book 7: 4 changed paragraphs, 4 edits (B07-01 to B07-04). 4 VERIFIED CLEAN, 0 defects. The mechanical checks pass: only ¶6, 7, 12 and 17 differ, and each is reproduced exactly by its listed edit. 7 ¶17 'plainly visible' correctly renders the manifest appearance of the gods (ἐναργεῖς). Follow-up outside the packet: formula-rule coverage (1.4).",
+ "overall": "VERIFIED CLEAN"
+}

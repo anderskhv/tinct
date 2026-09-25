@@ -1,0 +1,51 @@
+{
+ "book": 23,
+ "packet": "packets/book23.md",
+ "mechanical": {
+  "script": "mech_final_v5.py (independent; exit 0); packet_check_v5.py; collide_v5.py; xref_v5.py",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-final.json",
+  "after_sha256": "862066e2c5457d167bac0bb61daea1ed0e4c865fff39eafe6e866a2af6605f6c",
+  "edits": "ody/edits-final.json, 63 entries, sha256 7ee10cde43b4326e98a809e9481a823b94b593f32b4676a672e34446cae0772f",
+  "reproduction": "All 63 edits applied to BEFORE reproduce AFTER byte for byte, serialized with json.dumps(obj, ensure_ascii=False, indent=2) and no trailing newline. Each 'old' occurs exactly once in its BEFORE paragraph, no spans overlap, and positional and sequential application agree. BEFORE and AFTER each round-trip byte-identically under that serialization.",
+  "structure": "Identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45].",
+  "unlisted_edits": "None. Across the edition, 55 paragraphs differ BEFORE->AFTER, exactly the 55 paragraphs that carry listed edits, and every edit's 'new' is present in its AFTER paragraph.",
+  "texts": "Packet BUTLER equals the served original-en (orig-main.json, whitespace-normalized). Packet BEFORE, AFTER and every CONTEXT paragraph equal the files. The PG #1727 source copy hashes to the D30 anchor ffbdb29c... (717,784 bytes).",
+  "conventions_scan": "No ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces and no Roman names in any AFTER paragraph in scope. No edit alters punctuation or quotation structure.",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run.",
+  "scope": "Book 23 paragraphs in this packet: 12, 16 and 27. Word diffs are 'fail'->'failing'; 'this'->'that'; 'enough'->'his fill' and 'abroad'->'about'. These are exactly the listed edits B23-01 to B23-04. No unlisted edits."
+ },
+ "paragraphs": [
+  {
+   "p": 12,
+   "edits": [
+    "B23-01"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Current English does not take 'find' + object + bare infinitive here, so 'find us fail you' reads as a dropped '-ing'. 'find us failing you' is the current form. Butler's verb, object, negation and 'as long as our strength holds out' are kept, and Telemachus still promises loyalty. The progressive adds no sense ('you will not find us failing you' = 'we will not fail you'). This is not mere rewording, because the BEFORE is ungrammatical today. 'fail' is the replaced word, so there is no collision. 'Look to it yourself' (ruled on separately) is untouched."
+  },
+  {
+   "p": 16,
+   "edits": [
+    "B23-02"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Deixis confirmed. Penelope speaks in the gallery by the fire, across from Odysseus (AFTER 23.8: 'When she had crossed the stone floor of the gallery, she sat down across from Odysseus by the fire'; ¶15 'sat down opposite his wife'). In present-day speech 'this room' is the speaker's own room, the hall, so the BEFORE's second order seemed to take the bed out of a room it is not in. Butler's 'this' is anaphoric to 'the bed chamber'. 'that' is the current anaphoric demonstrative and sends the reader back to 'the bedroom that he himself built', Butler's referent. Homer has ἔνθα, 'there' (23.179). Nothing is resolved or added, and the order is still the trick ¶17 exposes. The relative 'that' ('the bedroom that he himself built') and the demonstrative 'that room' do not interfere. 'put on airs' and 'belittle' are untouched. No collision."
+  },
+  {
+   "p": 27,
+   "edits": [
+    "B23-03",
+    "B23-04"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "B23-03. The BEFORE's 'had had enough … of his wife' was added by the drafter, since Butler has no 'enough'. With a person as object it reads today as 'fed up with Penelope', a false reading at the close of the reunion. 'his fill' is Butler's own word two paragraphs earlier for the same Greek verb: ¶25 'had had their fill of love', printed so in Butler and in the AFTER, renders Od. 23.300 ἐταρπήτην, and 23.346 has ταρπήμεναι. So this is a D29 restoration, and the echo fixes the satiety sense. Residual: 'have had one's fill of [a person]' can also mean 'be fed up with', but the risk is much weaker here. (i) 'both … and of rest' forces the satiety reading, since 'his fill of rest' can only mean enough sleep. (ii) ¶25 has just used the phrase for the same couple's lovemaking. (iii) The AFTER uses 'one's fill' fifteen other times, every one for satiety (eating and drinking at 1.11, 9.8, 12.2, 14.6, 17.8 and others; 4.44 'had had my fill of weeping'; 14.1 'had your fill of bread and wine'). This is a clear net fix and no defect. 'had taken his fill' was considered and not recommended, because it gives up Butler's 'had had' and the ¶25 echo. On the requested collision check, the shared root with 'until they have filled all my yards' (Butler 'till they shall have filled all my yards') does not mislead. 'fill' is a noun meaning satiety, in the narrator's sentence about Athena. 'filled' is a verb meaning restocking the folds, in Odysseus's speech several sentences later. Neither can be read for the other, and D26 targets one word reused for a different referent, which is not the case here. Butler's 'our full share of troubles' likewise stays distinct. 'both … and', 'wife', 'rest' and 'deemed' are kept. B23-04. 'get abroad' for 'become known' is dead, and 'abroad' now means overseas. 'get about' is Butler's own phrase for the same news at 23.13 ('no rumours … will get about in the town'), printed so in AFTER ¶13, so this is D29. It keeps one Butler phrase for one event. It is intelligible in American English, although 'get around' is commoner there. The 'that' clause, 'At sunrise' and 'at once' are unchanged. 'about' occurs nowhere else in ¶27, so there is no collision."
+  }
+ ],
+ "summary": "3 paragraphs, 4 edits (B23-01 to B23-04): 3 VERIFIED CLEAN, 0 defects. Scope exact. 23.16's 'that room' is the correct anaphoric repair for a speaker standing in the hall. 23.27's 'his fill' removes a false friend the modernization introduced and restores Butler's own ¶25 word for the same Greek verb. Its shared root with 'filled all my yards' does not mislead.",
+ "overall": "OVERALL: VERIFIED CLEAN"
+}

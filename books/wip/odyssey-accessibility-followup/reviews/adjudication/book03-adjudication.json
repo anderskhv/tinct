@@ -1,0 +1,700 @@
+{
+  "book": 3,
+  "proposals": [
+    {
+      "id": "B03-01",
+      "p": 7,
+      "kind": "sweep",
+      "quote_modern": "they all made an excellent dinner",
+      "replacement": "they all had an excellent dinner",
+      "butler": "they all made an excellent dinner",
+      "reader_evidence": "Barrier ¶7 'made an excellent dinner' (syntax, pause, high): read as 'Ate an excellent dinner (not cooked one)'; note 'Old idiom'. The reader had to rule out the cooking sense explicitly.",
+      "reason": "False friend. In current English to 'make dinner' is to cook it (this Book itself says 'prepare an excellent dinner' for the maids' cooking at ¶32), so a present-day reader's first reading is that the company cooked the meal the carvers have just served out. Butler's idiom 'make a good dinner' means to eat one. 'had' is the plain current verb for the same act; 'all', 'excellent' and 'dinner' stay. Recoverable from the carvers handing out portions, hence optional.",
+      "severity": "optional",
+      "collision_check": "Butler's ¶7 has 'had' four times: as an auxiliary, and as the main verb in 'had had enough to eat and drink', which is the same sense of eating as the repair, so no Butler word is reused for something else. His other 'made' ('made an end of praying') is already 'finished' and is not affected. If the lead dislikes 'had … had had', 'ate' is equally safe: Butler's 'eat' in the next sentence has the same sense."
+    },
+    {
+      "id": "B03-02",
+      "p": 19,
+      "kind": "barrier",
+      "quote_modern": "by the treachery of Aegisthus and his wife",
+      "replacement": "by the treachery of Aegisthus and his own wife",
+      "butler": "as Agamemnon was by the treachery of Aegisthus and his wife",
+      "reader_evidence": "Barrier ¶19 'Aegisthus and his wife' (relationship, MISREAD, medium): \"'His' most naturally attaches to Aegisthus; corrected only two paragraphs later\". The paraphrase hedges with quotes ('the treachery of Aegisthus and \"his wife\"'), and book-level note 7 calls it 'the \"Aegisthus and his wife\" misreading in ¶19'.",
+      "reason": "The pronoun misleads on a relationship. 'his' follows 'Aegisthus', the nearest male noun, so a reader who does not know the story takes the wife to be Aegisthus's and pictures a second conspirator who does not exist, until ¶21 names 'Agamemnon's wife Clytemnestra'. Butler means Agamemnon's wife: his ¶21–22 tell that story, and his Greek has the reflexive ἧς ἀλόχοιο, 'his own wife'. 'own' is the smallest change that ties the possessive back to Agamemnon, the man who was killed. It echoes Butler's own 'my own house' earlier in the same sentence and adds no fact; no word is removed or reordered. If the lead thinks 'his own' is not clear enough, the fallback is 'Agamemnon’s wife', swapping one word and adding no emphasis.",
+      "severity": "recommended",
+      "collision_check": "Butler's ¶19 has 'own' once, in 'my own house', with the same possessive-emphasis job, so the repair echoes it and does not reuse it for something else. 'treachery', 'Aegisthus', 'wife' and 'Agamemnon' are unchanged, and nothing else in the paragraph moves."
+    },
+    {
+      "id": "B03-03",
+      "p": 23,
+      "kind": "barrier",
+      "quote_modern": "Here he divided his fleet",
+      "replacement": "Here Zeus divided his fleet",
+      "butler": "Jove counselled evil against him and made it blow hard till the waves ran mountains high. Here he divided his fleet and took the one half towards Crete",
+      "reader_evidence": "Barrier ¶23 'Here he divided his fleet and took the one half toward Crete' (action, unsure, medium): 'The text says he took half to Crete, then places him in Egypt with \"the other five ships\"; contradictory on first pass and had to reread.' Book-level note 4 adds that '¶23 also blurs which part of Menelaus's fleet he was with.'",
+      "reason": "The agent is hidden. In Butler the subject carries over from the sentence before: Jove 'made it blow hard … Here he divided his fleet and took the one half towards Crete'. So it is the storm-god who splits Menelaus's fleet. Butler then says that part 'was driven on to the rocks' and that 'the other five ships … were taken by winds and seas to Egypt, where Menelaus gathered much gold'. Menelaus was therefore not with the Crete half and cannot be the one who 'took' it there. In the modern text the sentence before opens on Menelaus ('when he too could put to sea again'), and 'his fleet' fits him, so 'he' reads as Menelaus deliberately splitting his fleet and leading half to Crete. The same paragraph then contradicts that. Naming Zeus restores Butler's agent with one word, and 'his fleet' now points back to 'him' (Menelaus) in the sentence before, since Zeus has no fleet. Butler's own 'took' is kept, and nothing is added, removed or reordered. The Greek agrees: Ζεὺς … διατμήξας τὰς μὲν Κρήτῃ ἐπέλασσεν.",
+      "severity": "recommended",
+      "collision_check": "Butler's ¶23 names 'Jove' (→ Zeus) once, and it is the same god, so this is the same referent and not a collision. 'divided', 'fleet' and 'took' are Butler's own words and stay; no other Butler word is displaced or reused."
+    },
+    {
+      "id": "B03-04",
+      "p": 23,
+      "kind": "sweep",
+      "quote_modern": "much gold and substance",
+      "replacement": "much gold and wealth",
+      "butler": "much gold and substance",
+      "reader_evidence": "Barrier ¶23 'much gold and substance' (word, pause, high): read as 'Wealth and possessions'; note 'Archaic sense of \"substance\"'. Also in book-level note 5.",
+      "reason": "Known example from the brief (3.23), ruled on in context. 'substance' meaning property now survives only in the set phrase 'a man of substance'. Standing alone beside 'gold', it reads as 'material' or 'stuff', so the reader has to work out that Menelaus came home rich in goods as well as gold. 'wealth' is the plain current word for Butler's sense, works with 'much' as 'substance' did, and is how the edition already renders the same Butler word at 24.31 ('wasting the substance' → 'wasting the wealth'). The companion phrase 'people of an alien speech' is kept; see rejected_barriers. The meaning can be recovered, so this is optional.",
+      "severity": "optional",
+      "collision_check": "Butler's ¶23 also has 'treasure' ('with as much treasure as his ships could carry'). The repair does not use that word, so his 'substance' and 'treasure' stay two different words. 'wealth' does not occur anywhere in Butler's ¶23 or in the modern Book 3, and 'gold' and 'much' are unchanged."
+    }
+  ],
+  "rejected_barriers": [
+    {
+      "p": 0,
+      "quote": "they reached Pylos",
+      "reason": "Butler's own opening: his Book III starts mid-sentence ('but as the sun was rising … they reached Pylos'), and the instructions put the Book boundary out of scope. The paragraph's last sentence resolves 'they', and the reader identified the travelers correctly."
+    },
+    {
+      "p": 0,
+      "quote": "As they were eating",
+      "reason": "Butler's 'they', carrying on 'the people of Pylos' from the two sentences before; the reader resolved it correctly. Telling the arrival twice, first in summary and then in detail, is Butler's structure, not something the modernization introduced."
+    },
+    {
+      "p": 0,
+      "quote": "the city of Neleus",
+      "reason": "Butler's epithet for Pylos (GLOSSARY: Neleus unchanged). The reader's reading is right, and ¶10 and ¶31 name Neleus as Nestor's father within this Book."
+    },
+    {
+      "p": 0,
+      "quote": "the inner meats",
+      "reason": "The reader's reading (the organs, eaten first) is exactly Butler's sense. GLOSSARY keeps 'inner/outer meats' as an unglossed pair because ¶34 shows the sequence: thighs burned, inner meats tasted, the rest spitted and roasted. A clarification is not indispensable."
+    },
+    {
+      "p": 0,
+      "quote": "burning the thigh bones on the embers in Poseidon’s name",
+      "reason": "The reader followed the action: the god's share is burned. 'on the embers' is Butler's class-B bracket, kept under D12, and why thigh bones are burned is ritual background that Butler does not give."
+    },
+    {
+      "p": 1,
+      "quote": "Presently",
+      "reason": "Past-tense narration fixes the sense 'soon, after a little while', which is still the word's first dictionary sense, and the reader read it that way with high confidence. Kept; see recurring."
+    },
+    {
+      "p": 2,
+      "quote": "Mentor",
+      "reason": "Established in Book 2, where Athena takes Mentor's likeness; the blind reader saw Book 3 alone. Butler does not restate the disguise here, the modern text loses nothing he wrote, and the reader inferred it correctly."
+    },
+    {
+      "p": 2,
+      "quote": "dare I go up to Nestor",
+      "reason": "The continuity ruling deliberately left this, since the interrupted question has an ordinary modern shape. The reader read it as 'how can I bring myself to approach' with high confidence, and the next sentence ('I am ashamed to start questioning…') confirms that sense."
+    },
+    {
+      "p": 4,
+      "quote": "getting dinner ready",
+      "reason": "Butler's 'dinner' in the still-current sense 'the main meal'; the reader resolved it. The day's timeline (arrival at sunrise, the feast, sunset at ¶25) is Butler's."
+    },
+    {
+      "p": 5,
+      "quote": "sir",
+      "reason": "The Mentor disguise is from Book 2; the reader read Pisistratus's 'sir' correctly."
+    },
+    {
+      "p": 5,
+      "quote": "made your drink offering",
+      "reason": "The reader's reading (pouring out some wine to the god before drinking) is right. 'drink offering' is the standard English term, kept open by PUNCTUATION §4, and ¶34 shows wine poured on the fire. This occurrence is in dialogue, where no gloss is allowed."
+    },
+    {
+      "p": 5,
+      "quote": "man cannot live without God in the world",
+      "reason": "Butler's own wording, a deliberate Biblical cadence. The reader understood 'everyone needs the gods'. Changing 'God' would re-render Butler rather than repair comprehension (D29)."
+    },
+    {
+      "p": 5,
+      "quote": "much of an age with myself",
+      "reason": "'of an age' (the same age) is dated but current, and it is transparent after 'younger than you are'; the reader read it with high confidence. Old-fashioned, not a false friend."
+    },
+    {
+      "p": 5,
+      "quote": "I will give you the precedence",
+      "reason": "'precedence' is current English, and the reader read 'let you go first' with high confidence."
+    },
+    {
+      "p": 6,
+      "quote": "You who encircle the earth",
+      "reason": "Butler's vocative epithet for Poseidon, understood correctly; nothing turns on it."
+    },
+    {
+      "p": 6,
+      "quote": "she began praying heartily to Poseidon",
+      "reason": "Butler's narrative. A goddess praying in disguise follows from the Book 2 disguise, which the reader kept track of."
+    },
+    {
+      "p": 7,
+      "quote": "By and by",
+      "reason": "A current, if informal, idiom for 'after a while'; the reader read it with high confidence."
+    },
+    {
+      "p": 7,
+      "quote": "the outer meats",
+      "reason": "A GLOSSARY pair, kept unglossed. The reader's reading (the ordinary flesh, roasted after the organs) is exactly right."
+    },
+    {
+      "p": 7,
+      "quote": "the horseman of Gerene",
+      "reason": "The GLOSSARY's fixed epithet for Nestor ('knight of Gerene' → 'the horseman of Gerene'); the reader identified Nestor correctly."
+    },
+    {
+      "p": 8,
+      "quote": "with your hand against every man and every man’s hand against you",
+      "reason": "Butler's formula, kept whole by the continuity ruling. The reader read it as outlaws who are enemies of everyone, with high confidence."
+    },
+    {
+      "p": 10,
+      "quote": "the Achaean name",
+      "reason": "The GLOSSARY form of address 'honor to the Achaean name'. The Achaeans are introduced from Book 1 on, and the reader identified them correctly."
+    },
+    {
+      "p": 10,
+      "quote": "Ithaca under Neritum",
+      "reason": "Butler's place-name (GLOSSARY: Neritum unchanged). The reader's reading (below a mountain) is right, and nothing turns on it."
+    },
+    {
+      "p": 10,
+      "quote": "the waves of Amphitrite",
+      "reason": "Butler's name for the sea (GLOSSARY: Amphitrite is already Greek); the reader understood it as the sea."
+    },
+    {
+      "p": 10,
+      "quote": "I come as a suppliant to your knees",
+      "reason": "'suppliant' is current, and the reader correctly read it as humble begging, as if clasping Nestor's knees. The knees are Homer's gesture."
+    },
+    {
+      "p": 10,
+      "quote": "being harried among the Trojans",
+      "reason": "'harried' is current; the reader read it correctly."
+    },
+    {
+      "p": 10,
+      "quote": "tell me truly all",
+      "reason": "The GLOSSARY formula 'tell me truly' plus Butler's own 'all'. The reader read 'tell me the whole truth' with high confidence."
+    },
+    {
+      "p": 11,
+      "quote": "King Priam’s great city",
+      "reason": "Butler's wording; the reader identified Troy correctly."
+    },
+    {
+      "p": 11,
+      "quote": "compare with your father in subtlety",
+      "reason": "'subtlety' meaning 'cunning' is a current sense and sits next to 'stratagem'; the reader read it with high confidence. D29: it is Butler's word."
+    },
+    {
+      "p": 11,
+      "quote": "if indeed you are his son. I can hardly believe my eyes",
+      "reason": "Butler's aside, split into sentences with every part kept. The reader read the amazement correctly."
+    },
+    {
+      "p": 11,
+      "quote": "never had a difference",
+      "reason": "Current usage, as in 'we had our differences'; read correctly with high confidence."
+    },
+    {
+      "p": 11,
+      "quote": "we advised the Argives",
+      "reason": "Butler's name (GLOSSARY: Argives unchanged), established in Books 1–2. The reader correctly took it as the whole army."
+    },
+    {
+      "p": 12,
+      "quote": "as heaven had scattered us",
+      "reason": "Butler's own construction ('as heaven had dispersed us'). The reader has the gist right; the puzzle about timing is in Butler, and resolving it would re-interpret him."
+    },
+    {
+      "p": 12,
+      "quote": "they had not all been either wise or understanding",
+      "reason": "Butler names no offense. The reader's reading is right, and supplying the offense would add content."
+    },
+    {
+      "p": 12,
+      "quote": "the two sons of Atreus",
+      "reason": "Butler's patronymic; ¶13 names Menelaus and Agamemnon straight away."
+    },
+    {
+      "p": 13,
+      "quote": "he would not prevail with her",
+      "reason": "'prevail with' (persuade) is still in current dictionaries; the reader read it correctly with high confidence."
+    },
+    {
+      "p": 13,
+      "quote": "were of two minds",
+      "reason": "Butler's idiom, still current English for a group divided in opinion (D29). The reader read the split correctly, and ¶14 shows it literally right away."
+    },
+    {
+      "p": 14,
+      "quote": "our goods and our women",
+      "reason": "Butler says only 'our women'. His text leaves open whether they are captives or wives, and resolving that would add interpretation."
+    },
+    {
+      "p": 14,
+      "quote": "The son of Tydeus",
+      "reason": "Butler's patronymic. Diomed is named in the same paragraph, and the reader linked the two."
+    },
+    {
+      "p": 14,
+      "quote": "whether to go outside Chios by the island of Psyra, keeping this to our left, or inside Chios, over against the stormy headland of Mimas",
+      "reason": "Butler's route, with every leg kept by the continuity ruling. 'over against' (opposite) is formal but current, and the referent of 'this' is Butler's own ambiguity. The reader's reading is right."
+    },
+    {
+      "p": 14,
+      "quote": "stationed their ships in Argos",
+      "reason": "'stationed' is current, and Argos is Butler's (GLOSSARY); read correctly."
+    },
+    {
+      "p": 14,
+      "quote": "the wind never fell light",
+      "reason": "A readable sailing idiom; the reader read 'never died down' with high confidence."
+    },
+    {
+      "p": 15,
+      "quote": "the Myrmidons",
+      "reason": "A name (GLOSSARY), explained by its context ('under Achilles’s son'); read correctly."
+    },
+    {
+      "p": 15,
+      "quote": "false Aegisthus",
+      "reason": "'false' meaning treacherous is current. Read correctly with high confidence; Butler repeats the epithet at ¶15, ¶20 and ¶23."
+    },
+    {
+      "p": 15,
+      "quote": "a tall, smart-looking fellow",
+      "reason": "'smart-looking' (well turned-out, fine-looking) is current, and the phrase is shared with Book 1 (continuity: B01-P019). Whatever reading of 'smart' a reader takes, Nestor's compliment and its logic stay intact."
+    },
+    {
+      "p": 16,
+      "quote": "the wicked suitors",
+      "reason": "Established in Books 1–2, and ¶17 restates who they are. Not a defect in Book 3's text."
+    },
+    {
+      "p": 16,
+      "quote": "grant me to take such vengeance",
+      "reason": "A dated but transparent construction; read correctly with high confidence."
+    },
+    {
+      "p": 17,
+      "quote": "making havoc of your estate",
+      "reason": "'havoc' carries the sense; read correctly with high confidence."
+    },
+    {
+      "p": 17,
+      "quote": "are public feeling and the voice of heaven against you?",
+      "reason": "The reader's reading (the people and a divine utterance) is Butler's sense. 'heaven' is never touched (GLOSSARY hazard 5)."
+    },
+    {
+      "p": 17,
+      "quote": "Who knows but that Odysseus may come back",
+      "reason": "Read correctly with high confidence; even the 'Who knows? But…' parse the reader mentions gives the same meaning."
+    },
+    {
+      "p": 17,
+      "quote": "some of these wooers would soon forget their wooing",
+      "reason": "Butler's understatement, and his own second word for the suitors (D29); read correctly."
+    },
+    {
+      "p": 18,
+      "quote": "Even if the gods themselves willed it, no such good fortune could come to me.",
+      "reason": "Butler's (and Homer's) despairing exaggeration, which Athena rebukes in ¶19; the reader read it correctly."
+    },
+    {
+      "p": 19,
+      "quote": "Heaven has a long arm if it is minded to save a man",
+      "reason": "Read correctly with high confidence; 'is minded to' is formal but current."
+    },
+    {
+      "p": 19,
+      "quote": "if it were me, I should not care how much I suffered before getting home",
+      "reason": "Butler's argument; the application to Odysseus is only implied in Butler too. Read correctly."
+    },
+    {
+      "p": 19,
+      "quote": "Still, death is certain",
+      "reason": "The reader's reading (the gods can rescue a man from danger but not from his fated death) is Butler's, and so is the qualification."
+    },
+    {
+      "p": 20,
+      "quote": "What was Menelaus doing?",
+      "reason": "The brothers are named in ¶12–13; read correctly."
+    },
+    {
+      "p": 20,
+      "quote": "Achaean Argos",
+      "reason": "Butler's geography (GLOSSARY: Argos; Mycenae under D13); the reader's reading is right."
+    },
+    {
+      "p": 21,
+      "quote": "had found Aegisthus still alive in his house",
+      "reason": "Butler's counterfactual. The reader read it correctly, and ¶23 supplies the timeline."
+    },
+    {
+      "p": 21,
+      "quote": "there would have been no mound heaped up for him, not even when he was dead",
+      "reason": "GLOSSARY 'mound' for Butler's barrow. The reader correctly read it as no burial mound."
+    },
+    {
+      "p": 22,
+      "quote": "there was a bard with her",
+      "reason": "Butler's content; he does not say why a bard is the guard."
+    },
+    {
+      "p": 22,
+      "quote": "when heaven had decreed her destruction",
+      "reason": "'heaven' is untouched (hazard 5) and 'decreed' follows the collision ruling; read correctly."
+    },
+    {
+      "p": 23,
+      "quote": "Sunium, which is the point of Athens",
+      "reason": "'point' meaning a cape is current, as in place names; read correctly."
+    },
+    {
+      "p": 23,
+      "quote": "Apollo with his painless arrows",
+      "reason": "Butler's image. The next clause states the sudden death at the helm, and the reader read it that way; no gloss is indispensable."
+    },
+    {
+      "p": 23,
+      "quote": "when he too could put to sea again",
+      "reason": "Butler's 'too': Nestor had gone on ahead, as ¶14 says ('I held on for Pylos'). The reader inferred this correctly."
+    },
+    {
+      "p": 23,
+      "quote": "the Malean heads",
+      "reason": "'heads' meaning headlands is current (GLOSSARY: Malean); read correctly."
+    },
+    {
+      "p": 23,
+      "quote": "for a small headland can make a great shelter",
+      "reason": "Butler's geography and proverb; the reader's reading is right."
+    },
+    {
+      "p": 23,
+      "quote": "people of an alien speech",
+      "reason": "A known example from the brief (3.23), ruled KEEP. 'alien' meaning 'foreign' is current English and fits (D29). The reader read 'foreigners who spoke another language' with high confidence, and 'Egypt' in the same sentence rules out any other sense. By contrast, 'substance' in the same clause is a dead sense and is repaired by B03-04."
+    },
+    {
+      "p": 23,
+      "quote": "Aegisthus here at home",
+      "reason": "Butler's pointing phrase: 'here at home' means in Greece. Read correctly."
+    },
+    {
+      "p": 23,
+      "quote": "he ruled in Mycenae",
+      "reason": "The city form under D13; the reader's reading is right."
+    },
+    {
+      "p": 23,
+      "quote": "the funeral rites of his mother",
+      "reason": "Butler (and Homer) do not say how she died, and supplying it would add content."
+    },
+    {
+      "p": 23,
+      "quote": "celebrated the funeral rites",
+      "reason": "'celebrate' in the sense of performing a rite is current, and the funeral banquet follows; read correctly (D29)."
+    },
+    {
+      "p": 24,
+      "quote": "they will eat up everything you have among them",
+      "reason": "Read correctly; either parse gives the same meaning."
+    },
+    {
+      "p": 24,
+      "quote": "so far out of his reckoning",
+      "reason": "A current idiom; read correctly."
+    },
+    {
+      "p": 25,
+      "quote": "have the tongues of the victims cut",
+      "reason": "'victims' in its sacrificial sense is current, and the day-long sacrifice of bulls makes the sense clear; the reader read it correctly. This is dialogue, where no gloss is allowed, and ¶26 shows the tongues thrown into the fire."
+    },
+    {
+      "p": 25,
+      "quote": "mix wine",
+      "reason": "¶26 shows this, with wine and water mixed; read correctly."
+    },
+    {
+      "p": 26,
+      "quote": "pages filled the mixing-bowls",
+      "reason": "'pages' (boy attendants) is current; read correctly with high confidence."
+    },
+    {
+      "p": 26,
+      "quote": "handed it round, after giving every man his drink offering",
+      "reason": "Butler's sequence; the reader's reading is right. Recasting 'giving' would narrow Butler's verb, and the sentence ends with the men making their offerings."
+    },
+    {
+      "p": 26,
+      "quote": "were for going on board their ship",
+      "reason": "Dated but transparent: 'but Nestor … stopped them' makes the sense clear. Read correctly with high confidence."
+    },
+    {
+      "p": 26,
+      "quote": "Nestor caught them up",
+      "reason": "Both readings the reader offers (reached them, or checked them) end in 'and stopped them'. Choosing one would resolve Butler's idiom for him. The meaning can be recovered."
+    },
+    {
+      "p": 27,
+      "quote": "that you should leave my house",
+      "reason": "Butler's words; the reader correctly read them as leaving Nestor's hospitality."
+    },
+    {
+      "p": 27,
+      "quote": "so poor and short of clothes, or that I have so few cloaks",
+      "reason": "That cloaks serve as bedding follows from 'comfortable beds' in the same sentence; read correctly."
+    },
+    {
+      "p": 27,
+      "quote": "keep open house",
+      "reason": "A current idiom; read correctly with high confidence."
+    },
+    {
+      "p": 28,
+      "quote": "I must go to the Cauconians, where a large sum of money has long been owing to me",
+      "reason": "Butler (and Homer) give it at face value; marking it as an excuse would add interpretation."
+    },
+    {
+      "p": 29,
+      "quote": "none other of those who live in heaven than Zeus’s formidable daughter",
+      "reason": "Butler's construction; read correctly with high confidence."
+    },
+    {
+      "p": 29,
+      "quote": "the Trito-born",
+      "reason": "GLOSSARY: kept, unglossed. The sentence has already named her 'Zeus’s formidable daughter'."
+    },
+    {
+      "p": 29,
+      "quote": "a yearling, unbroken, and never yet brought under the yoke",
+      "reason": "'never yet brought under the yoke' explains 'unbroken' in the same breath; read correctly."
+    },
+    {
+      "p": 30,
+      "quote": "aegis-bearing Zeus",
+      "reason": "GLOSSARY: kept, unglossed. It is an epithet that no action depends on, and the reader's reading is right."
+    },
+    {
+      "p": 31,
+      "quote": "Dawn, the rosy-fingered child of morning",
+      "reason": "The GLOSSARY's fixed dawn formula."
+    },
+    {
+      "p": 32,
+      "quote": "tell the stockman to look me out a heifer",
+      "reason": "A dated idiom, but 'and come back here with it at once' makes the sense clear; read correctly with high confidence."
+    },
+    {
+      "p": 33,
+      "quote": "their several errands",
+      "reason": "Read as 'separate' or 'various', which gives Butler's sense; no misreading with consequences."
+    },
+    {
+      "p": 33,
+      "quote": "Athena herself came to accept the sacrifice",
+      "reason": "Butler's statement; he does not say whether anyone sees her."
+    },
+    {
+      "p": 33,
+      "quote": "a ewer",
+      "reason": "A current word for a jug, and 'fetched water … in a ewer' makes it clear (D29)."
+    },
+    {
+      "p": 33,
+      "quote": "Perseus held a bucket",
+      "reason": "Butler gives no purpose, and the action itself is clear."
+    },
+    {
+      "p": 33,
+      "quote": "sprinkling the barley meal",
+      "reason": "The action is clear; its purpose is ritual background that Butler does not give."
+    },
+    {
+      "p": 33,
+      "quote": "a lock from the heifer’s head",
+      "reason": "'lock' (of hair) is current; read correctly with high confidence."
+    },
+    {
+      "p": 34,
+      "quote": "screamed with delight",
+      "reason": "Butler's image of the women's ritual cry, kept by the continuity ruling; the reader followed the action."
+    },
+    {
+      "p": 34,
+      "quote": "five-pronged spits",
+      "reason": "Butler's wording; read correctly."
+    },
+    {
+      "p": 35,
+      "quote": "washed Telemachus",
+      "reason": "A Homeric custom in Butler's text; the action is clear."
+    },
+    {
+      "p": 35,
+      "quote": "put Telemachus’s horses to the chariot",
+      "reason": "Butler's possessive: the horses assigned to Telemachus. 'put … to the chariot' is readable next to 'chariot'; read correctly."
+    },
+    {
+      "p": 36,
+      "quote": "the fleet horses",
+      "reason": "'fleet' (swift) is current (D29); read correctly with high confidence."
+    },
+    {
+      "p": 36,
+      "quote": "sweetmeats",
+      "reason": "GLOSSARY keeps it, with the reason recorded."
+    },
+    {
+      "p": 36,
+      "quote": "completed their journey",
+      "reason": "A Book-boundary matter: Book 4 continues the journey, and the instructions put this out of scope."
+    },
+    {
+      "p": 37,
+      "quote": "Now when the sun had set and darkness lay over the land,",
+      "reason": "By design (D14; ledger A3/A7): Butler ends Book III on a half-sentence that Book IV completes. Not to be changed."
+    },
+    {
+      "p": 2,
+      "quote": "[book-level] Athena's disguise is never stated in this Book: the narrator says 'Athena' while Telemachus calls her 'Mentor' (¶2, ¶20) and Pisistratus calls her 'sir' (¶5)…",
+      "reason": "Established in Book 2, where Athena takes Mentor's likeness; the blind reader saw Book 3 alone (context note). Butler does not restate it here, and the modern text loses nothing he wrote. The reader inferred it correctly at ¶2, ¶5 and ¶6, and the eagle exit at ¶29 is Butler's own confirmation."
+    },
+    {
+      "p": 0,
+      "quote": "[book-level] Sacrifice and feast ritual recurs in unexplained terms: 'inner meats' vs 'outer meats' (¶0, ¶4, ¶7, ¶34, ¶35), 'drink offering(s)' (¶5, ¶25, ¶26, ¶30) whose…",
+      "reason": "The reader followed every step and read each term correctly (¶0, ¶5, ¶7, ¶25, ¶26, ¶33, ¶34). GLOSSARY keeps 'inner/outer meats' and 'drink offering' unglossed because ¶34 shows the order and the pouring. 'tongues of the victims' and the first libations are in dialogue, where no gloss is allowed, and 'screamed with delight' is Butler's image, kept by ruling. No clarification is indispensable."
+    },
+    {
+      "p": 10,
+      "quote": "[book-level] Names for the Greeks and their places are unstable: 'Achaeans' and 'Argives' both seem to mean the whole army; 'Argos' is Diomed's home (¶14) and then Agamem…",
+      "reason": "Butler's names and epithets in the package's forms (GLOSSARY: Achaeans, Argives and Argos unchanged; Mycenae under D13; 'the horseman of Gerene', 'the Trito-born' and the patronymics fixed). The reader linked every epithet to its bearer, and the double use of Argos (city and realm) is Homer's, not the modernization's."
+    },
+    {
+      "p": 14,
+      "quote": "[book-level] Nestor's two long narrative paragraphs (¶14, ¶23) are very long on a phone and packed with route geography (Tenedos, Lesbos, Chios, Psyra, Mimas, Euboea, Ger…",
+      "reason": "The length and the route catalogue are Butler's; paragraph alignment and the continuity ruling keep every leg. The one real failure inside them, who divided Menelaus's fleet, is repaired by B03-03. Butler does not say how Clytemnestra died, and supplying it would add content."
+    },
+    {
+      "p": 1,
+      "quote": "[book-level] Much of the phrasing reads as Victorian rather than modern English: 'Presently', 'By and by', 'much of an age with myself', 'give you the precedence', 'tell…",
+      "reason": "Each item is ruled on where it occurs. Only the false friend 'made an excellent dinner' (¶7) and the dead sense 'substance' (¶23) are proposed (B03-01, B03-04). The rest are dated but current, or their sentence makes them clear, and the reader read every one correctly, mostly with high confidence. The brief excludes rewording whose only purpose is to sound more modern."
+    },
+    {
+      "p": 3,
+      "quote": "[book-level] 'Heaven' (and once a singular 'God', ¶5) is used constantly for the Greek gods ('the hand of heaven', 'heaven will prompt you', 'Heaven has a long arm', 'hea…",
+      "reason": "GLOSSARY hazard 5: 'heaven' is Butler's collective stand-in for the gods and is never touched, and 'God' at ¶5 is Butler's own wording. The reader understood every instance as 'the gods'."
+    },
+    {
+      "p": 0,
+      "quote": "[book-level] The Book leans on earlier Books: it opens 'But ... they reached Pylos' with 'they' unidentified (and 'they' is then reused for the Pylians); the suitors (¶16…",
+      "reason": "The opening half-sentence is Butler's Book boundary, which the instructions put out of scope. The suitors and the family links come from Books 1–2 and are restated within Book 3 (¶10, ¶12–13, ¶17, ¶21). The one relationship the wording itself garbles, 'Aegisthus and his wife' at ¶19, is repaired by B03-02."
+    },
+    {
+      "p": 18,
+      "quote": "[book-level] Some speeches' reasoning is hard to follow - Athena in ¶19 (the gods can save a man / not even the gods can save him), Nestor's counterfactual in ¶21, Telema…",
+      "reason": "The reasoning at ¶18, ¶19 and ¶21 is Butler's, and the reader paraphrased each correctly. The repetitions are Butler's and GLOSSARY keeps them: the 'excellent man' warranty at ¶1/¶24, deliberately not word for word; the dawn formula; and 'readily enough' twice, as Butler repeats 'nothing loth'. ¶37's comma is by design (D14; ledger A3/A7)."
+    }
+  ],
+  "reader_errors_not_caused_by_text": [
+    {
+      "p": 36,
+      "reader_said": "Barrier ¶36 'swaying the yoke upon their necks' (unsure): \"'they' has switched from the young men to the horses … the subject shift is confusing.\"",
+      "butler": "He lashed the horses on and they flew forward nothing loth into the open country, leaving the high citadel of Pylos behind them. All that day did they travel, swaying the yoke upon their necks till the sun went down",
+      "why_text_is_clear": "There is no switch. In Butler and in the modern text alike, 'they' refers to the horses from 'they flew forward' onward, and 'swaying the yoke upon their necks' confirms it; the young men are never the subject of 'traveled'. The reader's final reading, horses swaying the yoke as they run all day, is correct, so nothing needs repair."
+    }
+  ],
+  "recurring": [
+    {
+      "item": "presently (= soon, after a while)",
+      "rendering": "keep as printed. Every Book 3 occurrence is past-tense narration, which fixes the sense; only a present-tense 'presently' (read today as 'currently') would need 'soon'",
+      "where": [
+        "3.1",
+        "3.23",
+        "3.36"
+      ]
+    },
+    {
+      "item": "substance (= property, goods)",
+      "rendering": "wealth (B03-04), matching the current modern at 24.31, where Butler's 'wasting the substance' is 'wasting the wealth'",
+      "where": [
+        "3.23"
+      ]
+    },
+    {
+      "item": "made a (good/excellent) dinner (= ate it, not cooked it)",
+      "rendering": "had an excellent dinner (B03-01)",
+      "where": [
+        "3.7"
+      ]
+    },
+    {
+      "item": "inner meats / outer meats",
+      "rendering": "kept unglossed (GLOSSARY row); ¶34 shows the sequence and the reader followed every occurrence",
+      "where": [
+        "3.0",
+        "3.4",
+        "3.7",
+        "3.34",
+        "3.35"
+      ]
+    },
+    {
+      "item": "drink offering(s)",
+      "rendering": "kept unglossed: it is the standard term, ¶34 shows wine poured on the fire, and the first uses are in dialogue",
+      "where": [
+        "3.5",
+        "3.25",
+        "3.26",
+        "3.30"
+      ]
+    },
+    {
+      "item": "tongues of the victims",
+      "rendering": "kept: 'victims' in its sacrificial sense, which the context makes clear",
+      "where": [
+        "3.25",
+        "3.26"
+      ]
+    },
+    {
+      "item": "aegis-bearing (Zeus)",
+      "rendering": "kept unglossed (GLOSSARY)",
+      "where": [
+        "3.30"
+      ]
+    },
+    {
+      "item": "false (Aegisthus)",
+      "rendering": "kept: 'false' meaning treacherous is a current sense",
+      "where": [
+        "3.15",
+        "3.20",
+        "3.23"
+      ]
+    },
+    {
+      "item": "nothing loth",
+      "rendering": "readily enough, as printed, twice. Note for the lead: GLOSSARY's Book 3 row still says 'willingly enough', but that is Butler's own phrase at 3.22 (continuity.md already says 'readily enough'). The text is right and the row is out of date",
+      "where": [
+        "3.36"
+      ]
+    },
+    {
+      "item": "whereon (sentence connective)",
+      "rendering": "no change proposed. Book 3 prints 'and then' at all three, which predates GLOSSARY's Book 4 row 'at that'. Comprehension is unaffected; whether to make them consistent is the lead's call, not a comprehension repair",
+      "where": [
+        "3.13",
+        "3.25",
+        "3.34"
+      ]
+    }
+  ],
+  "summary": "Book 3 is already highly comprehensible. Across all 37 content paragraphs the blind reader's paraphrases match Butler; of 107 barriers only one is a misreading (¶19) and one a real confusion (¶23), and two more mark a false friend and a dead sense worth an optional fix. The remaining 103 are pauses over Butler's names and epithets, GLOSSARY formulas, ritual terms the reader followed correctly, context from Books 1–2 (the Mentor disguise, the suitors), the ¶37 boundary, and dated but transparent idioms the reader worked out, mostly with high confidence. Both real failures are pronouns that hide who acted or whose: 'Aegisthus and his wife' (¶19) reads as Aegisthus's wife, and 'Here he divided his fleet' (¶23) reads as Menelaus splitting his own fleet, which the same paragraph then contradicts. Each is repaired with one word and marked recommended. The sweep adds two optional one-word repairs: the false friend 'made an excellent dinner' (¶7, which reads today as cooking) and the dead sense 'substance' (¶23 → 'wealth', as already printed at 24.31). 'alien speech', 'Presently', 'drink offering', 'inner/outer meats', 'tongues of the victims' and 'aegis-bearing' are kept as current or easy to follow. Nothing is blocking. Two notes for the lead rather than proposals: GLOSSARY's Book 3 row still says 'willingly enough' for 'nothing loth' where the text rightly prints 'readily enough', and Book 3's 'and then' for 'whereon' predates the Book 4 'at that' row."
+}

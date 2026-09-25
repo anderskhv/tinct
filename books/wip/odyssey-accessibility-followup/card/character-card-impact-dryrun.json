@@ -1,0 +1,30 @@
+{
+ "procedure": "PR #163 (app/scripts/prepare-odyssey-release.py on codex/odyssey-reviewed-release-20260924 @ 454c3209) run read-only: start from the live card app/public/data/characters/odyssey.v1.json (main 1a7d89eb, sha256 246e6b81…), remove the 30 explicitly rejected modern spans listed in books/staged-replacements/odyssey/edition/character-card-impact.json @ 0a76d6ce, then reanchor(live 813127d7… → successor db6bfd23…, allow_alias_changes=True) with main's unchanged app/scripts/prepare-reviewed-editions.py (sha256 18707f6e…).",
+ "liveCardSha256": "246e6b81b371298bfe713036af847a503452a7f01ef7239ef825298f92b113e0",
+ "liveModernEnSha256": "813127d77b4041f613a11b46e50890f46519252782188a6a1156ebc050898cdc",
+ "successorSha256": "db6bfd23e97e1fe2eb0b2ce9926c36a665a996cfb024796ee0903e935931c9ce",
+ "modernEnMentionsLive": 662,
+ "rejectedSpansRemoved": 30,
+ "retained": 632,
+ "dropped": 0,
+ "spansNotSlicingExactly": 0,
+ "sameResultOnAcceptedBd05": {
+  "retained": 632,
+  "dropped": 0
+ },
+ "identityVsAcceptedBd05": {
+  "method": "For each of the 56 paragraphs this successor changes, every retained mention from the same procedure run on bd05c7f4… was projected through a character-level difflib alignment (equal regions only) of the bd05 paragraph onto the successor paragraph, and compared with the successor result on (characterId, text, UTF-16 span). Mentions in unchanged paragraphs were compared for exact equality.",
+  "unchangedParagraphsWithDifferentMentions": 0,
+  "mentionsInUnchangedParagraphs": 582,
+  "changedParagraphsWithMentions": 28,
+  "mentionsInChangedParagraphs": 50,
+  "changedParagraphsWhereResultDiffersFromProjection": 0,
+  "result": "Identical identities. No retained mention moved to another occurrence or another character; offsets shift only by the edit lengths.",
+  "addedNameOccurrence": "B03-03 replaces 'he' with 'Zeus' at 3.23 (UTF-16 offset 665). The new occurrence is not bound. The existing Zeus mention at 3.23 @572 is unchanged. Binding the new occurrence would be an optional card addition, not needed for correctness.",
+  "bd05CanonicalRetainedMentionListSha256": "f91f98a40d83a3c8c459c88f545389846469dd104a736278dbef39d0056d87f0",
+  "note12_26": "CR-12.26 changes 12.26, which has no mentions. The card result is byte-identical to the run on the pre-CR-12.26 successor 862066e2… (same canonical list hash)."
+ },
+ "canonicalRetainedMentionListSha256": "8dee96c8bfbca5d0cb0da1b9f3a86f061e43b4d766d61c9fcb9e6500cfe5f81d",
+ "canonicalization": "mentions sorted by (chapterNumber, paragraphIndex, startOffset, endOffset); json.dumps(list, ensure_ascii=False, sort_keys=True)",
+ "originalEnBlock": "Unaffected by this successor; PR #163's option-A handling (remove the Nestor mention at 3.37 @57) stands."
+}

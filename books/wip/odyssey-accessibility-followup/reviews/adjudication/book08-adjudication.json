@@ -1,0 +1,607 @@
+{
+  "book": 8,
+  "proposals": [
+    {
+      "id": "B08-01",
+      "p": 1,
+      "kind": "barrier",
+      "quote_modern": "taller and stouter",
+      "replacement": "taller and sturdier",
+      "butler": "making him look taller and stouter than he really was",
+      "reader_evidence": "Barrier (pause, medium) on 'taller and stouter': 'Bigger and more powerfully built, not fatter'. Note: \"modern 'stout' means plump\".",
+      "reason": "Of a person, current 'stout' chiefly means portly, so a typical reader has Athena make Odysseus fatter while she 'beautifies' him for athletic trials. Butler's sense is strong and solidly built (Greek passona, 'thicker, sturdier', Od. 8.20). 'Sturdier' keeps his meaning and his comparative. 'Stout' stays where it is current, in 'good stout clothing' at 7.21; that split by referent is to be recorded.",
+      "severity": "optional",
+      "collision_check": "Butler ¶1: flocked, seats, standing room, struck, appearance, beautified, head, shoulders, taller, stouter, impress, favourably, remarkable, trials of skill, challenge. 'Sturdy' occurs nowhere in Butler's Books 7–8."
+    },
+    {
+      "id": "B08-02",
+      "p": 2,
+      "kind": "barrier",
+      "quote_modern": "I will find you in everything.",
+      "replacement": "I will supply you with everything.",
+      "butler": "I will find you in everything.",
+      "reader_evidence": "Barrier (unsure, medium; 'archaic') on 'I will find you in everything': \"I will provide everything you need (food and drink), not 'I will come and find you'.\" book_level lists it among the archaic idioms.",
+      "reason": "An obsolete sense of 'find': to supply someone with something, as in 'all found'. Current English reads it as 'I will come and find you', or cannot read it, and the reader had to guess. The sense matters, because the king is undertaking to provide the feast (Greek pasi parexo, Od. 8.39, 'I will provide for all'). 'Supply ... with' is the plain current verb for Butler's sense. The change also removes a second, different 'find' from a paragraph that opens with 'has found his way'.",
+      "severity": "recommended",
+      "collision_check": "Butler ¶2: found (his way, = reached), ready (get one ready), prepare (a feast), find (= supply). 'Supply' occurs nowhere in Butler's Book 8. 'Provide' was rejected: Butler uses it at 8.3 ('so as to provide a magnificent banquet'), so one rendering would serve two Butler words (arrow B). 'Prepare' and 'ready' are Butler's words here for other things."
+    },
+    {
+      "id": "B08-03",
+      "p": 3,
+      "kind": "barrier",
+      "quote_modern": "and Alcinous killed them a dozen sheep",
+      "replacement": "and for them Alcinous killed a dozen sheep",
+      "butler": "and Alcinous killed them a dozen sheep, eight full grown pigs, and two oxen",
+      "reader_evidence": "Barrier (pause, high; syntax) on 'Alcinous killed them a dozen sheep': \"first pass reads 'killed them', i.e. the men\".",
+      "reason": "An indirect object without 'for' after 'killed' is obsolete. Coming straight after 'crowds of men ... both old and young', it first reads as the king killing the crowd, the kind of syntax that hides who is done to. Moving 'them' into a 'for' phrase at the head of the clause (the Greek order, toisin d' Alkinoos, Od. 8.59) keeps every word and leaves the list intact.",
+      "severity": "optional",
+      "collision_check": "No new content word; all of Butler's words in ¶3 are kept. 'For' is a function word."
+    },
+    {
+      "id": "B08-04",
+      "p": 15,
+      "kind": "barrier",
+      "quote_modern": "before Troy and in practice",
+      "replacement": "before Troy and at practice",
+      "butler": "when we Achaeans were before Troy and in practice",
+      "reader_evidence": "Barrier (pause, medium) on 'when we Achaeans were before Troy and in practice': \"'and in practice' is unclear (shooting practice as opposed to battle?)\".",
+      "reason": "'In practice' is now a fixed idiom for 'in reality', so the qualifier reads as nonsense or as a hedge. Butler means when the Achaeans were practising archery (Greek hote toxazoimeth' Achaioi, Od. 8.220, 'when we Achaeans shot'). 'At practice' keeps Butler's noun and changes only the preposition. 'Before Troy' (= at the siege) was decoded and is kept, here and at 8.49.",
+      "severity": "optional",
+      "collision_check": "Butler uses 'practice' only here in ¶15; the change is to the preposition alone."
+    },
+    {
+      "id": "B08-05",
+      "p": 15,
+      "kind": "barrier",
+      "quote_modern": "I can throw a dart farther",
+      "replacement": "I can throw a spear farther",
+      "butler": "I can throw a dart farther than any one else can shoot an arrow",
+      "reader_evidence": "Barrier (pause, medium) on 'I can throw a dart farther than anyone else can shoot an arrow': \"'dart' = a light throwing spear or javelin, not a small darts-board dart\".",
+      "reason": "Current 'dart' is the small missile of the pub game, which makes the boast absurd. Butler's 'dart' is the old word for a light spear (Greek douri akontizo, Od. 8.229, 'I hurl a spear'). 'Spear' is the plain current word for the object, and the object itself is kept.",
+      "severity": "optional",
+      "collision_check": "Butler ¶15: archer, arrow, shoot, disc, throw, dart. Neither 'spear' nor 'javelin' occurs in Butler's Book 8. 'Throw' is kept as Butler's verb."
+    },
+    {
+      "id": "B08-06",
+      "p": 19,
+      "kind": "barrier",
+      "quote_modern": "Let us go to the couch of Hephaestus",
+      "replacement": "Let us go to the bed of Hephaestus",
+      "butler": "Let us go to the couch of Vulcan",
+      "reader_evidence": "Barrier (pause, high) on 'the couch of Hephaestus': \"Hephaestus's bed, not a sofa\" ('recurs ¶20'). book_level lists 'couch' (bed) among older meanings that clash with modern ones.",
+      "reason": "To a present-day reader a couch is a sofa. The lay turns on the bed that Hephaestus has netted with chains ('marriage bed', 'bedposts', 'all over the bed', 8.18). If the lovers go to a 'couch', the trap they fall into is on the wrong piece of furniture. Butler's couch is that bed (Greek lektronde, Od. 8.292). Accepted Book 3 made the same change ('Nestor left his couch' → 'left his bed', 3.31); Dawn's formulaic couch at 5.0 is a different case and stays. Apply together with B08-08 or not at all.",
+      "severity": "optional",
+      "collision_check": "Butler ¶19 has no 'bed'. Across the lay, Butler's 'couch' (8.19, 8.20) and 'bed' (8.18, 8.21) name one object (Greek lektron, demnia), so merging them is arrow B in form only, the same merge accepted at 3.31. If the lead applies arrow B strictly, reject B08-06 and B08-08 together."
+    },
+    {
+      "id": "B08-07",
+      "p": 20,
+      "kind": "barrier",
+      "quote_modern": "She was nothing loath",
+      "replacement": "She was not at all reluctant",
+      "butler": "She was nothing loth",
+      "reader_evidence": "Barrier (pause, high) on 'She was nothing loath': 'She was entirely willing'. Note: \"archaic; easily confused with 'loathe'\". book_level lists 'nothing loath' among the archaic idioms.",
+      "reason": "GLOSSARY rules this construction dead ('Loth/loath is dead in this construction') and fixes a replacement that this paragraph never received; the brief's sweep list names it too. Read as 'loathe', it blurs or inverts whether Aphrodite consents, and her willingness is the point of the lay. 'Not at all reluctant' is the literal modernization (nothing → not at all, loth → reluctant) and keeps Butler's litotes (Greek aspaston eeisato, Od. 8.295, 'it seemed welcome to her'). The Glossary's form is 'willingly enough', and Book 3's current text prints 'readily enough' (3.36). In Book 8 both collide with Butler's own words (see collision_check), so the lead should update the Glossary row to record the forms in use.",
+      "severity": "recommended",
+      "collision_check": "Butler ¶20: loth, couch, rest, toils, cunning, spread, trap, turned back, scout, passion, vestibule. 'Reluctant' occurs nowhere in Butler's Book 8. 'Willing' (8.16, 'you are willing to show your prowess') and 'ready' (8.2, 'get one ready') are Butler's own words elsewhere in the Book (arrow B), which rules out 'willing(ly) enough' and 'ready/readily enough' here."
+    },
+    {
+      "id": "B08-08",
+      "p": 20,
+      "kind": "barrier",
+      "quote_modern": "they went to the couch",
+      "replacement": "they went to the bed",
+      "butler": "so they went to the couch to take their rest",
+      "reader_evidence": "The barrier on 'the couch of Hephaestus' at ¶19 ('recurs ¶20'); see B08-06.",
+      "reason": "The companion of B08-06, in the sentence where the trap springs. Butler's 'couch' here renders demnia, the same Greek word as his 'bed' at 8.21 ('asleep on my bed'). Apply together with B08-06 or not at all.",
+      "severity": "optional",
+      "collision_check": "As for B08-06. Butler ¶20 has no 'bed'."
+    },
+    {
+      "id": "B08-09",
+      "p": 20,
+      "kind": "barrier",
+      "quote_modern": "caught in the toils",
+      "replacement": "caught in the net",
+      "butler": "they were caught in the toils which cunning Vulcan had spread for them",
+      "reader_evidence": "Barrier (pause, high) on 'caught in the toils': \"Caught in the net or snare of chains ('toils' = nets, not hard work)\".",
+      "reason": "'Toils' in the sense of a net or snare is dead outside the literary idiom 'in the toils of'. The current 'toils' (labors) makes 'caught in the toils ... spread for them' momentarily unreadable. 'Net' names Butler's object, the chains hung 'like cobwebs' (8.18) and spread over the bed. Accepted Book 4 made exactly this change ('a lioness caught in the toils' → 'caught in a net', 4.72).",
+      "severity": "optional",
+      "collision_check": "Butler ¶20: toils, spread, trap ('found too late that they were in a trap'). 'Net' occurs nowhere in Butler's Book 8. 'Snare' was rejected because it is Butler's own word for the same device at 8.18 (arrow B), and 'trap' is Butler's in this same sentence."
+    },
+    {
+      "id": "B08-10",
+      "p": 21,
+      "kind": "barrier",
+      "quote_modern": "his baggage of a daughter",
+      "replacement": "his hussy of a daughter",
+      "butler": "the sum I gave him for his baggage of a daughter, who is fair but not honest",
+      "reader_evidence": "Barrier (unsure, medium; 'archaic insult') on 'his baggage of a daughter': 'An insult: a shameless or worthless woman, not luggage.' book_level: \"'baggage' (a loose woman)\".",
+      "reason": "The sense of 'baggage' as a disreputable woman is obsolete. Today the word means luggage or 'emotional baggage', so the insult blurs into 'burdensome'. What Hephaestus says is that his wife is shameless (Greek kunopidos, Od. 8.319, 'dog-eyed', i.e. shameless). 'Hussy' is the current, if dated, word for exactly Butler's sense. It keeps his 'his X of a daughter' construction and his comic, bitter register.",
+      "severity": "optional",
+      "collision_check": "Butler ¶21: dishonouring, lame, handsome, clean built, cripple, parents, begotten, pair, bed, furious, fond, sum, baggage, daughter, fair, honest. 'Hussy' occurs nowhere in Butler's Book 8."
+    },
+    {
+      "id": "B08-11",
+      "p": 41,
+      "kind": "barrier",
+      "quote_modern": "He had done so before an upper servant told him",
+      "replacement": "He had done so by the time an upper servant told him",
+      "butler": "He had done so before an upper servant told him to come to the bath and wash himself.",
+      "reader_evidence": "Barrier (pause, medium; syntax) on 'He had done so before an upper servant told him': \"it can first read as 'he had done this before, on an earlier occasion'\".",
+      "reason": "Straight after 'a knot that Circe had taught him', 'He had done so before' reads first as the idiom 'on earlier occasions'. This garden path hides the sequence Butler states: the knot was finished, then came the call to the bath. 'By the time' states Butler's relation exactly (he had finished when he was called) and adds nothing. It does not reintroduce v1's 'hardly', which round 1 removed as a change of sense (Book 8 continuity §5b, B08-P042 = p41).",
+      "severity": "optional",
+      "collision_check": "Butler ¶41: done (so), before, upper servant, remained, done (washing). 'Time' does not occur in Butler's ¶41. 'Finished' was avoided because it is Butler's own word at 8.18 ('finished his snare')."
+    }
+  ],
+  "rejected_barriers": [
+    {
+      "p": 0,
+      "quote": "Dawn, the rosy-fingered child of morning",
+      "reason": "GLOSSARY formula (Book 2 row); decoded."
+    },
+    {
+      "p": 0,
+      "quote": "Aldermen and town councilors of the Phaeacians",
+      "reason": "Recorded keep (Book 8 continuity §6, Butlerism class; Book 7 continuity §5; accepted 6.4); decoded. Athena's use of it is Homer's (Od. 8.11). See recurring."
+    },
+    {
+      "p": 2,
+      "quote": "He wants an escort",
+      "reason": "Butler's steady word for pompe; decoded, and the next sentences make the ship explicit. See recurring."
+    },
+    {
+      "p": 2,
+      "quote": "when you have made fast your oars each by his own seat",
+      "reason": "Concrete; decoded."
+    },
+    {
+      "p": 2,
+      "quote": "I am giving these instructions to the young men who will form the crew",
+      "reason": "Butler's (and Homer's) order; the sentence itself redirects the orders. Reordering would move content."
+    },
+    {
+      "p": 2,
+      "quote": "in the gallery",
+      "reason": "GLOSSARY row (cloister → gallery)."
+    },
+    {
+      "p": 3,
+      "quote": "bound the oars to the thole pins with twisted thongs of leather",
+      "reason": "Concrete, with its setting recorded (PUNCTUATION §4, 'thole pins'); decoded."
+    },
+    {
+      "p": 3,
+      "quote": "all the precincts",
+      "reason": "Recorded keep (Book 8 continuity §6: 'precincts' kept at B08-P004 = p3); decoded."
+    },
+    {
+      "p": 3,
+      "quote": "skinned and dressed",
+      "reason": "To 'dress' a carcass is current usage; decoded with high confidence."
+    },
+    {
+      "p": 4,
+      "quote": "presently",
+      "reason": "Past narrative; decoded with high confidence. See recurring."
+    },
+    {
+      "p": 5,
+      "quote": "But Agamemnon was glad when he heard his chieftains quarreling",
+      "reason": "Homer leaves the prophecy's content implicit. Trojan background (assignment note), not a wording defect."
+    },
+    {
+      "p": 5,
+      "quote": "at Pytho when he crossed the stone floor to consult the oracle",
+      "reason": "Kept by the 2026-09-23 screening ruling (8 ¶5 Pytho); decoded as a shrine."
+    },
+    {
+      "p": 5,
+      "quote": "fell upon Danaans and Trojans alike",
+      "reason": "Ethnic names are Butler's and stay unglossed (assignment note)."
+    },
+    {
+      "p": 6,
+      "quote": "made a drink offering to the gods",
+      "reason": "Custom. The term is standard and held steady; decoded."
+    },
+    {
+      "p": 7,
+      "quote": "There were Acroneos, Ocyalus, Elatreus",
+      "reason": "Homer's roll-call. The draft already added 'There were' and the list colon (continuity §5b; PUNCTUATION §6), and the names cannot be cut."
+    },
+    {
+      "p": 7,
+      "quote": "who was like Ares himself",
+      "reason": "Name per GLOSSARY row 13; ¶18 shows that Ares is a god. An outside-knowledge note only."
+    },
+    {
+      "p": 8,
+      "quote": "the length of the furrow a couple of mules can plow in a fallow field",
+      "reason": "Homer's measure, concrete; decoded."
+    },
+    {
+      "p": 8,
+      "quote": "when they had all been diverted with the games",
+      "reason": "'Diverted' in the sense of entertained is current ('diversion'); decoded with high confidence."
+    },
+    {
+      "p": 11,
+      "quote": "why do you taunt me like this?",
+      "reason": "Homer's tone; the reader's reading is right."
+    },
+    {
+      "p": 11,
+      "quote": "praying your king and his people",
+      "reason": "Decoded with high confidence. 'As a suppliant' frames it, and 'pray' = entreat with a personal object is dated but still recognizable ('I pray you'). No change."
+    },
+    {
+      "p": 12,
+      "quote": "reviled him outright",
+      "reason": "'Reviled' is current literary English; decoded with high confidence."
+    },
+    {
+      "p": 12,
+      "quote": "one of those grasping traders",
+      "reason": "A social attitude implicit in Homer; the reader read the insult correctly."
+    },
+    {
+      "p": 13,
+      "quote": "So true is it that the gods do not grace all men alike in speech, person, and understanding",
+      "reason": "Butler's sentence; decoded, including 'person' = appearance."
+    },
+    {
+      "p": 13,
+      "quote": "His honeyed moderation carries his hearers with him",
+      "reason": "Butler's image; decoded."
+    },
+    {
+      "p": 14,
+      "quote": "The Phaeacians quailed beneath the rushing of its flight",
+      "reason": "'Quailed' is current; decoded with high confidence."
+    },
+    {
+      "p": 14,
+      "quote": "could easily tell your mark by groping for it",
+      "reason": "Athena's image; decoded."
+    },
+    {
+      "p": 15,
+      "quote": "come up to that throw",
+      "reason": "Decoded with high confidence ('come up to' = match)."
+    },
+    {
+      "p": 15,
+      "quote": "of those who still eat bread upon the face of the earth",
+      "reason": "Homer's formula for the living; decoded with high confidence."
+    },
+    {
+      "p": 15,
+      "quote": "Heracles, or Eurytus the Oechalian",
+      "reason": "'Heracles' per the Book 8 naming decision (continuity §3); Eurytus is explained in the next sentence."
+    },
+    {
+      "p": 16,
+      "quote": "We are not particularly remarkable for our boxing, nor yet as wrestlers",
+      "reason": "Alcinous's backtrack is Homer's (Od. 8.246); the reader noticed it correctly."
+    },
+    {
+      "p": 17,
+      "quote": "began to foot and trip it so nimbly",
+      "reason": "Butler's dance idiom. The dancers, 'nimbly' and 'the merry twinkling of their feet' decode it, and the reader decoded it with high confidence."
+    },
+    {
+      "p": 18,
+      "quote": "defiled King Hephaestus’s marriage bed",
+      "reason": "Homer implies the marriage and ¶21 states it; the reader's reading is right."
+    },
+    {
+      "p": 18,
+      "quote": "he made as though he were setting out for the fair state of Lemnos",
+      "reason": "'Made as though' (pretended) is current literary English, and 'state' (a city-state) is Butler's; decoded."
+    },
+    {
+      "p": 18,
+      "quote": "But Ares kept no blind lookout",
+      "reason": "Butler's literal rendering of Homer's litotes (alaoskopien, 'a blind watch'). The next clause ('as soon as he saw him start') settles it, and the reader got it. Replacing the phrase would lose the image."
+    },
+    {
+      "p": 19,
+      "quote": "among the Sintians, whose speech is barbarous",
+      "reason": "Butler's word; decoded."
+    },
+    {
+      "p": 21,
+      "quote": "clean built",
+      "reason": "Butler's; decoded (well-formed, set against lame Hephaestus)."
+    },
+    {
+      "p": 21,
+      "quote": "I do not think they will lie there longer than they can help, nor do I think they will sleep much",
+      "reason": "Hephaestus's sarcasm, which is Homer's; decoded."
+    },
+    {
+      "p": 21,
+      "quote": "repaid me the sum I gave him",
+      "reason": "Bride-price custom; the reader decoded it."
+    },
+    {
+      "p": 21,
+      "quote": "who is fair but not honest",
+      "reason": "Decoded ('honest' = chaste). The modern reading 'dishonest' arrives at the same meaning (unfaithful)."
+    },
+    {
+      "p": 22,
+      "quote": "Earth-encircling Poseidon",
+      "reason": "Epithet, kept per GLOSSARY; decoded."
+    },
+    {
+      "p": 22,
+      "quote": "Then the givers of all good things stood in the doorway",
+      "reason": "Epithet for the gods; decoded."
+    },
+    {
+      "p": 23,
+      "quote": "Ares will be cast in heavy damages",
+      "reason": "Recorded Butlerism (Book 8 continuity §6); decoded (made to pay heavy compensation)."
+    },
+    {
+      "p": 26,
+      "quote": "I will undertake, as you require, that he shall pay you",
+      "reason": "Current formal English; decoded (Poseidon stands surety)."
+    },
+    {
+      "p": 27,
+      "quote": "A bad man’s bond is bad security.",
+      "reason": "Recorded Butlerism (Book 8 continuity §6). The reader's reading (a pledge for a scoundrel is worthless) is Butler's, and the next sentence spells out the worry ('what remedy could I enforce against you'). The pun on bond and chains is Butler's."
+    },
+    {
+      "p": 27,
+      "quote": "What remedy could I enforce against you",
+      "reason": "Decoded."
+    },
+    {
+      "p": 29,
+      "quote": "There the Graces bathed her",
+      "reason": "Reference; outside knowledge. Not a wording defect."
+    },
+    {
+      "p": 33,
+      "quote": "a talent of fine gold",
+      "reason": "A concrete unit, which the reader decoded (a weight of gold). Accepted Books keep 'talents of gold' (4.10, 4.43), and Homer states no value that a gloss could supply."
+    },
+    {
+      "p": 34,
+      "quote": "I will give the stranger all the satisfaction you require",
+      "reason": "Current usage; decoded (amends)."
+    },
+    {
+      "p": 35,
+      "quote": "father stranger",
+      "reason": "Recorded Butlerism (Book 8 continuity §6; Greek xeine pater); decoded. Also at 7.3 and 7.5."
+    },
+    {
+      "p": 36,
+      "quote": "I hope you will not miss the sword you have given me",
+      "reason": "Homer's courtesy (Od. 8.415); the reader's reading is right."
+    },
+    {
+      "p": 37,
+      "quote": "he girded the sword about his shoulders",
+      "reason": "'Gird' is current literary English; decoded with high confidence."
+    },
+    {
+      "p": 38,
+      "quote": "set a copper on the fire",
+      "reason": "Butler's concrete vessel (Greek chalkos). 'On the fire and heat some water' makes it a pot, as the reader read it."
+    },
+    {
+      "p": 39,
+      "quote": "set a large tripod on the fire",
+      "reason": "Concrete (Greek tripous), kept as accepted 4.10 keeps 'tripods'. 'Full of bath water' and 'the belly of the tripod' decode it."
+    },
+    {
+      "p": 41,
+      "quote": "a knot that Circe had taught him",
+      "reason": "Circe belongs to Book 10; a reference, not a defect."
+    },
+    {
+      "p": 41,
+      "quote": "you owe a ransom for having saved your life",
+      "reason": "Butler's 'ransom' renders zoagria (the price owed for a life saved) literally. The reader read the sense (a debt for his life); not a false friend."
+    },
+    {
+      "p": 42,
+      "quote": "my guardian angel",
+      "reason": "Kept by the round-1 ruling and recorded as a Butlerism (Book 8 continuity §6, B08-P043 = p42); the meaning is clear."
+    },
+    {
+      "p": 43,
+      "quote": "a piece of roast pork with plenty of fat on it",
+      "reason": "Custom (a portion of honor); decoded."
+    },
+    {
+      "p": 43,
+      "quote": "abundance left on the joint",
+      "reason": "A 'joint' of meat is current usage, and 'roast pork' fixes the sense; decoded with high confidence."
+    },
+    {
+      "p": 44,
+      "quote": "the return of the Achaeans",
+      "reason": "Butler's own word 'return' (Greek oitos, fate), reproduced as he wrote it. The ethnic name stays unglossed."
+    },
+    {
+      "p": 44,
+      "quote": "that Odysseus got by stratagem into the fort of Troy",
+      "reason": "Homer withholds the identity by design until Book 9 (assignment note)."
+    },
+    {
+      "p": 45,
+      "quote": "some of the Argives set fire to their tents and sailed away",
+      "reason": "Homer's narrative. 'Hidden inside the horse' in the same sentence and 'ambush' below mark the trick; the ethnic name stays."
+    },
+    {
+      "p": 45,
+      "quote": "And this was how they settled it in the end",
+      "reason": "Butler's; decoded."
+    },
+    {
+      "p": 45,
+      "quote": "along with Menelaus to the house of Deiphobus",
+      "reason": "Reference; outside knowledge."
+    },
+    {
+      "p": 46,
+      "quote": "even so piteously did Odysseus weep",
+      "reason": "Butler's close of the simile, with his em dash restored at v2 (continuity §5c); decoded with high confidence."
+    },
+    {
+      "p": 48,
+      "quote": "do you on your part make no more concealment or reserve",
+      "reason": "An emphatic imperative, decoded with high confidence; the meaning is recoverable."
+    },
+    {
+      "p": 48,
+      "quote": "so that our ships may shape their purpose accordingly",
+      "reason": "Butler's; decoded."
+    },
+    {
+      "p": 48,
+      "quote": "the Phaeacians have no pilots",
+      "reason": "Maritime 'pilot' is current English, and the next sentence (rudders) fixes the sense; decoded with high confidence."
+    },
+    {
+      "p": 48,
+      "quote": "too easy-going in the matter of giving people escorts",
+      "reason": "Butler's steady word. The reader decoded it (carrying people home by ship), and the unwanted connotation is not a misreading of the story. See recurring."
+    },
+    {
+      "p": 49,
+      "quote": "the return of the Argive Danaans from Troy",
+      "reason": "Ethnic names are Butler's and stay unglossed (assignment note)."
+    },
+    {
+      "p": 49,
+      "quote": "when you were before Troy",
+      "reason": "'Before Troy' (= at the siege) is decoded here and at 8.15; standard phrasing."
+    }
+  ],
+  "reader_errors_not_caused_by_text": [],
+  "recurring": [
+    {
+      "item": "friends (current sense)",
+      "rendering": "No change. The kin sense occurs only at 7.7 and 7.12 (→ loved ones).",
+      "where": [
+        "8.6",
+        "8.15",
+        "8.16",
+        "8.36",
+        "8.49"
+      ]
+    },
+    {
+      "item": "nothing loth",
+      "rendering": "'not at all reluctant' (B08-07). GLOSSARY fixes 'willingly enough' (B03-P037) and Book 3's current text prints 'readily enough' (3.36), but in Book 8 both collide with Butler's own 'willing' (8.16) and 'ready' (8.2). The Glossary row should record the forms in use.",
+      "where": [
+        "8.20"
+      ]
+    },
+    {
+      "item": "toils (a net or snare)",
+      "rendering": "net (B08-09), as accepted Book 4 has it ('caught in a net', 4.72)",
+      "where": [
+        "8.20"
+      ]
+    },
+    {
+      "item": "couch (= bed)",
+      "rendering": "bed (B08-06, B08-08), as accepted Book 3 has it (3.31). Dawn's formulaic couch at 5.0 is a different case and stays.",
+      "where": [
+        "8.19",
+        "8.20"
+      ]
+    },
+    {
+      "item": "copper / tripod / talent / joint / pilots / ransom",
+      "rendering": "No change. These are Butler's concrete terms and are decoded in context; accepted 4.10 and 4.43 keep 'tripods' and 'talents of gold'.",
+      "where": [
+        "8.33",
+        "8.38",
+        "8.39",
+        "8.41",
+        "8.43",
+        "8.48"
+      ]
+    },
+    {
+      "item": "before Troy (= at the siege)",
+      "rendering": "No change.",
+      "where": [
+        "8.15",
+        "8.49"
+      ]
+    },
+    {
+      "item": "escort / escorts / escorted (Butler's steady word for pompe, conveyance home by ship)",
+      "rendering": "No change. Context defines it at first use (7.17), the reader decoded every instance, and the edition already uses it at 6.22.",
+      "where": [
+        "7.17",
+        "7.19",
+        "7.25",
+        "8.2",
+        "8.47",
+        "8.48"
+      ]
+    },
+    {
+      "item": "presently (= soon, after a while)",
+      "rendering": "No change. Every instance is past narrative, where 'currently' cannot apply; the other Books keep it (4.8, 4.23, 5.31, 10.9, 10.41).",
+      "where": [
+        "7.1",
+        "7.13",
+        "7.22",
+        "8.4",
+        "8.8",
+        "8.17"
+      ]
+    },
+    {
+      "item": "father stranger (xeine pater)",
+      "rendering": "No change. A recorded Butlerism (Book 8 continuity §6), decoded each time.",
+      "where": [
+        "7.3",
+        "7.5",
+        "8.35"
+      ]
+    },
+    {
+      "item": "Aldermen and town councilors",
+      "rendering": "No change. Recorded keep (Book 7 continuity §5; accepted 6.4; Book 8 continuity §6).",
+      "where": [
+        "7.17",
+        "8.0",
+        "8.2",
+        "8.6",
+        "8.33",
+        "8.47"
+      ]
+    },
+    {
+      "item": "upper servant (Greek tamie)",
+      "rendering": "No change; decoded.",
+      "where": [
+        "7.15",
+        "8.41"
+      ]
+    },
+    {
+      "item": "stout / stouter",
+      "rendering": "Of a man's build, 'stouter' → 'sturdier' (B08-01). 'Good stout clothing' is kept, because there 'stout' = strong is current; record the split as one by referent. The same Butler phrase 'taller and stouter' recurs at 24.23, outside this assignment.",
+      "where": [
+        "7.21",
+        "8.1"
+      ]
+    }
+  ],
+  "summary": "Book 8 reads well: the reader's 50 paraphrases contain no story error, and 73 of the 80 barriers are pauses, mostly on Trojan-war background, custom (bride-price, surety, drink offerings) and the Butlerisms the package keeps on record (aldermen and town councilors, father stranger, cast in heavy damages, the bond proverb, guardian angel). The real problem type is a dead sense or false friend in a single word, concentrated in the lay of Ares and Aphrodite; two repairs are recommended: 'I will find you in everything' (8.2, an obsolete 'find' = supply, which the reader had to guess) and 'nothing loath' (8.20), where a GLOSSARY replacement was never applied. Nine optional repairs replace 'stouter', 'dart', 'in practice', 'couch' (twice), 'toils' and 'baggage' and untangle two garden paths ('killed them a dozen sheep', 'He had done so before'); couch → bed and toils → net follow accepted Books 3 and 4. The other candidate false friends (escort, copper, tripod, talent, joint, pilots, ransom, kept no blind lookout, a bad man's bond) are decoded in context and kept. Outside comprehension scope, noted but not proposed: 8.49 keeps the doubled 'tell me, and tell me truly' where GLOSSARY R6 fixes 'tell me truly'; Butler's sentential 'whereon' appears as 'whereupon' (8.17) and 'and' (8.22, 8.39), not GLOSSARY's 'at that'; and 'full grown' (8.3) and 'finer looking' (8.13, beside 'best-looking' at 8.7) are open where D15's standard is hyphenated. Paragraph numbers are the 0-based p of the pairs files; B0N-Pnnn IDs are 1-based."
+}

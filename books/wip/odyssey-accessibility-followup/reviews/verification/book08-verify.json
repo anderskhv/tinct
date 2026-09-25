@@ -1,0 +1,115 @@
+{
+ "book": 8,
+ "packet": "packets/book08.md",
+ "mechanical": {
+  "script": "mech_b07_b08_ff.py (independent; exit 0)",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-b2-8-17.json",
+  "after_sha256": "34f2113c2cc06f0a4d3f7698c598e4fbe2073732d4a3c22bbad0372114ac8318",
+  "structure": "identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45]",
+  "texts": "packet BUTLER equals the served original-en (after joining PG's hard line wraps); packet BEFORE, AFTER and CONTEXT equal the files",
+  "conventions_scan": "no ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces in any AFTER paragraph in scope",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run",
+  "scope": "Book 8 paragraphs differing BEFORE->AFTER = {1, 2, 3, 15, 19, 20, 21, 41} = packet set, 11 edits. For each paragraph, the listed edits (each old string present exactly once) applied to BEFORE reproduce AFTER byte for byte: no unlisted edits. ¶20's three edits apply cleanly in sequence."
+ },
+ "paragraphs": [
+  {
+   "p": 1,
+   "edits": [
+    "B08-01"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Od. 8.20 μακρότερον καὶ πάσσονα: taller and thicker, more massive in build. Current 'stout' said of a person means portly, so Athena's beautifying would read as fattening. 'Sturdier' means solidly and strongly built and keeps Butler's comparative. Butler ¶1 has no 'sturdy', so there is no collision. FOLLOW-UP outside this successor: Butler prints the identical phrase of Laertes at 24.23 ('making him taller and stouter than before', Od. 24.369 μείζονα … καὶ πάσσονα). AFTER 24.23 is unchanged and still reads 'taller and stouter', which is the same person-sense misreading, now rendered differently from 8.1. The recorded 'split by referent' cites only 7.21 (clothing, current sense). Make the companion edit at 24.23, 'making him taller and sturdier than before' (Butler 24.23 has no 'sturdy'), or record why not. Butler's 'taller and stronger' at 6.17 and 23.15 is his own different word for the same formula and stays."
+  },
+  {
+   "p": 2,
+   "edits": [
+    "B08-02"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Butler's obsolete 'find you in' means 'provide you with' (Od. 8.39 ἐγὼ δ' εὖ πᾶσι παρέξω, 'I will provide well for all'), and 'supply you with everything' gives that sense. Butler ¶2 has no 'supply', so there is no collision, and the second, different 'find' ('has found his way') is gone. Consistency, optional: the accepted text already renders Butler's 'find X in Y' two ways. 2.19 has 'The Achaeans will provide you with everything' (the verbatim twin of this sentence), 18.35 has 'provide you with shoes and clothing', and 5.20 has 'supplied him with plenty of good meat'. 'Supply' therefore matches an existing rendering and creates no new split. 'I will provide you with everything.' would align 8.2 with its verbatim twin at 2.19, if the lead wants one form. Not a defect."
+  },
+  {
+   "p": 3,
+   "edits": [
+    "B08-03"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Word order checked. Od. 8.59 τοῖσιν δ' Ἀλκίνοος δυοκαίδεκα μῆλ' ἱέρευσεν: 'for them Alcinous sacrificed twelve sheep'. Coming right after 'crowds of men … both old and young', Butler's bare indirect object 'killed them' first reads as the king killing the crowd. Fronting 'for them' follows the Greek order, keeps Butler's verb, and leaves the three-item list intact; putting it at the end would split the list or trail after it. 'Them' can bind only to the crowds. The only textual change is the added 'for' and the moved 'them'. The clause is grammatical, idiomatic literary order, and the next sentence 'These they skinned' still follows. (Out of scope, and already in BEFORE: 'eight full grown pigs' has no hyphen; D15's modern standard would be 'full-grown'.)"
+  },
+  {
+   "p": 15,
+   "edits": [
+    "B08-04",
+    "B08-05"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "B08-04: Od. 8.220 ὅτε τοξαζοίμεθ' Ἀχαιοί, 'whenever we Achaeans shot with the bow'. Current 'in practice' is the fixed idiom for 'in reality', which turns the clause into a hedge. 'At practice' keeps Butler's noun, changes only the preposition, and gives the Homeric occasion. Butler's older phrase means either 'practising' or 'in trim', and both come to 'when we shot at Troy', so nothing is asserted beyond Butler. B08-05: Od. 8.229 δουρὶ δ' ἀκοντίζω, 'I hurl a spear'. 'Spear' is exact and removes the pub-game 'dart'. Butler ¶15 has no other 'spear' or 'practice', so there is no collision. This matches the accepted text's handling of Butler's other 'dart(s)': the spear point at 22.29 and 'arrows' at 24.10, where the Greek is ἰούς."
+  },
+  {
+   "p": 19,
+   "edits": [
+    "B08-06"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Od. 8.292 λέκτρονδε, 'to bed'. The trap is on Hephaestus's bed: 'marriage bed', 'bedposts' and 'all over the bed' at 8.18, and 'asleep on my bed' at 8.21. A couch in the sense of a sofa would put the lovers on the wrong furniture. The precedent is confirmed (3.31 now reads 'left his bed'), and Dawn's formulaic couch at 5.0 rightly stays. B08-06 is applied together with B08-08, as required. Butler ¶19 has no 'bed', so there is no collision."
+  },
+  {
+   "p": 20,
+   "edits": [
+    "B08-07",
+    "B08-08",
+    "B08-09"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "The sentence the three edits share reads cleanly and grammatically: 'She was not at all reluctant, so they went to the bed to take their rest, and there they were caught in the net that cunning Hephaestus had spread for them…'. B08-07: Butler's litotes 'nothing loth' means 'not at all unwilling' (Od. 8.295 τῇ δ' ἀσπαστὸν ἐείσατο, 'it was welcome to her'). 'Not at all reluctant' keeps both the litotes and the consent, and GLOSSARY rules loth dead. RATIONALE ERROR (records only; the text is unaffected): the packet says that the Glossary form 'willingly enough' and Book 3's 'readily enough' collide with Butler's own words in Book 8. Under D26, which is scoped to the paragraph, neither does. Butler ¶20 contains no 'willing', 'readily' or 'enough', and Book 8's only hits are 'willing' at 8.16 and 'enough' at 8.2, 8.5 and 8.6, all in other paragraphs. The real and sufficient reason is grammatical. The edition's in-use form is adverbial ('flew forward readily enough' at 3.36 twice, and also at 15.15, which the packet omits), and it cannot stand in this predicative clause. When the stale Glossary row ('willingly enough') is updated, record adverbial -> 'readily enough' (3.36 twice, 15.15) and predicative -> 'not at all reluctant' (8.20), with that reason, not a collision. If the lead would rather stay nearest the Glossary's wording, 'She was willing enough' is also clean. B08-08: Butler's 'couch' here is Od. 8.296 ἐς δέμνια, the same Greek word as his 'bed' at 8.21 (8.314 δέμνια), so the edit unifies what the Greek unifies. It is applied with B08-06. B08-09: 'toils' in the sense of a hunting net is dead in this use. 'Net' names the chains 'spread' over the bed (8.18 uses the same verb), and the collective 'net' for the plural bonds (δεσμοί) loses nothing. The precedent at 4.72 is confirmed. Butler ¶20 has no 'bed', 'net' or 'reluctant', so there is no collision, and Butler's 'trap' stays distinct from 'net'."
+  },
+  {
+   "p": 21,
+   "edits": [
+    "B08-10"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Od. 8.319 κυνώπιδος εἵνεκα κούρης, 'for the sake of the shameless, dog-eyed girl'. Butler's 'baggage', in the sense of a worthless, disreputable woman, is obsolete. 'Hussy' is the current, if dated, word for that sense. It keeps the 'his X of a daughter' construction and the bitter comic register, and it is not slang. Butler ¶21 has no 'hussy', so there is no collision. Cross-Book, for the record only: Butler's other 'baggage' (19.9, 'Impudent baggage') is 'You shameless creature' in the accepted text, and Butler's own 'hussies' (19.13, 19.20) print as 'hussies'. The difference comes from the construction and misleads no one. (Out of scope: 19.9's 'creature' renders Butler's 'baggage', which may conflict with the Glossary's reservation of 'creature' for Butler's 'creature'.)"
+  },
+  {
+   "p": 41,
+   "edits": [
+    "B08-11"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Od. 8.447-450: he fits the lid and ties Circe's knot, and at once (αὐτίκ') the housekeeper tells him to bathe. Right after 'a knot that Circe had taught him', 'He had done so before' first reads as 'on earlier occasions'. 'By the time' states Butler's relation exactly: the knot was finished before the summons. It adds no 'hardly' or 'just' and keeps the sequence. Butler ¶41 has no 'time', so there is no collision."
+  }
+ ],
+ "follow_ups": [
+  {
+   "id": "FU-8.1",
+   "site": "24.23",
+   "finding": "Butler's identical 'taller and stouter' (of Laertes; Od. 24.369 πάσσονα) is unchanged in AFTER, so the misreading that B08-01 removes stands there, and one Butler phrase now has two renderings.",
+   "proposed_fix": "24.23: 'making him taller and sturdier than before' (or record why it stays)."
+  },
+  {
+   "id": "FU-8.20",
+   "site": "GLOSSARY 'nothing loth' row",
+   "finding": "B08-07's stated collision reason is false under D26. The Glossary row ('willingly enough') is stale against 3.36 (twice) and 15.15, which print 'readily enough'.",
+   "proposed_fix": "Record adverbial 'readily enough' (3.36 twice, 15.15) and predicative 'not at all reluctant' (8.20), giving the grammatical reason."
+  },
+  {
+   "id": "OPT-8.2",
+   "site": "8.2",
+   "finding": "Optional alignment: the verbatim twin 'find you in everything' at 2.19 reads 'provide you with everything'. The edition already uses both 'provide … with' (2.19, 18.35) and 'supplied … with' (5.20).",
+   "proposed_fix": "Optional: 'I will provide you with everything.'"
+  }
+ ],
+ "summary": "Book 8: 8 changed paragraphs, 11 edits (B08-01 to B08-11). 8 VERIFIED CLEAN, 0 defects. The requested attention points are clean: in ¶3, 'for them Alcinous killed' follows the Greek order, keeps the list intact and cannot misbind; in ¶20, the three edits in one sentence are grammatical, faithful and free of collisions; in ¶21, 'hussy' has the exact sense and keeps the register. The mechanical checks pass. Follow-ups outside the packet: (1) the companion edit at 24.23 ('taller and stouter' -> 'sturdier'); (2) correct B08-07's collision rationale and the Glossary 'nothing loth' row, adding 15.15; (3) optional: align 8.2 with 2.19's 'provide'.",
+ "overall": "VERIFIED CLEAN"
+}

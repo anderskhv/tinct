@@ -1,0 +1,573 @@
+{
+ "book": 10,
+ "proposals": [
+  {
+   "id": "B10-01",
+   "p": 16,
+   "kind": "barrier",
+   "quote_modern": "mixed them a mess with cheese",
+   "replacement": "mixed them a brew with cheese",
+   "butler": "mixed them a mess with cheese, honey, meal, and Pramnian wine",
+   "reader_evidence": "Barrier ¶16 'mixed them a mess with cheese, honey, meal, and Pramnian wine' (word, pause, medium): read as 'made them a mixed dish or drink', with the note \"'mess' = a dish of food and 'meal' = ground grain; both have misleading modern meanings\". Book-level note 2 puts \"'mess' (a dish)\" first among the older meanings that mislead a modern reader.",
+   "reason": "False friend (named in the brief's sweep list). Butler's 'mess' is a prepared portion of food or drink, a sense that survives only in 'mess hall' and 'a mess of pottage'. Today's reader hears disorder or dirt, so the hospitable drink Circe mixes becomes 'a mess', a comic and faintly disgusting picture Butler does not paint, and the reader had to guess between dish and drink. The thing is Homer's kykeon (named at 10.290 and 10.316): wine stirred with cheese, barley meal and honey, which 'they had drunk' in the next sentence. 'brew' is the plain current word for a drink mixed from several ingredients. It keeps Butler's verb 'mixed', his 'with' and his list. It is also neutral about the drugging, which Butler adds separately ('but she drugged it'), so his 'but' keeps its force; 'potion' would announce the drug before Butler does. The package already replaces false friends of this kind (Book 4: 'shambles' → 'slaughterhouse', 'toils' → 'net'). Apply together with B10-02 and B10-03, so that Butler's one word has one rendering in the Book.",
+   "severity": "recommended",
+   "collision_check": "Butler's ¶16 has no 'brew', and 'brew' appears nowhere in his Book X; his only 'brewing' is the figurative 'mischief brewing' in Books II and III. 'drink' was rejected because Butler's 'when they had drunk' ends the same Butler sentence, which would put two of his words on one modern word. 'mixture' would echo his own 'mixed'. 'meal' (the ingredient) is untouched."
+  },
+  {
+   "id": "B10-02",
+   "p": 22,
+   "kind": "sweep",
+   "quote_modern": "She will mix a mess for you to drink",
+   "replacement": "She will mix a brew for you to drink",
+   "butler": "She will mix a mess for you to drink",
+   "reader_evidence": "Not flagged at ¶22. The paraphrase ('she will give Odysseus a drugged drink') shows 'for you to drink' carried the sense. The word was flagged at ¶16, and book-level note 2 flags it for the whole Book.",
+   "reason": "The same Butler word for the same thing: Hermes forecasts the drink of ¶16. Once ¶16 is repaired, leaving 'mess' here would give one Butler word two renderings in one Book, the defect the package's steady-word rows exist to prevent. 'mix a mess' also reads today as 'make a mess'. The rest of the sentence, including Butler's 'meal' and 'for you to drink', is untouched.",
+   "severity": "recommended",
+   "collision_check": "Butler's ¶22 has 'drink' as a verb in this very clause ('for you to drink'), which is why the noun cannot be 'drink'. There is no 'brew' in his ¶22. His 'meal', 'drug', 'charm' and 'virtue' in the paragraph are unaffected."
+  },
+  {
+   "id": "B10-03",
+   "p": 24,
+   "kind": "sweep",
+   "quote_modern": "she mixed a mess in a golden goblet",
+   "replacement": "she mixed a brew in a golden goblet",
+   "butler": "she mixed a mess in a golden goblet for me to drink",
+   "reader_evidence": "Not flagged at ¶24. The paraphrase ('gave him a drugged drink in a golden cup') shows 'goblet ... for me to drink' carried the sense. This is the brief's own known example (10.24).",
+   "reason": "Of the three, 'a mess in a golden goblet' is the sharpest clash: the modern sense turns the goddess's drink into slops just as the paragraph stresses its luxury (a silver-inlaid seat, a footstool, a golden goblet). The rendering is the same as B10-01 and B10-02. 'fared onward' in the same paragraph is ruled on separately and kept (see rejected_barriers).",
+   "severity": "recommended",
+   "collision_check": "Butler's ¶24 has 'drink' ('for me to drink') and 'drunk' ('I had drunk it'), so again not 'drink'. There is no 'brew'. 'fared onward' and Butler's 'walked' in the same paragraph are untouched."
+  }
+ ],
+ "rejected_barriers": [
+  {
+   "p": 0,
+   "quote": "an island that floats (as it were) upon the sea",
+   "reason": "Butler's own hedge, restored with its parentheses by the 2026-09-23 fidelity round (PUNCTUATION §6). Butler leaves open whether the island really floats, and settling it would resolve his ambiguity."
+  },
+  {
+   "p": 0,
+   "quote": "an iron-bound wall",
+   "reason": "Butler's 'iron bound with a wall', read correctly."
+  },
+  {
+   "p": 0,
+   "quote": "he made the sons marry the daughters",
+   "reason": "Homer's content, read correctly."
+  },
+  {
+   "p": 0,
+   "quote": "till the whole place groans with it, yard and all",
+   "reason": "Butler's image ('till it groans again'). Both of the reader's readings fall within it, and nothing turns on which one is meant."
+  },
+  {
+   "p": 1,
+   "quote": "the Argive fleet",
+   "reason": "GLOSSARY keeps 'Argives'. The name is established in earlier Books (context note), and the reader read it as 'the Greek fleet'."
+  },
+  {
+   "p": 1,
+   "quote": "He flayed me a prime ox hide to hold the paths of the roaring winds",
+   "reason": "'flayed me a ... hide' is the double-object construction still used in 'cut me a slice', and 'a prime ox hide' follows at once. 'paths of the winds' is Homer's own image (Butler's 'ways', modernized at the 2026-09-23 round). Read correctly."
+  },
+  {
+   "p": 1,
+   "quote": "The West wind, which was fair for us, he alone let blow as it chose",
+   "reason": "Butler's inversion. The previous sentence says every other wind is shut in the sack, and the reader read 'only the West wind' with high confidence."
+  },
+  {
+   "p": 2,
+   "quote": "we could see the stubble fires burning",
+   "reason": "Butler's words, read correctly."
+  },
+  {
+   "p": 3,
+   "quote": "covered myself up",
+   "reason": "A gesture of despair, Homer's. Read correctly."
+  },
+  {
+   "p": 4,
+   "quote": "I took a herald",
+   "reason": "A current word, read correctly."
+  },
+  {
+   "p": 4,
+   "quote": "we sat down as suppliants on the threshold",
+   "reason": "The custom is Homer's. The reader read it correctly ('formal petitioners begging for help'), and the edition adds no explanation Butler lacks."
+  },
+  {
+   "p": 5,
+   "quote": "mend me this mischief",
+   "reason": "'mischief' meaning harm is a current secondary sense ('make mischief'), and 'have ruined me' comes just before it. Read correctly with high confidence. See recurring."
+  },
+  {
+   "p": 6,
+   "quote": "I will help no man whom heaven hates",
+   "reason": "Homer's logic, left implicit. The reader inferred it."
+  },
+  {
+   "p": 7,
+   "quote": "the rocky stronghold of Lamus—Telepylus, the city of the Laestrygonians",
+   "reason": "Names (context note). Butler gives no more than this."
+  },
+  {
+   "p": 7,
+   "quote": "the shepherd driving in his sheep and goats to be milked greets the one driving out his flock to feed",
+   "reason": "Homer's detail. Homer and Butler leave its point, the short nights, implicit, and supplying it would add interpretation."
+  },
+  {
+   "p": 7,
+   "quote": "a man who could do without sleep might earn double wages",
+   "reason": "Read correctly. 'one wage ... and another' was already clarified at the 2026-09-23 round."
+  },
+  {
+   "p": 8,
+   "quote": "we found it landlocked under steep cliffs",
+   "reason": "A current word, read correctly with high confidence."
+  },
+  {
+   "p": 8,
+   "quote": "made them fast close to one another",
+   "reason": "A current idiom, read correctly with high confidence."
+  },
+  {
+   "p": 9,
+   "quote": "She directed them to her father’s house",
+   "reason": "Homer's implication that Antiphates is the king. The reader inferred it."
+  },
+  {
+   "p": 9,
+   "quote": "the fountain Artacia",
+   "reason": "Butler's own word, restored under D29 at the collision check (book10/continuity.md §6-7), because 'spring' is Butler's verb at ¶22. The reader read it as 'spring' with high confidence, and a town fountain as the town's water source is not a misleading picture."
+  },
+  {
+   "p": 10,
+   "quote": "raised a hue and cry after them",
+   "reason": "A current idiom, read correctly with high confidence."
+  },
+  {
+   "p": 10,
+   "quote": "So they laid out for their lives",
+   "reason": "Butler's rowing idiom. The sentence before says 'row with all their might', and the reader read it correctly. The same ruling applies at 9.35."
+  },
+  {
+   "p": 10,
+   "quote": "As for the others, there was not one of them left",
+   "reason": "Homer's brevity, read correctly."
+  },
+  {
+   "p": 11,
+   "quote": "own sister to the magician Aeetes, for they are both children of the sun by Perse, who is daughter to Oceanus",
+   "reason": "Names (context note). The reader parsed 'by Perse' correctly."
+  },
+  {
+   "p": 11,
+   "quote": "We brought our ship into a safe harbor without a word",
+   "reason": "Butler's rendering of Homer's 'in silence', and the reader read 'in silence'. Homer and Butler leave the reason for the silence unstated."
+  },
+  {
+   "p": 12,
+   "quote": "we are not going to die so much before our time after all",
+   "reason": "Butler's words, verbatim. Read correctly."
+  },
+  {
+   "p": 12,
+   "quote": "they uncovered their heads on the seashore",
+   "reason": "Homer's gesture (10.179), read correctly."
+  },
+  {
+   "p": 13,
+   "quote": "We have no idea where the sun either sets or rises, so we do not even know East from West",
+   "reason": "Homer's content."
+  },
+  {
+   "p": 13,
+   "quote": "I went as high as I could this morning",
+   "reason": "Butler's own inconsistency, printed exactly as he has it ('I went as high as I could this morning'); the pilot review (review-2026-09-23/pilot-book10-findings.md) praised keeping it. Per the task, it is not changed, because the modern wording does not depart from Butler."
+  },
+  {
+   "p": 14,
+   "quote": "Their hearts sank as they heard me",
+   "reason": "Homer's implication. The reader made the connection."
+  },
+  {
+   "p": 14,
+   "quote": "Then we cast lots in a helmet, and the lot fell on Eurylochus",
+   "reason": "The next sentence ('So he set out with his twenty-two men') shows what the lot decided, as in Butler, and the reader read it correctly."
+  },
+  {
+   "p": 15,
+   "quote": "on a site that could be seen from far off, in the middle of the forest",
+   "reason": "Homer's own description (a place visible all round), read correctly."
+  },
+  {
+   "p": 15,
+   "quote": "poor bewitched creatures whom she had tamed by her enchantments and drugged into submission",
+   "reason": "Homer leaves this open, and ¶34 hints at it. Resolving it would add interpretation."
+  },
+  {
+   "p": 15,
+   "quote": "making a web so fine",
+   "reason": "'web' meaning woven cloth is current in the textile sense, and the same sentence says 'loom' and 'weave'. Read correctly with high confidence. D29: Butler's word."
+  },
+  {
+   "p": 17,
+   "quote": "beech mast",
+   "reason": "Butler's 'beech masts', set as the standard mass noun. 'acorns' and 'such as pigs eat' fix the sense, and the reader's reading, nuts fallen from beech trees, is right."
+  },
+  {
+   "p": 20,
+   "quote": "I am most urgently bound to do so",
+   "reason": "'bound' meaning obliged is current ('duty-bound'), and 'most urgently' rules out 'certain to'. Read correctly with high confidence."
+  },
+  {
+   "p": 21,
+   "quote": "I met Hermes with his golden wand, disguised as a young man",
+   "reason": "Homer's narrator speaks with hindsight. Not a text defect."
+  },
+  {
+   "p": 21,
+   "quote": "Take this herb, which is one of great virtue",
+   "reason": "'virtue' meaning the power of a thing is current if formal ('by virtue of'). The next sentence says what the herb does, and the reader read it correctly with high confidence."
+  },
+  {
+   "p": 22,
+   "quote": "she will drug the meal she makes it with",
+   "reason": "Kept (D29), and kept as one rendering for Butler's one word in this Book. 'meal' meaning ground grain is current ('oatmeal', 'cornmeal'). ¶16's ingredient list (cheese, honey, meal, wine) sets the sense, and ¶43's 'white barley meal' confirms it. The reader resolved it by recalling ¶16. Changing it here alone would give Butler's 'meal' two renderings in the Book, and 'barley' is not Butler's word here (the pilot review rejected 'barley meal' at ¶16). Which ingredient carries the drug is a detail; the story needs only that the drink is drugged, and the sentence says so."
+  },
+  {
+   "p": 22,
+   "quote": "she will strip you of your manhood and leave you helpless",
+   "reason": "Whether the threat is literal or figurative is Homer's own ambiguity (10.301, anenora, 'unmanned'). The reader got the sense, loss of manhood or strength. The wording was set by the 2026-09-23 accessibility edit. See recurring for the broken echo with ¶26."
+  },
+  {
+   "p": 24,
+   "quote": "while I fared onward to the house of Circe",
+   "reason": "Not flagged; a known example from the brief (10.24), kept. 'fare' as a verb of motion is literary but still in current dictionaries ('fare forth', 'wayfarer'), and 'onward to the house of Circe' supplies the direction, so the sense 'went on' cannot be missed. The reader paraphrased it 'went on to Circe's house'. It is Butler's own word, restored at the Book 10 collision check (book10/continuity.md §7, P025 = ¶24) because 'went on' collided with Butler's 'went back' in the same sentence, which is D29's preferred kind of repair. The Book's other two forms of 'fare' (¶10 'fare like the rest', ¶37 'how badly you have fared') are Butler's own, in the current sense, and are unaffected. If the lead still wants a plainer verb, 'pressed on' collides with nothing in Butler's ¶24, but it adds a note of effort that Butler's neutral 'fared' lacks, so it is not recommended; 'walked on' would merge Butler's 'fared' with his 'walked along' in the same sentence."
+  },
+  {
+   "p": 25,
+   "quote": "clasped my knees",
+   "reason": "A gesture of supplication, Homer's. Read correctly."
+  },
+  {
+   "p": 25,
+   "quote": "a taste of the herb I gave you",
+   "reason": "Butler's 'herb' for Circe's drug; Homer uses one word for both the drug and Hermes's herb. 'I gave you' marks it as hers, and the reader read it correctly. 'drug' here would merge Butler's 'drugs' and 'herb' in this paragraph (collision rule, second clause)."
+  },
+  {
+   "p": 26,
+   "quote": "will unman me and make me fit for nothing",
+   "reason": "Butler's words ('unman me and make me fit for nothing'), read in the right sense. Whether the threat is literal or figurative is Homer's own ambiguity. See recurring for the ¶22/¶26 echo."
+  },
+  {
+   "p": 28,
+   "quote": "They are the children of the groves and fountains, and of the holy waters that run down into the sea",
+   "reason": "Homer's content."
+  },
+  {
+   "p": 28,
+   "quote": "An upper servant",
+   "reason": "Butler's term for the housekeeper, read correctly. Whether she is one of the four is Homer's ambiguity."
+  },
+  {
+   "p": 31,
+   "quote": "the whole house was filled with the sound of their hallooing",
+   "reason": "A current word, read correctly with high confidence."
+  },
+  {
+   "p": 31,
+   "quote": "My men came out like so many prime hogs",
+   "reason": "Homer's simile, read correctly."
+  },
+  {
+   "p": 32,
+   "quote": "as calves break out and gambol round their mothers",
+   "reason": "Current literary words ('gambol', 'lowing'), read correctly with high confidence."
+  },
+  {
+   "p": 34,
+   "quote": "who will turn us all into pigs or wolves or lions, and we shall have to keep guard over her house",
+   "reason": "Homer's content."
+  },
+  {
+   "p": 35,
+   "quote": "in spite of his being a near relation of my own",
+   "reason": "Homer's content, read correctly with high confidence."
+  },
+  {
+   "p": 36,
+   "quote": "the severe reprimand I had given him",
+   "reason": "Butler's own wording, already declined at the 2026-09-23 accessibility screening. In Homer too the rebuke is implied, not narrated."
+  },
+  {
+   "p": 37,
+   "quote": "the men who had been left behind",
+   "reason": "Butler's words, verbatim. The modern text does not depart from Butler (task: change only if it does), and the reader resolved the reference correctly."
+  },
+  {
+   "p": 37,
+   "quote": "till the whole palace rang again",
+   "reason": "Butler's 'rang again' means re-echoed. A reader who takes it as 'once more' loses only the echo, and the first outburst at ¶31 makes even that reading harmless. The reader caught the old sense with high confidence. The same ruling applies at 9.25."
+  },
+  {
+   "p": 38,
+   "quote": "when the year had passed in the waning of moons and the long days had come round",
+   "reason": "Butler's time phrase, read correctly."
+  },
+  {
+   "p": 39,
+   "quote": "the covered gallery",
+   "reason": "GLOSSARY row ('cloisters' → 'the gallery'), matching accepted Books 1 and 4."
+  },
+  {
+   "p": 39,
+   "quote": "entreated her by her knees",
+   "reason": "Homer's supplication formula. 'entreated' is the package's rendering of Butler's 'besought' (book10/continuity.md §6). The gesture is Homer's."
+  },
+  {
+   "p": 39,
+   "quote": "please keep the promise you made me",
+   "reason": "Butler's and Homer's words. The promise is implied by her oath, not narrated."
+  },
+  {
+   "p": 40,
+   "quote": "the house of Hades and of dread Persephone",
+   "reason": "Names (context note). Read correctly."
+  },
+  {
+   "p": 42,
+   "quote": "When your ship has crossed the waters of Oceanus",
+   "reason": "Homer's Oceanus is both a god and the river at the world's edge (context note)."
+  },
+  {
+   "p": 42,
+   "quote": "willows that shed their fruit before its time",
+   "reason": "Homer's image of fruit-losing willows, read correctly."
+  },
+  {
+   "p": 42,
+   "quote": "Beach your ship here on the shore of Oceanus",
+   "reason": "Butler's 'here beach your ship', read correctly with high confidence."
+  },
+  {
+   "p": 42,
+   "quote": "the rivers Pyriphlegethon and Cocytus (which is a branch of the river Styx) flow into the river Acheron",
+   "reason": "Underworld names (context note). The parentheses are Butler's own, restored at the 2026-09-23 re-verification."
+  },
+  {
+   "p": 43,
+   "quote": "a barren heifer",
+   "reason": "A current farming word, read correctly."
+  },
+  {
+   "p": 43,
+   "quote": "will load the pyre with good things",
+   "reason": "A current word, read correctly."
+  },
+  {
+   "p": 44,
+   "quote": "bending their heads toward Erebus",
+   "reason": "An underworld name (context note)."
+  },
+  {
+   "p": 44,
+   "quote": "turn away from them yourself as though you were making for the river",
+   "reason": "Homer's ritual."
+  },
+  {
+   "p": 44,
+   "quote": "keep any other poor ghost from coming near the spilt blood",
+   "reason": "Homer's content, explained in Book 11."
+  },
+  {
+   "p": 48,
+   "quote": "Circe brought the ram and the ewe, and we made them fast close by the ship",
+   "reason": "Butler's own words ('we made them fast hard by the ship'). The tension with the unseen Circe is Butler's (in Homer, 10.571-572, Circe tethers the sheep herself), and the modern text follows Butler."
+  },
+  {
+   "p": 13,
+   "quote": "[book-level] Formula lines repeat word for word",
+   "reason": "These are GLOSSARY formulas and Butler's own repetitions, fixed on purpose, and every one was read correctly."
+  },
+  {
+   "p": 16,
+   "quote": "[book-level] Many words carry older meanings that mislead: 'mess', 'meal', 'virtue', 'bound', 'fountain', 'web', 'mischief', 'gallery'",
+   "reason": "'mess' is repaired as a set (B10-01 to B10-03). The others are kept. Each is a current sense, a GLOSSARY or D29 ruling, or fixed by its own sentence, and the reader read every one correctly."
+  },
+  {
+   "p": 1,
+   "quote": "[book-level] Archaic or specialist vocabulary: made fast, laid out, hue and cry, hallooing, beech mast, gambol, lowing, heifer, pyre, herald, flayed",
+   "reason": "These are current, if literary or technical, words, and the reader read each one correctly in context. The brief rules out rewording only to sound more modern."
+  },
+  {
+   "p": 4,
+   "quote": "[book-level] Gestures of supplication and grief are never explained",
+   "reason": "The gestures are Homer's. The brief rules out adding explanations Butler lacks."
+  },
+  {
+   "p": 42,
+   "quote": "[book-level] The underworld instructions pile up unexplained names and ritual steps",
+   "reason": "Homer's content (context note)."
+  },
+  {
+   "p": 22,
+   "quote": "[book-level] Circe's threat, 'strip you of your manhood' / 'unman me', is ambiguous",
+   "reason": "The ambiguity is Homer's. See recurring for the echo between ¶22 and ¶26."
+  },
+  {
+   "p": 13,
+   "quote": "[book-level] Small continuity gaps: 'this morning' ¶13, 'the men who had been left behind' ¶37, 'severe reprimand' ¶36, 'promise' ¶39, 'we made them fast' ¶48",
+   "reason": "Each is Butler's own wording, printed unchanged. The task says to change them only where the modern text departs from Butler, and none does."
+  },
+  {
+   "p": 7,
+   "quote": "[book-level] The Laestrygonian short-nights detail, the floating island and the one-sentence loss of the fleet",
+   "reason": "Homer's content, which Butler renders as it stands."
+  }
+ ],
+ "reader_errors_not_caused_by_text": [],
+ "recurring": [
+  {
+   "item": "mess (= a mixed drink, Homer's kykeon)",
+   "rendering": "brew (B10-01, B10-02, B10-03, applied together)",
+   "where": [
+    "10.16",
+    "10.22",
+    "10.24"
+   ]
+  },
+  {
+   "item": "meal (= ground grain)",
+   "rendering": "kept. ¶16's ingredient list and ¶43's 'barley meal' fix the sense, and Butler's one word keeps one rendering.",
+   "where": [
+    "10.16",
+    "10.22",
+    "10.43"
+   ]
+  },
+  {
+   "item": "mischief (= harm)",
+   "rendering": "kept; a current secondary sense ('mean someone mischief'), always next to words of harm",
+   "where": [
+    "10.5",
+    "10.16",
+    "10.18",
+    "10.21",
+    "10.22",
+    "10.24",
+    "10.26"
+   ]
+  },
+  {
+   "item": "virtue (= the herb's power)",
+   "rendering": "kept; the next sentence says what it does",
+   "where": [
+    "10.21",
+    "10.22"
+   ]
+  },
+  {
+   "item": "fare / fared",
+   "rendering": "kept. 'fared onward' (travel) at ¶24 is Butler's own word, restored under D29. 'fare like the rest' (¶10) and 'how badly you have fared' (¶37) are in the current sense.",
+   "where": [
+    "10.10",
+    "10.24",
+    "10.37"
+   ]
+  },
+  {
+   "item": "unman ... fit for nothing (Hermes's warning, which Odysseus repeats to Circe)",
+   "rendering": "no comprehension repair. Note for the lead: the 2026-09-23 accessibility edit changed ¶22 to 'strip you of your manhood and leave you helpless', while ¶26 keeps Butler's 'unman me and make me fit for nothing', so Butler's verbatim echo is now two renderings. The reader was equally unsure at both, because the literal-or-figurative doubt is Homer's own, so the edit did not make the threat clearer. If the lead wants the echo back, the option that collides with nothing is ¶26 'will strip me of my manhood and leave me helpless'.",
+   "where": [
+    "10.22",
+    "10.26"
+   ]
+  },
+  {
+   "item": "livelong day",
+   "rendering": "Book 10 prints 'the whole long day'. Book 9 keeps 'livelong day' by prior ruling (9.8, 9.43), and Book 24 prints 'the entire day' (24.4). Neither form is a comprehension problem, so harmonizing is a consistency decision for the lead, not a comprehension repair.",
+   "where": [
+    "9.8",
+    "9.43",
+    "10.13",
+    "10.39"
+   ]
+  },
+  {
+   "item": "ring again / rang again (= re-echoed)",
+   "rendering": "kept. Taking it as 'once more' loses only the echo.",
+   "where": [
+    "9.25",
+    "10.37"
+   ]
+  },
+  {
+   "item": "laid out (= pulled hard at the oars)",
+   "rendering": "kept. The order to row comes just before both instances.",
+   "where": [
+    "9.35",
+    "10.10"
+   ]
+  },
+  {
+   "item": "made fast (= tied, moored)",
+   "rendering": "kept; a current idiom",
+   "where": [
+    "9.4",
+    "9.16",
+    "10.8",
+    "10.48"
+   ]
+  },
+  {
+   "item": "even so, correlative (as ... even so)",
+   "rendering": "kept by prior ruling. The concessive 'Even so' at 10.46 is Butler's and current.",
+   "where": [
+    "9.25",
+    "10.15"
+   ]
+  },
+  {
+   "item": "presently (= soon)",
+   "rendering": "kept. Past narration, or 'will' at 10.44, fixes the sense.",
+   "where": [
+    "9.19",
+    "9.25",
+    "10.9",
+    "10.15",
+    "10.41",
+    "10.44"
+   ]
+  },
+  {
+   "item": "fountain (= natural spring)",
+   "rendering": "kept (D29; book10/continuity.md §6-7: 'spring' is Butler's verb at ¶22; Book 9's P033 = ¶32 likewise)",
+   "where": [
+    "9.32",
+    "10.9",
+    "10.28"
+   ]
+  },
+  {
+   "item": "want (= need)",
+   "rendering": "kept; the sentence fixes the sense in both places",
+   "where": [
+    "9.6",
+    "10.42"
+   ]
+  },
+  {
+   "item": "whereon (sentence connective)",
+   "rendering": "no change proposed. Books 9 and 10 print 'and' (9.13, 9.35, 10.18, 10.25, 10.31) and 'while' (10.10), not GLOSSARY's Book 4 row 'at that'. Comprehension is unaffected. Whether to align them is the lead's call.",
+   "where": [
+    "9.13",
+    "9.35",
+    "10.10",
+    "10.18",
+    "10.25",
+    "10.31"
+   ]
+  }
+ ],
+ "summary": "Book 10 is already highly comprehensible. In all 49 paragraphs the blind reader's paraphrase matches Butler, and none of the 69 barriers is a misreading. The 18 barriers marked unsure are Homer's content (the floating island, the Laestrygonians' short nights, whether Circe's beasts were once men, the literal or figurative threat to Odysseus's manhood, the underworld names and rites), customs and gestures, and names from other Books. The 'continuity gaps' the reader noticed ('this morning' ¶13, 'the men who had been left behind' ¶37, the reprimand, the promise) are Butler's own words printed unchanged, so they stay. The one real problem is the false friend 'mess' for Circe's mixed drink (¶16, ¶22, ¶24). The word now means disorder or dirt, the reader had to guess between dish and drink, and 'a mess in a golden goblet' reads as comic, so it is repaired as a set with 'brew' (recommended). 'fared onward' (¶24) was read correctly and is Butler's own word, restored to avoid a collision, so it is kept. 'meal', 'virtue', 'bound', 'web', 'fountain' and 'mischief' are old senses that their own sentences carry, and the reader read each correctly. There are two notes for the lead, neither a comprehension repair. Book 9 keeps 'livelong day' where this Book prints 'whole long day'. The 2026-09-23 edit at ¶22 split Butler's verbatim echo of the 'unman ... fit for nothing' warning, which ¶26 still prints, without making the threat any clearer."
+}

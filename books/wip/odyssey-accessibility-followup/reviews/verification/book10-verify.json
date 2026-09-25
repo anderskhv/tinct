@@ -1,0 +1,50 @@
+{
+ "book": 10,
+ "packet": "packets/book10.md",
+ "mechanical": {
+  "script": "mech_final_v5.py (independent; exit 0); packet_check_v5.py; collide_v5.py; xref_v5.py",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-final.json",
+  "after_sha256": "862066e2c5457d167bac0bb61daea1ed0e4c865fff39eafe6e866a2af6605f6c",
+  "edits": "ody/edits-final.json, 63 entries, sha256 7ee10cde43b4326e98a809e9481a823b94b593f32b4676a672e34446cae0772f",
+  "reproduction": "All 63 edits applied to BEFORE reproduce AFTER byte for byte, serialized with json.dumps(obj, ensure_ascii=False, indent=2) and no trailing newline. Each 'old' occurs exactly once in its BEFORE paragraph, no spans overlap, and positional and sequential application agree. BEFORE and AFTER each round-trip byte-identically under that serialization.",
+  "structure": "Identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45].",
+  "unlisted_edits": "None. Across the edition, 55 paragraphs differ BEFORE->AFTER, exactly the 55 paragraphs that carry listed edits, and every edit's 'new' is present in its AFTER paragraph.",
+  "texts": "Packet BUTLER equals the served original-en (orig-main.json, whitespace-normalized). Packet BEFORE, AFTER and every CONTEXT paragraph equal the files. The PG #1727 source copy hashes to the D30 anchor ffbdb29c... (717,784 bytes).",
+  "conventions_scan": "No ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces and no Roman names in any AFTER paragraph in scope. No edit alters punctuation or quotation structure.",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run.",
+  "scope": "Book 10 paragraphs in this packet: 16, 22 and 24. In each, the word diff BEFORE->AFTER is exactly 'mess'->'brew'. No unlisted edits."
+ },
+ "paragraphs": [
+  {
+   "p": 16,
+   "edits": [
+    "B10-01"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Butler's 'mess' is a prepared dish or portion, a sense that is dead outside 'mess hall'. Today it reads as disorder or dirt. The thing is the kykeon (Od. 10.234-235: cheese, barley meal and honey stirred into Pramnian wine; named κυκεών at 10.290 and 10.316), which Butler's next sentence treats as a drink ('When they had drunk'). 'brew' is current English for a drink mixed from several ingredients. It keeps Butler's verb 'mixed', his 'with' and the whole list in his order. It does not announce the drug, so Butler's separate 'but she drugged it' keeps its force. In 'mixed them a brew', 'brew' reads as a concoction, not as slang for beer, so the register holds. Butler's only 'mess' uses in the whole text are 10.16, 10.22 and 10.24, all now 'brew'. His only 'brew-' words are 2.9 and 3.14 ('mischief brewing'), in other Books. There is no collision, and Butler's one word has one rendering."
+  },
+  {
+   "p": 22,
+   "edits": [
+    "B10-02"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Same Butler word for the same drink, in Hermes's forecast. 'mix a mess' also reads today as 'make a mess'. With 'brew', 'the meal she makes it with' now reads naturally as the barley-meal ingredient of ¶16, which is Butler's 'meal'. The rest of the sentence ('for you to drink', 'drug the meal') is untouched. No collision."
+  },
+  {
+   "p": 24,
+   "edits": [
+    "B10-03"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "This removes the sharpest clash, slops in a golden goblet beside the silver-inlaid seat. 'but she drugged it, for she meant me mischief' still carries the drugging. 'fared onward' (ruled on separately and kept) and everything else are untouched. No collision."
+  }
+ ],
+ "summary": "3 paragraphs, 3 edits (B10-01, B10-02, B10-03): 3 VERIFIED CLEAN, 0 defects. Scope exact. One false friend removed at all three of its occurrences, with one rendering.",
+ "overall": "OVERALL: VERIFIED CLEAN"
+}

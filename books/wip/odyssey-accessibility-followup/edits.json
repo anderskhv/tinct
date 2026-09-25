@@ -1,0 +1,666 @@
+{
+ "base": {
+  "file": "books/staged-replacements/odyssey/edition/odyssey-modern-en.candidate.json",
+  "branch": "claude/odyssey-modern-en-completion",
+  "commit": "0a76d6ce725af920a01afcbb86237d28c3529696",
+  "sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c"
+ },
+ "result": {
+  "sha256": "db6bfd23e97e1fe2eb0b2ce9926c36a665a996cfb024796ee0903e935931c9ce",
+  "serialization": "json.dumps(edition, ensure_ascii=False, indent=2), no trailing newline (same as the base)"
+ },
+ "semantics": "Coordinates: book (chapter number, 1-based) and paragraphIndex (0-based). Each old string occurs exactly once in its base paragraph and is replaced by new. Applying all edits to the base reproduces the result byte for byte.",
+ "edits": [
+  {
+   "id": "FR-1.4",
+   "book": 1,
+   "paragraphIndex": 4,
+   "old": "far from all his friends, poor man",
+   "new": "far from all his loved ones, poor man",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Lead consistency rule for the homecoming formula. Butler's 'friends' here carries the old kin sense, one's own people (Greek philoi, 'dear ones'). Present-day 'friends' excludes family, and the blind reader of Book 7 misread-flagged it (B07-02/03). 'loved ones' is the current word for the same circle and is used at every occurrence of the formula (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; the verifier checked all 93 uses of 'friend(s)' in Butler and found no other formula site) for consistency. Butler's paragraph has no 'love' or 'dear' to collide with. Book 1 is outside the ten flagged Books; this is a consequential consistency edit. It was added after independent verification found that 1.4 renders the same Greek half-line as 7.152 (Od. 1.49), which is 7.12 here."
+  },
+  {
+   "id": "FR-2.23",
+   "book": 2,
+   "paragraphIndex": 23,
+   "old": "perish far from his friends",
+   "new": "perish far from his loved ones",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Lead consistency rule for the homecoming formula. Butler's 'friends' here carries the old kin sense, one's own people (Greek philoi, 'dear ones'). Present-day 'friends' excludes family, and the blind reader of Book 7 misread-flagged it (B07-02/03). 'loved ones' is the current word for the same circle and is used at every occurrence of the formula (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; the verifier checked all 93 uses of 'friend(s)' in Butler and found no other formula site) for consistency. Butler's paragraph has no 'love' or 'dear' to collide with. Book 2 is outside the ten flagged Books; this is a consequential consistency edit."
+  },
+  {
+   "id": "B03-01",
+   "book": 3,
+   "paragraphIndex": 7,
+   "old": "they all made an excellent dinner",
+   "new": "they all had an excellent dinner",
+   "decision": "accept",
+   "severity": null,
+   "reason": "False friend: 'make dinner' now means to cook it; Butler's idiom means to eat it."
+  },
+  {
+   "id": "B03-02",
+   "book": 3,
+   "paragraphIndex": 19,
+   "old": "by the treachery of Aegisthus and his wife",
+   "new": "by the treachery of Aegisthus and of his own wife",
+   "decision": "adjust",
+   "severity": null,
+   "reason": "Reader misread 'his' as Aegisthus's. Butler (and the Greek reflexive) mean Agamemnon's own wife. The adjudicator proposed 'his own wife'; the lead adds 'of' so the two agents are separate and 'his own' binds to Agamemnon."
+  },
+  {
+   "id": "B03-03",
+   "book": 3,
+   "paragraphIndex": 23,
+   "old": "Here he divided his fleet",
+   "new": "Here Zeus divided his fleet",
+   "decision": "accept",
+   "severity": null,
+   "reason": "Hidden agent: in Butler the subject carries over from 'Jove … made it blow hard'. The reader took Menelaus to be the one dividing the fleet and was contradicted by the next sentences."
+  },
+  {
+   "id": "B03-04",
+   "book": 3,
+   "paragraphIndex": 23,
+   "old": "much gold and substance",
+   "new": "much gold and wealth",
+   "decision": "accept",
+   "severity": null,
+   "reason": "Dead sense: 'substance' meaning property. A listed prior example."
+  },
+  {
+   "id": "B03-L1",
+   "book": 3,
+   "paragraphIndex": 23,
+   "old": "among people of an alien speech",
+   "new": "among people of a foreign tongue",
+   "decision": "lead-added",
+   "severity": null,
+   "reason": "A listed prior example, ruled on in context. Butler's 'of an alien speech' (Greek: of strange speech) is an archaic construction. Read aloud, 'alien' now suggests extraterrestrial or estranged. The adjudicator kept it; the lead renders the construction plainly, keeping 'tongue' for register. Butler's ¶23 has no other 'tongue' or 'spoke'. Final wording follows independent verification R1: it mirrors the edition's rendering of the same Greek word at 1.13 ('men of a foreign tongue')."
+  },
+  {
+   "id": "B04-06",
+   "book": 4,
+   "paragraphIndex": 3,
+   "old": "that we may rest in peace from now on",
+   "new": "that we may live in peace from now on",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'Rest in peace' is now fixed as the formula for the dead. A wish that 'we may rest in peace from now on' in the house just reached therefore sounds like a wish to die there. Butler, and Homer 4.34-35 ('if ever Zeus would give us rest from misery hereafter'), mean an end of wandering and hardship, and 'live in peace' is the current idiom for that. Everything else stands, including the prayer form 'heaven grant'. Butler's 'rest' is still current English, but the phrase no longer carries his meaning, which is the reason D29 asks for."
+  },
+  {
+   "id": "B04-07",
+   "book": 4,
+   "paragraphIndex": 8,
+   "old": "He took nothing by it",
+   "new": "He gained nothing by it",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'Take nothing by' (= gain nothing from) is an obsolete idiom. The reader decoded it from context, but it is the one opaque phrase in the sentence that sums up what Odysseus got for his labors (Homer 4.107-108: 'for him there were to be only sorrows'). 'gained' is the plain verb for Butler's sense, and nothing is added or lost."
+  },
+  {
+   "id": "B04-09",
+   "book": 4,
+   "paragraphIndex": 8,
+   "old": "but presently I leave off again",
+   "new": "but then I leave off again",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "This is a dead sense in the present tense. Butler's 'presently' means 'after a little while' (Homer 4.102-103: 'at times I take my fill of weeping, at other times I stop again'). With a present-tense verb, a present-day reader takes 'presently' as 'currently', so Menelaus seems to say he has stopped grieving for now, not that each bout of weeping ends. 'then' carries the sequence, and 'again' still carries the recurrence. The Book's other two 'presently' (¶23, past narrative; ¶57, future) cannot be read as 'currently' and are kept."
+  },
+  {
+   "id": "B04-01",
+   "book": 4,
+   "paragraphIndex": 14,
+   "old": "I should have founded a city for him in Argos, and built him a house. I should have made him leave Ithaca with his goods, his son, and all his people, and should have sacked for them some one of the neighboring cities that are subject to me. We should then have seen",
+   "new": "I would have founded a city for him in Argos, and built him a house. I would have made him leave Ithaca with his goods, his son, and all his people, and would have sacked for them some one of the neighboring cities that are subject to me. We would then have seen",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "Butler's first-person 'should have' + participle is the Victorian conditional; Homer 4.174-176 is a past counterfactual ('I would have settled a city for him in Argos and built him a house'). In present-day English, American above all, 'I should have founded…' and 'I should have made him leave Ithaca' read as obligation or regret ('I ought to have'). That turns Menelaus's frustrated plan, which depends on the homecoming named in the sentence before, into self-reproach for a duty he neglected. The paragraph only corrects the reading at its last sentence. Only the auxiliary changes, in all four places, so Butler's one construction stays one construction. 'sacked' and every other word stand; see rejected_barriers for 'sacked'."
+  },
+  {
+   "id": "B04-08",
+   "book": 4,
+   "paragraphIndex": 26,
+   "old": "on the pretense of paying their addresses to my mother",
+   "new": "on the pretense of courting my mother",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'Pay one's addresses to' (= court) is a dead idiom, and a present-day reader is likely to hear 'paying their respects'. That loses the marriage suit, which is the pretext that explains why the men are in the house and the point Menelaus answers with 'usurp a brave man's bed' and 'a sorry wedding'. The reader recovered only by bringing in knowledge of the suitors from outside the sentence. Butler's own word for this is 'courting' (6.2, 'all the best young men among your own people are courting you'; 24.9, 'we were courting his wife'), so the repair uses his vocabulary (D29)."
+  },
+  {
+   "id": "B04-05",
+   "book": 4,
+   "paragraphIndex": 27,
+   "old": "A hind might as well lay",
+   "new": "A doe might as well lay",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "Outside hunting usage, 'hind' as the female deer is unknown to most present-day readers, and at the head of a sentence it reads as the adjective ('hind legs'). The simile turns on the animal: a grazing mother leaves her newborn in a lion's lair, and the lion kills them (Homer 4.335-339, elaphos, feminine). 'doe' is the current word for the same animal, keeps the female that 'her new born young' needs, and adds nothing. The continuity sheet (§5) keeps this simile 'limb for limb'; this repair changes the word, not the limb."
+  },
+  {
+   "id": "B04-02",
+   "book": 4,
+   "paragraphIndex": 28,
+   "old": "when they have taken in water",
+   "new": "when they have taken in fresh water",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "With ships as the subject, 'taken in water' is now the idiom for a vessel shipping water (leaking or swamped), so the harbor sentence says that ships put to sea after flooding. Homer (4.359, 'having drawn dark water') means drawing drinking water for the voyage. Butler's own phrase for this is 'Here we landed to take in fresh water' (9.4). Adding 'fresh' restores his phrase (D29), rules out the leak reading, and adds nothing the source does not mean."
+  },
+  {
+   "id": "FR-4.39",
+   "book": 4,
+   "paragraphIndex": 39,
+   "old": "get back to your friends",
+   "new": "get back to your loved ones",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Lead consistency rule for the homecoming formula. Butler's 'friends' here carries the old kin sense, one's own people (Greek philoi, 'dear ones'). Present-day 'friends' excludes family, and the blind reader of Book 7 misread-flagged it (B07-02/03). 'loved ones' is the current word for the same circle and is used at every occurrence of the formula (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; the verifier checked all 93 uses of 'friend(s)' in Butler and found no other formula site) for consistency. Butler's paragraph has no 'love' or 'dear' to collide with."
+  },
+  {
+   "id": "B04-10",
+   "book": 4,
+   "paragraphIndex": 42,
+   "old": "the gods backed the wind into its old quarter",
+   "new": "the gods turned the wind back into its old quarter",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'Backed' is a sailor's term (a wind backs when it shifts against the sun), here used transitively. To a present-day reader, 'the gods backed the wind' says they supported it, and the reader could rebuild the sense only from 'and they reached home'. 'turned … back' is Homer's own verb (4.520: 'the gods turned the wind back'), and once the verb is clear Butler's 'its old quarter' can be read, so his noun is kept."
+  },
+  {
+   "id": "B04-03",
+   "book": 4,
+   "paragraphIndex": 54,
+   "old": "for they had made sure that",
+   "new": "for they had felt sure that",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "This is a dead sense. Butler's 'made sure' means 'felt certain'; Homer 4.638-639 has 'for they did not think he had gone to Pylos'. A present-day reader takes 'make sure that' as 'ensure' or 'check', so the suitors seem to have verified or arranged that he had not gone. 'felt sure' keeps Butler's 'sure' (D29) and changes only the verb. The next sentence ('They thought he was only away…') partly corrects the misreading, so this is the milder of the two occurrences."
+  },
+  {
+   "id": "B04-04",
+   "book": 4,
+   "paragraphIndex": 57,
+   "old": "we had made sure that it would come to nothing",
+   "new": "we had felt sure that it would come to nothing",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "This is the same dead sense (Homer 4.664: 'we thought it would never be accomplished'). Here the context pushes a present-day reader toward the wrong sense and nothing corrects it. 'We had made sure [= ensured] that it would come to nothing, but the young fellow has got away in spite of us' reads as though the suitors had acted to stop the voyage, which they had not. It is the stronger of the two occurrences. The rendering is the same as B04-03."
+  },
+  {
+   "id": "B04-12",
+   "book": 4,
+   "paragraphIndex": 61,
+   "old": "like sea-horses",
+   "new": "like horses of the sea",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'Sea-horse' now names the small fish, which makes no long voyages. Penelope's image is that ships are men's horses on the sea (Homer 4.708-709, halos hippoi, 'horses of the salt sea'), and with the fish it becomes absurd or is lost. 'horses of the sea' opens Butler's compound into its own sense, which is also Homer's phrase, and adds nothing. Under PUNCTUATION §4 (D15) this changes what is said aloud, so it is a rendering decision to record in the continuity sheet, not a silent compound change."
+  },
+  {
+   "id": "B04-11",
+   "book": 4,
+   "paragraphIndex": 64,
+   "old": "there was not one of you would so much as think of giving me a call out of my bed",
+   "new": "there was not one of you who would so much as think of calling me out of my bed",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "Penelope's rebuke has two stumbles in one clause. The omitted subject relative ('one of you [who] would') is no longer standard and trips the sentence, especially when heard (the edition has audio). 'giving me a call' is now the idiom for telephoning. Supplying the relative and turning Butler's noun 'call' into the verb keeps his word and his sense (Homer 4.729-730: 'to rouse me from my bed')."
+  },
+  {
+   "id": "B05-01",
+   "book": 5,
+   "paragraphIndex": 1,
+   "old": "there is not one of his subjects but has forgotten Odysseus",
+   "new": "there is not one of his subjects who has not forgotten Odysseus",
+   "decision": "adjust",
+   "severity": "recommended",
+   "reason": "Dead 'not one … but has' syntax can read reversed. The adjudicator proposed 'every one of his subjects has forgotten Odysseus'. The lead adjusts it to mirror accepted Book 2 ¶13, where Mentor speaks the same line ('there is not one of you who has not forgotten Odysseus'). Homer repeats these lines verbatim (2.230–234 = 5.8–12), so the edition keeps them parallel. The trap word 'but' is removed either way."
+  },
+  {
+   "id": "FR-5.3",
+   "book": 5,
+   "paragraphIndex": 3,
+   "old": "his country and his friends",
+   "new": "his country and his loved ones",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Lead consistency rule for the homecoming formula. Butler's 'friends' here carries the old kin sense, one's own people (Greek philoi, 'dear ones'). Present-day 'friends' excludes family, and the blind reader of Book 7 misread-flagged it (B07-02/03). 'loved ones' is the current word for the same circle and is used at every occurrence of the formula (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; the verifier checked all 93 uses of 'friend(s)' in Butler and found no other formula site) for consistency. Butler's paragraph has no 'love' or 'dear' to collide with."
+  },
+  {
+   "id": "B05-02",
+   "book": 5,
+   "paragraphIndex": 5,
+   "old": "that do their business in the waters",
+   "new": "whose business is in the waters",
+   "decision": "accept",
+   "severity": "blocking",
+   "reason": "Ruling, made against Butler’s original: the modern text caused this, not Butler. Butler’s ‘occupy their business in the waters’ echoes Psalm 107:23 (‘that do business in great waters’) and renders Homer’s sea-crows ‘to whom the works of the sea are a care’ (5.66–67), birds whose work is on the water. The candidate dropped Butler’s dead verb ‘occupy’ and was left with ‘do their business’. For animals, the dominant present-day sense of that phrase is excretion, so the text now says the birds foul the water: a wrong image and an unintended joke in the Book’s set-piece description. ‘whose business is in the waters’ keeps Butler’s own noun and his ‘in the waters’ (D29). It drops only the idiom and has no scatological reading."
+  },
+  {
+   "id": "FR-5.8",
+   "book": 5,
+   "paragraphIndex": 8,
+   "old": "see his friends again",
+   "new": "see his loved ones again",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Lead consistency rule for the homecoming formula. Butler's 'friends' here carries the old kin sense, one's own people (Greek philoi, 'dear ones'). Present-day 'friends' excludes family, and the blind reader of Book 7 misread-flagged it (B07-02/03). 'loved ones' is the current word for the same circle and is used at every occurrence of the formula (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; the verifier checked all 93 uses of 'friend(s)' in Butler and found no other formula site) for consistency. Butler's paragraph has no 'love' or 'dear' to collide with."
+  },
+  {
+   "id": "B05-03",
+   "book": 5,
+   "paragraphIndex": 19,
+   "old": "wicker hurdles",
+   "new": "wicker screens",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "Butler’s hurdles are portable panels of woven withies used as fencing (Homer 5.256–257: osier wickerwork ‘to be a bulwark against the wave’). To a present-day reader, and an American one especially, ‘hurdles’ are track obstacles or difficulties, so the reader pictures the wrong object even though the sentence still seems to make sense. ‘screens’ names the same object by the function the sentence itself states (‘as a protection against the waves’). ‘wicker’ and Butler’s verb ‘fenced’ stay, so the material and the fencing survive. This replaces one word and keeps the object."
+  },
+  {
+   "id": "B05-04",
+   "book": 5,
+   "paragraphIndex": 19,
+   "old": "making them fast with braces and sheets",
+   "new": "making them fast with the ropes called braces and sheets",
+   "decision": "adjust",
+   "severity": "recommended",
+   "reason": "Right after Calypso's linen, 'sheets' reads as bedding and 'braces' as straps. The adjudicator's no-added-mark alternative is used: one clarifying word ('the ropes called') in narration, with Butler's two terms kept, and no em dash added (so there is no D27/D28 dividing-mark change)."
+  },
+  {
+   "id": "B05-05",
+   "book": 5,
+   "paragraphIndex": 22,
+   "old": "pressing me so hard about the dead body of Achilles",
+   "new": "pressing me so hard around the dead body of Achilles",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "Butler’s ‘about’ is spatial: in Homer (5.309–310) the Trojans hurled their spears at him ‘around the dead son of Peleus’. In current English, ‘pressing someone about something’ means pressuring them on a subject. The natural reading is therefore that the Trojans were pestering him over Achilles’ body, not attacking him in the fight around it, which gets the action wrong. ‘around’ restores the spatial sense with one word. ‘so hard’ (the package’s rendering of ‘so sorely’, continuity finding 23.1) is untouched."
+  },
+  {
+   "id": "B05-07",
+   "book": 5,
+   "paragraphIndex": 23,
+   "old": "both sail and yard went over",
+   "new": "both sail and yardarm went over",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "On its own, ‘yard’ reads as a garden or as three feet, and then ‘sail and yard went over into the sea’ describes nothing. It is the spar Butler calls ‘yard arm’ when Odysseus makes it in ¶19 (candidate ‘yardarm’, which the reader decoded), and Homer uses one word for it in both places (ἐπίκριον, 5.254 and 5.318). Reusing the ¶19 word restores the link and the picture (the mast snapped, the sail and its spar gone) with one word."
+  },
+  {
+   "id": "B05-08",
+   "book": 5,
+   "paragraphIndex": 34,
+   "old": "stayed his stream",
+   "new": "stopped his stream",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "‘stay’ in the sense ‘stop’ is dead (it is on the brief’s sweep list). In current English, ‘the god stayed his stream’ either fails to parse or means ‘remained’. Homer: ‘he stopped his current and held back the wave’ (5.451). The edition already renders Butler’s ‘stay’ (= stop) as ‘stop’ elsewhere: 3 ¶26 ‘stopped them’, 4 ¶2 ‘stopped their horses’, 24 ¶42 ‘did not stop it’. This instance survived only because the package treated ‘staid’ → ‘stayed’ as a spelling change (continuity §5). ‘stopped his stream and stilled the waves’ also keeps Butler’s st-/st- pairing. The reader decoded it, so it is optional, but it brings the edition into line with itself."
+  },
+  {
+   "id": "B05-09",
+   "book": 5,
+   "paragraphIndex": 36,
+   "old": "hides a brand as fire-seed",
+   "new": "hides a burning brand as fire-seed",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "The Book’s last simile turns on this object. A man buries a smoldering piece of firewood in the ashes to keep his fire alive, as Odysseus buries himself in leaves (Homer 5.488–490, δαλός). The dominant present-day sense of ‘brand’ is a trademark, so the simile’s key noun means nothing until the reader works back from ‘ashes’. One adjective, folded into the narration, makes the sense unmistakable and keeps Butler’s noun, ‘fire-seed’ and the whole image."
+  },
+  {
+   "id": "B06-01",
+   "book": 6,
+   "paragraphIndex": 8,
+   "old": "a high beach of shingle",
+   "new": "a high beach of pebbles",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "Beach shingle (rounded pebbles) is British usage. For American readers, and the edition is in American English, a ‘shingle’ is a roofing tile or a signboard, and ‘a beach of shingle’ cannot be pictured. Homer’s point is the pebbles the sea washes up (6.94–95), on which the clean laundry is spread. ‘pebbles’ is plain English on both sides of the Atlantic and adds nothing. Unlike the case for keeping ‘draughts’ (GLOSSARY), the replacement is not a regionalism. D29 would keep ‘shingle’ if the lead judges it current enough for the edition’s readers, which is why this is optional."
+  },
+  {
+   "id": "B06-02",
+   "book": 6,
+   "paragraphIndex": 11,
+   "old": "for he was in great want",
+   "new": "for he was in great need",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "‘want’ meaning need is one of the brief’s dead senses, and here the living sense is a hazard. A naked man approaching young women ‘for he was in great want’ can be read as desire, which inverts his motive and the decorum of the scene. Homer: ‘for need had come upon him’ (6.136). ‘need’ fixes the sense with one word. The living idioms ‘for want of a foothold’ (5.30) and ‘you shall not want for clothes’ (6.14) are not affected and are kept. It is optional because most readers take ‘in want’ as need, as this reader did."
+  },
+  {
+   "id": "B06-03",
+   "book": 6,
+   "paragraphIndex": 20,
+   "old": "in the middle of it, paved with large stones",
+   "new": "in the middle of it, and paved with large stones",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "The candidate dropped Butler’s ‘and’, which leaves ‘paved with large stones’ attached to the nearest noun, the temple, so the reader had to guess which of the two is paved. In Homer the paved space is the assembly place around the temple (6.266–267). Restoring Butler’s own ‘and’ (D29) makes ‘paved’ a second predicate of the marketplace, and no other word moves."
+  },
+  {
+   "id": "B07-01",
+   "book": 7,
+   "paragraphIndex": 6,
+   "old": "lay with his daughter",
+   "new": "lay with Eurymedon’s daughter",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "A new paragraph opens with Poseidon as subject, so English takes 'his daughter' as his own. The default parse has Poseidon lying with his own daughter and garbles the genealogy that is the point of Athena's speech; the reader recovered only by going back to ¶5. Butler's referent is certain (Homer, Od. 7.61, has 'with her'): Periboea, 'the youngest daughter of Eurymedon', named in the sentence before. Naming the father keeps Butler's 'daughter' and asserts nothing new. It is the same pronoun-to-antecedent repair the 2026-09-23 screening made in this paragraph ('But Rhexenor left a daughter')."
+  },
+  {
+   "id": "B07-02",
+   "book": 7,
+   "paragraphIndex": 7,
+   "old": "seeing your friends again",
+   "new": "seeing your loved ones again",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "Butler's 'friends' carries the Victorian sense of one's own people, kin (Greek philous, Od. 7.76: 'to see your dear ones and reach your high-roofed house'). Present-day 'friends' excludes family. A typical reader narrows the promise to friends and, with 7.18's 'property ... bondservants ... house', misreads what Odysseus longs for. 'Loved ones' is the current word for the same circle. Earlier in this paragraph Butler's 'when any women are friends of hers' is the current sense and stays, so the paragraph now renders one Butler word two ways by sense. That is a deliberate discrimination to record, like 'raiment' → robes/clothing (Book 8 continuity §6). Edition rule adopted by the lead: Butler's kin-sense 'friends' in the homecoming formula (Greek philoi, dear ones) is rendered 'loved ones' at every occurrence of the formula: 1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40."
+  },
+  {
+   "id": "B07-03",
+   "book": 7,
+   "paragraphIndex": 12,
+   "old": "away from my friends",
+   "new": "away from my loved ones",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "The same kin sense as 7.7 (Greek philon apo, Od. 7.152: 'far from my dear ones'), in Odysseus's first plea to the queen. Read as 'friends', it drops the family he is trying to reach. The rendering matches B07-02, per the consistency rule. Edition rule adopted by the lead: Butler's kin-sense 'friends' in the homecoming formula (Greek philoi, dear ones) is rendered 'loved ones' at every occurrence of the formula: 1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40."
+  },
+  {
+   "id": "B07-04",
+   "book": 7,
+   "paragraphIndex": 17,
+   "old": "they have made themselves perfectly clear to us",
+   "new": "they have made themselves plainly visible to us",
+   "decision": "adjust",
+   "severity": "recommended",
+   "reason": "Butler's 'made themselves perfectly clear' means the gods appeared in manifest, visible form (Greek enargeis, 7.201). Current English hears the idiom 'made themselves clear' (spoke plainly), which loses the ground of Alcinous's argument. The adjudicator proposed 'perfectly manifest'. The lead prefers the plainer 'plainly visible'; Butler's 7.17 has no 'visible' or 'plain', and 'visible' at 7.11 is another paragraph, so the collision rule (same paragraph) is not engaged."
+  },
+  {
+   "id": "B08-01",
+   "book": 8,
+   "paragraphIndex": 1,
+   "old": "taller and stouter",
+   "new": "taller and sturdier",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "Of a person, current 'stout' chiefly means portly, so a typical reader has Athena make Odysseus fatter while she 'beautifies' him for athletic trials. Butler's sense is strong and solidly built (Greek passona, 'thicker, sturdier', Od. 8.20). 'Sturdier' keeps his meaning and his comparative. 'Stout' stays where it is current, in 'good stout clothing' at 7.21; that split by referent is to be recorded."
+  },
+  {
+   "id": "B08-02",
+   "book": 8,
+   "paragraphIndex": 2,
+   "old": "I will find you in everything.",
+   "new": "I will supply you with everything.",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "An obsolete sense of 'find': to supply someone with something, as in 'all found'. Current English reads it as 'I will come and find you', or cannot read it, and the reader had to guess. The sense matters, because the king is undertaking to provide the feast (Greek pasi parexo, Od. 8.39, 'I will provide for all'). 'Supply ... with' is the plain current verb for Butler's sense. The change also removes a second, different 'find' from a paragraph that opens with 'has found his way'."
+  },
+  {
+   "id": "B08-03",
+   "book": 8,
+   "paragraphIndex": 3,
+   "old": "and Alcinous killed them a dozen sheep",
+   "new": "and for them Alcinous killed a dozen sheep",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "An indirect object without 'for' after 'killed' is obsolete. Coming straight after 'crowds of men ... both old and young', it first reads as the king killing the crowd, the kind of syntax that hides who is done to. Moving 'them' into a 'for' phrase at the head of the clause (the Greek order, toisin d' Alkinoos, Od. 8.59) keeps every word and leaves the list intact."
+  },
+  {
+   "id": "B08-04",
+   "book": 8,
+   "paragraphIndex": 15,
+   "old": "before Troy and in practice",
+   "new": "before Troy and at practice",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'In practice' is now a fixed idiom for 'in reality', so the qualifier reads as nonsense or as a hedge. Butler means when the Achaeans were practising archery (Greek hote toxazoimeth' Achaioi, Od. 8.220, 'when we Achaeans shot'). 'At practice' keeps Butler's noun and changes only the preposition. 'Before Troy' (= at the siege) was decoded and is kept, here and at 8.49."
+  },
+  {
+   "id": "B08-05",
+   "book": 8,
+   "paragraphIndex": 15,
+   "old": "I can throw a dart farther",
+   "new": "I can throw a spear farther",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "Current 'dart' is the small missile of the pub game, which makes the boast absurd. Butler's 'dart' is the old word for a light spear (Greek douri akontizo, Od. 8.229, 'I hurl a spear'). 'Spear' is the plain current word for the object, and the object itself is kept."
+  },
+  {
+   "id": "B08-06",
+   "book": 8,
+   "paragraphIndex": 19,
+   "old": "Let us go to the couch of Hephaestus",
+   "new": "Let us go to the bed of Hephaestus",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "To a present-day reader a couch is a sofa. The lay turns on the bed that Hephaestus has netted with chains ('marriage bed', 'bedposts', 'all over the bed', 8.18). If the lovers go to a 'couch', the trap they fall into is on the wrong piece of furniture. Butler's couch is that bed (Greek lektronde, Od. 8.292). Accepted Book 3 made the same change ('Nestor left his couch' → 'left his bed', 3.31); Dawn's formulaic couch at 5.0 is a different case and stays. Apply together with B08-08 or not at all."
+  },
+  {
+   "id": "B08-07",
+   "book": 8,
+   "paragraphIndex": 20,
+   "old": "She was nothing loath",
+   "new": "She was not at all reluctant",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "'Nothing loath' (Butler: 'nothing loth') is dead in this construction; GLOSSARY lists it for replacement, and read as 'loathe' it blurs whether Aphrodite consents, which is the point of the lay. 'Not at all reluctant' is the literal modernization (nothing → not at all, loth → reluctant) and keeps Butler's understatement. Why not the edition's 'readily enough' (3.36 ×2, 15.15)? It is an adverb and cannot follow 'She was'. The collision given in the adjudication was wrong, as independent verification R1 noted: Butler's ¶20 has no 'willing', 'readily' or 'enough'."
+  },
+  {
+   "id": "B08-08",
+   "book": 8,
+   "paragraphIndex": 20,
+   "old": "they went to the couch",
+   "new": "they went to the bed",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "The companion of B08-06, in the sentence where the trap springs. Butler's 'couch' here renders demnia, the same Greek word as his 'bed' at 8.21 ('asleep on my bed'). Apply together with B08-06 or not at all."
+  },
+  {
+   "id": "B08-09",
+   "book": 8,
+   "paragraphIndex": 20,
+   "old": "caught in the toils",
+   "new": "caught in the net",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "'Toils' in the sense of a net or snare is dead outside the literary idiom 'in the toils of'. The current 'toils' (labors) makes 'caught in the toils ... spread for them' momentarily unreadable. 'Net' names Butler's object, the chains hung 'like cobwebs' (8.18) and spread over the bed. Accepted Book 4 made exactly this change ('a lioness caught in the toils' → 'caught in a net', 4.72)."
+  },
+  {
+   "id": "B08-10",
+   "book": 8,
+   "paragraphIndex": 21,
+   "old": "his baggage of a daughter",
+   "new": "his hussy of a daughter",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "The sense of 'baggage' as a disreputable woman is obsolete. Today the word means luggage or 'emotional baggage', so the insult blurs into 'burdensome'. What Hephaestus says is that his wife is shameless (Greek kunopidos, Od. 8.319, 'dog-eyed', i.e. shameless). 'Hussy' is the current, if dated, word for exactly Butler's sense. It keeps his 'his X of a daughter' construction and his comic, bitter register."
+  },
+  {
+   "id": "B08-11",
+   "book": 8,
+   "paragraphIndex": 41,
+   "old": "He had done so before an upper servant told him",
+   "new": "He had done so by the time an upper servant told him",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "Straight after 'a knot that Circe had taught him', 'He had done so before' reads first as the idiom 'on earlier occasions'. This garden path hides the sequence Butler states: the knot was finished, then came the call to the bath. 'By the time' states Butler's relation exactly (he had finished when he was called) and adds nothing. It does not reintroduce v1's 'hardly', which round 1 removed as a change of sense (Book 8 continuity §5b, B08-P042 = p41)."
+  },
+  {
+   "id": "B09-01",
+   "book": 9,
+   "paragraphIndex": 36,
+   "old": "we made sure it had been the death of us",
+   "new": "we felt sure it had been the death of us",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "False friend with a dead sense. In current English 'make sure' means 'ensure' or 'check', so the men's plea first reads as though they had ensured their own deaths. That is nonsense and forces a re-read, and the reader recovered only by recognizing the old idiom. Butler means 'we felt certain' (Greek 9.496 kai de phamen autoth' olesthai, 'and we thought we were lost then and there'). 'felt sure' keeps Butler's own 'sure' and is his own phrase for this sense elsewhere in the poem (PG #1727 line 9799, 'he felt sure it was Minerva'), so it restores rather than paraphrases (D29). 'had been' and 'the death of us' are unchanged. The meaning is recoverable from context, hence optional. Consistency note: accepted Book 4 prints Butler's 'made sure' unchanged twice (4.54, 4.57), where the 'ensure' reading is if anything more tempting ('we had made sure that it would come to nothing'). If the lead adopts this, those two belong to the same class; if the lead prefers edition-wide sameness, rejecting this one is defensible, because here the context forces the right reading."
+  },
+  {
+   "id": "FR-9.40",
+   "book": 9,
+   "paragraphIndex": 40,
+   "old": "get back to his friends at last",
+   "new": "get back to his loved ones at last",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Lead consistency rule for the homecoming formula. Butler's 'friends' here carries the old kin sense, one's own people (Greek philoi, 'dear ones'). Present-day 'friends' excludes family, and the blind reader of Book 7 misread-flagged it (B07-02/03). 'loved ones' is the current word for the same circle and is used at every occurrence of the formula (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; the verifier checked all 93 uses of 'friend(s)' in Butler and found no other formula site) for consistency. Butler's paragraph has no 'love' or 'dear' to collide with."
+  },
+  {
+   "id": "B10-01",
+   "book": 10,
+   "paragraphIndex": 16,
+   "old": "mixed them a mess with cheese",
+   "new": "mixed them a brew with cheese",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "False friend (named in the brief's sweep list). Butler's 'mess' is a prepared portion of food or drink, a sense that survives only in 'mess hall' and 'a mess of pottage'. Today's reader hears disorder or dirt, so the hospitable drink Circe mixes becomes 'a mess', a comic and faintly disgusting picture Butler does not paint, and the reader had to guess between dish and drink. The thing is Homer's kykeon (named at 10.290 and 10.316): wine stirred with cheese, barley meal and honey, which 'they had drunk' in the next sentence. 'brew' is the plain current word for a drink mixed from several ingredients. It keeps Butler's verb 'mixed', his 'with' and his list. It is also neutral about the drugging, which Butler adds separately ('but she drugged it'), so his 'but' keeps its force; 'potion' would announce the drug before Butler does. The package already replaces false friends of this kind (Book 4: 'shambles' → 'slaughterhouse', 'toils' → 'net'). Apply together with B10-02 and B10-03, so that Butler's one word has one rendering in the Book."
+  },
+  {
+   "id": "B10-02",
+   "book": 10,
+   "paragraphIndex": 22,
+   "old": "She will mix a mess for you to drink",
+   "new": "She will mix a brew for you to drink",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "The same Butler word for the same thing: Hermes forecasts the drink of ¶16. Once ¶16 is repaired, leaving 'mess' here would give one Butler word two renderings in one Book, the defect the package's steady-word rows exist to prevent. 'mix a mess' also reads today as 'make a mess'. The rest of the sentence, including Butler's 'meal' and 'for you to drink', is untouched."
+  },
+  {
+   "id": "B10-03",
+   "book": 10,
+   "paragraphIndex": 24,
+   "old": "she mixed a mess in a golden goblet",
+   "new": "she mixed a brew in a golden goblet",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "Of the three, 'a mess in a golden goblet' is the sharpest clash: the modern sense turns the goddess's drink into slops just as the paragraph stresses its luxury (a silver-inlaid seat, a footstool, a golden goblet). The rendering is the same as B10-01 and B10-02. 'fared onward' in the same paragraph is ruled on separately and kept (see rejected_barriers)."
+  },
+  {
+   "id": "CR-12.26",
+   "book": 12,
+   "paragraphIndex": 26,
+   "old": "As long as the corn and wine held out",
+   "new": "As long as the grain and wine held out",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "Consistency edit found by the independent round-2 verifier, outside its scope. The package's own ruling in book03/continuity.md: '\"corn lands\" → \"grain lands\": British corn means grain, and an American reader reads maize.' Butler's 'corn' (Greek sîtos, Od. 12.327) is rendered 'grain' at every other site in the edition: 3.36, 13.7, 13.22, 17.53, 20.16, 20.27, and 24.20 after B24-03. 12.26 was the last British 'corn'. The live edition reads 'As long as grain and wine lasted' here, so bd05's 'corn' would be a regression on publication. There is no other 'grain' in the paragraph to collide with. Book 12 is outside the ten flagged Books."
+  },
+  {
+   "id": "B17-L1",
+   "book": 17,
+   "paragraphIndex": 10,
+   "old": "A hind might as well lay",
+   "new": "A doe might as well lay",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "A consequential consistency edit outside the ten flagged Books. At 17.10 Telemachus repeats Menelaus's lion simile from 4.27, and Homer repeats the lines (4.333–340 ≈ 17.124–131). B04-05 renders the animal 'doe' at 4.27 because 'hind' is unfamiliar and the simile turns on it, so the repeat uses the same word. Butler's 17.10 has no other 'doe' or 'deer'."
+  },
+  {
+   "id": "B23-01",
+   "book": 23,
+   "paragraphIndex": 12,
+   "old": "you will not find us fail you",
+   "new": "you will not find us failing you",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "Current English does not take a bare infinitive after 'find' + object in this sense. It says 'find us failing you'. So Telemachus's promise of loyalty reads as a dropped '-ing', a typo rather than a dated idiom, on the page and aloud. PUNCTUATION.md §5 (D16) repairs Butler's marks on the same test: fix what a modern reader takes for an error. Butler's verb, object and sense are kept, and only the verb form changes. The meaning is recoverable, so this is optional. Nothing else in ¶12 moves, including 'Look to it yourself', which is ruled on separately and kept."
+  },
+  {
+   "id": "B23-02",
+   "book": 23,
+   "paragraphIndex": 16,
+   "old": "Bring the bed outside this room",
+   "new": "Bring the bed outside that room",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "This is a deixis problem. Butler's 'this' points back to the chamber named in the sentence before, which Victorian prose allowed. In present-day speech, 'this room' means the room the speaker is standing in. Penelope is speaking in the hall (¶8: the fire, the pillars, the seat opposite Odysseus). So her second order seems to send the bed out of the hall, and the two orders appear to contradict each other at the trap the scene turns on. 'that' sends the reader back to the bedroom, as Butler's 'this' does, and the Greek has 'there' (ἔνθα) at this point. One word changes. Nothing is added or resolved: the order is still the trick that ¶17 exposes. The accepted ¶16 wording ('put on airs', 'belittle') is untouched."
+  },
+  {
+   "id": "B23-03",
+   "book": 23,
+   "paragraphIndex": 27,
+   "old": "had had enough both of his wife and of rest",
+   "new": "had had his fill both of his wife and of rest",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "The modernization introduced this false friend. Butler has no 'enough'. His elliptical 'had had both of his wife and of repose' means Odysseus had taken his pleasure of both. With a person as its object, 'have had enough of' is the current idiom for being fed up ('I've had enough of you'). So, at the close of the reunion, the line now says Athena judged Odysseus tired of Penelope. The drafter supplied 'enough' to Butler's elliptical 'had had', as the edition does harmlessly at 8.44 ('had had to eat and drink' becomes 'had had enough to eat and drink'). With food as the object, 'enough' means satisfied, as in Butler's own 'had had enough to eat and drink' (3.7, 4.7, 8.5); with a person as the object, it means fed up. 'his fill' is Butler's own word for the same enjoyment two paragraphs earlier: 'When Ulysses and Penelope had had their fill of love' (¶25, printed so in the modern). It renders the same Greek verb (τέρπομαι: εὐνῆς ἧς ἀλόχου ταρπήμεναι ἠδὲ καὶ ὕπνου), and the echo steers the reading. 'both … and', 'wife' and 'rest' stay."
+  },
+  {
+   "id": "B23-04",
+   "book": 23,
+   "paragraphIndex": 27,
+   "old": "it will at once get abroad",
+   "new": "it will at once get about",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "This is a dead sense. 'abroad' now means 'overseas', and 'get abroad' for 'become known' has dropped out of use, so the reader had to rule out 'go overseas'. The same Book already prints Butler's own phrase for the same event, the news of the killing spreading through the town: 'no rumors about the suitors' death will get about in the town' (¶13). Using it here restores Butler's phrase under D29 rather than inventing a new rendering, and 24.28 already renders Butler's 'noised abroad' as 'spread news of'. One word changes. The 'that' clause makes the meaning recoverable, so this is optional."
+  },
+  {
+   "id": "B24-L1",
+   "book": 24,
+   "paragraphIndex": 10,
+   "old": "offer his bow and a quantity of iron to be competed for by us ill-fated suitors",
+   "new": "offer his bow and a quantity of iron as a contest for us ill-fated suitors",
+   "decision": "lead-added",
+   "severity": "recommended",
+   "reason": "The blind reader misread this: 'a quantity of iron to be competed for reads like a prize, and then \"sent his arrow through the iron\" makes no sense.' Butler's 'to be contended for' is ambiguous between prize and contest. Homer's word (24.169, aethlia) means the bow and the iron are the means of the contest, the axe-heads the arrow must pass through. The adjudicator kept it as Butler's own wording. The lead repairs it, because it is one of the review's few genuine misreads and the fix adds no gloss in Amphimedon's speech: 'as a contest for us' names what the iron is for without explaining the axes. Butler's 24.10 has 'contended' only, so no 'contest' collides."
+  },
+  {
+   "id": "B24-01",
+   "book": 24,
+   "paragraphIndex": 14,
+   "old": "He doubted whether to embrace him",
+   "new": "He did not know whether to embrace him",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "This is a dead sense. Today 'doubt whether' means to question whether something is so, so 'He doubted whether to embrace him' reads as reluctance to embrace his father. Butler's sense is being torn between two courses, which the 'or whether' that follows spells out. No current modern Book keeps Butler's 'doubted whether'. The same construction ('he doubted whether to …, or to …') is printed 'he did not know whether to …, or to …' at 4.9. 6.11 prints 'did not know what to do' (GLOSSARY Book 5/6 table, B06-P012) and 10.11 'was uncertain whether'. 'did not know whether' follows 4.9 exactly and leaves GLOSSARY's reserved 'still undecided' alone. Three words replace two, and every clause stays in Butler's order. The reader recovered, so this is optional."
+  },
+  {
+   "id": "B24-02",
+   "book": 24,
+   "paragraphIndex": 15,
+   "old": "but bears the trace of your attention",
+   "new": "that does not bear the trace of your attention",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "This is obsolete syntax that can invert the sense. 'not a single X … but bears' (meaning 'that does not bear') is no longer current English, where 'but' reads as 'except' or as a contrast. So the sentence can be taken as 'no plant bears the trace of your attention', the opposite of Odysseus's compliment. 'that does not bear' is the current form of the same double negative. Every item Butler lists stays, in his order, and nothing is added or dropped. The next sentence ('you take better care of your garden than of yourself') lets an attentive reader recover, so this is optional. The accepted record already modernized the same class at 23.11 (Butler's 'even though he was not one who would leave many friends')."
+  },
+  {
+   "id": "B24-03",
+   "book": 24,
+   "paragraphIndex": 20,
+   "old": "with corn planted between each row",
+   "new": "with grain planted between each row",
+   "decision": "accept",
+   "severity": "recommended",
+   "reason": "This is a transatlantic false friend. Butler's British 'corn' means grain in general. This edition is American English throughout (GLOSSARY spelling standard), and in American English 'corn' is maize, a New World crop. So the ordinary reader pictures maize growing between Laertes's vines and never notices that anything is wrong. The package has already made this rendering: 3.36 prints 'the grain lands of the open country' for Butler's 'the corn lands'. One word changes and nothing is added. Butler's claim that a crop was sown between the vine rows stands."
+  },
+  {
+   "id": "B24-04",
+   "book": 24,
+   "paragraphIndex": 23,
+   "old": "taller and stouter than before",
+   "new": "taller and sturdier than before",
+   "decision": "accept",
+   "severity": "optional",
+   "reason": "This is a false friend, and the proposal keeps one Butler phrase to one rendering across Books. Of a person's build, current 'stout' chiefly means portly, so as Athena gives Laertes 'a more imposing presence', a typical reader has her make him fatter. Butler means solidly built (the Greek comparative is 'thicker-set, sturdier'), and 'sturdier' keeps his meaning and his comparative. The Book 8 adjudication proposes the same change for Butler's same phrase at 8.1 (B08-01, 'taller and sturdier', optional) and names 24.23 as the other instance. Apply this together with B08-01 or not at all, so that one Butler phrase keeps one rendering. It is optional because the reader recovered. Butler's different phrase at 23.15, 'taller and stronger', is left alone and stays distinct."
+  }
+ ],
+ "rejectedAfterScreeningOrVerification": [
+  {
+   "id": "B05-06",
+   "book": 5,
+   "paragraphIndex": 23,
+   "old": "a sea broke over him",
+   "proposed": "a wave broke over him",
+   "decision": "rejected-after-verification",
+   "note": "Independent verification R1: unnecessary. The BEFORE 'a sea broke over him' was clear, the reader understood it, and 'a sea' is Butler's own word, still current nautical English for a heavy wave. Reverted."
+  }
+ ]
+}

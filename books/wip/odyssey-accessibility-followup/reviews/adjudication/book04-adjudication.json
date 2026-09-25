@@ -1,0 +1,462 @@
+{
+  "book": 4,
+  "proposals": [
+    {
+      "id": "B04-01",
+      "p": 14,
+      "kind": "barrier",
+      "quote_modern": "I should have founded a city for him in Argos, and built him a house. I should have made him leave Ithaca with his goods, his son, and all his people, and should have sacked for them some one of the neighboring cities that are subject to me. We should then have seen",
+      "replacement": "I would have founded a city for him in Argos, and built him a house. I would have made him leave Ithaca with his goods, his son, and all his people, and would have sacked for them some one of the neighboring cities that are subject to me. We would then have seen",
+      "butler": "I should have founded a city for him in Argos, and built him a house. I should have made him leave Ithaca with his goods, his son, and all his people, and should have sacked for them some one of the neighbouring cities that are subject to me. We should thus have seen",
+      "reader_evidence": "Barrier (pause, syntax, high) on 'I should have founded a city for him in Argos': read correctly as 'would have', with the note 'a modern reader may read it as regret for a duty neglected'. The same sentence's 'should have sacked…' is flagged unsure.",
+      "reason": "Butler's first-person 'should have' + participle is the Victorian conditional; Homer 4.174-176 is a past counterfactual ('I would have settled a city for him in Argos and built him a house'). In present-day English, American above all, 'I should have founded…' and 'I should have made him leave Ithaca' read as obligation or regret ('I ought to have'). That turns Menelaus's frustrated plan, which depends on the homecoming named in the sentence before, into self-reproach for a duty he neglected. The paragraph only corrects the reading at its last sentence. Only the auxiliary changes, in all four places, so Butler's one construction stays one construction. 'sacked' and every other word stand; see rejected_barriers for 'sacked'.",
+      "severity": "recommended",
+      "collision_check": "Butler ¶14 has no 'would'. His only other modal perfect, 'could have interrupted', is kept and stays distinct. 'should' occurs in Butler ¶14 only in these four places, so no other use is merged."
+    },
+    {
+      "id": "B04-02",
+      "p": 28,
+      "kind": "barrier",
+      "quote_modern": "when they have taken in water",
+      "replacement": "when they have taken in fresh water",
+      "butler": "when they have taken in water",
+      "reader_evidence": "Barrier (misread, word, medium) on 'when they have taken in water': read correctly as 'after they have loaded fresh drinking water', with the note 'Taking in water today suggests a leaking ship.'",
+      "reason": "With ships as the subject, 'taken in water' is now the idiom for a vessel shipping water (leaking or swamped), so the harbor sentence says that ships put to sea after flooding. Homer (4.359, 'having drawn dark water') means drawing drinking water for the voyage. Butler's own phrase for this is 'Here we landed to take in fresh water' (9.4). Adding 'fresh' restores his phrase (D29), rules out the leak reading, and adds nothing the source does not mean.",
+      "severity": "recommended",
+      "collision_check": "'fresh' does not occur in Butler ¶28. 'taken' is Butler's own verb here; his two other uses in the paragraph ('taken pity', 'taken a great fancy') are unchanged."
+    },
+    {
+      "id": "B04-03",
+      "p": 54,
+      "kind": "barrier",
+      "quote_modern": "for they had made sure that",
+      "replacement": "for they had felt sure that",
+      "butler": "for they had made sure that Telemachus had not gone to the city of Neleus",
+      "reader_evidence": "Barrier (misread, word, medium) on 'for they had made sure that Telemachus had not gone': reading 'they had felt certain (not that they had checked or prevented it)', with the note 'Modern made sure means ensured or verified; recurs in ¶57.'",
+      "reason": "This is a dead sense. Butler's 'made sure' means 'felt certain'; Homer 4.638-639 has 'for they did not think he had gone to Pylos'. A present-day reader takes 'make sure that' as 'ensure' or 'check', so the suitors seem to have verified or arranged that he had not gone. 'felt sure' keeps Butler's 'sure' (D29) and changes only the verb. The next sentence ('They thought he was only away…') partly corrects the misreading, so this is the milder of the two occurrences.",
+      "severity": "recommended",
+      "collision_check": "'felt' and 'feel' do not occur in Butler ¶54, and 'sure' occurs only here."
+    },
+    {
+      "id": "B04-04",
+      "p": 57,
+      "kind": "barrier",
+      "quote_modern": "we had made sure that it would come to nothing",
+      "replacement": "we had felt sure that it would come to nothing",
+      "butler": "we had made sure that it would come to nothing",
+      "reader_evidence": "Barrier (pause, word, medium): read as 'we had felt certain', using the old sense the reader had just learned at ¶54 ('Old sense of made sure = felt confident (see ¶54)').",
+      "reason": "This is the same dead sense (Homer 4.664: 'we thought it would never be accomplished'). Here the context pushes a present-day reader toward the wrong sense and nothing corrects it. 'We had made sure [= ensured] that it would come to nothing, but the young fellow has got away in spite of us' reads as though the suitors had acted to stop the voyage, which they had not. It is the stronger of the two occurrences. The rendering is the same as B04-03.",
+      "severity": "recommended",
+      "collision_check": "'felt' and 'feel' do not occur in Butler ¶57, and 'sure' occurs only here. The live sense of 'make sure' (= ensure) at ¶43 ('to make sure that Agamemnon did not give him the slip') is correct and is kept, so after the repair the Book keeps the two senses apart."
+    },
+    {
+      "id": "B04-05",
+      "p": 27,
+      "kind": "barrier",
+      "quote_modern": "A hind might as well lay",
+      "replacement": "A doe might as well lay",
+      "butler": "A hind might as well lay her new born young in the lair of a lion",
+      "reader_evidence": "Barrier (unsure, word, medium) on 'A hind': read as 'a female deer', with the note 'Unfamiliar word, and the whole simile depends on it.'",
+      "reason": "Outside hunting usage, 'hind' as the female deer is unknown to most present-day readers, and at the head of a sentence it reads as the adjective ('hind legs'). The simile turns on the animal: a grazing mother leaves her newborn in a lion's lair, and the lion kills them (Homer 4.335-339, elaphos, feminine). 'doe' is the current word for the same animal, keeps the female that 'her new born young' needs, and adds nothing. The continuity sheet (§5) keeps this simile 'limb for limb'; this repair changes the word, not the limb.",
+      "severity": "recommended",
+      "collision_check": "'doe' and 'deer' do not occur in Butler ¶27."
+    },
+    {
+      "id": "B04-06",
+      "p": 3,
+      "kind": "barrier",
+      "quote_modern": "that we may rest in peace from now on",
+      "replacement": "that we may live in peace from now on",
+      "butler": "where heaven grant that we may rest in peace henceforward",
+      "reader_evidence": "Barrier (pause, syntax, high): read correctly as 'may the gods let us live here undisturbed from now on', with the note 'Rest in peace sounds like a funeral wish to a modern ear.'",
+      "reason": "'Rest in peace' is now fixed as the formula for the dead. A wish that 'we may rest in peace from now on' in the house just reached therefore sounds like a wish to die there. Butler, and Homer 4.34-35 ('if ever Zeus would give us rest from misery hereafter'), mean an end of wandering and hardship, and 'live in peace' is the current idiom for that. Everything else stands, including the prayer form 'heaven grant'. Butler's 'rest' is still current English, but the phrase no longer carries his meaning, which is the reason D29 asks for.",
+      "severity": "optional",
+      "collision_check": "'live' and 'living' do not occur in Butler ¶3."
+    },
+    {
+      "id": "B04-07",
+      "p": 8,
+      "kind": "barrier",
+      "quote_modern": "He took nothing by it",
+      "replacement": "He gained nothing by it",
+      "butler": "He took nothing by it",
+      "reader_evidence": "Barrier (pause, word, high) on 'He took nothing by it': read as 'he gained nothing from all his efforts' and marked 'archaic idiom'.",
+      "reason": "'Take nothing by' (= gain nothing from) is an obsolete idiom. The reader decoded it from context, but it is the one opaque phrase in the sentence that sums up what Odysseus got for his labors (Homer 4.107-108: 'for him there were to be only sorrows'). 'gained' is the plain verb for Butler's sense, and nothing is added or lost.",
+      "severity": "optional",
+      "collision_check": "'gain' and 'gained' do not occur in Butler ¶8 ('again' is a different word). 'got' was avoided because Butler uses 'get home' in the paragraph."
+    },
+    {
+      "id": "B04-08",
+      "p": 26,
+      "kind": "barrier",
+      "quote_modern": "on the pretense of paying their addresses to my mother",
+      "replacement": "on the pretense of courting my mother",
+      "butler": "on the pretence of paying their addresses to my mother",
+      "reader_evidence": "Barrier (pause, word, high): read as 'on the excuse of courting his mother', with the note 'archaic; the idea of suitors helps'.",
+      "reason": "'Pay one's addresses to' (= court) is a dead idiom, and a present-day reader is likely to hear 'paying their respects'. That loses the marriage suit, which is the pretext that explains why the men are in the house and the point Menelaus answers with 'usurp a brave man's bed' and 'a sorry wedding'. The reader recovered only by bringing in knowledge of the suitors from outside the sentence. Butler's own word for this is 'courting' (6.2, 'all the best young men among your own people are courting you'; 24.9, 'we were courting his wife'), so the repair uses his vocabulary (D29).",
+      "severity": "optional",
+      "collision_check": "'courting' and 'court' do not occur in Butler ¶26. 'wooing' was not used on purpose: Butler's 'woo' at ¶59 ('neither woo nor dine') is kept, and using it here would render two different Butler expressions with one word."
+    },
+    {
+      "id": "B04-09",
+      "p": 8,
+      "kind": "sweep",
+      "quote_modern": "but presently I leave off again",
+      "replacement": "but then I leave off again",
+      "butler": "At times I cry aloud for sorrow, but presently I leave off again",
+      "reader_evidence": "not flagged",
+      "reason": "This is a dead sense in the present tense. Butler's 'presently' means 'after a little while' (Homer 4.102-103: 'at times I take my fill of weeping, at other times I stop again'). With a present-tense verb, a present-day reader takes 'presently' as 'currently', so Menelaus seems to say he has stopped grieving for now, not that each bout of weeping ends. 'then' carries the sequence, and 'again' still carries the recurrence. The Book's other two 'presently' (¶23, past narrative; ¶57, future) cannot be read as 'currently' and are kept.",
+      "severity": "optional",
+      "collision_check": "'then' does not occur in Butler ¶8. The other options collide: 'soon' (Butler: 'as soon as they are born', 'one soon tires of it'), 'after a while' (Butler: 'while I was travelling'), and 'before long' or 'in time' (Butler: 'a long time')."
+    },
+    {
+      "id": "B04-10",
+      "p": 42,
+      "kind": "barrier",
+      "quote_modern": "the gods backed the wind into its old quarter",
+      "replacement": "the gods turned the wind back into its old quarter",
+      "butler": "the gods backed the wind into its old quarter",
+      "reader_evidence": "Barrier (unsure, imagery, medium): read as 'the gods turned the wind back to its earlier, favourable direction', with the note 'Quarter as a compass direction is unfamiliar.'",
+      "reason": "'Backed' is a sailor's term (a wind backs when it shifts against the sun), here used transitively. To a present-day reader, 'the gods backed the wind' says they supported it, and the reader could rebuild the sense only from 'and they reached home'. 'turned … back' is Homer's own verb (4.520: 'the gods turned the wind back'), and once the verb is clear Butler's 'its old quarter' can be read, so his noun is kept.",
+      "severity": "optional",
+      "collision_check": "'turned', 'turn' and 'back' do not occur in Butler ¶42. His 'return' ('he was to return safely') is a different word and is unaffected."
+    },
+    {
+      "id": "B04-11",
+      "p": 64,
+      "kind": "barrier",
+      "quote_modern": "there was not one of you would so much as think of giving me a call out of my bed",
+      "replacement": "there was not one of you who would so much as think of calling me out of my bed",
+      "butler": "there was not one of you would so much as think of giving me a call out of my bed",
+      "reader_evidence": "Barrier (pause, syntax, high): read as 'not one of you thought to wake me', with the note 'The missing who makes the sentence stumble, especially aloud.'",
+      "reason": "Penelope's rebuke has two stumbles in one clause. The omitted subject relative ('one of you [who] would') is no longer standard and trips the sentence, especially when heard (the edition has audio). 'giving me a call' is now the idiom for telephoning. Supplying the relative and turning Butler's noun 'call' into the verb keeps his word and his sense (Homer 4.729-730: 'to rouse me from my bed').",
+      "severity": "optional",
+      "collision_check": "Butler ¶64 uses 'call' twice ('giving me a call', 'call old Dolius'), both meaning 'summon', and the verb keeps that sense. 'who' is a supplied relative pronoun doing the same job as Butler's five others in the paragraph, and it renders no Butler word."
+    },
+    {
+      "id": "B04-12",
+      "p": 61,
+      "kind": "barrier",
+      "quote_modern": "like sea-horses",
+      "replacement": "like horses of the sea",
+      "butler": "ships that make long voyages over the ocean like sea-horses",
+      "reader_evidence": "Barrier (pause, imagery, medium): read as 'ships carry men over the sea the way horses carry them over land', with the note 'Sea-horses first suggests the little fish.'",
+      "reason": "'Sea-horse' now names the small fish, which makes no long voyages. Penelope's image is that ships are men's horses on the sea (Homer 4.708-709, halos hippoi, 'horses of the salt sea'), and with the fish it becomes absurd or is lost. 'horses of the sea' opens Butler's compound into its own sense, which is also Homer's phrase, and adds nothing. Under PUNCTUATION §4 (D15) this changes what is said aloud, so it is a rendering decision to record in the continuity sheet, not a silent compound change.",
+      "severity": "optional",
+      "collision_check": "'horses' and 'sea' occur in Butler ¶61 only inside 'sea-horses', and his 'ocean' stays distinct."
+    }
+  ],
+  "rejected_barriers": [
+    {
+      "p": 0,
+      "quote": "of a bondwoman",
+      "reason": "Kept. The compound is transparent (bond + woman), and the reader decoded it with high confidence as 'a slave woman rather than his wife'. The clause's logic comes from 'for heaven granted Helen no more children'. It belongs to the same word family as the edition's settled 'bondservant(s)' for Butler's 'bondsmen' (4.54, 7.18, 24.14-15). 'slave woman' here would leave the edition with two words for one class of person. It is a pause, not a failure."
+    },
+    {
+      "p": 6,
+      "quote": "Fall to",
+      "reason": "Kept. 'Fall to' (= start eating) is still listed in current dictionaries and is glossed at once by 'when you have finished supper'. The reader decoded it with high confidence. It is the host's formula of welcome (Homer 4.60, 'take of the food and be glad'), dated but recoverable."
+    },
+    {
+      "p": 8,
+      "quote": "my brother was secretly and shockingly murdered through the treachery of his wicked wife",
+      "reason": "Not a wording problem. 'his' plainly refers to the murdered brother, and the reader understood that the brother was killed through his own wife's treachery. 'wicked' is Butler's word for Homer's 'accursed' (4.92). That she is Clytemnestra, Aegisthus's partner, is backstory supplied by Book 3, which the brief puts out of scope."
+    },
+    {
+      "p": 8,
+      "quote": "I wish I had only a third of what I now have, so long as I had stayed at home",
+      "reason": "Kept under the 2026-09-23 screening. 'so long as' (= provided that) is current English for Butler's archaic 'so that', and the reader understood it (high confidence)."
+    },
+    {
+      "p": 14,
+      "quote": "should have sacked for them some one of the neighboring cities that are subject to me",
+      "reason": "The auxiliary is repaired in B04-01. 'sacked' is kept: it is Butler's literal rendering of Homer's exalapaxas (4.176, 'having emptied/sacked one city'). The strangeness of clearing out one of Menelaus's own subject towns is Homer's, not a wording defect, and the reader's reading ('cleared the inhabitants out… to give it to Odysseus's people') is correct."
+    },
+    {
+      "p": 27,
+      "quote": "they would have a short shrift and a sorry wedding",
+      "reason": "Kept. 'short shrift' is a live idiom. Its modern sense (summary treatment) and Butler's (a quick end) both fit, and the preceding lion simile ('will make short work with the pair of them') makes the death explicit. The reader read it correctly as 'killed quickly and mercilessly'. Homer 4.346 is 'swift of doom and bitter of wedding', and 'a sorry wedding' keeps the second half."
+    },
+    {
+      "p": 49,
+      "quote": "a piece of plate",
+      "reason": "Kept under the continuity sheet's §5 ruling, which the reader's own evidence confirms. The next paragraph glosses the word at the point of need: Menelaus answers with 'the finest and most precious piece of plate in all my house. It is a mixing-bowl… of pure silver'. The reader resolved it that way. The two paragraphs are a request and its answer, so changing ¶49 alone would break the exchange. Butler's 'a piece of silver plate' (6.17, 23.15) is the same word elsewhere in the edition. The dinner-plate reading lasts one paragraph and nothing in ¶49 depends on it."
+    },
+    {
+      "p": 66,
+      "quote": "put some bruised barley into a basket",
+      "reason": "Kept. 'bruised' in the sense of crushed is current for grain and herbs ('bruised oats', 'bruised garlic'), and the reader decoded it ('bruised = crushed'). The reader's uncertainty was about why barley belongs to a prayer. That ritual is Homer's (4.761, barley grains in a basket) and is not a wording problem."
+    },
+    {
+      "p": 27,
+      "quote": "Menelaus’s narrative ¶27–¶47: Idothea’s and Proteus’s speeches nested in single quotes inside his double-quoted speech",
+      "reason": "No change. Every change of speaker is tagged ('she said' ¶29, ¶31, ¶33; 'I said' ¶30, ¶32; 'I answered' ¶38, ¶40; 'he said' ¶39; 'he answered' ¶41, ¶46; 'So spoke Proteus' ¶44; 'the old man of the sea said' ¶44), and every speech with no tag continues across a paragraph break under D4 (¶34, ¶42, ¶43). The reader's paraphrases attribute every speech correctly. The difficulty on a phone or in audio comes from D4's continuous-speech convention itself. That needs an app affordance (PUNCTUATION.md §2), not a wording change, and adding tags would alter Butler's speech structure."
+    },
+    {
+      "p": 15,
+      "quote": "whom the son of bright Dawn had killed",
+      "reason": "Kept under the 2026-09-23 screening. The reader read it correctly as a son of the goddess Dawn. Who he is (Memnon) is backstory."
+    },
+    {
+      "p": 33,
+      "quote": "Halosydne’s chickens, as they call them",
+      "reason": "Kept under the 2026-09-23 screening. The reader took it correctly as a nickname: the seals as a sea goddess's brood. Butler's image is kept whole."
+    },
+    {
+      "p": 44,
+      "quote": "even though Orestes has been beforehand with you in killing him",
+      "reason": "Kept under the 2026-09-23 screening ('been beforehand'). The reader read it correctly ('Orestes may already have killed Aegisthus'). Who Orestes is, is backstory other Books supply."
+    },
+    {
+      "p": 71,
+      "quote": "they bound the oars to the thole pins with twisted thongs of leather",
+      "reason": "Kept under the 2026-09-23 screening and PUNCTUATION.md §4 (D15). The sentence explains the object (the oars are bound to them), and the reader's reading ('pegs on the ship's side that hold them while rowing') is correct."
+    },
+    {
+      "p": 73,
+      "quote": "by the hole through which the thong went for pulling the door to",
+      "reason": "Kept under the 2026-09-23 screening ('pulling the door to'). The reader's reading is correct: a hole in the door for the strap that pulls it shut, through which the vision slips."
+    },
+    {
+      "p": 0,
+      "quote": "a bride from Sparta",
+      "reason": "Not a wording defect. Homer names both Lacedaemon and Sparta, and saying how they relate would add interpretation. Nothing is archaic."
+    },
+    {
+      "p": 6,
+      "quote": "for the lineage of such men as you cannot have been lost",
+      "reason": "Kept. It is Butler's rendering of Homer 4.62-64 ('the stock of your parents is not lost in you'). The next sentence ('You must be descended from a line of scepter-bearing kings') explains it, and the reader's reading is correct."
+    },
+    {
+      "p": 8,
+      "quote": "my heavy loss in the ruin of a stately mansion, fully and magnificently furnished",
+      "reason": "Not a wording defect. Whose house was ruined is left vague in Homer (4.95-96) and in Butler, and settling it would resolve the source's ambiguity."
+    },
+    {
+      "p": 10,
+      "quote": "two tripods",
+      "reason": "Kept, along with 'ten talents of gold' and 'a golden distaff' (both unsure in the same paragraph). These are concrete objects with current dictionary names, and the context carries what matters: 'ten talents of gold' is a quantity of gold, and the distaff is 'loaded with violet-colored wool'. The reader's readings are right, and a gloss is not indispensable (brief: glosses only if indispensable)."
+    },
+    {
+      "p": 19,
+      "quote": "for they are of the race of Paeeon",
+      "reason": "Mythological backstory. The reader's reading (a legendary healer's descendants) is correct, and no archaic wording is involved."
+    },
+    {
+      "p": 20,
+      "quote": "(which is as Zeus wills, for he is the giver both of good and evil, and can do what he chooses)",
+      "reason": "Butler's placement of Homer's aside (4.236-237) about Zeus giving good and ill. The loose connection is the source's, not the wording's, and the reader's reading is right."
+    },
+    {
+      "p": 21,
+      "quote": "you had Deiphobus with you",
+      "reason": "Backstory other Books supply. The brief lists Deiphobus as not a defect."
+    },
+    {
+      "p": 21,
+      "quote": "All that you have been saying, my dear wife, is true",
+      "reason": "The tension between Helen's story and Menelaus's is in Homer. The brief says it is not to be repaired."
+    },
+    {
+      "p": 40,
+      "quote": "all that long and terrible voyage to Egypt",
+      "reason": "The contradiction with Pharos being a day's sail from Egypt is in Butler and Homer. The brief puts it out of scope."
+    },
+    {
+      "p": 41,
+      "quote": "in spite of all Athena’s hatred",
+      "reason": "Backstory, since the cause of Athena's anger is not told here. The wording is clear."
+    },
+    {
+      "p": 42,
+      "quote": "drove him to the headland where Thyestes used to live, but where Aegisthus was living then",
+      "reason": "Backstory (Thyestes, Aegisthus), which the brief puts out of scope. The wording is clear, and the wind phrase later in the paragraph is handled in B04-10."
+    },
+    {
+      "p": 43,
+      "quote": "did not give him the slip and prepare war",
+      "reason": "Kept. 'give him the slip' is a current idiom, and the reader's reading is correct. Aegisthus's motive is backstory."
+    },
+    {
+      "p": 43,
+      "quote": "who at once began to lay a plot for him",
+      "reason": "Backstory. The link between Aegisthus and the 'wicked wife' of ¶8 is supplied by Book 3."
+    },
+    {
+      "p": 44,
+      "quote": "you may yet come in for his funeral",
+      "reason": "Kept. 'come in for his funeral' reads naturally as 'arrive for his funeral', which is how the reader took it. 'his' is Butler's, and Homer (4.547, taphou) names no one, so the ambiguity must not be resolved."
+    },
+    {
+      "p": 45,
+      "quote": "I know, then, about these two",
+      "reason": "Homer's own demonstrative (4.551, toutous). The reader attached it correctly to Ajax and Agamemnon, and naming them would add words and resolve Butler's phrasing."
+    },
+    {
+      "p": 49,
+      "quote": "where lotus thrives",
+      "reason": "Homer's plant, a fodder, rendered with Butler's standard word. The reader's reading is correct, and nothing is archaic."
+    },
+    {
+      "p": 54,
+      "quote": "the city of Neleus",
+      "reason": "Backstory. Book 3 establishes Pylos as Neleus's city."
+    },
+    {
+      "p": 54,
+      "quote": "Were they freemen or his own bondservants—for he might manage that too?",
+      "reason": "It is Homer's (4.643-644, 'he could manage even that'), and the reader's reading is correct. 'bondservants' is the edition's settled form for Butler's 'bondsmen'."
+    },
+    {
+      "p": 55,
+      "quote": "I saw Mentor here myself yesterday morning, and yet he was then setting out for Pylos",
+      "reason": "Kept. Butler's 'then' is Homer's tote (4.656), which refers back to when the ship sailed. The contradiction is already stated in the previous sentence ('I saw Mentor go on board as captain—or some god who was exactly like him. I cannot understand it'), and the reader's reading is correct. Pinning down the time reference would resolve the source's phrasing."
+    },
+    {
+      "p": 59,
+      "quote": "for the waste you all make of my son’s estate",
+      "reason": "Penelope's turn to address the absent suitors is Homer's (4.686ff.). Speech structure must not change."
+    },
+    {
+      "p": 64,
+      "quote": "over all Hellas and middle Argos",
+      "reason": "Butler's formula, printed identically at ¶75 (continuity §4). Geography ('Argos' at ¶8 and ¶14, 'Hellas') is left for the reader, and a gloss would add interpretation."
+    },
+    {
+      "p": 64,
+      "quote": "tell everything to Laertes",
+      "reason": "Backstory. The brief lists Laertes as Odysseus's father as supplied by other Books."
+    },
+    {
+      "p": 65,
+      "quote": "aegis-bearing Zeus",
+      "reason": "Kept unglossed under GLOSSARY (Book 3 row: 'aegis' named again later, and a gloss at every occurrence would be noise)."
+    },
+    {
+      "p": 65,
+      "quote": "the race of the son of Arceisius",
+      "reason": "Backstory: Arceisius is Laertes's father."
+    },
+    {
+      "p": 65,
+      "quote": "there will be a son left to come up after him",
+      "reason": "'him' is Butler's, and Homer (4.754-757) refers to the line of Arceisius's son. Identifying the heir would resolve the source."
+    },
+    {
+      "p": 80,
+      "quote": "Here, then, the Achaeans placed themselves in ambush",
+      "reason": "Homer calls the suitors Achaeans, and the previous sentence names them ('the suitors went on board'). No wording change."
+    },
+    {
+      "p": 3,
+      "quote": "where heaven grant that we may rest in peace from now on",
+      "reason": "Handled in B04-06, which changes only 'rest' to 'live'. The prayer form 'heaven grant' is kept, since it is Butler's and recoverable."
+    },
+    {
+      "p": 4,
+      "quote": "made them fast to the mangers",
+      "reason": "Kept, together with 'made the ship fast a little way out' (¶71). 'make fast' is current for tying and mooring, and the reader read both correctly (high/medium)."
+    },
+    {
+      "p": 8,
+      "quote": "the sheep lamb down three times a year",
+      "reason": "Kept. 'lamb' as a verb is a current farming word, and the reader read it correctly (high). 'whether master or man' (same paragraph) is likewise read correctly as owner or servant (high)."
+    },
+    {
+      "p": 13,
+      "quote": "is ashamed to come here and start a conversation",
+      "reason": "Kept. Butler's 'ashamed' (Homer 4.158-160, 'he thinks it unseemly') follows 'he is very modest', and the reader correctly took it as shyness, not guilt."
+    },
+    {
+      "p": 51,
+      "quote": "their wives had put up bread for them",
+      "reason": "Kept. This is inside the class-C passage (D12 restraint), 'for them to take with them' glosses 'put up', and the reader read it correctly (high)."
+    },
+    {
+      "p": 63,
+      "quote": "in a transport of sorrow",
+      "reason": "Kept as part of the edition's register. The reader read it correctly (high)."
+    },
+    {
+      "p": 64,
+      "quote": "exterminate his own race",
+      "reason": "Kept. 'race' as family line is recoverable here ('his own race and that of Odysseus') and at ¶19 and ¶65, and the reader read it correctly."
+    },
+    {
+      "p": 25,
+      "quote": "this long sea voyage to Lacedaemon",
+      "reason": "Travel logic is in the source (Telemachus sailed to Pylos and drove on from there), which the brief puts out of scope."
+    }
+  ],
+  "reader_errors_not_caused_by_text": [
+    {
+      "p": 43,
+      "reader_said": "Aegisthus had paid a watchman two talents of gold to keep lookout for a whole year",
+      "butler": "a watchman whom Aegisthus kept always on the watch, and to whom he had promised two talents of gold",
+      "why_text_is_clear": "The modern text keeps Butler's 'to whom he had promised two talents of gold' word for word. 'promised' is plain and nothing suggests payment."
+    }
+  ],
+  "recurring": [
+    {
+      "item": "'made sure' in the dead sense 'felt certain'",
+      "rendering": "'felt sure' (keeps Butler's 'sure'). The live sense 'make sure' (= ensure) at 4.43 is correct and kept. Book 9 ¶36 ('we made sure it had been the death of us') is the same dead sense and is printed unchanged in the current Book 9 text. That is outside this assignment and is flagged so the same rendering can be judged there.",
+      "where": [
+        "4.54",
+        "4.57",
+        "9.36 (flag only, outside this assignment)"
+      ]
+    },
+    {
+      "item": "first-person 'should have' + participle as a conditional",
+      "rendering": "'would have' where nothing else fixes the conditional (4.14). Kept at 4.28 ('We should have run clean out of provisions and my men would have starved, if…'), where the if-clause settles the sense and changing it would merge Butler's own should/would pair (D26). Kept at 4.49 ('I should be content… I should never once wish'), a polite conditional with no perfect.",
+      "where": [
+        "4.14"
+      ]
+    },
+    {
+      "item": "'hind' (female deer)",
+      "rendering": "'doe'. Homer repeats this simile at Od. 17.124-141 (Telemachus reporting Menelaus to Penelope). If Butler's Book 17 repeats 'hind', the same word should be used there. This was not checked, because that text is outside this assignment's inputs.",
+      "where": [
+        "4.27"
+      ]
+    },
+    {
+      "item": "'take(n) in water' for provisioning a ship",
+      "rendering": "'taken in fresh water' where a ship is the subject, which is Butler's own phrase at 9.4. Book 10 ¶4 ('we went ashore to take in water') has men as the subject and 'went ashore', so it needs nothing.",
+      "where": [
+        "4.28"
+      ]
+    },
+    {
+      "item": "'presently' (= after a little while)",
+      "rendering": "'then' at 4.8. It is kept at 4.23 (past narrative) and 4.57 (future), where it cannot be read as 'currently'. Across the modern texts supplied to this adjudication (Books 3-10, 23, 24), 4.8 is the only present-tense 'presently'. Every other occurrence is past narration or 'will … presently', which fixes the old sense. This is the same tense rule the Book 3 adjudication states, and it does not conflict with the Books 5/6 'keep' ruling, which covers past-tense occurrences only. The Book 3 adjudication's suggested word for a present-tense case, 'soon', collides in this paragraph (Butler: 'as soon as they are born', 'one soon tires of it'), hence 'then'.",
+      "where": [
+        "4.8"
+      ]
+    },
+    {
+      "item": "'paying their addresses' (= courting)",
+      "rendering": "'courting', which is Butler's own word at 6.2 and 24.9. Butler's 'woo' at 4.59 is kept distinct.",
+      "where": [
+        "4.26"
+      ]
+    },
+    {
+      "item": "'a piece of plate' (precious metalware)",
+      "rendering": "Kept in both places. The pair is Telemachus's request and Menelaus's answer, and ¶50 glosses it. Butler's 'a piece of silver plate' at 6.17 and 23.15 is the same word.",
+      "where": [
+        "4.49",
+        "4.50"
+      ]
+    },
+    {
+      "item": "'bondwoman' / 'bondservants'",
+      "rendering": "Kept. 'bondwoman' stays with the edition's settled 'bondservant(s)' for Butler's 'bondsmen' (4.54, 7.18, 24.14-15).",
+      "where": [
+        "4.0",
+        "4.54"
+      ]
+    }
+  ],
+  "summary": "Book 4 is already easy to follow. The blind reader's paraphrase is right in all 81 paragraphs (the one slip, 'paid' for 'promised' at ¶43, is the reader's own). Most of the 138 barriers are backstory other Books supply, unexplained ritual objects, or contradictions in Homer himself, and none of these is a wording defect. The real failures are a handful of Victorian false friends that flip or blur the sense: 'made sure' meaning 'felt certain' (¶54, ¶57), first-person 'should have' meaning 'would have' (¶14), a ship having 'taken in water' (¶28), and 'hind' at the head of Menelaus's lion simile (¶27). That gives five recommended repairs of one or two words each, keeping Butler's own word wherever it is still current ('felt sure'; 'taken in fresh water' from 9.4). Seven optional repairs clear dead idioms and modern false friends that the reader decoded but a present-day reader stumbles on: 'He took nothing by it', 'paying their addresses' (-> Butler's own 'courting'), 'rest in peace', present-tense 'presently', 'backed the wind', 'giving me a call' and 'sea-horses'. The other named archaisms ('Fall to', 'short shrift', 'bondwoman', 'bruised barley', 'a piece of plate', 'his wicked wife', 'so long as') are kept, because the reader recovers them in context, the text glosses them, or they are not wording problems. All of the 2026-09-23 screening's rulings, the GLOSSARY connectives and ¶0's opening words are also untouched. The nested speech of ¶27-47 is tagged at every change of speaker, and the reader attributed every speech correctly. The sweep found none of the brief's standard dead senses (mess, substance, meet, want, save, stay, would that and the rest) left in the modern text, and no item is blocking."
+}

@@ -1,0 +1,91 @@
+{
+ "book": "formula-friends",
+ "packet": "packets/formula-friends.md",
+ "mechanical": {
+  "script": "mech_b07_b08_ff.py (independent; exit 0)",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-b2-8-17.json",
+  "after_sha256": "34f2113c2cc06f0a4d3f7698c598e4fbe2073732d4a3c22bbad0372114ac8318",
+  "structure": "identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45]",
+  "texts": "packet BUTLER equals the served original-en (after joining PG's hard line wraps); packet BEFORE, AFTER and CONTEXT equal the files",
+  "conventions_scan": "no ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces in any AFTER paragraph in scope",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run",
+  "scope": "For 2.23, 4.39, 5.3, 5.8 and 9.40, the single listed edit applied to BEFORE reproduces AFTER byte for byte: no other difference in these paragraphs. Other paragraphs of Books 2, 4, 5 and 9 also differ in this file; other verifiers cover them and they were ignored here."
+ },
+ "paragraphs": [
+  {
+   "site": "2.23",
+   "book": 2,
+   "p": 23,
+   "edits": [
+    "FR-2.23"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed: Od. 2.333 τῆλε φίλων ἀπόληται, 'perish far from his dear ones'. A suitor sneers that Telemachus may die abroad like his father. 'Loved ones' is right and sits naturally in the sneer. Butler's paragraph has no 'love' or 'dear'."
+  },
+  {
+   "site": "4.39",
+   "book": 4,
+   "p": 39,
+   "edits": [
+    "FR-4.39"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed: Od. 4.475-476 οὐ γάρ τοι πρὶν μοῖρα φίλους τ' ἰδέειν καὶ ἱκέσθαι οἶκον ἐϋκτίμενον, Proteus to Menelaus. The paired 'and to your own house' shows that the home circle is meant, and Helen's being aboard does not change the formula's sense. Butler's paragraph has no 'love' or 'dear'."
+  },
+  {
+   "site": "5.3",
+   "book": 5,
+   "p": 3,
+   "edits": [
+    "FR-5.3"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed: Od. 5.41-42 φίλους τ' ἰδέειν καὶ ἱκέσθαι οἶκον ἐς ὑψόροφον, Zeus to Hermes. Butler's paragraph has no 'love' or 'dear'."
+  },
+  {
+   "site": "5.8",
+   "book": 5,
+   "p": 8,
+   "edits": [
+    "FR-5.8"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed, and Butler himself reinforces it: Od. 5.113-114 has φίλων ἀπονόσφιν, which Butler renders 'far from his own people' (kept), and then φίλους τ' ἰδέειν, his 'see his friends', now 'see his loved ones'. The two stay distinct English words, as Butler has them, so there is no collision."
+  },
+  {
+   "site": "9.40",
+   "book": 9,
+   "p": 40,
+   "edits": [
+    "FR-9.40"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed: Od. 9.532 ἀλλ' εἴ οἱ μοῖρ' ἐστὶ φίλους τ' ἰδέειν καὶ ἱκέσθαι…, Polyphemus's curse. 'His men' (ἑταίρους, companions) is rightly untouched, so 'loved ones' (home) and 'men' (crew) stay apart. The class-C bracket disposition is unchanged."
+  }
+ ],
+ "rule_findings": [
+  {
+   "id": "F1",
+   "class": "coverage",
+   "site": "1.4",
+   "finding": "The rule says 'every occurrence of the formula: 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40'. It misses Butler 1.4, 'far away, poor man, from all his friends', which is Od. 1.49 ὃς δὴ δηθὰ φίλων ἄπο πήματα πάσχει, word for word the half-line converted at 7.12 (Od. 7.152 ἐπεὶ δὴ δηθὰ φίλων ἄπο πήματα πάσχω). AFTER 1.4 is unchanged and reads 'far from all his friends, poor man'. So one Homeric line now has two renderings, and the unrepaired one is the first the reader meets, in Athena's first speech. I checked all 93 occurrences of 'friend(s)' in Butler and found no other formula site: Butler renders the formula's other occurrences without 'friends' (6.22 = Od. 6.314 'see your own country again'; 8.35 = Od. 8.411 'long away from home').",
+   "proposed_fix": "Companion edit at 1.4: 'far from all his loved ones, poor man' (Butler 1.4 has no 'love' or 'dear'). Otherwise, restate the rule's list so that it does not claim every occurrence."
+  },
+  {
+   "id": "F2",
+   "class": "awareness (not required by the rule as scoped)",
+   "site": "13.3, 24.10, 23.11",
+   "finding": "Other uses of 'friends' in the kin sense, outside the homecoming formula, remain: 13.3 (Od. 13.43 σὺν ἀρτεμέεσσι φίλοισιν, 'living peacefully among friends'), 24.10 (Od. 24.187 φίλοι κατὰ δώμαθ', 'our friends at home') and 23.11 (Od. 23.120 πηούς, kinsmen, 'say goodbye to his friends'). They are listed so that the rule's scope is a decision rather than an accident.",
+   "proposed_fix": "None required."
+  }
+ ],
+ "summary": "5 sites, 5 edits, all VERIFIED CLEAN. Each is the Homeric formula for one's philoi at home (Od. 2.333, 4.475, 5.41, 5.114, 9.532), as are 7.7 (Od. 7.76) and 7.12 (Od. 7.152). No site is one where 'loved ones' would be wrong. Each paragraph differs from BEFORE only by its listed edit, no Butler paragraph has 'love' or 'dear', and 5.8 keeps Butler's distinct 'own people'. Rule coverage is incomplete: Butler 1.4 (Od. 1.49, the same half-line as 7.152) still reads 'friends'. Add the companion edit or restate the list.",
+ "overall": "VERIFIED CLEAN (5/5 sites); rule coverage finding F1 (1.4) outside the packet"
+}

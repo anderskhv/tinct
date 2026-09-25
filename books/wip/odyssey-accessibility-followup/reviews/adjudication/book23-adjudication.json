@@ -1,0 +1,408 @@
+{
+ "book": 23,
+ "proposals": [
+  {
+   "id": "B23-01",
+   "p": 12,
+   "kind": "barrier",
+   "quote_modern": "you will not find us fail you",
+   "replacement": "you will not find us failing you",
+   "butler": "nor shall you find us fail you in so far as our strength holds out",
+   "reader_evidence": "Barrier ¶12 'you will not find us fail you' (syntax, pause, high): read as \"'We won't let you down.'\" Note: 'Odd grammar; sounds wrong aloud.'",
+   "reason": "Current English does not take a bare infinitive after 'find' + object in this sense. It says 'find us failing you'. So Telemachus's promise of loyalty reads as a dropped '-ing', a typo rather than a dated idiom, on the page and aloud. PUNCTUATION.md §5 (D16) repairs Butler's marks on the same test: fix what a modern reader takes for an error. Butler's verb, object and sense are kept, and only the verb form changes. The meaning is recoverable, so this is optional. Nothing else in ¶12 moves, including 'Look to it yourself', which is ruled on separately and kept.",
+   "severity": "optional",
+   "collision_check": "Butler's ¶12 has 'fail' only here. His other verbs (look to, say, compare, follow, holds out) are untouched, and no Butler word is reused."
+  },
+  {
+   "id": "B23-02",
+   "p": 16,
+   "kind": "barrier",
+   "quote_modern": "Bring the bed outside this room",
+   "replacement": "Bring the bed outside that room",
+   "butler": "Nevertheless, Euryclea, take his bed outside the bed chamber that he himself built. Bring the bed outside this room, and put bedding upon it",
+   "reader_evidence": "Barrier ¶16 'Bring the bed outside this room' (action, unsure, medium): \"'This room' is confusing because she is speaking in the hall, not in the bedroom.\" Book-level note 6 also names \"'this room' versus 'the bedroom' in ¶16\". The paraphrase gets the right action only from the sentence before.",
+   "reason": "This is a deixis problem. Butler's 'this' points back to the chamber named in the sentence before, which Victorian prose allowed. In present-day speech, 'this room' means the room the speaker is standing in. Penelope is speaking in the hall (¶8: the fire, the pillars, the seat opposite Odysseus). So her second order seems to send the bed out of the hall, and the two orders appear to contradict each other at the trap the scene turns on. 'that' sends the reader back to the bedroom, as Butler's 'this' does, and the Greek has 'there' (ἔνθα) at this point. One word changes. Nothing is added or resolved: the order is still the trick that ¶17 exposes. The accepted ¶16 wording ('put on airs', 'belittle') is untouched.",
+   "severity": "recommended",
+   "collision_check": "Butler's ¶16 has 'that' only as the relative in 'the bed chamber that he himself built' (modern: 'the bedroom that he himself built'). That is a function word doing a different job, so no content word is added or reused. 'bed', 'outside' and 'room' are Butler's and stay."
+  },
+  {
+   "id": "B23-03",
+   "p": 27,
+   "kind": "barrier",
+   "quote_modern": "had had enough both of his wife and of rest",
+   "replacement": "had had his fill both of his wife and of rest",
+   "butler": "When she deemed that Ulysses had had both of his wife and of repose",
+   "reader_evidence": "Barrier ¶27 'had had enough both of his wife and of rest' (word, pause, high): \"Had enjoyed enough lovemaking and sleep. The modern idiom 'had enough of' (= fed up with) makes it sound as if he had tired of his wife.\"",
+   "reason": "The modernization introduced this false friend. Butler has no 'enough'. His elliptical 'had had both of his wife and of repose' means Odysseus had taken his pleasure of both. With a person as its object, 'have had enough of' is the current idiom for being fed up ('I've had enough of you'). So, at the close of the reunion, the line now says Athena judged Odysseus tired of Penelope. The drafter supplied 'enough' to Butler's elliptical 'had had', as the edition does harmlessly at 8.44 ('had had to eat and drink' becomes 'had had enough to eat and drink'). With food as the object, 'enough' means satisfied, as in Butler's own 'had had enough to eat and drink' (3.7, 4.7, 8.5); with a person as the object, it means fed up. 'his fill' is Butler's own word for the same enjoyment two paragraphs earlier: 'When Ulysses and Penelope had had their fill of love' (¶25, printed so in the modern). It renders the same Greek verb (τέρπομαι: εὐνῆς ἧς ἀλόχου ταρπήμεναι ἠδὲ καὶ ὕπνου), and the echo steers the reading. 'both … and', 'wife' and 'rest' stay.",
+   "severity": "recommended",
+   "collision_check": "Butler's ¶27 has 'filled' ('till they shall have filled all my yards') and 'full' ('our full share of troubles'). The noun 'fill' shares a root with the first. It is a different word with a different sense (satisfaction, not filling the pens), so I record a shared root, not Butler's word reused for something else. If the lead wants no overlap at all, the fallback is 'had enjoyed both his wife and his rest'. 'enjoy' is the sense of the Greek verb and occurs nowhere in Butler's ¶27, but the register is franker."
+  },
+  {
+   "id": "B23-04",
+   "p": 27,
+   "kind": "barrier",
+   "quote_modern": "it will at once get abroad",
+   "replacement": "it will at once get about",
+   "butler": "At sunrise it will at once get abroad that I have been killing the suitors",
+   "reader_evidence": "Barrier ¶27 'it will at once get abroad' (word, pause, high): \"The news will spread at once (not 'go overseas').\" Note: 'Archaic.' Book-level note 4 lists 'get abroad' among the Book's archaisms.",
+   "reason": "This is a dead sense. 'abroad' now means 'overseas', and 'get abroad' for 'become known' has dropped out of use, so the reader had to rule out 'go overseas'. The same Book already prints Butler's own phrase for the same event, the news of the killing spreading through the town: 'no rumors about the suitors' death will get about in the town' (¶13). Using it here restores Butler's phrase under D29 rather than inventing a new rendering, and 24.28 already renders Butler's 'noised abroad' as 'spread news of'. One word changes. The 'that' clause makes the meaning recoverable, so this is optional.",
+   "severity": "optional",
+   "collision_check": "Butler's ¶27 has no 'about'. 'get' is his own verb here, and 'getting home' earlier in the paragraph is unaffected. No Butler word is reused."
+  }
+ ],
+ "rejected_barriers": [
+  {
+   "p": 0,
+   "quote": "my dear child",
+   "reason": "Butler's own words ('Wake up Penelope, my dear child'), kept exactly. It is an old servant's endearment to her mistress. Butler never says in Book 23 whose nurse Eurycleia is: she is introduced in Book 1, and she nursed Odysseus himself (Book 19, the washing and the boar scar that ¶6 recalls). The 'Penelope's nurse' reading comes from missing context from earlier Books, not from the modern wording (see reader_errors). No gloss is added, because this is dialogue and not her first appearance."
+  },
+  {
+   "p": 1,
+   "quote": "My good nurse",
+   "reason": "Butler's word, read correctly as a household nurse, not a medical one."
+  },
+  {
+   "p": 1,
+   "quote": "that city with its ill-omened name",
+   "reason": "Butler's periphrasis for Troy (Homer's 'Evil-Ilium, not to be named'). It is the poem's own avoidance of the name, and naming the city would undo the figure. The reader identified Troy."
+  },
+  {
+   "p": 2,
+   "quote": "in the gallery",
+   "reason": "GLOSSARY row: Butler's 'cloister(s)' is 'the gallery', fixed at Book 1 for this part of the house and held throughout (also 23.8, 23.24, 24.10). The reader identified it as the great hall, so there is no misunderstanding that would justify overriding the row."
+  },
+  {
+   "p": 2,
+   "quote": "He was the stranger",
+   "reason": "The beggar disguise is backstory from Books 13–22. Butler says no more here, and by instruction the poem's disguises are not explained. The reader inferred it correctly."
+  },
+  {
+   "p": 4,
+   "quote": "purify the house with sulfur",
+   "reason": "Butler's 'purify the house with sulphur', in American spelling. Read correctly."
+  },
+  {
+   "p": 5,
+   "quote": "the Achaean land",
+   "reason": "Ethnic name, kept unglossed by instruction. The reader's 'Greece' is right."
+  },
+  {
+   "p": 5,
+   "quote": "It is some god who is angry with the suitors",
+   "reason": "This is Penelope's own reasoning in Butler, word for word. The swing from joy (¶3) to denial is the poem's, and the reader's reading (a god killed the suitors, not Odysseus) is Butler's."
+  },
+  {
+   "p": 6,
+   "quote": "the scar the wild boar gave him",
+   "reason": "Backstory from Book 19 (the washing and the scar's history). Butler says only 'the scar which the wild boar gave him'. The reader read it correctly, and 24.20 retells the scar's origin."
+  },
+  {
+   "p": 7,
+   "quote": "you can hardly fathom the counsels of the gods",
+   "reason": "Butler's words. The reader took 'counsels' as plans, which is right. Penelope leaves the link to the nurse's evidence unstated in Butler too, so this is her reticence, not a gap left by the modernization."
+  },
+  {
+   "p": 8,
+   "quote": "against the wall at right angles to the one by which she had entered",
+   "reason": "This is Butler's class-B bracket ('at right angles [to that by which she had entered]', PG 10132), dissolved under GLOSSARY D12. Every word is Butler's, and the reader pictured it correctly."
+  },
+  {
+   "p": 10,
+   "quote": "tokens with which we two are alone acquainted",
+   "reason": "Butler's phrasing, in the edition's dignified register. The reader read it correctly with high confidence (secret signs only the two of them know). The same sentence already carries the accepted 'in time' fix, which is not undone."
+  },
+  {
+   "p": 11,
+   "quote": "presently",
+   "reason": "Ruling: keep. After a future verb ('she will make up her mind about it presently') the word can only mean 'soon'; the 'currently' sense needs a present tense. The edition and the other Books' adjudications keep it on this rule (4.57 'He will be giving us trouble presently', 10.44 'The seer will come to you presently'). The reader glossed it correctly."
+  },
+  {
+   "p": 11,
+   "quote": "even if the dead man would leave few friends to take up his quarrel",
+   "reason": "This is the accepted record's fix of Butler's double negative, and it is not undone. The reader followed the argument exactly."
+  },
+  {
+   "p": 12,
+   "quote": "Look to it yourself, father",
+   "reason": "Ruling: keep. These are Butler's words, and 'look to' (attend to, see to) is current. The reason Telemachus gives in the same breath ('for they say you are the wisest counselor in the world') makes the sense 'it is for you to decide' explicit. The reader read it correctly with high confidence."
+  },
+  {
+   "p": 13,
+   "quote": "First wash and put your shirts on",
+   "reason": "Butler's words. 'shirt' is his steady word for the tunic (also ¶14, and ¶15's 'a shirt and cloak'), and ¶4 has shown why they must wash (blood and filth). The reader's reading (wash, then put on clean tunics) is right."
+  },
+  {
+   "p": 15,
+   "quote": "The upper servant Eurynome",
+   "reason": "The reader's reading is correct: a senior servant, a different woman from Eurycleia. The near-identical names are Homer's and Butler's, and ¶24 names both women side by side."
+  },
+  {
+   "p": 15,
+   "quote": "anointed",
+   "reason": "Current English, read correctly (oiled after the bath)."
+  },
+  {
+   "p": 15,
+   "quote": "flow down in curls like hyacinth blossoms",
+   "reason": "Butler's simile, read correctly."
+  },
+  {
+   "p": 15,
+   "quote": "as a skillful workman enriches a piece of silver plate by gilding it",
+   "reason": "Butler's image, the same simile as 6.17, which the current modern renders identically. 'silver plate' (silver ware) is kept there, and 4.49–4.50 keep 'a piece of plate'. Picturing a silver dish is not a misreading, and the reader understood the comparison exactly."
+  },
+  {
+   "p": 15,
+   "quote": "a man who has studied every kind of art under Hephaestus or Athena",
+   "reason": "The accepted text has already moved Butler's inserted clause after the main comparison, exactly as at 6.17 for the same simile. The reader attached it, and 'his work', to the craftsman correctly. Hephaestus is kept unglossed (GLOSSARY name mapping)."
+  },
+  {
+   "p": 15,
+   "quote": "No other woman could bear to keep away from her husband",
+   "reason": "Butler repeats Telemachus's rebuke from ¶9 word for word, as Homer does. It is a deliberate echo, and the package's rule that meaningful repetitions survive keeps it identical."
+  },
+  {
+   "p": 16,
+   "quote": "I am not struck by your appearance, for I very well remember what kind of a man you were",
+   "reason": "Ruling: keep. These are Butler's words, and the reader's two readings are the two the line has always carried: Penelope is deliberately noncommittal just before she springs her test. Choosing one would resolve Butler's (and Homer's) ambiguity. 'struck by' (amazed, impressed) is current."
+  },
+  {
+   "p": 17,
+   "quote": "She said this to try him",
+   "reason": "Ruling: keep. 'try' in the sense 'put to the test' is current ('tried and tested', 'try someone's patience'). The purpose clause already tells the reader the order was a deliberate ploy, whatever shade they give the verb. ¶11 prepares it ('Let your mother put me to any proof she likes') and ¶18 confirms it ('you have convinced me by showing that you know all about our bed'). The reader glossed it correctly with high confidence. If the lead still wants the plainer verb, 'test' is faithful and matches 24.14's 'to test his father', but I do not propose it."
+  },
+  {
+   "p": 17,
+   "quote": "made the trunk the center post of my bed",
+   "reason": "This is an accepted accessibility fix ('the trunk') and is not undone. The reader drew exactly the key fact: the bed is anchored to the living tree."
+  },
+  {
+   "p": 17,
+   "quote": "I then bored a hole down the middle",
+   "reason": "Butler's carpentry, word for word. Butler says no more, and supplying 'of the trunk' or the hole's purpose would add interpretation. The fact the test turns on survives, as the paraphrase shows."
+  },
+  {
+   "p": 17,
+   "quote": "making it straight by drawing a line on the wood",
+   "reason": "Butler's 'straightening my work by drawing a line on the wood', read correctly."
+  },
+  {
+   "p": 17,
+   "quote": "I stretched a hide of crimson leather from one side of it to the other",
+   "reason": "Butler's words, read correctly."
+  },
+  {
+   "p": 18,
+   "quote": "Zeus’s daughter Helen would never have yielded herself to a man from a foreign country",
+   "reason": "Butler's words, with 'Zeus's' for his 'Jove's' under the name mapping. Penelope leaves the link implicit in Butler too, and Paris and the war are backstory. The reader drew the intended point."
+  },
+  {
+   "p": 18,
+   "quote": "the daughter of Actor",
+   "reason": "Ruling: keep. This is Butler's patronymic, kept by instruction. On the page, the capital letter and the missing article mark a personal name, and the reader read it correctly with high confidence. The risk of hearing 'an actor' belongs to the audio edition's pronunciation, not to the text, and a gloss would be an addition inside dialogue."
+  },
+  {
+   "p": 19,
+   "quote": "As the sight of land is welcome to men who are swimming toward the shore",
+   "reason": "Butler's (and Homer's) simile, including its turn to Penelope's point of view. The reader followed it exactly."
+  },
+  {
+   "p": 19,
+   "quote": "indulging their sorrow",
+   "reason": "Butler's words, read correctly."
+  },
+  {
+   "p": 19,
+   "quote": "rosy-fingered Dawn",
+   "reason": "GLOSSARY epithet, read correctly."
+  },
+  {
+   "p": 19,
+   "quote": "held night back in the far west, while she would not allow Dawn to leave Oceanus",
+   "reason": "Butler's mythology, read correctly. Oceanus is met in earlier Books and kept unglossed."
+  },
+  {
+   "p": 20,
+   "quote": "the shade of Tiresias",
+   "reason": "Butler's 'shade' (ghost), read correctly. Tiresias is the prophet of Books 10–11."
+  },
+  {
+   "p": 22,
+   "quote": "a winnowing shovel",
+   "reason": "Butler's term, first met in Tiresias's prophecy in Book 11, and the reader explained it exactly. It stands in dialogue, where the package allows no gloss. The sentence itself carries the sign: an inland people who take an oar for a farm tool."
+  },
+  {
+   "p": 22,
+   "quote": "do not even mix salt with their food",
+   "reason": "Butler's words, read correctly."
+  },
+  {
+   "p": 22,
+   "quote": "sacrifice a ram, a bull, and a boar to Poseidon",
+   "reason": "Poseidon's anger is backstory from Books 1, 5 and 9. Butler says nothing more here, and it is not explained."
+  },
+  {
+   "p": 22,
+   "quote": "death should come to me from the sea",
+   "reason": "Butler's words keep the prophecy's traditional ambiguity, and resolving it would be interpretation."
+  },
+  {
+   "p": 24,
+   "quote": "the nurse went back into the house",
+   "reason": "Butler's words. The reader's reading (back to her own quarters) is right, and the plan of the house is Butler's."
+  },
+  {
+   "p": 24,
+   "quote": "the rites of their own old bed",
+   "reason": "Butler's euphemism, read correctly with high confidence."
+  },
+  {
+   "p": 24,
+   "quote": "Telemachus, Philoetius, and the swineherd",
+   "reason": "Eumaeus and Philoetius are introduced in earlier Books, and Butler names them the same way here. Not a defect."
+  },
+  {
+   "p": 26,
+   "quote": "the Cicons",
+   "reason": "¶26 is Butler's summary of Books 9–12, where these names are introduced. Explaining them would add content."
+  },
+  {
+   "p": 26,
+   "quote": "the fertile land of the Lotus-eaters",
+   "reason": "As above: Book 9's episode, summarized in Butler's words."
+  },
+  {
+   "p": 26,
+   "quote": "but even so he was not to reach home, for to his great grief a hurricane carried him out to sea again",
+   "reason": "Butler's summary. The bag of winds is told in Book 10 and is not explained here."
+  },
+  {
+   "p": 26,
+   "quote": "cunning Circe and her craft",
+   "reason": "'craft' here has its current sense of guile (as in 'crafty'), and 'cunning' beside it fixes that sense. The reader took it as trickery."
+  },
+  {
+   "p": 26,
+   "quote": "the Wandering rocks and terrible Charybdis and to Scylla, whom no man had ever yet passed in safety",
+   "reason": "Butler's names from Book 12. Not explained."
+  },
+  {
+   "p": 26,
+   "quote": "his men then ate the cattle of the sun-god, and how Zeus therefore struck the ship",
+   "reason": "The 'therefore' is Butler's. The ban is told in Book 12, and the reader inferred it."
+  },
+  {
+   "p": 26,
+   "quote": "the Ogygian island",
+   "reason": "Butler's adjective for Calypso's island, read correctly."
+  },
+  {
+   "p": 27,
+   "quote": "gold-enthroned Dawn rise out of Oceanus",
+   "reason": "Butler's epithet, read correctly."
+  },
+  {
+   "p": 27,
+   "quote": "will make the Achaeans replace the rest until they have filled all my yards",
+   "reason": "'Achaeans' is kept unglossed by instruction, and whom Odysseus means is just as open in Butler. The reader read 'yards' (animal pens) correctly."
+  },
+  {
+   "p": 28,
+   "quote": "sallied forth",
+   "reason": "Ruling: keep for comprehension. Butler's phrase is current if dated, and the reader read it correctly with high confidence. For the lead (see recurring): Butler's identical formula 'opened the gate(s) and sallied forth, Ulysses leading the way' is printed 'marched out' at 24.37. Making the two agree is a consistency decision, not a comprehension repair."
+  }
+ ],
+ "reader_errors_not_caused_by_text": [
+  {
+   "p": 0,
+   "reader_said": "Barrier ¶0: Eurycleia \"speaks with the affection of a former nanny. Because she calls Penelope 'my dear child', it reads as if she raised Penelope\". Book-level note 2: \"whose nurse is never said (it reads as Penelope's)\".",
+   "butler": "“Wake up Penelope, my dear child,” … “My good nurse,” answered Penelope (¶1) … Then nurse Euryclea said (¶6)",
+   "why_text_is_clear": "The modern keeps Butler's words exactly, and Butler does not say in Book 23 whose nurse she is. She is introduced in Book 1, and she nursed Odysseus himself in Book 19, where she washes him and finds the boar scar that ¶6 recalls. 'my dear child' is an old servant's endearment to her mistress. The modern has lost nothing Butler gives here, so no repair or gloss is needed (it is dialogue in any case)."
+  },
+  {
+   "p": 22,
+   "reader_said": "His own death will come 'from the sea', gently, in a peaceful old age among a prosperous people.",
+   "butler": "my life should ebb away very gently when I was full of years and peace of mind, and my people should bless me",
+   "why_text_is_clear": "The modern prints Butler's clause intact: 'and my people should bless me'. 'a prosperous people' is another translation's reading of the Greek, not this text's. Nothing in the wording invites it."
+  }
+ ],
+ "recurring": [
+  {
+   "item": "presently (= soon, after a while)",
+   "rendering": "Keep as printed. After a future verb (23.11, 'she will make up her mind about it presently') and in past narration (24.7, 24.44) it cannot be read as 'currently'. This is the tense rule the other Books' adjudications apply: kept at 4.57 and 10.44, changed only at the present-tense 4.8.",
+   "where": [
+    "23.11",
+    "24.7",
+    "24.44"
+   ]
+  },
+  {
+   "item": "'get abroad' / 'noised abroad' (news spreading)",
+   "rendering": "'get about' at 23.27 (B23-04), Butler's own phrase for the same news at 23.13. 24.28 already prints 'spread news of' for Butler's 'noised abroad'.",
+   "where": [
+    "23.13",
+    "23.27",
+    "24.28"
+   ]
+  },
+  {
+   "item": "'had (their) fill' (Butler's word for the enjoyment of love; same Greek verb at 23.25 and 23.27)",
+   "rendering": "'his fill' at 23.27 (B23-03), echoing 23.25's 'had had their fill of love'. Butler's formula 'had had enough to eat and drink' (3.7, 3.35, 4.7, 5.7, 8.5; the modern supplies 'enough' to his elliptical 'had had to eat and drink' at 8.44) is untouched: its object is food, so 'enough' there carries no 'fed up' sense.",
+   "where": [
+    "23.25",
+    "23.27"
+   ]
+  },
+  {
+   "item": "'opened the gate(s) and sallied forth, Ulysses leading the way' (one Butler formula, used twice)",
+   "rendering": "No comprehension repair is proposed, because the reader understood both. It is printed 'sallied forth' at 23.28 and 'marched out' at 24.37. If the lead wants one form, the choice is between restoring Butler's current-if-dated phrase at 24.37 (D29) and extending the accepted, plainer 'marched out' to 23.28.",
+   "where": [
+    "23.28",
+    "24.37"
+   ]
+  },
+  {
+   "item": "Butler's 'try him' / 'make trial of' (= put to the test)",
+   "rendering": "'try' is kept at 23.17 (ruling). 24.14 already prints 'test' for 'make trial of'. 'test' is the fallback at 23.17 if the lead wants it.",
+   "where": [
+    "23.17",
+    "24.14"
+   ]
+  },
+  {
+   "item": "cloister(s) → 'the gallery' (GLOSSARY row)",
+   "rendering": "Kept. The reader identified the great hall at every occurrence.",
+   "where": [
+    "23.2",
+    "23.8",
+    "23.24",
+    "24.10"
+   ]
+  },
+  {
+   "item": "by and by",
+   "rendering": "23.10's accepted 'in time' (future sense) stands. 24.25's 'By and by' is past narration and is kept, because 'in time' there would read as 'punctually'.",
+   "where": [
+    "23.10",
+    "24.25"
+   ]
+  },
+  {
+   "item": "save (= except)",
+   "rendering": "Kept at 23.26 ('save himself and his own ship only'). Whether it is read as 'except' or as 'saving', it gives the same fact: he and his ship survived.",
+   "where": [
+    "23.26"
+   ]
+  },
+  {
+   "item": "patronymics and ethnic names",
+   "rendering": "Kept unglossed by instruction ('the daughter of Actor', 'the Achaean land', 'the Achaeans').",
+   "where": [
+    "23.5",
+    "23.18",
+    "23.27"
+   ]
+  }
+ ],
+ "summary": "Book 23 is highly comprehensible: all 29 paraphrases match Butler, except that the reader takes Eurycleia for Penelope's nurse (context from Books 1 and 19 that Butler does not repeat here) and makes one small slip at ¶22. Of 56 barriers, four mark wording that genuinely costs a present-day reader. Two repairs are recommended: the modernization's own false friend 'had had enough both of his wife' (¶27, read as 'fed up with') becomes Butler's 'his fill' from ¶25, and the deictic 'this room' in the bed-test order (¶16) becomes 'that room'. Two are optional: the dead 'get abroad' (¶27) becomes Butler's own 'get about' from ¶13, and 'find us fail you' (¶12), which reads as a typo, becomes 'failing'. The other barriers are pauses over Butler's names, patronymics and GLOSSARY renderings, the poem's deliberate ambiguities ('I am not struck by your appearance', 'death … from the sea'), the ¶26 catalogue of earlier Books, and dated but transparent idioms, all read correctly. As rulings, 'She said this to try him', 'Look to it yourself', 'presently', 'the daughter of Actor' and 'sallied forth' are kept, though 24.37 prints 'marched out' for the same Butler formula (flagged, not proposed); nothing is blocking."
+}

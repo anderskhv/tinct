@@ -1,0 +1,41 @@
+{
+ "book": 9,
+ "packet": "packets/book09.md",
+ "mechanical": {
+  "script": "mech_final_v5.py (independent; exit 0); packet_check_v5.py; collide_v5.py; xref_v5.py",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-final.json",
+  "after_sha256": "862066e2c5457d167bac0bb61daea1ed0e4c865fff39eafe6e866a2af6605f6c",
+  "edits": "ody/edits-final.json, 63 entries, sha256 7ee10cde43b4326e98a809e9481a823b94b593f32b4676a672e34446cae0772f",
+  "reproduction": "All 63 edits applied to BEFORE reproduce AFTER byte for byte, serialized with json.dumps(obj, ensure_ascii=False, indent=2) and no trailing newline. Each 'old' occurs exactly once in its BEFORE paragraph, no spans overlap, and positional and sequential application agree. BEFORE and AFTER each round-trip byte-identically under that serialization.",
+  "structure": "Identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45].",
+  "unlisted_edits": "None. Across the edition, 55 paragraphs differ BEFORE->AFTER, exactly the 55 paragraphs that carry listed edits, and every edit's 'new' is present in its AFTER paragraph.",
+  "texts": "Packet BUTLER equals the served original-en (orig-main.json, whitespace-normalized). Packet BEFORE, AFTER and every CONTEXT paragraph equal the files. The PG #1727 source copy hashes to the D30 anchor ffbdb29c... (717,784 bytes).",
+  "conventions_scan": "No ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces and no Roman names in any AFTER paragraph in scope. No edit alters punctuation or quotation structure.",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run.",
+  "scope": "Book 9 paragraphs in this packet: 36 and 40. For each, the word diff BEFORE->AFTER is exactly the listed edit ('made'->'felt'; 'friends'->'loved ones'). No unlisted edits."
+ },
+ "paragraphs": [
+  {
+   "p": 36,
+   "edits": [
+    "B09-01"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Butler's 'made sure' is the dead sense 'felt certain' (Od. 9.496 καὶ δὴ φάμεν αὐτόθ᾽ ὀλέσθαι, 'we thought we were lost then and there'). Read today it means 'ensured', so the men seem to say they ensured their own deaths. 'felt sure' is Butler's own phrase for this sense (PG #1727 line 9799, 'he felt sure it was Minerva', checked in the pinned source), so the edit is a D29 restoration, not a paraphrase. 'sure', 'had been' and 'the death of us' are kept. The packet's consistency worry is settled: the final list also changes 4.54 and 4.57 to 'had felt sure' (B04-03, B04-04), and none of Butler's eight 'made sure' survives in the AFTER. 13.28, 16.3 and 17.3 print 'was sure', 16.31 'were sure' and 20.0 'thought you were doomed'. The remaining 'make sure' at 4.43, 13.2 and 16.34 is the current 'ensure' sense and correct. Butler ¶36 has no 'felt', so there is no collision. Punctuation is untouched."
+  },
+  {
+   "p": 40,
+   "edits": [
+    "FR-9.40"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Kin sense confirmed. Od. 9.532 φίλους τ᾽ ἰδέειν καὶ ἱκέσθαι οἶκον ἐϋκτίμενον ('to see his dear ones and reach his well-built house') uses the same formula (φίλους τ᾽ ἰδέειν καὶ ἱκέσθαι) as 7.76 (7.7 here), which the Book 7 blind reader flagged. 'loved ones' is the current, register-neutral word for φίλοι in this sense. The AFTER carries it at all eight formula sites (1.4, 2.23, 4.39, 5.3, 5.8, 7.7, 7.12, 9.40; checked). Butler's nearest other 'friends' are not the formula: 8.6 and 8.16 'tell his friends' on his return, 23.11, and 24.10 'our friends at home'. His Nausicaa line (6.22, Od. 6.314-315) has no 'friends' ('you may hope to see your own country again'), so the rule's list is complete. The rest of the curse is untouched: never reach home alive, late, in sore plight, after losing all his men, in another man's ship, trouble in his house. Neither Butler ¶40 nor the AFTER has 'love' or 'dear', so there is no collision."
+  }
+ ],
+ "summary": "2 paragraphs, 2 edits (B09-01, FR-9.40): 2 VERIFIED CLEAN, 0 defects. Scope exact. Both edits restore Butler's sense with Butler's own or the rule's fixed wording. 'felt sure' is now uniform across the package Books (4.54, 4.57, 9.36).",
+ "overall": "OVERALL: VERIFIED CLEAN"
+}

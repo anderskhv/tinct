@@ -1,0 +1,68 @@
+{
+ "book": 24,
+ "packet": "packets/book24.md",
+ "mechanical": {
+  "script": "mech_final_v5.py (independent; exit 0); packet_check_v5.py; collide_v5.py; xref_v5.py",
+  "before": "ody/gate/app/public/data/editions/odyssey-modern-en.json",
+  "before_sha256": "bd05c7f43da64bfe4ad9908531f2a1434e79acc8635ca54cb1ad39942e9afc9c",
+  "after": "ody/successor-final.json",
+  "after_sha256": "862066e2c5457d167bac0bb61daea1ed0e4c865fff39eafe6e866a2af6605f6c",
+  "edits": "ody/edits-final.json, 63 entries, sha256 7ee10cde43b4326e98a809e9481a823b94b593f32b4676a672e34446cae0772f",
+  "reproduction": "All 63 edits applied to BEFORE reproduce AFTER byte for byte, serialized with json.dumps(obj, ensure_ascii=False, indent=2) and no trailing newline. Each 'old' occurs exactly once in its BEFORE paragraph, no spans overlap, and positional and sequential application agree. BEFORE and AFTER each round-trip byte-identically under that serialization.",
+  "structure": "Identical: 24 chapters, 1,027 paragraphs, chapter numbers and titles equal, per-chapter counts equal [32, 35, 38, 81, 37, 26, 29, 50, 44, 49, 54, 39, 38, 35, 48, 45, 63, 41, 39, 36, 42, 52, 29, 45].",
+  "unlisted_edits": "None. Across the edition, 55 paragraphs differ BEFORE->AFTER, exactly the 55 paragraphs that carry listed edits, and every edit's 'new' is present in its AFTER paragraph.",
+  "texts": "Packet BUTLER equals the served original-en (orig-main.json, whitespace-normalized). Packet BEFORE, AFTER and every CONTEXT paragraph equal the files. The PG #1727 source copy hashes to the D30 anchor ffbdb29c... (717,784 bytes).",
+  "conventions_scan": "No ASCII quotes or apostrophes, no 'towards', no spaced or en dashes, no double spaces and no Roman names in any AFTER paragraph in scope. No edit alters punctuation or quotation structure.",
+  "greek": "Greek cited from the standard Homeric text, from knowledge; no web access in this run.",
+  "scope": "Book 24 paragraphs in this packet: 10, 14, 15, 20 and 23. Word diffs are 'to be competed [for] by'->'as a contest [for]'; 'doubted'->'did not know'; 'but bears'->'that does not bear'; 'corn'->'grain'; 'stouter'->'sturdier'. These are exactly the listed edits B24-L1 and B24-01 to B24-04. No unlisted edits. The CONTEXT paragraphs ¶14 and ¶15 are quoted in their AFTER form, as labeled."
+ },
+ "paragraphs": [
+  {
+   "p": 10,
+   "edits": [
+    "B24-L1"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Faithful to Butler's sense, with no meaning change, and it fixes the misread. Butler's 'to be contended for' cuts both ways in his own usage. It is the prize sense at 21.2 ('the prize that you are contending for', Penelope) and 24.6 (Thetis's prizes). With the bow as object it means 'compete over' at 21.3 ('We suitors shall have to contend for it with might and main, for we shall find it no light matter to string such a bow'). Butler's rendering of the same Greek lines settles it. Od. 24.168-169 τόξον μνηστήρεσσι θέμεν πολιόν τε σίδηρον, ἡμῖν αἰνομόροισιν ἀέθλια καὶ φόνου ἀρχήν repeats 21.3-4, with ἡμῖν αἰνομόροισιν in place of ἐν μεγάροις Ὀδυσῆος. Butler gives 21.3-4 at 21.0 as 'try their skill with the bow and with the iron axes, in contest among themselves'. In this same ¶10 Odysseus 'sent his arrow through the iron'. So the iron is the contest's apparatus, and the prize is Penelope. 'as a contest for us ill-fated suitors' is the standard reading of ἀέθλια here ('things for the contest'). It removes the prize reading, and 'sent his arrow through the iron' now coheres. There is no gloss: the axes and the shot are not explained. It keeps 'had his wife offer', 'his bow', 'a quantity of iron' and 'us ill-fated suitors', and 'for us' keeps the suitors as the contestants (Homer's dative ἡμῖν). 'offer … as a contest' is idiomatic ('set … as a challenge') and grammatical. Collision: Butler ¶10 has no 'contest', only the replaced 'contended'. Recorded cost, a note and not a defect: Butler's 'to be contended for by' occurs only at 24.6 and 24.10. That exact echo ('offered them to be contended for by the noblest of the Achaeans' / 'to be contended for by us ill-fated suitors') mirrors Homer's θῆκε … ἄεθλα … ἀριστήεσσιν Ἀχαιῶν / θέμεν … ἀέθλια … ἡμῖν αἰνομόροισιν (24.85-86 / 24.168-169). The AFTER keeps 24.6's 'offered them to be competed for', and at 24.10 the exact echo is lost. This cannot be avoided: any wording that keeps 'to be competed for' keeps the prize reading the echo itself invites. The frame survives ('offered … for the noblest of the Achaeans' / 'offer … as a contest for us ill-fated suitors'), and Homer's own words differ (ἄεθλα 'prizes', ἀέθλια 'contest-gear'). The rest of ¶10, including 'our friends at home', which is outside the homecoming formula rule, is untouched."
+  },
+  {
+   "p": 14,
+   "edits": [
+    "B24-01"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Butler's 'doubted whether to …, or whether he should …' is the dead deliberative sense (Od. 24.235 μερμήριξε … ἦ …, 'he pondered whether … or …'). Today 'doubted whether to embrace him' reads as misgiving about the embrace. 'did not know whether to …, or whether he should …' keeps both alternatives, every item (embrace, kiss, tell all, or first question and see) and Butler's order. It follows accepted 4.9 exactly (Butler 'he doubted whether to …, or to …' -> 'did not know whether to …, or to …'). GLOSSARY's reserved 'still undecided' (Butler's 'thus in two minds') is left alone, so two Butler phrases stay two, and it sits with the B06-P012 row's 'did not know'. 'doubted whether' now occurs nowhere in the AFTER. No collision."
+  },
+  {
+   "p": 15,
+   "edits": [
+    "B24-02"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "'not a single X … but bears' is obsolete, and 'but' now reads as 'except' or as a contrast, which risks the inverted sense. 'There is not a single plant, … nor flower bed, that does not bear the trace of your attention' is the current double negative and means every plant bears it. The logic was checked: there is no plant that lacks the trace, which is Odysseus's compliment. The paired commas round the appositive list ('not a fig tree, vine, olive, pear, nor flower bed') are Butler's, so the restrictive 'that' clause attaches to 'a single plant' and its list. Singular 'does' agrees. Every item stays, in Butler's order, and 'bear the trace of your attention' is Butler's. It adds no hedge. No collision, since 'bear' is the replaced word. The rest of the paragraph is untouched."
+  },
+  {
+   "p": 20,
+   "edits": [
+    "B24-03"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Butler's British 'corn' means grain. In this American edition 'corn' reads as maize, a New World crop, a silent anachronism the reader never notices. 'grain' is the edition's established rendering: the AFTER prints Butler's 'corn' as 'grain' at 3.36, 13.7, 13.22, 17.53 and 20.27. Butler's claim that a crop was sown between the vine rows (his reading of Homer's disputed διατρύγιος, 24.341-342) stands. Butler ¶20 has no 'grain', so there is no collision. Out-of-scope observation: 12.26 AFTER still prints 'As long as the corn and wine held out' (Butler 'corn and wine'). It is now the only Butler 'corn' the edition leaves as 'corn', carries the same maize misreading, and is a candidate for the same one-word change in a later pass."
+  },
+  {
+   "p": 23,
+   "edits": [
+    "B24-04"
+   ],
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "Of a person's build, 'stout' now chiefly means portly. Homer's πάσσονα (24.369) means 'thicker-set', and 'sturdier' keeps Butler's sense and his comparative without the fat reading. The packet's condition is met: B08-01 is in the final list, and AFTER 8.1 prints 'taller and sturdier than he really was', so Butler's one phrase has one rendering. His different 'taller and stronger' (6.17, 23.15) stays distinct. No collision. 'much taller and better-looking' at the end of ¶23 is Butler's and untouched."
+  }
+ ],
+ "summary": "5 paragraphs, 5 edits (B24-L1, B24-01 to B24-04): 5 VERIFIED CLEAN, 0 defects. Scope exact. B24-L1 is faithful to Butler's sense, as his own 21.0 renders the same Greek lines. It fixes the prize misreading and adds no gloss, at the unavoidable cost of Butler's exact 24.6/24.10 'to be contended for by' echo (noted). B24-04's pairing condition with B08-01 is satisfied. Out-of-scope observation: 12.26 'corn and wine' remains.",
+ "overall": "OVERALL: VERIFIED CLEAN"
+}

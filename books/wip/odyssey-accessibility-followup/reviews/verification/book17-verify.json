@@ -1,0 +1,12 @@
+{
+ "book": 17,
+ "paragraphs": [
+  {
+   "p": 10,
+   "verdict": "VERIFIED CLEAN",
+   "defects": [],
+   "notes": "B17-L1 'A hind' -> 'A doe'. Telemachus repeats Menelaus's simile (Homer 4.333-340 ≈ 17.124-131; Butler 4 ¶27 ≈ 17 ¶10, both 'A hind might as well lay her new(-)born young in the lair of a lion'). The changed word now matches the repaired 4 ¶27 exactly. It is the same animal (female deer, Homer ἔλαφος), and the female needed by 'her newborn young' is kept. Nothing else in ¶10 changed. Butler's 17 ¶10 has no other deer, doe or hind (Butler's Book 17 'deer' at ¶26 is Argos's hunting, a different passage). After this edit the successor contains no 'hind' anywhere. Butler has exactly two, and both are this simile. Conventions hold: typographic quotes (nested ‘ ’ inside “ ” unchanged, counts identical to BEFORE) and no spaced dashes."
+  }
+ ],
+ "summary": "Mechanical (own script v417/mech417.py): BEFORE sha256 bd05c7f43da64bfe…afc9c confirmed; AFTER successor-b3456-17.json sha256 22b34077dd19cc5a…; structure identical: 24 chapters, 1,027 paragraphs, identical chapter numbers, titles and per-chapter counts, top-level keys identical. Books differing anywhere in the file: 3, 4, 5, 6, 17 only (3/5/6 not reviewed here). Book 17 (63 paragraphs): only ¶10 differs, which is the packet set. Applying the single listed edit B17-L1 to BEFORE reproduces AFTER exactly, the old string occurs once, and there is no unlisted edit. The packet's BEFORE, AFTER and CONTEXT texts match the files verbatim, and BUTLER matches the served original-en after whitespace normalization. Verdict: 1 of 1 VERIFIED CLEAN, 0 defects. The consistency edit is complete: both occurrences of the simile now read 'doe'. OVERALL: VERIFIED CLEAN."
+}
