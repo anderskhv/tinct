@@ -179,3 +179,15 @@ it('defaults a fresh introduction to modern English while retaining explicit edi
   expect(getEditionSelectionViewModel('the-histories')?.selectedEditionKey).toBe('modern-en')
   expect(getEditionSelectionViewModel('the-histories', 'original-en')?.selectedEditionKey).toBe('original-en')
 })
+
+it('preserves exact word and edition revision through a returning-reader handoff', () => {
+  const progress = {bookId:'jane-eyre',editionKey:'original-en',chapterNumber:28,
+    paragraphIndex:117,wordIndex:4,contentRevision:'b'.repeat(64),
+    contentRecovery:{editionKey:'original-en',contentRevision:'a'.repeat(64),
+      chapterNumber:28,paragraphIndex:120,wordIndex:4}}
+  const [view] = buildReturningReaderViewModel([progress],[])
+  expect(view.savedPlace).toMatchObject({paragraphIndex:117,wordIndex:4,
+    contentRevision:progress.contentRevision,contentRecovery:progress.contentRecovery})
+  const consumed=createReaderHandoffIntent(JSON.parse(JSON.stringify(view.handoff)))
+  expect(consumed?.savedPlace).toEqual(view.savedPlace)
+})
