@@ -39,6 +39,12 @@ if (book === 'crime-and-punishment') {
  assert.ok(selected.every(([,m])=>m),'All reviewed Crime gates have reader fixtures')
  reviewedCases[book]=selected.map(([label,m])=>[label,m.chapterNumber,m.characterId,m.paragraphIndex])
 }
+if (book === 'to-the-lighthouse') {
+ const first=editionAsset.mentions.find(m=>m.chapterNumber===1);
+ const prue=editionAsset.mentions.find(m=>m.characterId==='prue'&&m.chapterNumber===25&&m.paragraphIndex===3);
+ assert.ok(first&&prue);
+ reviewedCases[book]=[['opening',first.chapterNumber,first.characterId,first.paragraphIndex],['prue',25,'prue',3]];
+}
 const cases=reviewedCases[book];assert.ok(cases,`No reviewed browser cases for ${book}`)
 ;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await engine.launch();try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){
 if(process.env.TEST_CASE&&`${device}-${edition}-${label}`!==process.env.TEST_CASE)continue

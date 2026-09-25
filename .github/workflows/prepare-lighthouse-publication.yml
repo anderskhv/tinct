@@ -1,0 +1,58 @@
+name: Prepare and verify Lighthouse publication
+on:
+  push:
+    branches: [codex/lighthouse-publication-20260925]
+permissions:
+  contents: write
+concurrency:
+  group: lighthouse-publication-preparation
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CI: true
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/lighthouse-publication-20260925
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: python3 scripts/prepare-lighthouse-release.py
+      - run: python3 ../books/wip_inventory.py
+      - run: python3 ../books/classify-modern-en.py to-the-lighthouse --gate
+      - run: node scripts/split-edition-chapters.cjs to-the-lighthouse-original-en to-the-lighthouse-modern-en
+      - run: npm test
+      - run: npm run build
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify both editions and cards on phone and desktop
+        env:
+          TEST_BOOK: to-the-lighthouse
+          TEST_ORIGIN: https://tinct.app
+          READER_BUILT: '1'
+          ARTIFACT_DIR: artifacts/lighthouse-release
+        run: node scripts/check-reviewed-characters.cjs
+      - name: Commit verified generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/editions/to-the-lighthouse-*.json public/data/editions-chapters/to-the-lighthouse-* public/data/characters/to-the-lighthouse.v1.json public/data/onboarding/to-the-lighthouse.json public/read/to-the-lighthouse public/sitemap.xml src/data/bookMetaGenerated.ts ../books/characters/to-the-lighthouse ../books/wip/to-the-lighthouse-followup
+          git diff --cached --quiet || git commit -m "Integrate verified Lighthouse assets and character bindings"
+          git push origin HEAD:codex/lighthouse-publication-20260925
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-release-acceptance
+          path: |
+            app/artifacts/lighthouse-release
+            books/wip/to-the-lighthouse-followup/INTEGRATION.json
