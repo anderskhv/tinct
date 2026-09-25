@@ -11,3 +11,5 @@
 | — | charity | — | no "charity" in Book 6 | — |
 
 `book 6: 27/27 paras, weighted sim 0.429 (target <=0.65), flagged 0`
+
+**Correction (re-check, Books 1-7):** the ¶24 change "escort" → "guard" was logged as rendering *sub custodia*; the Latin is actually *satellitio perdurantis consuetudinis* ("escort/bodyguard of a lasting habit"). Both "escort" and "guard" are fair; the text stays "guard". The reason above is superseded.
