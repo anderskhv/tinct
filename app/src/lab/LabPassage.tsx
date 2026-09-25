@@ -85,6 +85,11 @@ interface LabPassageProps {
   tapZones?: LabTapTurnZones
   /** Compare's whole-page swap. A vertical swipe, and nothing that says so. */
   onCompareSwap?: () => void
+  /**
+   * Phone Compare: the word the main page's passage ends before, when that
+   * passage runs on past a compare page. A quiet mark is drawn there.
+   */
+  pageEndMarker?: { paragraphIndex: number; wordIndex: number } | null
   onToggleControls?: () => void
   /**
    * Identity of the reader typography (font, size, alignment, spacing,
@@ -424,6 +429,7 @@ export function LabPassage({
   onSelectingChange,
   tapZones = 'all',
   onCompareSwap,
+  pageEndMarker,
   onToggleControls,
   layoutKey = '',
 }: LabPassageProps) {
@@ -879,9 +885,11 @@ export function LabPassage({
                           </span>
                         )
                       }
+                      const endsHere = pageEndMarker?.paragraphIndex === paragraphIndex && pageEndMarker.wordIndex === absoluteWord
                       return (
+                        <Fragment key={`${lineIndex}-${wordIndex}`}>
+                        {endsHere && <span className="lab-compare-page-end" data-testid="lab-compare-page-end" data-label="end of your page" role="img" aria-label="End of your page" />}
                         <span
-                          key={`${lineIndex}-${wordIndex}`}
                           className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                           data-testid="lab-word"
                           data-paragraph-index={paragraphIndex}
@@ -897,6 +905,7 @@ export function LabPassage({
                           {spacing}
                           {renderWordText(word.text, word.emphasis)}
                         </span>
+                        </Fragment>
                       )
                     }, { text: paragraphs[paragraphIndex], from: wordBase }, (spacing, wordIndex) => {
                       if (!spacing || wordIndex <= 0) return spacing

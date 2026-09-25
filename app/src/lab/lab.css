@@ -2380,6 +2380,39 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }
+/* Compare: where the main page's passage ends in the other edition, when it
+   runs past the compare page. Takes no room (zero width, no line box of its
+   own), so the measured page is exactly the page painted. */
+.lab-compare-page-end {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 1em;
+  vertical-align: -0.12em;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.lab-compare-page-end::before {
+  content: '';
+  position: absolute;
+  left: -0.5px;
+  top: -0.05em;
+  bottom: -0.1em;
+  width: 1px;
+  background: var(--lab-ink-faint);
+}
+.lab-compare-page-end::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 3px;
+  top: -0.95em;
+  font: 500 0.5rem/1 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--lab-ink-faint);
+}
 /* Selection paints only: never add spacing that the measured page did not have. */
 
 /* Reading and playback share one exact typographic surface. */

@@ -243,6 +243,69 @@ describe('where the compare page begins', () => {
     expect(firstLine()).toBe(left)
     expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(leftProgress)
   })
+
+  it('returns to the identical primary page after reading on in Compare and coming back', () => {
+    withCompare()
+    renderPhone({ source: { ...fallbackLabSource(), paragraphs: primary, compareParagraphs: primary.map(text => text.replace(/Paragraph/g, 'Section')) } })
+    for (let i = 0; i < 4; i += 1) fireEvent.click(screen.getByTestId('lab-page-next'))
+    const left = firstLine()
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    swipe(screen.getByTestId('lab-book'), 0, -110)
+    const opened = firstLine()
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    expect(firstLine()).not.toBe(opened)
+    fireEvent.click(screen.getByTestId('lab-page-prev'))
+    expect(firstLine()).toBe(opened)
+    swipe(screen.getByTestId('lab-book'), 0, 110)
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    expect(firstLine()).toBe(left)
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+  })
+})
+
+describe('where the compare page ends', () => {
+  // Verse-marked editions: the primary's verses are short, the compare's twice as long.
+  const sup = (n: number) => String(n).split('').map(d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[Number(d)]).join('')
+  const verses = (words: number, label: string) => Array.from({ length: 40 }, (_, v) => `${sup(v + 1)} ${Array.from({ length: words }, (_, w) => `${label}${v + 1}w${w}`).join(' ')}.`)
+  // Two long paragraphs, so pages break inside verses.
+  const group = (list: string[]) => [list.slice(0, 20).join(' '), list.slice(20).join(' ')]
+
+  function visibleWords() {
+    return [...screen.getByTestId('lab-book').querySelectorAll('[data-testid="lab-word"]')].map(node => (node.textContent ?? '').trim())
+  }
+
+  it('carries the whole primary page over: one page when the passage fits, the end marked when it does not', () => {
+    withCompare()
+    const primary = group(verses(7, 'p'))
+    renderPhone({ source: { ...fallbackLabSource(), paragraphs: primary, compareParagraphs: group(verses(4, 'c')) } })
+    fireEvent.click(screen.getByTestId('lab-page-next'))
+    const mainWords = visibleWords()
+    const lastVerse = [...mainWords].reverse().find(word => /^p\d+w/.test(word))!.match(/^p(\d+)w/)![1]
+    swipe(screen.getByTestId('lab-book'), 0, -110)
+    const shown = visibleWords()
+    // Shorter: the passage fits and the page is exactly it, from the verse the
+    // primary page began in through the whole of the verse it ended in.
+    const firstVerse = mainWords.find(word => /^p\d+w/.test(word))!.match(/^p(\d+)w/)![1]
+    expect(shown.find(word => /^c\d+w/.test(word))).toBe(`c${firstVerse}w0`)
+    expect(shown[shown.length - 1]).toBe(`c${lastVerse}w3.`)
+    expect(shown.some(word => word === `c${Number(lastVerse) + 1}w0`)).toBe(false)
+    expect(screen.queryByTestId('lab-compare-page-end')).toBeNull()
+    swipe(screen.getByTestId('lab-book'), 0, 110)
+    cleanup()
+
+    // Twice as long: normal pages, and the end of the passage is marked.
+    withCompare()
+    renderPhone({ source: { ...fallbackLabSource(), paragraphs: primary, compareParagraphs: group(verses(14, 'c')) } })
+    // The first page, which ends between two verses inside a paragraph.
+    const longLast = [...visibleWords()].reverse().find(word => /^p\d+w/.test(word))!.match(/^p(\d+)w/)![1]
+    swipe(screen.getByTestId('lab-book'), 0, -110)
+    for (let i = 0; i < 4 && !screen.queryByTestId('lab-compare-page-end'); i += 1) fireEvent.click(screen.getByTestId('lab-page-next'))
+    const marker = screen.getByTestId('lab-compare-page-end')
+    // The mark stands right before the first word after the passage: the next verse.
+    expect((marker.nextElementSibling?.textContent ?? '').trim()).toBe(String(Number(longLast) + 1))
+  })
+
+
 })
 
 it('swaps to the compare version from the Reading settings switch and back, closing the sheet each time', () => {
