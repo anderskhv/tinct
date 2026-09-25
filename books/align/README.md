@@ -104,7 +104,7 @@ unapproved until their evidence meets an agreed release standard.
 - Items 8 and 17 "unresolved": item 8 was a first-pass flag nobody had reviewed
   (now two clean matches); item 17 is a correct block whose finer clause
   boundaries fall inside em-dash-joined tokens, which word offsets cannot
-  express (format v2 proposal in HANDOFF-codex.md).
+  express (format v2 deferred; see HANDOFF-codex.md).
 - Takeaway: unreviewed first-pass data for paraphrased prose is not good enough
   (of 5 sampled Douglass first-pass items, 1 was itself off by a sentence and
   1 more had a shift right beside it).

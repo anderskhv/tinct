@@ -1,51 +1,12 @@
 # Handoff to Codex — precise mobile compare flip
 
-Status: **draft for Anders' approval.** Two separate release decisions:
-(1) shipping the reader infrastructure with fallback behaviour (can proceed:
-with no approved alignment files it behaves as today, plus full-page
-start/end mapping from verse markers and proportional fallback), and
-(2) enabling alignment data for any book, which stays gated on an agreed
-release standard and a per-book `approved` record. Data is in pilot; nothing here is
-scheduled yet. All preparation lives under `books/align/`; app integration is
-Codex's. No app files were changed.
+Status: **draft for Anders' approval.** Nothing here is scheduled yet. All
+preparation lives under `books/align/`; app integration is Codex's. No app
+files were changed.
 
-## Revised recommendation (2026-09-24, after the human sample): smallest robust change
-
-Mobile compare is not a separate view: `handleMobileCompare`
-(`app/src/lab/LabApp.tsx` ~2960) swaps the whole paginated reader to the other
-edition at a mapped start word, and flipping back uses the same mapping
-(`mapLabCompareAnchor`). Selection, highlights, bookmarks, position and audio
-therefore already work in compare. Keep that. **This supersedes the scrolling
-passage view described below**; the data contract and fallback rules still
-apply.
-
-1. **Better start mapping, one function.** `mapLabCompareAnchor` first looks
-   the anchor up in the paragraph's alignment segments (approved, fingerprint-
-   matched files only) and returns the counterpart segment's start; `u` blocks
-   map to the block start; otherwise today's verse/proportional logic. Used in
-   both directions, so flipping back is symmetric.
-2. **Map the page end too.** Map the main page's last word the same way and
-   draw one quiet marker in the compare edition where the corresponding
-   passage ends ("end of your page"). If start-to-end fits on one compare
-   page, also split the compare pages at that end (`splitLabPagesAtAnchor`
-   already exists), so the page shows exactly the passage. If it does not fit,
-   the reader's normal pagination continues it on the next page and the marker
-   shows where to stop. No shrinking, no new scroll surface, font size
-   untouched.
-3. **Long units (e.g. Douglass 11/5, 217 words).** A long correct unit is
-   shown whole; the marker sits at its true end. Never mark positions inside a
-   unit that the data cannot support. Finer clause units are a data change
-   (below), not a display trick.
-4. Alignment never crosses paragraphs, so speaker changes, stage directions
-   and verse lines (each their own paragraph, `-lines.json` for verse) are
-   never merged.
-
-Data follow-up for long units: allow a split point inside a whitespace token,
-because em-dash-joined words ("prey!—I say", "subsist,—I say") make the correct
-clause boundary unreachable with word offsets. Proposed: a boundary may be
-`[wordIndex, utf16Offset]` instead of a bare word index (format version 2).
-Only reviewer-verified clause correspondences; never split mechanically at
-punctuation or divide each edition independently.
+Revised 2026-09-25: this file now describes one design only. The earlier
+scrolling passage view (fade hint, swipe-moves-main-cursor, faded edge
+context) is **dropped** and has been removed; see git history if needed.
 
 ## Problem
 
@@ -60,53 +21,84 @@ normal page of the compare edition from there
    the main page starts at "goes withal", the compare page starts about five
    verse lines earlier.
 
-## Behaviour to build
+## Design: keep the existing compare reader
 
-**Main page is always the source of truth.** Compare shows *the passage
-equivalent to one main page*; it never becomes an independent position.
+Mobile compare is not a separate view: `handleMobileCompare`
+(`app/src/lab/LabApp.tsx` ~2960) swaps the whole paginated reader to the other
+edition at a mapped start word, and flipping back uses the same mapping
+(`mapLabCompareAnchor`). Selection, highlights, bookmarks, position and audio
+therefore already work in compare. **Keep that.** No new view, no scroll
+surface, no fading, font size untouched. Follow the Invariants in `CLAUDE.md`
+(ReaderSession tuple, `writeSuspended`, etc.) exactly as today's compare does.
 
-1. **Map both ends.** Map the main page's first and last word into the compare
-   edition. The compare view shows everything from the mapped start to the
-   mapped end.
-2. **Keep the reader's font size.** Never shrink type to fit. If the passage is
-   taller than the viewport, the compare view scrolls vertically (subtle
-   bottom fade as a scroll hint). If it's shorter, leave white space below.
-3. **Fade only extra context.** Text that corresponds to the main page is
-   full strength, always. Anything shown beyond it (e.g. the remainder of a
-   verse or segment before the mapped start, kept for orientation) is dimmed.
-   Never dim text that belongs to the requested passage.
-4. **Swipe in compare** advances/retreats the *main* page cursor and shows
-   that page's equivalent passage. Flipping back shows the main page that
-   matches the passage on screen.
-5. **Position.** Viewing compare never changes what is persisted as the
-   reading position beyond the main-page cursor movement in (4). Follow the
-   Invariants in `CLAUDE.md` (ReaderSession tuple, `writeSuspended`, etc.).
+The work is two independent releases.
 
-### How to map an endpoint
+### Release A — map the page end (no alignment data)
 
-Given a main-edition word `(chapter, paragraph, word)`:
+Ships on its own; needs no files from `books/align/`.
 
-- **Paragraph has an alignment entry** (file valid, see below). Find the
-  segment containing the word on the main side (use the source columns if the
-  main edition is the file's `source`, the target columns if it is the file's
-  `target`: the data is symmetric).
-  - `"m"`: the counterpart span. A start endpoint takes the counterpart's
-    start; an end endpoint takes the counterpart's end.
-  - **Edge segments.** The main page often starts or ends partway through a
-    segment. If the main page covers at least half of that segment's words,
-    its counterpart is part of the passage (full strength). If it covers less,
-    the counterpart is shown as faded context, and the passage starts at the
-    next segment (or ends at the previous one).
-  - `"u"` (unresolved block): take the whole counterpart block (start → its
-    start, end → its end). Optionally mark it "approximate". Never
-    interpolate inside it as if it were exact.
-  - `"s"` / `"t"` one-sided material on the *main* side: no counterpart.
-    Snap: start endpoint → next segment's counterpart start; end endpoint →
-    previous segment's counterpart end. One-sided material on the *compare*
-    side that falls between the mapped ends is shown full strength.
-- **No entry** (paragraph under 100 words, or no valid file): today's
-  behaviour: verse markers when present, else proportional position within
-  the paragraph. Apply the same function to the end endpoint.
+1. Map the main page's **last** word with the same logic used for the first
+   word today (verse markers when present, else proportional position in the
+   paragraph).
+2. In the compare edition, draw one quiet marker where the mapped end falls
+   ("end of your page").
+3. If mapped start → mapped end fits on one compare page, also split the
+   compare pages at the end (`splitLabPagesAtAnchor`), so that page shows
+   exactly the passage. If it does not fit, normal pagination continues it on
+   the next page and the marker shows where to stop.
+4. Swiping in compare behaves as today (it moves through the compare
+   edition); flipping back maps from the compare position as today. The
+   marker belongs to the page the flip started from and is not redrawn for
+   later pages.
+
+### Release B — alignment lookup (gated)
+
+Only after at least one book's alignment file has a non-null `approved`
+record (see [Release standard](#release-standard)). With no approved file the
+code path is inert and behaviour equals Release A.
+
+1. `mapLabCompareAnchor` first looks the anchor up in the paragraph's
+   alignment segments (valid, approved, fingerprint-matched files only, see
+   [Fallback rules](#fallback-rules-must-all-hold-else-use-release-a-behaviour))
+   and otherwise falls back to Release A logic. Used for both start and end,
+   and in both directions, so flipping back is symmetric.
+2. Alignment never crosses paragraphs, so speaker changes, stage directions
+   and verse lines (each their own paragraph, `-lines.json` for verse) are
+   never merged.
+3. First candidates: `hamlet` and `macbeth` (drama, loose paraphrase, where
+   proportional mapping is worst). Books whose editions track closely (Walden,
+   On Liberty: word overlap ≈0.9) gain little and are not planned.
+
+### How to map an endpoint (Release B)
+
+Given a main-edition word `(chapter, paragraph, word)` in a paragraph with a
+valid alignment entry, find the segment containing the word on the main side
+(source columns if the main edition is the file's `source`, target columns if
+it is the file's `target`: the data is symmetric).
+
+- `"m"`: start endpoint → counterpart start; end endpoint → counterpart end.
+  **Partial segments:** if the main page covers at least half of the
+  segment's words, the whole counterpart belongs to the passage; otherwise the
+  passage starts at the next segment (start endpoint) or ends at the previous
+  one (end endpoint). Never interpolate inside a segment.
+- `"u"` (unresolved block): the whole counterpart block (start → its start,
+  end → its end). A long correct unit (e.g. Douglass 11/5, 217 words) is
+  shown whole and the end marker sits at its true end.
+- `"s"` / `"t"` one-sided material on the *main* side: no counterpart. Start
+  endpoint → next segment's counterpart start; end endpoint → previous
+  segment's counterpart end.
+- No entry for the paragraph (under 100 words, or file invalid): Release A
+  logic.
+
+### Release standard
+
+The bar for approving a book's file is **better than proportional mapping,
+with no shift across a speaker or paragraph boundary**, not "every sentence
+verified". The worst case of a residual one-sentence shift is a compare page
+that starts one sentence off; no position or data is at risk. Approval still
+needs a person's sign-off recorded in `approved` (see `EVAL-PLAN.md`), and
+the error estimate must come from a fresh sample: the 2026-09-24 sample's
+neighbourhoods were corrected, so it is a regression check, not an estimate.
 
 ## Data contract (format version 1)
 
@@ -146,12 +138,12 @@ fetched lazily like `{bookId}-lines.json` and cached for offline).
 - **Paragraph status:** `auto` (first pass, unreviewed), `auto-flagged`
   (first pass with `u` blocks), `model` (model-reviewed), `human`.
 
-### Fallback rules (must all hold, else use today's behaviour)
+### Fallback rules (must all hold, else use Release A behaviour)
 
 1. `format` and `version` recognised.
 2. Both `sha256` values equal the sha256 of the served edition files the
    reader has loaded. Any editorial correction therefore disables the file
-   until it is regenerated: it degrades to today's behaviour, never to wrong
+   until it is regenerated: it degrades to Release A behaviour, never to wrong
    matches. (Paragraph-level fingerprints may come later.)
 3. `approved` is non-null. Unapproved pilot data must never reach readers.
    When set it is an object recording the evidence (`by`, `date`, `basis`,
@@ -160,9 +152,17 @@ fetched lazily like `{bookId}-lines.json` and cached for offline).
 4. The paragraph has an entry, and its segments tile the live paragraph's
    word counts (cheap runtime check; on mismatch, fall back for that paragraph).
 
+## Deferred: format version 2 (sub-token boundaries)
+
+Not planned now; long units are shown whole. If ever needed: em-dash-joined
+words ("prey!—I say", "subsist,—I say") make some clause boundaries
+unreachable with word offsets, so a boundary could be `[wordIndex,
+utf16Offset]` instead of a bare word index. Only reviewer-verified clause
+correspondences; never split mechanically at punctuation.
+
 ## Later: "Show in [edition]" (selection menu)
 
-Not in the first build; listed so the data model supports it.
+Not in either release; listed so the data model supports it.
 
 - Phrase selection menu gains **"Show in [edition name]"**, naming the other
   edition ("Show in Modern English", "Show in King James"). Never "main" or
@@ -171,24 +171,28 @@ Not in the first build; listed so the data model supports it.
   selection overlaps, labelled as the *corresponding passage*, not a
   phrase-exact equivalent. `u` → show block, labelled approximate.
   `s` → "Not in [edition]".
-- Card link **"Open here in [edition]"** switches to compare for the main page
-  containing the selection, scrolls the counterpart segment into view and
-  highlights it briefly. Return rule: flipping back lands on that same main
-  page; if the reader swiped in compare meanwhile, rule (4) above applies.
+- Card link **"Open here in [edition]"** flips to compare at the counterpart
+  segment's start, as a normal compare flip.
 
 ## Test cases
 
+Release A:
+
 - Proverbs 15, WEB main page from mid-verse 11 to start of verse 16 → KJV
-  compare shows verses 11–16 complete (verse-level fallback, no file needed),
-  scrolling if taller than the viewport, font size unchanged.
+  compare starts at verse 11 and the end marker sits after the start of verse
+  16 (verse-level mapping, no file needed); if verses 11–16 do not fit one
+  page, they continue on the next compare page. Font size unchanged.
+- Flip, swipe forward in compare, flip back → lands on the main page matching
+  the compare position (today's behaviour); reading position rules unchanged.
+
+Release B:
+
 - Hamlet 1.3 (chapter 3, paragraph 5), original main page "goes withal. …
   The chariest maid is prodigal". The page starts on the last word of segment
-  `["m",114,155,82,118]` ("Then if he says he loves you … goes withal." ↔
-  "So when he says he loves you … what Denmark itself allows."), so that
-  sentence is faded context; the passage starts at "Think about what you could
-  lose …". The page ends 5 of 14 words into `["m",210,224,162,179]` ("The
-  chariest maid is prodigal enough …" ↔ "Even the most careful young woman
-  …"), so that sentence is faded context and the passage ends at "Stay back,
-  out of the firing range of desire."
-- Edition file changed (sha mismatch) → today's behaviour, no errors.
-- File with `approved: null` → today's behaviour.
+  `["m",114,155,82,118]` (covers < half), so the compare page starts at the
+  next segment, "Think about what you could lose …". The page ends 5 of 14
+  words into `["m",210,224,162,179]` (covers < half), so the end marker sits
+  after "Stay back, out of the firing range of desire."
+- Edition file changed (sha mismatch) → Release A behaviour, no errors.
+- File with `approved: null` → Release A behaviour.
+- Segments that don't tile the live paragraph → Release A for that paragraph.
