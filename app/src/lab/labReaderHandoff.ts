@@ -1,3 +1,4 @@
+import { editionHold, isBookTemporarilyHeld } from '../data/editionAvailability'
 import { getBook } from '../data/bookRegistry'
 import { defaultCompareEditionKey } from '../data/editionDefaults'
 import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
@@ -44,7 +45,17 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
 export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
   if (!pageHandoffRead) {
     pageHandoffRead = true
-    pageHandoff = consumeLabReaderHandoff()
+    const params = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search)
+    const heldBook = params?.get('heldBook')
+    const heldEdition = params?.get('heldEdition') || 'original-en'
+    const positive = (key: string, fallback: number) => {
+      const value = Number(params?.get(key))
+      return Number.isSafeInteger(value) && value >= fallback ? value : fallback
+    }
+    pageHandoff = heldBook && (isBookTemporarilyHeld(heldBook) || editionHold(heldBook, heldEdition))
+      ? createReaderHandoffIntent({ bookId: heldBook, primaryEditionKey: heldEdition,
+          savedPlace: { bookId: heldBook, chapterNumber: positive('chapter', 1), paragraphIndex: positive('paragraph', 0), wordIndex: positive('word', 0), page: 0 } })
+      : consumeLabReaderHandoff()
   }
   return pageHandoff
 }

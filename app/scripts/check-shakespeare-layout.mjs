@@ -30,6 +30,10 @@ async function boot(page, scenario) {
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
   await page.goto(origin + '/reader?chrome=v2', { waitUntil: 'domcontentloaded' })
+  if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
+    await page.getByTestId('edition-hold').waitFor()
+    await page.getByRole('button', { name: 'Open preserved edition and annotations' }).click()
+  }
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)
@@ -103,7 +107,19 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
           assert.equal(await choice.count(), scenario.phone ? 1 : 0)
           if (scenario.phone) {
             await choice.selectOption('flowing')
+            // Recovery intentionally creates no new saved place. Re-open the explicit
+            // fixture after reload while checking that appearance preferences persist.
+            if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
+              await page.evaluate(s => sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
+                kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en',
+                savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 },
+              })), scenario)
+            }
             await page.reload()
+            if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
+              await page.getByTestId('edition-hold').waitFor()
+              await page.getByRole('button', { name: 'Open preserved edition and annotations' }).click()
+            }
             await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true')
             assert.equal(await page.getByTestId('lab-root').getAttribute('data-shakespeare-layout'), 'flowing')
             const prefs = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-prefs')))

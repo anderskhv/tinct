@@ -1,3 +1,5 @@
+import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
+import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
 import { readCoverTransition } from '../../public/lab/cover-transition.js'
 import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
@@ -406,10 +408,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
     return syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
   })
-  const bookEditions = selectableLabEditions(
-    book.bookId || 'bible',
-    book.editions?.length ? book.editions : bibleEditions(),
-  )
+  const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
+  const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
+  const heldPrimary = editionHold(book.bookId || 'bible', prefs.primaryEdition)
+  const heldCompare = prefs.compareOpen ? editionHold(book.bookId || 'bible', prefs.compareEdition) : undefined
+  const temporaryHold = heldPrimary || heldCompare
+  const heldEditionKey = heldPrimary ? prefs.primaryEdition : prefs.compareEdition
+  const holdIdentity = (book.bookId || 'bible') + '/' + heldEditionKey
+  const [recoveredHold, setRecoveredHold] = useState<string | null>(null)
+  const holdRecovery = recoveredHold === holdIdentity
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
   const isShakespeare = getBook(book.bookId || 'bible')?.author === 'William Shakespeare'
@@ -463,16 +470,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     bookSwitcherWasOpenRef.current = bookSwitcherOpen
   }, [bookSwitcherOpen])
 
-  const audioEditionKey = effectiveLabAudioEdition(prefs, bookEditions)
-  const audioHeld = isAudioHeld(book.bookId || 'bible', audioEditionKey, book.chapterNumber)
+  const audioEditionKey = effectiveLabAudioEdition(prefs, allBookEditions)
+  const audioHeld = Boolean(editionHold(book.bookId || 'bible', audioEditionKey)) || isAudioHeld(book.bookId || 'bible', audioEditionKey, book.chapterNumber)
   const audioUnavailable = audioHeld || !resolvedAudioIsAvailable(audioEditionKey, prefs.primaryEdition, bookEditions)
   const [audioUnavailableNotice, setAudioUnavailableNotice] = useState(false)
   useEffect(() => setAudioUnavailableNotice(false), [book.bookId, book.chapterNumber, audioEditionKey])
   const updatePrefs = useCallback((next: LabPrefs) => {
-    const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), bookEditions)
+    const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), allBookEditions)
     setPrefs(synced)
     writeLabPrefs(synced, appearanceProfile)
-  }, [appearanceProfile, book.bookId, bookEditions])
+  }, [appearanceProfile, book.bookId, allBookEditions])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
       if (current.voicePersona === voicePersona) return current
@@ -507,7 +514,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     prefsProfileRef.current = appearanceProfile
     setPrefs(syncLabAudioEdition(
       migrateLabPrefsEditions(readLabPrefs(appearanceProfile), book.bookId || 'bible'),
-      bookEditions,
+      allBookEditions,
     ))
   }, [appearanceProfile, book.bookId, bookEditions])
   // The book on screen is not known until its source loads (a handoff mounts a
@@ -602,7 +609,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // unaligned (Jane Eyre / Pride and Prejudice Danish keep the paragraphing
   // the English editions left on 2026-09-25) cannot be paired on any device.
   const unalignedCompare = (book.bookId || 'bible') !== 'bible'
-    && [prefs.primaryEdition, prefs.compareEdition].some(key => bookEditions.find(edition => edition.key === key)?.aligned === false)
+    && [prefs.primaryEdition, prefs.compareEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
   // Bible editions do not all have the same chapters (WEB Catholic has Tobit;
   // the others do not), and Greek Daniel 3 numbers its verses differently from
   // the Hebrew: Compare says so rather than pairing different passages.
@@ -627,8 +634,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const standbyEditionKey = mobileCompareActive && mobileCompareEnabled
     ? prefs.primaryEdition
     : prefs.compareEdition
-  const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, bookEditions)
-  const compareEditionLabel = editionLabelFor(prefs.compareEdition, bookEditions)
+  const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, allBookEditions)
+  const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
   const desktopPaging = chromeV2 && !showPhoneChrome && browserHasNativePaging()
   const desktopSpread = desktopPaging && !desktopCompareActive
   const measuredPaging = (showPhoneChrome || desktopPaging) && browserHasNativePaging()
@@ -1068,7 +1075,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
-    playbackUnavailable: narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable,
+    playbackUnavailable: Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
@@ -1091,7 +1098,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? listen.follow.paragraphIndex
     : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
   useNarrationPrefetch({
-    active: Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    active: !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
     voice: narrationVoice,
     bookId: book.bookId || 'bible',
     editionKey: prefs.primaryEdition,
@@ -1131,7 +1138,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
     resolveBeforePaint: chromeV2,
-    writesSuspended: prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
+    writesSuspended: Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
     authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
@@ -1192,7 +1199,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
   })
   const initialResolving = !initialPositionResolved || remoteResumePending
-  const positionWritesSuspended = prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
+  const positionWritesSuspended = Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
   // reader knows the account and the place: hand them over when leaving for
   // the library and whenever the page is hidden, so the library never has to
@@ -1388,7 +1395,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const navigation = ++chapterNavigationRef.current
     const wanted = chapterNumberRef.current
     const activeBookId = book.bookId || 'bible'
-    const primaryEditionKey = bookEditions.some(edition => edition.key === prefs.primaryEdition)
+    const primaryEditionKey = (getBook(activeBookId)?.editions || bookEditions).some(edition => edition.key === prefs.primaryEdition)
       ? prefs.primaryEdition
       // New readers arrive with an edition (library handoff, Bible default);
       // a resumed place without one predates edition keys and reads the original.
@@ -1409,7 +1416,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setReaderLoadAction(null)
     const compareEditionKey = prefs.compareOpen
       && prefs.compareEdition !== primaryEditionKey
-      && bookEditions.some(edition => edition.key === prefs.compareEdition)
+      && (getBook(activeBookId)?.editions || bookEditions).some(edition => edition.key === prefs.compareEdition)
       ? prefs.compareEdition
       : undefined
     markReaderLoadTrace('required_text_start', { startOf: 'required_text' })
@@ -2875,7 +2882,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (text.trim().split(/\s+/).length < 2) return
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
     void ask.explainSelection({ text, editionKey,
-      editionLabel: editionLabelFor(editionKey, bookEditions),
+      editionLabel: editionLabelFor(editionKey, allBookEditions),
       paragraphs: comparison ? book.compareParagraphs : book.paragraphs,
       paragraphIndex, speculative: true,
     }, () => {}).catch(() => { /* Speculation must never open an error or account prompt. */ })
@@ -3307,7 +3314,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Hearing a chapter out is finishing it, same as turning past the last
     // page — on the book's final chapter too, where there is nothing to open.
-    markChapterFinished(book.chapterNumber)
+    if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next == null) return false
     void goToChapter(next, 'start', true)
     return true
@@ -3368,14 +3375,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
     if (resolved.chapterChanged) {
       if (resolved.chapterNumber > book.chapterNumber) {
-        markChapterFinished(book.chapterNumber)
+        if (!temporaryHold) markChapterFinished(book.chapterNumber)
       }
       await goToChapter(resolved.chapterNumber, resolved.landing)
       return outcome
     }
     goToParagraph(resolved.paragraphIndex, { seekAudio: outcome.resumePlayback })
     return outcome
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph, markChapterFinished])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, goToChapter, goToParagraph, markChapterFinished, temporaryHold])
   skipRef.current = applyPlaybackSkip
 
   const quietDesktopAfterTurn = useCallback(() => {
@@ -3423,12 +3430,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without
     // depending on a reading-memory session that may since have been pruned.
-    markChapterFinished(book.chapterNumber)
+    if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next != null) {
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn])
 
   const goPrev = useCallback(() => {
     quietDesktopAfterTurn()
@@ -3468,7 +3475,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
   // overlays keep their keys; the chapter cover handles its own arrows and
   // marks the event handled, so it never double-turns here.
-  const keyboardPageTurnsBlocked = prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
+  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
   useEffect(() => {
     if (keyboardPageTurnsBlocked) return
     const onKey = (event: KeyboardEvent) => {
@@ -3486,6 +3493,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [goNext, goPrev, keyboardPageTurnsBlocked])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
+    if (temporaryHold) return
     if (listen.isPending()) { listen.pause(); return }
     if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
@@ -3563,7 +3571,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('play')
     if (listen.src && onThisPage) listen.resume()
     else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [temporaryHold, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
@@ -3986,7 +3994,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
       bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
-      editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, bookEditions),
+      editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, allBookEditions),
       chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel,
       paragraphs: readerParagraphs, paragraphIndex: placeRef.current.paragraphIndex,
       chapterCount: book.chapters.length,
@@ -4063,10 +4071,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
   }, [chrome])
 
+  if (temporaryHold && !holdRecovery) return (
+    <EditionHoldPanel
+      title={book.bookTitle}
+      edition={getBook(book.bookId || 'bible')?.editions.find(edition => edition.key === heldEditionKey)?.label || heldEditionKey}
+      reason={temporaryHold.reason}
+      highlights={highlightsApi.allHighlights.filter(mark => mark.bookId === book.bookId)}
+      onRecover={() => setRecoveredHold(holdIdentity)}
+    />
+  )
+
   return (
     <div
       ref={labRootRef}
-      lang={bookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      lang={allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
@@ -4293,6 +4311,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
       )}
+      {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
+        <strong>Preserved edition · recovery view</strong>
+        <p>{TEMPORARY_HOLD_NOTICE} Your reading place and history will not advance in this view. Use Contents to access your highlights and notes.</p>
+        <button type="button" onClick={() => setRecoveredHold(null)}>Review availability notice</button>{' '}
+        <a href="/library">Return to the library</a>
+      </div>}
       {readerLoadError && (
         <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
           <p>{readerLoadError}</p>
@@ -4429,7 +4453,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
             <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(bookPageEstimate.page)}</span></span>
-            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, bookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
+            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
@@ -4665,7 +4689,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
             >
               {chromeV2 && mobileCompareActive ? (
-                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, bookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
+                <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
               ) : (
                 <span className="lab-chapter-progress-info">{footProgressLabel}</span>
               )}
@@ -5163,7 +5187,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               text: text ?? selectionPopup.text,
               intent,
               editionKey,
-              editionLabel: editionLabelFor(editionKey, bookEditions),
+              editionLabel: editionLabelFor(editionKey, allBookEditions),
               paragraphs: compare ? book.compareParagraphs : book.paragraphs,
               paragraphIndex: selectionPopup.paragraphIndex,
             }, onDelta)

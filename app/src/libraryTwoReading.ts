@@ -1,3 +1,4 @@
+import { editionHold } from './data/editionAvailability'
 /**
  * Returning-reader data for the library_2 design (public/lab/library_2).
  *
@@ -173,7 +174,7 @@ function bookInfos(books: Map<string, CatalogueBook>): Map<string, LibraryBookIn
  * original; a machine-made "original" is never chosen.
  */
 function defaultEditionKey(book: CatalogueBook | undefined, savedPlaceWithoutEdition = false): string | null {
-  const editions = (book?.editions ?? []).filter(edition => edition.language !== 'da' && edition.availability?.chapterText !== false)
+  const editions = (book?.editions ?? []).filter(edition => edition.language !== 'da' && !editionHold(book?.id || '', edition.key) && edition.availability?.chapterText !== false)
   const approved = editions.find(edition => edition.key === book?.defaultEditionKey)?.key
   const original = book ? editions.find(edition => edition.style === 'original' && edition.language === 'en' && !isMachineMadeOriginal(book.id, edition.key))?.key : undefined
   return (savedPlaceWithoutEdition ? original ?? approved : approved ?? original)
@@ -208,7 +209,7 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
   const book = books.get(bookId)
   const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
   const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
-  const edition = [saved, preferredEdition].find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
+  const edition = [saved, preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null].find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const intent = {
     kind: 'open-reader',

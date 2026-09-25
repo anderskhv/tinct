@@ -1,3 +1,4 @@
+import { editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
@@ -60,12 +61,22 @@ const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
 
 const BRAND_IMAGE = 'https://tinct.app/brand/20260921/share-tinct-1200x630.jpg'
 const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"/brand/20260921/favicon.ico\" sizes=\"any\">\n  <link rel=\"apple-touch-icon\" href=\"/brand/20260921/apple-touch-icon.png\" sizes=\"180x180\">\n  <link rel=\"manifest\" href=\"/brand/manifest.webmanifest\">\n"
+/** Filter navigation cards only; the preserved reading text is never rewritten. */
+export function filterHeldDiscoveryCards(html: string): string {
+  return html.replace(/<a\b[^>]*class=["'][^"']*\bguide-card\b[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, card => {
+    const bookId = card.match(/href=["']\/read\/([a-z0-9-]+)(?:[/?#"'])/i)?.[1]
+    if (bookId && isBookTemporarilyHeld(bookId)) return ''
+    return bookId === 'faust-part-1'
+      ? card.replace(/href=["'][^"']*["']/i, 'href="/read/faust-part-1"')
+      : card
+  })
+}
 /** Public metadata uses only the catalogue, never saved passages or chat. */
 function brandedHtml(html: string, bookId?: string, bookPage = false): string {
   const meta = bookId && PUBLIC_BOOK_IDS.has(bookId) ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
   const image = meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
   const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — Fall in love with the books that matter.'
-  let next = html.replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
+  let next = filterHeldDiscoveryCards(html).replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
     .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?)["'][^>]*>\s*/gi, '')
   const tags = `<meta property="og:image" content="${image}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${htmlEscape(alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}"><meta name="twitter:image:alt" content="${htmlEscape(alt)}">`
   if (meta && bookPage) next = next.replace(/<title>[^<]*<\/title>/, `<title>${htmlEscape(meta.title)}</title><meta property="og:title" content="${htmlEscape(meta.bookName)}"><meta property="og:description" content="${htmlEscape(meta.description)}">`)
@@ -121,7 +132,7 @@ async function serveSpaWithMeta(
         description: meta.description,
         url: canonical,
         image: ogImage,
-        inLanguage: 'en',
+        inLanguage: url.searchParams.get('edition')?.endsWith('-de') ? 'de' : 'en',
         isAccessibleForFree: true,
         isPartOf: { '@type': 'WebSite', name: 'Tinct', url: 'https://tinct.app' },
         publisher: { '@type': 'Organization', name: 'Tinct', url: 'https://tinct.app' },
@@ -315,6 +326,45 @@ export function handleIndexNowVerification(request: Request, env: SeoEnv): Respo
 
 export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, ctx: ExecutionContext): Promise<Response> {
   const url = new URL(request.url)
+
+  // A temporary availability page preserves old links and content assets.
+  // Run before static/cached SEO pages; raw data stays available for recovery.
+  const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
+  const queryBook = ['/', '/library', '/lab', '/lab/', '/lab/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const holdBook = queryBook || publicBook
+  const germanBookLanding = /^\/(?:read\/)?faust-part-1\/?$/.test(url.pathname) && !url.search
+  const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' || germanBookLanding ? 'original-de' : 'original-en')
+  if ((request.method === 'GET' || request.method === 'HEAD') && holdBook
+      && (isBookTemporarilyHeld(holdBook) || editionHold(holdBook, holdKey))) {
+    const recovery = new URL('/reader', url.origin)
+    recovery.searchParams.set('heldBook', holdBook)
+    recovery.searchParams.set('heldEdition', holdKey)
+    for (const key of ['chapter', 'paragraph', 'word']) {
+      const value = url.searchParams.get(key)
+      if (value && /^\d+$/.test(value)) recovery.searchParams.set(key, value)
+    }
+    const chapter = url.pathname.match(/\/chapter-(\d+)/)?.[1]
+    if (chapter && !recovery.searchParams.has('chapter')) recovery.searchParams.set('chapter', chapter)
+    const explicitStart = /^(\d+)\.(\d+)$/.exec(url.searchParams.get('start') || '')
+    if (explicitStart && Number(explicitStart[1]) > 0 && Number(explicitStart[2]) > 0) {
+      recovery.searchParams.set('chapter', explicitStart[1])
+      recovery.searchParams.set('paragraph', String(Number(explicitStart[2]) - 1))
+    }
+    const reason = editionHold(holdBook, holdKey)?.reason || 'No complete edition is currently available.'
+    const title = GENERATED_BOOK_META[holdBook]?.bookName || ({ macbeth: 'Macbeth', 'as-you-like-it': 'As You Like It' } as Record<string, string>)[holdBook] || holdBook
+    const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,noarchive"><title>Temporarily unavailable · Tinct</title></head><body><main style="max-width:680px;margin:8vh auto;padding:24px;line-height:1.6"><h1>' + htmlEscape(title) + '</h1><h2>Temporarily unavailable</h2><p>' + htmlEscape(reason) + '</p><p>' + htmlEscape(TEMPORARY_HOLD_NOTICE) + '</p><p><a href="' + htmlEscape(recovery.pathname + recovery.search) + '">Open recovery and saved annotations</a></p><p><a href="/library">Return to the library</a></p></main></body></html>'
+    return new Response(request.method === 'HEAD' ? null : html, { status: 200, headers: { ...SECURITY_HEADERS, 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, noarchive' } })
+  }
+  // These pre-existing English SEO excerpts cannot represent the retained German edition.
+  // Preserve the explicit German choice and route it to the current reader entry.
+  if ((request.method === 'GET' || request.method === 'HEAD') && holdBook === 'faust-part-1'
+      && holdKey === 'original-de' && /^\/read\/faust-part-1\/.+/.test(url.pathname)) {
+    const target = new URL('/library', url.origin)
+    target.searchParams.set('book', holdBook)
+    target.searchParams.set('edition', holdKey)
+    target.searchParams.set('view', 'book-detail')
+    return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
+  }
     // Static JSON content (editions, onboarding, threads) — serve via the
     // Cloudflare Cache API so repeat hits don't re-execute the worker.
     //

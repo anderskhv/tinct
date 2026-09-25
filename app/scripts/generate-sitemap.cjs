@@ -80,7 +80,7 @@ function loadPublicBooks() {
       console.warn(`[sitemap] BOOKS references ${name} but no const definition with that name was found — skipping.`)
       continue
     }
-    books.push(book)
+    if (!require('../src/data/editionAvailability.json').wholeBooks.includes(book.id)) books.push(book)
   }
   return books
 }
@@ -116,13 +116,15 @@ function preferredEditionPath(bookId) {
   const candidates = [
     path.join(EDITIONS_DIR, `${bookId}-original-en.json`),
     path.join(EDITIONS_DIR, `${bookId}-modern-en.json`),
+    path.join(EDITIONS_DIR, `${bookId}-original-de.json`),
   ]
-  return candidates.find(file => fs.existsSync(file)) || candidates[1]
+  const holds = require('../src/data/editionAvailability.json').editions
+  return candidates.find(file => !holds[bookId + '/' + path.basename(file).slice(bookId.length + 1, -5)] && fs.existsSync(file))
 }
 
 function loadPreferredEdition(bookId) {
   const file = preferredEditionPath(bookId)
-  if (!fs.existsSync(file)) return null
+  if (!file || !fs.existsSync(file)) return null
   try {
     const data = JSON.parse(fs.readFileSync(file, 'utf8'))
     if (!Array.isArray(data.chapters)) return null
@@ -181,6 +183,8 @@ function seoChapterTitle(book, chapterTitle) {
 }
 
 function seoBookDescription(book) {
+  if (book.id === 'faust-part-1') return 'Read Faust Part One in its original German. English and Danish editions are temporarily unavailable pending correction.'
+  if (book.id === 'jerusalem') return 'Read Jerusalem in Velma Swanston Howard’s English translation. Tinct Modern editions are temporarily unavailable pending correction.'
   const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
   if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
   const compact = `Read free, no ads. Modern compare, AI guide, cast, and audio for ${book.title}.`
@@ -309,15 +313,19 @@ function buildBookIndexPage(book, edition) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
-  const readerHref = book.id === 'to-the-lighthouse'
-    ? `/read/${book.id}?chapter=1&edition=modern-en&compare=original-en`
-    : `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
+  const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
+  const readerHref = ['faust-part-1', 'jerusalem'].includes(book.id)
+    ? `/read/${book.id}?chapter=1&edition=${editionKey}`
+    : book.id === 'to-the-lighthouse'
+      ? `/read/${book.id}?chapter=1&edition=modern-en&compare=original-en`
+      : `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
   const description = seoBookDescription(book)
+  const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
   const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}${book.id === "faust-part-1" ? "?edition=original-de" : ""}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
   const body = `<nav class="top">
   <a href="/" class="logo">Tinct<span>.</span></a>
@@ -330,7 +338,7 @@ function buildBookIndexPage(book, edition) {
 
   <div class="booknum">Free online book</div>
   <h1 class="title">${escapeHtml(book.title)}</h1>
-  <p class="byline">by ${escapeHtml(book.author)}</p>
+  <p class="byline">by ${escapeHtml(book.author)}</p>${book.id === "faust-part-1" || book.id === "jerusalem" ? `\n  <p>${languageLabel} · other editions temporarily unavailable</p>` : ""}
   <p class="hook">${escapeHtml(hook)}</p>
   <a class="primary-cta" href="${readerHref}">Start reading in Tinct →</a>
 
@@ -342,7 +350,7 @@ ${chapterLinks}
   </section>
 
   <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
-  <div class="body">
+  <div class="body"${editionKey.endsWith("-de") ? ' lang="de"' : ''}>
     ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
   </div>
 </main>
@@ -481,6 +489,11 @@ function buildSitemap(books) {
   const pagePath = (bookId, file) => path.join(READ_DIR, bookId, file)
 
   for (const b of fullBooks) {
+    if (b.id === 'faust-part-1') {
+      // The German book landing remains discoverable; existing chapter SEO pages contain held English text.
+      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html')) }))
+      continue
+    }
     const chapters = chapterCount(b.id)
     lines.push(`  <!-- ${b.id} — full SEO page set -->`)
     lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))

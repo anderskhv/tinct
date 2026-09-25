@@ -11,9 +11,10 @@ const defaults = (id: string) => {
 }
 
 describe('default editions (approved 2026-09-25)', () => {
-  it('reads Tinct Modern English everywhere and BSB in the Bible', () => {
+  it('uses approved defaults only where an edition remains available', () => {
     for (const book of BOOKS) {
-      expect(defaultPrimaryEditionKey(book.id, book.editions), book.id).toBe(book.id === 'bible' ? 'bsb-en' : 'modern-en')
+      const overrides: Record<string, string | undefined> = { bible: 'bsb-en', macbeth: undefined, 'as-you-like-it': undefined, jerusalem: 'original-en', 'faust-part-1': 'original-de' }
+      expect(defaultPrimaryEditionKey(book.id, book.editions), book.id).toBe(book.id in overrides ? overrides[book.id] : 'modern-en')
     }
   })
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import worker, { serveSpaWithMetaForTest } from './worker'
-import { handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
+import { filterHeldDiscoveryCards, handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
 
 function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app</body></html>') {
   return {
@@ -494,4 +494,58 @@ describe('approved brand entry metadata', () => {
     expect(html).toContain('Frankenstein')
     expect(html).not.toContain('private-secret')
   })
+})
+
+describe('temporary edition direct links', () => {
+  it('explains holds before serving cached pages and retains exact recovery coordinates', async () => {
+    for (const path of ['/read/macbeth/chapter-8', '/as-you-like-it', '/read/jerusalem?edition=modern-en&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-en', '/jerusalem?edition=modern-en', '/?book=macbeth', '/app?book=as-you-like-it', '/read?book=macbeth']) {
+      const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+      expect(response.status).toBe(200)
+      expect(response.headers.get('Cache-Control')).toBe('no-store')
+      expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
+      const html = await response.text()
+      expect(html).toContain('Temporarily unavailable')
+      expect(html).toContain('heldBook=')
+      expect(html).toContain('saved')
+      if (path.includes('chapter-8')) expect(html).toContain('chapter=8')
+      if (path.includes('paragraph=59')) {
+        expect(html).toContain('heldEdition=modern-en')
+        expect(html).toContain('paragraph=59')
+        expect(html).toContain('word=2')
+      }
+    }
+  })
+  it('does not intercept sound edition links or the recovery reader', async () => {
+    for (const path of ['/reader?heldBook=macbeth&heldEdition=modern-en', '/read/jerusalem?edition=original-en', '/read/faust-part-1?edition=original-de', '/read/faust-part-1', '/faust-part-1']) {
+      const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+      expect(await response.text()).not.toContain('<h2>Temporarily unavailable</h2>')
+    }
+  })
+})
+
+it('never labels a retained English static excerpt as Faust original German', async () => {
+  const response = await handleSeoAndStaticRequest(new Request('https://tinct.app/read/faust-part-1/chapter-1?edition=original-de'), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+  expect(response.status).toBe(302)
+  expect(response.headers.get('Location')).toContain('edition=original-de')
+  expect(response.headers.get('Location')).toContain('/library?')
+})
+
+it('retains one-based library start links when opening held-edition recovery', async () => {
+  const response = await handleSeoAndStaticRequest(new Request('https://tinct.app/library?book=macbeth&edition=modern-en&start=8.3'), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+  const html = await response.text()
+  expect(html).toContain('chapter=8')
+  expect(html).toContain('paragraph=2')
+  expect(html).toContain('heldEdition=modern-en')
+})
+
+it('hides held Read next cards without rewriting editorial text or sound links', () => {
+  const held = '<a href="/read/macbeth/summary" class="guide-card"><div>Macbeth</div></a>'
+  const sound = '<a href="/read/hamlet/summary" class="guide-card"><div>Hamlet</div></a>'
+  const editorial = '<p>Macbeth is mentioned here.</p>'
+  expect(filterHeldDiscoveryCards(held + sound + editorial)).toBe(sound + editorial)
+})
+
+it('routes Faust recommendation cards through the labelled German book landing', () => {
+  const card = '<a href="/read/faust-part-1/summary" class="guide-card"><div>Faust</div></a>'
+  expect(filterHeldDiscoveryCards(card)).toBe('<a href="/read/faust-part-1" class="guide-card"><div>Faust</div></a>')
 })

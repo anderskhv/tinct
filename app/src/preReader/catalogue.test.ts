@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { isBookTemporarilyHeld } from '../data/editionAvailability'
 import { BOOKS } from '../data/bookRegistry'
 import { LIBRARY_HOUSES, LIBRARY_SHELVES } from '../data/libraryTaxonomy'
 import {
@@ -37,7 +38,7 @@ describe('pre-reader catalogue layer', () => {
       expect(book.houseIds.length, book.id).toBeGreaterThan(0)
       expect(book.shelfIds.every(shelfId => Boolean(LIBRARY_SHELVES[shelfId])), book.id).toBe(true)
       expect(book.houseIds.every(houseId => validHouseIds.has(houseId)), book.id).toBe(true)
-      expect(PRE_READER_CATALOGUE.houses.some(house => house.shelves.some(shelf => shelf.books.some(item => item.id === book.id))), book.id).toBe(true)
+      expect(PRE_READER_CATALOGUE.houses.some(house => house.shelves.some(shelf => shelf.books.some(item => item.id === book.id))), book.id).toBe(book.discoveryAvailable !== false)
     }
     expect(PRE_READER_CATALOGUE.booksById.has('much-ado-about-nothing')).toBe(true)
     expect(PRE_READER_CATALOGUE.booksById.get('ivan-ilyich')?.shelfIds).toContain('russian-novels')
@@ -86,7 +87,7 @@ describe('pre-reader catalogue layer', () => {
   it('ranks exact titles, authors, and topics deterministically', () => {
     expect(searchPreReaderBooks('Meditations')[0].id).toBe('meditations')
     expect(searchPreReaderBooks('Homer').slice(0, 2).map(book => book.id)).toEqual(['odyssey', 'iliad'])
-    expect(searchPreReaderBooks('mortality').map(book => book.id)).toContain('ivan-ilyich')
+    expect(searchPreReaderBooks('mortality').map(book => book.id)).toContain('hamlet')
     expect(searchPreReaderBooks('Homer').map(book => book.id)).toEqual(searchPreReaderBooks('Homer').map(book => book.id))
   })
 
@@ -96,7 +97,7 @@ describe('pre-reader catalogue layer', () => {
       const selection = getEditionSelectionViewModel(book.id, 'does-not-exist')
       expect(detail?.book.id).toBe(book.id)
       expect(detail?.facts.editionCount).toBe(book.editions.length)
-      expect(book.editions.some(edition => edition.key === selection?.selectedEditionKey), book.id).toBe(true)
+      expect(book.editions.some(edition => edition.key === selection?.selectedEditionKey), book.id).toBe(!isBookTemporarilyHeld(book.id))
       for (const option of [...(selection?.humanEditions || []), ...(selection?.modernEditions || [])]) {
         expect(book.editions.some(edition => edition.key === option.key), `${book.id}/${option.key}`).toBe(true)
       }
