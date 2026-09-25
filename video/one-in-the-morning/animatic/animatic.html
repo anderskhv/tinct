@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>One in the Morning · animatic</title>
+<link rel="stylesheet" href="/fonts/tinct-fonts.css">
+<style>
+  :root { --cream: #eee7d0; --paper: #ece7db; --ink: #1b1a17; --glow: #7fb4c4; --green: #111610; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; color: var(--cream); }
+  .scene { position: absolute; inset: 0; display: none; overflow: hidden; }
+  /* storyboard frames for generated shots */
+  .board { background: radial-gradient(ellipse 80% 70% at 50% 45%, #1a2029, #07090c 75%); }
+  .board.warm { background: radial-gradient(ellipse 70% 65% at 50% 50%, #2a1d10, #080604 75%); }
+  .board.storm { background: radial-gradient(ellipse 90% 60% at 50% 30%, #1b2733, #05070a 80%); }
+  .label { position: absolute; top: 56px; left: 72px; font: 500 18px 'IBM Plex Mono', monospace; letter-spacing: .28em; text-transform: uppercase; color: rgba(238,231,208,.55); }
+  .label b { color: #d9a441; font-weight: 500; }
+  .desc { position: absolute; left: 72px; right: 72px; top: 330px; font: italic 400 50px/1.3 'EB Garamond', serif; color: rgba(238,231,208,.82); max-width: 1500px; }
+  .rain { position: absolute; inset: 0; opacity: .35; }
+  /* captions */
+  #cap { position: absolute; left: 160px; right: 160px; bottom: 92px; text-align: center; z-index: 30; }
+  #cap.side { left: 120px; right: auto; width: 900px; text-align: left; bottom: auto; top: 430px; }
+  #capText { font: italic 400 48px/1.25 'EB Garamond', serif; color: #f3eedf; text-shadow: 0 2px 18px rgba(0,0,0,.9); }
+  #capTag { margin-top: 12px; font: 400 17px 'IBM Plex Mono', monospace; letter-spacing: .22em; text-transform: uppercase; color: rgba(238,231,208,.6); }
+  #capTag:empty { display: none; }
+  /* phone + ui */
+  .phone { position: absolute; left: 68%; top: 50%; width: 440px; height: 930px; margin: -465px 0 0 -220px; border-radius: 58px; background: #0b0b0b; padding: 13px; box-shadow: 0 40px 120px rgba(0,0,0,.7), 0 0 0 2px #2a2c2e; }
+  .screen { position: relative; width: 100%; height: 100%; border-radius: 46px; overflow: hidden; background: #111; }
+  .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .full { position: absolute; inset: 0; }
+  .full img { width: 100%; height: 100%; object-fit: cover; }
+  /* feed */
+  .feed { position: absolute; inset: 0; padding: 70px 22px; background: #0e0f11; font-family: 'IBM Plex Sans', sans-serif; }
+  .post { background: #17181b; border: 1px solid #26282d; border-radius: 18px; padding: 18px 20px; margin-bottom: 14px; }
+  .post .k { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #8d9099; margin-bottom: 8px; }
+  .post .h { font-size: 21px; font-weight: 600; color: #e6e6e8; line-height: 1.25; }
+  .chat { position: absolute; inset: 0; background: #f4f1ea; color: #191919; padding: 90px 26px; font-family: 'IBM Plex Sans', sans-serif; }
+  .chat .q { background: #e5e0d4; border-radius: 16px; padding: 14px 16px; font-size: 18px; line-height: 1.35; margin-bottom: 26px; }
+  .chat .a div { font-size: 26px; line-height: 1.35; font-weight: 500; opacity: 0; }
+  /* reader page */
+  .page { position: absolute; inset: 0; background: var(--paper); color: var(--ink); padding: 78px 30px 30px; }
+  .page .bar { font: 400 15px 'EB Garamond', serif; color: #6b665c; border-bottom: 1px solid #d3cdbf; padding-bottom: 10px; margin-bottom: 20px; }
+  .page .bar b { font-family: 'Playfair Display', serif; color: #1b1a17; margin-right: 8px; }
+  .page p { font: 400 21px/1.52 'EB Garamond', serif; }
+  .w.on { background: rgba(217,164,65,.38); border-radius: 3px; }
+  .ag { box-shadow: inset 0 -2px 0 #1f4a5c; }
+  .menu { position: absolute; left: 60px; top: 300px; display: flex; gap: 2px; background: #1b1a17; border-radius: 12px; padding: 6px; font: 500 15px 'IBM Plex Sans', sans-serif; color: #eee7d0; opacity: 0; }
+  .menu span { padding: 8px 12px; border-radius: 8px; }
+  .menu span.hot { background: #3b5f6d; }
+  .card { position: absolute; left: 18px; right: 18px; bottom: 26px; background: #fbf8f0; border: 1px solid #d8d1c0; border-radius: 20px; padding: 20px 22px; color: #1b1a17; box-shadow: 0 20px 50px rgba(0,0,0,.25); opacity: 0; }
+  .card .t { font: 500 13px 'IBM Plex Mono', monospace; letter-spacing: .2em; color: #1f4a5c; margin-bottom: 8px; }
+  .card .n { font: 600 24px 'Playfair Display', serif; margin-bottom: 6px; }
+  .card .s { font: italic 400 17px 'EB Garamond', serif; color: #6b665c; margin-bottom: 8px; }
+  .card .b { font: 400 18px/1.45 'EB Garamond', serif; }
+  /* lock screen, orb */
+  .lock { position: absolute; inset: 0; background: linear-gradient(#1c2430, #0a0d12); text-align: center; padding-top: 120px; font-family: 'IBM Plex Sans', sans-serif; }
+  .lock .time { font-size: 86px; font-weight: 300; }
+  .np { position: absolute; left: 18px; right: 18px; bottom: 120px; background: rgba(255,255,255,.12); border-radius: 22px; padding: 18px; text-align: left; }
+  .np b { font-size: 18px; display: block; } .np span { font-size: 15px; color: #b7bcc6; }
+  .talk { position: absolute; inset: 0; background: #ece7db; color: #0b0b0b; text-align: center; padding-top: 170px; }
+  .talk canvas { width: 260px; height: 260px; }
+  .talk h3 { font: 400 34px 'EB Garamond', serif; margin-top: 30px; }
+  /* cards */
+  .titlecard { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .q1 { font: 500 76px/1.12 'Playfair Display', serif; max-width: 1400px; }
+  .q2 { margin-top: 30px; font: 400 18px 'IBM Plex Mono', monospace; letter-spacing: .26em; text-transform: uppercase; color: rgba(238,231,208,.6); }
+  .wm { font: 700 150px 'Playfair Display', serif; letter-spacing: -.02em; }
+  .e2 { font: italic 400 44px 'EB Garamond', serif; margin-top: 10px; }
+  .e3 { font: 400 24px 'IBM Plex Mono', monospace; letter-spacing: .2em; margin-top: 34px; }
+  .e4 { font: 400 16px 'IBM Plex Mono', monospace; letter-spacing: .14em; margin-top: 18px; color: rgba(238,231,208,.55); }
+  #flash { position: absolute; inset: 0; background: #dfe8ff; opacity: 0; z-index: 20; }
+  #wm { position: absolute; top: 40px; right: 56px; z-index: 40; font: 400 15px 'IBM Plex Mono', monospace; letter-spacing: .22em; color: rgba(238,231,208,.4); }
+  #grain { position: absolute; inset: 0; width: 1920px; height: 1080px; z-index: 35; opacity: .09; mix-blend-mode: overlay; }
+</style>
+</head>
+<body>
+<div id="scenes"></div>
+<div id="flash"></div>
+<div id="cap"><div id="capText"></div><div id="capTag"></div></div>
+<canvas id="grain" width="480" height="270"></canvas>
+<div id="wm">ANIMATIC · TEMP VOICE FOR TOM</div>
+<script>
+const $ = s => document.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ss = (a, b, x) => { const k = clamp((x - a) / (b - a)); return k * k * (3 - 2 * k); };
+function rng(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+
+const P2 = `Natural philosophy is the genius that has regulated my fate; I desire, therefore, in this narration, to state those facts which led to my predilection for that science. When I was thirteen years of age we all went on a party of pleasure to the baths near Thonon; the inclemency of the weather obliged us to remain a day confined to the inn. In this house I chanced to find a volume of the works of Cornelius Agrippa. I opened it with apathy; the theory which he attempts to demonstrate and the wonderful facts which he relates soon changed this feeling into enthusiasm. A new light seemed to dawn upon my mind, and bounding with joy, I communicated my discovery to my father. My father looked carelessly at the title page of my book and said, “Ah! Cornelius Agrippa! My dear Victor, do not waste your time upon this; it is sad trash.”`;
+function pageHTML(id) {
+  let i = 0;
+  const words = P2.split(' ').map(w => `<span class="w" data-i="${i++}">${w}</span>`).join(' ');
+  return `<div class="page" id="${id}"><div class="bar"><b>Frankenstein</b>Chapter 2</div><p>${words}</p></div>`;
+}
+const board = (n, kind, desc, cls = '') => `<div class="board ${cls} full"></div><div class="label">Shot ${n} · <b>${kind}</b></div><div class="desc">${desc}</div>`;
+
+// ---------------- scenes: [t0, t1, html, update?]
+const S = [
+ [0, 5.0, board(1 + '–2', 'generated', '1 a.m. Rain streams down a tall window. Tom, mid-thirties, on his side in bed, face lit blue by his phone. His thumb flicks.', 'storm')],
+ [5.0, 7.4, `<div class="phone"><div class="screen" style="background:#000;display:flex;align-items:center;justify-content:center"><div style="font:600 64px 'IBM Plex Sans';color:#ff453a">3%</div></div></div><div class="label">Shot 3 · <b>graphic</b></div>`],
+ [7.4, 10.0, `<div class="phone"><div class="screen"><div class="feed" id="feed">
+   <div class="post"><div class="k">For you</div><div class="h">Frankenstein in 60 seconds ⏱</div></div>
+   <div class="post"><div class="k">A thread ↓</div><div class="h">5 things Frankenstein can teach AI founders</div></div>
+   <div class="post"><div class="k">Book summary</div><div class="h">Frankenstein: 4 key ideas ▶ 6 min</div></div>
+   <div class="post"><div class="k">Trending</div><div class="h">Mary Shelley predicted ChatGPT. Here's how.</div></div>
+   <div class="post"><div class="k">For you</div><div class="h">Frankenstein in 60 seconds ⏱</div></div>
+   <div class="post"><div class="k">A thread ↓</div><div class="h">5 things Frankenstein can teach AI founders</div></div>
+ </div></div></div><div class="label">Shot 4 · <b>graphic</b></div>`, t => { $('#feed').style.transform = `translateY(${-(t - 7.4) * 160}px)`; }],
+ [10.0, 17.0, `<div class="phone"><div class="screen"><div class="chat"><div class="q">Write a profound LinkedIn post connecting Frankenstein to AI leadership. Make me sound insightful and slightly vulnerable.</div>
+   <div class="a"><div id="a1">I used to think Victor Frankenstein was reckless.</div><br><div id="a2">I was wrong.</div><br><div id="a3"><b>He was shipping.</b></div></div></div></div></div><div class="label">Shot 5 · <b>graphic</b></div>`,
+   t => { ['#a1', '#a2', '#a3'].forEach((s, i) => $(s).style.opacity = ss(10.6 + i * .8, 10.9 + i * .8, t)); }],
+ [17.0, 19.2, `<div class="phone"><div class="screen"><img src="assets/lib-hero-m.jpg"></div></div><div class="label">Shot 7 · <b>real UI (library_2)</b></div>`],
+ [19.2, 20.8, `<div class="phone"><div class="screen"><img src="assets/book-open-m.jpg"></div></div><div class="label">Shot 8 · <b>real UI (library_2)</b></div>`],
+ [20.8, 29.8, `<div class="phone"><div class="screen">${pageHTML('pg1')}</div></div><div class="label">Shots 10–11 · <b>real UI: word highlight follows the audiobook</b></div>`,
+   t => { let hi; if (t < 28.4) { const k = clamp((t - 21.0) / 7.4); hi = [Math.round(91 + k * 20)]; } else { hi = []; for (let i = 139; i < 153; i++) hi.push(i); }
+     document.querySelectorAll('#pg1 .w').forEach(w => w.classList.toggle('on', hi.length === 1 ? +w.dataset.i >= hi[0] - 3 && +w.dataset.i <= hi[0] : hi.includes(+w.dataset.i))); }],
+ [29.8, 35.2, `<div class="phone"><div class="screen">${pageHTML('pg2')}<div class="menu" id="menu"><span class="hot">✧ Explain</span><span>Ask</span><span>Highlight</span><span>Copy</span></div>
+   <div class="card" id="exp"><div class="t">EXPLAIN</div><div class="b">Cornelius Agrippa (1486–1535), a German writer on magic and the occult. Science had moved past his ideas long before Victor's time. Victor's father dismisses the book without saying why.</div></div></div></div><div class="label">Shot 12 · <b>real UI: Explain</b></div>`,
+   t => { document.querySelectorAll('#pg2 .w').forEach(w => w.classList.toggle('ag', [76, 77].includes(+w.dataset.i))); $('#menu').style.opacity = ss(30.0, 30.2, t) * (1 - ss(30.8, 31.0, t)); $('#exp').style.opacity = ss(31.0, 31.3, t); }],
+ [35.2, 38.6, `<div class="phone"><div class="screen">${pageHTML('pg3')}<div class="card" id="tap"><div class="t" id="tapT"></div><div class="n" id="tapN"></div><div class="s" id="tapS"></div><div class="b" id="tapB"></div></div></div></div><div class="label">Shot 13 · <b>real UI: tap anything</b> (cut with Tom's face between taps)</div>`,
+   t => { const taps = [['CHARACTER', 'Elizabeth Lavenza', 'An orphan raised as Victor\'s cousin and intended bride', ''], ['EXPLAIN', 'Thonon', '', 'A spa town on the south shore of Lake Geneva.'], ['EXPLAIN', 'natural philosophy', '', 'What the period called the sciences.'], ['MODERN ENGLISH', '', '', '“My dear Victor, don’t waste your time on this. It’s worthless nonsense.”']];
+     const i = Math.min(3, Math.floor((t - 35.2) / .85)); const [a, b, c, d] = taps[i]; $('#tapT').textContent = a; $('#tapN').textContent = b; $('#tapS').textContent = c; $('#tapB').textContent = d; $('#tap').style.opacity = 1; }],
+ [38.6, 39.8, board(14, 'generated', 'The next evening. Spotless white sneakers step out of a front door onto wet pavement.', 'storm')],
+ [39.8, 41.0, board('14b', 'generated', 'Tom walks the river embankment in the rain, earbuds in, hood up. The lower path is flooded; he walks into it without looking down.', 'storm')],
+ [41.0, 42.2, `<div class="phone"><div class="screen"><div class="lock"><div class="time">19:42</div><div class="np"><b>Frankenstein</b><span>Chapter 7 · Tinct</span></div></div></div></div><div class="label">Shot 15 · <b>real UI</b></div>`],
+ [42.2, 47.4, board(16, 'generated', 'Lightning over the city. Tom looks up.', 'storm')],
+ [47.4, 47.7, board(17, 'generated', 'FLASH — across the river, a very tall figure stands still, facing him.', 'storm')],
+ [47.7, 48.0, `<div class="full" style="background:#000"></div>`],
+ [48.0, 48.4, board(18, 'generated', 'FLASH — nobody there.', 'storm')],
+ [48.4, 51.2, board(19, 'generated', 'He has stopped dead. He looks down: his white sneakers are soaked through, water over his ankles. He laughs once and walks on, faster.', 'storm')],
+ [51.2, 53.2, board(20, 'generated', 'Night again. Same bed, same rain. Tom propped against the headboard, wide awake, charger in. The bedside clock reads 00:01.', 'storm')],
+ [53.2, 55.4, `<div class="phone"><div class="screen"><div class="talk"><canvas id="orb" width="520" height="520"></canvas><h3 id="orbW">Listening.</h3></div></div></div><div class="label">Shot 21 · <b>real UI: Talk</b></div>`],
+ [55.4, 61.8, board('22–23', '1816 · generated', 'A sliver of light between rough planks. An eye at the gap. Beyond it: an old man, a young man and a girl around a fire.', 'warm')],
+ [61.8, 63.4, board(24, 'generated', 'Match cut: Tom\'s eye, lit by his screen.', 'storm')],
+ [63.4, 67.4, board(25, '1816 · generated', 'In the dark hovel, huge scarred hands open a book in a shaft of moonlight.', 'warm')],
+ [67.4, 71.4, board(26, 'generated', 'Tom, completely still, reading. Rain on the window.', 'storm')],
+ [71.4, 75.8, `<div class="titlecard"><div class="q1">What do we owe the intelligence we create?</div><div class="q2">Mary Shelley · Frankenstein · 1818</div></div>`],
+ [75.8, 82.0, `<div class="full"><img src="assets/room.jpg" style="filter:brightness(.45)"></div><div class="titlecard"><div class="wm">Tinct.</div><div class="e2">Frankenstein takes about six hours.</div><div class="e3">tinct.app</div><div class="e4">Reading is free · The companion and audiobook are free for your first month</div></div>`,
+   t => { document.querySelector('.scene.on img').style.transform = `scale(${1.05 + (t - 75.8) * .012})`; }],
+];
+const DUR = 82;
+const CAPS = [
+ [0.3, 7.2, 'It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out…', 'Mary Shelley, Frankenstein'],
+ [11.6, 17.0, 'My dear Victor, do not waste your time upon this; it is sad trash.', 'Victor’s father, Frankenstein, Chapter 2'],
+ [18.2, 20.4, 'I opened it with apathy…', ''],
+ [30.3, 35.2, 'If, instead of this remark, my father had taken the pains to explain to me…', 'Victor Frankenstein, Chapter 2'],
+ [42.4, 47.4, 'A flash of lightning illuminated the object, and discovered its shape plainly to me…', 'Frankenstein, Chapter 7'],
+ [51.6, 53.1, '…and some books.', ''],
+ [53.3, 55.3, 'Hold on. He can read?', ''],
+ [55.5, 61.8, 'He taught himself. He’s spent months hiding next to a cottage, listening to a family through a gap in the wall.', ''],
+ [62.3, 63.4, 'Go on.', ''],
+ [63.6, 71.2, 'I can hardly describe to you the effect of these books. They produced in me an infinity of new images and feelings…', 'Frankenstein, Chapter 15'],
+];
+
+const host = $('#scenes');
+S.forEach((sc, i) => { const d = document.createElement('div'); d.className = 'scene'; d.id = 'sc' + i; d.innerHTML = sc[2]; host.appendChild(d); });
+
+// talk orb (the ink-dot globe from /about)
+const sphere = (() => { const pts = [], n = 420, g = Math.PI * (3 - Math.sqrt(5)); for (let i = 0; i < n; i++) { const y = 1 - (i / (n - 1)) * 2, r = Math.sqrt(1 - y * y), th = g * i; pts.push([Math.cos(th) * r, y, Math.sin(th) * r]); } return pts; })();
+function orb(t, speaking) {
+  const cv = $('#orb'); if (!cv) return; const c = cv.getContext('2d'); c.clearRect(0, 0, 520, 520);
+  const lvl = speaking ? .5 + .5 * Math.sin(t * 5.1) * Math.sin(t * 1.7) : 0, R = 190 * (1 + lvl * .1), rot = t * .3, tilt = .35;
+  c.fillStyle = '#0b0b0b';
+  for (const [x0, y0, z0] of sphere) {
+    const rr = speaking ? 1 : 1 + .07 * Math.sin(y0 * 6 - t * 3.2); const x = x0 * rr, y = y0 * rr, z = z0 * rr;
+    const x1 = x * Math.cos(rot) + z * Math.sin(rot), z1 = -x * Math.sin(rot) + z * Math.cos(rot);
+    const y2 = y * Math.cos(tilt) - z1 * Math.sin(tilt), z2 = y * Math.sin(tilt) + z1 * Math.cos(tilt), dp = z2 * .5 + .5;
+    c.globalAlpha = .18 + dp * .82; c.beginPath(); c.arc(260 + x1 * R, 260 + y2 * R, 2.6 * (.55 + dp * .9), 0, 7); c.fill();
+  }
+  c.globalAlpha = 1;
+}
+const gctx = $('#grain').getContext('2d'), gimg = gctx.createImageData(480, 270);
+
+window.seek = function (t, frame = 0) {
+  S.forEach((sc, i) => { const on = t >= sc[0] && t < sc[1]; const el = $('#sc' + i); el.style.display = on ? 'block' : 'none'; el.classList.toggle('on', on); if (on && sc[3]) sc[3](t); });
+  if (t >= 53.2 && t < 55.4) { orb(t, t > 55.3); $('#orbW').textContent = 'Listening.'; }
+  const cap = CAPS.find(c => t >= c[0] && t < c[1]);
+  $('#cap').classList.toggle('side', !!document.querySelector('.scene.on .phone'));
+  $('#capText').textContent = cap ? cap[2] : ''; $('#capTag').textContent = cap ? cap[3] : '';
+  $('#cap').style.opacity = cap ? ss(cap[0], cap[0] + .25, t) * (1 - ss(cap[1] - .25, cap[1], t)) : 0;
+  let f = 0; for (const ft of [47.4, 48.0]) if (t >= ft && t < ft + .18) f = .85 * (1 - (t - ft) / .18);
+  $('#flash').style.opacity = f;
+  const r = rng(frame * 7919 + 3), d = gimg.data; for (let i = 0; i < d.length; i += 4) { d[i] = d[i + 1] = d[i + 2] = r() * 255; d[i + 3] = 255; } gctx.putImageData(gimg, 0, 0);
+};
+window.DUR = DUR;
+</script>
+</body>
+</html>
