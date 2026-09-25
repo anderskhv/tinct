@@ -1,0 +1,289 @@
+{
+ "verifier": "V05",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "results": [
+  {
+   "claim_id": "G03-apology-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en 2.4 (87w) 'No indeed, men of Athens… drive me out for their sakes.' = pg1656.txt L1294-1300 (also HTML). modern-en 2.3 ends 'fellow citizens couldn't bear.'; 2.4 opens 'Someone would say: Can't you just stop talking…' (source 2.5). modern-da same structure. Whole-edition searches (flock, drive me out, elders, fathers; fædre, jage, vandre) find nothing. No repair: friendly-albattani green-apology candidate equals live text; its fidelity review B1 reports the same defect. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1656/pg1656.txt",
+     "sha256": "f4cc548bd8c8b59e14effdbaab9df97f29bd48f317a466fe8c3c63ad288b964c",
+     "retrieved_utc": "2026-09-25T12:30:57Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1656/pg1656-images.html",
+     "sha256": "546585288f318ae78e21ee88de4b76ced9f81456fd88d277bcc404cea4bc8867",
+     "retrieved_utc": "2026-09-25T12:30:57Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-apology-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "modern-en 2.4 (154w) renders all of source ¶2.5 (pg1656 L1302-1320), ending 'let thirty minas be the fine — they're good for it.' modern-en 2.5 (139w) renders it again, opening with invented 'No, let me reconsider.' and ending 'they're reliable sureties.' modern-da 2.5 (144w, 'Lad mig genoverveje.') duplicates likewise. Root cause shared with -01 (one-paragraph shift). S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1656/pg1656.txt",
+     "sha256": "f4cc548bd8c8b59e14effdbaab9df97f29bd48f317a466fe8c3c63ad288b964c",
+     "retrieved_utc": "2026-09-25T12:30:57Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-crito-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "pg1657 L349 'The good are to be regarded, and not the bad?' (10w) = original-en 2.9; modern-en 2.9 restates 2.11 (wise/unwise), modern-da likewise; no 'regard'/'not the bad' anywhere in modern-en. Accepted candidate (sha 511340f4…, matches ACCEPTANCE-RECORD pin; D1) fixes 2.9 but targets crito-modern-en.json only; modern-da has no repair. S3 kept as judgment (10w is under the 20-word floor; strict rubric = S4).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1657/pg1657.txt",
+     "sha256": "8f7e8c4cdb7ad512603f9359d5e7ce5c3aa281f7c83a07ac08c07bad90f9faae",
+     "retrieved_utc": "2026-09-25T12:30:57Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1657/pg1657-images.html",
+     "sha256": "0fb2e64a986f18f782f6269ee6503783481d238b9b91f1ae06e58aad43992e6b",
+     "retrieved_utc": "2026-09-25T12:30:57Z"
+    },
+    {
+     "url": "git:origin/claude/friendly-albattani-qgyqfi@0252b80d:books/wip/green-crito/candidate.json",
+     "sha256": "511340f43167c290d35cfe89618a07a3afca812412b6b7eefcd69b67f8012ac5",
+     "retrieved_utc": "2026-09-25T12:32:06Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-poetics-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en has 78 brace groups in 20 paragraphs: 77 Greek letter-name groups (19 paragraphs, ~784 tokens) plus Butcher's lacuna marker '{An ornamental word...}' (21.4). Transcriber's note (pg1974 L47-57) not served. 22.1 = pg1974 L1237. MIT Butcher copy transliterates ('thoinatai … esthiei'). modern-en/da have no letter-name groups; their 21.4 'leftover' is the lacuna marker, not Greek. S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1974/pg1974.txt",
+     "sha256": "3d0100ec20b93c814b07e0032b94582e649f4e7508b77959cb1d08a4fa6bb470",
+     "retrieved_utc": "2026-09-25T12:33:11Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1974/pg1974-images.html",
+     "sha256": "f6e7050849d347b231ecfd7430b53a291801bce9796802472403186129571e18",
+     "retrieved_utc": "2026-09-25T12:33:11Z"
+    },
+    {
+     "url": "https://classics.mit.edu/Aristotle/poetics.mb.txt",
+     "sha256": "6555b9c3b19f23b3c9404d9a458fc039d8e4e5e6ef627618baab56f083963ad6",
+     "retrieved_utc": "2026-09-25T12:34:21Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-nicomachean-ethics-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Translation: D. P. Chase (Everyman ed., intro J. A. Smith; 1915 scan title page 'D P CHASE'). All three editions serve 6.93-6.106 (743/684/679 words) with 'APPENDIX'/'TILLÆG' and 'CHAP. II' as body paragraphs, ending 'simply and absolutely infallible.' Source pg8438 L6247-6329 sits under an h3 APPENDIX. Chase's note [13] says '(See the appendix to this Book.)'. Content is Posterior Analytics I.1-2, not the NE. S3.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/8438/pg8438.txt",
+     "sha256": "a68264a6537bb58b899ed68e25d1c7d8ea1bcb3e9544b4d1b464f74d99c3d059",
+     "retrieved_utc": "2026-09-25T12:35:00Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/8438/pg8438-images.html",
+     "sha256": "3b68771b828a5525301da06bdd1a0a2f5ae726fb181b764568b7f07a87fee662",
+     "retrieved_utc": "2026-09-25T12:35:00Z"
+    },
+    {
+     "url": "https://archive.org/download/nicomacheanethic00arisuoft/nicomacheanethic00arisuoft_djvu.txt",
+     "sha256": "0a00a76ba93753ebfa0d07249022630534260f358508234fa707250e48dcfc86",
+     "retrieved_utc": "2026-09-25T12:36:27Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-aristotle-politics-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served text = Jowett's translation, Clarendon 1905 edition (Davis intro/analysis/index); raw.txt byte-identical to arisiala djvu; text and notes match the 1885 first edition. original-en 6.4 opens with the footnote 'Or (taking apXH…' plus running head 'T he Characteristics of Democracy skill ,'. Lost: raw L9402-9406 (arisuoft L12094-12098; MIT VI), 53 words 'Such being our foundation… experience and'. modern-en/da have the list. S3.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisiala/aristotlespoliti00arisiala_djvu.txt",
+     "sha256": "97284af279f67506233e180d64f69f0d8f0d37156a4e0bed2dc0aa27a4a42105",
+     "retrieved_utc": "2026-09-25T12:37:06Z"
+    },
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisuoft/aristotlespoliti00arisuoft_djvu.txt",
+     "sha256": "eb3233fe061a8ec2b36f10755811ec641855f008a404e865c0acd595b95b41d6",
+     "retrieved_utc": "2026-09-25T12:37:09Z"
+    },
+    {
+     "url": "https://classics.mit.edu/Aristotle/politics.6.six.html",
+     "sha256": "9aa85e29616301a43c3f4ac73a50c8f8d852a8792ea7697b6faa21db9408e8de",
+     "retrieved_utc": "2026-09-25T12:37:45Z"
+    },
+    {
+     "url": "https://archive.org/download/politicsofaristo01arisuoft/politicsofaristo01arisuoft_djvu.txt",
+     "sha256": "21bb1d1a5f4f7941e9c4ae4ad438909c80062f80d46167929587080f22404423",
+     "retrieved_utc": "2026-09-25T12:54:14Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-aristotle-politics-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All three editions' 7.17 read 'difficult of access to the enemy, and [be] well situated in regard both to sea…', merging territory and city-site clauses. Lost: raw L10515-10519 (begins '^ 1327 a'; arisuoft L13529ff; MIT VII L427-431; 1885 ed.), 59 words 'easy of egress… it should'. 'single view', 'easily protected', 'position of the city' absent (modern-en 'single view' only in 7.15, population). S3.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisiala/aristotlespoliti00arisiala_djvu.txt",
+     "sha256": "97284af279f67506233e180d64f69f0d8f0d37156a4e0bed2dc0aa27a4a42105",
+     "retrieved_utc": "2026-09-25T12:37:06Z"
+    },
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisuoft/aristotlespoliti00arisuoft_djvu.txt",
+     "sha256": "eb3233fe061a8ec2b36f10755811ec641855f008a404e865c0acd595b95b41d6",
+     "retrieved_utc": "2026-09-25T12:37:09Z"
+    },
+    {
+     "url": "https://classics.mit.edu/Aristotle/politics.7.seven.html",
+     "sha256": "626854bec74eb000ad9b7d33282be535314b8323e37529620a45e35110708fef",
+     "retrieved_utc": "2026-09-25T12:37:46Z"
+    },
+    {
+     "url": "https://archive.org/download/politicsofaristo01arisuoft/politicsofaristo01arisuoft_djvu.txt",
+     "sha256": "21bb1d1a5f4f7941e9c4ae4ad438909c80062f80d46167929587080f22404423",
+     "retrieved_utc": "2026-09-25T12:54:14Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-aristotle-politics-03",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "17 claimed sites confirmed (1.43, 2.26, 2.55, 2.58, 2.59, 2.66, 2.72, 3.51, 3.73, 4.55, 5.18, 5.48, 5.59, 6.2, 6.17, 8.6, 8.14) plus 6 more: 2.44 'The Lacedaemonian', 2.53 'The Cretan', 4.32 'arises.', 5.32 'I' (OCR '1'), 7.53 'instruction.', 8.7 'had none.'",
+    "extent_words": 96,
+    "severity": "S2",
+    "type": "MISSING",
+    "editions": [
+     "original-en (all 23 sites)",
+     "modern-en (1.43, 3.73 'two going together', 4.32, 5.18)",
+     "modern-da (1.43, 3.73 'two going together', 4.32, 5.18)"
+    ]
+   },
+   "evidence": "Word alignment and a substring test against raw.txt, plus Wikisource Book 1, reproduce all 17 sites (87 words; 3.51 is 'as [I] have already admitted', OCR '1' deleted). Six more sites add 9 words, all present in both scans. Four losses persist in modern-en/da: the 1.43 quotation, 3.73 'two going together', 4.32 'arises', and 5.18 'At Rhodes' (the Rhodes example now reads as Cos). S2.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisiala/aristotlespoliti00arisiala_djvu.txt",
+     "sha256": "97284af279f67506233e180d64f69f0d8f0d37156a4e0bed2dc0aa27a4a42105",
+     "retrieved_utc": "2026-09-25T12:37:06Z"
+    },
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisuoft/aristotlespoliti00arisuoft_djvu.txt",
+     "sha256": "eb3233fe061a8ec2b36f10755811ec641855f008a404e865c0acd595b95b41d6",
+     "retrieved_utc": "2026-09-25T12:37:09Z"
+    },
+    {
+     "url": "https://en.wikisource.org/w/index.php?title=Politics_(Jowett)/Book_1&action=raw",
+     "sha256": "9ea13eff8d387270941cccbf8d7468bfda855bd625c57e11b46d916f01cc1816",
+     "retrieved_utc": "2026-09-25T12:37:28Z"
+    },
+    {
+     "url": "https://classics.mit.edu/Aristotle/politics.3.three.html",
+     "sha256": "801d7c0be798a7c45c4378e521e4eb397e64410826e7f99059e89be2b76ca16b",
+     "retrieved_utc": "2026-09-25T12:37:44Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G03-aristotle-politics-04",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "throughout Books 2-8: ~113-119 paragraphs; at least 41 running heads (2.32, 2.34, 2.36, 2.42, 2.45, 2.48, 3.3, 3.6, 3.8, 3.27, 3.30, 3.48, 3.52, 3.60, 3.71, 3.75, 4.8, 4.10, 4.15, 4.52, 4.58, 5.14, 5.23, 5.31, 5.35, 5.40, 5.41, 5.54, 5.59, 5.63, 5.80, 6.4, 6.16, 6.17, 6.20, 6.21, 7.2, 7.31, 7.41, 7.57, 7.59, 7.72); footnotes are Jowett's (1885), not Davis's",
+    "extent_words": null,
+    "severity": "S2",
+    "type": "EXTRANEOUS",
+    "editions": [
+     "original-en",
+     "modern-en (5.79 only)",
+     "modern-da (5.79 only)"
+    ]
+   },
+   "evidence": "Every cited example is verified; 5.79 (43w) is entirely the Bekker note. Counts: Cp. 72 (claimed 71), § 79 (79), footnote-opening paragraphs 19 (18), strict union 113 paragraphs (119). At least 41 running heads, some splitting sentences. modern-da 5.79 also renders the footnote alternative, like modern-en. The footnotes already appear in Jowett's 1885 edition. Otherwise modern-en/da are clean. S2.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisiala/aristotlespoliti00arisiala_djvu.txt",
+     "sha256": "97284af279f67506233e180d64f69f0d8f0d37156a4e0bed2dc0aa27a4a42105",
+     "retrieved_utc": "2026-09-25T12:37:06Z"
+    },
+    {
+     "url": "https://archive.org/download/aristotlespoliti00arisuoft/aristotlespoliti00arisuoft_djvu.txt",
+     "sha256": "eb3233fe061a8ec2b36f10755811ec641855f008a404e865c0acd595b95b41d6",
+     "retrieved_utc": "2026-09-25T12:37:09Z"
+    },
+    {
+     "url": "https://archive.org/download/politicsofaristo01arisuoft/politicsofaristo01arisuoft_djvu.txt",
+     "sha256": "21bb1d1a5f4f7941e9c4ae4ad438909c80062f80d46167929587080f22404423",
+     "retrieved_utc": "2026-09-25T12:54:14Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V05-N1",
+   "book": "apology",
+   "location": "modern-en/modern-da 2.1-2.2",
+   "type": "EXTRANEOUS",
+   "severity": "S4",
+   "extent_words": 11,
+   "note": "modern 2.1 ends with a sentence imported from source 2.2 ('That person gives you the appearance of happiness; I give you the real thing.'); 2.2 renders it again. Same in modern-da."
+  },
+  {
+   "id": "V05-N2",
+   "book": "aristotle-politics",
+   "location": "books/raw/aristotle-politics/SOURCE.md",
+   "type": "PROVENANCE",
+   "severity": "S4",
+   "extent_words": null,
+   "note": "SOURCE.md cites archive.org aristotlespoliti00arisuoft; raw.txt is byte-identical to aristotlespoliti00arisiala (sha256 97284af2...)."
+  },
+  {
+   "id": "V05-N3",
+   "book": "nicomachean-ethics",
+   "location": "7.95 (all three editions)",
+   "type": "EXTRANEOUS",
+   "severity": "S4",
+   "extent_words": 8,
+   "note": "Label 'APPENDIX. Book VII. Chapters 12 to 15. (Bekker.)' served as a body paragraph; the following pleasure discussion (7.96-7.145) is genuine NE VII.11-14, so only the label is extraneous."
+  },
+  {
+   "id": "V05-N4",
+   "book": "nicomachean-ethics",
+   "location": "original-en 6.94",
+   "type": "TYPO",
+   "severity": "S4",
+   "extent_words": 1,
+   "note": "PG typo 'ἐπισπήμη' for ἐπιστήμη (moot if the appendix is dropped)."
+  },
+  {
+   "id": "V05-N5",
+   "book": "poetics",
+   "location": "21.4 (all three editions)",
+   "type": "PRESENTATION",
+   "severity": "S4",
+   "extent_words": 3,
+   "note": "Butcher's lacuna marker served as a stand-alone paragraph in PG brace notation ('{An ornamental word...}' / '{Et prydende ord ...}'); MIT copy omits it."
+  },
+  {
+   "id": "V05-N6",
+   "book": "aristotle-politics",
+   "location": "original-en 2.44, 2.53, 4.32, 5.32, 7.53, 8.7 (4.32 also in modern-en/da)",
+   "type": "MISSING",
+   "severity": "S2 (part of G03-aristotle-politics-03)",
+   "extent_words": 9,
+   "note": "Six more line-level OCR-cleaning losses not in the claim: 'The Lacedaemonian', 'The Cretan', 'arises.', 'I', 'instruction.', 'had none.'"
+  }
+ ]
+}

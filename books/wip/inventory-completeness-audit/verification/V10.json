@@ -1,0 +1,435 @@
+{
+ "verifier": "V10",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "checkout_note": "Working tree HEAD ee59b31ab; app/, books/raw/ and books/parse-faust.py are identical to the audited commit (git diff --quiet).",
+ "results": [
+  {
+   "claim_id": "G07-faust-part-1-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Registry says 'Bayard Taylor (1870)'. The served 1.0 'Ye approach again, ye wavering forms' is verbatim Hayward/Buchheim 1892 (IA1 lines 963-966; IA2 line 826). Taylor opens 'Again ye come, ye hovering Forms!'. Served 6-grams found: IA1 94.7%, Taylor 1.5% (claim: 4.5%; method differs). OCR errors unique to IA1 (feelmgs, T02¢, 'A= neige, 3230') are served. parse-faust.py reads the absent raw-en-hayward.txt; raw-en.txt equals PG 14591-0.txt (Taylor). 35,368 words.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/14591/pg14591.txt",
+     "sha256": "7ad6f7ba26b9a42d3873b061c6a1201023e534c724371cedfee8062c8222d9b1",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/files/14591/14591-0.txt",
+     "sha256": "840e94c5694ce6b66ad6e2ebd2ffabea845297bc0cd50604d2587b5c6079791b",
+     "retrieved_utc": "2026-09-25T12:36:38Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "3.16 ends '[Heaven closes, the Archangels disperse.'. 4.0 starts 'bitter sweat, be obliged to speak'. modern-en/modern-da insert 'FAUST. ...'. IA1 lines 2016-2019, 2092-2099 and 2102-2149 (IA2 1849-1924) hold Mephistopheles alone, the NIGHT heading and setting, and 'I HAVE now, alas...mastered philosophy...with'. 35+18+189 = 242 words. 0/11 distinctive phrases found; 'philosophy' is absent from all served English. original-de has it all.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-03",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Inside 4.26, 'display my wit on your' is followed by 'Ah! on earth's bosom'. modern-en shows 'on your ... CHORUS OF DISCIPLES.' and modern-da follows. Missing text is IA1 lines 3383-3431 and 3488-3533 (IA2 3073-3108, 3186-3221): goblet, bells, 'Christ is arisen' choruses, Women, 'earth has me again', first half of Disciples' chorus. Extent is about 373 words (IA2: 375), not 398. 0/14 phrases found; the one 'Christ is arisen' hit is the later, served chorus.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "6.0 reads 'possess my whole troublesome a companion'. modern-en silently bridges it ('my whole troubled spirit'); modern-da follows. IA1 lines 5184-5222 (IA2 4691-4724) hold 'soul. We are accustomed...In the beginning was the Word...Sense...Power...Deed...I cannotendure so'. About 279 words (claim: 274). 0 hits for 'was the Deed/Sense/Power', 'New Testament', 'beloved German', 'cease your howling', 'share the chamber'. The only 'In the beginning' hit (6.11) is unrelated.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-05",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "6.1 jumps from 'Undine twine,' to 'Through all heaven diffused'. modern-en marks the gap with '...', as does modern-da. IA1 lines 5411-5452 (IA2 near 4949): 'Sylph vanish, Kobold shall toil...Reprobate! Canst thou read him?— The unoriginated, Unpronounceable,'. 106 words (claim: 110). 0/13 phrases found (Kobold, Incubus, meteor beauty, scapeling, dark hosts, bristling hair, Unpronounceable ...).",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-06",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "13.5 'MARGARET. Now, only see! do but look at them ! Q' is followed by 13.6, Mephistopheles' aside. modern-en and modern-da have the same structure. IA1 lines 12316-12358 (IA2 11245-11279): 'Martha (dresses her up in them)...Mrs. Martha Schwerdtlein. Martha. Iam she. What is your pleasure, Sir?'. 179 words (claim: 185). 0/10 phrases found (happy creature, pearl in the ear, two caskets, little curtain, made free to come in ...).",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-07",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "19.21 ends mid-sentence 'much as I long', then 19.22 'MARGARET. Ah, did I but sleep alone!' (two Margaret paragraphs in a row). modern-en and modern-da are the same. IA1 lines 15271-15319 (IA2 13886-13925): 'to see you, I have an unaccountable horror...soul to soul?'. 187 words (claim: 192). 0/10 phrases found (written on his forehead, love no living soul, foreboding angel, antipathy ...).",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-08",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "In 24.9, 'witch-song streams along the whole mountain.' is followed directly by 'Wizards (half-chorus)'. modern-en and modern-da are the same. IA1 lines 17271-17310 (IA2 near 15731): 'The Witches (in chorus). To the Brocken the witches repair!...the mother bursts.'. 155 words (claim: 157). 0/13 phrases found (Sir Urian, Baubo, Ilsenstein, pitchfork pricks, mother bursts ...). The 'To the Brocken' hit at 24.18 is another passage.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-09",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "24.23 ends with the Minister ('true golden age'), then 24.24 'FAUST. I must endeavour to keep my senses!'. modern-en and modern-da are the same. IA1 lines 17760-17800 (IA2 16141-16174): Parvenu, Author, Mephistopheles grown old ('ripe for doomsday'), Huckster-Witch, '...novelties only have any attraction for us.'. About 233 words (claim: 235). 0/12 phrases found.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-10",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "2.11 ends 'She will then and birds,'. 'and birds' is displaced OCR (IA2 1439: 'beasts, and birds. So traverse'). IA1 lines 1617-1625 (IA2 1434-1441): 'not let it go...from Heaven, through the World, to Hell.'. 82 words (claim: 80). modern-en renders only the first clause ('works on, because it must'); modern-da follows. 0/8 phrases found (German stage, machinery, narrow booth, circle of creation ...). S3 by word count.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-11",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "79 paragraphs in 14 chapters (2,4,6,7,9,10,11,14,16,17,21,25,26,27); 66 German-majority incl. 2.4, 6.12-6.15, 7.24-7.26, 7.87-7.92, 9.12-9.13, 9.16-9.17, 9.28, 9.47-9.48, 10.25-10.29, 11.6-11.11, 11.17, 14.18-14.19, 16.17, 17.1-17.3, 17.18-17.21, 17.26, 21.0, 25.33-25.35, 26.4-26.7, 26.13-26.16, 26.22-26.26, 27.6-27.12; OCR residue also 3.0, 6.11, 7.23, 25.0, 25.31-25.32",
+    "extent_words": 2590,
+    "severity": "S2",
+    "type": "EXTRANEOUS",
+    "editions": [
+     "original-en"
+    ]
+   },
+   "evidence": "German facing-page text is served, duplicating English that is present. Lexicon classifier: 79 paragraphs with German in 14 chapters; 66 majority German (claim: 55); about 2,590 German tokens. Chapter 23's Latin 'Dies irae' is Goethe's own text and must not be counted. Several chapters end with the next scene's German opening (7.87-92, 10.25-29, 14.17-19, 16.17, 25.33-35, 26.22-26, 27.6-12). OCR residue in 59 paragraphs (running heads, line numbers 1720-4060, 3.0 'Tue Lorp').",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-12",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "modern-en has 2,328 words at the 66 German positions (claim: 2,307). Every cited example verified: 6.12-6.15 restate 6.16-6.20; 9.13 = 9.15; 9.47 gives Mephistopheles' lines to FAUST (duplicating 9.49); 17.1-17.4 = 17.6-17.10; 17.5 puts Faust's monologue under MEPHISTOPHELES; 27.7-27.10 move the Dungeon opening into ch27 (again at 28.0); 27.8 and 27.10 misattribute Faust's lines; 27.11-27.12 exist in no source; modern-da copies them in English. Same pattern at 7.87-7.92 and 10.25-10.29.",
+   "sources": [
+    {
+     "url": "https://archive.org/download/cu31924026191910/cu31924026191910_djvu.txt",
+     "sha256": "bf20329598ec2df74ffefd7b2c85772bb908e117038a5031fb9c8774cf86f9aa",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    },
+    {
+     "url": "https://archive.org/download/firstpartoffaust00goetuoft/firstpartoffaust00goetuoft_djvu.txt",
+     "sha256": "7dcf5bf9c2ade4d9a2f956f5c299fe2306063cd1fa497902c95f745f55a864fd",
+     "retrieved_utc": "2026-09-25T12:37:29Z"
+    },
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-13",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "137 paragraphs in ch7, 11, 12, 13, 14, 25, 26, 27, 28 (e.g. 7.1, 13.10, 26.16-26.26, 27.0-27.6, 27.8-27.12, 28.53-28.54)",
+    "extent_words": 1146,
+    "severity": "S3",
+    "type": "MISLABELED",
+    "editions": [
+     "modern-da"
+    ]
+   },
+   "evidence": "modern-da has 137 paragraphs (1,146 words) byte-identical to modern-en English (claim: 77 paragraphs / 786 words), excluding 5 name-only lines. By chapter: 7:29, 11:10, 12:4, 13:26, 14:10, 25:1, 26:15, 27:12, 28:30. Examples: 7.1, 13.10, 27.0-27.6, 27.8-27.12, and the ending 28.53-28.54. No length threshold reproduces 77/786 (8 or more words gives 81/865). Severity kept at S3.",
+   "sources": []
+  },
+  {
+   "claim_id": "G07-faust-part-1-14",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-de 28.69 is 'STIMME. Heinrich! Heinrich!' followed by the PG transcriber's note in German and English ('[Anmerkungen zur Transkription: ...' through 'Antiqua: #text in Antiqua font# ]'). That note is PG21000 lines 8335-8357, after the play ends at line 8331. 98 alphabetic words (claim: ~95). 'Transkription' and 'Transcriber' occur nowhere else. S1 per rubric (boilerplate at the end).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-15",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "PG21000 lines 1155-1330 and 1468 against served 5.0-5.19: exactly 17 speaker labels dropped. 5.0 has no label; 5.1 under ANDRE merges Die Ersten, Ein Handwerksbursch, Zweyter, Die Zweyten, Ein Dritter, Vierter. Also Dienstmädchen 5.2, Erste 5.3, Bürgermädchen/Erster/Bürger 5.5, Andrer/Dritter Bürger 5.7, Bürgermädchen 5.9, Soldaten 5.10, Alle 5.19. Every verse line is present. Affected paragraphs total 653 words (claim: 674). Cause: STRUCTURAL_DE in parse-faust.py.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-16",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "17 scenes open with an unattributed speech (ch5-8, 10-15, 17, 19, 20, 22-24, 26; e.g. 23.0 lacks 'Amt, Orgel und Gesang...Böser Geist.', PG 6708-6715). 6 open with a truncated fragment (2.0, 3.0, 16.0, 18.0, 27.0, 28.0). '(verschwindet mit Faust.)' (PG 8327) is absent between 28.67 and 28.68. About 137 words (claim: ~150). Also affected: 21.2 Gretchen's prayer, unattributed.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G07-faust-part-1-17",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "2.0, 3.20, 25.0-25.2; #...# markers at 6.5, 7.62, 7.85, 14.7, 21.0, 23.2, 23.5, 23.8, 23.10, 25.23, 25.41",
+    "extent_words": 12,
+    "severity": "S4",
+    "type": "EXTRANEOUS",
+    "editions": [
+     "original-de"
+    ]
+   },
+   "evidence": "Confirmed: 2.0 'lustige Person._'; 3.20 ends 'Der Tragödie' (PG 546-548); 25.0 'Walpurgisnachtstraum / oder' served as body text; 25.2 'OBERONS. Intermezzo.' (subtitle parsed as a speech). Correction: #...# Antiqua markers occur in 11 paragraphs of the play, not 3: 6.5, 7.62, 7.85, 14.7, 21.0, 23.2, 23.5, 23.8, 23.10, 25.23, 25.41 (plus two in the 28.69 note). Severity stays S4.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/21000/pg21000.txt",
+     "sha256": "c82c2d61713437aa807950c6460a0e8aabd9c4df85a466e9d59712b7f8f93ea7",
+     "retrieved_utc": "2026-09-25T12:36:37Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V10-NEW-1",
+   "book": "faust-part-1",
+   "editions": [
+    "original-en",
+    "modern-en"
+   ],
+   "location": "5.0",
+   "type": "MISSING",
+   "severity": "S4",
+   "extent_words": 7,
+   "note": "'Others. We are going up to the Jägerhaus.' (IA1 line 3664) is absent. modern-en 5.0 also gives 'We are going to the mill' to OTHERS. The dropped line contains 'ä', which suggests the parser's German-character filter."
+  },
+  {
+   "id": "V10-NEW-2",
+   "book": "faust-part-1",
+   "editions": [
+    "original-en"
+   ],
+   "location": "7.60",
+   "type": "MISSING",
+   "severity": "S4",
+   "extent_words": 10,
+   "note": "'in his hand; only, unluckily, the spiritual bond is want[ing]' (IA1 lines 7950-7951; OCR 'ünluckily') is dropped, leaving 'hehasthen the parts ing.'. A famous line, arguably S3. modern-en restores it."
+  },
+  {
+   "id": "V10-NEW-3",
+   "book": "faust-part-1",
+   "editions": [
+    "modern-en",
+    "modern-da"
+   ],
+   "location": "26.17-26.26, 27.9",
+   "type": "EXTRANEOUS",
+   "severity": "S2",
+   "extent_words": 81,
+   "note": "Extends claim 12. 26.24 'FAUST. Save her, save her!', 26.25 'MEPHISTOPHELES. Ride on! Ride on!' and 26.26 'FAUST. Onward!' have no counterpart in Hayward, Taylor or Goethe. 26.17-26.23 duplicate 'Night. Open Field' (27.0-27.6) inside chapter 26. 27.9 is a loose restatement of 28.0. modern-da copies these in English."
+  },
+  {
+   "id": "V10-NEW-4",
+   "book": "faust-part-1",
+   "editions": [
+    "original-de"
+   ],
+   "location": "8.97-8.98",
+   "type": "MISLABELED",
+   "severity": "S4",
+   "extent_words": 12,
+   "note": "The 'Alle.' label is dropped (PG 3566), so 'O schöner Brunnen, der uns fließt!' is merged into Mephistopheles' speech. 'Alle singen.' (PG 3579) is left as inline text in a MEPHISTOPHELES paragraph. Same STRUCTURAL_DE cause as claim 15."
+  },
+  {
+   "id": "V10-NEW-5",
+   "book": "faust-part-1",
+   "editions": [
+    "original-de"
+   ],
+   "location": "9.1-9.2",
+   "type": "MISLABELED",
+   "severity": "S4",
+   "extent_words": 16,
+   "note": "The Hexenküche stage direction is split mid-sentence; its continuation is served as a speech: 'EINE MEERKATZE. nicht überläuft. Der Meerkater...'."
+  }
+ ]
+}
