@@ -99,3 +99,16 @@ Manichees / Manichaeus / Manichaean, Tully and Cicero where Pusey has each,
 Thagaste, Madaura, Carthage, Milan, Rome, Ostia, Cassiacum). Do not add names
 Pusey does not use — Augustine's mother appears by name in Book 9 only if and
 where Pusey names her.
+
+## 8. Decisions made during rendering (apply to all books)
+
+- **caritas → "love"** (not "charity"), since modern "charity" means almsgiving.
+  Pauline and Johannine quotations use "love" as well.
+- **Pusey's plain errors and gaps.** Pusey is followed for meaning. Where he
+  mistranslates, has a misprint, or leaves out words of Augustine's that the
+  Latin plainly has (e.g. Book 6 ¶23 "to open Your hand", Ps 145:16), the Latin
+  is followed. Each case is logged in the book's NOTES under "Latin consulted".
+- **Period terms are not softened.** Book 6 ¶24 keeps "concubine".
+- **"Holy Ghost" → "Holy Spirit"** throughout.
+- **Pusey's "mathematicians"** (meaning astrologers) is kept as "mathematicians"
+  wherever Augustine's usage is in view, without a gloss.
