@@ -112,3 +112,15 @@ where Pusey names her.
 - **"Holy Ghost" → "Holy Spirit"** throughout.
 - **Pusey's "mathematicians"** (meaning astrologers) is kept as "mathematicians"
   wherever Augustine's usage is in view, without a gloss.
+- **creatura as a collective** ("the spiritual and corporeal creature" = the
+  whole created order) → "creation"; a single created thing stays
+  "creature". Accepted in Book 12; apply the same way elsewhere.
+- **Pusey's capitals for human addressees** (e.g. Book 6 ¶9, ¶11; Book 12 ¶33) are
+  corrected: capitals only for God.
+- **Genesis 1:1 "In the beginning".** Lowercase in the plain verse and wherever
+  the reading "at first" is in view. "Beginning" is capitalized only where
+  Augustine identifies the Beginning with the Son / Wisdom. Book 12 is
+  harmonized to this rule in review.
+- **Lost words in the served Pusey text** (e.g. Book 10 ¶45, where the subject
+  "John" dropped out before "locusts") are restored from the Latin.
+- **concubitus → "sexual union"**, not "concubinage" (Book 10 ¶40, ¶46).
