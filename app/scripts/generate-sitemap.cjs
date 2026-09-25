@@ -80,7 +80,7 @@ function loadPublicBooks() {
       console.warn(`[sitemap] BOOKS references ${name} but no const definition with that name was found — skipping.`)
       continue
     }
-    books.push(book)
+    if (!require('../src/data/editionAvailability.json').wholeBooks.includes(book.id)) books.push(book)
   }
   return books
 }
@@ -116,13 +116,15 @@ function preferredEditionPath(bookId) {
   const candidates = [
     path.join(EDITIONS_DIR, `${bookId}-original-en.json`),
     path.join(EDITIONS_DIR, `${bookId}-modern-en.json`),
+    path.join(EDITIONS_DIR, `${bookId}-original-de.json`),
   ]
-  return candidates.find(file => fs.existsSync(file)) || candidates[1]
+  const holds = require('../src/data/editionAvailability.json').editions
+  return candidates.find(file => !holds[bookId + '/' + path.basename(file).slice(bookId.length + 1, -5)] && fs.existsSync(file))
 }
 
 function loadPreferredEdition(bookId) {
   const file = preferredEditionPath(bookId)
-  if (!fs.existsSync(file)) return null
+  if (!file || !fs.existsSync(file)) return null
   try {
     const data = JSON.parse(fs.readFileSync(file, 'utf8'))
     if (!Array.isArray(data.chapters)) return null
@@ -309,7 +311,8 @@ function buildBookIndexPage(book, edition) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
-  const readerHref = `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
+  const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
+  const readerHref = `/read/${book.id}?chapter=1&edition=${editionKey}`
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`

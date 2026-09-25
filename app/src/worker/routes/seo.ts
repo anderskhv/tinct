@@ -1,3 +1,4 @@
+import { editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
@@ -315,6 +316,29 @@ export function handleIndexNowVerification(request: Request, env: SeoEnv): Respo
 
 export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, ctx: ExecutionContext): Promise<Response> {
   const url = new URL(request.url)
+
+  // A temporary availability page preserves old links and content assets.
+  // Run before static/cached SEO pages; raw data stays available for recovery.
+  const publicBook = url.pathname.match(/^\\/(?:read\\/)?([a-z0-9-]+)(?:\\/.*)?$/)?.[1]
+  const queryBook = ['/library', '/lab/', '/lab/library'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const holdBook = queryBook || publicBook
+  const holdKey = url.searchParams.get('edition') || 'original-en'
+  if ((request.method === 'GET' || request.method === 'HEAD') && holdBook
+      && (isBookTemporarilyHeld(holdBook) || (url.pathname.startsWith('/read/') && editionHold(holdBook, holdKey)))) {
+    const recovery = new URL('/reader', url.origin)
+    recovery.searchParams.set('heldBook', holdBook)
+    recovery.searchParams.set('heldEdition', holdKey)
+    for (const key of ['chapter', 'paragraph', 'word']) {
+      const value = url.searchParams.get(key)
+      if (value && /^\\d+$/.test(value)) recovery.searchParams.set(key, value)
+    }
+    const chapter = url.pathname.match(/\\/chapter-(\\d+)/)?.[1]
+    if (chapter && !recovery.searchParams.has('chapter')) recovery.searchParams.set('chapter', chapter)
+    const reason = editionHold(holdBook, holdKey)?.reason || 'No complete edition is currently available.'
+    const title = GENERATED_BOOK_META[holdBook]?.bookName || holdBook
+    const html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,noarchive"><title>Temporarily unavailable · Tinct</title></head><body><main style="max-width:680px;margin:8vh auto;padding:24px;line-height:1.6"><h1>' + htmlEscape(title) + '</h1><h2>Temporarily unavailable</h2><p>' + htmlEscape(reason) + '</p><p>' + htmlEscape(TEMPORARY_HOLD_NOTICE) + '</p><p><a href="' + htmlEscape(recovery.pathname + recovery.search) + '">Open recovery and saved annotations</a></p><p><a href="/library">Return to the library</a></p></main></body></html>'
+    return new Response(request.method === 'HEAD' ? null : html, { status: 200, headers: { ...SECURITY_HEADERS, 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, noarchive' } })
+  }
     // Static JSON content (editions, onboarding, threads) — serve via the
     // Cloudflare Cache API so repeat hits don't re-execute the worker.
     //

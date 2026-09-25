@@ -1,0 +1,64 @@
+const { chromium } = require('playwright')
+const fs = require('node:fs')
+const path = require('node:path')
+const http = require('node:http')
+const assert = require('node:assert/strict')
+const manifest = require('../src/data/editionAvailability.json')
+const dir = process.env.ARTIFACT_DIR || 'artifacts/edition-holds'
+fs.mkdirSync(dir, { recursive: true })
+const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5197'
+let server
+if (!process.env.TEST_ORIGIN) {
+  server = http.createServer((req,res) => {
+    const url = new URL(req.url, origin)
+    const file = path.resolve('dist', '.' + (['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname))
+    if (!file.startsWith(path.resolve('dist') + '/') || !fs.existsSync(file) || !fs.statSync(file).isFile()) { res.writeHead(404);res.end();return }
+    const type = {'.js':'application/javascript','.css':'text/css','.json':'application/json','.html':'text/html','.woff2':'font/woff2'}[path.extname(file)] || 'application/octet-stream'
+    res.writeHead(200, {'Content-Type':type});fs.createReadStream(file).pipe(res)
+  }).listen(5197)
+}
+;(async () => {
+ const browser = await chromium.launch({args:['--mute-audio']})
+ const results=[]
+ try {
+  for (const [key,evidence] of Object.entries(manifest.editions)) {
+   const [bookId,editionKey] = key.split('/')
+   for (const width of [390,1440]) {
+    const context=await browser.newContext({viewport:{width,height:900}})
+    const page=await context.newPage()
+    const writes=[]
+    await page.route('**/api/**',r=>{ if (!['GET','HEAD'].includes(r.request().method())) writes.push(r.request().url());return r.fulfill({status:404,body:'{}'}) })
+    await page.route('**/*.supabase.co/**',r=>r.fulfill({status:200,contentType:'application/json',body:'[]'}))
+    const place={bookId,headerBook:bookId,chapterNumber:1,sequentialChapter:1,paragraphIndex:2,wordIndex:1,pageIndex:0,primaryEditionKey:editionKey,updatedAt:1700000000000,deviceId:'hold-test-device',rev:1}
+    const position={books:{[bookId]:place},recentChapters:{},finished:{},hidden:{},lastSettledBookId:bookId,lastSettledAt:place.updatedAt,updatedAt:place.updatedAt,deviceId:place.deviceId,owner:null}
+    const highlights=[{id:'hold-note',bookId,editionKey,chapterNumber:1,paragraphIndex:2,fromWord:0,endParagraphIndex:2,toWord:2,color:'yellow',text:'Preserved quotation',note:'Preserved personal note',kept:true}]
+    const seed={'tinct-lab-position':JSON.stringify(position),'tinct-lab-highlights':JSON.stringify(highlights),'tinct-lab-highlights-tap-cleanup-v1':'1',['tinct:notes:'+bookId]:'legacy-note',['tinct:reading-log:'+bookId]:'legacy-history'}
+    await page.addInitScript(({seed,bookId,editionKey})=>{
+      for(const [key,value] of Object.entries(seed))localStorage.setItem(key,value)
+      sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:editionKey,savedPlace:{bookId,chapterNumber:1,paragraphIndex:2,wordIndex:1,page:0}}))
+    },{seed,bookId,editionKey})
+    await page.goto(origin+'/reader')
+    await page.getByTestId('edition-hold').waitFor({timeout:30000})
+    assert.ok((await page.getByTestId('edition-hold').innerText()).includes(evidence.reason))
+    await page.getByText('Saved highlights and notes (1)',{exact:true}).click()
+    await page.getByText('Preserved personal note',{exact:true}).waitFor()
+    const unchanged=async()=> {
+      const actual=await page.evaluate(keys=>Object.fromEntries(keys.map(key=>[key,localStorage.getItem(key)])),Object.keys(seed))
+      assert.deepEqual(actual,seed,key+' '+width+' preserves all fixture bytes')
+    }
+    await unchanged()
+    await page.screenshot({path:dir+'/'+bookId+'-'+editionKey+'-'+width+'.png'})
+    await page.getByRole('button',{name:'Open preserved edition and annotations'}).click()
+    await page.getByTestId('edition-hold-recovery').waitFor()
+    await page.waitForTimeout(1500)
+    await page.keyboard.press('ArrowRight')
+    await page.waitForTimeout(500)
+    await unchanged()
+    assert.equal(writes.length,0,'No account writes during hold/recovery: '+writes.join(','))
+    results.push({bookId,editionKey,width,preserved:true,recovery:true})
+    await context.close()
+   }
+  }
+  fs.writeFileSync(dir+'/results.json',JSON.stringify(results,null,2))
+ } finally { await browser.close(); if(server)server.close() }
+})().catch(e=>{console.error(e);if(server)server.close();process.exitCode=1})

@@ -1,3 +1,4 @@
+import { editionHold } from '../data/editionAvailability'
 import type { Edition, FontFamily, ProgressDisplay, ProgressMetric, ProgressScope } from '../types'
 import { BIBLE } from '../data/bookRegistry'
 import { isEditionWithheld, migrateWithheldEdition } from '../data/withheldEditions'
@@ -216,7 +217,7 @@ export function selectableLabEditions(bookId: string, editions: Edition[]): Edit
   const byBook = selectableCache.get(editions) ?? new Map<string, Edition[]>()
   const cached = byBook.get(bookId)
   if (cached) return cached
-  const filtered = editions.filter(edition => !isEditionWithheld(bookId, edition.key))
+  const filtered = editions.filter(edition => !isEditionWithheld(bookId, edition.key) && !editionHold(bookId, edition.key))
   const result = filtered.length === editions.length ? editions : filtered
   byBook.set(bookId, result)
   selectableCache.set(editions, byBook)

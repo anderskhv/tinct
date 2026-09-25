@@ -1,0 +1,39 @@
+name: Edition availability acceptance
+on:
+  pull_request:
+    paths:
+      - 'app/src/data/editionAvailability*'
+      - 'app/src/lab/EditionHoldPanel.tsx'
+      - 'app/scripts/check-edition-holds.cjs'
+      - '.github/workflows/edition-holds.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+        working-directory: app
+      - run: npm test -- src/data/editionAvailability.test.ts
+        working-directory: app
+      - run: npm run build && npm run verify-bundle
+        working-directory: app
+        env:
+          CI: true
+      - run: npx playwright install --with-deps chromium
+        working-directory: app
+      - run: node scripts/check-edition-holds.cjs
+        working-directory: app
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: edition-hold-acceptance
+          path: app/artifacts/edition-holds

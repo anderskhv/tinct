@@ -1,3 +1,4 @@
+import { editionHold } from './editionAvailability'
 import { editionDifficulty } from '../lab/editionDifficulty'
 import type { Edition } from '../types'
 
@@ -33,7 +34,7 @@ export function isMachineMadeOriginal(bookId: string, editionKey: string): boole
 }
 
 export function defaultPrimaryEditionKey(bookId: string, allEditions: readonly EditionLike[]): string | undefined {
-  const editions = allEditions.filter(edition => !isMachineMadeOriginal(bookId, edition.key))
+  const editions = allEditions.filter(edition => !editionHold(bookId, edition.key) && !isMachineMadeOriginal(bookId, edition.key))
   const byKey = (key: string) => editions.find(edition => edition.key === key)?.key
   return (bookId === 'bible' ? byKey('bsb-en') : undefined)
     ?? byKey('modern-en')
@@ -50,7 +51,7 @@ export function defaultCompareEditionKey(
   year?: number | null,
 ): string | undefined {
   if (NO_DEFAULT_COMPARE.has(bookId)) return undefined
-  const comparable = editions.filter(edition => edition.key !== primaryKey && edition.aligned !== false && !isMachineMadeOriginal(bookId, edition.key))
+  const comparable = editions.filter(edition => !editionHold(bookId, edition.key) && edition.key !== primaryKey && edition.aligned !== false && !isMachineMadeOriginal(bookId, edition.key))
   const human = comparable.filter(edition => edition.style !== 'modern' && edition.language === 'en')
   // An English work has no non-English original in the catalogue.
   const englishWork = !editions.some(edition => edition.style === 'original' && edition.language !== 'en')

@@ -1,3 +1,5 @@
+import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
+import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
 import { readCoverTransition } from '../../public/lab/cover-transition.js'
 import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
@@ -410,6 +412,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     book.bookId || 'bible',
     book.editions?.length ? book.editions : bibleEditions(),
   )
+  const heldPrimary = editionHold(book.bookId || 'bible', prefs.primaryEdition)
+  const heldCompare = prefs.compareOpen ? editionHold(book.bookId || 'bible', prefs.compareEdition) : undefined
+  const temporaryHold = heldPrimary || heldCompare
+  const heldEditionKey = heldPrimary ? prefs.primaryEdition : prefs.compareEdition
+  const holdIdentity = (book.bookId || 'bible') + '/' + heldEditionKey
+  const [recoveredHold, setRecoveredHold] = useState<string | null>(null)
+  const holdRecovery = recoveredHold === holdIdentity
   // The face on the page. A reader who has never picked one reads V2's new
   // default in V2 and the face today's reader has always set in V1.
   const isShakespeare = getBook(book.bookId || 'bible')?.author === 'William Shakespeare'
@@ -1068,7 +1077,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
-    playbackUnavailable: narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable,
+    playbackUnavailable: Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
@@ -1091,7 +1100,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? listen.follow.paragraphIndex
     : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
   useNarrationPrefetch({
-    active: Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    active: !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
     voice: narrationVoice,
     bookId: book.bookId || 'bible',
     editionKey: prefs.primaryEdition,
@@ -1131,7 +1140,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerStateRef,
     sourceLocked: Boolean(source || readerHandoff),
     resolveBeforePaint: chromeV2,
-    writesSuspended: prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
+    writesSuspended: Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
     authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
@@ -1192,7 +1201,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
   })
   const initialResolving = !initialPositionResolved || remoteResumePending
-  const positionWritesSuspended = prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
+  const positionWritesSuspended = Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
   // reader knows the account and the place: hand them over when leaving for
   // the library and whenever the page is hidden, so the library never has to
@@ -1388,7 +1397,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const navigation = ++chapterNavigationRef.current
     const wanted = chapterNumberRef.current
     const activeBookId = book.bookId || 'bible'
-    const primaryEditionKey = bookEditions.some(edition => edition.key === prefs.primaryEdition)
+    const primaryEditionKey = (getBook(activeBookId)?.editions || bookEditions).some(edition => edition.key === prefs.primaryEdition)
       ? prefs.primaryEdition
       // New readers arrive with an edition (library handoff, Bible default);
       // a resumed place without one predates edition keys and reads the original.
@@ -1409,7 +1418,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setReaderLoadAction(null)
     const compareEditionKey = prefs.compareOpen
       && prefs.compareEdition !== primaryEditionKey
-      && bookEditions.some(edition => edition.key === prefs.compareEdition)
+      && (getBook(activeBookId)?.editions || bookEditions).some(edition => edition.key === prefs.compareEdition)
       ? prefs.compareEdition
       : undefined
     markReaderLoadTrace('required_text_start', { startOf: 'required_text' })
@@ -4063,6 +4072,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
   }, [chrome])
 
+  if (temporaryHold && !holdRecovery) return (
+    <EditionHoldPanel
+      title={book.bookTitle}
+      edition={getBook(book.bookId || 'bible')?.editions.find(edition => edition.key === heldEditionKey)?.label || heldEditionKey}
+      reason={temporaryHold.reason}
+      highlights={highlightsApi.allHighlights.filter(mark => mark.bookId === book.bookId)}
+      onRecover={() => setRecoveredHold(holdIdentity)}
+    />
+  )
+
   return (
     <div
       ref={labRootRef}
@@ -4293,6 +4312,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
       )}
+      {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
+        <strong>Preserved edition · recovery view</strong>
+        <p>{TEMPORARY_HOLD_NOTICE} Your reading place and history will not advance in this view. Use Contents to access your highlights and notes.</p>
+        <button type="button" onClick={() => setRecoveredHold(null)}>Review availability notice</button>{' '}
+        <a href="/library">Return to the library</a>
+      </div>}
       {readerLoadError && (
         <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
           <p>{readerLoadError}</p>

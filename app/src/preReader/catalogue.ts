@@ -1,3 +1,4 @@
+import { editionHold } from '../data/editionAvailability'
 import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from '../data/audioAvailability'
 import { BOOKS } from '../data/bookRegistry'
 import { isEditionWithheld } from '../data/withheldEditions'
@@ -374,7 +375,7 @@ export function buildPreReaderCatalogue(): PreReaderCatalogue {
         title: shelf.title,
         subtitle: shelf.sub,
         hue: shelf.hue,
-        books: books.filter(book => book.shelfIds.includes(shelfId)),
+        books: books.filter(book => book.discoveryAvailable !== false && book.shelfIds.includes(shelfId)),
       }
     }).filter(shelf => shelf.books.length > 0),
   })).filter(house => house.shelves.length > 0)
@@ -437,8 +438,8 @@ export function searchPreReaderBooks(
   query: string,
   catalogue: PreReaderCatalogue = PRE_READER_CATALOGUE,
 ): PreReaderBookViewModel[] {
-  if (!query.trim()) return [...catalogue.books]
-  return catalogue.books
+  if (!query.trim()) return catalogue.books.filter(book => book.discoveryAvailable !== false)
+  return catalogue.books.filter(book => book.discoveryAvailable !== false)
     .map(book => ({ book, score: searchScore(book, query) }))
     .filter(result => result.score > 0)
     .sort((a, b) => b.score - a.score || a.book.catalogueIndex - b.book.catalogueIndex)
@@ -473,16 +474,17 @@ export function getEditionSelectionViewModel(
 ): EditionSelectionViewModel | null {
   const book = catalogue.booksById.get(bookId)
   if (!book) return null
-  const selected = book.editions.find(edition => edition.key === selectedEditionKey) || defaultEdition(book)
+  const available = book.editions.filter(edition => !editionHold(bookId, edition.key))
+  const selected = available.find(edition => edition.key === selectedEditionKey) || available.find(edition => edition.key === book.defaultEditionKey) || available[0]
   if (!selected) return null
   return {
     bookId: book.id,
     title: book.title,
     selectedEditionKey: selected.key,
-    humanEditions: book.editions.filter(edition => edition.group === 'human'),
-    modernEditions: book.editions.filter(edition => edition.group === 'modern'),
+    humanEditions: available.filter(edition => edition.group === 'human'),
+    modernEditions: available.filter(edition => edition.group === 'modern'),
     compareOptions: selected.aligned
-      ? book.editions.filter(edition => edition.key !== selected.key && edition.availability.compare)
+      ? available.filter(edition => edition.key !== selected.key && edition.availability.compare)
       : [],
   }
 }
