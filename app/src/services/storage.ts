@@ -1,4 +1,4 @@
-import { prepareLegacySymposiumRead } from './symposiumContentMigration'
+import { prepareLegacySymposiumRead, legacySymposiumAnnotationsReady } from './symposiumContentMigration'
 
 /**
  * Persistence abstraction layer.
@@ -157,8 +157,9 @@ export function setStorageProvider(provider: StorageProvider): void {
 }
 
 export const storage: StorageProvider = {
-  get<T>(key: string): T | null { prepareLegacySymposiumRead(activeProvider,key); return activeProvider.get<T>(key) },
+  get<T>(key: string): T | null { if (!legacySymposiumAnnotationsReady(activeProvider,key)) return null; prepareLegacySymposiumRead(activeProvider,key); return activeProvider.get<T>(key) },
   set<T>(key: string, value: T): void {
+    if (!legacySymposiumAnnotationsReady(activeProvider,key)) return
     if (anonymousRestricted && !isAnonAllowed(key)) {
       // Drop the write — anonymous users only persist position + device-prefs.
       // Notes/highlights/chat-history/library etc. are signed-in-only.
@@ -171,5 +172,5 @@ export const storage: StorageProvider = {
     activeProvider.set<T>(key, value)
   },
   delete(key: string): void { activeProvider.delete(key) },
-  getAll<T>(prefix: string): T[] { prepareLegacySymposiumRead(activeProvider,prefix); return activeProvider.getAll<T>(prefix) },
+  getAll<T>(prefix: string): T[] { if (!legacySymposiumAnnotationsReady(activeProvider,prefix)) return []; prepareLegacySymposiumRead(activeProvider,prefix); return activeProvider.getAll<T>(prefix) },
 }

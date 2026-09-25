@@ -54,6 +54,13 @@ describe('Symposium completeness compatibility',()=>{
    expect(migrateLabHighlight(moved,map,chapter)).toBe(moved)
   })
  }
+ it('does not redistribute partially hydrated cloud annotations',()=>{
+  const row={id:'old',bookId:'symposium',editionKey:'original-en',chapterNumber:7,paragraphIndex:69,timestamp:1700000000000,content:'retain'}
+  const writes:unknown[]=[]
+  const provider={get:<T>(_k:string)=>[row] as T,set:<T>(k:string,v:T)=>{writes.push([k,v])},delete:()=>{},getAll:<T>()=>[] as T[],isHeavyLoaded:()=>false}
+  prepareLegacySymposiumRead(provider,'notes:symposium:8')
+  expect(writes).toEqual([])
+ })
  it('preserves exact Harmodius UTF-16 offsets and retains rewritten annotations unresolved',()=>{
   const point={chapterNumber:3,paragraphIndex:3,offset:1046}
   const range=projectExactEditionRange(map,'modern-en',point,{...point,offset:1055},'chars')
@@ -70,6 +77,7 @@ describe('Symposium completeness compatibility',()=>{
   prepareLegacySymposiumRead(provider,'highlights:symposium:8')
   expect(db.get('highlights:symposium:8')[0]).toMatchObject({chapterNumber:8,paragraphIndex:0,startOffset:0,endOffset:4,note:'mine'})
   expect(db.get('notes:symposium:8')[0].content).toBe('my note')
+  expect([...db.keys()].some(k=>k.startsWith('content-recovery:symposium:'))).toBe(true)
   const once=JSON.stringify([...db]);prepareLegacySymposiumRead(provider,'highlights:symposium:8');expect(JSON.stringify([...db])).toBe(once)
   const danish={...row,editionKey:'modern-da'};expect(migrateSymposiumRecord(danish)).toBe(danish)
   const unknown={bookId:'symposium',chapterNumber:7,lastParagraphIndex:100,updatedAt:1700000000000}

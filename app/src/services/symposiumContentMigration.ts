@@ -49,6 +49,11 @@ export function migrateSymposiumRecord(value: RecordValue, position = false): Re
     contentRevision:result.point.contentRevision,contentMigrationStatus:'exact',contentRecovery:recovery}
 }
 
+export function legacySymposiumAnnotationsReady(provider: StorageProvider, key: string): boolean {
+  if (!/^(highlights|notes):symposium(?::|$)/.test(key)) return true
+  const cloud = provider as StorageProvider & {isHeavyLoaded?: () => boolean}
+  return !cloud.isHeavyLoaded || cloud.isHeavyLoaded()
+}
 let migrating = false
 /** Re-run after remote hydration as well as offline reads; individual hash stamps
  * make it idempotent. Destination writes precede source writes; retained IDs
@@ -63,6 +68,7 @@ export function prepareLegacySymposiumRead(provider: StorageProvider, key: strin
       const next = migrateSymposiumRecord(position,true)
       if (next !== position) provider.set('position:symposium',next)
     }
+    if (!legacySymposiumAnnotationsReady(provider,'highlights:symposium:')) return
     for (const kind of ['highlights','notes']) {
       const old = new Map<number, RecordValue[]>(), next = new Map<number, RecordValue[]>()
       for (let ch=1;ch<=8;ch++) {
@@ -83,6 +89,15 @@ export function prepareLegacySymposiumRead(provider: StorageProvider, key: strin
       const changes=[...new Set([...old.keys(),...next.keys()])].map(ch=>({ch,rows:next.get(ch)||[]}))
         .filter(({ch,rows})=>JSON.stringify(old.get(ch)||[])!==JSON.stringify(rows))
         .sort((a,b)=>b.rows.length-a.rows.length)
+      // Keep a separate recovery copy before any cross-key cloud commits. A
+      // version conflict on one chapter can never destroy the source context.
+      for (const {ch} of changes) {
+        const key='content-recovery:symposium:'+map.revision+':'+kind+':'+ch
+        const backup=provider.get<RecordValue[]>(key)||[]
+        const history=[...backup]
+        for(const row of old.get(ch)||[]) if(!history.some(v=>JSON.stringify(v)===JSON.stringify(row))) history.push(row)
+        if(history.length!==backup.length)provider.set(key,history)
+      }
       for(const {ch,rows} of changes) provider.set(kind+':symposium:'+ch,rows)
     }
   } finally { migrating=false }
