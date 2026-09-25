@@ -3,6 +3,8 @@ import {describe,it,expect} from 'vitest'
 import mapData from './symposiumCoordinateMap.json'
 import {projectEditionCoordinate,projectExactEditionRange,type CoordinateMigration} from './editionCoordinateMigration'
 import {loadedCoordinateMigration} from './editionContentRevisions'
+import {migrateLabBookPlace} from '../lab/labEditionMigration'
+import {migrateLoadedLabPlaces} from '../lab/labContentMigration'
 import {migrateLabHighlight} from '../lab/labHighlightMigration'
 import {migrateSymposiumRecord,prepareLegacySymposiumRead} from '../services/symposiumContentMigration'
 import {narrationTokens,chunkNarrationTokens,narrationTextForParagraph} from '../narration/narrationCore'
@@ -60,6 +62,17 @@ describe('Symposium completeness compatibility',()=>{
   const provider={get:<T>(_k:string)=>[row] as T,set:<T>(k:string,v:T)=>{writes.push([k,v])},delete:()=>{},getAll:<T>()=>[] as T[],isHeavyLoaded:()=>false}
   prepareLegacySymposiumRead(provider,'notes:symposium:8')
   expect(writes).toEqual([])
+ })
+ it('moves all six structural boundary positions before validation and keeps Danish unchanged',()=>{
+  for(const ed of ['original-en','modern-en','modern-da'])for(const [ch,pi,nc,np] of [[1,0,1,9],[1,39,1,48],[7,68,7,68],[7,69,8,0],[7,114,8,45],[8,0,8,46]]){
+   const place={bookId:'symposium',headerBook:'Symposium',chapterNumber:ch,sequentialChapter:ch,paragraphIndex:pi,wordIndex:1,primaryEditionKey:ed,updatedAt:1700000000000,deviceId:'test',rev:2}
+   const moved=migrateLabBookPlace(place,map)
+   if(ed==='modern-da')expect(moved).toBe(place)
+   else {
+    expect(moved).toMatchObject({chapterNumber:nc,sequentialChapter:nc,paragraphIndex:np,wordIndex:1,updatedAt:place.updatedAt,rev:2})
+    expect(migrateLabBookPlace(moved,map)).toBe(moved)
+   }
+  }
  })
  it('preserves exact Harmodius UTF-16 offsets and retains rewritten annotations unresolved',()=>{
   const point={chapterNumber:3,paragraphIndex:3,offset:1046}

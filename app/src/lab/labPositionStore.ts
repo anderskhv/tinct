@@ -44,7 +44,12 @@ export function readLabPositionLocal(deviceId = readLabDeviceId()): LabPositionS
   try {
     const raw = localStorage.getItem(LAB_POSITION_STORAGE_KEY)
     if (!raw) return emptyLabPositionState(deviceId)
-    return migrateLoadedLabPlaces(parseLabPositionState(JSON.parse(raw), deviceId))
+    const parsed = parseLabPositionState(JSON.parse(raw), deviceId)
+    const migrated = migrateLoadedLabPlaces(parsed)
+    // Persist the repair before any reader validates/re-writes the tuple.
+    // Its original clocks and recovery coordinates remain unchanged.
+    if (migrated !== parsed) localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(migrated))
+    return migrated
   } catch {
     return emptyLabPositionState(deviceId)
   }
