@@ -1321,7 +1321,7 @@ export const SYMPOSIUM: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      aligned: false,
       hasAudio: true,
     },
   ],

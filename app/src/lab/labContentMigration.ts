@@ -24,15 +24,15 @@ export function labPositionMigrationBooks(state: LabPositionState): string[] {
 
 export function migrateLoadedLabPlaces(state: LabPositionState): LabPositionState {
   let changed = false
-  const move = (values: Record<string, LabBookPlace>) => Object.fromEntries(Object.entries(values).map(([key, place]) => {
+  const move = (values: Record<string, LabBookPlace>, recent = false) => Object.fromEntries(Object.entries(values).map(([key, place]) => {
     if (!placeNeedsMigration(place)) return [key, place]
     const migration = loadedCoordinateMigration('positions', place.bookId)
     const next = migration ? migrateLabBookPlace(place, migration) : place
     changed ||= next !== place
-    return [key, next]
+    return [recent ? `${next.bookId}:${next.sequentialChapter}` : key, next]
   }))
   const books = move(state.books)
-  const recentChapters = state.recentChapters && move(state.recentChapters)
+  const recentChapters = state.recentChapters && move(state.recentChapters, true)
   return changed ? { ...state, books, ...(recentChapters ? { recentChapters } : {}) } : state
 }
 

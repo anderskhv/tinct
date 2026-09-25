@@ -1,3 +1,4 @@
+import symposiumMap from './symposiumCoordinateMap.json'
 import type { CoordinateMigration } from './editionCoordinateMigration'
 
 /**
@@ -20,6 +21,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  symposium: {
+  "revision": "symposium-completeness-2026-09-25.1",
+  "releasedAt": 1790362800000,
+  "editions": {
+    "original-en": {
+      "before": "e2943777fd54eaaa0888076c5c03a9104bc1b1ffa681a5362ab114e327f797c0",
+      "after": "3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6"
+    },
+    "modern-en": {
+      "before": "7816d1eb6ac9cc6d178c4c123bbeb8ad6daced1f7d7fc8c036f2bded3b8fcce8",
+      "after": "1e970b7beb3f098095ecf1a9fc7d78a8855d75e6ffc3bba14edc69db0e05374f"
+    }
+  }
+},
   'jane-eyre': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
@@ -85,6 +100,8 @@ export function writtenBeforeRelease(
 export type MigrationKind = 'positions' | 'highlights'
 
 const loaded: Record<MigrationKind, Map<string, CoordinateMigration>> = { positions: new Map(), highlights: new Map() }
+// Symposium's map is bundled: migration must precede structure validation even offline.
+for (const kind of ['positions', 'highlights'] as const) loaded[kind].set('symposium', symposiumMap as unknown as CoordinateMigration)
 const pending = new Map<string, Promise<CoordinateMigration | null>>()
 
 /** Maps already in memory, for the synchronous read paths. */

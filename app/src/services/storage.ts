@@ -1,3 +1,5 @@
+import { prepareLegacySymposiumRead } from './symposiumContentMigration'
+
 /**
  * Persistence abstraction layer.
  * Phase 1a: localStorage. Phase 1b: swap for Supabase when authenticated.
@@ -155,15 +157,19 @@ export function setStorageProvider(provider: StorageProvider): void {
 }
 
 export const storage: StorageProvider = {
-  get<T>(key: string): T | null { return activeProvider.get<T>(key) },
+  get<T>(key: string): T | null { prepareLegacySymposiumRead(activeProvider,key); return activeProvider.get<T>(key) },
   set<T>(key: string, value: T): void {
     if (anonymousRestricted && !isAnonAllowed(key)) {
       // Drop the write — anonymous users only persist position + device-prefs.
       // Notes/highlights/chat-history/library etc. are signed-in-only.
       return
     }
+    if (key === 'position:symposium' && value && typeof value === 'object') {
+      const old = activeProvider.get<{contentRecovery?: unknown}>(key)
+      if (old?.contentRecovery && !('contentRecovery' in value)) value = {...value,contentRecovery:old.contentRecovery}
+    }
     activeProvider.set<T>(key, value)
   },
   delete(key: string): void { activeProvider.delete(key) },
-  getAll<T>(prefix: string): T[] { return activeProvider.getAll<T>(prefix) },
+  getAll<T>(prefix: string): T[] { prepareLegacySymposiumRead(activeProvider,prefix); return activeProvider.getAll<T>(prefix) },
 }

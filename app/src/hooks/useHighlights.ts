@@ -110,7 +110,7 @@ export function useHighlights(bookId: string, chapterNumber: number, totalChapte
 
   /** Get highlights for a specific edition only */
   const getEditionHighlights = useCallback((editionKey: EditionKey) => {
-    return highlights.filter(h => h.editionKey === editionKey)
+    return highlights.filter(h => h.editionKey === editionKey && (h as Highlight & {contentMigrationStatus?: string}).contentMigrationStatus !== 'unresolved')
   }, [highlights])
 
   /** Get all highlights across all chapters for a book (for end-of-book summary) */
