@@ -10,6 +10,7 @@ import { fetchLabPositionCloud, readLabPositionLocal, writeLabPositionLocal } fr
 import { placeFromLabBook } from './useLabPositionSync'
 import { highlightOffCurrentText, migrateStoredLabHighlights } from './labHighlightContentMigration'
 import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import type { MigratableHighlight } from './labHighlightMigration'
 import { storedContentMigrations } from './labStoredContentMigrations'
 import type { LabSource } from './labSource'
 
@@ -117,7 +118,7 @@ describe('accepted structural releases (Jane Eyre, Pride and Prejudice 2026-09-2
     const at = before
     const marks: LabHighlight[] = [
       { id: `hl-${at}-a`, bookId: 'jane-eyre', editionKey: 'original-en', chapterNumber: 4, paragraphIndex: 90, fromWord: 0, endParagraphIndex: 90, toWord: 4, color: 'gold', note: 'kept note', text: '“Deceit is not my' },
-      { id: `hl-${at}-b`, bookId: 'jane-eyre', editionKey: 'original-en', chapterNumber: 4, paragraphIndex: 83, fromWord: 0, endParagraphIndex: 83, toWord: 2, color: 'blue', note: 'on a removed caption', text: caption.split(' ').slice(0, 2).join(' ') },
+      { id: `hl-${at}-b`, bookId: 'jane-eyre', editionKey: 'original-en', chapterNumber: 4, paragraphIndex: 83, fromWord: 0, endParagraphIndex: 83, toWord: 2, color: 'sky', note: 'on a removed caption', text: caption.split(' ').slice(0, 2).join(' ') },
       { id: `hl-${at}-c`, bookId: 'emma', editionKey: 'original-en', chapterNumber: 1, paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 3, color: 'gold' },
     ]
     writeLabHighlights(marks)
@@ -128,7 +129,7 @@ describe('accepted structural releases (Jane Eyre, Pride and Prejudice 2026-09-2
     const loadChapter = vi.fn(async () => ({ paragraphs: chapter4 }))
     expect(await migrateStoredLabHighlights(loadChapter)).toBe(true)
     expect(loadChapter).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'jane-eyre', chapterNumber: 4, version: jane.editions['original-en'].after }))
-    const [moved, orphan, other] = readLabHighlights() as (LabHighlight & { contentMigrationStatus?: string })[]
+    const [moved, orphan, other] = readLabHighlights() as MigratableHighlight[]
     expect(moved).toMatchObject({ paragraphIndex: 89, endParagraphIndex: 89, fromWord: 0, toWord: 4, note: 'kept note', contentMigrationStatus: 'exact', contentRevision: jane.editions['original-en'].after })
     expect(highlightOffCurrentText(moved)).toBe(false)
     expect(orphan).toMatchObject({ paragraphIndex: 83, note: 'on a removed caption', contentMigrationStatus: 'unresolved' })
