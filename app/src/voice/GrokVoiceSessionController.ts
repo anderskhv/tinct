@@ -37,7 +37,12 @@ const PLAYBACK_LEAD_SECONDS = 0.05
 const CONTEXT_UPDATE_DEBOUNCE_MS = 400
 const CONNECT_TIMEOUT_MS = 15_000
 export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
-export const LOOKUP_ACKNOWLEDGEMENT = 'One moment.'
+/**
+ * What the app has Grok say while a lookup runs long. Short and plain, taken in
+ * turn so it does not repeat: never about thinking, never about the question.
+ */
+export const LOOKUP_ACKNOWLEDGEMENTS = ['One moment.', 'Just a second.', 'One second.', 'Looking that up.', 'Just a moment.'] as const
+export const LOOKUP_ACKNOWLEDGEMENT = LOOKUP_ACKNOWLEDGEMENTS[0]
 const LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS = 5_000
 /** Grok has fanned out up to 999 parallel lookups in one turn; run only this many per tool. */
 export const MAX_CALLS_PER_TOOL_PER_TURN = 8
@@ -137,6 +142,13 @@ export class GrokVoiceSessionController {
   private visibilityListening = false
   private releaseAudioSession: (() => void) | null = null
   private lookupAcknowledgement: { resolve: () => void } | null = null
+  private acknowledgementsSaid = 0
+  /** Tool rounds still running: the answer to the reader's turn has not come yet. */
+  private toolRoundsInFlight = 0
+  /** A tool result was sent with response.create and that response has not started. */
+  private followUpPending = false
+  /** Between the provider's speech_started and speech_stopped: the reader has the floor. */
+  private readerSpeaking = false
 
   private readonly handleVisibilityChange = () => {
     if (typeof document === 'undefined' || document.visibilityState !== 'visible' || !this.ui.isActive) return
@@ -356,12 +368,14 @@ export class GrokVoiceSessionController {
       case 'input_audio_buffer.speech_started': {
         if (!this.ui.userSpeechStarted && this.callbacks.onBeforeUserTurn?.() === false) { this.stop(); return }
         this.turnNumber++
+        this.readerSpeaking = true
         this.interruptAssistant()
         this.emit({ userSpeechStarted: true, activity: 'listening', state: 'listening' })
         return
       }
       case 'input_audio_buffer.speech_stopped': {
         this.speechStoppedAt = Date.now()
+        this.readerSpeaking = false
         this.emit({ activity: 'preparing_answer', state: 'answering' })
         return
       }
@@ -372,6 +386,7 @@ export class GrokVoiceSessionController {
       }
       case 'response.created': {
         this.response = { id: event.response?.id || '', text: '', stale: false, audioStarted: false, calls: [], done: false }
+        this.followUpPending = false
         if (this.ui.activity === 'listening') this.emit({ activity: 'preparing_answer', state: 'answering' })
         return
       }
@@ -419,7 +434,7 @@ export class GrokVoiceSessionController {
           this.lookupAcknowledgement = null
           acknowledgement.resolve()
         }
-        if (this.sources.size === 0) this.emit({ activity: 'listening', state: 'listening' })
+        this.settleAfterAudio()
         return
       }
       case 'error': {
@@ -462,6 +477,7 @@ export class GrokVoiceSessionController {
     // "Take me back to the book" often arrives with a goodbye too. The resume carries the
     // reader's place, so it must run before anything that ends the session.
     const ordered = [...calls].sort((a, b) => Number(b.name === 'resume_audiobook') - Number(a.name === 'resume_audiobook'))
+    this.toolRoundsInFlight++
     this.toolQueue = this.toolQueue.then(async () => {
       let continued = false
       const perTool = new Map<string, number>()
@@ -479,9 +495,10 @@ export class GrokVoiceSessionController {
         const acknowledgementTimer = ACKNOWLEDGED_LOOKUP_TOOLS.has(call.name) ? setTimeout(() => {
           if (generation !== this.generation || !this.ui.isActive) return
           acknowledgementWait = new Promise<void>(resolve => { this.lookupAcknowledgement = { resolve } })
+          const text = LOOKUP_ACKNOWLEDGEMENTS[this.acknowledgementsSaid++ % LOOKUP_ACKNOWLEDGEMENTS.length]
           this.send({ type: 'conversation.item.create', item: {
             type: 'force_message', role: 'assistant', interruptible: true,
-            content: [{ type: 'output_text', text: LOOKUP_ACKNOWLEDGEMENT }],
+            content: [{ type: 'output_text', text }],
           } })
         }, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS) : null
         let result: { output: unknown; responseInstructions?: string }
@@ -498,10 +515,15 @@ export class GrokVoiceSessionController {
         this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(result.output) } })
         if (!continued) {
           continued = true
+          this.followUpPending = true
           this.send({ type: 'response.create', ...(result.responseInstructions ? { response: { instructions: this.withSessionInstructions(result.responseInstructions) } } : {}) })
         }
       }
-    }).catch(() => { /* Individual tool failures return a result above. */ })
+    }).catch(() => { /* Individual tool failures return a result above. */ }).finally(() => {
+      if (generation !== this.generation) return
+      this.toolRoundsInFlight = Math.max(0, this.toolRoundsInFlight - 1)
+      this.settleAfterAudio()
+    })
   }
 
   /**
@@ -692,8 +714,25 @@ export class GrokVoiceSessionController {
   /** The last scheduled buffer finished: the answer has actually been heard. */
   private onSourceEnded(source: AudioBufferSourceNode): void {
     this.sources.delete(source)
-    if (this.sources.size !== 0 || !this.ui.isActive || (this.response && !this.response.done)) return
+    if (this.sources.size !== 0 || !this.ui.isActive) return
+    // A holding phrase played and the answer is still being made (a web search in the same response).
+    if (this.response && !this.response.done) { if (this.ui.activity === 'speaking') this.emit({ activity: 'preparing_answer', state: 'answering' }); return }
     if (this.spoken) { this.callbacks.onTurn('assistant', this.spoken.text); this.spoken = null }
+    this.settleAfterAudio()
+  }
+
+  /**
+   * Nothing is playing. Listening only when the reader's turn has been answered;
+   * while a lookup runs or its answer has not started, the assistant is still
+   * preparing it, even after a holding phrase.
+   */
+  private settleAfterAudio(): void {
+    if (this.sources.size !== 0 || !this.ui.isActive || this.readerSpeaking) return
+    if (this.response && !this.response.done) return
+    if (this.toolRoundsInFlight > 0 || this.followUpPending) {
+      if (this.ui.activity !== 'preparing_answer') this.emit({ activity: 'preparing_answer', state: 'answering' })
+      return
+    }
     if (this.ui.activity !== 'listening') this.emit({ activity: 'listening', state: 'listening' })
   }
 
@@ -748,6 +787,10 @@ export class GrokVoiceSessionController {
       this.lookupAcknowledgement = null
     }
     this.toolQueue = Promise.resolve()
+    this.toolRoundsInFlight = 0
+    this.followUpPending = false
+    this.readerSpeaking = false
+    this.acknowledgementsSaid = 0
     this.turnNumber = 0
     this.speechStoppedAt = 0
     this.input = null

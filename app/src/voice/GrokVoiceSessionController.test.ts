@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { GrokVoiceSessionController, LOOKUP_ACKNOWLEDGEMENT, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS, MAX_CALLS_PER_TOOL_PER_TURN, floatToPcm16Base64, pcm16Base64ToFloat, resampleFloat, type GrokSocket } from './GrokVoiceSessionController'
+import { GrokVoiceSessionController, LOOKUP_ACKNOWLEDGEMENT, LOOKUP_ACKNOWLEDGEMENTS, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS, MAX_CALLS_PER_TOOL_PER_TURN, floatToPcm16Base64, pcm16Base64ToFloat, resampleFloat, type GrokSocket } from './GrokVoiceSessionController'
 import { GROK_VOICE_INSTRUCTIONS, GROK_VOICE_MODEL } from './grokConfig'
 import type { StartVoiceSessionInput, VoiceSessionCallbacks } from './session'
 
@@ -261,6 +261,45 @@ describe('tools', () => {
     finishLookup({ output: { ok: true }, responseInstructions: 'Answer from the evidence.' })
     await vi.advanceTimersByTimeAsync(0)
     expect(sent.filter(event => event.type === 'response.create')).toEqual([{ type: 'response.create', response: { instructions: 'Answer from the evidence.' } }])
+  })
+
+  it('stays preparing the answer through a slow lookup, and varies the holding phrase', async () => {
+    vi.useFakeTimers()
+    const lookups: Array<(value: { output: Record<string, unknown> }) => void> = []
+    const onApplicationTool = vi.fn(() => new Promise<{ output: Record<string, unknown> }>(resolve => { lookups.push(resolve) }))
+    const { controller, sent } = connected({ onApplicationTool }, { tools: [{ type: 'function', name: 'search_reading_sources', parameters: {} }] })
+    const activity = () => controller.getSnapshot().activity
+    controller.handleEvent({ type: 'session.updated' })
+    const ask = async (turn: string) => {
+      controller.handleEvent({ type: 'input_audio_buffer.speech_started' })
+      expect(activity()).toBe('listening')
+      controller.handleEvent({ type: 'input_audio_buffer.speech_stopped' })
+      controller.handleEvent({ type: 'response.created', response: { id: `${turn}-call` } })
+      controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'search_reading_sources', call_id: turn, arguments: '{}' })
+      controller.handleEvent({ type: 'response.done', response: { id: `${turn}-call`, status: 'completed' } })
+      // The lookup is running: not listening.
+      expect(activity()).toBe('preparing_answer')
+      await vi.advanceTimersByTimeAsync(LOOKUP_ACKNOWLEDGEMENT_DELAY_MS)
+      const acknowledgement = sent.filter(event => event.type === 'conversation.item.create').at(-1) as unknown as { item: { content: Array<{ text: string }> } }
+      controller.handleEvent({ type: 'response.created', response: { id: `${turn}-ack` } })
+      controller.handleEvent({ type: 'response.done', response: { id: `${turn}-ack`, status: 'completed' } })
+      // The holding phrase has been said; the answer has not come.
+      expect(activity()).toBe('preparing_answer')
+      lookups.at(-1)!({ output: { ok: true } })
+      await vi.advanceTimersByTimeAsync(0)
+      expect(sent.at(-1)).toMatchObject({ type: 'response.create' })
+      expect(activity()).toBe('preparing_answer')
+      controller.handleEvent({ type: 'response.created', response: { id: `${turn}-answer` } })
+      controller.handleEvent({ type: 'response.done', response: { id: `${turn}-answer`, status: 'completed' } })
+      expect(activity()).toBe('listening')
+      return acknowledgement.item.content[0].text
+    }
+    const first = await ask('one')
+    const second = await ask('two')
+    expect(first).toBe(LOOKUP_ACKNOWLEDGEMENT)
+    expect(second).not.toBe(first)
+    expect(LOOKUP_ACKNOWLEDGEMENTS).toContain(second)
+    for (const phrase of LOOKUP_ACKNOWLEDGEMENTS) expect(phrase).not.toMatch(/think|ponder|question|great|hmm/i)
   })
 
   it('does not insert a holding phrase for a fast lookup', async () => {
