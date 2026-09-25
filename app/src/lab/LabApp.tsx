@@ -114,6 +114,8 @@ import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
 import { labCallRestore, labCallUtterance, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
+import { readerEditionLabel } from './editionDifficulty'
+import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
@@ -389,6 +391,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const boot = bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const [readerLoadError, setReaderLoadError] = useState('')
+  /** A way out of a load error: a Bible chapter another version has. */
+  const [readerLoadAction, setReaderLoadAction] = useState<{ label: string; primaryEdition: string } | null>(null)
   const [prefs, setPrefs] = useState<LabPrefs>(() => {
     // Resolve audio only after the handoff identifies the book. Bible defaults
     // would otherwise erase another book's explicit audiobook on reload.
@@ -599,8 +603,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // the English editions left on 2026-09-25) cannot be paired on any device.
   const unalignedCompare = (book.bookId || 'bible') !== 'bible'
     && [prefs.primaryEdition, prefs.compareEdition].some(key => bookEditions.find(edition => edition.key === key)?.aligned === false)
-  const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !unalignedCompare
-  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare
+  // Bible editions do not all have the same chapters (WEB Catholic has Tobit;
+  // the others do not), and Greek Daniel 3 numbers its verses differently from
+  // the Hebrew: Compare says so rather than pairing different passages.
+  const compareChapterMissing = (book.bookId || 'bible') === 'bible' && prefs.compareOpen
+    && !bibleEditionHasChapter(prefs.compareEdition, book.chapterNumber)
+  const compareNumberingDiffers = (book.bookId || 'bible') === 'bible' && prefs.compareOpen
+    && !bibleVerseNumbersCorrespond(prefs.primaryEdition, prefs.compareEdition, book.chapterNumber)
+  const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !unalignedCompare && !compareNumberingDiffers
+  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -1386,6 +1397,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setReaderLoadError('This book does not currently have a readable edition.')
       return
     }
+    if (activeBookId === 'bible' && !bibleEditionHasChapter(primaryEditionKey, wanted)) {
+      // Never show another chapter in its place: say which version has it.
+      const title = book.chapters.find(chapter => chapter.number === wanted)?.title || 'This chapter'
+      const holder = bookEditions.find(edition => bibleEditionHasChapter(edition.key, wanted))
+      const missingFrom = bookEditions.find(edition => edition.key === primaryEditionKey)
+      setReaderLoadError(`${title} isn’t in the ${missingFrom ? readerEditionLabel(missingFrom) : primaryEditionKey}.`)
+      setReaderLoadAction(holder ? { label: `Read it in the ${readerEditionLabel(holder)}`, primaryEdition: holder.key } : null)
+      return
+    }
+    setReaderLoadAction(null)
     const compareEditionKey = prefs.compareOpen
       && prefs.compareEdition !== primaryEditionKey
       && bookEditions.some(edition => edition.key === prefs.compareEdition)
@@ -4255,6 +4276,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {chromeV2 && !frontispieceVisible && (
         <LabV2Sheet
           bookId={book.bookId || 'bible'}
+          chapterNumber={book.chapterNumber}
           layer={superSheet}
           onLayer={setSuperSheet}
           onClose={() => setSuperSheet(null)}
@@ -4266,7 +4288,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
             : null}
-          compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
+          compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
@@ -4274,6 +4296,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       {readerLoadError && (
         <div className="lab-reader-load-error" role="alert" data-testid="lab-reader-load-error">
           <p>{readerLoadError}</p>
+          {readerLoadAction && (
+            <button type="button" className="lab-reader-load-action" data-testid="lab-reader-load-action"
+              onClick={() => updatePrefs({ ...prefs, primaryEdition: readerLoadAction.primaryEdition, compareOpen: prefs.compareOpen && prefs.compareEdition !== readerLoadAction.primaryEdition })}>
+              {readerLoadAction.label}
+            </button>
+          )}
           <a href="/lab/library">Return to the library</a>
         </div>
       )}

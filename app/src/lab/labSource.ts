@@ -1,3 +1,4 @@
+import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
@@ -94,7 +95,14 @@ export function labHeaderLine(book: string, chapter: string): string {
   return `${book} · ${chapter}`
 }
 
+/**
+ * The chapter after `current` in reading order: the list's order, which is
+ * not always the numbering (WEB Catholic reads Tobit, numbered 1190, after
+ * Nehemiah 13). A number not in the list steps by number.
+ */
 export function nextLabChapter(chapters: LabChapter[], current: number): number | null {
+  const index = chapters.findIndex(item => item.number === current)
+  if (index >= 0) return chapters[index + 1]?.number ?? null
   const next = chapters
     .map(item => item.number)
     .filter(number => number > current)
@@ -103,6 +111,8 @@ export function nextLabChapter(chapters: LabChapter[], current: number): number 
 }
 
 export function prevLabChapter(chapters: LabChapter[], current: number): number | null {
+  const index = chapters.findIndex(item => item.number === current)
+  if (index >= 0) return index > 0 ? chapters[index - 1].number : null
   const prev = chapters
     .map(item => item.number)
     .filter(number => number < current)
@@ -365,7 +375,7 @@ export function prefetchLabChapterTexts(
         if (!entry) return
         await Promise.all([
           loadBibleChapterText(primary, entry),
-          loadBibleChapterText(compare, entry).catch(() => []),
+          bibleEditionHasChapter(compare, entry.number) ? loadBibleChapterText(compare, entry).catch(() => []) : [],
         ])
       }))
     } catch {
@@ -394,7 +404,8 @@ export async function loadLabSource(
     const compareEntry = { ...entry, path: chapterPath(entry) }
     const [paragraphs, compareParagraphs] = await Promise.all([
       loadBibleChapterText(primary, entry),
-      editions?.readingFirst && !editions.compare ? Promise.resolve([]) : loadBibleChapterText(compare, compareEntry).catch(() => []),
+      // A chapter the compare edition does not have (Tobit in a 66-book Bible) is never fetched: Compare says so instead.
+      (editions?.readingFirst && !editions.compare) || !bibleEditionHasChapter(compare, entry.number) ? Promise.resolve([]) : loadBibleChapterText(compare, compareEntry).catch(() => []),
     ])
     if (paragraphs.length === 0) return bibleFallbackSource()
 

@@ -120,7 +120,7 @@ export const BIBLE: Book = {
   id: 'bible',
   title: 'The Bible',
   author: 'Various',
-  description: 'The foundational text of Western civilization. 66 books spanning creation, law, history, poetry, prophecy, gospels, and revelation — the story of God and humanity across thousands of years.',
+  description: 'The foundational text of Western civilization. 66 books (73 in the Catholic edition) spanning creation, law, history, poetry, prophecy, gospels, and revelation — the story of God and humanity across thousands of years.',
   year: -1400,
   wordCount: 783000,
   coverColor: '#2a1a0e',
@@ -151,6 +151,19 @@ export const BIBLE: Book = {
       style: 'web',
       label: 'World English Bible',
       year: 2000,
+      aligned: true,
+      hasAudio: true,
+    },
+    // The 73-book Catholic canon, in the Catholic order: Tobit, Judith,
+    // 1-2 Maccabees, Wisdom, Sirach, Baruch and the Greek Esther and Daniel.
+    // It shares the other editions' chapter numbers where it has the same
+    // chapter (data/bibleEditionChapters.ts). Narration streams on demand.
+    {
+      key: 'webc-en',
+      language: 'en',
+      style: 'web',
+      label: 'World English Bible, Catholic Edition',
+      year: 2020,
       aligned: true,
       hasAudio: true,
     },
