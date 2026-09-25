@@ -995,7 +995,10 @@ import {
     const resumeCompare = v1Editions(book).find(edition => edition.key === state.pendingResume?.compareEditionKey && edition.availability.compare)
     if (changingBook) {
       const humanEditions = v1Editions(book).filter(edition => edition.key !== state.selectedEditionKey && edition.group === 'human' && edition.language === 'en' && edition.availability.compare)
-      const defaultHuman = humanEditions.find(edition => edition.key === book.defaultCompareEditionKey) || humanEditions.find(edition => edition.key === 'original-en') || humanEditions[0]
+      // catalogue.json carries the approved default; null means no default Compare.
+      const defaultHuman = 'defaultCompareEditionKey' in book
+        ? humanEditions.find(edition => edition.key === book.defaultCompareEditionKey)
+        : humanEditions.find(edition => edition.key === 'original-en') || humanEditions[0]
       state.compareEditionKey = resumeCompare?.key || (!state.pendingResume && !state.explicitStart ? defaultHuman?.key : null) || null
       state.previewCompareKey = null
       state.sampleExpanded = false

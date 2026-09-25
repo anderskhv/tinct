@@ -35,7 +35,7 @@ import {
   readLabPositionLocal,
   writeLabPositionLocal,
 } from './labPositionStore'
-import { defaultPrimaryEditionKey } from '../data/editionDefaults'
+import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 
 /** Library bookId the position record keys finished chapters by. */
 export function labLibraryBookId(book: Pick<LabSource, 'bookId'>): string {
@@ -107,7 +107,7 @@ export function remoteResumeSelection(place: LabBookPlace, current: { libraryBoo
     ? basePrefs.primaryEdition
     // A saved place without a usable edition predates edition keys: resume
     // the old default (the original), never the new-reader default.
-    : (editions.find(edition => edition.style === 'original' && edition.language === 'en') || editions.find(edition => edition.key === defaultPrimaryEditionKey(bookId, editions)) || editions[0])?.key
+    : savedPlaceFallbackEditionKey(bookId, editions)
   if (!primaryEditionKey) return null
   const compareEditionKey = basePrefs.compareOpen
     && basePrefs.compareEdition !== primaryEditionKey

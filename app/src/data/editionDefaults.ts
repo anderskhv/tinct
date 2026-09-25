@@ -18,7 +18,22 @@ type EditionLike = Pick<Edition, 'key' | 'style' | 'language'> & { aligned?: boo
 const DIFFICULTY_RANK = { Easy: 0, Medium: 1, Hard: 2 } as const
 const RECENT_ENGLISH_FROM = 1700
 
-export function defaultPrimaryEditionKey(bookId: string, editions: readonly EditionLike[]): string | undefined {
+/**
+ * Machine-made editions that carry style 'original' and are never a default.
+ * Fear and Trembling original-en is an AI translation labelled "Original
+ * (English)" (b76fa564); no public-domain human English translation exists
+ * (package PROVENANCE.md). It is retired with the R2 structure change.
+ */
+const MACHINE_MADE_ORIGINALS: ReadonlySet<string> = new Set(['fear-and-trembling/original-en'])
+/** Books whose default Compare is none; readers choose one explicitly. */
+const NO_DEFAULT_COMPARE: ReadonlySet<string> = new Set(['fear-and-trembling'])
+
+export function isMachineMadeOriginal(bookId: string, editionKey: string): boolean {
+  return MACHINE_MADE_ORIGINALS.has(`${bookId}/${editionKey}`)
+}
+
+export function defaultPrimaryEditionKey(bookId: string, allEditions: readonly EditionLike[]): string | undefined {
+  const editions = allEditions.filter(edition => !isMachineMadeOriginal(bookId, edition.key))
   const byKey = (key: string) => editions.find(edition => edition.key === key)?.key
   return (bookId === 'bible' ? byKey('bsb-en') : undefined)
     ?? byKey('modern-en')
@@ -34,7 +49,8 @@ export function defaultCompareEditionKey(
   primaryKey: string | undefined,
   year?: number | null,
 ): string | undefined {
-  const comparable = editions.filter(edition => edition.key !== primaryKey && edition.aligned !== false)
+  if (NO_DEFAULT_COMPARE.has(bookId)) return undefined
+  const comparable = editions.filter(edition => edition.key !== primaryKey && edition.aligned !== false && !isMachineMadeOriginal(bookId, edition.key))
   const human = comparable.filter(edition => edition.style !== 'modern' && edition.language === 'en')
   // An English work has no non-English original in the catalogue.
   const englishWork = !editions.some(edition => edition.style === 'original' && edition.language !== 'en')
@@ -48,4 +64,16 @@ export function defaultCompareEditionKey(
   const easiest = human.map((edition, index) => ({ edition, index }))
     .sort((a, b) => rank(a.edition) - rank(b.edition) || a.index - b.index)[0]?.edition
   return easiest?.key ?? comparable[0]?.key
+}
+
+/**
+ * The edition for a saved place or continuation that carries no edition key.
+ * Those predate edition keys, when the original was the default, so they keep
+ * reading it rather than switching to the new-reader default; a machine-made
+ * "original" is never chosen.
+ */
+export function savedPlaceFallbackEditionKey(bookId: string, editions: readonly EditionLike[]): string | undefined {
+  return editions.find(edition => edition.style === 'original' && edition.language === 'en' && !isMachineMadeOriginal(bookId, edition.key))?.key
+    ?? defaultPrimaryEditionKey(bookId, editions)
+    ?? editions[0]?.key
 }
