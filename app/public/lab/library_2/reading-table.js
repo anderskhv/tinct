@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260925f';
+import { readingApi } from './catalogue.js?v=20260925g';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -38,15 +38,34 @@ const BINDINGS = [
 ];
 const hash = id => [...id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 const hexRgb = hex => { const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return null; const n = parseInt(m[1], 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
+/** Average colour of a cover's artwork (same-origin image), sampled once. */
+const toneCache = new Map();
+function coverTone(img) {
+  if (toneCache.has(img.src)) return toneCache.get(img.src);
+  try {
+    const c = document.createElement('canvas'); c.width = 12; c.height = 18;
+    const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(img, 0, 0, 12, 18);
+    const d = x.getImageData(0, 0, 12, 18).data; let r = 0, g = 0, b = 0, n = 0;
+    for (let i = 0; i < d.length; i += 4) { const w = Math.max(d[i], d[i + 1], d[i + 2]) - Math.min(d[i], d[i + 1], d[i + 2]) + 8; r += d[i] * w; g += d[i + 1] * w; b += d[i + 2] * w; n += w; }
+    const hex = '#' + [r, g, b].map(v => Math.round(v / n).toString(16).padStart(2, '0')).join('');
+    toneCache.set(img.src, hex);
+    return hex;
+  } catch { return null; }
+}
 function bindingFor(book) {
   const rgb = hexRgb(book.tone);
-  if (!rgb || Math.max(...rgb) - Math.min(...rgb) < 6) return BINDINGS[hash(book.bookId) % BINDINGS.length];
-  // Cover backgrounds are very dark: compare colour direction, not brightness.
-  const norm = v => { const m = Math.max(...v, 1); return v.map(x => x / m); };
-  const target = norm(rgb);
-  let best = BINDINGS[0], bestD = Infinity;
-  for (const b of BINDINGS) { const c = norm(hexRgb(b[1])); const d = c.reduce((s, x, i) => s + (x - target[i]) ** 2, 0); if (d < bestD) { bestD = d; best = b; } }
-  return best;
+  if (!rgb) return BINDINGS[hash(book.bookId) % BINDINGS.length];
+  const find = name => BINDINGS.find(b => b[0] === name);
+  const [r, g, b] = rgb, max = Math.max(r, g, b), chroma = max - Math.min(r, g, b);
+  // Nearly grey covers: dark or pale neutral bindings.
+  if (chroma < 10) return find(max > 110 ? 'slate' : 'black');
+  // Otherwise by hue, so a red cover gets a red spine however dark it is.
+  const hue = (max === r ? ((g - b) / chroma + 6) % 6 : max === g ? (b - r) / chroma + 2 : (r - g) / chroma + 4) * 60;
+  if (hue < 15 || hue >= 330) return find('oxblood');
+  if (hue < 55) return find(chroma > 55 ? 'ochre' : 'brown');
+  if (hue < 175) return find('green');
+  if (hue < 255) return find(chroma < 20 && max > 90 ? 'slate' : 'navy');
+  return find('plum');
 }
 
 // Bookmark ribbons: one colour per book, stable across visits.
@@ -79,7 +98,7 @@ function bookMarkup(b, i) {
       <span class="rt-mark"><i></i></span>
       <span class="rt-f rt-refl rt-refl-front"></span>
       <span class="rt-f rt-refl rt-refl-spine" style="background:${texture}var(--binding)"></span>
-      <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
+      <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" data-binding="${name}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
       <span class="rt-f rt-front"><img src="${esc(b.cover)}" alt="" decoding="async" draggable="false"></span>
     </button>`;
 }
@@ -292,6 +311,20 @@ function wire(view, table, demo, keepBookId) {
       if (e.key === 'ArrowRight') document.getElementById('rt-next')?.click();
     });
   }
+  // Spines take the binding nearest the cover artwork's own colour.
+  books.forEach((book, i) => {
+    const img = book.querySelector('.rt-front img');
+    const apply = () => {
+      const tone = coverTone(img);
+      if (!tone) return;
+      const [name, colour] = bindingFor({ ...table.reading[i], tone });
+      book.style.setProperty('--binding', colour);
+      const tex = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
+      book.querySelector('.rt-spine').style.background = `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${tex}${colour}`;
+      book.querySelector('.rt-refl-spine').style.background = `${tex}${colour}`;
+    };
+    if (img.complete && img.naturalWidth) apply(); else img.addEventListener('load', apply, { once: true });
+  });
   if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fit).observe(stage);
   else addEventListener('resize', fit);
   fit();
