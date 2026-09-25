@@ -245,6 +245,30 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 2, wordIndex: layout[1].wordFrom })
   })
 
+  it('downloads the next ready groups while one plays, so a boundary does not wait on the network', async () => {
+    const h = harness()
+    h.fetchSpy.mockResolvedValue({ ok: true, arrayBuffer: async () => new ArrayBuffer(0) })
+    const layout = chunkNarrationText(LONG)
+    expect(layout.length).toBeGreaterThanOrEqual(3)
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 2, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(1))
+    // Every group of the paragraph is already made.
+    await act(async () => { await h.answer(h.calls[0], { 2: layout.length }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(h.fetchSpy).toHaveBeenCalledTimes(2))
+    expect(h.fetchSpy.mock.calls.map(([url, init]) => [url, init?.cache])).toEqual([
+      [expect.stringContaining('hash-2-1.mp3'), 'force-cache'],
+      [expect.stringContaining('hash-2-2.mp3'), 'force-cache'],
+    ])
+    // Moving on downloads only what is new, never a clip twice.
+    act(() => h.audio.dispatchEvent(new Event('ended')))
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
+    const urls = h.fetchSpy.mock.calls.map(([url]) => String(url))
+    expect(new Set(urls).size).toBe(urls.length)
+    expect(urls.every(url => !url.includes('hash-2-0'))).toBe(true)
+  })
+
   it('at 3x prepares the next sentence groups side by side, so loading never becomes the barrier', async () => {
     expect([1, 1.25, 1.5, 2, 2.5, 3].map(narrationLookAheadWidth)).toEqual([1, 1, 2, 2, 3, 3])
     const h = harness({ speed: 3 })
