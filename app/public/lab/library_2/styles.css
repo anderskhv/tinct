@@ -218,10 +218,9 @@ html.returning-pending .hero-copy,html.returning-pending #hero-book,html.returni
 .rt-spine.is-textured em{color:#e8d49a;text-shadow:0 1px 1px #000c,0 0 2px #0008}
 .rt-head{transform-style:preserve-3d}
 .character-sketch.no-sketch{background-image:none}
-/* A leather bookmark standing in the pages at the reader's depth, rising above the head. */
-.rt-mark{position:absolute;left:57%;bottom:95%;width:clamp(10px,10%,19px);height:15%;transform-origin:50% 100%;transform:translateZ(calc(var(--d)/2 - var(--p)*var(--d))) rotateZ(-2.5deg);opacity:0;transition:opacity .35s .35s;pointer-events:none}
-.rt-mark i{position:absolute;inset:0;border-radius:45% 45% 1px 1px/18% 18% 1px 1px;background:repeating-linear-gradient(88deg,#ffffff08 0 1px,#0000 1px 3px),linear-gradient(90deg,color-mix(in srgb,var(--ribbon) 55%,#000),var(--ribbon) 35%,color-mix(in srgb,var(--ribbon) 85%,#fff) 52%,color-mix(in srgb,var(--ribbon) 65%,#000));box-shadow:inset 0 0 0 1px #0003,inset 0 2px 1px #ffffff22,1px 1px 2px #0006}
-.rt-mark i::after{content:'';position:absolute;left:22%;right:22%;top:14%;height:1px;background:#e3c77f99}
+/* A short, flat woven ribbon, tucked into the pages at the reader's depth. */
+.rt-mark{position:absolute;left:57%;bottom:98%;width:clamp(5px,3.6%,9px);height:6%;transform-origin:50% 100%;transform:translateZ(calc(var(--d)/2 - var(--p)*var(--d))) rotateZ(-7deg);opacity:0;transition:opacity .3s .25s;pointer-events:none}
+.rt-mark i{position:absolute;inset:0;clip-path:polygon(0 8%,100% 0,100% 100%,0 100%);background:repeating-linear-gradient(0deg,#ffffff0b 0 .5px,#0000000a .5px 1px),linear-gradient(90deg,#0003,transparent 22%,transparent 78%,#0002),var(--ribbon);box-shadow:inset 0 -4px 4px #0005}
 .rt-b.is-current .rt-mark{opacity:1}
 /* Reflections on the polished table: the cover and spine mirrored below the base, fading out. */
 .rt-refl{pointer-events:none;opacity:.2;-webkit-mask-image:linear-gradient(180deg,#000,#0000 55%);mask-image:linear-gradient(180deg,#000,#0000 55%)}
@@ -237,3 +236,10 @@ html.returning-pending .hero-copy,html.returning-pending #hero-book,html.returni
 .rt-dots button.active::after{background:#eee7d0}
 @media(min-width:900px){.rt-dots{display:flex}.rt-arrows{display:none!important}}
 @media(max-width:699px){.rt-recap{height:calc(2.9em + 40px)}.rt-recap p{-webkit-line-clamp:2;max-height:2.9em}.reading-table{padding-bottom:6px}}
+
+/* Window light stays in the room; the header remains legible over every scene. */
+html[data-scene="pride-and-prejudice"] #header:not(.scrolled){background:linear-gradient(#0b160fd9,transparent);text-shadow:0 1px 3px #0008}
+#slip-portrait{flex-shrink:0}
+/* The room and table remain visible behind the returning reader's text. */
+html.returning .hero-shade{background:linear-gradient(0deg,var(--bg),#10180fbb 10%,transparent 48%)}
+@media(min-width:900px){html.returning .hero-shade{background:linear-gradient(0deg,var(--bg),transparent 22%),linear-gradient(90deg,#080e0bc4,transparent 62%)}}
