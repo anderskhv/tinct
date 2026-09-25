@@ -6,7 +6,7 @@ import { loadEditionWindow } from '../data/editionLoader'
 
 export const CHAPTER_CHAT_MESSAGES = {
   discuss: 'Recap this chapter.',
-  preview: 'Preview this chapter.',
+  preview: 'Give me a primer on this chapter.',
   prepare: 'Prepare me for the next chapter.',
 } as const
 

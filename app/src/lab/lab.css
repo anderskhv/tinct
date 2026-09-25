@@ -7394,6 +7394,8 @@
   border-radius: 999px; padding: 2px 10px;
 }
 .lab[data-chrome-version="v2"] .lab-chapter-preview:hover > span { background: var(--lab-surface); }
+/* The assistant's mark, as on Explain: this is the companion, not the text. */
+.lab[data-chrome-version="v2"] .lab-chapter-primer-mark { margin-right: 5px; font-size: 0.9em; }
 .lab[data-chrome-version="v2"] .lab-chapter-preview:disabled { opacity: .5; cursor: wait; }
 .lab[data-chrome-version="v2"] .lab-passage-header[hidden], .lab[data-chrome-version="v2"] .lab-chapter-end[hidden] { display: none; }
 .lab[data-chrome-version="v2"] .lab-chapter-end {
