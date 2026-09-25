@@ -122,7 +122,7 @@ async function serveSpaWithMeta(
         description: meta.description,
         url: canonical,
         image: ogImage,
-        inLanguage: 'en',
+        inLanguage: url.searchParams.get('edition')?.endsWith('-de') ? 'de' : 'en',
         isAccessibleForFree: true,
         isPartOf: { '@type': 'WebSite', name: 'Tinct', url: 'https://tinct.app' },
         publisher: { '@type': 'Organization', name: 'Tinct', url: 'https://tinct.app' },

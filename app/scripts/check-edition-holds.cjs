@@ -1,4 +1,4 @@
-const { chromium } = require('playwright')
+const { chromium, webkit } = require('playwright')
 const fs = require('node:fs')
 const path = require('node:path')
 const http = require('node:http')
@@ -18,13 +18,13 @@ if (!process.env.TEST_ORIGIN) {
   }).listen(5197)
 }
 ;(async () => {
- const browser = await chromium.launch({args:['--mute-audio']})
+ const browsers = { desktop: await chromium.launch({args:['--mute-audio']}), phone: await webkit.launch() }
  const results=[]
  try {
   for (const [key,evidence] of Object.entries(manifest.editions)) {
    const [bookId,editionKey] = key.split('/')
    for (const width of [390,1440]) {
-    const context=await browser.newContext({viewport:{width,height:900}})
+    const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
     const page=await context.newPage()
     const writes=[]
     await page.route('**/api/**',r=>{ if (!['GET','HEAD'].includes(r.request().method())) writes.push(r.request().url());return r.fulfill({status:404,body:'{}'}) })
@@ -34,10 +34,12 @@ if (!process.env.TEST_ORIGIN) {
     const highlights=[{id:'hold-note',bookId,editionKey,chapterNumber:1,paragraphIndex:2,fromWord:0,endParagraphIndex:2,toWord:2,color:'yellow',text:'Preserved quotation',note:'Preserved personal note',kept:true}]
     const history={v:1,updatedAt:place.updatedAt,sessions:{preserved:{id:'preserved',seq:1,deviceId:place.deviceId,owner:null,state:'progressed',startedAt:place.updatedAt-1000,lastActiveAt:place.updatedAt,endedAt:place.updatedAt,completedAt:null,anchor:{bookId,editionKey,chapterNumber:1,chapterLabel:'Chapter 1',page:1,totalPages:null,paragraphIndex:2,wordIndex:1,range:{startParagraphIndex:2,startWordIndex:0,startCharOffset:0,endParagraphIndex:2,endWordIndex:2,endCharOffset:19,firstWords:'Preserved quotation',lastWords:'Preserved quotation'}}}}}
     const seed={'tinct:reading-memory':JSON.stringify(history),'tinct-lab-position':JSON.stringify(position),'tinct-lab-highlights':JSON.stringify(highlights),'tinct-lab-highlights-tap-cleanup-v1':'1',['tinct:notes:'+bookId]:'legacy-note',['tinct:reading-log:'+bookId]:'legacy-history'}
-    await page.addInitScript(({seed,bookId,editionKey})=>{
+    await page.addInitScript(({seed,bookId,editionKey,width})=>{
+      if(sessionStorage.getItem('hold-test-seeded'))return
+      sessionStorage.setItem('hold-test-seeded','1')
       for(const [key,value] of Object.entries(seed))localStorage.setItem(key,value)
-      sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:editionKey,savedPlace:{bookId,chapterNumber:1,paragraphIndex:2,wordIndex:1,page:0}}))
-    },{seed,bookId,editionKey})
+      if(width<900)sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:editionKey,savedPlace:{bookId,chapterNumber:1,paragraphIndex:2,wordIndex:1,page:0}}))
+    },{seed,bookId,editionKey,width})
     await page.goto(origin+'/reader')
     await page.getByTestId('edition-hold').waitFor({timeout:30000})
     assert.ok((await page.getByTestId('edition-hold').innerText()).includes(evidence.reason))
@@ -61,5 +63,5 @@ if (!process.env.TEST_ORIGIN) {
    }
   }
   fs.writeFileSync(dir+'/results.json',JSON.stringify(results,null,2))
- } finally { await browser.close(); if(server)server.close() }
+ } finally { await Promise.all(Object.values(browsers).map(browser=>browser.close())); if(server)server.close() }
 })().catch(e=>{console.error(e);if(server)server.close();process.exitCode=1})

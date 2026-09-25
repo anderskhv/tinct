@@ -28,7 +28,7 @@ jobs:
         working-directory: app
         env:
           CI: true
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
         working-directory: app
       - run: node scripts/check-edition-holds.cjs
         working-directory: app

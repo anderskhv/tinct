@@ -183,6 +183,8 @@ function seoChapterTitle(book, chapterTitle) {
 }
 
 function seoBookDescription(book) {
+  if (book.id === 'faust-part-1') return 'Read Faust Part One in its original German. English and Danish editions are temporarily unavailable pending correction.'
+  if (book.id === 'jerusalem') return 'Read Jerusalem in Velma Swanston Howard’s English translation. Tinct Modern editions are temporarily unavailable pending correction.'
   const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
   if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
   const compact = `Read free, no ads. Modern compare, AI guide, cast, and audio for ${book.title}.`
@@ -317,8 +319,9 @@ function buildBookIndexPage(book, edition) {
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
   const description = seoBookDescription(book)
+  const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
   const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}?edition=${editionKey}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
   const body = `<nav class="top">
   <a href="/" class="logo">Tinct<span>.</span></a>
@@ -332,6 +335,7 @@ function buildBookIndexPage(book, edition) {
   <div class="booknum">Free online book</div>
   <h1 class="title">${escapeHtml(book.title)}</h1>
   <p class="byline">by ${escapeHtml(book.author)}</p>
+  ${book.id === "faust-part-1" || book.id === "jerusalem" ? `<p>${languageLabel} · other editions temporarily unavailable</p>` : ""}
   <p class="hook">${escapeHtml(hook)}</p>
   <a class="primary-cta" href="${readerHref}">Start reading in Tinct →</a>
 
@@ -343,7 +347,7 @@ ${chapterLinks}
   </section>
 
   <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
-  <div class="body">
+  <div class="body" lang="${editionKey.endsWith("-de") ? "de" : "en"}">
     ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
   </div>
 </main>
@@ -371,6 +375,7 @@ ${chapterLinks}
 }
 
 function buildGeneratedChapterPage(book, edition, chapter, index) {
+  const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
   const number = index + 1
   const paragraphs = paragraphExcerpt(chapter.paragraphs || [], SEO_EXCERPT_WORDS)
   const chapterTitle = chapter.title || `Chapter ${number}`
@@ -380,8 +385,8 @@ function buildGeneratedChapterPage(book, edition, chapter, index) {
   <p class="kicker">Chapter ${number}</p>
   <h1>${escapeHtml(chapterTitle)}</h1>
   <p class="dek">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
-  <a class="cta" href="/read/${book.id}?chapter=${number}">Open this chapter in Tinct</a>
-  <article>
+  <a class="cta" href="/read/${book.id}?chapter=${number}&edition=${editionKey}">Open this chapter in Tinct</a>
+  <article lang="${editionKey.endsWith("-de") ? "de" : "en"}">
   ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
   </article>
   <footer>This crawler-readable excerpt links into Tinct's full reader for synced editions, cast, notes, and chat.</footer>
