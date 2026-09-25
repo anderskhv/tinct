@@ -1,6 +1,6 @@
 # One in the Morning
 
-A Tinct film for X. Treatment, script and production plan. Draft 1, 25 September 2026.
+A Tinct film for X. Treatment, script and production plan. Draft 2, 25 September 2026: revised after reading Anders's poems (WIP).
 
 ---
 
@@ -9,6 +9,8 @@ A Tinct film for X. Treatment, script and production plan. Draft 1, 25 September
 **Logline.** At one in the morning, a man scrolling slop about Frankenstein opens the actual book, and Mary Shelley's sentences start describing his night.
 
 Every word of narration is Mary Shelley's, taken from Tinct's own Frankenstein text and read by Tinct's own voice. The man says seven words. Nobody else speaks.
+
+We call him Tom, after the man the poems keep addressing. The name never needs to appear on screen.
 
 **Why Frankenstein**
 
@@ -23,14 +25,26 @@ Every word of narration is Mary Shelley's, taken from Tinct's own Frankenstein t
 
 - The feed and the great books arrive through the same phone, the way the creature's whole education came through a gap in a wall.
 - Two uses of AI sit side by side. One writes a LinkedIn post about a book nobody read. The other explains the book while you read it. This protects Tinct from "isn't this just more AI slop?".
-- Nobody in the film is lazy or shallow. The man is curious and tired. The creature is the most eloquent being in the book. The only thing mocked is the slop.
+- Nobody in the film is lazy or shallow. Tom is curious and tired. The creature is the most eloquent being in the book. The only thing mocked is the slop.
+- There's no sermon about phones. The teacher in *klassens time* blames social media for everything; this film doesn't. The same phone carries the slop and Mary Shelley.
+- Why Tom hasn't read Frankenstein is answered in Chapter 2. Somebody called it sad trash instead of explaining it. That's the poems' charge against the institutions that stopped passing the canon on (*uDantet*; the fairy tales "edited to death" in *børnebiblo*), made without a word of culture war.
+
+## What the poems changed
+
+The poems already use this film's method: a canonical text laid over a modern night. *Circe* sets a baptism inside Homer, *sult* sends Tom through Hamsun's hunger, and *tom* puts him in Dante's vestibule. So the core stays. Three things change, and one stays out on purpose.
+
+1. **Tom's white sneakers.** In *sult* Tom looks down at his spotless white sneakers and cries, longing for "det indefrosne dyb", the frozen-in depth. In *effektiv altruisme* the white Nikes are what wading into the shallow pond would cost. Now they pay off at the river. We see them spotless as he leaves the house. After the lightning he looks down: they're soaked through, water over his ankles, and he laughs. That's your shallow-water man, finally in the water because something real pulled him in. It's now the best image in the film, and it needs no explaining.
+2. **The swan's question gets its answer.** The collection ends on *den smukke svane* looking into the water: "og hvad er der egentlig dernede". The film is what's down there.
+3. **00:01, if you want it.** *Efterskrift*: "Klokken er 00.01 i historien om os." Night one follows Shelley ("one in the morning"). On night three, when the creature finds the books, the clock by Tom's bed reads 00:01. Nobody needs to notice. It's there for you.
+
+**What stays out: the culture war.** The poems' edge on climate, DEI, Islam and church politics would make Tinct a political brand and halve the audience for a reading app. Keep it in the poems and on your own account. The film carries the part of that edge that belongs to Tinct: the canon wasn't handed on, and "sad trash" is what the institutions said instead of explaining.
 
 ## What I kept from The Shallows, and what I dropped
 
 | Kept | Dropped |
 |---|---|
 | Night, rain, a phone lighting a face | Telling the viewer they are shallow |
-| Your man in city water: he walks through a flooded riverside path up to his ankles and doesn't notice, because he's somewhere else | The water as a metaphor that has to be explained |
+| Your man in city water: Tom walks through a flooded riverside path up to his ankles and doesn't notice, because he's somewhere else. His white sneakers get soaked. | The water as a metaphor that has to be explained |
 | The LinkedIn gag from /about, adapted to Frankenstein | An ad narrator and every line of ad copy |
 | Serif captions that carry the film on mute | Animated graphics standing in for real footage |
 
@@ -40,23 +54,23 @@ ARA is Ara, one of Tinct's two default voices (the other is Helios). The same vo
 
 | Time | Picture | Sound and voice | On screen |
 |---|---|---|---|
-| 0:00 | 1 a.m. Rain streams down a tall window; city lights smear behind it. A man in his mid-thirties lies on his side in bed, face lit blue by his phone. His thumb flicks. | **ARA** (close, calm): "It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out…" Rain; a fridge hum. | The line as a caption. Tag: *Mary Shelley, Frankenstein* |
+| 0:00 | 1 a.m. Rain streams down a tall window; city lights smear behind it. Tom, mid-thirties, lies on his side in bed, face lit blue by his phone. His thumb flicks. | **ARA** (close, calm): "It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out…" Rain; a fridge hum. | The line as a caption. Tag: *Mary Shelley, Frankenstein* |
 | 0:05 | On "candle": insert of the phone's battery icon at 3%, red. | | |
-| 0:08 | The screen, full frame. A fast feed: "Frankenstein in 60 seconds." "A thread: 5 things Frankenstein can teach AI founders." "Book summary: 4 key ideas." His thumb stops on an AI chat. Prompt: *Write a profound LinkedIn post connecting Frankenstein to AI leadership. Make me sound insightful and slightly vulnerable.* The reply, line by line: *I used to think Victor Frankenstein was reckless. / I was wrong. / He was shipping.* | **ARA** (dry): "My dear Victor, do not waste your time upon this; it is sad trash." The man breathes out through his nose. | Tag: *Victor's father, Frankenstein, Chapter 2* |
+| 0:08 | The screen, full frame. A fast feed: "Frankenstein in 60 seconds." "A thread: 5 things Frankenstein can teach AI founders." "Book summary: 4 key ideas." His thumb stops on an AI chat. Prompt: *Write a profound LinkedIn post connecting Frankenstein to AI leadership. Make me sound insightful and slightly vulnerable.* The reply, line by line: *I used to think Victor Frankenstein was reckless. / I was wrong. / He was shipping.* | **ARA** (dry): "My dear Victor, do not waste your time upon this; it is sad trash." Tom breathes out through his nose. | Tag: *Victor's father, Frankenstein, Chapter 2* |
 | 0:15 | Real Tinct UI: the library room, rain on its windows. *Mary Shelley's Frankenstein. What do we owe the intelligence we create? ~6 hours to read.* He taps Read. The book opens on Mary Shelley's portrait. (Optional 1-second insert, 1816: a candlelit room, storm at the window, a young woman's hand writing fast.) | **ARA:** "I opened it with apathy…" Low piano enters. | |
 | 0:20 | Time cut: 1:43 on the clock. He's sitting up now. The reader, Chapter 2, with the word highlight following the voice. | **ARA** (the audiobook now): "…the wonderful facts which he relates soon changed this feeling into enthusiasm. A new light seemed to dawn upon my mind…" | Words highlight on the page |
 | 0:26 | The highlight reaches *My dear Victor, do not waste your time upon this; it is sad trash.* He smiles. The viewer gets it at the same moment he does: the voice has been the book all along. | | |
 | 0:28 | He presses and holds *Cornelius Agrippa*. The menu: Explain · Ask · Highlight · Copy. He taps Explain. A card: *Cornelius Agrippa (1486–1535), a German writer on magic and the occult. Science had moved past his ideas long before Victor's time. Victor's father dismisses the book without saying why.* | **ARA** (reading the next paragraph): "If, instead of this remark, my father had taken the pains to explain to me…" | Caption holds: *"If … my father had taken the pains to explain to me …"* Tag: *Victor Frankenstein, Chapter 2* |
-| 0:34 | Four fast taps, a soft tick on each. *Elizabeth* opens a character card: *Elizabeth Lavenza. An orphan raised as Victor's cousin and intended bride.* *Thonon* explains itself: *A spa town on the south shore of Lake Geneva.* *natural philosophy*: *What the period called the sciences.* A swipe to Modern English: *My dear Victor, don't waste your time on this. It's worthless nonsense.* | Ticks on the beat. No voice. | |
-| 0:37 | The next evening, raining. He walks along the river embankment, earbuds in, hood up. The lower path is flooded and he walks through water to his ankles without looking down. Insert: lock screen, *Frankenstein · Chapter 7*. | Rain; traffic far off. | |
+| 0:34 | Tom sits up. A new habit: he taps anything he's curious about, faster each time, and we see his face between taps. Four taps, a soft tick on each. *Elizabeth* opens a character card: *Elizabeth Lavenza. An orphan raised as Victor's cousin and intended bride.* *Thonon* explains itself: *A spa town on the south shore of Lake Geneva.* *natural philosophy*: *What the period called the sciences.* A swipe to Modern English: *My dear Victor, don't waste your time on this. It's worthless nonsense.* | Ticks on the beat. No voice. | |
+| 0:37 | The next evening. Spotless white sneakers step out of a front door onto wet pavement. Tom walks along the river embankment in the rain, earbuds in, hood up. The lower path is flooded and he walks into it without looking down. Insert: lock screen, *Frankenstein · Chapter 7*. | Rain; traffic far off. | |
 | 0:41 | Lightning over the city. | **ARA:** "A flash of lightning illuminated the object, and discovered its shape plainly to me…" | |
 | 0:45 | FLASH. Across the river, on the far embankment, a very tall figure stands still, facing him. Black. FLASH. Nobody there. | Thunder on each flash. The music drops out. | |
-| 0:47 | He has stopped dead in the water. Rain. Then he laughs once under his breath and walks on, faster. | | |
-| 0:50 | Night again. Same bed, same rain, same blue light, but he's propped against the headboard, wide awake, with the charger in. The reader is on Chapter 15. | **ARA:** "…and some books." | |
-| 0:52 | | **MAN** (quietly): "Hold on. He can read?" | The Talk orb wakes |
+| 0:47 | He has stopped dead. He looks down: his white sneakers are soaked through, water over his ankles. He laughs once under his breath and walks on, faster. | | |
+| 0:50 | Night again. Same bed, same rain, same blue light, but Tom is propped against the headboard, wide awake, with the charger in. The clock by the bed reads 00:01. The reader is on Chapter 15. | **ARA:** "…and some books." | |
+| 0:52 | | **TOM** (quietly): "Hold on. He can read?" | The Talk orb wakes |
 | 0:54 | 1816. A sliver of light between rough planks, with an eye at the gap. Beyond it, an old man, a young man and a girl sit around a fire. | **ARA** (talking now, the same voice): "He taught himself. He's spent months hiding next to a cottage, listening to a family through a gap in the wall." | |
-| 0:59 | Match cut from the creature's eye at the gap to the man's eye, lit by his screen. | **MAN:** "Go on." | |
-| 1:00 | The audiobook resumes. 1816: in the dark hovel, huge scarred hands open a book in a shaft of moonlight. Now: the man, completely still. Rain on both windows. | **ARA** (reading): "I can hardly describe to you the effect of these books. They produced in me an infinity of new images and feelings…" Strings join the piano, then silence on "feelings". | |
+| 0:59 | Match cut from the creature's eye at the gap to Tom's eye, lit by his screen. | **TOM:** "Go on." | |
+| 1:00 | The audiobook resumes. 1816: in the dark hovel, huge scarred hands open a book in a shaft of moonlight. Now: Tom, completely still. Rain on both windows. | **ARA** (reading): "I can hardly describe to you the effect of these books. They produced in me an infinity of new images and feelings…" Strings join the piano, then silence on "feelings". | |
 | 1:08 | Black. | Silence. | **What do we owe the intelligence we create?** Small: *Mary Shelley, Frankenstein, 1818* |
 | 1:12 | The library room. A slow push through rain light and candlelight, past the covers: The Odyssey, Jekyll and Hyde, Meditations, Crime and Punishment. | Rain; one piano note. | **Tinct.** / Frankenstein takes about six hours. / tinct.app. Small print: *Reading is free. The companion and audiobook are free for your first month.* |
 | 1:17 | End. | | |
@@ -126,13 +140,14 @@ G = generated video · U = real Tinct UI, screen-recorded · T = type or graphic
 | 11 | Reader, Chapter 2, word highlight reaching "sad trash" | U |
 | 12 | Long press, Explain, card | U |
 | 13 | Tap montage: Elizabeth card, Thonon, natural philosophy, Modern swipe | U |
-| 14 | River embankment in rain, wide; the flooded path, feet in water | G |
+| 14 | Spotless white sneakers step onto wet pavement (the setup) | G |
+| 14b | River embankment in rain, wide; the flooded path | G |
 | 15 | Lock screen: Frankenstein · Chapter 7 | U |
 | 16 | Lightning over the skyline | G |
 | 17 | Flash: tall figure on the far embankment, silhouette only | G |
 | 18 | Flash: empty embankment | G |
-| 19 | He stops dead, then laughs and walks on | G |
-| 20 | Night 3: in bed, propped up, charger in | G |
+| 19 | He stops dead; looks down at soaked white sneakers, ankle-deep; laughs, walks on | G |
+| 20 | Night 3: in bed, propped up, charger in, the clock at 00:01 | G |
 | 21 | Reader, Chapter 15; the Talk orb wakes | U |
 | 22 | 1816: light between planks, an eye at the gap | G |
 | 23 | 1816: through the gap, a family around a fire | G |
@@ -143,7 +158,7 @@ G = generated video · U = real Tinct UI, screen-recorded · T = type or graphic
 | 28 | The library room push, covers, rain | U, plus G to animate the room art |
 | 29 | End card | T |
 
-That's 17 generated shots, most of them dark, wet and at medium or close range, which is what current video models handle best.
+That's 18 generated shots, most of them dark, wet and at medium or close range, which is what current video models handle best.
 
 ## Cut-downs and formats
 
@@ -175,7 +190,7 @@ A how-it-was-made thread can follow a day later.
 1. **Table read.** I generate every line in Ara, plus a temp voice for the man, and cut an animatic from type boards and real UI recordings. You judge the timing before we spend on video. Cost: about a dollar of voice.
 2. **Character.** I build a reference sheet for the man (face, a coat for outside, a hoodie for bed) plus the creature's hands and silhouette. You approve it.
 3. **UI.** I screen-record library_2 and the reader (Chapter 2 highlight, Explain, the Elizabeth card, the Modern swipe, the Chapter 7 lock screen, the Chapter 15 Talk orb) at phone resolution. The UI is never generated.
-4. **Shots.** 17 generated shots, three to six takes each, and I pick the best.
+4. **Shots.** 18 generated shots, three to six takes each, and I pick the best.
 5. **Edit.** Grade, captions, score, mix, then all cut-downs and formats.
 6. **Reviews.** Two rounds with you, then final.
 
@@ -200,7 +215,7 @@ A how-it-was-made thread can follow a day later.
 
 ## Where I'd push back on you
 
-- **The feature list isn't the story.** It's the right list, and each item appears once, inside a scene, with no UI captions explaining it. Viewers remember the lightning, not a feature list.
+- **The feature list isn't the story.** It's the right list, and each item appears once, inside a scene, with no UI captions explaining it. Viewers remember the lightning, not a feature list. The one exception is the four-tap beat at 0:34. It stays because "everything is clickable" only lands as a rhythm, and it's played on Tom's face, not on the features.
 - **You asked for a voice. The best voice is Tinct's own**, reading Mary Shelley. Any narrator line we write would be ad copy, and your audience can smell it.
 - **"Netflix documentary" describes the look.** The format is a short drama with documentary inserts, which is what keeps people watching to the end.
 - **Keep it short.** 77 seconds is the ceiling. The 30-second cut will probably drive more clicks than the hero, so make both and watch which one converts.
@@ -229,6 +244,9 @@ Tinct should be Waldman. I mean that as an internal north star; I wouldn't put i
 - **Tone.** Mitigation: the slop gag stays on the slop. Nobody on screen is mocked.
 
 ## Next in the series (not written yet)
+
+- **Inferno, Canto III: the vestibule.** Straight from *tom*: the ones who chase a banner forever, stung by wasps, "not good enough for hell". This is the sharpest episode and the closest to your poems. Run it once the series has earned some trust, never as the introduction.
+- **Circe**, from your poem's title: an evening in the feed, read against Odysseus's men on Circe's island.
 
 - **The Odyssey**, *How far must we travel to find home?*: a commuter, the Sirens episode, and a question to the voice about why Odysseus has himself tied to the mast.
 - **Crime and Punishment**: the names. Rodya, Rodion, Raskolnikov, and one tap to settle it.
