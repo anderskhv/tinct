@@ -36,6 +36,12 @@ const PLAYBACK_LEAD_SECONDS = 0.05
 /** Reader movement is common; one prompt refresh per short window is enough. */
 const CONTEXT_UPDATE_DEBOUNCE_MS = 400
 const CONNECT_TIMEOUT_MS = 15_000
+/** A dropped connection while setting up (a car's mobile network) is tried again once, with a fresh secret. */
+export const VOICE_CONNECT_ATTEMPTS = 2
+const VOICE_CONNECT_RETRY_DELAY_MS = 1_000
+
+/** A setup failure worth one more try: the network or the provider, not the reader's account. */
+class RetryableVoiceSetupError extends Error {}
 export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
 /**
  * What the app has Grok say while a lookup runs long. Short and plain, taken in
@@ -142,6 +148,8 @@ export class GrokVoiceSessionController {
   private visibilityListening = false
   private releaseAudioSession: (() => void) | null = null
   private lookupAcknowledgement: { resolve: () => void } | null = null
+  /** The socket opened for setup closed or errored before the session was ready. */
+  private setupSocketFailed = false
   private acknowledgementsSaid = 0
   /** Tool rounds still running: the answer to the reader's turn has not come yet. */
   private toolRoundsInFlight = 0
@@ -274,27 +282,59 @@ export class GrokVoiceSessionController {
       // flushCapture retains a bounded local buffer; this preserves a first
       // statement spoken while the ephemeral token and socket are connecting.
       if (typeof AudioContext !== 'undefined') this.startCapture()
-      const response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
-        body: '{}',
-      })
-      const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string }
-      if (!current()) return
-      if (!response.ok || !data.value) {
-        if (response.status === 401) this.callbacks.onNeedAuth?.()
-        if (response.status === 402) this.callbacks.onInsufficientBalance?.()
-        throw new Error(data.error || 'Voice could not start. Please try again.')
+      for (let attempt = 1; ; attempt += 1) {
+        try {
+          await this.connect(input, generation)
+          break
+        } catch (error) {
+          if (!current()) return
+          if (!(error instanceof RetryableVoiceSetupError) || attempt >= VOICE_CONNECT_ATTEMPTS) throw error
+          this.closeSetupSocket()
+          await new Promise(resolve => setTimeout(resolve, VOICE_CONNECT_RETRY_DELAY_MS))
+          if (!current()) return
+        }
       }
-      const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL)
-      this.socket = socket
-      await this.awaitReady(generation)
       if (!current()) return
       this.callbacks.onUsage?.()
       this.callbacks.onLatency?.({ kind: 'session_setup', at: Date.now(), sessionSetupMs: Date.now() - this.startedAt, model: GROK_VOICE_MODEL })
     } catch (error) {
       if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.')
     }
+  }
+
+  /** One setup attempt: mint a single-use secret, open the socket, wait for the session. */
+  private async connect(input: StartVoiceSessionInput, generation: number): Promise<void> {
+    let response: Response
+    try {
+      response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
+        body: '{}',
+      })
+    } catch {
+      throw new RetryableVoiceSetupError('Voice could not reach Tinct. Check your connection and try again.')
+    }
+    const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string }
+    if (generation !== this.generation) return
+    if (!response.ok || !data.value) {
+      if (response.status === 401) this.callbacks.onNeedAuth?.()
+      if (response.status === 402) this.callbacks.onInsufficientBalance?.()
+      const message = data.error || 'Voice could not start. Please try again.'
+      // The account's own limits are final; the provider or the network may recover.
+      throw response.status >= 500 || response.status === 408 ? new RetryableVoiceSetupError(message) : new Error(message)
+    }
+    this.setupSocketFailed = false
+    const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL)
+    this.socket = socket
+    await this.awaitReady(generation)
+  }
+
+  /** Drop a socket that failed during setup without ending the session being set up. */
+  private closeSetupSocket(): void {
+    const socket = this.socket
+    this.socket = null
+    this.setupSocketFailed = false
+    try { socket?.close() } catch { /* already closed */ }
   }
 
   private openSocket(secret: string, model: string): WebSocket {
@@ -304,12 +344,14 @@ export class GrokVoiceSessionController {
       if (generation !== this.generation) return
       try { this.handleEvent(JSON.parse(String(event.data)) as GrokEvent) } catch { /* Ignore malformed frames. */ }
     })
-    socket.addEventListener('close', () => {
-      if (generation === this.generation && this.ui.isActive && !this.stopping) this.fail('Voice connection lost. Reconnect to continue.')
-    })
-    socket.addEventListener('error', () => {
-      if (generation === this.generation && this.ui.isActive && !this.stopping) this.fail('Voice connection lost. Reconnect to continue.')
-    })
+    const lost = () => {
+      if (generation !== this.generation || !this.ui.isActive || this.stopping || socket !== this.socket) return
+      // Before the session is ready this is a setup failure the start loop may retry.
+      if (!this.ready) { this.setupSocketFailed = true; return }
+      this.fail('Voice connection lost. Reconnect to continue.')
+    }
+    socket.addEventListener('close', lost)
+    socket.addEventListener('error', lost)
     return socket
   }
 
@@ -320,7 +362,8 @@ export class GrokVoiceSessionController {
         if (generation !== this.generation) { resolve(); return }
         if (this.ready) { resolve(); return }
         if (this.ui.error) { reject(new Error(this.ui.error)); return }
-        if (Date.now() - started > CONNECT_TIMEOUT_MS) { reject(new Error('Voice did not connect. Please try again.')); return }
+        if (this.setupSocketFailed) { reject(new RetryableVoiceSetupError('Voice connection lost. Reconnect to continue.')); return }
+        if (Date.now() - started > CONNECT_TIMEOUT_MS) { reject(new RetryableVoiceSetupError('Voice did not connect. Please try again.')); return }
         setTimeout(poll, 50)
       }
       poll()
@@ -787,6 +830,7 @@ export class GrokVoiceSessionController {
       this.lookupAcknowledgement = null
     }
     this.toolQueue = Promise.resolve()
+    this.setupSocketFailed = false
     this.toolRoundsInFlight = 0
     this.followUpPending = false
     this.readerSpeaking = false

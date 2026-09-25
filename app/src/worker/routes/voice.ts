@@ -19,6 +19,16 @@ type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => P
 export const VOICE_NOT_CONFIGURED_ERROR = 'Voice is not configured. Set the XAI_API_KEY Worker secret.'
 export const XAI_CLIENT_SECRETS_URL = 'https://api.x.ai/v1/realtime/client_secrets'
 
+/**
+ * One line per refused or failed voice start, so a reader's "voice would not
+ * connect" leaves evidence (invocation logs are off): the status and reason,
+ * never the account. Setup failures after this point (the provider socket)
+ * are retried by the client and do not reach the Worker.
+ */
+function logVoiceStartFailure(status: number, reason: string, signedIn: boolean): void {
+  console.log(JSON.stringify({ event: 'voice_session_failed', status, reason: reason.slice(0, 160), signedIn }))
+}
+
 function labGuestIp(request: Request): string {
   return request.headers.get('cf-connecting-ip')
     || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
@@ -63,6 +73,7 @@ export async function handleVoiceSession(
   if (allowLabGuest) {
     const rateAllowed = await checkRateLimit(`lab-voice:${labGuestIp(request)}`, env.RATE_LIMIT, 6)
     if (!rateAllowed) {
+      logVoiceStartFailure(429, 'rate_limited', false)
       return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
     }
   } else {
@@ -81,11 +92,15 @@ export async function handleVoiceSession(
       profilePromise,
     ])
     if (!rateAllowed) {
+      logVoiceStartFailure(429, 'rate_limited', true)
       return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
     }
 
     const access = evaluateChatAccess(profile)
-    if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
+    if (!access.allowed) {
+      logVoiceStartFailure(402, 'no_access', true)
+      return jsonResponse({ error: access.error }, 402, request)
+    }
   }
 
   try {
@@ -97,6 +112,7 @@ export async function handleVoiceSession(
     const data = await response.json().catch(() => ({})) as { value?: string; expires_at?: number; error?: string | { message?: string } }
     if (!response.ok || typeof data.value !== 'string' || !data.value) {
       const message = typeof data.error === 'string' ? data.error : data.error?.message
+      logVoiceStartFailure(response.status, `provider: ${message || 'no client secret'}`, Boolean(user))
       return jsonResponse({ error: message || 'Could not start a voice session.' }, response.status >= 400 ? response.status : 502, request)
     }
 
@@ -109,7 +125,8 @@ export async function handleVoiceSession(
       expires_at: data.expires_at ?? null,
       model: GROK_VOICE_MODEL,
     }, 200, request)
-  } catch {
+  } catch (error) {
+    logVoiceStartFailure(500, `exception: ${error instanceof Error ? error.message : 'unknown'}`, Boolean(user))
     return jsonResponse({ error: 'Could not start a voice session.' }, 500, request)
   }
 }
