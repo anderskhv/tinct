@@ -1,0 +1,408 @@
+{
+ "verifier": "V07",
+ "audited_commit": "1a7d89ebd816af8a2ac18239010c34fab4bf48c5",
+ "results": [
+  {
+   "claim_id": "G06-don-quixote-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions open at 1.0 'WHICH TREATS OF THE CHARACTER…'; shards identical. pg996 lines 2099-2331 = 2,588 words ('Idle reader…'…'Vale.'). Ormsby's own: 1885 Smith, Elder vol.1 contents 'PART I. THE AUTHOR'S PREFACE 81' and body OCR 3896-3902; SE preface-1. 'Idle reader', 'child of my brain', 'sterile, illtilled wit', 'may God give thee health', 'prison, where every misery is lodged': 0 hits in original-en/modern-en.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/996/pg996.txt",
+     "sha256": "2864143e9addf498c1c5fd585db4a1ff3e06651c344cddf0931342f1a0ce24d4",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/miguel-de-cervantes-saavedra_don-quixote_john-ormsby/master/src/epub/text/preface-1.xhtml",
+     "sha256": "05764dea05815106dbb902343237c04269f9cad6b9b8fd775a828f87687be0fd",
+     "retrieved_utc": "2026-09-25T12:35:06Z"
+    },
+    {
+     "url": "https://archive.org/download/ingeniousgentlem01cervuoft/ingeniousgentlem01cervuoft_djvu.txt",
+     "sha256": "037fed050933433e58d0b93f50b26dd6e8f45196cf6fdafdff9a05152d43ace1",
+     "retrieved_utc": "2026-09-25T12:36:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-don-quixote-02",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Absent in all editions (book opens at 1.0). pg996 lines 2335-2626 = 1,409 words; SE epigraph.xhtml same text; 1885 vol.1 prints 'COMMENDATORY VERSES' p.98 (OCR 4294) with Ormsby's notes, so authorial in this translation. 'Solisdan', 'Donoso', 'sorry hacks as Rocinante': 0 hits; 'Urganda' (5.17, 43.36, 86.24), 'Babieca', 'Gandalin' hits are narrative only.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/996/pg996.txt",
+     "sha256": "2864143e9addf498c1c5fd585db4a1ff3e06651c344cddf0931342f1a0ce24d4",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/miguel-de-cervantes-saavedra_don-quixote_john-ormsby/master/src/epub/text/epigraph.xhtml",
+     "sha256": "521120797950a84c193496e002266a4d27c33f9e2d6f00403ebc14c6a9aa772e",
+     "retrieved_utc": "2026-09-25T12:35:06Z"
+    },
+    {
+     "url": "https://archive.org/download/ingeniousgentlem01cervuoft/ingeniousgentlem01cervuoft_djvu.txt",
+     "sha256": "037fed050933433e58d0b93f50b26dd6e8f45196cf6fdafdff9a05152d43ace1",
+     "retrieved_utc": "2026-09-25T12:36:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-don-quixote-03",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "before 1.0 (Part I front matter)",
+    "extent_words": 198,
+    "severity": "S3",
+    "type": "UNCLEAR-SCOPE (authorial to Cervantes, not in Ormsby's translation)",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ]
+   },
+   "evidence": "Absent in all editions ('Gibraleon', 'Bejar', 'bribery of the vulgar': 0 hits). pg996 2634-2658 (197-201 words) and SE dedication-1 carry it, but the 1885 Ormsby vol.1 has none (contents/body: Part I, Preface, Verses, Chapter I); text is a non-Ormsby PG-editor supplement ('glamorous name'). Registry labels edition 'Ormsby (1885)'. Scope decision needed: served edition does include the equally non-Ormsby Lemos dedication (52.48-52.55).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/996/pg996.txt",
+     "sha256": "2864143e9addf498c1c5fd585db4a1ff3e06651c344cddf0931342f1a0ce24d4",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/miguel-de-cervantes-saavedra_don-quixote_john-ormsby/master/src/epub/text/dedication-1.xhtml",
+     "sha256": "04e3d0263f5630c1c5bd557f3d5efd323e319c7b83106cbfd3b8281ce9deeb93",
+     "retrieved_utc": "2026-09-25T12:35:06Z"
+    },
+    {
+     "url": "https://archive.org/download/ingeniousgentlem01cervuoft/ingeniousgentlem01cervuoft_djvu.txt",
+     "sha256": "037fed050933433e58d0b93f50b26dd6e8f45196cf6fdafdff9a05152d43ace1",
+     "retrieved_utc": "2026-09-25T12:36:00Z"
+    },
+    {
+     "url": "https://archive.org/download/ingeniousgentlem04cervuoft/ingeniousgentlem04cervuoft_djvu.txt",
+     "sha256": "1c666096271553d8f8d89084cf6ebf2b0e8af24edde5b9cd452e401422eec4a8",
+     "retrieved_utc": "2026-09-25T12:37:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-don-quixote-04",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en 52.47-52.61 (15 paras, 1,971 words = pg996 21695-21889 exactly) under 'Part 1, Chapter 52' after 52.46 'Forse altro cantera…'; 53.0 is Part 2 ch.1. modern-en (1,934 w) and modern-da ('Bind II') identical structure; shards identical. Reading order preserved; sectioning wrong. Parts: 'Volume II' is a PG label; Lemos dedication (455 w) absent from Ormsby 1885 vol.III (contents 'Preface 3'); Author's Preface (1,514 w) is Ormsby's.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/996/pg996.txt",
+     "sha256": "2864143e9addf498c1c5fd585db4a1ff3e06651c344cddf0931342f1a0ce24d4",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/miguel-de-cervantes-saavedra_don-quixote_john-ormsby/master/src/epub/text/dedication-2.xhtml",
+     "sha256": "8b0764fde05e1b88fbd80b051291858fc67fd6da4eb13c973a95e8f4e26f7ee1",
+     "retrieved_utc": "2026-09-25T12:35:06Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/miguel-de-cervantes-saavedra_don-quixote_john-ormsby/master/src/epub/text/preface-2.xhtml",
+     "sha256": "22535cec3b4830d6460a56c272ad10fa7e7832d91c10f2a949369cbfa27798f8",
+     "retrieved_utc": "2026-09-25T12:35:06Z"
+    },
+    {
+     "url": "https://archive.org/download/ingeniousgentle03cerv/ingeniousgentle03cerv_djvu.txt",
+     "sha256": "a8788f1addeb5199690e3e182dd4b2f743ff62e20247b2eb5ee237a083fe637c",
+     "retrieved_utc": "2026-09-25T12:37:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-moby-dick-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions open at 1.0 'Call me Ishmael.'; shards identical. pg2701 336-375 Etymology (190 w) + 376-838 Extracts (3,410 w) = 3,600. Printed in 1851 Harper first edition (OCR 994, 1078) and SE. 11 phrases ('Consumptive Usher', 'Sub-Sub', 'And God created great whales', 'higgledy-piggledy', 'Pale Sherry', 'rare old Whale', 'PEKEE-NUEE-NUEE'…) 0 hits; 'Hackluyt' hits 56.1/75.4 are narrative. Branch restoration package not verified (served state only).",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2701/pg2701.txt",
+     "sha256": "907420db6c4b68c70e2988cd2ad9c8cf79138667a01b63376d18dd17fef1a18b",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/herman-melville_moby-dick/master/src/epub/text/etymology.xhtml",
+     "sha256": "50ee6dd8c5ba8271fb661abca41a6588e56047010057c1b7b2dd736ef20c9bc4",
+     "retrieved_utc": "2026-09-25T12:38:39Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/herman-melville_moby-dick/master/src/epub/text/extracts.xhtml",
+     "sha256": "51ded28814f4f41cce19a91af0d2dbb7c612e0829e6b5521d043d4d5390ba097",
+     "retrieved_utc": "2026-09-25T12:38:39Z"
+    },
+    {
+     "url": "https://archive.org/download/mobydickorwhale01melv/mobydickorwhale01melv_djvu.txt",
+     "sha256": "34b155ef5ecb3e7493d1fd93ad9c497d1803acfd484b76ffe4a63b9f49c162dc",
+     "retrieved_utc": "2026-09-25T12:39:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-moby-dick-02",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "before 1.0 (front matter)",
+    "extent_words": 15,
+    "severity": "S3",
+    "type": "MISSING (source-edition gap; PG #2701 lacks it; not an import loss)",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ]
+   },
+   "evidence": "Absent in all editions ('Hawthorne', 'In token of my admiration': 0 hits). PG #2701 lacks it (only 'Hawthorne's Twice Told Tales', line 681, in Extracts). 1851 Harper first edition prints it (OCR 44-59: 'IN TOKEN OF MY ADMIRATION FOR HIS GENIUS… NATHANIEL HAWTHORNE.'); SE dedication.xhtml sha matches claim. moby-dick-structural front matter holds only etymology and extracts, so not covered. Bentley London edition not checked.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2701/pg2701.txt",
+     "sha256": "907420db6c4b68c70e2988cd2ad9c8cf79138667a01b63376d18dd17fef1a18b",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/herman-melville_moby-dick/master/src/epub/text/dedication.xhtml",
+     "sha256": "7a8e7a2eac0c9158c8ff74aea037b93204a761dbccec079721553ca1518f4d3f",
+     "retrieved_utc": "2026-09-25T12:38:39Z"
+    },
+    {
+     "url": "https://archive.org/download/mobydickorwhale01melv/mobydickorwhale01melv_djvu.txt",
+     "sha256": "34b155ef5ecb3e7493d1fd93ad9c497d1803acfd484b76ffe4a63b9f49c162dc",
+     "retrieved_utc": "2026-09-25T12:39:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-moby-dick-05",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "At the 22 coordinates original-en 5,283 w vs modern-en 2,047 (exact); paragraph counts equal. Sentence check: whole sentences absent in all 22 (~3,190 w), e.g. 80.5 ends 'tapers in size but maintains its proportions' ('fibrous', 'undecreasing' 0 hits); 44.8 loses Season-on-the-Line; 118.1 loses 'Thou sea-mark!…Where is Moby Dick?'. 30 paras at 45-55% reproduced. modern-da mirrors. Accepted green-moby-dick candidate (not live) restores all 22 (ratios 0.92-1.13) and the 30.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2701/pg2701.txt",
+     "sha256": "907420db6c4b68c70e2988cd2ad9c8cf79138667a01b63376d18dd17fef1a18b",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "git:origin/claude/charming-shannon-mojaef:books/wip/green-moby-dick/candidate.json",
+     "sha256": "1a3f31bbe6bb4bea415a29b509c81f303074bc858854c7bc00a49e8b68ffd52c",
+     "retrieved_utc": "2026-09-25T12:40:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-brothers-karamazov-01",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "before 1.0 (front matter)",
+    "extent_words": 31,
+    "severity": "S3",
+    "type": "MISSING (source-edition gap; PG #28054 lacks it)",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ]
+   },
+   "evidence": "All editions open at 1.0 'Alexey Fyodorovitch Karamazov was the third son…'; verse only in narrative (39.14, 40.127). PG #28054 goes Contents to 'PART I' (line 170) with no epigraph. Garnett's printed edition has it on the title page (Macmillan 1922 impression, OCR 83-86: 'Verily, verily… JOHN xii. 24'); SE epigraph sha matches claim. Extent 29-word verse + citation = 31, not 35. No 'From the Author' preface in Garnett, so no adjacent loss.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
+     "sha256": "2e75c187cb750df3f7c910fa90970b264b9a4fee212be2a73c6bb507d9ad22fe",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/fyodor-dostoevsky_the-brothers-karamazov_constance-garnett/master/src/epub/text/epigraph.xhtml",
+     "sha256": "31d878d2cffc5244173900a3a005355ee17fb03ce269f658e15b4e238abd1172",
+     "retrieved_utc": "2026-09-25T12:42:08Z"
+    },
+    {
+     "url": "https://archive.org/download/B-001-002-434/content5_djvu.txt",
+     "sha256": "f107be74b44ba34ba8a26d0608f42630abce7b69274cff0e7b24c21bc592dcea",
+     "retrieved_utc": "2026-09-25T12:42:08Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-war-and-peace-01",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "original-en: 28, 49, 68, 84, 106, 132, 145, 167, 190, 229, 263, 279, 298, 317, 337, 353 (as claimed); modern-en: same except 28 = 'Book Two (1805) — Chapter 1', plus 29-32 labelled Chapter 2-5 for Book Two ch.1-4 (duplicate 'Chapter 5' at 32/33) = 20 chapters; modern-da: 16 but 85 ('Femte bog — Kapitel 16' for Book Five ch.1) instead of 84",
+    "extent_words": null,
+    "severity": "S3",
+    "type": "MISLABELED",
+    "editions": [
+     "original-en",
+     "modern-en",
+     "modern-da"
+    ]
+   },
+   "evidence": "Mapped all 365 served chapters to pg2600 BOOK/CHAPTER headings. original-en has exactly the 16 claimed: last chapter of each Book carries next Book's name (e.g. 28.0 'Prince Andrew was to leave next evening' = BOOK ONE ch.XXVIII, line 6222; BOOK TWO at 6632). modern-en has 20 mislabels (off-by-one in Book Two ch.1-4); modern-da differs at the Book 4/5 boundary and uses inconsistent Book-name variants.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2600/pg2600.txt",
+     "sha256": "2d5bb2ad5f422765e714617e21fa31bbaf8958aa79682c86fca6660fcc5d1b2b",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-war-and-peace-02",
+   "verdict": "CONFIRMED-WITH-CORRECTIONS",
+   "corrected": {
+    "location": "modern-en 334.21, 344.10, 345.8, 355.1, 355.3, 355.11, 357.19, 358.18 (after drift 358.14-18), 359.6, 360.13, 361.27, 362.10, 362.25, 365.11; NOT 150.12 (placeholder only, S4) and NOT 350.1 (merged into 350.0, no loss)",
+    "extent_words": 1790,
+    "severity": "S2",
+    "type": "MISSING",
+    "editions": [
+     "modern-en",
+     "modern-da (344.10 only)"
+    ]
+   },
+   "evidence": "Read every coordinate; paragraph counts equal. 14 confirmed sentence-block losses (~1,790 w; source 2,859 w vs 1,103), e.g. 358.18 'If the Deity issues a command…' (112 w) absent from ch358; 365.11 loses the astronomy conclusion; 345.8 loses Nicholas's realization. All 16 low-ratio paragraphs (<0.5, >=80 w) lie in chs 333-365. 150.11 already renders the verse translation. 350.1 'presents' text is inside modern-en 350.0. modern-da complete except 344.10.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/2600/pg2600.txt",
+     "sha256": "2d5bb2ad5f422765e714617e21fa31bbaf8958aa79682c86fca6660fcc5d1b2b",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-anna-karenina-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "All editions: 239 chapters, 35 distinct titles, no section field; 'Chapter 1' at 1, 35, 70, 102, 125, 158, 190, 221. 'PART TWO'…'PART EIGHT' are the last paragraph at 34.29, 69.66, 101.32, 124.35, 157.73, 189.40, 220.22 (modern-da 'ANDEN DEL'…'OTTENDE DEL'); shards identical. 'PART ONE' (pg1399 line 57) not served at all. Source Part lines match claim. Missing 'Vengeance is mine' epigraph not raised: PG #1399 and SE Garnett both lack it.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+     "sha256": "a3e29e08c15c63bb22069f4256316c2ebebd422ecb5c33462ddc00ae00b27571",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/leo-tolstoy_anna-karenina_constance-garnett/master/src/epub/toc.xhtml",
+     "sha256": "960e98249bde3a4c7eea0963189733d49656254a269e5096ec2f24461276ef68",
+     "retrieved_utc": "2026-09-25T12:44:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-great-expectations-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "original-en 26.0 = 297 w (pg1400 lines 8825-8847). modern-en 26.0 = 65 w ending 'No dinner dress. No nonsense.'; missing 'I asked him where we should come to' … 'before he put his coat on.' = 215 w (lines 8831-8847). 'jack-towel', 'penknife', 'surgeon or a dentist', 'gargling', 'perfumer': 0 hits in modern-en. modern-da 26.0 also 65 w. NEW: modern-en 26.1 invents 'capital punishment and flogging'; ch26 is an outlier with further losses.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/1400/pg1400.txt",
+     "sha256": "9a637118af8e953e9764ec603d9b0a032883384d465acac2e27966a80cf1c6f8",
+     "retrieved_utc": "2026-09-25T12:34:00Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-the-awakening-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Paragraph alignment of pg160 (The Awakening) against served original-en: 1,066 vs 1,044 paragraphs; exactly 22 missing (56 w) at the 20 claimed locations (3 after 25.22), lines 1090-5368; every other paragraph matches exactly. All 22 source paragraphs of 20 characters or fewer dropped, none kept; all of 21 or more kept (shortest served '“Was she such a one?”', 21 chars). modern-en and modern-da have the same 1,044 paragraphs.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/160/pg160.txt",
+     "sha256": "31d4577d255806b92c6296419adddd5ca460bdb788743878a09ded1e19f4161a",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    }
+   ]
+  },
+  {
+   "claim_id": "G06-ulysses-01",
+   "verdict": "CONFIRMED",
+   "corrected": null,
+   "evidence": "Served 18.7 ends 'yes I said yes I will Yes.' in original-en and modern-en (modern-da '…jeg vil Ja.'); 'Zurich', '1914': 0 hits; 'Trieste' only at 16.110 (narrative). pg4300 line 32861 'Trieste-Zurich-Paris', 32863 '1914-1921'. SE chapter-18 (from 1922 Shakespeare and Company scans) ends 'Trieste–Zurich–Paris, 1914–1921.', so authorial.",
+   "sources": [
+    {
+     "url": "https://www.gutenberg.org/cache/epub/4300/pg4300.txt",
+     "sha256": "e03094626f9528cf3fc287a49d6edbdbf47cd40483cb13ceb301e74e15ebbf9e",
+     "retrieved_utc": "2026-09-25T12:33:27Z"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/standardebooks/james-joyce_ulysses/master/src/epub/text/chapter-18.xhtml",
+     "sha256": "8044255b888e4dc1b8021bdb84bd755aac53ff6cf1b3bb0adbd09fab459865bf",
+     "retrieved_utc": "2026-09-25T12:50:33Z"
+    }
+   ]
+  }
+ ],
+ "new_observations": [
+  {
+   "id": "V07-N1",
+   "book": "moby-dick",
+   "editions": [
+    "original-en",
+    "modern-en"
+   ],
+   "severity": "S4",
+   "type": "MISLABELED",
+   "location": "56.0, 57.0, 73.0",
+   "note": "Chapter titles 56, 57, 73 are truncated at PG line-wrap; the remainders are served as body paragraphs: 56.0 'Pictures of Whaling Scenes.', 57.0 'Stone; in Mountains; in Stars.', 73.0 'over Him.' (pg2701 lines 10697-10698, 10822-10823, 12765-12766). Also recorded in the branch's green-moby-dick handoff."
+  },
+  {
+   "id": "V07-N2",
+   "book": "moby-dick",
+   "editions": [
+    "modern-en"
+   ],
+   "severity": "S3",
+   "type": "FIDELITY (invented content)",
+   "location": "44.8, 118.1 (examples)",
+   "note": "Besides dropping text, modern-en invents replacements not in the source: 44.8 'as some lonely hunter would search the woods for some solitary elk'; 118.1 'Ahab raised his ivory leg, steadied his body with his free knee against the boat's side'. The accepted green-moby-dick candidate replaces both."
+  },
+  {
+   "id": "V07-N3",
+   "book": "great-expectations",
+   "editions": [
+    "modern-en"
+   ],
+   "severity": "S3",
+   "type": "MISSING + FIDELITY",
+   "location": "ch26 (26.1, 26.12-26.16 and others)",
+   "note": "26.1 drops 'whenever that happened he talked louder to me; but he never otherwise recognised anybody…' and substitutes invented 'capital punishment and flogging… argue against my own earlier points'. Chapter 26 is an outlier (about 35% of source words weakly rendered vs 20% or less in every other chapter). It omits the Macbeth/Witches' caldron simile (26.12) and 'a face rising out of the caldron' plus the 'dreadful likeness' flash-forward (26.13)."
+  },
+  {
+   "id": "V07-N4",
+   "book": "don-quixote / brothers-karamazov",
+   "editions": [
+    "modern-da"
+   ],
+   "severity": "S3",
+   "type": "SERVED-STATE INCONSISTENCY",
+   "location": "don-quixote modern-da: 60 chapters; brothers-karamazov modern-da: 78 chapter titles",
+   "note": "Don Quixote modern-da whole-book file and chapter shards differ in 60 chapters (1,653 paragraphs: different Danish renderings) and in all 126 titles ('Del 1, Kapitel 1' vs 'Part 1, Chapter 1'), so the shard-loading reader and whole-file consumers show different text. Karamazov modern-da shards carry English titles in 78 chapters where the whole file has Danish. Danish quality not assessed."
+  },
+  {
+   "id": "V07-N5",
+   "book": "don-quixote",
+   "editions": [
+    "original-en",
+    "modern-en",
+    "modern-da"
+   ],
+   "severity": "S3",
+   "type": "ATTRIBUTION/SCOPE",
+   "location": "52.48-52.55",
+   "note": "The Dedication to the Count of Lemos served inside the 'Ormsby (1885)' edition is not Ormsby's text: it is absent from the 1885 vol. III (contents 'PART II. Preface 3 / CHAPTER I'). It is a PG #996 supplement. Tied to -03/-04: scope must be decided for both dedications together."
+  },
+  {
+   "id": "V07-N6",
+   "book": "war-and-peace",
+   "editions": [
+    "modern-da"
+   ],
+   "severity": "S4",
+   "type": "MISLABELED (cosmetic)",
+   "location": "Books 9, 10, 13, 14, 15 chapter titles",
+   "note": "Inconsistent Book-name variants within Books: Niende bog/Bog ni, Tiende bog/Bog ti, Trettende bog/Bog tretten, Fjortende bog/Bog fjorten, Femtende bog/Bog femten."
+  }
+ ]
+}
