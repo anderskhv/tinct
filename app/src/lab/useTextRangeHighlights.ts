@@ -79,6 +79,9 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
       created.observer?.observe(root)
       mounted = mountedRef.current = created
     }
+    // React rewrites the class attribute whenever the passage's own classes
+    // change; keep ours (a no-op, and no restyle, while it is there).
+    if (!root.classList.contains('has-text-range-highlights')) root.classList.add('has-text-range-highlights')
     const ranges: Record<string, Range[]> = {}
     const runs: Run[] = []
     const signature: string[] = []
