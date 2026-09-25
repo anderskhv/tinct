@@ -34,9 +34,14 @@ export function fitChapterEnd(
     }
     return [left, right]
   }
-  // Find the largest final prose tail that fits beside the compact actions.
-  let low = 1, high = count - 1
+  // The page before the actions keeps nearly all of its prose: carry about a
+  // tenth of it over, so the actions never follow a lone word. Moving the
+  // largest tail that fits instead stranded a few words ("1", "said, \"We")
+  // on an otherwise empty leaf in long single-paragraph chapters.
+  const target = Math.min(count - 1, Math.max(1, Math.round(count / 10)))
+  let low = count - target, high = count - 1
   if (!fits(split(high)[1], false)) return pages
+  // Shrink the carried tail only as far as the actions require.
   while (low < high) {
     const mid = Math.floor((low + high) / 2)
     if (fits(split(mid)[1], false)) high = mid
