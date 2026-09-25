@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import {preserveUnresolvedSymposiumPositions,SYMPOSIUM_POSITION_RECOVERY_KEY} from '../lab/labPositionStore'
 import {readFileSync} from 'node:fs'
 import {describe,it,expect} from 'vitest'
