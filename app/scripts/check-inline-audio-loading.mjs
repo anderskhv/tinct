@@ -147,7 +147,10 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     try {
       await Promise.race([
         (async () => {
-          await page.unrouteAll({ behavior: 'wait' })
+          // The case is already judged. An in-flight ensure forward may still be
+          // waiting on the live Worker (15s, one retry): drop it rather than wait,
+          // or cleanup outlasts its own budget (featured-preview / deploy flakes, 2026-09-25).
+          await page.unrouteAll({ behavior: 'ignoreErrors' })
           await context.tracing.stop().catch(() => {})
           await context.close()
         })(),

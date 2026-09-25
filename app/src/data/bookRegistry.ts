@@ -125,7 +125,17 @@ export const BIBLE: Book = {
   wordCount: 783000,
   coverColor: '#2a1a0e',
   coverAccent: '#d4a843',
+  // BSB leads: it is the default for readers without their own saved Bible
+  // edition. Bible editions are compared by verse, not paragraph index.
   editions: [
+    {
+      key: 'bsb-en',
+      language: 'en',
+      style: 'bsb',
+      label: 'Berean Standard Bible',
+      aligned: true,
+      hasAudio: true,
+    },
     {
       key: 'kjv-en',
       language: 'en',

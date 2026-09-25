@@ -34,10 +34,18 @@ export function mapLabCompareAnchor(
   // the verse the source word sits in is the verse the target begins at.
   // Proverbs 17 is six paragraphs of several verses each; a page beginning
   // at verse 15 has to land on verse 15, not on a proportional guess at it.
+  // Bible editions keep their own paragraphing (BSB breaks poetry into lines),
+  // so the verse is looked for across the chapter when the same paragraph
+  // index does not hold it, and a verse line without its own marker belongs
+  // to the last verse opened before it.
+  const sourceIndex = Math.max(0, Math.min(anchor.paragraphIndex, Math.max(0, sourceParagraphs.length - 1)))
   const verse = labVerseAtOrBefore(sourceWords, Math.max(0, Math.min(anchor.wordIndex, sourceWords.length - 1)))
+    ?? labVerseBeforeParagraph(sourceParagraphs, sourceIndex)
   if (verse !== null) {
     const target = labVerseWordIndex(targetWords, verse)
     if (target !== null) return { paragraphIndex, wordIndex: target }
+    const elsewhere = labVerseLocation(targetParagraphs, verse)
+    if (elsewhere) return elsewhere
   }
 
   const sourceDenominator = Math.max(1, sourceWords.length - 1)
@@ -112,4 +120,37 @@ export function labVerseAtOrBefore(words: Array<{ text: string }>, wordIndex: nu
 export function labVerseWordIndex(words: Array<{ text: string }>, verse: string): number | null {
   const index = words.findIndex(word => isLabVerseMarker(word.text) && labVerseMarkerDisplay(word.text) === verse)
   return index < 0 ? null : index
+}
+
+/** The last verse opened in any paragraph before `paragraphIndex`, or null. */
+function labVerseBeforeParagraph(paragraphs: string[], paragraphIndex: number): string | null {
+  for (let index = paragraphIndex - 1; index >= 0; index -= 1) {
+    const words = tokenizeHearingWords(paragraphs[index] || '')
+    const verse = words.length ? labVerseAtOrBefore(words, words.length - 1) : null
+    if (verse !== null) return verse
+  }
+  return null
+}
+
+/**
+ * Where `verse` begins anywhere in the chapter. A verse an edition leaves
+ * empty (BSB omits Matthew 17:21) lands on the nearest earlier verse it has;
+ * the page is a place to read from, not a claim that the verses correspond.
+ */
+export function labVerseLocation(paragraphs: string[], verse: string): LabCompareAnchor | null {
+  const tokenized = paragraphs.map(text => tokenizeHearingWords(text))
+  const find = (wanted: string) => {
+    for (let paragraphIndex = 0; paragraphIndex < tokenized.length; paragraphIndex += 1) {
+      const wordIndex = labVerseWordIndex(tokenized[paragraphIndex], wanted)
+      if (wordIndex !== null) return { paragraphIndex, wordIndex }
+    }
+    return null
+  }
+  const exact = find(verse)
+  if (exact || !/^\d+$/.test(verse)) return exact
+  for (let earlier = Number(verse) - 1; earlier >= 1; earlier -= 1) {
+    const found = find(String(earlier))
+    if (found) return found
+  }
+  return null
 }

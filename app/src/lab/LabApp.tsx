@@ -100,6 +100,7 @@ import {
   type LabAppearanceProfile,
   type LabReaderProgressMode,
 } from './labPrefs'
+import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labChromeVersion, labLayoutOverride, labVoiceVersion } from './labRoute'
 import { useLabDictation } from './useLabDictation'
@@ -133,6 +134,7 @@ import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { mapLabCompareAnchor, splitLabPagesAtAnchor } from './labCompare'
+import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -586,8 +588,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [marks, setMarks] = useState<LabMark[]>([])
   const [focusParagraph, setFocusParagraph] = useState<number | null>(null)
   const [chrome, setChrome] = useState<LabChromeState>('reading')
+  // Bible editions keep their own paragraphing (BSB sets poetry line by line):
+  // desktop pairs those verse by verse (labVerseAlignment). Only a Bible pair
+  // with no shared verse numbers cannot be set side by side.
+  const pairedCompareUnavailable = useMemo(() => (book.bookId || 'bible') === 'bible'
+    && needsVerseAlignment(book.paragraphs, book.compareParagraphs)
+    && !buildVerseAlignment(book.paragraphs, book.compareParagraphs), [book.bookId, book.paragraphs, book.compareParagraphs])
   const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0
-  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0
+  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -1346,7 +1354,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const activeBookId = book.bookId || 'bible'
     const primaryEditionKey = bookEditions.some(edition => edition.key === prefs.primaryEdition)
       ? prefs.primaryEdition
-      : (bookEditions.find(edition => edition.style === 'original' && edition.language === 'en') || bookEditions[0])?.key
+      // New readers arrive with an edition (library handoff, Bible default);
+      // a resumed place without one predates edition keys and reads the original.
+      : savedPlaceFallbackEditionKey(activeBookId, bookEditions)
     if (!primaryEditionKey) {
       setReaderLoadError('This book does not currently have a readable edition.')
       return
@@ -4161,6 +4171,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
             : null}
+          compareUnavailable={!showPhoneChrome && prefs.compareOpen && pairedCompareUnavailable}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />

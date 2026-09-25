@@ -37,7 +37,8 @@
 
   function defaultEdition(book) {
     const visible = book.editions.filter(edition => edition.language !== 'da')
-    return visible.find(edition => edition.style === 'original' && edition.language === 'en')
+    return visible.find(edition => edition.key === book.defaultEditionKey)
+      || visible.find(edition => edition.style === 'original' && edition.language === 'en')
       || visible.find(edition => edition.style === 'modern' && edition.language === 'en')
       || visible[0]
   }

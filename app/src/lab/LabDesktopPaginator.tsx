@@ -1,6 +1,7 @@
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { fitChapterEnd } from './labChapterEndPaging'
+import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
 import { segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
@@ -136,6 +137,8 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     let cancelled = false, frame = 0, generation = 0
     const source = paragraphs.map(tokenizeHearingWords)
     const target = comparison?.map(tokenizeHearingWords)
+    // Editions paragraphed differently (BSB beside KJV) pair verse by verse.
+    const alignment = comparison && needsVerseAlignment(paragraphs, comparison) ? buildVerseAlignment(paragraphs, comparison) : null
     const schedule = () => {
       const revision = ++generation
       cancelAnimationFrame(frame)
@@ -180,7 +183,24 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             if (end) end.hidden = !withEnd
             header.hidden = !first
             rows.replaceChildren()
-            for (const segment of segments) {
+            if (comparison && target && alignment) {
+              // Verse-paired rows: a compare cell spans the primary lines of
+              // its verses (see LabPassage), so measure each verse group as
+              // one row. The primary stack keeps its lines' own margins, as
+              // separate grid rows do.
+              for (const group of verseGroups(segments, alignment)) {
+                const row = document.createElement('div')
+                row.className = 'lab-desktop-measure-row'
+                const stack = document.createElement('div')
+                stack.style.cssText = 'display:flex;flex-direction:column'
+                for (const segment of group.segments) stack.append(makeParagraph(segment, source, paragraphs))
+                const cell = document.createElement('div')
+                cell.className = 'lab-compare-cell'
+                for (const piece of group.pieces) cell.append(makeParagraph(piece, target, comparison))
+                row.append(stack, cell)
+                rows.append(row)
+              }
+            } else for (const segment of segments) {
               const row = document.createElement('div')
               row.className = 'lab-desktop-measure-row'
               row.append(makeParagraph(segment, source, paragraphs))

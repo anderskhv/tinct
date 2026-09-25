@@ -1,7 +1,8 @@
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
-import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
+import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
@@ -472,6 +473,18 @@ export function LabPassage({
     edgeDirectionRef.current = null
   }
   const longPressRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Editions paragraphed differently (BSB beside KJV) pair verse by verse; the
+  // paginator measures the same cells (LabDesktopPaginator).
+  const verseAlignment = useMemo(
+    () => (alignCompare && needsVerseAlignment(paragraphs, compareParagraphs) ? buildVerseAlignment(paragraphs, compareParagraphs) : null),
+    [alignCompare, paragraphs, compareParagraphs],
+  )
+  const verseGroupAt = verseAlignment
+    ? new Map(verseGroups(readingLines.map(line => {
+      const from = line.from ?? readingPage?.from ?? 0
+      return { paragraphIndex: line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0, from, to: from + line.words.length }
+    }), verseAlignment).map(group => [group.start, group]))
+    : null
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
   useTextRangeHighlights(articleRef)
@@ -992,14 +1005,12 @@ export function LabPassage({
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
             {readingLines.map((line, lineIndex) => {
               const source = compareParagraphs.length > 0 ? compareParagraphs : paragraphs
-              const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
-              const words = tokenizeHearingWords(source[paragraphIndex] || '')
+              const primaryIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
               const from = line.from ?? readingPage?.from ?? 0
-              const segment = alignCompare ? comparisonSegment({ paragraphIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
-              const text = words.slice(segment.from, segment.to).map(word => word.text).join(' ')
-              if (!alignCompare && !text) return null
               const compareSelecting = !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison)
-              return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
+              const renderPiece = (paragraphIndex: number, segment: { from: number; to: number }, key: number | string, style?: CSSProperties) => {
+              const words = tokenizeHearingWords(source[paragraphIndex] || '')
+              return <p key={key} className="lab-hearing-line" style={style} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
                 const absoluteWord = segment.from + index
                 const mark = highlightAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
                 const color = mark?.color ?? null
@@ -1009,6 +1020,19 @@ export function LabPassage({
                 const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
                 return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
               }))}</p>
+              }
+              const gridCell = alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined
+              if (verseGroupAt) {
+                // Verse-paired: the compare verses this line opens, possibly
+                // across several compare paragraphs, each in its own
+                // coordinates, spanning the primary lines of those verses.
+                const group = verseGroupAt.get(lineIndex)
+                if (!group) return null
+                return <div key={lineIndex} className="lab-compare-cell" style={{ gridColumn: 2, gridRow: `${lineIndex + 1} / span ${group.segments.length}` }}>{group.pieces.map((piece, index) => renderPiece(piece.paragraphIndex, piece, index))}</div>
+              }
+              const segment = alignCompare ? comparisonSegment({ paragraphIndex: primaryIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
+              if (!alignCompare && segment.to <= segment.from) return null
+              return renderPiece(primaryIndex, segment, lineIndex, gridCell)
             })}
           </div>
         )}

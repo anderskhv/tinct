@@ -23,7 +23,7 @@ describe('withheld editions are never offered', () => {
 
   it('keeps them out of the registry itself', () => {
     const bible = BOOKS.find(book => book.id === 'bible')!
-    expect(bible.editions.map(edition => edition.key).sort()).toEqual(['kjv-en', 'web-en'])
+    expect(bible.editions.map(edition => edition.key).sort()).toEqual(['bsb-en', 'kjv-en', 'web-en'])
   })
 
   it('keeps them out of the built catalogue, for every book', () => {
@@ -36,7 +36,7 @@ describe('withheld editions are never offered', () => {
 
   it('keeps them out of the book page and its edition picker', () => {
     const detail = getBookDetailViewModel('bible')!
-    expect(detail.book.editions.map(edition => edition.key).sort()).toEqual(['kjv-en', 'web-en'])
+    expect(detail.book.editions.map(edition => edition.key).sort()).toEqual(['bsb-en', 'kjv-en', 'web-en'])
 
     const selection = getEditionSelectionViewModel('bible')!
     const offered = [
@@ -53,7 +53,7 @@ describe('withheld editions are never offered', () => {
 
   it('keeps them out of the lab reader’s version switcher and Compare selector', () => {
     // Both read the same list; `bookEditions` in LabApp is this function.
-    expect(bibleEditions().map(edition => edition.key).sort()).toEqual(['kjv-en', 'web-en'])
+    expect(bibleEditions().map(edition => edition.key).sort()).toEqual(['bsb-en', 'kjv-en', 'web-en'])
 
     const stale = [
       { key: 'kjv-en', language: 'en', style: 'kjv', label: 'King James Version (1611)', aligned: true },

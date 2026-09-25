@@ -30,6 +30,7 @@ function editionLabel(key: string): string {
     'original-en': 'Original',
     'modern-en': 'Modern EN',
     'modern-da': 'Moderne DK',
+    'bsb-en': 'BSB',
     'kjv-en': 'KJV',
     'web-en': 'WEB',
   }

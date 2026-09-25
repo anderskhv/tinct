@@ -25,6 +25,7 @@ import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionSt
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
+import { isMachineMadeOriginal } from './data/editionDefaults'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
@@ -40,6 +41,8 @@ interface CatalogueBook {
   /** Generated-cover palette; its background is the book's dominant tone. */
   cover?: { background?: string } | null
   editions: Array<{ key: string; style?: string; language?: string; availability?: { chapterText?: boolean } }>
+  /** The approved default edition (editionDefaults.ts), computed at build time. */
+  defaultEditionKey?: string | null
   readingStructure?: { totalParagraphs?: number; chapters?: Array<{ number: number; title: string; paragraphCount?: number }> } | null
 }
 
@@ -163,9 +166,17 @@ function bookInfos(books: Map<string, CatalogueBook>): Map<string, LibraryBookIn
   }]))
 }
 
-function defaultEditionKey(book: CatalogueBook | undefined): string | null {
+/**
+ * The edition a new reader starts in: the approved default (Tinct Modern
+ * English; BSB for the Bible). A saved place without an edition key predates
+ * edition keys, when the original was the default, so it keeps the human
+ * original; a machine-made "original" is never chosen.
+ */
+function defaultEditionKey(book: CatalogueBook | undefined, savedPlaceWithoutEdition = false): string | null {
   const editions = (book?.editions ?? []).filter(edition => edition.language !== 'da' && edition.availability?.chapterText !== false)
-  return editions.find(edition => edition.style === 'original' && edition.language === 'en')?.key
+  const approved = editions.find(edition => edition.key === book?.defaultEditionKey)?.key
+  const original = book ? editions.find(edition => edition.style === 'original' && edition.language === 'en' && !isMachineMadeOriginal(book.id, edition.key))?.key : undefined
+  return (savedPlaceWithoutEdition ? original ?? approved : approved ?? original)
     ?? editions.find(edition => edition.style === 'modern' && edition.language === 'en')?.key
     ?? editions[0]?.key
     ?? null
@@ -197,7 +208,7 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
   const book = books.get(bookId)
   const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
   const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
-  const edition = [saved, preferredEdition].find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book)
+  const edition = [saved, preferredEdition].find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const intent = {
     kind: 'open-reader',

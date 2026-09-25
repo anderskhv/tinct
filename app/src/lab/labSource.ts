@@ -8,7 +8,8 @@ import { LAB_COPY } from './labCopy'
 import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
 
 export const LAB_BOOK_ID = 'bible'
-export const LAB_EDITION_KEY = 'kjv-en'
+// New Bible readers start in the Berean Standard Bible; saved places keep their own edition.
+export const LAB_EDITION_KEY = 'bsb-en'
 export const LAB_COMPARE_EDITION_KEY = 'web-en'
 
 export interface LabCastMember {

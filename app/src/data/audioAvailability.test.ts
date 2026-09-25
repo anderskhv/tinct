@@ -12,9 +12,10 @@ describe('reversible edition discovery availability', () => {
     const actual = BOOKS.flatMap(book => book.editions.filter(e => e.language === 'en').map(e => `${book.id}/${e.key}`)).sort()
     const reviewed = [...manifest.eligible_editions, ...manifest.held_editions.map(e => e.key)].sort()
     expect(reviewed).toEqual(actual)
-    // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text).
-    expect(new Set(reviewed).size).toBe(200)
-    expect(manifest.eligible_editions).toHaveLength(154)
+    // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text);
+    // 201 with the Berean Standard Bible (streamed narration) on 2026-09-25.
+    expect(new Set(reviewed).size).toBe(201)
+    expect(manifest.eligible_editions).toHaveLength(155)
     expect(manifest.held_editions).toHaveLength(46)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
@@ -42,8 +43,8 @@ describe('reversible edition discovery availability', () => {
     // registry on 2026-09-11. KJV and WEB were released from the missing_audio
     // hold at the same time so the book does not become unpickable.
     const bible = BOOKS.find(b=>b.id==='bible')!
-    expect(bible.editions.map(e=>e.key)).toEqual(['kjv-en', 'web-en'])
-    expect(bible.editions.filter(e=>isEditionDiscoverable(bible.id,e)).map(e=>e.key)).toEqual(['kjv-en', 'web-en'])
+    expect(bible.editions.map(e=>e.key)).toEqual(['bsb-en', 'kjv-en', 'web-en'])
+    expect(bible.editions.filter(e=>isEditionDiscoverable(bible.id,e)).map(e=>e.key)).toEqual(['bsb-en', 'kjv-en', 'web-en'])
     expect(isBookDiscoverable('bible')).toBe(true)
   })
   it('releases repaired Antigone audio while holding only the chapter with a missing recording', () => {
