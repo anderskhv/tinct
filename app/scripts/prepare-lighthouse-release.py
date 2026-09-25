@@ -55,8 +55,10 @@ outputs["docs/design/library-prefaces/manifest.json"]=dump(manifest)
 cover_url="https://raw.githubusercontent.com/standardebooks/virginia-woolf_to-the-lighthouse/2ba2ffe0d5e8789902cfe86c5cde4753b7b68843/images/cover.jpg"
 cover=urllib.request.urlopen(cover_url,timeout=60).read()
 assert hashlib.sha1(b"blob "+str(len(cover)).encode()+b"\0"+cover).hexdigest()=="81b17e541a489abff12fa9bfb636c6a3bb98fbd3"
-im=Image.open(io.BytesIO(cover)).convert("RGB"); im.thumbnail((600,900))
-buf=io.BytesIO(); im.save(buf,format="WEBP",quality=85,method=6)
+im=Image.open(io.BytesIO(cover)).convert("RGB"); im.thumbnail((540,810))
+for quality in (80,70,60,50):
+ buf=io.BytesIO(); im.save(buf,format="WEBP",quality=quality,method=6)
+ if len(buf.getvalue())<150*1024:break
 assert len(buf.getvalue())<150*1024
 outputs["app/public/covers/v2/to-the-lighthouse.webp"]=buf.getvalue()
 for path,raw in outputs.items(): write(path,raw)
