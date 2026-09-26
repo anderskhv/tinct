@@ -65,13 +65,19 @@ class S3:
   return deleted
 def normalized(rows):return sorted([{"key":r["key"],"size":r["size"],"etag":r["etag"].strip('"')} for r in rows],key=lambda x:x["key"])
 def production_guards(holds):
+ checks=0
  for key in holds:
-  for route,suffix in [("audio-file","/ch1/p0.mp3"),("audio-manifest","/ch1/manifest.json")]:
-   url="https://tinct.app/api/"+route+"?"+urllib.parse.urlencode({"path":key+suffix,"cleanup-check":str(time.time_ns())})
-   try:urllib.request.urlopen(url,timeout=30);raise RuntimeError("Production audio hold missing")
+  book,edition=key.split("/")
+  paths=["api/"+route+"?"+urllib.parse.urlencode({"path":key+suffix}) for route,suffix in [("audio-file","/ch1/p0.mp3"),("audio-manifest","/ch1/manifest.json")]]
+  paths.append("api/narration/chapter?"+urllib.parse.urlencode({"bookId":book,"editionKey":edition,"chapter":1,"voice":"a"}))
+  for path in paths:
+   req=urllib.request.Request("https://tinct.app/"+path+"&cleanup-check="+str(time.time_ns()),headers={"User-Agent":"Tinct-availability-verification"})
+   try:urllib.request.urlopen(req,timeout=30);raise RuntimeError("Production audio hold missing")
    except urllib.error.HTTPError as e:
     assert e.code==503 and e.headers.get("Cache-Control")=="no-store","Production guard not deployed"
     data=json.load(e);assert data.get("error")=="Edition temporarily unavailable"
+    checks+=1
+ return checks
 def text_hashes(holds):
  result={}
  for key in holds:
@@ -80,7 +86,7 @@ def text_hashes(holds):
   assert result[key]==holds[key]["sha256"],("Preserved production text changed",key)
  return result
 def main():
- parser=argparse.ArgumentParser();parser.add_argument("--apply",action="store_true");args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument("--apply",action="store_true");parser.add_argument("--verify-production",action="store_true");args=parser.parse_args()
  raw=(ROOT/"app/artifacts/held-audio-source/inventory.json").read_bytes();assert digest(raw)==EXPECTED
  inventory=json.loads(raw);assert inventory["complete"]
  holds=json.loads((ROOT/"app/src/data/editionAvailability.json").read_text())["editions"]
@@ -106,9 +112,10 @@ def main():
    assert not client.list(f"narration/{provider}/map/{key}/"),"New narration mappings require review"
  report["protectedSiblingObjects"]=sum(map(len,protected.values()));save()
  print("Verified exact inventory and sound siblings",len(objects),report["protectedSiblingObjects"],flush=True)
+ if args.apply or args.verify_production:
+  report["productionAudioChecks"]=production_guards(holds)
+  report["preservedTextHashes"]=text_hashes(holds);report["productionGuardsVerified"]=True;save()
  if args.apply:
-  production_guards(holds)
-  report["preservedTextHashes"]=text_hashes(holds);save()
   for row in targets:
    keys=[o["key"] for o in row["objects"]]
    # Re-check exact prefix immediately before its batch deletion.

@@ -21,13 +21,36 @@ jobs:
           run-id: 36251091359
           github-token: ${{ github.token }}
           path: app/artifacts/held-audio-source
-      - name: Verify exact inventory (no deletion)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - name: Verify production guards and exact inventory (no deletion)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: python3 app/scripts/retire-held-audio.py
+        run: python3 app/scripts/retire-held-audio.py --verify-production
+      - name: Verify served catalogue, links and preserved edition hashes
+        working-directory: app
+        env:
+          EXPECTED_BUILD_SHA: 2638c5aaf14ea885f926b486ee7af584deab235c
+        run: node scripts/check-edition-holds-production.cjs
+      - name: Set up isolated reader checks
+        run: bash scripts/cloud-setup.sh
+      - name: Install silent browsers
+        working-directory: app
+        run: npx playwright install --with-deps chromium webkit
+      - name: Verify seeded saved-reader data on production
+        working-directory: app
+        env:
+          TEST_ORIGIN: https://tinct.app
+        run: node scripts/check-edition-holds.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: held-audio-cleanup-receipt
-          path: app/artifacts/held-audio-cleanup
+          path: |
+            app/artifacts/held-audio-cleanup
+            app/artifacts/edition-holds-production
+            app/artifacts/edition-holds
