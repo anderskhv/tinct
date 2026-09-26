@@ -135,7 +135,7 @@ import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
-import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
+import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, labSignInHref, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, splitLabPagesAtAnchor, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
@@ -4667,7 +4667,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'
           : listen.narration.reason === 'text_mismatch' ? 'Passage changed. Reload to play.'
           : 'Audio couldn’t start.'}</span>
-        <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
+        {/* A retry cannot sign a reader in; offer the sign-in, which returns to the reader. */}
+        {listen.narration.reason === 'unauthenticated'
+          ? <a href={labSignInHref('signin', labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle)))} data-testid="lab-narration-sign-in">{LAB_COPY.accountSignIn}</a>
+          : <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>}
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
       </div>}
       {chromeV2 && recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
