@@ -1,0 +1,24 @@
+name: Inventory held edition audio
+on:
+  push:
+    branches: [codex/held-edition-repairs-20260926]
+    paths: ['app/scripts/inventory-held-audio.py', '.github/workflows/held-audio-inventory.yml']
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read-only R2 inventory
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 app/scripts/inventory-held-audio.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: held-audio-inventory
+          path: app/artifacts/held-audio-inventory
