@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Stage exact-only character anchor projections; unresolved anchors block adoption."""
-import copy,hashlib,json
+import copy,hashlib,json,urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/"app/artifacts/held-repair-preflight"
 def sha(s):return hashlib.sha256(s.encode()).hexdigest()
@@ -12,18 +12,37 @@ for book in ["macbeth","as-you-like-it","jerusalem"]:
  if not path.exists():continue
  card=json.loads(path.read_text());maps=json.loads((OUT/f"{book}.coordinates.json").read_text())
  errors=[];moved=0
+ impact={}
+ if book in ["macbeth","as-you-like-it"]:
+  with urllib.request.urlopen(f"https://raw.githubusercontent.com/anderskhv/tinct/dde75840/books/wip/{book}-completeness-repair/CHARACTER-CARD-IMPACT.json",timeout=60) as r:impact=json.load(r)
  for edition,data in card["editions"].items():
   if edition not in maps["editions"]:continue
   m=maps["editions"][edition]
   assert data["sourceSha256"]==m["beforeSha256"],(book,edition,"stale card baseline")
   final=json.loads((OUT/f"{book}-{edition}.json").read_text())
   paras={c["number"]:[norm(p) for p in c["paragraphs"]] for c in final["chapters"]}
+  def identity(a,b):
+   return all(a.get(k)==b.get(k) for k in ["characterId","chapterNumber","paragraphIndex","startOffset","endOffset","text"])
+  deletes=[x for x in impact.get("delete",[]) if x["edition"]==edition]
+  for deletion in deletes:
+   found=[v for v in data.get("mentions",[]) if identity(v,deletion)]
+   assert len(found)==1,(book,edition,"reviewed deletion mismatch",deletion)
+   data["mentions"]=[v for v in data["mentions"] if not identity(v,deletion)]
   def walk(value,location):
    global moved
    if isinstance(value,list):return [walk(v,location+f"/{i}") for i,v in enumerate(value)]
    if not isinstance(value,dict):return value
    if "chapterNumber" in value and "paragraphIndex" in value:
     key=f'{value["chapterNumber"]}.{value["paragraphIndex"]}';entry=m["entries"].get(key)
+    special=next((v for v in impact.get("special_cases",{}).get(edition,[]) if identity(value,v)),None)
+    if special:
+     result=copy.deepcopy(value)
+     result.update(chapterNumber=special["newChapter"],paragraphIndex=special["newParagraphIndex"],startOffset=special["newStartOffset"],endOffset=special["newEndOffset"])
+     assert entry is not None
+     oldquote=u16slice(entry["oldText"],value["startOffset"],value["endOffset"])
+     newquote=u16slice(paras[result["chapterNumber"]][result["paragraphIndex"]],result["startOffset"],result["endOffset"])
+     assert oldquote==newquote,(book,edition,"reviewed split quote mismatch")
+     moved+=int(result!=value);return result
     if not entry or entry["operation"]=="removed":
      errors.append({"edition":edition,"location":location,"coordinate":key,"reason":"removed or missing source anchor"});return value
     result=copy.deepcopy(value)
