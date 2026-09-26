@@ -21,7 +21,7 @@ translation.
 
 | Item | Value |
 |---|---|
-| `editions/discourse-on-inequality-modern-da.json` | sha256 `008035b8630cedfd31b981eed22495b5fce077de4c38625296b815cf8d8fa2df` — 4 chapters, same structure as live; only chapter 4's 67 paragraphs replaced |
+| `editions/discourse-on-inequality-modern-da.json` | sha256 `b7143d44f029fad16d1d4baa38ba7e8307929338f6fc1f980daea2f638fcf439` — 4 chapters, same structure as live; only chapter 4's 67 paragraphs replaced |
 | Replaces live sha256 | `383db95bbf30559d6ba41eb2045d37f2a24db49e9a3e80b2e246efb8e6b2c224` (matches the audit's reported prefix) |
 | Change | Chapter 4 ("Del 2"), all 67 paragraphs: fresh Danish translation replacing the English text |
 
