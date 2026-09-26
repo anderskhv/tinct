@@ -48,13 +48,14 @@ for(const [period,flames] of Object.entries(roomFires)){
     SCENES[`table-${period}`][variant]={
       // The large hearth needs local combustion flicker, not the candle's
       // whole-flame bend. Keep the painted logs, grate and brickwork anchored.
-      hearth:wide?[451,439,104,124]:[0,540,47,140],
+      hearth:wide?[451,439,104,124,518]:[0,540,47,140,643],
       flames:flames[variant].filter(([x])=>wide?x>550:x>50),
       // On phones the hearth is outside the crop, but its soft reflected light
       // still reaches the near-left table. Do not shift the room to expose it.
       reflection:wide?[483,736,67,155]:[130,1050,300,370],
       ...(period==='night'?{snowPanes:roomPanes(wide)}:{}),
       ...(period==='morning'?{pollen:roomPanes(wide)}:{}),
+      ...(period==='afternoon'?{rainPanes:roomPanes(wide)}:{}),
       // Only the near tree in the upper-left panes. The distant rooftops and
       // the window itself stay still, even when the phone crop hides the fire.
       ...(['afternoon','evening'].includes(period)?{branches:roomPanes(wide).filter((_,i)=>i===0||i===3).map(p=>p.map(([x,y],i)=>[x+(i===0||i===3?4:-4),y+(i<2?4:-4)]))}:{}),
@@ -122,10 +123,9 @@ function flame(ctx,img,x,y,h,t,seed,alpha) {
   glow(ctx,x,y-h*.4,h*3.4,'244,156,65',(.025+.055*f)*alpha);
 }
 
-// Only the luminous painted fire changes. Independent pockets brighten and
-// recede as a soft noise field rises through them; the flame patch never rocks,
-// stretches or moves the hearth around it. This is deliberately quieter than
-// adding procedural orange tongues over an already detailed painting.
+// Advect small parts of the painted flame upwards independently. Movement
+// tapers to zero at the logs; only luminous source/destination pixels change.
+// The dark grate and brickwork are never transformed with the flame patch.
 const hearthTiles = new WeakMap();
 const heatNoise = (() => {
   const values = new Float32Array(64 * 64);
@@ -146,31 +146,43 @@ const heatNoise = (() => {
 })();
 function hearth(ctx, img, rect, time, alpha) {
   let tile = hearthTiles.get(img);
-  const [x, y, w, h] = rect;
+  const [x, y, w, h, base] = rect;
   if (!tile) {
     const canvas = document.createElement('canvas'); canvas.width = w; canvas.height = h;
     const c = canvas.getContext('2d', { willReadFrequently: true });
     c.drawImage(img, x, y, w, h, 0, 0, w, h);
-    const source = c.getImageData(0, 0, w, h), frame = c.createImageData(w, h), hot = [];
+    const source = c.getImageData(0, 0, w, h), frame = c.createImageData(w, h);
+    const heat = new Float32Array(w*h), edges = new Float32Array(w*h);
     for (let py = 0; py < h; py++) for (let px = 0; px < w; px++) {
       const i = (py * w + px) * 4, [r, g, b] = source.data.subarray(i, i + 3);
-      const edge = Math.min(1, py / 9, (h - 1 - py) / 9, (w - 1 - px) / 9, x === 0 ? 1 : px / 9);
-      const heat = Math.min(1, Math.max(0, (r - 170) / 65)) * Math.min(1, Math.max(0, (g - 75) / 80)) * Math.min(1, Math.max(0, (r - b - 65) / 90));
-      if (heat * edge > .01) hot.push({ i, px, py, mask: heat * edge });
+      edges[i/4] = Math.min(1, py / 9, (h - 1 - py) / 9, (w - 1 - px) / 9, x === 0 ? 1 : px / 9);
+      heat[i/4] = Math.min(1, Math.max(0, (r - 170) / 65)) * Math.min(1, Math.max(0, (g - 75) / 80)) * Math.min(1, Math.max(0, (r - b - 65) / 90));
     }
-    tile = { canvas, c, source, frame, hot, tick: -1 }; hearthTiles.set(img, tile);
+    tile = { canvas, c, source, frame, heat, edges, tick: -1 }; hearthTiles.set(img, tile);
   }
   const tick = Math.floor(time / 40);
   if (tick !== tile.tick) {
     const t = tick * 40;
-    for (const { i, px, py, mask } of tile.hot) {
-      const rising = heatNoise(px * .14, py * .085 + t * .0018);
-      const fine = heatNoise(px * .29 + 19, py * .18 + t * .0026);
-      const gain = .58 + .62 * rising + .18 * fine;
-      tile.frame.data[i] = tile.source.data[i] * gain;
-      tile.frame.data[i + 1] = tile.source.data[i + 1] * gain;
-      tile.frame.data[i + 2] = tile.source.data[i + 2] * gain;
-      tile.frame.data[i + 3] = mask * 255;
+    const data = tile.source.data, pixels = tile.frame.data;
+    pixels.fill(0);
+    for (let py = 0; py < h; py++) for (let px = 0; px < w; px++) {
+      const p = py*w+px, i = p*4, edge = tile.edges[p];
+      if (!edge || (py+y>=base && tile.heat[p]<.01)) continue;
+      const rise = Math.max(0, Math.min(1, (base-y-py)/(base-y-8)));
+      const rising = heatNoise(px*.14, py*.085+t*.0018);
+      const fine = heatNoise(px*.29+19, py*.18+t*.0026);
+      const sx = Math.max(0, Math.min(w-1.001, px+rise*(rising-.5)*6));
+      const sy = Math.max(0, Math.min(h-1.001, py+rise*((heatNoise(px*.08+31,py*.06+t*.0013)-.35)*10+(fine-.5)*3)));
+      const ix=Math.floor(sx),iy=Math.floor(sy),u=sx-ix,v=sy-iy,a=iy*w+ix,b=a+1,c=a+w,d=c+1;
+      const sampleHeat=(tile.heat[a]*(1-u)+tile.heat[b]*u)*(1-v)+(tile.heat[c]*(1-u)+tile.heat[d]*u)*v;
+      const mask=Math.max(tile.heat[p],sampleHeat);
+      if(mask<.01)continue;
+      const motion=Math.min(1,mask*4),gain=1+(.58+.62*rising+.18*fine-1)*sampleHeat;
+      for(let channel=0;channel<3;channel++){
+        const sampled=(data[a*4+channel]*(1-u)+data[b*4+channel]*u)*(1-v)+(data[c*4+channel]*(1-u)+data[d*4+channel]*u)*v;
+        pixels[i+channel]=(data[i+channel]+(sampled-data[i+channel])*motion)*gain;
+      }
+      pixels[i+3]=edge*255;
     }
     tile.c.putImageData(tile.frame, 0, 0); tile.tick = tick;
   }
@@ -229,6 +241,16 @@ function pollen(ctx,panes,key,time,alpha){
     ctx.beginPath();ctx.ellipse(x,y,.7+p.s*.85,.5+p.s*.5,p.p,0,Math.PI*2);ctx.fill();
   });ctx.restore();
 }
+function rain(ctx,panes,key,time,alpha){
+  const [x0,y0,x1,y1]=bounds(panes.flat()),w=x1-x0,h=y1-y0;
+  ctx.save();ctx.beginPath();panes.forEach(p=>{p.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();});ctx.clip();
+  field(key,60).forEach(p=>{
+    const speed=.12+p.s*.07,y=y0+(p.y*h+time*speed)%(h+20)-10;
+    const x=x0+(p.x*w+time*speed*.08)%w,length=7+p.s*9;
+    ctx.strokeStyle=`rgba(202,220,229,${(.12+p.s*.15)*alpha})`;ctx.lineWidth=.6+p.s*.4;
+    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+length*.08,y+length);ctx.stroke();
+  });ctx.restore();
+}
 export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   const spec=SCENES[id]?.[wide?'wide':'phone'];if(!spec||alpha<=0||!img)return;
   ctx.save();ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);
@@ -250,6 +272,7 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   if(spec.clouds)movingPaint(ctx,img,spec.clouds,time,alpha,true);
   (spec.branches||[]).forEach(p=>movingPaint(ctx,img,p,time,alpha,false,true));
   if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha);
+  if(spec.rainPanes)rain(ctx,spec.rainPanes,id+wide+'rain',time,alpha);
   if(spec.snow||spec.snowPanes){
     const panes=spec.snowPanes||[spec.snow];
     const [x0,y0,x1,y1]=bounds(panes.flat()),w=x1-x0,h=y1-y0;
