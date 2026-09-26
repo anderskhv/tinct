@@ -3595,7 +3595,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const visiblePlace = Number.isInteger(visibleParagraphIndex) && Number.isInteger(visibleWordIndex)
       ? { paragraphIndex: visibleParagraphIndex, wordIndex: visibleWordIndex }
       : null
-    const place = visiblePlace ?? (page
+    const place = ((!showPhoneChrome || chromeV2) ? visiblePlace : null) ?? (page
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
     // Reader Play starts the visible page. A saved audio cursor can belong
@@ -3619,7 +3619,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPeekBook(false)
     setInTheBookOpen(false)
     notePlace('play')
-    void listen.startAtPlace(place)
+    void (chromeV2 ? listen.startAtPlace(place) : listen.start(place))
   }, [temporaryHold, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })

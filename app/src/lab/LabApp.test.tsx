@@ -4847,7 +4847,7 @@ it.each(['/lab/desktop', '/lab/phone'])('Play restarts the first visible word, w
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   render(<LabApp pathname={pathname} search="?chrome=v2" source={sourceWithManyWords()} />)
   const play = () => fireEvent.click(screen.getByTestId('lab-v2-play'))
-  const firstWord = () => screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!
+  const firstWord = () => screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"], .lab-hearing-word')!
   play()
   await waitFor(() => expect(audio.paused).toBe(false))
   // Pause several words into the first page: Play must not resume that cursor.
