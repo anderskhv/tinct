@@ -1,10 +1,8 @@
 # Release Packet — Faust Part I, English edition replacement (Bayard Taylor)
 
-Status: `original-en` independently reviewed and ACCEPTED (see
-`INDEPENDENT-REVIEW.md`, both defects it found have since been fixed —
-hashes below reflect the fixed version). `modern-en` candidate assembled
-and independent review in progress (see `MODERN-EN-INDEPENDENT-REVIEW.md`
-once it lands). Not published. Authorized under the 2026-09-26
+Status: **both `original-en` and `modern-en` independently reviewed and
+ACCEPTED** — see `ACCEPTANCE-RECORD.md`, `INDEPENDENT-REVIEW.md`, and
+`MODERN-EN-INDEPENDENT-REVIEW.md`. Not published. Authorized under the 2026-09-26
 assignment's Faust instruction: "proceed with the Taylor replacement
 recommendation after validating that source's identity, provenance and
 completeness... keep attribution accurate, preserve the German original,
@@ -80,9 +78,15 @@ post-hoc reconciliation was needed). All 1,060 paragraph counts verified
 programmatically against `original-en`, chapter by chapter — exact match
 throughout. No paragraph flagged by an automated word-ratio truncation
 check (≥8-word source paragraphs rendered at <60% length: zero flagged).
-Independent review of this candidate is in progress; see
-`MODERN-EN-INDEPENDENT-REVIEW.md` once complete, and this packet's status
-line will be updated to reflect the verdict.
+Independently reviewed (`MODERN-EN-INDEPENDENT-REVIEW.md`): **ACCEPT, no
+defects found** — structural parity confirmed across all 28 chapters,
+word-count ratios 1.01–1.19 per chapter, a close read of every priority
+passage (Prologue in Heaven, the Bible-translation passage, Auerbach's
+Cellar, Witch's Kitchen, Gretchen's song, Valentine's death curse, the
+Cathedral scene, Walpurgis-Night and its Dream interlude, and the full
+Dungeon ending) found faithful with no invented content or omissions, the
+play's darkest content confirmed unsoftened, and a full-corpus archaism
+scan found no genuine leftover archaic forms.
 
 ## Edition-identity and reader-coordinate handling required by Codex
 
