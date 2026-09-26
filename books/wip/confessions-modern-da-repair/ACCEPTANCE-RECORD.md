@@ -35,5 +35,17 @@ calque).
 
 ## What "accepted" does not mean
 
-Accepted for integration; not published, not live. Codex owns integration
-and the serialized release process per `books/BOOK-TASK-WORKFLOW.md`.
+**This acceptance covers Books 10-13 only — the content this package
+authored and the only content its independent review scoped.** It is not
+an acceptance of the entire 13-book Danish edition. Books 1-9 were
+pre-existing, not authored by this package, and were not reviewed at all
+until a separate, dedicated check: see `BOOKS-1-9-COMPLETENESS-CHECK.md`
+(this folder), which independently found Books 1-9 complete and faithful
+(256/256 paragraphs, 100% coverage on both the untranslated-English scan
+and the fidelity read) — but that is a distinct verification, on
+pre-existing content this session did not write, documented separately
+from this record on purpose.
+
+Accepted for integration (Books 10-13 only); not published, not live.
+Codex owns integration and the serialized release process per
+`books/BOOK-TASK-WORKFLOW.md`.
