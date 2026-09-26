@@ -42,7 +42,7 @@ matching the accepted English's own fidelity standard.
 
 | Item | Value |
 |---|---|
-| `editions/faust-part-1-modern-da.json` | sha256 `3c6d90500cb3550a36219e4c247426ee28334b90a5566dc03c343759ec208099` — 28 chapters, 1,060 paragraphs, matching the accepted `modern-en` structure exactly |
+| `editions/faust-part-1-modern-da.json` | sha256 `04e36f410cdaea3019cc593bdb2c52fe2ffed56eca39db7fc2ad3d178f980bb5` — 28 chapters, 1,060 paragraphs, matching the accepted `modern-en` structure exactly |
 | Replaces live sha256 | `ce719108b40e89f1f008d16a62e1fa7dc9e1f1600b2481439696873f9b471191` (28 chapters, 895 paragraphs, built on the old defective English) |
 
 Per-chapter paragraph counts verified programmatically to match
