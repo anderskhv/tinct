@@ -82,7 +82,7 @@ def text_hashes(holds):
  result={}
  for key in holds:
   book,edition=key.split("/")
-  with urllib.request.urlopen("https://tinct.app/data/editions/"+book+"-"+edition+".json",timeout=60) as r:result[key]=digest(r.read())
+  with urllib.request.urlopen(urllib.request.Request("https://tinct.app/data/editions/"+book+"-"+edition+".json",headers={"User-Agent":"Tinct-availability-verification"}),timeout=60) as r:result[key]=digest(r.read())
   assert result[key]==holds[key]["sha256"],("Preserved production text changed",key)
  return result
 def main():
@@ -113,7 +113,10 @@ def main():
  report["protectedSiblingObjects"]=sum(map(len,protected.values()));save()
  print("Verified exact inventory and sound siblings",len(objects),report["protectedSiblingObjects"],flush=True)
  if args.apply or args.verify_production:
+  report["phase"]="production audio guards";save()
   report["productionAudioChecks"]=production_guards(holds)
+  report["phase"]="preserved text hashes";save()
+  print("Verified production audio guards",report["productionAudioChecks"],flush=True)
   report["preservedTextHashes"]=text_hashes(holds);report["productionGuardsVerified"]=True;save()
  if args.apply:
   for row in targets:
