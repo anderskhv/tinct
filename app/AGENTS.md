@@ -44,7 +44,7 @@ For these files, inspect nearby logic before editing and avoid opportunistic ref
 - On mobile, both can be mounted, but only the active view may commit shared page state.
 - Switching Read -> Compare should sync to roughly the same paragraph/sentence in the same chapter.
 - Switching Compare -> Read should do the same.
-- Chapter transitions reset both views: next chapter starts at page 1; previous chapter starts at the last page.
+- Chapter transitions reset both views: unseen next chapters start at page 1; previous chapters start at the last page. Desktop Read may have already displayed the next chapter's first leaf on the outgoing spread: a forward page turn must continue after that displayed text, using its source-word boundary (Anders, 2026-09-26).
 - Read/Compare sync signals must include the chapter they belong to or be cleared on chapter change.
 - Stale sync, saved position, resize effects, and hidden readers must not override an intentional chapter transition.
 
