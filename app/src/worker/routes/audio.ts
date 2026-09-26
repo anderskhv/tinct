@@ -1,3 +1,4 @@
+import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { jsonResponse } from '../lib/responses'
 
 export type AudioEnv = {
@@ -23,6 +24,12 @@ export async function handleAudioManifest(request: Request, env: AudioEnv): Prom
   const url = new URL(request.url)
   const path = url.searchParams.get('path')
   if (!isValidAudioPath(path || '')) return jsonResponse({ error: 'Invalid path' }, 400, request)
+  const [bookId, editionKey] = path!.split('/')
+  if (editionHold(bookId, editionKey)) {
+    const response = jsonResponse({ error: 'Edition temporarily unavailable', message: TEMPORARY_HOLD_NOTICE }, 503, request)
+    response.headers.set('Cache-Control', 'no-store')
+    return response
+  }
   if (!env.AUDIO_BUCKET) return jsonResponse({ error: 'Audio unavailable' }, 503, request)
 
   const object = await env.AUDIO_BUCKET.get(path!)
@@ -45,6 +52,12 @@ export async function handleAudioFile(request: Request, env: AudioEnv): Promise<
   // Narration cache metadata (text, provider voice id, timings) is served
   // through /api/narration only; the public route hands out the audio alone.
   if (path!.startsWith('narration/') && !path!.endsWith('.mp3')) return jsonResponse({ error: 'Invalid path' }, 400, request)
+  const [bookId, editionKey] = path!.split('/')
+  if (editionHold(bookId, editionKey)) {
+    const response = jsonResponse({ error: 'Edition temporarily unavailable', message: TEMPORARY_HOLD_NOTICE }, 503, request)
+    response.headers.set('Cache-Control', 'no-store')
+    return response
+  }
   if (!env.AUDIO_BUCKET) return jsonResponse({ error: 'Audio unavailable' }, 503, request)
 
   const rangeHeader = request.headers.get('range')
