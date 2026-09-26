@@ -52,7 +52,7 @@ export function pairedSamples(bookId, keys, payloads) {
       ?? 0
   }
   const full = paragraphs.map(p => normalizePassage(p[index]))
-  const endings = {'original-en':'wanted to marry him.', 'modern-en':'wanting to marry him.'}
+  const endings = {'original-en':'wanted to marry him.', 'modern-en':'wanting him for a husband.'}
   const reviewed = bookId === 'odyssey' && keys.every((key,i) => endings[key] && full[i].includes(endings[key]))
   return full.map((text,i) => ({full:text, short:reviewed ? text.slice(0,text.indexOf(endings[keys[i]])+endings[keys[i]].length) : text, paragraphIndex:index}))
 }
