@@ -46,9 +46,18 @@ for(const [period,flames] of Object.entries(roomFires)){
   SCENES[`table-${period}`]={};
   for(const [variant,wide] of [['wide',true],['phone',false]]){
     SCENES[`table-${period}`][variant]={
-      flames:flames[variant],reflection:wide?[483,736,67,155]:[16,982,54,180],
+      // The large hearth needs local combustion flicker, not the candle's
+      // whole-flame bend. Keep the painted logs, grate and brickwork anchored.
+      hearth:wide?[451,439,104,124]:[0,540,47,140],
+      flames:flames[variant].filter(([x])=>wide?x>550:x>50),
+      // On phones the hearth is outside the crop, but its soft reflected light
+      // still reaches the near-left table. Do not shift the room to expose it.
+      reflection:wide?[483,736,67,155]:[130,1050,300,370],
       ...(period==='night'?{snowPanes:roomPanes(wide)}:{}),
       ...(period==='morning'?{pollen:roomPanes(wide)}:{}),
+      // Only the near tree in the upper-left panes. The distant rooftops and
+      // the window itself stay still, even when the phone crop hides the fire.
+      ...(['afternoon','evening'].includes(period)?{branches:roomPanes(wide).filter((_,i)=>i===0||i===3).map(p=>p.map(([x,y],i)=>[x+(i===0||i===3?4:-4),y+(i<2?4:-4)]))}:{}),
     };
   }
 }
@@ -112,6 +121,61 @@ function flame(ctx,img,x,y,h,t,seed,alpha) {
   ctx.save();ctx.globalAlpha=alpha;ctx.drawImage(canvas,x-w/2,y-base);ctx.restore();
   glow(ctx,x,y-h*.4,h*3.4,'244,156,65',(.025+.055*f)*alpha);
 }
+
+// Only the luminous painted fire changes. Independent pockets brighten and
+// recede as a soft noise field rises through them; the flame patch never rocks,
+// stretches or moves the hearth around it. This is deliberately quieter than
+// adding procedural orange tongues over an already detailed painting.
+const hearthTiles = new WeakMap();
+const heatNoise = (() => {
+  const values = new Float32Array(64 * 64);
+  let seed = 3947;
+  for (let i = 0; i < values.length; i++) {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    values[i] = seed / 4294967296;
+  }
+  return (x, y) => {
+    const ix = Math.floor(x), iy = Math.floor(y);
+    let u = x - ix, v = y - iy;
+    u = u * u * (3 - 2 * u); v = v * v * (3 - 2 * v);
+    const at = (a, b) => values[(b & 63) * 64 + (a & 63)];
+    const top = at(ix, iy) * (1 - u) + at(ix + 1, iy) * u;
+    const bottom = at(ix, iy + 1) * (1 - u) + at(ix + 1, iy + 1) * u;
+    return top * (1 - v) + bottom * v;
+  };
+})();
+function hearth(ctx, img, rect, time, alpha) {
+  let tile = hearthTiles.get(img);
+  const [x, y, w, h] = rect;
+  if (!tile) {
+    const canvas = document.createElement('canvas'); canvas.width = w; canvas.height = h;
+    const c = canvas.getContext('2d', { willReadFrequently: true });
+    c.drawImage(img, x, y, w, h, 0, 0, w, h);
+    const source = c.getImageData(0, 0, w, h), frame = c.createImageData(w, h), hot = [];
+    for (let py = 0; py < h; py++) for (let px = 0; px < w; px++) {
+      const i = (py * w + px) * 4, [r, g, b] = source.data.subarray(i, i + 3);
+      const edge = Math.min(1, py / 9, (h - 1 - py) / 9, (w - 1 - px) / 9, x === 0 ? 1 : px / 9);
+      const heat = Math.min(1, Math.max(0, (r - 170) / 65)) * Math.min(1, Math.max(0, (g - 75) / 80)) * Math.min(1, Math.max(0, (r - b - 65) / 90));
+      if (heat * edge > .01) hot.push({ i, px, py, mask: heat * edge });
+    }
+    tile = { canvas, c, source, frame, hot, tick: -1 }; hearthTiles.set(img, tile);
+  }
+  const tick = Math.floor(time / 40);
+  if (tick !== tile.tick) {
+    const t = tick * 40;
+    for (const { i, px, py, mask } of tile.hot) {
+      const rising = heatNoise(px * .14, py * .085 + t * .0018);
+      const fine = heatNoise(px * .29 + 19, py * .18 + t * .0026);
+      const gain = .58 + .62 * rising + .18 * fine;
+      tile.frame.data[i] = tile.source.data[i] * gain;
+      tile.frame.data[i + 1] = tile.source.data[i + 1] * gain;
+      tile.frame.data[i + 2] = tile.source.data[i + 2] * gain;
+      tile.frame.data[i + 3] = mask * 255;
+    }
+    tile.c.putImageData(tile.frame, 0, 0); tile.tick = tick;
+  }
+  ctx.save(); ctx.globalAlpha = alpha; ctx.drawImage(tile.canvas, x, y); ctx.restore();
+}
 // Feather a small source patch once. Reusing the painted texture gives water
 // real movement and avoids bright procedural lines floating above still water.
 const movingTiles=new WeakMap();
@@ -135,10 +199,11 @@ function movingTile(img,polygon){
   m.translate(-x0,-y0);m.beginPath();polygon.forEach(([x,y],i)=>i?m.lineTo(x,y):m.moveTo(x,y));m.closePath();m.fill();
   const tile={canvas,mask,x:x0,y:y0,w,h};tiles.set(key,tile);return tile;
 }
-function movingPaint(ctx,img,polygon,time,alpha,clouds=false){
+function movingPaint(ctx,img,polygon,time,alpha,clouds=false,breeze=false){
   const {canvas,mask,x,y,w,h}=movingTile(img,polygon),c=canvas.getContext('2d');c.clearRect(0,0,w,h);
-  if(clouds){
-    const dx=Math.sin(time*.000055)*10,dy=Math.sin(time*.000039)*1.2;
+  if(clouds||breeze){
+    const dx=breeze?Math.sin(time*.0007)*1.7:Math.sin(time*.000055)*10;
+    const dy=breeze?Math.sin(time*.00053)*.6:Math.sin(time*.000039)*1.2;
     c.drawImage(img,x-dx,y-dy,w,h,0,0,w,h);
   }else{
     // Nearby ripples move farther than the horizon; reflected lights bend with
@@ -175,13 +240,15 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
     ctx.drawImage(scenePainting(img,id),dx,dy);ctx.restore();
   });
   (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,img,x,y,h,time,x*.01+i,alpha));
+  if(spec.hearth)hearth(ctx,img,spec.hearth,time,alpha);
   if(spec.reflection){
-    const [x,y,rx,ry]=spec.reflection,f=flicker(time,x*.01);
+    const [x,y,rx,ry]=spec.reflection,f=spec.hearth ? .35+.65*heatNoise(3,time*.0011) : flicker(time,x*.01);
     ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
   }
   (spec.lights||[]).forEach(([x,y],i)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha));
   if(spec.water)movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha);
   if(spec.clouds)movingPaint(ctx,img,spec.clouds,time,alpha,true);
+  (spec.branches||[]).forEach(p=>movingPaint(ctx,img,p,time,alpha,false,true));
   if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha);
   if(spec.snow||spec.snowPanes){
     const panes=spec.snowPanes||[spec.snow];

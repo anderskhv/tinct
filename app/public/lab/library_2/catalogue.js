@@ -4,12 +4,27 @@
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
+let catalogueData = null;
+
+// Share the raw catalogue with the returning-reader adapter. Its reading list
+// also needs books hidden from discovery, so filtering belongs only below.
+export function loadCatalogueData() {
+  if (!catalogueData) {
+    // Reuse the returning page's head-start fetch; a fetch preload is requested
+    // twice by WebKit when the catalogue requires cache revalidation.
+    const early = window.__library2Catalogue;
+    delete window.__library2Catalogue;
+    catalogueData = (early || fetch(CATALOGUE_URL).then(response => {
+      if (!response.ok) throw new Error(`Catalogue ${response.status}`);
+      return response.json();
+    })).catch(error => { catalogueData = null; throw error; });
+  }
+  return catalogueData;
+}
 
 export async function loadCatalogue() {
   if (catalogue) return catalogue;
-  const response = await fetch(CATALOGUE_URL);
-  if (!response.ok) throw new Error(`Catalogue ${response.status}`);
-  const data = await response.json();
+  const data = await loadCatalogueData();
   catalogue = {
     books: data.books.filter(book => book.discoveryAvailable !== false),
     houses: data.houses || [],
@@ -57,7 +72,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260926a').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260926b').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });

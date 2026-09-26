@@ -99,12 +99,14 @@ function storage(kind: 'local' | 'session'): Storage | null {
   }
 }
 
-async function loadCatalogue(): Promise<Map<string, CatalogueBook>> {
+async function loadCatalogue(provided?: Promise<{ books?: CatalogueBook[] }>): Promise<Map<string, CatalogueBook>> {
   if (catalogue) return catalogue
   try {
-    const response = await fetch(LAB_CATALOGUE_URL)
-    if (!response.ok) throw new Error(String(response.status))
-    const data = await response.json() as { books?: CatalogueBook[] }
+    const data = provided ? await provided : await (async () => {
+      const response = await fetch(LAB_CATALOGUE_URL)
+      if (!response.ok) throw new Error(String(response.status))
+      return await response.json() as { books?: CatalogueBook[] }
+    })()
     catalogue = new Map((data.books ?? []).map(book => [book.id, book]))
   } catch {
     return new Map()
@@ -122,16 +124,20 @@ async function readAuth(): Promise<RecapAuth> {
   }
 }
 
-async function loadPositions(auth: RecapAuth): Promise<LabPositionState | null> {
+async function loadPositions(auth: RecapAuth, onReady?: (positions: LabPositionState | null) => void): Promise<LabPositionState | null> {
   let local: LabPositionState
   try {
     local = await prepareLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
   } catch {
     return null
   }
-  if (!auth.token || !auth.userId || !isOnline()) return accountLabPositionRecord(local, null, auth.userId)
+  const ownedLocal = accountLabPositionRecord(local, null, auth.userId)
+  onReady?.(ownedLocal)
+  if (!auth.token || !auth.userId || !isOnline()) return ownedLocal
   const cloud = await fetchLabPositionCloud(auth.token).catch(() => null)
-  return accountLabPositionRecord(local, cloud, auth.userId)
+  const merged = accountLabPositionRecord(local, cloud, auth.userId)
+  onReady?.(merged)
+  return merged
 }
 
 function completedBookIds(): Set<string> {
@@ -227,12 +233,30 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
   return '/reader'
 }
 
+interface ReadingTableLoadOptions {
+  /** The public page already requests this data; keep all catalogue entries. */
+  catalogue?: Promise<{ books?: CatalogueBook[] }>
+  /** Warm only public artwork while the account's remaining reads finish. */
+  onArtwork?: (books: Array<Pick<ReadingTableBook, 'bookId' | 'cover' | 'tone'>>) => void
+}
+
 /** Every book in progress, newest first, and every finished book, for this viewer. */
-export async function loadReadingTable(): Promise<ReadingTable> {
-  const [auth, books] = await Promise.all([readAuth(), loadCatalogue()])
+export async function loadReadingTable(options: ReadingTableLoadOptions = {}): Promise<ReadingTable> {
+  const [auth, books] = await Promise.all([readAuth(), loadCatalogue(options.catalogue)])
+  const warmArtwork = (positions: LabPositionState | null) => {
+    if (!options.onArtwork || !positions) return
+    const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
+    const artwork = [...ids].flatMap(id => {
+      const book = id ? books.get(id) : null
+      return book ? [{ bookId: book.id, cover: book.art?.src ?? null, tone: book.cover?.background ?? null }] : []
+    })
+    // Warming is optional presentation work. It must not block or fail data
+    // reconciliation, and never returns reading progress or recap text early.
+    try { options.onArtwork(artwork) } catch { /* Artwork can still load on render. */ }
+  }
   // Independent account reads start together; reconcile every mirror before
   // deriving the shelf, so slower memory/completion reads cannot paint stale data.
-  const positionsReady = loadPositions(auth)
+  const positionsReady = loadPositions(auth, warmArtwork)
   const memoryReady = loadRecap({
     auth: readAuth,
     cloudFor: userId => createSupabaseReadingMemoryCloud(userId),

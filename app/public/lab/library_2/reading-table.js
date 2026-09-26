@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260926a';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260926b';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -15,8 +15,12 @@ const isDemo = new URLSearchParams(location.search).get('demo') === 'reading';
 // Start the account-safe read alongside app setup, before the scene and shelves
 // are built. Never draw the old unscoped cache while the viewer is unresolved.
 const loadTable = async () => {
+  const catalogue = loadCatalogueData();
+  // The public catalogue and engine download in parallel. Handle a catalogue
+  // failure immediately even when the engine itself is still downloading.
+  catalogue.catch(() => {});
   const api = await readingApi();
-  return { api, table: await api.loadReadingTable() };
+  return { api, table: await api.loadReadingTable({ catalogue, onArtwork: books => books.forEach(book => prepareArtwork(book)) }) };
 };
 const firstTable = window.__library2Boot?.hint && !isDemo ? loadTable().then(value => ({ value }), error => ({ error })) : null;
 
@@ -88,6 +92,29 @@ function bindingFor(book) {
   if (hue < 175) return find('green');
   if (hue < 255) return find(chroma < 20 && max > 90 ? 'slate' : 'navy');
   return find('plum');
+}
+
+// Warm the resolved viewer's covers during cloud reconciliation. This retains
+// decoded public images only, never a personal shelf snapshot or reading data.
+const readyArtwork = new Map();
+function prepareArtwork(book) {
+  const key = book.cover || book.bookId;
+  if (!readyArtwork.has(key)) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.fetchPriority = 'high';
+    const [estimatedName] = bindingFor(book);
+    const texture = prepareTexture(estimatedName);
+    const ready = (async () => {
+      if (book.cover) { img.src = book.cover; try { await img.decode(); } catch {} }
+      const tone = img.naturalWidth ? coverTone(img) : null;
+      const [name, colour] = bindingFor(tone ? { ...book, tone } : book);
+      await (name === estimatedName ? texture : prepareTexture(name));
+      return { img, name, colour };
+    })();
+    readyArtwork.set(key, ready);
+  }
+  return readyArtwork.get(key);
 }
 
 // Bookmark ribbons: one colour per book, stable across visits.
@@ -295,7 +322,7 @@ function wire(view, table, demo, keepBookId) {
   }
 
   // Click a spine to bring that book out; click the chosen book to read on.
-  let startX = null, dragged = false;
+  let startX = null, startY = null, dragged = false;
   row.addEventListener('click', e => {
     const book = e.target.closest('.rt-b');
     if (!book || dragged) return;
@@ -303,16 +330,16 @@ function wire(view, table, demo, keepBookId) {
     if (i === current) continueReading(); else select(i, true);
   });
   // Swipe (touch or mouse drag) moves by as many books as the gesture covers.
-  stage.addEventListener('pointerdown', e => { startX = e.clientX; dragged = false; }, { passive: true });
+  stage.addEventListener('pointerdown', e => { startX = e.clientX; startY = e.clientY; dragged = false; }, { passive: true });
   stage.addEventListener('pointermove', e => { if (startX !== null && Math.abs(e.clientX - startX) > 8) dragged = true; }, { passive: true });
   stage.addEventListener('pointerup', e => {
     if (startX === null) return;
-    const dx = e.clientX - startX;
-    startX = null;
-    if (Math.abs(dx) >= 30) select(current + (dx < 0 ? 1 : -1) * Math.max(1, Math.min(3, Math.round(Math.abs(dx) / Math.max(70, H * 0.3)))), true);
+    const dx = e.clientX - startX, dy = e.clientY - startY;
+    startX = startY = null;
+    if (Math.abs(dx) >= 30 && Math.abs(dx) > Math.abs(dy) * 1.2) select(current + (dx < 0 ? 1 : -1) * Math.max(1, Math.min(3, Math.round(Math.abs(dx) / Math.max(70, H * 0.3)))), true);
     setTimeout(() => { dragged = false; }, 0);
   });
-  stage.addEventListener('pointercancel', () => { startX = null; dragged = false; });
+  stage.addEventListener('pointercancel', () => { startX = startY = null; dragged = false; });
   // Horizontal trackpad scroll steps one book per gesture.
   let wheelAt = 0;
   stage.addEventListener('wheel', e => {
@@ -339,17 +366,15 @@ function wire(view, table, demo, keepBookId) {
   // start together; sampled bindings finish before anything is revealed.
   const artworkReady = Promise.all(books.map(async (book, i) => {
     const img = book.querySelector('.rt-front img');
-    const estimatedName = bindingFor(table.reading[i])[0];
-    const estimatedTexture = prepareTexture(estimatedName);
-    try { await img.decode(); } catch { /* Keep the binding if a cover is unavailable. */ }
-    const tone = img.naturalWidth ? coverTone(img) : null;
-    const [name, colour] = bindingFor(tone ? { ...table.reading[i], tone } : table.reading[i]);
+    const [{ name, colour }] = await Promise.all([
+      prepareArtwork(table.reading[i]),
+      img.decode().catch(() => {}),
+    ]);
     book.style.setProperty('--binding', colour);
     const tex = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
     book.querySelector('.rt-spine').dataset.binding = name;
     book.querySelector('.rt-spine').style.background = `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${tex}${colour}`;
     book.querySelector('.rt-refl-spine').style.background = `${tex}${colour}`;
-    await (name === estimatedName ? estimatedTexture : prepareTexture(name));
   }));
   if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fit).observe(stage);
   else addEventListener('resize', fit);
