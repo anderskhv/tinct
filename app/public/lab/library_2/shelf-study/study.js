@@ -1,6 +1,6 @@
 // Independent concept study. Sample state stays in memory; no production bridges,
 // authentication, localStorage, reading-position APIs or parent-library imports.
-import { rowFor, pageItems } from './shelves.js?v=2';
+import { rowFor, pageItems } from './shelves.js?v=3';
 const $ = id => document.getElementById(id);
 const ASSETS = '../assets/';
 const books = {
@@ -83,8 +83,10 @@ function layout(instant=false){
  world.style.transform=`translate(${x}px,${y}px) scale(${scale})`;
  if(instant)requestAnimationFrame(()=>requestAnimationFrame(()=>world.classList.remove('instant')));
  $('view-toggle').setAttribute('aria-pressed',view==='overview');
- $('view-toggle').lastElementChild.textContent=view==='overview'?'Closer look':'Full library';
- $('view-toggle').firstElementChild.textContent=view==='overview'?'↙':'↗';
+ const desktop=w>=900;
+ $('view-toggle').lastElementChild.textContent=desktop?(view==='overview'?'Zoom in':'Zoom out'):(view==='overview'?'Closer look':'Full library');
+ $('view-toggle').firstElementChild.textContent=view==='overview'?'+':'−';
+ $('view-toggle').setAttribute('aria-label',view==='overview'?'Zoom in to '+shelfNames[shelf]:'Zoom out to the full library');
 }
 function changeView(next){view=next;layout();}
 function focusShelf(key){shelf=key;updateSelection();changeView('focus');}
@@ -125,6 +127,16 @@ document.addEventListener('keydown',e=>{
 // Restrict camera gestures to this illustrated scene. Elsewhere native page
 // scrolling and browser zoom remain available; the visible button does both views.
 const viewport=$('viewport'),distance=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);
+// Chromium trackpad pinches arrive as ctrl-wheel. Only scene gestures are
+// captured; ordinary wheel scrolling and zoom outside the scene stay native.
+let wheelZoom=0,wheelReset;
+viewport.addEventListener('wheel',e=>{
+ if(!e.ctrlKey||viewport.clientWidth<900||!e.cancelable)return;
+ e.preventDefault();clearTimeout(wheelReset);
+ wheelZoom+=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?viewport.clientHeight:1);
+ if(Math.abs(wheelZoom)>=30){changeView(wheelZoom<0?'focus':'overview');wheelZoom=0;}
+ wheelReset=setTimeout(()=>{wheelZoom=0;},180);
+},{passive:false});
 viewport.addEventListener('touchstart',e=>{if(e.touches.length===2)gesture={kind:'pinch',distance:distance(e.touches),done:false};else if(e.touches.length===1)gesture={kind:'swipe',x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
 viewport.addEventListener('touchmove',e=>{
  if(!gesture)return;
