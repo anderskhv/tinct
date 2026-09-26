@@ -8,10 +8,10 @@ async function state(p){return p.evaluate(()=>{
  const words=[...a.querySelectorAll('[data-testid="lab-word"]')].filter(w=>!w.closest('.lab-book-col-compare'));
  const preview=a.querySelector('.lab-next-chapter-opening'),end=a.querySelector('.lab-chapter-end');
  const columns=[...a.querySelectorAll('.lab-book-col')].map(col=>({text:col.innerText,rect:col.getBoundingClientRect().toJSON(),words:[...col.querySelectorAll('[data-testid="lab-word"]')].map(w=>({key:w.dataset.paragraphIndex+':'+w.dataset.wordIndex,text:w.textContent,rect:w.getBoundingClientRect().toJSON()}))}));
- return {chapter:Number(root.dataset.chapter),place:root.dataset.place,keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),preview:preview?{text:preview.innerText,count:preview.querySelectorAll('.lab-hearing-word').length}:null,columns,end:end?{rect:end.getBoundingClientRect().toJSON(),docked:end.classList.contains('is-docked'),previousBottom:end.previousElementSibling?.getBoundingClientRect().bottom}:null,article:a.getBoundingClientRect().toJSON(),bundle:[...document.scripts].map(s=>s.src).find(s=>/assets\/index-.*\.js/.test(s))};
+ return {measure:[...document.querySelectorAll('.lab-desktop-measure')].map(h=>h.dataset.endLayout),chapter:Number(root.dataset.chapter),place:root.dataset.place,keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),preview:preview?{text:preview.innerText,count:preview.querySelectorAll('.lab-hearing-word').length}:null,columns,end:end?{rect:end.getBoundingClientRect().toJSON(),docked:end.classList.contains('is-docked'),previousBottom:end.previousElementSibling?.getBoundingClientRect().bottom}:null,article:a.getBoundingClientRect().toJSON(),bundle:[...document.scripts].map(s=>s.src).find(s=>/assets\/index-.*\.js/.test(s))};
 });}
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(450);}
-async function turn(p,key){await p.keyboard.press(key);await ready(p);}
+async function turn(p,key){const before=await p.locator('.lab').evaluate(n=>n.dataset.chapter+':'+n.dataset.place);await p.keyboard.press(key);await p.waitForFunction(before=>{const n=document.querySelector('.lab');return n.dataset.chapter+':'+n.dataset.place!==before;},before);await ready(p);}
 (async()=>{
 const results=[];let continuations=0,docked=0;
 for(const engine of [chromium,webkit]){
@@ -68,6 +68,29 @@ for(const fontSize of [1.3,1.8,2.2])for(const chapter of [917,918]){
   results.push({name,pages:states.length,preview:!!last.preview,docked:last.end.docked,bundle:last.bundle});
  }catch(e){await p.screenshot({path:path.join(out,name+'-failure.png')});throw e;}
  finally{fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify(states,null,2));await context.close();}
+}
+// The screenshot's exact long word, in the same reader font and markup.
+{
+ const context=await browser.newContext({viewport:{width:1450,height:813}});
+ if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
+ await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
+ await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});
+ const p=await context.newPage();await p.goto(origin+'/reader');await ready(p);
+ await p.screenshot({path:path.join(out,engine.name()+'-lighthouse.png')});
+ const evidence=await p.evaluate(()=>{
+  const root=document.querySelector('.lab'),paragraph=document.querySelector('.lab-passage .lab-hearing-line');
+  const style=getComputedStyle(paragraph);
+  const probe=paragraph.cloneNode(false);probe.style.cssText='position:absolute;visibility:hidden;max-width:none;top:0;left:0';
+  probe.textContent='that life is difficult; facts ';
+  const word=document.createElement('span');word.className='lab-hearing-word';word.textContent='uncompromising;';probe.append(word);
+  paragraph.parentNode.append(probe);let width=null;
+  for(let w=280;w<=650;w+=2){probe.style.width=w+'px';if(word.getClientRects().length>1){width=w;break;}}
+  const text=word.textContent;probe.remove();
+  return {lang:root.lang,hyphens:style.hyphens,font:style.fontFamily,splitWidth:width,text};
+ });
+ assert.equal(evidence.hyphens,'auto');assert.equal(evidence.text,'uncompromising;');
+ assert.ok(evidence.splitWidth,'Dictionary can split uncompromising without inserting text characters: '+JSON.stringify(evidence));
+ results.push({name:engine.name()+'-lighthouse',...evidence});await context.close();
 }
 await browser.close();
 }

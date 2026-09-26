@@ -193,7 +193,7 @@ These are production-critical:
 - Backward chapter writes require a recent user-navigation signal.
 - Positions loaded from storage/cloud must be validated against the actual book structure.
 - Position writes must skip during the render where `bookId` just changed but chapter/paragraph state still belongs to the previous book.
-- Chapter advance always opens the next chapter at page 1 in both Read and Compare.
+- Chapter advance opens an unseen chapter at page 1 in Read and Compare. In desktop Read, when the outgoing right leaf already displayed the next chapter's opening, a forward page turn continues at the first unread source word (Anders, 2026-09-26). Never skip text that was not actually displayed.
 - Chapter retreat opens the previous chapter at the last page.
 - Read/Compare paragraph sync is chapter-scoped. A sync signal from chapter N must never apply to chapter N+1.
 - On mobile, hidden Read/Compare views must not commit shared `currentPage` or `totalPages`.
