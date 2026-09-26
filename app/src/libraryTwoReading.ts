@@ -16,11 +16,8 @@ import { editionHold } from './data/editionAvailability'
 import { supabase } from './services/supabase'
 import { completedLibraryBookId } from './preReader/libraryCompletion'
 import { createSupabaseReadingMemoryCloud } from './readingMemory/cloud'
-import { loadChapterText } from './readingMemory/chapterText'
 import { readDeviceReadingMemory } from './readingMemory/deviceStore'
 import { loadRecap, type RecapAuth } from './readingMemory/recapLoad'
-import { requestRecapSummary } from './readingMemory/summary'
-import type { ReadingAnchor } from './readingMemory/types'
 import { accountLabPositionRecord, type LabPositionState } from './lab/labPosition'
 import { fetchLabPositionCloud, prepareLabPositionLocal } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
@@ -93,7 +90,6 @@ let lastPositions: LabPositionState | null = null
 const summaryOutcomes = new Map<string, Promise<SummaryResult>>()
 
 const isOnline = () => typeof navigator === 'undefined' || navigator.onLine !== false
-const buildVersion = () => (typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev')
 
 function storage(kind: 'local' | 'session'): Storage | null {
   try {
@@ -234,28 +230,29 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
 /** Every book in progress, newest first, and every finished book, for this viewer. */
 export async function loadReadingTable(): Promise<ReadingTable> {
   const [auth, books] = await Promise.all([readAuth(), loadCatalogue()])
-  // Merges the account's cloud reading memory into the device mirror first.
-  await loadRecap({
+  // Independent account reads start together; reconcile every mirror before
+  // deriving the shelf, so slower memory/completion reads cannot paint stale data.
+  const positionsReady = loadPositions(auth)
+  const memoryReady = loadRecap({
     auth: readAuth,
     cloudFor: userId => createSupabaseReadingMemoryCloud(userId),
-    loadChapter: (anchor: ReadingAnchor) => loadChapterText({ bookId: anchor.bookId, editionKey: anchor.editionKey, chapterNumber: anchor.chapterNumber, version: buildVersion() }),
-    requestSummary: input => requestRecapSummary(input),
+    // This view uses the merged sessions, not loadRecap's discarded excerpt
+    // card. A chapter download and generation cannot improve the table here.
+    loadChapter: async () => null,
     bookTitle: bookId => books.get(bookId)?.title,
     online: isOnline,
     allowSummary: false,
   }).catch(() => null)
-  const positions = await loadPositions(auth)
+  // Completion marks and terminal progress records, as the production library.
+  const completionsReady = auth.userId && supabase ? supabase.from('user_data').select('key,value').eq('user_id', auth.userId).or('key.like.book-completed:*,key.like.progress:*').then(({ data, error }) => {
+    if (error) return
+    for (const row of data ?? []) {
+      if (row.value != null) localStorage.setItem(`tinct:${row.key}`, JSON.stringify(row.value))
+      else localStorage.removeItem(`tinct:${row.key}`)
+    }
+  }, () => {}) : Promise.resolve()
+  const [positions] = await Promise.all([positionsReady, memoryReady, completionsReady])
   lastPositions = positionsWithProduction(positions, books)
-  if (auth.userId && supabase) {
-    // Completion marks and terminal progress records synced from the account, as the production library does.
-    await supabase.from('user_data').select('key,value').eq('user_id', auth.userId).or('key.like.book-completed:*,key.like.progress:*').then(({ data, error }) => {
-      if (error) return
-      for (const row of data ?? []) {
-        if (row.value != null) localStorage.setItem(`tinct:${row.key}`, JSON.stringify(row.value))
-        else localStorage.removeItem(`tinct:${row.key}`)
-      }
-    }, () => {})
-  }
   const list = readingList({
     memory: readDeviceReadingMemory(),
     viewer: auth.userId,

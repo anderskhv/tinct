@@ -263,3 +263,18 @@ html.returning .hero-shade{background:linear-gradient(0deg,var(--bg),#10180fbb 1
 .hero-dots button[aria-busy=true]{cursor:progress}
 
 html:not(.library-ready) #librarian{visibility:hidden}
+
+/* Grounding is painted onto the room, rather than floating below the cover. */
+.hero-book{filter:drop-shadow(1px 1px 1px #0005)}
+.hero-book::after{display:none}
+#back-library{flex-shrink:0;min-height:44px;min-width:64px}
+#librarian-panel{overflow:hidden;overscroll-behavior:contain}
+.librarian-header{flex-shrink:0}
+@media(max-width:699px){html.vv-keyboard #librarian-panel{padding-bottom:0}}
+/* Fade leaf faces only: opacity on a parent would flatten the 3D books. */
+.reading-table.is-preparing{visibility:hidden}
+.reading-table.is-ready .rt-f,.reading-table.is-ready .rt-shadow,.reading-table.is-ready .rt-cast,.reading-table.is-ready .rt-mark,.reading-table.is-ready .rt-info,.reading-table.is-ready .rt-dots{animation:table-arrive .24s ease-out backwards}
+@keyframes table-arrive{from{opacity:0}}
+.rt-cast{position:absolute;left:-35%;width:170%;top:calc(50% - var(--bh)*.15);height:calc(var(--bh)*.3);background:radial-gradient(ellipse at 50% 50%,#020403a6,#02040360 35%,#02040300 72%);transform:rotateX(90deg) translateZ(calc(var(--bh)/-2 + .5px));pointer-events:none;filter:blur(4px)}
+.rt-shadow{left:-7%;right:-7%;background:radial-gradient(closest-side,#010301,#010301b3 55%,#01030100);filter:blur(1.5px)}
+@media(prefers-reduced-motion:reduce){.reading-table.is-ready *{animation:none!important}}
