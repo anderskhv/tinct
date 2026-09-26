@@ -1,0 +1,401 @@
+[
+  {
+    "chapter": 2,
+    "old_index_or_null": 0,
+    "new_index": 0,
+    "change_type": "removed-heading-bleed",
+    "description": "Paragraph 0 was the stray fragment \"lustige Person._\" left over from the dropped cast-list heading \"_Director, Theaterdichter, lustige Person._\". Replaced with the restored, complete cast-list stage direction \"[DIRECTOR, THEATERDICHTER, LUSTIGE PERSON]\" (raw lines 111-112). This single fix satisfies both the Defect-3 fragment-removal and the Defect-2 missing-opening-stage-direction for this chapter."
+  },
+  {
+    "chapter": 3,
+    "old_index_or_null": 0,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Paragraph 0 was missing \"Der Herr, die himmlischen Heerscharen,\" (raw line 367), the first line of the scene-opening cast list; only \"nachher Mephistopheles.\" and the stage direction \"Die drey Erzengel treten vor.\" had survived. Restored the missing opening line."
+  },
+  {
+    "chapter": 3,
+    "old_index_or_null": 20,
+    "new_index": 20,
+    "change_type": "removed-heading-bleed",
+    "description": "Last paragraph ended with the stray fragment \"Der Tragödie\", which is heading-bleed from the NEXT chapter's title \"Der Tragödie erster Theil.\" (raw lines 547-549), not part of Mephistopheles' closing line in this scene. Removed the bleed; Mephistopheles' line now correctly ends at \"...selbst zu sprechen.\""
+  },
+  {
+    "chapter": 5,
+    "old_index_or_null": "0-11",
+    "new_index": "0-29",
+    "change_type": "split",
+    "description": "Re-split the Easter-walk crowd scene (raw lines 1159-1336). Restored the opening stage direction \"Spaziergänger aller Art ziehen hinaus.\" (new paragraph 0) and 18 dropped speaker labels (Einige Handwerksbursche, Die Ersten, Ein Handwerksbursch, Zweyter, Die Zweyten, Ein Dritter, Vierter, Fünfter->Dienstmädchen split, Andre->Erste split, Schüler->Bürgermädchen split, Zweyter Schüler (new bracket + label), Erster, Bürger, Bettler->Andrer Bürger->Dritter Bürger split, Alte->Bürgermädchen split, Die Andre->Soldaten split), turning 12 merged/mislabeled paragraphs into 30 correctly attributed paragraphs. Verified programmatically that concatenating the dialogue text of the new paragraphs (stripped of labels/brackets) exactly reproduces the old merged dialogue text."
+  },
+  {
+    "chapter": 5,
+    "old_index_or_null": 37,
+    "new_index": "37-38",
+    "change_type": "split",
+    "description": "Split the paragraph mislabeled entirely as ALTER BAUER at old index 37: the closing couplet \"Gesundheit dem bewährten Mann, Daß er noch lange helfen kann!\" is spoken by the crowd as a whole (raw line 1468, \"_Alle._\"), not by Alter Bauer. Restored the ALLE. speaker label for the second part."
+  },
+  {
+    "chapter": 6,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST mit dem Pudel hereintretend]\" as new paragraph 0. Raw line 1718: \"_Faust_ mit dem _Pudel_ hereintretend.\" (Faust enters with the poodle). No further speaker label follows in the source before the verse, so the label is reconstructed from the action tag, matching the established bracket+label convention used elsewhere in this same edition (e.g. chapter 11)."
+  },
+  {
+    "chapter": 6,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw line 1718: \"_Faust_ mit dem _Pudel_ hereintretend.\" (Faust enters with the poodle). No further speaker label follows in the source before the verse, so the label is reconstructed from the action tag, matching the established bracket+label convention used elsewhere in this same edition (e.g. chapter 11)."
+  },
+  {
+    "chapter": 7,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST. MEPHISTOPHELES]\" as new paragraph 0. Raw line 2207: \"_Faust. Mephistopheles._\" cast list opening the scene, before Faust's explicit \"_Faust._\" label (raw line 2209) which the candidate had already kept but without the preceding cast-list stage direction."
+  },
+  {
+    "chapter": 7,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw line 2207: \"_Faust. Mephistopheles._\" cast list opening the scene, before Faust's explicit \"_Faust._\" label (raw line 2209) which the candidate had already kept but without the preceding cast-list stage direction."
+  },
+  {
+    "chapter": 8,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"Zeche lustiger Gesellen.\" as new paragraph 0. Raw line 3048: \"_Zeche lustiger Gesellen._\" (a company of jolly companions) is the scene-opening stage direction; raw line 3050 has the explicit \"_Frosch._\" label that had been dropped."
+  },
+  {
+    "chapter": 8,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FROSCH. \". Raw line 3048: \"_Zeche lustiger Gesellen._\" (a company of jolly companions) is the scene-opening stage direction; raw line 3050 has the explicit \"_Frosch._\" label that had been dropped."
+  },
+  {
+    "chapter": 10,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST. MARGARETE vorüber gehend]\" as new paragraph 0. Raw line 4303: \"_Faust. Margarete_ vorüber gehend.\" (Margarete passing by)."
+  },
+  {
+    "chapter": 10,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw line 4303: \"_Faust. Margarete_ vorüber gehend.\" (Margarete passing by)."
+  },
+  {
+    "chapter": 11,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"Ein kleines reinliches Zimmer.\" as new paragraph 0. Raw lines 4464-4468: \"_Ein kleines reinliches Zimmer._\" (scene-setting, plain paragraph matching the convention of chapters 4/8/9) then \"_Margarete._\" with the attached action \"(ihre Zöpfe flechtend und aufbindend.)\" (braiding and binding up her hair), combined into one bracket per the convention used later in this same chapter (e.g. \"[FAUST nach einigem Stillschweigen]\")."
+  },
+  {
+    "chapter": 11,
+    "old_index_or_null": null,
+    "new_index": 1,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[MARGARETE ihre Zöpfe flechtend und aufbindend]\" as new paragraph 1. Raw lines 4464-4468: \"_Ein kleines reinliches Zimmer._\" (scene-setting, plain paragraph matching the convention of chapters 4/8/9) then \"_Margarete._\" with the attached action \"(ihre Zöpfe flechtend und aufbindend.)\" (braiding and binding up her hair), combined into one bracket per the convention used later in this same chapter (e.g. \"[FAUST nach einigem Stillschweigen]\")."
+  },
+  {
+    "chapter": 11,
+    "old_index_or_null": 0,
+    "new_index": 2,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"MARGARETE. \". Raw lines 4464-4468: \"_Ein kleines reinliches Zimmer._\" (scene-setting, plain paragraph matching the convention of chapters 4/8/9) then \"_Margarete._\" with the attached action \"(ihre Zöpfe flechtend und aufbindend.)\" (braiding and binding up her hair), combined into one bracket per the convention used later in this same chapter (e.g. \"[FAUST nach einigem Stillschweigen]\")."
+  },
+  {
+    "chapter": 12,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST in Gedanken auf und ab gehend. Zu ihm MEPHISTOPHELES]\" as new paragraph 0. Raw line 4671-4672 (heading spelled \"_Spazirgang._\" in the source, old orthography for \"Spaziergang\"): \"_Faust_ in Gedanken auf und ab gehend. Zu ihm _Mephistopheles._\" (Faust pacing, lost in thought; Mephistopheles joins him), followed by the explicit \"_Mephistopheles._\" label (raw line 4674 equivalent) that had been dropped."
+  },
+  {
+    "chapter": 12,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"MEPHISTOPHELES. \". Raw line 4671-4672 (heading spelled \"_Spazirgang._\" in the source, old orthography for \"Spaziergang\"): \"_Faust_ in Gedanken auf und ab gehend. Zu ihm _Mephistopheles._\" (Faust pacing, lost in thought; Mephistopheles joins him), followed by the explicit \"_Mephistopheles._\" label (raw line 4674 equivalent) that had been dropped."
+  },
+  {
+    "chapter": 13,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[MARTHE allein]\" as new paragraph 0. Raw line 4790 (\"_Marthe_ allein.\")."
+  },
+  {
+    "chapter": 13,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"MARTHE. \". Raw line 4790 (\"_Marthe_ allein.\")."
+  },
+  {
+    "chapter": 14,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST. MEPHISTOPHELES]\" as new paragraph 0. Raw line 5168: \"_Faust. Mehpistopheles._\" (the source has an obvious OCR-era typo, \"Mehpistopheles\" for \"Mephistopheles\"; normalized to the spelling used consistently everywhere else in this edition)."
+  },
+  {
+    "chapter": 14,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw line 5168: \"_Faust. Mehpistopheles._\" (the source has an obvious OCR-era typo, \"Mehpistopheles\" for \"Mephistopheles\"; normalized to the spelling used consistently everywhere else in this edition)."
+  },
+  {
+    "chapter": 15,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[MARGARETE an Faustens Arm, MARTHE mit MEPHISTOPHELES auf und ab spazirend]\" as new paragraph 0. Raw lines 5278-5279: \"_Margarete_ an _Faustens_ Arm, _Marthe_ mit _Mephistopheles_ auf und ab spazirend.\" (Margarete on Faust's arm, Marthe strolling with Mephistopheles)."
+  },
+  {
+    "chapter": 15,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"MARGARETE. \". Raw lines 5278-5279: \"_Margarete_ an _Faustens_ Arm, _Marthe_ mit _Mephistopheles_ auf und ab spazirend.\" (Margarete on Faust's arm, Marthe strolling with Mephistopheles)."
+  },
+  {
+    "chapter": 16,
+    "old_index_or_null": 0,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Paragraph 0 was a truncated fragment of the opening stage direction (raw lines 5612-5613): \"_Margarete_ springt herein, steckt sich hinter die Thür, hält die Fingerspitze an die Lippen, und guckt durch die Ritze.\" Only the tail end had survived (\"Fingerspitze an die Lippen, und guckt durch die Ritze.\"); restored the full direction. Note: the immediately following paragraphs 1/2 (\"MARGARETE. Er kommt!\" preceded by a repeated \"_Margarete._\" label in the raw at line 5615) were left untouched as out of scope for this task; see report for this and one further instance of the same class of issue noticed later in this chapter (paragraphs formerly 4/5, \"ihn fassend...\" missing the MARGARETE name in its bracket, and the following line missing its MARGARETE. label) that were NOT in the assigned defect list and were left unfixed."
+  },
+  {
+    "chapter": 17,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST allein]\" as new paragraph 0. Raw line 5694 (\"_Faust_ allein.\")."
+  },
+  {
+    "chapter": 17,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw line 5694 (\"_Faust_ allein.\")."
+  },
+  {
+    "chapter": 18,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[GRETCHEN am Spinnrade allein]\" as new paragraph 0. Raw lines 5924-5926: \"_Gretchen_\" / \"am Spinnrade allein.\" (Gretchen, alone at the spinning wheel) had been merged into the dialogue text itself, with the \"Gretchen\" name and speaker label dropped entirely. Extracted the stage direction into its own bracket and restored the GRETCHEN. label on the song that follows."
+  },
+  {
+    "chapter": 18,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"GRETCHEN. \". Raw lines 5924-5926: \"_Gretchen_\" / \"am Spinnrade allein.\" (Gretchen, alone at the spinning wheel) had been merged into the dialogue text itself, with the \"Gretchen\" name and speaker label dropped entirely. Extracted the stage direction into its own bracket and restored the GRETCHEN. label on the song that follows."
+  },
+  {
+    "chapter": 19,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[MARGARETE. FAUST]\" as new paragraph 0. Raw line 5983 (\"_Margarete. Faust._\")."
+  },
+  {
+    "chapter": 19,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"MARGARETE. \". Raw line 5983 (\"_Margarete. Faust._\")."
+  },
+  {
+    "chapter": 20,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[GRETCHEN und LIESCHEN mit Krügen]\" as new paragraph 0. Raw lines 6261-6263: \"_Gretchen_ und _Lieschen._\" / \"(mit Krügen.)\" (Gretchen and Lieschen, with pitchers); the first speaker is Lieschen (raw line 6265), not Gretchen."
+  },
+  {
+    "chapter": 20,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"LIESCHEN. \". Raw lines 6261-6263: \"_Gretchen_ und _Lieschen._\" / \"(mit Krügen.)\" (Gretchen and Lieschen, with pitchers); the first speaker is Lieschen (raw line 6265), not Gretchen."
+  },
+  {
+    "chapter": 22,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[VALENTIN Soldat, Gretchens Bruder]\" as new paragraph 0. Raw line 6420: \"_Valentin_ Soldat, Gretchens Bruder.\" (Valentin, a soldier, Gretchen's brother). The two heading lines \"_Nacht._\" / \"_Straße vor Gretchens Thüre._\" (raw lines 6415-6418) are already fully captured in this chapter's title, so no extra scene-setting paragraph was needed."
+  },
+  {
+    "chapter": 22,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"VALENTIN. \". Raw line 6420: \"_Valentin_ Soldat, Gretchens Bruder.\" (Valentin, a soldier, Gretchen's brother). The two heading lines \"_Nacht._\" / \"_Straße vor Gretchens Thüre._\" (raw lines 6415-6418) are already fully captured in this chapter's title, so no extra scene-setting paragraph was needed."
+  },
+  {
+    "chapter": 23,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"Amt, Orgel und Gesang. Gretchen unter vielem Volk.\" as new paragraph 0. Raw lines 6710-6713: \"_Amt, Orgel und Gesang._\" (mass, organ, and singing) and \"_Gretchen_ unter vielem Volke. _Böser Geist_ hinter Gretchen.\" (Gretchen amid a large crowd, the Evil Spirit behind her), then the explicit \"_Böser Geist._\" label (raw line 6715) that had been dropped."
+  },
+  {
+    "chapter": 23,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"BÖSER GEIST. \". Raw lines 6710-6713: \"_Amt, Orgel und Gesang._\" (mass, organ, and singing) and \"_Gretchen_ unter vielem Volke. _Böser Geist_ hinter Gretchen.\" (Gretchen amid a large crowd, the Evil Spirit behind her), then the explicit \"_Böser Geist._\" label (raw line 6715) that had been dropped."
+  },
+  {
+    "chapter": 24,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"Harzgebirg.\nGegend von Schirke und Elend.\" as new paragraph 0. Raw lines 6820-6824: \"_Harzgebirg._\" / \"_Gegend von Schirke und Elend._\" (the Harz mountains; the country near Schierke and Elend -- real place names) is the scene-setting stage direction, plain paragraph per the chapter-4/8/9 convention (no character names, so not bracketed); \"_Faust. Mephistopheles._\" is the cast list, bracketed; then the explicit \"_Mephistopheles._\" label (raw line 6826) that had been dropped."
+  },
+  {
+    "chapter": 24,
+    "old_index_or_null": null,
+    "new_index": 1,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST. MEPHISTOPHELES]\" as new paragraph 1. Raw lines 6820-6824: \"_Harzgebirg._\" / \"_Gegend von Schirke und Elend._\" (the Harz mountains; the country near Schierke and Elend -- real place names) is the scene-setting stage direction, plain paragraph per the chapter-4/8/9 convention (no character names, so not bracketed); \"_Faust. Mephistopheles._\" is the cast list, bracketed; then the explicit \"_Mephistopheles._\" label (raw line 6826) that had been dropped."
+  },
+  {
+    "chapter": 24,
+    "old_index_or_null": 0,
+    "new_index": 2,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"MEPHISTOPHELES. \". Raw lines 6820-6824: \"_Harzgebirg._\" / \"_Gegend von Schirke und Elend._\" (the Harz mountains; the country near Schierke and Elend -- real place names) is the scene-setting stage direction, plain paragraph per the chapter-4/8/9 convention (no character names, so not bracketed); \"_Faust. Mephistopheles._\" is the cast list, bracketed; then the explicit \"_Mephistopheles._\" label (raw line 6826) that had been dropped."
+  },
+  {
+    "chapter": 26,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST. MEPHISTOPHELES]\" as new paragraph 0. Raw line 7800: \"_Faust. Mephistopheles._\" cast list; the two heading lines \"_Trüber Tag._\" / \"_Feld._\" (raw lines 7795/7797) are already fully captured in the chapter title."
+  },
+  {
+    "chapter": 26,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw line 7800: \"_Faust. Mephistopheles._\" cast list; the two heading lines \"_Trüber Tag._\" / \"_Feld._\" (raw lines 7795/7797) are already fully captured in the chapter title."
+  },
+  {
+    "chapter": 27,
+    "old_index_or_null": 0,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Paragraph 0 was a truncated fragment of the opening stage direction (raw lines 7903-7904): \"_Faust. Mephistopheles_ auf schwarzen Pferden daher brausend.\" (Faust and Mephistopheles, rushing along on black horses). Only the tail end had survived; restored the full cast tag + action as a bracket. Paragraph 1 already correctly carried the \"FAUST.\" label for the dialogue that follows, so no further change was needed there."
+  },
+  {
+    "chapter": 28,
+    "old_index_or_null": null,
+    "new_index": 0,
+    "change_type": "inserted-stage-direction",
+    "description": "Inserted missing scene-opening stage direction / cast tag \"[FAUST mit einem Bund Schlüssel und einer Lampe, vor einem eisernen Thürchen]\" as new paragraph 0. Raw lines 7936-7937: \"_Faust,_ mit einem Bund Schlüssel und einer Lampe, vor einem eisernen Thürchen.\" (Faust, with a bunch of keys and a lamp, before a small iron door). Paragraph 0 had only the tail fragment \"Thürchen.\" merged onto the dialogue with no label; restored the full stage direction as its own bracket and the FAUST. label."
+  },
+  {
+    "chapter": 28,
+    "old_index_or_null": 0,
+    "new_index": 1,
+    "change_type": "speaker-relabel",
+    "description": "Restored missing speaker label, paragraph now starts \"FAUST. \". Raw lines 7936-7937: \"_Faust,_ mit einem Bund Schlüssel und einer Lampe, vor einem eisernen Thürchen.\" (Faust, with a bunch of keys and a lamp, before a small iron door). Paragraph 0 had only the tail fragment \"Thürchen.\" merged onto the dialogue with no label; restored the full stage direction as its own bracket and the FAUST. label."
+  },
+  {
+    "chapter": 25,
+    "old_index_or_null": "0-2",
+    "new_index": 0,
+    "change_type": "removed-heading-bleed",
+    "description": "Paragraphs 0-2 were title/subtitle debris: paragraph 0 (\"Walpurgisnachtstraum\\noder\") duplicated the chapter's own title plus the dangling word \"oder\" (raw lines 7481/7483); paragraph 2 (\"OBERONS. Intermezzo.\") mis-attributed the scene's genre subtitle \"Intermezzo.\" as if a character named \"OBERONS\" were speaking it, when raw lines 7485-7487 show it is the second half of the subtitle \"_Oberons_ und _Titanias goldne Hochzeit._ / \\n\\n Intermezzo.\" (Oberon's and Titania's Golden Wedding -- an Intermezzo), not dialogue. Merged the three fragments into one correctly-classified, non-speaking subtitle stage direction, \"[Oberons und Titanias goldne Hochzeit. Intermezzo.]\"; THEATERMEISTER's speech (old paragraph 3) is now paragraph 1 and unaffected."
+  },
+  {
+    "chapter": 6,
+    "old_index_or_null": 6,
+    "new_index": 6,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 6.6); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 7,
+    "old_index_or_null": 63,
+    "new_index": 63,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 7.63); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 7,
+    "old_index_or_null": 86,
+    "new_index": 86,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 7.86); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 14,
+    "old_index_or_null": 8,
+    "new_index": 8,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 14.8); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 21,
+    "old_index_or_null": 0,
+    "new_index": 0,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 21.0); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 23,
+    "old_index_or_null": 3,
+    "new_index": 3,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 23.3); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 23,
+    "old_index_or_null": 6,
+    "new_index": 6,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 23.6); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 23,
+    "old_index_or_null": 9,
+    "new_index": 9,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 23.9); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 23,
+    "old_index_or_null": 11,
+    "new_index": 11,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 23.11); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 25,
+    "old_index_or_null": 21,
+    "new_index": 21,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 25.21); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  },
+  {
+    "chapter": 25,
+    "old_index_or_null": 39,
+    "new_index": 39,
+    "change_type": "removed-apparatus",
+    "description": "Removed literal \"#\" PG Antiqua-typeface markup characters (paragraph 25.39); confirmed against the raw source's own transcriber's legend (raw lines 8335-8357: \"Antiquaschrift: #Antiquatext#\"). No wording changed, only the \"#\" markers removed."
+  }
+]

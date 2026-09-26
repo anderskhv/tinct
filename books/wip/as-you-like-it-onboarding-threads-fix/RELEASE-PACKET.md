@@ -98,3 +98,42 @@ that was not named in the relayed dependency for this book (only Faust's
 character cards were named). If Codex finds As You Like It's character
 card also needs re-anchoring against the new structure, that is a
 separate, not-yet-scoped content task.
+
+## ADDENDUM — round 1 review fixes (3 defects)
+
+Independent review (round 1) found 2 misplacements pre-existing in the
+live threads file (carried forward unverified by the initial re-key) and
+1 gap needing a split:
+
+1. **Orlando's entry at key "9"** actually described chapter 10's feast
+   scene (bursting in with sword drawn, fetching Adam) — this was
+   already wrong in the LIVE pre-fix file at old key "7", a bug that
+   predates this session's work. Merged into the existing chapter 10
+   entry (both describe the same continuous Act 2 Scene 7 scene). Wrote
+   a new, minimal, directly-observable entry for the now-empty chapter 9
+   (Act 2 Scene 6 — Adam collapsing from hunger, Orlando reassuring him)
+   from the actual chapter text, since removing the wrong content without
+   replacing it would leave a real scene with zero thread coverage.
+2. **Jaques's entry at key "8"** actually described chapter 4's content
+   (the deer-weeping report) — same pre-existing-bug pattern, at old key
+   "6". Moved to chapter 4. Wrote a new, minimal entry for the actual
+   chapter 8 content (the "Under the Greenwood Tree" song scene) for the
+   same reason.
+3. **Chapter 23 (Epilogue) gap**: the full pre-fix Rosalind entry at old
+   key 17 already contained the sentence "Delivers the epilogue directly
+   to the audience" — folded into the chapter 22 (finale) entry. Split
+   it: chapter 22 keeps the finale content, chapter 23 gets this exact
+   existing sentence as its own entry. This is a relocation of already-
+   present content, not new authorship.
+
+Final thread-key sets after these fixes: Rosalind [2,3,7,12,14,15,18,22,23],
+Orlando [2,6,9,10,12,18,20,22], Jaques [4,8,10,12,13,22], Celia [2,3,12,20],
+Touchstone [7,10,13,19,22].
+
+**Remaining, not fixed here**: new chapter 1 (Act 1 Scene 1, wholly
+restored by the English completeness repair) has zero thread coverage
+from any of the 5 characters. This is a symmetrical gap to the Epilogue
+one, but with no existing content anywhere to relocate — filling it
+would mean authoring genuinely new thread content, which is outside this
+package's placement-only brief. Flagged for Anders/Codex as a possible
+follow-up.
