@@ -72,6 +72,13 @@ def production_guards(holds):
    except urllib.error.HTTPError as e:
     assert e.code==503 and e.headers.get("Cache-Control")=="no-store","Production guard not deployed"
     data=json.load(e);assert data.get("error")=="Edition temporarily unavailable"
+def text_hashes(holds):
+ result={}
+ for key in holds:
+  book,edition=key.split("/")
+  with urllib.request.urlopen("https://tinct.app/data/editions/"+book+"-"+edition+".json",timeout=60) as r:result[key]=digest(r.read())
+  assert result[key]==holds[key]["sha256"],("Preserved production text changed",key)
+ return result
 def main():
  parser=argparse.ArgumentParser();parser.add_argument("--apply",action="store_true");args=parser.parse_args()
  raw=(ROOT/"app/artifacts/held-audio-source/inventory.json").read_bytes();assert digest(raw)==EXPECTED
@@ -79,9 +86,10 @@ def main():
  holds=json.loads((ROOT/"app/src/data/editionAvailability.json").read_text())["editions"]
  prefixes=[k+"/" for k in holds];assert len(prefixes)==16
  targets=[p for p in inventory["prefixes"] if p["prefix"] in prefixes]
+ assert {p["prefix"] for p in targets}==set(prefixes)
  objects=[o for p in targets for o in p["objects"]]
  assert len(objects)==14279 and sum(o["size"] for o in objects)==1642373839
- assert all(o["key"].endswith((".mp3",".json")) and any(o["key"].startswith(p) for p in prefixes) for o in objects)
+ assert all((o["key"].endswith(".mp3") or o["key"].rsplit("/",1)[-1] in ["manifest.json","words.json"]) and any(o["key"].startswith(p) for p in prefixes) for o in objects)
  assert all(not p["objects"] for p in inventory["prefixes"] if p["prefix"].startswith("narration/"))
  report={"apply":args.apply,"complete":False,"inventorySha256":EXPECTED,"objects":len(objects),"bytes":sum(o["size"] for o in objects),"deleted":[],"prefixes":[]}
  def save():(OUT/"receipt.json").write_text(json.dumps(report,indent=2)+"\n")
@@ -100,6 +108,7 @@ def main():
  print("Verified exact inventory and sound siblings",len(objects),report["protectedSiblingObjects"],flush=True)
  if args.apply:
   production_guards(holds)
+  report["preservedTextHashes"]=text_hashes(holds);save()
   for row in targets:
    keys=[o["key"] for o in row["objects"]]
    # Re-check exact prefix immediately before its batch deletion.
@@ -110,6 +119,7 @@ def main():
    print("Deleted and verified",row["prefix"],len(keys),flush=True)
   for book,original in protected.items():assert client.list(book+"/")==original,("Sound sibling changed",book)
   production_guards(holds)
+  assert text_hashes(holds)==report["preservedTextHashes"]
  report["complete"]=True;save()
  print(json.dumps({k:v for k,v in report.items() if k not in ["deleted","prefixes"]}),flush=True)
 if __name__=="__main__":
