@@ -1,0 +1,32 @@
+name: Diagnose held release language readiness
+on:
+  push:
+    branches: [codex/held-release-qa-20260926]
+    paths: ['app/scripts/check-held-release-language.mjs', '.github/workflows/held-release-qa.yml']
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash scripts/cloud-setup.sh
+      - working-directory: app
+        run: npx playwright install --with-deps chromium
+      - name: Diagnose language readiness without changing application code
+        working-directory: app
+        env:
+          HYPHENATION_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: /assets/index-BojtaVWt.js
+        run: node scripts/check-held-release-language.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: held-release-language-diagnostic
+          path: app/artifacts/held-release-language-diagnostic
