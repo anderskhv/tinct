@@ -29,6 +29,8 @@ jobs:
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build && npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
+      - name: Install English dictionary for Linux WebKit
+        run: sudo apt-get install -y hyphen-en-us
       - run: node scripts/check-reader-spread.cjs
         env:
           READER_BUILT: ${{ github.event_name == 'workflow_run' && '0' || '1' }}

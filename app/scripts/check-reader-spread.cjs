@@ -16,8 +16,11 @@ async function turn(p,key){const before=await p.locator('.lab').evaluate(n=>n.da
 const results=[];let continuations=0,docked=0;
 for(const engine of [chromium,webkit]){
 const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
-for(const fontSize of [1.3,1.8,2.2])for(const chapter of [917,918]){
- const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({viewport:{width:1450,height:813}});
+for(const {fontSize,chapter,height} of [
+ ...[1.3,1.8,2.2].flatMap(fontSize=>[917,918].map(chapter=>({fontSize,chapter,height:813}))),
+ {fontSize:1.3,chapter:595,height:400}
+]){
+ const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({viewport:{width:1450,height}});
  if(built)await context.route('**/*',r=>{
   const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();
   const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));
