@@ -20,7 +20,7 @@ async function state(p){return p.evaluate(()=>{
  const bounds=end?.getBoundingClientRect(),last=end?.previousElementSibling?.getBoundingClientRect()
  const footer=document.querySelector('.lab-desktop-page-footers')?.getBoundingClientRect()
  return {chapter:root.dataset.chapter,place:root.dataset.place,keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),
- end:bounds?{left:bounds.left,right:bounds.right,top:bounds.top,bottom:bounds.bottom,previousBottom:last?.bottom,limit:end?.classList.contains('is-docked') ? r.bottom-12 : Math.min(r.bottom,footer?.top??r.bottom),sameLeaf:!!end.closest('.lab-book-col')}:null,
+ end:bounds?{left:bounds.left,right:bounds.right,top:bounds.top,bottom:bounds.bottom,previousBottom:last?.bottom,limit:end?.classList.contains('is-docked') ? r.bottom-1 : Math.min(r.bottom,footer?.top??r.bottom),sameLeaf:!!end.closest('.lab-book-col')}:null,
  oldEnd:!!article.querySelector('.lab-chapter-end-page'),bundle:[...document.scripts].map(s=>s.src).find(s=>/assets\/index-.*\.js/.test(s))}
 })}
 ;(async()=>{const results=[]

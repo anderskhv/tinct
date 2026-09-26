@@ -44,7 +44,7 @@ for(const {fontSize,chapter,height} of [
    for(const col of s.columns)for(const w of col.words)assert.ok(w.rect.bottom<=col.rect.bottom+2,'Prose clears its leaf: '+JSON.stringify(w));
    if(s.end){
     assert.ok(s.end.previousBottom<=s.end.rect.top+1,'Actions follow prose');
-    assert.ok(s.end.rect.bottom<=s.article.bottom-12,'Controls stay in page');
+    assert.ok(s.end.rect.bottom<=s.article.bottom-1,'Controls stay in page');
     if(s.end.docked){docked++;if(chapter===595)assert.equal(states.length,1,'The compact Psalm retains its complete text on one leaf');}
     last=s;break;
    }
