@@ -1,0 +1,44 @@
+{
+  "edition": "modern-en",
+  "sourceFile": "books/wip/jerusalem-completeness-repair/editions/jerusalem-modern-en.json",
+  "sourceSha256": "47c0c1c78ef4b342c793f7ffd07dabbbe96334c67d7ca85dbfa9aafdf9f521b0",
+  "note": "Coordinates below are chapter/paragraph indices, unaffected by the heading-fragment fix (which only touched chapters 1 and 8) — checked and confirmed unchanged after that fix. Both mentions required a new startOffset/endOffset/text because the whole-edition modern-en re-render rewrote the surrounding sentence; the underlying fact (character's name/identity) is unchanged and still present in the current text.",
+  "replacements": [
+    {
+      "mentionIndex": 4,
+      "characterId": "gertrude",
+      "chapterNumber": 2,
+      "paragraphIndex": 8,
+      "old": {
+        "startOffset": 225,
+        "endOffset": 246,
+        "text": "her name was Gertrude"
+      },
+      "new": {
+        "startOffset": 198,
+        "endOffset": 222,
+        "text": "their daughter, Gertrude"
+      },
+      "reviewNote": "Old quotation 'her name was Gertrude' no longer exists verbatim; the whole-edition re-render rewrote this sentence to 'The girl was their daughter, Gertrude.' The name-reveal fact is unchanged and unambiguous (this is the paragraph's only naming of the schoolmaster's daughter). Reviewed and confirmed against the current final paragraph text, character by character."
+    },
+    {
+      "mentionIndex": 6,
+      "characterId": "hellgum",
+      "chapterNumber": 7,
+      "paragraphIndex": 38,
+      "old": {
+        "startOffset": 102,
+        "endOffset": 136,
+        "text": "married a Swede named John Hellgum"
+      },
+      "new": {
+        "startOffset": 102,
+        "endOffset": 142,
+        "text": "married a Swede there named John Hellgum"
+      },
+      "reviewNote": "Old quotation 'married a Swede named John Hellgum' no longer exists verbatim; the re-render inserted 'there' ('...had married a Swede there named John Hellgum...'). The fact (Anna Lisa's husband is John Hellgum) is unchanged. New startOffset happens to coincide with the old one (the preceding sentence structure was preserved up to this point); endOffset shifted +7 characters to account for the inserted word. Reviewed and confirmed against the current final paragraph text, character by character."
+    }
+  ],
+  "removals": [],
+  "reviewHistory": "Independent review found the Gertrude replacement (mentionIndex 4) fully correct on the first pass. It found an off-by-one error in the Hellgum replacement's endOffset (143 instead of 142, which included a trailing comma not part of the intended quotation). Corrected to 142 and re-verified directly: paragraph[102:142] == 'married a Swede there named John Hellgum' exactly, confirmed programmatically."
+}
