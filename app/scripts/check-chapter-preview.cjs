@@ -20,7 +20,7 @@ async function state(p){return p.evaluate(()=>{
  const bounds=end?.getBoundingClientRect(),last=end?.previousElementSibling?.getBoundingClientRect()
  const footer=document.querySelector('.lab-desktop-page-footers')?.getBoundingClientRect()
  return {chapter:root.dataset.chapter,place:root.dataset.place,keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),
- end:bounds?{left:bounds.left,right:bounds.right,top:bounds.top,bottom:bounds.bottom,previousBottom:last?.bottom,limit:Math.min(r.bottom,footer?.top??r.bottom),sameLeaf:!!end.closest('.lab-book-col')}:null,
+ end:bounds?{left:bounds.left,right:bounds.right,top:bounds.top,bottom:bounds.bottom,previousBottom:last?.bottom,limit:end?.classList.contains('is-docked') ? r.bottom-12 : Math.min(r.bottom,footer?.top??r.bottom),sameLeaf:!!end.closest('.lab-book-col')}:null,
  oldEnd:!!article.querySelector('.lab-chapter-end-page'),bundle:[...document.scripts].map(s=>s.src).find(s=>/assets\/index-.*\.js/.test(s))}
 })}
 ;(async()=>{const results=[]
@@ -139,7 +139,20 @@ for(const config of configs){
   assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights'))),[highlight],'Source highlight and note survive layout, chat, navigation and reload')
   const next=p.locator('.lab-page-wrap').getByRole('button',{name:'Next chapter',exact:true})
   if(config.chapter===1189)assert.equal(await next.count(),0,'No next action after final chapter')
-  else {await next.click();await p.waitForFunction(ch=>document.querySelector('.lab')?.dataset.chapter===String(ch),config.chapter+1);assert.match((await state(p)).place,/0:0$/)}
+  else {
+   const shownOpening=await p.locator('.lab-next-chapter-opening .lab-hearing-word').count()
+   await next.click()
+   await p.waitForFunction(ch=>Number(document.querySelector('.lab')?.dataset.chapter)>ch,config.chapter)
+   await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await pause(400)
+   const after=await state(p)
+   if(!shownOpening) {assert.equal(after.chapter,String(config.chapter+1));assert.match(after.place,/0:0$/)}
+   else {
+    const upcoming=edition.chapters.find(c=>c.number===config.chapter+1)
+    const upcomingKeys=upcoming.paragraphs.flatMap((text,pi)=>(text.match(/\S+/g)||[]).map((_,wi)=>pi+':'+wi))
+    if(shownOpening<upcomingKeys.length){assert.equal(after.chapter,String(config.chapter+1));assert.equal(after.keys[0],upcomingKeys[shownOpening])}
+    else assert.equal(after.chapter,String(config.chapter+2))
+   }
+  }
   results.push({config,pages:pages.length,wordCount:seen.length,calls:calls.length,bundle:endState.bundle})
   await context.tracing.stop()
  }catch(error){await p.screenshot({path:path.join(dir,config.name+'-failure.png')}).catch(()=>{});await context.tracing.stop({path:path.join(dir,config.name+'-trace.zip')}).catch(()=>{});throw error}

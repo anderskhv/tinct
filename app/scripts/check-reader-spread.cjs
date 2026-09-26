@@ -1,21 +1,77 @@
-const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path');
-const out='artifacts/reader-spread';fs.mkdirSync(out,{recursive:true});
-(async()=>{for(const engine of [chromium,webkit]){
+const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const origin=process.env.TEST_ORIGIN||'https://tinct.app',built=process.env.READER_BUILT!=='0',out=process.env.ARTIFACT_DIR||'artifacts/reader-spread';
+fs.mkdirSync(out,{recursive:true});
+const bible=JSON.parse(fs.readFileSync('public/data/editions/bible-web-en.json','utf8'));
+const keys=chapter=>chapter.paragraphs.flatMap((s,p)=>(s.match(/\S+/g)||[]).map((_,w)=>p+':'+w));
+async function state(p){return p.evaluate(()=>{
+ const root=document.querySelector('.lab'),a=document.querySelector('.lab-page-wrap>.lab-passage');
+ const words=[...a.querySelectorAll('[data-testid="lab-word"]')].filter(w=>!w.closest('.lab-book-col-compare'));
+ const preview=a.querySelector('.lab-next-chapter-opening'),end=a.querySelector('.lab-chapter-end');
+ const columns=[...a.querySelectorAll('.lab-book-col')].map(col=>({text:col.innerText,rect:col.getBoundingClientRect().toJSON(),words:[...col.querySelectorAll('[data-testid="lab-word"]')].map(w=>({key:w.dataset.paragraphIndex+':'+w.dataset.wordIndex,text:w.textContent,rect:w.getBoundingClientRect().toJSON()}))}));
+ return {chapter:Number(root.dataset.chapter),place:root.dataset.place,keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),preview:preview?{text:preview.innerText,count:preview.querySelectorAll('.lab-hearing-word').length}:null,columns,end:end?{rect:end.getBoundingClientRect().toJSON(),docked:end.classList.contains('is-docked'),previousBottom:end.previousElementSibling?.getBoundingClientRect().bottom}:null,article:a.getBoundingClientRect().toJSON(),bundle:[...document.scripts].map(s=>s.src).find(s=>/assets\/index-.*\.js/.test(s))};
+});}
+async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(450);}
+async function turn(p,key){await p.keyboard.press(key);await ready(p);}
+(async()=>{
+const results=[];let continuations=0,docked=0;
+for(const engine of [chromium,webkit]){
 const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
-for(const c of [{book:'bible',edition:'web-en',chapter:917},{book:'bible',edition:'web-en',chapter:918},{book:'to-the-lighthouse',edition:'original-en',chapter:1}]){
-const context=await browser.newContext({viewport:{width:1450,height:813}});
-await context.route('**/*',r=>{const u=new URL(r.request().url()); if(u.origin!=='https://tinct.app')return r.abort(); const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
-await context.addInitScript(c=>{HTMLMediaElement.prototype.play=async()=>{};if(sessionStorage.getItem('seed'))return;sessionStorage.setItem('seed','1');localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:2.2,theme:'dark',compareOpen:false}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:c.book,primaryEditionKey:c.edition,savedPlace:{bookId:c.book,chapterNumber:c.chapter,paragraphIndex:0,wordIndex:0,page:0}}));},c);
-const p=await context.newPage();p.setDefaultTimeout(30000);
-await p.goto('https://tinct.app/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(1000);
-const states=[];
-for(let i=0;i<12;i++){
-const s=await p.evaluate(()=>{const a=document.querySelector('.lab-page-wrap>.lab-passage');return {chapter:document.querySelector('.lab')?.dataset.chapter,place:document.querySelector('.lab')?.dataset.place,columns:[...a.querySelectorAll('.lab-book-col')].map(col=>({text:col.innerText,rect:col.getBoundingClientRect().toJSON(),words:[...col.querySelectorAll('[data-testid="lab-word"]')].map(w=>({text:w.textContent,p:w.dataset.paragraphIndex,w:w.dataset.wordIndex,rect:w.getBoundingClientRect().toJSON()}))})),end:a.querySelector('.lab-chapter-end')?.getBoundingClientRect().toJSON(),preview:!!a.querySelector('.lab-next-chapter-opening')};});
-states.push(s);
-await p.screenshot({path:out+'/'+engine.name()+'-'+c.book+'-'+c.chapter+'-'+i+'.png'});
-if(Number(s.chapter)!==c.chapter)break;await p.keyboard.press('ArrowRight');await p.waitForTimeout(600);
+for(const fontSize of [1.3,1.8,2.2])for(const chapter of [917,918]){
+ const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({viewport:{width:1450,height:813}});
+ if(built)await context.route('**/*',r=>{
+  const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();
+  const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));
+  return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});
+ });
+ await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));
+ await context.route('**/*supabase.co/**',r=>r.abort());
+ const note=JSON.stringify([{id:'spread-note',bookId:'bible',editionKey:'web-en',chapterNumber:chapter,paragraphIndex:0,fromWord:1,endParagraphIndex:0,toWord:3,color:'blue',note:'Preserve exactly: æ — 123.',text:'fixture'}]);
+ await context.addInitScript(({chapter,fontSize,note})=>{
+  HTMLMediaElement.prototype.play=async()=>{};if(sessionStorage.getItem('spread-seeded'))return;sessionStorage.setItem('spread-seeded','1');
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize,theme:'dark',compareOpen:false}));
+  localStorage.setItem('tinct-lab-highlights',note);
+  sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:chapter,paragraphIndex:0,wordIndex:0,page:0}}));
+ },{chapter,fontSize,note});
+ const p=await context.newPage();p.setDefaultTimeout(30000);const states=[];
+ try{
+  await p.goto(origin+'/reader');await ready(p);
+  const seen=[];let last;
+  for(let i=0;i<40;i++){
+   const s=await state(p);states.push(s);assert.equal(s.chapter,chapter);seen.push(...s.keys);
+   for(const col of s.columns)for(const w of col.words)assert.ok(w.rect.bottom<=col.rect.bottom+2,'Prose clears its leaf: '+JSON.stringify(w));
+   if(s.end){
+    assert.ok(s.end.previousBottom<=s.end.rect.top+1,'Actions follow prose');
+    assert.ok(s.end.rect.bottom<=s.article.bottom-12,'Controls stay in page');
+    if(s.end.docked){docked++;assert.ok(s.keys.length>30,'Docked controls retain a filled page');}
+    last=s;break;
+   }
+   await turn(p,'ArrowRight');
+  }
+  assert.ok(last,'Reached chapter ending');
+  assert.deepEqual(seen,keys(bible.chapters.find(c=>c.number===chapter)),'All chapter source words exactly once');
+  await p.screenshot({path:path.join(out,name+'-end.png')});
+  const expectedNext=bible.chapters.find(c=>c.number===chapter+1),nextKeys=keys(expectedNext);
+  await turn(p,'ArrowRight');const after=await state(p);states.push(after);
+  if(last.preview){
+   continuations++;
+   if(last.preview.count<nextKeys.length){
+    assert.equal(after.chapter,chapter+1);assert.equal(after.keys[0],nextKeys[last.preview.count],'Continue at first unread word');
+    assert.notEqual(after.keys[0],'0:0','No repeated opening');
+    await turn(p,'ArrowLeft');const back=await state(p);assert.equal(back.chapter,chapter);assert.deepEqual(back.keys,last.keys);assert.equal(back.preview?.text,last.preview.text);
+    await turn(p,'ArrowRight');assert.deepEqual((await state(p)).keys,after.keys,'Forward returns to same unread spread');
+   }else assert.equal(after.chapter,chapter+2,'A whole chapter read on right is not repeated');
+  }else{assert.equal(after.chapter,chapter+1);assert.equal(after.keys[0],'0:0','Unseen chapter starts at opening');}
+  await p.screenshot({path:path.join(out,name+'-continued.png')});
+  const saved=(await state(p)).place;
+  await p.reload();await ready(p);assert.equal((await state(p)).place,saved,'Reload retains exact semantic location');
+  assert.equal(await p.evaluate(()=>localStorage.getItem('tinct-lab-highlights')),note,'Annotation bytes unchanged');
+  results.push({name,pages:states.length,preview:!!last.preview,docked:last.end.docked,bundle:last.bundle});
+ }catch(e){await p.screenshot({path:path.join(out,name+'-failure.png')});throw e;}
+ finally{fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify(states,null,2));await context.close();}
 }
-fs.writeFileSync(out+'/'+engine.name()+'-'+c.book+'-'+c.chapter+'.json',JSON.stringify(states,null,2));
-console.log(engine.name(),c,states.map(s=>({chapter:s.chapter,place:s.place,preview:s.preview,ends:s.columns.map(c=>c.text.slice(-90))})));
-await context.close();
-}await browser.close();}})().catch(e=>{console.error(e);process.exit(1)});
+await browser.close();
+}
+assert.ok(continuations>0,'Exercise an actual right-leaf chapter opening');
+assert.ok(docked>0,'Exercise full final prose with footer controls');
+fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({results,continuations,docked},null,2));console.log(JSON.stringify({results,continuations,docked},null,2));
+})().catch(e=>{console.error(e);process.exit(1)});
