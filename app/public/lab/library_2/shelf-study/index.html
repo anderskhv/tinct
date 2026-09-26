@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#10150f"><title>Your library · Tinct shelf study</title><link rel="preload" as="image" href="library-wall.jpg"><link rel="stylesheet" href="study.css?v=1"></head>
+<body>
+<header><a class="brand" href="../">tinct</a><span class="study-label">Shelf study</span><a class="compare" href="../?demo=reading&rooms=1">Current version <span aria-hidden="true">↗</span></a></header>
+<main>
+<div class="library-heading"><div><p class="eyebrow">A place for your reading</p><h1>Your library</h1></div><button id="view-toggle" class="quiet" aria-pressed="false"><span aria-hidden="true">↗</span> <span>Full library</span></button></div>
+<nav class="shelf-nav" aria-label="Your shelves"><button data-shelf="reading" aria-pressed="true">Currently reading <small id="count-reading">4</small></button><button data-shelf="finished" aria-pressed="false">Finished <small id="count-finished">5</small></button><button data-shelf="later" aria-pressed="false">To read <small id="count-later">3</small></button></nav>
+<section id="viewport" class="scene" aria-label="Interactive library. Choose a book or shelf. Use Full library to pull back, or pinch two fingers together on this scene.">
+ <div id="geometry-probe" aria-hidden="true"></div>
+ <div id="world" class="world"><img class="wall" src="library-wall.jpg" width="1536" height="1024" alt="A dark green private library with three walnut shelves, warm brass lamps and a rainy window" fetchpriority="high" draggable="false"><canvas id="atmosphere" width="1536" height="1024" aria-hidden="true"></canvas>
+  <div id="shelf-finished" class="book-shelf finished" role="group" aria-label="Finished books"></div><div id="shelf-reading" class="book-shelf reading" role="group" aria-label="Currently reading books"></div><div id="shelf-later" class="book-shelf later" role="group" aria-label="Books to read"></div>
+  <button class="brass-label label-finished" data-focus="finished">Finished</button><button class="brass-label label-reading" data-focus="reading">Currently reading</button><button class="brass-label label-later" data-focus="later">To read</button>
+ </div>
+ <div class="scene-vignette" aria-hidden="true"></div>
+ <div class="book-navigation"><button id="previous-book" class="round" aria-label="Previous book">←</button><div id="book-dots" aria-label="Choose book"></div><button id="next-book" class="round" aria-label="Next book">→</button></div>
+</section>
+<section id="selected-book" class="selection" aria-live="polite"><div><p id="selected-author" class="author"></p><h2 id="selected-title"></h2><p id="selected-progress" class="progress-copy"></p></div><button id="book-action" class="primary">Continue reading <span aria-hidden="true">→</span></button></section>
+<section class="discovery"><div class="discovery-heading"><h2>A little room for what’s next</h2><p>Add a book to your shelf.</p></div><div id="discover-books" class="discover-books"></div></section>
+<p class="sample-note">An independent concept study with sample books.</p>
+</main>
+<div id="toast" role="status" class="toast"></div>
+<dialog id="reading-preview"><button id="close-preview" class="round close" aria-label="Close book preview">×</button><img id="preview-cover" alt=""><div><p class="eyebrow">Your place is waiting</p><h2 id="preview-title"></h2><p id="preview-progress"></p><p class="preview-note">This shelf is a separate concept. Your reading continues in the current library.</p><a class="primary" href="../?demo=reading">Open current library <span aria-hidden="true">→</span></a></div></dialog>
+<script type="module" src="study.js?v=1"></script>
+</body></html>
