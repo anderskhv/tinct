@@ -87,10 +87,26 @@ for(const {fontSize,chapter,height} of [
   probe.textContent='that life is difficult; facts ';
   const word=document.createElement('span');word.className='lab-hearing-word';word.textContent='uncompromising;';probe.append(word);
   paragraph.parentNode.append(probe);let width=null;
-  for(let w=280;w<=650;w+=2){probe.style.width=w+'px';if(word.getClientRects().length>1){width=w;break;}}
-  const text=word.textContent;probe.remove();
-  return {lang:root.lang,hyphens:style.hyphens,font:style.fontFamily,splitWidth:width,text};
+  const probes=[];
+  for(const lang of ['en','en-US','en-us']){
+   probe.lang=lang;
+   for(const sample of ['uncompromising;','hyphenation','internationalization']){
+    word.textContent=sample;let split=null;
+    for(let w=80;w<=650;w+=2){
+     probe.style.width=w+'px';
+     const tops=[];
+     for(let i=0;i<sample.length;i++){const range=document.createRange();range.setStart(word.firstChild,i);range.setEnd(word.firstChild,i+1);tops.push(range.getBoundingClientRect().top);}
+     if(new Set(tops).size>1){split=w;break;}
+    }
+    probes.push({lang,sample,split});
+    if(lang==='en'&&sample==='uncompromising;')width=split;
+   }
+  }
+  word.textContent='uncompromising;';const text=word.textContent;probe.remove();
+  return {lang:root.lang,hyphens:style.hyphens,font:style.fontFamily,splitWidth:width,text,probes,userAgent:navigator.userAgent};
+
  });
+ fs.writeFileSync(path.join(out,engine.name()+'-hyphenation.json'),JSON.stringify(evidence,null,2));console.log(JSON.stringify(evidence));
  assert.equal(evidence.hyphens,'auto');assert.equal(evidence.text,'uncompromising;');
  assert.ok(evidence.splitWidth,'Dictionary can split uncompromising without inserting text characters: '+JSON.stringify(evidence));
  results.push({name:engine.name()+'-lighthouse',...evidence});await context.close();
