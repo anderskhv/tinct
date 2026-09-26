@@ -20,8 +20,6 @@ SPEAKER_TO_ID = {
     'ALTMAYER': 'altmayer',
     'THE WITCH': 'witch',
 }
-# name-alias regex (word-boundary) for characters whose plain name also appears
-# in narration/other speakers' dialogue, beyond their own speaker tag
 NAME_ALIASES = {
     'faust': [r'\bFaust\b'],
     'mephistopheles': [r'\bMephistopheles\b'],
@@ -31,8 +29,6 @@ NAME_ALIASES = {
     'martha': [r'\bMartha\b'],
     'the-lord': [r'\bthe Lord\b'],
 }
-# STUDENT is a common noun elsewhere (e.g. "a student") -- only bind the exact
-# speaker-tag occurrences in chapter 7 (the Student/Mephistopheles-as-Faust scene)
 STUDENT_CHAPTER = 7
 
 def normalized(s):
@@ -40,6 +36,10 @@ def normalized(s):
 
 def u16(s):
     return len(s.encode('utf-16-le')) // 2
+
+# Matches "NAME." or "NAME (parenthetical)." at paragraph start, followed by
+# whitespace. The captured speaker-label span is ONLY the NAME itself.
+SPEAKER_RE = re.compile(r'^([A-Z][A-Z ]+?)(?:\s*\([^)]*\))?\.\s')
 
 def compile_edition(edition_path, ids):
     source = json.loads(edition_path.read_bytes())
@@ -49,18 +49,14 @@ def compile_edition(edition_path, ids):
         for pi, raw in enumerate(c['paragraphs']):
             text = normalized(raw)
             candidates = []
-            m = re.match(r'^([A-Z][A-Z ]+)\.\s', text)
+            m = SPEAKER_RE.match(text)
             if m:
                 label = m.group(1)
                 owner = SPEAKER_TO_ID.get(label)
-                if owner == 'student' and ch != STUDENT_CHAPTER:
-                    owner = None
+                if label == 'STUDENT':
+                    owner = 'student' if ch == STUDENT_CHAPTER else None
                 if owner:
                     candidates.append((0, len(label), owner, 'reviewed-speaker'))
-            if ch == STUDENT_CHAPTER:
-                m2 = re.match(r'^(STUDENT)\.\s', text)
-                if m2:
-                    candidates.append((0, len('STUDENT'), 'student', 'reviewed-speaker'))
             for cid, patterns in NAME_ALIASES.items():
                 for pat in patterns:
                     for mm in re.finditer(pat, text):
@@ -98,7 +94,6 @@ if __name__ == '__main__':
     outpath = ROOT / f'books/wip/faust-part-1-character-card/mentions-{edition}.json'
     outpath.write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print(edition, 'mentions:', len(mentions), 'chapters:', out['chapterCount'], 'paragraphs:', out['paragraphCount'])
-    # print first mention per character
     seen = {}
     for m in mentions:
         cid = m['characterId']
