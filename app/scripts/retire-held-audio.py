@@ -58,11 +58,9 @@ class S3:
   for key in keys:ET.SubElement(ET.SubElement(root,"Object"),"Key").text=key
   ET.SubElement(root,"Quiet").text="false"
   result=self.request("POST",{"delete":""},ET.tostring(root,encoding="utf-8"))
-  errors=result.findall("{*}Error")
-  if errors:raise RuntimeError("S3 reported object deletion errors")
+  errors=[{"key":x.findtext("{*}Key"),"code":x.findtext("{*}Code")} for x in result.findall("{*}Error")]
   deleted=[x.findtext("{*}Key") for x in result.findall("{*}Deleted")]
-  assert set(deleted)==set(keys),"Incomplete delete acknowledgement"
-  return deleted
+  return {"deleted":deleted,"errors":errors}
 def normalized(rows):return sorted([{"key":r["key"],"size":r["size"],"etag":r["etag"].strip('"')} for r in rows],key=lambda x:x["key"])
 def production_guards(holds):
  checks=0
@@ -124,7 +122,10 @@ def main():
    # Re-check exact prefix immediately before its batch deletion.
    assert client.list(row["prefix"])==normalized(row["objects"])
    for i in range(0,len(keys),1000):
-    deleted=client.delete(keys[i:i+1000]);report["deleted"].extend(deleted);save()
+    batch=keys[i:i+1000]
+    report["phase"]="delete "+row["prefix"]+" batch "+str(i//1000);save()
+    result=client.delete(batch);report["deleted"].extend(result["deleted"]);report["lastBatchErrors"]=result["errors"];save()
+    assert not result["errors"] and set(result["deleted"])==set(batch),"Incomplete delete acknowledgement; inspect receipt and live objects before retry"
    assert not client.list(row["prefix"]),("Prefix not empty after deletion",row["prefix"])
    print("Deleted and verified",row["prefix"],len(keys),flush=True)
   for book,original in protected.items():assert client.list(book+"/")==original,("Sound sibling changed",book)
