@@ -4502,7 +4502,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           />}
           {/* The next chapter's first leaf, measured only near this chapter's end. */}
           {!chapterCoverTitle && nextOpeningCurrent && readingPages.length > 0 && readingPageIndex >= readingPages.length - 4 && <LabDesktopPaginator
-            chapterActions hasNextChapter
+            chapterActions hasNextChapter pageLimit={2}
             chapterTitle={nextOpeningCurrent.title} paragraphs={nextOpeningCurrent.paragraphs}
             editionKey={readerEditionKey}
             layoutKey={nextOpeningLayoutKey} onPages={applyNextOpeningPages}
