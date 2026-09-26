@@ -2207,7 +2207,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useEffect(() => {
     // A queued effect may still hold the provisional map after measurement
     // has committed a newer one. It must not rewrite the exact saved anchor.
-    if (desktopPaging && readingPages !== readingPagesRef.current) return
+    if (measuredPaging && readingPages !== readingPagesRef.current) return
     if (chapterLandingRef.current === 'end') {
       // Prev-from-next-chapter sets landing=end before the new book
       // arrives. Applying it to the still-settled outgoing chapter pins
@@ -2235,9 +2235,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       }
       return
     }
-    // Desktop's measured-map commit already resolves the page from the
-    // semantic anchor. The legacy passive pass must not quantize it again.
-    if (desktopPaging) return
+    // A measured-map commit already resolves the page from the semantic
+    // anchor on phones and desktop. A queued provisional-map effect must
+    // never overwrite that index after the font-settled map is committed.
+    if (measuredPaging) return
     setReadingPageIndex((current) => {
       const keep = mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current
       const next = keep
@@ -2259,7 +2260,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       readingPageIndexRef.current = next
       return next === current ? current : next
     })
-  }, [readingPages, openAtEnd, book.chapterNumber, desktopPaging])
+  }, [readingPages, openAtEnd, book.chapterNumber, measuredPaging])
 
   const chromeRef = useRef(chrome)
   chromeRef.current = chrome
