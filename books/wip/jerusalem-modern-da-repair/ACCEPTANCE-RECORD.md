@@ -51,3 +51,17 @@ clean. **Verdict: ACCEPT.**
 
 Accepted for integration; not published, not live. Codex owns integration
 and the serialized release process per `books/BOOK-TASK-WORKFLOW.md`.
+
+## ADDENDUM (see `books/wip/jerusalem-heading-fragment-fix/`) — superseded hash
+
+The hash above is now historical. A follow-up fix removed 5
+heading-fragment paragraphs (G07-jerusalem-04) from this file too.
+Current, final, independently re-reviewed hash:
+
+`editions/jerusalem-modern-da.json` sha256
+`702f29c4e1ee0785c7cbf72f29b29315154ff2ca82e769fc3ae6d2475449dc2c`
+(17 chapters, 1782 paragraphs).
+
+See `books/wip/jerusalem-heading-fragment-fix/RELEASE-PACKET.md` for the
+full fix description and `INDEPENDENT-REVIEW.md` for the verification
+that nothing else in this file changed.

@@ -189,3 +189,18 @@ This package does not attempt a Danish repair for Jerusalem.
 
 **Net result: whole-edition repair complete.** All three review rounds are
 resolved; the final candidate reflects every fix from all three rounds.
+
+## ADDENDUM (see `books/wip/jerusalem-heading-fragment-fix/`) — superseded hashes
+
+The hashes above are now historical. A follow-up fix removed 5
+heading-fragment paragraphs (G07-jerusalem-04) from both files. Current,
+final, independently re-reviewed hashes:
+
+| File | Final sha256 |
+|---|---|
+| `editions/jerusalem-original-en.json` | `20d0ed3ecce5e4b440fec2e4373b337222c6a734f37f9cf769d94cecc248c48a` (17 chapters, 1782 paragraphs) |
+| `editions/jerusalem-modern-en.json` | `47c0c1c78ef4b342c793f7ffd07dabbbe96334c67d7ca85dbfa9aafdf9f521b0` (17 chapters, 1782 paragraphs) |
+
+See `books/wip/jerusalem-heading-fragment-fix/RELEASE-PACKET.md` for the
+full fix description and `INDEPENDENT-REVIEW.md` for the verification
+that nothing else in either file changed.
