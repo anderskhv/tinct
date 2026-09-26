@@ -34,13 +34,49 @@ signature line in the Dedication is not a defect). Fixed: translated to
 "Desuden, hvordan kan kvinder være retfærdige eller gavmilde, når de er
 uretfærdighedens slaver?" in the established register.
 
-**Re-verification performed after the fix:** re-ran a zero-Danish-character
-sweep (paragraphs >20 characters outside chapters 7-9 containing no
-æ/ø/å) across the full repaired file — found only 3 short, genuinely
-Danish sentences that simply don't happen to contain those characters
-(read and confirmed authentic, not leftover English); re-confirmed all
-15 chapters' paragraph counts still match the English baseline exactly
-after the edit; re-validated JSON.
+**Re-verification performed after the fix (superseded — see below):** an
+initial post-fix check used a zero-Danish-character (æ/ø/å absence)
+sweep. That heuristic is weak — it can miss genuine English leftovers
+that happen to contain no æøå-bearing word, and flags legitimate Danish
+sentences that simply don't contain those characters as false positives.
+It was replaced with a proper whole-edition check (below) before this
+package could be considered adequately verified.
+
+## Whole-edition completeness review (proper method, post-fix)
+
+A dedicated, fresh whole-edition review (`WHOLE-EDITION-COMPLETENESS-REVIEW.md`,
+this folder) re-scanned the entire post-fix candidate using real language
+signal instead of character-presence heuristics:
+
+- **Untranslated-English scan, 100% coverage** of all 544 paragraphs
+  across the 12 repaired chapters (chapters 7-9 excluded as untouched):
+  whole-word English function-word matching with a list curated to
+  exclude Danish/English homographs (early attempts using "have"/"to"/
+  "her" produced dozens of false positives against ordinary Danish
+  words; the working list was `the, and, of, which, with, this, was,
+  were, been, would, could, should, from, his, their, is, not, that`),
+  plus a supplementary check for short sentences with zero Danish-specific
+  characters or guillemets. **Zero genuine untranslated-English defects
+  found** — 4 flags raised, all confirmed false positives on inspection
+  (2 short but correct Danish sentences without æøå, one being the
+  chapter 10 footnote's English book-title reference "Boswells Life of
+  Johnson," correctly left untranslated as Wollstonecraft's own citation).
+  The previously-fixed chapter 15 paragraph 61 was independently
+  confirmed now complete and correct. A supplementary length-ratio scan
+  across all 544 paragraphs found zero below a 0.6 Danish/English
+  character-length ratio — no evidence of compression co-occurring with
+  any missed leftover.
+- **Fidelity sample**: 185 of 544 paragraphs (34.0%), sampled so every one
+  of the 12 translated chapters individually has ≥33% coverage (not
+  concentrated in the longest chapters). Each sampled paragraph compared
+  in full against the English baseline: no dropped clauses, no
+  compression, no invented content; footnotes and quoted verse/prose
+  complete; section markers consistently translated; register consistent
+  with the accepted chapters 7-9.
+- **Final verdicts**: whole-edition completeness — CLEAN (genuinely and
+  completely translated, no gaps); fidelity — STRONG (no evidence of any
+  fidelity problem in the sampled 34%, corroborated by the zero-hit
+  full-edition length-ratio check). No further action required.
 
 ## What "accepted" does not mean
 
