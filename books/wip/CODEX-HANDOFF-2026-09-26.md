@@ -1,21 +1,37 @@
 # Codex Handoff — Book Content Repairs, 2026-09-26 assignment
 
 **Branch:** `claude/cool-clarke-ngd780`
-**This document's commit:** HEAD at time of writing is `67a67084`
-**Scope:** content-only. No `app/**`, registry, character-card, threads,
-onboarding, audio, or live-data file was touched by this assignment. No
-publication, deployment, reader-data migration, or audio cleanup was
-performed. Codex owns all of that, per `books/BOOK-TASK-WORKFLOW.md`.
+**This document's commit:** HEAD at time of writing is `48317419`
+(supersedes the prior revision's `67a67084` reference — see the
+**2026-09-26 update (round 2)** section below for everything added since).
+**Scope:** content-only, staged under `books/wip/**`. `app/**`, the
+registry, live `app/public/data/**` editions/character-cards/threads/
+onboarding, and audio were never edited directly — this assignment's
+character-card, threads, and onboarding work exists only as staged
+candidate files under owned `books/wip/*/` folders, per
+`books/BOOK-TASK-WORKFLOW.md`. No publication, deployment, reader-data
+migration, or audio generation/deletion was performed. Codex owns
+integration of all of it.
+
+**Language scope note (2026-09-26, round 2): Danish is no longer
+offered.** Per the latest instruction, no further Danish translation,
+review, or repair work was started in round 2, and Danish is not a
+prerequisite for English/original-source publication of any book below.
+This does not retract Danish work already completed and accepted in
+round 1 (listed throughout Part 2) — it is preserved, not undone — but
+any Danish item left in-flight at the end of round 1 is not being chased
+further; see the Paradise Lost Danish note in the round-2 section.
 
 **Completion claim (read carefully): all 16 originally-held editions
-listed below are editorially accepted as content candidates** — each has
-passed independent review to the standard documented per-package. **This
-is not a claim that any defect is fixed live**, that every finding in the
-broader 700+-book library audit is resolved, or that these packages are
-safe to publish without Codex's own integration verification. Several
-specific gaps, discovered during this final reconciliation pass, are
-recorded honestly in Part 3 below — they are not fixed, and are not
-hidden.
+listed below are editorially accepted as content candidates**, plus the
+additional packages listed (2 from round 1, 5 more from round 2) — each
+has passed independent review to the standard documented per-package.
+**This is not a claim that any defect is fixed live**, that every finding
+in the broader 700+-book library audit is resolved, or that these
+packages are safe to publish without Codex's own integration
+verification. Round 2 fixed several of round 1's honestly-recorded gaps
+(see the reconciliation update below); the findings that remain open are
+still recorded honestly, not hidden.
 
 ---
 
@@ -106,8 +122,8 @@ is the last commit that touched that package's content or review record.
 | Structural mapping | 18→17 chapters (spurious chapter-split merge), 1,787 paragraphs total unchanged | 17 chapters, 1,787 paragraphs, matching original-en | 17 chapters, 1,787 paragraphs, matching modern-en; `sections` array corrected in both original-en/modern-en and modern-da |
 | Review evidence | 3 independent review rounds: narrow-fix review, whole-edition review (found 5 fabricated paragraphs), targeted recheck (`WHOLE-EDITION-REVIEW.md`, `RECHECK-CH3-CH5.md`) | Same 3 rounds — see Part 3 for the exact defect-by-defect reconciliation, since this book's fabrication history is the most extensive in this assignment | 2 independent review rounds: round 1 found 10 further defects (beyond the 61 already-known-pattern fixes), fix pass + full chapter-4 manual read found 2 more, round 2 (recheck) confirmed all 12 fixes clean (`INDEPENDENT-REVIEW.md`, `RECHECK.md`) |
 | Acceptance scope | Structural fix only; explicitly NOT a re-review of the rest of original-en's prose | Whole-edition fidelity repair — gate PASSES at 0.747 (was 0.892) | Whole-edition fidelity repair, matching the English's standard |
-| Final commit | `ff67eca2` | `ff67eca2` | `06f32d9e` |
-| Unresolved | **G07-jerusalem-04 (heading fragments served as body paragraphs) is NOT fixed** — see Part 3, newly discovered during this reconciliation. Danish-scope was already reopened for Jerusalem this round, so no further scope decision pending. | Same G07-jerusalem-04 gap | Same G07-jerusalem-04 gap (inherited unchanged from original-en/modern-en) |
+| Final commit | `c8bf3715` (heading-fragment fix, round 2), `d23676f0`+`8167262b` (character-card mentions fix, round 2) | `c8bf3715`, `d23676f0`+`8167262b` | `c8bf3715` |
+| Unresolved | **G07-jerusalem-04 is now FIXED** (round 2) — see the round-2 reconciliation update below; no longer open. Character-card `modern-en` mentions/4 and mentions/6 (invalidated by the whole-edition re-render) are also now fixed and accepted as a staged candidate — see round-2 section. Danish-scope is closed per the "Danish is no longer offered" instruction; no further Danish action pending or planned for this book. | Same — both fixes apply | Heading-fragment fix applied; character-card fix is English-only (Jerusalem has no Danish character-card binding to begin with) |
 
 ### Confessions, Paradise Lost, Heart of Darkness, Discourse on Inequality, Vindication — `modern-da` only
 
@@ -133,9 +149,9 @@ is the last commit that touched that package's content or review record.
 | Source/baseline | PG #21000 (German original), same source — only the trailing transcriber's-note removal at chapter 28's final paragraph |
 | Structural mapping | 28 chapters, paragraph counts unchanged; only the content of the last paragraph trimmed |
 | Review evidence | Independent review: verified against raw source and a direct diff vs. live file — exactly one difference, ACCEPT (`faust-part-1-original-de-fix/INDEPENDENT-REVIEW.md`) |
-| Acceptance scope | This ONE fix only |
-| Final commit | `dc77f925` |
-| Unresolved | **G07-faust-part-1-15, -16, -17 are NOT fixed** — dropped speaker labels in the Vor dem Thor crowd scene, missing scene-opening stage directions/speaker labels in most scenes, and heading fragments served as text. These are separate, confirmed audit findings in `original-de` that this narrow package never addressed. See Part 3. |
+| Acceptance scope | Expanded across round 2 — see below; no longer just the chapter-28 transcriber's-note fix |
+| Final commit | `dc77f925` (transcriber's note), `6cfdcb0e` (apparatus repair: G07-faust-part-1-15/16/17), `ead1af82` (remaining attribution fixes: ch16 para5, ch21 para2, ch25 Titania/Orchester Tutti split) |
+| Unresolved | **G07-faust-part-1-15, -16, -17 are now FIXED and independently accepted** (round 2) — see the round-2 reconciliation update below. No further known apparatus/attribution defects in this edition as of this reconciliation. |
 
 ---
 
@@ -294,17 +310,183 @@ here as the single list:
 
 ---
 
-## Final completion claim
+## Round-2 reconciliation update (post-`dde75840`, through commit `48317419`)
 
-**All 16 originally-held editions are editorially accepted as content
-candidates**, each independently reviewed to the standard documented
-per-package above, plus 2 additional packages (Jerusalem `original-en`,
-Faust `original-de`) accepted on the same basis.
+Everything below happened **after** this handoff document's original
+Part 1-6 text (frozen at commit `dde75840`) and was not yet reflected
+there. It closes out most of the Part 3 "UNRESOLVED" table and adds
+5 further accepted packages (character cards, threads, onboarding) that
+Part 1's "18 packages" framing did not originally cover. Nothing below
+alters or retracts any earlier acceptance; all prior candidates remain
+accepted as documented in Parts 2-6 above except where a hash is
+explicitly updated here.
+
+### R2-1. Jerusalem — heading-fragment defect (G07-jerusalem-04) — FIXED, ACCEPTED
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/jerusalem-completeness-repair/` (English), `books/wip/jerusalem-modern-da-repair/` (Danish) |
+| What | 5 genuine-source section/book headings ("II"/"III"/"IV" internal markers in Book One; "BOOK TWO"/"BOOK THREE" transition headings in Book Eight), redundant with the existing `sections` array, had been served as standalone reading-text paragraphs at original-en chapter 1 paragraphs 55/87/132/307 and chapter 8 paragraph 235 |
+| Fix | Removed all 5 paragraphs from all three editions; verified against a fresh independent Gutenberg refetch of pg15837.txt (sha256 `cc5df0ba5e17cba5dbfebc6ce71eeb0571d8910a9e981df97cd84dcd1ebcff98`); full old→new paragraph coordinate map for chapters 1 and 8 in `PARAGRAPH-MAP.json` in the English package |
+| New candidate sha256 | `original-en`: `20d0ed3ecce5e4b440fec2e4373b337222c6a734f37f9cf769d94cecc248c48a` · `modern-en`: `47c0c1c78ef4b342c793f7ffd07dabbbe96334c67d7ca85dbfa9aafdf9f521b0` · `modern-da`: `702f29c4e1ee0785c7cbf72f29b29315154ff2ca82e769fc3ae6d2475449dc2c` (all supersede the hashes in Part 2's Jerusalem table, which predate this fix) |
+| Commit | `c8bf3715` |
+| Disposition | **G07-jerusalem-04 moves from UNRESOLVED to FIXED.** Applies to all 3 editions. |
+
+### R2-2. Jerusalem character-card mentions — FIXED, ACCEPTED (staged candidate, not a live character-card edit)
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/jerusalem-completeness-repair/CHARACTER-CARD-MENTIONS-FIX.json` |
+| What | Codex's own projection against the repaired `modern-en` text found 2 stale character-card anchors, invalidated by the whole-edition re-render: `mentions/4` (gertrude, ch2/para8 — sentence rewritten) and `mentions/6` (hellgum, ch7/para38 — one word inserted) |
+| Fix | Both re-anchored against the current, final `modern-en` text (sha256 `47c0c1c78ef4b342c793f7ffd07dabbbe96334c67d7ca85dbfa9aafdf9f521b0`, unchanged by this fix — only the card's coordinates changed). Coordinates unaffected by the heading-fragment fix above (different chapters) — explicitly rechecked. |
+| Independent review | Found and fixed one off-by-one `endOffset` error (143→142, a stray trailing comma) in the Hellgum replacement; the Gertrude replacement was correct on first pass. Agent `a216347bb761e7f67`. |
+| Commits | `d23676f0` (fix + correction), `8167262b` (acceptance record) |
+| Disposition | Staged replacement values for the live character card's `mentions/4` and `mentions/6`, ready for Codex to apply. This is a content deliverable, not a live character-card edit — the live file at `app/public/data/characters/jerusalem.v1.json` was never touched. |
+
+### R2-3. Faust `original-de` — apparatus repair (G07-faust-part-1-15/16/17) — FIXED, ACCEPTED
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/faust-part-1-original-de-fix/editions/faust-part-1-original-de.json` |
+| What (first pass) | Dropped speaker labels in the "Vor dem Thor" crowd scene (5.0-5.10, 5.19); missing scene-opening stage directions/speaker labels in ~17 scenes; PG heading fragments/`#...#` typographic markup served as reading text |
+| Fix | Careful line-by-line comparison against `books/raw/faust-part-1/raw-de.txt` (PG #21000, sha256 `f6d90c084da1576820da37f76b10ddd0d560d51638643d7f65985aea2980ddc4`); restored genuine attributions/structure, removed only non-Goethe apparatus — no Goethe dialogue or verse deleted |
+| Commit | `6cfdcb0e` |
+| Disposition | **G07-faust-part-1-15, -16, -17 move from UNRESOLVED to FIXED** as of this pass. (A further, separate 3-item remaining-attribution gap was found and closed in R2-4 below.) |
+
+### R2-4. Faust `original-de` — remaining attribution fixes (ch16/21/25) — FIXED, ACCEPTED
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/faust-part-1-original-de-fix/editions/faust-part-1-original-de.json` (same file, further edited) |
+| What | 3 defects left open by R2-3's own repair: ch16 para5 (unlabeled Margarete line), ch21 para2 (unlabeled Gretchen prayer — required picking the correct one of the file's two legitimately-alternating spellings, resolved by the raw source's explicit "_Gretchen._" label and this chapter's position among the file's already-established GRETCHEN-labeled scenes), ch25 para7 (Titania's speech, a stage direction, and the chorus's speech glued into one unlabeled paragraph) |
+| Fix | ch16/21: prefixed the correct speaker label. ch25: split the one paragraph into three (Titania's speech / `[Fortissimo.]` stage direction / `ORCHESTER TUTTI.` speech), verified byte-for-byte that no underlying text was lost or duplicated in the split |
+| New candidate sha256 | `3e69f81d08d33c8b3aae0d7c1c7b05757f6944317ba68ff754a0f2aaf4b2f66c` (28 chapters, 1,095 paragraphs, was 1,093 — supersedes the sha in Part 2's `original-de` row) |
+| Independent review | Agent `a840ce559dbd4ac9c` — ACCEPT. Verified both label choices and the chapter-25 split directly against raw source; confirmed the GRETCHEN/MARGARETE choice consistent with the file's own established chapter-scoped pattern; diffed all 28 chapters against the prior accepted state — only chapters 16/21/25 changed, exactly as described. |
+| Commit | `ead1af82` |
+| Disposition | Closes out all known apparatus/attribution defects in `original-de` as of this reconciliation — no further open findings for this edition. |
+
+### R2-5. Faust replacement character card — NEW package, ACCEPTED (staged candidate, not live)
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/faust-part-1-character-card/faust-part-1.v1.json`, compiler `books/characters/build_faust_part_1.py` |
+| Why needed | The live character card was built against the old, now-fully-replaced Hayward/Buchheim-OCR source; the accepted Taylor replacement (895→1,060 paragraphs) changed the underlying wording throughout, invalidating every old mention/snapshot coordinate |
+| Method | Reused the old card's 16 characters' translation-independent editorial content (id/kind/storyRole/snapshot bios); wrote a fresh compiler and re-derived every mention from scratch against both accepted replacement editions — per instruction, did NOT mechanically shift the old coordinates |
+| Candidate sha256 | `26c8dba4baaecd3f2fe19a2082cf5f0172afb88ae589786569445361c53d3df0` (16 characters; `original-en` 804 mentions, `modern-en` 865 mentions) |
+| Independent review, round 1 | Agent `ab8bbcd416f2f382f` — **DO NOT ACCEPT**: found the compiler's speaker-tag regex missed the common `NAME (stage direction). dialogue` pattern, dropping ~81-83 mentions per edition (~10-11%) and producing 2 wrong `firstMention` coordinates (valentine, martha). Also flagged a non-blocking, inherited (not newly introduced) gap: "Lisbeth" (chapter 20, 7 speaker-tagged lines) is absent from both the old and this card. |
+| Fix | Widened the regex to `^([A-Z][A-Z ]+?)(?:\s*\([^)]*\))?\.\s`; rebuilt |
+| Independent review, round 2 (recheck) | Agent `a14f1d91051bdfcc0` — **ACCEPT**. Independently re-derived the missed pattern from scratch (not reusing the compiler), got exactly 81/83 matches; confirmed valentine/martha now resolve to their true earliest paragraphs; confirmed zero regression on 5 previously-correct mentions. |
+| Commits | `0509ae15` (staged, buggy v1), `5d6facb8` (regex fix, rebuild), `48317419` (acceptance record) |
+| Disposition | Accepted for integration; not live. Authored through this session's own compiler, not the separate `books/characters/` remote authoring queue — flagged in the package for that queue's owners to verify or supersede, not to be silently overwritten by it. The Lisbeth gap remains a documented, non-blocking, inherited scope gap — not fixed here, not hidden. |
+
+### R2-6. Faust onboarding — naming-mismatch fix — FIXED, ACCEPTED (companion to R2-5)
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/faust-part-1-onboarding-fix/onboarding/faust-part-1.json` |
+| What | While confirming onboarding matched the accepted Taylor text (per instruction), found stale "Gretchen (Margarete)" and "Valentin" naming throughout `cast`, `about`, `whyItMattersItems`, a separate `whyItMatters` field, `angleCards`, `cast[4].role`, and `preReadingChat` — 22+ occurrences, none matching Taylor's actual "Margaret"/"Valentine" |
+| Fix | Recursive whole-tree string replacement across the entire onboarding JSON structure (not a piecemeal field-by-field pass, which had initially missed several fields); re-verified zero remaining "Gretchen"/non-"Valentine" "Valentin" occurrences |
+| Candidate sha256 | `2c4cf99ed872857bfe59c16d7eea3dbe96fcaf08eeb97fc5c01895c8296b244c` |
+| Commit | `0509ae15` |
+| Disposition | Accepted as part of the R2-5 review round. Danish onboarding (`faust-part-1.da.json`) explicitly confirmed untouched — no Danish work performed, per scope. |
+
+### R2-7. As You Like It — threads re-keying + onboarding opening fix — FIXED, ACCEPTED
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/as-you-like-it-onboarding-threads-fix/` |
+| What | (a) `as-you-like-it-threads.json` re-keyed from the old 17-chapter numbering to the accepted 23-chapter structure for the 5 characters whose chapters split; each of the 5 split-chapter placements (old ch 2, 8, 12, 14, 17) determined by reading the actual scene content at both new-chapter halves, not assumed. (b) onboarding `openingChapterLabel`/`openingText` (English and Danish) corrected to quote the real, newly-restored Act 1 Scene 1 opening instead of the old Act 1 Scene 2 opening. |
+| Independent review | Round 1 found 3 defects: 2 pre-existing bugs in the live threads file (Orlando's and Jaques's entries at 2 non-split old chapters described content belonging to a different chapter — pre-dating this session's own re-keying) plus 1 epilogue-clause split gap (the "Delivers the epilogue" clause needed its own new chapter-23 entry). All 3 fixed; round 2 recheck confirmed all 3 fixes accurate, no side effects on Celia/Touchstone's unrelated entries. |
+| Candidate sha256 | `threads/as-you-like-it-threads.json`: `e45c53e648d6fc9143886cbbf9284cf5139dbb4d25ec27ce29109a8b2799d85c` · `onboarding/as-you-like-it.json`: `b6f95d6ead2408c755b2c2e3be4aee3c51b46efa4102e2407bd1d621212ccbf0` · `onboarding/as-you-like-it.da.json`: `571bc6e20ce4f356a381cfb49a386af478621cb404371133cc0bd5c1336dcd5e` |
+| Commits | `f951c6b2` (staged), `90317994` (accepted) |
+| Disposition | Accepted for integration; not live. New chapter 23/Epilogue's own lack of prior thread coverage is documented as a genuine gap, not invented content. Rights/provenance question from Part 5 is unaffected and remains open. |
+
+### R2-8. Discourse on Inequality — Appendix and footnotes restoration — FIXED, ACCEPTED (English and Danish)
+
+| Item | Value |
+|---|---|
+| Package | `books/wip/discourse-on-inequality-frontmatter-repair/` (English), `books/wip/discourse-on-inequality-modern-da-repair/` (Danish) |
+| What | G09-discourse-on-inequality-02: Cole's Appendix (Rousseau's Note IX, 3,112 words) and 9 footnotes were entirely missing from `original-en`/`modern-en`/`modern-da`, with citation markers left dangling |
+| Fix | Restored from Cole's translation (PG #46333, sha256 `65b006fe7288b2dd82c7c32f5b4c0fdd392407c3bc04ae8c822ea8f8723603de`): new chapter 5 ("Appendix"/"Tillæg", 16 paragraphs) plus 8 footnotes inserted as standalone paragraphs immediately after their citation markers (4 in chapter 3, 4 in chapter 4), matching the project's established footnote-paragraph convention |
+| Independent review | English: found and fixed one further defect via cross-reference against constitution.org's copy of Cole's translation — a missing semicolon in the Appendix's closing paragraph that had garbled a four-clause parallel list. Danish: confirmed exact structural/paragraph-count parity with the accepted English, full read of all 24 new Danish paragraphs against English (sentence counts 1:1, length ratios 0.80-1.14), independently verified the translator's own cross-reference claim (a repeated term matched chapter 3 paragraph 16 exactly) rather than accepting it asserted. |
+| Candidate sha256 | `original-en`: `6df7da14bcd7bb997f68a61890ef96f8205ffe02ab629f5e8aeac24153fa45be` · `modern-en`: `2fba90eed46eed2611730f8b9e43e1eeadd54e7e48bbe64ad24a271399df5fc6` · `modern-da`: `3bb05f3a7eefeef7ccf770f8ffca28feca628a52afa56653724cadc661171c21` (5 chapters: 26/25/56/71/16 paragraphs, matching across all 3 editions) — `CHANGELOG.json` (sha256 `121e201514039c5378597e0388b21ad5c46648235b6ed8fd741be071790d992f`) gives the exact coordinate map |
+| Commits | `45d98976` (English accepted), `6740762b` (Danish staged), `a5e89816` (Danish accepted) |
+| Disposition | **G09-discourse-on-inequality-02 moves from UNRESOLVED to FIXED**, all 3 editions. Supersedes the "Discourse: None within scope" `original-en`/`modern-en` rows implied by Part 2's Vindication/Confessions/etc. table (that table only covered the chapter-4 Danish translation, not this Appendix/footnote gap, which is a separate finding). |
+
+### R2-9. Paradise Lost — Arguments and "The Verse" restoration — FIXED and ACCEPTED (English); Danish IN-FLIGHT, NOT CHASED FURTHER
+
+| Item | Value |
+|---|---|
+| Package (English) | `books/wip/paradise-lost-frontmatter-repair/` |
+| What | G10-paradise-lost-01 (Milton's 12 prose Arguments, 2,399 words) and G10-paradise-lost-02 ("The Verse," 236 words) were missing from all editions |
+| Fix | Restored Milton's 12 Arguments (Standard Ebooks source, sha256 `81b6f57a9c72d91bce4b46892fefd2e83c48088c0cc9a78a67812996eef0d005` — matching the audit's own citation) and "The Verse" (Wikisource) as new LEADING paragraphs within each of the 12 existing Book chapters, not as new chapters — deliberately avoiding renumbering all 12 Books and breaking coordinate-dependent systems |
+| Front-matter-vs-principal-text distinction | Documented per instruction: the 12 Arguments are closer to reading content (chapter-opening plot summaries); "The Verse" is more purely optional paratext. Both restored; their prior absence is explicitly noted as not, by itself, a publication/visibility blocker either way. |
+| Candidate sha256 (English) | `original-en`: `1ef6b3667859b7d4e5bd7c9e615880395687fb3b4df67a1dd9829f3adcd9398c` · `modern-en`: `32e8c716ccc80f93df1aa4761718642f9c86997682fb4af0a55ec0c8ed1bde32` — `CHANGELOG.json` (sha256 `e0f4542a0d169ee228e09aed97942e2b85f59bbc224bbd80a65bd33297288fb7`) gives the exact paragraph-insertion coordinates per Book |
+| Commits (English) | `aab1d500` (staged), `4f00c8be` (accepted) |
+| Danish | A Danish translation of the same front matter was drafted and merged into the Danish candidate at `books/wip/paradise-lost-modern-da-repair/editions/paradise-lost-modern-da.json` (current sha256 `a6885a77e8d287577cb78cbc56d5b7b9a515bfa8e8f0aef48e7e93e57f3b735f`), structure-verified against the accepted English (matching chapter/paragraph counts), and an independent review was dispatched — **but no review completion was ever confirmed before the "Danish is no longer offered" instruction arrived.** Per that instruction, this is not being chased further. Its acceptance status is genuinely unresolved — treat the Danish front-matter addition as **staged, unreviewed, not accepted** until/unless Anders reopens Danish scope. |
+| Disposition | **G10-paradise-lost-01 and -02 move from UNRESOLVED to FIXED for the English editions only.** For `modern-da`, the same gap's restoration exists as an unreviewed draft in the staged file — reported honestly as incomplete, not claimed as accepted. |
+
+### Danish scope closure note
+
+Per the most recent instruction ("Danish is no longer offered: do not
+start further Danish work or make it a prerequisite for English
+publication"), every earlier "Danish-scope decision needed" flag in
+Parts 2 and 3 above (Macbeth, As You Like It, Jerusalem) is now moot —
+those were about *whether* to do Danish work, and that question is
+closed. This does not undo the Danish work already completed and
+accepted in round 1 (Macbeth, As You Like It, Faust, Jerusalem,
+Discourse `modern-da` all remain accepted candidates as documented in
+Part 2) — it only means no further Danish translation/repair/review was
+started or will be chased in round 2, Paradise Lost's in-flight review
+(R2-9 above) included.
+
+### Updated Part 3 status (superseding the three UNRESOLVED rows below)
+
+The following rows from Part 3's "UNRESOLVED" table are now closed,
+per R2-1 through R2-9 above — do not read Part 3 above this section as
+current for these six finding IDs:
+
+| Finding ID | Old status (Part 3, as written at `dde75840`) | Current status |
+|---|---|---|
+| G07-jerusalem-04 | UNRESOLVED | **FIXED**, all 3 editions — R2-1 |
+| G07-faust-part-1-15 | UNRESOLVED | **FIXED** — R2-3 |
+| G07-faust-part-1-16 | UNRESOLVED | **FIXED** — R2-3 |
+| G07-faust-part-1-17 | UNRESOLVED | **FIXED** — R2-3 |
+| G09-discourse-on-inequality-02 | UNRESOLVED | **FIXED**, all 3 editions (English + Danish) — R2-8 |
+| G10-paradise-lost-01 | UNRESOLVED | **FIXED for English** (`original-en`, `modern-en`); Danish restoration drafted but unreviewed, not accepted — R2-9 |
+| G10-paradise-lost-02 | UNRESOLVED | **FIXED for English**; Danish same caveat as above — R2-9 |
+
+Still genuinely unresolved, unchanged from Part 3's original assessment:
+`V06-NEW-1` (Jaques's bequest speech unlabelled), `V06-NEW-2` (duplicate
+EPILOGUE heading) — both low-severity (S4), never in scope for any round-2
+task, confirmed still present, not touched. The Faust card's "Lisbeth" gap
+(R2-5) is a newly-documented, non-blocking, inherited scope gap, not a
+regression.
+
+---
+
+## Final completion claim (updated through commit `48317419`)
+
+**All 16 originally-held editions remain editorially accepted as content
+candidates**, plus 2 round-1 additional packages (Jerusalem `original-en`,
+Faust `original-de`) and **7 further round-2 packages** (R2-1 through
+R2-9 above: Jerusalem heading-fragment fix, Jerusalem character-card
+mentions fix, Faust `original-de` apparatus + remaining-attribution
+fixes, Faust's replacement character card, Faust's onboarding naming
+fix, As You Like It's threads/onboarding fix, Discourse's Appendix/
+footnote restoration in English and Danish, and Paradise Lost's
+Arguments/Verse restoration in English) — each independently reviewed to
+the standard documented per-package above.
 
 **This is not a claim that all defects are fixed live**, that
 publication is safe without Codex's own verification, or that every
-finding in the broader library audit — or even every confirmed finding
-for these 9 books — has been resolved. Part 3 above lists the specific
-confirmed findings this assignment did not fix, discovered or
-reconfirmed during this final reconciliation, so that gap is explicit
-rather than implied by the packages' silence.
+finding in the broader library audit has been resolved. What changed
+since the original Part 3 table: 6 of its 8 named UNRESOLVED finding IDs
+are now fixed (see the table just above); genuinely still open are
+Paradise Lost's Danish front-matter (drafted, unreviewed — not chased
+further per the Danish-scope closure), and the two low-severity As You
+Like It findings (`V06-NEW-1`, `V06-NEW-2`), which were never in this
+assignment's named scope. Nothing here is claimed fixed live: every
+package above is a staged, reviewed candidate under `books/wip/**`,
+awaiting Codex's own integration verification and the serialized
+publication process.
