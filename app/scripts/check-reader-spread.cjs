@@ -92,11 +92,18 @@ for(const {fontSize,chapter,height} of [
    probe.lang=lang;
    for(const sample of ['uncompromising;','hyphenation','internationalization']){
     word.textContent=sample;let split=null;
-    for(let w=80;w<=650;w+=2){
-     probe.style.width=w+'px';
+    const lineCount=()=>{
      const tops=[];
-     for(let i=0;i<sample.length;i++){const range=document.createRange();range.setStart(word.firstChild,i);range.setEnd(word.firstChild,i+1);tops.push(range.getBoundingClientRect().top);}
-     if(new Set(tops).size>1){split=w;break;}
+     for(let i=0;i<sample.length;i++){const range=document.createRange();range.setStart(word.firstChild,i);range.setEnd(word.firstChild,i+1);tops.push(Math.round(range.getBoundingClientRect().top));}
+     return new Set(tops).size;
+    };
+    for(let w=280;w<=650;w+=2){
+     probe.style.width=w+'px';
+     probe.style.hyphens='none';probe.style.webkitHyphens='none';const without=lineCount();
+     probe.style.hyphens='auto';probe.style.webkitHyphens='auto';const withHyphens=lineCount();
+     // Reject emergency wrapping: only dictionary hyphenation may split
+     // a word that otherwise stays whole at this identical width.
+     if(without===1&&withHyphens>1){split=w;break;}
     }
     probes.push({lang,sample,split});
     if(lang==='en'&&sample==='uncompromising;')width=split;
