@@ -74,6 +74,21 @@ rewrite of ~1,300 paragraphs, is the honest call per `books/AGENTS.md`'s
 own gate requirement ("A prose claim that a rendering is 'real' does not
 substitute for a passing gate").
 
+**Independent review's spot-check confirms this is not confined to the 17
+listed locations.** Reviewing chapter 1 beyond the fixed locations turned up
+the same truncation-plus-fabrication pattern, uncaught by this package, at
+paragraphs 8, 16, 20, 21 and 47, and chapter 5 paragraph 12 (an invented
+Bible-text quotation). Paragraph 21 is plot-relevant, not just stylistic:
+the original reveals Brita is pregnant (setting up the later
+strangled-infant plot point that paragraph 24, one of the 17 this package
+did fix, depends on), and the live modern-en instead invents an unrelated
+near-breakup scene, silently dropping the pregnancy reveal. These are
+recorded here so the 17-location list in this package is not mistaken for
+an exhaustive catalog of the defect class — it is a confirmed sample, not
+the full extent. The full re-render recommended below should treat every
+LIGHT/MECHANICAL chapter as suspect for this same fabrication pattern, not
+only run a mechanical similarity check.
+
 **Recommendation:** treat "Jerusalem modern-en full re-render" as its own
 follow-up content assignment, comparable in scope to adding a new book's
 modern-en from scratch (~1,300 paragraphs across 14 chapters). This
@@ -96,11 +111,18 @@ modern-en repaired."
 
 | Item | Value |
 |---|---|
-| `editions/jerusalem-original-en.json` | sha256 `7a03b91bf749dbe509efc6881f8e07c5b8112e7da6af15348720da546d279bd8` — 17 chapters, 1,787 paragraphs (was 18 chapters, 1,787 paragraphs — same total, one fewer chapter boundary, one paragraph's text completed) |
-| `editions/jerusalem-modern-en.json` | sha256 `a63bddc006a68b157c855753f3ed1e9caae197a5af17db86766a106587c0e9cf` — 17 chapters, 1,787 paragraphs |
+| `editions/jerusalem-original-en.json` | sha256 `abc0618b87f5384b803432bf430fcdab4c31280924460609e9efc7c17286d407` — 17 chapters, 1,787 paragraphs (was 18 chapters, 1,787 paragraphs — same total, one fewer chapter boundary, one paragraph's text completed) |
+| `editions/jerusalem-modern-en.json` | sha256 `ae1c6461b8468cf3a7185f65fe98c948c983bffea19e10fdfc2a49851046bc06` — 17 chapters, 1,787 paragraphs |
 | Replaces live sha256 | original-en `747b53bedd58d9ba65877185247a8545dac4bddcd1e8219cf5315da00cdac47c`; modern-en `6cdbf3a5904a26d5edffc0ad45325f29af16e8cd6bc0a959f92450c3b33c00ee` (both match the audit's reported first-16 prefixes) |
 | Alignment | All 17 chapters have equal paragraph counts in both editions (verified programmatically) |
 | Similarity gate | **FAILS** for the reasons above — this is expected and disclosed, not a defect in what this package actually changed. The 17 rewritten paragraphs and the merged chapter 9 are, on their own, genuine modern renderings; the gate failure is driven entirely by the ~1,300 untouched paragraphs elsewhere in the book. |
+
+**Post-review correction:** independent review found that the top-level
+`sections` array (Book/TOC navigation) was not updated in either candidate
+file — "Book Three" still listed chapters `[9, 10, ..., 18]`, but chapter 18
+no longer exists after the merge. Fixed: "Book Three" now lists
+`[9, 10, ..., 17]` in both `editions/jerusalem-original-en.json` and
+`editions/jerusalem-modern-en.json`. Hashes above reflect the fix.
 
 ## Paragraph map
 
