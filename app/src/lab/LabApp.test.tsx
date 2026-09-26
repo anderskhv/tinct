@@ -4840,3 +4840,34 @@ it('opens and copies the complete saved mark when it ends early in a later parag
   const expected=[source.paragraphs[0].split(/\s+/).slice(5).join(' '),source.paragraphs[1].split(/\s+/).slice(0,2).join(' ')].join(' ')
   await waitFor(()=>expect(copied).toHaveBeenCalledWith(expected))
 })
+
+it.each(['/lab/desktop', '/lab/phone'])('Play restarts the first visible word, without moving the page during loading (%s)', async pathname => {
+  const audio = new FakeAudio()
+  audio.duration = 500
+  vi.stubGlobal('Audio', class { constructor() { return audio } })
+  render(<LabApp pathname={pathname} search="?chrome=v2" source={sourceWithManyWords()} />)
+  const play = () => fireEvent.click(screen.getByTestId('lab-v2-play'))
+  const firstWord = () => screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!
+  play()
+  await waitFor(() => expect(audio.paused).toBe(false))
+  // Pause several words into the first page: Play must not resume that cursor.
+  audio.currentTime = 1.5
+  act(() => audio.emit('timeupdate'))
+  play()
+  const firstIndex = Number(firstWord().dataset.wordIndex)
+  play()
+  await waitFor(() => expect(audio.currentTime).toBe(firstIndex * 0.3))
+  play()
+  fireEvent.click(screen.getByTestId('lab-page-next'))
+  const pageWord = firstWord().textContent
+  const index = Number(firstWord().dataset.wordIndex)
+  expect(index).toBeGreaterThan(firstIndex)
+  let started!: () => void
+  audio.play = () => { audio.paused = false; return new Promise<void>(resolve => { started = resolve }) }
+  play()
+  await waitFor(() => expect(audio.currentTime).toBe(index * 0.3))
+  // The previous follow position must not move the page while play() is pending.
+  expect(firstWord().textContent).toBe(pageWord)
+  await act(async () => { started() })
+  expect(firstWord().textContent).toBe(pageWord)
+})

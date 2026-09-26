@@ -2777,7 +2777,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       : chromeV2 ? desktopProgressLabel : desktopPaging ? desktopProgressLabel : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
-    if (!showHearing) return
+    if (!showHearing || listen.pending) return
     const follow = listen.follow
     const pageIdx = Math.max(0, Math.min(readingPageIndex, Math.max(0, readingPages.length - 1)))
     if (browseWhileListeningRef.current) {
@@ -2825,10 +2825,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         return next === current ? current : next
       })
     }
-  }, [listen.follow, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, listen.clipIndex, listen.currentTime])
+  }, [listen.follow, listen.pending, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, listen.clipIndex, listen.currentTime])
 
   useEffect(() => {
-    if (!showHearing || !listen.playing || browseWhileListeningRef.current) return
+    if (!showHearing || listen.pending || !listen.playing || browseWhileListeningRef.current) return
     const follow = listen.follow
     if (follow.kind !== 'word' && follow.kind !== 'paragraph') return
     if (!showPhoneChrome && (followOnReadingPage(follow, readingPages, readingPageIndexRef.current) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndexRef.current + 1))) return
@@ -2841,7 +2841,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (anchor) pageAnchorRef.current = anchor
     readingPageIndexRef.current = next
     setReadingPageIndex(next)
-  }, [readingPages, showHearing, showPhoneChrome, desktopSpread, listen.playing, listen.follow])
+  }, [readingPages, showHearing, showPhoneChrome, desktopSpread, listen.pending, listen.playing, listen.follow])
 
   useEffect(() => {
     if ((book.bookId || 'bible') !== 'bible') return
@@ -3595,17 +3595,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const visiblePlace = Number.isInteger(visibleParagraphIndex) && Number.isInteger(visibleWordIndex)
       ? { paragraphIndex: visibleParagraphIndex, wordIndex: visibleWordIndex }
       : null
-    const place = (!showPhoneChrome ? visiblePlace : null) ?? (page
+    const place = visiblePlace ?? (page
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
-    const follow = listen.follow
-    const onThisPage = listeningHere && follow.kind === 'word' && (showPhoneChrome && !chromeV2
-      ? !!page && follow.paragraphIndex === page.paragraphIndex
-        && follow.wordIndex >= page.from && follow.wordIndex < page.to
-      : followOnReadingPage(follow, readingPages, readingPageIndex))
-    placeRef.current = onThisPage
-      ? { paragraphIndex: follow.paragraphIndex, wordIndex: follow.wordIndex }
-      : place
+    // Reader Play starts the visible page. A saved audio cursor can belong
+    // to an earlier page (or a later word on this page), so never resume it here.
+    placeRef.current = place
     if (chromeV2) {
       const head = pageAnchorOf(page)
       pageAnchorRef.current = head
@@ -3624,8 +3619,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPeekBook(false)
     setInTheBookOpen(false)
     notePlace('play')
-    if (listen.src && onThisPage) listen.resume()
-    else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
+    void listen.startAtPlace(place)
   }, [temporaryHold, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
