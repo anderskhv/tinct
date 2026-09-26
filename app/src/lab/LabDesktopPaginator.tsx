@@ -4,7 +4,7 @@ import { fitChapterEnd } from './labChapterEndPaging'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
-import { segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
+import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
 import { labMeasureParagraphInto } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
@@ -115,7 +115,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
   chapterActions?: boolean; hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
-  onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null) => void
+  onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null, endInFooter?: boolean) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const callbackRef = useRef(onPages)
@@ -166,8 +166,8 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           const makeParagraph = (segment: ChapterPageSegment, words: ReturnType<typeof tokenizeHearingWords>[], texts: string[]) => {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
-            // The measured and visible desktop pages both use ordinary word
-            // wrapping without hyphenation, and both carry the painted word
+            // The measured and visible desktop pages share dictionary
+            // hyphenation and both carry the painted word
             // markup. A plain-text probe measured a verse number as full-size
             // body digits in a strut-height line; painted it is a small
             // superscript inside a taller inline-block, so pages were packed
@@ -213,7 +213,15 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           let pages = measuredDesktopPages(source.map(words => words.length), fits, hyphenLang && hyphensReady
             ? (paragraphIndex, wordIndex) => hyphenationBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang)
             : undefined)
-          if (chapterActions) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
+          let endInFooter = false
+          if (chapterActions && pages.length) {
+            const lastFits = fits(chapterPageSegments(pages[pages.length - 1]), pages.length === 1, true)
+            // The bottom padding is already reserved for folios. Only borrow
+            // it if the complete action row fits; the matching folio is hidden.
+            const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 16
+            endInFooter = !comparison && !lastFits && !!end && end.getBoundingClientRect().height <= footerSpace
+            if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
+          }
           if (end) end.hidden = true
           header.hidden = true
           const capacityProbe = document.createElement('p')
@@ -227,7 +235,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           rows.replaceChildren(capacityRow)
           const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
           rows.replaceChildren()
-          callbackRef.current(pages, paragraphs, layoutKey, capacity)
+          callbackRef.current(pages, paragraphs, layoutKey, capacity, endInFooter)
         })
       })
     }

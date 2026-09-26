@@ -893,6 +893,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   settleIndexRef.current = settleIndex
   const pagesStableRef = useRef(false)
   const unmeasuredTriesRef = useRef(0)
+  const consumedOpeningRef = useRef<{ bookId: string; editionKey: string; chapterNumber: number; anchor: { paragraphIndex: number; wordIndex: number } } | null>(null)
   const chapterLandingRef = useRef<'start' | 'end' | null>(null)
   const landingChapterRef = useRef<number | null>(null)
   const handoffPlace = readerHandoff
@@ -2453,7 +2454,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     fullscreen ? 'fullscreen' : 'windowed',
   ].join(':')
   const desktopLayoutKey = `${layoutKeyFor(readerEditionKey)}:${desktopCompareActive}:${book.bookId}`
-  const applyDesktopPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null) => {
+  const [desktopEndInFooter, setDesktopEndInFooter] = useState(false)
+  const applyDesktopPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null, endInFooter = false) => {
+    if (content !== nativeContentRef.current) return
+    setDesktopEndInFooter(endInFooter)
     applyNativePages(pages, content)
     setDesktopMeasuredKey(key)
     setDesktopLeafCapacity(capacity)
@@ -2575,8 +2579,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? `${book.bookId || 'bible'}:${readerEditionKey}:${nextChapterNumber}`
     : null
   const [nextOpening, setNextOpening] = useState<{ key: string; title: string; paragraphs: string[] } | null>(null)
-  const [nextOpeningPage, setNextOpeningPage] = useState<{ key: string; paragraphs: string[]; page: ChapterHearingPage } | null>(null)
-  const nextOpeningWordBudget = 3 * (desktopLeafCapacity?.wordsPerPage ?? 400)
+  const [nextOpeningPage, setNextOpeningPage] = useState<{ key: string; paragraphs: string[]; page: ChapterHearingPage; continuation: { paragraphIndex: number; wordIndex: number } | null } | null>(null)
   useEffect(() => {
     if (!nextOpeningKey || nextChapterNumber == null || !nextChapterTitle || nextOpening?.key === nextOpeningKey) return
     let live = true
@@ -2585,21 +2588,22 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       version: typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : undefined,
     }).then(chapter => {
       if (!live || !chapter?.paragraphs.length) return
-      // Only the opening is measured: enough text to fill more than one leaf.
-      const paragraphs: string[] = []
-      let words = 0
-      for (const paragraph of chapter.paragraphs) {
-        paragraphs.push(paragraph)
-        words += tokenizeHearingWords(paragraph).length
-        if (words >= nextOpeningWordBudget) break
-      }
-      setNextOpening({ key: nextOpeningKey, title: nextChapterTitle, paragraphs })
+      // Use the same complete source as the destination paginator. A truncated
+      // sample can mistake its last paragraph for the real chapter ending.
+      setNextOpening({ key: nextOpeningKey, title: nextChapterTitle, paragraphs: chapter.paragraphs })
     }).catch(() => {})
     return () => { live = false }
   }, [nextOpeningKey])
   const applyNextOpeningPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string) => {
-    setNextOpeningPage(pages[0] ? { key, paragraphs: content, page: pages[0] } : null)
+    setNextOpeningPage(pages[0] ? { key, paragraphs: content, page: pages[0], continuation: pageAnchorOf(pages[1]) } : null)
   }, [])
+  const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
+  const nextOpeningLayoutKey = `${desktopLayoutKey}:next:${nextOpeningKey ?? ''}`
+  const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
+    && readingPages.length > 0 && readingPageIndex >= readingPages.length - 1
+    && (nextOpeningPage.continuation || nextLabChapter(book.chapters, nextChapterNumber!) != null)
+    ? { title: nextOpeningCurrent.title, paragraphs: nextOpeningCurrent.paragraphs, page: nextOpeningPage.page }
+    : undefined
   const showReaderRail = !frontispieceVisible && !fullscreen && (desktopPaging || labShowReaderRail({
     phoneAsk,
     phoneChrome: showPhoneChrome,
@@ -3171,7 +3175,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     notePlace('mode-change')
   }, [desktopCompareActive, desktopCompareEnabled, notePlace])
 
-  const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+  const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end', continuation?: { paragraphIndex: number; wordIndex: number }) => {
     setRecentChapterReturn(null)
     const navigation = ++chapterNavigationRef.current
     if (listen.playing) {
@@ -3225,11 +3229,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ) return
     setReaderLoadError('')
     setChapterCoverTitle(null)
+    consumedOpeningRef.current = continuation
+      ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
+      : null
+    if (continuation) {
+      restorePlaceRef.current = continuation
+      pageAnchorRef.current = continuation
+      placeRef.current = continuation
+    }
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen.playing, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
-  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false) => {
+  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false, continuation?: { paragraphIndex: number; wordIndex: number }) => {
     setRecentChapterReturn(null)
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
@@ -3306,6 +3318,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       followParagraphs: loaded.followParagraphs,
       audioTitle: loaded.audioTitle,
     })
+    consumedOpeningRef.current = continuation
+      ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
+      : null
+    if (continuation) {
+      restorePlaceRef.current = continuation
+      pageAnchorRef.current = continuation
+      placeRef.current = continuation
+    }
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
@@ -3432,10 +3452,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // depending on a reading-memory session that may since have been pruned.
     if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next != null) {
-      if (listen.playing) void browseToChapter(next, 'start')
-      else void goToChapter(next, 'start')
+      // Only consume text actually painted on the outgoing right leaf.
+      // The target is a source-word anchor, never a guessed page offset.
+      const opening = desktopSpread && nextChapterOpening ? nextOpeningPage : null
+      const continuation = opening?.continuation ?? undefined
+      const afterOpening = opening && !continuation ? nextLabChapter(book.chapters, next) : null
+      if (afterOpening != null && !temporaryHold) markChapterFinished(next)
+      const target = afterOpening ?? next
+      if (listen.playing) void browseToChapter(target, 'start', continuation)
+      else void goToChapter(target, 'start', false, continuation)
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage])
 
   const goPrev = useCallback(() => {
     quietDesktopAfterTurn()
@@ -3459,7 +3486,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setChapterCoverTitle(openingTitle)
       return
     }
-    const prevPage = desktopSpread ? (index > 0 ? Math.max(0, index - 2) : null) : adjacentPageIndex(pages.length, index, -1)
+    const consumed = consumedOpeningRef.current
+    const firstAfterOpening = desktopSpread && consumed?.bookId === (book.bookId || 'bible')
+      && consumed.editionKey === readerEditionKey && consumed.chapterNumber === book.chapterNumber
+      ? pageIndexForPlace(pages, consumed.anchor.paragraphIndex, consumed.anchor.wordIndex) : 0
+    const prevPage = desktopSpread ? (index > firstAfterOpening ? Math.max(firstAfterOpening, index - 2) : null) : adjacentPageIndex(pages.length, index, -1)
     if (prevPage != null) {
       goToPage(prevPage)
       return
@@ -3469,7 +3500,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn])
+  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
@@ -4027,12 +4058,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
   }, [chromeV2, handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
 
-  const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
-  const nextOpeningLayoutKey = `${desktopLayoutKey}:next:${nextOpeningKey ?? ''}`
-  const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
-    && readingPages.length > 0 && readingPageIndex >= readingPages.length - 1
-    ? { title: nextOpeningCurrent.title, paragraphs: nextOpeningCurrent.paragraphs, page: nextOpeningPage.page }
-    : undefined
   const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
     && readingPageIndex + (desktopSpread ? 1 : 0) >= readingPages.length - 1
@@ -4380,6 +4405,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onPreviewChapter={chromeV2 ? () => handleChapterChat('preview') : undefined}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
+              docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
             /> : undefined}

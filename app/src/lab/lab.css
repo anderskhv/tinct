@@ -7313,8 +7313,11 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-measure .lab-hearing-line {
   font-size: calc(1.42rem * (var(--lab-font-size, 1.3) / 1.3));
   line-height: var(--lab-line-height, 1.48);
-  hyphens: none;
-  -webkit-hyphens: none;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
   text-wrap: wrap;
   margin: 0 0 var(--lab-paragraph-gap, .28em);
 }
@@ -7850,3 +7853,10 @@
 .lab[data-chrome-version="v2"] .lab-passage-header.is-long-title .lab-passage-headline {
   font-size: calc(1.35rem * (var(--lab-font-size, 1.3) / 1.3));
 }
+
+/* A full final leaf keeps its prose. Its controls use the reserved footer
+   instead of pushing a handful of words onto another leaf. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-col:has(> .lab-chapter-end.is-docked) { position: relative; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col:first-child > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:first-child,
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col-next > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:last-child { visibility: hidden; }
