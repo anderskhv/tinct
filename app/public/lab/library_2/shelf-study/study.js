@@ -46,7 +46,7 @@ function layout(instant=false){
  const el=$('viewport'),w=el.clientWidth,h=$('geometry-probe').clientHeight,mobile=w<700;
  let scale,x,y;
  if(view==='overview'){
-  scale=w/1536;x=0;y=mobile?0:h*.90-572*scale;
+  scale=w/1536;x=0;y=mobile||h>=1024*scale?0:h*.90-572*scale;
  }else{
   scale=Math.min(w/(shelf==='reading'?552:390),h/460);
   if(w>=700)scale=Math.min(w/800,h/440);
