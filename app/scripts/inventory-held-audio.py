@@ -15,7 +15,7 @@ try:
   for prefix in [key+"/"]+[f"narration/{provider}/map/{key}/" for provider in ["fish","google","grok"]]:
    cursor=None;seen=set();objects=[]
    while True:
-    params={"prefix":prefix}
+    params={"prefix":prefix,"per_page":1000}
     if cursor: params["cursor"]=cursor
     req=urllib.request.Request(base+"?"+urllib.parse.urlencode(params),headers={"Authorization":"Bearer "+token})
     with urllib.request.urlopen(req,timeout=60) as response: payload=json.load(response)
@@ -30,6 +30,8 @@ try:
     if not cursor or cursor in seen: raise RuntimeError("Incomplete pagination")
     seen.add(cursor)
    report["prefixes"].append({"prefix":prefix,"objects":objects,"bytes":sum(x["size"] or 0 for x in objects)})
+   (out/"inventory.json").write_text(json.dumps(report,indent=2)+"\n")
+   print(prefix,len(objects),flush=True)
  report["complete"]=True
 except urllib.error.HTTPError as e: report["error"]="R2 HTTP "+str(e.code)
 except Exception as e: report["error"]=str(e) if isinstance(e,RuntimeError) else type(e).__name__
