@@ -87,9 +87,11 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
     const signature: string[] = []
     // Never join separate paragraphs, Compare columns or facing pages.
     for (const line of root.querySelectorAll('.lab-hearing-line')) {
+      const opening = line.closest('.lab-opening-passage')
+      if (opening && opening !== root) continue
       let color: string | undefined
       let range: Range | undefined
-      for (const word of line.querySelectorAll('[data-testid="lab-word"], [data-fragment-word]')) {
+      for (const word of line.querySelectorAll('[data-testid="lab-word"], [data-testid="lab-opening-word"], [data-fragment-word]')) {
         const next = word.classList.contains('is-selecting') ? 'warm'
           : Object.keys(COLORS).find(key => word.classList.contains(`is-hl-${key}`))
         if (!next) { color = undefined; range = undefined; continue }

@@ -58,7 +58,7 @@ async function state(index: number, ready: number, options: { words?: boolean; d
 
 interface EnsureCall { fromChunks?: Record<number, number>; indexes: number[]; mode?: string; signal: AbortSignal; resolve: (results: NarrationParagraphResult[]) => void; reject: (error: Error) => void }
 
-function harness(options: { voice?: string; speed?: number } = {}) {
+function harness(options: { voice?: string; speed?: number; prepared?: () => NarrationParagraphResult[] } = {}) {
   const pending: Array<{ resolve: () => void; reject: (error: Error) => void }> = []
   const audio = new EventTarget() as HTMLAudioElement
   Object.assign(audio, {
@@ -97,7 +97,7 @@ function harness(options: { voice?: string; speed?: number } = {}) {
       paragraphs: props.paragraphs ?? PARAGRAPHS,
       followParagraphs: props.paragraphs ? followedFor(props.paragraphs) : followed,
       createAudio: () => audio,
-      narration: props.narrationOn ? { voice: props.voice, ensure } : null,
+      narration: props.narrationOn ? { voice: props.voice, ensure, prepared: options.prepared } : null,
     }),
     { initialProps: { voice: options.voice ?? 'a', narrationOn: true, edition: 'original-en' } as Props },
   )
@@ -718,4 +718,24 @@ it('ends a stalled start with a retryable timeout and aborts its preparation', a
     expect(h.result.current.narration).toMatchObject({ status: 'error', reason: 'timeout' })
     expect(h.audio.play).not.toHaveBeenCalled()
   } finally { vi.useRealTimers() }
+})
+
+describe('prepared next-chapter handoff', () => {
+ it('starts the warmed opening without another blocking ensure request', async () => {
+  const prepared=await state(0,1)
+  const h=harness({prepared:()=>[prepared]})
+  await act(async()=>{void h.result.current.startAtPlace({paragraphIndex:0,wordIndex:0})})
+  await waitFor(()=>expect(h.audio.play).toHaveBeenCalledTimes(1))
+  expect(h.calls).toHaveLength(0)
+  expect(h.audio.src).toContain('hash-0-0')
+  h.unmount()
+ })
+ it('rejects warmed audio for different text and prepares the current words', async () => {
+  const prepared=await state(0,1,{textHash:'obsolete'})
+  const h=harness({prepared:()=>[prepared]})
+  await act(async()=>{void h.result.current.startAtPlace({paragraphIndex:0,wordIndex:0})})
+  await waitFor(()=>expect(h.calls).toHaveLength(1))
+  expect(h.audio.play).not.toHaveBeenCalled()
+  h.unmount()
+ })
 })

@@ -30,6 +30,8 @@ export const LAB_EDGE_HOLD_MS = 450
 export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
+  /** Selection surface embedded in the next chapter's right-hand opening. */
+  openingOnly?: boolean
   pendingLayout?: boolean
   chapterEnd?: ReactNode
   onPreviewChapter?: () => void
@@ -38,10 +40,10 @@ interface LabPassageProps {
   nextReadingPage?: ChapterHearingPage
   /**
    * Desktop spread whose chapter ends on the left leaf: the next chapter's
-   * first leaf, shown on the right instead of a blank page. It is a view of
-   * the next chapter, not part of this one: no word indexes, no selection.
+   * first leaf, shown on the right instead of a blank page. Its independent
+   * selection surface keeps word coordinates scoped to the next chapter.
    */
-  nextChapterOpening?: { title: string; paragraphs: string[]; page: ChapterHearingPage; onPrimer?: () => void }
+  nextChapterOpening?: { title: string; chapterNumber?: number; paragraphs: string[]; page: ChapterHearingPage; onPrimer?: () => void; highlights?: LabHighlight[]; selectingRange?: LabHighlightRange | null; onSelectRange?: LabPassageProps['onSelectRange'] }
   alignCompare?: boolean
   chapterTitle: string
   paragraphs: string[]
@@ -356,7 +358,7 @@ function renderHearingWords(
 }
 
 function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
-  const el = target instanceof Element ? target.closest('[data-testid="lab-word"],[data-fragment-word]') : null
+  const el = target instanceof Element ? target.closest('[data-testid="lab-word"],[data-testid="lab-opening-word"],[data-fragment-word]') : null
   if (el?.hasAttribute('data-fragment-word')) {
     const paragraphIndex = Number(el.getAttribute('data-fragment-paragraph')), wordIndex = Number(el.getAttribute('data-fragment-word'))
     return Number.isInteger(paragraphIndex) && Number.isInteger(wordIndex) ? { paragraphIndex, wordIndex } : null
@@ -378,7 +380,7 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
 function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): LabWordPlace | null {
   let nearest: Element | null = null
   let best = Infinity
-  for (const word of line.querySelectorAll('[data-testid="lab-word"],[data-fragment-word]')) {
+  for (const word of line.querySelectorAll('[data-testid="lab-word"],[data-testid="lab-opening-word"],[data-fragment-word]')) {
     const fragments = Array.from(word.getClientRects())
     for (const box of fragments.length ? fragments : [word.getBoundingClientRect()]) {
       if (!box.width || !box.height) continue
@@ -392,6 +394,7 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
 }
 
 export function LabPassage({
+  openingOnly = false,
   pendingLayout = false,
   chapterEnd,
   onPreviewChapter,
@@ -690,8 +693,8 @@ export function LabPassage({
       edgeDirectionRef.current = direction
       const advance = () => {
         if (dragRef.current !== drag || !drag.selecting) { cancelEdge(); return }
-        const visible = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"],[data-fragment-word]') || [])
-          .filter(word => !word.closest('.lab-book-col-compare'))
+        const visible = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"],[data-testid="lab-opening-word"],[data-fragment-word]') || [])
+          .filter(word => !word.closest('.lab-book-col-compare') && (openingOnly || !word.closest('.lab-opening-passage')))
         const edge = wordPlaceFromTarget(direction === 1 ? visible[visible.length - 1] : visible[0])
         const lastP = paragraphs.length - 1
         const atEnd = edge && (direction === 1
@@ -702,8 +705,8 @@ export function LabPassage({
         pageTurnRef.current?.(direction)
         edgeTimerRef.current = setTimeout(() => {
           if (dragRef.current !== drag) return
-          const after = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"],[data-fragment-word]') || [])
-            .filter(word => !word.closest('.lab-book-col-compare'))
+          const after = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"],[data-testid="lab-opening-word"],[data-fragment-word]') || [])
+            .filter(word => !word.closest('.lab-book-col-compare') && (openingOnly || !word.closest('.lab-opening-passage')))
           const next = wordPlaceFromTarget(direction === 1 ? after[0] : after[after.length - 1])
           if (next && drag.start) {
             drag.end = next
@@ -721,6 +724,7 @@ export function LabPassage({
     const target = pointTarget || event.target as Element
     let place = wordPlaceFromTarget(target)
     const sameSide = !!(target as Element)?.closest('.lab-book-col-compare') === drag.comparison
+      && (openingOnly || !(target as Element)?.closest('.lab-opening-passage'))
     // Selection follows the nearest line through whitespace, including short touch lines.
     // Keep Compare isolated; the second Read leaf still belongs to the primary.
     if (!place && sameSide) {
@@ -735,8 +739,8 @@ export function LabPassage({
     if (!place && sameSide) {
       let nearest: Element | null = null
       let best = Infinity
-      for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"],[data-fragment-word]')) {
-        if (!!word.closest('.lab-book-col-compare') !== drag.comparison) continue
+      for (const word of event.currentTarget.querySelectorAll('[data-testid="lab-word"],[data-testid="lab-opening-word"],[data-fragment-word]')) {
+        if (!!word.closest('.lab-book-col-compare') !== drag.comparison || (!openingOnly && word.closest('.lab-opening-passage'))) continue
         const fragments = Array.from(word.getClientRects())
         for (const box of fragments.length ? fragments : [word.getBoundingClientRect()]) {
           if (!box.width || !box.height) continue
@@ -901,7 +905,7 @@ export function LabPassage({
                         {endsHere && <span className="lab-compare-page-end" data-testid="lab-compare-page-end" data-label="end of your page" role="img" aria-label="End of your page" />}
                         <span
                           className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
-                          data-testid="lab-word"
+                          data-testid={openingOnly ? "lab-opening-word" : "lab-word"}
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
                           data-highlight-id={mark?.id}
@@ -934,6 +938,34 @@ export function LabPassage({
                 )
               })
   )
+
+  if (openingOnly) return <div
+    ref={articleRef as React.RefObject<HTMLDivElement>}
+    className="lab-opening-passage owns-text-selection"
+    data-chapter-number={chapterNumber}
+    tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
+      onKeyDown={event => {
+        event.stopPropagation()
+        if (!keyboardSelection || !onSelectRange || hearing || !(event.key === 'F10' && event.shiftKey)) return
+        const selection = window.getSelection()
+        const anchor = selection?.anchorNode?.nodeType === Node.TEXT_NODE ? selection.anchorNode.parentElement : selection?.anchorNode as Element | null
+        const focus = selection?.focusNode?.nodeType === Node.TEXT_NODE ? selection.focusNode.parentElement : selection?.focusNode as Element | null
+        if (!anchor || !focus || !event.currentTarget.contains(anchor) || !event.currentTarget.contains(focus)) return
+        const start = wordPlaceFromTarget(anchor), end = wordPlaceFromTarget(focus)
+        const comparison = !!anchor.closest('.lab-book-col-compare')
+        if (!start || !end || comparison !== !!focus.closest('.lab-book-col-compare')) return
+        const range = buildHighlightRange(comparison ? compareParagraphs : paragraphs, start, end)
+        if (!range) return
+        event.preventDefault(); event.stopPropagation()
+        const rect = focus.getBoundingClientRect()
+        onSelectRange(range, rect.left, rect.bottom, comparison ? 'compare' : undefined)
+      }}
+    onPointerDown={event => { event.stopPropagation(); onPointerDown(event) }}
+    onPointerMove={event => { event.stopPropagation(); onPointerMove(event) }}
+    onPointerUp={event => { event.stopPropagation(); onPointerEnd(event) }}
+    onPointerCancel={event => { event.stopPropagation(); onPointerCancel() }}
+    onContextMenu={event => { event.stopPropagation(); if (onSelectRange) event.preventDefault() }}
+  >{renderReadingLines(readingLines, true)}</div>
 
   return (
     <article
@@ -1022,7 +1054,14 @@ export function LabPassage({
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
             {!nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
-                {renderPlainWords(readingPageLines(nextChapterOpening.paragraphs, nextChapterOpening.page), nextChapterOpening.paragraphs)}
+                <LabPassage openingOnly
+                  chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
+                  paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
+                  compareParagraphs={[]} compare={false} mode="reading" follow={{ kind: 'none' }}
+                  followParagraphs={[]} markedIndexes={new Set()} keyboardSelection={keyboardSelection}
+                  highlights={nextChapterOpening.highlights ?? []} selectingRange={nextChapterOpening.selectingRange}
+                  onSelectRange={nextChapterOpening.onSelectRange} onPageTurn={onPageTurn} tapZones="none"
+                />
               </div>
             )}
           </div>

@@ -22,6 +22,7 @@ import {
   narrationPilotFlag,
   resolveNarrationVoice,
   type NarrationPilotInfo,
+  type NarrationParagraphResult,
 } from './labNarration'
 import { readSupabaseAccessToken } from './labAuth'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
@@ -1055,6 +1056,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const narrationContextRef = useRef({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice })
   narrationContextRef.current = { bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice }
+  // Keep only a few warmed chapter openings in this reader session. The
+  // player still validates each paragraph against the exact current text.
+  const warmedNarrationRef = useRef(new Map<string, NarrationParagraphResult[]>())
+  const warmedNarrationKey = (bookId: string, edition: string, chapter: number, voice: string | null) =>
+    JSON.stringify([bookId, edition, chapter, voice])
+  const narrationPrepared = useCallback(() => {
+    const c = narrationContextRef.current
+    return warmedNarrationRef.current.get(warmedNarrationKey(c.bookId, c.editionKey, c.chapter, c.voice)) ?? []
+  }, [])
   const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const context = narrationContextRef.current
     if (!context.voice) return []
@@ -1071,8 +1081,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }, { signal, authToken: token })
   }, [authToken])
   const narrationOption = useMemo(
-    () => (narrationApplies && narrationVoice ? { voice: narrationVoice, ensure: narrationEnsure } : null),
-    [narrationApplies, narrationVoice, narrationEnsure],
+    () => (narrationApplies && narrationVoice ? { voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared } : null),
+    [narrationApplies, narrationVoice, narrationEnsure, narrationPrepared],
   )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
@@ -1107,6 +1117,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
     paragraphCount: book.paragraphs.length,
     currentParagraph: narrationCurrentParagraph,
+    remainingSeconds: listen.chapterDuration > 0 ? Math.max(0, listen.chapterDuration - listen.chapterTime) / listen.speed : undefined,
+    onPrepared: (target, results) => {
+      const cache = warmedNarrationRef.current
+      const key = warmedNarrationKey(book.bookId || 'bible', prefs.primaryEdition, target, narrationVoice)
+      cache.delete(key)
+      cache.set(key, results)
+      while (cache.size > 4) cache.delete(cache.keys().next().value!)
+    },
     speed: listen.speed,
     authToken,
     readToken: readSupabaseAccessToken,
@@ -1639,7 +1657,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // unused second book alongside the chapter when Compare is disabled.
   const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string }) | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -2603,7 +2621,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
     && readingPages.length > 0 && readingPageIndex >= readingPages.length - 1
     && (nextOpeningPage.continuation || nextLabChapter(book.chapters, nextChapterNumber!) != null)
-    ? { title: nextOpeningCurrent.title, paragraphs: nextOpeningCurrent.paragraphs, page: nextOpeningPage.page }
+    ? { title: nextOpeningCurrent.title, chapterNumber: nextChapterNumber!, paragraphs: nextOpeningCurrent.paragraphs, page: nextOpeningPage.page }
     : undefined
   const showReaderRail = !frontispieceVisible && !fullscreen && (desktopPaging || labShowReaderRail({
     phoneAsk,
@@ -2883,12 +2901,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Explain is fetched on speculation the moment a selection settles under
   // the finger, so the opener is usually there before Explain is tapped. It
   // is never charged; the tap is. A dismissed popup drops the fetch.
-  const speculateExplanation = useCallback((text: string, paragraphIndex: number, comparison: boolean) => {
+  const speculateExplanation = useCallback((text: string, paragraphIndex: number, comparison: boolean, context?: { chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) => {
     if (text.trim().split(/\s+/).length < 2) return
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
     void ask.explainSelection({ text, editionKey,
       editionLabel: editionLabelFor(editionKey, allBookEditions),
-      paragraphs: comparison ? book.compareParagraphs : book.paragraphs,
+      paragraphs: context?.paragraphs ?? (comparison ? book.compareParagraphs : book.paragraphs),
+      chapterNumber: context?.chapterNumber, chapterLabel: context?.chapterLabel,
       paragraphIndex, speculative: true,
     }, () => {}).catch(() => { /* Speculation must never open an error or account prompt. */ })
   }, [ask.explainSelection, bookEditions, book.compareParagraphs, book.paragraphs, prefs.compareEdition, prefs.primaryEdition])
@@ -2907,7 +2926,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Desktop native selection never reports in progress; the popup opening is its settle.
     if (!selectionPopup || selectionPopup.existingHighlightId) return
     const editionKey = selectionPopup.editionKey || readerEditionKey
-    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition), 180)
+    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition, selectionPopup), 180)
     return () => window.clearTimeout(timer)
   }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, speculateExplanation])
 
@@ -2923,21 +2942,22 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // A new passage/view invalidates a frozen card, including while edition data loads.
   useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
-  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup', highlightId?: string) => {
+  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup', highlightId?: string, context?: { chapterNumber: number; chapterLabel: string; paragraphs: string[] }) => {
     if (initialResolving || frontispieceVisible || phoneAskOpen) return
+    const selectedChapter = context?.chapterNumber ?? book.chapterNumber
     const comparison = side === 'compare' || mobileCompareActive
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
-    const paragraphs = comparison ? book.compareParagraphs : book.paragraphs
+    const paragraphs = context?.paragraphs ?? (comparison ? book.compareParagraphs : book.paragraphs)
     const paragraph = paragraphs[range.paragraphIndex] || ''
     const offsets = range.endParagraphIndex === range.paragraphIndex ? wordSelectionOffsets(paragraph, range.fromWord, range.toWord) : null
     // Selection is temporary. Only an explicit Highlight or note action writes a mark.
     // A click carries the identity that painted the word/space/fragment.
     // Do not reinterpret a rendered mark as a new dictionary selection.
     const painted = intent === 'lookup' && highlightId
-      ? (comparison ? highlightsApi.compareHighlights : highlightsApi.chapterHighlights).find(mark => mark.id === highlightId)
+      ? (comparison ? highlightsApi.compareHighlights : highlightsApi.highlights).find(mark => mark.id === highlightId && mark.chapterNumber === selectedChapter)
       : undefined
-    const existing = painted ?? highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
-    const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
+    const existing = painted ?? highlightsApi.findRange(range, editionKey, selectedChapter) ?? highlightsApi.findContainingRange(range, editionKey, selectedChapter)
+    const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, selectedChapter, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === selectedChapter && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
     const highlight = existing
     // A click inside an existing highlight is about the thing the reader
     // marked, not the word under the cursor: Copy, Ask, Note and the note
@@ -2996,6 +3016,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       editionKey,
       side,
       range: subject,
+      chapterNumber: selectedChapter,
+      chapterLabel: context?.chapterLabel ?? book.chapterLabel,
+      paragraphs,
     })
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
 
@@ -4411,7 +4434,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
             /> : undefined}
             desktopSpread={desktopSpread}
-          nextChapterOpening={showChapterEnd && nextChapterOpening ? { ...nextChapterOpening, onPrimer: () => handleChapterChat('prepare') } : undefined}
+          nextChapterOpening={showChapterEnd && nextChapterOpening ? {
+              ...nextChapterOpening,
+              highlights: highlightsApi.highlights,
+              selectingRange: selectionPopup?.chapterNumber === nextChapterOpening.chapterNumber ? selectionPopup.range : null,
+              onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
+                chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
+              }),
+              onPrimer: () => handleChapterChat('prepare'),
+            } : undefined}
             nextReadingPage={desktopSpread ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
             chapterTitle={book.chapterTitle}
@@ -4451,7 +4482,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             keyboardSelection={chromeV2}
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
-            selectingRange={selectionPopup?.range ?? null}
+            selectingRange={selectionPopup?.chapterNumber === book.chapterNumber ? selectionPopup.range : null}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
@@ -5155,7 +5186,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
             } else if (selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey)
+              const created = highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey, selectionPopup.chapterNumber)
               setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id } : current)
             }
           }}
@@ -5183,7 +5214,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
           onRequestNote={(color) => {
             if (!selectionPopup.existingHighlightId && selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey)
+              const created = highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey, selectionPopup.chapterNumber)
               setSelectionPopup(current => current ? {
                 ...current,
                 existingHighlightId: created.id,
@@ -5192,17 +5223,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             }
             setPopupMode('note')
           }}
-          onExplanationReady={(answer) => ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })}
+          onExplanationReady={(answer) => ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })}
           onExplain={(answer) => {
             const text = selectionPopup.text
-            if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex)
+            if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
             handleChat()
             setAskAttachment({ bookId: book.bookId, text })
             setDraft('')
           }}
           onTalkExplanation={(answer) => {
-            ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex)
+            ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
             // Let the explanation enter the hook's context before starting voice.
             requestAnimationFrame(() => handleTalk())
@@ -5215,7 +5246,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               intent,
               editionKey,
               editionLabel: editionLabelFor(editionKey, allBookEditions),
-              paragraphs: compare ? book.compareParagraphs : book.paragraphs,
+              paragraphs: selectionPopup.paragraphs ?? (compare ? book.compareParagraphs : book.paragraphs),
+              chapterNumber: selectionPopup.chapterNumber, chapterLabel: selectionPopup.chapterLabel,
               paragraphIndex: selectionPopup.paragraphIndex,
             }, onDelta)
           }}

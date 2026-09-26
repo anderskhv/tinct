@@ -805,13 +805,15 @@ export function useLabAsk(options: UseLabAskOptions) {
     editionLabel?: string
     paragraphs: string[]
     paragraphIndex: number
+    chapterNumber?: number
+    chapterLabel?: string
     speculative?: boolean
     intent?: 'define'
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
     if (!text || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
-    const requestChapter = optionsRef.current.chapterNumber
+    const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
     const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
@@ -835,6 +837,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     entry.promise = (async () => {
       const context: LabAskContext = {
         ...askContextNow([]),
+        chapterNumber: requestChapter,
+        chapterLabel: input.chapterLabel ?? optionsRef.current.chapterLabel,
         editionKey: input.editionKey,
         editionLabel: input.editionLabel,
         paragraphs: input.paragraphs,
