@@ -726,7 +726,9 @@ describe('prepared next-chapter handoff', () => {
   const h=harness({prepared:()=>[prepared]})
   await act(async()=>{void h.result.current.startAtPlace({paragraphIndex:0,wordIndex:0})})
   await waitFor(()=>expect(h.audio.play).toHaveBeenCalledTimes(1))
-  expect(h.calls).toHaveLength(0)
+  // Requests for later paragraphs may refill the buffer in the background;
+  // the opening itself starts before any of those unresolved calls finish.
+  expect(h.calls.every(call => !call.indexes.includes(0))).toBe(true)
   expect(h.audio.src).toContain('hash-0-0')
   h.unmount()
  })

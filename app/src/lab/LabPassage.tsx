@@ -945,8 +945,8 @@ export function LabPassage({
     data-chapter-number={chapterNumber}
     tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       onKeyDown={event => {
-        event.stopPropagation()
         if (!keyboardSelection || !onSelectRange || hearing || !(event.key === 'F10' && event.shiftKey)) return
+        event.stopPropagation()
         const selection = window.getSelection()
         const anchor = selection?.anchorNode?.nodeType === Node.TEXT_NODE ? selection.anchorNode.parentElement : selection?.anchorNode as Element | null
         const focus = selection?.focusNode?.nodeType === Node.TEXT_NODE ? selection.focusNode.parentElement : selection?.focusNode as Element | null
