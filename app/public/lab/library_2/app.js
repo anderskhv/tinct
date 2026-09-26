@@ -1,11 +1,13 @@
-import {mountReadingTable} from './reading-table.js?v=20260926a';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260926a';
-import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260926a';
-import {books} from './books.js?v=20260926a';
-import {loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260926a';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260926a';
-import {categories,eras,metadata} from './taxonomy.js?v=20260926a';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260926a';
+import {mountHeroNavigation} from './hero-navigation.js?v=20260926b';
+import {mountRoomPreview} from './room-preview.js?v=20260926b';
+import {mountReadingTable} from './reading-table.js?v=20260926b';
+import {authorPortrait,warmPortrait} from './authors.js?v=20260926b';
+import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260926b';
+import {books} from './books.js?v=20260926b';
+import {loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260926b';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260926b';
+import {categories,eras,metadata} from './taxonomy.js?v=20260926b';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260926b';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let savedBooks=new Set();try{savedBooks=new Set(JSON.parse(localStorage.getItem('tinct-library-2-to-read')||'[]'));}catch{}
@@ -51,8 +53,8 @@ loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e
 // and pencil character studies. Frankenstein keeps the original rain room.
 const signature={'frankenstein':{hours:6,genre:'Fiction',question:'What do we owe the intelligence we create?',sketches:['Victor Frankenstein','the creature','Robert Walton'],sheet:'assets/frankenstein-character-studies.png'},'pride-and-prejudice':{hours:11,genre:'Fiction',question:'How far can we trust a first impression?',sketches:['Elizabeth Bennet','Mr. Darcy','Jane Bennet']},'odyssey':{hours:12,genre:'Poetry',question:'How far must we travel to find home?',sketches:['Odysseus','Penelope','Telemachus']},'crime-and-punishment':{hours:21,genre:'Fiction',question:'Can an idea make a crime right?',sketches:['Raskolnikov','Sonya Marmeladov','Porfiry Petrovich']},'the-prince':{hours:3,genre:'Politics',question:'Can a ruler afford to be good?',sketches:['Niccolò Machiavelli','Cesare Borgia']},'meditations':{hours:5,genre:'Philosophy',question:'How do we stay steady in a world we cannot control?',sketches:['Marcus Aurelius','Epictetus']}};
 const sceneIds=new Set(Object.keys(signature).filter(id=>id!=='frankenstein'));
-let featured=books[0],featureRequest=0;const featuredBooks=Object.keys(signature).map(id=>books.find(b=>b.id===id)).filter(Boolean);
-featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label',`Feature ${book.title}`);b.classList.toggle('active',i===0);b.addEventListener('click',async()=>{const request=++featureRequest;b.setAttribute('aria-busy','true');try{await Promise.all([ensureCover(book),loadScene(book.id)]);if(request!==featureRequest)return;featured=book;const info=signature[book.id];$('hero-time').textContent=`~${info.hours} hours to read`;$('hero-genre').textContent=info.genre;$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info.question;$('hero-book').setAttribute('aria-label',`Open ${book.title}`);const c=$('hero-book').querySelector('canvas');c.dataset.book=book.id;paintCover(c,book.id);showScene(book.id);all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',i===j);e.setAttribute('aria-pressed',String(i===j));});}catch{if(request===featureRequest)notice('This scene could not load. Please try again.');}finally{b.removeAttribute('aria-busy');}});b.setAttribute('aria-pressed',String(i===0));document.querySelector('.hero-dots').append(b);});
+let featured=books[0],featureRequest=0,featuredTarget=0;const featuredBooks=Object.keys(signature).map(id=>books.find(b=>b.id===id)).filter(Boolean);
+featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label',`Feature ${book.title}`);b.classList.toggle('active',i===0);b.addEventListener('click',async()=>{const request=++featureRequest;featuredTarget=i;b.setAttribute('aria-busy','true');try{await Promise.all([ensureCover(book),loadScene(book.id)]);if(request!==featureRequest)return;featured=book;const info=signature[book.id];$('hero-time').textContent=`~${info.hours} hours to read`;$('hero-genre').textContent=info.genre;$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info.question;$('hero-book').setAttribute('aria-label',`Open ${book.title}`);const c=$('hero-book').querySelector('canvas');c.dataset.book=book.id;paintCover(c,book.id);showScene(book.id);all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',i===j);e.setAttribute('aria-pressed',String(i===j));});}catch{if(request===featureRequest){featuredTarget=featuredBooks.indexOf(featured);notice('This scene could not load. Please try again.');}}finally{b.removeAttribute('aria-busy');}});b.setAttribute('aria-pressed',String(i===0));document.querySelector('.hero-dots').append(b);});
 $('hero-book').onclick=$('read-featured').onclick=()=>openBook(featured,$('hero-book').querySelector('canvas'));
 // Signed in: Account; signed out: Sign in. Both go to the production account page and come back here.
 {const signedIn=document.documentElement.classList.contains('signed-in');$('sign-in').textContent=signedIn?'Account':'Sign in';$('sign-in').onclick=()=>location.assign(`/lab/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/lab/library_2/')}`);}
@@ -74,7 +76,7 @@ const SCENE_FADE=700;
 // a little depth behind it on the table, including on shorter phone screens.
 const phoneTableY={'pride-and-prejudice':675,odyssey:775,'crime-and-punishment':745,'the-prince':675,meditations:730};
 function cropForScene(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=$('rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.3,Math.min(h*.8,edge)));}
-const returningScene='table-'+readingRoom();
+let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
 loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
 addEventListener('library2:reading',e=>showScene(e.detail.mode==='returning'&&e.detail.reading.length?returningScene:featured.id));
 function drawScene(time){const canvas=$('scene'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(devicePixelRatio||1,2);if(!w||!h)return;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const wide=w/h>1.2;const fade=reduced.matches||!sceneFrom?1:ease(clamp((time-sceneStart)/SCENE_FADE,0,1));if(fade===1)sceneFrom=null;const layer=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||alpha<=0)return;const c=cropForScene(id,w,h,img,img.naturalWidth>img.naturalHeight);ctx.globalAlpha=alpha;ctx.drawImage(scenePainting(img,id),c.x,c.y,c.w,c.h,0,0,w,h);ctx.globalAlpha=1;};if(sceneFrom)layer(sceneFrom,1);layer(sceneTo,fade);drawBookGround(ctx);if(!reduced.matches){const life=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||id==='frankenstein')return;const imageWide=img.naturalWidth>img.naturalHeight;drawSceneLife(ctx,id,imageWide,img,cropForScene(id,w,h,img,imageWide),alpha,time);};if(sceneFrom)life(sceneFrom,1-fade);life(sceneTo,fade);}const rain=(sceneTo==='frankenstein'?fade:0)+(sceneFrom==='frankenstein'?1-fade:0);if(reduced.matches||rain<=0)return;const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);ctx.save();ctx.globalAlpha=rain;ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);ctx.beginPath();(wide?widePanes:panes).forEach(p=>{ctx.moveTo(...p[0]);p.slice(1).forEach(q=>ctx.lineTo(...q));ctx.closePath();});ctx.clip();if(!wide){ctx.beginPath();ctx.rect(0,0,1183,1330);ctx.rect(492,178,202,378);ctx.clip('evenodd');}ctx.lineWidth=1.05;for(let i=0;i<140;i++){const x=(wide?1040:520)+(i*73.39)%(wide?520:660),y=((time*.10+i*51.79)%(wide?525:510))-20;ctx.strokeStyle=`rgba(212,235,218,${.15+(i%4)*.04})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1.3,y+13+(i%7));ctx.stroke();}ctx.restore();}
@@ -182,7 +184,7 @@ async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
  $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
- assistantLoading=import('/lab/library-2-assistant.js?v=20260926a').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+ assistantLoading=import('/lab/library-2-assistant.js?v=20260926b').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
   returnTo:location.pathname+location.search,
@@ -279,10 +281,35 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 // Warm the optional artwork only after the landing page has finished loading.
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
 const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-studies.jpg`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
-function warmCharacterArt(){const warm=()=>{if(!document.documentElement.classList.contains('returning'))featuredBooks.forEach(b=>{warmPortrait(b.author);warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});};if('requestIdleCallback' in window)window.requestIdleCallback(warm,{timeout:3000});else setTimeout(warm,1000);}
+function warmCharacterArt(){
+ const warm=()=>featuredBooks.forEach(b=>{warmPortrait(b.author);warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
+ const whenModeKnown=()=>{
+  const root=document.documentElement;
+  if(root.classList.contains('returning'))return;
+  // Account loading can outlast window.load. Keep first-visit scene warming
+  // from competing with the returning reader's room, catalogue and covers.
+  if(root.classList.contains('returning-pending')){addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning'||!e.detail.reading.length)warm();},{once:true});return;}
+  warm();
+ };
+ if('requestIdleCallback' in window)window.requestIdleCallback(whenModeKnown,{timeout:3000});else setTimeout(whenModeKnown,1000);
+}
 if(document.readyState==='complete')warmCharacterArt();else addEventListener('load',warmCharacterArt,{once:true});
 // Returning readers see their own books on a reading table instead of the featured carousel.
 mountReadingTable({hero:$('hero'),shelves:$('shelves'),el}).catch(()=>{});
 
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
 drawOrb(performance.now());document.documentElement.classList.add('library-ready');
+
+mountHeroNavigation({
+ hero:$('hero'),
+ enabled:()=>!activeBook&&!searchOpen&&!menuOpen&&mode==='minimized'&&collectionChoice==='home'&&!document.documentElement.classList.contains('returning-pending'),
+ move:direction=>{
+  if(document.documentElement.classList.contains('returning')){$(direction>0?'rt-next':'rt-prev')?.click();return;}
+  const dots=all('.hero-dots button');
+  dots[(featuredTarget+direction+dots.length)%dots.length]?.click();
+ }
+});
+mountRoomPreview({initial:returningScene,change:async(room,isCurrent)=>{
+ try{await loadScene('table-'+room);if(isCurrent()){returningScene='table-'+room;showScene(returningScene);}}
+ catch{notice('This room could not load. Please try again.');throw new Error('Room unavailable');}
+}});
