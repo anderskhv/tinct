@@ -43,7 +43,7 @@ The checked-in candidates record the intended production-aligned comparison: Son
 
 Preparation writes manifest.json and requests.jsonl. Evaluation checks stay in the manifest; submit only each request's prompt plus its settings to the model. Render the structured prompt consistently for both providers; record that rendering and any endpoint-specific settings alongside the run. Never send checks, ratings or candidate identities as answer instructions.
 
-**Collection is intentionally not automated.** AGENTS.md prohibits Anthropic API calls during development. These scripts make no provider calls, use no API credentials and incur no inference charges. A real paired run requires an explicit exception to that instruction, or previously collected authorized responses. Do not treat this README as authorization. Do not route around the restriction through the production reader.
+**Collection exception approved 2026-09-16.** Anders explicitly approved this paired benchmark after the original no-Anthropic-development-calls restriction was explained. This exception covers the bounded pilot; it does not authorize unrelated development inference. The offline benchmark CLI remains network-free. The separate `collect.mjs` adapter can make provider calls using cloud secrets. See [collection protocol](COLLECTION.md) for its $10 cap, 144-request maximum, no-retry policy and artifact handling.
 
 Once collection is authorized:
 - Freeze config, prompt serialization, split, run ID and a spend cap before looking at answers.
