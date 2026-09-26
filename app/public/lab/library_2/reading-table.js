@@ -6,11 +6,33 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi } from './catalogue.js?v=20260925j';
+import { readingApi } from './catalogue.js?v=20260926a';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const CACHE_KEY = 'tinct-library-2-reading-table';
+const isDemo = new URLSearchParams(location.search).get('demo') === 'reading';
+// Start the account-safe read alongside app setup, before the scene and shelves
+// are built. Never draw the old unscoped cache while the viewer is unresolved.
+const loadTable = async () => {
+  const api = await readingApi();
+  return { api, table: await api.loadReadingTable() };
+};
+const firstTable = window.__library2Boot?.hint && !isDemo ? loadTable().then(value => ({ value }), error => ({ error })) : null;
+
+// Retain decoded spine images so CSS can paint them with the covers in one pass.
+const readyTextures = new Map();
+function prepareTexture(name) {
+  if (!SPINE_TEXTURES) return Promise.resolve();
+  if (!readyTextures.has(name)) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = `assets/spines/spine-${name}.jpg`;
+    const ready = img.decode().then(() => img, () => { readyTextures.delete(name); return null; });
+    readyTextures.set(name, ready);
+  }
+  return readyTextures.get(name);
+}
 
 // Sample shelf for ?demo=reading, so the view can be seen on a device with no reading history.
 const DEMO = {
@@ -88,7 +110,8 @@ function bookMarkup(b, i) {
   const texture = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
   return `
     <button class="rt-b" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(b.cover)}')">
-      <span class="rt-shadow"></span>
+      <span class="rt-shadow" aria-hidden="true"></span>
+      <span class="rt-cast" aria-hidden="true"></span>
       <span class="rt-f rt-back"></span>
       <span class="rt-f rt-fore"></span>
       <span class="rt-f rt-head"></span>
@@ -96,7 +119,7 @@ function bookMarkup(b, i) {
       <span class="rt-f rt-refl rt-refl-front"></span>
       <span class="rt-f rt-refl rt-refl-spine" style="background:${texture}var(--binding)"></span>
       <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" data-binding="${name}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
-      <span class="rt-f rt-front"><img src="${esc(b.cover)}" alt="" decoding="async" draggable="false"></span>
+      <span class="rt-f rt-front"><img src="${esc(b.cover)}" alt="" decoding="async" fetchpriority="${i === 0 ? 'high' : 'auto'}" draggable="false"></span>
     </button>`;
 }
 
@@ -114,12 +137,12 @@ function markup(table) {
 }
 
 export async function mountReadingTable({ hero, shelves, el }) {
-  const demo = new URLSearchParams(location.search).get('demo') === 'reading';
+  const demo = isDemo;
   const root = document.documentElement;
   let api = null, view = null, table = null;
   const settle = () => root.classList.remove('returning-pending');
 
-  const render = (next, keepBookId) => {
+  const render = async (next, keepBookId) => {
     table = next;
     window.__library2Reading = table;
     window.dispatchEvent(new CustomEvent('library2:reading', { detail: table }));
@@ -130,24 +153,30 @@ export async function mountReadingTable({ hero, shelves, el }) {
     if (table.mode !== 'returning' || !table.reading.length) { root.classList.remove('returning'); return; }
     root.classList.add('returning');
     view = document.createElement('div');
-    view.className = 'reading-table';
+    view.className = 'reading-table is-preparing';
+    view.setAttribute('aria-busy', 'true');
     view.innerHTML = markup(table);
     hero.append(view);
     view.api = api;
-    wire(view, table, demo, keepBookId);
+    await wire(view, table, demo, keepBookId);
+    // Reveal decoded covers and their final bindings together, never bare boxes
+    // followed by late artwork. The leaf faces fade without flattening the 3D row.
+    view.classList.replace('is-preparing', 'is-ready');
+    view.removeAttribute('aria-busy');
   };
 
-  if (demo) { render(DEMO); settle(); return true; }
+  if (demo) { await render(DEMO); settle(); return true; }
   // Resolve the production account before showing personal books or summaries.
   // The old unscoped cache must never paint a previous account's shelf.
   try {
-    api = await readingApi();
-    if (view) view.api = api;
-    const fresh = await api.loadReadingTable();
-    writeCache(fresh);
-    render(fresh, view?.dataset.current);
+    const early = firstTable ? await firstTable : null;
+    if (early?.error) throw early.error;
+    const result = early?.value || await loadTable();
+    api = result.api;
+    writeCache(result.table);
+    await render(result.table, view?.dataset.current);
   } catch {
-    root.classList.remove('returning');
+    await render({ mode: 'new', reading: [], finished: [] });
   }
   settle();
   return root.classList.contains('returning');
@@ -167,7 +196,7 @@ function wire(view, table, demo, keepBookId) {
     const r = stage.getBoundingClientRect();
     if (!r.height) return;
     const desk = innerWidth >= 900;
-    const next = Math.round(Math.max(130, Math.min(desk ? 400 : 270, r.height / 1.2, r.width * (desk ? 0.5 : 0.44) * 1.5)));
+    const next = Math.round(Math.max(130, Math.min(desk ? 352 : 240, r.height / 1.36, r.width * (desk ? 0.44 : 0.39) * 1.5)));
     if (next === H && Math.abs(r.width - stageW) < 2) return;
     H = next;
     stageW = r.width;
@@ -306,24 +335,27 @@ function wire(view, table, demo, keepBookId) {
     e.preventDefault();
     select(current + (e.key === 'ArrowRight' ? 1 : -1), true);
   });
-  // Spines take the binding nearest the cover artwork's own colour.
-  books.forEach((book, i) => {
+  // Prepare only this resolved reader's shelf. Covers and likely spine textures
+  // start together; sampled bindings finish before anything is revealed.
+  const artworkReady = Promise.all(books.map(async (book, i) => {
     const img = book.querySelector('.rt-front img');
-    const apply = () => {
-      const tone = coverTone(img);
-      if (!tone) return;
-      const [name, colour] = bindingFor({ ...table.reading[i], tone });
-      book.style.setProperty('--binding', colour);
-      const tex = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
-      book.querySelector('.rt-spine').style.background = `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${tex}${colour}`;
-      book.querySelector('.rt-refl-spine').style.background = `${tex}${colour}`;
-    };
-    if (img.complete && img.naturalWidth) apply(); else img.addEventListener('load', apply, { once: true });
-  });
+    const estimatedName = bindingFor(table.reading[i])[0];
+    const estimatedTexture = prepareTexture(estimatedName);
+    try { await img.decode(); } catch { /* Keep the binding if a cover is unavailable. */ }
+    const tone = img.naturalWidth ? coverTone(img) : null;
+    const [name, colour] = bindingFor(tone ? { ...table.reading[i], tone } : table.reading[i]);
+    book.style.setProperty('--binding', colour);
+    const tex = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
+    book.querySelector('.rt-spine').dataset.binding = name;
+    book.querySelector('.rt-spine').style.background = `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${tex}${colour}`;
+    book.querySelector('.rt-refl-spine').style.background = `${tex}${colour}`;
+    await (name === estimatedName ? estimatedTexture : prepareTexture(name));
+  }));
   if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fit).observe(stage);
   else addEventListener('resize', fit);
   fit();
   select(current, false);
+  return artworkReady;
 }
 
 function addFinishedShelf(finished, shelves, el) {
