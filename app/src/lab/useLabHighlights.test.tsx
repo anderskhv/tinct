@@ -36,3 +36,15 @@ it('projects a saved secondary edition even when Compare has not loaded its text
  expect(readLabHighlights()[0].fromWord).toBe(1)
  vi.unstubAllGlobals()
 })
+
+it('saves an opening selection under the next chapter and restores it there', () => {
+ const range={paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:2,text:'next words'}
+ const h=renderHook(({chapter})=>useLabHighlights(chapter,{bookId:'bible',editionKey:'web-en'}),{initialProps:{chapter:917}})
+ act(()=>{h.result.current.addOrReuse(range,'sage','web-en',918)})
+ expect(h.result.current.chapterHighlights).toHaveLength(0)
+ expect(readLabHighlights()[0]).toMatchObject({bookId:'bible',editionKey:'web-en',chapterNumber:918,color:'sage'})
+ expect(h.result.current.findRange(range,'web-en',917)).toBeUndefined()
+ expect(h.result.current.findRange(range,'web-en',918)?.chapterNumber).toBe(918)
+ h.rerender({chapter:918})
+ expect(h.result.current.chapterHighlights).toHaveLength(1)
+})

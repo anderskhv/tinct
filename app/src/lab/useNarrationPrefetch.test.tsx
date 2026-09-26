@@ -88,3 +88,19 @@ describe('useNarrationPrefetch', () => {
     h.unmount()
   })
 })
+
+it('warms by remaining listening time even when many short paragraphs remain', async () => {
+ const h=harness({currentParagraph:10,remainingSeconds:45})
+ await waitFor(()=>expect(h.calls.length).toBeGreaterThan(0))
+})
+it('hands metadata and the first two audio downloads to the next chapter', async () => {
+ const onPrepared=vi.fn()
+ const fetcher=vi.fn(async()=>({ok:true,arrayBuffer:async()=>new ArrayBuffer(1)}))
+ vi.stubGlobal('fetch',fetcher)
+ const results=[{...ready(0,2),chunks:[0,1].map(index=>({index,wordFrom:index*5,wordTo:index*5+5,ready:true,url:'/api/audio-file?clip='+index,duration:30}))}]
+ const h=harness({currentParagraph:31,onPrepared,ensureImpl:vi.fn(async()=>results) as never})
+ await waitFor(()=>expect(onPrepared).toHaveBeenCalledWith(2,results))
+ await waitFor(()=>expect(fetcher).toHaveBeenCalledTimes(2))
+ expect(fetcher.mock.calls[0][0]).toBe('/api/audio-file?clip=0')
+ h.unmount();vi.unstubAllGlobals()
+})

@@ -2,7 +2,7 @@ name: Reader spread flow
 on:
   pull_request:
     branches: [main]
-    paths: ['app/src/lab/**', 'app/scripts/check-reader-spread.cjs', '.github/workflows/reader-spread.yml']
+    paths: ['app/src/lab/**', 'app/scripts/check-reader-spread.cjs', 'app/scripts/check-opening-highlights.cjs', '.github/workflows/reader-spread.yml']
   workflow_run:
     workflows: [deploy]
     types: [completed]
@@ -37,6 +37,11 @@ jobs:
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build && npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
+      - name: Verify next-chapter highlight selection and persistence
+        run: node scripts/check-opening-highlights.cjs
+        env:
+          READER_ENGINES: ${{ matrix.engines }}
+          READER_BUILT: ${{ github.event_name == 'workflow_run' && '0' || '1' }}
       - run: node scripts/check-reader-spread.cjs
         env:
           READER_ENGINES: ${{ matrix.engines }}
@@ -45,4 +50,6 @@ jobs:
         if: always()
         with:
           name: reader-spread-${{ matrix.os }}
-          path: app/artifacts/reader-spread
+          path: |
+            app/artifacts/reader-spread
+            app/artifacts/opening-highlights
