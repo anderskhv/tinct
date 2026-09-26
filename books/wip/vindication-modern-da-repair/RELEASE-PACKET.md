@@ -25,7 +25,7 @@ conventions, quotation-mark convention, register).
 
 | Item | Value |
 |---|---|
-| `editions/vindication-rights-of-woman-modern-da.json` | sha256 `d6d43cfb2f56333a3fc93607eff9098b702192aea503f92ae029ae5a2a4b5571` — 15 chapters, same structure as live; all chapters except 7, 8, 9 replaced with fresh Danish translation |
+| `editions/vindication-rights-of-woman-modern-da.json` | sha256 `3f6d9951f9d176d799d95cc73f6df9aaa3fe36501816f7c3c84ee2b7674a942d` — 15 chapters, same structure as live; all chapters except 7, 8, 9 replaced with fresh Danish translation |
 | Replaces live sha256 | `41ec7c251015ca8079dc88e5845757ac634fbf4c62f6ab03160ed5e686fc8880` |
 | Baseline `modern-en` sha256 | `4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63` |
 
