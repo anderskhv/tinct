@@ -43,7 +43,7 @@ English repair (`books/wip/as-you-like-it-completeness-repair/`) fixed in
 
 | Item | Value |
 |---|---|
-| `editions/as-you-like-it-modern-da.json` | sha256 `62386b6037f23ee775ecad7f83fdc3f009ab2bc5d44449f0a5b87a9453937d5b` — 23 chapters, 931 paragraphs, matching the accepted `original-en`/`modern-en` structure exactly |
+| `editions/as-you-like-it-modern-da.json` | sha256 `1229f6875d9177eff984f7ed40d57c883ba88c9844e63bb8154406bd6b8b25b5` — 23 chapters, 931 paragraphs, matching the accepted `original-en`/`modern-en` structure exactly |
 | Replaces live sha256 | `80064e115bd31f194fa60e16f1ec08ee4b99efc5f1cc199ec7a4ac34dd52d8ef` (17 chapters, 901 paragraphs) |
 
 Per-chapter paragraph counts verified programmatically to match the
