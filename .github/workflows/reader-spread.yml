@@ -11,7 +11,15 @@ permissions:
 jobs:
   browser:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            engines: chromium,webkit
+          - os: macos-14
+            engines: webkit
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     defaults:
       run:
@@ -29,13 +37,12 @@ jobs:
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build && npm run verify-bundle
       - run: npx playwright install --with-deps chromium webkit
-      - name: Install English dictionary for Linux WebKit
-        run: sudo apt-get install -y hyphen-en-us
       - run: node scripts/check-reader-spread.cjs
         env:
+          READER_ENGINES: ${{ matrix.engines }}
           READER_BUILT: ${{ github.event_name == 'workflow_run' && '0' || '1' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: reader-spread
+          name: reader-spread-${{ matrix.os }}
           path: app/artifacts/reader-spread
