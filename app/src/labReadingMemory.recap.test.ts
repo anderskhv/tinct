@@ -225,10 +225,10 @@ describe('recap hero: a short absence is not summarised', () => {
     expect(JSON.parse(localStorage.getItem(LAB_POSITION_STORAGE_KEY)!).books.proverbs.paragraphIndex).toBe(2)
   })
 
-  it('shows the position line only and sends no request five minutes after reading', async () => {
+  it('shows the position line only and sends no request two minutes after reading', async () => {
     const section = await renderLibrary(
-      [bibleSession(ago(5 * MINUTE))],
-      positionState([biblePlace(ago(4 * MINUTE))], 'proverbs'),
+      [bibleSession(ago(2 * MINUTE))],
+      positionState([biblePlace(ago(MINUTE))], 'proverbs'),
     )
     expect(section.dataset.book).toBe('bible')
     expect(section.querySelector('[data-testid=lab-recap-headline]')!.textContent).toBe('You’re in the middle of Proverbs 17')
@@ -291,7 +291,7 @@ describe('recap hero: a short absence is not summarised', () => {
   })
 
   it('falls back to the position record when the book has no reading-memory session', async () => {
-    const section = await renderLibrary([], positionState([biblePlace(ago(20 * MINUTE))], 'proverbs'))
+    const section = await renderLibrary([], positionState([biblePlace(ago(2 * MINUTE))], 'proverbs'))
     expect(section.dataset.book).toBe('bible')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
