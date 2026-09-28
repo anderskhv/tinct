@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260926c';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928a';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -20,7 +20,7 @@ const loadTable = async () => {
   // failure immediately even when the engine itself is still downloading.
   catalogue.catch(() => {});
   const api = await readingApi();
-  return { api, table: await api.loadReadingTable({ catalogue, onArtwork: books => books.forEach(book => prepareArtwork(book)) }) };
+  return { api, table: await api.loadReadingTable({ catalogue, onArtwork: books => books.slice(0,13).forEach(book => prepareArtwork(book)) }) };
 };
 const firstTable = window.__library2Boot?.hint && !isDemo ? loadTable().then(value => ({ value }), error => ({ error })) : null;
 
@@ -398,3 +398,7 @@ function addFinishedShelf(finished, shelves, el) {
   section.append(row);
   shelves.prepend(section);
 }
+
+// Shared account-safe data and public bindings for the approved bookshelf.
+export { DEMO, bindingFor };
+export async function resolveReadingTable(refresh=false) { const early = firstTable && !refresh ? await firstTable : null; if (early?.error) throw early.error; return early?.value || loadTable(); }

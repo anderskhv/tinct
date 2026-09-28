@@ -40,6 +40,7 @@ function routerEnv() {
         if (url.pathname === '/lab/') {
           return new Response(lab, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
+        if (url.pathname === '/lab/library_2/') { return new Response('<html><head><title>Tinct</title></head><body>approved bookshelf preview</body></html>', {headers:{'Content-Type':'text/html'}}) }
         if (url.pathname === '/lab/library-2/') {
           return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
@@ -549,3 +550,11 @@ it('routes Faust recommendation cards through the labelled German book landing',
   const card = '<a href="/read/faust-part-1/summary" class="guide-card"><div>Faust</div></a>'
   expect(filterHeldDiscoveryCards(card)).toBe('<a href="/read/faust-part-1" class="guide-card"><div>Faust</div></a>')
 })
+
+ it.each(['/','/library','/library/'])('returns an opted-in reviewer to the private library at %s',async path=>{
+ const result=await worker.fetch(new Request('https://tinct.app'+path,{headers:{Cookie:'tinct_library_preview=1'}}),routerEnv() as never,ctx)
+ expect(await result.text()).toContain('approved bookshelf preview')
+ expect(result.headers.get('Cache-Control')).toBe('no-store')
+ const publicResult=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
+ expect(await publicResult.text()).toContain('tinct-onboarding-worlds-v5')
+ })

@@ -136,3 +136,20 @@ it('never warms a previous account’s artwork from its local positions', async 
   await loadReadingTable({ catalogue: Promise.resolve({ books: [{ id: 'hamlet', title: 'Hamlet', author: 'William Shakespeare', art: { src: '/covers/hamlet.webp', srcSet: '' }, editions: [] }] }), onArtwork })
   expect(onArtwork.mock.calls.flatMap(([books]) => books)).toEqual([])
 })
+
+it('hands Continue the exact saved edition and location without writing a reading position', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.memory.mockResolvedValue(null)
+  const positions = emptyLabPositionState('device-a', null)
+  calls.localPositions.mockResolvedValue(positions)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  const target={chapterNumber:7,pageIndex:4,paragraphIndex:11,wordIndex:23,editionKey:'original-en',chapterLabel:'Chapter 7',at:Date.now()}
+  calls.readingList.mockReturnValue({readingNow:[{bookId:'frankenstein',target,finishedChapters:[],progress:'middle',lastActiveAt:Date.now(),session:null}],finished:[]})
+  const before = JSON.stringify(positions)
+  localStorage.setItem('tinct-lab-position',before)
+  const api=await import('./libraryTwoReading')
+  await api.loadReadingTable({catalogue:Promise.resolve({books:[{id:'frankenstein',title:'Frankenstein',author:'Mary Shelley',defaultEditionKey:'modern-en',editions:[{key:'original-en',language:'en',style:'original'},{key:'modern-en',language:'en',style:'modern'}],readingStructure:{chapters:[{number:7,title:'Chapter 7',paragraphCount:40}]}}]})})
+  expect(await api.readerDestination('frankenstein',null)).toBe('/reader')
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:7,page:4,paragraphIndex:11,wordIndex:23}})
+  expect(localStorage.getItem('tinct-lab-position')).toBe(before)
+})
