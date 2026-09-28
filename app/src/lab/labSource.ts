@@ -1,3 +1,4 @@
+import { registerBiblePoetry } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { getBook } from '../data/bookRegistry'
@@ -408,6 +409,8 @@ export async function loadLabSource(
       (editions?.readingFirst && !editions.compare) || !bibleEditionHasChapter(compare, entry.number) ? Promise.resolve([]) : loadBibleChapterText(compare, compareEntry).catch(() => []),
     ])
     if (paragraphs.length === 0) return bibleFallbackSource()
+    registerBiblePoetry(entry.title, paragraphs)
+    registerBiblePoetry(entry.title, compareParagraphs)
 
     const chapters = manifest.chapters.map(item => ({
       number: item.number,

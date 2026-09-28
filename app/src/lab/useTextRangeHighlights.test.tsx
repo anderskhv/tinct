@@ -86,3 +86,19 @@ it('installs its stylesheet once and keeps its class when React rewrites the pas
   view.unmount()
   expect(registry.size).toBe(0)
 })
+
+it('paints only the looked-up lexeme inside an unchanged audio token', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  function Lookup({word}: {word:string}) {
+    const ref=useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref)
+    return <article ref={ref}><p className="lab-hearing-line"><span data-testid="lab-word" className="is-selecting" data-selection-word={word}>Sherebiah—a</span></p></article>
+  }
+  const view=render(<Lookup word="Sherebiah" />)
+  expect([...registry.values()].flatMap(h=>h.ranges).map(r=>r.toString())).toEqual(['Sherebiah'])
+  view.rerender(<Lookup word="a" />)
+  expect([...registry.values()].flatMap(h=>h.ranges).map(r=>r.toString())).toEqual(['a'])
+  expect(view.container.textContent).toBe('Sherebiah—a')
+})

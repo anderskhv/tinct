@@ -69,12 +69,17 @@ jobs:
       - name: Verify reader panels and selection
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-reader-panels.mjs
+      - name: Verify reader feedback fixes
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-reader-feedback.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: reader-panels-acceptance
-          path: app/artifacts/reader-panels
+          path: |
+            app/artifacts/reader-panels
+            app/artifacts/reader-feedback-20260928
       - name: Verify library and preparation
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-layout.mjs
@@ -149,7 +154,9 @@ jobs:
         if: always()
         with:
           name: menu-design-acceptance
-          path: app/artifacts/reader-panels
+          path: |
+            app/artifacts/reader-panels
+            app/artifacts/reader-feedback-20260928
       - uses: actions/upload-artifact@v4
         if: always()
         with:

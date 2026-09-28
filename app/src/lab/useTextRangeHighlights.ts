@@ -1,3 +1,4 @@
+import { lexicalWords } from './labLookupWord'
 import { useId, useLayoutEffect, useRef, type RefObject } from 'react'
 
 type PaintRect = Pick<DOMRect, 'left' | 'right' | 'top' | 'bottom' | 'height'>
@@ -93,6 +94,25 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
         const next = word.classList.contains('is-selecting') ? 'warm'
           : Object.keys(COLORS).find(key => word.classList.contains(`is-hl-${key}`))
         if (!next) { color = undefined; range = undefined; continue }
+        const lookup = word.classList.contains('is-selecting') ? word.getAttribute('data-selection-word') : null
+        if (lookup) {
+          const walker = document.createTreeWalker(word, NodeFilter.SHOW_TEXT)
+          let child: Node | null, lexical: Range | undefined
+          while ((child = walker.nextNode())) {
+            const part = lexicalWords(child.textContent || '').find(part => part.text === lookup)
+            if (!part) continue
+            lexical = document.createRange()
+            lexical.setStart(child, part.start); lexical.setEnd(child, part.end)
+            break
+          }
+          if (lexical) {
+            ;(ranges[next] ??= []).push(lexical)
+            runs.push({ line, color: next, range: lexical })
+            signature.push(`lookup:${lookup}:${word.getAttribute('data-paragraph-index')}:${word.getAttribute('data-word-index')}`)
+            color = undefined; range = undefined
+            continue
+          }
+        }
         if (next !== color || !range) {
           range = document.createRange()
           range.setStart(word, 0)

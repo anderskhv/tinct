@@ -141,11 +141,14 @@ type AnthropicToolDefinition = {
 export const BOOK_TOOLS: readonly AnthropicToolDefinition[] = [
   {
     name: 'read_chapter',
-    description: 'Read one chapter of the book the reader has open, in the same edition. Use it whenever the reader refers to something outside the chapter in front of you (an earlier chapter, something they remember, "wasn\'t he just…"). Pass either the sequential chapter number of this edition as digits (for the Bible that is the running index shown in the prompt, e.g. Jeremiah 37 is "782") or the exact chapter label as shown in the prompt (e.g. "Jeremiah 32"). Long chapters come back trimmed with a note.',
+    description: 'Read a chapter or a range of up to 14 chapters of the open book, in the same edition. For chapter-by-chapter summaries, pass chapter and through together (for example Zechariah 1 through Zechariah 7), rather than spending a tool round on each chapter. Use it for exact wording, edition-specific details, uncertain claims, or requested verification. Familiar summaries and explanations can use general knowledge without calling this tool. Pass either the sequential chapter number of this edition as digits (for the Bible that is the running index shown in the prompt, e.g. Jeremiah 37 is "782") or the exact chapter label as shown in the prompt (e.g. "Jeremiah 32"). Long chapters return a start_paragraph continuation; retrieve it if needed.',
     input_schema: {
       type: 'object',
       properties: {
         chapter: { type: 'string', description: 'Sequential chapter number as digits (e.g. "777") or the exact chapter label (e.g. "Jeremiah 32").' },
+        through: { type: 'string', description: 'Optional inclusive last chapter label or sequential number; at most 14 chapters per call.' },
+        start_paragraph: { type: 'integer', description: 'Optional 1-based paragraph to continue a truncated chapter; defaults to 1.' },
+        start_offset: { type: 'integer', description: 'Optional continuation offset inside a long paragraph, exactly as returned by the tool; defaults to 0.' },
       },
       required: ['chapter'],
       additionalProperties: false,
@@ -154,7 +157,7 @@ export const BOOK_TOOLS: readonly AnthropicToolDefinition[] = [
   },
   {
     name: 'find_in_book',
-    description: 'Search this book (same edition) for a short phrase or name and get up to five matching paragraphs with their chapter labels and numbers. Case-insensitive substring search, nearest chapters first, bounded scan. Use it to locate where something happened before reading that chapter with read_chapter.',
+    description: 'Search this book (same edition) for a short phrase or name and get up to five matching paragraphs with their chapter labels and numbers. Case-insensitive substring search across the whole edition, returning earliest matches in book order. Falls back to an explicitly labelled partial scan only if the whole asset is unavailable. Use it to locate where something happened before reading that chapter with read_chapter.',
     input_schema: {
       type: 'object',
       properties: {
