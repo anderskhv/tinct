@@ -182,6 +182,21 @@ for(const engine of [chromium,webkit]) {
     await page.waitForFunction(chapter=>{const root=document.querySelector('[data-testid="lab-root"]');return root?.dataset.readerReady==='true'&&root.dataset.chapter===chapter},initialChapter)
     // At a chapter boundary the existing reader retreats to the previous
     // chapter's last page, which need not be the old spread's first leaf.
+    // Chapter data readiness precedes final font measurement/pagination.
+    // Record the settled page before testing disabled keys, not an intermediate
+    // last-page index while the previous-chapter transition is still resolving.
+    await page.evaluate(async()=>{
+      await document.fonts.ready
+      const started=performance.now();let previous='',stableSince=started
+      while(performance.now()-started<10000){
+        const root=document.querySelector('[data-testid="lab-root"]'),word=document.querySelector('[data-testid="lab-word"]')
+        const value=root?.dataset.chapter+':'+word?.dataset.paragraphIndex+':'+word?.dataset.wordIndex
+        if(value!==previous||root?.dataset.readerReady!=='true'){previous=value;stableSince=performance.now()}
+        if(word&&performance.now()-stableSince>=500)return
+        await new Promise(resolve=>setTimeout(resolve,50))
+      }
+      throw Error('Reader did not settle after returning to the previous chapter')
+    })
     const returned=await anchor(),settledParagraph=await first()
     await page.keyboard.press('Control+k')
     await page.getByLabel('Letter shortcuts').uncheck()
