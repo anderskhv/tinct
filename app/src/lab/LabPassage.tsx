@@ -400,6 +400,8 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
   return wordPlaceFromTarget(nearest)
 }
 
+const EMPTY_COMPARE_PARAGRAPHS: string[] = []
+
 export function LabPassage({
   openingOnly = false,
   pendingLayout = false,
@@ -985,7 +987,7 @@ export function LabPassage({
     ref={articleRef as React.RefObject<HTMLDivElement>}
     className="lab-opening-passage owns-text-selection"
     data-chapter-number={chapterNumber}
-    data-selection-chapter={chapterNumber}
+    data-selection-chapter={selectionChapters ? chapterNumber : undefined}
     tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       onKeyDown={event => {
         if (!keyboardSelection || !onSelectRange || hearing || !(event.key === 'F10' && event.shiftKey)) return
@@ -1032,7 +1034,7 @@ export function LabPassage({
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
-      data-selection-chapter={chapterNumber}
+      data-selection-chapter={selectionChapters ? chapterNumber : undefined}
       data-passage-mode={mode}
       tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       aria-keyshortcuts={keyboardSelection && onSelectRange ? 'Shift+F10' : undefined}
@@ -1068,7 +1070,7 @@ export function LabPassage({
             {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
             <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
               paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
-              compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
+              compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
               markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
               selectingRange={previousChapterEnding.selectingRange} onSelectRange={previousChapterEnding.onSelectRange}
               onPageTurn={onPageTurn} tapZones="none" />
@@ -1114,7 +1116,7 @@ export function LabPassage({
                 <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
                   paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
-                  compareParagraphs={[]} compare={false} mode="reading" follow={{ kind: 'none' }}
+                  compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{ kind: 'none' }}
                   followParagraphs={[]} markedIndexes={new Set()} keyboardSelection={keyboardSelection}
                   highlights={nextChapterOpening.highlights ?? []} selectingRange={nextChapterOpening.selectingRange}
                   onSelectRange={nextChapterOpening.onSelectRange} onPageTurn={onPageTurn} tapZones="none"
