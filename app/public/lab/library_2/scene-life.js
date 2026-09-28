@@ -231,6 +231,54 @@ function movingPaint(ctx,img,polygon,time,alpha,clouds=false,breeze=false){
   c.globalCompositeOperation='destination-in';c.drawImage(mask,0,0);c.globalCompositeOperation='source-over';
   ctx.save();ctx.globalAlpha=alpha;ctx.drawImage(canvas,x,y);ctx.restore();
 }
+// A continuous, bilinearly sampled surface replaces displaced two-pixel strips.
+// The distant canal gets sub-pixel refraction; the open sea has longer travelling
+// crests. No source object or mask edge is shifted as a whole.
+function waterPaint(ctx,img,polygon,time,alpha,sea=false){
+  const tile=movingTile(img,polygon),{canvas,mask,x,y,w,h}=tile;
+  const c=canvas.getContext('2d');
+  if(!tile.water){
+    c.clearRect(0,0,w,h);c.drawImage(img,x,y,w,h,0,0,w,h);
+    const source=c.getImageData(0,0,w,h),frame=c.createImageData(w,h);
+    const edge=mask.getContext('2d').getImageData(0,0,w,h).data;
+    const phases=new Float32Array(w*h*3);
+    for(let py=0;py<h;py++)for(let px=0;px<w;px++){
+      const i=(py*w+px)*3,depth=py/h;
+      // Distance compresses the wave spacing near the horizon. Lateral phase
+      // variation breaks rigid scan-lines without moving the banks or boat.
+      const distance=Math.log1p(depth*5);
+      phases[i]=distance*(sea?23:39)+px*.012;
+      phases[i+1]=distance*(sea?37:61)-px*.029+heatNoise(px*.027,py*.041)*1.3;
+      phases[i+2]=depth*depth;
+    }
+    tile.water={source,frame,edge,phases,tick:-1};
+  }
+  const state=tile.water,tick=Math.floor(time/50);
+  if(state.tick!==tick){
+    const t=tick*50*.001,data=state.source.data,out=state.frame.data;
+    for(let py=0;py<h;py++)for(let px=0;px<w;px++){
+      const n=py*w+px,i=n*4,phase=n*3,edge=state.edge[i+3]/255;
+      if(!edge){out[i+3]=0;continue;}
+      const near=state.phases[phase+2];
+      const a=Math.sin(state.phases[phase]-t*(sea?.75:.44));
+      const b=Math.sin(state.phases[phase+1]-t*(sea?1.03:.67));
+      const strength=edge*(.08+near*(sea?.70:.28));
+      const sx=Math.max(0,Math.min(w-1.001,px+(a*.65+b*.35)*strength));
+      const sy=Math.max(0,Math.min(h-1.001,py+(a*.4-b*.15)*strength));
+      const ix=Math.floor(sx),iy=Math.floor(sy),u=sx-ix,v=sy-iy;
+      const at=(iy*w+ix)*4,bt=at+4,ct=at+w*4,dt=ct+4;
+      // Evolving reflection brightness is restrained and follows the same wave.
+      const gain=1+(a*.016+b*.009)*near*edge*(sea?1:.55);
+      for(let ch=0;ch<3;ch++){
+        const value=(data[at+ch]*(1-u)+data[bt+ch]*u)*(1-v)+(data[ct+ch]*(1-u)+data[dt+ch]*u)*v;
+        out[i+ch]=value*gain;
+      }
+      out[i+3]=state.edge[i+3];
+    }
+    c.clearRect(0,0,w,h);c.putImageData(state.frame,0,0);state.tick=tick;
+  }
+  ctx.save();ctx.globalAlpha=alpha;ctx.drawImage(canvas,x,y);ctx.restore();
+}
 function pollen(ctx,panes,key,time,alpha,count=36,size=1){
   const [x0,y0,x1,y1]=bounds(panes.flat()),w=x1-x0,h=y1-y0;
   ctx.save();ctx.beginPath();panes.forEach(p=>{p.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();});ctx.clip();
@@ -275,7 +323,10 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
     ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
   }
   (spec.lights||[]).forEach(([x,y],i)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha));
-  if(spec.water)movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha);
+  if(spec.water){
+    if(id==='odyssey'||id==='crime-and-punishment')waterPaint(ctx,scenePainting(img,id),spec.water,time,alpha,id==='odyssey');
+    else movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha);
+  }
   if(spec.clouds)movingPaint(ctx,img,spec.clouds,time,alpha,true);
   (spec.branches||[]).forEach(p=>movingPaint(ctx,img,p,time,alpha,false,true));
   if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha,spec.pollenCount,spec.pollenSize);
