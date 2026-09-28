@@ -206,7 +206,7 @@ describe('POST /api/narration/ensure', () => {
     const anonymous = makeHarness({}, { user: null })
     expect((await ensure(anonymous, { paragraphs: [{ index: 0 }] })).status).toBe(401)
     const h = makeHarness()
-    expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(403)
+    expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(503)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], bookId: 'ulysses' })).status).toBe(404)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], voice: 'z' })).status).toBe(400)
     expect((await ensure(h, { paragraphs: [] })).status).toBe(400)

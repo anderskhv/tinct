@@ -1762,7 +1762,7 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-root').getAttribute('data-playing')).toBe('false')
   })
 
-  it('does not pair an unaligned edition: Danish Jane Eyre keeps the old paragraphing', () => {
+  it('requires explicit recovery for withdrawn Danish comparison and still permits the aligned English pair', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true, primaryEdition: 'original-en', compareEdition: 'modern-da' }))
     const base = sourceWithWords()
     const source = {
@@ -1774,6 +1774,8 @@ describe('lab chrome', () => {
       compareParagraphs: ['Der var ingen mulighed for at gå en tur den dag.'],
     }
     const { unmount } = render(<LabApp pathname="/lab/phone" source={source} />)
+    expect(screen.getByTestId('edition-hold').textContent).toContain('Danish editions are no longer offered')
+    fireEvent.click(screen.getByRole('button', { name: 'Open preserved edition and annotations' }))
     expect(screen.queryByTestId('lab-phone-compare')).toBeNull()
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('no possibility')
