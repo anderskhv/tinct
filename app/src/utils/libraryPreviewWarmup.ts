@@ -5,14 +5,21 @@ export function warmLibraryPreview() {
   if (libraryEntryPath(document.cookie) !== '/lab/library_2/') return
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
   if (connection?.saveData || navigator.onLine === false) return
+  const controller = new AbortController()
+  let stopped = false
   const keepVisit = () => {
     try {
       const visit = JSON.parse(sessionStorage.getItem('tinct:library-2-visit') || 'null')
       if (visit) sessionStorage.setItem('tinct:library-2-visit', JSON.stringify({ ...visit, at: Date.now() }))
     } catch { /* Storage is optional. */ }
   }
-  window.addEventListener('pagehide', keepVisit)
+  window.addEventListener('pagehide', () => {
+    stopped = true
+    controller.abort()
+    keepVisit()
+  }, { once: true })
   const warm = () => {
+    if (stopped) return
     const base = '/lab/library_2/', version = '?v=20260928e'
     const hour=new Date().getHours(),room=hour>=6&&hour<12?'morning':hour>=12&&hour<17?'afternoon':hour>=17&&hour<21?'evening':'night'
     const urls = [base + `assets/table-${room}-${innerWidth/innerHeight>1.2?'wide':'phone'}.jpg`]
@@ -31,7 +38,7 @@ export function warmLibraryPreview() {
     for (const binding of ['green', 'oxblood', 'navy', 'black', 'brown', 'slate', 'plum', 'ochre']) urls.push(base + 'assets/spines/spine-' + binding + '.jpg')
     // Serial batches leave bandwidth available for the book's next chapter.
     const unique = [...new Set(urls)]
-    void (async () => { for (let i=0;i<unique.length;i+=2) await Promise.all(unique.slice(i,i+2).map(url => fetch(url, { priority: 'low' } as RequestInit).then(r => r.arrayBuffer()).catch(() => {}))) })()
+    void (async () => { for (let i=0;i<unique.length && !stopped;i+=2) await Promise.all(unique.slice(i,i+2).map(url => fetch(url, { priority: 'low', signal: controller.signal } as RequestInit).then(r => r.arrayBuffer()).catch(() => {}))) })()
     keepVisit()
   }
   const schedule = () => {
