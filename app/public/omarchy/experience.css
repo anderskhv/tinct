@@ -1,0 +1,86 @@
+/* Palette-only integration: the existing book layout, typography and positions stay authoritative. */
+html[data-tinct-theme] {
+  --bg: var(--tinct-bg); --cream: var(--tinct-fg);
+  --muted: color-mix(in srgb, var(--tinct-fg) 72%, var(--tinct-bg));
+  --line: color-mix(in srgb, var(--tinct-fg) 22%, transparent);
+  --paper: var(--tinct-paper); --paper-warm: var(--tinct-paper);
+  --paper-deep: color-mix(in srgb, var(--tinct-paper) 92%, var(--tinct-ink));
+  --ink: var(--tinct-ink); --dim: color-mix(in srgb, var(--tinct-ink) 72%, var(--tinct-paper));
+  --faint: color-mix(in srgb, var(--tinct-ink) 55%, var(--tinct-paper));
+  --bg-primary: var(--tinct-paper); --bg-secondary: var(--paper-deep); --bg-panel: var(--tinct-paper);
+  --bg-hover: var(--paper-deep); --bg-chat-user: var(--paper-deep); --bg-chat-assistant: transparent;
+  --text-primary: var(--tinct-ink); --text-secondary: var(--dim); --text-tertiary: var(--faint);
+  --text-inverse: var(--tinct-paper); --border-color: var(--faint); --border-light: var(--paper-deep);
+  --accent: var(--tinct-accent); --accent-hover: var(--tinct-accent);
+  --accent-subtle: color-mix(in srgb, var(--tinct-accent) 20%, var(--tinct-paper));
+  background: var(--tinct-paper) !important;
+}
+html[data-tinct-theme] body { background: var(--tinct-paper) !important; }
+html[data-tinct-theme] body:has(#library) { background: var(--tinct-bg) !important; color: var(--tinct-fg); }
+html[data-tinct-theme] .lab {
+  --lab-paper: var(--tinct-paper) !important;
+  --lab-ink: var(--tinct-ink) !important;
+  --lab-ink-muted: color-mix(in srgb, var(--tinct-ink) 72%, var(--tinct-paper)) !important;
+  --lab-ink-faint: color-mix(in srgb, var(--tinct-ink) 55%, var(--tinct-paper)) !important;
+  --lab-surface: color-mix(in srgb, var(--tinct-paper) 94%, var(--tinct-ink)) !important;
+  --lab-border: color-mix(in srgb, var(--tinct-ink) 24%, var(--tinct-paper)) !important;
+  --lab-v2-panel-ink: var(--tinct-paper-rgb) !important;
+  --lab-v2-hairline: color-mix(in srgb, var(--tinct-ink) 22%, transparent) !important;
+  --lab-v2-chevron: var(--lab-ink-muted) !important;
+  --lab-v2-muted: var(--lab-ink-muted) !important;
+  --lab-v2-well: var(--lab-surface) !important;
+  --lab-v2-disc: color-mix(in srgb, var(--tinct-accent) 25%, transparent) !important;
+  --lab-v2-disc-open: color-mix(in srgb, var(--tinct-accent) 12%, transparent) !important;
+  --lab-call-ink: var(--tinct-ink) !important;
+  --lab-call-muted: var(--lab-ink-muted) !important;
+  --lab-call-hairline: var(--lab-border) !important;
+  --lab-call-rule: var(--lab-border) !important;
+  --lab-call-tint: color-mix(in srgb, var(--tinct-accent) 12%, transparent) !important;
+  --lab-call-panel: var(--lab-surface) !important;
+  --lab-call-panel-border: var(--lab-border) !important;
+}
+html[data-tinct-theme] .lab .lab-page-wrap,
+html[data-tinct-theme] .lab .lab-passage { background-color: var(--lab-paper); color: var(--lab-ink); }
+html[data-tinct-theme] .lab .lab-hearing-word.is-current { background-color: color-mix(in srgb, var(--tinct-accent) 28%, transparent) !important; color: var(--lab-ink) !important; }
+html[data-tinct-theme] .lab .lab-hearing-word.is-upcoming,
+html[data-tinct-theme] .lab .lab-hearing-word.is-spoken { color: var(--lab-ink-muted) !important; }
+/* Retain the illustrated library and covers; carry the palette through its surrounding surfaces. */
+html[data-tinct-theme] #header,
+html[data-tinct-theme] #library-menu,
+html[data-tinct-theme] #search-panel,
+html[data-tinct-theme] #librarian-panel,
+html[data-tinct-theme] #notice { background: color-mix(in srgb, var(--tinct-bg) 94%, transparent); color: var(--tinct-fg); border-color: var(--line); }
+html[data-tinct-theme] #header { background: linear-gradient(var(--tinct-bg),color-mix(in srgb,var(--tinct-bg) 25%,transparent)); }
+html[data-tinct-theme] .hero-shade { background: linear-gradient(0deg,var(--tinct-bg),color-mix(in srgb,var(--tinct-bg) 50%,transparent) 35%,transparent 80%); }
+html[data-tinct-theme] #shelves,
+html[data-tinct-theme] #collection { background-color: var(--tinct-bg); }
+html[data-tinct-theme] #librarian,
+html[data-tinct-theme] #librarian::before { background-color: var(--tinct-bg); }
+html[data-tinct-theme] #paper,
+html[data-tinct-theme] .book-slip,
+html[data-tinct-theme] #reader { background: var(--tinct-paper); color: var(--tinct-ink); }
+html[data-tinct-theme] #intro-body,
+html[data-tinct-theme] #intro-heading,
+html[data-tinct-theme] #intro .back-link,
+html[data-tinct-theme] .intro-tabs button,
+html[data-tinct-theme] #slip-copy,
+html[data-tinct-theme] .reader-toolbar { color: var(--tinct-ink); }
+html[data-tinct-theme] .read-button,
+html[data-tinct-theme] #begin-reading { background: var(--tinct-fg); color: var(--tinct-bg); border-color: var(--tinct-accent); }
+html[data-tinct-theme] #library button:focus-visible { outline-color: var(--tinct-accent); }
+html[data-tinct-theme] #library-menu button,
+html[data-tinct-theme] .search-toolbar input,
+html[data-tinct-theme] .search-toolbar button { color: var(--tinct-fg); }
+/* A palace binding: midnight lacquer, fine gold rules and a stepped geometric seal. */
+html[data-tinct-theme="persia"] #header { border-bottom: 1px solid #d6ad6240; }
+html[data-tinct-theme="persia"] .logo { color:#e7c885; text-shadow:0 2px 12px #080d22; }
+html[data-tinct-theme="persia"] .hero h1 { color:#faedcf; }
+html[data-tinct-theme="persia"] .hero .author,
+html[data-tinct-theme="persia"] .shelf h2 { color:#e7c885; }
+html[data-tinct-theme="persia"] .read-button { border-radius:3px; box-shadow:inset 0 0 0 3px #f3e5c4,inset 0 0 0 4px #a88549; }
+html[data-tinct-theme="persia"] .lab-header { border-bottom-color:#c1a169; }
+html[data-tinct-theme="persia"] .lab-super-panel,
+html[data-tinct-theme="persia"] #librarian-panel { box-shadow:inset 0 0 0 1px #d6ad6260,0 18px 55px #060a2040; }
+html[data-tinct-theme="persia"] .lab-page-wrap::before { content:'';position:absolute;left:50%;top:5px;width:6px;height:6px;border:1px solid #ae874d;transform:rotate(45deg);pointer-events:none; }
+#library-commands { font:20px/1 system-ui,sans-serif; }
+@media(max-width:699px) { #library-commands { display:none; } }
