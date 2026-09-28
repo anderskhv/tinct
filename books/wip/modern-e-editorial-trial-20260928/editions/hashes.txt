@@ -1,0 +1,29 @@
+Pinned evidence — 2026-09-28
+
+to-the-lighthouse original-en
+  app/public/data/editions/to-the-lighthouse-original-en.json
+  sha256: 1662e69cd2781083e2332aeddd1e0c340446bdf2f7929c95da0d008e65b8d4f8
+
+to-the-lighthouse modern-en (currently served)
+  app/public/data/editions/to-the-lighthouse-modern-en.json
+  sha256: 3b20ae3172ec905012082fe0948d81f5e0bee4832ef1c03860708b8ebfa84e22
+  last commit: b17e6014c871176188740a321709cde313ec788f (2026-09-25 18:13:07 +0000)
+
+ulysses original-en
+  app/public/data/editions/ulysses-original-en.json
+  sha256: ddc3418890b6a623e7c9bcb730272fe01539e86a2872c268eed43dbe01121428
+
+ulysses modern-en (currently served)
+  app/public/data/editions/ulysses-modern-en.json
+  sha256: ac853e0de7c6f8da3edecb426136e8037f39f03e4c7218fa15611bee241233a6
+  last commit: 5dbf20cd2348e9466c5863e2b5aa66a4834c5d22 (2026-09-24 13:42:04 +0200)
+
+Reader-served chapter files verified byte-identical (paragraph arrays) to the
+combined edition JSON above, for all sampled chapters:
+  to-the-lighthouse-modern-en ch0001, ch0023, ch0033
+  ulysses-modern-en ch0003, ch0004, ch0018
+
+No newer staged candidate exists for either book at time of this trial.
+books/wip/to-the-lighthouse-followup/ is a separate, already-accepted release
+package (structural/character-anchor work, 2026-09-25) — not a competing
+modern-en candidate, not touched by this trial.
