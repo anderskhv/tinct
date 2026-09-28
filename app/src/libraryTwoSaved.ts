@@ -14,6 +14,8 @@ async function account(): Promise<string | null> {
   return data.session?.user.id ?? null
 }
 function read(owner: string | null): State {
+  const cached = memory.get(owner ?? 'guest')
+  if (cached && volatileOwners.has(owner ?? 'guest')) return cached
   try {
     const value = JSON.parse(localStorage.getItem(DEVICE + (owner ?? 'guest')) || 'null')
     if (value?.items && value?.pending) return value
@@ -29,9 +31,10 @@ function read(owner: string | null): State {
   return memory.get(owner ?? 'guest') ?? empty()
 }
 const memory = new Map<string, State>()
+const volatileOwners = new Set<string>()
 function write(owner: string | null, state: State) {
   memory.set(owner ?? 'guest', state)
-  try { localStorage.setItem(DEVICE + (owner ?? 'guest'), JSON.stringify(state)) } catch { /* private browsing */ }
+  try { localStorage.setItem(DEVICE + (owner ?? 'guest'), JSON.stringify(state)); volatileOwners.delete(owner ?? 'guest') } catch { volatileOwners.add(owner ?? 'guest') }
 }
 function ids(state: State): string[] {
   return Object.entries(state.items).filter(([, item]) => item.saved).sort((a, b) => b[1].at - a[1].at).map(([id]) => id)

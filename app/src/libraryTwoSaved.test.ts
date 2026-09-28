@@ -33,3 +33,7 @@ it('honours deletion from another device without resurrecting cached saves',asyn
  mock.rows=[{key:'library-shelf:hamlet',value:null,rev:8}];expect((await api.loadSavedBooks()).ids).toEqual([]);expect(mock.rpc).not.toHaveBeenCalled();
 })
 it('never writes reading state keys',async()=>{const api=await import('./libraryTwoSaved');await api.setSavedBook('hamlet',true);expect(Object.keys(localStorage)).toEqual(['tinct:library-2-saved:guest']);})
+it('keeps this visit usable when device storage is full',async()=>{
+ const api=await import('./libraryTwoSaved');const write=vi.spyOn(Storage.prototype,'setItem').mockImplementation(()=>{throw new Error('quota')});
+ try{await api.setSavedBook('hamlet',true);expect((await api.loadSavedBooks()).ids).toEqual(['hamlet']);await api.setSavedBook('hamlet',false);expect((await api.loadSavedBooks()).ids).toEqual([]);}finally{write.mockRestore();}
+})
