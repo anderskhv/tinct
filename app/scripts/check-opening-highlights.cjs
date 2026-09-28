@@ -5,7 +5,7 @@ async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab
 (async()=>{const results=[];
 for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(e.name()))){
  const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
- const context=await browser.newContext({viewport:{width:1450,height:813},serviceWorkers:'block'});
+ const context=await browser.newContext({viewport:{width:1450,height:879},serviceWorkers:'block'});
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
  const older={id:'preserve',bookId:'bible',editionKey:'web-en',chapterNumber:916,paragraphIndex:0,endParagraphIndex:0,fromWord:1,toWord:3,color:'gold',note:'Keep exactly æ — 123.'};

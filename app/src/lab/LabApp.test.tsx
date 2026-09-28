@@ -4744,14 +4744,14 @@ it('returns from V2 audio browsing without seeking or restarting playback', asyn
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={sourceWithManyWords()} />)
   fireEvent.click(screen.getByTestId('lab-v2-play'))
-  await waitFor(() => expect(screen.getByTestId('lab-hearing')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing'))
   fireEvent.click(screen.getByTestId('lab-page-next'))
   await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
   const time = audio.currentTime
   fireEvent.click(screen.getByTestId('lab-back-to-audio'))
   expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
   expect(audio.currentTime).toBe(time)
-  expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+  expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing')
 })
 
 

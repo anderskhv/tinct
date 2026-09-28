@@ -3548,8 +3548,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const {chapterNumber, previousAnchor} = carriedEndingCurrent
       const target = previousAnchor ? chapterNumber : prevLabChapter(book.chapters, chapterNumber)
       if (target != null) {
-        if (listen.playing) void browseToChapter(target, previousAnchor ? 'start' : 'end', previousAnchor ?? undefined)
-        else void goToChapter(target, previousAnchor ? 'start' : 'end', false, previousAnchor ?? undefined)
+        const move = listen.playing
+          ? browseToChapter(target, previousAnchor ? 'start' : 'end', previousAnchor ?? undefined)
+          : goToChapter(target, previousAnchor ? 'start' : 'end', false, previousAnchor ?? undefined)
+        // This is a backward landing, not an opening consumed on the next leaf.
+        void move.then(() => { consumedOpeningRef.current = null })
       }
       return
     }
@@ -4485,7 +4488,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             compareParagraphs={book.compareParagraphs}
             pageEndMarker={comparePageEndMarker}
             compare={desktopCompareActive && desktopCompareEnabled}
-            mode={showPhoneChrome && showHearing ? 'hearing' : 'reading'}
+            mode={!chromeV2 && showPhoneChrome && showHearing ? 'hearing' : 'reading'}
             follow={(showHearing && listen.playing && (chromeV2 || !browseWhileListening) || chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
@@ -4494,7 +4497,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             currentTime={listen.currentTime}
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
-            inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 ? (!showPhoneChrome || browseWhileListening) : !showPhoneChrome && !browseWhileListening)}
+            inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 || !showPhoneChrome && !browseWhileListening)}
             onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.isPending() || listen.playing) listen.pause()

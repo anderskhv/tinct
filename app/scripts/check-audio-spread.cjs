@@ -23,6 +23,11 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
     return {paragraph:item.index,status:'ready',textHash:crypto.createHash('sha256').update(text).digest('hex'),chunkCount:1,readyChunks:1,duration,words,timingsUsable:true,chunks:[{index:0,wordFrom:0,wordTo:tokens.length,ready:true,hash:b.chapter+'-'+item.index,url:origin+'/api/audio-file?fixture='+b.chapter+'-'+item.index,duration,words,timingsUsable:true}]};
    })}});
   }
+  if(u.pathname==='/api/lab-chat'){
+   const b=r.request().postDataJSON();
+   assert(b.messages.some(m=>m.content.includes('<word>Jehohanan</word>')),'Lookup uses selected name');
+   return r.fulfill({json:{content:[{type:'text',text:JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'Test role at this passage',body:'Mocked contextual card for browser acceptance.'})}]}});
+  }
   if(u.pathname.startsWith('/api/'))return r.fulfill({status:404,body:'{}'});
   if(!built)return r.continue();
   const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));
@@ -39,12 +44,21 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   window.Audio=SilentAudio;
   HTMLMediaElement.prototype.play=async()=>{};
   localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'web-en',fontFamily:'literata',fontSize:1.8,theme:'dark'}));
-  sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:410,paragraphIndex:0,wordIndex:0,page:0}}));
+  sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:location.search.includes('character-test')?413:410,paragraphIndex:0,wordIndex:0,page:0}}));
  });
  const p=await context.newPage();p.setDefaultTimeout(30000);const errors=[];p.on('pageerror',e=>errors.push(e.message));
  try{
-  await p.goto(origin+'/reader');await ready(p);
-  for(let i=0;i<30 && !await p.getByTestId('lab-next-chapter-opening').count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
+  // Chapter length may end on either leaf at a given viewport. Select an
+  // actual mixed spread, without assuming a fixed page count.
+  for(const height of [813,879,940,740]){
+   await p.setViewportSize({width:1450,height});
+   await p.goto(origin+'/reader');await ready(p);
+   for(let i=0;i<30 && !await p.getByTestId('lab-next-chapter-opening').count();i++){
+    if(await p.locator('.lab-chapter-end').count())break;
+    await p.keyboard.press('ArrowRight');await ready(p);
+   }
+   if(await p.getByTestId('lab-next-chapter-opening').count())break;
+  }
   assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'410');
   await p.getByTestId('lab-next-chapter-opening').waitFor();
   const before=await geometry(p);
@@ -67,6 +81,14 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   assert(!openingKeys.includes(after[0].p+':'+after[0].w),'Next spread starts beyond the heard opening');
   await p.keyboard.press('ArrowLeft');await ready(p);
   assert.deepEqual(await geometry(p),before,'Back returns to the same mixed spread');
+  await p.goto(origin+'/reader?character-test=1');await ready(p);
+  const name=p.locator('.lab-page-wrap > .lab-passage [data-testid="lab-word"]').filter({hasText:/^Jehohanan[,.;]?$/}).first();
+  for(let i=0;i<20 && !await name.count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
+  assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'413');
+  await name.click();
+  await p.getByTestId('popup-contextual-character').waitFor();
+  assert.equal(await p.getByText('Minor character',{exact:true}).count(),1);
+  await p.screenshot({path:path.join(out,engine.name()+'-character.png')});
   assert.deepEqual(errors,[]);
   results.push({engine:engine.name(),passed:true,calls:calls.length});
  }catch(e){await p.screenshot({path:path.join(out,engine.name()+'-failure.png')});throw e;}
