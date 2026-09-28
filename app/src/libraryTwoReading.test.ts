@@ -153,3 +153,19 @@ it('hands Continue the exact saved edition and location without writing a readin
   expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:7,page:4,paragraphIndex:11,wordIndex:23}})
   expect(localStorage.getItem('tinct-lab-position')).toBe(before)
 })
+
+it('paints only the resolved viewer’s cached shelf while fresh cloud state is pending',async()=>{
+ const auth=gate<{data:{session:{user:{id:string};access_token:string}}}>(),completed=gate<{data:[];error:null}>();
+ calls.auth.mockReturnValue(auth.promise);calls.memory.mockResolvedValue(null);
+ calls.localPositions.mockResolvedValue(emptyLabPositionState('device-b','viewer-b'));
+ calls.cloudPositions.mockResolvedValue(emptyLabPositionState('cloud','viewer-b'));
+ calls.completions.mockReturnValue(completed.promise);calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0});calls.readingList.mockReturnValue({readingNow:[],finished:[]});
+ const cached={mode:'returning',reading:[{bookId:'hamlet',title:'Hamlet'}],finished:[]};
+ localStorage.setItem('tinct:library-2-table:viewer-a',JSON.stringify({mode:'returning',reading:[{bookId:'private-book'}],finished:[]}));
+ localStorage.setItem('tinct:library-2-table:viewer-b',JSON.stringify(cached));
+ const onCached=vi.fn(),{loadReadingTable}=await import('./libraryTwoReading');
+ const result=loadReadingTable({catalogue:Promise.resolve({books:[]}),onCached});expect(onCached).not.toHaveBeenCalled();
+ auth.resolve({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});await vi.waitFor(()=>expect(onCached).toHaveBeenCalledWith(cached));
+ expect(calls.readingList).not.toHaveBeenCalled();completed.resolve({data:[],error:null});await result;
+ expect(JSON.parse(localStorage.getItem('tinct:library-2-table:viewer-b')!)).toEqual({mode:'new',reading:[],finished:[]});
+})

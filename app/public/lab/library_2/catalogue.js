@@ -38,7 +38,7 @@ export function libraryBook(entry) {
     id: entry.id,
     title: entry.title,
     author: entry.author,
-    cover: entry.art?.src || null,
+    cover: entry.id==='to-the-lighthouse'?'assets/to-the-lighthouse.jpg':entry.art?.src || null,
     coverTone: entry.cover?.background || '#1b231c',
     summary: entry.summary || entry.blurb || '',
     preface: null,
@@ -73,7 +73,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928a').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928b').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });

@@ -235,6 +235,7 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
 }
 
 interface ReadingTableLoadOptions {
+  onCached?: (table: ReadingTable) => void
   /** The public page already requests this data; keep all catalogue entries. */
   catalogue?: Promise<{ books?: CatalogueBook[] }>
   /** Warm only public artwork while the account's remaining reads finish. */
@@ -243,7 +244,17 @@ interface ReadingTableLoadOptions {
 
 /** Every book in progress, newest first, and every finished book, for this viewer. */
 export async function loadReadingTable(options: ReadingTableLoadOptions = {}): Promise<ReadingTable> {
-  const [auth, books] = await Promise.all([readAuth(), loadCatalogue(options.catalogue)])
+  const catalogueReady = loadCatalogue(options.catalogue)
+  catalogueReady.catch(() => {})
+  const auth = await readAuth()
+  const cacheKey = 'tinct:library-2-table:' + (auth.userId ?? 'guest')
+  // Resolve identity before reading its snapshot. Cached presentation never
+  // supplies a resume target; that still comes from the merged position store.
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null')
+    if (cached && Array.isArray(cached.reading) && Array.isArray(cached.finished)) options.onCached?.(cached)
+  } catch { /* Fresh reads remain authoritative. */ }
+  const books = await catalogueReady
   const warmArtwork = (positions: LabPositionState | null) => {
     if (!options.onArtwork || !positions) return
     const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
@@ -286,7 +297,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     completedBookIds: completedBookIds(),
   })
   lastRows = new Map(list.readingNow.map(row => [row.bookId, row]))
-  return {
+  const table: ReadingTable = {
     mode: libraryModeFor(list),
     reading: list.readingNow.map(row => {
       const book = books.get(row.bookId)
@@ -309,6 +320,9 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),
   }
+  if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
+  try { localStorage.setItem(cacheKey, JSON.stringify(table)) } catch { /* Optional fast paint. */ }
+  return table
 }
 
 function summaryRequestFor(row: ReadingListRow, book: CatalogueBook | undefined): LabRecapRequest | null {

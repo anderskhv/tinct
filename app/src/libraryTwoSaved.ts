@@ -15,7 +15,7 @@ async function account(): Promise<string | null> {
 }
 function read(owner: string | null): State {
   const cached = memory.get(owner ?? 'guest')
-  if (cached && volatileOwners.has(owner ?? 'guest')) return cached
+  if (cached) return cached
   try {
     const value = JSON.parse(localStorage.getItem(DEVICE + (owner ?? 'guest')) || 'null')
     if (value?.items && value?.pending) return value
@@ -61,7 +61,7 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
         })
         if (failed) break
         const committed = Array.isArray(result) ? result[0] : result
-        if (versionedWriteApplied(committed)) { delete state.pending[id]; break }
+        if (versionedWriteApplied(committed)) { if (state.pending[id] === change) delete state.pending[id]; break }
         row = committed
       }
     }
@@ -80,24 +80,31 @@ function watchAccount(owner: string | null) {
     if ((session?.user.id ?? null) !== viewer) location.reload()
   })
 }
-export function loadSavedBooks() {
+export async function loadSavedBooks(options: { onCached?: (value: { ids: string[]; synced: boolean }) => void } = {}) {
+  const owner = await account(), state = read(owner)
+  watchAccount(owner)
+  write(owner, state)
+  options.onCached?.({ ids: ids(state), synced: false })
   return serialize(async () => {
-    const owner = await account(), state = read(owner)
-    watchAccount(owner)
+    if (await account() !== owner) throw new Error('Account changed')
     const synced = await sync(owner, state)
     if (await account() !== owner) throw new Error('Account changed')
     write(owner, state)
     return { ids: ids(state), synced }
   })
 }
-export function setSavedBook(id: string, saved: boolean) {
+export async function setSavedBook(id: string, saved: boolean) {
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) throw new Error('Invalid book')
+  const owner = await account(), state = read(owner)
+  watchAccount(owner)
+  const change = { saved, at: Date.now() }
+  state.items[id] = change
+  if (owner) state.pending[id] = change
+  // Persist each click before joining the cloud queue. A slow request must
+  // never delay the next click's durability or overwrite a newer action.
+  write(owner, state)
   return serialize(async () => {
-    if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) throw new Error('Invalid book')
-    const owner = await account(), state = read(owner)
-    const change = { saved, at: Date.now() }
-    state.items[id] = change
-    if (owner) state.pending[id] = change
-    write(owner, state)
+    if (await account() !== owner) throw new Error('Account changed')
     const synced = await sync(owner, state)
     if (await account() !== owner) throw new Error('Account changed')
     write(owner, state)

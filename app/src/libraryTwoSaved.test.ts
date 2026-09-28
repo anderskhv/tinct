@@ -37,3 +37,14 @@ it('keeps this visit usable when device storage is full',async()=>{
  const api=await import('./libraryTwoSaved');const write=vi.spyOn(Storage.prototype,'setItem').mockImplementation(()=>{throw new Error('quota')});
  try{await api.setSavedBook('hamlet',true);expect((await api.loadSavedBooks()).ids).toEqual(['hamlet']);await api.setSavedBook('hamlet',false);expect((await api.loadSavedBooks()).ids).toEqual([]);}finally{write.mockRestore();}
 })
+it('persists rapid clicks during a stalled cloud read and does not undo a newer toggle',async()=>{
+ mock.user='alice';let release!: (value:unknown)=>void;
+ mock.read.mockImplementationOnce(()=>new Promise(resolve=>release=resolve));
+ mock.rpc.mockResolvedValue({data:[{applied:true,rev:1}],error:null});
+ const api=await import('./libraryTwoSaved');const cached=vi.fn();const loading=api.loadSavedBooks({onCached:cached});
+ await vi.waitFor(()=>expect(cached).toHaveBeenCalled());
+ const one=api.setSavedBook('hamlet',true),two=api.setSavedBook('frankenstein',true),three=api.setSavedBook('hamlet',false);
+ await vi.waitFor(()=>{const state=JSON.parse(localStorage.getItem('tinct:library-2-saved:alice')!);expect(state.items.frankenstein.saved).toBe(true);expect(state.items.hamlet.saved).toBe(false)});
+ release({data:[],error:null});await Promise.all([loading,one,two,three]);
+ expect((await api.loadSavedBooks()).ids).toEqual(['frankenstein']);
+})
