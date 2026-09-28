@@ -47,6 +47,18 @@ describe('Library 2 published reading structures', () => {
     }
   })
 
+  it('publishes separate measured counts and structures for available editions', () => {
+    const book=catalogue.books.find(book=>book.id==='frankenstein')!
+    const original=book.editions.find(edition=>edition.key==='original-en')!
+    const modern=book.editions.find(edition=>edition.key==='modern-en')!
+    expect(original.wordCount).toBeGreaterThan(70000)
+    expect(modern.wordCount).toBeGreaterThan(60000)
+    expect(original.wordCount).not.toBe(modern.wordCount)
+    expect(original.readingStructure?.editionKey).toBe('original-en')
+    expect(modern.readingStructure?.editionKey).toBe('modern-en')
+    expect(book.editions.find(edition=>edition.language==='da')?.wordCount).toBeNull()
+  })
+
   it('uses the real chapter extent instead of a chapter-local page percentage', () => {
     const bible = catalogue.books.find(book => book.id === 'bible')!
     const odyssey = catalogue.books.find(book => book.id === 'odyssey')!
