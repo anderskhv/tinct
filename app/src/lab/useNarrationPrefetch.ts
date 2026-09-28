@@ -18,6 +18,10 @@ export interface NarrationPrefetchInput {
   paragraphCount: number
   /** The paragraph the reader is at: the one being narrated, else the page's first paragraph. */
   currentParagraph: number
+  /** Listening time left; complements paragraph counts for short paragraphs. */
+  remainingSeconds?: number
+  /** Pass warmed metadata to the player instead of throwing it away. */
+  onPrepared?: (chapter: number, results: NarrationParagraphResult[]) => void
   /** Playback speed: faster listening reaches the end sooner, so the next chapter warms earlier. */
   speed?: number
   authToken?: string | null
@@ -52,7 +56,8 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
   inputRef.current = input
   const { active, voice, bookId, editionKey, chapter, nextChapter, paragraphCount, currentParagraph } = input
   const tail = Math.ceil(NARRATION_PREFETCH_TAIL * Math.max(1, Math.min(3, input.speed ?? 1)))
-  const nearEnd = paragraphCount > 0 && currentParagraph >= paragraphCount - tail
+  const nearEnd = paragraphCount > 0 && (currentParagraph >= paragraphCount - tail
+    || (input.remainingSeconds != null && Number.isFinite(input.remainingSeconds) && input.remainingSeconds <= 60))
 
   const warmChapter = (target: number, key: string) => {
     const controller = new AbortController()
@@ -64,6 +69,7 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
       if (cancelled || !token) return
       const indexes = Array.from({ length: NARRATION_PREFETCH_PARAGRAPHS }, (_, index) => index)
       let finished = false
+      const downloads = new Set<string>()
       for (let round = 0; round < MAX_ROUNDS && !cancelled; round += 1) {
         let results: NarrationParagraphResult[]
         try {
@@ -75,8 +81,28 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
         } catch {
           return
         }
+        if (cancelled) return
+        current.onPrepared?.(target, results)
+        // Generation alone does not warm the device's HTTP audio cache.
+        // Download only the first two playable clips, without delaying rounds.
+        const urls = results.flatMap(result => 'chunks' in result ? result.chunks : [])
+          .filter(chunk => chunk.ready && chunk.url?.startsWith('/') && !chunk.url.startsWith('//'))
+          .slice(0, 2).map(chunk => chunk.url!)
+        for (const url of urls) {
+          if (downloads.has(url)) continue
+          downloads.add(url)
+          void Promise.resolve().then(() => fetch(url, { cache: 'force-cache', credentials: 'same-origin', signal: controller.signal }))
+            .then(response => response?.ok ? response.arrayBuffer() : Promise.reject(new Error('audio prefetch failed')))
+            .catch(() => downloads.delete(url))
+        }
         if (results.length === 0 || complete(results, indexes)) { finished = true; break }
         if (results.some(item => item.status === 'failed' || ('failure' in item && item.failure))) { finished = true; break }
+        const retryAfterMs = Math.max(0, ...results.map(result => result.retryAfterMs ?? 0))
+        if (retryAfterMs > 0) await new Promise<void>(resolve => {
+          const done = () => { clearTimeout(timer); controller.signal.removeEventListener('abort', done); resolve() }
+          const timer = setTimeout(done, Math.min(5000, retryAfterMs))
+          controller.signal.addEventListener('abort', done, { once: true })
+        })
       }
       // Marked done only once complete (or given up), so an aborted warm can resume.
       if (finished && !cancelled) doneRef.current.add(key)

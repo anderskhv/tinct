@@ -88,6 +88,8 @@ export interface LabNarrationOption {
   ensure: (paragraphIndexes: number[], signal: AbortSignal, mode?: NarrationEnsureRequest['mode'], fromChunks?: Record<number, number>) => Promise<NarrationParagraphResult[]>
   /** Paragraphs kept complete ahead of the one playing (default 2, at most 3). */
   lookAhead?: number
+  /** Warmed opening states; accepted only after exact text-hash validation. */
+  prepared?: () => NarrationParagraphResult[]
 }
 
 export type LabNarrationState =
@@ -957,6 +959,7 @@ export function useLabListen(options: UseLabListenOptions) {
         if (entry.textHash !== hashes[index]) narrationPreparedRef.current.delete(index)
       }
       paragraphsRef.current = sourceParagraphs.map((text, index) => ({ index, text }))
+      applyPreparedNarration(narration.prepared?.() ?? [])
       rebuildNarrationClips()
       return clipsRef.current
     }
@@ -1025,7 +1028,7 @@ export function useLabListen(options: UseLabListenOptions) {
     followed = commitFollowParagraphs(followed)
     const clips = clipsFromManifest(sourceParagraphs, manifest.paragraphs || [])
     return attachWords(followed, clips)
-  }, [commitFollowParagraphs, rebuildNarrationClips])
+  }, [commitFollowParagraphs, rebuildNarrationClips, applyPreparedNarration])
 
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
     if (optionsRef.current.playbackUnavailable || pendingRef.current) return false

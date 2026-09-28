@@ -4,13 +4,13 @@ export function lexicalWords(text: string): Array<{ text: string; start: number;
     .map(match => ({ text: match[0], start: match.index!, end: match.index! + match[0].length }))
 }
 
-export function lookupWordAtPoint(text: string, paragraphIndex: number, wordIndex: number, x: number, y: number, comparison: boolean): string {
+export function lookupWordAtPoint(text: string, paragraphIndex: number, wordIndex: number, x: number, y: number, comparison: boolean, opening = false): string {
   const parts = lexicalWords(text)
   if (!parts.length) return text
   if (parts.length === 1) return parts[0].text
   if (/\s/.test(text.trim())) return text
   let best = Infinity, picked = parts[0].text
-  for (const node of document.querySelectorAll<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${paragraphIndex}"][data-word-index="${wordIndex}"]`)) {
+  for (const node of document.querySelectorAll<HTMLElement>(`[data-testid="${opening ? 'lab-opening-word' : 'lab-word'}"][data-paragraph-index="${paragraphIndex}"][data-word-index="${wordIndex}"]`)) {
     if (!!node.closest('.lab-book-col-compare') !== comparison) continue
     const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT)
     let child: Node | null

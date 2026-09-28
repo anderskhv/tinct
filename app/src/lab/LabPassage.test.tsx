@@ -537,7 +537,7 @@ describe('the end-of-chapter card on the desktop spread', () => {
     const opening = screen.getByTestId('lab-next-chapter-opening')
     expect(opening.closest('.lab-book-col-next')).toBeTruthy()
     expect(opening.textContent).toBe('five six seven')
-    // Only this chapter's words are indexed and selectable; the card stays with them.
+    // The current chapter's word identity stays separate from the opening.
     expect(screen.getAllByTestId('lab-word').map(word => word.textContent)).toEqual(text[0].split(' '))
     expect(screen.getByTestId('end-card').closest('.lab-book-col-next')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter 2' }))
@@ -863,4 +863,35 @@ it('clicks the mark that paints an overlapping word or separator, preserving its
   fireEvent.pointerDown(gap,{pointerId:2,pointerType:'mouse',button:0,clientX:100,clientY:100})
   fireEvent.pointerUp(gap,{pointerId:2,pointerType:'mouse',clientX:100,clientY:100})
   expect(select).toHaveBeenLastCalledWith(expect.anything(),100,100,undefined,'lookup','newer')
+})
+
+describe('selectable next-chapter opening', () => {
+  it('looks up and highlights opening words without invoking the outgoing chapter selection', () => {
+    const current = vi.fn(), upcoming = vi.fn()
+    render(<LabPassage {...passageProps(['old text'], {paragraphIndex:0,from:0,to:2})}
+      chapterNumber={7} desktopSpread onSelectRange={current}
+      nextChapterOpening={{title:'Chapter 8',chapterNumber:8,paragraphs:['next opening words'],
+        page:{paragraphIndex:0,from:0,to:3},onSelectRange:upcoming,
+        highlights:[{id:'next',chapterNumber:8,paragraphIndex:0,endParagraphIndex:0,fromWord:1,toWord:3,color:'sage'}]}} />)
+    const words=screen.getAllByTestId('lab-opening-word')
+    expect(words[1].className).toContain('is-hl-sage')
+    expect(screen.getAllByTestId('lab-word').every(w=>!w.className.includes('is-hl-sage'))).toBe(true)
+    fireEvent.pointerDown(words[0],{pointerType:'mouse',button:0,clientX:20,clientY:20})
+    fireEvent.pointerUp(words[0],{pointerType:'mouse',clientX:20,clientY:20})
+    expect(upcoming).toHaveBeenCalledWith(expect.objectContaining({text:'next',fromWord:0,toWord:1}),20,20,undefined,'lookup')
+    expect(current).not.toHaveBeenCalled()
+  })
+  it('drags only within the opening and builds its source text', () => {
+    const upcoming=vi.fn(),current=vi.fn()
+    render(<LabPassage {...passageProps(['old text'],{paragraphIndex:0,from:0,to:2})}
+      chapterNumber={7} desktopSpread onSelectRange={current}
+      nextChapterOpening={{title:'Chapter 8',chapterNumber:8,paragraphs:['next opening words'],
+        page:{paragraphIndex:0,from:0,to:3},onSelectRange:upcoming}} />)
+    const words=screen.getAllByTestId('lab-opening-word')
+    fireEvent.pointerDown(words[0],{pointerType:'mouse',button:0,clientX:20,clientY:20})
+    fireEvent.pointerMove(words[2],{pointerType:'mouse',clientX:150,clientY:20})
+    fireEvent.pointerUp(words[2],{pointerType:'mouse',clientX:150,clientY:20})
+    expect(upcoming).toHaveBeenCalledWith(expect.objectContaining({text:'next opening words',fromWord:0,toWord:3}),150,20,undefined)
+    expect(current).not.toHaveBeenCalled()
+  })
 })
