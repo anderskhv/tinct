@@ -77,6 +77,16 @@ jobs:
       - name: Install silent production browser
         id: browser
         run: npx playwright install --with-deps chromium webkit
+      - name: Verify production Omarchy commands and themes
+        env:
+          TINCT_DESKTOP_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+        run: node scripts/check-omarchy.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: omarchy-production-acceptance
+          path: app/artifacts/omarchy
       - name: Verify production inline audio loading silently
         env:
           READER_LIVE: '1'
@@ -177,3 +187,4 @@ jobs:
         with:
           name: symposium-publication-live
           path: app/artifacts/symposium-publication-live
+

@@ -1,3 +1,4 @@
+import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928e';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928e';
 import {mountBookshelf} from './bookshelf.js?v=20260928e';
@@ -190,7 +191,7 @@ async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
  $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
- assistantLoading=import('/lab/library-2-assistant.js?v=20260928e').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+ assistantLoading=import('/lab/library-2-assistant.js?v=20260928-omarchy').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
   returnTo:location.pathname+location.search,
@@ -247,7 +248,7 @@ function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLib
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitHero);observer.observe(document.querySelector('.hero-copy'));observer.observe($('hero'));}fitHero();
 let previousWidth=innerWidth,previousHeight=innerHeight;
 addEventListener('resize',()=>{fitHero();const free=dock.edge==='none';dock=dockPosition(free?dock.x/Math.max(1,previousWidth-52)*(innerWidth-52):dock.edge==='right'?innerWidth-52:dock.x,free?dock.y/Math.max(1,previousHeight-52)*(innerHeight-52):dock.edge==='bottom'?innerHeight-52:dock.y,innerWidth,innerHeight);previousWidth=innerWidth;previousHeight=innerHeight;if(mode==='minimized')placeOrb(dock);else if(mode==='welcome')requestAnimationFrame(()=>moveOrb(orbTarget()));if(activeBook){if(bookProgress===1)drawBook(1);else{sourceRect=rectOf(sourceCanvas);drawBook(bookProgress);}}drawScene(performance.now());});
-addEventListener('keydown',e=>{if(e.key==='Tab')document.documentElement.classList.add('keyboard-nav');if(e.key==='Escape'){if(mode!=='minimized')minimize();else if(activeBook){if(reading)$('reader-back').click();else closeBook();}else if(searchOpen)setSearch(false);else if(menuOpen)setMenu(false);}if(e.key==='Tab'){const modal=mode!=='minimized'?$('librarian-panel'):activeBook&&bookProgress===1?(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour&&tourProgress===0?$('book-overlay'):reading?$('reader'):$('intro')):searchOpen?$('search-panel'):menuOpen?$('library-menu'):null;if(!modal)return;const items=[...modal.querySelectorAll('button,input,select,[tabindex="0"]')].filter(x=>!x.hidden&&!x.disabled&&!x.closest('[aria-hidden="true"]')&&x.getClientRects().length);if(!items.length)return;const i=items.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();items.at(-1).focus();}else if(!e.shiftKey&&i===items.length-1){e.preventDefault();items[0].focus();}}});
+addEventListener('keydown',e=>{if(e.defaultPrevented||document.documentElement.dataset.tinctCommandsOpen==='true')return;if(e.key==='Tab')document.documentElement.classList.add('keyboard-nav');if(e.key==='Escape'){if(mode!=='minimized')minimize();else if(activeBook){if(reading)$('reader-back').click();else closeBook();}else if(searchOpen)setSearch(false);else if(menuOpen)setMenu(false);}if(e.key==='Tab'){const modal=mode!=='minimized'?$('librarian-panel'):activeBook&&bookProgress===1?(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour&&tourProgress===0?$('book-overlay'):reading?$('reader'):$('intro')):searchOpen?$('search-panel'):menuOpen?$('library-menu'):null;if(!modal)return;const items=[...modal.querySelectorAll('button,input,select,[tabindex="0"]')].filter(x=>!x.hidden&&!x.disabled&&!x.closest('[aria-hidden="true"]')&&x.getClientRects().length);if(!items.length)return;const i=items.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();items.at(-1).focus();}else if(!e.shiftKey&&i===items.length-1){e.preventDefault();items[0].focus();}}});
 addEventListener('pointerdown',()=>document.documentElement.classList.remove('keyboard-nav'),true);
 function fitKeyboard(){const viewport=window.visualViewport;document.documentElement.classList.toggle('vv-keyboard',!!viewport&&innerHeight-viewport.height>120);document.documentElement.style.setProperty('--visual-height',(viewport?.height||innerHeight)+'px');document.documentElement.style.setProperty('--visual-top',(viewport?.offsetTop||0)+'px');}
 // Safari pans the visual viewport after the keyboard resize. Follow that scroll
@@ -332,3 +333,29 @@ mountHeroNavigation({
 });
 
 if(readVisit()?.mode==='discovery'){const i=featuredBooks.findIndex(b=>b.id===readVisit()?.featured);if(i>0)all('.hero-dots button')[i].click();}
+
+
+
+// The desktop shell keeps the complete library: search, collections, introductions,
+// saved books, account and the production librarian all retain their normal routes.
+let assistantCommand=0;
+function openAssistantCommand(next){
+ const request=++assistantCommand;openLibrarian();
+ void loadAssistant().then(api=>{if(api&&request===assistantCommand&&mode==='welcome'){setMode(next);api.open(next);}});
+}
+registerCommands({
+ prepare:()=>{if(searchOpen)setSearch(false);if(menuOpen)setMenu(false);},
+ blocked:()=>!!document.querySelector('dialog[open]')||searchOpen||menuOpen,
+ commands:[
+  {id:'library-search',label:'Search books and authors',key:'/',run:()=>{setSearch(true);$('search-input').focus();}},
+  {id:'library-chat',label:'Chat with your librarian',key:'c',run:()=>openAssistantCommand('chat')},
+  {id:'library-talk',label:'Talk with your librarian',key:'t',run:()=>{if(mode==='talk'){minimize();return;}openAssistantCommand('talk');}},
+  {id:'library-books',label:'My books',key:'b',run:()=>{const b=document.querySelector('[data-collection="saved"]');b?.click();}},
+  {id:'library-menu',label:'Library categories and time periods',key:'i',run:()=>setMenu(true)},
+  {id:'library-read',label:'Read the selected book',key:'r',enabled:()=>mode==='minimized',run:()=>{if(activeBook){$('begin-reading').click();}else{const resume=$('rt-continue');if(resume&&!resume.hidden&&resume.getClientRects().length)resume.click();else $('read-featured').click();}}},
+  {id:'library-home',label:'Library home',key:'l',run:()=>location.assign('/library')},
+  {id:'library-account',label:'Account and sign in',key:'a',run:()=>$('sign-in').click()},
+  {id:'library-fullscreen',label:'Toggle full screen',key:'f',run:()=>{if(document.fullscreenElement)void document.exitFullscreen();else void document.documentElement.requestFullscreen?.().catch(()=>{});}},
+ ]
+});
+const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;$('search-toggle').before(commandsButton);
