@@ -412,6 +412,18 @@ describe('worker SEO routing', () => {
     expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
   })
 
+  it.each(['/library', '/reader', '/lab/phone'])('permits only the Omarchy palette endpoint on %s', async (path) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${path}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    const policy = resp.headers.get('Content-Security-Policy') || ''
+    const connect = policy.split(';').find(directive => directive.trim().startsWith('connect-src')) || ''
+    const localSources = connect.split(/\s+/).filter(source => source.startsWith('http:') || source.includes('localhost') || source.includes('127.0.0.1'))
+    expect(localSources).toEqual(['http://127.0.0.1:47653/theme'])
+    expect(connect).not.toContain('*')
+    expect(policy).toContain("script-src 'self';")
+    expect(policy).toContain("frame-ancestors 'self'")
+  })
+
   it('opens the promoted library from /app', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/app'), routerEnv() as never, ctx)
     expect(resp.status).toBe(302)
@@ -558,3 +570,4 @@ it('routes Faust recommendation cards through the labelled German book landing',
  const publicResult=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
  expect(await publicResult.text()).toContain('approved cinematic library')
  })
+
