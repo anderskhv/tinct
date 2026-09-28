@@ -6,28 +6,16 @@ import { LAB_OVERFLOW_CLEAR_PX } from './labChrome'
 const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
 const foot = css.slice(css.indexOf('── The foot, without the bar'))
 
-/**
- * The foot's geometry, in one place so it cannot drift apart.
- *
- * 20px of painted progress line over a 5.6px inset is the whole reserved
- * foot — `.lab-bottom-chrome` is what pagination measures, so it has to say
- * the same thing the body's padding says, or the column never grows.
- */
+/** The page reserves controls in both states: pressing Play must not repaginate. */
 const PAINTED_REM = 1.25
-const INSET_REM = 0.35
 const TRANSPORT_REM = 3.72
 
 describe('the V2 foot', () => {
-  it('reserves exactly the painted progress line, in both boxes that claim to know', () => {
-    // The box pagination measures and the padding the column is laid out in
-    // must agree, or the reader gets a column that overruns its own foot.
-    const closed = `calc(${PAINTED_REM}rem + max(${INSET_REM}rem, env(safe-area-inset-bottom, 0px)))`
-    expect(foot).toContain(`height: ${closed}`)
-    expect(foot).toContain(`padding-bottom: ${closed}`)
-    // With the transport up the rail rides above it and both grow together.
-    const open = `calc(${(TRANSPORT_REM + PAINTED_REM).toFixed(2)}rem + env(safe-area-inset-bottom, 0px))`
-    expect(foot).toContain(`height: ${open}`)
-    expect(foot).toContain(`padding-bottom: ${open}`)
+  it('reserves the same playback clearance in both pagination boxes', () => {
+    const reserve = `calc(${(TRANSPORT_REM + PAINTED_REM).toFixed(2)}rem + env(safe-area-inset-bottom, 0px))`
+    expect(foot).toContain(`height: ${reserve}`)
+    expect(foot).toContain(`padding-bottom: ${reserve}`)
+    expect(foot).not.toContain('height: calc(1.25rem + max(0.35rem')
   })
 
   it('paints 20px and takes 44px of thumb', () => {

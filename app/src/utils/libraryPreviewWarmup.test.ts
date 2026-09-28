@@ -34,7 +34,7 @@ test('warms the room and selected cover before scripts, accepting public same-or
   expect(urls[2]).toBe('/covers/v2/hamlet.webp')
   expect(urls.filter(url => url === '/covers/v2/hamlet.webp')).toHaveLength(1)
   expect(urls.some(url => /example|private|token=/.test(url))).toBe(false)
-  expect(requests).toHaveBeenCalledWith(urls[0], { priority: 'low' })
+  expect(requests).toHaveBeenCalledWith(urls[0], expect.objectContaining({ priority: 'low', signal: expect.any(AbortSignal) }))
 })
 
 test('does not spend bandwidth when Save Data is enabled', () => {
@@ -48,4 +48,34 @@ test('preloads the public library for ordinary reader visits', () => {
   document.cookie = 'tinct_library_preview=;max-age=0'
   warmLibraryPreview()
   expect(requests).toHaveBeenCalled()
+})
+
+test('aborts active downloads and stops further batches after leaving the page', async () => {
+  setup()
+  let release!: () => void
+  const body = new Promise<void>(resolve => { release = resolve })
+  const requests = vi.fn(async (_url: string, _options: RequestInit) => ({ arrayBuffer: () => body }))
+  vi.stubGlobal('fetch', requests)
+  warmLibraryPreview()
+  expect(requests).toHaveBeenCalledTimes(2)
+  const signal = requests.mock.calls[0][1].signal
+  window.dispatchEvent(new Event('pagehide'))
+  expect(signal?.aborted).toBe(true)
+  release()
+  await new Promise(resolve => setTimeout(resolve, 0))
+  expect(requests).toHaveBeenCalledTimes(2)
+})
+
+test('stops when a request rejects before pagehide, as WebKit does at navigation start', async () => {
+  setup()
+  let reject!: (reason: Error) => void
+  const first = new Promise<never>((_resolve, fail) => { reject = fail })
+  const requests = vi.fn((_url: string, _options: RequestInit) => first)
+  vi.stubGlobal('fetch', requests)
+  warmLibraryPreview()
+  expect(requests).toHaveBeenCalledTimes(2)
+  reject(new TypeError('Load failed'))
+  await new Promise(resolve => setTimeout(resolve,0))
+  expect(requests.mock.calls[0][1].signal?.aborted).toBe(true)
+  expect(requests).toHaveBeenCalledTimes(2)
 })
