@@ -1,6 +1,8 @@
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const origin='https://tinct.app',built=process.env.READER_BUILT!=='0',out='artifacts/audio-spread';
 fs.mkdirSync(out,{recursive:true});
+require('esbuild').buildSync({entryPoints:['src/narration/narrationCore.ts'],bundle:true,platform:'node',format:'cjs',outfile:path.join(out,'fixture-core.cjs')});
+const {chunkNarrationText,narrationTextForParagraph}=require(path.resolve(out,'fixture-core.cjs'));
 const bible=JSON.parse(fs.readFileSync('public/data/editions/bible-web-en.json','utf8'));
 const chapter=n=>bible.chapters.find(c=>c.number===n);
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(400);}
@@ -18,9 +20,12 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   if(u.pathname==='/api/narration/ensure'){
    const b=r.request().postDataJSON();calls.push(b);
    return r.fulfill({json:{paragraphs:b.paragraphs.map(item=>{
-    const text=chapter(b.chapter).paragraphs[item.index].replace(/\s+/g,' ').trim(),tokens=text.split(' '),duration=tokens.length/2;
+    const source=chapter(b.chapter).paragraphs[item.index],text=narrationTextForParagraph(source),tokens=text.split(' '),duration=tokens.length/2;
     const words=tokens.map((text,i)=>({text,start:i/2,end:(i+1)/2}));
-    return {paragraph:item.index,status:'ready',textHash:crypto.createHash('sha256').update(text).digest('hex'),chunkCount:1,readyChunks:1,duration,words,timingsUsable:true,chunks:[{index:0,wordFrom:0,wordTo:tokens.length,ready:true,hash:b.chapter+'-'+item.index,url:origin+'/api/audio-file?fixture='+b.chapter+'-'+item.index,duration,words,timingsUsable:true}]};
+    const chunks=chunkNarrationText(source).map(chunk=>({...chunk,ready:true,hash:b.chapter+'-'+item.index+'-'+chunk.index,
+      url:origin+'/api/audio-file?fixture='+b.chapter+'-'+item.index+'-'+chunk.index,duration:(chunk.wordTo-chunk.wordFrom)/2,
+      words:tokens.slice(chunk.wordFrom,chunk.wordTo).map((text,i)=>({text,start:i/2,end:(i+1)/2})),timingsUsable:true}));
+    return {paragraph:item.index,status:'ready',textHash:crypto.createHash('sha256').update(text).digest('hex'),chunkCount:chunks.length,readyChunks:chunks.length,duration,words,timingsUsable:true,chunks};
    })}});
   }
   if(u.pathname==='/api/lab-chat'){
