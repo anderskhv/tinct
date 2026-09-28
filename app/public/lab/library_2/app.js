@@ -1,13 +1,13 @@
-import {readVisit,rememberVisit} from './visit.js?v=20260928b';
-import {mountHeroNavigation} from './hero-navigation.js?v=20260928b';
-import {mountBookshelf} from './bookshelf.js?v=20260928b';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260928b';
-import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928b';
-import {books} from './books.js?v=20260928b';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928b';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928b';
-import {categories,eras,metadata} from './taxonomy.js?v=20260928b';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928b';
+import {readVisit,rememberVisit} from './visit.js?v=20260928c';
+import {mountHeroNavigation} from './hero-navigation.js?v=20260928c';
+import {mountBookshelf} from './bookshelf.js?v=20260928c';
+import {authorPortrait,warmPortrait} from './authors.js?v=20260928c';
+import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928c';
+import {books} from './books.js?v=20260928c';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928c';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928c';
+import {categories,eras,metadata} from './taxonomy.js?v=20260928c';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928c';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
@@ -81,7 +81,7 @@ const phoneTableY={'pride-and-prejudice':675,odyssey:775,'crime-and-punishment':
 function cropForScene(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=$('rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.3,Math.min(h*.8,edge)));}
 let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
 if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
-addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(featured.id);});
+addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
 function drawScene(time){const canvas=$('scene'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(devicePixelRatio||1,2);if(!w||!h)return;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const wide=w/h>1.2;const fade=reduced.matches||!sceneFrom?1:ease(clamp((time-sceneStart)/SCENE_FADE,0,1));if(fade===1)sceneFrom=null;const layer=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||alpha<=0)return;const c=cropForScene(id,w,h,img,img.naturalWidth>img.naturalHeight);ctx.globalAlpha=alpha;ctx.drawImage(scenePainting(img,id),c.x,c.y,c.w,c.h,0,0,w,h);ctx.globalAlpha=1;};if(sceneFrom)layer(sceneFrom,1);layer(sceneTo,fade);drawBookGround(ctx);if(!reduced.matches){const life=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||id==='frankenstein')return;const imageWide=img.naturalWidth>img.naturalHeight;drawSceneLife(ctx,id,imageWide,img,cropForScene(id,w,h,img,imageWide),alpha,time);};if(sceneFrom)life(sceneFrom,1-fade);life(sceneTo,fade);}const rain=(sceneTo==='frankenstein'?fade:0)+(sceneFrom==='frankenstein'?1-fade:0);if(reduced.matches||rain<=0)return;const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);ctx.save();ctx.globalAlpha=rain;ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);ctx.beginPath();(wide?widePanes:panes).forEach(p=>{ctx.moveTo(...p[0]);p.slice(1).forEach(q=>ctx.lineTo(...q));ctx.closePath();});ctx.clip();if(!wide){ctx.beginPath();ctx.rect(0,0,1183,1330);ctx.rect(492,178,202,378);ctx.clip('evenodd');}ctx.lineWidth=1.05;for(let i=0;i<140;i++){const x=(wide?1040:520)+(i*73.39)%(wide?520:660),y=((time*.10+i*51.79)%(wide?525:510))-20;ctx.strokeStyle=`rgba(212,235,218,${.15+(i%4)*.04})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1.3,y+13+(i%7));ctx.stroke();}ctx.restore();}
 
 // Paint contact and cast shadows on the actual table, away from the room light.
@@ -190,7 +190,7 @@ async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
  $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
- assistantLoading=import('/lab/library-2-assistant.js?v=20260928b').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+ assistantLoading=import('/lab/library-2-assistant.js?v=20260928c').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
   returnTo:location.pathname+location.search,
@@ -278,7 +278,7 @@ addEventListener('library2:remove-saved',e=>{if(savedBooks.has(e.detail))toggleS
 $('save-book').onclick=()=>toggleSaved(activeBook.id);
 function setMenu(open){menuOpen=open;$('library-menu').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));syncLock();(open?$('menu-close'):$('menu-toggle')).focus({preventScroll:true});}
 $('menu-toggle').onclick=()=>setMenu(!menuOpen);$('menu-close').onclick=()=>setMenu(false);$('library-menu').onclick=e=>{if(e.target===$('library-menu'))setMenu(false);};
-function selectCollection(value){collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
+function selectCollection(value){collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My books: what you are reading, what you want to read, and what you have finished.
 function renderMyBooks(){$('collection-title').textContent='My books';const grid=$('collection-books');grid.replaceChildren();const table=window.__library2Reading||{reading:[],finished:[]};const byId=id=>books.find(b=>b.id===id);
  const groups=[['Reading now',table.reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['To read',books.filter(b=>savedBooks.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];

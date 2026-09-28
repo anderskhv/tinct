@@ -73,7 +73,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928b').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928c').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });
