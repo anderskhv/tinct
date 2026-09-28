@@ -24,11 +24,11 @@ export function mountBookshelf({hero,enabled,openBook,onSaved,notice}) {
   if(key)view.focus(key);
   settle();
  }
- async function load(){
+ async function load(refresh=false){
   if(loadingNow)return;loadingNow=true;
   try{
    const savedReady=readingApi().then(api=>api.loadSavedBooks());savedReady.catch(()=>{});
-   const result=sample?{api:await readingApi(),table:DEMO}:await resolveReadingTable();
+   const result=sample?{api:await readingApi(),table:DEMO}:await resolveReadingTable(refresh);
    api=result.api;catalogue=(await loadCatalogueData()).books;
    const savedResult=await savedReady;saved=savedResult.ids;
    if(sample){saved=['candide','jane-eyre'];table={...DEMO,reading:DEMO.reading.map(b=>({...b,author:catalogue.find(c=>c.id===b.bookId)?.author||''}))};}
@@ -47,6 +47,8 @@ export function mountBookshelf({hero,enabled,openBook,onSaved,notice}) {
  }
  addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(table,saved);else pendingUpdate=true;}});
  addEventListener('library2:overlayclosed',()=>{if(pendingUpdate&&view){pendingUpdate=false;view.update(table,saved);}});
+ addEventListener('pagehide',()=>{if(!root.hidden){root.hidden=true;loading.hidden=false;}});
+ addEventListener('pageshow',event=>{if(event.persisted){if(sample)show();else load(true);}});
  addEventListener('online',()=>{if(!sample)api?.loadSavedBooks().then(result=>onSaved(result.ids),()=>{});});
  // Private review helpers never seed, delete or change reading history.
  if(params.has('preview')||sample||forceNew){const nav=document.createElement('nav');nav.className='preview-modes';nav.setAttribute('aria-label','Preview experiences');[['Your library','?preview=1'],['New reader','?preview=1&view=new'],['Sample returning reader','?preview=1&demo=reading'],['Leave preview','?preview=0']].forEach(([label,href])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.append(a);});hero.after(nav);}

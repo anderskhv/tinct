@@ -401,4 +401,4 @@ function addFinishedShelf(finished, shelves, el) {
 
 // Shared account-safe data and public bindings for the approved bookshelf.
 export { DEMO, bindingFor };
-export async function resolveReadingTable() { const early = firstTable ? await firstTable : null; if (early?.error) throw early.error; return early?.value || loadTable(); }
+export async function resolveReadingTable(refresh=false) { const early = firstTable && !refresh ? await firstTable : null; if (early?.error) throw early.error; return early?.value || loadTable(); }
