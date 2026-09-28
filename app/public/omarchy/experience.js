@@ -154,7 +154,7 @@ export function openCommands() {
 window.__tinctDesktopOpen=openCommands;
 window.addEventListener('keydown',e=>{
   if(e.isComposing || e.repeat || e.defaultPrevented)return;
-  if((e.ctrlKey||e.metaKey)&&!e.altKey&&e.key.toLowerCase()==='k') {e.preventDefault();e.stopImmediatePropagation();openCommands();return;}
+  if((e.ctrlKey||e.metaKey)&&!e.altKey&&!e.shiftKey&&e.key.toLowerCase()==='k') {e.preventDefault();e.stopImmediatePropagation();openCommands();return;}
   if(dialog?.open)return;
   if(!letters || !eligibleShortcut(e))return;
   if(e.key==='?'){e.preventDefault();e.stopImmediatePropagation();openCommands();return;}

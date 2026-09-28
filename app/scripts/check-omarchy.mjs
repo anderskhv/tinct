@@ -2,13 +2,35 @@ import { chromium, webkit } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import os from 'node:os'
+import { spawn } from 'node:child_process'
 
 const live=process.env.TINCT_DESKTOP_LIVE==='1', origin='https://tinct.app', output='artifacts/omarchy'
 await fs.mkdir(output,{recursive:true})
 const report=[]
+// A real read-only bridge in an isolated fixture home: exercise Chromium's HTTPS
+// to loopback transport and CORS, not just a mocked palette response.
+const fixture=await fs.mkdtemp(path.join(os.tmpdir(),'tinct-theme-'))
+const themeDir=path.join(fixture,'.local/state/omarchy/current/theme')
+await fs.mkdir(themeDir,{recursive:true})
+async function paletteFile(p){
+  await fs.writeFile(path.join(themeDir,'colors.toml'),`background="${p.background}"\nforeground="${p.foreground}"\naccent="${p.accent}"\n`)
+  await fs.writeFile(path.join(themeDir,'../theme.name'),p.name)
+}
+await paletteFile({name:'Tokyo Night',background:'#1a1b26',foreground:'#c0caf5',accent:'#7aa2f7'})
+const bridge=spawn('python3',['-c',`import importlib.util,sys
+spec=importlib.util.spec_from_file_location('bridge','public/omarchy/bridge.py')
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+read=m.read_theme;home=sys.argv[1];m.read_theme=lambda:read(home)
+sys.argv=[sys.argv[0]];m.main()`,fixture],{stdio:['ignore','ignore','inherit']})
+// The fixture is an argument to the wrapper, not to the production CLI.
+bridge.on('error',error=>console.error(error))
+try {
+for(let i=0;i<50;i++){try{if((await fetch('http://127.0.0.1:47653/health')).ok)break}catch{};if(i===49)throw Error('Theme bridge did not start');await new Promise(r=>setTimeout(r,100))}
 for(const engine of [chromium,webkit]) {
   const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
   const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'})
+  if(engine===chromium)await context.grantPermissions(['local-network-access'],{origin})
   const page=await context.newPage(), errors=[],requests=[]
   const shot=async name=>{
     await page.screenshot({path:output+'/'+engine.name()+'-'+name+'.png'})
@@ -16,10 +38,10 @@ for(const engine of [chromium,webkit]) {
   }
   page.setDefaultTimeout(20000)
   page.on('pageerror',error=>errors.push(error.message))
-  let palette={name:'Tokyo Night',background:'#1a1b26',foreground:'#c0caf5',accent:'#7aa2f7'}
+  await paletteFile({name:'Tokyo Night',background:'#1a1b26',foreground:'#c0caf5',accent:'#7aa2f7'})
   await page.route('**/*',async route=>{
     const req=route.request(),url=new URL(req.url())
-    if(url.hostname==='127.0.0.1'&&url.port==='47653')return route.fulfill({json:palette,headers:{'access-control-allow-origin':origin}})
+    if(url.hostname==='127.0.0.1'&&url.port==='47653')return route.continue()
     if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:true,voices:[{key:'f',label:'Ara',persona:'female'}]}})
     if(req.method()!=='GET') {requests.push(url.pathname);return route.fulfill({status:401,json:{error:'Acceptance test: no provider calls'}})}
     if(!live&&url.origin===origin){
@@ -28,6 +50,12 @@ for(const engine of [chromium,webkit]) {
       if(file.startsWith(path.resolve('dist')+'/')){try{if((await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}}
     }
     return route.continue()
+  })
+  if(engine===webkit)await page.addInitScript(()=>{
+    // Safari is a compatibility/fallback check; Omarchy runs Chromium. Simulate
+    // an unavailable bridge without overriding its other network requests.
+    const fetch=window.fetch.bind(window)
+    window.fetch=(input,options)=>String(input).startsWith('http://127.0.0.1:47653/')?Promise.reject(new TypeError('Theme bridge unavailable')):fetch(input,options)
   })
   await page.addInitScript(()=>{
     window.__tinctKeyTrace=[];window.addEventListener('keydown',e=>{window.__tinctKeyTrace.push({key:e.key,target:e.target?.tagName,path:e.composedPath().map(n=>n.tagName).filter(Boolean),open:document.documentElement.dataset.tinctCommandsOpen,blocked:window.__tinctDesktopCommands?.blocked()});window.__tinctKeyTrace=window.__tinctKeyTrace.slice(-16);},true);
@@ -66,12 +94,22 @@ for(const engine of [chromium,webkit]) {
     const paragraph=await first();assert.notEqual(paragraph,null,'the test anchors an actual visible paragraph')
     await page.keyboard.press('?')
     await page.getByLabel('Tinct appearance').selectOption('omarchy')
-    await page.waitForFunction(()=>document.documentElement.style.getPropertyValue('--tinct-bg')==='#1a1b26')
-    palette={name:'Gruvbox',background:'#282828',foreground:'#ebdbb2',accent:'#fabd2f'}
-    await page.waitForFunction(()=>document.documentElement.style.getPropertyValue('--tinct-bg')==='#282828')
+    if(engine===chromium){
+      await page.waitForFunction(()=>document.documentElement.style.getPropertyValue('--tinct-bg')==='#1a1b26')
+      await paletteFile({name:'Gruvbox',background:'#282828',foreground:'#ebdbb2',accent:'#fabd2f'})
+      await page.waitForFunction(()=>document.documentElement.style.getPropertyValue('--tinct-bg')==='#282828')
+    }else await page.getByRole('status').filter({hasText:'Theme connection unavailable'}).waitFor()
     await page.keyboard.press('Escape')
     assert.equal(await first(),paragraph,'palette changes preserve the visible passage')
     await shot('reader-omarchy')
+    if(engine===chromium){
+      await paletteFile({name:'Light',background:'#fafafa',foreground:'#202124',accent:'#375f98'})
+      await page.waitForFunction(()=>document.documentElement.dataset.tinctReaderDark==='false')
+      assert.equal(await first(),paragraph,'light/dark desktop changes preserve the passage')
+      await shot('reader-omarchy-light')
+      await paletteFile({name:'Gruvbox',background:'#282828',foreground:'#ebdbb2',accent:'#fabd2f'})
+      await page.waitForFunction(()=>document.documentElement.dataset.tinctReaderDark==='true')
+    }
     await page.keyboard.press('c')
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.desktopPanel==='chat'||!!document.querySelector('.lab-ask-input,textarea'))
     // Chat is a real existing panel; Escape returns without consuming a page turn.
@@ -88,12 +126,12 @@ for(const engine of [chromium,webkit]) {
     await page.waitForFunction(()=>document.documentElement.dataset.tinctTheme==='persia')
     await shot('reader-persia')
     await page.evaluate(()=>document.activeElement?.blur())
-    const anchor=()=>page.getByTestId('lab-word').first().evaluate(n=>n.dataset.paragraphIndex+':'+n.dataset.wordIndex)
+    const anchor=()=>page.getByTestId('lab-word').first().evaluate(n=>document.querySelector('[data-testid="lab-root"]').dataset.chapter+':'+n.dataset.paragraphIndex+':'+n.dataset.wordIndex)
     const initial=await anchor()
     await page.keyboard.press('j')
-    await page.waitForFunction(initial=>{const n=document.querySelector('[data-testid="lab-word"]');return n&&n.dataset.paragraphIndex+':'+n.dataset.wordIndex!==initial},initial)
+    await page.waitForFunction(initial=>{const n=document.querySelector('[data-testid="lab-word"]');return n&&document.querySelector('[data-testid="lab-root"]').dataset.chapter+':'+n.dataset.paragraphIndex+':'+n.dataset.wordIndex!==initial},initial)
     await page.keyboard.press('k')
-    await page.waitForFunction(initial=>{const n=document.querySelector('[data-testid="lab-word"]');return n&&n.dataset.paragraphIndex+':'+n.dataset.wordIndex===initial},initial)
+    await page.waitForFunction(initial=>{const n=document.querySelector('[data-testid="lab-word"]');return n&&document.querySelector('[data-testid="lab-root"]').dataset.chapter+':'+n.dataset.paragraphIndex+':'+n.dataset.wordIndex===initial},initial)
     await page.keyboard.press('Control+k')
     await page.getByLabel('Letter shortcuts').uncheck()
     await page.keyboard.press('Escape')
@@ -114,7 +152,7 @@ for(const engine of [chromium,webkit]) {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'themed phone reader fits the viewport')
     await shot('phone-persia')
     assert.deepEqual(errors,[])
-    report.push({engine:engine.name(),live,themeSync:true,libraryChat:true,readerCommands:true,placePreserved:true,silentTalk:true})
+    report.push({engine:engine.name(),live,themeSync:engine===chromium?'real-loopback':'unavailable-fallback',libraryChat:true,readerCommands:true,placePreserved:true,silentTalk:true})
   } catch(error) {
     await shot('failure').catch(()=>{})
     console.error({url:page.url(),errors,requests,keys:await page.evaluate(()=>window.__tinctKeyTrace),state:await page.evaluate(()=>({theme:document.documentElement.dataset.tinctTheme,active:document.activeElement?.outerHTML.slice(0,300),open:document.documentElement.dataset.tinctCommandsOpen})),body:(await page.locator('body').innerText()).slice(0,1800)})
@@ -122,3 +160,4 @@ for(const engine of [chromium,webkit]) {
   } finally {await context.close();await browser.close();await fs.writeFile(output+'/report.json',JSON.stringify(report,null,2))}
 }
 console.log(JSON.stringify(report))
+} finally {bridge.kill();await fs.rm(fixture,{recursive:true,force:true})}
