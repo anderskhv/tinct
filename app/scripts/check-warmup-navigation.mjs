@@ -1,5 +1,8 @@
 import { webkit } from '@playwright/test'
 import fs from 'node:fs/promises'
+import path from 'node:path'
+import assert from 'node:assert/strict'
+const live=process.env.TINCT_WARMUP_LIVE==='1'
 await fs.mkdir('artifacts/omarchy',{recursive:true})
 const browser=await webkit.launch({headless:true}), report=[]
 try {
@@ -9,10 +12,20 @@ try {
   page.on('pageerror',e=>events.push({kind:'pageerror',message:e.message,stack:e.stack,at:Date.now()}))
   page.on('requestfailed',r=>events.push({kind:'failed',url:r.url(),failure:r.failure(),at:Date.now()}))
   page.on('console',m=>{if(m.text().startsWith('WARM_TRACE'))events.push({kind:'trace',message:m.text(),at:Date.now()})})
-  await page.route(routing==='all'?'**/*':'**/api/**',async route=>{
+  await page.route(!live||routing==='all'?'**/*':'**/api/**',async route=>{
    const req=route.request(),url=new URL(req.url())
    if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:false,provider:'grok',voices:[]}})
    if(req.method()!=='GET')return route.fulfill({status:401,json:{error:'Silent diagnostics'}})
+   if(!live&&url.origin==='https://tinct.app'){
+    const pathname=url.pathname==='/reader'?'/app.html':url.pathname==='/library'?'/lab/library_2/index.html':url.pathname
+    const file=path.resolve('dist','.'+pathname)
+    try{
+     if(file.startsWith(path.resolve('dist')+'/')&&(await fs.stat(file)).isFile()){
+      if(/spine-(green|oxblood)\.jpg$/.test(pathname))await new Promise(resolve=>setTimeout(resolve,200))
+      return await route.fulfill({path:file}).catch(()=>{})
+     }
+    }catch{}
+   }
    return route.continue()
   })
   await page.addInitScript(()=>{
@@ -39,5 +52,6 @@ try {
   await context.close()
   await fs.writeFile('artifacts/omarchy/warmup-navigation.json',JSON.stringify(report,null,2))
  }
+ if(!live)for(const run of report){assert.equal(run.failure,null);assert.deepEqual(run.events.filter(e=>e.kind==='pageerror'),[])}
  console.log(JSON.stringify(report.map(({routing,repeat,failure,events})=>({routing,repeat,failure,pageerrors:events.filter(e=>e.kind==='pageerror')}))))
 }finally{await browser.close()}

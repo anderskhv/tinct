@@ -20,9 +20,12 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: bash ../scripts/cloud-setup.sh
+      - run: npm run build
+        env:
+          CI: true
       - run: npx playwright install --with-deps chromium webkit
       - run: node scripts/check-warmup-navigation.mjs
-      - run: TINCT_DESKTOP_LIVE=1 node scripts/check-omarchy.mjs
+      - run: node scripts/check-omarchy.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
