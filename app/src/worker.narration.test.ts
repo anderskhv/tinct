@@ -612,7 +612,7 @@ describe('GET /api/narration/chapter', () => {
   it('validates scope, lists nothing when unconfigured, and reports chunk progress', async () => {
     const h = makeHarness()
     expect((await chapter(h, 'bookId=odyssey&editionKey=original-en&chapter=1&voice=zz')).status).toBe(400)
-    expect((await chapter(h, 'bookId=odyssey&editionKey=modern-da&chapter=1&voice=a')).status).toBe(403)
+    expect((await chapter(h, 'bookId=odyssey&editionKey=modern-da&chapter=1&voice=a')).status).toBe(503)
     const off = makeHarness({ NARRATION_PILOT: '0' })
     const listing = await chapter(off)
     expect(listing.status).toBe(200)
