@@ -32,7 +32,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    return route.abort()
   })
   try{
-   await page.goto(origin+'/lab/?view=library')
+   await page.goto(origin+'/lab/?view=library',{waitUntil:'domcontentloaded'})
    await page.waitForFunction(count=>{
     const section=document.querySelector('[data-reading-memory-recap]')
     return Boolean(section?.dataset.book) && document.querySelectorAll('[data-now-index]').length===count
@@ -61,7 +61,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }
    if(count>1){
     assert.equal(await page.locator('[data-now-book="bible"]').count(),1,'re-added Bible survives resolved library')
-    await page.reload()
+    await page.reload({waitUntil:'domcontentloaded'})
     await page.waitForFunction(()=>Boolean(document.querySelector('[data-reading-memory-recap]')?.dataset.book) && document.querySelectorAll('[data-now-index]').length===4)
     assert.equal(await page.locator('[data-now-book="bible"]').count(),1,'Bible survives another library visit')
    }
