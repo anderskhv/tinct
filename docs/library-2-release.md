@@ -1,14 +1,25 @@
-# Library 2 final preview and cutover
+# Library 2 public cutover — approved 2026-09-28
 
-Final test entry: https://tinct.app/lab/library_2/?preview=1
+Public entries: https://tinct.app/ and https://tinct.app/library
+Review controls: https://tinct.app/lab/library_2/?preview=1
 
-This combines the approved cinematic first visit and the approved bookshelf
-for returning readers. Shelf study v3 remains unchanged as a design reference.
-The preview link opts only that browser into the new `/` and `/library` entry
-for seven days, so returning from `/reader` tests the complete journey. The
-preview control after the hero offers actual history, a forced new-reader view,
-a clearly labelled sample bookshelf, and Leave preview. Modes never seed or
-clear reading history. Opening a real book still uses the production reader.
+Anders approved the public switch on 2026-09-28. New readers receive the
+cinematic signature-book scenes; returning readers receive the morning,
+afternoon, evening or night room with their currently reading books on the
+table. The bookshelf remains parked at `/lab/library_2/shelf-study/` and
+`/lab/library_2/?view=shelf` for later development, not the default experience.
+
+The bare homepage resumes a recent signed-in reader (within three days) when
+this device has a matching account-owned settled position. `/library` always
+opens the library, as do explicit book links and review modes. The reader
+continues to resolve the exact saved edition and position. Missing, stale or
+unconfirmed local hints fall through to the library. The existing per-session
+discovery view remains stable after a new reader returns from their first book.
+
+Reader asset warming is enabled publicly by the same rollout flag, at idle and
+low priority. The room and the selected public cover load before other library
+assets. Save Data and offline mode disable this warmup. This reduces the return
+journey's wait; a first visit on a new device can still require network loading.
 
 ## Data and scope
 
@@ -27,30 +38,31 @@ clear reading history. Opening a real book still uses the production reader.
   editions, not the old prototype's hardcoded Danish/audio/secondary options.
 - Whole-book discovery holds and edition recovery remain in existing routes
   and the production handoff. No content, audio, reader or auth implementation
-  changes. The one route adjustment selects a library asset for an opted-in
-  reviewer; no credentials or permissions depend on the preview cookie.
+  changes. The route adjustment selects the approved library publicly; no credentials
+  or permissions depend on the preview cookie.
 - Initial scripts are external so the preview also runs under the public
   entry's existing strict Content Security Policy.
 
-## After Anders says go
+## Release and rollback
 
-1. Set `LIBRARY_TWO_DEFAULT = true` in
-   `app/src/worker/routes/libraryTwoRelease.ts`. Update the explicit rollout
-   guard test to expect true; keep the false-argument rollback test.
-2. Update the old-library expectations for `/`, `/library` and `/library/` in
-   `worker.seo.test.ts` to the new library asset. `/lab/` stays available as
-   a rollback/reference route. Keep held-edition and metadata tests intact.
-3. Run focused library/route tests and cloud full test/build/verify-bundle.
-   Merge through the serialized GitHub Actions release, wait for deploy smoke.
-4. Verify a clean browser at `/` and `/library`, new and actual returning
-   histories, Continue -> reader -> Library, explicit book/edition links,
-   search/back, save/remove/reload, sign in/out, phone/tablet/desktop geometry,
-   and live reader bundle versus the successful deploy job.
+`LIBRARY_TWO_DEFAULT` in `app/src/worker/routes/libraryTwoRelease.ts` enables
+both the public route and reader warming. The route tests cover default public
+access, exact preview-cookie opt-in during rollback, and the false-flag fallback.
+The homepage keeps its canonical/indexable metadata; `/library` stays noindex.
+`/lab/` remains the existing library and `/reader` remains the production reader.
 
-Rollback is the same default set back to false with its tests restored, followed
-by the same release path. Guest and account shelves remain intact; no data
-migration or deletion is required. Reviewers can additionally choose Leave
-preview to remove their opt-in cookie.
+Run focused entry/route/warmup tests, then cloud full test/build/verify-bundle.
+Release through the serialized GitHub Actions deploy and confirm the deployed
+bundle and no-cookie public entry, returning table and reader round trip.
+
+Rollback sets the same default back to false with its guard tests updated,
+followed by the same release path. Guest and account shelves remain intact;
+no data migration or deletion is required. Preview opt-in remains available
+when rolled back. This release does not change reader position writers.
+
+Overnight visual polish is separately queued in
+[issue #220](https://github.com/anderskhv/tinct/issues/220): natural water motion
+for Odyssey/C&P and catalogue cover quality. It does not gate this cutover.
 
 ## Verification evidence
 
@@ -64,4 +76,5 @@ nested 3D compositing in the local automation build.
 The working-copy full build cannot finish in the established sparse local
 checkout (missing generated `public/read/index.html` and content fixtures).
 Full test/build/verify-bundle gates run on the complete cloud CI checkout.
-Local artifacts and final release receipt: `app/artifacts/library-two-final/`.
+Local artifacts and final release receipt: `app/artifacts/library-two-public/` (this release) and
+`app/artifacts/library-two-final/` (earlier acceptance).

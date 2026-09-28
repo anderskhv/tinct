@@ -1,13 +1,13 @@
-import {readVisit,rememberVisit} from './visit.js?v=20260928d';
-import {mountHeroNavigation} from './hero-navigation.js?v=20260928d';
-import {mountBookshelf} from './bookshelf.js?v=20260928d';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260928d';
-import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928d';
-import {books} from './books.js?v=20260928d';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928d';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928d';
-import {categories,eras,metadata} from './taxonomy.js?v=20260928d';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928d';
+import {readVisit,rememberVisit} from './visit.js?v=20260928e';
+import {mountHeroNavigation} from './hero-navigation.js?v=20260928e';
+import {mountBookshelf} from './bookshelf.js?v=20260928e';
+import {authorPortrait,warmPortrait} from './authors.js?v=20260928e';
+import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928e';
+import {books} from './books.js?v=20260928e';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928e';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928e';
+import {categories,eras,metadata} from './taxonomy.js?v=20260928e';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928e';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
@@ -190,7 +190,7 @@ async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
  $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
- assistantLoading=import('/lab/library-2-assistant.js?v=20260928d').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+ assistantLoading=import('/lab/library-2-assistant.js?v=20260928e').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
   returnTo:location.pathname+location.search,
