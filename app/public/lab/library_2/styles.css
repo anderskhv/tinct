@@ -318,3 +318,8 @@ html:not(.library-ready) #librarian{visibility:hidden}
 .rt-book-metadata .metadata-details span+span::before { content:'·'; margin-right:.7em; }
 @media(min-width:900px) { .rt-book-metadata .metadata-details { font-size:18px; } .rt-book-metadata .metadata-category { font-size:11px; } }
 @media(max-width:699px) { .cover-metadata .metadata-category { font-size:9px; } .cover-metadata .metadata-details { font-size:12px; } .rt-book-metadata { gap:9px; } }
+
+.browse-subgroups{border-left:1px solid #eee7d033;padding-left:14px;margin:0 0 10px 4px}
+.browse-subgroups summary{font:12px/1.5 system-ui;color:#b7bfaa;cursor:pointer;padding:5px 0}
+.menu-links .browse-subgroups button{font-size:16px;padding:7px 0}
+.browse-date-note{margin-top:12px;max-width:260px}
