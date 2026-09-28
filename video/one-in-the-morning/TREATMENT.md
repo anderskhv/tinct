@@ -1,6 +1,6 @@
 # One in the Morning
 
-A Tinct film for X. Treatment, script and production plan. Draft 2, 25 September 2026: revised after reading Anders's poems (WIP).
+A Tinct film for X. Treatment, script and production plan. Draft 3, 28 September 2026: the whole film is shot from Tom's point of view (draft 2 added the changes from the poems).
 
 ---
 
@@ -11,6 +11,8 @@ A Tinct film for X. Treatment, script and production plan. Draft 2, 25 September
 Every word of narration is Mary Shelley's, taken from Tinct's own Frankenstein text and read by Tinct's own voice. The man says seven words. Nobody else speaks.
 
 We call him Tom, after the man the poems keep addressing. The name never needs to appear on screen.
+
+**The camera is Tom.** Every modern shot is his point of view, and we never see his face. We see his hands, the phone, his sneakers, the window, the river. Three things follow from that. The viewer is the one reading at one in the morning, which makes the film more personal and less of a story about someone else. There's no face to keep consistent between shots. And his two lines are spoken off-camera, so nothing needs lip sync. The only eyes in the film belong to the creature.
 
 **Why Frankenstein**
 
@@ -54,23 +56,23 @@ ARA is Ara, one of Tinct's two default voices (the other is Helios). The same vo
 
 | Time | Picture | Sound and voice | On screen |
 |---|---|---|---|
-| 0:00 | 1 a.m. Rain streams down a tall window; city lights smear behind it. Tom, mid-thirties, lies on his side in bed, face lit blue by his phone. His thumb flicks. | **ARA** (close, calm): "It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out…" Rain; a fridge hum. | The line as a caption. Tag: *Mary Shelley, Frankenstein* |
+| 0:00 | 1 a.m. Tom's point of view from the pillow: his hand holds the phone, and its blue light falls on the duvet. Beyond it, rain streams down a tall window and city lights smear behind it. His thumb flicks. | **ARA** (close, calm): "It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out…" Rain; a fridge hum. | The line as a caption. Tag: *Mary Shelley, Frankenstein* |
 | 0:05 | On "candle": insert of the phone's battery icon at 3%, red. | | |
 | 0:08 | The screen, full frame. A fast feed: "Frankenstein in 60 seconds." "A thread: 5 things Frankenstein can teach AI founders." "Book summary: 4 key ideas." His thumb stops on an AI chat. Prompt: *Write a profound LinkedIn post connecting Frankenstein to AI leadership. Make me sound insightful and slightly vulnerable.* The reply, line by line: *I used to think Victor Frankenstein was reckless. / I was wrong. / He was shipping.* | **ARA** (dry): "My dear Victor, do not waste your time upon this; it is sad trash." Tom breathes out through his nose. | Tag: *Victor's father, Frankenstein, Chapter 2* |
 | 0:15 | Real Tinct UI: the library room, rain on its windows. *Mary Shelley's Frankenstein. What do we owe the intelligence we create? ~6 hours to read.* He taps Read. The book opens on Mary Shelley's portrait. (Optional 1-second insert, 1816: a candlelit room, storm at the window, a young woman's hand writing fast.) | **ARA:** "I opened it with apathy…" Low piano enters. | |
-| 0:20 | Time cut: 1:43 on the clock. He's sitting up now. The reader, Chapter 2, with the word highlight following the voice. | **ARA** (the audiobook now): "…the wonderful facts which he relates soon changed this feeling into enthusiasm. A new light seemed to dawn upon my mind…" | Words highlight on the page |
-| 0:26 | The highlight reaches *My dear Victor, do not waste your time upon this; it is sad trash.* He smiles. The viewer gets it at the same moment he does: the voice has been the book all along. | | |
+| 0:20 | Time cut: 1:43 on the clock. POV, sitting up now, knees under the duvet, the phone held closer. The reader, Chapter 2, with the word highlight following the voice. | **ARA** (the audiobook now): "…the wonderful facts which he relates soon changed this feeling into enthusiasm. A new light seemed to dawn upon my mind…" | Words highlight on the page |
+| 0:26 | The highlight reaches *My dear Victor, do not waste your time upon this; it is sad trash.* A short laugh off-camera. The viewer gets it at the same moment he does: the voice has been the book all along. | | |
 | 0:28 | He presses and holds *Cornelius Agrippa*. The menu: Explain · Ask · Highlight · Copy. He taps Explain. A card: *Cornelius Agrippa (1486–1535), a German writer on magic and the occult. Science had moved past his ideas long before Victor's time. Victor's father dismisses the book without saying why.* | **ARA** (reading the next paragraph): "If, instead of this remark, my father had taken the pains to explain to me…" | Caption holds: *"If … my father had taken the pains to explain to me …"* Tag: *Victor Frankenstein, Chapter 2* |
-| 0:34 | Tom sits up. A new habit: he taps anything he's curious about, faster each time, and we see his face between taps. Four taps, a soft tick on each. *Elizabeth* opens a character card: *Elizabeth Lavenza. An orphan raised as Victor's cousin and intended bride.* *Thonon* explains itself: *A spa town on the south shore of Lake Geneva.* *natural philosophy*: *What the period called the sciences.* A swipe to Modern English: *My dear Victor, don't waste your time on this. It's worthless nonsense.* | Ticks on the beat. No voice. | |
-| 0:37 | The next evening. Spotless white sneakers step out of a front door onto wet pavement. Tom walks along the river embankment in the rain, earbuds in, hood up. The lower path is flooded and he walks into it without looking down. Insert: lock screen, *Frankenstein · Chapter 7*. | Rain; traffic far off. | |
+| 0:34 | A new habit: his thumb taps anything he's curious about, quicker each time. Four taps, a soft tick on each. *Elizabeth* opens a character card: *Elizabeth Lavenza. An orphan raised as Victor's cousin and intended bride.* *Thonon* explains itself: *A spa town on the south shore of Lake Geneva.* *natural philosophy*: *What the period called the sciences.* A swipe to Modern English: *My dear Victor, don't waste your time on this. It's worthless nonsense.* | Ticks on the beat. No voice. | |
+| 0:37 | The next evening. POV looking down: his own spotless white sneakers step out of a front door onto wet pavement. Then walking the river embankment in the rain, hood edge at the top of the frame, earbud cable swinging. The lower path is flooded; the camera walks straight into it without looking down. Insert: lock screen, *Frankenstein · Chapter 7*. | Rain; traffic far off. | |
 | 0:41 | Lightning over the city. | **ARA:** "A flash of lightning illuminated the object, and discovered its shape plainly to me…" | |
-| 0:45 | FLASH. Across the river, on the far embankment, a very tall figure stands still, facing him. Black. FLASH. Nobody there. | Thunder on each flash. The music drops out. | |
-| 0:47 | He has stopped dead. He looks down: his white sneakers are soaked through, water over his ankles. He laughs once under his breath and walks on, faster. | | |
-| 0:50 | Night again. Same bed, same rain, same blue light, but Tom is propped against the headboard, wide awake, with the charger in. The clock by the bed reads 00:01. The reader is on Chapter 15. | **ARA:** "…and some books." | |
+| 0:45 | FLASH. Across the river, on the far embankment, a very tall figure stands still, facing the camera. Black. FLASH. Nobody there. | Thunder on each flash. The music drops out. | |
+| 0:47 | The camera has stopped dead. It tilts down: his white sneakers, soaked through, water over his ankles. We hear him laugh once under his breath. The camera tilts back up and walks on, faster. | | |
+| 0:50 | Night again. POV, same bed, same rain, same blue light, but propped against the headboard now, wide awake, the charger cable running from the phone. The clock on the bedside table reads 00:01. The reader is on Chapter 15. | **ARA:** "…and some books." | |
 | 0:52 | | **TOM** (quietly): "Hold on. He can read?" | The Talk orb wakes |
 | 0:54 | 1816. A sliver of light between rough planks, with an eye at the gap. Beyond it, an old man, a young man and a girl sit around a fire. | **ARA** (talking now, the same voice): "He taught himself. He's spent months hiding next to a cottage, listening to a family through a gap in the wall." | |
-| 0:59 | Match cut from the creature's eye at the gap to Tom's eye, lit by his screen. | **TOM:** "Go on." | |
-| 1:00 | The audiobook resumes. 1816: in the dark hovel, huge scarred hands open a book in a shaft of moonlight. Now: Tom, completely still. Rain on both windows. | **ARA** (reading): "I can hardly describe to you the effect of these books. They produced in me an infinity of new images and feelings…" Strings join the piano, then silence on "feelings". | |
+| 0:59 | Match cut: the creature's view through the gap, a lit sliver in the dark, becomes Tom's view of his phone in the dark room. The same shape of light. | **TOM:** "Go on." | |
+| 1:00 | The audiobook resumes. 1816: in the dark hovel, huge scarred hands open a book in a shaft of moonlight. Now: POV, the phone held perfectly still in the dark. Rain on both windows. | **ARA** (reading): "I can hardly describe to you the effect of these books. They produced in me an infinity of new images and feelings…" Strings join the piano, then silence on "feelings". | |
 | 1:08 | Black. | Silence. | **What do we owe the intelligence we create?** Small: *Mary Shelley, Frankenstein, 1818* |
 | 1:12 | The library room. A slow push through rain light and candlelight, past the covers: The Odyssey, Jekyll and Hyde, Meditations, Crime and Punishment. | Rain; one piano note. | **Tinct.** / Frankenstein takes about six hours. / tinct.app. Small print: *Reading is free. The companion and audiobook are free for your first month.* |
 | 1:17 | End. | | |
@@ -128,32 +130,32 @@ G = generated video · U = real Tinct UI, screen-recorded · T = type or graphic
 | # | Shot | Type |
 |---|---|---|
 | 1 | Rain on a tall window at night, city lights behind | G |
-| 2 | The man in bed, face lit by his phone, medium close | G |
+| 2 | POV from the pillow: hand, phone, blue light on the duvet, rainy window | G |
 | 3 | Battery icon at 3% | T |
 | 4 | The Frankenstein slop feed | T |
 | 5 | AI chat: prompt, then the three-line reply | T |
-| 6 | His reaction; the thumb stops | G |
+| 6 | POV: the thumb stops; a breath of a laugh off-camera | G |
 | 7 | library_2 hero: Frankenstein, the question, Read | U |
 | 8 | The book opens on Mary Shelley's portrait | U |
 | 9 | (optional) 1816: candle, storm window, a hand writing | G |
-| 10 | Time cut: he's sitting up, closer, warmer light | G |
+| 10 | Time cut: POV sitting up, knees under the duvet, phone closer | G |
 | 11 | Reader, Chapter 2, word highlight reaching "sad trash" | U |
 | 12 | Long press, Explain, card | U |
 | 13 | Tap montage: Elizabeth card, Thonon, natural philosophy, Modern swipe | U |
-| 14 | Spotless white sneakers step onto wet pavement (the setup) | G |
-| 14b | River embankment in rain, wide; the flooded path | G |
+| 14 | POV looking down: spotless white sneakers step onto wet pavement (the setup) | G |
+| 14b | POV walking the embankment in rain into the flooded path | G |
 | 15 | Lock screen: Frankenstein · Chapter 7 | U |
 | 16 | Lightning over the skyline | G |
 | 17 | Flash: tall figure on the far embankment, silhouette only | G |
 | 18 | Flash: empty embankment | G |
-| 19 | He stops dead; looks down at soaked white sneakers, ankle-deep; laughs, walks on | G |
-| 20 | Night 3: in bed, propped up, charger in, the clock at 00:01 | G |
+| 19 | POV stops, tilts down to soaked sneakers ankle-deep, tilts up, walks on (laugh off-camera) | G |
+| 20 | Night 3 POV: propped up, charger cable, bedside clock at 00:01 | G |
 | 21 | Reader, Chapter 15; the Talk orb wakes | U |
 | 22 | 1816: light between planks, an eye at the gap | G |
 | 23 | 1816: through the gap, a family around a fire | G |
-| 24 | The man's eye lit by his phone (the match cut) | G |
+| 24 | POV: the phone as a lit sliver in the dark room (the match cut) | G |
 | 25 | 1816: scarred hands open a book in moonlight | G |
-| 26 | The man completely still, reading | G |
+| 26 | POV: the phone held perfectly still, rain on the window | G |
 | 27 | The question card | T |
 | 28 | The library room push, covers, rain | U, plus G to animate the room art |
 | 29 | End card | T |
@@ -188,7 +190,7 @@ A how-it-was-made thread can follow a day later.
 ## Production plan
 
 1. **Table read.** I generate every line in Ara, plus a temp voice for the man, and cut an animatic from type boards and real UI recordings. You judge the timing before we spend on video. Cost: about a dollar of voice.
-2. **Character.** I build a reference sheet for the man (face, a coat for outside, a hoodie for bed) plus the creature's hands and silhouette. You approve it.
+2. **Look.** A POV reference sheet (hands, phone, sleeves, sneakers, the river) plus the creature's hands, eye and silhouette. You approve it.
 3. **UI.** I screen-record library_2 and the reader (Chapter 2 highlight, Explain, the Elizabeth card, the Modern swipe, the Chapter 7 lock screen, the Chapter 15 Talk orb) at phone resolution. The UI is never generated.
 4. **Shots.** 18 generated shots, three to six takes each, and I pick the best.
 5. **Edit.** Grade, captions, score, mix, then all cut-downs and formats.
@@ -237,10 +239,10 @@ Tinct should be Waldman. I mean that as an internal north star; I wouldn't put i
 
 ## Risks
 
-- **The man looks different from shot to shot.** Mitigation: reference-based generation, low light, fixed wardrobe, mostly medium and close shots.
+- **The man looks different from shot to shot.** Solved: the film is POV and his face never appears.
 - **The creature looks cheap or borrowed.** Mitigation: hands, an eye and a silhouette only, never a face and never a known film design.
 - **UI is hard to read on phones.** Mitigation: full-frame UI inserts, large type and enough time on each.
-- **Lip sync in the Talk scene.** Mitigation: he speaks in profile or low light and the lines are short.
+- **Lip sync.** Solved: Tom is always off-camera.
 - **Tone.** Mitigation: the slop gag stays on the slop. Nobody on screen is mocked.
 
 ## Next in the series (not written yet)
