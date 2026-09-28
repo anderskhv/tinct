@@ -1702,6 +1702,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       || next.length === 0
     ) return
     setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+    if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('NATIVE_MAP', JSON.stringify({layout: readerStateRef.current, incoming: incoming.slice(0,5), next: next.slice(0,5), current:readingPagesRef.current.slice(0,5), keep:pageAnchorRef.current}))
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
@@ -2208,6 +2209,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (labPageFitsPaint(painted)) return
 
       const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
+      if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('PAINT_SHRINK', JSON.stringify({pageIdx,painted,before:pages.slice(0,5),after:next.slice(0,5)}))
       if (sameChapterPages(next, pages)) return
       lastAdjustRef.current = 'peel'
       workingPagesRef.current = next
