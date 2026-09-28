@@ -4,6 +4,7 @@ import App from './App'
 import { LabApp } from './lab/LabApp'
 import { isLabPath } from './lab/labRoute'
 import { isNativeCapacitor } from './utils/nativePlatform'
+import { nativeEntryDestination } from './utils/nativeEntry'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
@@ -41,6 +42,7 @@ if (isEink) {
 }
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
+const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
 const Root = isLabPath(pathname) ? LabApp : App
 if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
   startReaderLoadTrace()
@@ -57,7 +59,9 @@ const render = () => ReactDOM.createRoot(document.getElementById('root')!).rende
 // release has since replaced move before the reader first reads them. Only a
 // reader holding such data waits, and never for more than a few seconds.
 const contentMigrations = Root === LabApp ? storedContentMigrations() : null
-if (contentMigrations) {
+if (nativeDestination) {
+  window.location.replace(nativeDestination)
+} else if (contentMigrations) {
   void Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))]).finally(render)
 } else {
   render()
