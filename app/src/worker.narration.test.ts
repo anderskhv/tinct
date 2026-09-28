@@ -156,7 +156,10 @@ describe('narration config and voices', () => {
     const response = await handleNarration(new Request('https://tinct.app/api/narration/voices'), ready.env, ready.ctx, ready.deps)
     const json = await response.json() as Record<string, unknown>
     expect(json).toMatchObject({ enabled: true, provider: 'fish', model: 's2.1-pro', cacheVersion: 2, chunker: 1 })
-    expect(json.voices).toEqual([{ key: 'a', label: 'Nathan' }, { key: 'b', label: 'Abby' }])
+    expect(json.voices).toEqual([
+      { key: 'a', label: 'Nathan', cacheIdentity: expect.stringMatching(/^[a-f0-9]{64}$/) },
+      { key: 'b', label: 'Abby', cacheIdentity: expect.stringMatching(/^[a-f0-9]{64}$/) },
+    ])
     const text = JSON.stringify(json)
     expect(text).not.toContain('test-key')
     expect(text).not.toContain('voice-a-id')
@@ -786,5 +789,22 @@ describe('Grok narration rollout', () => {
       settings:narrationConfig(makeHarness().env).settings,fetchImpl,now:()=>0,sleep:async()=>{},reserve
     })).rejects.toMatchObject({code:'budget_exhausted'})
     expect(fetchImpl).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('narration replay configuration identity', () => {
+  it('changes for voice/model/provider changes without exposing provider voice IDs', async () => {
+    async function identity(overrides: Partial<NarrationEnv>) {
+      const h = makeHarness(overrides)
+      const response = await handleNarration(new Request('https://tinct.app/api/narration/voices'), h.env, h.ctx, h.deps)
+      const body = await response.json() as { voices: Array<{ cacheIdentity: string }> }
+      expect(h.fish.calls).toHaveLength(0)
+      return body.voices[0].cacheIdentity
+    }
+    const base = await identity({})
+    expect(await identity({})).toBe(base)
+    expect(await identity({ NARRATION_VOICE_A_ID: 'replacement' })).not.toBe(base)
+    expect(await identity({ NARRATION_MODEL: 'replacement' })).not.toBe(base)
+    expect(await identity({ NARRATION_PROVIDER: 'grok', XAI_API_KEY: 'mock' })).not.toBe(base)
   })
 })
