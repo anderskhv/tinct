@@ -4,6 +4,7 @@ on:
     paths:
       - 'app/public/omarchy/**'
       - 'app/src/desktopCommands.ts'
+      - 'app/src/worker/routes/seo.ts'
       - 'app/scripts/check-omarchy.mjs'
       - 'app/scripts/test-omarchy-*.py'
       - '.github/workflows/omarchy.yml'

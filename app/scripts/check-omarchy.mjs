@@ -8,6 +8,11 @@ import { spawn } from 'node:child_process'
 const live=process.env.TINCT_DESKTOP_LIVE==='1', origin='https://tinct.app', output='artifacts/omarchy'
 await fs.mkdir(output,{recursive:true})
 const report=[]
+// Candidate browsers must enforce the deployed policy, not an unrestricted
+// file response. Otherwise a production-only CSP regression can hide in CI.
+const securitySource=await fs.readFile('src/worker/routes/seo.ts','utf8')
+const candidateCsp=securitySource.match(/'Content-Security-Policy': "([^"]+)"/)?.[1]
+assert(candidateCsp,'production CSP is available to candidate acceptance')
 // A real read-only bridge in an isolated fixture home: exercise Chromium's HTTPS
 // to loopback transport and CORS, not just a mocked palette response.
 const fixture=await fs.mkdtemp(path.join(os.tmpdir(),'tinct-theme-'))
@@ -47,7 +52,7 @@ for(const engine of [chromium,webkit]) {
     if(!live&&url.origin===origin){
       const pathname=['/','/library','/library/'].includes(url.pathname)?'/lab/library_2/index.html':['/reader','/lab/phone'].includes(url.pathname)?'/app.html':url.pathname
       const file=path.resolve('dist','.'+pathname)
-      if(file.startsWith(path.resolve('dist')+'/')){try{if((await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}}
+      if(file.startsWith(path.resolve('dist')+'/')){try{if((await fs.stat(file)).isFile())return route.fulfill({path:file,headers:{'Content-Security-Policy':candidateCsp}})}catch{}}
     }
     return route.continue()
   })
@@ -106,6 +111,19 @@ for(const engine of [chromium,webkit]) {
     await page.keyboard.press('Escape')
     assert.equal(await first(),paragraph,'palette changes preserve the visible passage')
     await shot('reader-omarchy')
+    if(engine===chromium){
+      const blocked=await page.evaluate(async()=>{
+        const violation=new Promise(resolve=>{
+          const timer=setTimeout(()=>resolve(null),5000)
+          document.addEventListener('securitypolicyviolation',e=>{clearTimeout(timer);resolve({directive:e.effectiveDirective,url:e.blockedURI})},{once:true})
+        })
+        const denied=await fetch('http://127.0.0.1:47653/health',{targetAddressSpace:'loopback'}).then(()=>false,()=>true)
+        return {denied,violation:await violation}
+      })
+      assert.equal(blocked.denied,true,'the live bridge health route remains outside the allowed palette path')
+      assert.equal(blocked.violation?.directive,'connect-src')
+      assert(blocked.violation.url.startsWith('http://127.0.0.1:47653'))
+    }
     if(engine===chromium){
       await paletteFile({name:'Light',background:'#fafafa',foreground:'#202124',accent:'#375f98'})
       await page.waitForFunction(()=>document.documentElement.dataset.tinctReaderDark==='false')

@@ -80,6 +80,7 @@ jobs:
       - name: Verify production Omarchy commands and themes
         env:
           TINCT_DESKTOP_LIVE: '1'
+          TINCT_DESKTOP_VISUAL: '1'
           TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
         run: node scripts/check-omarchy.mjs
       - uses: actions/upload-artifact@v4
