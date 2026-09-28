@@ -198,7 +198,7 @@ describe('continued page tails', () => {
     const root = document.createElement('article')
     root.innerHTML = [
       '<p class="lab-hearing-line is-continued"><span>a</span><span>b</span></p>',
-      '<p class="lab-hearing-line is-continued is-tail-full"><span>c</span><span>d</span></p>',
+      '<p class="lab-hearing-line is-continued" data-tail-full="true"><span>c</span><span>d</span></p>',
       '<p class="lab-hearing-line"><span>e</span></p>',
     ].join('')
     document.body.appendChild(root)
@@ -221,9 +221,9 @@ describe('continued page tails', () => {
     vi.spyOn(ending.querySelector('span')!, 'getClientRects').mockReturnValue(rects([[20, 320, 20]]))
 
     markFullContinuedTails(root)
-    expect(full.classList.contains('is-tail-full')).toBe(true)
-    expect(short.classList.contains('is-tail-full')).toBe(false)
-    expect(ending.classList.contains('is-tail-full')).toBe(false)
+    expect(full.hasAttribute('data-tail-full')).toBe(true)
+    expect(short.hasAttribute('data-tail-full')).toBe(false)
+    expect(ending.hasAttribute('data-tail-full')).toBe(false)
     expect(ending.classList.contains('is-continued')).toBe(false)
     markFullContinuedTails(null)
     root.remove()
@@ -234,7 +234,7 @@ describe('continued page tails', () => {
     render(<LabPassage {...passageProps(paragraphs, page)} />)
     const line = screen.getByTestId('lab-reading-stage').querySelector('.lab-hearing-line')!
     expect(line.className).toContain('is-continued')
-    expect(line.className).not.toContain('is-tail-full')
+    expect(line.hasAttribute('data-tail-full')).toBe(false)
   })
 })
 
@@ -466,7 +466,7 @@ describe('audio follow paint is layout-neutral', () => {
     })
     // A typography change re-measures and marks the tail full.
     rerender(<LabPassage {...props(3, 'garamond|1.5|justify')} />)
-    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(line.hasAttribute('data-tail-full')).toBe(true)
 
     const records: MutationRecord[] = []
     const observer = new MutationObserver(list => records.push(...list))
@@ -474,7 +474,7 @@ describe('audio follow paint is layout-neutral', () => {
     rerender(<LabPassage {...props(4, 'garamond|1.5|justify')} />)
     rerender(<LabPassage {...props(5, 'garamond|1.5|justify')} />)
     await flushObservers()
-    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(line.hasAttribute('data-tail-full')).toBe(true)
     expect(records).toHaveLength(0)
 
     // Typography changes still re-measure (the class is stripped, then restored).
@@ -482,7 +482,7 @@ describe('audio follow paint is layout-neutral', () => {
     await flushObservers()
     observer.disconnect()
     expect(records.length).toBeGreaterThan(0)
-    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(line.hasAttribute('data-tail-full')).toBe(true)
   })
 })
 
@@ -894,4 +894,53 @@ describe('selectable next-chapter opening', () => {
     expect(upcoming).toHaveBeenCalledWith(expect.objectContaining({text:'next opening words',fromWord:0,toWord:3}),150,20,undefined)
     expect(current).not.toHaveBeenCalled()
   })
+})
+
+it('keeps the outgoing leaf left and incoming narrated opening right', () => {
+  const oldParagraphs = ['The previous chapter ends here.']
+  const paragraphs = ['The new chapter opens here and continues.']
+  const page = { paragraphIndex: 0, from: 0, to: 5 }
+  const { container, rerender } = render(<LabPassage {...passageProps(paragraphs, page)}
+    chapterTitle="New chapter" chapterNumber={2} desktopSpread inlineHearingPaint playing
+    follow={{kind:'word', paragraphIndex:0,wordIndex:1}}
+    previousChapterEnding={{title:'Old chapter',chapterNumber:1,paragraphs:oldParagraphs,page,chapterEnd:<button>Old recap</button>}}
+  />)
+  const columns = container.querySelectorAll('.lab-book-columns > .lab-book-col')
+  expect(columns[0].textContent).toContain('The previous chapter ends here.')
+  expect(columns[0].querySelector('[data-testid="lab-word"]')).toBeNull()
+  expect(columns[1].textContent).toContain('New chapter')
+  expect(columns[1].querySelector('.is-current')?.textContent).toBe('new')
+  expect(columns[1].textContent).not.toContain('continues')
+  rerender(<LabPassage {...passageProps(paragraphs, {paragraphIndex:0,from:5,to:8})} chapterTitle="New chapter" desktopSpread />)
+  expect(container.querySelector('.lab-book-col')?.textContent).toContain('and continues.')
+  expect(screen.queryByText('Old recap')).toBeNull()
+})
+
+it('colours a page-edge word fragment using its source narration position', () => {
+  const page = { paragraphIndex: 0, from: 0, to: 2, segments: [{paragraphIndex:0,from:0,to:2,tailFragment:2}] }
+  render(<LabPassage {...passageProps(['they shall become one'], page)}
+    playing inlineHearingPaint follow={{kind:'word',paragraphIndex:0,wordIndex:0}} />)
+  const fragment = screen.getByTestId('lab-word-fragment')
+  expect(fragment.classList.contains('is-upcoming')).toBe(true)
+  expect(fragment.hasAttribute('data-word-index')).toBe(false)
+})
+
+it('uses the outside desktop edges for extending selection, not the gutter or last line', () => {
+ vi.useFakeTimers()
+ try {
+  const paragraphs = ['one two three four five six seven eight nine']
+  const select = vi.fn(), turn = vi.fn()
+  const base = passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 3 })
+  render(<LabPassage {...base} desktopSpread nextReadingPage={{ paragraphIndex: 0, from: 3, to: 6 }} onSelectRange={select} onPageTurn={turn}/>)
+  const surface = screen.getByTestId('lab-book')
+  vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({left:0,right:1200,top:0,bottom:700,width:1200,height:700} as DOMRect)
+  const first = screen.getAllByTestId('lab-word')[0]
+  fireEvent.pointerDown(first,{pointerType:'mouse',clientX:200,clientY:300})
+  fireEvent.pointerMove(first,{pointerType:'mouse',clientX:590,clientY:695})
+  act(()=>vi.advanceTimersByTime(LAB_EDGE_HOLD_MS+1))
+  expect(turn).not.toHaveBeenCalled()
+  fireEvent.pointerMove(first,{pointerType:'mouse',clientX:1195,clientY:350})
+  act(()=>vi.advanceTimersByTime(LAB_EDGE_HOLD_MS))
+  expect(turn).toHaveBeenCalledWith(1)
+ } finally {vi.useRealTimers()}
 })

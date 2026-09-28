@@ -45,6 +45,8 @@ interface LabPassageProps {
    * selection surface keeps word coordinates scoped to the next chapter.
    */
   nextChapterOpening?: { title: string; chapterNumber?: number; paragraphs: string[]; page: ChapterHearingPage; onPrimer?: () => void; highlights?: LabHighlight[]; selectingRange?: LabHighlightRange | null; onSelectRange?: LabPassageProps['onSelectRange'] }
+  /** Outgoing left leaf retained while narration enters the already visible right opening. */
+  previousChapterEnding?: NonNullable<LabPassageProps['nextChapterOpening']> & { chapterEnd?: ReactNode }
   alignCompare?: boolean
   chapterTitle: string
   paragraphs: string[]
@@ -258,7 +260,7 @@ export function continuedTailFill(
 export function markFullContinuedTails(root: HTMLElement | null): void {
   if (!root) return
   const lines = root.querySelectorAll<HTMLElement>('.lab-hearing-line.is-continued')
-  lines.forEach(line => line.classList.remove('is-tail-full'))
+  lines.forEach(line => line.removeAttribute('data-tail-full'))
   lines.forEach((line) => {
     try {
       const box = line.getBoundingClientRect()
@@ -272,7 +274,7 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
-      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.classList.add('is-tail-full')
+      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.setAttribute('data-tail-full', 'true')
     } catch { /* jsdom has no layout */ }
   })
 }
@@ -403,6 +405,7 @@ export function LabPassage({
   desktopSpread = false,
   nextReadingPage,
   nextChapterOpening,
+  previousChapterEnding,
   alignCompare = false,
   chapterTitle,
   paragraphs,
@@ -687,7 +690,11 @@ export function LabPassage({
     }
     event.preventDefault()
     const bounds = event.currentTarget.getBoundingClientRect()
-    const direction = event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    // Desktop turns at the outer horizontal edges. Crossing the gutter from
+    // the bottom of the left leaf to the top of the right must not turn.
+    const direction = desktopSpread
+      ? event.clientX >= bounds.right - LAB_EDGE_ZONE_PX ? 1 : event.clientX <= bounds.left + LAB_EDGE_ZONE_PX ? -1 : null
+      : event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
     if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
     if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
@@ -889,7 +896,7 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}`}
+                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}
@@ -1023,6 +1030,16 @@ export function LabPassage({
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
+          {previousChapterEnding ? <>
+            {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
+            <LabPassage openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+              paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
+              compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
+              markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
+              selectingRange={previousChapterEnding.selectingRange} onSelectRange={previousChapterEnding.onSelectRange}
+              onPageTurn={onPageTurn} tapZones="none" />
+            {previousChapterEnding.chapterEnd}
+          </> : <>
           {desktopSpread && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
@@ -1048,14 +1065,17 @@ export function LabPassage({
             </div>
           )}
           {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
+          </>}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
-          {!nextReadingPage && nextChapterOpening && (
+          {previousChapterEnding && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
+          {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
             <LabChapterHeading title={nextChapterOpening.title} preview={Boolean(nextChapterOpening.onPrimer)} onPreview={nextChapterOpening.onPrimer} measuring />
           )}
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
-            {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
-            {!nextReadingPage && nextChapterOpening && (
+            {previousChapterEnding && renderReadingLines(readingLines, true)}
+            {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
+            {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
                 <LabPassage openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
@@ -1068,7 +1088,7 @@ export function LabPassage({
               </div>
             )}
           </div>
-          {nextReadingPage && chapterEnd}
+          {(previousChapterEnding || nextReadingPage) && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
