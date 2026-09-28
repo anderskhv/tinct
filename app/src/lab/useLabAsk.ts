@@ -1,3 +1,4 @@
+import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
 import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
@@ -856,14 +857,14 @@ export function useLabAsk(options: UseLabAskOptions) {
         signal: entry.abort.signal,
         body: JSON.stringify({
           model: COMPANION_MODEL,
-          max_tokens: input.intent === 'define' ? 160 : 450,
+          max_tokens: 450,
           stream: true,
           effort: COMPANION_EFFORT_VOICE,
           system: buildLabAskInstructions(context),
           messages: [{
             role: 'user',
             content: input.intent === 'define'
-              ? `Define the word in <word> as a dictionary entry: part of speech and a concise meaning. Identify archaic inflections and their modern form. Use context only to choose the sense. Plain text, no passage interpretation, preamble, sources, or follow-up question.\n<word>${text}</word>`
+              ? `${CONTEXTUAL_LOOKUP_PROMPT}\n<word>${text}</word>`
               : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
           }],
           ...labCompanionBookFields(context),

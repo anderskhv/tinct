@@ -270,6 +270,9 @@ export function SelectionPopup({
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey, true) }
   }, [popupRef])
   const headword = defineResult?.word || defineQuery
+  const contextualLookup = !character && contextualExplain
+    && (typeof navigator === 'undefined' || navigator.onLine !== false)
+    && (defineNotFound || /^[A-Z]/.test(defineQuery))
   const showDefineInput = popupMode === 'define' && !headword && !defineLoading
 
   return (
@@ -356,7 +359,7 @@ export function SelectionPopup({
             <div className="popup-define-note">from &ldquo;{defineResult.resolvedFrom}&rdquo;</div>
           )}
           {defineLoading && <div className="popup-define-status">Looking up…</div>}
-          {!defineLoading && defineResult && (
+          {!defineLoading && defineResult && !contextualLookup && (
             <div className="popup-define-result">
               <ol className="popup-define-list">
                 {defineResult.definitions.slice(0, 3).map((d, i) => (
@@ -365,8 +368,8 @@ export function SelectionPopup({
               </ol>
             </div>
           )}
-          {!defineLoading && defineNotFound && contextualExplain && (typeof navigator === 'undefined' || navigator.onLine !== false) ? (
-            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} />
+          {!defineLoading && contextualLookup ? (
+            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineResult?.definitions} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.

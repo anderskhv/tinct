@@ -239,3 +239,19 @@ it('keeps the palette at the action menu anchor when its shorter height would fi
     expect(menu.style.getPropertyValue('--anchored-popup-y')).toBe(anchor)
   } finally { height.mockRestore(); width.mockRestore() }
 })
+
+it('shows a contextual person card for a name missing from the released cards', async () => {
+  const request = vi.fn().mockResolvedValue(JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'A person identified in the selected passage',body:'Contextual test answer.'}))
+  render(<SelectionPopup {...props({lab:true,defineQuery:'Jehohanan',defineLoading:false,defineNotFound:true,onRequestExplanation:request})} />)
+  expect(await screen.findByRole('heading', {name:'Jehohanan'})).toBeTruthy()
+  expect(screen.getByText('Minor character')).toBeTruthy()
+  expect(screen.getByText('Contextual test answer.')).toBeTruthy()
+})
+
+it('classifies a capitalized dictionary hit before choosing the card, preserving lexical results for non-people', async () => {
+  const request = vi.fn().mockResolvedValue(JSON.stringify({kind:'definition',definition:'A generated definition.'}))
+  render(<SelectionPopup {...props({lab:true,defineQuery:'Rain',defineLoading:false,defineResult:{word:'rain',definitions:['Water falling from clouds.']},onRequestExplanation:request})} />)
+  expect(await screen.findByText('Water falling from clouds.')).toBeTruthy()
+  expect(screen.queryByTestId('popup-contextual-character')).toBeNull()
+  expect(screen.queryByText('A generated definition.')).toBeNull()
+})
