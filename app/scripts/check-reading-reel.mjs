@@ -1,3 +1,4 @@
+// Legacy-library regression coverage. Public entry is checked by check-library-public.mjs.
 import {chromium,webkit} from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -25,13 +26,13 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
    if(req.method()!=='GET')return route.abort()
    if(live)return route.continue()
-   const p=url.pathname==='/library'?'/lab/index.html':url.pathname==='/reader'?'/app.html':url.pathname
+   const p=url.pathname==='/lab/'?'/lab/index.html':url.pathname==='/reader'?'/app.html':url.pathname
    const file=path.resolve('dist','.'+p)
    if(file.startsWith(path.resolve('dist')+'/'))try{if((await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}
    return route.abort()
   })
   try{
-   await page.goto(origin+'/library')
+   await page.goto(origin+'/lab/?view=library')
    await page.waitForFunction(count=>{
     const section=document.querySelector('[data-reading-memory-recap]')
     return Boolean(section?.dataset.book) && document.querySelectorAll('[data-now-index]').length===count

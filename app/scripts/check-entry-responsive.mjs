@@ -1,3 +1,4 @@
+// Legacy-library regression coverage. Public entry is checked by check-library-public.mjs.
 import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -29,7 +30,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     if(live)return route.continue()
     const url=new URL(req.url())
     if(url.origin!=='https://tinct.app')return route.continue()
-    const pathname=['/','/library'].includes(url.pathname)?'/lab/index.html':url.pathname
+    const pathname=url.pathname==='/lab/'?'/lab/index.html':url.pathname
     const filename=path.resolve('dist','.'+pathname)
     if(!filename.startsWith(path.resolve('dist')+'/'))return route.abort()
     try{if((await fs.stat(filename)).isFile())return route.fulfill({path:filename})}catch{}
@@ -45,7 +46,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
      console.log('REVIEW_END '+engine+'-'+name+'-'+label)
     }
    }
-   await page.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await wait()
+   await page.goto('https://tinct.app/lab/?view=landing',{waitUntil:'domcontentloaded'});await wait()
    const landing=await page.evaluate(()=>{
     const box=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}}
     return {heading:box('.tov5-simple-hero h1'),copy:box('.tov5-simple-hero>p'),covers:box('[data-entry-covers]'),cta:box('.tov5-simple-entry'),cover:box('[data-entry-covers] .lib-cover'),coverRatio:(()=>{const n=document.querySelector('[data-entry-covers] .lib-cover');return n.offsetWidth/n.offsetHeight})(),overflow:document.documentElement.scrollWidth>innerWidth,wide:matchMedia('(min-width:1100px) and (orientation:landscape)').matches}
@@ -80,7 +81,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     await page.setViewportSize({width,height});await page.waitForTimeout(300)
     await page.waitForFunction(()=>document.querySelectorAll('.entry-cover-track').length===1,null,{timeout:10000})
    }
-   await page.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await wait()
+   await page.goto('https://tinct.app/lab/?view=library',{waitUntil:'domcontentloaded'});await wait()
    await page.waitForFunction(()=>{
     const b=document.querySelector('[aria-current="true"] .lib-cover')?.getBoundingClientRect()
     return b && Math.abs(b.left+b.width/2-innerWidth/2)<3

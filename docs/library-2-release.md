@@ -52,7 +52,10 @@ The homepage keeps its canonical/indexable metadata; `/library` stays noindex.
 `/lab/` remains the existing library and `/reader` remains the production reader.
 
 Run focused entry/route/warmup tests, then cloud full test/build/verify-bundle.
-Release through the serialized GitHub Actions deploy and confirm the deployed
+The old-layout regressions remain on `/lab/?view=library`;
+`check-library-public.mjs` covers the new public entry in Chromium and WebKit,
+including Back, an empty cached shelf followed by actual history, and exact
+Continue handoff. Release through the serialized GitHub Actions deploy and confirm the deployed
 bundle and no-cookie public entry, returning table and reader round trip.
 
 Rollback sets the same default back to false with its guard tests updated,
