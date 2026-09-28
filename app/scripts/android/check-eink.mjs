@@ -15,7 +15,7 @@ try{
    if(url.origin!==origin)return route.abort()
    if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
    if(req.method()!=='GET')return route.abort()
-   const pathname=url.pathname==='/reader'?'/app.html':url.pathname==='/library'?'/lab/library_2/index.html':url.pathname
+   const pathname=url.pathname==='/reader'?'/index.html':url.pathname==='/library'?'/lab/library_2/index.html':url.pathname
    const file=path.resolve('dist','.'+pathname)
    if(file.startsWith(path.resolve('dist')+'/'))try{if((await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}
    return route.abort()
