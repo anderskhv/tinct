@@ -358,7 +358,7 @@ describe('lab chrome', () => {
     // No gold accent anywhere in the lab chrome. References to the shared
     // `--highlight-gold` mark token are not that colour language: they are
     // how the five highlight colours keep one definition across surfaces.
-    expect(css.replace(/var\(--highlight-gold[^)]*\)/g, 'var(--mark-default)'))
+    expect(css.replace(/--highlight-gold/g, '--mark-default'))
       .not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
     expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
     expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
@@ -4130,7 +4130,7 @@ describe('lab chrome pass', () => {
     const hiddenPill = css.match(/data-reader-controls="hidden"\] \.lab-header-chapter,[^{]*\{([^}]*)\}/)
     expect(hiddenPill).toBeTruthy()
     expect(hiddenPill![1]).not.toContain('pointer-events')
-    expect(css).toMatch(/\.lab \.lab-hearing-line\.is-continued\.is-tail-full\s*\{[^}]*text-align-last:\s*var\(--lab-text-align, justify\)/)
+    expect(css).toMatch(/\.lab \.lab-hearing-line\.is-continued\[data-tail-full="true"\]\s*\{[^}]*text-align-last:\s*var\(--lab-text-align, justify\)/)
   })
 
   it('locks the V1 footer as an overlaid light Depth dock with a dark Tint variant', () => {

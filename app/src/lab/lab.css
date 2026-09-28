@@ -7879,12 +7879,12 @@
 /* Keep keyboard resizing discoverable on focus, without a permanent corner mark. */
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-resize]::after { content:none; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-resize]:focus-visible { outline:2px solid currentColor; outline-offset:-4px; }
-.lab .lab-chapter-progress.is-interactive,
-.lab .lab-chapter-progress.is-interactive:hover,
-.lab .lab-chapter-progress.is-interactive:active {
+.lab[data-chrome-version="v2"] .lab-chapter-progress.is-interactive,
+.lab[data-chrome-version="v2"] .lab-chapter-progress.is-interactive:hover,
+.lab[data-chrome-version="v2"] .lab-chapter-progress.is-interactive:active {
   background:transparent; -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent;
 }
-.lab .lab-chapter-progress.is-interactive::selection { background:transparent; }
+.lab[data-chrome-version="v2"] .lab-chapter-progress.is-interactive::selection { background:transparent; }
 .lab[data-chrome-version="v2"]:not(.is-night) {
   --highlight-gold:#dcca98; --highlight-rose:#dbb8af; --highlight-sage:#bac69f;
   --highlight-sky:#b6c9ce; --highlight-lavender:#c5bdd0;
