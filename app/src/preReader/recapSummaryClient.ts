@@ -11,7 +11,7 @@
  * line is for a reader coming back to a book after being away from it, not
  * for someone who stepped out of the reader a minute ago — that reader
  * already knows where they are. `recapSummaryPermission` is the whole of that
- * rule — both conditions, the hour away and the return straight out of the
+ * rule — both conditions, five minutes away and the return straight out of the
  * book's own reader — and the hero asks it before it asks the network.
  */
 import { LAB_RECAP_ROUTE, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
@@ -21,7 +21,7 @@ import { LAB_RECAP_ROUTE, type LabRecapRequest, type LabRecapResponse } from '..
  * generated for it. Below it the hero says where the reader is and nothing
  * more: no request, no model call, no cache write.
  */
-export const LAB_RECAP_MIN_AWAY_MS = 60 * 60 * 1000
+export const LAB_RECAP_MIN_AWAY_MS = 5 * 60 * 1000
 
 export const RECAP_SUMMARY_STORAGE_KEY = 'tinct:lab-recap-summaries'
 /** Entries kept per device, newest first. */
@@ -69,7 +69,7 @@ export function recapAwayMs(input: RecapAwayInput): number | null {
 /**
  * Whether the hero may ask the Worker for a "so far" summary of this place.
  *
- * At or above the threshold: yes — an hour away is long enough that a
+ * At or above the threshold: yes — five minutes away is long enough that a
  * reminder of the chapter earns its cost. Below it: no, and the caller must
  * skip the request entirely rather than send it and hide the answer.
  *
@@ -111,11 +111,11 @@ export interface RecapSummaryPermission {
  *
  *  2. **Away from the book for less than `LAB_RECAP_MIN_AWAY_MS`**
  *     (`recent`, the release-3.12 rule). Nothing is *generated* for a
- *     five-minute break — no request, no model call, no spent free action —
+ *     short break — no request, no model call, no spent free action —
  *     but a summary this device already holds is still shown, because it
  *     costs nothing and is true of the place on screen.
  *
- * The origin marker is honoured only while it is fresh (the same hour that
+ * The origin marker is honoured only while it is fresh (the same five minutes that
  * governs rule 2). A tab left open on the library all afternoon is no longer
  * "just back from the reader".
  */

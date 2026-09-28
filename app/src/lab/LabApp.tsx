@@ -1,3 +1,4 @@
+import { useRecapPreparation } from './useRecapPreparation'
 import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
@@ -2671,6 +2672,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && (!chromeV2 || !tocOpen),
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
+  })
+  useRecapPreparation({
+    userId: authUser?.id ?? null,
+    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
+    request: {
+      bookId: book.bookId || 'bible', editionKey: readerEditionKey,
+      chapterNumber: book.chapterNumber, paragraphIndex: Math.max(0, placeRef.current.paragraphIndex),
+      completed: finishedChapters.has(book.chapterNumber),
+    },
+    readToken: readSupabaseAccessToken,
   })
   // Picker rows: the position record's finished signal cross-checked with
   // reading memory (a `completed` session marks Finished even if the flag was

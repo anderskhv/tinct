@@ -1,3 +1,5 @@
+import { handleRecapPreparation } from './worker/routes/recapPreparation'
+import type { RecapPreparationCoordinator } from './worker/recapPreparationCoordinator'
 import { handleFeaturedPreview } from './worker/routes/featuredPreview'
 import { handleVoiceResearch } from './worker/routes/voiceResearch'
 /**
@@ -47,6 +49,7 @@ import {
 export { serveSpaWithMetaForTest } from './worker/routes/seo'
 
 interface Env {
+  RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
   XAI_API_KEY?: string
@@ -180,7 +183,12 @@ export default {
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
-      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit)
+      case '/api/recap-preparation': return handleRecapPreparation(request, env, verifyUser)
+      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { prepared: async target => {
+        if (!env.RECAP_PREPARATION) return null
+        const user = await verifyUser(env, request)
+        return user && isValidUUID(user.id) ? env.RECAP_PREPARATION.getByName(user.id).lookup(target) : null
+      } })
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser)
       case '/api/webhook': return handleWebhook(request, env)
