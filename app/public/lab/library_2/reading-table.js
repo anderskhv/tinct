@@ -287,7 +287,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     if (!r.height) return;
     const desk = innerWidth >= 900;
     const next = Math.round(Math.max(130, Math.min(desk ? 352 : 240, r.height / 1.36, r.width * (desk ? 0.44 : 0.39) * 1.5)));
-    if (next === H && Math.abs(r.width - stageW) < 2) return;
+    if (next === H && Math.abs(r.width - stageW) < 2) { positionRemove(); return; }
     H = next;
     stageW = r.width;
     view.style.setProperty('--bh', `${H}px`);

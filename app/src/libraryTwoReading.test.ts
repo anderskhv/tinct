@@ -81,7 +81,7 @@ it('a hidden Bible keeps its biblical book, sequential chapter and exact saved l
   state.lastSettledBookId = 'zechariah'
   state.lastSettledAt = 100
   calls.localPositions.mockResolvedValue(state)
-  vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ books: [{ id: 'bible', title: 'The Bible', author: 'Various', defaultEditionKey: 'bsb', editions: [{ key: 'bsb', language: 'en', style: 'original' }], readingStructure: { chapters: [{ number: 919, title: 'Zechariah 8', paragraphCount: 40 }] }]}))))
+  vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ books: [{ id: 'bible', title: 'The Bible', author: 'Various', defaultEditionKey: 'bsb', editions: [{ key: 'bsb', language: 'en', style: 'original' }], readingStructure: { chapters: [{ number: 919, title: 'Zechariah 8', paragraphCount: 40 }] } }]}))))
   const { readerDestination } = await import('./libraryTwoReading')
   expect(await readerDestination('bible')).toBe('/reader')
   expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({ bookId: 'bible', primaryEditionKey: 'bsb', savedPlace: { bookId: 'bible', chapterNumber: 919, page: 4, paragraphIndex: 11, wordIndex: 23 } })
