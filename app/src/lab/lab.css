@@ -6523,39 +6523,17 @@
   min-height: 0;
 }
 
-/* The box the reserved foot actually is.
-   `.lab-bottom-chrome` is what pagination measures — it is handed to
-   `measureLabPageMetrics` as the chrome boundary — and it is a fixed 3rem
-   whatever is inside it. That is why the bar's removal bought only a few
-   pixels: the reserved foot never moved. Under the flag it is exactly what
-   the foot now holds, and the body's padding agrees with it, so the column
-   grows by the whole difference. */
-.lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
-.lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome,
-.lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-body,
-.lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-body {
+/* Keep the pagination boundary fixed when transport opens or closes.
+   The reserved space fits the controls without moving any book words. */
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-body,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-body {
   height: auto;
-  padding-bottom: calc(1.25rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
-}
-
-.lab[data-chrome-version="v2"][data-transport="closed"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
-.lab[data-chrome-version="v2"][data-transport="closed"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
-  height: calc(1.25rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
-  padding-bottom: 0;
-}
-
-/* With the transport up the rail sits above it, and the column ends above
-   the rail: 20px of rail over the 3.72rem the transport takes. The box
-   changes height here, so the page map is recomputed — anchored on the word
-   being spoken — rather than left to run under the rail. */
-.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-body,
-.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-body {
   padding-bottom: calc(4.97rem + env(safe-area-inset-bottom, 0px));
 }
-
-.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
-.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
   height: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: 0;
 }
 
 /* Desktop: the rail's column is gone, and its width goes to the page. */
@@ -7407,7 +7385,7 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-controls .lab-super {
   border-color: transparent; background: transparent; box-shadow: none;
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-page-wrap { --desktop-pad-bottom: 62px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap { --desktop-pad-bottom: 62px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 68px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { right: 30px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: #dccbaa; color: var(--lab-ink); text-decoration: none; }
@@ -7460,9 +7438,9 @@
 
 
 /* Reader polish: footer space is part of each leaf; book progress is in the frame. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 42px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 108px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 108px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 3px; pointer-events: auto; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 69px; pointer-events: auto; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 69px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers {
   position: absolute; left: var(--desktop-pad-x); right: var(--desktop-pad-x); bottom: 14px;

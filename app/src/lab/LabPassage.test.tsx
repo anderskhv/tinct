@@ -895,3 +895,23 @@ describe('selectable next-chapter opening', () => {
     expect(current).not.toHaveBeenCalled()
   })
 })
+
+it('keeps the outgoing leaf left and incoming narrated opening right', () => {
+  const oldParagraphs = ['The previous chapter ends here.']
+  const paragraphs = ['The new chapter opens here and continues.']
+  const page = { paragraphIndex: 0, from: 0, to: 5 }
+  const { container, rerender } = render(<LabPassage {...passageProps(paragraphs, page)}
+    chapterTitle="New chapter" chapterNumber={2} desktopSpread inlineHearingPaint playing
+    follow={{kind:'word', paragraphIndex:0,wordIndex:1}}
+    previousChapterEnding={{title:'Old chapter',chapterNumber:1,paragraphs:oldParagraphs,page,chapterEnd:<button>Old recap</button>}}
+  />)
+  const columns = container.querySelectorAll('.lab-book-columns > .lab-book-col')
+  expect(columns[0].textContent).toContain('The previous chapter ends here.')
+  expect(columns[0].querySelector('[data-testid="lab-word"]')).toBeNull()
+  expect(columns[1].textContent).toContain('New chapter')
+  expect(columns[1].querySelector('.is-current')?.textContent).toBe('new')
+  expect(columns[1].textContent).not.toContain('continues')
+  rerender(<LabPassage {...passageProps(paragraphs, {paragraphIndex:0,from:5,to:8})} chapterTitle="New chapter" desktopSpread />)
+  expect(container.querySelector('.lab-book-col')?.textContent).toContain('and continues.')
+  expect(screen.queryByText('Old recap')).toBeNull()
+})

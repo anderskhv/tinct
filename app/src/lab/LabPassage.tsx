@@ -45,6 +45,8 @@ interface LabPassageProps {
    * selection surface keeps word coordinates scoped to the next chapter.
    */
   nextChapterOpening?: { title: string; chapterNumber?: number; paragraphs: string[]; page: ChapterHearingPage; onPrimer?: () => void; highlights?: LabHighlight[]; selectingRange?: LabHighlightRange | null; onSelectRange?: LabPassageProps['onSelectRange'] }
+  /** Outgoing left leaf retained while narration enters the already visible right opening. */
+  previousChapterEnding?: NonNullable<LabPassageProps['nextChapterOpening']> & { chapterEnd?: ReactNode }
   alignCompare?: boolean
   chapterTitle: string
   paragraphs: string[]
@@ -403,6 +405,7 @@ export function LabPassage({
   desktopSpread = false,
   nextReadingPage,
   nextChapterOpening,
+  previousChapterEnding,
   alignCompare = false,
   chapterTitle,
   paragraphs,
@@ -1023,6 +1026,16 @@ export function LabPassage({
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
+          {previousChapterEnding ? <>
+            {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
+            <LabPassage openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+              paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
+              compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
+              markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
+              selectingRange={previousChapterEnding.selectingRange} onSelectRange={previousChapterEnding.onSelectRange}
+              onPageTurn={onPageTurn} tapZones="none" />
+            {previousChapterEnding.chapterEnd}
+          </> : <>
           {desktopSpread && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
@@ -1048,14 +1061,17 @@ export function LabPassage({
             </div>
           )}
           {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
+          </>}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
-          {!nextReadingPage && nextChapterOpening && (
+          {previousChapterEnding && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
+          {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
             <LabChapterHeading title={nextChapterOpening.title} preview={Boolean(nextChapterOpening.onPrimer)} onPreview={nextChapterOpening.onPrimer} measuring />
           )}
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
-            {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
-            {!nextReadingPage && nextChapterOpening && (
+            {previousChapterEnding && renderReadingLines(readingLines, true)}
+            {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
+            {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
                 <LabPassage openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
@@ -1068,7 +1084,7 @@ export function LabPassage({
               </div>
             )}
           </div>
-          {nextReadingPage && chapterEnd}
+          {(previousChapterEnding || nextReadingPage) && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
