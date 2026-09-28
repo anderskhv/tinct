@@ -22,5 +22,5 @@ export function DefinitionFallback({ word, request }: {
   }, [word, attempt])
   if (status === 'loading') return <div className="popup-define-status" role="status">Looking up…</div>
   if (status === 'error') return <div className="popup-define-status">Definition unavailable. <button type="button" onClick={() => setAttempt(value => value + 1)}>Try again</button></div>
-  return <div className="popup-define-result"><ol className="popup-define-list"><li>{answer}</li></ol><small className="popup-define-note">AI definition</small></div>
+  return <div className="popup-define-result"><ol className="popup-define-list"><li>{answer}</li></ol></div>
 }

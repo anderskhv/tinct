@@ -608,7 +608,9 @@ export function useLabAsk(options: UseLabAskOptions) {
       const history = [...(chapterRequest && chapterRequest.action.kind !== 'discuss' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
         .slice(-20)
         .map(turn => {
-          const content = turn.id === userTurn.id && chapterRequest ? turn.content : chapterChatHistoryContent(turn)
+          const historicalLocation = turn.id !== userTurn.id && turn.chapterNumber != null && turn.chapterNumber !== requestChapter
+            ? `\n\n[Historical message location, not the current reading position: chapter ${turn.chapterNumber}.]` : ''
+          const content = (turn.id === userTurn.id ? turn.content : chapterChatHistoryContent(turn)) + historicalLocation
           return {
             role: turn.role,
             content: turn.role === 'user' && turn.highlightedText
@@ -630,7 +632,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         stream: true,
         effort: COMPANION_EFFORT_TYPED,
         system: actionSystem ?? buildLabAskInstructions({ ...context, personalHistory: personalEvidence }),
-        messages: history,
+        messages: history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message),
         ...labCompanionBookFields(context),
       })
       let rawReply = ''

@@ -69,7 +69,7 @@ describe('lab ask context', () => {
     expect(numbered).toContain('[3] Now Neptune')
   })
 
-  it('sends the whole chapter and refuses later plot', () => {
+  it('sends the whole chapter and avoids unsolicited later plot', () => {
     const instructions = buildLabAskInstructions({
       bookTitle: 'The Odyssey',
       bookAuthor: 'Homer',
@@ -79,8 +79,8 @@ describe('lab ask context', () => {
       readingAngle: 'homecoming',
     })
     expect(instructions).toContain('[2] So now all who escaped death')
-    expect(instructions).toContain('only have the book up to this chapter so far')
-    expect(instructions).toContain('never say you cannot see them')
+    expect(instructions).toContain('Avoid unsolicited spoilers beyond the current chapter')
+    expect(instructions).toContain('An explicit request for later chapters or the whole book permits that requested scope')
     expect(instructions).toContain('call resume_audiobook')
     expect(instructions).toContain('Never say you cannot control playback')
     expect(instructions).toContain('call set_assistant_pace')
@@ -98,8 +98,8 @@ describe('lab ask context', () => {
     expect(instructions).toContain('Do not resume after a normal book question')
     expect(instructions).toContain('Do not ask them to paste')
     expect(instructions).toContain('Do not say you lack the book')
-    expect(instructions).toContain('no Book 3')
-    expect(instructions).toContain('no ending')
+    expect(instructions).toContain('Spoiler protection is not a claim')
+    expect(instructions).toContain('never invent quotations')
     expect(instructions).toContain('Reading angle: homecoming')
     expect(instructions).not.toContain('Speak for about 20')
     expect(instructions).toContain('resume_audiobook')
@@ -408,7 +408,8 @@ describe('lab ask reading trail and in-book retrieval', () => {
     expect(instructions).toContain(LAB_ASK_BOOK_TOOLS_RULE)
     expect(instructions).toContain('say one short holding phrase before the search')
     expect(instructions).toContain('Never describe thinking or searching, never comment on the question')
-    expect(instructions).toContain('use read_chapter or find_in_book to check the book before answering')
+    expect(instructions).toContain('Do not make a lookup a prerequisite for an answer you already know')
+    expect(instructions).toContain('Missing context alone is not uncertainty')
     expect(instructions).toContain('Never say you cannot see earlier chapters')
     expect(instructions).toContain('Never claim to have looked without calling a tool')
     expect(instructions).toContain("Cite the chapter you used ('In chapter 37, verse 21…')")

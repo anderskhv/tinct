@@ -9,6 +9,8 @@ export interface LabWordPlace {
 }
 
 export interface LabHighlightRange {
+  /** Temporary dictionary paint only; never changes persisted word coordinates. */
+  lookupWord?: string
   paragraphIndex: number
   fromWord: number
   endParagraphIndex: number

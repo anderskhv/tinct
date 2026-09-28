@@ -50,7 +50,7 @@ export function editionCandidates(book: BookRef): string[] {
  * Ask panel into "unavailable".
  */
 export const NO_EDITION_NOTICE =
-  'The full book text could not be loaded for this request. Answer from the chapter you already have in front of you, and say plainly that you could not open the rest of the book to check.'
+  'The exact edition text could not be loaded for this request. Answer the question using your reliable general knowledge and the supplied context. Do not give a routine missing-context disclaimer. If the reader needs an exact quotation or verification, state that specific limit without inventing wording or a source check.'
 
 export interface BookRef {
   bookId: string
@@ -171,18 +171,26 @@ function cleanParagraph(text: string): string {
 }
 
 /** Numbered paragraphs, trimmed to the cap with a note so the model knows it saw a part. */
-export function renderChapterForTool(chapter: ChapterText, maxChars = READ_CHAPTER_MAX_CHARS): string {
+export function renderChapterForTool(chapter: ChapterText, maxChars = READ_CHAPTER_MAX_CHARS, startParagraph = 1, startOffset = 0): string {
   const head = `Chapter ${chapter.number} — ${chapter.title}`
-  const body = chapter.paragraphs
-    .map((text, index) => `[${index + 1}] ${cleanParagraph(text)}`)
-    .filter(line => line.length > 4)
-    .join('\n\n')
-  const full = `${head}\n\n${body}`
-  if (full.length <= maxChars) return full
-  const cut = full.slice(0, maxChars)
-  const boundary = cut.lastIndexOf(' ')
-  const kept = boundary > maxChars * 0.8 ? cut.slice(0, boundary) : cut
-  return `${kept}\n\n[Trimmed: ${full.length - kept.length} more characters of this chapter were left out. Ask for a search with find_in_book if you need a later part.]`
+  let result = head + '\n\n'
+  for (let index = startParagraph - 1; index < chapter.paragraphs.length; index++) {
+    const fullText = cleanParagraph(chapter.paragraphs[index])
+    const offset = index === startParagraph - 1 ? startOffset : 0
+    const text = fullText.slice(offset)
+    if (!text) continue
+    const line = `[${index + 1}] ${text}`
+    // Keep paragraph boundaries so a continuation never drops half a paragraph.
+    if (result.length + line.length > maxChars && result.length > head.length + 2) {
+      return `${result.trimEnd()}\n\n[Trimmed: continue read_chapter with chapter "${chapter.number}" and start_paragraph ${index + 1}.]`
+    }
+    if (result.length + line.length > maxChars) {
+      const take = Math.max(1, maxChars - result.length - `[${index + 1}] `.length)
+      return `${result}[${index + 1}] ${text.slice(0, take)}\n\n[Trimmed: continue read_chapter with chapter "${chapter.number}", start_paragraph ${index + 1}, and start_offset ${offset + take}.]`
+    }
+    result += line + '\n\n'
+  }
+  return result.trimEnd()
 }
 
 function leafContaining(sections: SectionNode[] | undefined, chapterNumber: number): SectionNode | null {
@@ -354,6 +362,7 @@ export function createBookRetrieval(input: {
   const requestedEditionId = `${book.bookId}-${book.editionKey}`
   const chapterCache = new Map<number, ChapterText | null>()
   let indexPromise: Promise<ResolvedEditionIndex | null> | null = null
+  let wholePromise: Promise<Map<number, ChapterText> | null> | null = null
   /** Set once an edition resolves; every chapter read uses the edition that actually loaded. */
   let editionId = requestedEditionId
 
@@ -462,6 +471,26 @@ export function createBookRetrieval(input: {
     return chapter
   }
 
+  // One static asset request replaces hundreds of chapter-shard requests for
+  // global search. Keep this map only for this request, never in isolate cache.
+  const loadWhole = async (): Promise<Map<number, ChapterText> | null> => {
+    const index = await loadIndexOnly()
+    if (index?.whole) return index.whole
+    if (!wholePromise) wholePromise = (async () => {
+      const data = await fetchJson(`/data/editions/${editionId}.json`) as { chapters?: unknown[] } | null
+      if (!Array.isArray(data?.chapters)) return null
+      const map = new Map<number, ChapterText>()
+      data.chapters.forEach((raw, i) => {
+        const chapter = parseChapterText(raw, i + 1)
+        if (chapter) map.set(chapter.number, chapter)
+      })
+      // A stale whole edition must not quietly reintroduce chapter-number drift.
+      if (!index || index.chapters.some(entry => map.get(entry.number)?.title !== entry.title)) return null
+      return map.size ? map : null
+    })()
+    return wholePromise
+  }
+
   const usage = 'read_chapter needs {"chapter": "<sequential number as digits or exact chapter label>"}.'
   const byLabel = async (label: string): Promise<{ chapterNumber: number } | { error: string }> => {
     const index = await loadIndexOnly()
@@ -502,17 +531,36 @@ export function createBookRetrieval(input: {
     async readChapter(rawInput: unknown): Promise<ToolOutcome> {
       const resolved = await resolveChapterNumber(rawInput)
       if ('error' in resolved) return { content: resolved.error, isError: true }
-      const chapter = await loadChapter(resolved.chapterNumber)
+      const options = rawInput as { through?: unknown; start_paragraph?: unknown; start_offset?: unknown }
+      const end = options.through == null ? resolved : await resolveChapterNumber({ chapter: options.through })
+      if ('error' in end) return { content: end.error, isError: true }
+      const start = options.start_paragraph ?? 1
+      if (!Number.isInteger(start) || (start as number) < 1) return { content: 'start_paragraph must be a positive integer.', isError: true }
+      const offset = options.start_offset ?? 0
+      if (!Number.isInteger(offset) || (offset as number) < 0) return { content: 'start_offset must be a nonnegative integer.', isError: true }
       const edition = await loadIndex()
-      if (!chapter) {
-        const total = edition?.index.chapters.length
-        if (!total) return { content: NO_EDITION_NOTICE }
-        return {
-          content: `Chapter ${resolved.chapterNumber} is not in this edition (it has ${total} chapters).`,
-          isError: true,
+      if (!edition) return { content: NO_EDITION_NOTICE }
+      const entries = edition.index.chapters
+      const from = entries.findIndex(c => c.number === resolved.chapterNumber)
+      const to = entries.findIndex(c => c.number === end.chapterNumber)
+      if (from < 0 || to < from) return { content: `Invalid chapter range in this edition (it has ${entries.length} chapters).`, isError: true }
+      if (to - from >= 14) return { content: 'Read at most 14 chapters per call; continue with the next range.', isError: true }
+      const selected = entries.slice(from, to + 1)
+      const chapters = await Promise.all(selected.map(entry => loadChapter(entry.number)))
+      const output: string[] = []
+      let used = 0
+      for (let i = 0; i < chapters.length; i++) {
+        const chapter = chapters[i]
+        if (!chapter) { output.push(`[Could not load ${selected[i].title}; do not invent its contents.]`); continue }
+        if (i === 0 && (start as number) > chapter.paragraphs.length) return { content: 'start_paragraph is beyond the end of this chapter.', isError: true }
+        const text = renderChapterForTool(chapter, READ_CHAPTER_MAX_CHARS, i === 0 ? start as number : 1, i === 0 ? offset as number : 0)
+        if (used + text.length > 48_000) {
+          output.push(`[Range continues: call read_chapter from "${chapter.title}" through "${selected.at(-1)!.title}".]`)
+          break
         }
+        output.push(text); used += text.length
       }
-      return { content: `${edition ? substitutionNote(edition) : ''}${renderChapterForTool(chapter)}` }
+      return { content: substitutionNote(edition) + output.join('\n\n') }
     },
 
     async findInBook(rawInput: unknown): Promise<ToolOutcome> {
@@ -521,6 +569,22 @@ export function createBookRetrieval(input: {
       const edition = await loadIndex()
       if (!edition) return { content: NO_EDITION_NOTICE }
       const index = edition.index
+      const whole = await loadWhole()
+      if (whole) {
+        const chapters = [...whole.values()].sort((a, b) => a.number - b.number)
+        const matches: FindMatch[] = []
+        let matchCount = 0
+        for (const chapter of chapters) {
+          const hits = matchesInChapter(chapter, query)
+          matchCount += hits.length
+          if (matches.length < FIND_MAX_MATCHES) matches.push(...hits.slice(0, FIND_MAX_MATCHES - matches.length))
+        }
+        return { content: JSON.stringify({ query, edition: edition.editionKey,
+          ...(edition.substituted ? { editionNote: substitutionNote(edition).trim() } : {}),
+          matches, scanned: { chapters: chapters.length, ofChapters: index.chapters.length, complete: chapters.length >= index.chapters.length },
+          note: `Searched the available whole edition. Showing the first ${matches.length} matching passages in book order; at least ${matchCount} matching passages found. Do not reveal later developments unless requested.`,
+        }) }
+      }
       const order = findScanOrder({
         chapters: index.chapters.map(item => item.number),
         current: book.chapterNumber,
@@ -554,7 +618,7 @@ export function createBookRetrieval(input: {
         scanned: {
           chapters: scanned,
           ofChapters: index.chapters.length,
-          complete: scanned >= index.chapters.length || matches.length >= FIND_MAX_MATCHES,
+          complete: scanned >= index.chapters.length,
         },
       }
       // A partial search is a real answer, not a failure. Say so plainly so the

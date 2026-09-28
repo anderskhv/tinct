@@ -2331,6 +2331,15 @@
   line-height: 1.42;
 }
 
+/* Source poetic lines stay ragged and close enough to read as a couplet.
+   This applies equally to the hidden measurement and painted reader. */
+.lab .lab-passage.is-reading .lab-hearing-stage .lab-hearing-line.is-poetic-line,
+.lab .lab-hearing-line.is-poetic-line {
+  text-align: start;
+  text-align-last: auto;
+  margin-bottom: 0.2em;
+}
+
 /* Keeps a verse number welded to its first word. `vertical-align: baseline`
    and no padding matter for highlights: an inline-block that sits off the
    baseline paints its word's mark a few pixels below the marks either side,
