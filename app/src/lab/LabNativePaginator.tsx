@@ -298,6 +298,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     let cancelled = false
     let firstFrame = 0
     let secondFrame = 0
+    let publishedPages: ChapterHearingPage[] | null = null
 
     const measure = () => {
       if (cancelled) return
@@ -359,7 +360,13 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         if (end) end.hidden = true
         stage.replaceChildren()
       }
-      if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)) {
+      if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)
+        && (!publishedPages || !sameChapterPages(publishedPages, pages))) {
+        // loadingdone also fires for toolbar fonts. Re-publishing an unchanged
+        // preflight map would erase the visible-page rounding corrections and
+        // move the reader backwards. A changed reading font/layout still emits
+        // its genuinely different map, and a new effect always publishes once.
+        publishedPages = pages
         onPages(pages, paragraphs)
       }
     }

@@ -2,7 +2,7 @@ name: Reader spread flow
 on:
   pull_request:
     branches: [main]
-    paths: ['app/src/lab/**', 'app/scripts/check-reader-spread.cjs', 'app/scripts/check-opening-highlights.cjs', '.github/workflows/reader-spread.yml']
+    paths: ['app/src/lab/**', 'app/scripts/check-reader-spread.cjs', 'app/scripts/check-opening-highlights.cjs', 'app/scripts/check-audio-spread.cjs', '.github/workflows/reader-spread.yml']
   workflow_run:
     workflows: [deploy]
     types: [completed]
@@ -42,6 +42,11 @@ jobs:
         env:
           READER_ENGINES: ${{ matrix.engines }}
           READER_BUILT: ${{ github.event_name == 'workflow_run' && '0' || '1' }}
+      - name: Verify narration keeps the displayed spread
+        run: node scripts/check-audio-spread.cjs
+        env:
+          READER_ENGINES: ${{ matrix.engines }}
+          READER_BUILT: ${{ github.event_name == 'workflow_run' && '0' || '1' }}
       - run: node scripts/check-reader-spread.cjs
         env:
           READER_ENGINES: ${{ matrix.engines }}
@@ -53,3 +58,4 @@ jobs:
           path: |
             app/artifacts/reader-spread
             app/artifacts/opening-highlights
+            app/artifacts/audio-spread

@@ -358,7 +358,7 @@ describe('lab chrome', () => {
     // No gold accent anywhere in the lab chrome. References to the shared
     // `--highlight-gold` mark token are not that colour language: they are
     // how the five highlight colours keep one definition across surfaces.
-    expect(css.replace(/var\(--highlight-gold[^)]*\)/g, 'var(--mark-default)'))
+    expect(css.replace(/--highlight-gold/g, '--mark-default'))
       .not.toMatch(/gold|#f5d76e|#ffeaa7|#ffd54f|#fff59d/i)
     expect(css).not.toMatch(/\.lab-ask\s*\{[^}]*background:\s*#faf9f6/)
     expect(css).not.toMatch(/\.lab-ask-composer\s*\{[^}]*background:\s*#fff/)
@@ -4132,7 +4132,7 @@ describe('lab chrome pass', () => {
     const hiddenPill = css.match(/data-reader-controls="hidden"\] \.lab-header-chapter,[^{]*\{([^}]*)\}/)
     expect(hiddenPill).toBeTruthy()
     expect(hiddenPill![1]).not.toContain('pointer-events')
-    expect(css).toMatch(/\.lab \.lab-hearing-line\.is-continued\.is-tail-full\s*\{[^}]*text-align-last:\s*var\(--lab-text-align, justify\)/)
+    expect(css).toMatch(/\.lab \.lab-hearing-line\.is-continued\[data-tail-full="true"\]\s*\{[^}]*text-align-last:\s*var\(--lab-text-align, justify\)/)
   })
 
   it('locks the V1 footer as an overlaid light Depth dock with a dark Tint variant', () => {
@@ -4746,14 +4746,14 @@ it('returns from V2 audio browsing without seeking or restarting playback', asyn
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={sourceWithManyWords()} />)
   fireEvent.click(screen.getByTestId('lab-v2-play'))
-  await waitFor(() => expect(screen.getByTestId('lab-hearing')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing'))
   fireEvent.click(screen.getByTestId('lab-page-next'))
   await waitFor(() => expect(screen.getByTestId('lab-back-to-audio')).toBeTruthy())
   const time = audio.currentTime
   fireEvent.click(screen.getByTestId('lab-back-to-audio'))
   expect(screen.queryByTestId('lab-back-to-audio')).toBeNull()
   expect(audio.currentTime).toBe(time)
-  expect(screen.getByTestId('lab-hearing')).toBeTruthy()
+  expect(screen.getByTestId('lab-book').className).toContain('is-inline-hearing')
 })
 
 
