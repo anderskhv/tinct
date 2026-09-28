@@ -1,15 +1,15 @@
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
-import {readVisit,rememberVisit} from './visit.js?v=20260928f';
-import {mountHeroNavigation} from './hero-navigation.js?v=20260928f';
-import {mountBookshelf} from './bookshelf.js?v=20260928f';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260928f';
-import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928f';
-import {books} from './books.js?v=20260928f';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928f';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928f';
-import {categories,eras,metadata} from './taxonomy.js?v=20260928f';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928f';
-import {bookMetadata,readingTime} from './book-metadata.js?v=20260928f';
+import {readVisit,rememberVisit} from './visit.js?v=20260928h';
+import {mountHeroNavigation} from './hero-navigation.js?v=20260928h';
+import {mountBookshelf} from './bookshelf.js?v=20260928h';
+import {authorPortrait,warmPortrait} from './authors.js?v=20260928h';
+import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928h';
+import {books} from './books.js?v=20260928h';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928h';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928h';
+import {categories,eras,metadata} from './taxonomy.js?v=20260928h';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928h';
+import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928h';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
@@ -43,7 +43,7 @@ function ensureCover(book){if(!coverReady.has(book.id)){const ready=(async()=>{c
 const coverObserver=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;coverObserver.unobserve(entry.target);const book=books.find(b=>b.id===entry.target.dataset.book);if(book)ensureCover(book);}),{rootMargin:'400px'});
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
-function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;meta.textContent=bookMetadata(book,{compact:true});return meta;}
+function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
 function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=books.find(b=>b.id===meta.dataset.metadataBook);meta.textContent=bookMetadata(book,{compact:true});});const time=readingTime(featured);if(time)$('hero-time').textContent=time;}
 function coverButton(book,cls='book-card cover-button'){const b=el('button',cls);b.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);const c=el('canvas','cover');c.dataset.book=book.id;b.append(c);b.addEventListener('click',()=>openBook(book,c));paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);if(cls!=='book-card cover-button'){b.append(coverMetadata(book));return b;}
  // Shelf covers carry a + for Want to read, beside (not inside) the cover button.

@@ -6,10 +6,10 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928f';
-import { coverAsset } from './cover-assets.js?v=20260928f';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928h';
+import { coverAsset } from './cover-assets.js?v=20260928h';
 
-import {bookMetadata} from './book-metadata.js?v=20260928f';
+import {renderBookMetadata} from './book-metadata.js?v=20260928h';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -355,7 +355,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
     const set = () => {
       $('rt-title').textContent = b.title;
-      $('rt-book-metadata').textContent = bookMetadata(b,{percent:b.percent});
+      renderBookMetadata($('rt-book-metadata'), b, {percent:b.percent});
       remove.setAttribute('aria-label',`Remove ${b.title} from currently reading`);
       $('rt-place').textContent = b.chapterLabel;
       $('rt-pct').textContent = percentLabel(b.percent);
