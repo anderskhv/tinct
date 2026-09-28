@@ -1,6 +1,7 @@
 // Shared by the real library, reader and account app. No alternate reader or account.
 const KEY = 'tinct:desktop-appearance:v1';
 const CACHE = 'tinct:omarchy-palette:v1';
+const SHORTCUTS = 'tinct:letter-shortcuts:v1';
 const root = document.documentElement;
 const MODES = ['tinct', 'omarchy', 'persia'];
 const FALLBACK = { name:'Omarchy', background:'#1a1b26', foreground:'#c0caf5', accent:'#7aa2f7' };
@@ -22,6 +23,7 @@ let mode=stored(KEY) || (new URLSearchParams(location.search).get('omarchy')==='
 if (!MODES.includes(mode)) mode='tinct';
 // The installation hint is remembered locally, never written to synced reader preferences.
 if (mode!=='tinct') save(KEY,mode);
+let letters=stored(SHORTCUTS)!=='off';
 let palette=FALLBACK;
 try { palette=validPalette(JSON.parse(stored(CACHE))) || FALLBACK; } catch {}
 let status='', timer=0, request=null, generation=0;
@@ -70,7 +72,7 @@ function selectTheme(next) {
   if(mode==='omarchy') { if(request) setTimeout(syncTheme,0); else void syncTheme(); }
 }
 window.addEventListener('tinct:appearance-reset',()=>selectTheme('tinct'));
-window.addEventListener('storage',e=>{if(e.key===KEY){mode=MODES.includes(e.newValue)?e.newValue:'tinct';generation++;request?.abort();apply();if(mode==='omarchy')setTimeout(syncTheme,0);}});
+window.addEventListener('storage',e=>{if(e.key===SHORTCUTS){letters=e.newValue!=='off';if(shortcutToggle)shortcutToggle.checked=letters;}if(e.key===KEY){mode=MODES.includes(e.newValue)?e.newValue:'tinct';generation++;request?.abort();apply();if(mode==='omarchy')setTimeout(syncTheme,0);}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)void syncTheme();else clearTimeout(timer);});
 
 export function registerCommands(config) { window.__tinctDesktopCommands=config; }
@@ -82,7 +84,7 @@ export function typing(event) {
 export function eligibleShortcut(event) {
   return !event.defaultPrevented && !event.isComposing && !event.repeat && (!event.shiftKey || event.key==='?') && !event.altKey && !event.ctrlKey && !event.metaKey && !typing(event);
 }
-let host=null, shadow=null, dialog=null, input=null, results=null, themeSelect=null, connection=null, restoreFocus=null, filtered=[],selected=0;
+let host=null, shadow=null, dialog=null, input=null, results=null, themeSelect=null, connection=null, restoreFocus=null, shortcutToggle=null, filtered=[],selected=0;
 function node(tag,text,className) { const n=document.createElement(tag);if(text)n.textContent=text;if(className)n.className=className;return n; }
 function commands() {
   return [...registry().commands,
@@ -101,7 +103,7 @@ function build() {
   const css=node('style');css.textContent=`
     :host{position:relative;z-index:2147483646;font-family:system-ui,sans-serif;color-scheme:dark}
     *{box-sizing:border-box}dialog{position:fixed;inset:12vh 0 auto;margin:0 auto;width:min(570px,calc(100vw - 32px));max-height:76dvh;padding:0;border:1px solid #e6d6af35;border-radius:18px;background:var(--tinct-bg,#181b22);color:var(--tinct-fg,#f3ecdd);box-shadow:0 28px 90px #0009;overflow:auto;font:14px/1.5 system-ui,sans-serif}dialog::backdrop{background:#0007;backdrop-filter:blur(3px)}
-    header{display:flex;align-items:center;justify-content:space-between;padding:19px 22px 8px}h2{margin:0;font:24px Georgia,serif}button,input,select{font:inherit;color:inherit}button{cursor:pointer}.close{background:none;border:0;padding:8px;font-size:22px}input{display:block;width:calc(100% - 40px);margin:6px 20px 12px;padding:12px 14px;border:1px solid #c8c4b440;border-radius:8px;background:#80808012;outline:none}input:focus{border-color:var(--tinct-accent,#d6ad62)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:19px 22px 8px}h2{margin:0;font:24px Georgia,serif}button,input,select{font:inherit;color:inherit}button{cursor:pointer}.close{background:none;border:0;padding:8px;font-size:22px}input:not([type=checkbox]){display:block;width:calc(100% - 40px);margin:6px 20px 12px;padding:12px 14px;border:1px solid #c8c4b440;border-radius:8px;background:#80808012;outline:none}input[type=checkbox]{accent-color:var(--tinct-accent,#d6ad62);width:18px;height:18px;margin:0}.shortcuts{margin-top:14px}input:focus{border-color:var(--tinct-accent,#d6ad62)}
     .results{max-height:40vh;overflow:auto;padding:0 10px 10px}.command{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:11px 12px;text-align:left;border:0;border-radius:7px;background:transparent}.command[aria-selected=true],.command:hover{background:#80808028}.command:disabled{opacity:.4;cursor:default}kbd{font:11px ui-monospace,monospace;border:1px solid #aaa4;border-radius:4px;padding:2px 6px;white-space:nowrap}.empty{padding:12px}footer{padding:16px 22px;border-top:1px solid #aaa3}label{display:flex;justify-content:space-between;align-items:center;gap:12px}select{max-width:65%;background:var(--tinct-bg,#181b22);border:1px solid #aaa5;border-radius:6px;padding:7px}p{margin:10px 0 0;font-size:12px;opacity:.75}.hint{font-size:11px}button:focus-visible{outline:2px solid var(--tinct-accent,#d6ad62);outline-offset:-2px}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
   `;shadow.append(css);dialog=node('dialog');dialog.setAttribute('aria-labelledby','tinct-command-title');
   const header=node('header'),title=node('h2','Commands & themes');title.id='tinct-command-title';const close=node('button','×','close');close.type='button';close.setAttribute('aria-label','Close commands');close.onclick=()=>dialog.close();header.append(title,close);
@@ -110,7 +112,8 @@ function build() {
   const footer=node('footer'),label=node('label','Appearance');themeSelect=node('select');themeSelect.setAttribute('aria-label','Tinct appearance');
   for(const [value,text]of[['tinct','Tinct'],['omarchy','Follow Omarchy'],['persia','Prince of Persia']]){const o=node('option',text);o.value=value;themeSelect.append(o);}label.append(themeSelect);themeSelect.onchange=()=>selectTheme(themeSelect.value);
   connection=node('p');connection.setAttribute('role','status');const hint=node('p','↑ ↓ choose · Enter open · Esc return · Ctrl/⌘ K commands','hint');
-  footer.append(label,connection,hint);dialog.append(header,input,results,footer);shadow.append(dialog);document.body.append(host);
+  const shortcuts=node('label','Letter shortcuts','shortcuts');shortcutToggle=node('input');shortcutToggle.type='checkbox';shortcutToggle.checked=letters;shortcutToggle.onchange=()=>{letters=shortcutToggle.checked;save(SHORTCUTS,letters?'on':'off');};shortcuts.append(shortcutToggle);
+  footer.append(label,connection,shortcuts,hint);dialog.append(header,input,results,footer);shadow.append(dialog);document.body.append(host);
   input.oninput=()=>{selected=0;render();};
   input.onkeydown=e=>{if(['ArrowDown','ArrowUp','Enter'].includes(e.key)){e.preventDefault();e.stopPropagation();if(e.key==='Enter'){if(filtered[selected])run(filtered[selected].id);}else{selected=(selected+(e.key==='ArrowDown'?1:-1)+filtered.length)%Math.max(filtered.length,1);paintSelection();}}};
   dialog.addEventListener('keydown',e=>{
@@ -119,7 +122,14 @@ function build() {
     if(e.key==='Tab'){const items=[...shadow.querySelectorAll('button:not(:disabled),input,select')].filter(e=>e.getClientRects().length);const at=items.indexOf(shadow.activeElement);if(e.shiftKey&&at<=0){e.preventDefault();items.at(-1)?.focus();}else if(!e.shiftKey&&at===items.length-1){e.preventDefault();items[0]?.focus();}}
   });
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-  dialog.addEventListener('close',()=>{delete root.dataset.tinctCommandsOpen;restoreFocus?.isConnected&&restoreFocus.focus({preventScroll:true});});
+  dialog.addEventListener('close',()=>{
+    delete root.dataset.tinctCommandsOpen;
+    const previous=restoreFocus;restoreFocus=null;
+    if(previous?.isConnected&&previous!==document.body)previous.focus({preventScroll:true});
+    // With body as the original target, browsers may leave focus in the closed
+    // shadow dialog. Release it so the next letter belongs to the app again.
+    if(document.activeElement===host)shadow.activeElement?.blur();
+  });
 }
 function paintSelection() {
   [...results.children].forEach((b,i)=>b.setAttribute('aria-selected',String(i===selected)));
@@ -143,10 +153,10 @@ export function openCommands() {
 }
 window.__tinctDesktopOpen=openCommands;
 window.addEventListener('keydown',e=>{
-  if(e.isComposing || e.defaultPrevented)return;
+  if(e.isComposing || e.repeat || e.defaultPrevented)return;
   if((e.ctrlKey||e.metaKey)&&!e.altKey&&e.key.toLowerCase()==='k') {e.preventDefault();e.stopImmediatePropagation();openCommands();return;}
   if(dialog?.open)return;
-  if(!eligibleShortcut(e))return;
+  if(!letters || !eligibleShortcut(e))return;
   if(e.key==='?'){e.preventDefault();e.stopImmediatePropagation();openCommands();return;}
   if(registry().blocked() || window.getSelection()?.toString())return;
   const c=commands().find(c=>c.key===e.key.toLowerCase());

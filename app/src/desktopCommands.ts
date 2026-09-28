@@ -40,7 +40,7 @@ export function useDesktopAppearance() {
     ? { dark: document.documentElement.dataset.tinctReaderDark === 'true' } : null
   const [appearance, setAppearance] = useState(read)
   useEffect(() => {
-    const update = () => setAppearance(read())
+    const update = () => { const next = read(); setAppearance(previous => previous?.dark === next?.dark ? previous : next) }
     window.addEventListener('tinct:appearance', update)
     update()
     return () => window.removeEventListener('tinct:appearance', update)

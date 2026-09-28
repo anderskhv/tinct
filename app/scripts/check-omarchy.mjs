@@ -26,6 +26,7 @@ for(const engine of [chromium,webkit]) {
     return route.continue()
   })
   await page.addInitScript(()=>{
+    window.__tinctKeyTrace=[];window.addEventListener('keydown',e=>{window.__tinctKeyTrace.push({key:e.key,target:e.target?.tagName,path:e.composedPath().map(n=>n.tagName).filter(Boolean),open:document.documentElement.dataset.tinctCommandsOpen,blocked:window.__tinctDesktopCommands?.blocked()});window.__tinctKeyTrace=window.__tinctKeyTrace.slice(-16);},true);
     if(navigator.mediaDevices)Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{window.__tinctMicAttempts=(window.__tinctMicAttempts||0)+1;throw Error('Silent acceptance: microphone unavailable')}})
     HTMLMediaElement.prototype.play=async function(){this.muted=true}
   })
@@ -39,6 +40,7 @@ for(const engine of [chromium,webkit]) {
     await page.waitForFunction(()=>document.documentElement.dataset.tinctTheme==='persia')
     await page.screenshot({path:output+'/'+engine.name()+'-commands.png'})
     await page.keyboard.press('Escape')
+    await page.waitForFunction(()=>!document.documentElement.dataset.tinctCommandsOpen)
     await page.keyboard.press('/')
     await page.getByRole('searchbox',{name:'Search books or authors'}).fill('chat talk prince')
     assert.equal(await page.locator('#librarian-panel').isVisible(),false,'typing does not open chat/talk')
@@ -95,7 +97,7 @@ for(const engine of [chromium,webkit]) {
     report.push({engine:engine.name(),live,themeSync:true,libraryChat:true,readerCommands:true,placePreserved:true,silentTalk:true})
   } catch(error) {
     await page.screenshot({path:output+'/'+engine.name()+'-failure.png'}).catch(()=>{})
-    console.error({url:page.url(),errors,requests,body:(await page.locator('body').innerText()).slice(0,1800)})
+    console.error({url:page.url(),errors,requests,keys:await page.evaluate(()=>window.__tinctKeyTrace),state:await page.evaluate(()=>({theme:document.documentElement.dataset.tinctTheme,active:document.activeElement?.outerHTML.slice(0,300),open:document.documentElement.dataset.tinctCommandsOpen})),body:(await page.locator('body').innerText()).slice(0,1800)})
     throw error
   } finally {await context.close();await browser.close();await fs.writeFile(output+'/report.json',JSON.stringify(report,null,2))}
 }
