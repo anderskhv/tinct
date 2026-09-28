@@ -135,17 +135,14 @@ export function numberedLabChapter(paragraphs: string[]): string {
     .join('\n\n')
 }
 
-/**
- * Exact rule that turns "I only have Jeremiah 37 in front of me" into a lookup.
- * Present only when the request can carry `book` (see buildLabAskInstructions).
- */
-export const LAB_ASK_BOOK_TOOLS_RULE = `When the reader refers to something outside the passage in front of you (earlier chapters, something they remember, 'wasn't he just…'), use read_chapter or find_in_book to check the book before answering. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). Do not narrate the lookup: call the tool, then answer, as briefly as the question allows.`
+/** Text retrieval adds precision; it is not a prerequisite for knowing the book. */
+export const LAB_ASK_BOOK_TOOLS_RULE = `Use your reliable general knowledge of the book directly for familiar chapter summaries, explanations, themes, comparisons, and background. Supplied excerpts and reading history help with the exact edition and current position; they do not restrict what you may know or answer. Do not make a lookup a prerequisite for an answer you already know. Use read_chapter or find_in_book when exact wording, edition-specific details, genuine uncertainty, or the reader's request to verify makes checking useful. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). When retrieving a chapter range, use read_chapter with chapter and through labels in one call and continue truncated text at the returned start_paragraph and start_offset. For a chapter-by-chapter summary, cover every requested chapter separately using your knowledge, supplemented by retrieval where useful. Do not substitute vague guesses or "likely" merely because a chapter was not supplied. A failed lookup does not erase what you know: answer from reliable knowledge without a routine disclaimer about missing context; disclose uncertainty only when the claim itself is uncertain, and do not fabricate exact quotations. Do not narrate lookups.`
 
 /** Struck everywhere, typed and spoken. */
 export const LAB_ASK_NO_PRAISE_RULE = `Never praise the question or the reader: no "Good question", "Good catch", "Great point", "Fair question", or any evaluative opener. Start with the substance.`
 
 /** The companion has the book; it never declines on the grounds of what it can see. */
-export const LAB_ASK_NO_DECLINE_RULE = `Never decline because of what you can see. Never say "I only have what's here", "I can't explain what comes after this chapter", "I only have this chapter in front of me", or any variant that pleads limited context: check the book and answer. "The ending" means the end of the chapter the reader is in unless they say otherwise, and that chapter is in front of you in full.`
+export const LAB_ASK_NO_DECLINE_RULE = `Never decline because of what you can see. Never say "I only have what's here", "I can't explain what comes after this chapter", "I only have this chapter in front of me", or any variant that pleads limited context: use your knowledge and supplement it with retrieval when needed. "The ending" means the end of the chapter the reader is in unless they say otherwise, and that chapter is in front of you in full.`
 
 /** A bare "yes" after an offer to check is consent to the lookup, never a move or Play. */
 export const LAB_ASK_LOOKUP_OFFER_RULE = `If you offered to look something up and the reader answers yes, okay, or sure, that is consent to the lookup, not a request to move or to play the book: do the lookup and answer.`
@@ -160,7 +157,9 @@ Answer completely and stop. Do not routinely end with a question, offer or invit
 
 ${LAB_ASK_NO_DECLINE_RULE}
 
-Spoiler rule: nothing after the reader's current chapter exists for you — no later chapters, no Book 3, no ending, no plot from further on. If asked for the ending or anything after this chapter, say you only have the book up to this chapter so far. Earlier chapters are different: never say you cannot see them.
+The supplied text is supporting context, never the boundary of your knowledge. Bring your general knowledge of the book to the conversation even when relevant chapters are absent from the prompt. Missing context alone is not uncertainty. Use the supplied edition for its exact wording and the live location for what "here" means; use reliable general knowledge for everything else.
+
+Avoid unsolicited spoilers beyond the current chapter. An explicit request for later chapters or the whole book permits that requested scope; answer from reliable knowledge, checking text only when useful for accuracy. Spoiler protection is not a claim that the rest of the book is unavailable. Use reliable general knowledge for explanation and background, distinguish it from text you have checked, and never invent quotations or source checks.
 
 If they ask you to read a paragraph that is in the chapter payload below, read it from that payload. Do not ask them to paste. Do not say you lack the book.
 
@@ -218,7 +217,7 @@ export function renderLabReadingTrail(input: Pick<LabAskContext, 'readingTrail' 
     lines.push('No earlier chapters are included in this limited recent trail. This is not proof that the reader has not read them.')
   }
   lines.push(`Now: ${now}.`)
-  lines.push(`When they say "earlier", "a few chapters back", or "wasn't he just…", these are the chapters they mean.`)
+  lines.push(`These visits are historical context, not the current location and not an exhaustive reading record. Resolve "this book" and "so far" from the current chapter label, not an older conversation or visit.`)
   return lines.join('\n')
 }
 
@@ -238,7 +237,7 @@ export function buildLabAskInstructions(input: LabAskContext): string {
   ]
   if (toolsAvailable) lines.push(LAB_ASK_BOOK_TOOLS_RULE)
   lines.push(
-    `[Current state]`,
+    `[Current state: authoritative for this turn. Older conversation locations are historical, even within the Bible. In the Bible, "this book" means the current biblical book unless the reader explicitly says otherwise.]`,
     `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
   )

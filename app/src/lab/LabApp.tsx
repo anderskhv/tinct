@@ -1,3 +1,4 @@
+import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
@@ -2965,8 +2966,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Define stays word-scoped — a dictionary lookup of a whole sentence is
     // meaningless. A fresh drag has just expressed a different intent, so it
     // always keeps what was dragged even where it overlaps a highlight.
-    const clickedWordText = range.text
     const pickedOneWord = range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord <= 1
+    const clickedWordText = pickedOneWord ? lookupWordAtPoint(range.text, range.paragraphIndex, range.fromWord, clientX, clientY, side === 'compare', Boolean(context)) : range.text
     const widerHighlight = highlight && (highlight.paragraphIndex !== range.paragraphIndex
       || highlight.endParagraphIndex !== range.endParagraphIndex
       || highlight.fromWord !== range.fromWord
@@ -2984,7 +2985,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const mode = existing ? 'main' as const : character ? 'character' as const : defaultPopupMode(subject.text)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')
-    if (mode === 'define') define.begin(range.text)
+    if (mode === 'define') define.begin(clickedWordText)
     const anchorY = clientY
     const showBelow = window.innerHeight - anchorY > anchorY
     const mobile = typeof window !== 'undefined'
@@ -4431,7 +4432,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           nextChapterOpening={showChapterEnd && nextChapterOpening ? {
               ...nextChapterOpening,
               highlights: highlightsApi.highlights,
-              selectingRange: selectionPopup?.chapterNumber === nextChapterOpening.chapterNumber ? selectionPopup.range : null,
+              selectingRange: selectionPopup?.range && selectionPopup.chapterNumber === nextChapterOpening.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null,
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
@@ -4476,7 +4477,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             keyboardSelection={chromeV2}
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
-            selectingRange={selectionPopup?.chapterNumber === book.chapterNumber ? selectionPopup.range : null}
+            selectingRange={selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}

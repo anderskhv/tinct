@@ -1,3 +1,4 @@
+import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { isEditionWithheld } from '../../data/withheldEditions'
 import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
 import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
@@ -500,6 +501,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   const config = narrationConfig(env)
   const scope = parseScope(new URL(request.url))
   if (!scope) return jsonResponse({ error: 'Invalid scope' }, 400, request)
+  if (editionHold(scope.bookId, scope.editionKey)) return heldNarrationResponse(request)
   // Listing costs an edition parse, a prefix list and one R2 read per
   // paragraph, so it is throttled per address like the patch endpoint.
   const clientIP = request.headers.get('cf-connecting-ip') || 'unknown'
@@ -939,6 +941,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (!/^[a-z0-9-]{1,64}$/.test(bookId) || !/^[a-z0-9-]{1,32}$/.test(editionKey) || !Number.isInteger(chapter) || chapter < 1) {
     return jsonResponse({ error: 'Invalid scope' }, 400, request)
   }
+  if (editionHold(bookId, editionKey)) return heldNarrationResponse(request)
   if (isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
@@ -1264,3 +1267,9 @@ function msUntilNextUtcDay(now: number): number {
 }
 
 export const narrationInternalsForTest = { usageKeys, readUsage, sha256Hex }
+
+function heldNarrationResponse(request: Request): Response {
+  const response = jsonResponse({ error: 'Edition temporarily unavailable', message: TEMPORARY_HOLD_NOTICE }, 503, request)
+  response.headers.set('Cache-Control', 'no-store')
+  return response
+}

@@ -922,7 +922,7 @@ describe('lab chrome', () => {
     })
     const body = JSON.parse(String(chatCall?.[1]?.body))
     expect(body.system).toContain('[2] So now all who escaped death')
-    expect(body.system).toContain('only have the book up to this chapter so far')
+    expect(body.system).toContain('Avoid unsolicited spoilers beyond the current chapter')
     expect(body.system).not.toContain('Speak for about 20')
     expect(body.system).toContain('resume_audiobook')
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')

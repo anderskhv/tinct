@@ -164,7 +164,7 @@ describe('compact selection popup', () => {
     expect(screen.queryByText(/No definition found/)).toBeNull()
     await screen.findByText(/Gennesaret is a plain/)
     expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret', 'define')
-    expect(screen.getByText('AI definition')).toBeTruthy()
+    expect(screen.queryByText('AI definition')).toBeNull()
     expect(document.querySelector('.lab-contextual-explain')).toBeNull()
   })
 

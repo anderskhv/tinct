@@ -1,3 +1,4 @@
+import { poetryClass } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -278,7 +279,7 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
   return lines.map((line, lineIndex) => (
-    <p key={lineIndex} className={`lab-hearing-line${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
+    <p key={lineIndex} className={`lab-hearing-line${poetryClass(paragraphs[line.paragraphIndex ?? 0])}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
       {renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
         // The page-edge fragment: its hyphen is drawn by CSS, as on the reading page.
         ? <span key={`${lineIndex}-${wordIndex}`} className="lab-word-fragment" aria-hidden="true">{spacing}{word.text}</span>
@@ -330,7 +331,7 @@ function renderHearingWords(
     return (
       <p
         key={lineIndex}
-        className={`lab-hearing-line${paragraphCurrent ? ' is-paragraph-current' : ''}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}
+        className={`lab-hearing-line${poetryClass(paragraphs[paragraphIndex])}${paragraphCurrent ? ' is-paragraph-current' : ''}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
         {renderWordGroups(line.words, (word, wordIndex, spacing) => {
@@ -860,6 +861,7 @@ export function LabPassage({
                     id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
                       'lab-hearing-line',
+                      poetryClass(paragraphs[paragraphIndex]),
                       inlineHearingPaint && follow.kind === 'paragraph' && follow.paragraphIndex === paragraphIndex ? 'is-paragraph-current' : '',
                       lineContinuesParagraph(paragraphs, line) ? 'is-continued' : '',
                       markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
@@ -909,6 +911,7 @@ export function LabPassage({
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
                           data-highlight-id={mark?.id}
+                          data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                           onClick={onSeekToWord
                             ? (event) => {
                                 event.stopPropagation()
@@ -1076,7 +1079,7 @@ export function LabPassage({
               const compareSelecting = !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison)
               const renderPiece = (paragraphIndex: number, segment: { from: number; to: number }, key: number | string, style?: CSSProperties) => {
               const words = tokenizeHearingWords(source[paragraphIndex] || '')
-              return <p key={key} className="lab-hearing-line" style={style} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
+              return <p key={key} className={`lab-hearing-line${poetryClass(source[paragraphIndex])}`} style={style} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
                 const absoluteWord = segment.from + index
                 const mark = highlightAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
                 const color = mark?.color ?? null
@@ -1084,7 +1087,7 @@ export function LabPassage({
                 const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
                 const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
-                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
+                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
               }))}</p>
               }
               const gridCell = alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined

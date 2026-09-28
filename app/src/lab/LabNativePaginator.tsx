@@ -1,3 +1,4 @@
+import { poetryClass } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { fitChapterEnd } from './labChapterEndPaging'
@@ -236,7 +237,7 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
       rendered.push({ at: wordIndex, node })
     }
   }
-  return <p className="lab-hearing-line">{nativeVerseLines(text, rendered)}</p>
+  return <p className={`lab-hearing-line${poetryClass(text)}`}>{nativeVerseLines(text, rendered)}</p>
 }
 
 /**
@@ -353,7 +354,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
-        pages = measuredDesktopPages(sourceWords.map(words => words.length), fits, wordBreaks)
+        pages = measuredDesktopPages(sourceWords.map(words => words.length), fits, wordBreaks, Infinity, paragraphs)
         if (chapterActions) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
         if (end) end.hidden = true
         stage.replaceChildren()

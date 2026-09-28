@@ -1,0 +1,26 @@
+name: Verify held edition repair packages
+on:
+  push:
+    branches: [codex/held-edition-repairs-20260926]
+    paths: ['app/scripts/verify-held-repair-packages.py', 'app/scripts/prepare-held-repair-maps.py', 'app/scripts/prepare-held-character-anchors.py', '.github/workflows/held-repair-preflight.yml']
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 app/scripts/verify-held-repair-packages.py
+      - run: python3 app/scripts/prepare-held-repair-maps.py
+      - run: python3 app/scripts/prepare-held-character-anchors.py
+      - name: Current inventory
+        run: python3 books/wip_inventory.py --audio
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: held-repair-preflight
+          path: app/artifacts/held-repair-preflight

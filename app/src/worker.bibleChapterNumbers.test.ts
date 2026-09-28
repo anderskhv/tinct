@@ -21,6 +21,7 @@ function shippedAssets(): AssetsBinding {
     fetch: async (request: Request) => {
       const pathname = new URL(request.url).pathname
       const prefix = '/data/editions-chapters/bible-web-en/'
+      if (pathname === '/data/editions/bible-web-en.json') return new Response(fs.readFileSync(path.resolve(EDITION_DIR, '../../editions/bible-web-en.json'), 'utf8'))
       if (!pathname.startsWith(prefix)) return new Response('nope', { status: 404 })
       const file = path.join(EDITION_DIR, pathname.slice(prefix.length))
       if (!fs.existsSync(file)) return new Response('nope', { status: 404 })
@@ -133,7 +134,7 @@ describe('Bible chapter numbering', () => {
     expect(parsed.matches.length).toBeGreaterThan(0)
   })
 
-  it('never fetches the 4.4 MB whole-book file for a sharded edition', async () => {
+  it('uses one whole-book asset for global search and still reads chapters from shards', async () => {
     const paths: string[] = []
     const shipped = shippedAssets()
     const watched: AssetsBinding = {
@@ -146,7 +147,8 @@ describe('Bible chapter numbering', () => {
     })
     await retrieval.findInBook({ query: 'zzzznotinthebook' })
     await retrieval.readChapter({ chapter: '795' })
-    expect(paths).not.toContain('/data/editions/bible-web-en.json')
+    expect(paths.filter(p => p === '/data/editions/bible-web-en.json')).toHaveLength(1)
+    expect(paths.length).toBeLessThanOrEqual(3)
   })
 
   it('carries the chapter number through parseBookRef unchanged', () => {

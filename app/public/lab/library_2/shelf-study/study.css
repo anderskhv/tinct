@@ -59,3 +59,7 @@ button:disabled{cursor:default;opacity:.28}
  header{height:54px}.library-heading{padding-top:7px;padding-bottom:4px}.shelf-nav{height:44px}
  .scene{--scene-height:clamp(275px,40svh,350px)}.collection-tools{min-height:40px}.collection-tools .row-arrow{height:38px}.selection{gap:12px}
 }
+
+/* A close view needs more room than the overview/recap composition. Keeping
+   its old height could make desktop focus the same scale, or even smaller. */
+@media(min-width:900px){body[data-view=focus] .scene{--scene-height:max(460px,68svh,40vw)}}

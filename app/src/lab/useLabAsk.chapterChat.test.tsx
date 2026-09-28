@@ -97,3 +97,17 @@ it('accepts consecutive questions when a completed SSE response keeps its connec
   expect(fetcher).toHaveBeenCalledTimes(3)
   expect(result.current.turns.filter(turn => turn.role === 'assistant')).toHaveLength(3)
 })
+
+it('anchors a fresh Bible question in Zechariah after an Ezra conversation', async () => {
+  const fetcher = vi.fn().mockResolvedValue(reply()); vi.stubGlobal('fetch', fetcher)
+  const { result, rerender } = renderHook(({ chapterNumber, chapterLabel }) => useLabAsk({ ...options, chapterNumber, chapterLabel }), { initialProps: { chapterNumber: 411, chapterLabel: 'Ezra 8' } })
+  await act(async () => { await result.current.sendTyped('Summarize this chapter.') })
+  rerender({ chapterNumber: 918, chapterLabel: 'Zechariah 7' })
+  await act(async () => { await result.current.sendTyped('Summarize this book so far.') })
+  const payload = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+  expect(payload.book.chapterNumber).toBe(918)
+  expect(payload.system).toContain('Zechariah 7')
+  expect(payload.messages.at(-1).content).toContain('Zechariah 7')
+  expect(payload.messages[0].content).toContain('Historical message location')
+  expect(readLabBookChat('bible').flatMap(c => c.messages).filter(m => m.role === 'user').at(-1)?.content).toBe('Summarize this book so far.')
+})

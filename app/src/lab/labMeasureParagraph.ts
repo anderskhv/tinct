@@ -1,3 +1,4 @@
+import { poetryClass } from './labPoetry'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
@@ -41,6 +42,7 @@ export function labMeasureParagraphInto(
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
 ): HTMLElement {
+  p.classList.toggle('is-poetic-line', !!poetryClass(lineation?.text))
   const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]

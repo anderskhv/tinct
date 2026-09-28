@@ -1,3 +1,4 @@
+import { poeticGroupEnd } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { fitChapterEnd } from './labChapterEndPaging'
@@ -37,12 +38,20 @@ export function measuredDesktopPages(
   fits: (segments: ChapterPageSegment[], first: boolean) => boolean,
   breaks?: WordBreakLookup,
   pageLimit = Infinity,
+  paragraphs?: string[],
 ): ChapterHearingPage[] {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
   const commit = () => { if (segments.length) pages.push({ ...segments[0], segments }); segments = [] }
   lengths.forEach((length, paragraphIndex) => {
     if (pages.length >= pageLimit) return
+    if (paragraphs && segments.length) {
+      const end = poeticGroupEnd(paragraphs, paragraphIndex)
+      const group = lengths.slice(paragraphIndex, end).map((to, offset) => ({ paragraphIndex: paragraphIndex + offset, from: 0, to }))
+      // Keep a short complete poetic unit together only if it fits a fresh
+      // measured page. Long units still split normally, with no blank pages.
+      if (end > paragraphIndex + 1 && fits(group, false) && !fits([...segments, ...group], pages.length === 0)) commit()
+    }
     let from = 0
     let headBreak: number | undefined
     while (from < length && pages.length < pageLimit) {
@@ -62,13 +71,21 @@ export function measuredDesktopPages(
         else high = to - 1
       }
       if (low === from && segments.length) { commit(); continue }
-      const to = Math.max(from + 1, low)
+      let to = Math.max(from + 1, low)
+      if (paragraphs && to < length) {
+        const words = tokenizeHearingWords(paragraphs[paragraphIndex])
+        // Avoid a page ending with just the first word or two of a new
+        // sentence (e.g. "Thus"). Never remove a whole page or skip a word.
+        for (let cut = to - 1; cut >= Math.max(from + 1, to - 2); cut--) {
+          if (/[.!?][”’"')]*$/.test(words[cut - 1]?.text || '')) { to = cut; break }
+        }
+      }
       // The last line has whatever room the next whole word could not use. The
       // fragment is display only: `to` does not move, so this page still owns
       // exactly the words it owned and the next page owns the broken word.
       // Longest break first: the most of the word that still fits.
       let tailFragment: number | undefined
-      if (to < length && breaks) {
+      if (to === low && to < length && breaks) {
         const points = breaks(paragraphIndex, to)
         for (let index = points.length - 1; index >= 0; index -= 1) {
           if (fits([...segments, segment(to, points[index])], pages.length === 0)) {
@@ -216,7 +233,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           }
           let pages = measuredDesktopPages(source.map(words => words.length), fits, hyphenLang && hyphensReady
             ? (paragraphIndex, wordIndex) => hyphenationBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang)
-            : undefined, pageLimit)
+            : undefined, pageLimit, paragraphs)
           const tail = pages.length ? chapterPageSegments(pages[pages.length - 1]).at(-1) : undefined
           const complete = tail?.paragraphIndex === source.length - 1 && tail.to === source[source.length - 1]?.length
           let endInFooter = false

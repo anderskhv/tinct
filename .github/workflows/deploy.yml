@@ -92,12 +92,18 @@ jobs:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
         run: node scripts/check-reader-panels.mjs
+      - name: Verify production reader feedback fixes
+        env:
+          READER_LIVE: '1'
+        run: node scripts/check-reader-feedback.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: reader-panels-acceptance
-          path: app/artifacts/reader-panels
+          path: |
+            app/artifacts/reader-panels
+            app/artifacts/reader-feedback-20260928
       - name: Verify real Grok microphone recovery silently
         if: ${{ !cancelled() && steps.bundle.outputs.path != '' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
