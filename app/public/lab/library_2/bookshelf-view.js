@@ -1,6 +1,6 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
-import { bookshelfMarkup } from './bookshelf-template.js?v=20260928e';
-import { bindingFor } from './reading-table.js?v=20260928e';
+import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
+import { bindingFor } from './reading-table.js?v=20260928f';
 
 export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
 root.innerHTML=bookshelfMarkup;
@@ -213,3 +213,4 @@ document.addEventListener('visibilitychange',startAtmosphere);reduced.addEventLi
 
 return {update(nextTable,nextSaved,nextCatalogue){if(nextCatalogue)catalogue=nextCatalogue;updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
 }
+
