@@ -356,35 +356,22 @@ async function languageAcceptance(name, viewport) {
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-editions').click()
   await page.getByTestId('lab-v2-main-edition').click()
-  await page.locator('[data-edition="modern-da"]').click()
-  await page.waitForFunction(() => {
-    const root = document.querySelector('[data-testid="lab-root"]')
-    return root?.dataset.readerEdition === 'modern-da' && root.lang === 'da'
-  }, null, { timeout: 45000 })
-  await page.waitForFunction(() => [...performance.getEntriesByType('resource')].some(entry => /\/assets\/da-[^/]+\.js$/.test(new URL(entry.name).pathname)), null, { timeout: 30000 })
-  const danish = await stablePageState(page)
-  assert.equal(danish.place, before.place, 'EN to DA must preserve logical position')
-  const danishKeys = danish.keys
+  assert.equal(await page.locator('[data-edition$="-da"]').count(), 0, 'withdrawn Danish editions must not be offered')
+  assert(await page.locator('[data-edition="original-en"]').count(), 'the available English edition remains selectable')
+  await page.locator('[data-edition="original-en"]').click()
   englishReleased = true
   releaseEnglish()
-  const afterStaleEnglish = await stablePageState(page)
-  assert.equal(afterStaleEnglish.edition, 'modern-da', 'late English patterns must not replace Danish')
-  assert.equal(afterStaleEnglish.lang, 'da')
-  assert.deepEqual(afterStaleEnglish.keys, danishKeys, 'late English completion must not repaginate the Danish edition')
-  await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-danish.png` })
-  await page.getByTestId('lab-v2-main-edition').click()
-  await page.locator('[data-edition="original-en"]').click()
   await page.waitForFunction(() => {
     const root = document.querySelector('[data-testid="lab-root"]')
     return root?.dataset.readerEdition === 'original-en' && root.lang === 'en'
-  }, null, { timeout: 45000 })
+  })
   await page.waitForTimeout(900)
-  const english = await pageState(page)
-  assert.equal(english.place, before.place, 'DA to EN must preserve logical position')
-  assert(patternRequests.some(value => value.includes('/da-')), 'Danish patterns must be requested lazily')
+  const english = await stablePageState(page)
+  assert.equal(english.place, before.place, 'late English patterns preserve the logical position')
+  assert(!patternRequests.some(value => value.includes('/da-')), 'withheld editions do not request Danish patterns')
   await page.screenshot({ path: `${output}/${live ? 'production' : 'candidate'}-${name}-english.png` })
   await context.close()
-  return { name, viewport, before, danish, afterStaleEnglish, english, patternRequests: [...new Set(patternRequests)] }
+  return { name, viewport, before, english, danishOffered: false, patternRequests: [...new Set(patternRequests)] }
 }
 
 try {
