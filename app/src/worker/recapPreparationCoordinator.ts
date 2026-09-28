@@ -1,3 +1,5 @@
+import { parseLabPositionState, biblicalBookId, parseBiblicalPlaceTitle } from '../lab/labPosition'
+import { createBookRetrieval } from './lib/bookRetrieval'
 import { DurableObject } from 'cloudflare:workers'
 import { emptyRecapQueue, preparedRecap, recapPreparationIdentity, recapQueueNext, updateRecapQueue, type RecapQueueState, type RecapQueueUpdate } from '../recapPreparation'
 import type { LabRecapRequest, LabRecapResponse } from '../recapSummary'
@@ -21,7 +23,8 @@ export class RecapPreparationCoordinator extends DurableObject<LabRecapEnv> {
     if (next) await this.ctx.storage.setAlarm(Math.max(Date.now()+1000,next.at))
     else await this.ctx.storage.deleteAlarm()
   }
-  async update(update: RecapQueueUpdate): Promise<void> {
+  async update(update: RecapQueueUpdate, ownerId: string): Promise<void> {
+    this.ctx.storage.sql.exec('INSERT INTO recap_state VALUES (2,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value', ownerId)
     this.save(updateRecapQueue(this.read(), update, Date.now()))
     await this.schedule()
   }
@@ -29,8 +32,34 @@ export class RecapPreparationCoordinator extends DurableObject<LabRecapEnv> {
     return preparedRecap(this.read(), request, Date.now())
   }
   async alarm(): Promise<void> {
-    const now = Date.now(), state = this.read(), next = recapQueueNext(state, now)
+    const owner = this.ctx.storage.sql.exec<{value:string}>('SELECT value FROM recap_state WHERE id=2').toArray()[0]?.value
+    let state = this.read(), now = Date.now(), next = recapQueueNext(state, now)
     if (!next || next.at > now) { await this.schedule(); return }
+    // Read the account's latest saved coordinates at execution time. This
+    // optional observer never writes back to the position record.
+    if (owner && this.env.RATE_LIMIT && this.env.ASSETS) {
+      const target = state.entries[next.bookId]
+      const raw = await this.env.RATE_LIMIT.get('lab-position:'+owner,'json')
+      let pinId = target.request.bookId
+      if (pinId === 'bible') {
+        const chapter = await createBookRetrieval({assets:this.env.ASSETS,origin:'https://tinct.app',book:target.request}).chapterText(target.request.chapterNumber)
+        if (chapter) pinId = biblicalBookId(parseBiblicalPlaceTitle(chapter.title).book)
+      }
+      state = this.read()
+      const current = state.entries[next.bookId]
+      const saved = parseLabPositionState(raw,owner)
+      const place = saved.books[pinId]
+      if (current && place && place.updatedAt > current.lastActiveAt) {
+        const editionKey = place.primaryEditionKey ?? current.request.editionKey
+        if (!editionKey.endsWith('-da')) {
+          state = updateRecapQueue(state,{kind:'shelf',candidates:Object.values(state.entries).map(entry =>
+            entry.request.bookId === next!.bookId ? {request:{...entry.request,editionKey,chapterNumber:place.sequentialChapter,paragraphIndex:place.paragraphIndex,completed:(saved.finished[entry.request.bookId] ?? []).includes(place.sequentialChapter)},lastActiveAt:place.updatedAt} : entry)},Date.now())
+          this.save(state)
+        }
+      }
+      now=Date.now();next=recapQueueNext(state,now)
+      if (!next || next.at > now) { await this.schedule();return }
+    }
     const entry = state.entries[next.bookId], identity = recapPreparationIdentity(entry.request)
     const day = new Date(now).toISOString().slice(0,10)
     // Persist the bounded attempt before any external call, including across alarm retries.

@@ -2674,6 +2674,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     finishedChapters,
   })
   useRecapPreparation({
+    playing: listen.playing,
     userId: authUser?.id ?? null,
     ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
     request: {

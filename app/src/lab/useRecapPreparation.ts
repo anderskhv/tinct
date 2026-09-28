@@ -6,9 +6,11 @@ import { sendRecapPreparation } from '../preReader/recapPreparationClient'
 export function useRecapPreparation(input: {
   userId: string | null
   ready: boolean
+  playing?: boolean
   request: LabRecapRequest
   readToken: () => Promise<string | null>
 }): void {
+  const playing = useRef(input.playing); playing.current = input.playing
   const observed = useRef(new Map<string, LabRecapRequest>())
   if (input.ready) observed.current.set(input.request.bookId,input.request)
   const client = useRef<string | null>(null)
@@ -24,14 +26,14 @@ export function useRecapPreparation(input: {
       last = observed.current.get(bookId) ?? last
       void sendRecapPreparation({ kind:'presence', clientId:client.current!, sequence:++sequence.current, active, request:last },token,keepalive).catch(() => {})
     }
-    const visible = () => send(document.visibilityState !== 'hidden', document.visibilityState === 'hidden')
+    const visible = () => send(document.visibilityState !== 'hidden' || playing.current === true, document.visibilityState === 'hidden')
     const leave = () => send(false,true)
     void input.readToken().then(value => {
       if (stopped) return
       token = value
       if (token) visible()
     }).catch(() => {})
-    const timer = window.setInterval(() => { if (document.visibilityState !== 'hidden') send(true) },30_000)
+    const timer = window.setInterval(() => { if (document.visibilityState !== 'hidden' || playing.current) send(true) },30_000)
     document.addEventListener('visibilitychange',visible)
     window.addEventListener('pagehide',leave)
     window.addEventListener('online',visible)

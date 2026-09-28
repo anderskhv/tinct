@@ -30,7 +30,7 @@ export async function handleRecapPreparation(request: Request, env: RecapPrepara
     update = { kind:'shelf', candidates }
   } else return jsonResponse({ error:'Invalid preparation request' },400,request)
   const coordinator = env.RECAP_PREPARATION.getByName(user.id)
-  await coordinator.update(update)
+  await coordinator.update(update,user.id)
   const summaries = update.kind === 'shelf' ? (await Promise.all(update.candidates.map(async candidate => ({
     request:candidate.request, response:await coordinator.lookup(candidate.request),
   })))).filter(item => item.response) : []
