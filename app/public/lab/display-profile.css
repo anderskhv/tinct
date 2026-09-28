@@ -21,3 +21,8 @@ html[data-eink="true"] :is(button,a,input,textarea,select):focus-visible { outli
 html[data-eink="true"] :is(.lab-chapter-progress,.lab-page-number,.lab-foot-progress) { color:#444!important; }
 .lab-v2-themes:has(.lab-v2-theme.is-eink) { grid-template-columns:repeat(4,minmax(0,1fr)); }
 .lab-v2-theme.is-eink { background:#fff;color:#111;border:1px solid #777; }
+
+html[data-eink="true"] :is(.read-button,#begin-reading,#slip-next) { background:#111!important;color:#fff!important;border:1px solid #111!important; }
+html[data-eink="true"] .book-meta span { background:#fff!important;color:#222!important;border:1px solid #777; }
+html[data-eink="true"] #librarian { background:#111!important;color:#fff!important; }
+html[data-eink="true"] :is([data-testid="lab-page-prev"],[data-testid="lab-page-next"]) { background:#fff!important;color:#111!important;opacity:1!important;border-color:#777!important; }

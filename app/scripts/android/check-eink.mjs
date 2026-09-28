@@ -32,6 +32,8 @@ try{
   await page.waitForTimeout(600)
   assert((await page.evaluate(()=>window.__frames))-frames<5,'e-ink does not run a continuous animation loop')
   assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true')
+  const readContrast=await page.locator('#read-featured').evaluate(n=>({ink:getComputedStyle(n).color,paper:getComputedStyle(n).backgroundColor}))
+  assert.deepEqual(readContrast,{ink:'rgb(255, 255, 255)',paper:'rgb(17, 17, 17)'},'primary action stays legible in e-ink mode')
   await page.screenshot({path:output+'/eink-library-'+width+'.png'})
   await page.evaluate(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:3,paragraphIndex:2,wordIndex:0,page:0}})))
   await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
