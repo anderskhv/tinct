@@ -3989,7 +3989,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // sign-in meant it replayed at the wrong moments and then never again.)
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
   const readerReady = readerLaidOut
-    && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs)
+    && (!measuredPaging || nativeMeasuredContent === readerParagraphs)
+    && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey)
   useEffect(() => {
     if (!readerReady) return
     markReaderLoadTrace('pagination_ready', { outcome: 'success' })
