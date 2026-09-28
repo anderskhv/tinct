@@ -7917,7 +7917,7 @@
 /* Minimized companions remain live as small movable spheres. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb,
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
-  position:fixed; z-index:220; left:auto; top:auto; right:20px; bottom:110px;
+  position:fixed; z-index:340; left:auto; top:auto; right:20px; bottom:110px;
   width:64px; height:64px; min-width:64px; max-width:64px; padding:2px;
   border:1px solid var(--lab-border); border-radius:50%; background:var(--lab-paper);
   color:var(--lab-ink); box-shadow:0 3px 14px #0002; touch-action:none; cursor:grab;
