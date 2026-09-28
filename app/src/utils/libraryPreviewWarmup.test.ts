@@ -43,9 +43,9 @@ test('does not spend bandwidth when Save Data is enabled', () => {
   expect(requests).not.toHaveBeenCalled()
 })
 
-test('does not preload the private preview for ordinary reader visits', () => {
+test('preloads the public library for ordinary reader visits', () => {
   const requests = setup()
   document.cookie = 'tinct_library_preview=;max-age=0'
   warmLibraryPreview()
-  expect(requests).not.toHaveBeenCalled()
+  expect(requests).toHaveBeenCalled()
 })

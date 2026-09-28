@@ -1,3 +1,4 @@
+// Legacy-library regression coverage. Public entry is checked by check-library-public.mjs.
 import { chromium } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -24,7 +25,7 @@ try {
    const url = new URL(request.url())
    if (live) return route.continue()
    if (url.origin !== 'https://tinct.app') return route.continue()
-   const pathname = url.pathname === '/library' ? '/lab/index.html' : ['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname
+   const pathname = url.pathname === '/lab/' ? '/lab/index.html' : ['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname
    const filename = path.resolve('dist', '.' + pathname)
    if (!filename.startsWith(path.resolve('dist') + '/')) return route.abort()
    try {
@@ -33,7 +34,7 @@ try {
    } catch {}
    return route.continue()
   })
-  await page.goto('https://tinct.app/library', {waitUntil:'domcontentloaded'})
+  await page.goto('https://tinct.app/lab/?view=library', {waitUntil:'domcontentloaded'})
   await page.waitForFunction(() => window.__tinctLabPreReader?.ready === true, null, {timeout:30000})
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)

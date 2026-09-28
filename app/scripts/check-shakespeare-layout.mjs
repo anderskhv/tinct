@@ -1,3 +1,4 @@
+// Legacy-library regression coverage. Public entry is checked by check-library-public.mjs.
 import { chromium, webkit, devices } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -16,7 +17,7 @@ async function prepare(context) {
     if (url.origin !== origin || route.request().method() !== 'GET') return route.abort()
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
     if (live) return route.continue()
-    const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname === '/library' ? '/lab/index.html' : url.pathname))
+    const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname === '/lab/' ? '/lab/index.html' : url.pathname))
     if (file.startsWith(path.resolve('dist') + '/')) try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
     return route.abort()
   })
@@ -134,7 +135,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'block', reducedMotion })
       await prepare(context)
       const page = await context.newPage()
-      await page.goto(origin + '/library')
+      await page.goto(origin + '/lab/?view=library')
       const edge = page.locator('.library-dock-edge rect')
       await edge.waitFor({ state: 'attached' })
       const timing = await edge.evaluate(n => n.getAnimations().map(a => a.effect.getTiming()))

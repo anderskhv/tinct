@@ -1,6 +1,8 @@
+import { libraryEntryPath } from '../worker/routes/libraryTwoRelease'
+
 /** Low-priority public assets only. Never mounts a library or reads/writes positions. */
 export function warmLibraryPreview() {
-  if (!/(?:^|;\s*)tinct_library_preview=1(?:;|$)/.test(document.cookie)) return
+  if (libraryEntryPath(document.cookie) !== '/lab/library_2/') return
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
   if (connection?.saveData || navigator.onLine === false) return
   const keepVisit = () => {
@@ -11,7 +13,7 @@ export function warmLibraryPreview() {
   }
   window.addEventListener('pagehide', keepVisit)
   const warm = () => {
-    const base = '/lab/library_2/', version = '?v=20260928d'
+    const base = '/lab/library_2/', version = '?v=20260928e'
     const hour=new Date().getHours(),room=hour>=6&&hour<12?'morning':hour>=12&&hour<17?'afternoon':hour>=17&&hour<21?'evening':'night'
     const urls = [base + `assets/table-${room}-${innerWidth/innerHeight>1.2?'wide':'phone'}.jpg`]
     // Warm the actual public covers, selected book first. This manifest contains

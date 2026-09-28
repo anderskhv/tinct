@@ -80,6 +80,9 @@ jobs:
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
+      - name: Verify public cinematic library
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-library-public.mjs
       - name: Verify library and preparation
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-layout.mjs
@@ -102,6 +105,7 @@ jobs:
             app/artifacts/shakespeare-layout
             app/artifacts/reading-reel
             app/artifacts/library-layout
+            app/artifacts/library-public
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening
 

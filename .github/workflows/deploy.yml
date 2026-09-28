@@ -114,6 +114,8 @@ jobs:
           READER_LIVE=1 node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
       - name: Verify production featured-book preview
         run: LIBRARY_LIVE=1 node scripts/check-featured-preview.mjs
+      - name: Verify public cinematic library
+        run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
       - name: Verify production library and preparation
         run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
       - name: Verify responsive landing and library
@@ -140,6 +142,7 @@ jobs:
             app/artifacts/shakespeare-layout
             app/artifacts/reading-reel
             app/artifacts/library-layout
+            app/artifacts/library-public
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening
 

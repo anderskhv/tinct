@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928d';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928d';
-import { createBookshelf } from './bookshelf-view.js?v=20260928d';
-import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928d';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928e';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928e';
+import { createBookshelf } from './bookshelf-view.js?v=20260928e';
+import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928e';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
@@ -28,16 +28,17 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   if(key)view.focus(key);
   settle();
  }
- function present(){
+// An empty cached table must not choose the visit before current reading resolves.
+ function present(cached=false){
   const returning=table.mode==='returning'||saved.length>0;
   const mode=visitMode(returning,override);
   const showReturning=mode==='shelf'&&(shelfStudy||table.reading.length);
-  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelector('.reading-table')?.setAttribute('hidden','');settle();rememberVisit({mode:'discovery'});}
+  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelector('.reading-table')?.setAttribute('hidden','');settle();if(!cached)rememberVisit({mode:'discovery'});}
   window.__library2Reading=table;
   dispatchEvent(new Event('resize'));
   dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
  }
- if(!sample)onCachedTable((cached,engine)=>{api=engine;table=cached;present();});
+ if(!sample)onCachedTable((cached,engine)=>{api=engine;table=cached;present(true);});
  async function load(refresh=false){
   if(loadingNow)return;loadingNow=true;
   try{
