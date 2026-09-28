@@ -20,6 +20,9 @@ export interface LabHighlightRange {
 
 export interface LabHighlight {
   id: string
+  /** One deliberate selection spanning chapter-owned records. */
+  groupId?: string
+  groupText?: string
   /** V2 records their source; older unscoped marks are retained separately. */
   bookId?: string
   editionKey?: string

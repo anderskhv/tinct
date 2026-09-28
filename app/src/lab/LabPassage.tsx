@@ -1,3 +1,4 @@
+import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { poetryClass } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
@@ -32,6 +33,9 @@ export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
   /** Selection surface embedded in the next chapter's right-hand opening. */
+  selectionChapters?: SelectionChapter[]
+  onCrossChapterSelect?: (parts: ChapterSelectionPart[], x: number, y: number) => void
+  onCrossChapterSelecting?: (parts: ChapterSelectionPart[] | null) => void
   openingOnly?: boolean
   pendingLayout?: boolean
   chapterEnd?: ReactNode
@@ -403,6 +407,9 @@ export function LabPassage({
   onPreviewChapter,
   chapterActionsBusy = false,
   desktopSpread = false,
+  selectionChapters,
+  onCrossChapterSelect,
+  onCrossChapterSelecting,
   nextReadingPage,
   nextChapterOpening,
   previousChapterEnding,
@@ -473,6 +480,7 @@ export function LabPassage({
   const dragRef = useRef<{
     start: LabWordPlace | null
     end: LabWordPlace | null
+    endChapter?: number
     startX: number
     startY: number
     startedAt: number
@@ -615,7 +623,13 @@ export function LabPassage({
     const drag = dragRef.current
     dragRef.current = null
     setLocalSelecting(null)
+    onCrossChapterSelecting?.(null)
     if (!drag?.start || !drag.end || !onSelectRange) return
+    if (drag.endChapter != null && drag.endChapter !== chapterNumber && selectionChapters && onCrossChapterSelect) {
+      const parts=buildChapterSelection(selectionChapters,{...drag.start,chapterNumber},{...drag.end,chapterNumber:drag.endChapter})
+      if(parts.length>1)onCrossChapterSelect(parts,event.clientX,event.clientY)
+      return
+    }
     const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.end)
     if (!range?.text.trim()) return
     onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined)
@@ -689,6 +703,23 @@ export function LabPassage({
       setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start))
     }
     event.preventDefault()
+    // The opening on the other leaf owns a different chapter's coordinates.
+    // Resolve it explicitly instead of clamping the drag at the gutter.
+    if(selectionChapters && onCrossChapterSelect && !drag.comparison && drag.start){
+      const target=document.elementFromPoint?.(event.clientX,event.clientY)
+      const word=wordPlaceFromTarget(target)
+      const targetChapter=Number(target?.closest('[data-selection-chapter]')?.getAttribute('data-selection-chapter'))
+      if(word && Number.isFinite(targetChapter) && targetChapter!==chapterNumber && !target?.closest('.lab-book-col-compare')){
+        const parts=buildChapterSelection(selectionChapters,{...drag.start,chapterNumber},{...word,chapterNumber:targetChapter})
+        if(parts.length>1){
+          cancelEdge();drag.end=word;drag.endChapter=targetChapter
+          setLocalSelecting(parts.find(p=>p.chapterNumber===chapterNumber)?.range??null)
+          onCrossChapterSelecting?.(parts)
+          return
+        }
+      }
+      if(drag.endChapter!=null){drag.endChapter=undefined;onCrossChapterSelecting?.(null)}
+    }
     const bounds = event.currentTarget.getBoundingClientRect()
     // Desktop turns at the outer horizontal edges. Crossing the gutter from
     // the bottom of the left leaf to the top of the right must not turn.
@@ -851,6 +882,7 @@ export function LabPassage({
   }
 
   const onPointerCancel = () => {
+    onCrossChapterSelecting?.(null)
     cancelEdge()
     if (longPressRef.current) clearTimeout(longPressRef.current)
     longPressRef.current = null
@@ -953,6 +985,7 @@ export function LabPassage({
     ref={articleRef as React.RefObject<HTMLDivElement>}
     className="lab-opening-passage owns-text-selection"
     data-chapter-number={chapterNumber}
+    data-selection-chapter={chapterNumber}
     tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       onKeyDown={event => {
         if (!keyboardSelection || !onSelectRange || hearing || !(event.key === 'F10' && event.shiftKey)) return
@@ -999,6 +1032,7 @@ export function LabPassage({
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
+      data-selection-chapter={chapterNumber}
       data-passage-mode={mode}
       tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       aria-keyshortcuts={keyboardSelection && onSelectRange ? 'Shift+F10' : undefined}
@@ -1032,7 +1066,7 @@ export function LabPassage({
         <div className="lab-book-col">
           {previousChapterEnding ? <>
             {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
-            <LabPassage openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+            <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
               paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
               compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
               markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
@@ -1077,7 +1111,7 @@ export function LabPassage({
             {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
             {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
-                <LabPassage openingOnly
+                <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
                   paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
                   compareParagraphs={[]} compare={false} mode="reading" follow={{ kind: 'none' }}
