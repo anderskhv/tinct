@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'app/scripts/check-omarchy.mjs'
+      - 'app/scripts/check-warmup-navigation.mjs'
       - '.github/workflows/reader-release-diagnostics.yml'
 jobs:
   live:
@@ -20,6 +21,7 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - run: bash ../scripts/cloud-setup.sh
       - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/check-warmup-navigation.mjs
       - run: TINCT_DESKTOP_LIVE=1 node scripts/check-omarchy.mjs
       - uses: actions/upload-artifact@v4
         if: always()
