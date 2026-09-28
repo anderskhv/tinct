@@ -125,6 +125,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     assert.equal(await page.getByTestId('lab-narration-error').count(), 0)
     result.retry = true
     await page.waitForFunction(() => document.querySelector('.lab-hearing-word.is-current, [data-testid="lab-word"].is-current'), null, { timeout: 15000 })
+    assert.deepEqual(await wordGeometry(), beforeWords, 'Active narration paints the existing words without reflow')
     result.highlight = true
     await header.click()
     await page.waitForFunction(() => window.__audio?.paused)

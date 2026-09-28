@@ -54,7 +54,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
    await p.setViewportSize({width:1450,height});
    await p.goto(origin+'/reader');await ready(p);
    for(let i=0;i<30 && !await p.getByTestId('lab-next-chapter-opening').count();i++){
-    if(await p.locator('.lab-chapter-end').count())break;
+    if(await p.locator('.lab-page-wrap > .lab-passage .lab-chapter-end').count())break;
     await p.keyboard.press('ArrowRight');await ready(p);
    }
    if(await p.getByTestId('lab-next-chapter-opening').count())break;
@@ -91,7 +91,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   await p.screenshot({path:path.join(out,engine.name()+'-character.png')});
   assert.deepEqual(errors,[]);
   results.push({engine:engine.name(),passed:true,calls:calls.length});
- }catch(e){await p.screenshot({path:path.join(out,engine.name()+'-failure.png')});throw e;}
+ }catch(e){fs.writeFileSync(path.join(out,engine.name()+'-failure.json'),JSON.stringify({calls,errors,words:await geometry(p),state:await p.locator('.lab').evaluate(el=>({...el.dataset})),html:await p.locator('.lab-page-wrap').innerHTML()},null,2));await p.screenshot({path:path.join(out,engine.name()+'-failure.png')});throw e;}
  finally{await context.close();await browser.close();}
 }
 fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(results,null,2));console.log(results);

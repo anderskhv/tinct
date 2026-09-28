@@ -1,4 +1,4 @@
-import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
+import { CONTEXTUAL_LOOKUP_PROMPT, parseContextualLookup } from '../components/reader/contextualLookup'
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
 import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
@@ -871,7 +871,10 @@ export function useLabAsk(options: UseLabAskOptions) {
         }),
       })
       if (!response.ok) throw new LabChatError(`http_${response.status}`)
-      return readAnthropicResponse(response, value => { entry.text = value; entry.listeners.forEach(listener => listener(value)) })
+      const answer = await readAnthropicResponse(response, value => { entry.text = value; entry.listeners.forEach(listener => listener(value)) })
+      // Reject before caching so Try again makes a fresh request.
+      if (input.intent === 'define' && !parseContextualLookup(answer)) throw new LabChatError('unavailable')
+      return answer
     })()
     try {
       return await entry.promise

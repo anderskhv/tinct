@@ -7847,3 +7847,19 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col:first-child > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:first-child,
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col-next > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:last-child { visibility: hidden; }
+
+/* Audio paints the existing words; its controls and wash never change the leaf. */
+.lab[data-chrome-version="v2"] .lab-passage .lab-hearing-word {
+  background-image: linear-gradient(transparent, transparent) !important;
+}
+.lab[data-chrome-version="v2"] .lab-passage.is-inline-hearing .lab-hearing-word.is-current {
+  color: var(--lab-ink); background-color: #dccbaa;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.lab[data-chrome-version="v2"].is-night .lab-passage.is-inline-hearing .lab-hearing-word.is-current {
+  background-color: #6b5738;
+}
+.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-passage.is-reading,
+.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-passage.is-reading {
+  padding-bottom: 0.5rem; overflow-y: hidden;
+}

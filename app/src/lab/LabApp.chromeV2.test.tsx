@@ -447,7 +447,7 @@ describe('the transport', () => {
     fireEvent.click(screen.getByTestId('lab-v2-play'))
     await waitFor(() => expect(root().getAttribute('data-transport')).toBe('open'))
 
-    const stage = screen.getByTestId('lab-hearing-stage')
+    const stage = screen.getByTestId('lab-reading-stage')
     fireEvent.pointerDown(stage, { clientX: 195, clientY: 400, pointerId: 1 })
     fireEvent.pointerUp(stage, { clientX: 195, clientY: 400, pointerId: 1 })
 
