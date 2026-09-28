@@ -71,7 +71,7 @@ export interface DraggableSurface<T extends HTMLElement> {
   reset: () => void
 }
 
-export function useDraggableSurface<T extends HTMLElement>(storageKey: string, enabled = true): DraggableSurface<T> {
+export function useDraggableSurface<T extends HTMLElement>(storageKey: string, enabled = true, dockEdges = false): DraggableSurface<T> {
   const [point, setPoint] = useState<SurfacePoint | null>(null)
   const [dragging, setDragging] = useState(false)
   const nodeRef = useRef<T | null>(null)
@@ -151,8 +151,9 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
       setDragging(false)
       try { node.releasePointerCapture(event.pointerId) } catch { /* jsdom */ }
       const box = node.getBoundingClientRect()
-      const settled = clampToViewport({ x: box.left, y: box.top }, { width: box.width, height: box.height },
+      const free = clampToViewport({ x: box.left, y: box.top }, { width: box.width, height: box.height },
         { width: window.innerWidth, height: window.innerHeight })
+      const settled = dockEdges ? dockToViewport(free, box, { width: window.innerWidth, height: window.innerHeight }) : free
       setPoint(settled)
       writeStored(storageKey, settled)
       // Releasing over End must not hang up: swallow exactly the click this
@@ -173,7 +174,7 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
       window.removeEventListener('pointerup', endDrag)
       window.removeEventListener('pointercancel', endDrag)
     }
-  }, [enabled, storageKey, point === null])
+  }, [enabled, storageKey, dockEdges, point === null])
 
   const reset = useCallback(() => {
     setPoint(null)
@@ -209,4 +210,14 @@ export function parseStoredWidth(raw: string | null): number | null {
   if (!raw) return null
   const value = Number(raw)
   return Number.isFinite(value) && value > 0 ? value : null
+}
+
+/** Snap near a side or the top; anywhere else remains freely placed. */
+export function dockToViewport(point: SurfacePoint, box: SurfaceBox, viewport: Viewport): SurfacePoint {
+  const free = clampToViewport(point, box, viewport)
+  const right = Math.max(EDGE_MARGIN, viewport.width - box.width - EDGE_MARGIN)
+  const distances = [{side:'left',distance:free.x-EDGE_MARGIN},{side:'right',distance:right-free.x},{side:'top',distance:free.y-EDGE_MARGIN}]
+  const nearest = distances.sort((a,b)=>a.distance-b.distance)[0]
+  if (nearest.distance > 40) return free
+  return nearest.side === 'top' ? {...free,y:EDGE_MARGIN} : {...free,x:nearest.side === 'left' ? EDGE_MARGIN : right}
 }
