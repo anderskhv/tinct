@@ -142,7 +142,7 @@ for(const config of configs){
   const next=p.locator('.lab-page-wrap').getByRole('button',{name:'Next chapter',exact:true})
   if(config.chapter===1189)assert.equal(await next.count(),0,'No next action after final chapter')
   else {
-   const shownOpening=await p.locator('.lab-next-chapter-opening .lab-hearing-word').count()
+   const shownOpening=await p.locator('.lab-next-chapter-opening .lab-hearing-word[data-word-index]').count()
    await next.click()
    await p.waitForFunction(ch=>Number(document.querySelector('.lab')?.dataset.chapter)>ch,config.chapter)
    await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await pause(400)

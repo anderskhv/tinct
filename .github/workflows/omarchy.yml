@@ -1,0 +1,44 @@
+name: Omarchy desktop acceptance
+on:
+  pull_request:
+    paths:
+      - 'app/public/omarchy/**'
+      - 'app/src/desktopCommands.ts'
+      - 'app/src/worker/routes/seo.ts'
+      - 'app/scripts/check-omarchy.mjs'
+      - 'app/scripts/test-omarchy-*.py'
+      - '.github/workflows/omarchy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  desktop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: python3 scripts/test-omarchy-bridge.py
+      - run: bash -n public/omarchy/install.sh
+      - run: python3 scripts/test-omarchy-install.py
+      - run: npm run build
+        env:
+          CI: true
+      - run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/check-omarchy.mjs
+        env:
+          TINCT_DESKTOP_VISUAL: '1'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: omarchy-desktop-acceptance
+          path: app/artifacts/omarchy

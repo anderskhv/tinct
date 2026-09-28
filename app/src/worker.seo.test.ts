@@ -40,6 +40,7 @@ function routerEnv() {
         if (url.pathname === '/lab/') {
           return new Response(lab, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
+        if (url.pathname === '/lab/library_2/') { return new Response('<html><head><title>Tinct</title></head><body>approved cinematic library</body></html>', {headers:{'Content-Type':'text/html'}}) }
         if (url.pathname === '/lab/library-2/') {
           return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
@@ -174,7 +175,7 @@ describe('worker SEO routing', () => {
     expect(resp.status).not.toBe(301)
   })
 
-  it.each(['/lab', '/lab/', '/lab/landing', '/library'])('serves the standalone noindex lab at %s', async (pathname) => {
+  it.each(['/lab', '/lab/', '/lab/landing'])('serves the standalone noindex lab at %s', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
     expect(resp.headers.get('Cache-Control')).toBe('no-store')
@@ -384,7 +385,7 @@ describe('worker SEO routing', () => {
     const body = await response.text()
     if (method === 'HEAD') expect(body).toBe('')
     else {
-      expect(body).toContain('tinct-onboarding-worlds-v5')
+      expect(body).toContain('approved cinematic library')
       expect(body).not.toContain('noindex')
       expect(body).toContain('href="https://tinct.app/"')
       expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg">')
@@ -409,6 +410,18 @@ describe('worker SEO routing', () => {
     expect(response.status).toBe(200)
     expect(response.headers.get('Location')).toBeNull()
     expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
+  })
+
+  it.each(['/library', '/reader', '/lab/phone'])('permits only the Omarchy palette endpoint on %s', async (path) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${path}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+    const policy = resp.headers.get('Content-Security-Policy') || ''
+    const connect = policy.split(';').find(directive => directive.trim().startsWith('connect-src')) || ''
+    const localSources = connect.split(/\s+/).filter(source => source.startsWith('http:') || source.includes('localhost') || source.includes('127.0.0.1'))
+    expect(localSources).toEqual(['http://127.0.0.1:47653/theme'])
+    expect(connect).not.toContain('*')
+    expect(policy).toContain("script-src 'self';")
+    expect(policy).toContain("frame-ancestors 'self'")
   })
 
   it('opens the promoted library from /app', async () => {
@@ -549,3 +562,12 @@ it('routes Faust recommendation cards through the labelled German book landing',
   const card = '<a href="/read/faust-part-1/summary" class="guide-card"><div>Faust</div></a>'
   expect(filterHeldDiscoveryCards(card)).toBe('<a href="/read/faust-part-1" class="guide-card"><div>Faust</div></a>')
 })
+
+ it.each(['/','/index.html','/library','/library/'])('serves the cinematic library with or without preview opt-in at %s',async path=>{
+ const result=await worker.fetch(new Request('https://tinct.app'+path,{headers:{Cookie:'tinct_library_preview=1'}}),routerEnv() as never,ctx)
+ expect(await result.text()).toContain('approved cinematic library')
+ expect(result.headers.get('Cache-Control')).toBe('no-store')
+ const publicResult=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
+ expect(await publicResult.text()).toContain('approved cinematic library')
+ })
+

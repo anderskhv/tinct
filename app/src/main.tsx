@@ -4,11 +4,14 @@ import App from './App'
 import { LabApp } from './lab/LabApp'
 import { isLabPath } from './lab/labRoute'
 import { isNativeCapacitor } from './utils/nativePlatform'
+import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
 import './index.css'
 import { prepareBeforeBeginDesign } from './lab/beforeBeginDesign'
+import { loadDesktopExperience } from './desktopCommands'
 prepareBeforeBeginDesign()
+loadDesktopExperience()
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices.
 // `window.Capacitor` exists in the web bundle too; only the native shell counts.
@@ -41,6 +44,7 @@ const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const Root = isLabPath(pathname) ? LabApp : App
 if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
   startReaderLoadTrace()
+  warmLibraryPreview()
 }
 
 const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -58,3 +62,4 @@ if (contentMigrations) {
 } else {
   render()
 }
+

@@ -1,3 +1,4 @@
+import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
@@ -430,8 +431,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const displayPrefs = { ...prefs, alignment: readingAlignment }
   const readingFont = labReadingFont(prefs.fontFamily, chromeV2)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
-  const resolvedDarkMode = prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark)
-  const resolvedTheme = prefs.theme === 'system' ? (systemDark ? 'dark' : 'light') : prefs.theme
+  const desktopAppearance = useDesktopAppearance()
+  const resolvedDarkMode = desktopAppearance?.dark ?? (prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark))
+  const resolvedTheme = desktopAppearance ? (desktopAppearance.dark ? 'dark' : 'light') : prefs.theme === 'system' ? (systemDark ? 'dark' : 'light') : prefs.theme
   const resumeInCompare = !readerHandoff && boot.resume?.readerMode === 'compare'
   const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
   const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
@@ -3569,20 +3571,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // marks the event handled, so it never double-turns here.
   const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
   useEffect(() => {
-    if (keyboardPageTurnsBlocked) return
+    if (keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) return
     const onKey = (event: KeyboardEvent) => {
-      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return
+      if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey || document.documentElement.dataset.tinctCommandsOpen === 'true') return
       const direction = labKeyboardPageDirection(event.key)
       if (direction == null) return
       const target = event.target as HTMLElement | null
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.isContentEditable)) return
+      if (target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.closest('[role=slider]') || target.isContentEditable)) return
+      // Space activates a focused control. Arrow/Page keys still turn the
+      // reader after a transport button was clicked, matching existing use.
+      if (event.key === ' ' && target instanceof HTMLElement && target.closest('button,a,summary,[role=button]')) return
       event.preventDefault()
       if (direction > 0) goNext()
       else goPrev()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [goNext, goPrev, keyboardPageTurnsBlocked])
+  }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
     if (temporaryHold) return
@@ -4151,6 +4156,38 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     })
   }, [chrome])
 
+  // The command menu invokes the same actions as the visible controls. No alternate
+  // navigation, audio or account path: their existing saved-place guards still apply.
+  const commandOverlay = gearOpen || tocOpen || inTheBookOpen || speedPopoverOpen
+    || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
+  const canReadCommand = () => !initialResolving && !frontispieceVisible && !temporaryHold
+  const canTurnCommand = () => !initialResolving && !temporaryHold && !prefaceVisible && !phoneAskOpen && !desktopAskOpen && !callOpen
+  const editionCommand = (kind: string) => bookEditions.find(e => e.key === `${kind}-en`)
+  useDesktopCommands({
+    blocked: () => commandOverlay || prefaceVisible || initialResolving || Boolean(temporaryHold),
+    prepare: () => { setGearOpen(false); setTocOpen(false); setSuperMenuOpen(false); setSuperSheet(null); setBookSwitcherOpen(false); setSpeedPopoverOpen(false); setSelectionPopup(null); setInTheBookOpen(false); setAccountPrompt(null) },
+    commands: [
+      { id: 'chat', label: 'Chat about this book', key: 'c', enabled: canReadCommand, run: () => { handleChat(); requestAnimationFrame(() => askInputRef.current?.focus({ preventScroll: true })) } },
+      { id: 'talk', label: callOpen || ask.voiceActive ? 'End voice conversation' : 'Talk about this book', key: 't', enabled: canReadCommand, run: () => { if (callOpen) endCall(); else if (ask.voiceActive) closePhoneAsk(); else handleTalk() } },
+      { id: 'listen', label: listen.playing ? 'Pause narration' : 'Listen to this page', key: 'p', enabled: () => canReadCommand() && !callOpen && !ask.voiceActive, run: handleBarListen },
+      { id: 'read', label: 'Return to reading', key: 'r', run: () => { if(callOpen || phoneAskOpen || desktopAskOpen) closePhoneAsk(); else if(showPhoneChrome ? mobileCompareActive : desktopCompareActive) (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } },
+      { id: 'next', label: 'Next page', key: 'j', enabled: canTurnCommand, run: goNext },
+      { id: 'previous', label: 'Previous page', key: 'k', enabled: canTurnCommand, run: goPrev },
+      { id: 'next-chapter', label: 'Next chapter', key: ']', enabled: () => canTurnCommand() && nextLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=nextLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
+      { id: 'previous-chapter', label: 'Previous chapter', key: '[', enabled: () => canTurnCommand() && prevLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=prevLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
+      { id: 'contents', label: 'Contents, highlights and notes', key: 'i', enabled: canReadCommand, run: () => { setGearOpen(false); setReaderControlsVisible(true); setTocOpen(true) } },
+      { id: 'editions', label: 'Book editions', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
+      { id: 'original', label: 'Read original English', key: 'o', enabled: () => canReadCommand() && !!editionCommand('original'), run: () => { const e=editionCommand('original');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
+      { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
+      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() },
+      { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
+      { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
+      { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
+      { id: 'account', label: 'Account and credits', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
+    ],
+  })
+
   if (temporaryHold && !holdRecovery) return (
     <EditionHoldPanel
       title={book.bookTitle}
@@ -4368,6 +4405,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           open={superMenuOpen}
           phone={showPhoneChrome}
           onSelect={handleSuperMenuSelect}
+          onCommands={() => { setSuperMenuOpen(false); openDesktopCommands() }}
           onClose={() => setSuperMenuOpen(false)}
         />
       )}

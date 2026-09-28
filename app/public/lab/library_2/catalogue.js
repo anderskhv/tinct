@@ -1,6 +1,7 @@
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
+import { coverAsset } from './cover-assets.js?v=20260928f';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -38,7 +39,7 @@ export function libraryBook(entry) {
     id: entry.id,
     title: entry.title,
     author: entry.author,
-    cover: entry.art?.src || null,
+    cover: coverAsset(entry.id, entry.art?.src || null),
     coverTone: entry.cover?.background || '#1b231c',
     summary: entry.summary || entry.blurb || '',
     preface: null,
@@ -50,7 +51,9 @@ export function libraryBook(entry) {
 /** Attach the catalogue facts the reader hand-off needs to any library_2 book. */
 export function attachCatalogue(book, entry) {
   book.editions = entry.editions || [];
+  book.defaultEditionKey = entry.defaultEditionKey || null;
   book.wordCount = entry.wordCount ?? null;
+  book.displayYear = entry.displayYear || '';
   book.firstChapter = entry.readingStructure?.chapters?.[0]?.number ?? 1;
   book.houseIds = entry.houseIds || [];
   if (!book.summary) book.summary = entry.summary || entry.blurb || '';
@@ -72,7 +75,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260926c').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928f').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });
@@ -93,3 +96,4 @@ export async function readerDestination(book, preferredEdition) {
     return `/library?book=${encodeURIComponent(book.id)}&view=book-detail`;
   }
 }
+

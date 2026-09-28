@@ -7,7 +7,7 @@ export async function mountLibraryTwoAssistant(element: HTMLElement, options: Pi
   const shadow = element.shadowRoot ?? element.attachShadow({ mode: 'open' })
   const stylesheet = document.createElement('link')
   stylesheet.rel = 'stylesheet'
-  stylesheet.href = '/lab/library_2/assistant.css?v=20260925i'
+  stylesheet.href = '/lab/library_2/assistant.css?v=20260928-omarchy'
   await new Promise<void>((resolve, reject) => {
     stylesheet.onload = () => resolve()
     stylesheet.onerror = () => { stylesheet.remove(); reject(new Error('Librarian styles unavailable')) }
@@ -30,3 +30,4 @@ declare global {
 }
 // Like the reading bridge, this survives Vite's application-entry export pruning.
 window.__tinctLibraryTwoAssistant = { mount: mountLibraryTwoAssistant }
+

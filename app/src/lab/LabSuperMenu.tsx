@@ -6,6 +6,7 @@ export interface LabSuperMenuProps {
   phone?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
+  onCommands?: () => void
 }
 
 /** The monoline icons from the canvas, all on the same 22 px, 1.6 weight. */
@@ -63,7 +64,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, onSelect, onClose, onCommands }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -116,7 +117,13 @@ export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuPro
             {row.chevron && <span className="lab-super-row-chevron" aria-hidden="true">›</span>}
           </button>
         ))}
+        {onCommands && <button type="button" className="lab-super-row has-rule" data-testid="lab-commands" onClick={onCommands}>
+          <span className="lab-super-row-icon" aria-hidden="true">⌨</span>
+          <span className="lab-super-row-label">Commands & themes</span>
+          <kbd style={{ fontSize: 11, opacity: .6 }}>?</kbd>
+        </button>}
       </nav>
     </div>
   )
 }
+

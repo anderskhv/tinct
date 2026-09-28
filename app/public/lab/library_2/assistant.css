@@ -12,7 +12,7 @@
 .library-search-results,.library-chat-thread{min-height:0;overflow:auto;padding:0 14px 16px;overscroll-behavior:contain}
 .library-chat-thread{display:flex;flex-direction:column;gap:14px;padding-top:16px}
 .library-chat-empty{margin:auto;padding:30px 24px;color:rgba(244,237,223,.72);font:italic 17px/1.5 Georgia,serif;text-align:center}
-.library-chat-turn{max-width:88%}
+.library-chat-turn{max-width:88%;min-width:0;flex-shrink:0;overflow-wrap:anywhere}
 .library-chat-turn.is-user{align-self:flex-end;padding:11px 14px;border-radius:17px 17px 4px 17px;background:rgba(255,255,255,.12)}
 .library-chat-turn>span{display:block;margin-bottom:5px;color:rgba(244,237,223,.58);font:500 10px/1 var(--lib-sans,system-ui);letter-spacing:.09em;text-transform:uppercase}
 .library-chat-turn p{margin:0;font:16px/1.48 Georgia,serif;white-space:pre-wrap}
@@ -52,3 +52,20 @@
 
 .library-chat-thread{flex:1;padding:22px}.library-chat-turn p{font-size:18px;line-height:1.5}.library-chat-form{margin:12px 18px 20px}.library-chat-form button{color:#20352b}.library-chat-empty{font-size:20px}.library-chat-turn a{color:inherit}.library-account-prompt{overflow:auto;flex:none}.library-voice-wrap .lab-call{min-height:280px;padding:18px 24px 22px}.library-voice-wrap .lab-call-circle{width:clamp(100px,23vh,210px)!important;height:clamp(100px,23vh,210px)!important}.library-voice-wrap .lab-voice-control.is-filled .lab-voice-control-disc{color:#20352b}.library-assistant-books button:hover{background:#eee7d01a}
 @media(max-height:550px){.library-voice-wrap .lab-call-stage{flex-direction:row;gap:12px}.library-voice-wrap .lab-call-circle{width:90px!important;height:90px!important}.library-voice-wrap .lab-call{min-height:220px;padding:8px 18px}.library-voice-wrap .lab-call-status{font-size:25px}}
+
+
+/* Host custom properties carry the selected desktop palette into the existing assistant. */
+:host{color:var(--tinct-fg,#eee7d0)}
+.library-assistant-field input,.library-chat-form input{color:var(--tinct-fg,#fffdf7)}
+.library-chat-form button{background:var(--tinct-fg,#f4eddf);color:var(--tinct-bg,#102334)}
+.library-chat-turn,.library-chat-empty,.library-assistant-status{color:var(--tinct-fg,#eee7d0)}
+
+/* Palette inherited from the library host, including light Omarchy themes. */
+:host{--assistant-ink:var(--tinct-fg,#eee7d0);--assistant-bg:var(--tinct-bg,#102334);color:var(--assistant-ink)}
+.library-chat-empty,.library-chat-turn>span,.library-assistant-books small,.library-voice-wrap .lab-call-top,.library-voice-wrap .lab-call-caption,.library-voice-wrap .lab-call-help,.library-voice-wrap .lab-call-notice,.library-voice-wrap .lab-call-micoff,.library-voice-wrap .lab-voice-control-word{color:color-mix(in srgb,var(--assistant-ink) 75%,var(--assistant-bg))}
+.library-assistant-field input::placeholder,.library-chat-form input::placeholder{color:color-mix(in srgb,var(--assistant-ink) 65%,var(--assistant-bg))}
+.library-voice-wrap .lab-call,.library-voice-wrap .lab-call-circle,.library-voice-wrap .lab-voice-control,.library-assistant-field button{color:var(--assistant-ink)}
+.library-assistant-field,.library-chat-form,.library-assistant-books>button,.library-retry,.library-account-prompt a,.library-voice-wrap .lab-voice-control-disc{border-color:color-mix(in srgb,var(--assistant-ink) 25%,transparent);background:color-mix(in srgb,var(--assistant-ink) 7%,transparent)}
+.library-chat-turn.is-user{background:color-mix(in srgb,var(--assistant-ink) 12%,transparent)}
+.library-voice-wrap .lab-voice-control.is-filled .lab-voice-control-disc{background:var(--assistant-ink);border-color:var(--assistant-ink);color:var(--assistant-bg)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline-color:var(--assistant-ink)}

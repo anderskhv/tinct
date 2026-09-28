@@ -260,7 +260,7 @@ export function continuedTailFill(
 export function markFullContinuedTails(root: HTMLElement | null): void {
   if (!root) return
   const lines = root.querySelectorAll<HTMLElement>('.lab-hearing-line.is-continued')
-  lines.forEach(line => line.classList.remove('is-tail-full'))
+  lines.forEach(line => line.removeAttribute('data-tail-full'))
   lines.forEach((line) => {
     try {
       const box = line.getBoundingClientRect()
@@ -274,7 +274,7 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
-      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.classList.add('is-tail-full')
+      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.setAttribute('data-tail-full', 'true')
     } catch { /* jsdom has no layout */ }
   })
 }
@@ -892,7 +892,7 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}`}
+                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}

@@ -53,8 +53,9 @@ for(const [period,flames] of Object.entries(roomFires)){
       // On phones the hearth is outside the crop, but its soft reflected light
       // still reaches the near-left table. Do not shift the room to expose it.
       reflection:wide?[483,736,67,155]:[130,1050,300,370],
+      lamp:wide?[1508,365,62,92]:[1002,410,63,102],
       ...(period==='night'?{snowPanes:roomPanes(wide)}:{}),
-      ...(period==='morning'?{pollen:roomPanes(wide)}:{}),
+      ...(period==='morning'?{pollen:roomPanes(wide),pollenCount:54,pollenSize:1.4}:{}),
       ...(period==='afternoon'?{rainPanes:roomPanes(wide)}:{}),
       // Only the near tree in the upper-left panes. The distant rooftops and
       // the window itself stay still, even when the phone crop hides the fire.
@@ -230,15 +231,15 @@ function movingPaint(ctx,img,polygon,time,alpha,clouds=false,breeze=false){
   c.globalCompositeOperation='destination-in';c.drawImage(mask,0,0);c.globalCompositeOperation='source-over';
   ctx.save();ctx.globalAlpha=alpha;ctx.drawImage(canvas,x,y);ctx.restore();
 }
-function pollen(ctx,panes,key,time,alpha){
+function pollen(ctx,panes,key,time,alpha,count=36,size=1){
   const [x0,y0,x1,y1]=bounds(panes.flat()),w=x1-x0,h=y1-y0;
   ctx.save();ctx.beginPath();panes.forEach(p=>{p.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();});ctx.clip();
-  field(key,36).forEach(p=>{
+  field(key,count).forEach(p=>{
     const y=y0+(p.y*h+time*(.005+p.s*.005))%h;
     const x=x0+(p.x*w+time*.003+Math.sin(time*.0007+p.p)*8)%w;
     const edge=Math.sin((y-y0)/h*Math.PI);
     ctx.fillStyle=`rgba(244,235,194,${edge*(.27+.27*p.s)*alpha})`;
-    ctx.beginPath();ctx.ellipse(x,y,.7+p.s*.85,.5+p.s*.5,p.p,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(x,y,(.7+p.s*.85)*size,(.5+p.s*.5)*size,p.p,0,Math.PI*2);ctx.fill();
   });ctx.restore();
 }
 function rain(ctx,panes,key,time,alpha){
@@ -263,6 +264,12 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   });
   (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,img,x,y,h,time,x*.01+i,alpha));
   if(spec.hearth)hearth(ctx,img,spec.hearth,time,alpha);
+  if(spec.lamp){
+    // A quiet change in the lamp's light; its shade and brass never wobble.
+    const [x,y,rx,ry]=spec.lamp,light=heatNoise(17,time*.0012);
+    ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);
+    glow(ctx,0,0,rx,'255,193,111',(.018+.065*light)*alpha);ctx.restore();
+  }
   if(spec.reflection){
     const [x,y,rx,ry]=spec.reflection,f=spec.hearth ? .35+.65*heatNoise(3,time*.0011) : flicker(time,x*.01);
     ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
@@ -271,7 +278,7 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   if(spec.water)movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha);
   if(spec.clouds)movingPaint(ctx,img,spec.clouds,time,alpha,true);
   (spec.branches||[]).forEach(p=>movingPaint(ctx,img,p,time,alpha,false,true));
-  if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha);
+  if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha,spec.pollenCount,spec.pollenSize);
   if(spec.rainPanes)rain(ctx,spec.rainPanes,id+wide+'rain',time,alpha);
   if(spec.snow||spec.snowPanes){
     const panes=spec.snowPanes||[spec.snow];

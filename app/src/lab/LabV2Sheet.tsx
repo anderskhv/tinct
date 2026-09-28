@@ -271,7 +271,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                     className={`lab-v2-theme is-${theme}${prefs.theme === theme ? ' is-active' : ''}`}
                     data-testid={`lab-v2-theme-${theme}`}
                     aria-pressed={prefs.theme === theme}
-                    onClick={() => onPrefs({ ...prefs, theme, darkMode: theme === 'dark' })}
+                    onClick={() => { window.dispatchEvent(new Event('tinct:appearance-reset')); onPrefs({ ...prefs, theme, darkMode: theme === 'dark' }) }}
                   >
                     <span className="lab-v2-theme-face">Aa</span>
                     <span className="lab-v2-theme-label">{label}</span>
@@ -533,3 +533,4 @@ function readCounter(key: string): number {
     return 0
   }
 }
+

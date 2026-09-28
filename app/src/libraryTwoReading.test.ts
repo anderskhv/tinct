@@ -6,6 +6,7 @@ import type { RecapLoadDeps } from './readingMemory/recapLoad'
 const calls = vi.hoisted(() => ({
   auth: vi.fn(), memory: vi.fn(), localPositions: vi.fn(), cloudPositions: vi.fn(),
   completions: vi.fn(), readingList: vi.fn(), readMemory: vi.fn(),
+  readPosition: vi.fn(), writePosition: vi.fn(), putPosition: vi.fn(),
 }))
 vi.mock('./services/supabase', () => ({
   supabase: {
@@ -17,6 +18,7 @@ vi.mock('./services/supabase', () => ({
 vi.mock('./readingMemory/recapLoad', () => ({ loadRecap: calls.memory }))
 vi.mock('./lab/labPositionStore', () => ({
   prepareLabPositionLocal: calls.localPositions, fetchLabPositionCloud: calls.cloudPositions,
+  readLabPositionLocal: calls.readPosition, writeLabPositionLocal: calls.writePosition, putLabPositionCloud: calls.putPosition,
 }))
 vi.mock('./readingMemory/deviceStore', async original => ({
   ...await original<typeof import('./readingMemory/deviceStore')>(), readDeviceReadingMemory: calls.readMemory,
@@ -32,6 +34,59 @@ function gate<T>() {
 }
 
 afterEach(() => { vi.unstubAllGlobals(); vi.resetAllMocks(); vi.resetModules(); localStorage.clear() })
+
+it('removes only shelf visibility and syncs the merged record without altering saved places', async () => {
+  calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-a' }, access_token: 'token-a' } } })
+  const state = emptyLabPositionState('device-a', 'viewer-a')
+  state.books.hamlet = { bookId: 'hamlet', headerBook: 'Hamlet', chapterNumber: 3, sequentialChapter: 3, paragraphIndex: 11, wordIndex: 23, pageIndex: 4, primaryEditionKey: 'original-en', updatedAt: 100, deviceId: 'device-a', rev: 2 }
+  state.finished.hamlet = [1, 2]
+  state.lastSettledBookId = 'hamlet'
+  state.lastSettledAt = 100
+  const before = structuredClone(state)
+  calls.readPosition.mockReturnValue(state)
+  calls.writePosition.mockImplementation(next => ({ ...next, deviceId: 'merged-device' }))
+  calls.putPosition.mockResolvedValue(true)
+  localStorage.setItem('tinct:library-2-table:viewer-a', '{}')
+  localStorage.setItem('tinct:library-2-table:viewer-b', '{"private":true}')
+  localStorage.setItem('tinct:bookmarks:hamlet', 'unchanged')
+  const { hideFromReadingNow } = await import('./libraryTwoReading')
+  await hideFromReadingNow('hamlet')
+  const written = calls.writePosition.mock.calls[0][0]
+  expect(written.hidden.hamlet).toBeGreaterThan(100)
+  expect(written.books).toEqual(before.books)
+  expect(written.finished).toEqual(before.finished)
+  expect(written.lastSettledBookId).toBe(before.lastSettledBookId)
+  expect(written.lastSettledAt).toBe(before.lastSettledAt)
+  expect(state).toEqual(before)
+  expect(calls.putPosition).toHaveBeenCalledWith('token-a', { ...written, deviceId: 'merged-device' })
+  expect(localStorage.getItem('tinct:library-2-table:viewer-a')).toBeNull()
+  expect(localStorage.getItem('tinct:library-2-table:viewer-b')).toBe('{"private":true}')
+  expect(localStorage.getItem('tinct:bookmarks:hamlet')).toBe('unchanged')
+})
+
+it('does not remove a previous account’s book after an account switch', async () => {
+  calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-b' }, access_token: 'token-b' } } })
+  calls.readPosition.mockReturnValue(emptyLabPositionState('device-a', 'viewer-a'))
+  const { hideFromReadingNow } = await import('./libraryTwoReading')
+  await expect(hideFromReadingNow('hamlet')).rejects.toThrow('Account changed')
+  expect(calls.writePosition).not.toHaveBeenCalled()
+  expect(calls.putPosition).not.toHaveBeenCalled()
+})
+
+it('a hidden Bible keeps its biblical book, sequential chapter and exact saved location', async () => {
+  calls.auth.mockResolvedValue({ data: { session: null } })
+  const state = emptyLabPositionState('device-a', null)
+  state.books.zechariah = { bookId: 'zechariah', headerBook: 'Zechariah', chapterNumber: 8, sequentialChapter: 919, paragraphIndex: 11, wordIndex: 23, pageIndex: 4, primaryEditionKey: 'bsb', updatedAt: 100, deviceId: 'device-a', rev: 1 }
+  state.hidden.bible = 200
+  state.lastSettledBookId = 'zechariah'
+  state.lastSettledAt = 100
+  calls.localPositions.mockResolvedValue(state)
+  vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ books: [{ id: 'bible', title: 'The Bible', author: 'Various', defaultEditionKey: 'bsb', editions: [{ key: 'bsb', language: 'en', style: 'original' }], readingStructure: { chapters: [{ number: 919, title: 'Zechariah 8', paragraphCount: 40 }] } }]}))))
+  const { readerDestination } = await import('./libraryTwoReading')
+  expect(await readerDestination('bible')).toBe('/reader')
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({ bookId: 'bible', primaryEditionKey: 'bsb', savedPlace: { bookId: 'bible', chapterNumber: 919, page: 4, paragraphIndex: 11, wordIndex: 23 } })
+  expect(calls.writePosition).not.toHaveBeenCalled()
+})
 
 it('resolves the viewer, runs independent reads together, and builds the shelf only after every mirror is ready', async () => {
   const account = gate<{ data: { session: { user: { id: string }; access_token: string } } }>()
@@ -135,4 +190,37 @@ it('never warms a previous account’s artwork from its local positions', async 
   const { loadReadingTable } = await import('./libraryTwoReading')
   await loadReadingTable({ catalogue: Promise.resolve({ books: [{ id: 'hamlet', title: 'Hamlet', author: 'William Shakespeare', art: { src: '/covers/hamlet.webp', srcSet: '' }, editions: [] }] }), onArtwork })
   expect(onArtwork.mock.calls.flatMap(([books]) => books)).toEqual([])
+})
+
+it('hands Continue the exact saved edition and location without writing a reading position', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.memory.mockResolvedValue(null)
+  const positions = emptyLabPositionState('device-a', null)
+  calls.localPositions.mockResolvedValue(positions)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  const target={chapterNumber:7,pageIndex:4,paragraphIndex:11,wordIndex:23,editionKey:'original-en',chapterLabel:'Chapter 7',at:Date.now()}
+  calls.readingList.mockReturnValue({readingNow:[{bookId:'frankenstein',target,finishedChapters:[],progress:'middle',lastActiveAt:Date.now(),session:null}],finished:[]})
+  const before = JSON.stringify(positions)
+  localStorage.setItem('tinct-lab-position',before)
+  const api=await import('./libraryTwoReading')
+  await api.loadReadingTable({catalogue:Promise.resolve({books:[{id:'frankenstein',title:'Frankenstein',author:'Mary Shelley',defaultEditionKey:'modern-en',editions:[{key:'original-en',language:'en',style:'original'},{key:'modern-en',language:'en',style:'modern'}],readingStructure:{chapters:[{number:7,title:'Chapter 7',paragraphCount:40}]}}]})})
+  expect(await api.readerDestination('frankenstein',null)).toBe('/reader')
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:7,page:4,paragraphIndex:11,wordIndex:23}})
+  expect(localStorage.getItem('tinct-lab-position')).toBe(before)
+})
+
+it('paints only the resolved viewer’s cached shelf while fresh cloud state is pending',async()=>{
+ const auth=gate<{data:{session:{user:{id:string};access_token:string}}}>(),completed=gate<{data:[];error:null}>();
+ calls.auth.mockReturnValue(auth.promise);calls.memory.mockResolvedValue(null);
+ calls.localPositions.mockResolvedValue(emptyLabPositionState('device-b','viewer-b'));
+ calls.cloudPositions.mockResolvedValue(emptyLabPositionState('cloud','viewer-b'));
+ calls.completions.mockReturnValue(completed.promise);calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0});calls.readingList.mockReturnValue({readingNow:[],finished:[]});
+ const cached={mode:'returning',reading:[{bookId:'hamlet',title:'Hamlet'}],finished:[]};
+ localStorage.setItem('tinct:library-2-table:viewer-a',JSON.stringify({mode:'returning',reading:[{bookId:'private-book'}],finished:[]}));
+ localStorage.setItem('tinct:library-2-table:viewer-b',JSON.stringify(cached));
+ const onCached=vi.fn(),{loadReadingTable}=await import('./libraryTwoReading');
+ const result=loadReadingTable({catalogue:Promise.resolve({books:[]}),onCached});expect(onCached).not.toHaveBeenCalled();
+ auth.resolve({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});await vi.waitFor(()=>expect(onCached).toHaveBeenCalledWith(cached));
+ expect(calls.readingList).not.toHaveBeenCalled();completed.resolve({data:[],error:null});await result;
+ expect(JSON.parse(localStorage.getItem('tinct:library-2-table:viewer-b')!)).toEqual({mode:'new',reading:[],finished:[]});
 })

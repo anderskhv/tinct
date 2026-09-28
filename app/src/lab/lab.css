@@ -3911,7 +3911,7 @@
    slice `is-continued` and, after measuring a reasonably full last line,
    `is-tail-full`; only then is that line set like an interior line. Follows
    the reader's alignment preference so a left-aligned setting stays ragged. */
-.lab .lab-hearing-line.is-continued.is-tail-full {
+.lab .lab-hearing-line.is-continued[data-tail-full="true"] {
   text-align-last: var(--lab-text-align, justify);
 }
 

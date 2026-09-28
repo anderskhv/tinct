@@ -770,9 +770,9 @@ async function menuRedesign(engine,name,phone) {
     const {page,requests}=state
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Book editions','Settings','Library','Account'])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Book editions','Settings','Library','Account','Commands & themes'])
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
-    assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
+    assert.equal(await page.locator('.lab-super-row.has-rule').count(),3)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
     await page.getByTestId('lab-super-row-editions').click()
     await page.getByTestId('lab-v2-main-edition').click()
@@ -826,3 +826,4 @@ await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
 console.log('ACCEPTANCE_SUMMARY '+JSON.stringify(results.map(({engine,layout,passed,error})=>({engine,layout,passed,error}))))
 console.log(JSON.stringify({live,results},null,2))
 if(results.some(r=>!r.passed))process.exitCode=1
+

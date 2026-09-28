@@ -1,3 +1,4 @@
+import { loadSavedBooks, setSavedBook } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
 /**
  * Returning-reader data for the library_2 design (public/lab/library_2).
@@ -6,7 +7,8 @@ import { editionHold } from './data/editionAvailability'
  * (src/labReadingMemory.ts), without its rendering: reading-memory sessions
  * (device mirror, merged with the account's cloud copy when signed in), the
  * reader's position store (device record merged by time with the account's
- * cloud row), and completion marks. Read-only: the reader owns every write.
+ * cloud row), and completion marks. The reader owns every position write;
+ * the explicit remove action only changes the existing shelf-hide timestamp.
  *
  * The "so far" summary follows preReader/recapSummaryClient.ts exactly: a
  * cached summary shows at once; a new one is requested only for a signed-in
@@ -18,8 +20,8 @@ import { completedLibraryBookId } from './preReader/libraryCompletion'
 import { createSupabaseReadingMemoryCloud } from './readingMemory/cloud'
 import { readDeviceReadingMemory } from './readingMemory/deviceStore'
 import { loadRecap, type RecapAuth } from './readingMemory/recapLoad'
-import { accountLabPositionRecord, type LabPositionState } from './lab/labPosition'
-import { fetchLabPositionCloud, prepareLabPositionLocal } from './lab/labPositionStore'
+import { accountLabPositionRecord, withHiddenFromReadingNow, type LabPositionState } from './lab/labPosition'
+import { fetchLabPositionCloud, prepareLabPositionLocal, readLabPositionLocal, writeLabPositionLocal, putLabPositionCloud } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
@@ -28,13 +30,14 @@ import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
-import { catalogueBookIdForPlace, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
+import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
 
 interface CatalogueBook {
   id: string
   title: string
   author: string
   wordCount?: number | null
+  displayYear?: string
   art?: { src: string; srcSet: string } | null
   /** Generated-cover palette; its background is the book's dominant tone. */
   cover?: { background?: string } | null
@@ -50,6 +53,7 @@ export interface ReadingTableBook {
   author: string
   cover: string | null
   wordCount: number | null
+  displayYear?: string
   /** The book's dominant cover tone, for its spine. */
   tone: string | null
   /** "Chapter 7" style label of the chapter Continue resumes in. */
@@ -81,7 +85,7 @@ export type SummaryResult =
   | { status: 'none' | 'recent' | 'from-reader' | 'offline' | 'account-required' | 'unavailable'; text: null }
 
 const BOOK_COMPLETED_PREFIX = 'tinct:book-completed:'
-/** The library never writes the position store: an explicit id keeps the read side-effect free. */
+/** An explicit id keeps position reads side-effect free. */
 const LIBRARY_POSITION_DEVICE_ID = 'lab-library'
 
 let catalogue: Map<string, CatalogueBook> | null = null
@@ -194,9 +198,12 @@ async function placeFor(bookId: string): Promise<Place | null> {
   const row = lastRows.get(bookId)
   if (row) return row.target
   if (!lastPositions) lastPositions = positionsWithProduction(await loadPositions(await readAuth()), await loadCatalogue())
-  const place = lastPositions?.books?.[bookId]
+  const books = await loadCatalogue()
+  // Hidden books still resume at their place. Bible pins use biblical book
+  // ids, so resolve the catalogue id exactly as the visible reading list does.
+  const place = positionPlacesByBook(lastPositions, books, books.get('bible')?.readingStructure?.chapters).get(bookId)
   if (!place) return null
-  return { chapterNumber: place.chapterNumber, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
+  return { chapterNumber: place.sequentialChapter, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
 }
 
 /**
@@ -234,6 +241,7 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
 }
 
 interface ReadingTableLoadOptions {
+  onCached?: (table: ReadingTable) => void
   /** The public page already requests this data; keep all catalogue entries. */
   catalogue?: Promise<{ books?: CatalogueBook[] }>
   /** Warm only public artwork while the account's remaining reads finish. */
@@ -242,7 +250,17 @@ interface ReadingTableLoadOptions {
 
 /** Every book in progress, newest first, and every finished book, for this viewer. */
 export async function loadReadingTable(options: ReadingTableLoadOptions = {}): Promise<ReadingTable> {
-  const [auth, books] = await Promise.all([readAuth(), loadCatalogue(options.catalogue)])
+  const catalogueReady = loadCatalogue(options.catalogue)
+  catalogueReady.catch(() => {})
+  const auth = await readAuth()
+  const cacheKey = 'tinct:library-2-table:' + (auth.userId ?? 'guest')
+  // Resolve identity before reading its snapshot. Cached presentation never
+  // supplies a resume target; that still comes from the merged position store.
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null')
+    if (cached && Array.isArray(cached.reading) && Array.isArray(cached.finished)) options.onCached?.(cached)
+  } catch { /* Fresh reads remain authoritative. */ }
+  const books = await catalogueReady
   const warmArtwork = (positions: LabPositionState | null) => {
     if (!options.onArtwork || !positions) return
     const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
@@ -285,7 +303,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     completedBookIds: completedBookIds(),
   })
   lastRows = new Map(list.readingNow.map(row => [row.bookId, row]))
-  return {
+  const table: ReadingTable = {
     mode: libraryModeFor(list),
     reading: list.readingNow.map(row => {
       const book = books.get(row.bookId)
@@ -296,6 +314,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         author: book?.author ?? '',
         cover: book?.art?.src ?? null,
         wordCount: book?.wordCount ?? null,
+        displayYear: book?.displayYear || '',
         tone: book?.cover?.background ?? null,
         chapterLabel: row.target.chapterLabel,
         headline: heroHeadline(row),
@@ -308,6 +327,9 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),
   }
+  if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
+  try { localStorage.setItem(cacheKey, JSON.stringify(table)) } catch { /* Optional fast paint. */ }
+  return table
 }
 
 function summaryRequestFor(row: ReadingListRow, book: CatalogueBook | undefined): LabRecapRequest | null {
@@ -375,6 +397,20 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
   return outcome
 }
 
+/** Explicit shelf action: only a hide timestamp changes; saved places stay intact. */
+export async function hideFromReadingNow(bookId: string): Promise<void> {
+  if (!bookId || bookId.length > 80) throw new Error('Invalid book')
+  const auth = await readAuth()
+  const local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
+  if (local.owner && local.owner !== auth.userId) throw new Error('Account changed')
+  const next = withHiddenFromReadingNow({ ...local, owner: auth.userId }, bookId, Date.now())
+  const stored = writeLabPositionLocal(next)
+  // Invalidate only this viewer's fast-paint snapshot before the next fresh load.
+  storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  lastRows.delete(bookId)
+  if (auth.token && isOnline()) await putLabPositionCloud(auth.token, stored)
+}
+
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow }

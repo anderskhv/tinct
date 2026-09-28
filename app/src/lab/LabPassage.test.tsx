@@ -198,7 +198,7 @@ describe('continued page tails', () => {
     const root = document.createElement('article')
     root.innerHTML = [
       '<p class="lab-hearing-line is-continued"><span>a</span><span>b</span></p>',
-      '<p class="lab-hearing-line is-continued is-tail-full"><span>c</span><span>d</span></p>',
+      '<p class="lab-hearing-line is-continued" data-tail-full="true"><span>c</span><span>d</span></p>',
       '<p class="lab-hearing-line"><span>e</span></p>',
     ].join('')
     document.body.appendChild(root)
@@ -221,9 +221,9 @@ describe('continued page tails', () => {
     vi.spyOn(ending.querySelector('span')!, 'getClientRects').mockReturnValue(rects([[20, 320, 20]]))
 
     markFullContinuedTails(root)
-    expect(full.classList.contains('is-tail-full')).toBe(true)
-    expect(short.classList.contains('is-tail-full')).toBe(false)
-    expect(ending.classList.contains('is-tail-full')).toBe(false)
+    expect(full.hasAttribute('data-tail-full')).toBe(true)
+    expect(short.hasAttribute('data-tail-full')).toBe(false)
+    expect(ending.hasAttribute('data-tail-full')).toBe(false)
     expect(ending.classList.contains('is-continued')).toBe(false)
     markFullContinuedTails(null)
     root.remove()
@@ -234,7 +234,7 @@ describe('continued page tails', () => {
     render(<LabPassage {...passageProps(paragraphs, page)} />)
     const line = screen.getByTestId('lab-reading-stage').querySelector('.lab-hearing-line')!
     expect(line.className).toContain('is-continued')
-    expect(line.className).not.toContain('is-tail-full')
+    expect(line.hasAttribute('data-tail-full')).toBe(false)
   })
 })
 
@@ -466,7 +466,7 @@ describe('audio follow paint is layout-neutral', () => {
     })
     // A typography change re-measures and marks the tail full.
     rerender(<LabPassage {...props(3, 'garamond|1.5|justify')} />)
-    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(line.hasAttribute('data-tail-full')).toBe(true)
 
     const records: MutationRecord[] = []
     const observer = new MutationObserver(list => records.push(...list))
@@ -474,7 +474,7 @@ describe('audio follow paint is layout-neutral', () => {
     rerender(<LabPassage {...props(4, 'garamond|1.5|justify')} />)
     rerender(<LabPassage {...props(5, 'garamond|1.5|justify')} />)
     await flushObservers()
-    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(line.hasAttribute('data-tail-full')).toBe(true)
     expect(records).toHaveLength(0)
 
     // Typography changes still re-measure (the class is stripped, then restored).
@@ -482,7 +482,7 @@ describe('audio follow paint is layout-neutral', () => {
     await flushObservers()
     observer.disconnect()
     expect(records.length).toBeGreaterThan(0)
-    expect(line.classList.contains('is-tail-full')).toBe(true)
+    expect(line.hasAttribute('data-tail-full')).toBe(true)
   })
 })
 
@@ -914,4 +914,13 @@ it('keeps the outgoing leaf left and incoming narrated opening right', () => {
   rerender(<LabPassage {...passageProps(paragraphs, {paragraphIndex:0,from:5,to:8})} chapterTitle="New chapter" desktopSpread />)
   expect(container.querySelector('.lab-book-col')?.textContent).toContain('and continues.')
   expect(screen.queryByText('Old recap')).toBeNull()
+})
+
+it('colours a page-edge word fragment using its source narration position', () => {
+  const page = { paragraphIndex: 0, from: 0, to: 2, segments: [{paragraphIndex:0,from:0,to:2,tailFragment:2}] }
+  render(<LabPassage {...passageProps(['they shall become one'], page)}
+    playing inlineHearingPaint follow={{kind:'word',paragraphIndex:0,wordIndex:0}} />)
+  const fragment = screen.getByTestId('lab-word-fragment')
+  expect(fragment.classList.contains('is-upcoming')).toBe(true)
+  expect(fragment.hasAttribute('data-word-index')).toBe(false)
 })
