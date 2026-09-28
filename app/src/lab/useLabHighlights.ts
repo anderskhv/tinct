@@ -121,7 +121,7 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
   }, [])
 
   const keep = useCallback((id: string) => {
-    setHighlights(current => current.map(h => h.id === id ? { ...h, kept: true } : h))
+    setHighlights(current => { const group = current.find(h => h.id === id)?.groupId; return current.map(h => h.id === id || group && h.groupId === group ? { ...h, kept: true } : h) })
   }, [])
 
   const remove = useCallback((id: string) => {

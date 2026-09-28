@@ -49,6 +49,7 @@ export function removeLegacyTapHighlights(highlights: LabHighlight[]): LabHighli
     && highlight.toWord === highlight.fromWord + 1
     && !highlight.note
     && !highlight.kept
+    && !highlight.groupId
   ))
 }
 

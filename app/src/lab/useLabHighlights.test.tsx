@@ -65,3 +65,14 @@ it('persists a complete cross-chapter group and edits either part without losing
  act(()=>{reopened.result.current.remove(saved[1].id)})
  expect(readLabHighlights()).toEqual([])
 })
+
+it('keeps every part of an explicit cross-chapter mark through legacy cleanup',()=>{
+ const parts=[1,2].map(chapterNumber=>({chapterNumber,chapterLabel:String(chapterNumber),paragraphs:['word'],range:{paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:1,text:'word'}}))
+ const hook=renderHook(()=>useLabHighlights(1,{bookId:'frankenstein',editionKey:'original-en'}))
+ act(()=>{hook.result.current.addGroup(parts,'gold')})
+ const id=hook.result.current.allHighlights[0].id
+ act(()=>{hook.result.current.keep(id)})
+ expect(readLabHighlights().every(mark=>mark.kept)).toBe(true)
+ localStorage.removeItem('tinct-lab-highlights-tap-cleanup-v1')
+ expect(readLabHighlights()).toHaveLength(2)
+})
