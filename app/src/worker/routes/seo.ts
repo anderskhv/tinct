@@ -1,3 +1,4 @@
+import { libraryEntryPath } from './libraryTwoRelease'
 import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath } from '../../lab/labRoute'
@@ -461,7 +462,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Promote the proven catalogue/reader flow at the public entry. The
     // boot script handles anonymous, returning and recently-reading users.
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
-      const home = await serveLabPreReader(request.method, url, env, '/lab/')
+      const home = await serveLabPreReader(request.method, url, env, libraryEntryPath(request.headers.get('Cookie')))
       if (home) {
         const homeTitle = 'Tinct — A New Way to Read'
         const homeDescription = 'Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.'
@@ -519,7 +520,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
     // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
-      const labResp = await serveLabPreReader(request.method, url, env, LAB_PRE_READER_PATHS.get(url.pathname)!)
+      const entryPath = /^\/library\/?$/.test(url.pathname) ? libraryEntryPath(request.headers.get('Cookie')) : LAB_PRE_READER_PATHS.get(url.pathname)!
+      const labResp = await serveLabPreReader(request.method, url, env, entryPath)
       if (labResp) return labResp
     }
 

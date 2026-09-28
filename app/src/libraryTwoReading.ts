@@ -1,3 +1,4 @@
+import { loadSavedBooks, setSavedBook } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
 /**
  * Returning-reader data for the library_2 design (public/lab/library_2).
@@ -377,4 +378,4 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook }

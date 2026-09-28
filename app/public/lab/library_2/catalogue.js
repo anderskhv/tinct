@@ -50,6 +50,7 @@ export function libraryBook(entry) {
 /** Attach the catalogue facts the reader hand-off needs to any library_2 book. */
 export function attachCatalogue(book, entry) {
   book.editions = entry.editions || [];
+  book.defaultEditionKey = entry.defaultEditionKey || null;
   book.wordCount = entry.wordCount ?? null;
   book.firstChapter = entry.readingStructure?.chapters?.[0]?.number ?? 1;
   book.houseIds = entry.houseIds || [];
@@ -72,7 +73,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260926c').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928a').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });
