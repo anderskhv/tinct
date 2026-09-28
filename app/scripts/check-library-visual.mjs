@@ -1,10 +1,10 @@
-import {chromium} from '@playwright/test'
+import {chromium,webkit} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 const out='artifacts/library-visual',origin='https://tinct.app'
 await fs.mkdir(out,{recursive:true})
-const browser=await chromium.launch({headless:true})
+let browser=await chromium.launch({headless:true})
 async function routeLocal(context){
  await context.route('**/*',async route=>{
   const u=new URL(route.request().url())
@@ -16,22 +16,28 @@ async function routeLocal(context){
  })
 }
 try{
+ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]){
+ if(engineName==='webkit'){await browser.close();browser=await engine.launch({headless:true})}
  for(const viewport of [{width:1440,height:950},{width:393,height:852}]){
   for(const [id,title]of [['crime-and-punishment','Crime and Punishment'],['odyssey','The Odyssey']]){
    const context=await browser.newContext({viewport,recordVideo:{dir:out,size:viewport},serviceWorkers:'block'})
    await routeLocal(context)
-   const page=await context.newPage()
+   const page=await context.newPage(),errors=[]
+   page.on('pageerror',error=>errors.push(error.message))
    await page.goto(origin+'/lab/library_2/?view=new',{waitUntil:'domcontentloaded'})
    await page.getByRole('button',{name:'Feature '+title,exact:true}).click()
    await page.waitForFunction(id=>document.documentElement.dataset.scene===id,id)
    await page.waitForTimeout(1500)
-   await page.screenshot({path:out+'/'+id+'-'+viewport.width+'.png'})
+   await page.screenshot({path:out+'/'+engineName+'-'+id+'-'+viewport.width+'.png'})
    await page.waitForTimeout(10000)
    const video=page.video()
+   assert.deepEqual(errors,[],'Scene should not throw while animating')
    await context.close()
    await video.saveAs(out+'/'+id+'-'+viewport.width+'.webm')
   }
  }
+ }
+ await browser.close();browser=await chromium.launch({headless:true})
  const context=await browser.newContext({viewport:{width:1440,height:950},serviceWorkers:'block'})
  await routeLocal(context)
  const page=await context.newPage()
@@ -59,5 +65,5 @@ try{
   await page.screenshot({path:out+'/covers-'+String(index/20+1).padStart(2,'0')+'.png',fullPage:true})
  }
  await context.close()
- console.log(JSON.stringify({renderedCovers:inventory.length,motionRecordings:4}))
+ console.log(JSON.stringify({renderedCovers:inventory.length,motionRecordings:8}))
 }finally{await browser.close()}

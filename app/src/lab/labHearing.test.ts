@@ -14,6 +14,9 @@ import {
   chapterPageLabel,
   clampedChapterProgress,
   cutPageTailTo,
+  growPageTailInParagraph,
+  growPageByWords,
+  sameChapterPages,
   followOnReadingPage,
   absorbChapterTailPages,
   growPageByFirstOmittedWord,
@@ -872,5 +875,44 @@ describe('hearing follow paint', () => {
     expect(hearingFollowPaintActive('hearing', false, wordFollow)).toBe(true)
     expect(hearingFollowPaintActive('reading', true, wordFollow)).toBe(false)
     expect(hearingFollowPaintActive('reading', false, wordFollow)).toBe(false)
+  })
+})
+
+describe('paint corrections preserve the native measurement snapshot', () => {
+  it('shrinks and grows multi-paragraph pages without mutating shared segments', () => {
+    const paragraphs = ['a b c d', 'e f g h i j', 'k l m n']
+    const pages = [
+      { paragraphIndex: 0, from: 0, to: 4, segments: [
+        { paragraphIndex: 0, from: 0, to: 4 }, { paragraphIndex: 1, from: 0, to: 4 },
+      ] },
+      { paragraphIndex: 1, from: 4, to: 6, segments: [
+        { paragraphIndex: 1, from: 4, to: 6 }, { paragraphIndex: 2, from: 0, to: 4 },
+      ] },
+    ]
+    const measuredAgain = structuredClone(pages)
+    for (const page of pages) {
+      page.segments.forEach(Object.freeze)
+      Object.freeze(page.segments)
+      Object.freeze(page)
+    }
+    Object.freeze(pages)
+    const shrunk = cutPageTailTo(pages, 0, 2)
+    expect(chapterPagesCover(paragraphs, shrunk)).toBe(true)
+    expect(sameChapterPages(pages, measuredAgain)).toBe(true)
+    const restored = growPageByWords(shrunk, 0, 2)
+    expect(sameChapterPages(restored, measuredAgain)).toBe(true)
+    expect(pages).toEqual(measuredAgain)
+  })
+
+  it('extends a final multi-paragraph page without rewriting the measured tail', () => {
+    const page = { paragraphIndex: 0, from: 0, to: 2, segments: [
+      { paragraphIndex: 0, from: 0, to: 2 }, { paragraphIndex: 1, from: 0, to: 2 },
+    ] }
+    page.segments.forEach(Object.freeze)
+    Object.freeze(page.segments)
+    Object.freeze(page)
+    const grown = growPageTailInParagraph([page], 0, 2, 4)
+    expect(chapterPageSegments(grown[0])[1].to).toBe(4)
+    expect(page.segments[1].to).toBe(2)
   })
 })
