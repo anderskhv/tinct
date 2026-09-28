@@ -1,0 +1,48 @@
+name: Android APK acceptance
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'app/android/**'
+      - 'app/capacitor.config.ts'
+      - 'app/scripts/android/**'
+      - '.github/workflows/android-apk.yml'
+permissions:
+  contents: read
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v3
+      - run: bash ../scripts/cloud-setup.sh
+      - name: Build the existing native bundle for size and compatibility evidence
+        run: npm run build:android
+        env:
+          CI: true
+      - name: Compile installable review APK
+        working-directory: app/android
+        run: bash gradlew assembleDebug testDebugUnitTest --no-daemon
+      - name: Record actual APK and bundled asset footprint
+        run: python3 scripts/android/inspect-apk.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tinct-android-review
+          path: |
+            app/android/app/build/outputs/apk/debug/*.apk
+            app/artifacts/android
+            app/android/app/build/reports/tests
