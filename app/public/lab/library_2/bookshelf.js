@@ -23,7 +23,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     if(shelf==='reading'&&!sample){await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader')throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}
     else await openBook(id,img);
    }});
-  else view.update(table,saved,catalogue);
+  else if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;
   if(key)view.focus(key);
   settle();
  }
@@ -48,7 +48,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    else table=result.table;
    // A cloud shelf sync is independent of painting the books already on device.
    present();
-   const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view)view.update(table,saved,catalogue);}
+   const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}}
    if(!sample)try{if(table.mode==='returning'||saved.length)localStorage.setItem('tinct-library-2-reading-table','{"mode":"returning"}');else localStorage.removeItem('tinct-library-2-reading-table');}catch{}
   }catch{
    if(view){settle();notice('Showing your saved shelf. It will refresh when you reconnect.');}

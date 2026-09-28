@@ -152,7 +152,11 @@ all('[data-tab]').forEach(b=>{b.onclick=()=>{currentTab=b.dataset.tab;renderIntr
 let leaving=false;
 async function startReading(){if(leaving||!activeBook)return;leaving=true;try{const href=await readerDestination(activeBook,choices().main);if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});document.body.classList.add('leaving');location.assign(href);}catch{leaving=false;document.body.classList.remove('leaving');notice('This edition could not open. Please try again.');}}
 $('begin-reading').onclick=startReading;
-addEventListener('pageshow',event=>{if(event.persisted){leaving=false;document.body.classList.remove('leaving');}});
+addEventListener('pageshow',event=>{if(event.persisted){
+ // Browser Back restores the library scene, not the preface we left behind.
+ if(leaving&&activeBook){$('book-overlay').hidden=true;screenBack.hidden=true;if(sourceCanvas)sourceCanvas.style.visibility='';activeBook=null;sourceCanvas=null;bookProgress=0;if(openedFromSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();dispatchEvent(new Event('library2:overlayclosed'));}
+ leaving=false;document.body.classList.remove('leaving');
+}});
 function introCast(book){const selection={'frankenstein':[0,1],'jane-eyre':[0,1,4],'julius-caesar':[0,1,2],'odyssey':[0,1,2,3,4]};const list=(selection[book.id]||[0,1,2]).map(i=>({...book.characters[i]})).filter(c=>c.aliases);return list.map((c,i)=>({...c,introRole:['the-prince','meditations'].includes(book.id)?(i===0?'Author':'Key figure'):(i===0||(book.id==='frankenstein'&&i===1)||(book.id==='pride-and-prejudice'&&i===1)?'Protagonist':'Supporting character')}));}
 function scrollHint(){const b=$('intro-body');const more=b.scrollHeight-b.clientHeight-b.scrollTop>10;b.classList.toggle('more-below',more);$('intro-more').hidden=!more||!bookDestination().tour||document.querySelector('.intro-footer').parentElement===b;}
 $('intro-more').onclick=()=>{const b=$('intro-body');b.scrollBy({top:b.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});};
