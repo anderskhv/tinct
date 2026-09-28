@@ -1,19 +1,19 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
-import { bookshelfMarkup } from './bookshelf-template.js?v=20260928a';
-import { bindingFor } from './reading-table.js?v=20260928a';
+import { bookshelfMarkup } from './bookshelf-template.js?v=20260928b';
+import { bindingFor } from './reading-table.js?v=20260928b';
 
-export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled}){
+export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
 root.innerHTML=bookshelfMarkup;
 const $=id=>root.querySelector('#bs-'+id);
 const ASSETS='assets/';
 const books={};
-const studyCovers=new Set(['frankenstein','meditations','odyssey','crime-and-punishment','candide','jane-eyre','jekyll-and-hyde','julius-caesar','niels-lyhne','pride-and-prejudice','the-prince','the-awakening','notes-from-underground']);
+const studyCovers=new Set(['to-the-lighthouse','frankenstein','meditations','odyssey','crime-and-punishment','candide','jane-eyre','jekyll-and-hyde','julius-caesar','niels-lyhne','pride-and-prejudice','the-prince','the-awakening','notes-from-underground']);
 const shelves={reading:[],finished:[],later:[]};
-const chosen={reading:null,finished:null,later:null};
+const chosen={reading:null,finished:null,later:null,...initial?.chosen};
 let busy=false,summaryTimer=null,summaryTurn=0;
 function updateData(nextTable,nextSaved){
- for(const entry of catalogue){books[entry.id]={title:entry.title,author:entry.author,cover:entry.art?.src||null,binding:bindingFor({bookId:entry.id,tone:entry.cover?.background})[0]};}
- for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.cover||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
+ for(const entry of catalogue){books[entry.id]={title:entry.title,author:entry.author,cover:entry.art?.src||null,wordCount:entry.wordCount,binding:bindingFor({bookId:entry.id,tone:entry.cover?.background})[0]};}
+ for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.cover||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],wordCount:b.wordCount||books[b.bookId]?.wordCount,place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
  for(const [id,b] of Object.entries(books))if(studyCovers.has(id))b.cover=`assets/${id}.jpg`;
  const unique=ids=>[...new Set(ids)].filter(id=>books[id]);
  shelves.reading=unique(nextTable.reading.map(b=>b.bookId));shelves.finished=unique(nextTable.finished.map(b=>b.bookId));
@@ -34,19 +34,22 @@ const order=['later','reading','finished'];
 const shelfNames={later:'To read',reading:'Currently reading',finished:'Finished'};
 const capacity={later:3,reading:6,finished:4};
 let resultsPage=0;
-let shelf=shelves.reading.length?'reading':shelves.later.length?'later':'finished',view=innerWidth<900?'focus':'overview',gesture=null,suppressClickUntil=0;
+let shelf=order.includes(initial?.shelf)?initial.shelf:shelves.reading.length?'reading':shelves.later.length?'later':'finished',view=initial?.view==='overview'?'overview':'focus',gesture=null,suppressClickUntil=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const escapeText=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function renderShelf(key){
- const hero=key==='reading',width=hero?190:key==='finished'?123:136,depth=hero?38:key==='finished'?24:28;
+ const hero=key==='reading',width=hero?158:key==='finished'?110:116;
  const row=rowFor(shelves[key],chosen[key],capacity[key]);
  if(!shelves[key].includes(chosen[key])) chosen[key]=row.items[0]||null;
  $('shelf-'+key).innerHTML=row.items.map((id,i)=>{
-  const b=books[id],height=hero?285-i%3*5:key==='finished'?205-i%3*7:217-i%3*5;
-  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${hero?16:12}px;--binding:url('${ASSETS}spines/spine-${b.binding}.jpg');--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span>${escapeText(b.title)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><img src="${escapeText(b.cover||'')}" alt="" draggable="false" ${id===chosen[key]?'fetchpriority="high"':''}></span></button>`;
+  const b=books[id],height=hero?240-i%3*4:key==='finished'?182-i%3*5:190-i%3*4;
+  const words=Number(b.wordCount)||70000,depth=Math.round(Math.max(14,Math.min(hero?44:32,10+Math.sqrt(words/1000)*1.1)));
+  const measure=document.createElement('canvas').getContext('2d');measure.font='16px Georgia';
+  const spineFont=Math.min(hero?14:11,16*(height*.62)/(measure.measureText(b.title.toUpperCase()).width+b.title.length*.8));
+  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:url('${ASSETS}spines/spine-${b.binding}.jpg');--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span>${escapeText(b.title)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
  }).join('') || '<p class=empty-bay>A little room for a new book</p>';
  $('count-'+key).textContent=shelves[key].length;
- $('shelf-'+key).querySelectorAll('img').forEach(img=>{img.onerror=()=>{img.hidden=true;};});
+ $('shelf-'+key).querySelectorAll('[data-cover]').forEach(canvas=>{prepareCover(canvas.dataset.cover,canvas).catch(()=>{});});
 }
 function updateSelection(){
  const b=books[chosen[shelf]],row=rowFor(shelves[shelf],chosen[shelf],capacity[shelf]);
@@ -65,9 +68,12 @@ function updateSelection(){
  $('remove-saved').hidden=!b||shelf!=='later';
  $('book-dots').innerHTML=row.items.map(id=>`<button data-select="${escapeText(id)}" aria-label="Choose ${escapeText(books[id].title)}" aria-pressed="${chosen[shelf]===id}"></button>`).join('');
  $('previous-book').disabled=$('next-book').disabled=shelves[shelf].length<2;
+ $('row-status').parentElement.hidden=row.total<=1;
+ $('browse-shelf').hidden=shelves[shelf].length<=capacity[shelf];
  $('row-status').textContent=row.total?`Row ${row.index+1} of ${row.total}`:'No books yet';
  $('previous-row').disabled=row.index===0;$('next-row').disabled=row.index>=row.total-1;
- $('browse-shelf').textContent=`Browse ${shelfNames[shelf].toLowerCase()} · ${shelves[shelf].length}`;
+ $('browse-shelf').textContent=`All ${shelves[shelf].length} books`;
+ onSelection?.({shelf,view,chosen:{...chosen}});
  const position=order.indexOf(shelf);
  [['previous-shelf',position-1],['next-shelf',position+1]].forEach(([id,index])=>{
   const target=order[index],el=$(id);el.disabled=!target;el.style.visibility=target?'visible':'hidden';
@@ -85,11 +91,11 @@ function layout(instant=false){
  const el=$('viewport'),w=el.clientWidth,h=$('geometry-probe').clientHeight,mobile=w<700;
  let scale,x,y;
  if(view==='overview'){
-  scale=w/1536;x=0;y=mobile||h>=1024*scale?0:h*.90-572*scale;
+  scale=Math.min(w/1536,(h-190)/740);x=(w-1536*scale)/2;y=h*.60-572*scale;
  }else{
-  scale=Math.min(w/(shelf==='reading'?552:390),h/460);
-  if(w>=700)scale=Math.min(w/800,h/440);
-  x=w/2-centres[shelf]*scale;y=h*.78-572*scale;
+  scale=Math.min(w/(shelf==='reading'?520:390),(h-220)/420);
+  if(w>=700)scale=Math.min(w/970,(h-240)/440);
+  x=w/2-centres[shelf]*scale;y=h*.60-572*scale;
  }
  const world=$('world');if(instant)world.classList.add('instant');
  world.style.transform=`translate(${x}px,${y}px) scale(${scale})`;
@@ -100,7 +106,7 @@ function layout(instant=false){
  $('view-toggle').firstElementChild.textContent=view==='overview'?'+':'−';
  $('view-toggle').setAttribute('aria-label',view==='overview'?'Zoom in to '+shelfNames[shelf]:'Zoom out to the full library');
 }
-function changeView(next){view=next;layout();}
+function changeView(next){view=next;layout();onSelection?.({shelf,view,chosen:{...chosen}});}
 function focusShelf(key){shelf=key;updateSelection();changeView('focus');}
 function select(id,key=shelf){
  if(!shelves[key].includes(id))return;
@@ -120,8 +126,8 @@ function step(direction){const ids=shelves[shelf],i=ids.indexOf(chosen[shelf]);i
 Object.keys(shelves).forEach(renderShelf);updateSelection();layout(true);
 new ResizeObserver(()=>layout()).observe($('viewport'));
 $('view-toggle').onclick=()=>changeView(view==='overview'?'focus':'overview');
-root.querySelectorAll('.shelf-nav [data-shelf],[data-focus]').forEach(el=>el.onclick=()=>focusShelf(el.dataset.shelf||el.dataset.focus));
-$('world').addEventListener('click',e=>{const b=e.target.closest('[data-book]');if(b)select(b.dataset.book,b.dataset.onShelf);});
+root.querySelectorAll('.shelf-nav [data-shelf],[data-focus]').forEach(el=>el.onclick=()=>{const key=el.dataset.shelf||el.dataset.focus;if(key===shelf&&shelves[key].length>capacity[key])$('browse-shelf').click();else focusShelf(key);});
+$('world').addEventListener('click',e=>{const b=e.target.closest('[data-book]');if(b){const open=view==='overview'||(b.dataset.book===chosen[shelf]&&b.dataset.onShelf===shelf);select(b.dataset.book,b.dataset.onShelf);if(open)$('book-action').click();}});
 $('book-dots').onclick=e=>{const b=e.target.closest('[data-select]');if(b)select(b.dataset.select);};
 $('previous-book').onclick=()=>step(-1);$('next-book').onclick=()=>step(1);
 $('previous-shelf').onclick=()=>moveShelf(-1);$('next-shelf').onclick=()=>moveShelf(1);
@@ -181,7 +187,7 @@ $('collection-results').onclick=e=>{const button=e.target.closest('[data-collect
 $('close-collection').onclick=()=>$('collection-dialog').close();
 $('book-action').onclick=async()=>{
  const id=chosen[shelf];if(!id||busy)return;busy=true;$('book-action').setAttribute('aria-busy','true');
- try{await onOpen(id,shelf,$('world').querySelector(`[data-book="${CSS.escape(id)}"] .face img`));}
+ try{await onOpen(id,shelf,$('world').querySelector(`[data-book="${CSS.escape(id)}"] .face canvas`));}
  catch{onError('This book could not open. Please try again.');}
  finally{busy=false;$('book-action').removeAttribute('aria-busy');}
 };
@@ -205,5 +211,5 @@ function atmosphere(t){
 function startAtmosphere(){if(frame)cancelAnimationFrame(frame);frame=requestAnimationFrame(atmosphere);}
 document.addEventListener('visibilitychange',startAtmosphere);reduced.addEventListener('change',startAtmosphere);startAtmosphere();
 
-return {update(nextTable,nextSaved){updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
+return {update(nextTable,nextSaved,nextCatalogue){if(nextCatalogue)catalogue=nextCatalogue;updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
 }

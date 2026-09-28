@@ -284,3 +284,7 @@ html:not(.library-ready) #librarian{visibility:hidden}
 .rt-cast{position:absolute;left:-35%;width:170%;top:calc(50% - var(--bh)*.15);height:calc(var(--bh)*.3);background:radial-gradient(ellipse at 50% 50%,#020403a6,#02040360 35%,#02040300 72%);transform:rotateX(90deg) translateZ(calc(var(--bh)/-2 + .5px));pointer-events:none;filter:blur(4px)}
 .rt-shadow{left:-7%;right:-7%;background:radial-gradient(closest-side,#010301,#010301b3 55%,#01030100);filter:blur(1.5px)}
 @media(prefers-reduced-motion:reduce){.reading-table.is-ready *{animation:none!important}}
+
+/* Back is hit-tested outside the animated 3D cover, including on iOS. */
+#tour-back,#back-library{visibility:hidden}
+#page-back{position:fixed;z-index:110;padding:0 0 15px;text-align:left;font:14px/1.4 system-ui,sans-serif;color:var(--page-soft,#626b52);background:transparent;touch-action:manipulation}

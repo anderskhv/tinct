@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928a';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928b';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -14,13 +14,14 @@ const CACHE_KEY = 'tinct-library-2-reading-table';
 const isDemo = new URLSearchParams(location.search).get('demo') === 'reading';
 // Start the account-safe read alongside app setup, before the scene and shelves
 // are built. Never draw the old unscoped cache while the viewer is unresolved.
+const cachedListeners=new Set();let cachedTable=null;
 const loadTable = async () => {
   const catalogue = loadCatalogueData();
   // The public catalogue and engine download in parallel. Handle a catalogue
   // failure immediately even when the engine itself is still downloading.
   catalogue.catch(() => {});
   const api = await readingApi();
-  return { api, table: await api.loadReadingTable({ catalogue, onArtwork: books => books.slice(0,13).forEach(book => prepareArtwork(book)) }) };
+  return { api, table: await api.loadReadingTable({ catalogue, onCached: table=>{cachedTable=table;cachedListeners.forEach(fn=>fn(table,api));}, onArtwork: books => books.slice(0,13).forEach(book => prepareArtwork(book)) }) };
 };
 const firstTable = window.__library2Boot?.hint && !isDemo ? loadTable().then(value => ({ value }), error => ({ error })) : null;
 
@@ -401,4 +402,5 @@ function addFinishedShelf(finished, shelves, el) {
 
 // Shared account-safe data and public bindings for the approved bookshelf.
 export { DEMO, bindingFor };
+export function onCachedTable(fn){cachedListeners.add(fn);if(cachedTable)readingApi().then(api=>fn(cachedTable,api));return()=>cachedListeners.delete(fn);}
 export async function resolveReadingTable(refresh=false) { const early = firstTable && !refresh ? await firstTable : null; if (early?.error) throw early.error; return early?.value || loadTable(); }
