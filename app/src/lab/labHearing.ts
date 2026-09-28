@@ -830,7 +830,7 @@ export function cutPageTailTo(
   if (!kept) return pages
 
   const moved: ChapterPageSegment = { ...tail, from: newTo }
-  const following = chapterPageSegments(pages[pageIndex + 1])
+  const following = chapterPageSegments(pages[pageIndex + 1]).slice()
   if (
     following[0]
     && following[0].paragraphIndex === moved.paragraphIndex
@@ -856,7 +856,7 @@ export function growPageTailInParagraph(
   paragraphLength: number,
 ): ChapterHearingPage[] {
   const page = pages[pageIndex]
-  const segments = chapterPageSegments(page)
+  const segments = chapterPageSegments(page).slice()
   const tail = segments[segments.length - 1]
   if (!page || !tail || wordCount <= 0 || paragraphLength <= tail.to) return pages
   const take = Math.min(wordCount, paragraphLength - tail.to)
