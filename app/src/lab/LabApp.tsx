@@ -2625,7 +2625,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   } | null>(null)
   const carriedEndingCurrent = desktopSpread && carriedEnding?.bookId === (book.bookId || 'bible')
     && carriedEnding.editionKey === readerEditionKey && carriedEnding.targetChapter === book.chapterNumber
-    && carriedEnding.layoutKey === desktopLayoutKey && carriedEnding.width === window.innerWidth && carriedEnding.height === window.innerHeight
+    && carriedEnding.layoutKey === `${readerLayoutKey}:${fullscreen}` && carriedEnding.width === window.innerWidth && carriedEnding.height === window.innerHeight
     ? carriedEnding : null
   const openingOnRight = Boolean(carriedEndingCurrent && readingPageIndex === 0)
   const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
@@ -3375,7 +3375,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (nextChapterOpening?.chapterNumber === next && readingPage) {
       setCarriedEnding({
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, targetChapter: next,
-        layoutKey: desktopLayoutKey, width: window.innerWidth, height: window.innerHeight,
+        layoutKey: `${readerLayoutKey}:${fullscreen}`, width: window.innerWidth, height: window.innerHeight,
         title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
         folio: bookPageEstimate.page, onPrimer: () => handleChapterChat('preview'),
