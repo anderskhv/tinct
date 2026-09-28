@@ -58,6 +58,27 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'918');
   assert.equal(await p.locator('[data-testid="lab-word"].is-hl-sage').count(),6,'Same mark appears in its normal chapter');
   await p.screenshot({path:path.join(out,engine.name()+'-chapter-highlight.png')});
+  // A real mouse drag across the gutter must keep one semantic range.
+  for (const reverse of [false, true]) {
+   const columns=p.locator('.lab-page-wrap>.lab-passage>.lab-book-columns>.lab-book-col');
+   const left=columns.nth(0).locator('[data-testid="lab-word"]'),right=columns.nth(1).locator('[data-testid="lab-word"]');
+   const a=left.nth(await left.count()-4),b=right.nth(3);
+   const aPlace=await a.evaluate(n=>({p:Number(n.dataset.paragraphIndex),w:Number(n.dataset.wordIndex)}));
+   const bPlace=await b.evaluate(n=>({p:Number(n.dataset.paragraphIndex),w:Number(n.dataset.wordIndex)}));
+   const start=await (reverse?b:a).boundingBox(),end=await (reverse?a:b).boundingBox();
+   await p.mouse.move(start.x+start.width/2,start.y+start.height/2);await p.mouse.down();
+   await p.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:16});await p.mouse.up();
+   await p.locator('.selection-popup').waitFor();
+   const colour=p.getByRole('button',{name:'Highlight Rose',exact:true});
+   if(!await colour.count())await p.getByRole('button',{name:'Highlight',exact:true}).click();
+   await colour.click();
+   const marks=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')));
+   const cross=marks.find(h=>h.chapterNumber===918&&h.paragraphIndex===aPlace.p&&h.fromWord===aPlace.w);
+   assert.ok(cross,'Cross-spread selection saved');assert.equal(cross.endParagraphIndex,bPlace.p);assert.equal(cross.toWord,bPlace.w+1);
+   await p.reload();await ready(p);
+   assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights'))),marks,'Cross-spread selection survives reload');
+   await p.screenshot({path:path.join(out,engine.name()+'-cross-spread-'+reverse+'.png')});
+  }
   results.push({engine:engine.name(),chapter:mark.chapterNumber,words:[mark.fromWord,mark.toWord],annotationsPreserved:true});
  }catch(e){await p.screenshot({path:path.join(out,engine.name()+'-failure.png')});throw e}
  finally{await context.close();await browser.close();fs.writeFileSync(path.join(out,baseline?'baseline.json':'results.json'),JSON.stringify(results,null,2));}

@@ -924,3 +924,23 @@ it('colours a page-edge word fragment using its source narration position', () =
   expect(fragment.classList.contains('is-upcoming')).toBe(true)
   expect(fragment.hasAttribute('data-word-index')).toBe(false)
 })
+
+it('uses the outside desktop edges for extending selection, not the gutter or last line', () => {
+ vi.useFakeTimers()
+ try {
+  const paragraphs = ['one two three four five six seven eight nine']
+  const select = vi.fn(), turn = vi.fn()
+  const base = passageProps(paragraphs, { paragraphIndex: 0, from: 0, to: 3 })
+  render(<LabPassage {...base} desktopSpread nextReadingPage={{ paragraphIndex: 0, from: 3, to: 6 }} onSelectRange={select} onPageTurn={turn}/>)
+  const surface = screen.getByTestId('lab-book')
+  vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({left:0,right:1200,top:0,bottom:700,width:1200,height:700} as DOMRect)
+  const first = screen.getAllByTestId('lab-word')[0]
+  fireEvent.pointerDown(first,{pointerType:'mouse',clientX:200,clientY:300})
+  fireEvent.pointerMove(first,{pointerType:'mouse',clientX:590,clientY:695})
+  act(()=>vi.advanceTimersByTime(LAB_EDGE_HOLD_MS+1))
+  expect(turn).not.toHaveBeenCalled()
+  fireEvent.pointerMove(first,{pointerType:'mouse',clientX:1195,clientY:350})
+  act(()=>vi.advanceTimersByTime(LAB_EDGE_HOLD_MS))
+  expect(turn).toHaveBeenCalledWith(1)
+ } finally {vi.useRealTimers()}
+})

@@ -690,7 +690,11 @@ export function LabPassage({
     }
     event.preventDefault()
     const bounds = event.currentTarget.getBoundingClientRect()
-    const direction = event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    // Desktop turns at the outer horizontal edges. Crossing the gutter from
+    // the bottom of the left leaf to the top of the right must not turn.
+    const direction = desktopSpread
+      ? event.clientX >= bounds.right - LAB_EDGE_ZONE_PX ? 1 : event.clientX <= bounds.left + LAB_EDGE_ZONE_PX ? -1 : null
+      : event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
     if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
     if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
