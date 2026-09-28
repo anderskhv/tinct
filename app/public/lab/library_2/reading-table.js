@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928b';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928c';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -210,7 +210,30 @@ export async function mountReadingTable({ hero, shelves, el }) {
   return root.classList.contains('returning');
 }
 
-function wire(view, table, demo, keepBookId) {
+/** The retained time-of-day table, sharing the shelf's account-safe loader. */
+export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summaryFor,onSelection,initial,enabled}) {
+ let view=null,currentTable=null;
+ function render(next){
+  if(currentTable&&currentTable.reading.map(b=>b.bookId).join()===next.reading.map(b=>b.bookId).join()){
+   next.reading.forEach((b,i)=>Object.assign(currentTable.reading[i],b));view.refresh();return;
+  }
+  const selected=view?.dataset.current||initial?.bookId;
+  view?.dispose?.();view?.remove();currentTable={...next,reading:next.reading.map(b=>({...b}))};
+  view=document.createElement('div');view.className='reading-table is-preparing';view.innerHTML=markup(currentTable);hero.append(view);
+  view.api=summaryFor?{summaryFor}:null;
+  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection}).then(()=>{if(active.isConnected)active.classList.replace('is-preparing','is-ready');});
+ }
+ render(table);
+ document.addEventListener('keydown',e=>{
+  if(!enabled()||e.defaultPrevented||!['ArrowLeft','ArrowRight'].includes(e.key)||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+  if(e.target!==document.body&&e.target!==document.documentElement&&!view.contains(e.target))return;
+  if(e.target.closest?.('input,textarea,select,[contenteditable]'))return;
+  e.preventDefault();view.querySelector(e.key==='ArrowRight'?'#rt-next':'#rt-prev').click();
+ });
+ return {update(next){if(next.reading.length){view.hidden=false;render(next);}},focus(){},get selected(){return view?.dataset.current;}};
+}
+
+function wire(view, table, demo, keepBookId, options={}) {
   const stage = view.querySelector('#rt-stage'), row = view.querySelector('#rt-row');
   const books = [...row.children];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -286,6 +309,7 @@ function wire(view, table, demo, keepBookId) {
     const b = table.reading[index], firstShow = shown === -1;
     shown = index;
     view.dataset.current = b.bookId;
+    options.onSelection?.({bookId:b.bookId});
     const set = () => {
       $('rt-title').textContent = b.title;
       $('rt-place').textContent = b.chapterLabel;
@@ -301,7 +325,7 @@ function wire(view, table, demo, keepBookId) {
     clearTimeout(summaryTimer);
     if (!b.recap && view.api) {
       // The "so far" summary follows the production rules; passing a book only reads the cache.
-      const apply = r => { if (r?.text && current === index) setRecap(r.text); };
+      const apply = r => { if (view.isConnected && r?.text && current === index) setRecap(r.text); };
       view.api.summaryFor(b.bookId, { request: false }).then(apply, () => {});
       summaryTimer = setTimeout(() => view.api?.summaryFor(b.bookId, { request: true }).then(apply, () => {}), 900);
     }
@@ -316,6 +340,7 @@ function wire(view, table, demo, keepBookId) {
   async function continueReading() {
     const b = table.reading[current];
     if (!b || document.body.classList.contains('leaving')) return;
+    if(options.onOpen){try{await options.onOpen(b.bookId,'reading',books[current].querySelector('.rt-front img'));}catch{options.onError?.('This book could not open. Please try again.');}return;}
     document.body.classList.add('leaving');
     const destination = demo || !view.api ? Promise.resolve(`/library?book=${encodeURIComponent(b.bookId)}&view=book-detail`) : view.api.readerDestination(b.bookId, null);
     const [href] = await Promise.all([destination, new Promise(r => setTimeout(r, 240))]);
@@ -365,8 +390,9 @@ function wire(view, table, demo, keepBookId) {
   });
   // Prepare only this resolved reader's shelf. Covers and likely spine textures
   // start together; sampled bindings finish before anything is revealed.
-  const artworkReady = Promise.all(books.map(async (book, i) => {
+  const artwork = books.map(async (book, i) => {
     const img = book.querySelector('.rt-front img');
+    if(options.prepareCover){const canvas=document.createElement('canvas');try{await options.prepareCover(table.reading[i].bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
     const [{ name, colour }] = await Promise.all([
       prepareArtwork(table.reading[i]),
       img.decode().catch(() => {}),
@@ -376,12 +402,14 @@ function wire(view, table, demo, keepBookId) {
     book.querySelector('.rt-spine').dataset.binding = name;
     book.querySelector('.rt-spine').style.background = `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${tex}${colour}`;
     book.querySelector('.rt-refl-spine').style.background = `${tex}${colour}`;
-  }));
-  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(fit).observe(stage);
-  else addEventListener('resize', fit);
-  fit();
-  select(current, false);
-  return artworkReady;
+  });
+  const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(fit):null;
+  if(observer)observer.observe(stage);else addEventListener('resize',fit);
+  fit();select(current,false);
+  view.refresh=()=>{shown=-1;select(current,false);};
+  view.dispose=()=>{observer?.disconnect();removeEventListener('resize',fit);clearTimeout(summaryTimer);clearTimeout(swapTimer);};
+  // A distant spine must not hold the selected book behind a loading screen.
+  return artwork[current]||Promise.resolve();
 }
 
 function addFinishedShelf(finished, shelves, el) {

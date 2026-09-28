@@ -69,7 +69,7 @@
 .bookshelf .fallback-title{position:absolute;inset:0;display:grid;place-content:center;padding:14px;font:22px/1.2 Georgia;text-align:center;background:#263125;color:#eee7d0}
 .bookshelf .face img{position:relative}
 .bookshelf .selection #bs-remove-saved{grid-column:1;justify-self:start;margin:0}
-html.returning #hero{display:none!important}
+html.returning[data-returning-view=shelf] #hero{display:none!important}
 html.returning #library #shelves{margin:25px 0 0;padding-top:0}
 html.returning-pending #hero{visibility:hidden}
 .bookshelf-loading{position:absolute;inset:0 0 auto;min-height:90svh;background:#10150f;display:grid;place-content:center;text-align:center;padding:100px 24px;color:#b7bda7;font:16px/1.6 Georgia;z-index:4}
@@ -113,7 +113,7 @@ html.returning-pending #hero{visibility:hidden}
 .bookshelf .face canvas{position:relative;display:block;width:100%;height:100%;object-fit:cover;opacity:0}
 .bookshelf .face canvas[data-painted=true]{opacity:1}
 .bookshelf .spine span{max-height:none;overflow:visible;letter-spacing:.045em}
-.bookshelf-loading{background:#10150f url('shelf-study/library-wall.jpg') center/cover;color:#eee7d0}
+.bookshelf-loading{background:#10150f var(--initial-scene) center/cover;color:#eee7d0}
 .bookshelf-loading:has(p){background:#10150f}
 @media(max-width:699px){
  .bookshelf .library-heading,.bookshelf .shelf-direction,.bookshelf .collection-tools{display:none}

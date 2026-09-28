@@ -11,9 +11,10 @@ export function warmLibraryPreview() {
   }
   window.addEventListener('pagehide', keepVisit)
   const warm = () => {
-    const base = '/lab/library_2/', version = '?v=20260928b'
+    const base = '/lab/library_2/', version = '?v=20260928c'
     const urls = ['styles.css', 'bookshelf.css', 'boot.js', 'initial-cover.js', 'app.js', 'bookshelf.js', 'bookshelf-view.js', 'bookshelf-template.js', 'visit.js', 'catalogue.js', 'books.js', 'reading-table.js', 'authors.js', 'motion.js', 'hero-navigation.js', 'scene-life.js', 'reading-room.js', 'taxonomy.js'].map(file => base + file + version)
-    urls.push(base + 'shelf-study/library-wall.jpg', '/lab/catalogue.json', '/lab/library-2-reading.js' + version)
+    const hour=new Date().getHours(),room=hour>=6&&hour<12?'morning':hour>=12&&hour<17?'afternoon':hour>=17&&hour<21?'evening':'night'
+    urls.push(base + `assets/table-${room}-${innerWidth/innerHeight>1.2?'wide':'phone'}.jpg`, base + 'shelf-study/library-wall.jpg', '/lab/catalogue.json', '/lab/library-2-reading.js' + version)
     for (const binding of ['green', 'oxblood', 'navy', 'black', 'brown', 'slate', 'plum', 'ochre']) urls.push(base + 'assets/spines/spine-' + binding + '.jpg')
     // Serial batches leave bandwidth available for the book's next chapter.
     void (async () => { for (let i=0;i<urls.length;i+=2) await Promise.all(urls.slice(i,i+2).map(url => fetch(url, { priority: 'low' } as RequestInit).then(r => r.arrayBuffer()).catch(() => {}))) })()

@@ -1,10 +1,11 @@
-import { resolveReadingTable, onCachedTable, DEMO } from './reading-table.js?v=20260928b';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928b';
-import { createBookshelf } from './bookshelf-view.js?v=20260928b';
-import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928b';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928c';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928c';
+import { createBookshelf } from './bookshelf-view.js?v=20260928c';
+import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928c';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
+ const shelfStudy=params.get('view')==='shelf';
  const override=sample?'shelf':params.get('view')==='new'?'discovery':params.get('view')==='shelf'?'shelf':null;
  const html=document.documentElement;
  const root=document.createElement('section');root.className='bookshelf';root.hidden=true;root.setAttribute('aria-label','Your bookshelves');hero.before(root);
@@ -13,10 +14,10 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  try{catalogue=JSON.parse(sessionStorage.getItem('tinct:library-2-catalogue')||'[]');}catch{}
  function settle(){loading.hidden=true;html.classList.remove('returning-pending');}
  function show(key){
-  html.classList.add('returning');root.hidden=false;
+  html.classList.add('returning');html.dataset.returningView=shelfStudy?'shelf':'table';root.hidden=!shelfStudy;
   if(!sample)rememberVisit({mode:'shelf'});
-  if(!view)view=createBookshelf(root,{table,catalogue,saved,prepareCover,initial:sample?null:readVisit()?.shelf,
-   onSelection:state=>{if(!sample)rememberVisit({shelf:state});},enabled:()=>enabled()&&!root.hidden,
+  if(!view)view=(shelfStudy?createBookshelf:createReadingTable)(shelfStudy?root:hero,{table,catalogue,saved,prepareCover,initial:sample?null:shelfStudy?readVisit()?.shelf:{bookId:readVisit()?.tableBook},
+   onSelection:state=>{if(!sample)rememberVisit(shelfStudy?{shelf:state}:{tableBook:state.bookId});},enabled:()=>enabled()&&html.classList.contains('returning'),
    summaryFor:sample?null:(id,options)=>api.summaryFor(id,options),onError:notice,
    onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(table,saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
    onOpen:async(id,shelf,img)=>{
@@ -30,10 +31,11 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  function present(){
   const returning=table.mode==='returning'||saved.length>0;
   const mode=visitMode(returning,override);
-  if(mode==='shelf')show();else{html.classList.remove('returning');root.hidden=true;settle();rememberVisit({mode:'discovery'});}
+  const showReturning=mode==='shelf'&&(shelfStudy||table.reading.length);
+  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelector('.reading-table')?.setAttribute('hidden','');settle();rememberVisit({mode:'discovery'});}
   window.__library2Reading=table;
   dispatchEvent(new Event('resize'));
-  dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:mode==='shelf'?'returning':'new'}}));
+  dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
  }
  if(!sample)onCachedTable((cached,engine)=>{api=engine;table=cached;present();});
  async function load(refresh=false){
@@ -61,7 +63,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  // Preserve the live scene in the back/forward cache while refreshing its data.
  addEventListener('pageshow',event=>{if(event.persisted&&!sample)ready=load(true);});
  addEventListener('online',()=>{if(!sample)ready=load(true);});
- if(params.has('preview')||sample||override){const nav=document.createElement('nav');nav.className='preview-modes';nav.setAttribute('aria-label','Preview experiences');[['Your library','?preview=1&view=shelf'],['New reader','?preview=1&view=new'],['Sample returning reader','?preview=1&demo=reading'],['Leave preview','?preview=0']].forEach(([label,href])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.append(a);});hero.after(nav);}
+ if(params.has('preview')||sample||override){const nav=document.createElement('nav');nav.className='preview-modes';nav.setAttribute('aria-label','Preview experiences');[['Your library','?preview=1'],['Shelf concept','?preview=1&view=shelf'],['New reader','?preview=1&view=new'],['Sample returning reader','?preview=1&demo=reading'],['Leave preview','?preview=0']].forEach(([label,href])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.append(a);});hero.after(nav);}
  ready=load();
- return {show:()=>{if(view||api){show(table.reading.length?'reading':saved.length?'later':'finished');root.scrollIntoView({block:'start'});}else ready=load();}};
+ return {show:()=>{if(view||api){show(table.reading.length?'reading':saved.length?'later':'finished');(shelfStudy?root:hero).scrollIntoView({block:'start'});}else ready=load();}};
 }
