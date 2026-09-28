@@ -81,6 +81,8 @@ describe('lab ask context', () => {
     expect(instructions).toContain('[2] So now all who escaped death')
     expect(instructions).toContain('Avoid unsolicited spoilers beyond the current chapter')
     expect(instructions).toContain('An explicit request for later chapters or the whole book permits that requested scope')
+    expect(instructions).not.toContain('retrieve it and answer')
+    expect(instructions).toContain('answer from reliable knowledge, checking text only when useful for accuracy')
     expect(instructions).toContain('call resume_audiobook')
     expect(instructions).toContain('Never say you cannot control playback')
     expect(instructions).toContain('call set_assistant_pace')
