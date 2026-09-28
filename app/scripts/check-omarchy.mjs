@@ -36,13 +36,28 @@ for(const engine of [chromium,webkit]) {
   const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
   const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'})
   if(engine===chromium)await context.grantPermissions(['local-network-access'],{origin})
-  const page=await context.newPage(), errors=[],requests=[]
+  const page=await context.newPage(), errors=[],requests=[],network=[]
   const shot=async name=>{
     await page.screenshot({path:output+'/'+engine.name()+'-'+name+'.png'})
     if(process.env.TINCT_DESKTOP_VISUAL==='1')console.log('TINCT_SCREENSHOT '+engine.name()+'-'+name+' '+(await page.screenshot({type:'jpeg',quality:50})).toString('base64'))
   }
   page.setDefaultTimeout(20000)
-  page.on('pageerror',error=>errors.push(error.message))
+  page.on('pageerror',error=>{errors.push(error.message);network.push({kind:'pageerror',at:Date.now(),url:page.url(),message:error.message,stack:error.stack})})
+  page.on('requestfailed',req=>network.push({kind:'failed',at:Date.now(),url:req.url(),failure:req.failure(),resource:req.resourceType()}))
+  page.on('response',response=>{if(response.url().includes('/spines/'))network.push({kind:'response',at:Date.now(),url:response.url(),status:response.status(),headers:response.headers()})})
+  page.on('console',message=>{if(message.text().startsWith('WARM_TRACE '))network.push({kind:'browser',at:Date.now(),message:message.text()})})
+  await page.addInitScript(()=>{
+    const trace=(event,extra={})=>console.log('WARM_TRACE '+JSON.stringify({event,url:location.href,at:performance.now(),...extra}))
+    window.addEventListener('pagehide',()=>trace('pagehide'))
+    window.addEventListener('unhandledrejection',event=>trace('unhandledrejection',{message:String(event.reason),stack:event.reason?.stack}))
+    const fetch=window.fetch.bind(window)
+    window.fetch=(input,init)=>{
+      const url=String(input)
+      if(!url.includes('/spines/'))return fetch(input,init)
+      trace('fetch-start',{request:url})
+      return fetch(input,init).then(response=>{trace('fetch-response',{request:url,status:response.status});return response},error=>{trace('fetch-reject',{request:url,message:String(error),aborted:init?.signal?.aborted});throw error})
+    }
+  })
   await paletteFile({name:'Tokyo Night',background:'#1a1b26',foreground:'#c0caf5',accent:'#7aa2f7'})
   await page.route('**/*',async route=>{
     const req=route.request(),url=new URL(req.url())
@@ -193,7 +208,7 @@ for(const engine of [chromium,webkit]) {
     await shot('failure').catch(()=>{})
     console.error({url:page.url(),errors,requests,keys:await page.evaluate(()=>window.__tinctKeyTrace),state:await page.evaluate(()=>({theme:document.documentElement.dataset.tinctTheme,active:document.activeElement?.outerHTML.slice(0,300),open:document.documentElement.dataset.tinctCommandsOpen})),body:(await page.locator('body').innerText()).slice(0,1800)})
     throw error
-  } finally {await context.close();await browser.close();await fs.writeFile(output+'/report.json',JSON.stringify(report,null,2))}
+  } finally {await context.close();await browser.close();await fs.writeFile(output+'/report.json',JSON.stringify(report,null,2));await fs.writeFile(output+'/'+engine.name()+'-network.json',JSON.stringify(network,null,2))}
 }
 console.log(JSON.stringify(report))
 } finally {bridge.kill();await fs.rm(fixture,{recursive:true,force:true})}
