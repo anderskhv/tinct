@@ -1,3 +1,4 @@
+import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
@@ -14,7 +15,7 @@ import { getBookPreface } from '../data/bookPrefaces'
 import { LabChapterEnd } from './LabChapterEnd'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import {
   applyNarrationPilotFlag,
   ensureNarration,
@@ -1660,7 +1661,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // unused second book alongside the chapter when Compare is disabled.
   const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
+  const [crossSelecting, setCrossSelecting] = useState<ChapterSelectionPart[] | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -1702,6 +1704,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       || next.length === 0
     ) return
     setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+    if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('NATIVE_MAP', JSON.stringify({layout: readerStateRef.current, incoming: incoming.slice(0,5), next: next.slice(0,5), current:readingPagesRef.current.slice(0,5), keep:pageAnchorRef.current}))
     const current = readingPagesRef.current
     const working = workingPagesRef.current
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
@@ -2208,6 +2211,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (labPageFitsPaint(painted)) return
 
       const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
+      if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('PAINT_SHRINK', JSON.stringify({pageIdx,painted,before:pages.slice(0,5),after:next.slice(0,5)}))
       if (sameChapterPages(next, pages)) return
       lastAdjustRef.current = 'peel'
       workingPagesRef.current = next
@@ -2619,10 +2623,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const applyNextOpeningPages = useCallback((pages: ChapterHearingPage[], content: string[], key: string) => {
     setNextOpeningPage(pages[0] ? { key, paragraphs: content, page: pages[0], continuation: pageAnchorOf(pages[1]) } : null)
   }, [])
+  const goNextRef = useRef<() => void>(() => {})
+  const [carriedEnding, setCarriedEnding] = useState<{
+    bookId: string; editionKey: string; targetChapter: number; layoutKey: string; width: number; height: number;
+    title: string; chapterNumber: number; paragraphs: string[]; page: ChapterHearingPage; previousAnchor: {paragraphIndex:number;wordIndex:number} | null;
+    folio: number; chapterEnd: ReactNode; onPrimer: () => void;
+  } | null>(null)
+  const carriedEndingCurrent = desktopSpread && carriedEnding?.bookId === (book.bookId || 'bible')
+    && carriedEnding.editionKey === readerEditionKey && carriedEnding.targetChapter === book.chapterNumber
+    && carriedEnding.layoutKey === `${readerLayoutKey}:${fullscreen}` && carriedEnding.width === window.innerWidth && carriedEnding.height === window.innerHeight
+    ? carriedEnding : null
+  const openingOnRight = Boolean(carriedEndingCurrent && readingPageIndex === 0)
   const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
   const nextOpeningLayoutKey = `${desktopLayoutKey}:next:${nextOpeningKey ?? ''}`
   const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
-    && readingPages.length > 0 && readingPageIndex >= readingPages.length - 1
+    && !openingOnRight && readingPages.length > 0 && readingPageIndex >= readingPages.length - 1
     && (nextOpeningPage.continuation || nextLabChapter(book.chapters, nextChapterNumber!) != null)
     ? { title: nextOpeningCurrent.title, chapterNumber: nextChapterNumber!, paragraphs: nextOpeningCurrent.paragraphs, page: nextOpeningPage.page }
     : undefined
@@ -2798,7 +2813,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
           && follow.wordIndex < page.to && follow.wordIndex >= page.from
-        : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
+        : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
       if (followAlreadyVisible) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
@@ -2816,7 +2831,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
-        : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
+        : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
       if (followAlreadyVisible) return
       setReadingPageIndex((current) => {
         const next = pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
@@ -2828,13 +2843,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         return next === current ? current : next
       })
     }
-  }, [listen.follow, listen.pending, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, listen.clipIndex, listen.currentTime])
+  }, [listen.follow, listen.pending, readingPages, readingPageIndex, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.clipIndex, listen.currentTime])
 
   useEffect(() => {
     if (!showHearing || listen.pending || !listen.playing || browseWhileListeningRef.current) return
     const follow = listen.follow
     if (follow.kind !== 'word' && follow.kind !== 'paragraph') return
-    if (!showPhoneChrome && (followOnReadingPage(follow, readingPages, readingPageIndexRef.current) || desktopSpread && followOnReadingPage(follow, readingPages, readingPageIndexRef.current + 1))) return
+    if (!showPhoneChrome && (followOnReadingPage(follow, readingPages, readingPageIndexRef.current) || desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndexRef.current + 1))) return
     const next = follow.kind === 'word'
       ? pageIndexForPlace(readingPages, follow.paragraphIndex, follow.wordIndex)
       : pageIndexForPlace(readingPages, follow.paragraphIndex, 0)
@@ -2844,7 +2859,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (anchor) pageAnchorRef.current = anchor
     readingPageIndexRef.current = next
     setReadingPageIndex(next)
-  }, [readingPages, showHearing, showPhoneChrome, desktopSpread, listen.pending, listen.playing, listen.follow])
+  }, [readingPages, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.pending, listen.playing, listen.follow])
 
   useEffect(() => {
     if ((book.bookId || 'bible') !== 'bible') return
@@ -3005,7 +3020,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
-      text: subject.text,
+      text: highlight?.groupText || subject.text,
       paragraphIndex: subject.paragraphIndex,
       startOffset: subject.fromWord,
       endOffset: subject.toWord,
@@ -3024,6 +3039,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       paragraphs,
     })
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
+
+  const selectAcrossChapters = (parts: ChapterSelectionPart[], x: number, y: number) => {
+    if(parts.length<2)return
+    const first=parts[0]
+    handleSelectRange(first.range,x,y,undefined,undefined,undefined,first)
+    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,homeMode:'main'}:current)
+    setPopupMode('main')
+    setCrossSelecting(null)
+  }
+  const crossChapterRange = (chapter: number) => (crossSelecting ?? selectionPopup?.chapterRanges)?.find(part=>part.chapterNumber===chapter)?.range
+  const selectionChapters: SelectionChapter[] = [
+    ...(openingOnRight && carriedEndingCurrent ? [{chapterNumber:carriedEndingCurrent.chapterNumber,chapterLabel:carriedEndingCurrent.title,paragraphs:carriedEndingCurrent.paragraphs}]:[]),
+    {chapterNumber:book.chapterNumber,chapterLabel:book.chapterLabel,paragraphs:readerParagraphs},
+    ...(nextChapterOpening ? [{chapterNumber:nextChapterOpening.chapterNumber,chapterLabel:nextChapterOpening.title,paragraphs:nextChapterOpening.paragraphs}]:[]),
+  ]
 
   useEffect(() => {
     if (!phoneAskOpen) setPhoneKeyboardOpen(false)
@@ -3334,7 +3364,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     setReaderLoadError('')
     setChapterCoverTitle(
-      landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
+      !preserveAudioSession && landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
         ? bibleBookOpeningTitle(loaded.chapters, number)
         : null,
     )
@@ -3363,6 +3393,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // page — on the book's final chapter too, where there is nothing to open.
     if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next == null) return false
+    if (nextChapterOpening?.chapterNumber === next && readingPage) {
+      setCarriedEnding({
+        bookId: book.bookId || 'bible', editionKey: readerEditionKey, targetChapter: next,
+        layoutKey: `${readerLayoutKey}:${fullscreen}`, width: window.innerWidth, height: window.innerHeight,
+        title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
+        previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
+        folio: bookPageEstimate.page, onPrimer: () => handleChapterChat('preview'),
+        chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => handleChapterChat('discuss')} />,
+      })
+    } else setCarriedEnding(null)
     void goToChapter(next, 'start', true)
     return true
   }
@@ -3468,7 +3509,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const working = workingPagesRef.current
     const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
-    const nextPage = desktopSpread ? (index + 2 < pages.length ? index + 2 : null) : adjacentPageIndex(pages.length, index, 1)
+    const nextPage = desktopSpread ? (index + (openingOnRight ? 1 : 2) < pages.length ? index + (openingOnRight ? 1 : 2) : null) : adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
       goToPage(nextPage)
       return
@@ -3489,7 +3530,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(target, 'start', continuation)
       else void goToChapter(target, 'start', false, continuation)
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage, openingOnRight])
+
+  goNextRef.current = goNext
 
   const goPrev = useCallback(() => {
     quietDesktopAfterTurn()
@@ -3522,12 +3565,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       goToPage(prevPage)
       return
     }
+    if (openingOnRight && carriedEndingCurrent) {
+      const {chapterNumber, previousAnchor} = carriedEndingCurrent
+      const target = previousAnchor ? chapterNumber : prevLabChapter(book.chapters, chapterNumber)
+      if (target != null) {
+        const move = listen.playing
+          ? browseToChapter(target, previousAnchor ? 'start' : 'end', previousAnchor ?? undefined)
+          : goToChapter(target, previousAnchor ? 'start' : 'end', false, previousAnchor ?? undefined)
+        // This is a backward landing, not an opening consumed on the next leaf.
+        void move.then(() => { consumedOpeningRef.current = null })
+      }
+      return
+    }
     const prev = prevLabChapter(book.chapters, book.chapterNumber)
     if (prev != null) {
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn])
+  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, openingOnRight, carriedEndingCurrent])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
@@ -3953,7 +4008,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // sign-in meant it replayed at the wrong moments and then never again.)
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
   const readerReady = readerLaidOut
-    && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs)
+    && (!measuredPaging || nativeMeasuredContent === readerParagraphs)
+    && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey)
   useEffect(() => {
     if (!readerReady) return
     markReaderLoadTrace('pagination_ready', { outcome: 'success' })
@@ -4084,7 +4140,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
-    && readingPageIndex + (desktopSpread ? 1 : 0) >= readingPages.length - 1
+    && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
@@ -4467,23 +4523,33 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
             /> : undefined}
             desktopSpread={desktopSpread}
+            selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}
+            onCrossChapterSelect={desktopSpread && !desktopCompareActive ? selectAcrossChapters : undefined}
+            onCrossChapterSelecting={setCrossSelecting}
           nextChapterOpening={showChapterEnd && nextChapterOpening ? {
               ...nextChapterOpening,
               highlights: highlightsApi.highlights,
-              selectingRange: selectionPopup?.range && selectionPopup.chapterNumber === nextChapterOpening.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null,
+              selectingRange: crossChapterRange(nextChapterOpening.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === nextChapterOpening.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null),
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
               onPrimer: () => handleChapterChat('prepare'),
             } : undefined}
-            nextReadingPage={desktopSpread ? readingPages[readingPageIndex + 1] : undefined}
+            previousChapterEnding={openingOnRight && carriedEndingCurrent ? {
+              ...carriedEndingCurrent, highlights: highlightsApi.highlights,
+              selectingRange: crossChapterRange(carriedEndingCurrent.chapterNumber) ?? (selectionPopup?.chapterNumber === carriedEndingCurrent.chapterNumber ? selectionPopup.range : null),
+              onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
+                chapterNumber: carriedEndingCurrent.chapterNumber, chapterLabel: carriedEndingCurrent.title, paragraphs: carriedEndingCurrent.paragraphs,
+              }),
+            } : undefined}
+            nextReadingPage={desktopSpread && !openingOnRight ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
             pageEndMarker={comparePageEndMarker}
             compare={desktopCompareActive && desktopCompareEnabled}
-            mode={showPhoneChrome && showHearing ? 'hearing' : 'reading'}
+            mode={!chromeV2 && showPhoneChrome && showHearing ? 'hearing' : 'reading'}
             follow={(showHearing && listen.playing && (chromeV2 || !browseWhileListening) || chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
             followParagraphs={listen.followParagraphs}
             clips={listen.clips}
@@ -4492,7 +4558,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             currentTime={listen.currentTime}
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
-            inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 ? (!showPhoneChrome || browseWhileListening) : !showPhoneChrome && !browseWhileListening)}
+            inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 || !showPhoneChrome && !browseWhileListening)}
             onSeekToWord={listen.playing ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.isPending() || listen.playing) listen.pause()
@@ -4515,7 +4581,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             keyboardSelection={chromeV2}
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
-            selectingRange={selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null}
+            selectingRange={crossChapterRange(book.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null)}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
@@ -4543,8 +4609,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               : undefined}
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
-            <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(bookPageEstimate.page)}</span></span>
-            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
+            <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(openingOnRight && carriedEndingCurrent ? carriedEndingCurrent.folio : bookPageEstimate.page)}</span></span>
+            <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : openingOnRight ? <span>{labPageFolio(bookPageEstimate.page)}</span> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
@@ -4840,6 +4906,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               }}
             ><b style={{ width: `${Math.max(0, Math.min(100, (listen.chapterTime / Math.max(1, listen.chapterDuration)) * 100))}%` }} /></i>
           </div>
+          <button type="button" data-testid="lab-audio-talk" aria-label="Talk about this book" onClick={handleTalk}><TalkIcon size={22} /></button>
           {chromeV2 && !listen.playing && !listen.pending && listen.narration.status !== 'error' && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
             onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
         </section>
@@ -5219,7 +5286,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
             } else if (selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey, selectionPopup.chapterNumber)
+              const created = selectionPopup.chapterRanges ? highlightsApi.addGroup(selectionPopup.chapterRanges,color,selectionPopup.editionKey)[0] : highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey, selectionPopup.chapterNumber)
               setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id } : current)
             }
           }}
@@ -5247,7 +5314,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
           onRequestNote={(color) => {
             if (!selectionPopup.existingHighlightId && selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey, selectionPopup.chapterNumber)
+              const created = selectionPopup.chapterRanges ? highlightsApi.addGroup(selectionPopup.chapterRanges,color ?? 'gold',selectionPopup.editionKey)[0] : highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey, selectionPopup.chapterNumber)
               setSelectionPopup(current => current ? {
                 ...current,
                 existingHighlightId: created.id,

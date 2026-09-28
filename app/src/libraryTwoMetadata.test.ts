@@ -3,8 +3,8 @@ import { bookMetadata, readingMinutes, readingTime } from '../public/lab/library
 
 it('uses the same approximate silent-reading estimate for covers and remaining time', () => {
   const book = { displayYear: '1818', wordCount: 66300 }
-  expect(bookMetadata(book, { compact: true })).toBe('1818 · ~6½h')
-  expect(bookMetadata(book, { percent: 50 })).toBe('1818 · ~3½ hours left')
+  expect(bookMetadata(book, { compact: true })).toBe('1818 · ~6.5h')
+  expect(bookMetadata(book, { percent: 50 })).toBe('1818 · ~3.5 hours left')
   expect(readingMinutes(book, 50)).toBe(195)
   expect(readingTime({ wordCount: 5100 })).toBe('~30 minutes to read')
 })
