@@ -15,9 +15,9 @@
     "verify-bundle": "node scripts/verify-bundle.cjs",
     "predeploy": "node scripts/check-deploy-source.cjs",
     "deploy": "npm run build && npm run verify-bundle && node scripts/check-deploy-source.cjs --head-only && bash -c 'set -a; [ -f .env ] && source .env; set +a; npx wrangler deploy'",
-    "build:android": "CAPACITOR=true vite build && npx cap sync android",
+    "build:android": "CAPACITOR=true vite build && node scripts/android/prepare-assets.mjs && npx cap sync android",
     "android:open": "npx cap open android",
-    "android:run": "CAPACITOR=true vite build && npx cap sync android && npx cap run android",
+    "android:run": "npm run build:android && npx cap run android",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
