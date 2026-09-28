@@ -6,7 +6,8 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928c';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928d';
+import { coverAsset } from './cover-assets.js?v=20260928d';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -99,7 +100,8 @@ function bindingFor(book) {
 // decoded public images only, never a personal shelf snapshot or reading data.
 const readyArtwork = new Map();
 function prepareArtwork(book) {
-  const key = book.cover || book.bookId;
+  const cover = coverAsset(book.bookId, book.cover);
+  const key = cover || book.bookId;
   if (!readyArtwork.has(key)) {
     const img = new Image();
     img.decoding = 'async';
@@ -107,7 +109,7 @@ function prepareArtwork(book) {
     const [estimatedName] = bindingFor(book);
     const texture = prepareTexture(estimatedName);
     const ready = (async () => {
-      if (book.cover) { img.src = book.cover; try { await img.decode(); } catch {} }
+      if (cover) { img.src = cover; try { await img.decode(); } catch {} }
       const tone = img.naturalWidth ? coverTone(img) : null;
       const [name, colour] = bindingFor(tone ? { ...book, tone } : book);
       await (name === estimatedName ? texture : prepareTexture(name));
@@ -134,10 +136,11 @@ function writeCache(table) {
 }
 
 function bookMarkup(b, i) {
+  const cover = coverAsset(b.bookId, b.cover);
   const [name, colour] = bindingFor(b);
   const texture = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
   return `
-    <button class="rt-b" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(b.cover)}')">
+    <button class="rt-b" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
       <span class="rt-shadow" aria-hidden="true"></span>
       <span class="rt-cast" aria-hidden="true"></span>
       <span class="rt-f rt-back"></span>
@@ -147,7 +150,7 @@ function bookMarkup(b, i) {
       <span class="rt-f rt-refl rt-refl-front"></span>
       <span class="rt-f rt-refl rt-refl-spine" style="background:${texture}var(--binding)"></span>
       <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" data-binding="${name}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
-      <span class="rt-f rt-front"><img src="${esc(b.cover)}" alt="" decoding="async" fetchpriority="${i === 0 ? 'high' : 'auto'}" draggable="false"></span>
+      <span class="rt-f rt-front"><img src="${esc(cover)}" alt="" decoding="async" fetchpriority="${i === 0 ? 'high' : 'auto'}" draggable="false"></span>
     </button>`;
 }
 
@@ -310,6 +313,9 @@ function wire(view, table, demo, keepBookId, options={}) {
     shown = index;
     view.dataset.current = b.bookId;
     options.onSelection?.({bookId:b.bookId});
+    // Public artwork only: the reader can warm the selected cover first without
+    // loading another library, reading private caches, or touching positions.
+    try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
     const set = () => {
       $('rt-title').textContent = b.title;
       $('rt-place').textContent = b.chapterLabel;
@@ -349,8 +355,16 @@ function wire(view, table, demo, keepBookId, options={}) {
 
   // Click a spine to bring that book out; click the chosen book to read on.
   let startX = null, startY = null, dragged = false;
-  row.addEventListener('click', e => {
-    const book = e.target.closest('.rt-b');
+  stage.addEventListener('click', e => {
+    if (e.target.closest('#rt-dots,.rt-hidden-nav')) return;
+    // Browsers can miss a visible spine in this preserve-3d stack and target
+    // the stage instead. Use the painted face's screen bounds for pointer taps;
+    // keep the real button target for keyboard activation.
+    const painted = e.detail ? books.find((book,i)=>{
+      const r=book.querySelector(i===current?'.rt-front':'.rt-spine').getBoundingClientRect();
+      return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
+    }) : null;
+    const book = painted || e.target.closest('.rt-b');
     if (!book || dragged) return;
     const i = +book.dataset.i;
     if (i === current) continueReading(); else select(i, true);
