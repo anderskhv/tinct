@@ -323,7 +323,10 @@ export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
     ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
   }
   (spec.lights||[]).forEach(([x,y],i)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha));
-  if(spec.water)waterPaint(ctx,scenePainting(img,id),spec.water,time,alpha,id==='odyssey');
+  if(spec.water){
+    if(id==='odyssey'||id==='crime-and-punishment')waterPaint(ctx,scenePainting(img,id),spec.water,time,alpha,id==='odyssey');
+    else movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha);
+  }
   if(spec.clouds)movingPaint(ctx,img,spec.clouds,time,alpha,true);
   (spec.branches||[]).forEach(p=>movingPaint(ctx,img,p,time,alpha,false,true));
   if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha,spec.pollenCount,spec.pollenSize);
