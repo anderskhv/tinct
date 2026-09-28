@@ -59,35 +59,22 @@ public class MainActivity extends BridgeActivity {
 
     }
 
-    /**
-     * Intercept hardware key events (Boox page-turn buttons map to VOLUME keys).
-     */
+    /** Dedicated page keys use the reader's normal keyboard path. Volume stays volume. */
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            switch (event.getKeyCode()) {
-                case KeyEvent.KEYCODE_VOLUME_UP:
-                case KeyEvent.KEYCODE_PAGE_UP:
-                    getBridge().getWebView().evaluateJavascript(
-                        "window.dispatchEvent(new CustomEvent('tinct:page-nav', {detail:{direction:'prev'}}))",
-                        null
-                    );
-                    return true;
-                case KeyEvent.KEYCODE_VOLUME_DOWN:
-                case KeyEvent.KEYCODE_PAGE_DOWN:
-                    getBridge().getWebView().evaluateJavascript(
-                        "window.dispatchEvent(new CustomEvent('tinct:page-nav', {detail:{direction:'next'}}))",
-                        null
-                    );
-                    return true;
+        final int code = event.getKeyCode();
+        final boolean pageKey = code == KeyEvent.KEYCODE_PAGE_UP || code == KeyEvent.KEYCODE_PAGE_DOWN;
+        final WebView view = getBridge() == null ? null : getBridge().getWebView();
+        final String url = view == null ? null : view.getUrl();
+        final boolean reader = url != null && (url.contains("/reader") || url.contains("/lab/phone"));
+        if (pageKey && reader) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                String key = code == KeyEvent.KEYCODE_PAGE_UP ? "PageUp" : "PageDown";
+                view.evaluateJavascript(
+                    "(document.activeElement||document.body).dispatchEvent(new KeyboardEvent('keydown',{key:'"
+                    + key + "',bubbles:true,cancelable:true}))", null);
             }
-        }
-        if (event.getAction() == KeyEvent.ACTION_UP) {
-            switch (event.getKeyCode()) {
-                case KeyEvent.KEYCODE_VOLUME_UP:
-                case KeyEvent.KEYCODE_VOLUME_DOWN:
-                    return true;
-            }
+            return true;
         }
         return super.dispatchKeyEvent(event);
     }

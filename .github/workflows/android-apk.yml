@@ -35,6 +35,9 @@ jobs:
         run: npm run build:android
         env:
           CI: true
+      - run: npx playwright install --with-deps chromium
+      - name: Verify e-ink reader and library without provider calls
+        run: node scripts/android/check-eink.mjs
       - name: Compile installable review APK
         working-directory: app/android
         run: bash gradlew assembleDebug testDebugUnitTest --no-daemon

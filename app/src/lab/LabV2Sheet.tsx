@@ -1,3 +1,4 @@
+import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
 import { useEffect, useState, type ReactNode } from 'react'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
@@ -177,6 +178,12 @@ const TuneIcon = () => (
  * through it while a setting is being changed.
  */
 export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo }: LabV2SheetProps) {
+  const [eink, updateEink] = useState(readEinkProfile)
+  useEffect(() => {
+    const update = () => updateEink(document.documentElement.dataset.eink === 'true')
+    window.addEventListener('tinct:display-profile', update)
+    return () => window.removeEventListener('tinct:display-profile', update)
+  }, [])
   const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
@@ -268,15 +275,19 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   <button
                     key={theme}
                     type="button"
-                    className={`lab-v2-theme is-${theme}${prefs.theme === theme ? ' is-active' : ''}`}
+                    className={`lab-v2-theme is-${theme}${!eink && prefs.theme === theme ? ' is-active' : ''}`}
                     data-testid={`lab-v2-theme-${theme}`}
-                    aria-pressed={prefs.theme === theme}
-                    onClick={() => { window.dispatchEvent(new Event('tinct:appearance-reset')); onPrefs({ ...prefs, theme, darkMode: theme === 'dark' }) }}
+                    aria-pressed={!eink && prefs.theme === theme}
+                    onClick={() => { setEinkProfile(false); window.dispatchEvent(new Event('tinct:appearance-reset')); onPrefs({ ...prefs, theme, darkMode: theme === 'dark' }) }}
                   >
                     <span className="lab-v2-theme-face">Aa</span>
                     <span className="lab-v2-theme-label">{label}</span>
                   </button>
                 ))}
+                <button type="button" className={`lab-v2-theme is-eink${eink ? ' is-active' : ''}`} data-testid="lab-v2-theme-eink" aria-pressed={eink}
+                  onClick={() => { window.dispatchEvent(new Event('tinct:appearance-reset')); setEinkProfile(true); onPrefs({ ...prefs, theme:'light', darkMode:false }) }}>
+                  <span className="lab-v2-theme-face">Aa</span><span className="lab-v2-theme-label">E-ink</span>
+                </button>
               </div>
               <div className="lab-v2-size">
                 <span className="lab-v2-size-small" aria-hidden="true">A</span>
