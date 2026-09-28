@@ -6,8 +6,10 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928e';
-import { coverAsset } from './cover-assets.js?v=20260928e';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928f';
+import { coverAsset } from './cover-assets.js?v=20260928f';
+
+import {bookMetadata} from './book-metadata.js?v=20260928f';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -158,13 +160,20 @@ function markup(table) {
   return `
     <div class="rt-stage" id="rt-stage"><div class="rt-row" id="rt-row">${table.reading.map(bookMarkup).join('')}</div>
       <div class="rt-dots" id="rt-dots">${table.reading.map((b, i) => `<button data-i="${i}" aria-label="${esc(b.title)}"></button>`).join('')}</div>
+      <button type="button" class="rt-remove" id="rt-remove" aria-label="Remove book from currently reading" hidden>×</button>
       <button id="rt-prev" class="rt-hidden-nav" aria-label="Previous book" tabindex="-1"></button><button id="rt-next" class="rt-hidden-nav" aria-label="Next book" tabindex="-1"></button></div>
     <div class="rt-info"><div class="rt-fade" id="rt-info">
       <h1 id="rt-title"></h1>
+      <p class="rt-book-metadata" id="rt-book-metadata"></p>
       <p class="rt-meta"><span id="rt-place"></span><span id="rt-pct"></span></p>
       <div class="rt-recap" id="rt-recap-box"><div class="rt-quote"><small>Where you left off</small><p id="rt-recap"></p></div><button id="rt-more">Read more</button></div>
     </div>
-    <a class="rt-continue read-button" id="rt-continue" href="#">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></a></div>`;
+    <a class="rt-continue read-button" id="rt-continue" href="#">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></a></div>
+    <dialog class="rt-remove-dialog" id="rt-remove-dialog" aria-labelledby="rt-remove-heading">
+      <h2 id="rt-remove-heading">Remove from currently reading?</h2>
+      <p>Your saved place will be kept.</p>
+      <div><button type="button" id="rt-remove-cancel" autofocus>Keep book</button><button type="button" id="rt-remove-confirm">Remove</button></div>
+    </dialog>`;
 }
 
 export async function mountReadingTable({ hero, shelves, el }) {
@@ -214,7 +223,7 @@ export async function mountReadingTable({ hero, shelves, el }) {
 }
 
 /** The retained time-of-day table, sharing the shelf's account-safe loader. */
-export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summaryFor,onSelection,initial,enabled}) {
+export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summaryFor,onSelection,onRemoveReading,initial,enabled}) {
  let view=null,currentTable=null;
  function render(next){
   if(currentTable&&currentTable.reading.map(b=>b.bookId).join()===next.reading.map(b=>b.bookId).join()){
@@ -224,16 +233,16 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
   view?.dispose?.();view?.remove();currentTable={...next,reading:next.reading.map(b=>({...b}))};
   view=document.createElement('div');view.className='reading-table is-preparing';view.innerHTML=markup(currentTable);hero.append(view);
   view.api=summaryFor?{summaryFor}:null;
-  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection}).then(()=>{if(active.isConnected)active.classList.replace('is-preparing','is-ready');});
+  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading}).then(()=>{if(active.isConnected)active.classList.replace('is-preparing','is-ready');});
  }
  render(table);
  document.addEventListener('keydown',e=>{
-  if(!enabled()||e.defaultPrevented||!['ArrowLeft','ArrowRight'].includes(e.key)||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+  if(!enabled()||view.querySelector('dialog[open]')||e.defaultPrevented||!['ArrowLeft','ArrowRight'].includes(e.key)||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
   if(e.target!==document.body&&e.target!==document.documentElement&&!view.contains(e.target))return;
   if(e.target.closest?.('input,textarea,select,[contenteditable]'))return;
   e.preventDefault();view.querySelector(e.key==='ArrowRight'?'#rt-next':'#rt-prev').click();
  });
- return {update(next){if(next.reading.length){view.hidden=false;render(next);}},focus(){},get selected(){return view?.dataset.current;}};
+ return {update(next){if(next.reading.length){view.hidden=false;render(next);}else{view.dispose?.();view.hidden=true;currentTable=null;}},focus(){},get selected(){return view?.dataset.current;}};
 }
 
 function wire(view, table, demo, keepBookId, options={}) {
@@ -245,13 +254,40 @@ function wire(view, table, demo, keepBookId, options={}) {
   const dots = [...view.querySelectorAll('#rt-dots button')];
   let turn = 1, H = 0, stageW = 0, summaryTimer = null, swapTimer = null, shown = -1;
 
+  const remove = view.querySelector('#rt-remove'), dialog = view.querySelector('#rt-remove-dialog');
+  let removeFrame=0;
+  function positionRemove(animate=false){
+    cancelAnimationFrame(removeFrame);
+    if(!options.onRemoveReading)return;
+    remove.hidden=false;
+    const until=performance.now()+(animate&&!reduced?900:0);
+    const move=()=>{
+      if(!view.isConnected)return;
+      const bounds=stage.getBoundingClientRect(),cover=books[current].querySelector('.rt-front').getBoundingClientRect();
+      remove.style.left=Math.max(0,Math.min(bounds.width-36,cover.right-bounds.left-18))+'px';
+      remove.style.top=Math.max(0,cover.top-bounds.top-18)+'px';
+      if(performance.now()<until)removeFrame=requestAnimationFrame(move);
+    };
+    move();
+  }
+  remove.onclick=e=>{e.stopPropagation();dialog.dataset.book=table.reading[current].bookId;dialog.showModal();};
+  dialog.addEventListener('click',e=>{e.stopPropagation();if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+  view.querySelector('#rt-remove-cancel').onclick=()=>dialog.close();
+  dialog.addEventListener('close',()=>remove.focus({preventScroll:true}));
+  view.querySelector('#rt-remove-confirm').onclick=async e=>{
+    const button=e.currentTarget;button.disabled=true;
+    try{await options.onRemoveReading(dialog.dataset.book);if(dialog.open)dialog.close();requestAnimationFrame(()=>(document.querySelector('.reading-table:not([hidden]) #rt-continue')||document.querySelector('#read-featured'))?.focus({preventScroll:true}));}
+    catch{dialog.close();options.onError?.('Could not remove this book. Please try again.');}
+    finally{button.disabled=false;}
+  };
+
   /** Book height from the stage, with headroom for the bookmark; the row stands on the stage's floor. */
   function fit() {
     const r = stage.getBoundingClientRect();
     if (!r.height) return;
     const desk = innerWidth >= 900;
     const next = Math.round(Math.max(130, Math.min(desk ? 352 : 240, r.height / 1.36, r.width * (desk ? 0.44 : 0.39) * 1.5)));
-    if (next === H && Math.abs(r.width - stageW) < 2) return;
+    if (next === H && Math.abs(r.width - stageW) < 2) { positionRemove(); return; }
     H = next;
     stageW = r.width;
     view.style.setProperty('--bh', `${H}px`);
@@ -297,6 +333,7 @@ function wire(view, table, demo, keepBookId, options={}) {
       book.tabIndex = chosen ? 0 : -1;
     });
     dots.forEach((dot, i) => { dot.classList.toggle('active', i === current); dot.setAttribute('aria-pressed', String(i === current)); });
+    positionRemove(!instant);
   }
 
   function select(index, byUser) {
@@ -318,6 +355,8 @@ function wire(view, table, demo, keepBookId, options={}) {
     try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
     const set = () => {
       $('rt-title').textContent = b.title;
+      $('rt-book-metadata').textContent = bookMetadata(b,{percent:b.percent});
+      remove.setAttribute('aria-label',`Remove ${b.title} from currently reading`);
       $('rt-place').textContent = b.chapterLabel;
       $('rt-pct').textContent = percentLabel(b.percent);
       setRecap(b.recap || `${b.headline}.`);
@@ -356,6 +395,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   // Click a spine to bring that book out; click the chosen book to read on.
   let startX = null, startY = null, dragged = false;
   stage.addEventListener('click', e => {
+    if(e.target.closest('.rt-remove'))return;
     if (e.target.closest('#rt-dots,.rt-hidden-nav')) return;
     // Browsers can miss a visible spine in this preserve-3d stack and target
     // the stage instead. Use the painted face's screen bounds for pointer taps;
@@ -370,7 +410,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     if (i === current) continueReading(); else select(i, true);
   });
   // Swipe (touch or mouse drag) moves by as many books as the gesture covers.
-  stage.addEventListener('pointerdown', e => { startX = e.clientX; startY = e.clientY; dragged = false; }, { passive: true });
+  stage.addEventListener('pointerdown', e => { if(e.target.closest('.rt-remove'))return;startX = e.clientX; startY = e.clientY; dragged = false; }, { passive: true });
   stage.addEventListener('pointermove', e => { if (startX !== null && Math.abs(e.clientX - startX) > 8) dragged = true; }, { passive: true });
   stage.addEventListener('pointerup', e => {
     if (startX === null) return;
@@ -397,7 +437,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   $('rt-more').onclick = () => { const open = $('rt-recap-box').classList.toggle('open'); $('rt-more').textContent = open ? 'Show less' : 'Read more'; };
   // Arrow keys belong to the focused reading table, never to a dialog above it.
   view.addEventListener('keydown', e => {
-    if (e.defaultPrevented || e.target.closest?.('input,textarea,select,[contenteditable]')) return;
+    if (dialog.open || e.defaultPrevented || e.target.closest?.('input,textarea,select,[contenteditable]')) return;
     if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
     e.preventDefault();
     select(current + (e.key === 'ArrowRight' ? 1 : -1), true);
@@ -421,7 +461,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   if(observer)observer.observe(stage);else addEventListener('resize',fit);
   fit();select(current,false);
   view.refresh=()=>{shown=-1;select(current,false);};
-  view.dispose=()=>{observer?.disconnect();removeEventListener('resize',fit);clearTimeout(summaryTimer);clearTimeout(swapTimer);};
+  view.dispose=()=>{cancelAnimationFrame(removeFrame);if(dialog.open)dialog.close();observer?.disconnect();removeEventListener('resize',fit);clearTimeout(summaryTimer);clearTimeout(swapTimer);};
   // A distant spine must not hold the selected book behind a loading screen.
   return artwork[current]||Promise.resolve();
 }

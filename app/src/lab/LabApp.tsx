@@ -3541,7 +3541,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const direction = labKeyboardPageDirection(event.key)
       if (direction == null) return
       const target = event.target as HTMLElement | null
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.closest('button,a,summary,[role=button],[role=slider]') || target.isContentEditable)) return
+      if (target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.closest('button,a,summary,[role=button],[role=slider]') || target.isContentEditable)) return
       event.preventDefault()
       if (direction > 0) goNext()
       else goPrev()
@@ -4122,7 +4122,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const commandOverlay = gearOpen || tocOpen || inTheBookOpen || speedPopoverOpen
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
   const canReadCommand = () => !initialResolving && !frontispieceVisible && !temporaryHold
-  const canTurnCommand = () => canReadCommand() && !phoneAskOpen && !desktopAskOpen && !callOpen
+  const canTurnCommand = () => !initialResolving && !temporaryHold && !prefaceVisible && !phoneAskOpen && !desktopAskOpen && !callOpen
   const editionCommand = (kind: string) => bookEditions.find(e => e.key === `${kind}-en`)
   useDesktopCommands({
     blocked: () => commandOverlay || prefaceVisible || initialResolving || Boolean(temporaryHold),

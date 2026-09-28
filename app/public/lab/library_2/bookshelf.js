@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928e';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928e';
-import { createBookshelf } from './bookshelf-view.js?v=20260928e';
-import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928e';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928f';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928f';
+import { createBookshelf } from './bookshelf-view.js?v=20260928f';
+import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928f';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
@@ -19,6 +19,15 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   if(!view)view=(shelfStudy?createBookshelf:createReadingTable)(shelfStudy?root:hero,{table,catalogue,saved,prepareCover,initial:sample?null:shelfStudy?readVisit()?.shelf:{bookId:readVisit()?.tableBook},
    onSelection:state=>{if(!sample)rememberVisit(shelfStudy?{shelf:state}:{tableBook:state.bookId});},enabled:()=>enabled()&&html.classList.contains('returning'),
    summaryFor:sample?null:(id,options)=>api.summaryFor(id,options),onError:notice,
+   onRemoveReading:async id=>{
+    if(sample){table={...table,reading:table.reading.filter(b=>b.bookId!==id)};present();return;}
+    await resumeReady;
+    await api.hideFromReadingNow(id);
+    table={...table,reading:table.reading.filter(b=>b.bookId!==id)};
+    present();
+    // Hide synchronously from the current view, then reconcile account data.
+    ready=load(true);
+   },
    onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(table,saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
    onOpen:async(id,shelf,img)=>{
     if(shelf==='reading'&&!sample){await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader')throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}
@@ -47,7 +56,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    resumeReady=sample?readingApi().then(api=>({api,table:DEMO})):resolveReadingTable(refresh);
    const result=await resumeReady;
    api=result.api;await catalogueReady;
-   if(sample){saved=['candide','jane-eyre'];table={...DEMO,reading:DEMO.reading.map(b=>({...b,author:catalogue.find(c=>c.id===b.bookId)?.author||''}))};}
+   if(sample){saved=['candide','jane-eyre'];table={...DEMO,reading:DEMO.reading.map(b=>({...b,author:catalogue.find(c=>c.id===b.bookId)?.author||'',displayYear:catalogue.find(c=>c.id===b.bookId)?.displayYear||'',wordCount:catalogue.find(c=>c.id===b.bookId)?.wordCount??b.wordCount}))};}
    else table=result.table;
    // A cloud shelf sync is independent of painting the books already on device.
    present();
@@ -68,3 +77,4 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  ready=load();
  return {show:()=>{if(view||api){show(table.reading.length?'reading':saved.length?'later':'finished');(shelfStudy?root:hero).scrollIntoView({block:'start'});}else ready=load();}};
 }
+
