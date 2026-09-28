@@ -59,7 +59,11 @@ for(const engine of [chromium,webkit]) {
   })
   await page.addInitScript(()=>{
     window.__tinctKeyTrace=[];window.addEventListener('keydown',e=>{window.__tinctKeyTrace.push({key:e.key,target:e.target?.tagName,path:e.composedPath().map(n=>n.tagName).filter(Boolean),open:document.documentElement.dataset.tinctCommandsOpen,blocked:window.__tinctDesktopCommands?.blocked()});window.__tinctKeyTrace=window.__tinctKeyTrace.slice(-16);},true);
-    if(navigator.mediaDevices)Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{window.__tinctMicAttempts=(window.__tinctMicAttempts||0)+1;throw Error('Silent acceptance: microphone unavailable')}})
+    // Replace the navigator getter so both browser engines use the same silent
+    // microphone boundary, including their native audio-session prerequisite.
+    const mediaDevices={getUserMedia:async()=>{window.__tinctMicAttempts=(window.__tinctMicAttempts||0)+1;throw Error('Silent acceptance: microphone unavailable')}}
+    Object.defineProperty(navigator,'mediaDevices',{configurable:true,get:()=>mediaDevices})
+    Object.defineProperty(navigator,'audioSession',{configurable:true,value:{type:'auto'}})
     HTMLMediaElement.prototype.play=async function(){this.muted=true}
   })
   try {

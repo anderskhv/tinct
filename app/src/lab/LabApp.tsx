@@ -3541,7 +3541,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const direction = labKeyboardPageDirection(event.key)
       if (direction == null) return
       const target = event.target as HTMLElement | null
-      if (target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.closest('button,a,summary,[role=button],[role=slider]') || target.isContentEditable)) return
+      if (target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT' || target.closest('[role=slider]') || target.isContentEditable)) return
+      // Space activates a focused control. Arrow/Page keys still turn the
+      // reader after a transport button was clicked, matching existing use.
+      if (event.key === ' ' && target instanceof HTMLElement && target.closest('button,a,summary,[role=button]')) return
       event.preventDefault()
       if (direction > 0) goNext()
       else goPrev()
@@ -5326,4 +5329,3 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 }
 
 export default LabApp
-
