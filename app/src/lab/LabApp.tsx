@@ -3345,7 +3345,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     setReaderLoadError('')
     setChapterCoverTitle(
-      landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
+      !preserveAudioSession && landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
         ? bibleBookOpeningTitle(loaded.chapters, number)
         : null,
     )
@@ -4883,6 +4883,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               }}
             ><b style={{ width: `${Math.max(0, Math.min(100, (listen.chapterTime / Math.max(1, listen.chapterDuration)) * 100))}%` }} /></i>
           </div>
+          <button type="button" data-testid="lab-audio-talk" aria-label="Talk about this book" onClick={handleTalk}><TalkIcon size={22} /></button>
           {chromeV2 && !listen.playing && !listen.pending && listen.narration.status !== 'error' && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
             onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
         </section>

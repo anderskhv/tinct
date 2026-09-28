@@ -253,6 +253,12 @@ export function SelectionPopup({
   useEffect(() => {
     const outside = (event: PointerEvent) => {
       if (popupRef.current?.contains(event.target as Node)) return
+      // A desktop reader drag is a new selection, not an accidental click
+      // through a dismissing overlay. Let that same gesture select its text.
+      if (event.pointerType === 'mouse' && (event.target as Element)?.closest('.lab-passage .lab-hearing-line')) {
+        dismissRef.current()
+        return
+      }
       event.preventDefault(); event.stopImmediatePropagation()
       // Keep swallowing the initiating gesture after this popup unmounts.
       // Pointerdown alone does not suppress touchend or a subsequent click.
@@ -295,6 +301,7 @@ export function SelectionPopup({
       className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-explain-edge={explainPlacement.edge}
       data-explain-side={selection.x < window.innerWidth / 2 ? 'right' : 'left'}
+      data-explain-origin={selection.x < window.innerWidth / 2 ? 'left' : 'right'}
       data-popup-mode={popupMode}
       data-popup-home={homeMode}
       style={{

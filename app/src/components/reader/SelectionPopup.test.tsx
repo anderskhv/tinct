@@ -255,3 +255,21 @@ it('classifies a capitalized dictionary hit before choosing the card, preserving
   expect(screen.queryByTestId('popup-contextual-character')).toBeNull()
   expect(screen.queryByText('A generated definition.')).toBeNull()
 })
+
+it('lets a fresh mouse drag select reader text while dismissing an older popup', () => {
+  const beginSelection = vi.fn()
+  const input = props({ lab: true })
+  render(<><article className="lab-passage"><p className="lab-hearing-line" onPointerDown={beginSelection}>New passage</p></article><SelectionPopup {...input} /></>)
+  const event = new Event('pointerdown', { bubbles: true, cancelable: true })
+  Object.defineProperty(event, 'pointerType', { value: 'mouse' })
+  fireEvent(screen.getByText('New passage'), event)
+  expect(input.dismissPopup).toHaveBeenCalledOnce()
+  expect(beginSelection).toHaveBeenCalledOnce()
+  expect(event.defaultPrevented).toBe(false)
+})
+
+it('retains the source page for an expanded explanation', () => {
+  const input = props({ lab: true, popupMode: 'explain', selection: selection({ x: window.innerWidth - 100 }), onRequestExplanation: vi.fn().mockResolvedValue('A short explanation.') })
+  const { container } = render(<SelectionPopup {...input} />)
+  expect(container.querySelector('[data-explain-origin="right"]')).toBeTruthy()
+})

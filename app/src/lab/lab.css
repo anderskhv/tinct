@@ -7611,7 +7611,7 @@
 .lab[data-chrome-version="v2"] .lab-contextual-explain { position: relative; }
 @media (min-width: 769px) {
   .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain:has(.is-expanded) { left: calc(50vw + 12px) !important; right: 12px !important; }
-  .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain[data-explain-side="left"]:has(.is-expanded) { left: 12px !important; right: calc(50vw + 12px) !important; }
+  .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain[data-explain-origin="left"]:has(.is-expanded) { left: 12px !important; right: calc(50vw + 12px) !important; }
 }
 
 .lab[data-chrome-version="v2"] .lab-selection-hint {
@@ -7760,7 +7760,7 @@
   top:90px!important; width:calc(50vw - 88px); max-width:calc(50vw - 88px); right:auto!important;
   left:calc(50vw + 24px)!important; max-height:calc(100dvh - 122px);
 }
-.lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-contextual-explain[data-explain-side="left"]:has(.is-expanded) { left:64px!important; right:auto!important; }
+.lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-contextual-explain[data-explain-origin="left"]:has(.is-expanded) { left:64px!important; right:auto!important; }
 
 /* Definitions use the headword itself as the draggable title. */
 .lab[data-chrome-version="v2"] .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
@@ -7862,4 +7862,54 @@
 .lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-passage.is-reading,
 .lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-passage.is-reading {
   padding-bottom: 0.5rem; overflow-y: hidden;
+}
+
+/* Desktop companions start compact; explicit user resizing still wins inline. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
+  width:min(390px,calc(100vw - 48px));
+  height:min(640px,calc(100dvh - 132px));
+}
+.lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-ask.is-desktop-companion[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-voice-panel[data-reader-window] {
+  background:#e9e1ce; backdrop-filter:none; -webkit-backdrop-filter:none;
+}
+/* Keep keyboard resizing discoverable on focus, without a permanent corner mark. */
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-resize]::after { content:none; }
+.lab.is-desktop[data-chrome-version="v2"] [data-reader-window-resize]:focus-visible { outline:2px solid currentColor; outline-offset:-4px; }
+.lab .lab-chapter-progress.is-interactive,
+.lab .lab-chapter-progress.is-interactive:hover,
+.lab .lab-chapter-progress.is-interactive:active {
+  background:transparent; -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent;
+}
+.lab .lab-chapter-progress.is-interactive::selection { background:transparent; }
+.lab[data-chrome-version="v2"]:not(.is-night) {
+  --highlight-gold:#dcca98; --highlight-rose:#dbb8af; --highlight-sage:#bac69f;
+  --highlight-sky:#b6c9ce; --highlight-lavender:#c5bdd0;
+}
+/* Text-only book dividers use the same paper and ink as their reader. */
+.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) {
+  background:var(--lab-paper); color:var(--lab-ink);
+  --lab-cover-accent:var(--lab-ink-muted);
+}
+.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art))::before { border-color:var(--lab-border); }
+.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) .lab-chapter-cover-mark { display:none; }
+
+.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) .lab-chapter-cover-book {
+  color: var(--lab-ink);
+  outline: 0;
+  box-shadow: none;
+  gap: 1.5rem;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) h2 {
+  color: var(--lab-ink);
+  font-weight: 400;
+}
+.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) .lab-chapter-cover-rule {
+  height: 0;
+  width: 3rem;
+  margin: .5rem 0;
+  border-bottom: 0;
 }
