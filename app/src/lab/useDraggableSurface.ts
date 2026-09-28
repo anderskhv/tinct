@@ -14,7 +14,7 @@
  *
  * The geometry is pure and unit-tested; the hook is the DOM glue.
  */
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 /** Travel, in CSS px, before a press becomes a drag rather than a tap. */
 export const DRAG_SLOP = 4
@@ -77,6 +77,7 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
   const nodeRef = useRef<T | null>(null)
   const startRef = useRef<{ px: number; py: number; ox: number; oy: number; live: boolean } | null>(null)
   const movedRef = useRef(false)
+  const dragPointRef = useRef<SurfacePoint | null>(null)
 
   const measure = useCallback(() => {
     const node = nodeRef.current
@@ -115,7 +116,7 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
     if (!node || !enabled) return
   }, [enabled])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const node = nodeRef.current
     if (!node || !enabled) return
 
@@ -124,6 +125,7 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
       const box = node.getBoundingClientRect()
       startRef.current = { px: event.clientX, py: event.clientY, ox: box.left, oy: box.top, live: true }
       movedRef.current = false
+      dragPointRef.current = { x: box.left, y: box.top }
     }
 
     const onPointerMove = (event: PointerEvent) => {
@@ -139,9 +141,11 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
       }
       event.preventDefault()
       const box = node.getBoundingClientRect()
-      setPoint(clampToViewport({ x: start.ox + dx, y: start.oy + dy },
+      const next = clampToViewport({ x: start.ox + dx, y: start.oy + dy },
         { width: box.width, height: box.height },
-        { width: window.innerWidth, height: window.innerHeight }))
+        { width: window.innerWidth, height: window.innerHeight })
+      dragPointRef.current = next
+      setPoint(next)
     }
 
     const endDrag = (event: PointerEvent) => {
@@ -151,7 +155,9 @@ export function useDraggableSurface<T extends HTMLElement>(storageKey: string, e
       setDragging(false)
       try { node.releasePointerCapture(event.pointerId) } catch { /* jsdom */ }
       const box = node.getBoundingClientRect()
-      const free = clampToViewport({ x: box.left, y: box.top }, { width: box.width, height: box.height },
+      // Pointerup may precede React's last painted position in WebKit.
+      // Settle the actual drag coordinates, not an older DOM rectangle.
+      const free = clampToViewport(dragPointRef.current ?? { x: box.left, y: box.top }, { width: box.width, height: box.height },
         { width: window.innerWidth, height: window.innerHeight })
       const settled = dockEdges ? dockToViewport(free, box, { width: window.innerWidth, height: window.innerHeight }) : free
       setPoint(settled)

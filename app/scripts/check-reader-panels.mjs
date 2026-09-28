@@ -183,7 +183,9 @@ async function run(engine,name,phone) {
       const orb=page.getByTestId('lab-chat-orb')
       await orb.waitFor()
       assert((await orb.boundingBox()).width<=70)
-      await drag(page,orb,0,-1000)
+      const orbBefore=await orb.boundingBox()
+      // A real drag remains within the browser viewport in both engines.
+      await drag(page,orb,0,40-(orbBefore.y+orbBefore.height/2))
       assert.equal(Math.round((await orb.boundingBox()).y),8,'orb docks at the top')
       await drag(page,orb,-200,180)
       assert((await orb.boundingBox()).y>100,'orb can float freely')
