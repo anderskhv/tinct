@@ -141,7 +141,7 @@ html:not(.keyboard-nav) button:focus-visible,html:not(.keyboard-nav) a:focus-vis
 #library .hero-copy{bottom:calc(var(--bleed) + 34px)}
 #library .hero-dots{bottom:calc(var(--bleed) + 2px)}
 #library .hero-shade{background:linear-gradient(0deg,var(--bg) 0,#111610d9 calc(var(--bleed)*.45),#1116108c calc(var(--bleed) + 70px),transparent calc(var(--bleed) + 45%))}
-html #librarian-panel{top:0;bottom:0;height:auto;max-height:none}
+html #librarian-panel{top:var(--visual-top,0px);bottom:auto;height:var(--visual-height,100dvh);max-height:var(--visual-height,100dvh)}
 html.vv-keyboard #librarian-panel{top:var(--visual-top,0px);bottom:auto;height:var(--visual-height,100dvh);max-height:var(--visual-height,100dvh)}
 html #librarian-panel .orb-space{height:clamp(90px,15svh,140px);min-height:72px;margin-bottom:14px}}
 /* Approved Read button: a pill, matching the genre and reading-time pills. */

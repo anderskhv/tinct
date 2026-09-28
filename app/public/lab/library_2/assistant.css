@@ -12,7 +12,7 @@
 .library-search-results,.library-chat-thread{min-height:0;overflow:auto;padding:0 14px 16px;overscroll-behavior:contain}
 .library-chat-thread{display:flex;flex-direction:column;gap:14px;padding-top:16px}
 .library-chat-empty{margin:auto;padding:30px 24px;color:rgba(244,237,223,.72);font:italic 17px/1.5 Georgia,serif;text-align:center}
-.library-chat-turn{max-width:88%}
+.library-chat-turn{max-width:88%;min-width:0;flex-shrink:0;overflow-wrap:anywhere}
 .library-chat-turn.is-user{align-self:flex-end;padding:11px 14px;border-radius:17px 17px 4px 17px;background:rgba(255,255,255,.12)}
 .library-chat-turn>span{display:block;margin-bottom:5px;color:rgba(244,237,223,.58);font:500 10px/1 var(--lib-sans,system-ui);letter-spacing:.09em;text-transform:uppercase}
 .library-chat-turn p{margin:0;font:16px/1.48 Georgia,serif;white-space:pre-wrap}
