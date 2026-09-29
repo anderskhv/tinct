@@ -1,3 +1,5 @@
+import { isNativeCapacitor } from '../utils/nativePlatform'
+import { installNativeAuth } from '../utils/nativeAuth'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
@@ -9,13 +11,15 @@ function createSupabaseClient(): SupabaseClient | null {
     auth: {
       persistSession: true,
       autoRefreshToken: true,
-      detectSessionInUrl: true,
+      detectSessionInUrl: !isNativeCapacitor(),
+      ...(isNativeCapacitor() ? { flowType: 'pkce' as const } : {}),
       storage: typeof window !== 'undefined' ? window.localStorage : undefined,
     },
   })
 }
 
 export const supabase = createSupabaseClient()
+if (supabase && isNativeCapacitor()) void installNativeAuth(supabase).catch(() => { /* Starting sign-in retries and displays failure. */ })
 
 export function isSupabaseConfigured(): boolean {
   return supabase !== null

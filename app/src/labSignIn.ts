@@ -1,3 +1,4 @@
+import { authRedirectTo, startNativeOAuth, consumeNativeAuthNotice } from './utils/nativeAuth'
 import { safeLabReturnTo } from './lab/labSignInReturn'
 import {
   LAB_OAUTH_PENDING_KEY,
@@ -92,7 +93,7 @@ async function submitAuth(event: SubmitEvent) {
     } else if (mode === 'create') {
       const { data, error } = await supabase.auth.signUp({
         ...values,
-        options: { emailRedirectTo: `${location.origin}/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}` },
+        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}`) },
       })
       if (error) throw error
       if (data.session) {
@@ -104,7 +105,7 @@ async function submitAuth(event: SubmitEvent) {
       }
     } else if (mode === 'forgot') {
       const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-        redirectTo: `${location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(returnTo)}`,
+        redirectTo: await authRedirectTo(supabase, returnTo, 'reset', `${location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(returnTo)}`),
       })
       if (error) throw error
       setStatus('Password reset link sent. Check your email.', 'success')
@@ -192,6 +193,7 @@ async function signInWithProvider(button: HTMLElement) {
   rememberPendingProvider(provider)
   let failure: unknown = null
   try {
+    if (await startNativeOAuth(supabase, provider, returnTo)) { setBusy(false); return }
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: labOAuthRedirectTo(location.origin, returnTo) },
@@ -253,6 +255,9 @@ async function initialize() {
   // After setMode, which clears the status line.
   if (!data.session?.user) reportProviderReturnError()
   else rememberPendingProvider(null)
+  const nativeNotice = consumeNativeAuthNotice()
+  if (nativeNotice) setStatus(nativeNotice, 'error')
+  if (data.session?.user && initialParams.get('native-return') === '1') returnToLibrary()
   if (root) root.dataset.ready = 'true'
 }
 
