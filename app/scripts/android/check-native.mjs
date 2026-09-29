@@ -16,6 +16,7 @@ assert(device,'Android emulator is connected')
 device.setDefaultTimeout(60000)
 let page
 const stages=[]
+const acceptanceFailures=[]
 function stage(name){stages.push({name,time:new Date().toISOString()});console.log(JSON.stringify({nativeStage:name}))}
 try {
  stage('emulator-audio-setup')
@@ -37,6 +38,7 @@ try {
  await page.waitForTimeout(500)
  await device.screenshot({path:output+'/native-offline-library.png'})
  await device.screenshot({path:output+'/native-offline-library-device.png'})
+ console.log(JSON.stringify({nativeVisual:{name:'offline-library',jpeg:(await page.screenshot({type:'jpeg',quality:40,scale:'css'})).toString('base64')}}))
  stage('library-read')
  await page.locator('#read-featured').click()
  await page.locator('#book-overlay').waitFor()
@@ -70,6 +72,7 @@ try {
  await page.waitForFunction(before=>document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-place')!==before,before)
  const turnMs=Date.now()-started
  await device.screenshot({path:output+'/native-offline-reader.png'})
+ console.log(JSON.stringify({nativeVisual:{name:'offline-reader',jpeg:(await page.screenshot({type:'jpeg',quality:40,scale:'css'})).toString('base64')}}))
  await page.waitForTimeout(1500)
  const stored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  stage('force-close')
@@ -106,20 +109,39 @@ try {
   const launchResult=await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
   console.log(JSON.stringify({nativeIntentDispatch:String(launchResult).replace(/app\.tinct\.reader(?:\.review)?:\/\/[^\s]+/g,'[redacted callback]')}))
   if(cold)page=await(await device.webView({pkg:packageId})).page()
+  try{
   await page.locator('[data-auth-status]').filter({hasText:'Sign-in could not be completed. Please try again.'}).waitFor({timeout:60000})
   assert.equal(await page.evaluate(async()=> (await window.Capacitor.Plugins.NativeAuthStorage.get({key:'tinct:native-auth-pending'})).value??null),null,'callback is consumed once')
   assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','account access keeps the e-ink profile')
   const afterAuth=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
   assert.deepEqual(afterAuth,stored,'cancelled authentication retains reading data')
+  }catch(error){
+   const diagnostic=await page.evaluate(()=>({trace:window.__nativeAuthTrace,body:document.body.innerText.slice(0,800)}))
+   console.log(JSON.stringify({nativeAuthFailure:{cold,error:String(error),diagnostic}}))
+   acceptanceFailures.push({check:cold?'auth-cold-return':'auth-warm-return',error:String(error)})
+   // Clear only the fixture callback before checking independent capabilities.
+   await page.evaluate(async()=>{
+    await window.Capacitor.Plugins.NativeAuthStorage.remove({key:'tinct:native-auth-pending'})
+    sessionStorage.removeItem('tinct:native-auth-return')
+   })
+  }
  }
  await device.screenshot({path:output+'/native-auth-return.png'})
  stage('native-book-downloads')
  const downloaded=await checkNativeDownloads(device,page,output)
  page=downloaded.page
  stage('native-account-sync')
- page=await checkNativeSync(device,page,output)
+ try{page=await checkNativeSync(device,page,output)}catch(error){
+  acceptanceFailures.push({check:'native-account-sync',error:String(error)})
+  console.log(JSON.stringify({nativeAcceptanceFailure:acceptanceFailures.at(-1)}))
+ }
  stage('native-background-audio')
- const background=await checkBackgroundAudio(device,page,output)
+ let background
+ try{background=await checkBackgroundAudio(device,page,output)}catch(error){
+  acceptanceFailures.push({check:'native-background-audio',error:String(error)})
+  console.log(JSON.stringify({nativeAcceptanceFailure:acceptanceFailures.at(-1)}))
+ }
+ if(acceptanceFailures.length)throw new Error(JSON.stringify(acceptanceFailures))
  await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true,authWarmCancellation:true,authColdCancellation:true,realProviderSignIn:false,downloads:downloaded.result,background},null,2))
 } catch(error) {
  // These diagnostics run only in the isolated, signed-out emulator. No
@@ -145,7 +167,7 @@ try {
   deferred:!!sessionStorage.getItem('tinct:native-auth-return'),
   notice:!!localStorage.getItem('tinct:native-auth-notice'),
   body:document.body.innerText.slice(0,1200),
-  returnCheck:window.__nativeReturnCheck,launchCheck,
+  returnCheck:window.__nativeReturnCheck,launchCheck,nativeAuthTrace:window.__nativeAuthTrace,
   plugins:Object.keys(window.Capacitor?.Plugins||{}),
   resources:performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')).map(r=>({file:new URL(r.name).pathname,size:r.transferSize})),
  })}).catch(()=>({unavailable:true})):{noWebview:true}

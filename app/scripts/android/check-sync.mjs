@@ -52,6 +52,17 @@ export async function checkNativeSync(device, page, output) {
   }
   return route.abort()
  }
+ const diagnostics=[]
+ async function record(label){
+  const value=await page.evaluate(()=>({
+   clock:Date.now(),root:{...document.querySelector('.lab')?.dataset},
+   position:JSON.parse(localStorage.getItem('tinct-lab-position')||'null'),
+   dirty:localStorage.getItem('tinct-lab-position-dirty'),
+   online:navigator.onLine,visibility:document.visibilityState
+  }))
+  diagnostics.push({label,hostClock:Date.now(),...value,writes:[...writes]})
+  console.log(JSON.stringify({nativeSyncCheckpoint:diagnostics.at(-1)}))
+ }
  const previous=await page.evaluate(async authKey=>({local:{...localStorage},auth:await window.Capacitor.Plugins.NativeAuthStorage.get({key:authKey})}),authKey)
  async function attach(target){await target.route('**/*',route)}
  async function ready(){await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true',null,{timeout:60000});await page.evaluate(()=>document.fonts.ready)}
@@ -78,8 +89,10 @@ export async function checkNativeSync(device, page, output) {
   position={...position,books:{...position.books,zechariah:refreshed},lastSettledAt:refreshed.updatedAt,updatedAt:refreshed.updatedAt}
   await page.evaluate(()=>window.dispatchEvent(new Event('focus')))
   await page.waitForFunction(p=>document.querySelector('.lab')?.dataset.place===p.paragraphIndex+':'+p.wordIndex,refreshed,{timeout:30000})
+  await record('after-foreground-refresh')
   // A disconnected native page turn remains local and uploads after reconnect.
   if(await page.getByTestId('lab-chapter-cover').isVisible())await page.keyboard.press('ArrowRight')
+  await record('before-offline-navigation')
   offline=true
   const before=await page.getByTestId('lab-root').getAttribute('data-place')
   await device.shell('input keyevent 93')
@@ -87,6 +100,7 @@ export async function checkNativeSync(device, page, output) {
   await page.evaluate(()=>window.dispatchEvent(new Event('pagehide')))
   await page.waitForTimeout(1000)
   const offlinePosition=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')))
+  await record('after-offline-navigation')
   const expected=offlinePosition.books.zechariah
   assert(expected.updatedAt>refreshed.updatedAt,'offline navigation has its own reading timestamp')
   offline=false
@@ -113,6 +127,10 @@ export async function checkNativeSync(device, page, output) {
   await fs.writeFile(output+'/native-sync.json',JSON.stringify(result,null,2))
   console.log(JSON.stringify({nativeSync:result}))
   return page
+ }catch(error){
+  await record('failure').catch(()=>{})
+  await fs.writeFile(output+'/native-sync-diagnostics.json',JSON.stringify(diagnostics,null,2))
+  throw error
  }finally{
   await page.evaluate(async({authKey,previous})=>{
    localStorage.clear()

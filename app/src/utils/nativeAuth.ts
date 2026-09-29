@@ -5,6 +5,13 @@ import { NATIVE_AUTH_PENDING, NATIVE_AUTH_NOTICE, nativeAuthPending, nativeAuthR
 
 let installation: Promise<void> | null=null
 let handling=false
+function trace(stage:string,detail:Record<string,unknown>={}):void {
+ if(import.meta.env.VITE_NATIVE_AUTH_DIAGNOSTICS!=='1')return
+ const target=window as unknown as {__nativeAuthTrace?:unknown[]}
+ const history=target.__nativeAuthTrace??=[]
+ history.push({stage,time:Date.now(),path:window.location.pathname,...detail})
+ if(history.length>32)history.shift()
+}
 const DEFERRED_RETURN='tinct:native-auth-return'
 async function readPending():Promise<NativeAuthPending|null> {
   const saved=await nativeAuthStorage.getItem(NATIVE_AUTH_PENDING)
@@ -12,7 +19,11 @@ async function readPending():Promise<NativeAuthPending|null> {
 }
 /** PKCE returns only a short-lived code; tokens never enter app URLs or logs. */
 export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,appId:string):Promise<boolean> {
-  const result=parseNativeAuthReturn(raw,await readPending(),appId,Date.now())
+  trace('pending-read-start',{handling})
+  const pending=await readPending()
+  trace('pending-read-done',{present:!!pending,handling})
+  const result=parseNativeAuthReturn(raw,pending,appId,Date.now())
+  trace('return-parsed',{valid:!!result,error:result?.error,handling})
   if(!result || handling)return false
   handling=true
   // Stop the old reader before changing accounts. Exchanging on its mounted
@@ -20,11 +31,14 @@ export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,ap
   if(!['/lab/sign-in','/lab/sign-in/','/lab/sign-in/index.html'].includes(window.location.pathname)){
     sessionStorage.setItem(DEFERRED_RETURN,raw)
     const query=new URLSearchParams({returnTo:result.pending.returnTo})
+    trace('deferred-navigation')
     window.location.replace('/lab/sign-in/index.html?'+query)
     return true
   }
   // Claim once before exchanging: warm and cold launch events can both arrive.
+  trace('claim-start')
   await nativeAuthStorage.removeItem(NATIVE_AUTH_PENDING)
+  trace('claim-done')
   let failed=result.error
   try {
     if(!failed){
@@ -35,6 +49,7 @@ export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,ap
   if(failed)localStorage.setItem(NATIVE_AUTH_NOTICE,'Sign-in could not be completed. Please try again.')
   else localStorage.removeItem(NATIVE_AUTH_NOTICE)
   try {const {Browser}=await import('@capacitor/browser');await Browser.close()}catch{/* Returning to this activity already closes most custom tabs. */}
+  trace('landing-navigation',{failed})
   window.location.assign(nativeAuthLanding(result.pending,failed))
   handling=false
   return true
@@ -42,14 +57,19 @@ export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,ap
 export function installNativeAuth(client:SupabaseClient):Promise<void> {
   if(!isNativeCapacitor())return Promise.resolve()
   if(!installation)installation=(async()=>{
+    trace('install-start')
     const {App}=await import('@capacitor/app')
     const {id}=await App.getInfo()
+    trace('app-info')
     await App.addListener('appUrlOpen',event=>{void handleNativeAuthReturn(client,event.url,id)})
     const deferred=sessionStorage.getItem(DEFERRED_RETURN)
     sessionStorage.removeItem(DEFERRED_RETURN)
+    trace('deferred-read',{present:!!deferred})
     if(deferred)await handleNativeAuthReturn(client,deferred,id)
     const launch=await App.getLaunchUrl()
+    trace('launch-read',{present:!!launch?.url})
     if(launch?.url)await handleNativeAuthReturn(client,launch.url,id)
+    trace('install-done')
   })().catch(error=>{installation=null;throw error})
   return installation
 }

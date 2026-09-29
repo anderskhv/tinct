@@ -42,6 +42,7 @@ jobs:
         run: npm run build:android
         env:
           CI: true
+          VITE_NATIVE_AUTH_DIAGNOSTICS: '1'
       - run: npx playwright install --with-deps chromium
       - name: Verify e-ink reader and library without provider calls
         run: node scripts/android/check-eink.mjs
