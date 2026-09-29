@@ -82,7 +82,19 @@ try {
  for(const cold of [false,true]){
   stage(cold?'auth-cold-return':'auth-warm-return')
   const nonce=cold?'native-cold-0123456789':'native-warm-0123456789'
-  await page.evaluate(({packageId,nonce})=>localStorage.setItem('tinct:native-auth-pending',JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+60_000})),{packageId,nonce})
+  await page.evaluate(async({packageId,nonce})=>{
+   localStorage.setItem('tinct:native-auth-pending',JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+60_000}))
+   await window.Capacitor.Plugins.App.addListener('appUrlOpen',event=>{
+    const pending=JSON.parse(localStorage.getItem('tinct:native-auth-pending')||'null')
+    try{
+     const url=new URL(event.url),fragment=new URLSearchParams(url.hash.slice(1))
+     window.__nativeReturnCheck={protocol:url.protocol,host:url.hostname,path:url.pathname,
+      queryKeys:[...url.searchParams.keys()],fragmentKeys:[...fragment.keys()],
+      flowMatches:url.searchParams.get('flow')===pending?.nonce,appMatches:pending?.appId===packageId,
+      unexpired:pending?.expires>Date.now(),pendingPresent:!!pending}
+    }catch{window.__nativeReturnCheck={parseError:true}}
+   })
+  },{packageId,nonce})
   if(cold)await device.shell('am force-stop '+packageId)
   const callback=packageId+'://auth/callback?flow='+nonce+(cold?'&error=access_denied':'#error=access_denied')
   const launchResult=await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
@@ -108,6 +120,7 @@ try {
   deferred:!!sessionStorage.getItem('tinct:native-auth-return'),
   notice:!!localStorage.getItem('tinct:native-auth-notice'),
   body:document.body.innerText.slice(0,1200),
+  returnCheck:window.__nativeReturnCheck,
   plugins:Object.keys(window.Capacitor?.Plugins||{}),
   resources:performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')).map(r=>({file:new URL(r.name).pathname,size:r.transferSize})),
  })).catch(()=>({unavailable:true})):{noWebview:true}
