@@ -23,6 +23,10 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
  try{
  const context=await browser.newContext({viewport:{width,height},serviceWorkers:'block',reducedMotion:'reduce',...(engine===webkit?{isMobile:true,hasTouch:true}:{})})
  await context.addInitScript(()=>{
+  window.__introTrace=[]
+  const note=value=>{window.__introTrace.push({at:performance.now(),...value});if(window.__introTrace.length>80)window.__introTrace.shift()}
+  document.addEventListener('click',event=>note({event:'click',target:event.target?.id,tag:event.target?.tagName,path:event.composedPath().slice(0,5).map(n=>n.id||n.tagName)}),true)
+  new MutationObserver(records=>{for(const r of records)if(['book-shape','turning-cover','intro','slip-next'].includes(r.target.id))note({event:'mutation',id:r.target.id,key:r.attributeName,old:r.oldValue,value:r.target.getAttribute(r.attributeName)})}).observe(document,{subtree:true,attributes:true,attributeOldValue:true,attributeFilter:['style','hidden','aria-hidden']})
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices)navigator.mediaDevices.getUserMedia=async()=>{throw Error('Microphone disabled')}
  })
@@ -55,7 +59,7 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
   await page.waitForTimeout(300)
   const flapGeometry=await page.evaluate(()=>{
    const box=id=>{const r=document.getElementById(id).getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}}
-   return {flap:box('book-slip'),back:box('page-back'),next:box('slip-next'),compact:document.getElementById('book-shape').classList.contains('compact-book'),shape:getComputedStyle(document.getElementById('book-shape')).transform,cover:getComputedStyle(document.getElementById('turning-cover')).transform}
+   return {flap:box('book-slip'),back:box('page-back'),next:box('slip-next'),compact:document.getElementById('book-shape').classList.contains('compact-book'),shape:getComputedStyle(document.getElementById('book-shape')).transform,cover:getComputedStyle(document.getElementById('turning-cover')).transform,inlineShape:document.getElementById('book-shape').style.transform,inlineCover:document.getElementById('turning-cover').style.transform,active:document.activeElement?.id,trace:window.__introTrace}
   })
   console.log('FLAP_GEOMETRY '+JSON.stringify({engine:engine.name(),id,...flapGeometry}))
   if(flapGeometry.compact){assert(flapGeometry.next.y>=0&&flapGeometry.next.bottom<=height+2,'Continue stays in the viewport: '+id);assert(flapGeometry.flap.x>=-2&&flapGeometry.flap.right<=width+2,'Author flap fits viewport: '+id)}
@@ -73,7 +77,11 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
    for(let i=0;i<b64.length;i+=3000)console.log('REVIEW_CHUNK '+b64.slice(i,i+3000))
    console.log('REVIEW_END '+engine.name()+'-'+id+'-flap')
   }
-  if(await page.locator('#slip-next').isVisible())await page.locator('#slip-next').click()
+  if(await page.locator('#slip-next').isVisible()){
+   await page.locator('#slip-next').click()
+   try{await page.waitForFunction(()=>document.getElementById('intro').getAttribute('aria-hidden')==='false'&&document.getElementById('intro').style.pointerEvents==='auto',null,{timeout:5000})}
+   catch(error){console.log('INTRO_TRANSITION_FAILURE '+JSON.stringify({engine:engine.name(),id,screen:await page.evaluate(()=>({trace:window.__introTrace,intro:document.getElementById('intro').outerHTML.slice(0,180),shape:document.getElementById('book-shape').style.cssText,cover:document.getElementById('turning-cover').style.cssText,active:document.activeElement?.id}))}));await page.screenshot({path:out+'/'+engine.name()+'-'+id+'-transition-failure.png'});throw error}
+  }
   await page.locator('#begin-reading').waitFor()
   if(accepted){
    const paragraphs=await page.locator('#intro-body > p').allTextContents()
