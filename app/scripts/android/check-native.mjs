@@ -79,7 +79,9 @@ try {
  await device.shell('am force-stop '+packageId)
  await device.shell('am start -n '+activity)
  page=await(await device.webView({pkg:packageId})).page()
- await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
+ await page.locator('.reading-table.is-ready #rt-continue').waitFor()
+ await page.waitForFunction(()=>!document.documentElement.classList.contains('returning-pending'))
+ await page.evaluate(()=>document.fonts.ready)
  assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','e-ink mode survives restart into the library')
  const metaInk=await page.locator('.rt-meta').evaluate(n=>getComputedStyle(n).color)
  assert.equal(metaInk,'rgb(51, 51, 51)','returning-library metadata has dark e-ink contrast')
@@ -91,7 +93,7 @@ try {
  // provider: a matching cancellation must return visibly to the account UI.
  for(const cold of [false,true,true,true]){
   stage(cold?'auth-cold-return':'auth-warm-return')
-  const nonce=cold?'native-cold-0123456789':'native-warm-0123456789'
+  const nonce=(cold?'native-cold-':'native-warm-')+'0123456789-'+stages.length
   await page.evaluate(async({packageId,nonce})=>{
    await window.Capacitor.Plugins.NativeAuthStorage.set({key:'tinct:native-auth-pending',value:JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+15*60_000})})
    await window.Capacitor.Plugins.App.addListener('appUrlOpen',async event=>{
@@ -135,6 +137,8 @@ try {
  try{page=await checkNativeSync(device,page,output)}catch(error){
   acceptanceFailures.push({check:'native-account-sync',error:String(error)})
   console.log(JSON.stringify({nativeAcceptanceFailure:acceptanceFailures.at(-1)}))
+  // Sync exercises a real restart: recover the current WebView even on failure.
+  page=await(await device.webView({pkg:packageId})).page()
  }
  stage('native-background-audio')
  let background

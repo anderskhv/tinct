@@ -115,7 +115,8 @@ export async function checkNativeSync(device, page, output) {
   await device.shell('am start -n '+activity)
   page=await(await device.webView({pkg:packageId})).page()
   await attach(page)
-  await page.locator('#hero-book').waitFor({timeout:60000})
+  await page.locator('.reading-table.is-ready #rt-continue').waitFor({timeout:60000})
+  await page.waitForFunction(()=>!document.documentElement.classList.contains('returning-pending'))
   const persisted=await page.evaluate(async authKey=>{
    const stored=await window.Capacitor.Plugins.NativeAuthStorage.get({key:authKey})
    return {hasSession:!!stored.value,localCopy:localStorage.getItem(authKey),notes:localStorage.getItem('tinct-lab-highlights')}
