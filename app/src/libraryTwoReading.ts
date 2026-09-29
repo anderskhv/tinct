@@ -223,6 +223,7 @@ export async function readerDestination(bookId: string, preferredEdition?: strin
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const intent = {
     kind: 'open-reader',
+    resumeLatest: true,
     bookId,
     primaryEditionKey: edition,
     // A new reader has already met the book in the library's introduction, so
