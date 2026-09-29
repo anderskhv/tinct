@@ -1,16 +1,17 @@
+import {periodGroups,inPeriod,populatedShelves} from './browse-groups.js?v=20260928i';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
-import {readVisit,rememberVisit} from './visit.js?v=20260928h';
-import {mountHeroNavigation} from './hero-navigation.js?v=20260928h';
-import {mountBookshelf} from './bookshelf.js?v=20260928h';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260928h';
-import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928h';
-import {books} from './books.js?v=20260928h';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928h';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928h';
-import {categories,eras,metadata} from './taxonomy.js?v=20260928h';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928h';
-import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928h';
+import {readVisit,rememberVisit} from './visit.js?v=20260928i';
+import {mountHeroNavigation} from './hero-navigation.js?v=20260928i';
+import {mountBookshelf} from './bookshelf.js?v=20260928i';
+import {authorPortrait,warmPortrait} from './authors.js?v=20260928i';
+import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928i';
+import {books} from './books.js?v=20260928i';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928i';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928i';
+import {categories,eras,metadata} from './taxonomy.js?v=20260928i';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928i';
+import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928i';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -54,6 +55,7 @@ function coverButton(book,cls='book-card cover-button'){const b=el('button',cls)
 // The rest of the library: every discoverable book, shelved by house.
 loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e=>[e.id,e]));books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);});
+ libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();
  if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice!=='home')renderCollection();}).catch(()=>{});
 // Signature books: each has its own painted scene (assets/scene-<id>-{phone,wide}.jpg)
@@ -282,7 +284,7 @@ addEventListener('resize',()=>{if(panelRect)applyPanel(panelRect);});
 
 
 // Library navigation uses the same forms and eras as the main catalogue.
-let collectionChoice='home';
+let collectionChoice='home';let libraryHouses=[];
 function persistSaved(){const n=savedBooks.size+(window.__library2Reading?.reading?.length||0);$('saved-count').textContent=n?String(n):'';}
 function receiveSaved(ids){const merged=new Set(ids);for(const [id,p] of pendingSaves)p.saved?merged.add(id):merged.delete(id);ids=[...merged];savedBooks=new Set(ids);savedReady=true;persistSaved();updateSaveButton();all('.save-toggle').forEach(paintSaveToggle);dispatchEvent(new CustomEvent('library2:saved',{detail:ids}));}
 function updateSaveButton(){if(!activeBook)return;$('save-book').textContent=savedBooks.has(activeBook.id)?'✓ On your shelf':'＋ Add to shelf';$('save-book').setAttribute('aria-pressed',String(savedBooks.has(activeBook.id)));}
@@ -303,9 +305,24 @@ function renderMyBooks(){$('collection-title').textContent='My books';const grid
  let total=0;groups.forEach(([label,list,kind])=>{if(!list.length)return;total+=list.length;const h=el('h2','my-books-head',label);grid.append(h);list.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);if(kind==='reading'){const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;b.addEventListener('click',async e=>{e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});}card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});});
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';}
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
-function renderCollection(){const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';if(kind==='saved'){renderMyBooks();return;}if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}$('collection-title').textContent=title;const grid=$('collection-books');grid.replaceChildren();selected.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});$('collection-empty').hidden=selected.length>0;$('collection-empty').textContent=kind==='saved'?'Save books with “＋ Read later” to find them here.':'No books from this period or category in this ten-book preview yet.';}
-for(const c of categories){const b=el('button','',c.label);b.onclick=()=>selectCollection('category:'+c.id);$('menu-categories').append(b);}
-for(const e of eras){const b=el('button','',e.label);b.append(el('small','',e.range));b.onclick=()=>selectCollection('era:'+e.id);$('menu-periods').append(b);}
+function renderCollection(){const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';if(kind==='saved'){renderMyBooks();return;}if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
+if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
+if(kind==='period'){const period=periodGroups.find(p=>p.id===id);selected=period?books.filter(b=>inPeriod(b,period)):[];title=period?period.label+' · '+period.range:title;}$('collection-title').textContent=title;const grid=$('collection-books');grid.replaceChildren();selected.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});$('collection-empty').hidden=selected.length>0;$('collection-empty').textContent=kind==='saved'?'Save books with “＋ Read later” to find them here.':'No books in this group yet.';}
+function renderBrowseMenus(){
+ const add=(host,label,value,range,children)=>{
+  const row=el('div','browse-group'),b=el('button','',label);b.onclick=()=>selectCollection(value);
+  if(range)b.append(el('small','',range));row.append(b);
+  if(children.length){const details=el('details','browse-subgroups'),summary=el('summary','', 'Browse '+label);details.append(summary);
+   for(const child of children){const sub=el('button','',child.label);sub.onclick=()=>selectCollection(child.value);if(child.range)sub.append(el('small','',child.range));details.append(sub);}
+   row.append(details);
+  }host.append(row);
+ };
+ $('menu-categories').replaceChildren();$('menu-periods').replaceChildren();
+ for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id,null,populatedShelves(c.id,libraryHouses,books).map(s=>({label:s.title,value:'shelf:'+s.id})));}
+ for(const era of eras){if(!books.some(b=>metadata[b.id]?.era===era.id))continue;add($('menu-periods'),era.label,'era:'+era.id,era.range,periodGroups.filter(p=>p.era===era.id&&books.some(b=>inPeriod(b,p))).map(p=>({label:p.label,value:'period:'+p.id,range:p.range})));}
+ $('menu-periods').append(el('small','browse-date-note','Grouped by approximate composition dates; some works span several periods.'));
+}
+renderBrowseMenus();
 all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.collection));$('collection-back').onclick=()=>selectCollection('home');persistSaved();
 
 // Warm the optional artwork only after the landing page has finished loading.

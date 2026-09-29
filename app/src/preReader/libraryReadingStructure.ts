@@ -29,7 +29,7 @@ type SerializedEdition = SerializedBook['editions'][number]
  * (odyssey, the-republic, pride-and-prejudice…). The build already reads
  * these manifests to publish the reading structure, so it can simply say.
  */
-export type LibraryEditionWithShards = SerializedEdition & { chapterShards: boolean }
+export type LibraryEditionWithShards = SerializedEdition & { chapterShards: boolean; wordCount: number | null; readingStructure: LibraryReadingStructure | null }
 
 export type LibraryCatalogueWithStructure = SerializablePreReaderCatalogue & {
   books: Array<Omit<SerializedBook, 'editions'> & {
@@ -91,7 +91,11 @@ export function publishedWordCount(publicDirectory: string, bookId: string, edit
   const whole = path.join(publicDirectory, 'data', 'editions', `${bookId}-${editionKey}.json`)
   const directory = path.dirname(manifestPathFor(publicDirectory, bookId, editionKey))
   const files = hasChapterShards(publicDirectory,bookId,editionKey)
-    ? fs.readdirSync(directory).filter(name => name.endsWith('.json') && name !== 'manifest.json').map(name => path.join(directory,name))
+    ? (JSON.parse(fs.readFileSync(path.join(directory, 'manifest.json'), 'utf8')).chapters as Array<{path:string}>).map(chapter => {
+        const file=path.resolve(directory,chapter.path)
+        if (!file.startsWith(path.resolve(directory)+path.sep)) throw new Error('Invalid chapter shard path')
+        return file
+      })
     : fs.existsSync(whole) ? [whole] : []
   let total = 0
   const count = (value: unknown): void => {
@@ -122,6 +126,8 @@ export function addLibraryReadingStructures(
         editions: book.editions.map(item => ({
           ...item,
           chapterShards: hasChapterShards(publicDirectory, book.id, item.key),
+          wordCount: item.language !== 'da' && item.availability.chapterText ? publishedWordCount(publicDirectory, book.id, item.key) : null,
+          readingStructure: item.language !== 'da' && item.availability.chapterText ? readStructure(publicDirectory, book.id, item.key) : null,
         })),
         readingStructure: readStructure(publicDirectory, book.id, edition.key),
       }
