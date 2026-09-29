@@ -315,14 +315,15 @@ async function removeFromMyShelf(id){
 function renderMyBooks(){
  $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.replaceChildren();
  const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
- const reading=table.shelfReading||table.reading;
+ // Desk membership defines Currently reading, including older cached snapshots.
+ const reading=table.reading;
  const present=new Set([...reading,...table.finished].map(row=>row.bookId));
- const groups=[['Reading now',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['To read',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
+ const groups=[['Currently reading',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['Saved for later',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
   list.forEach(book=>{
-   const card=el('article','collection-card'),open=coverButton(book);
+   const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;
    const toggle=open.querySelector('.save-toggle');
    if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
    if(kind==='reading'){

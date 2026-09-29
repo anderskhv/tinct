@@ -41,6 +41,9 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  await p.route('**/reader',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>Handoff</title>'}));await p.locator('#rt-continue').click();await p.waitForURL('**/reader');const handoff=await p.evaluate(()=>JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')));assert.deepEqual(handoff.savedPlace,{bookId:'frankenstein',chapterNumber:7,page:4,paragraphIndex:11,wordIndex:23});
  // Removing the last book hides only its shelf entry, never its saved place.
  await p.goto('https://tinct.app/library');await p.locator('.reading-table.is-ready').waitFor();
+ await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
+ assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'reading');
+ await p.locator('#collection-back').click();
  const before=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')));
  await p.locator('#rt-remove').click();await p.locator('#rt-remove-dialog[open]').waitFor();
  await p.locator('#rt-remove-cancel').click();assert.equal(await p.locator('.rt-b').count(),1);
@@ -49,6 +52,11 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  const after=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')));
  assert.deepEqual(after.books,before.books);assert.deepEqual(after.finished,before.finished);
  assert.equal(after.lastSettledBookId,before.lastSettledBookId);assert.equal(after.lastSettledAt,before.lastSettledAt);assert(after.hidden.frankenstein>=before.books.frankenstein.updatedAt);
+ // The immediate view must stop calling this book Currently reading too.
+ await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
+ await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').waitFor();
+ assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'want');
+ assert.equal(await p.locator('#collection-books .my-books-head').first().innerText(),'Saved for later');
  await p.reload();await p.locator('#read-featured').waitFor();
  await p.waitForFunction(()=>window.__library2Reading&&window.__tinctLibraryTwoReading);
  assert.equal(await p.evaluate(()=>window.__library2Reading.reading.length),0);
@@ -60,6 +68,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  assert.equal(await p.locator('#collection-title').innerText(),'My shelf');
  const shelfRemove=p.locator('#collection-books .save-toggle[data-book="frankenstein"]');
  await shelfRemove.waitFor();assert.equal(await shelfRemove.innerText(),'×');
+ assert.equal(await shelfRemove.evaluate(n=>n.closest('article').dataset.shelfGroup),'want','desk removal stays outside Currently reading after reload');
+ assert.equal(await p.locator('#collection-books [data-shelf-group="reading"] .save-toggle[data-book="frankenstein"]').count(),0);
  await p.evaluate(()=>dispatchEvent(new CustomEvent('library2:saved',{detail:['frankenstein']})));
  assert.equal(await shelfRemove.innerText(),'×','saved refresh must not repaint the shelf remove as a plus/check');
  await p.screenshot({path:out+'/my-shelf-'+engine.name()+'.png'});

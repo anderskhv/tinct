@@ -24,7 +24,8 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     await resumeReady;
     await api.hideFromReadingNow(id);
     const retained=await api.loadSavedBooks();saved=retained.ids;onSaved(saved);
-    table={...table,reading:table.reading.filter(b=>b.bookId!==id)};
+    const reading=table.reading.filter(b=>b.bookId!==id);
+    table={...table,reading,shelfReading:reading};
     present();
     // Hide synchronously from the current view, then reconcile account data.
     ready=load(true);

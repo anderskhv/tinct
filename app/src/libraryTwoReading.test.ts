@@ -229,7 +229,7 @@ it('paints only the resolved viewer’s cached shelf while fresh cloud state is 
  expect(JSON.parse(localStorage.getItem('tinct:library-2-table:viewer-b')!)).toEqual({mode:'new',reading:[],finished:[],shelfReading:[]});
 })
 
-it('retains table removals on My shelf and honours shelf removals despite old reading history', async () => {
+it('excludes desk removals from all active-reading lists and honours shelf removals despite old reading history', async () => {
   calls.auth.mockResolvedValue({data:{session:null}})
   const positions = emptyLabPositionState('device-a', null)
   calls.localPositions.mockResolvedValue(positions)
@@ -243,7 +243,7 @@ it('retains table removals on My shelf and honours shelf removals despite old re
   const {loadReadingTable}=await import('./libraryTwoReading')
   const table=await loadReadingTable({catalogue:Promise.resolve({books})})
   expect(table.reading.map(book=>book.bookId)).toEqual(['crito'])
-  expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['frankenstein','crito'])
+  expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['crito'])
   expect(calls.readingList.mock.calls[0][0].positions.hidden).toEqual({})
   expect(calls.writePosition).not.toHaveBeenCalled()
 })
