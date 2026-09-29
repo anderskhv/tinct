@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { describe,it,expect } from 'vitest'
+import { describe,it,expect,vi } from 'vitest'
 import { nativeAuthPending,nativeAuthRedirect,parseNativeAuthReturn,nativeAuthLanding } from './nativeAuthReturn'
 const now=1_000_000,nonce='0123456789abcdef',id='app.tinct.reader.review'
 describe('native auth returns',()=>{
@@ -20,6 +20,23 @@ describe('native auth returns',()=>{
   ])expect(parseNativeAuthReturn(bad,p,id,now)).toBeNull()
   expect(parseNativeAuthReturn(url,p,id,p.expires)).toBeNull()
   expect(parseNativeAuthReturn(url,null,id,now)).toBeNull()
+ })
+ it('works on WebViews without custom-scheme authority parsing',()=>{
+  const URLBefore=globalThis.URL
+  class OldWebViewURL extends URLBefore {
+   constructor(raw:string,base?:string|URL){
+    if(raw.startsWith(id+':'))throw new Error('Custom authority unsupported')
+    super(raw,base)
+   }
+  }
+  vi.stubGlobal('URL',OldWebViewURL)
+  try {
+   const p=nativeAuthPending(id,nonce,'/reader','oauth',now)
+   expect(parseNativeAuthReturn(nativeAuthRedirect(p)+'&code=one-time-code',p,id,now)?.code).toBe('one-time-code')
+   expect(parseNativeAuthReturn(nativeAuthRedirect(p)+'#error=access_denied',p,id,now)?.error).toBe(true)
+   expect(parseNativeAuthReturn(id+':/auth/callback?flow='+nonce+'&code=x',p,id,now)).toBeNull()
+   expect(parseNativeAuthReturn(nativeAuthRedirect(p).replace('auth/','other.test/')+'&code=x',p,id,now)).toBeNull()
+  } finally {vi.unstubAllGlobals()}
  })
  it('does not accept implicit token URLs or empty callbacks',()=>{
   const p=nativeAuthPending(id,nonce,'/reader','oauth',now)

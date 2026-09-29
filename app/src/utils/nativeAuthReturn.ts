@@ -13,8 +13,13 @@ export function nativeAuthRedirect(pending: NativeAuthPending): string {
 export function parseNativeAuthReturn(raw: string, pending: NativeAuthPending | null, appId: string, now: number): {code:string; pending:NativeAuthPending; error:boolean} | null {
   if (!pending || pending.appId!==appId || !Number.isFinite(pending.expires) || pending.expires<=now) return null
   try {
-    const url=new URL(raw)
-    if(url.protocol!==appId+':' || url.hostname!=='auth' || url.pathname!=='/callback' || url.username || url.password || url.port || url.searchParams.get('flow')!==pending.nonce)return null
+    // Older Android WebViews expose a custom-scheme authority as part of
+    // pathname (host="", path="//auth/callback"). Validate the exact scheme
+    // first, then use the universally supported HTTPS authority parser.
+    const prefix=appId+'://'
+    if(!raw.startsWith(prefix))return null
+    const url=new URL('https://'+raw.slice(prefix.length))
+    if(url.hostname!=='auth' || url.pathname!=='/callback' || url.username || url.password || url.port || url.searchParams.get('flow')!==pending.nonce)return null
     const code=url.searchParams.get('code')??''
     const fragment=new URLSearchParams(url.hash.slice(1))
     if(fragment.has('access_token') || fragment.has('refresh_token'))return null
