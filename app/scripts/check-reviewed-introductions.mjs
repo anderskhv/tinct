@@ -66,7 +66,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   await page.waitForTimeout(300)
   const flapGeometry=await page.evaluate(()=>{
    const box=id=>{const r=document.getElementById(id).getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}}
-   return {flap:box('book-slip'),back:box('page-back'),next:box('slip-next'),compact:document.getElementById('book-shape').classList.contains('compact-book'),shape:getComputedStyle(document.getElementById('book-shape')).transform,cover:getComputedStyle(document.getElementById('turning-cover')).transform,inlineShape:document.getElementById('book-shape').style.transform,inlineCover:document.getElementById('turning-cover').style.transform,active:document.activeElement?.id,trace:window.__introTrace}
+   return {flap:box('book-slip'),back:box('page-back'),next:box('slip-next'),compact:document.getElementById('book-shape').classList.contains('compact-book'),shape:getComputedStyle(document.getElementById('book-shape')).transform,cover:getComputedStyle(document.getElementById('turning-cover')).transform,inlineShape:document.getElementById('book-shape').style.transform,inlineCover:document.getElementById('turning-cover').style.transform,active:document.activeElement?.id}
   })
   console.log('FLAP_GEOMETRY '+JSON.stringify({engine:engine.name(),id,...flapGeometry}))
   if(flapGeometry.compact){assert(flapGeometry.next.y>=0&&flapGeometry.next.bottom<=height+2,'Continue stays in the viewport: '+id);assert(flapGeometry.flap.x>=-2&&flapGeometry.flap.right<=width+2,'Author flap fits viewport: '+id)}
@@ -85,6 +85,13 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    console.log('REVIEW_END '+engine.name()+'-'+reducedMotion+'-'+id+'-flap')
   }
   if(flapGeometry.compact){
+   await page.locator('#slip-image-credits summary').scrollIntoViewIfNeeded();
+   await page.locator('#slip-image-credits summary').click();
+   assert(await page.locator('#slip-image-credits').evaluate(e=>e.open),'Image credits open: '+id);
+   const creditLinks=page.locator('#slip-image-credits a');
+   assert.equal(await creditLinks.count(),images.length*2,'Every portrait has a licence and source link');
+   await creditLinks.last().scrollIntoViewIfNeeded();
+   assert(await creditLinks.last().isVisible(),'Last author credit remains accessible');
    await page.locator('#slip-next').waitFor({state:'visible'});
    assert(await page.locator('#slip-next').evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))}),'Continue owns its visible tap target: '+id);
    await page.locator('#slip-next').click()
