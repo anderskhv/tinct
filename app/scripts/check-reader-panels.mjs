@@ -17,7 +17,9 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone, deviceScaleFactor:fixture.deviceScaleFactor||1 })
   const page = await context.newPage()
   page.setDefaultTimeout(10000)
-  const requests = [], errors = []
+  const requests = [], errors = [], networkFailures = []
+  page.on('requestfailed', request => networkFailures.push({url:request.url().split('?')[0],error:request.failure()?.errorText}))
+  page.on('response', response => { if(response.status()>=400) networkFailures.push({url:response.url().split('?')[0],status:response.status()}) })
   page.on('pageerror', error => errors.push(error.message))
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
@@ -53,7 +55,14 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
   },{bookId,edition,chapterNumber,fixture})
   await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
+  try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
+  } catch(error) {
+    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,ui:(await page.locator('body').innerText()).slice(-3500)}
+    await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
+    await context.close()
+    throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
+  }
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(700)
   return {context,page,requests,errors}
@@ -179,10 +188,17 @@ async function run(engine,name,phone) {
       const resize=chat.locator('[data-reader-window-resize]')
       await drag(page,resize,60,-50)
       await page.getByRole('button',{name:'Minimize chat'}).click()
-      assert((await chat.boundingBox()).height<80)
-      await drag(page,chat.locator('[data-reader-window-handle]'),0,-1000)
-      assert((await chat.boundingBox()).y >= (await page.locator('.lab-header').boundingBox()).height,'window controls stay below the header')
-      await page.getByRole('button',{name:'Restore chat'}).click()
+      assert.equal(await chat.isVisible(),false)
+      const orb=page.getByTestId('lab-chat-orb')
+      await orb.waitFor()
+      assert((await orb.boundingBox()).width<=70)
+      const orbBefore=await orb.boundingBox()
+      // A real drag remains within the browser viewport in both engines.
+      await drag(page,orb,0,40-(orbBefore.y+orbBefore.height/2))
+      assert.equal(Math.round((await orb.boundingBox()).y),8,'orb docks at the top')
+      await drag(page,orb,-200,180)
+      assert((await orb.boundingBox()).y>100,'orb can float freely')
+      await page.getByRole('button',{name:'Restore chat',exact:true}).click()
       assert((await chat.boundingBox()).height>200)
       await page.screenshot({path:output+'/'+name+'-desktop-chat.png'})
       // Menus must remain clickable while a floating companion is open.

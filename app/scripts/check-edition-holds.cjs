@@ -27,7 +27,8 @@ if (!process.env.TEST_ORIGIN) {
  const browsers = { desktop: await chromium.launch({args:['--mute-audio']}), phone: await webkit.launch() }
  const results=[]
  try {
-  for (const [key,evidence] of Object.entries(manifest.editions)) {
+  const held = { ...manifest.editions, 'jane-eyre/modern-da': { reason: 'Danish editions are no longer offered' }, 'odyssey/modern-da': { reason: 'Danish editions are no longer offered' } }
+  for (const [key,evidence] of Object.entries(held)) {
    const [bookId,editionKey] = key.split('/')
    for (const width of [390,1440]) {
     const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
@@ -48,7 +49,7 @@ if (!process.env.TEST_ORIGIN) {
     },{seed,bookId,editionKey,width})
     await page.goto(origin+'/reader')
     await page.getByTestId('edition-hold').waitFor({timeout:30000})
-    assert.ok((await page.getByTestId('edition-hold').innerText()).includes(evidence.reason))
+    assert.ok((await page.getByTestId('edition-hold').innerText()).includes(editionKey.endsWith('-da') ? 'Danish editions are no longer offered' : evidence.reason))
     await page.getByText('Saved highlights and notes (1)',{exact:true}).click()
     await page.getByText('Preserved personal note',{exact:true}).waitFor()
     const unchanged=async()=> {

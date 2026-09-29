@@ -34,7 +34,7 @@ async function boot(page, scenario) {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: s.edition, compareOpen: true, compareEdition: s.edition === 'original-en' ? 'modern-en' : 'original-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: s.edition, compareEditionKey: s.edition === 'original-en' ? 'modern-en' : 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
-  await page.goto(origin + '/reader?chrome=v2', { waitUntil: 'domcontentloaded' })
+  await page.goto(origin + '/reader?chrome=v2&qaLayoutTrace=1', { waitUntil: 'domcontentloaded' })
   if (['macbeth', 'as-you-like-it'].includes(scenario.book)) {
     await page.getByTestId('edition-hold').waitFor()
     await page.getByRole('button', { name: 'Open preserved edition and annotations' }).click()
@@ -67,6 +67,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       await prepare(context)
       await context.tracing.start({ screenshots: true, snapshots: true })
       const page = await context.newPage()
+      page.on('console', message => { if (/^(NATIVE_MAP|PAINT_SHRINK)/.test(message.text())) console.log(message.text()) })
       const name = `${engine}-${scenario.book}-${scenario.edition}-${scenario.size}-${scenario.alignment}-${scenario.width}-${scenario.layout}-ch${scenario.chapter}-${scenario.compare?'compare':'read'}`
       try {
         const highlight = scenario.reportedPhone ? {

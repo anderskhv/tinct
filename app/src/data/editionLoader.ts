@@ -1,3 +1,4 @@
+import { isNativeCapacitor } from '../utils/nativePlatform'
 import type { EditionData, EditionKey } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 import { perfMark, perfMeasure } from '../utils/perf'
@@ -32,6 +33,7 @@ interface ChapterShardManifest {
 const CHAPTER_SHARDED_EDITIONS = new Set<string>(CHAPTER_SHARDED_EDITION_IDS)
 
 export function chapterShardedEditionsEnabled(): boolean {
+  if (isNativeCapacitor()) return false
   if (import.meta.env.VITE_CHAPTER_SHARDED_EDITIONS === 'true') return true
   if (typeof window === 'undefined') return false
   try {
@@ -54,6 +56,8 @@ export function editionChapterShardManifestUrl(bookId: string, editionKey: Editi
 }
 
 function chapterShardWindowEnabled(bookId: string, editionKey: EditionKey): boolean {
+  // The compact APK keeps one exact whole-book copy, not a second set of shards.
+  if (isNativeCapacitor()) return false
   if (!isChapterShardedEdition(bookId, editionKey)) return false
   if (typeof window === 'undefined') return true
   try {

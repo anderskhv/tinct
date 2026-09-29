@@ -156,7 +156,10 @@ describe('narration config and voices', () => {
     const response = await handleNarration(new Request('https://tinct.app/api/narration/voices'), ready.env, ready.ctx, ready.deps)
     const json = await response.json() as Record<string, unknown>
     expect(json).toMatchObject({ enabled: true, provider: 'fish', model: 's2.1-pro', cacheVersion: 2, chunker: 1 })
-    expect(json.voices).toEqual([{ key: 'a', label: 'Nathan' }, { key: 'b', label: 'Abby' }])
+    expect(json.voices).toEqual([
+      { key: 'a', label: 'Nathan', cacheIdentity: expect.stringMatching(/^[a-f0-9]{64}$/) },
+      { key: 'b', label: 'Abby', cacheIdentity: expect.stringMatching(/^[a-f0-9]{64}$/) },
+    ])
     const text = JSON.stringify(json)
     expect(text).not.toContain('test-key')
     expect(text).not.toContain('voice-a-id')
@@ -206,7 +209,7 @@ describe('POST /api/narration/ensure', () => {
     const anonymous = makeHarness({}, { user: null })
     expect((await ensure(anonymous, { paragraphs: [{ index: 0 }] })).status).toBe(401)
     const h = makeHarness()
-    expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(403)
+    expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(503)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], bookId: 'ulysses' })).status).toBe(404)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], voice: 'z' })).status).toBe(400)
     expect((await ensure(h, { paragraphs: [] })).status).toBe(400)
@@ -612,7 +615,7 @@ describe('GET /api/narration/chapter', () => {
   it('validates scope, lists nothing when unconfigured, and reports chunk progress', async () => {
     const h = makeHarness()
     expect((await chapter(h, 'bookId=odyssey&editionKey=original-en&chapter=1&voice=zz')).status).toBe(400)
-    expect((await chapter(h, 'bookId=odyssey&editionKey=modern-da&chapter=1&voice=a')).status).toBe(403)
+    expect((await chapter(h, 'bookId=odyssey&editionKey=modern-da&chapter=1&voice=a')).status).toBe(503)
     const off = makeHarness({ NARRATION_PILOT: '0' })
     const listing = await chapter(off)
     expect(listing.status).toBe(200)
@@ -786,5 +789,22 @@ describe('Grok narration rollout', () => {
       settings:narrationConfig(makeHarness().env).settings,fetchImpl,now:()=>0,sleep:async()=>{},reserve
     })).rejects.toMatchObject({code:'budget_exhausted'})
     expect(fetchImpl).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('narration replay configuration identity', () => {
+  it('changes for voice/model/provider changes without exposing provider voice IDs', async () => {
+    async function identity(overrides: Partial<NarrationEnv>) {
+      const h = makeHarness(overrides)
+      const response = await handleNarration(new Request('https://tinct.app/api/narration/voices'), h.env, h.ctx, h.deps)
+      const body = await response.json() as { voices: Array<{ cacheIdentity: string }> }
+      expect(h.fish.calls).toHaveLength(0)
+      return body.voices[0].cacheIdentity
+    }
+    const base = await identity({})
+    expect(await identity({})).toBe(base)
+    expect(await identity({ NARRATION_VOICE_A_ID: 'replacement' })).not.toBe(base)
+    expect(await identity({ NARRATION_MODEL: 'replacement' })).not.toBe(base)
+    expect(await identity({ NARRATION_PROVIDER: 'grok', XAI_API_KEY: 'mock' })).not.toBe(base)
   })
 })

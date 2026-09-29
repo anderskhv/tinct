@@ -1,3 +1,4 @@
+import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { poetryClass } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
@@ -32,6 +33,9 @@ export type LabPassageMode = 'reading' | 'hearing'
 
 interface LabPassageProps {
   /** Selection surface embedded in the next chapter's right-hand opening. */
+  selectionChapters?: SelectionChapter[]
+  onCrossChapterSelect?: (parts: ChapterSelectionPart[], x: number, y: number) => void
+  onCrossChapterSelecting?: (parts: ChapterSelectionPart[] | null) => void
   openingOnly?: boolean
   pendingLayout?: boolean
   chapterEnd?: ReactNode
@@ -45,6 +49,8 @@ interface LabPassageProps {
    * selection surface keeps word coordinates scoped to the next chapter.
    */
   nextChapterOpening?: { title: string; chapterNumber?: number; paragraphs: string[]; page: ChapterHearingPage; onPrimer?: () => void; highlights?: LabHighlight[]; selectingRange?: LabHighlightRange | null; onSelectRange?: LabPassageProps['onSelectRange'] }
+  /** Outgoing left leaf retained while narration enters the already visible right opening. */
+  previousChapterEnding?: NonNullable<LabPassageProps['nextChapterOpening']> & { chapterEnd?: ReactNode }
   alignCompare?: boolean
   chapterTitle: string
   paragraphs: string[]
@@ -258,7 +264,7 @@ export function continuedTailFill(
 export function markFullContinuedTails(root: HTMLElement | null): void {
   if (!root) return
   const lines = root.querySelectorAll<HTMLElement>('.lab-hearing-line.is-continued')
-  lines.forEach(line => line.classList.remove('is-tail-full'))
+  lines.forEach(line => line.removeAttribute('data-tail-full'))
   lines.forEach((line) => {
     try {
       const box = line.getBoundingClientRect()
@@ -272,7 +278,7 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
-      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.classList.add('is-tail-full')
+      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.setAttribute('data-tail-full', 'true')
     } catch { /* jsdom has no layout */ }
   })
 }
@@ -394,6 +400,8 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
   return wordPlaceFromTarget(nearest)
 }
 
+const EMPTY_COMPARE_PARAGRAPHS: string[] = []
+
 export function LabPassage({
   openingOnly = false,
   pendingLayout = false,
@@ -401,8 +409,12 @@ export function LabPassage({
   onPreviewChapter,
   chapterActionsBusy = false,
   desktopSpread = false,
+  selectionChapters,
+  onCrossChapterSelect,
+  onCrossChapterSelecting,
   nextReadingPage,
   nextChapterOpening,
+  previousChapterEnding,
   alignCompare = false,
   chapterTitle,
   paragraphs,
@@ -470,6 +482,7 @@ export function LabPassage({
   const dragRef = useRef<{
     start: LabWordPlace | null
     end: LabWordPlace | null
+    endChapter?: number
     startX: number
     startY: number
     startedAt: number
@@ -612,7 +625,13 @@ export function LabPassage({
     const drag = dragRef.current
     dragRef.current = null
     setLocalSelecting(null)
+    onCrossChapterSelecting?.(null)
     if (!drag?.start || !drag.end || !onSelectRange) return
+    if (drag.endChapter != null && drag.endChapter !== chapterNumber && selectionChapters && onCrossChapterSelect) {
+      const parts=buildChapterSelection(selectionChapters,{...drag.start,chapterNumber},{...drag.end,chapterNumber:drag.endChapter})
+      if(parts.length>1)onCrossChapterSelect(parts,event.clientX,event.clientY)
+      return
+    }
     const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.end)
     if (!range?.text.trim()) return
     onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined)
@@ -686,8 +705,29 @@ export function LabPassage({
       setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start))
     }
     event.preventDefault()
+    // The opening on the other leaf owns a different chapter's coordinates.
+    // Resolve it explicitly instead of clamping the drag at the gutter.
+    if(selectionChapters && onCrossChapterSelect && !drag.comparison && drag.start){
+      const target=document.elementFromPoint?.(event.clientX,event.clientY)
+      const word=wordPlaceFromTarget(target)
+      const targetChapter=Number(target?.closest('[data-selection-chapter]')?.getAttribute('data-selection-chapter'))
+      if(word && Number.isFinite(targetChapter) && targetChapter!==chapterNumber && !target?.closest('.lab-book-col-compare')){
+        const parts=buildChapterSelection(selectionChapters,{...drag.start,chapterNumber},{...word,chapterNumber:targetChapter})
+        if(parts.length>1){
+          cancelEdge();drag.end=word;drag.endChapter=targetChapter
+          setLocalSelecting(parts.find(p=>p.chapterNumber===chapterNumber)?.range??null)
+          onCrossChapterSelecting?.(parts)
+          return
+        }
+      }
+      if(drag.endChapter!=null){drag.endChapter=undefined;onCrossChapterSelecting?.(null)}
+    }
     const bounds = event.currentTarget.getBoundingClientRect()
-    const direction = event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    // Desktop turns at the outer horizontal edges. Crossing the gutter from
+    // the bottom of the left leaf to the top of the right must not turn.
+    const direction = desktopSpread
+      ? event.clientX >= bounds.right - LAB_EDGE_ZONE_PX ? 1 : event.clientX <= bounds.left + LAB_EDGE_ZONE_PX ? -1 : null
+      : event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
     if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
     if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
@@ -844,6 +884,7 @@ export function LabPassage({
   }
 
   const onPointerCancel = () => {
+    onCrossChapterSelecting?.(null)
     cancelEdge()
     if (longPressRef.current) clearTimeout(longPressRef.current)
     longPressRef.current = null
@@ -889,7 +930,7 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}`}
+                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}
@@ -946,6 +987,7 @@ export function LabPassage({
     ref={articleRef as React.RefObject<HTMLDivElement>}
     className="lab-opening-passage owns-text-selection"
     data-chapter-number={chapterNumber}
+    data-selection-chapter={selectionChapters ? chapterNumber : undefined}
     tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       onKeyDown={event => {
         if (!keyboardSelection || !onSelectRange || hearing || !(event.key === 'F10' && event.shiftKey)) return
@@ -992,6 +1034,7 @@ export function LabPassage({
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"
+      data-selection-chapter={selectionChapters ? chapterNumber : undefined}
       data-passage-mode={mode}
       tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
       aria-keyshortcuts={keyboardSelection && onSelectRange ? 'Shift+F10' : undefined}
@@ -1023,6 +1066,16 @@ export function LabPassage({
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
+          {previousChapterEnding ? <>
+            {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
+            <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+              paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
+              compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
+              markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
+              selectingRange={previousChapterEnding.selectingRange} onSelectRange={previousChapterEnding.onSelectRange}
+              onPageTurn={onPageTurn} tapZones="none" />
+            {previousChapterEnding.chapterEnd}
+          </> : <>
           {desktopSpread && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
@@ -1048,19 +1101,22 @@ export function LabPassage({
             </div>
           )}
           {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
+          </>}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
-          {!nextReadingPage && nextChapterOpening && (
+          {previousChapterEnding && showHeadline && <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />}
+          {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
             <LabChapterHeading title={nextChapterOpening.title} preview={Boolean(nextChapterOpening.onPrimer)} onPreview={nextChapterOpening.onPrimer} measuring />
           )}
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
-            {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
-            {!nextReadingPage && nextChapterOpening && (
+            {previousChapterEnding && renderReadingLines(readingLines, true)}
+            {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
+            {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
-                <LabPassage openingOnly
+                <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
                   paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
-                  compareParagraphs={[]} compare={false} mode="reading" follow={{ kind: 'none' }}
+                  compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{ kind: 'none' }}
                   followParagraphs={[]} markedIndexes={new Set()} keyboardSelection={keyboardSelection}
                   highlights={nextChapterOpening.highlights ?? []} selectingRange={nextChapterOpening.selectingRange}
                   onSelectRange={nextChapterOpening.onSelectRange} onPageTurn={onPageTurn} tapZones="none"
@@ -1068,7 +1124,7 @@ export function LabPassage({
               </div>
             )}
           </div>
-          {nextReadingPage && chapterEnd}
+          {(previousChapterEnding || nextReadingPage) && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
