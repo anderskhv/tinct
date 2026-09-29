@@ -64,6 +64,12 @@ try{
   await page.getByTestId('lab-v2-font-row').click()
   assert(await page.locator('[data-testid^="lab-v2-font-"]').count()>=5,'reading and accessibility font choices remain available')
   await page.screenshot({path:output+'/eink-fonts-'+width+'.png'})
+  await page.goto(origin+'/lab/sign-in/index.html',{waitUntil:'domcontentloaded'})
+  await page.waitForFunction(()=>document.querySelector('#tinct-lab-sign-in')?.dataset.ready==='true')
+  assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','profile follows into account access')
+  const account=await page.locator('.auth-card').evaluate(n=>({paper:getComputedStyle(n).backgroundColor,ink:getComputedStyle(n).color}))
+  assert.deepEqual(account,{paper:'rgb(255, 255, 255)',ink:'rgb(17, 17, 17)'})
+  await page.screenshot({path:output+'/eink-account-'+width+'.png'})
   assert.deepEqual(errors,[])
   await context.close()
  }

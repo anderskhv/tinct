@@ -77,7 +77,24 @@ try {
  await device.screenshot({path:output+'/native-offline-library-restored.png'})
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
- await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
+ // Exercise the Android deep-link plumbing without contacting an auth
+ // provider: a matching cancellation must return visibly to the account UI.
+ for(const cold of [false,true]){
+  stage(cold?'auth-cold-return':'auth-warm-return')
+  const nonce=cold?'native-cold-0123456789':'native-warm-0123456789'
+  await page.evaluate(({packageId,nonce})=>localStorage.setItem('tinct:native-auth-pending',JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+60_000})),{packageId,nonce})
+  if(cold)await device.shell('am force-stop '+packageId)
+  const callback=packageId+'://auth/callback?flow='+nonce+'&error=access_denied'
+  await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
+  if(cold)page=await(await device.webView({pkg:packageId})).page()
+  await page.locator('[data-auth-status]').filter({hasText:'Sign-in could not be completed. Please try again.'}).waitFor({timeout:60000})
+  assert.equal(await page.evaluate(()=>localStorage.getItem('tinct:native-auth-pending')),null,'callback is consumed once')
+  assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','account access keeps the e-ink profile')
+  const afterAuth=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
+  assert.deepEqual(afterAuth,stored,'cancelled authentication retains reading data')
+ }
+ await device.screenshot({path:output+'/native-auth-return.png'})
+ await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true,authWarmCancellation:true,authColdCancellation:true,realProviderSignIn:false},null,2))
 } catch(error) {
  await device.screenshot({path:output+'/native-failure.png'}).catch(()=>{})
  await fs.writeFile(output+'/native-failure.txt',String(error)+'\n'+(page?await page.locator('body').innerText().catch(()=> 'unavailable'):'no webview'))
