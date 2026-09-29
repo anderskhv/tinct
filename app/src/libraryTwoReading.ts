@@ -42,7 +42,7 @@ interface CatalogueBook {
   art?: { src: string; srcSet: string } | null
   /** Generated-cover palette; its background is the book's dominant tone. */
   cover?: { background?: string } | null
-  editions: Array<{ key: string; style?: string; language?: string; availability?: { chapterText?: boolean } }>
+  editions: Array<{ key: string; style?: string; language?: string; wordCount?: number | null; readingStructure?: CatalogueBook['readingStructure']; availability?: { chapterText?: boolean } }>
   /** The approved default edition (editionDefaults.ts), computed at build time. */
   defaultEditionKey?: string | null
   readingStructure?: { totalParagraphs?: number; chapters?: Array<{ number: number; title: string; paragraphCount?: number }> } | null
@@ -308,13 +308,15 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     mode: libraryModeFor(list),
     reading: list.readingNow.map(row => {
       const book = books.get(row.bookId)
-      const percent = wholeBookProgress(book, { chapterNumber: row.target.chapterNumber, paragraphIndex: row.target.paragraphIndex, page: row.target.pageIndex }, { finishedChapters: row.finishedChapters })
+      const selectedEdition = book?.editions.find(edition => edition.key === row.target.editionKey)
+      const estimateBook = selectedEdition?.readingStructure ? { ...book, readingStructure: selectedEdition.readingStructure } : book
+      const percent = wholeBookProgress(estimateBook, { chapterNumber: row.target.chapterNumber, paragraphIndex: row.target.paragraphIndex, page: row.target.pageIndex }, { finishedChapters: row.finishedChapters })
       return {
         bookId: row.bookId,
         title: book?.title ?? row.bookId,
         author: book?.author ?? '',
         cover: book?.art?.src ?? null,
-        wordCount: book?.wordCount ?? null,
+        wordCount: selectedEdition?.wordCount ?? book?.wordCount ?? null,
         displayYear: book?.displayYear || '',
         tone: book?.cover?.background ?? null,
         chapterLabel: row.target.chapterLabel,

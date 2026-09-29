@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { apiUrl } from '../utils/apiUrl'
 import { ensureNarration, type NarrationParagraphResult } from './labNarration'
 
 /** Paragraphs kept ready at a chapter's opening so pressing Play is immediate. */
@@ -7,6 +8,8 @@ export const NARRATION_PREFETCH_PARAGRAPHS = 3
 export const NARRATION_PREFETCH_TAIL = 3
 const MAX_ROUNDS = 12
 export const NARRATION_PREFETCH_TARGET_SECONDS = 45
+/** Start early enough for several synthesis rounds plus mobile-network downloads. */
+export const NARRATION_PREFETCH_LEAD_SECONDS = 150
 
 export interface NarrationPrefetchInput {
   active: boolean
@@ -57,7 +60,7 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
   const { active, voice, bookId, editionKey, chapter, nextChapter, paragraphCount, currentParagraph } = input
   const tail = Math.ceil(NARRATION_PREFETCH_TAIL * Math.max(1, Math.min(3, input.speed ?? 1)))
   const nearEnd = paragraphCount > 0 && (currentParagraph >= paragraphCount - tail
-    || (input.remainingSeconds != null && Number.isFinite(input.remainingSeconds) && input.remainingSeconds <= 60))
+    || (input.remainingSeconds != null && Number.isFinite(input.remainingSeconds) && input.remainingSeconds <= NARRATION_PREFETCH_LEAD_SECONDS))
 
   const warmChapter = (target: number, key: string) => {
     const controller = new AbortController()
@@ -70,6 +73,13 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
       const indexes = Array.from({ length: NARRATION_PREFETCH_PARAGRAPHS }, (_, index) => index)
       let finished = false
       const downloads = new Set<string>()
+      let networkFailures = 0
+      const delay = (ms: number) => new Promise<void>(resolve => {
+        const done = () => { clearTimeout(timer); controller.signal.removeEventListener('abort', done); resolve() }
+        const timer = setTimeout(done, ms)
+        controller.signal.addEventListener('abort', done, { once: true })
+        if (controller.signal.aborted) done()
+      })
       for (let round = 0; round < MAX_ROUNDS && !cancelled; round += 1) {
         let results: NarrationParagraphResult[]
         try {
@@ -79,8 +89,13 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
             mode: 'next',
           }, { signal: controller.signal, authToken: token })
         } catch {
-          return
+          // A single interrupted mobile request must not disable preparation
+          // for the rest of this chapter. Keep retries bounded and cancellable.
+          if (cancelled || ++networkFailures >= 3) return
+          await delay(1000 * networkFailures)
+          continue
         }
+        networkFailures = 0
         if (cancelled) return
         current.onPrepared?.(target, results)
         // Generation alone does not warm the device's HTTP audio cache.
@@ -91,18 +106,14 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
         for (const url of urls) {
           if (downloads.has(url)) continue
           downloads.add(url)
-          void Promise.resolve().then(() => fetch(url, { cache: 'force-cache', credentials: 'same-origin', signal: controller.signal }))
+          void Promise.resolve().then(() => fetch(apiUrl(url), { cache: 'force-cache', credentials: 'same-origin', signal: controller.signal }))
             .then(response => response?.ok ? response.arrayBuffer() : Promise.reject(new Error('audio prefetch failed')))
             .catch(() => downloads.delete(url))
         }
         if (results.length === 0 || complete(results, indexes)) { finished = true; break }
         if (results.some(item => item.status === 'failed' || ('failure' in item && item.failure))) { finished = true; break }
         const retryAfterMs = Math.max(0, ...results.map(result => result.retryAfterMs ?? 0))
-        if (retryAfterMs > 0) await new Promise<void>(resolve => {
-          const done = () => { clearTimeout(timer); controller.signal.removeEventListener('abort', done); resolve() }
-          const timer = setTimeout(done, Math.min(5000, retryAfterMs))
-          controller.signal.addEventListener('abort', done, { once: true })
-        })
+        if (retryAfterMs > 0) await delay(Math.min(5000, retryAfterMs))
       }
       // Marked done only once complete (or given up), so an aborted warm can resume.
       if (finished && !cancelled) doneRef.current.add(key)
@@ -119,5 +130,5 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
     if (doneRef.current.has(key)) return
     return warmChapter(nextChapter, key)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, voice, bookId, editionKey, chapter, nextChapter, nearEnd])
+  }, [active, voice, bookId, editionKey, chapter, nextChapter, nearEnd, input.authToken])
 }

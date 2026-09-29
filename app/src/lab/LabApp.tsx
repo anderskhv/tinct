@@ -1,5 +1,6 @@
-import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { useRecapPreparation } from './useRecapPreparation'
+import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
+import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
 import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
@@ -1059,8 +1060,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
   })
 
-  const narrationContextRef = useRef({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice })
-  narrationContextRef.current = { bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice }
+  const narrationCacheIdentity = narrationInfo?.voices.find(voice => voice.key === narrationVoice)?.cacheIdentity ?? null
+  const narrationContextRef = useRef({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice, identity: narrationCacheIdentity })
+  narrationContextRef.current = { bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: listenSource.chapterNumber, paragraphs: listenSource.paragraphs, voice: narrationVoice, identity: narrationCacheIdentity }
   // Keep only a few warmed chapter openings in this reader session. The
   // player still validates each paragraph against the exact current text.
   const warmedNarrationRef = useRef(new Map<string, NarrationParagraphResult[]>())
@@ -1068,13 +1070,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     JSON.stringify([bookId, edition, chapter, voice])
   const narrationPrepared = useCallback(() => {
     const c = narrationContextRef.current
-    return warmedNarrationRef.current.get(warmedNarrationKey(c.bookId, c.editionKey, c.chapter, c.voice)) ?? []
+    return [...readNarrationReplay(c), ...(warmedNarrationRef.current.get(warmedNarrationKey(c.bookId, c.editionKey, c.chapter, c.voice)) ?? [])]
   }, [])
   const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const context = narrationContextRef.current
     if (!context.voice) return []
     const token = authToken ?? await readSupabaseAccessToken()
-    return ensureNarration({
+    const results = await ensureNarration({
       bookId: context.bookId,
       editionKey: context.editionKey,
       chapter: context.chapter,
@@ -1084,6 +1086,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         .map(index => ({ index, text: context.paragraphs[index], fromChunk: fromChunks?.[index] })),
       mode: mode ?? 'next',
     }, { signal, authToken: token })
+    if (!signal.aborted) storeNarrationReplay(context, results)
+    return results
   }, [authToken])
   const narrationOption = useMemo(
     () => (narrationApplies && narrationVoice ? { voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared } : null),
@@ -1124,6 +1128,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     currentParagraph: narrationCurrentParagraph,
     remainingSeconds: listen.chapterDuration > 0 ? Math.max(0, listen.chapterDuration - listen.chapterTime) / listen.speed : undefined,
     onPrepared: (target, results) => {
+      storeNarrationReplay({ bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, chapter: target, identity: narrationCacheIdentity }, results)
       const cache = warmedNarrationRef.current
       const key = warmedNarrationKey(book.bookId || 'bible', prefs.primaryEdition, target, narrationVoice)
       cache.delete(key)

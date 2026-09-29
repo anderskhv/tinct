@@ -6,6 +6,7 @@ import {
   EDGE_MARGIN,
   clampCompanionWidth,
   clampToViewport,
+  dockToViewport,
   parseStoredPoint,
   parseStoredWidth,
 } from './useDraggableSurface'
@@ -95,4 +96,15 @@ describe('parseStoredWidth', () => {
   it.each([['nothing', null], ['junk', 'wide'], ['zero', '0'], ['negative', '-200']])(
     'refuses %s', (_label, raw) => { expect(parseStoredWidth(raw)).toBeNull() },
   )
+})
+
+describe('orb docking', () => {
+ const orb = {width:64,height:64}
+ it('snaps only near a side or the top and keeps the whole orb reachable', () => {
+  expect(dockToViewport({x:30,y:250},orb,DESKTOP)).toEqual({x:8,y:250})
+  expect(dockToViewport({x:1345,y:250},orb,DESKTOP)).toEqual({x:1368,y:250})
+  expect(dockToViewport({x:300,y:25},orb,DESKTOP)).toEqual({x:300,y:8})
+  expect(dockToViewport({x:300,y:250},orb,DESKTOP)).toEqual({x:300,y:250})
+  expect(dockToViewport({x:1500,y:1000},orb,PHONE)).toEqual({x:318,y:772})
+ })
 })

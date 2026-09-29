@@ -2,7 +2,8 @@ import {chromium,webkit} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
-const origin='https://tinct.app',output='artifacts/cross-chapter'
+const origin='https://tinct.app',output='artifacts/cross-chapter',live=process.env.READER_BUILT==='0'
+const results=[]
 await fs.mkdir(output,{recursive:true})
 const edition=JSON.parse(await fs.readFile('public/data/editions/bible-kjv-en.json','utf8'))
 for(const engine of [chromium,webkit]){
@@ -17,6 +18,7 @@ for(const engine of [chromium,webkit]){
     if(url.origin!==origin)return route.abort()
     if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
     if(route.request().method()!=='GET')return route.abort()
+    if(live)return route.continue()
     const file=path.resolve('dist','.'+(url.pathname==='/reader'?'/app.html':url.pathname))
     if(file.startsWith(path.resolve('dist')+'/'))try{if((await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}
     return route.abort()
@@ -59,8 +61,11 @@ for(const engine of [chromium,webkit]){
    for(const mark of saved)await page.locator('[data-highlight-id="'+mark.id+'"]').first().waitFor()
    assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights'))),saved)
    await page.screenshot({path:output+'/'+engine.name()+'-'+reverse+'.png'})
+   results.push({engine:engine.name(),reverse,live,completeQuote:saved[0].groupText,annotationsPreserved:true,bundle:await page.locator('script[type="module"][src]').first().getAttribute('src')})
    await context.tracing.stop()
   }catch(e){await page.screenshot({path:output+'/'+engine.name()+'-'+reverse+'-failure.png'});await context.tracing.stop({path:output+'/'+engine.name()+'-'+reverse+'-trace.zip'});throw e}
   finally{await context.close()}
  }}finally{await browser.close()}
 }
+
+await fs.writeFile(output+'/results.json',JSON.stringify(results,null,2))

@@ -1,3 +1,4 @@
+import { LabCompanionOrb } from './LabCompanionOrb'
 import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { useReaderWindow } from './useReaderWindow'
@@ -137,7 +138,7 @@ export function LabAskPane({
   preparationSuggestions = false,
 }: LabAskPaneProps) {
   const [minimized, setMinimized] = useState(false)
-  const windowRef = useReaderWindow<HTMLElement>('chat', !!desktopCompanion, minimized)
+  const windowRef = useReaderWindow<HTMLElement>('chat', !!desktopCompanion && !minimized)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
   // Auto-grow. The measurement collapses the field to 0px to read its
@@ -546,7 +547,10 @@ export function LabAskPane({
     </form>
   )
   return (
+    <>
+    {minimized && desktopCompanion && <LabCompanionOrb busy={typedLoading} onRestore={() => setMinimized(false)} />}
     <aside
+      style={minimized && desktopCompanion ? { display: 'none' } : undefined}
       ref={windowRef}
       data-window-minimized={minimized && desktopCompanion ? 'true' : undefined}
       className={`lab-ask ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
@@ -666,5 +670,6 @@ export function LabAskPane({
         </>
       )}
     </aside>
+    </>
   )
 }
