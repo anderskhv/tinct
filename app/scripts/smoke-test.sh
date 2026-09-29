@@ -14,7 +14,7 @@ pass() { TESTS=$((TESTS + 1)); echo "  ✓ $1"; }
 fail() { TESTS=$((TESTS + 1)); FAILURES=$((FAILURES + 1)); echo "  ✗ $1"; }
 
 bundle_is_javascript() {
-  printf '%s' "$1" | head -c 200 | grep -qE 'var |const |function |Object\.|import '
+  printf '%s' "${1:0:200}" | grep -qE 'var |const |function |Object\.|import '
 }
 
 # Cloudflare can serve SPA HTML for a freshly deployed asset for a short window.
