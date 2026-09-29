@@ -107,6 +107,14 @@ jobs:
         env:
           READER_LIVE: '1'
         run: node scripts/check-reader-feedback.mjs
+      - name: Verify production sign-in completion without real accounts
+        run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
+      - name: Save production sign-in acceptance
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sign-in-acceptance
+          path: app/artifacts/sign-in
       - name: Verify production spoken Bible book transition silently
         env:
           READER_LIVE: '1'

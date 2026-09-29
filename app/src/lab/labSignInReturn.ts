@@ -17,6 +17,7 @@ export function safeLabReturnTo(value: string | null | undefined, origin: string
     const destination = new URL(value, origin)
     if (destination.origin !== origin) return LAB_DEFAULT_RETURN_TO
     const path = destination.pathname
+    if (/^\/lab\/sign-in\/?$/.test(path)) return LAB_DEFAULT_RETURN_TO
     const allowed = path === '/lab' || path.startsWith('/lab/') || LAUNCH_ROUTE.test(path)
     if (!allowed) return LAB_DEFAULT_RETURN_TO
     return `${path}${destination.search}${destination.hash}`
