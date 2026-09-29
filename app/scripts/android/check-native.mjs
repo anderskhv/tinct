@@ -15,7 +15,7 @@ try {
  await device.shell('am start -n app.tinct.reader/.MainActivity')
  page=await(await device.webView({pkg:'app.tinct.reader'})).page()
  page.setDefaultTimeout(60000)
- await page.locator('#hero-book').waitFor()
+ await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
  assert.equal(await page.evaluate(()=>window.Capacitor?.isNativePlatform()),true)
  await page.screenshot({path:output+'/native-offline-library.png'})
  await page.evaluate(()=>{
@@ -38,10 +38,12 @@ try {
  await device.shell('am force-stop app.tinct.reader')
  await device.shell('am start -n app.tinct.reader/.MainActivity')
  page=await(await device.webView({pkg:'app.tinct.reader'})).page()
- await page.locator('#hero-book').waitFor()
+ await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
+ assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','e-ink mode survives restart into the library')
+ await page.screenshot({path:output+'/native-offline-library-restored.png'})
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
- await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
+ await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
 } catch(error) {
  await device.screenshot({path:output+'/native-failure.png'}).catch(()=>{})
  await fs.writeFile(output+'/native-failure.txt',String(error)+'\n'+(page?await page.locator('body').innerText().catch(()=> 'unavailable'):'no webview'))
