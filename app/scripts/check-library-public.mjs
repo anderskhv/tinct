@@ -32,10 +32,12 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  await p.locator('#menu-categories button').filter({hasText:/^Drama$/}).click();
  const reels=await p.locator('.collection-reel .book-row').evaluateAll(rows=>rows.map(row=>{
   const before=row.scrollLeft;row.scrollLeft=row.scrollWidth;
-  return {scrollable:row.scrollWidth>row.clientWidth+1,moved:row.scrollLeft>before,display:getComputedStyle(row).display,right:row.getBoundingClientRect().right};
+  const card=row.querySelector('.collection-card'),title=card.querySelector('h2');
+  return {scrollable:row.scrollWidth>row.clientWidth+1,moved:row.scrollLeft>before,display:getComputedStyle(row).display,right:row.getBoundingClientRect().right,titleInset:parseFloat(getComputedStyle(title).paddingLeft),titleFont:getComputedStyle(title).fontFamily};
  }));
  assert(reels.length>1,'drama subdivisions are distinct rows');
  assert(reels.every(r=>r.display==='flex'&&r.right<=w+1));
+ assert(reels.every(r=>r.titleInset===0&&r.titleFont.includes('Georgia')),'book titles align with their covers');
  console.log('COLLECTION_REELS '+JSON.stringify({engine:engine.name(),viewport:w,reels}));
  assert(reels.every(r=>!r.scrollable||r.moved),'every overflowing row can be scrolled');
  if(w<600)assert(reels.some(r=>r.scrollable&&r.moved),'populated drama rows scroll on phones');
