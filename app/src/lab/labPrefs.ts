@@ -550,7 +550,23 @@ export function labChapterWordWeights(
   // reads Tobit, numbered 1190, after Nehemiah 13).
   const ordered = [...chapters]
   const known = ordered.reduce((total, chapter) => total + Math.max(0, chapter.wordCount || 0), 0)
-  if (known > 0) return ordered.map(chapter => ({ number: chapter.number, wordCount: Math.max(0, chapter.wordCount || 0) }))
+  if (known > 0) {
+    const unknown = ordered.filter(chapter => !(typeof chapter.wordCount === 'number' && chapter.wordCount >= 0))
+    if (!unknown.length) return ordered.map(chapter => ({ number: chapter.number, wordCount: Math.max(0, chapter.wordCount || 0) }))
+    // A chapter window contains exact words only for nearby chapters. Missing
+    // text is not an empty chapter: allocate the remaining volume over its
+    // manifest paragraphs, falling back to observed words/paragraph.
+    const knownParagraphs = ordered.filter(chapter => typeof chapter.wordCount === 'number')
+      .reduce((sum, chapter) => sum + Math.max(1, chapter.paragraphCount || 0), 0)
+    const unknownParagraphs = unknown.reduce((sum, chapter) => sum + Math.max(1, chapter.paragraphCount || 0), 0)
+    const remainder = (bookWordCount || 0) > known ? bookWordCount! - known
+      : known / Math.max(1, knownParagraphs) * unknownParagraphs
+    return ordered.map(chapter => ({
+      number: chapter.number,
+      wordCount: typeof chapter.wordCount === 'number' && chapter.wordCount >= 0 ? chapter.wordCount
+        : remainder * Math.max(1, chapter.paragraphCount || 0) / unknownParagraphs,
+    }))
+  }
 
   const paragraphs = ordered.reduce((total, chapter) => total + Math.max(0, chapter.paragraphCount || 0), 0)
   const bookWords = Math.max(0, bookWordCount || 0)
