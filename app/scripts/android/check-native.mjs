@@ -91,20 +91,46 @@ try {
  console.log(JSON.stringify({nativeLibraryGeometry:await page.evaluate(()=>({html:document.documentElement.className,body:document.body.className,nodes:['#hero','.reading-table','#rt-title','#rt-continue'].map(sel=>{const n=document.querySelector(sel),r=n.getBoundingClientRect(),s=getComputedStyle(n);return {sel,rect:{x:r.x,y:r.y,width:r.width,height:r.height},display:s.display,visibility:s.visibility,color:s.color,opacity:s.opacity}})}))}))
  await device.screenshot({path:output+'/native-offline-library-restored.png'})
  console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-library',png:(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64')}}))
- const paint=await page.evaluate(async png=>{
-  const img=new Image();img.src='data:image/png;base64,'+png;await img.decode()
-  const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight
-  const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0)
-  // Exclude status/header/navigation bars and the librarian orb at the right.
-  const x=Math.floor(canvas.width*.05),y=Math.floor(canvas.height*.20)
-  const w=Math.floor(canvas.width*.70),h=Math.floor(canvas.height*.65)
-  const pixels=ctx.getImageData(x,y,w,h).data
-  let dark=0
-  for(let i=0;i<pixels.length;i+=4)if(pixels[i]<128&&pixels[i+1]<128&&pixels[i+2]<128)dark++
-  return {dark,total:w*h,fraction:dark/(w*h)}
- },(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64'))
+ const pixels=async name=>{
+  const png=(await device.screenshot()).toString('base64')
+  console.log(JSON.stringify({nativeDeviceVisual:{name,png}}))
+  return page.evaluate(async png=>{
+   const img=new Image();img.src='data:image/png;base64,'+png;await img.decode()
+   const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight
+   const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0)
+   const x=Math.floor(canvas.width*.05),y=Math.floor(canvas.height*.20),w=Math.floor(canvas.width*.70),h=Math.floor(canvas.height*.65)
+   const values=ctx.getImageData(x,y,w,h).data
+   let dark=0
+   for(let i=0;i<values.length;i+=4)if(values[i]<128&&values[i+1]<128&&values[i+2]<128)dark++
+   return {dark,total:w*h,fraction:dark/(w*h)}
+  },png)
+ }
+ const paint=await pixels('eink-library-baseline')
  console.log(JSON.stringify({nativeLibraryPaint:paint}))
- assert(paint.fraction>.005,'the real Android e-ink library paints books and text, beyond the header and orb')
+ if(paint.fraction<=.005){
+  acceptanceFailures.push({check:'eink-library-paint',error:'The actual screen is blank although the DOM is visible.'})
+  console.log(JSON.stringify({nativePaintEnvironment:{webview:String(await device.shell('dumpsys webviewupdate')),dom:await page.evaluate(()=>({userAgent:navigator.userAgent,animations:document.getAnimations().map(a=>({state:a.playState,target:a.effect?.target?.className})),hero:getComputedStyle(document.querySelector('#hero')).isolation}))}}))
+  await page.waitForTimeout(3000)
+  console.log(JSON.stringify({nativePaintProbe:{name:'wait-only',paint:await pixels('eink-wait-only')}}))
+  for(const [name,css] of [
+   ['no-isolation','#hero{isolation:auto!important}'],
+   ['table-layer','.reading-table{transform:translateZ(0)!important}'],
+   ['visibility-cycle',''],
+  ]){
+   await page.evaluate(async({name,css})=>{
+    document.getElementById('native-paint-probe')?.remove()
+    const style=document.createElement('style');style.id='native-paint-probe';style.textContent=css;document.head.append(style)
+    if(name==='visibility-cycle'){
+     const table=document.querySelector('.reading-table');table.style.visibility='hidden'
+     await new Promise(resolve=>requestAnimationFrame(resolve))
+     table.style.visibility=''
+    }
+   },{name,css})
+   await page.waitForTimeout(500)
+   console.log(JSON.stringify({nativePaintProbe:{name,paint:await pixels('eink-'+name)}}))
+  }
+  await page.evaluate(()=>document.getElementById('native-paint-probe')?.remove())
+ }
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
  // Exercise the Android deep-link plumbing without contacting an auth
