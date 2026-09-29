@@ -23,6 +23,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     if(sample){table={...table,reading:table.reading.filter(b=>b.bookId!==id)};present();return;}
     await resumeReady;
     await api.hideFromReadingNow(id);
+    const retained=await api.loadSavedBooks();saved=retained.ids;onSaved(saved);
     table={...table,reading:table.reading.filter(b=>b.bookId!==id)};
     present();
     // Hide synchronously from the current view, then reconcile account data.
@@ -69,6 +70,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   }finally{loadingNow=false;}
  }
  addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}});
+ addEventListener('library2:shelf-removed',event=>{const id=event.detail;table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
  addEventListener('library2:overlayclosed',()=>{if(pendingUpdate&&view){pendingUpdate=false;view.update(table,saved,catalogue);}});
  // Preserve the live scene in the back/forward cache while refreshing its data.
  addEventListener('pageshow',event=>{if(event.persisted&&!sample)ready=load(true);});

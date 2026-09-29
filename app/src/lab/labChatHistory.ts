@@ -484,22 +484,26 @@ export async function syncLabBookChatWithCloud(input: {
   /** Remembers the rev of the row this device last saw, for later commits. */
   revs?: Map<string, number>
   onUnavailable?: () => void
+  isCurrent?: () => boolean
 }): Promise<ChatConversation[]> {
   const { bookId, cloud } = input
   const local = readLabBookChat(bookId)
   try {
     let row = await cloud.read(bookId)
     for (let attempt = 0; attempt < 2; attempt++) {
-      const merged = mergeChatConversations(row?.conversations ?? [], local)
-      if (!sameChatConversations(local, merged)) writeLabBookChat(bookId, merged)
+      if (input.isCurrent?.() === false) return local
+      const current = readLabBookChat(bookId)
+      const merged = mergeChatConversations(row?.conversations ?? [], current)
+      if (!sameChatConversations(current, merged)) writeLabBookChat(bookId, merged)
       if (row && sameChatConversations(row.conversations, merged)) {
         input.revs?.set(bookId, row.rev)
         return merged
       }
       const result = await cloud.commit(bookId, merged, row?.rev ?? null)
+      if (input.isCurrent?.() === false) return local
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
-        return merged
+        return mergeChatConversations(merged, readLabBookChat(bookId))
       }
       if (!result.conflict || !result.row) return merged
       row = result.row
@@ -563,8 +567,8 @@ export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<s
       if (!inFlight.has(bookId)) void run(bookId)
     },
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
-    sync(bookId: string, onUnavailable?: () => void) {
-      return syncLabBookChatWithCloud({ bookId, cloud, revs, onUnavailable })
+    sync(bookId: string, onUnavailable?: () => void, isCurrent?: () => boolean) {
+      return syncLabBookChatWithCloud({ bookId, cloud, revs, onUnavailable, isCurrent })
     },
     isDirty: () => dirty,
     revs,

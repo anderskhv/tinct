@@ -232,6 +232,8 @@ export interface ReaderHandoffSelection {
   savedPlace?: SavedReaderPlaceInput
   /** Begin the first rendered page exactly at savedPlace (share-link starts only). */
   startAtSavedPlace?: boolean
+  /** Library Continue resolves the latest position, unlike explicit passage links. */
+  resumeLatest?: boolean
 }
 
 export interface ReaderHandoffIntent {
@@ -243,6 +245,8 @@ export interface ReaderHandoffIntent {
   savedPlace?: SavedReaderPlaceInput
   /** One-use document handoff flag; never stored as the user's reading position. */
   startAtSavedPlace?: boolean
+  /** Library Continue resolves the latest position, unlike explicit passage links. */
+  resumeLatest?: boolean
 }
 
 function firstSentence(text: string): string {
@@ -528,6 +532,7 @@ export function createReaderHandoffIntent(
     if (!validPlace(selection.savedPlace, book.id)) return null
     intent.savedPlace = { ...selection.savedPlace }
     if (selection.startAtSavedPlace === true) intent.startAtSavedPlace = true
+    else if (selection.resumeLatest === true) intent.resumeLatest = true
   }
   return intent
 }

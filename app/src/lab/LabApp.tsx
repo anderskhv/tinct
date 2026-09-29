@@ -1165,7 +1165,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     book,
     placeRef,
     readerStateRef,
-    sourceLocked: Boolean(source || readerHandoff),
+    sourceLocked: Boolean(source || (readerHandoff && !readerHandoff.resumeLatest)),
+    resumeLibraryBookId: readerHandoff?.resumeLatest ? readerHandoff.bookId : undefined,
     resolveBeforePaint: chromeV2,
     writesSuspended: Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
     authToken,
@@ -3310,6 +3311,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       restorePlaceRef.current = continuation
       pageAnchorRef.current = continuation
       placeRef.current = continuation
+      // This page turn has already consumed the opening on the right leaf.
+      // Persist the actual next word now; hiding the tab only flushes activity.
+      notePlace('page-turn', { sequentialChapter: number, ...continuation })
     }
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
@@ -3399,6 +3403,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       restorePlaceRef.current = continuation
       pageAnchorRef.current = continuation
       placeRef.current = continuation
+      // This page turn has already consumed the opening on the right leaf.
+      // Persist the actual next word now; hiding the tab only flushes activity.
+      notePlace('page-turn', { sequentialChapter: number, ...continuation })
     }
     setBook(loaded)
     setOpenAtEnd(landing === 'end')

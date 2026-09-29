@@ -128,6 +128,14 @@ export function remoteResumeSelection(place: LabBookPlace, current: { libraryBoo
   return { bookId, primaryEditionKey, compareEditionKey, prefs }
 }
 
+/** A library Continue chooses a book, not that device's stale chapter. */
+export function resumePlaceForLibrary(state: LabPositionState, libraryBookId?: string): LabBookPlace | null {
+  if (!libraryBookId) return resumePlace(state)
+  return Object.values(state.books)
+    .filter(place => (getBook(place.bookId)?.id ?? 'bible') === libraryBookId)
+    .sort((a, b) => b.updatedAt - a.updatedAt || b.rev - a.rev)[0] ?? null
+}
+
 export function bootLabReading(source?: LabSource): {
   book: LabSource
   place: { paragraphIndex: number; wordIndex: number }
@@ -189,6 +197,8 @@ export function useLabPositionSync(args: {
   placeRef: MutableRefObject<{ paragraphIndex: number; wordIndex: number }>
   readerStateRef?: MutableRefObject<LabReaderStateSnapshot>
   sourceLocked: boolean
+  /** Library Continue preserves the chosen book but resolves its newest chapter. */
+  resumeLibraryBookId?: string
   writesSuspended?: boolean
   authToken?: string | null
   /**
@@ -233,6 +243,12 @@ export function useLabPositionSync(args: {
   const controllerRef = useRef<LabPositionController | null>(null)
   const syncRef = useRef<ReturnType<typeof createLabPositionSync> | null>(null)
   const cloudDoneRef = useRef(false)
+  // A read started on return must not move a page the reader has since used.
+  const activityRevisionRef = useRef(0)
+  const foregroundRefreshRef = useRef<(() => void) | null>(null)
+  const deferredRefreshRevisionRef = useRef<number | null>(null)
+  const latestArgsRef = useRef(args)
+  latestArgsRef.current = args
   // Whether the record this device booted with was this account's own. Set
   // once per account by `reconcileOwner`; it decides whether the account's
   // row outranks the device on the first merge.
@@ -432,7 +448,7 @@ export function useLabPositionSync(args: {
         return
       }
       if (args.resolveBeforePaint) {
-        const candidate = resumePlace(accountLabPositionRecord(controller.state(), cloud, ownerId))
+        const candidate = resumePlaceForLibrary(accountLabPositionRecord(controller.state(), cloud, ownerId), args.resumeLibraryBookId)
         if (candidate) {
           const registered = getBook(candidate.bookId)
           validationBookId = registered && registered.id !== 'bible' ? registered.id : 'bible'
@@ -472,7 +488,7 @@ export function useLabPositionSync(args: {
       setFinishedRevision(revision => revision + 1)
       const initial = !initialResolvedRef.current || (paintedInventedPlace && !args.interactedRef?.current)
       settleInitial()
-      const resume = resumePlace(next)
+      const resume = resumePlaceForLibrary(next, args.resumeLibraryBookId)
       const current = bookRef.current
       if (!resume) return
       const currentBookId = current.bookId && current.bookId !== 'bible'
@@ -499,7 +515,7 @@ export function useLabPositionSync(args: {
       if (!cancelled) { armWrites(); settleInitial() }
     })
     return () => { cancelled = true }
-  }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, armWrites, cloudRecord, liveToken, ownerId, settleInitial])
+  }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, args.resumeLibraryBookId, armWrites, cloudRecord, liveToken, ownerId, settleInitial])
 
   const notePlace = useCallback((reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => {
     // Nothing is painted while the first place is still being resolved; a
@@ -510,6 +526,13 @@ export function useLabPositionSync(args: {
     const book = bookRef.current
     const controller = controllerRef.current
     if (!controller) return
+    if (reason === 'hide') {
+      // Flush genuine pending activity without making tab dismissal a new
+      // reading event that can outrank another device's newer bookmark.
+      controller.flush('hide')
+      return
+    }
+    activityRevisionRef.current += 1
     revRef.current += 1
     const sequential = at?.sequentialChapter ?? book.chapterNumber
     const paragraphIndex = at?.paragraphIndex ?? args.placeRef.current.paragraphIndex
@@ -530,6 +553,104 @@ export function useLabPositionSync(args: {
         })
     controller.note({ place, reason })
   }, [args.placeRef, args.readerStateRef, args.writesSuspended])
+
+  useEffect(() => {
+    if (!liveToken || !ownerId) return
+    let cancelled = false
+    let away = document.visibilityState === 'hidden'
+    let refreshing: Promise<void> | null = null
+    const onInput = () => { activityRevisionRef.current += 1 }
+    const refresh = () => {
+      if (document.visibilityState === 'hidden' || !cloudDoneRef.current || refreshing) return
+      if (latestArgsRef.current.writesSuspended) {
+        deferredRefreshRevisionRef.current = activityRevisionRef.current
+        return
+      }
+      const revision = activityRevisionRef.current
+      refreshing = (async () => {
+        const cloud = await fetchLabPositionCloud(liveToken)
+        if (cancelled || !cloud || revision !== activityRevisionRef.current) return
+        const controller = controllerRef.current
+        if (!controller) return
+        const before = controller.state()
+        const merged = accountLabPositionRecord(before, cloud, ownerId)
+        const resume = resumePlace(merged)
+        if (!resume) return
+        const current = bookRef.current
+        const currentId = current.bookId && current.bookId !== 'bible' ? current.bookId : biblicalBookId(current.headerBook)
+        const previous = resumePlace(before)
+        const changed = !previous || resume.bookId !== previous.bookId
+          || resume.sequentialChapter !== previous.sequentialChapter
+          || resume.paragraphIndex !== previous.paragraphIndex || resume.wordIndex !== previous.wordIndex
+        const registered = getBook(resume.bookId)
+        const libraryId = registered && registered.id !== 'bible' ? registered.id : 'bible'
+        const editions = libraryId === 'bible' ? bibleEditions() : registered!.editions
+        const edition = editions.find(item => item.key === resume.primaryEditionKey)
+          || editions.find(item => item.style === 'original' && item.language === 'en') || editions[0]
+        const chapters = libraryId === labLibraryBookId(current) && !current.chaptersProvisional
+          ? current.chapters : await loadLabChapterList(libraryId, edition.key)
+        if (cancelled || revision !== activityRevisionRef.current) return
+        if (latestArgsRef.current.writesSuspended) {
+          // A cover/menu/load started while the GET was in flight. Recheck
+          // after it clears, unless the reader has made a new intentional move.
+          deferredRefreshRevisionRef.current = revision
+          return
+        }
+        // Keep all pins, including those whose source is temporarily unavailable.
+        controller.replace(merged)
+        writeLabPositionLocal(merged, { authoritative: true })
+        setFinishedRevision(value => value + 1)
+        if (!changed || latestArgsRef.current.writesSuspended
+          || !chapters.some(chapter => chapter.number === resume.sequentialChapter)) return
+        // Returning to a reader follows the latest intentional position,
+        // including backwards moves and another Bible book.
+        if (currentId !== resume.bookId || current.chapterNumber !== resume.sequentialChapter) {
+          onRemoteResumeRef.current?.(resume)
+        } else {
+          latestArgsRef.current.placeRef.current = { paragraphIndex: resume.paragraphIndex, wordIndex: resume.wordIndex }
+          onResolvedPlaceRef.current?.(resume)
+        }
+      })().catch(() => { /* Offline: keep the visible page and every local record. */ }).finally(() => {
+        refreshing = null
+      })
+    }
+    foregroundRefreshRef.current = refresh
+    const onBlur = () => { away = true }
+    const onFocus = () => { if (away) { away = false; refresh() } }
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') away = true
+      else onFocus()
+    }
+    const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) refresh() }
+    window.addEventListener('blur', onBlur)
+    window.addEventListener('focus', onFocus)
+    window.addEventListener('online', refresh)
+    window.addEventListener('pageshow', onPageShow)
+    document.addEventListener('visibilitychange', onVisibility)
+    document.addEventListener('pointerdown', onInput, true)
+    document.addEventListener('keydown', onInput, true)
+    document.addEventListener('wheel', onInput, true)
+    return () => {
+      cancelled = true
+      foregroundRefreshRef.current = null
+      deferredRefreshRevisionRef.current = null
+      window.removeEventListener('blur', onBlur)
+      window.removeEventListener('focus', onFocus)
+      window.removeEventListener('online', refresh)
+      window.removeEventListener('pageshow', onPageShow)
+      document.removeEventListener('visibilitychange', onVisibility)
+      document.removeEventListener('pointerdown', onInput, true)
+      document.removeEventListener('keydown', onInput, true)
+      document.removeEventListener('wheel', onInput, true)
+    }
+  }, [liveToken, ownerId])
+
+  useEffect(() => {
+    if (args.writesSuspended || deferredRefreshRevisionRef.current === null) return
+    const revision = deferredRefreshRevisionRef.current
+    deferredRefreshRevisionRef.current = null
+    if (revision === activityRevisionRef.current) foregroundRefreshRef.current?.()
+  }, [args.writesSuspended])
 
   const markChapterFinished = useCallback((sequentialChapter: number) => {
     const controller = controllerRef.current

@@ -48,3 +48,26 @@ it('persists rapid clicks during a stalled cloud read and does not undo a newer 
  release({data:[],error:null});await Promise.all([loading,one,two,three]);
  expect((await api.loadSavedBooks()).ids).toEqual(['frankenstein']);
 })
+
+it('retains a table-hidden book and its visibility across devices and reloads',async()=>{
+ mock.user='alice';mock.rpc.mockResolvedValue({data:[{applied:true,rev:1}],error:null});
+ let api=await import('./libraryTwoSaved');
+ await api.setSavedBook('hamlet',true,{tableHidden:true});
+ expect(mock.rpc.mock.calls[0][1].p_value).toMatchObject({saved:true,tableHidden:true});
+ mock.rows=[{key:'library-shelf:hamlet',value:{saved:true,at:10,tableHidden:true},rev:1}];
+ vi.resetModules();api=await import('./libraryTwoSaved');
+ expect((await api.loadSavedBooks()).ids).toEqual(['hamlet']);
+ expect(await api.loadShelfMembership()).toEqual({removed:[],tableHidden:['hamlet']});
+ mock.rows=[{key:'library-shelf:hamlet',value:null,rev:2}];
+ expect(await api.loadShelfMembership()).toEqual({removed:['hamlet'],tableHidden:[]});
+})
+it('keeps an offline shelf removal explicit without deleting any reader data',async()=>{
+ mock.user='alice';mock.read.mockResolvedValue({data:null,error:{message:'offline'}});
+ localStorage.setItem('tinct-lab-position','saved-place');
+ localStorage.setItem('tinct:highlights:hamlet','saved-highlights');
+ let api=await import('./libraryTwoSaved');await api.setSavedBook('hamlet',false);
+ vi.resetModules();api=await import('./libraryTwoSaved');
+ expect(await api.loadShelfMembership()).toEqual({removed:['hamlet'],tableHidden:[]});
+ expect(localStorage.getItem('tinct-lab-position')).toBe('saved-place');
+ expect(localStorage.getItem('tinct:highlights:hamlet')).toBe('saved-highlights');
+})

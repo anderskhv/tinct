@@ -66,6 +66,8 @@ for(const {fontSize,chapter,height} of [
   }else{assert.equal(after.chapter,chapter+1);assert.equal(after.keys[0],'0:0','Unseen chapter starts at opening');}
   await p.screenshot({path:path.join(out,name+'-continued.png')});
   const saved=(await state(p)).place;
+  const storedBeforeReload=await p.evaluate(()=>localStorage.getItem('tinct-lab-position'));
+  fs.writeFileSync(path.join(out,name+'-reload.json'),JSON.stringify({saved,storedBeforeReload},null,2));
   await p.reload();await ready(p);assert.equal((await state(p)).place,saved,'Reload retains exact semantic location');
   assert.equal(await p.evaluate(()=>localStorage.getItem('tinct-lab-highlights')),note,'Annotation bytes unchanged');
   results.push({name,pages:states.length,preview:!!last.preview,docked:last.end.docked,bundle:last.bundle});

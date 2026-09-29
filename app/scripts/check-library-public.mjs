@@ -54,6 +54,22 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  assert.equal(await p.evaluate(()=>window.__library2Reading.reading.length),0);
  assert.equal(await p.evaluate(()=>window.__tinctLibraryTwoReading.readerDestination('frankenstein',null)),'/reader');
  assert.deepEqual(await p.evaluate(()=>JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')).savedPlace),handoff.savedPlace);
+ // Table removal retains the book on My shelf; shelf removal is explicit and durable.
+ await p.locator('#menu-toggle').click();
+ await p.locator('[data-collection="saved"]').click();
+ assert.equal(await p.locator('#collection-title').innerText(),'My shelf');
+ const shelfRemove=p.locator('#collection-books .save-toggle[data-book="frankenstein"]');
+ await shelfRemove.waitFor();assert.equal(await shelfRemove.innerText(),'×');
+ await p.evaluate(()=>dispatchEvent(new CustomEvent('library2:saved',{detail:['frankenstein']})));
+ assert.equal(await shelfRemove.innerText(),'×','saved refresh must not repaint the shelf remove as a plus/check');
+ await p.screenshot({path:out+'/my-shelf-'+engine.name()+'.png'});
+ await shelfRemove.click();
+ await p.waitForFunction(()=>!document.querySelector('#collection-books .save-toggle[data-book="frankenstein"]'));
+ assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')).books),before.books);
+ await p.reload();await p.waitForFunction(()=>window.__library2Reading&&window.__tinctLibraryTwoReading);
+ await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
+ assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').count(),0,'removed membership survives a reload despite retained progress');
+ await p.locator('#collection-back').click();
  // The bare-home shortcut uses a same-account fixture; the existing reader remains the position resolver.
  await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('tinct-lab-position'));s.owner='public-check';localStorage.setItem('tinct-lab-position',JSON.stringify(s));localStorage.setItem('sb-public-check-auth-token',JSON.stringify({user:{id:'public-check'}}));});
  await p.goto('https://tinct.app/');await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();
