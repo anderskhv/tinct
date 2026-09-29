@@ -72,6 +72,9 @@ jobs:
       - name: Verify reader feedback fixes
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-reader-feedback.mjs
+      - name: Verify spoken Bible book transition silently
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-book-transition.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         if: always()
@@ -80,6 +83,7 @@ jobs:
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
+            app/artifacts/book-transition
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-public.mjs

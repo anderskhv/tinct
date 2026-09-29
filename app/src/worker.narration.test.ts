@@ -719,6 +719,60 @@ describe('Grok narration rollout', () => {
     }) as typeof h.fish.respond
     return { h, reservations }
   }
+  function bibleHarness() {
+    const result = grokHarness()
+    result.h.env.ASSETS = { fetch: async () => Response.json({ chapters: [
+      { number: 412, title: 'Ezra 9', paragraphs: ['The previous chapter.'] },
+      { number: 413, title: 'Ezra 10', paragraphs: ['The accepted final paragraph.'] },
+      { number: 414, title: 'Nehemiah 1', paragraphs: ['The next book begins.'] },
+      { number: 426, title: 'Nehemiah 13', paragraphs: ['The final chapter.'] },
+      { number: 1190, title: 'Tobit 1', paragraphs: ['A Catholic book.'] },
+    ] }) }
+    return result
+  }
+  const boundary = { bookId: 'bible', editionKey: 'web-en', chapter: 413, voice: 'f',
+    kind: 'book-transition', nextChapter: 414, paragraphs: [{ index: 0 }] }
+  it('derives the announcement on the server and keeps it out of source maps', async () => {
+    const { h, reservations } = bibleHarness()
+    await ensure(h, { ...boundary, kind: undefined })
+    const sourceMap = narrationMapKey('bible', 'web-en', 413, 'f', 0, 'grok')
+    const before = h.env.AUDIO_BUCKET.store.get(sourceMap)!.slice()
+    const result = await ensure(h, { ...boundary, text: 'Do not trust client words' })
+    expect(result.json.paragraphs[0].status).toBe('ready')
+    expect(JSON.parse(h.fish.calls[1].body).text).toBe('You have completed Ezra. Next book: Nehemiah.')
+    expect(h.env.AUDIO_BUCKET.store.get(sourceMap)).toEqual(before)
+    expect(h.env.AUDIO_BUCKET.store.has('narration/grok/announcements/v1/bible/web-en/ch413/f/to414.json')).toBe(true)
+    await ensure(h, boundary)
+    expect(h.fish.calls).toHaveLength(2)
+    expect(reservations).toHaveLength(2)
+    await ensure(h, { ...boundary, voice: 'm' })
+    expect(h.fish.calls).toHaveLength(3)
+    expect(JSON.parse(h.fish.calls[2].body).voice_id).not.toBe(JSON.parse(h.fish.calls[1].body).voice_id)
+  })
+  it('requires the exact adjacent book and text hash before spending', async () => {
+    const { h } = bibleHarness()
+    for (const scope of [
+      { chapter: 412, nextChapter: 413 }, { nextChapter: 1190 },
+      { chapter: 1190, nextChapter: 414 }, { bookId: 'odyssey' },
+    ]) expect((await ensure(h, { ...boundary, ...scope })).status).toBe(404)
+    const mismatch = await ensure(h, { ...boundary, paragraphs: [{ index: 0, textHash: 'stale' }] })
+    expect(mismatch.json.paragraphs[0].status).toBe('text_mismatch')
+    expect((await ensure(h, { ...boundary, nextChapter: undefined })).status).toBe(400)
+    expect(h.fish.calls).toHaveLength(0)
+  })
+  it('respects Catholic ordering and anonymous cache-only access for cues', async () => {
+    const { h } = bibleHarness()
+    const catholic = { ...boundary, editionKey: 'webc-en', chapter: 426, nextChapter: 1190 }
+    h.deps.verifyUser = async () => null
+    expect((await ensure(h, catholic)).status).toBe(401)
+    expect(h.fish.calls).toHaveLength(0)
+    h.deps.verifyUser = async () => ({ id: 'signed-in', email: 'reader@example.com' })
+    expect((await ensure(h, catholic)).json.paragraphs[0].status).toBe('ready')
+    expect(JSON.parse(h.fish.calls[0].body).text).toBe('You have completed Nehemiah. Next book: Tobit.')
+    h.deps.verifyUser = async () => null
+    expect((await ensure(h, catholic)).status).toBe(200)
+    expect(h.fish.calls).toHaveLength(1)
+  })
   it('offers only the four approved voices and keeps provider identities separate', () => {
     const { h } = grokHarness()
     expect(narrationConfig(h.env).voices.map(v => v.id)).toEqual(['ara','helios','orion','eve'])

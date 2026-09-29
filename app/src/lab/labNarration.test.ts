@@ -123,3 +123,16 @@ describe('narration API client', () => {
     }
   })
 })
+
+it('sends a bounded book-transition identity and hash, never arbitrary spoken text', async () => {
+  const text = 'You have completed Ezra. Next book: Nehemiah.'
+  const fetchImpl = vi.fn(async (_url: string, init?: RequestInit) => {
+    const body = JSON.parse(String(init?.body))
+    expect(body).toMatchObject({ kind: 'book-transition', bookId: 'bible', chapter: 413, nextChapter: 414,
+      paragraphs: [{ index: 0, textHash: await sha256Hex(narrationTextForParagraph(text)) }] })
+    expect(JSON.stringify(body)).not.toContain('You have completed')
+    return Response.json({ paragraphs: [] })
+  }) as unknown as typeof fetch
+  await ensureNarration({ kind: 'book-transition', bookId: 'bible', editionKey: 'web-en', chapter: 413,
+    nextChapter: 414, voice: 'f', paragraphs: [{ index: 0, text }] }, { fetchImpl })
+})

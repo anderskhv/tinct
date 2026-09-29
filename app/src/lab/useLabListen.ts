@@ -83,6 +83,11 @@ export interface UseLabListenOptions {
 }
 
 export interface LabNarrationOption {
+  /** Audio-only tail, prepared by the ordinary bounded look-ahead after Play. */
+  endingCue?: {
+    text: string
+    ensure: (signal: AbortSignal, mode?: NarrationEnsureRequest['mode'], fromChunk?: number) => Promise<NarrationParagraphResult[]>
+  }
   voice: string
   /** One call generates at most one missing sentence group (`mode: 'next'`) and reports every requested paragraph's state. */
   ensure: (paragraphIndexes: number[], signal: AbortSignal, mode?: NarrationEnsureRequest['mode'], fromChunks?: Record<number, number>) => Promise<NarrationParagraphResult[]>
@@ -181,6 +186,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const switchingRef = useRef(false)
   const playingRef = useRef(false)
   const chapterHandoffRef = useRef(false)
+  const chapterCompletedRef = useRef(false)
   const playRequestRef = useRef(0)
   const requestIsCurrent = (request: number) => !optionsRef.current.guardPlaybackRequests || request === playRequestRef.current
   // Narration pilot: prepared recordings for the current tuple, requests in
@@ -261,6 +267,14 @@ export function useLabListen(options: UseLabListenOptions) {
     return Boolean(entry && entry.chunkCount > 0 && entry.chunks.length === entry.chunkCount && entry.chunks.every(chunk => chunk.ready))
   }
 
+  // Keep the virtual tail out of source paragraphs, followParagraphs and reader persistence.
+  const narrationParagraphs = () => {
+    const ending = optionsRef.current.narration?.endingCue
+    return ending
+      ? [...paragraphsRef.current, { index: optionsRef.current.paragraphs.length, text: ending.text }]
+      : paragraphsRef.current
+  }
+
   /** Clips for the narration tuple: one per known sentence group, or one placeholder per paragraph. */
   const rebuildNarrationClips = useCallback(() => {
     const before = clipsRef.current[clipIndexRef.current]
@@ -269,7 +283,7 @@ export function useLabListen(options: UseLabListenOptions) {
       : null
     const hashes = narrationHashesRef.current
     const clips: LabAudioClip[] = []
-    for (const paragraph of paragraphsRef.current) {
+    for (const paragraph of narrationParagraphs()) {
       const textHash = hashes.get(paragraph.index)
       if (textHash == null) continue
       const entry = narrationPreparedRef.current.get(paragraph.index)
@@ -278,6 +292,7 @@ export function useLabListen(options: UseLabListenOptions) {
         const chunk = entry?.textHash === textHash ? entry.chunks[expected.index] : undefined
         clips.push({
           kind: 'paragraph', index: paragraph.index,
+          announcement: paragraph.index === optionsRef.current.paragraphs.length || undefined,
           file: `narration-p${paragraph.index}-c${expected.index}.mp3`,
           url: chunk?.ready ? chunk.url : undefined,
           duration: chunk?.ready ? chunk.duration : undefined,
@@ -309,7 +324,7 @@ export function useLabListen(options: UseLabListenOptions) {
       if (result.status !== 'ready' && result.status !== 'partial' && result.status !== 'pending') continue
       const expected = hashes.get(result.paragraph)
       if (expected == null || result.textHash !== expected) continue
-      const paragraph = paragraphsRef.current.find(item => item.index === result.paragraph)
+      const paragraph = narrationParagraphs().find(item => item.index === result.paragraph)
       if (!paragraph) continue
       // A stale answer never shortens what is already playable.
       const known = prepared.get(result.paragraph)
@@ -367,10 +382,20 @@ export function useLabListen(options: UseLabListenOptions) {
     // Each parallel request names its own sentence group: the Worker makes
     // the first missing group at or after it, and its per-group lease keeps
     // two readers (or two requests) from ever paying for the same one.
+    const ensureIndexes = async (indexes: number[], fromChunks?: Record<number, number>) => {
+      const tail = optionsRef.current.paragraphs.length
+      const source = indexes.filter(index => index < tail)
+      const results = source.length ? await narration.ensure(source, signal, 'next', fromChunks) : []
+      if (narration.endingCue && indexes.includes(tail) && !signal.aborted && generation === playRequestRef.current) {
+        const cue = await narration.endingCue.ensure(signal, 'next', fromChunks?.[tail])
+        results.push(...cue.filter(result => result.paragraph === 0).map(result => ({ ...result, paragraph: tail })))
+      }
+      return results
+    }
     const round = parallel && parallel.length > 1
-      ? Promise.all(parallel.map(target => narration.ensure([target.index], signal, 'next', { [target.index]: target.chunk })))
+      ? Promise.all(parallel.map(target => ensureIndexes([target.index], { [target.index]: target.chunk })))
         .then(answers => answers.flat())
-      : fromChunks ? narration.ensure(indexes, signal, 'next', fromChunks) : narration.ensure(indexes, signal, 'next')
+      : ensureIndexes(indexes, fromChunks)
     narrationRoundRef.current = round
     try {
       const results = await round
@@ -586,12 +611,14 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const narrationActive = Boolean(options.narration)
   const narrationVoice = options.narration?.voice
+  const endingCueText = options.narration?.endingCue?.text
   useEffect(() => {
     playRequestRef.current += 1
     narrationRequestRef.current += 1
     narrationAbortRef.current?.abort()
     narrationAbortRef.current = null
     pendingPlaceRef.current = null
+    chapterCompletedRef.current = false
     narrationPreparedRef.current = new Map()
     narrationHashesRef.current = new Map()
     narrationRoundRef.current = null
@@ -607,7 +634,7 @@ export function useLabListen(options: UseLabListenOptions) {
       setPlaying(false)
     }
     setFollow({ kind: 'none' })
-  }, [options.audioEdition, options.bookId, options.chapterNumber, narrationActive, narrationVoice, setPending])
+  }, [options.audioEdition, options.bookId, options.chapterNumber, narrationActive, narrationVoice, endingCueText, setPending])
 
   useEffect(() => {
     setFollowParagraphs((current) => {
@@ -688,6 +715,8 @@ export function useLabListen(options: UseLabListenOptions) {
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
+        if (chapterCompletedRef.current) return
+        chapterCompletedRef.current = true
         if (optionsRef.current.onChapterComplete?.()) return
         finishPlayback()
         return
@@ -788,6 +817,7 @@ export function useLabListen(options: UseLabListenOptions) {
     pendingPlaceRef.current = null
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
+    chapterCompletedRef.current = false
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) { setPending(false); return false }
@@ -952,7 +982,8 @@ export function useLabListen(options: UseLabListenOptions) {
       // Narration pilot: clips are sentence groups that arrive on demand.
       // Anything prepared earlier for this tuple is reused as long as the
       // paragraph text still hashes the same.
-      const hashes = await Promise.all(sourceParagraphs.map(text => sha256Hex(narrationTextForParagraph(text))))
+      const audioParagraphs = narration.endingCue ? [...sourceParagraphs, narration.endingCue.text] : sourceParagraphs
+      const hashes = await Promise.all(audioParagraphs.map(text => sha256Hex(narrationTextForParagraph(text))))
       if (!tupleMatches()) return []
       narrationHashesRef.current = new Map(hashes.map((hash, index) => [index, hash]))
       for (const [index, entry] of Array.from(narrationPreparedRef.current.entries())) {
@@ -1225,7 +1256,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const estimatedClipDuration = useCallback((clip: LabAudioClip): number => {
     if (typeof clip.duration === 'number' && clip.duration > 0) return clip.duration
     if (clip.kind === 'title') return 0
-    const text = paragraphsRef.current.find(paragraph => paragraph.index === clip.index)?.text || ''
+    const text = narrationParagraphs().find(paragraph => paragraph.index === clip.index)?.text || ''
     const tokens = text.split(/\s+/).filter(Boolean)
     const from = clip.chunk?.wordFrom ?? 0
     const to = clip.chunk?.wordTo && clip.chunk.wordTo > from ? clip.chunk.wordTo : tokens.length
@@ -1257,7 +1288,7 @@ export function useLabListen(options: UseLabListenOptions) {
       if (seconds > cursor + duration && index < all.length - 1) { cursor += duration; continue }
       const local = Math.max(0, Math.min(duration, seconds - cursor))
       if (clip.kind === 'paragraph' && clip.narration && !clip.url) {
-        const paragraph = paragraphsRef.current.find(item => item.index === clip.index)
+        const paragraph = narrationParagraphs().find(item => item.index === clip.index)
         const tokens = narrationTokens(paragraph?.text || '')
         const from = clip.chunk?.wordFrom ?? 0
         const to = clip.chunk?.wordTo && clip.chunk.wordTo > from ? clip.chunk.wordTo : tokens.length
@@ -1349,7 +1380,7 @@ export function useLabListen(options: UseLabListenOptions) {
   // Chapter loading can commit src/clip state in a different React batch from
   // the outgoing paragraph follow. A title clip must never expose that stale
   // body-word target, even for a single render.
-  const visibleFollow = clips[clipIndex]?.kind === 'title'
+  const visibleFollow = clips[clipIndex]?.kind === 'title' || (clips[clipIndex]?.kind === 'paragraph' && (clips[clipIndex] as Extract<LabAudioClip, { kind: 'paragraph' }>).announcement)
     ? { kind: 'none' as const }
     : follow
 
