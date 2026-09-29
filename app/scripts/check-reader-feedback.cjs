@@ -33,7 +33,7 @@ async function main() {
   for (const desktop of [false, true]) {
     const browser = await (desktop ? chromium : webkit).launch()
     try {
-      const page = await browser.newPage({ viewport: desktop ? { width: 1440, height: 950 } : { width: 390, height: 650 }, isMobile: !desktop, hasTouch: !desktop })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: desktop ? { width: 1440, height: 950 } : { width: 390, height: 650 }, isMobile: !desktop, hasTouch: !desktop })
       // Layout tests never invoke paid chat, audio, or account endpoints.
       await page.route('**/api/**', route => route.fulfill({ status: 404, body: '{}' }))
       await page.addInitScript(() => {

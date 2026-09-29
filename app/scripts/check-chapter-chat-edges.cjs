@@ -1,7 +1,7 @@
 const {webkit,chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path')
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5191',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-chapter-chat-edges';fs.mkdirSync(dir,{recursive:true})
 async function main(){const results=[];for(const [desktop,chapter] of [[false,779],[false,1189],[true,779],[true,1189]]){const b=await(desktop?chromium:webkit).launch();try{
- const p=await b.newPage({viewport:desktop?{width:1440,height:950}:{width:360,height:640},isMobile:!desktop,hasTouch:!desktop});const requests=[]; p.setDefaultTimeout(15000);p.on('pageerror',e=>console.error(e.message))
+ const p=await b.newPage({serviceWorkers:'block',viewport:desktop?{width:1440,height:950}:{width:360,height:640},isMobile:!desktop,hasTouch:!desktop});const requests=[]; p.setDefaultTimeout(15000);p.on('pageerror',e=>console.error(e.message))
  await p.route('**/api/{chat,lab-chat}',async route=>{requests.push(route.request().postDataJSON());await route.fulfill({contentType:'application/json',body:JSON.stringify({content:[{text:'The chapter closes with its final invitation and blessing.'}]})})})
  await p.addInitScript(chapter=>{sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',compareEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:chapter,paragraphIndex:0,page:0}}))},chapter)
  await p.goto(origin+'/lab/phone'); // Requirement: verify the production phone entry point too.

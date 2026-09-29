@@ -31,7 +31,7 @@ if (!process.env.TEST_ORIGIN) {
   for (const [key,evidence] of Object.entries(held)) {
    const [bookId,editionKey] = key.split('/')
    for (const width of [390,1440]) {
-    const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
+    const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({serviceWorkers:'block',viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
     const page=await context.newPage()
     const writes=[]
     await page.route('**/api/**',r=>{ if (!['GET','HEAD'].includes(r.request().method())) writes.push(r.request().url());return r.fulfill({status:404,body:'{}'}) })

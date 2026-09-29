@@ -20,7 +20,7 @@ for(const {fontSize,chapter,height} of [
  ...[1.3,1.8,2.2].flatMap(fontSize=>[917,918].map(chapter=>({fontSize,chapter,height:813}))),
  {fontSize:1.3,chapter:595,height:400}
 ]){
- const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({viewport:{width:1450,height}});
+ const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height}});
  if(built)await context.route('**/*',r=>{
   const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();
   const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));
@@ -74,7 +74,7 @@ for(const {fontSize,chapter,height} of [
 }
 // The screenshot's exact long word, in the same reader font and markup.
 {
- const context=await browser.newContext({viewport:{width:1450,height:813}});
+ const context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height:813}});
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
  await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});

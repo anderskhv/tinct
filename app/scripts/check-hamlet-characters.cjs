@@ -9,7 +9,7 @@ if(process.env.TEST_CASE&&`${device}-${edition}-${label}`!==process.env.TEST_CAS
 
 const e=asset.editions[edition],mention=e.mentions.find(m=>m.chapterNumber===ch&&m.characterId===id&&(label!=='new-cawdor'||m.resolution==='reviewed-title-transfer')&&(pi===undefined||m.paragraphIndex===pi));assert.ok(mention,label)
 const text=source.chapters.find(c=>c.number===ch).paragraphs[mention.paragraphIndex].replace(/\n/g,' ').replace(/ {2,}/g,' '),wordIndex=[...text.matchAll(/\S+/g)].findIndex(w=>w.index>=mention.startOffset&&w.index<mention.endOffset);assert.ok(wordIndex>=0)
-const p=await b.newPage({viewport:device==='phone'?{width:390,height:844}:{width:1440,height:950},isMobile:device==='phone',hasTouch:device==='phone'});p.setDefaultTimeout(15000);await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
+const p=await b.newPage({serviceWorkers:'block',viewport:device==='phone'?{width:390,height:844}:{width:1440,height:950},isMobile:device==='phone',hasTouch:device==='phone'});p.setDefaultTimeout(15000);await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
 await p.addInitScript(({book,edition,ch,paragraphIndex})=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:edition,compareEditionKey:edition==='original-en'?'modern-en':'original-en',savedPlace:{bookId:book,chapterNumber:ch,paragraphIndex,page:0}})),{book,edition,ch,paragraphIndex:mention.paragraphIndex})
 await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(1200)
 const word=p.locator(`.lab-page-wrap [data-paragraph-index="${mention.paragraphIndex}"][data-word-index="${wordIndex}"]`).first()

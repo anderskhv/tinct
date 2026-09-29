@@ -172,7 +172,7 @@ async function firstVisibleTurn(page) {
 async function run(browser, { phone, viewport }) {
   const now = Date.now()
   const timings = {}
-  const page = await browser.newPage({ viewport, isMobile: phone, hasTouch: phone, deviceScaleFactor: phone ? 2 : 1 })
+  const page = await browser.newPage({serviceWorkers:'block', viewport, isMobile: phone, hasTouch: phone, deviceScaleFactor: phone ? 2 : 1 })
   page.setDefaultTimeout(30_000)
   await stub(page, now, timings)
   await page.addInitScript(([device, session, chapter]) => {

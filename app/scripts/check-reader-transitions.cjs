@@ -42,7 +42,7 @@ async function main() {
   const results = []
   try {
     for (const chapter of [788, 789]) {
-      const page = await browser.newPage({ viewport: { width: 393, height: 664 }, isMobile: true, hasTouch: true })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 393, height: 664 }, isMobile: true, hasTouch: true })
       await page.route('**/api/**',r=>/\/api\/audio-(?:file|manifest)\?/.test(r.request().url())?r.continue():r.fulfill({status:404,body:'{}'}));
       await page.addInitScript(chapterNumber => {
         sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({

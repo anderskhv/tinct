@@ -2,7 +2,7 @@
 const {webkit,chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path')
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5195',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-sep10-bugs';fs.mkdirSync(dir,{recursive:true})
 async function main(){const results=[];for(const desktop of [false,true]){const b=await(desktop?chromium:webkit).launch();try{
- const p=await b.newPage({viewport:desktop?{width:1440,height:700}:{width:390,height:640},isMobile:!desktop,hasTouch:!desktop});p.setDefaultTimeout(12000)
+ const p=await b.newPage({serviceWorkers:'block',viewport:desktop?{width:1440,height:700}:{width:390,height:640},isMobile:!desktop,hasTouch:!desktop});p.setDefaultTimeout(12000)
  await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
  await p.route('**/api/{chat,lab-chat}',r=>r.fulfill({contentType:'application/json',body:JSON.stringify({content:[{text:'Baruch receives a personal message amid a time of disaster. The chapter addresses his weariness and hopes.'}]})}))
  await p.addInitScript(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',compareEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:790,paragraphIndex:0,page:0}})))
