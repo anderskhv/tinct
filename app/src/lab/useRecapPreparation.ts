@@ -28,12 +28,17 @@ export function useRecapPreparation(input: {
     }
     const visible = () => send(document.visibilityState !== 'hidden' || playing.current === true, document.visibilityState === 'hidden')
     const leave = () => send(false,true)
-    void input.readToken().then(value => {
-      if (stopped) return
-      token = value
-      if (token) visible()
-    }).catch(() => {})
-    const timer = window.setInterval(() => { if (document.visibilityState !== 'hidden' || playing.current) send(true) },30_000)
+    const refreshPresence = () => {
+      void input.readToken().then(value => {
+        if (stopped) return
+        token = value
+        if (token) visible()
+      }).catch(() => {})
+    }
+    refreshPresence()
+    // Long reading sessions outlive access tokens. Refresh the token before
+    // renewing presence so the selected book never looks abandoned on expiry.
+    const timer = window.setInterval(() => { if (document.visibilityState !== 'hidden' || playing.current) refreshPresence() },30_000)
     document.addEventListener('visibilitychange',visible)
     window.addEventListener('pagehide',leave)
     window.addEventListener('online',visible)
