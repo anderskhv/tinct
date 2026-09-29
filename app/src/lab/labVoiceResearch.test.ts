@@ -3,13 +3,13 @@ import { researchVoiceQuestion } from './labVoiceResearch'
 
 afterEach(() => vi.unstubAllGlobals())
 
-it('announces chat citations only after a successful sourced lookup', async () => {
+it('attaches citations without announcing the lookup or links', async () => {
   const sources = [{ title: 'Source archive', url: 'https://example.com/source' }]
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true, notes: 'Research notes.', sources }))))
   const result = await researchVoiceQuestion('A public reading question', 'test-token')
   expect(result.sources).toEqual(sources)
-  expect(result.responseInstructions).toContain("I've added the source links in chat.")
-  expect(result.responseInstructions).toContain('without reading URLs aloud')
+  expect(result.responseInstructions).toContain('Do not announce the lookup or the added links')
+  expect(result.responseInstructions).not.toContain("I've added the source links in chat.")
 })
 
 it.each([
@@ -24,6 +24,8 @@ it.each([
   expect(result.output).toMatchObject({ ok: false })
   expect(result.sources).toBeUndefined()
   expect(result.responseInstructions).toContain('Do not say source links were added')
+  expect(result.responseInstructions).toContain('Do not announce search failures')
+  expect(result.responseInstructions).toContain('specific uncertainty briefly once')
 })
 
 it('does not claim links when signed out', async () => {
@@ -33,4 +35,6 @@ it('does not claim links when signed out', async () => {
   expect(fetcher).not.toHaveBeenCalled()
   expect(result.output).toMatchObject({ ok: false, reason: 'sign_in_required' })
   expect(result.responseInstructions).toContain('Do not say source links were added')
+  expect(result.responseInstructions).toContain('Do not announce search failures')
+  expect(result.responseInstructions).toContain('specific uncertainty briefly once')
 })

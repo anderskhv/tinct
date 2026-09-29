@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import {act,cleanup,fireEvent,render,screen} from '@testing-library/react'
+import {act,cleanup,fireEvent,render,screen,waitFor} from '@testing-library/react'
 import {afterEach,expect,it,vi} from 'vitest'
 import {LabApp} from './LabApp'
 import {fallbackLabSource} from './labSource'
@@ -18,4 +18,26 @@ it('never starts legacy English audio before configuration or after a configurat
  expect(play).not.toHaveBeenCalled()
  expect(requests.some(url=>url.includes('audio-manifest')||url.includes('audio-file'))).toBe(false)
  expect(screen.getByText('Audio is temporarily unavailable for this edition. You can keep reading.')).toBeTruthy()
+})
+
+it('replaces an unauthenticated narration error with a sign-in card and retains the page',async()=>{
+ const listen=await import('./useLabListen')
+ const original=listen.useLabListen, dismiss=vi.fn()
+ const spy=vi.spyOn(listen,'useLabListen').mockImplementation((...args)=>({
+   ...original(...args),
+   narration:{status:'error' as const,paragraphIndex:0,reason:'unauthenticated',message:'Sign in to hear this chapter narrated.'},
+   dismissNarration:dismiss,
+ }))
+ vi.stubGlobal('fetch',vi.fn(async()=>new Response('',{status:404})))
+ try{
+  render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null}/>)
+  const before=screen.getByTestId('lab-passage-headline').textContent
+  expect(await screen.findByRole('heading',{name:'Sign in to listen'})).toBeTruthy()
+  expect(screen.queryByTestId('lab-narration-retry')).toBeNull()
+  expect(screen.queryByTestId('lab-narration-error')).toBeNull()
+  expect(dismiss).toHaveBeenCalledOnce()
+  fireEvent.click(screen.getByRole('button',{name:'Keep reading'}))
+  await waitFor(()=>expect(screen.queryByTestId('lab-account-sheet')).toBeNull())
+  expect(screen.getByTestId('lab-passage-headline').textContent).toBe(before)
+ }finally{spy.mockRestore()}
 })

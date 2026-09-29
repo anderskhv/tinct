@@ -71,7 +71,7 @@ export function LabBookSwitcher({ current, rows, loading, error, onClose, onSele
         {loading && ordered.length === 0 && <p className="lab-book-switcher-status">Loading your books…</p>}
         {error && <p className="lab-book-switcher-status" role="status">{error}</p>}
       </div>
-      <button type="button" className="lab-book-switcher-library" onClick={onLibrary}>Full library <span aria-hidden="true">→</span></button>
+      <button type="button" className="lab-book-switcher-library" onClick={onLibrary}><svg className="lab-book-switcher-library-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16 5l3-1 4 15-3 1z" /></svg><span>Library</span><span className="lab-book-switcher-library-arrow" aria-hidden="true">→</span></button>
     </section>
   </div>
 }

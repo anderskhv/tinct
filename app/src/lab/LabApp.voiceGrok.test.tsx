@@ -91,7 +91,7 @@ it('persists research sources as clickable links beside the voice answer', async
     : new Response('{}', { status: 404 })))
   render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken="test-token" />)
   act(() => captured.options?.appendLocalMessage({ id: 'question', role: 'user', content: 'Has Keller commented?', timestamp: Date.now(), bookId: 'bible', source: 'voice' }))
-  await act(async () => { const result = await captured.options?.onApplicationTool?.('search_reading_sources', { query: 'Tim Keller Genesis 1' }, 'research'); expect(result?.responseInstructions).toContain("I've added the source links in chat.") })
+  await act(async () => { const result = await captured.options?.onApplicationTool?.('search_reading_sources', { query: 'Tim Keller Genesis 1' }, 'research'); expect(result?.responseInstructions).toContain('Do not announce the lookup or the added links') })
   const answer = { id: 'answer', role: 'assistant' as const, content: 'Keller discusses creation.', timestamp: Date.now(), bookId: 'bible', source: 'voice' as const }
   act(() => { captured.options?.appendLocalMessage(answer); captured.options?.recordMessage(answer, 1, 0) })
   fireEvent.click(screen.getByTestId('lab-super'))

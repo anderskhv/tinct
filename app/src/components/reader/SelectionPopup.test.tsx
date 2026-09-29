@@ -256,16 +256,30 @@ it('classifies a capitalized dictionary hit before choosing the card, preserving
   expect(screen.queryByText('A generated definition.')).toBeNull()
 })
 
-it('lets a fresh mouse drag select reader text while dismissing an older popup', () => {
-  const beginSelection = vi.fn()
+it('consumes a desktop click through unmount, then allows the next gesture', () => {
+  const beginSelection = vi.fn(), lookup = vi.fn()
   const input = props({ lab: true })
-  render(<><article className="lab-passage"><p className="lab-hearing-line" onPointerDown={beginSelection}>New passage</p></article><SelectionPopup {...input} /></>)
-  const event = new Event('pointerdown', { bubbles: true, cancelable: true })
-  Object.defineProperty(event, 'pointerType', { value: 'mouse' })
-  fireEvent(screen.getByText('New passage'), event)
+  const passage = <article className="lab-passage"><p className="lab-hearing-line" onPointerDown={beginSelection} onPointerUp={lookup} onClick={lookup}>New passage</p></article>
+  const view = render(<>{passage}<SelectionPopup {...input} /></>)
+  const target = screen.getByText('New passage')
+  const down = () => {
+    const event = new Event('pointerdown', { bubbles: true, cancelable: true })
+    Object.defineProperty(event, 'pointerType', { value: 'mouse' })
+    fireEvent(target, event)
+    return event
+  }
+  expect(down().defaultPrevented).toBe(true)
   expect(input.dismissPopup).toHaveBeenCalledOnce()
+  view.rerender(passage)
+  fireEvent.pointerUp(target)
+  fireEvent.click(target)
+  expect(beginSelection).not.toHaveBeenCalled()
+  expect(lookup).not.toHaveBeenCalled()
+  expect(down().defaultPrevented).toBe(false)
+  fireEvent.pointerUp(target)
+  fireEvent.click(target)
   expect(beginSelection).toHaveBeenCalledOnce()
-  expect(event.defaultPrevented).toBe(false)
+  expect(lookup).toHaveBeenCalledTimes(2)
 })
 
 it('retains the source page for an expanded explanation', () => {

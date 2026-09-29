@@ -7936,3 +7936,10 @@
 
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill[data-near-top="true"] .lab-voice-pill-controls { top:100%; bottom:auto; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill[data-near-left="true"] .lab-voice-pill-controls { left:0; right:auto; }
+
+/* A clear destination at the foot of the book switcher. */
+.lab[data-chrome-version="v2"] .lab-book-switcher-library{justify-content:flex-start;gap:12px;min-height:54px;margin-top:10px;padding:13px 15px;border:1px solid var(--lab-border);border-radius:12px;background:var(--lab-paper);color:var(--lab-ink);font-family:var(--lab-font-reader);font-size:20px;text-align:left}
+.lab[data-chrome-version="v2"] .lab-book-switcher-library-icon{width:21px;height:21px;flex:none;opacity:.75}
+.lab[data-chrome-version="v2"] .lab-book-switcher-library-arrow{margin-left:auto;color:var(--lab-ink-muted)}
+.lab[data-chrome-version="v2"] .lab-book-switcher-library:hover{background:color-mix(in srgb,var(--lab-ink) 6%,var(--lab-paper))}
+.lab[data-chrome-version="v2"] .lab-book-switcher-library:focus-visible{outline:2px solid var(--lab-ink);outline-offset:3px}

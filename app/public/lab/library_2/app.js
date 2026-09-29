@@ -3,7 +3,7 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260928covers';
+import {mountBookshelf} from './bookshelf.js?v=20260929reveal';
 import {authorPortrait,warmPortrait} from './authors.js?v=20260928covers';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
@@ -293,17 +293,47 @@ async function toggleSaved(id){
  try{const api=await readingApi();const result=await api.setSavedBook(id,change.saved);if(pendingSaves.get(id)===change)pendingSaves.delete(id);receiveSaved(result.ids);if(!result.synced)notice('Saved on this device. Your shelf will sync when you reconnect.');if(collectionChoice==='saved'&&!activeBook)renderCollection();}
  catch{if(pendingSaves.get(id)===change){pendingSaves.delete(id);change.saved?savedBooks.delete(id):savedBooks.add(id);receiveSaved([...savedBooks]);}notice('Your shelf could not be saved. Please try again.');}
 }
-function paintSaveToggle(t){const on=savedBooks.has(t.dataset.book);t.textContent=on?'✓':'+';t.classList.toggle('on',on);t.setAttribute('aria-pressed',String(on));t.setAttribute('aria-label',`${on?'Remove from To read':'Add to shelf'}: ${t.dataset.title}`);}
+function paintSaveToggle(t){if(t.dataset.shelfRemove==='true'){t.textContent='×';t.classList.remove('on');t.removeAttribute('aria-pressed');t.setAttribute('aria-label','Remove from My shelf: '+t.dataset.title);return;}const on=savedBooks.has(t.dataset.book);t.textContent=on?'✓':'+';t.classList.toggle('on',on);t.setAttribute('aria-pressed',String(on));t.setAttribute('aria-label',`${on?'Remove from To read':'Add to shelf'}: ${t.dataset.title}`);}
 addEventListener('library2:remove-saved',e=>{if(savedBooks.has(e.detail))toggleSaved(e.detail);});
 $('save-book').onclick=()=>toggleSaved(activeBook.id);
 function setMenu(open){menuOpen=open;$('library-menu').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));syncLock();(open?$('menu-close'):$('menu-toggle')).focus({preventScroll:true});}
 $('menu-toggle').onclick=()=>setMenu(!menuOpen);$('menu-close').onclick=()=>setMenu(false);$('library-menu').onclick=e=>{if(e.target===$('library-menu'))setMenu(false);};
 function selectCollection(value){collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
-// My books: what you are reading, what you want to read, and what you have finished.
-function renderMyBooks(){$('collection-title').textContent='My books';const grid=$('collection-books');grid.replaceChildren();const table=window.__library2Reading||{reading:[],finished:[]};const byId=id=>books.find(b=>b.id===id);
- const groups=[['Reading now',table.reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['To read',books.filter(b=>savedBooks.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
- let total=0;groups.forEach(([label,list,kind])=>{if(!list.length)return;total+=list.length;const h=el('h2','my-books-head',label);grid.append(h);list.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);if(kind==='reading'){const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;b.addEventListener('click',async e=>{e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});}card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});});
- $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';}
+// My shelf: what you are reading, what you want to read, and what you have finished.
+async function removeFromMyShelf(id){
+ try{
+  const api=await readingApi();
+  const result=await api.setSavedBook(id,false);
+  receiveSaved(result.ids);
+  const table=window.__library2Reading;
+  if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
+  dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
+  renderMyBooks();
+  if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
+ }catch{notice('Your shelf could not be saved. Please try again.');}
+}
+function renderMyBooks(){
+ $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.replaceChildren();
+ const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
+ const reading=table.shelfReading||table.reading;
+ const present=new Set([...reading,...table.finished].map(row=>row.bookId));
+ const groups=[['Reading now',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['To read',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
+ let total=0;
+ groups.forEach(([label,list,kind])=>{
+  if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
+  list.forEach(book=>{
+   const card=el('article','collection-card'),open=coverButton(book);
+   const toggle=open.querySelector('.save-toggle');
+   if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
+   if(kind==='reading'){
+    const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
+    b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});
+   }
+   card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);
+  });
+ });
+ $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
+}
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
 function renderCollection(){const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';if(kind==='saved'){renderMyBooks();return;}if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
 if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
@@ -384,7 +414,7 @@ registerCommands({
   {id:'library-search',label:'Search books and authors',key:'/',run:()=>{setSearch(true);$('search-input').focus();}},
   {id:'library-chat',label:'Chat with your librarian',key:'c',run:()=>openAssistantCommand('chat')},
   {id:'library-talk',label:'Talk with your librarian',key:'t',run:()=>{if(mode==='talk'){minimize();return;}openAssistantCommand('talk');}},
-  {id:'library-books',label:'My books',key:'b',run:()=>{const b=document.querySelector('[data-collection="saved"]');b?.click();}},
+  {id:'library-books',label:'My shelf',key:'b',run:()=>{const b=document.querySelector('[data-collection="saved"]');b?.click();}},
   {id:'library-menu',label:'Library categories and time periods',key:'i',run:()=>setMenu(true)},
   {id:'library-read',label:'Read the selected book',key:'r',enabled:()=>mode==='minimized',run:()=>{if(activeBook){$('begin-reading').click();}else{const resume=$('rt-continue');if(resume&&!resume.hidden&&resume.getClientRects().length)resume.click();else $('read-featured').click();}}},
   {id:'library-home',label:'Library home',key:'l',run:()=>location.assign('/library')},
