@@ -2,15 +2,15 @@
  * Which "continue with" providers the lab sign-in page offers, in the order
  * they are shown, and what to say when one of them is not there.
  *
- * Order is Google, Apple, GitHub (owner decision, 2026-09-07), on both the
- * sign-in and the create-account modes, phone and desktop.
+ * Google is offered in both modes. Apple is hidden until its developer
+ * configuration is complete (owner decision, 2026-09-29).
  *
  * CAPABILITY LIST — `LAB_SIGN_IN_PROVIDERS` is the only place that decides
  * whether a button is rendered. A provider that is not enabled in the
  * Supabase project (Auth → Sign In / Providers) is hidden by deleting its
  * entry from that one array; the markup, the click handler and the tests
- * need no other change. As of 2026-09-07 Google is enabled; Apple and GitHub
- * are declared here and are expected to be switched on in the dashboard.
+ * need no other change. Google is enabled; Apple and GitHub remain recognised only for handling
+ * older callbacks, not offered as working sign-in methods.
  * Until they are, the attempt fails on the ROUND TRIP, not on the call:
  * `signInWithOAuth` builds the `/authorize` URL and navigates, and GoTrue
  * sends the reader straight back here with
@@ -37,7 +37,7 @@ export const LAB_OAUTH_PROVIDERS: readonly LabOAuthProvider[] = ['google', 'appl
 // primary email, so it can never link by email to an existing account —
 // a second sign-in with it silently makes a duplicate reader. Our readers
 // are not developers; it earned nothing and cost exactly that confusion.
-export const LAB_SIGN_IN_PROVIDERS: readonly LabOAuthProvider[] = ['google', 'apple']
+export const LAB_SIGN_IN_PROVIDERS: readonly LabOAuthProvider[] = ['google']
 
 export const LAB_OAUTH_PROVIDER_NAMES: Readonly<Record<LabOAuthProvider, string>> = Object.freeze({
   google: 'Google',
@@ -83,7 +83,7 @@ export function labOAuthErrorMessage(provider: LabOAuthProvider, message?: strin
  * where they were.
  */
 export function labOAuthRedirectTo(origin: string, returnTo: string): string {
-  return `${origin}/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}`
+  return `${origin}/lab/sign-in?callback=oauth&returnTo=${encodeURIComponent(returnTo)}`
 }
 
 /** Which provider a round-trip was started for, remembered across the redirect. */
@@ -115,7 +115,7 @@ export function labOAuthReturnError(search: string, hash: string): LabOAuthRetur
 
 /** The same URL with every auth error/tokens parameter stripped, so a reload is clean. */
 export function withoutOAuthReturnParams(href: string): string {
-  const noise = ['error', 'error_code', 'error_description', 'access_token', 'refresh_token', 'expires_in', 'expires_at', 'token_type', 'provider_token', 'provider_refresh_token', 'type']
+  const noise = ['code', 'error', 'error_code', 'error_description', 'access_token', 'refresh_token', 'expires_in', 'expires_at', 'token_type', 'provider_token', 'provider_refresh_token', 'type']
   const url = new URL(href)
   for (const key of noise) url.searchParams.delete(key)
   if (url.hash) {

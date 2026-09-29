@@ -36,6 +36,8 @@ const PLAYBACK_LEAD_SECONDS = 0.05
 /** Reader movement is common; one prompt refresh per short window is enough. */
 const CONTEXT_UPDATE_DEBOUNCE_MS = 400
 const CONNECT_TIMEOUT_MS = 15_000
+export const VOICE_REQUEST_TIMEOUT_MS = 12_000
+export const VOICE_MICROPHONE_TIMEOUT_MS = 30_000
 /** A dropped connection while setting up (a car's mobile network) is tried again once, with a fresh secret. */
 export const VOICE_CONNECT_ATTEMPTS = 2
 const VOICE_CONNECT_RETRY_DELAY_MS = 1_000
@@ -116,6 +118,8 @@ export class GrokVoiceSessionController {
   private ui = idle()
   private input: StartVoiceSessionInput | null = null
   private socket: GrokSocket | null = null
+  private setupAbort: AbortController | null = null
+  private cancelMicrophone: (() => void) | null = null
   private stream: MediaStream | null = null
   private context: AudioContext | null = null
   private captureNode: AudioWorkletNode | ScriptProcessorNode | null = null
@@ -272,7 +276,7 @@ export class GrokVoiceSessionController {
       // Do not mint a billable single-use provider session until microphone
       // permission has actually succeeded.
       this.releaseAudioSession = acquireBrowserAudioSession('play-and-record')
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
+      const stream = await this.requestMicrophone()
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
       for (const track of stream.getAudioTracks()) track.onended = () => {
@@ -302,19 +306,69 @@ export class GrokVoiceSessionController {
     }
   }
 
+  /** Permission can outlive a cancelled start; release any late microphone. */
+  private requestMicrophone(): Promise<MediaStream> {
+    return new Promise((resolve, reject) => {
+      let settled = false
+      const finish = (error?: Error, stream?: MediaStream) => {
+        if (settled) { stream?.getTracks().forEach(track => track.stop()); return }
+        settled = true
+        clearTimeout(timer)
+        if (this.cancelMicrophone === cancel) this.cancelMicrophone = null
+        if (error) reject(error)
+        else resolve(stream!)
+      }
+      const cancel = () => finish(new Error('Voice setup cancelled.'))
+      const timer = setTimeout(() => finish(new Error('Microphone did not become ready. Close voice and try again.')), VOICE_MICROPHONE_TIMEOUT_MS)
+      this.cancelMicrophone = cancel
+      // Begin on this gesture; do not defer the browser permission request.
+      try {
+        navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
+          .then(stream => finish(undefined, stream), error => finish(error instanceof Error ? error : new Error('Microphone could not start.')))
+      } catch (error) {
+        finish(error instanceof Error ? error : new Error('Microphone could not start.'))
+      }
+    })
+  }
+
+  /** Bound both the HTTP request and its body, before the socket timeout starts. */
+  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: { value?: string; model?: string; error?: string } }> {
+    const abort = new AbortController()
+    this.setupAbort = abort
+    let timedOut = false
+    const timer = setTimeout(() => { timedOut = true; abort.abort() }, VOICE_REQUEST_TIMEOUT_MS)
+    let removeAbortListener = () => {}
+    try {
+      const cancelled = new Promise<never>((_resolve, reject) => {
+        const onAbort = () => reject(new Error('Voice setup cancelled.'))
+        abort.signal.addEventListener('abort', onAbort, { once: true })
+        removeAbortListener = () => abort.signal.removeEventListener('abort', onAbort)
+      })
+      const request = (async () => {
+        const response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
+          body: '{}',
+          signal: abort.signal,
+        })
+        const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string }
+        return { response, data }
+      })()
+      return await Promise.race([request, cancelled])
+    } catch {
+      throw new RetryableVoiceSetupError(timedOut
+        ? 'Voice setup timed out. Please try again, or type your question.'
+        : 'Voice could not reach Tinct. Check your connection and try again.')
+    } finally {
+      clearTimeout(timer)
+      removeAbortListener()
+      if (this.setupAbort === abort) this.setupAbort = null
+    }
+  }
+
   /** One setup attempt: mint a single-use secret, open the socket, wait for the session. */
   private async connect(input: StartVoiceSessionInput, generation: number): Promise<void> {
-    let response: Response
-    try {
-      response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
-        body: '{}',
-      })
-    } catch {
-      throw new RetryableVoiceSetupError('Voice could not reach Tinct. Check your connection and try again.')
-    }
-    const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string }
+    const { response, data } = await this.requestSession(input)
     if (generation !== this.generation) return
     if (!response.ok || !data.value) {
       if (response.status === 401) this.callbacks.onNeedAuth?.()
@@ -798,6 +852,10 @@ export class GrokVoiceSessionController {
   stop(): void {
     this.stopping = true
     this.generation++
+    this.setupAbort?.abort()
+    this.setupAbort = null
+    this.cancelMicrophone?.()
+    this.cancelMicrophone = null
     this.ready = false
     if (this.contextTimer) { clearTimeout(this.contextTimer); this.contextTimer = null }
     if (this.sendTimer) { clearInterval(this.sendTimer); this.sendTimer = null }

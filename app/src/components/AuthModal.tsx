@@ -3,7 +3,7 @@ import { useState } from 'react'
 interface AuthModalProps {
   onClose: () => void
   onSignIn: (email: string, password: string) => Promise<{ error?: string }>
-  onSignUp: (email: string, password: string) => Promise<{ error?: string }>
+  onSignUp: (email: string, password: string) => Promise<{ error?: string; confirmationRequired?: boolean }>
   onGoogleSignIn: () => Promise<void>
   onResetPassword: (email: string) => Promise<{ error?: string }>
   defaultMode?: 'signin' | 'signup'
@@ -16,6 +16,7 @@ export function AuthModal({ onClose, onSignIn, onSignUp, onGoogleSignIn, onReset
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [resetSuccess, setResetSuccess] = useState(false)
+  const [signupSuccess, setSignupSuccess] = useState<'confirm' | 'welcome' | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -41,6 +42,8 @@ export function AuthModal({ onClose, onSignIn, onSignUp, onGoogleSignIn, onReset
 
     if (result.error) {
       setError(result.error)
+    } else if (mode === 'signup') {
+      setSignupSuccess('confirmationRequired' in result && result.confirmationRequired ? 'confirm' : 'welcome')
     } else {
       onClose()
     }
@@ -52,17 +55,19 @@ export function AuthModal({ onClose, onSignIn, onSignUp, onGoogleSignIn, onReset
         <button className="auth-close" onClick={onClose} aria-label="Close">&times;</button>
 
         <h2 className="auth-title">
-          {mode === 'signin' ? 'Welcome back' : mode === 'signup' ? 'Create account' : 'Reset password'}
+          {signupSuccess === 'welcome' ? 'Welcome to Tinct.' : signupSuccess === 'confirm' ? 'Check your email' : mode === 'signin' ? 'Welcome back' : mode === 'signup' ? 'Create account' : 'Reset password'}
         </h2>
         <p className="auth-subtitle">
-          {mode === 'signin'
+          {signupSuccess === 'welcome' ? 'Your account is ready. Enjoy reading.' : signupSuccess === 'confirm' ? 'Follow the confirmation link to finish creating your account.' : mode === 'signin'
             ? 'Sign in to sync your reading across devices'
             : mode === 'signup'
             ? 'Save your highlights, notes, and reading progress'
             : 'Enter your email and we\'ll send a reset link'}
         </p>
 
-        {resetSuccess ? (
+        {signupSuccess ? (
+          <button className="auth-submit" onClick={onClose}>{signupSuccess === 'welcome' ? 'Continue reading' : 'Back to reading'}</button>
+        ) : resetSuccess ? (
           <div className="auth-success">
             <p>Check your email for a password reset link.</p>
             <button className="auth-submit" onClick={() => { setMode('signin'); setResetSuccess(false); setError('') }}>Back to sign in</button>

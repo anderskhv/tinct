@@ -52,3 +52,8 @@ describe('safeLabReturnTo', () => {
 })
 
 it('preserves a launch-reader book through sign-in', () => { expect(safeLabReturnTo('/reader?book=niels-lyhne', 'https://tinct.app')).toBe('/reader?book=niels-lyhne') })
+
+it('does not loop back into sign-in after authentication', () => {
+  expect(safeLabReturnTo('/lab/sign-in?mode=create', 'https://tinct.app')).toBe('/lab/library')
+  expect(safeLabReturnTo('/lab/sign-in/', 'https://tinct.app')).toBe('/lab/library')
+})
