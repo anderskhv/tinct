@@ -31,5 +31,7 @@ describe('native auth returns',()=>{
   expect(nativeAuthLanding(p)).toContain('mode=reset')
   expect(nativeAuthLanding(p,true)).toContain('native-error=1')
   expect(parseNativeAuthReturn(nativeAuthRedirect(p)+'&error=access_denied',p,id,now)?.error).toBe(true)
+  expect(parseNativeAuthReturn(nativeAuthRedirect(p)+'#error=access_denied&error_description=provider-details',p,id,now)?.error).toBe(true)
+  expect(parseNativeAuthReturn(nativeAuthRedirect(p)+'#error=denied&access_token=secret',p,id,now)).toBeNull()
  })
 })

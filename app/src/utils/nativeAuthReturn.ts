@@ -14,9 +14,13 @@ export function parseNativeAuthReturn(raw: string, pending: NativeAuthPending | 
   if (!pending || pending.appId!==appId || !Number.isFinite(pending.expires) || pending.expires<=now) return null
   try {
     const url=new URL(raw)
-    if(url.protocol!==appId+':' || url.hostname!=='auth' || url.pathname!=='/callback' || url.username || url.password || url.port || url.hash || url.searchParams.get('flow')!==pending.nonce)return null
+    if(url.protocol!==appId+':' || url.hostname!=='auth' || url.pathname!=='/callback' || url.username || url.password || url.port || url.searchParams.get('flow')!==pending.nonce)return null
     const code=url.searchParams.get('code')??''
-    const error=url.searchParams.has('error') || url.searchParams.has('error_code')
+    const fragment=new URLSearchParams(url.hash.slice(1))
+    if(fragment.has('access_token') || fragment.has('refresh_token'))return null
+    const fragmentError=fragment.has('error') || fragment.has('error_code')
+    if(url.hash && !fragmentError)return null
+    const error=url.searchParams.has('error') || url.searchParams.has('error_code') || fragmentError
     if(!error && (!code || code.length>4096))return null
     return {code,pending,error}
   } catch {return null}

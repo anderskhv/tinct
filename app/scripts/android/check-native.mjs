@@ -84,7 +84,7 @@ try {
   const nonce=cold?'native-cold-0123456789':'native-warm-0123456789'
   await page.evaluate(({packageId,nonce})=>localStorage.setItem('tinct:native-auth-pending',JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+60_000})),{packageId,nonce})
   if(cold)await device.shell('am force-stop '+packageId)
-  const callback=packageId+'://auth/callback?flow='+nonce+'&error=access_denied'
+  const callback=packageId+'://auth/callback?flow='+nonce+(cold?'&error=access_denied':'#error=access_denied')
   await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
   if(cold)page=await(await device.webView({pkg:packageId})).page()
   await page.locator('[data-auth-status]').filter({hasText:'Sign-in could not be completed. Please try again.'}).waitFor({timeout:60000})
