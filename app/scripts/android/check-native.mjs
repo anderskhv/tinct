@@ -111,7 +111,19 @@ try {
 } catch(error) {
  // These diagnostics run only in the isolated, signed-out emulator. No
  // callback query, authorization header, or session payload is recorded.
- const state=page?await page.evaluate(()=>({
+ const state=page?await page.evaluate(async()=>{
+  let launchCheck
+  try {
+   const result=await window.Capacitor.Plugins.App.getLaunchUrl()
+   const pending=JSON.parse(localStorage.getItem('tinct:native-auth-pending')||'null')
+   const raw=result?.url||'',prefix=pending?.appId+'://'
+   const url=new URL(raw.startsWith(prefix)?'https://'+raw.slice(prefix.length):raw)
+   launchCheck={schemeMatches:raw.startsWith(prefix),host:url.hostname,path:url.pathname,
+    queryKeys:[...url.searchParams.keys()],fragmentKeys:[...new URLSearchParams(url.hash.slice(1)).keys()],
+    flowMatches:url.searchParams.get('flow')===pending?.nonce,unexpired:pending?.expires>Date.now(),
+    pendingLifetimeMs:pending?.expires-Date.now()}
+  }catch{launchCheck={unavailable:true}}
+  return ({
   path:location.pathname,native:window.Capacitor?.isNativePlatform(),
   status:document.querySelector('[data-auth-status]')?.textContent,
   statusHidden:document.querySelector('[data-auth-status]')?.hidden,
@@ -120,10 +132,10 @@ try {
   deferred:!!sessionStorage.getItem('tinct:native-auth-return'),
   notice:!!localStorage.getItem('tinct:native-auth-notice'),
   body:document.body.innerText.slice(0,1200),
-  returnCheck:window.__nativeReturnCheck,
+  returnCheck:window.__nativeReturnCheck,launchCheck,
   plugins:Object.keys(window.Capacitor?.Plugins||{}),
   resources:performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')).map(r=>({file:new URL(r.name).pathname,size:r.transferSize})),
- })).catch(()=>({unavailable:true})):{noWebview:true}
+ })}).catch(()=>({unavailable:true})):{noWebview:true}
  console.log(JSON.stringify({nativeFailureState:state}))
  await fs.writeFile(output+'/native-failure-state.json',JSON.stringify(state,null,2))
  await device.screenshot({path:output+'/native-failure.png'}).catch(()=>{})
