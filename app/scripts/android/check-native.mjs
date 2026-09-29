@@ -2,7 +2,7 @@ import { _android as android } from 'playwright'
 import {execFileSync} from 'node:child_process'
 import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
-const output='artifacts/android'
+const output='artifacts/android',packageId='app.tinct.reader.review',activity=packageId+'/app.tinct.reader.MainActivity'
 await fs.mkdir(output,{recursive:true})
 execFileSync('adb',['install','-r','android/app/build/outputs/apk/debug/app-debug.apk'],{stdio:'inherit'})
 execFileSync('adb',['shell','svc','wifi','disable'])
@@ -12,8 +12,8 @@ assert(device,'Android emulator is connected')
 device.setDefaultTimeout(60000)
 let page
 try {
- await device.shell('am start -n app.tinct.reader/.MainActivity')
- page=await(await device.webView({pkg:'app.tinct.reader'})).page()
+ await device.shell('am start -n '+activity)
+ page=await(await device.webView({pkg:packageId})).page()
  page.setDefaultTimeout(60000)
  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
  assert.equal(await page.evaluate(()=>window.Capacitor?.isNativePlatform()),true)
@@ -51,9 +51,9 @@ try {
  await page.screenshot({path:output+'/native-offline-reader.png'})
  await page.waitForTimeout(1500)
  const stored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
- await device.shell('am force-stop app.tinct.reader')
- await device.shell('am start -n app.tinct.reader/.MainActivity')
- page=await(await device.webView({pkg:'app.tinct.reader'})).page()
+ await device.shell('am force-stop '+packageId)
+ await device.shell('am start -n '+activity)
+ page=await(await device.webView({pkg:packageId})).page()
  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
  assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','e-ink mode survives restart into the library')
  const metaInk=await page.locator('.rt-meta').evaluate(n=>getComputedStyle(n).color)
@@ -61,7 +61,7 @@ try {
  await page.screenshot({path:output+'/native-offline-library-restored.png'})
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
- await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
+ await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
 } catch(error) {
  await device.screenshot({path:output+'/native-failure.png'}).catch(()=>{})
  await fs.writeFile(output+'/native-failure.txt',String(error)+'\n'+(page?await page.locator('body').innerText().catch(()=> 'unavailable'):'no webview'))

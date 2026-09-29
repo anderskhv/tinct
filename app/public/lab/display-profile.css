@@ -30,3 +30,16 @@ html[data-eink="true"] :is([data-testid="lab-page-prev"],[data-testid="lab-page-
 /* Returning-library copy uses fixed cream tones in normal mode. */
 html[data-eink="true"] :is(.rt-book-metadata,.rt-book-metadata *,.rt-meta,.rt-meta *,.rt-recap,.rt-recap *,#rt-more,.soft,.eyebrow,.author) { color:#333!important;opacity:1!important; }
 html[data-eink="true"] :is(.rt-quote,.rt-book-metadata,.rt-meta) { border-color:#777!important; }
+
+/* Keep all shared library controls opaque and legible, including expanded menus. */
+html[data-eink="true"] :is(#library-menu,#paper,.book-slip,.cover-back,.edition-select,.edition-options,.edition-option,.rt-remove-dialog,#reader) { background:#fff!important;color:#111!important;border-color:#777!important; }
+html[data-eink="true"] :is(.menu-links button,.menu-links summary,.menu-links h2,.menu-links small,.collection-card p,.metadata-category,.metadata-details,.edition-options small,.edition-note,.edition-field h3,.intro-tabs button,.rt-remove-dialog p,#collection-empty,#collection-home,#slip-copy,#slip-caption) { color:#333!important; }
+html[data-eink="true"] :is(.edition-option[aria-pressed="true"],.intro-tabs button[aria-selected="true"]) { background:#eee!important;border-color:#111!important; }
+html[data-eink="true"] :is(#hero-book,.hero-book::after) { filter:none!important; }
+html[data-eink="true"] :is(#book-backdrop,.rt-remove-dialog::backdrop) { background:#ddd!important; }
+
+/* Reader controls share the same solid surfaces; the paper-fold gradient is decorative. */
+html[data-eink="true"] :is(.lab-super-panel,.lab-ask,.lab-ask-chrome,.lab-ask-composer,.lab-voice-panel,.lab-audio-speed-popover,.lab-phone-bar,.lab-desktop-audio,.selection-popup,.lab-contextual-explain,.toc-panel) { background:#fff!important;color:#111!important;border-color:#777!important; }
+html[data-eink="true"] .lab-page-wrap::after { background:none!important; }
+html[data-eink="true"] .lab-header-chapter { background:#eee!important;color:#111!important; }
+html[data-eink="true"] :is(.lab-header-chapter-label,.lab-chapter-progress-info,.lab-desktop-page-footer) { color:#444!important;opacity:1!important; }
