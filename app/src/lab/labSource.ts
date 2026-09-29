@@ -495,7 +495,7 @@ async function applyVerseLines(
 }
 
 export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
-  await ensureNativeBook(input.bookId)
+  await ensureNativeBook(input.bookId, [input.primaryEditionKey, input.compareEditionKey].filter((key): key is string => !!key))
   // One migration for every caller, before the book id is even dispatched on:
   // no reader of this function can aim it at a withdrawn edition.
   const selection: LabBookSourceSelection = {
@@ -602,7 +602,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
 
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
-  await ensureNativeBook(bookId)
+  await ensureNativeBook(bookId, [requestedEditionKey])
   const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
   return loadEditionChapterList(bookId, editionKey)

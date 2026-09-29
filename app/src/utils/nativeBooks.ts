@@ -7,7 +7,7 @@ import type { Book } from '../types'
 import { isNativeCapacitor } from './nativePlatform'
 
 type Entry = { id: string; revision: string; bytes: number; shardedEditions?: string[]; book: Book; view: PreReaderBookViewModel }
-type Snapshot = { schema: 1; books: Entry[]; catalogue: SerializablePreReaderCatalogue; ready: string[] }
+type Snapshot = { schema: 1; books: Entry[]; catalogue: SerializablePreReaderCatalogue; ready: string[]; readyEditions?: Record<string, string[]> }
 interface NativeBooksPlugin {
   snapshot(): Promise<Snapshot>
   refresh(): Promise<Snapshot>
@@ -60,10 +60,10 @@ export async function nativeLibraryCatalogue(): Promise<SerializablePreReaderCat
   }
   return snapshot!.catalogue
 }
-export async function ensureNativeBook(bookId: string): Promise<void> {
+export async function ensureNativeBook(bookId: string, editions: string[] = []): Promise<void> {
   if (!isNativeCapacitor()) return
   await initializeNativeBooks()
-  if (snapshot?.ready.includes(bookId)) return
+  if (snapshot?.ready.includes(bookId) && editions.every(key => (snapshot?.readyEditions?.[bookId] ?? snapshot?.books.find(book => book.id === bookId)?.book.editions.map(edition => edition.key) ?? []).includes(key))) return
   if (downloads.has(bookId)) return downloads.get(bookId)!
   const job = (async () => {
     let entry = snapshot!.books.find(book => book.id === bookId)

@@ -64,7 +64,7 @@ for(const folder of ['data/editions','data/editions-chapters','data/characters']
   }
 }
 for(const name of await readdir(join(root,'native-books'))) {
-  if(name==='index.json'||name==='bundled.json')continue
+  if(name==='index.json'||name==='bundled.json'||bundledBooks.some(id=>name.startsWith(id+'-')))continue
   await rm(join(root,'native-books',name))
 }
 await writeFile(join(root,'native-edition-storage.json'),JSON.stringify({

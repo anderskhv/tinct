@@ -47,7 +47,7 @@ export async function checkNativeDownloads(device, page, output) {
    await window.Capacitor.Plugins.NativeBooks.refresh()
   },'http://127.0.0.1:'+port)
   await page.goto('https://localhost/lab/library_2/index.html')
-  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
+  await page.locator('#hero-book canvas[data-painted="true"]').waitFor({state:'attached'})
   // The installed app receives the new registry and shared handoff without rebuilding.
   const result=await page.evaluate(async()=>{
    await import('/lab/library-2-reading.js')
@@ -58,6 +58,42 @@ export async function checkNativeDownloads(device, page, output) {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
   const text=await page.evaluate(async()=> (await fetch('/data/editions/native-future-book-original-en.json')).json())
   assert.deepEqual(text.chapters,edition.chapters.slice(0,3),'all downloaded paragraph bytes match the publication')
+  // A later ordinary edition appears without rebuilding or replacing the
+  // already installed edition. Simultaneously changed old text is ignored.
+  const modern=JSON.parse(await fs.readFile('public/data/editions/frankenstein-modern-en.json','utf8'))
+  const future=index.books.find(book=>book.id==='native-future-book')
+  const modernMeta=base.book.editions.find(edition=>edition.key==='modern-en')
+  const modernView=base.view.editions.find(edition=>edition.key==='modern-en')
+  assert(modernMeta && modernView,'fixture has a second published edition')
+  const originalPath='/data/editions/native-future-book-original-en.json'
+  const modernPath='/data/editions/native-future-book-modern-en.json'
+  const changedOriginal=Buffer.from(JSON.stringify({...edition,bookId:future.id,chapters:edition.chapters.slice(0,3).reverse()}))
+  const modernData=Buffer.from(JSON.stringify({...modern,bookId:future.id,chapters:modern.chapters.slice(0,3)}))
+  resources.set(originalPath,changedOriginal);resources.set(modernPath,modernData)
+  future.book={...future.book,editions:[...future.book.editions,modernMeta]}
+  future.view={...future.view,editions:[...future.view.editions,modernView]}
+  const updatedManifest=JSON.stringify({schema:1,book:future.book,view:future.view,files:[
+   {path:originalPath,sha256:hash(changedOriginal),bytes:changedOriginal.length},
+   {path:modernPath,sha256:hash(modernData),bytes:modernData.length}
+  ]})
+  future.revision=hash(updatedManifest);future.bytes=changedOriginal.length+modernData.length
+  future.manifest='/native-books/'+future.id+'-'+future.revision+'.json'
+  resources.set(future.manifest,Buffer.from(updatedManifest))
+  index.catalogue.books[index.catalogue.books.findIndex(book=>book.id===future.id)]=future.view
+  resources.set('/native-books/index.json',Buffer.from(JSON.stringify(index)))
+  await page.evaluate(()=>window.Capacitor.Plugins.NativeBooks.refresh())
+  await page.goto('https://localhost/lab/library_2/index.html')
+  await page.locator('#hero-book canvas[data-painted="true"]').waitFor({state:'attached'})
+  const beforeEditionReads=calls.filter(url=>url===originalPath).length
+  const editions=await page.evaluate(async()=>{
+   const module=await import('/lab/native-books.js')
+   await module.ensureNativeBook('native-future-book',['modern-en'])
+   return {original:await(await fetch('/data/editions/native-future-book-original-en.json')).json(),
+    modern:await(await fetch('/data/editions/native-future-book-modern-en.json')).json()}
+  })
+  assert.deepEqual(editions.original.chapters,edition.chapters.slice(0,3),'a new edition never replaces installed source text')
+  assert.deepEqual(editions.modern.chapters,modern.chapters.slice(0,3),'new edition arrives with exact source bytes')
+  assert.equal(calls.filter(url=>url===originalPath).length,beforeEditionReads,'existing text is reused without fetching a changed copy')
   await page.waitForTimeout(1500)
   const before=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|highlight|annotation/.test(key))))
   const failure=await page.evaluate(async()=>{
@@ -73,7 +109,7 @@ export async function checkNativeDownloads(device, page, output) {
   await device.shell('am force-stop app.tinct.reader.review')
   await device.shell('am start -n app.tinct.reader.review/app.tinct.reader.MainActivity')
   page=await(await device.webView({pkg:'app.tinct.reader.review'})).page()
-  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
+  await page.locator('#hero-book canvas[data-painted="true"]').waitFor({state:'attached'})
   const offline=await page.evaluate(async()=>{
    const ready=(await window.Capacitor.Plugins.NativeBooks.snapshot()).ready
    const response=await fetch('/data/editions/native-future-book-original-en.json')
@@ -81,7 +117,7 @@ export async function checkNativeDownloads(device, page, output) {
   })
   assert(offline.ready.includes('native-future-book') && offline.ready.includes('native-interrupted-book'))
   assert.deepEqual(offline.book.chapters,edition.chapters.slice(0,3),'verified book survives force-close with the publication server offline')
-  await fs.writeFile(output+'/native-downloads.json',JSON.stringify({postInstallBook:true,sharedReaderHandoff:true,exactParagraphs:true,corruptTransferRejected:true,retryRecovery:true,forceCloseOffline:true,requests:calls.length,providerCalls:false},null,2))
+  await fs.writeFile(output+'/native-downloads.json',JSON.stringify({postInstallBook:true,sharedReaderHandoff:true,exactParagraphs:true,newEditionAfterInstall:true,installedTextPinned:true,corruptTransferRejected:true,retryRecovery:true,forceCloseOffline:true,requests:calls.length,providerCalls:false},null,2))
   console.log(JSON.stringify({nativeDownloads:{postInstallBook:true,corruptTransferRejected:true,retryRecovery:true,forceCloseOffline:true}}))
   return {page,result:{postInstallBook:true,exactParagraphs:true,corruptTransferRejected:true,retryRecovery:true,forceCloseOffline:true}}
  } finally {

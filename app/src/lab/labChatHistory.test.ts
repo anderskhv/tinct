@@ -377,3 +377,31 @@ describe('display order of a stored thread', () => {
     expect(turnsFromConversations(stored)[0].highlightedText).toBe('A selected passage.')
   })
 })
+
+describe('chat refresh races', () => {
+  it('keeps a turn completed locally while the cloud read was pending', async () => {
+    let finish!: (row: any) => void
+    const cloud: LabChatHistoryCloud = {
+      read: () => new Promise(resolve => { finish = resolve }),
+      commit: vi.fn(async (_book, conversations) => ({ applied: true, conflict: false, row: { conversations, rev: 5 } })),
+    }
+    const pending = syncLabBookChatWithCloud({ bookId: 'bible', cloud })
+    appendLabChatTurn('bible', message({ id: 'just-finished', content: 'Latest phone reply', timestamp: 3_000 }), 2, 0)
+    finish({ conversations: [conversation('remote', 'bible', 1, [message({ id: 'desktop', timestamp: 1_000 })])], rev: 4 })
+    const merged = await pending
+    expect(merged.flatMap(item => item.messages.map(turn => turn.id))).toEqual(['desktop', 'just-finished'])
+    expect(readLabBookChat('bible')).toEqual(merged)
+  })
+
+  it('ignores an old account response after the owner changes', async () => {
+    let finish!: (row: any) => void
+    let current = true
+    const cloud: LabChatHistoryCloud = { read: () => new Promise(resolve => { finish = resolve }), commit: vi.fn() }
+    const pending = syncLabBookChatWithCloud({ bookId: 'bible', cloud, isCurrent: () => current })
+    current = false
+    finish({ conversations: [conversation('old-account', 'bible', 1, [message()])], rev: 1 })
+    await pending
+    expect(readLabBookChat('bible')).toEqual([])
+    expect(cloud.commit).not.toHaveBeenCalled()
+  })
+})

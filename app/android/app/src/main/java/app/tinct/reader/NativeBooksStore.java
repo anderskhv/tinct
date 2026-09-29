@@ -40,7 +40,9 @@ final class NativeBooksStore {
             JSONArray ids = config.getJSONArray("books");
             for (int i = 0; i < ids.length(); i++) { String id = ids.getString(i); bundled.add(id); pinned.put(id, entry(id)); }
             File cached = new File(root, "index.json");
-            if (cached.exists()) index = readJson(cached);
+            if (cached.exists()) {
+                try { index = readJson(cached); } catch (Exception damagedIndex) { android.util.Log.w("TinctBooks", "Using the bundled public catalogue"); }
+            }
             File[] entries = root.listFiles();
             if (entries != null) for (File dir : entries) {
                 if (!dir.isDirectory() || !dir.getName().matches("[a-z0-9][a-z0-9-]{0,79}")) continue;
@@ -95,19 +97,56 @@ final class NativeBooksStore {
         }
         throw new IOException("Book is not published");
     }
+    private static Set<String> editionKeys(JSONObject entry) throws Exception {
+        Set<String> result = new HashSet<>();
+        JSONArray editions = entry.getJSONObject("book").getJSONArray("editions");
+        for (int i = 0; i < editions.length(); i++) result.add(editions.getJSONObject(i).getString("key"));
+        return result;
+    }
+    /** Add supported new edition identities, never replace already downloaded text. */
+    private static JSONObject extendEntry(JSONObject installed, JSONObject published) throws Exception {
+        JSONObject result = new JSONObject(installed.toString());
+        for (String field : new String[]{"book", "view"}) {
+            JSONArray target = result.getJSONObject(field).getJSONArray("editions");
+            JSONArray source = published.getJSONObject(field).getJSONArray("editions");
+            Set<String> existing = new HashSet<>();
+            for (int i = 0; i < target.length(); i++) existing.add(target.getJSONObject(i).getString("key"));
+            for (int i = 0; i < source.length(); i++) if (existing.add(source.getJSONObject(i).getString("key"))) target.put(source.getJSONObject(i));
+        }
+        Set<String> shards = new LinkedHashSet<>();
+        for (JSONObject entry : new JSONObject[]{installed, published}) {
+            JSONArray values = entry.optJSONArray("shardedEditions");
+            if (values != null) for (int i = 0; i < values.length(); i++) shards.add(values.getString(i));
+        }
+        result.put("shardedEditions", new JSONArray(shards));
+        result.put("bytes", published.getLong("bytes"));
+        return result;
+    }
+    private byte[] installedBytes(String path) throws Exception {
+        File saved = activeFiles.get(path);
+        if (saved != null) return fileBytes(saved);
+        try (InputStream stream = context.getAssets().open("public" + path)) { return readBytes(stream); }
+    }
+    private JSONObject installedManifest(String id, JSONObject installed) throws Exception {
+        File file = new File(new File(new File(root, id), installed.getString("revision")), "manifest.json");
+        return file.exists() ? readJson(file) : readJsonAsset("public" + installed.getString("manifest"));
+    }
     synchronized JSONObject snapshot() throws Exception {
         if (index == null) throw new IOException("Missing catalogue");
         JSONObject copy = new JSONObject(index.toString());
         JSONArray entries = copy.getJSONArray("books");
         JSONArray views = copy.getJSONObject("catalogue").getJSONArray("books");
         JSONArray ready = new JSONArray();
+        JSONObject readyEditions = new JSONObject();
         for (int i = 0; i < entries.length(); i++) {
             JSONObject entry = entries.getJSONObject(i);
             String id = entry.getString("id");
             JSONObject installed = pinned.get(id);
             if (installed != null) {
-                entries.put(i, new JSONObject(installed.toString()));
-                for (int n = 0; n < views.length(); n++) if (id.equals(views.getJSONObject(n).getString("id"))) views.put(n, installed.getJSONObject("view"));
+                JSONObject available = extendEntry(installed, entry);
+                entries.put(i, available);
+                readyEditions.put(id, new JSONArray(editionKeys(installed)));
+                for (int n = 0; n < views.length(); n++) if (id.equals(views.getJSONObject(n).getString("id"))) views.put(n, available.getJSONObject("view"));
             }
             if (installed != null || bundled.contains(id)) ready.put(id);
         }
@@ -119,9 +158,10 @@ final class NativeBooksStore {
                 JSONObject entry = new JSONObject(saved.getValue().toString());
                 entry.getJSONObject("view").put("discoveryAvailable", false);
                 entries.put(entry); views.put(entry.getJSONObject("view")); ready.put(saved.getKey());
+                readyEditions.put(saved.getKey(), new JSONArray(editionKeys(entry)));
             }
         }
-        copy.put("ready", ready);
+        copy.put("ready", ready); copy.put("readyEditions", readyEditions);
         return copy;
     }
     JSONObject refresh() throws Exception {
@@ -143,14 +183,47 @@ final class NativeBooksStore {
     }
     void download(String id, Progress progress) throws Exception {
         if (!id.matches("[a-z0-9][a-z0-9-]{0,79}")) throw new IOException("Invalid book");
-        if (pinned.containsKey(id) || bundled.contains(id)) return;
-        cancelled = false;
+        JSONObject installed = pinned.get(id);
         JSONObject entry = entry(id);
+        Set<String> additions = editionKeys(entry);
+        if (installed != null) additions.removeAll(editionKeys(installed));
+        if (installed != null && additions.isEmpty()) return;
+        cancelled = false;
         String revision = entry.getString("revision");
         byte[] data = request(entry.getString("manifest"), 4 * 1024 * 1024);
         if (!sha256(data).equals(revision)) throw new IOException("Publication changed; refresh the library");
         JSONObject manifest = new JSONObject(new String(data, StandardCharsets.UTF_8));
         validate(manifest, id);
+        Set<String> preservedPaths = new HashSet<>();
+        if (installed != null) {
+            JSONObject previous = installedManifest(id, installed);
+            JSONArray previousFiles = previous.getJSONArray("files"), incomingFiles = manifest.getJSONArray("files"), combined = new JSONArray();
+            for (int i = 0; i < previousFiles.length(); i++) {
+                JSONObject file = previousFiles.getJSONObject(i); String path = file.getString("path");
+                // Bundled whole editions may replace byte-identical chapter copies.
+                // Preserve only the actual installed files; the loader retains its
+                // compacted-edition declaration across the addition.
+                byte[] saved;
+                try { saved = installedBytes(path); } catch (FileNotFoundException absentCompactedCopy) {
+                    if (bundled.contains(id) && path.startsWith("/data/editions-chapters/" + id + "-")) continue;
+                    throw absentCompactedCopy;
+                }
+                if (saved.length != file.getLong("bytes") || !sha256(saved).equals(file.getString("sha256"))) throw new IOException("An installed book needs repair");
+                combined.put(file); preservedPaths.add(path);
+            }
+            for (int i = 0; i < incomingFiles.length(); i++) {
+                JSONObject file = incomingFiles.getJSONObject(i); String path = file.getString("path");
+                for (String key : additions) if (path.equals("/data/editions/" + id + "-" + key + ".json") || path.startsWith("/data/editions-chapters/" + id + "-" + key + "/")) {
+                    if (!preservedPaths.contains(path)) combined.put(file);
+                    break;
+                }
+            }
+            entry = extendEntry(installed, entry);
+            manifest = new JSONObject().put("schema", 1).put("book", entry.getJSONObject("book")).put("view", entry.getJSONObject("view")).put("files", combined);
+            validate(manifest, id);
+            revision = sha256(manifest.toString().getBytes(StandardCharsets.UTF_8));
+            entry.put("revision", revision);
+        }
         File dir = new File(root, id);
         dir.mkdirs();
         File staging = new File(dir, revision + ".partial");
@@ -167,7 +240,7 @@ final class NativeBooksStore {
             long expected = item.getLong("bytes");
             // A retry can reuse a verified file from an interrupted download.
             if (!target.isFile() || target.length() != expected || !sha256(fileBytes(target)).equals(item.getString("sha256"))) {
-                byte[] body = request(path, (int) expected);
+                byte[] body = preservedPaths.contains(path) ? installedBytes(path) : request(path, (int) expected);
                 if (body.length != expected || !sha256(body).equals(item.getString("sha256"))) throw new IOException("Publication changed; no files were activated");
                 target.getParentFile().mkdirs();
                 try (FileOutputStream stream = new FileOutputStream(target)) { stream.write(body); stream.getFD().sync(); }

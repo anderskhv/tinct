@@ -660,7 +660,7 @@ export interface LabPositionController {
   finish(input: { bookId: string; sequentialChapter: number; now?: number }): LabPositionState
   applyCloud(cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId?: string, options?: LabPositionMergeOptions): LabPositionState
   resume(): LabBookPlace | null
-  flush(): LabPositionState
+  flush(reason?: LabPlaceReason): LabPositionState
 }
 
 /**
@@ -810,10 +810,10 @@ export function createLabPositionController(opts: {
       return state
     },
     resume: () => resumePlace(state),
-    flush() {
+    flush(reason) {
       cancelDebounce?.()
       cancelDebounce = null
-      persist('immediate')
+      persist('immediate', reason)
       return state
     },
   }

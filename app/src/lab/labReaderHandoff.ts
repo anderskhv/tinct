@@ -132,6 +132,7 @@ export function pendingLabSourceForHandoff(handoff: ReaderHandoffIntent): LabSou
     compareParagraphs: [],
     followParagraphs: [],
     chapters: [{ number: chapterNumber, title: chapterLabel }],
+    chaptersProvisional: true,
     cast: [],
   }
 }

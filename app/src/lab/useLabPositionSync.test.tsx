@@ -13,7 +13,7 @@ import {
 import { clearLabPositionLocal, readLabPositionLocal } from './labPositionStore'
 import * as sourceModule from './labSource'
 import { bibleFallbackSource, type LabChapter, type LabSource } from './labSource'
-import { bookFromResumePlace, bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
+import { bookFromResumePlace, bootLabReading, remoteResumeSelection, resumePlaceForLibrary, useLabPositionSync } from './useLabPositionSync'
 import { readLabPrefs } from './labPrefs'
 
 const PHONE = 'phone-device'
@@ -181,6 +181,7 @@ function Harness(props: {
   token?: string | null
   ownerId?: string | null
   sourceLocked?: boolean
+  writesSuspended?: boolean
   initialCloudWaitMs?: number
   resolveBeforePaint?: boolean
 }) {
@@ -188,6 +189,7 @@ function Harness(props: {
     book: props.book,
     placeRef: props.placeRef,
     sourceLocked: props.sourceLocked ?? false,
+    writesSuspended: props.writesSuspended,
     authToken: props.token === undefined ? 'signed-in' : props.token,
     ownerId: props.ownerId === undefined ? READER : props.ownerId,
     onRemoteResume: props.onRemoteResume,
@@ -733,4 +735,114 @@ describe('verified return before first paint', () => {
     expect(load).toHaveBeenCalledWith('odyssey', 'original-en')
     load.mockRestore()
   })
+})
+
+describe('returning to a reader after another device reads', () => {
+  function returningApi(initial: LabPositionState) {
+    let answer: Promise<LabPositionState> = Promise.resolve(initial)
+    const gets = vi.fn()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (!String(input).includes('/api/lab-position')) return { ok: false }
+      if (init?.method === 'PUT') return { ok: true }
+      gets()
+      const body = await answer
+      return { ok: true, json: async () => body }
+    }))
+    return { gets, respond: (next: Promise<LabPositionState>) => { answer = next } }
+  }
+
+  it('refreshes on focus and follows a newer intentional backwards move in another Bible book', async () => {
+    const original = { ...settledHebrewsCloud(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    const api = returningApi(original)
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(1136)} placeRef={{ current: { paragraphIndex: 1, wordIndex: 4 } }} onRemoteResume={onRemoteResume} />)
+    await settle()
+    onRemoteResume.mockClear()
+    const newer = { ...settledProverbsLocal(), owner: READER, lastSettledAt: 900_000, updatedAt: 900_000,
+      books: { proverbs: proverbs17({ updatedAt: 900_000 }) } }
+    api.respond(Promise.resolve(newer))
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'proverbs', sequentialChapter: 645 })))
+    expect(api.gets).toHaveBeenCalledTimes(2)
+    expect(readLabPositionLocal().lastSettledBookId).toBe('proverbs')
+  })
+
+  it('does not move the page if the reader interacts while the refresh is in flight', async () => {
+    const original = { ...settledProverbsLocal(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    const api = returningApi(original)
+    const onRemoteResume = vi.fn()
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={onRemoteResume} />)
+    await settle()
+    onRemoteResume.mockClear()
+    const pending = deferred<LabPositionState>()
+    api.respond(pending.promise)
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    act(() => document.dispatchEvent(new Event('pointerdown', { bubbles: true })))
+    await act(async () => pending.resolve({ ...settledHebrewsCloud(), owner: READER }))
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(readLabPositionLocal().lastSettledBookId).toBe('proverbs')
+  })
+
+  it('rechecks a return delayed by a reader load without swallowing the newer cloud place', async () => {
+    const original = { ...settledProverbsLocal(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    const api = returningApi(original)
+    const onRemoteResume = vi.fn()
+    const props = { book: manifestBook(645), placeRef: { current: { paragraphIndex: 3, wordIndex: 7 } }, onRemoteResume }
+    const view = render(<Harness {...props} />)
+    await settle()
+    onRemoteResume.mockClear()
+    api.respond(Promise.resolve({ ...settledHebrewsCloud(), owner: READER }))
+    view.rerender(<Harness {...props} writesSuspended />)
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(readLabPositionLocal().lastSettledBookId).toBe('proverbs')
+    view.rerender(<Harness {...props} writesSuspended={false} />)
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'hebrews', sequentialChapter: 1136 })))
+    expect(api.gets).toHaveBeenCalledTimes(2)
+  })
+
+  it('cancels a deferred return when the reader makes a new deliberate action', async () => {
+    const original = { ...settledProverbsLocal(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    const api = returningApi(original)
+    const onRemoteResume = vi.fn()
+    const props = { book: manifestBook(645), placeRef: { current: { paragraphIndex: 3, wordIndex: 7 } }, onRemoteResume }
+    const view = render(<Harness {...props} />)
+    await settle()
+    onRemoteResume.mockClear()
+    api.respond(Promise.resolve({ ...settledHebrewsCloud(), owner: READER }))
+    view.rerender(<Harness {...props} writesSuspended />)
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    act(() => document.dispatchEvent(new Event('pointerdown', { bubbles: true })))
+    view.rerender(<Harness {...props} writesSuspended={false} />)
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(api.gets).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not turn hiding a stale page into newly read progress', async () => {
+    const original = { ...settledProverbsLocal(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    returningApi(original)
+    render(<Harness book={manifestBook(645)} placeRef={{ current: { paragraphIndex: 3, wordIndex: 7 } }} onRemoteResume={vi.fn()} />)
+    await settle()
+    const before = readLabPositionLocal()
+    act(() => harness.notePlace!('hide'))
+    expect(readLabPositionLocal().lastSettledAt).toBe(before.lastSettledAt)
+    expect(readLabPositionLocal().books.proverbs.updatedAt).toBe(before.books.proverbs.updatedAt)
+  })
+})
+
+it('library Continue selects the newest Bible pin instead of a stale local chapter or unrelated last book', () => {
+  const state = { ...settledHebrewsCloud(), lastSettledBookId: 'crito', books: {
+    ...settledHebrewsCloud().books,
+    crito: { ...proverbs17({ updatedAt: 500_000 }), bookId: 'crito', sequentialChapter: 1 },
+  } }
+  expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
+  expect(resumePlaceForLibrary(state, 'crito')?.bookId).toBe('crito')
 })
