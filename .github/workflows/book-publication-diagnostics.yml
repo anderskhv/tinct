@@ -1,0 +1,39 @@
+name: Book publication diagnostics
+on:
+  pull_request:
+    paths:
+      - 'app/scripts/check-book-publication.cjs'
+      - '.github/workflows/book-publication-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        book: [to-the-lighthouse, symposium]
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Diagnose isolated production Play and accepted text
+        env:
+          READER_LIVE: '1'
+          TEST_BOOK: ${{ matrix.book }}
+          ARTIFACT_DIR: artifacts/publication-diagnostic
+        run: node scripts/check-book-publication.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: publication-diagnostic-${{ matrix.book }}
+          path: app/artifacts/publication-diagnostic
