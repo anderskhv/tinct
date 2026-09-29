@@ -50,6 +50,15 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
   assert.equal(await page.locator('#slip-images img').count(),images.length,id+' complete author attribution')
   await page.waitForFunction(()=>[...document.querySelectorAll('#slip-images img')].every(image=>image.complete&&image.naturalWidth>0))
   assert.deepEqual(await page.locator('#slip-images figcaption').allTextContents(),images.map(image=>image.caption))
+  await page.evaluate(()=>document.fonts.ready)
+  await page.waitForFunction(()=>document.querySelector('#book-slip')?.inert===false)
+  await page.waitForTimeout(300)
+  const flapGeometry=await page.evaluate(()=>{
+   const box=id=>{const r=document.getElementById(id).getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}}
+   return {flap:box('book-slip'),back:box('page-back'),next:box('slip-next'),compact:document.getElementById('book-shape').classList.contains('compact-book'),shape:getComputedStyle(document.getElementById('book-shape')).transform,cover:getComputedStyle(document.getElementById('turning-cover')).transform}
+  })
+  console.log('FLAP_GEOMETRY '+JSON.stringify({engine:engine.name(),id,...flapGeometry}))
+  if(flapGeometry.compact){assert(flapGeometry.next.y>=0&&flapGeometry.next.bottom<=height+2,'Continue stays in the viewport: '+id);assert(flapGeometry.flap.x>=-2&&flapGeometry.flap.right<=width+2,'Author flap fits viewport: '+id)}
   const credits=await page.locator('#slip-image-credits').textContent()
   for(const image of images){assert(credits.includes(image.creator));assert(credits.includes(image.changes))}
   const accepted=source.books.find(book=>book.id===id)

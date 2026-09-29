@@ -16,3 +16,8 @@
 #slip-image-credits summary{cursor:pointer;min-height:32px;padding:8px 0;text-decoration:underline;text-underline-offset:3px}
 #slip-image-credits a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 #slip-image-credits p{margin:8px 0}
+
+/* Keep compact-flap navigation visible when biographies or coauthor images are long. */
+.compact-book .book-slip{overflow:hidden}
+.compact-book #slip-content{display:block;flex:1;min-height:0;width:100%;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.compact-book #slip-next{margin-top:10px}
