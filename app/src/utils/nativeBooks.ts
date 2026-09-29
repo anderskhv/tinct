@@ -1,3 +1,4 @@
+import { registerNativeChapterShards } from '../data/editionLoader'
 import downloadStyle from './nativeBooks.css?inline'
 import { registerPlugin } from '@capacitor/core'
 import { BOOKS } from '../data/bookRegistry'
@@ -5,7 +6,7 @@ import { PRE_READER_CATALOGUE, LAB_COVER_ART_BOOK_IDS, type PreReaderBookViewMod
 import type { Book } from '../types'
 import { isNativeCapacitor } from './nativePlatform'
 
-type Entry = { id: string; revision: string; bytes: number; book: Book; view: PreReaderBookViewModel }
+type Entry = { id: string; revision: string; bytes: number; shardedEditions?: string[]; book: Book; view: PreReaderBookViewModel }
 type Snapshot = { schema: 1; books: Entry[]; catalogue: SerializablePreReaderCatalogue; ready: string[] }
 interface NativeBooksPlugin {
   snapshot(): Promise<Snapshot>
@@ -26,6 +27,7 @@ export function applyNativeBookCatalogue(value: Snapshot): void {
     if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(entry.id) || entry.book.id !== entry.id || entry.view.id !== entry.id
       || !Array.isArray(entry.book.editions) || entry.book.editions.some(edition => edition.language === 'da')) throw new Error('Unsupported library entry.')
   }
+  registerNativeChapterShards(value.books.flatMap(entry => entry.shardedEditions ?? []))
   const byId = PRE_READER_CATALOGUE.booksById as Map<string, PreReaderBookViewModel>
   for (const entry of value.books) {
     const existing = BOOKS.find(book => book.id === entry.id)

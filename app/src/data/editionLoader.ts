@@ -44,6 +44,11 @@ interface ChapterShardManifest {
 
 const CHAPTER_SHARDED_EDITIONS = new Set<string>(CHAPTER_SHARDED_EDITION_IDS)
 
+/** Supported post-install books use the same manifest/window loader. */
+export function registerNativeChapterShards(ids: string[]): void {
+  for (const id of ids) if (/^[a-z0-9-]+$/.test(id)) CHAPTER_SHARDED_EDITIONS.add(id)
+}
+
 export function chapterShardedEditionsEnabled(): boolean {
   if (import.meta.env.VITE_CHAPTER_SHARDED_EDITIONS === 'true') return true
   if (typeof window === 'undefined') return false
@@ -81,6 +86,9 @@ export function isEditionWindowed(data: EditionData | null | undefined): boolean
 }
 
 async function fetchEditionPatches(bookId: string, editionKey: EditionKey): Promise<EditionPatch[]> {
+  // A downloaded edition is a verified revision; do not mix live paragraph
+  // patches into its pinned text and annotation coordinates.
+  if (isNativeCapacitor()) return []
   try {
     const res = await fetch(apiUrl(`/api/edition-patches?bookId=${encodeURIComponent(bookId)}&editionKey=${encodeURIComponent(editionKey)}`))
     if (!res.ok) return []

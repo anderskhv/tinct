@@ -51,4 +51,27 @@ console.log(JSON.stringify({duplicateChapterBytesRemoved:duplicateBytes,compacte
 
 // Native catalogue state is versioned independently of private reader data.
 const nativeIndex=JSON.parse(await readFile(join(root,'native-books/index.json'),'utf8'))
-await writeFile(join(root,'native-books/bundled.json'),JSON.stringify({books:nativeIndex.books.map(book=>book.id)}))
+const bundledBooks=['frankenstein','bible']
+await writeFile(join(root,'native-books/bundled.json'),JSON.stringify({books:bundledBooks}))
+let onDemandBytes=0
+for(const folder of ['data/editions','data/editions-chapters','data/characters']) {
+  for(const name of await readdir(join(root,folder))) {
+    const keep=bundledBooks.some(id=>name.startsWith(id+'-')||name===id+'.v1.json')
+    if(keep)continue
+    const target=join(root,folder,name)
+    onDemandBytes+=await bytes(target)
+    await rm(target,{recursive:true,force:true})
+  }
+}
+for(const name of await readdir(join(root,'native-books'))) {
+  if(name==='index.json'||name==='bundled.json')continue
+  await rm(join(root,'native-books',name))
+}
+await writeFile(join(root,'native-edition-storage.json'),JSON.stringify({
+  wholeEditions:compacted.filter(name=>bundledBooks.some(id=>name.startsWith(id+'-')))
+}))
+await writeFile('artifacts/android/native-library-footprint.json',JSON.stringify({
+ bundledBooks,onDemandBytes,availableBooks:nativeIndex.books.length,
+ note:'Other books download on request; published source files and saved reader data are untouched.'
+},null,2))
+console.log(JSON.stringify({bundledBooks,bookBytesAvailableOnDemand:onDemandBytes}))

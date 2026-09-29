@@ -48,7 +48,8 @@ export function buildNativeBooks(
     const manifest = { schema: 1, book, view: { ...view, editions: view.editions.filter(edition => editions.some(item => item.key === edition.key)) }, files }
     const text = JSON.stringify(manifest)
     const revision = createHash('sha256').update(text).digest('hex')
-    const entry = { id: book.id, revision, bytes: files.reduce((total, file) => total + file.bytes, 0), manifest: '/native-books/' + book.id + '-' + revision + '.json', book, view: manifest.view }
+    const shardedEditions = editions.filter(edition => files.some(file => file.path === '/data/editions-chapters/' + book.id + '-' + edition.key + '/manifest.json')).map(edition => book.id + '-' + edition.key)
+    const entry = { id: book.id, revision, shardedEditions, bytes: files.reduce((total, file) => total + file.bytes, 0), manifest: '/native-books/' + book.id + '-' + revision + '.json', book, view: manifest.view }
     manifests[entry.manifest.slice(1)] = text
     return entry
   })

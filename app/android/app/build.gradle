@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     namespace = "app.tinct.reader"
+    buildFeatures { buildConfig true }
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "app.tinct.reader"

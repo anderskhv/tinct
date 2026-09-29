@@ -58,6 +58,7 @@ export async function checkNativeDownloads(device, page, output) {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
   const text=await page.evaluate(async()=> (await fetch('/data/editions/native-future-book-original-en.json')).json())
   assert.deepEqual(text.chapters,edition.chapters.slice(0,3),'all downloaded paragraph bytes match the publication')
+  await page.waitForTimeout(1500)
   const before=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|highlight|annotation/.test(key))))
   const failure=await page.evaluate(async()=>{
    try { await window.Capacitor.Plugins.NativeBooks.download({bookId:'native-interrupted-book'});return false }catch{return true}

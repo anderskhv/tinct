@@ -32,7 +32,7 @@ final class NativeBooksStore {
 
     private NativeBooksStore(Context context) {
         this.context = context;
-        root = new File(context.getFilesDir(), "native-books");
+        root = new File(context.getNoBackupFilesDir(), "native-books");
         root.mkdirs();
         try {
             index = readJsonAsset("public/native-books/index.json");
