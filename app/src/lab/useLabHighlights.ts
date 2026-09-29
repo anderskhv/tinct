@@ -1,3 +1,4 @@
+import type {ChapterSelectionPart} from './labChapterSelection'
 import { bibleHighlightsCarryAcross } from '../data/bibleEditionChapters'
 import { getBook } from '../data/bookRegistry'
 import { loadChapterText } from '../readingMemory'
@@ -90,6 +91,17 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
     return created
   }, [chapterNumber, scope?.bookId, scope?.editionKey])
 
+  const addGroup = useCallback((parts: ChapterSelectionPart[], color: LabHighlightColor = 'gold', editionKey = scope?.editionKey) => {
+    const groupId='hg-'+crypto.randomUUID(),groupText=parts.map(part=>part.range.text).join(' ')
+    const created=parts.map(part=>{
+      const mark=createLabHighlight(part.chapterNumber,part.range,color)
+      const contentRevision=scope ? currentContentRevision(scope.bookId,editionKey) : null
+      return {...mark,groupId,groupText,...(scope?{bookId:scope.bookId,editionKey,...(contentRevision?{contentRevision}:{})}:{})}
+    })
+    setHighlights(current=>[...current,...created])
+    return created
+  },[scope?.bookId,scope?.editionKey])
+
   const findRange = useCallback((range: LabHighlightRange, editionKey = scope?.editionKey, targetChapter = chapterNumber) => (
     projected(editionKey).find(h => sameHighlightRange(h, range, targetChapter))
   ), [chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs, sources, highlights])
@@ -101,19 +113,19 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
   ), [chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs, sources, highlights])
 
   const setColor = useCallback((id: string, color: LabHighlightColor) => {
-    setHighlights(current => current.map(h => h.id === id ? { ...h, color } : h))
+    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.map(h=>h.id===id || group && h.groupId===group ? {...h,color}:h)})
   }, [])
 
   const setNote = useCallback((id: string, note: string) => {
-    setHighlights(current => current.map(h => h.id === id ? { ...h, note } : h))
+    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.map(h=>h.id===id || group && h.groupId===group ? {...h,note}:h)})
   }, [])
 
   const keep = useCallback((id: string) => {
-    setHighlights(current => current.map(h => h.id === id ? { ...h, kept: true } : h))
+    setHighlights(current => { const group = current.find(h => h.id === id)?.groupId; return current.map(h => h.id === id || group && h.groupId === group ? { ...h, kept: true } : h) })
   }, [])
 
   const remove = useCallback((id: string) => {
-    setHighlights(current => current.filter(h => h.id !== id))
+    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.filter(h=>h.id!==id && (!group || h.groupId!==group))})
   }, [])
 
   return {
@@ -125,6 +137,7 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
     findRange,
     findContainingRange,
     addOrReuse,
+    addGroup,
     setColor,
     setNote,
     keep,

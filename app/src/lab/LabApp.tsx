@@ -1,3 +1,4 @@
+import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { useRecapPreparation } from './useRecapPreparation'
 import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
@@ -1661,7 +1662,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // unused second book alongside the chapter when Compare is disabled.
   const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
+  const [crossSelecting, setCrossSelecting] = useState<ChapterSelectionPart[] | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -3030,7 +3032,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
-      text: subject.text,
+      text: highlight?.groupText || subject.text,
       paragraphIndex: subject.paragraphIndex,
       startOffset: subject.fromWord,
       endOffset: subject.toWord,
@@ -3049,6 +3051,21 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       paragraphs,
     })
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
+
+  const selectAcrossChapters = (parts: ChapterSelectionPart[], x: number, y: number) => {
+    if(parts.length<2)return
+    const first=parts[0]
+    handleSelectRange(first.range,x,y,undefined,undefined,undefined,first)
+    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,homeMode:'main'}:current)
+    setPopupMode('main')
+    setCrossSelecting(null)
+  }
+  const crossChapterRange = (chapter: number) => (crossSelecting ?? selectionPopup?.chapterRanges)?.find(part=>part.chapterNumber===chapter)?.range
+  const selectionChapters: SelectionChapter[] = [
+    ...(openingOnRight && carriedEndingCurrent ? [{chapterNumber:carriedEndingCurrent.chapterNumber,chapterLabel:carriedEndingCurrent.title,paragraphs:carriedEndingCurrent.paragraphs}]:[]),
+    {chapterNumber:book.chapterNumber,chapterLabel:book.chapterLabel,paragraphs:readerParagraphs},
+    ...(nextChapterOpening ? [{chapterNumber:nextChapterOpening.chapterNumber,chapterLabel:nextChapterOpening.title,paragraphs:nextChapterOpening.paragraphs}]:[]),
+  ]
 
   useEffect(() => {
     if (!phoneAskOpen) setPhoneKeyboardOpen(false)
@@ -4518,10 +4535,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
             /> : undefined}
             desktopSpread={desktopSpread}
+            selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}
+            onCrossChapterSelect={desktopSpread && !desktopCompareActive ? selectAcrossChapters : undefined}
+            onCrossChapterSelecting={setCrossSelecting}
           nextChapterOpening={showChapterEnd && nextChapterOpening ? {
               ...nextChapterOpening,
               highlights: highlightsApi.highlights,
-              selectingRange: selectionPopup?.range && selectionPopup.chapterNumber === nextChapterOpening.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null,
+              selectingRange: crossChapterRange(nextChapterOpening.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === nextChapterOpening.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null),
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
@@ -4529,7 +4549,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             } : undefined}
             previousChapterEnding={openingOnRight && carriedEndingCurrent ? {
               ...carriedEndingCurrent, highlights: highlightsApi.highlights,
-              selectingRange: selectionPopup?.chapterNumber === carriedEndingCurrent.chapterNumber ? selectionPopup.range : null,
+              selectingRange: crossChapterRange(carriedEndingCurrent.chapterNumber) ?? (selectionPopup?.chapterNumber === carriedEndingCurrent.chapterNumber ? selectionPopup.range : null),
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: carriedEndingCurrent.chapterNumber, chapterLabel: carriedEndingCurrent.title, paragraphs: carriedEndingCurrent.paragraphs,
               }),
@@ -4573,7 +4593,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             keyboardSelection={chromeV2}
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
-            selectingRange={selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null}
+            selectingRange={crossChapterRange(book.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null)}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
@@ -5278,7 +5298,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             if (selectionPopup.existingHighlightId) {
               highlightsApi.setColor(selectionPopup.existingHighlightId, color)
             } else if (selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey, selectionPopup.chapterNumber)
+              const created = selectionPopup.chapterRanges ? highlightsApi.addGroup(selectionPopup.chapterRanges,color,selectionPopup.editionKey)[0] : highlightsApi.addOrReuse(selectionPopup.range, color, selectionPopup.editionKey, selectionPopup.chapterNumber)
               setSelectionPopup(current => current ? { ...current, existingHighlightId: created.id } : current)
             }
           }}
@@ -5306,7 +5326,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onUpdateHighlightNote={(id, note) => highlightsApi.setNote(id, note)}
           onRequestNote={(color) => {
             if (!selectionPopup.existingHighlightId && selectionPopup.range) {
-              const created = highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey, selectionPopup.chapterNumber)
+              const created = selectionPopup.chapterRanges ? highlightsApi.addGroup(selectionPopup.chapterRanges,color ?? 'gold',selectionPopup.editionKey)[0] : highlightsApi.addOrReuse(selectionPopup.range, color ?? 'gold', selectionPopup.editionKey, selectionPopup.chapterNumber)
               setSelectionPopup(current => current ? {
                 ...current,
                 existingHighlightId: created.id,

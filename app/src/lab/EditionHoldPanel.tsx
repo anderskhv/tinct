@@ -1,4 +1,3 @@
-import { TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 
 /** Only reads annotations already loaded by the reader's account-aware hook.
  * No storage migration, deletion, preference substitution or network write.
@@ -12,10 +11,10 @@ export function EditionHoldPanel({ title, edition, reason, highlights, onRecover
 }) {
   return <main data-testid="edition-hold" style={{ maxWidth: 680, margin: '8vh auto', padding: 24, lineHeight: 1.6 }}>
     <h1>{title}</h1>
-    <h2>{edition} is temporarily unavailable</h2>
+    <h2>{edition} is not currently offered</h2>
     <p>{reason}</p>
-    <p>{TEMPORARY_HOLD_NOTICE}</p>
-    <p>You can open the preserved edition to recover a passage or use Contents to review your notes. This recovery view contains the known defects and does not advance your saved reading place or history.</p>
+    <p>Your saved place, highlights, notes and reading history are retained. We have not switched your edition.</p>
+    <p>You can open the preserved edition to recover a passage or use Contents to review your notes. This recovery view does not advance your saved reading place or history.</p>
     <button type="button" onClick={onRecover}>Open preserved edition and annotations</button>
     <p><a href="/library">Return to the library</a></p>
     <details><summary>Saved highlights and notes ({highlights.length})</summary>
