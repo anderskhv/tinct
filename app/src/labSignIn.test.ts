@@ -13,8 +13,9 @@ vi.mock('./services/supabase', () => ({ supabase: { auth }, isSupabaseConfigured
 
 function mountSignInShell() {
   const html = readFileSync(resolve(__dirname, '../public/lab/sign-in/index.html'), 'utf8')
-  const body = html.slice(html.indexOf('<body>') + '<body>'.length, html.indexOf('<script'))
-  document.body.innerHTML = body
+  const shell = new DOMParser().parseFromString(html, 'text/html')
+  shell.querySelectorAll('script').forEach(script => script.remove())
+  document.body.innerHTML = shell.body.innerHTML
 }
 
 async function flush() {
