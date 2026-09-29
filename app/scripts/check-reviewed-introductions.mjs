@@ -5,10 +5,18 @@ import assert from 'node:assert/strict'
 import {createHash} from 'node:crypto'
 const live=process.env.LIBRARY_LIVE==='1',origin='https://tinct.app',out='artifacts/reviewed-introductions'
 fs.mkdirSync(out,{recursive:true})
-const source=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/featured-copy.json'))
+const firstSource=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/featured-copy.json'))
+const secondSource=JSON.parse(fs.readFileSync('../books/wip/remaining-content-20260929/book-copy.json'))
+const source={books:[...firstSource.books,...secondSource.books]}
+const catalogue=live?await fetch(origin+'/lab/catalogue.json').then(r=>{assert.equal(r.status,200);return r.json()}):JSON.parse(fs.readFileSync('dist/lab/catalogue.json'))
+const available=new Set(catalogue.books.filter(book=>book.discoveryAvailable!==false).map(book=>book.id))
 const manifest=JSON.parse(fs.readFileSync('public/lab/library_2/author-images.json'))
 const gallery=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/character-galleries.json'))
-const cases=[...source.books.map(b=>b.id),'communist-manifesto','federalist-papers'],report=[]
+const cases=source.books.filter(book=>available.has(book.id)).map(book=>book.id),report=[]
+const retainedHolds=source.books.filter(book=>!available.has(book.id)).map(book=>book.id)
+assert.equal(source.books.length,101)
+assert.equal(new Set(source.books.map(book=>book.id)).size,101)
+console.log('RETAINED_PUBLICATION_HOLDS '+JSON.stringify(retainedHolds))
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex')
 if(live){
  const files=['app.js','index.html','styles.css','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
@@ -52,7 +60,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   });
   console.log('INTRO_STATE '+JSON.stringify({label,engine:engine.name(),id,...state}));
  }
- for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers']){
+ for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers','to-the-lighthouse','ulysses']){
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
@@ -77,7 +85,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    assert.equal(await page.locator('#slip-invitation').textContent(),accepted.hook.text)
    assert.equal(await page.locator('#slip-copy').textContent(),accepted.author.biography.replace(/\*([^*]+)\*/g,'$1'))
   }
-  if(['frankenstein','bible','federalist-papers'].includes(id)){
+  if(['frankenstein','bible','federalist-papers','to-the-lighthouse','ulysses'].includes(id)){
    await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-flap.png'})
    const b64=(await page.screenshot({type:'jpeg',quality:65})).toString('base64')
    console.log('REVIEW_BEGIN '+engine.name()+'-'+reducedMotion+'-'+id+'-flap')
@@ -133,5 +141,5 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
  await context.close()
  }finally{await browser.close()}
 }
-fs.writeFileSync(out+'/report.json',JSON.stringify({live,cases:report,limits:'Isolated Chromium and WebKit; provider endpoints blocked; no private account changes.'},null,2))
+fs.writeFileSync(out+'/report.json',JSON.stringify({live,cases:report,retainedHolds,limits:'Isolated Chromium and WebKit; provider endpoints blocked; no private account changes.'},null,2))
 console.log('REVIEWED_INTRODUCTIONS_PASS '+JSON.stringify(report))

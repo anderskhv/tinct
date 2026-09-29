@@ -1,4 +1,4 @@
-import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260929reviewed';
+import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260929complete';
 import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
@@ -8,7 +8,7 @@ import {mountBookshelf} from './bookshelf.js?v=20260929reveal';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap} from './authors.js?v=20260929reviewed';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260929reviewed';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260929complete';
 import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928covers';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
