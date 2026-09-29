@@ -18,7 +18,7 @@ export async function checkBackgroundAudio(device,page,output){
  // suppress the very native media session this check is intended to exercise.
  // AudioService applies the shell volume change asynchronously. A combined
  // --set/--get can report the old value, so verify it separately before playing.
- await device.shell('cmd media_session volume --stream 3 --set 0')
+ await device.shell('cmd audio set-volume 3 0')
  let muted=''
  for(let attempt=0;attempt<20;attempt++){
   muted=String(await device.shell('cmd media_session volume --stream 3 --get'))
@@ -50,8 +50,26 @@ export async function checkBackgroundAudio(device,page,output){
  await page.addInitScript(()=>{
   const NativeAudio=window.Audio
   window.__nativeAudioClips=[]
+  window.__nativeAudioEvents=[]
+  const record=(event,a,detail={})=>{
+   window.__nativeAudioEvents.push({event,at:Date.now(),time:a?.currentTime,paused:a?.paused,state:navigator.mediaSession?.playbackState,...detail})
+   if(window.__nativeAudioEvents.length>120)window.__nativeAudioEvents.shift()
+  }
+  if(navigator.mediaSession){
+   const set=navigator.mediaSession.setActionHandler.bind(navigator.mediaSession)
+   navigator.mediaSession.setActionHandler=(action,handler)=>set(action,handler?(...args)=>{record('media-action:'+action);return handler(...args)}:null)
+  }
   window.Audio=class extends NativeAudio {
-   constructor(...args){super(...args);this.muted=false;window.__nativeAudioClips.push(this)}
+   constructor(...args){
+    super(...args);this.muted=false;window.__nativeAudioClips.push(this)
+    for(const event of ['play','playing','pause','ended','abort','emptied','loadedmetadata','error'])
+     this.addEventListener(event,()=>record(event,this,{error:this.error?.code}))
+   }
+   play(){
+    const promise=super.play()
+    promise.then(()=>record('play-resolved',this)).catch(error=>record('play-rejected',this,{error:error.name,message:error.message}))
+    return promise
+   }
   }
  })
  await page.evaluate(()=>{
@@ -64,7 +82,7 @@ export async function checkBackgroundAudio(device,page,output){
  await page.waitForFunction(()=>window.__nativeAudioClips.some(a=>!a.paused&&a.currentTime>.2),null,{timeout:20000})
  let locked=false
  const snapshot=()=>page.evaluate(()=>({chapter:document.querySelector('.lab')?.dataset.chapter,visibility:document.visibilityState,
-  clips:window.__nativeAudioClips.map(a=>({time:a.currentTime,paused:a.paused,ended:a.ended,error:a.error?.code||null}))}))
+  events:window.__nativeAudioEvents,playbackState:navigator.mediaSession?.playbackState,body:document.body.innerText.slice(-1400),clips:window.__nativeAudioClips.map(a=>({time:a.currentTime,paused:a.paused,ended:a.ended,error:a.error?.code||null}))}))
  try{
   await device.shell('input keyevent 223');locked=true
   await page.waitForTimeout(11000)
@@ -75,11 +93,18 @@ export async function checkBackgroundAudio(device,page,output){
   console.log(JSON.stringify({nativeBackgroundAudio:{...background,nativeSession,calls:calls.length}}))
   assert.equal(background.chapter,'596','narration crosses Psalm 117 to Psalm 118 with the screen off')
   assert(nativeSession,'Android exposes a lock-screen media session for Tinct')
+  console.log(JSON.stringify({nativeAudioSystem:{power:String(await device.shell('dumpsys power')).split('\n').filter(l=>/mWakefulness=|mWakefulnessChanging=|Display Power/.test(l)),sessions}}))
   await device.shell('input keyevent 127')
   await page.waitForFunction(()=>window.__nativeAudioClips.every(a=>a.paused||a.ended),null,{timeout:10000})
   await device.shell('input keyevent 126')
   await page.waitForFunction(()=>window.__nativeAudioClips.some(a=>!a.paused&&!a.ended),null,{timeout:10000})
   return {screenOffChapterAdvance:true,lockScreenSession:true,hardwareMediaPauseResume:true,syntheticSilentAudio:true}
+ }catch(error){
+  const state=await snapshot().catch(()=>({unavailable:true}))
+  const sessions=String(await device.shell('dumpsys media_session'))
+  console.log(JSON.stringify({nativeAudioFailure:{error:String(error),state,sessions,calls}}))
+  await fs.writeFile(output+'/native-audio-failure.json',JSON.stringify({state,sessions,calls},null,2))
+  throw error
  }finally{
   if(locked)await device.shell('input keyevent 224')
   await page.evaluate(()=>window.__nativeAudioClips?.forEach(a=>a.pause())).catch(()=>{})

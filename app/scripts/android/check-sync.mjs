@@ -85,7 +85,7 @@ export async function checkNativeSync(device, page, output) {
   await device.screenshot({path:output+'/native-synced-reader.png'})
   // Foreground refresh must use source anchors, independent of page geometry.
   await page.evaluate(()=>window.dispatchEvent(new Event('blur')))
-  const refreshed={...newer,paragraphIndex:3,wordIndex:2,updatedAt:Date.now()+100,rev:3}
+  const refreshed={...newer,paragraphIndex:3,wordIndex:2,updatedAt:(await page.evaluate(()=>Date.now()))+1000,rev:3}
   position={...position,books:{...position.books,zechariah:refreshed},lastSettledAt:refreshed.updatedAt,updatedAt:refreshed.updatedAt}
   await page.evaluate(()=>window.dispatchEvent(new Event('focus')))
   await page.waitForFunction(p=>document.querySelector('.lab')?.dataset.place===p.paragraphIndex+':'+p.wordIndex,refreshed,{timeout:30000})
@@ -102,7 +102,7 @@ export async function checkNativeSync(device, page, output) {
   const offlinePosition=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')))
   await record('after-offline-navigation')
   const expected=offlinePosition.books.zechariah
-  assert(expected.updatedAt>refreshed.updatedAt,'offline navigation has its own reading timestamp')
+  assert(expected.updatedAt>refreshed.updatedAt,'offline navigation follows the observed phone timestamp even when the Android clock is behind')
   offline=false
   await page.evaluate(()=>{window.dispatchEvent(new Event('online'));window.dispatchEvent(new Event('focus'))})
   for(let i=0;i<100&&position.books.zechariah.updatedAt<expected.updatedAt;i++)await page.waitForTimeout(100)

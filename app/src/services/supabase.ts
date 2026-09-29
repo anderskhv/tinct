@@ -1,3 +1,4 @@
+import { nativeEntryDestination } from '../utils/nativeEntry'
 import { nativeAuthStorage } from '../utils/nativeAuthStorage'
 import { isNativeCapacitor } from '../utils/nativePlatform'
 import { installNativeAuth } from '../utils/nativeAuth'
@@ -20,7 +21,10 @@ function createSupabaseClient(): SupabaseClient | null {
 }
 
 export const supabase = createSupabaseClient()
-if (supabase && isNativeCapacitor()) void installNativeAuth(supabase).catch(() => { /* Starting sign-in retries and displays failure. */ })
+// The native root immediately redirects to the bundled library. Starting an
+// async callback handler on that outgoing document creates competing redirects
+// with the library/account page that is already loading.
+if (supabase && isNativeCapacitor() && !nativeEntryDestination(true, window.location.pathname)) void installNativeAuth(supabase).catch(() => { /* Starting sign-in retries and displays failure. */ })
 
 export function isSupabaseConfigured(): boolean {
   return supabase !== null

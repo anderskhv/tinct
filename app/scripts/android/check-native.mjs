@@ -84,11 +84,12 @@ try {
  const metaInk=await page.locator('.rt-meta').evaluate(n=>getComputedStyle(n).color)
  assert.equal(metaInk,'rgb(51, 51, 51)','returning-library metadata has dark e-ink contrast')
  await device.screenshot({path:output+'/native-offline-library-restored.png'})
+ console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-library',png:(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64')}}))
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
  // Exercise the Android deep-link plumbing without contacting an auth
  // provider: a matching cancellation must return visibly to the account UI.
- for(const cold of [false,true]){
+ for(const cold of [false,true,true,true]){
   stage(cold?'auth-cold-return':'auth-warm-return')
   const nonce=cold?'native-cold-0123456789':'native-warm-0123456789'
   await page.evaluate(async({packageId,nonce})=>{
