@@ -28,6 +28,12 @@ try {
  await page.waitForTimeout(500)
  await page.screenshot({path:output+'/native-offline-library.png'})
  await device.screenshot({path:output+'/native-offline-library-device.png'})
+ await page.locator('#read-featured').click()
+ await page.locator('#book-overlay').waitFor()
+ if(await page.locator('#slip-next').isVisible())await page.locator('#slip-next').click()
+ await page.locator('#begin-reading').click()
+ await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:60000})
+ assert.match(await page.getByTestId('lab-root').innerText(),/Frankenstein/)
  await page.evaluate(()=>{
   localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'book',fontFamily:'garamond',fontSize:1.3,compareOpen:false}))
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:3,paragraphIndex:0,wordIndex:0,page:0}}))
@@ -55,7 +61,7 @@ try {
  await page.screenshot({path:output+'/native-offline-library-restored.png'})
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
- await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
+ await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true},null,2))
 } catch(error) {
  await device.screenshot({path:output+'/native-failure.png'}).catch(()=>{})
  await fs.writeFile(output+'/native-failure.txt',String(error)+'\n'+(page?await page.locator('body').innerText().catch(()=> 'unavailable'):'no webview'))

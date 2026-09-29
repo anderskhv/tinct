@@ -1,3 +1,4 @@
+import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -38,6 +39,7 @@ if (isEink) {
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
 const Root = isLabPath(pathname) ? LabApp : App
+if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
   startReaderLoadTrace()
   warmLibraryPreview()
