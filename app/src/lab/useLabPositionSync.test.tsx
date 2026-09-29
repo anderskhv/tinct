@@ -181,6 +181,7 @@ function Harness(props: {
   token?: string | null
   ownerId?: string | null
   sourceLocked?: boolean
+  writesSuspended?: boolean
   initialCloudWaitMs?: number
   resolveBeforePaint?: boolean
 }) {
@@ -188,6 +189,7 @@ function Harness(props: {
     book: props.book,
     placeRef: props.placeRef,
     sourceLocked: props.sourceLocked ?? false,
+    writesSuspended: props.writesSuspended,
     authToken: props.token === undefined ? 'signed-in' : props.token,
     ownerId: props.ownerId === undefined ? READER : props.ownerId,
     onRemoteResume: props.onRemoteResume,
@@ -782,6 +784,45 @@ describe('returning to a reader after another device reads', () => {
     await settle()
     expect(onRemoteResume).not.toHaveBeenCalled()
     expect(readLabPositionLocal().lastSettledBookId).toBe('proverbs')
+  })
+
+  it('rechecks a return delayed by a reader load without swallowing the newer cloud place', async () => {
+    const original = { ...settledProverbsLocal(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    const api = returningApi(original)
+    const onRemoteResume = vi.fn()
+    const props = { book: manifestBook(645), placeRef: { current: { paragraphIndex: 3, wordIndex: 7 } }, onRemoteResume }
+    const view = render(<Harness {...props} />)
+    await settle()
+    onRemoteResume.mockClear()
+    api.respond(Promise.resolve({ ...settledHebrewsCloud(), owner: READER }))
+    view.rerender(<Harness {...props} writesSuspended />)
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(readLabPositionLocal().lastSettledBookId).toBe('proverbs')
+    view.rerender(<Harness {...props} writesSuspended={false} />)
+    await waitFor(() => expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ bookId: 'hebrews', sequentialChapter: 1136 })))
+    expect(api.gets).toHaveBeenCalledTimes(2)
+  })
+
+  it('cancels a deferred return when the reader makes a new deliberate action', async () => {
+    const original = { ...settledProverbsLocal(), owner: READER }
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(original))
+    const api = returningApi(original)
+    const onRemoteResume = vi.fn()
+    const props = { book: manifestBook(645), placeRef: { current: { paragraphIndex: 3, wordIndex: 7 } }, onRemoteResume }
+    const view = render(<Harness {...props} />)
+    await settle()
+    onRemoteResume.mockClear()
+    api.respond(Promise.resolve({ ...settledHebrewsCloud(), owner: READER }))
+    view.rerender(<Harness {...props} writesSuspended />)
+    act(() => { window.dispatchEvent(new Event('blur')); window.dispatchEvent(new Event('focus')) })
+    act(() => document.dispatchEvent(new Event('pointerdown', { bubbles: true })))
+    view.rerender(<Harness {...props} writesSuspended={false} />)
+    await settle()
+    expect(onRemoteResume).not.toHaveBeenCalled()
+    expect(api.gets).toHaveBeenCalledTimes(1)
   })
 
   it('does not turn hiding a stale page into newly read progress', async () => {

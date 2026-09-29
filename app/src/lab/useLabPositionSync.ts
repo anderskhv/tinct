@@ -245,6 +245,8 @@ export function useLabPositionSync(args: {
   const cloudDoneRef = useRef(false)
   // A read started on return must not move a page the reader has since used.
   const activityRevisionRef = useRef(0)
+  const foregroundRefreshRef = useRef<(() => void) | null>(null)
+  const deferredRefreshRevisionRef = useRef<number | null>(null)
   const latestArgsRef = useRef(args)
   latestArgsRef.current = args
   // Whether the record this device booted with was this account's own. Set
@@ -560,6 +562,10 @@ export function useLabPositionSync(args: {
     const onInput = () => { activityRevisionRef.current += 1 }
     const refresh = () => {
       if (document.visibilityState === 'hidden' || !cloudDoneRef.current || refreshing) return
+      if (latestArgsRef.current.writesSuspended) {
+        deferredRefreshRevisionRef.current = activityRevisionRef.current
+        return
+      }
       const revision = activityRevisionRef.current
       refreshing = (async () => {
         const cloud = await fetchLabPositionCloud(liveToken)
@@ -584,6 +590,12 @@ export function useLabPositionSync(args: {
         const chapters = libraryId === labLibraryBookId(current) && !current.chaptersProvisional
           ? current.chapters : await loadLabChapterList(libraryId, edition.key)
         if (cancelled || revision !== activityRevisionRef.current) return
+        if (latestArgsRef.current.writesSuspended) {
+          // A cover/menu/load started while the GET was in flight. Recheck
+          // after it clears, unless the reader has made a new intentional move.
+          deferredRefreshRevisionRef.current = revision
+          return
+        }
         // Keep all pins, including those whose source is temporarily unavailable.
         controller.replace(merged)
         writeLabPositionLocal(merged, { authoritative: true })
@@ -602,6 +614,7 @@ export function useLabPositionSync(args: {
         refreshing = null
       })
     }
+    foregroundRefreshRef.current = refresh
     const onBlur = () => { away = true }
     const onFocus = () => { if (away) { away = false; refresh() } }
     const onVisibility = () => {
@@ -619,6 +632,8 @@ export function useLabPositionSync(args: {
     document.addEventListener('wheel', onInput, true)
     return () => {
       cancelled = true
+      foregroundRefreshRef.current = null
+      deferredRefreshRevisionRef.current = null
       window.removeEventListener('blur', onBlur)
       window.removeEventListener('focus', onFocus)
       window.removeEventListener('online', refresh)
@@ -629,6 +644,13 @@ export function useLabPositionSync(args: {
       document.removeEventListener('wheel', onInput, true)
     }
   }, [liveToken, ownerId])
+
+  useEffect(() => {
+    if (args.writesSuspended || deferredRefreshRevisionRef.current === null) return
+    const revision = deferredRefreshRevisionRef.current
+    deferredRefreshRevisionRef.current = null
+    if (revision === activityRevisionRef.current) foregroundRefreshRef.current?.()
+  }, [args.writesSuspended])
 
   const markChapterFinished = useCallback((sequentialChapter: number) => {
     const controller = controllerRef.current
