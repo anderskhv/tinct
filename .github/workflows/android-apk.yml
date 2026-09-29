@@ -36,6 +36,7 @@ jobs:
           node --check scripts/android/check-native.mjs
           node --check scripts/android/check-background.mjs
           node --check scripts/android/check-downloads.mjs
+          node --check scripts/android/check-sync.mjs
       - name: Build the existing native bundle for size and compatibility evidence
         run: npm run build:android
         env:

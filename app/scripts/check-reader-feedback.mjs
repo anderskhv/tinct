@@ -23,7 +23,7 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
   if (url.pathname.startsWith('/data/dict/')) return route.fulfill({ json: {} })
   if (url.pathname.startsWith('/api/')) return route.fulfill({ json: {} })
   if (!live && url.origin === origin) {
-   const target = path.resolve('dist', '.' + (url.pathname.startsWith('/lab/') || url.pathname === '/reader' ? '/app.html' : url.pathname))
+   const target = path.resolve('dist', '.' + (['/lab/phone', '/lab/reader', '/reader'].includes(url.pathname) ? '/app.html' : url.pathname))
    if (target.startsWith(path.resolve('dist') + '/')) {
     try { if ((await fs.stat(target)).isFile()) return route.fulfill({ path: target }) } catch {}
    }
