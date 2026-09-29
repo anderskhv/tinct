@@ -11,7 +11,7 @@ async function state(page){return page.evaluate(()=>{
  return{chapter:root.dataset.chapter,end:p.classList.contains('is-chapter-end-page'),keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),card:card?.getBoundingClientRect().toJSON(),leafRight:(left+right)/2-parseFloat(css.getPropertyValue('--desktop-gutter')||0)/2,left,passageBottom:r.bottom,bundle:[...document.scripts].map(s=>s.src).find(s=>/assets\/index-.*\.js/.test(s))}
 })}
 async function run(browser,viewport,before){
- const context=await browser.newContext({viewport,isMobile:viewport.width<900,hasTouch:viewport.width<900}),page=await context.newPage()
+ const context=await browser.newContext({serviceWorkers:'block',viewport,isMobile:viewport.width<900,hasTouch:viewport.width<900}),page=await context.newPage()
  await page.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await page.route('**/*supabase.co/**',r=>r.abort())
  await page.addInitScript(()=>{localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:1.3,theme:'light',compareOpen:false}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:1134,paragraphIndex:0,page:0}}))})
  try{

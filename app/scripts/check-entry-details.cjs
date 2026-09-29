@@ -33,7 +33,7 @@ async function assertActionReachable(page, label) {
   for (const [engine, width, height] of [[chromium, 1440, 900], [webkit, 360, 844]]) {
     const browser = await engine.launch()
     try {
-      const page = await browser.newPage({ viewport: { width, height }, isMobile: width < 900, hasTouch: true })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: { width, height }, isMobile: width < 900, hasTouch: true })
       await page.goto(`${origin}/`)
       await page.waitForFunction(() => window.__tinctLabPreReader?.ready)
 

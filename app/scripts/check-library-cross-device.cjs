@@ -26,7 +26,7 @@ async function main() {
   let activePage, activeScenario
   try {
     for (const scenario of (process.env.SCENARIOS?.split(',') || ['pending-continue', 'return-to-library', 'direct-reader', 'explicit-book'])) {
-      const page = await browser.newPage({ viewport: process.env.TEST_WIDTH ? { width: Number(process.env.TEST_WIDTH), height: 1000 } : { width: 390, height: 844 }, isMobile: !process.env.TEST_WIDTH, hasTouch: !process.env.TEST_WIDTH })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: process.env.TEST_WIDTH ? { width: Number(process.env.TEST_WIDTH), height: 1000 } : { width: 390, height: 844 }, isMobile: !process.env.TEST_WIDTH, hasTouch: !process.env.TEST_WIDTH })
       activePage = page; activeScenario = scenario
       let server = scenario === 'return-to-library' ? local : remote
       let release

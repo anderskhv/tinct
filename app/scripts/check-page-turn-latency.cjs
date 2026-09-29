@@ -6,7 +6,7 @@ const fs = require('node:fs')
 async function main() {
   const browser = await chromium.launch()
   try {
-    const page = await browser.newPage({ viewport: { width: 390, height: 664 } })
+    const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 390, height: 664 } })
     await page.goto(`${process.env.TEST_ORIGIN || 'http://127.0.0.1:5191'}/lab/?book=the-republic&view=book-detail`, { waitUntil: 'networkidle' })
     await page.getByRole('button', { name: 'Start reading', exact: true }).click()
     await page.waitForURL('**/reader**')

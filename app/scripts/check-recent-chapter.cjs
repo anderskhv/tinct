@@ -28,7 +28,7 @@ async function main() {
   const browser = await (engine === 'webkit' ? webkit : chromium).launch()
   try {
     for (const desktop of [false, true]) {
-      const page = await browser.newPage({ viewport: desktop ? { width: 1440, height: 900 } : { width: 390, height: 844 }, isMobile: !desktop, hasTouch: !desktop })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: desktop ? { width: 1440, height: 900 } : { width: 390, height: 844 }, isMobile: !desktop, hasTouch: !desktop })
       await page.addInitScript(() => {
         if (sessionStorage.getItem('return-fixture-seeded')) return
         sessionStorage.setItem('return-fixture-seeded', '1')

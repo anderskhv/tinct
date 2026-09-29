@@ -26,7 +26,7 @@ async function state(p){return p.evaluate(()=>{
 ;(async()=>{const results=[]
 for(const config of configs){
  const browser=await(config.width<900?webkit:chromium).launch()
- const context=await browser.newContext({viewport:{width:config.width,height:config.height},isMobile:config.width<900,hasTouch:config.width<900})
+ const context=await browser.newContext({serviceWorkers:'block',viewport:{width:config.width,height:config.height},isMobile:config.width<900,hasTouch:config.width<900})
  const p=await context.newPage(),calls=[]
  const source=edition.chapters.find(c=>c.number===config.chapter)
  const highlight={id:'preview-preserve',bookId:'bible',editionKey:'kjv-en',chapterNumber:config.chapter,paragraphIndex:0,fromWord:1,endParagraphIndex:0,toWord:3,color:'blue',note:'Keep this exact note.',text:(source.paragraphs[0].match(/\S+/g)||[]).slice(1,3).join(' ')}
