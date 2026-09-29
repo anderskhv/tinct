@@ -209,7 +209,7 @@ describe('POST /api/narration/ensure', () => {
     const anonymous = makeHarness({}, { user: null })
     expect((await ensure(anonymous, { paragraphs: [{ index: 0 }] })).status).toBe(401)
     const h = makeHarness()
-    expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(403)
+    expect((await ensure(h, { paragraphs: [{ index: 0 }], editionKey: 'modern-da' })).status).toBe(503)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], bookId: 'ulysses' })).status).toBe(404)
     expect((await ensure(h, { paragraphs: [{ index: 0 }], voice: 'z' })).status).toBe(400)
     expect((await ensure(h, { paragraphs: [] })).status).toBe(400)
@@ -615,7 +615,7 @@ describe('GET /api/narration/chapter', () => {
   it('validates scope, lists nothing when unconfigured, and reports chunk progress', async () => {
     const h = makeHarness()
     expect((await chapter(h, 'bookId=odyssey&editionKey=original-en&chapter=1&voice=zz')).status).toBe(400)
-    expect((await chapter(h, 'bookId=odyssey&editionKey=modern-da&chapter=1&voice=a')).status).toBe(403)
+    expect((await chapter(h, 'bookId=odyssey&editionKey=modern-da&chapter=1&voice=a')).status).toBe(503)
     const off = makeHarness({ NARRATION_PILOT: '0' })
     const listing = await chapter(off)
     expect(listing.status).toBe(200)
