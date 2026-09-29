@@ -1,4 +1,4 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928f';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260929reveal';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928f';
 import { createBookshelf } from './bookshelf-view.js?v=20260928f';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928f';
@@ -12,7 +12,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  const loading=document.createElement('div');loading.className='bookshelf-loading';loading.setAttribute('aria-label','Loading your library');loading.hidden=!window.__library2Boot?.hint;hero.before(loading);
  let view=null,table={mode:'new',reading:[],finished:[]},saved=[],catalogue=[],api=null,loadingNow=false,pendingUpdate=false,ready=Promise.resolve(),resumeReady=Promise.resolve();
  try{catalogue=JSON.parse(sessionStorage.getItem('tinct:library-2-catalogue')||'[]');}catch{}
- function settle(){loading.hidden=true;html.classList.remove('returning-pending');}
+ function settle(){loading.hidden=true;html.classList.remove('returning-pending');if(!html.classList.contains('returning')||shelfStudy)html.classList.remove('returning-scene-pending');}
  function show(key){
   html.classList.add('returning');html.dataset.returningView=shelfStudy?'shelf':'table';root.hidden=!shelfStudy;
   if(!sample)rememberVisit({mode:'shelf'});
