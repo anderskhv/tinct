@@ -10,7 +10,7 @@ const assert = require('assert')
 
   for (const [name, engine, width] of [['phone', webkit, 390], ['desktop', chromium, 1440]]) {
     const browser = await engine.launch()
-    const page = await browser.newPage({ viewport: { width, height: name === 'phone' ? 844 : 950 }, hasTouch: name === 'phone', isMobile: name === 'phone' })
+    const page = await browser.newPage({serviceWorkers:'block', viewport: { width, height: name === 'phone' ? 844 : 950 }, hasTouch: name === 'phone', isMobile: name === 'phone' })
     await page.addInitScript(() => {
       localStorage.setItem('tinct-highlight-color', 'sky')
       localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, theme: 'light' }))

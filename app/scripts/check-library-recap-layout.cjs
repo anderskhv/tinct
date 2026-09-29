@@ -26,7 +26,7 @@ async function main() {
   const results = []
   try {
     for (const [name, width, height, scheme] of [['mobile-dark',390,844,'dark'],['mobile-light',390,844,'light'],['desktop-dark',1180,820,'dark'],['desktop-light',1440,900,'light']]) {
-      const page = await browser.newPage({ viewport: { width, height }, isMobile: width < 600, hasTouch: width < 600, colorScheme: scheme, reducedMotion: 'reduce' })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: { width, height }, isMobile: width < 600, hasTouch: width < 600, colorScheme: scheme, reducedMotion: 'reduce' })
       let releaseLong, releaseShort
       const longGate = new Promise(resolve => { releaseLong = resolve })
       const shortGate = new Promise(resolve => { releaseShort = resolve })
