@@ -1,7 +1,7 @@
 import { build } from 'esbuild'
 import { Miniflare } from 'miniflare'
 import assert from 'node:assert/strict'
-import { mkdtemp, rm, mkdir, writeFile } from 'node:fs/promises'
+import { mkdtemp, rm, mkdir, writeFile, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 const root=await mkdtemp(path.join(tmpdir(),'tinct-position-'))
@@ -21,9 +21,12 @@ try{
   "export default {fetch(request,env){return handleLabPosition(request,env,async()=>request.headers.has('fixture-owner')?{id:request.headers.get('fixture-owner'),email:'fixture@example.invalid'}:null)}};",
   resolveDir:process.cwd(),sourcefile:'position-fixture.ts',loader:'ts'},
   bundle:true,format:'esm',platform:'neutral',external:['cloudflare:workers'],outfile:scriptPath})
- const options={cf:false,durableObjectsPersist:path.join(root,'do'),kvPersist:path.join(root,'kv'),workers:[{
-  name:'position-fixture',modules:true,scriptPath,compatibilityDate:'2025-09-27',
-  durableObjects:{READER_POSITION:{className:'ReaderPositionCoordinator',useSQLite:true}},kvNamespaces:['RATE_LIMIT']}]}
+ const options={cf:false,resourcePersistencePath:path.join(root,'state'),workers:[{config:{
+  name:'position-fixture',compatibilityDate:'2025-09-27',
+  manifest:{mainModule:'worker.mjs',modules:{'worker.mjs':{type:'esm',contents:await readFile(scriptPath,'utf8')}}},
+  env:{READER_POSITION:{type:'durable-object',worker:'position-fixture',exportName:'ReaderPositionCoordinator'},RATE_LIMIT:{type:'kv',id:'positions'}},
+  exports:{ReaderPositionCoordinator:{type:'durable-object',storage:'sqlite'}}
+ },dev:{outboundService:{type:'fetcher',handler(){throw new Error('Unexpected external request in storage fixture')}}}}]}
  mf=new Miniflare(options)
  const kv=await mf.getKVNamespace('RATE_LIMIT')
  await kv.put('lab-position:'+owner,JSON.stringify(state(8)))
