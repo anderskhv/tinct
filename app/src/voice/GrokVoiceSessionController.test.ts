@@ -213,7 +213,7 @@ describe('tools', () => {
     const onApplicationTool = vi.fn()
       .mockResolvedValueOnce({ output: { ok: false }, responseInstructions: 'Do not invent an attribution.' })
       .mockImplementationOnce(() => new Promise(resolve => { finishSecond = resolve }))
-    const { controller, sent } = connected({ onApplicationTool })
+    const { controller, sent } = connected({ onApplicationTool }, { tools: [{ type: 'function', name: 'search_reading_sources', parameters: {} }] })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'batch' } })
     for (const call_id of ['one', 'two']) controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'search_reading_sources', call_id, arguments: '{"query":"Ezra"}' })
