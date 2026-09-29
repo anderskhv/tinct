@@ -34,10 +34,12 @@ try {
   return {width:c.width,height:c.height,colors:colors.size,style:{display:getComputedStyle(c).display,visibility:getComputedStyle(c).visibility,opacity:getComputedStyle(c).opacity},parentFilter:getComputedStyle(c.parentElement).filter}
  })
  await fs.writeFile(output+'/native-cover-diagnostics.json',JSON.stringify(cover,null,2))
+ console.log(JSON.stringify({nativeCoverDiagnostic:cover}))
  assert(cover.colors>32,'offline cover contains painted image detail')
  await page.waitForTimeout(500)
  await device.screenshot({path:output+'/native-offline-library.png'})
  await device.screenshot({path:output+'/native-offline-library-device.png'})
+ console.log(JSON.stringify({nativeDeviceVisual:{name:'offline-library-device',png:(await fs.readFile(output+'/native-offline-library-device.png')).toString('base64')}}))
  console.log(JSON.stringify({nativeVisual:{name:'offline-library',jpeg:(await page.screenshot({type:'jpeg',quality:40,scale:'css'})).toString('base64')}}))
  stage('library-read')
  await page.locator('#read-featured').click()
@@ -85,13 +87,16 @@ try {
  assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','e-ink mode survives restart into the library')
  const metaInk=await page.locator('.rt-meta').evaluate(n=>getComputedStyle(n).color)
  assert.equal(metaInk,'rgb(51, 51, 51)','returning-library metadata has dark e-ink contrast')
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))
+ await page.waitForTimeout(800)
+ console.log(JSON.stringify({nativeLibraryGeometry:await page.evaluate(()=>({html:document.documentElement.className,body:document.body.className,nodes:['#hero','.reading-table','#rt-title','#rt-continue'].map(sel=>{const n=document.querySelector(sel),r=n.getBoundingClientRect(),s=getComputedStyle(n);return {sel,rect:{x:r.x,y:r.y,width:r.width,height:r.height},display:s.display,visibility:s.visibility,color:s.color,opacity:s.opacity}})}))}))
  await device.screenshot({path:output+'/native-offline-library-restored.png'})
  console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-library',png:(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64')}}))
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
  // Exercise the Android deep-link plumbing without contacting an auth
  // provider: a matching cancellation must return visibly to the account UI.
- for(const cold of [false,true,true,true]){
+ for(const cold of [false,true,true,true,true,true]){
   stage(cold?'auth-cold-return':'auth-warm-return')
   const nonce=(cold?'native-cold-':'native-warm-')+'0123456789-'+stages.length
   await page.evaluate(async({packageId,nonce})=>{

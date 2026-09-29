@@ -1,3 +1,4 @@
+import { App } from '@capacitor/app'
 import { nativeAuthStorage } from './nativeAuthStorage'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { isNativeCapacitor } from './nativePlatform'
@@ -11,6 +12,17 @@ function trace(stage:string,detail:Record<string,unknown>={}):void {
  const history=target.__nativeAuthTrace??=[]
  history.push({stage,time:Date.now(),path:window.location.pathname,...detail})
  if(history.length>32)history.shift()
+}
+/** An early bridge reply can be lost while Android replaces the launch document.
+ * Retry only idempotent startup reads, never an OAuth exchange or storage write. */
+export async function nativeStartupRead<T>(read:()=>Promise<T>):Promise<T> {
+ for(let attempt=0;attempt<2;attempt++){
+  let timer:ReturnType<typeof setTimeout>|undefined
+  try{return await Promise.race([read(),new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(new Error('Android sign-in is still starting. Please try again.')),3000)})])}
+  catch(error){if(attempt===1)throw error;trace('startup-read-retry')}
+  finally{clearTimeout(timer)}
+ }
+ throw new Error('Android sign-in could not start.')
 }
 const DEFERRED_RETURN='tinct:native-auth-return'
 async function readPending():Promise<NativeAuthPending|null> {
@@ -58,8 +70,8 @@ export function installNativeAuth(client:SupabaseClient):Promise<void> {
   if(!isNativeCapacitor())return Promise.resolve()
   if(!installation)installation=(async()=>{
     trace('install-start')
-    const {App}=await import('@capacitor/app')
-    const {id}=await App.getInfo()
+    trace('app-info-requested')
+    const {id}=await nativeStartupRead(()=>App.getInfo())
     trace('app-info')
     await App.addListener('appUrlOpen',event=>{void handleNativeAuthReturn(client,event.url,id)})
     const deferred=sessionStorage.getItem(DEFERRED_RETURN)
@@ -76,8 +88,7 @@ export function installNativeAuth(client:SupabaseClient):Promise<void> {
 export async function authRedirectTo(client:SupabaseClient,returnTo:string,kind:NativeAuthKind,webRedirect:string):Promise<string> {
   if(!isNativeCapacitor())return webRedirect
   await installNativeAuth(client)
-  const {App}=await import('@capacitor/app')
-  const {id}=await App.getInfo()
+  const {id}=await nativeStartupRead(()=>App.getInfo())
   const pending=nativeAuthPending(id,crypto.randomUUID(),returnTo,kind,Date.now())
   await nativeAuthStorage.setItem(NATIVE_AUTH_PENDING,JSON.stringify(pending))
   return nativeAuthRedirect(pending)

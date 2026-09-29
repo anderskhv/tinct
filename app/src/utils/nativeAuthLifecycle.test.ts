@@ -66,3 +66,15 @@ it('returns a cancellation with a generic notice and no exchange',async()=>{
  expect(localStorage.getItem('tinct:native-auth-notice')).toBe('Sign-in could not be completed. Please try again.')
  expect(fixture.assign.mock.calls[0][0]).not.toContain('provider-private-detail')
 })
+
+it('retries a lost Android startup read without waiting forever',async()=>{
+ vi.useFakeTimers()
+ try{
+  const read=vi.fn().mockImplementationOnce(()=>new Promise(()=>{})).mockResolvedValueOnce({id:'app.tinct.reader.review'})
+  const {nativeStartupRead}=await import('./nativeAuth')
+  const pending=nativeStartupRead(read)
+  await vi.advanceTimersByTimeAsync(3000)
+  expect(await pending).toEqual({id:'app.tinct.reader.review'})
+  expect(read).toHaveBeenCalledTimes(2)
+ }finally{vi.useRealTimers()}
+})
