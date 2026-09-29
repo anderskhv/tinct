@@ -14,6 +14,11 @@ export async function checkBackgroundAudio(device,page,output){
  body.write('RIFF',0);body.writeUInt32LE(body.length-8,4);body.write('WAVEfmt ',8);body.writeUInt32LE(16,16)
  body.writeUInt16LE(1,20);body.writeUInt16LE(1,22);body.writeUInt32LE(sampleRate,24);body.writeUInt32LE(sampleRate*2,28)
  body.writeUInt16LE(2,32);body.writeUInt16LE(16,34);body.write('data',36);body.writeUInt32LE(body.length-44,40)
+ // Mute Android's media output, not the audio element: a muted element can
+ // suppress the very native media session this check is intended to exercise.
+ const muted=String(await device.shell('cmd media_session volume --stream 3 --set 0 --get'))
+ assert.match(muted,/volume is 0\b/i,'the isolated emulator media output is muted')
+ for(let i=0;i<sampleRate*duration;i++)body.writeInt16LE(Math.round(8000*Math.sin(2*Math.PI*440*i/sampleRate)),44+i*2)
  const calls=[]
  await page.route('**/*supabase.co/**',r=>r.abort())
  await page.route('**/api/**',async route=>{
@@ -38,7 +43,7 @@ export async function checkBackgroundAudio(device,page,output){
   const NativeAudio=window.Audio
   window.__nativeAudioClips=[]
   window.Audio=class extends NativeAudio {
-   constructor(...args){super(...args);this.muted=true;window.__nativeAudioClips.push(this)}
+   constructor(...args){super(...args);this.muted=false;window.__nativeAudioClips.push(this)}
   }
  })
  await page.evaluate(()=>{
@@ -58,7 +63,7 @@ export async function checkBackgroundAudio(device,page,output){
   const background=await snapshot()
   const sessions=(await device.shell('dumpsys media_session')).toString()
   const nativeSession=sessions.includes('app.tinct.reader.review')
-  await fs.writeFile(output+'/native-background-audio.json',JSON.stringify({background,nativeSession,calls,silentFixture:true,providerCalls:false},null,2))
+  await fs.writeFile(output+'/native-background-audio.json',JSON.stringify({background,nativeSession,calls,systemOutputMuted:true,syntheticFixture:true,providerCalls:false},null,2))
   console.log(JSON.stringify({nativeBackgroundAudio:{...background,nativeSession,calls:calls.length}}))
   assert.equal(background.chapter,'596','narration crosses Psalm 117 to Psalm 118 with the screen off')
   assert(nativeSession,'Android exposes a lock-screen media session for Tinct')
