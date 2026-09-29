@@ -27,10 +27,23 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
 
  await p.locator('#read-featured').click();await p.locator('#book-overlay').waitFor();await p.locator('#page-back').waitFor();if(await p.locator('#slip-next').isVisible()){await p.locator('#slip-next').click();await p.locator('#begin-reading').waitFor();await p.locator('#page-back').click();await p.locator('#slip-next').waitFor();}await p.locator('#page-back').click();await p.locator('#book-overlay').waitFor({state:'hidden'});
  await p.evaluate(()=>{sessionStorage.clear();const now=Date.now();localStorage.setItem('tinct-lab-position',JSON.stringify({owner:null,books:{frankenstein:{bookId:'frankenstein',headerBook:'Frankenstein',chapterNumber:7,sequentialChapter:7,paragraphIndex:11,wordIndex:23,pageIndex:4,primaryEditionKey:'original-en',updatedAt:now,deviceId:'public-check',rev:0}},finished:{},hidden:{},lastSettledBookId:'frankenstein',lastSettledAt:now,updatedAt:now,deviceId:'public-check'}));});
- await p.addInitScript(()=>{if(location.pathname==='/library')sessionStorage.removeItem('tinct:library-2-visit');});await p.goto('https://tinct.app/library');await p.locator('.reading-table.is-ready').waitFor({timeout:15000}).catch(async e=>{console.log({url:p.url(),errors,html:await p.locator('html').getAttribute('class'),tables:await p.locator('.reading-table').count(),content:(await p.locator('body').innerText()).slice(0,900),boot:await p.evaluate(()=>window.__library2Boot)});await p.screenshot({path:out+'/debug.png'});throw e;});await p.waitForTimeout(700);assert.match(await p.locator('html').getAttribute('data-scene'),/^table-/);const cta=await p.locator('#rt-continue').boundingBox();assert(cta.y+cta.height<=h,JSON.stringify(cta));assert.equal(await p.locator('#rt-book-metadata .metadata-category').innerText(),'FICTION');assert.equal(await p.locator('#rt-book-metadata .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('#rt-book-metadata .metadata-details span').nth(1).innerText(),/ left$/);const remove=await p.locator('#rt-remove').boundingBox();assert(remove.x>=0&&remove.x+remove.width<=w&&remove.y>=0&&remove.y+remove.height<h,JSON.stringify(remove));const face=await p.locator('.rt-b.is-current .rt-front').boundingBox();assert(Math.abs(remove.y+remove.height/2-face.y)<3,JSON.stringify({remove,face}));await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-returning.png`});
+ let releaseBridge;const bridgeGate=new Promise(resolve=>{releaseBridge=resolve;});
+ const heldBridge=async route=>{await bridgeGate;return route.fallback();};
+ await p.route('**/lab/library-2-reading.js?*',heldBridge);
+ await p.addInitScript(()=>{if(location.pathname==='/library')sessionStorage.removeItem('tinct:library-2-visit');});
+ await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});
+ await p.waitForTimeout(150);
+ assert(await p.locator('html').evaluate(n=>n.classList.contains('returning-scene-pending')),'returning scene waits for its books');
+ assert.equal(await p.locator('#scene').evaluate(n=>getComputedStyle(n).opacity),'0','no empty table flash while reading data loads');
+ // Screenshot capture waits for fonts in WebKit; keep this held-load assertion DOM-only.
+ releaseBridge();await p.unroute('**/lab/library-2-reading.js?*',heldBridge);
+ await p.locator('.reading-table.is-ready').waitFor({timeout:15000}).catch(async e=>{console.log({url:p.url(),errors,html:await p.locator('html').getAttribute('class'),tables:await p.locator('.reading-table').count(),content:(await p.locator('body').innerText()).slice(0,900),boot:await p.evaluate(()=>window.__library2Boot)});await p.screenshot({path:out+'/debug.png'});throw e;});await p.waitForTimeout(700);assert.equal(await p.locator('#scene').evaluate(n=>getComputedStyle(n).opacity),'1','composed room revealed');assert(!(await p.locator('html').evaluate(n=>n.classList.contains('returning-scene-pending'))));assert.match(await p.locator('html').getAttribute('data-scene'),/^table-/);const cta=await p.locator('#rt-continue').boundingBox();assert(cta.y+cta.height<=h,JSON.stringify(cta));assert.equal(await p.locator('#rt-book-metadata .metadata-category').innerText(),'FICTION');assert.equal(await p.locator('#rt-book-metadata .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('#rt-book-metadata .metadata-details span').nth(1).innerText(),/ left$/);const remove=await p.locator('#rt-remove').boundingBox();assert(remove.x>=0&&remove.x+remove.width<=w&&remove.y>=0&&remove.y+remove.height<h,JSON.stringify(remove));const face=await p.locator('.rt-b.is-current .rt-front').boundingBox();assert(Math.abs(remove.y+remove.height/2-face.y)<3,JSON.stringify({remove,face}));await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-returning.png`});
  await p.route('**/reader',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>Handoff</title>'}));await p.locator('#rt-continue').click();await p.waitForURL('**/reader');const handoff=await p.evaluate(()=>JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')));assert.deepEqual(handoff.savedPlace,{bookId:'frankenstein',chapterNumber:7,page:4,paragraphIndex:11,wordIndex:23});
  // Removing the last book hides only its shelf entry, never its saved place.
  await p.goto('https://tinct.app/library');await p.locator('.reading-table.is-ready').waitFor();
+ await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
+ assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'reading');
+ await p.locator('#collection-back').click();
  const before=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')));
  await p.locator('#rt-remove').click();await p.locator('#rt-remove-dialog[open]').waitFor();
  await p.locator('#rt-remove-cancel').click();assert.equal(await p.locator('.rt-b').count(),1);
@@ -39,6 +52,11 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  const after=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')));
  assert.deepEqual(after.books,before.books);assert.deepEqual(after.finished,before.finished);
  assert.equal(after.lastSettledBookId,before.lastSettledBookId);assert.equal(after.lastSettledAt,before.lastSettledAt);assert(after.hidden.frankenstein>=before.books.frankenstein.updatedAt);
+ // The immediate view must stop calling this book Currently reading too.
+ await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
+ await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').waitFor();
+ assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'want');
+ assert.equal(await p.locator('#collection-books .my-books-head').first().innerText(),'Saved for later');
  await p.reload();await p.locator('#read-featured').waitFor();
  await p.waitForFunction(()=>window.__library2Reading&&window.__tinctLibraryTwoReading);
  assert.equal(await p.evaluate(()=>window.__library2Reading.reading.length),0);
@@ -50,6 +68,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  assert.equal(await p.locator('#collection-title').innerText(),'My shelf');
  const shelfRemove=p.locator('#collection-books .save-toggle[data-book="frankenstein"]');
  await shelfRemove.waitFor();assert.equal(await shelfRemove.innerText(),'×');
+ assert.equal(await shelfRemove.evaluate(n=>n.closest('article').dataset.shelfGroup),'want','desk removal stays outside Currently reading after reload');
+ assert.equal(await p.locator('#collection-books [data-shelf-group="reading"] .save-toggle[data-book="frankenstein"]').count(),0);
  await p.evaluate(()=>dispatchEvent(new CustomEvent('library2:saved',{detail:['frankenstein']})));
  assert.equal(await shelfRemove.innerText(),'×','saved refresh must not repaint the shelf remove as a plus/check');
  await p.screenshot({path:out+'/my-shelf-'+engine.name()+'.png'});

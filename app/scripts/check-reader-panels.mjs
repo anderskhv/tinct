@@ -184,7 +184,7 @@ async function run(engine,name,phone) {
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-definition.png'})
     await page.keyboard.press('Escape')
     await page.getByTestId('lab-header-book').click()
-    await page.getByRole('button',{name:/Full library/}).waitFor()
+    await page.getByRole('button',{name:'Library',exact:true}).waitFor()
     await page.getByRole('button',{name:'Close book switcher'}).click()
     if(!phone){
       const progress=page.getByTestId('lab-chapter-progress')
@@ -260,7 +260,7 @@ async function run(engine,name,phone) {
       await page.getByRole('button',{name:'Close explanation',exact:true}).click()
     }
     await page.getByTestId('lab-header-book').click()
-    await page.getByRole('button',{name:/Full library/}).click()
+    await page.getByRole('button',{name:'Library',exact:true}).click()
     await page.waitForURL('**/library**')
     assert.deepEqual(errors,[])
     result.passed=true
@@ -470,7 +470,7 @@ async function contentsAndSameEdition(engine,name,phone){
         assert.equal(titleGeometry.overflow,'ellipsis')
         assert.equal(titleGeometry.wrap,'nowrap')
         await heading.click()
-        await contentsPage.getByRole('button',{name:/Full library/}).waitFor()
+        await contentsPage.getByRole('button',{name:'Library',exact:true}).waitFor()
         await contentsPage.keyboard.press('Escape')
         await contentsPage.getByTestId('lab-header-chapter').click()
       }

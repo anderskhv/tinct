@@ -79,7 +79,7 @@ export interface ReadingTable {
   mode: LibraryMode
   reading: ReadingTableBook[]
   finished: ReadingTableFinished[]
-  /** Reading books retained on My shelf, including those removed from the table. */
+  /** Compatibility alias for the same active reading list shown at the desk. */
   shelfReading?: ReadingTableBook[]
 }
 
@@ -335,9 +335,9 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),
   }
-  table.shelfReading = table.reading
   table.reading = table.reading.filter(row => !membership.tableHidden.includes(row.bookId)
     && !((positions?.hidden?.[row.bookId] ?? 0) >= (lastRows.get(row.bookId)?.lastActiveAt ?? 1)))
+  table.shelfReading = table.reading
   if (!table.reading.length) table.mode = 'new'
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
   if (auth.token) {

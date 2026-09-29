@@ -323,3 +323,8 @@ html:not(.library-ready) #librarian{visibility:hidden}
 .browse-subgroups summary{font:12px/1.5 system-ui;color:#b7bfaa;cursor:pointer;padding:5px 0}
 .menu-links .browse-subgroups button{font-size:16px;padding:7px 0}
 .browse-date-note{margin-top:12px;max-width:260px}
+
+/* Reveal the returning room only when its books are decoded and composed. */
+#scene{transition:opacity 180ms ease}
+html.returning-scene-pending #scene{opacity:0;transition:none}
+@media(prefers-reduced-motion:reduce){#scene{transition:none}}

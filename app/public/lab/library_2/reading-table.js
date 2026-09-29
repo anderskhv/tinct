@@ -202,6 +202,7 @@ export async function mountReadingTable({ hero, shelves, el }) {
     // Reveal decoded covers and their final bindings together, never bare boxes
     // followed by late artwork. The leaf faces fade without flattening the 3D row.
     view.classList.replace('is-preparing', 'is-ready');
+    document.documentElement.classList.remove('returning-scene-pending');
     view.removeAttribute('aria-busy');
   };
 
@@ -233,7 +234,7 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
   view?.dispose?.();view?.remove();currentTable={...next,reading:next.reading.map(b=>({...b}))};
   view=document.createElement('div');view.className='reading-table is-preparing';view.innerHTML=markup(currentTable);hero.append(view);
   view.api=summaryFor?{summaryFor}:null;
-  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading}).then(()=>{if(active.isConnected)active.classList.replace('is-preparing','is-ready');});
+  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading}).then(()=>{if(active.isConnected){active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');}});
  }
  render(table);
  document.addEventListener('keydown',e=>{
