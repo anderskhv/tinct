@@ -33,7 +33,6 @@ interface ChapterShardManifest {
 const CHAPTER_SHARDED_EDITIONS = new Set<string>(CHAPTER_SHARDED_EDITION_IDS)
 
 export function chapterShardedEditionsEnabled(): boolean {
-  if (isNativeCapacitor()) return false
   if (import.meta.env.VITE_CHAPTER_SHARDED_EDITIONS === 'true') return true
   if (typeof window === 'undefined') return false
   try {
@@ -56,8 +55,8 @@ export function editionChapterShardManifestUrl(bookId: string, editionKey: Editi
 }
 
 function chapterShardWindowEnabled(bookId: string, editionKey: EditionKey): boolean {
-  // The compact APK keeps one exact whole-book copy, not a second set of shards.
-  if (isNativeCapacitor()) return false
+  // Withdrawn Danish assets keep their historical recovery path unchanged.
+  if (isNativeCapacitor() && !editionKey.endsWith('-da')) return false
   if (!isChapterShardedEdition(bookId, editionKey)) return false
   if (typeof window === 'undefined') return true
   try {
@@ -298,7 +297,7 @@ async function loadEditionUncached(
   opts: { bypassCache?: boolean; forceWholeBook?: boolean } = {},
 ): Promise<EditionData> {
   const cacheKey = `${bookId}-${editionKey}`
-  const useChapterShards = !opts.forceWholeBook && chapterShardedEditionsEnabled() && CHAPTER_SHARDED_EDITIONS.has(cacheKey)
+  const useChapterShards = !(isNativeCapacitor() && !editionKey.endsWith('-da')) && !opts.forceWholeBook && chapterShardedEditionsEnabled() && CHAPTER_SHARDED_EDITIONS.has(cacheKey)
 
   // Append the build version as a cache-bust query param. The edition JSONs
   // are not content-hashed (unlike the JS bundle), so without this param a

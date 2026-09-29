@@ -22,6 +22,8 @@ console.log(JSON.stringify({ nativeWebsiteBytesRemoved: removed, preserved: 'rea
 let duplicateBytes=0, duplicateEditions=0
 const shardRoot=join(root,'data/editions-chapters')
 for (const name of await readdir(shardRoot)) {
+  // Withdrawn Danish assets are retained unchanged for historical recovery.
+  if(name.endsWith('-da'))continue
   const dir=join(shardRoot,name)
   if(!(await stat(dir)).isDirectory())continue
   const manifest=JSON.parse(await readFile(join(dir,'manifest.json'),'utf8'))
