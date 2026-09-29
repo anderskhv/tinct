@@ -80,6 +80,7 @@ it('reads the native whole-book copy offline without requesting duplicate shards
   const chapters = [{number:1,title:'One',paragraphs:['Exact first paragraph.']},{number:2,title:'Two',paragraphs:['Exact second paragraph.']}]
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
     const url=String(input); requested.push(url)
+    if(url==='/native-edition-storage.json') return jsonResponse({wholeEditions:['anna-karenina-modern-en']})
     if(url.includes('/api/edition-patches')) return jsonResponse([])
     if(url.includes('/data/editions/anna-karenina-modern-en.json')) return jsonResponse({chapters})
     throw new Error('Unexpected network path: '+url)

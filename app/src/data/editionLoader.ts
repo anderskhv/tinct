@@ -9,6 +9,18 @@ const inFlight = new Map<string, Promise<EditionData>>()
 const manifestCache = new Map<string, ChapterShardManifest>()
 const chapterShardCache = new Map<string, string[]>()
 const PATCH_WAIT_MS = 350
+let nativeWholeEditions: Promise<Set<string>> | null = null
+async function hasNativeWholeCopy(bookId: string, editionKey: EditionKey): Promise<boolean> {
+  if (!isNativeCapacitor()) return false
+  // Generated only after every retained whole-book paragraph matches its shards.
+  // An absent manifest preserves the previous loader behavior.
+  nativeWholeEditions ??= fetch('/native-edition-storage.json').then(async response => {
+    if (!response.ok) return new Set<string>()
+    const value = await response.json()
+    return new Set<string>(Array.isArray(value.wholeEditions) ? value.wholeEditions.filter((id: unknown) => typeof id === 'string') : [])
+  }).catch(() => new Set<string>())
+  return (await nativeWholeEditions).has(bookId + '-' + editionKey)
+}
 
 interface EditionPatch {
   chapter_number: number
@@ -55,8 +67,6 @@ export function editionChapterShardManifestUrl(bookId: string, editionKey: Editi
 }
 
 function chapterShardWindowEnabled(bookId: string, editionKey: EditionKey): boolean {
-  // Withdrawn Danish assets keep their historical recovery path unchanged.
-  if (isNativeCapacitor() && !editionKey.endsWith('-da')) return false
   if (!isChapterShardedEdition(bookId, editionKey)) return false
   if (typeof window === 'undefined') return true
   try {
@@ -202,7 +212,7 @@ export async function loadEditionWindow(
   opts: { bypassCache?: boolean } = {},
 ): Promise<EditionData> {
   const cacheKey = `${bookId}-${editionKey}`
-  if (!chapterShardWindowEnabled(bookId, editionKey)) {
+  if (await hasNativeWholeCopy(bookId, editionKey) || !chapterShardWindowEnabled(bookId, editionKey)) {
     return loadEdition(bookId, editionKey, opts)
   }
 
@@ -297,7 +307,7 @@ async function loadEditionUncached(
   opts: { bypassCache?: boolean; forceWholeBook?: boolean } = {},
 ): Promise<EditionData> {
   const cacheKey = `${bookId}-${editionKey}`
-  const useChapterShards = !(isNativeCapacitor() && !editionKey.endsWith('-da')) && !opts.forceWholeBook && chapterShardedEditionsEnabled() && CHAPTER_SHARDED_EDITIONS.has(cacheKey)
+  const useChapterShards = !(await hasNativeWholeCopy(bookId, editionKey)) && !opts.forceWholeBook && chapterShardedEditionsEnabled() && CHAPTER_SHARDED_EDITIONS.has(cacheKey)
 
   // Append the build version as a cache-bust query param. The edition JSONs
   // are not content-hashed (unlike the JS bundle), so without this param a
@@ -433,7 +443,7 @@ export function isEditionCached(bookId: string, editionKey: EditionKey): boolean
 
 /** The resume gate needs chapter identity, not a complete reading window. */
 export async function loadEditionChapterList(bookId: string, editionKey: EditionKey): Promise<Array<{ number: number; title: string }>> {
-  if (chapterShardWindowEnabled(bookId, editionKey)) {
+  if (!(await hasNativeWholeCopy(bookId, editionKey)) && chapterShardWindowEnabled(bookId, editionKey)) {
     return (await loadChapterShardManifest(bookId, editionKey)).chapters
   }
   return (await loadEdition(bookId, editionKey)).chapters
