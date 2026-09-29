@@ -51,3 +51,19 @@ describe('temporary edition holds preserve identities and recovery', () => {
     expect(isEditionDiscoverable('faust-part-1', getBook('faust-part-1')!.editions[0])).toBe(true)
   })
 })
+
+it('withdraws every Danish edition without migrating or deleting its source identity', () => {
+ const danish = BOOKS.flatMap(book => book.editions.filter(e=>e.language === 'da').map(edition=>({book,edition})))
+ expect(danish.length).toBeGreaterThan(0)
+ for (const {book,edition} of danish) {
+  expect(edition.key.endsWith('-da')).toBe(true)
+  expect(editionHold(book.id,edition.key)?.reason).toContain('Danish editions')
+  expect(selectableLabEditions(book.id,book.editions).some(e=>e.key===edition.key)).toBe(false)
+  expect(isEditionDiscoverable(book.id,edition)).toBe(false)
+  expect(migrateWithheldEdition(book.id,edition.key)).toBe(edition.key)
+  const savedPlace = {bookId:book.id,chapterNumber:2,paragraphIndex:7,wordIndex:3,page:4}
+  const intent = createReaderHandoffIntent({bookId:book.id,primaryEditionKey:edition.key,savedPlace})
+  expect(intent?.primaryEditionKey).toBe(edition.key)
+  expect(intent?.savedPlace).toEqual(savedPlace)
+ }
+})

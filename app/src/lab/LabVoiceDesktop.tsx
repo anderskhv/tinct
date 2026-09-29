@@ -26,7 +26,7 @@ import { useDraggableSurface } from './useDraggableSurface'
  */
 
 export const LAB_VOICE_PANEL_ORB_PX = 170
-export const LAB_VOICE_PILL_ORB_PX = 84
+export const LAB_VOICE_PILL_ORB_PX = 60
 
 function ConnectionLine({ view, testId }: { view: LabCallView; testId: string }) {
   return (
@@ -226,13 +226,15 @@ export function LabVoicePill({
   // The call keeps running wherever the pill sits, so where it sits is the
   // reader's business: drag it off the passage being discussed and it stays
   // there, on this device, across calls.
-  const drag = useDraggableSurface<HTMLDivElement>('tinct-lab-voice-pill-position')
+  const drag = useDraggableSurface<HTMLDivElement>('tinct-lab-voice-pill-position', true, true)
   return (
     <div
       ref={drag.ref}
       style={drag.style}
       className={`lab-voice-pill is-${view.status}${drag.dragging ? ' is-dragging' : ''}`}
       data-testid="lab-voice-pill"
+      data-near-top={drag.style && drag.style.top < 100 ? "true" : undefined}
+      data-near-left={drag.style && drag.style.left < 160 ? "true" : undefined}
       data-status={view.status}
       data-connection={view.connected ? 'connected' : view.showReconnect ? 'lost' : 'connecting'}
       role="group"

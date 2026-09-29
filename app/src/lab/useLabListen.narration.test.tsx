@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
 import { narrationLookAheadWidth, useLabListen } from './useLabListen'
 import { NarrationEnsureError, type NarrationParagraphResult, type NarrationParagraphState } from './labNarration'
 import { chunkNarrationText, narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
@@ -740,4 +741,28 @@ describe('prepared next-chapter handoff', () => {
   expect(h.audio.play).not.toHaveBeenCalled()
   h.unmount()
  })
+})
+
+describe('replay after reopening a reader', () => {
+  it('starts persisted exact-text audio without a blocking preparation request', async () => {
+    const values = new Map<string,string>()
+    const device = { getItem: (key:string) => values.get(key) ?? null, setItem: (key:string,value:string) => { values.set(key,value) } }
+    const scope = { bookId:'odyssey', editionKey:'original-en', chapter:1, identity:'b'.repeat(64) }
+    const recorded = await state(0,1)
+    recorded.chunks = recorded.chunks.map(chunk => ({ ...chunk, hash:'a'.repeat(64), url:'/api/audio-file?path='+encodeURIComponent('narration/grok/blob/'+'a'.repeat(64)+'.mp3') }))
+    storeNarrationReplay(scope,[recorded],device)
+    const h = harness({ prepared: () => readNarrationReplay(scope,device) })
+    await act(async () => { void h.result.current.startAtPlace({ paragraphIndex:0, wordIndex:0 }) })
+    await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    expect(h.calls.every(call => !call.indexes.includes(0))).toBe(true)
+    expect(h.audio.src).toContain('a'.repeat(64))
+    h.unmount()
+    const changed = harness({ prepared: () => readNarrationReplay(scope,device) })
+    const paragraphs = [...PARAGRAPHS]; paragraphs[0] = 'A different accepted text must use a different recording.'
+    await act(async () => { changed.rerenderWith(paragraphs) })
+    await act(async () => { void changed.result.current.startAtPlace({ paragraphIndex:0, wordIndex:0 }) })
+    await waitFor(() => expect(changed.calls).toHaveLength(1))
+    expect(changed.audio.play).not.toHaveBeenCalled()
+    changed.unmount()
+  })
 })
