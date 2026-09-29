@@ -253,12 +253,8 @@ export function SelectionPopup({
   useEffect(() => {
     const outside = (event: PointerEvent) => {
       if (popupRef.current?.contains(event.target as Node)) return
-      // A desktop reader drag is a new selection, not an accidental click
-      // through a dismissing overlay. Let that same gesture select its text.
-      if (event.pointerType === 'mouse' && (event.target as Element)?.closest('.lab-passage .lab-hearing-line')) {
-        dismissRef.current()
-        return
-      }
+      // The first outside gesture only dismisses, including desktop text.
+      // Otherwise pointerup can open a definition beneath the closing menu.
       event.preventDefault(); event.stopImmediatePropagation()
       // Keep swallowing the initiating gesture after this popup unmounts.
       // Pointerdown alone does not suppress touchend or a subsequent click.
