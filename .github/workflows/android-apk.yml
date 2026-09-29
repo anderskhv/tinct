@@ -37,6 +37,7 @@ jobs:
           node --check scripts/android/check-background.mjs
           node --check scripts/android/check-downloads.mjs
           node --check scripts/android/check-sync.mjs
+          node --check scripts/android/prepare-silent-emulator.mjs
       - name: Build the existing native bundle for size and compatibility evidence
         run: npm run build:android
         env:
@@ -49,6 +50,8 @@ jobs:
         run: bash gradlew assembleDebug testDebugUnitTest --no-daemon
       - name: Record actual APK and bundled asset footprint
         run: python3 scripts/android/inspect-apk.py
+      - name: Inspect native sign-in redirect configuration without signing in
+        run: node scripts/android/check-auth-config.mjs
       - name: Enable emulator acceleration
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules

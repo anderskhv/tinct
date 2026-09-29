@@ -1,3 +1,4 @@
+import {prepareSilentEmulator} from './prepare-silent-emulator.mjs'
 import {checkNativeSync} from './check-sync.mjs'
 import {checkNativeDownloads} from './check-downloads.mjs'
 import {checkBackgroundAudio} from './check-background.mjs'
@@ -17,6 +18,8 @@ let page
 const stages=[]
 function stage(name){stages.push({name,time:new Date().toISOString()});console.log(JSON.stringify({nativeStage:name}))}
 try {
+ stage('emulator-audio-setup')
+ await prepareSilentEmulator(device,output)
  stage('launch')
  await device.shell('am start -n '+activity)
  page=await(await device.webView({pkg:packageId})).page()
