@@ -387,7 +387,7 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
 const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-studies.jpg`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
 function warmCharacterArt(){
- const warm=()=>featuredBooks.forEach(b=>{warmPortrait(b.author);warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
+ const warm=()=>featuredBooks.forEach(b=>{warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
  const whenModeKnown=()=>{
   const root=document.documentElement;
   if(root.classList.contains('returning'))return;
