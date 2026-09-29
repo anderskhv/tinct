@@ -316,3 +316,17 @@ it('returns from preparation Chat with its disclosures and reading place intact'
   expect(screen.getByRole('button', { name: 'Preface', exact: true }).getAttribute('aria-expanded')).toBe('true')
   expect(readerPlace()).toBe(before)
 })
+
+it('keeps Reconnect available after cancelling a pending microphone and can end the next attempt', async () => {
+  vi.useFakeTimers({ shouldAdvanceTime: true })
+  renderDesktop()
+  tapTalk()
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel')).toBeTruthy())
+  await vi.advanceTimersByTimeAsync(9000)
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy())
+  fireEvent.click(screen.getByTestId('lab-voice-panel-reconnect'))
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.'))
+  fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
+  await vi.advanceTimersByTimeAsync(35000)
+  expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+})

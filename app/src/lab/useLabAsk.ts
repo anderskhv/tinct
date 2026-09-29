@@ -467,7 +467,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     setNotice(null)
   }, [isVoiceV2, voice.userSpeechStarted, voice.activity])
 
-  const startVoice = useCallback(async (greeting?: string): Promise<boolean> => {
+  const startVoice = useCallback(async (greeting?: string): Promise<boolean | 'cancelled'> => {
     if (voice.isActive || starting) return true
     if (!decideLabAiAction({ signedIn }).allowed) {
       optionsRef.current.onAccountPrompt?.({action:'voice'})
@@ -483,10 +483,10 @@ export function useLabAsk(options: UseLabAskOptions) {
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
-    if (request !== voiceStartRequestRef.current) return false
+    if (request !== voiceStartRequestRef.current) return 'cancelled'
     if (!knownToken) setStarting(true)
     const snapshot = await voice.start({ authToken, greeting })
-    if (request !== voiceStartRequestRef.current) return false
+    if (request !== voiceStartRequestRef.current) return 'cancelled'
     setStarting(false)
     if (snapshot.error) {
       setNotice(snapshot.error)

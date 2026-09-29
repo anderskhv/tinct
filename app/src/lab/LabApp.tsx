@@ -3830,9 +3830,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const startCallVoice = useCallback(() => {
     const greeting = preparationReturnRef.current === book.bookId ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined
     void ask.startVoice(greeting).then((started) => {
+      // A cancelled older attempt must not close Reconnect or a newer call.
       // A start the account policy or the microphone refused leaves nothing to
       // show a call for; the notice already says why.
-      if (!started) { setCallOpen(false); returnToPreparation() }
+      if (started === false) { setCallOpen(false); returnToPreparation() }
     })
   }, [ask, book.bookId, book.bookTitle, returnToPreparation])
 
@@ -3861,13 +3862,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!showPhoneChrome) {
       setDesktopAskOpen(true)
       void ask.startVoice().then((started) => {
-        if (!started) setVoiceGate('off')
+        if (started === false) setVoiceGate('off')
       })
       return
     }
     openPhoneAsk()
     void ask.startVoice().then((started) => {
-      if (!started) setVoiceGate('off')
+      if (started === false) setVoiceGate('off')
     })
   }, [ask, captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
 
