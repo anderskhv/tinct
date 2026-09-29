@@ -1,3 +1,4 @@
+import { bibleBookTransition } from '../../narration/bookTransition'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { isEditionWithheld } from '../../data/withheldEditions'
 import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
@@ -250,13 +251,17 @@ interface ChapterText {
   paragraphs: string[]
 }
 
-async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId: string, editionKey: string, chapter: number): Promise<ChapterText | null> {
+async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId: string, editionKey: string, chapter: number, transitionTo?: number): Promise<ChapterText | null> {
   if (!env.ASSETS) return null
   const asset = await env.ASSETS.fetch(new Request(new URL(`/data/editions/${bookId}-${editionKey}.json`, request.url)))
   if (!asset.ok) return null
-  let data: { chapters?: Array<{ number?: number; paragraphs?: string[] }> }
+  let data: { chapters?: Array<{ number?: number; title?: string; paragraphs?: string[] }> }
   try { data = await asset.json() as typeof data } catch { return null }
   const chapters = data.chapters || []
+  if (transitionTo !== undefined) {
+    const cue = bibleBookTransition(bookId, chapters, chapter)
+    return cue && cue.nextChapter === transitionTo ? { paragraphs: [cue.text] } : null
+  }
   const entry = chapters.find(item => item.number === chapter) ?? chapters[chapter - 1]
   if (!entry || !Array.isArray(entry.paragraphs)) return null
   const paragraphs = entry.paragraphs.map(item => (typeof item === 'string' ? item : ''))
@@ -897,6 +902,8 @@ export async function synthesizeWithGrok(input: {
 // ===== POST /api/narration/ensure (and /warm) =====
 
 interface EnsureRequestBody {
+  kind?: 'book-transition'
+  nextChapter?: number
   bookId?: string
   editionKey?: string
   chapter?: number
@@ -939,6 +946,11 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
 
   let body: EnsureRequestBody
   try { body = await request.json() as EnsureRequestBody } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
+  const bookTransition = body.kind === 'book-transition'
+  if (body.kind !== undefined && !bookTransition) return jsonResponse({ error: 'Unknown narration kind' }, 400, request)
+  if (bookTransition && (caller !== 'reader' || config.provider !== 'grok' || !Number.isInteger(body.nextChapter) || Number(body.nextChapter) < 1)) {
+    return jsonResponse({ error: 'Invalid book transition' }, 400, request)
+  }
   const bookId = typeof body.bookId === 'string' ? body.bookId : ''
   const editionKey = typeof body.editionKey === 'string' ? body.editionKey : ''
   const chapter = typeof body.chapter === 'number' ? body.chapter : NaN
@@ -967,8 +979,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 
-  const text = await loadChapterParagraphs(request, env, bookId, editionKey, chapter)
-  if (!text) return jsonResponse({ error: 'Chapter text unavailable' }, 404, request)
+  const text = await loadChapterParagraphs(request, env, bookId, editionKey, chapter, bookTransition ? body.nextChapter : undefined)
+  if (!text) return jsonResponse({ error: bookTransition ? 'Book transition unavailable' : 'Chapter text unavailable' }, 404, request)
 
   const now = deps.now || Date.now
   const sleep = deps.sleep || ((ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms)))
@@ -1005,7 +1017,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       results.push({ paragraph: index, status: 'failed', textHash, reason: 'empty_paragraph' })
       continue
     }
-    const mapKey = narrationMapKey(bookId, editionKey, chapter, voice.key, index, config.provider)
+    // Announcements must never replace a source paragraph's map or appear in its listing.
+    const mapKey = bookTransition
+      ? `narration/grok/announcements/v1/${bookId}/${editionKey}/ch${chapter}/${voice.key}/to${body.nextChapter}.json`
+      : narrationMapKey(bookId, editionKey, chapter, voice.key, index, config.provider)
     const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
     const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
     preparedDuration += state.ready.reduce((sum, ready) => sum + ready.duration, 0)

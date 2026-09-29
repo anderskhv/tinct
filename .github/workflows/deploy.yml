@@ -107,6 +107,11 @@ jobs:
         env:
           READER_LIVE: '1'
         run: node scripts/check-reader-feedback.mjs
+      - name: Verify production spoken Bible book transition silently
+        env:
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+        run: node scripts/check-book-transition.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         if: always()
@@ -115,6 +120,7 @@ jobs:
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
+            app/artifacts/book-transition
       - name: Verify real Grok microphone recovery silently
         if: ${{ !cancelled() && steps.bundle.outputs.path != '' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
