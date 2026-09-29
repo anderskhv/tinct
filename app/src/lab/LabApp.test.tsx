@@ -4392,6 +4392,27 @@ describe('lab reader first paint: one resolved position', () => {
     expect(root.getAttribute('data-biblical-book')).toBe('romans')
   })
 
+  it('a library Continue rechecks cloud and resumes Hebrews instead of its stale Romans handoff', async () => {
+    localStorage.setItem('tinct-lab-device-id', 'phone')
+    localStorage.setItem('tinct-lab-position', JSON.stringify(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 100_000, 'phone') }, 'proverbs', 100_000, 'phone')))
+    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
+      kind: 'open-reader', resumeLatest: true, bookId: 'bible', primaryEditionKey: 'kjv-en',
+      savedPlace: { bookId: 'bible', chapterNumber: 1054, paragraphIndex: 0 },
+    }))
+    stubBible(async () => record({ hebrews: place('hebrews', 'Hebrews', 3, 1136, 900_000, 'desk') }, 'hebrews', 900_000, 'desk'))
+    render(<LabApp pathname="/lab/phone" authToken="signed-in" />)
+    const root = screen.getByTestId('lab-root')
+    const headings = observeHeadings(root)
+    // The handoff's placeholder label ("Chapter 1054") is never painted.
+    expect(screen.getByTestId('lab-header-chapter').textContent).not.toMatch(/Chapter/)
+    await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Hebrews 3/))
+    await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)) })
+    headings.stop()
+    expect([...new Set(headings.trail.map(entry => entry.label).filter(Boolean))]).toEqual(['Hebrews 3'])
+    expect(root.getAttribute('data-biblical-book')).toBe('hebrews')
+  })
+
   it('signed out: the local place is final and paints at once', async () => {
     localStorage.setItem('tinct-lab-device-id', 'phone')
     localStorage.setItem('tinct-lab-position', JSON.stringify(record({ proverbs: place('proverbs', 'Proverbs', 17, 645, 100_000, 'phone') }, 'proverbs', 100_000, 'phone')))

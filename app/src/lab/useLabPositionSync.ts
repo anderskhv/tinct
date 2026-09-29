@@ -527,7 +527,7 @@ export function useLabPositionSync(args: {
     if (reason === 'hide') {
       // Flush genuine pending activity without making tab dismissal a new
       // reading event that can outrank another device's newer bookmark.
-      controller.flush()
+      controller.flush('hide')
       return
     }
     activityRevisionRef.current += 1
