@@ -1,3 +1,4 @@
+import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
 /**
@@ -12,7 +13,7 @@ import { editionHold } from './data/editionAvailability'
  *
  * The "so far" summary follows preReader/recapSummaryClient.ts exactly: a
  * cached summary shows at once; a new one is requested only for a signed-in
- * reader, after an hour away from the book, and never straight after leaving
+ * reader, after five minutes away from the book, and never straight after leaving
  * that book's own reader. Session summaries are not generated here.
  */
 import { supabase } from './services/supabase'
@@ -330,6 +331,13 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     }),
   }
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
+  if (auth.token) {
+    const candidates = list.readingNow.flatMap(row => {
+      const request = summaryRequestFor(row, books.get(row.bookId))
+      return request ? [{ request, lastActiveAt:row.session?.lastActiveAt ?? row.target.at ?? Date.now() }] : []
+    })
+    void prepareShelfRecaps(candidates,auth.token).catch(() => {})
+  }
   try { localStorage.setItem(cacheKey, JSON.stringify(table)) } catch { /* Optional fast paint. */ }
   return table
 }
@@ -345,7 +353,7 @@ function summaryRequestFor(row: ReadingListRow, book: CatalogueBook | undefined)
     chapterNumber: target.chapterNumber,
     paragraphIndex: target.paragraphIndex,
     completed: row.progress === 'finished',
-    ...(row.includePreviousChapter ? { previousChapterNumber: target.chapterNumber - 1 } : {}),
+    // Match the automatic reader preparation's exact current-chapter scope.
     bookTitle: book?.title ?? row.bookId,
   }
 }
@@ -396,6 +404,7 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
     return { status: 'fresh', text: result.response.summary }
   })()
   summaryOutcomes.set(key, outcome)
+  void outcome.then(result => { if (result.status !== 'fresh' && result.status !== 'cached') summaryOutcomes.delete(key) })
   return outcome
 }
 

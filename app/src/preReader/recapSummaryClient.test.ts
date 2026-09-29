@@ -83,13 +83,13 @@ describe('away threshold before a summary is generated', () => {
   const NOW = Date.UTC(2026, 8, 7, 20, 0, 0)
   const ago = (ms: number) => NOW - ms
 
-  it('is one hour', () => {
-    expect(LAB_RECAP_MIN_AWAY_MS).toBe(60 * 60 * 1000)
+  it('is five minutes', () => {
+    expect(LAB_RECAP_MIN_AWAY_MS).toBe(5 * 60 * 1000)
   })
 
   it('does not ask for a summary of a short absence', () => {
-    expect(shouldRequestRecapSummary({ sessionLastActiveAt: ago(5 * 60_000), placeUpdatedAt: ago(4 * 60_000), now: NOW })).toBe(false)
-    expect(shouldRequestRecapSummary({ sessionLastActiveAt: ago(59 * 60_000 + 59_000), now: NOW })).toBe(false)
+    expect(shouldRequestRecapSummary({ sessionLastActiveAt: ago(2 * 60_000), placeUpdatedAt: ago(60_000), now: NOW })).toBe(false)
+    expect(shouldRequestRecapSummary({ sessionLastActiveAt: ago(4 * 60_000 + 59_000), now: NOW })).toBe(false)
     expect(shouldRequestRecapSummary({ sessionLastActiveAt: NOW, now: NOW })).toBe(false)
   })
 
@@ -103,7 +103,7 @@ describe('away threshold before a summary is generated', () => {
   it('falls back to the position record when there is no session, and prefers the session when there is', () => {
     expect(recapLastSeenAt({ placeUpdatedAt: ago(2 * 60 * 60 * 1000), now: NOW })).toBe(ago(2 * 60 * 60 * 1000))
     expect(shouldRequestRecapSummary({ sessionLastActiveAt: null, placeUpdatedAt: ago(2 * 60 * 60 * 1000), now: NOW })).toBe(true)
-    expect(shouldRequestRecapSummary({ sessionLastActiveAt: null, placeUpdatedAt: ago(10 * 60_000), now: NOW })).toBe(false)
+    expect(shouldRequestRecapSummary({ sessionLastActiveAt: null, placeUpdatedAt: ago(2 * 60_000), now: NOW })).toBe(false)
     // The session's clock wins while it is usable, even when the pin is fresher.
     expect(recapLastSeenAt({ sessionLastActiveAt: ago(3 * 60 * 60 * 1000), placeUpdatedAt: ago(60_000), now: NOW })).toBe(ago(3 * 60 * 60 * 1000))
   })
@@ -131,7 +131,7 @@ describe('away threshold before a summary is generated', () => {
 /**
  * The whole "when may the hero show a so-far line" rule, in the one place it
  * lives. Two conditions: coming straight back out of THIS book's reader, and
- * having been away from the book for less than an hour.
+ * having been away from the book for less than five minutes.
  */
 describe('recapSummaryPermission', () => {
   const NOW = 1_700_000_000_000
@@ -170,11 +170,11 @@ describe('recapSummaryPermission', () => {
       sessionLastActiveAt: NOW - 3 * HOUR,
       now: NOW,
     })).toEqual({ cache: true, request: true, reason: 'allowed' })
-    // Same, but the Bible was open five minutes ago: cache yes, request no.
+    // Same, but the Bible was open two minutes ago: cache yes, request no.
     expect(recapSummaryPermission({
       bookId: 'bible',
       origin: origin('odyssey', 30 * 1000),
-      sessionLastActiveAt: NOW - 5 * 60 * 1000,
+      sessionLastActiveAt: NOW - 2 * 60 * 1000,
       now: NOW,
     })).toEqual({ cache: true, request: false, reason: 'recent' })
   })
@@ -182,7 +182,7 @@ describe('recapSummaryPermission', () => {
   it('summarises a fresh visit an hour or more after reading', () => {
     expect(recapSummaryPermission({ bookId: 'bible', origin: null, sessionLastActiveAt: NOW - HOUR, now: NOW }))
       .toEqual({ cache: true, request: true, reason: 'allowed' })
-    expect(recapSummaryPermission({ bookId: 'bible', sessionLastActiveAt: NOW - 59 * 60 * 1000, now: NOW }).reason)
+    expect(recapSummaryPermission({ bookId: 'bible', sessionLastActiveAt: NOW - 4 * 60 * 1000, now: NOW }).reason)
       .toBe('recent')
   })
 

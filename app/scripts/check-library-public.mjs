@@ -20,6 +20,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  await p.locator('#menu-periods button').filter({hasText:'Earliest works'}).click();
  assert.match(await p.locator('#collection-title').innerText(),/before 1000 BC/);
  assert(!(await p.locator('#collection-books').innerText()).includes('Meditations'));
+ await p.waitForFunction(()=>[...document.querySelectorAll('#collection-books canvas[data-book]')].every(c=>c.dataset.painted==='true'));
+ await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
  await p.screenshot({path:out+'/browse-'+engine.name()+'.png'});
  await p.locator('#collection-back').click();
 
