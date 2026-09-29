@@ -1,11 +1,11 @@
-name: E-ink browser appearance
+name: Reviewed introductions and author images
 on:
   pull_request:
     paths:
-      - 'app/public/lab/display-profile*'
-      - 'app/src/utils/displayProfile.test.ts'
-      - 'app/scripts/check-eink-browser.mjs'
-      - '.github/workflows/eink-browser.yml'
+      - 'app/public/lab/library_2/**'
+      - 'app/scripts/check-reviewed-introductions.mjs'
+      - 'app/src/reviewedIntroductions.test.ts'
+      - '.github/workflows/reviewed-introductions.yml'
   workflow_run:
     workflows: [deploy]
     types: [completed]
@@ -31,18 +31,14 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build
-      - run: npx playwright install --with-deps chromium
-      - run: node scripts/check-eink-browser.mjs
+      - if: github.event_name != 'workflow_run'
+        run: npm run verify-bundle
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node scripts/check-reviewed-introductions.mjs
         env:
-          EINK_LIVE: ${{ github.event_name == 'workflow_run' && '1' || '0' }}
-      - name: Check the current production appearance before releasing a changed check
-        if: github.event_name == 'pull_request'
-        run: node scripts/check-eink-browser.mjs
-        env:
-          EINK_LIVE: '1'
-          EINK_OUTPUT: artifacts/eink-browser/current-production
+          LIBRARY_LIVE: ${{ github.event_name == 'workflow_run' && '1' || '0' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: eink-browser
-          path: app/artifacts/eink-browser
+          name: reviewed-introductions
+          path: app/artifacts/reviewed-introductions

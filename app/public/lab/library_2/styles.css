@@ -32,7 +32,7 @@ html{scrollbar-gutter:stable}#librarian-panel:focus-within{outline:none}#librari
 #librarian-panel .orb-space{min-height:60px;flex-shrink:1}
 @media(max-width:699px){.hero-book{right:50%;bottom:46%}.edition-select summary{font-size:19px}.edition-options .edition-option{flex-wrap:wrap}.edition-options .edition-option strong{font-size:17px}#panel-handle{cursor:default}#panel-resize{display:none}}
 @media(max-height:500px){#panel-resize{display:none}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 /* A quiet binding, a tipped-in note, and one continuous camera move. */
 #header.scrolled{background:#10201755;backdrop-filter:blur(9px)}
 .hero-copy{bottom:auto;top:45%;transform:translateY(-30%);width:44%}
