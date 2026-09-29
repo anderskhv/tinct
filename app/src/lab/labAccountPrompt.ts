@@ -22,6 +22,7 @@ export const LAB_SECOND_BOOK_NUDGE_KEY = 'tinct:lab-second-book-nudge'
 export const LAB_FREE_AI_ACTIONS = 10
 
 export type LabAiAction = 'chat' | 'voice'
+export type LabAccountAction = LabAiAction | 'audio'
 
 /**
  * What Premium covers after the trial. `true` = paid after the trial (decided),
@@ -56,7 +57,7 @@ function browserStorage(): LabPromptStorage | null {
 }
 
 export interface LabAccountPromptRequest {
-  action: LabAiAction
+  action: LabAccountAction
   /** The typed text that was not sent, so the host can keep it in the composer. */
   text?: string
 }

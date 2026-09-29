@@ -1,7 +1,8 @@
+import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
 import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
-import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
+import { useDesktopCommands, useDesktopAppearance } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
@@ -452,6 +453,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const outside = (event: PointerEvent) => {
       const target = event.target
       if (target instanceof Element && target.closest('#lab-audio-speed-popover, [data-testid="lab-hearing-speed"]')) return
+      consumeDismissGesture(event)
       setSpeedPopoverOpen(false)
     }
     const escape = (event: KeyboardEvent) => {
@@ -3632,6 +3634,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => window.removeEventListener('keydown', onKey)
   }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
+  const narrationAccountRequired = listen.narration.status === 'error' && listen.narration.reason === 'unauthenticated'
+  useEffect(() => {
+    if (!narrationAccountRequired) return
+    setAccountPrompt({ action: 'audio' })
+    listen.dismissNarration()
+  }, [narrationAccountRequired, listen.dismissNarration])
+
   const startHearing = useCallback((opts?: { force?: boolean }) => {
     if (temporaryHold) return
     if (listen.isPending()) { listen.pause(); return }
@@ -4449,7 +4458,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           open={superMenuOpen}
           phone={showPhoneChrome}
           onSelect={handleSuperMenuSelect}
-          onCommands={() => { setSuperMenuOpen(false); openDesktopCommands() }}
           onClose={() => setSuperMenuOpen(false)}
         />
       )}
@@ -4815,7 +4823,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
       {(chromeV2 || listen.loading) && <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>}
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
-      {listen.narration.status === 'error' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
+      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
         <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
           ? listen.narration.message
           : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'

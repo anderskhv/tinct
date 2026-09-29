@@ -264,7 +264,7 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Book editions', 'Settings', 'Library', 'Account', 'Commands & themes'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Book editions', 'Settings', 'Library', 'Account'])
     expect(labels).not.toContain('Play')
     // No section headers and no sub-labels: a row is an icon and a word.
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
