@@ -44,6 +44,7 @@ export interface RecapCache {
 }
 
 export interface LabRecapDeps {
+  prepared?: (request: LabRecapRequest) => Promise<LabRecapResponse | null>
   cache?: RecapCache | null
   /** Anthropic transport; defaults to fetch. */
   fetchAnthropic?: (payload: Record<string, unknown>, apiKey: string) => Promise<Response>
@@ -216,6 +217,12 @@ export async function handleLabRecap(
     completed: coverage.complete,
     previousChapterNumber: coverage.fromChapterNumber,
   })
+  if (deps.prepared) {
+    try {
+      const ready = await deps.prepared({ ...parsed, previousChapterNumber: parsed.previousChapterNumber ?? undefined, bookTitle: parsed.bookTitle ?? undefined })
+      if (ready && ready.version === RECAP_PROMPT_VERSION && ready.coverage.throughParagraph <= throughParagraph) return jsonResponse({ ...ready, cached: true },200,request)
+    } catch { /* Optional preparation must never block the foreground fallback. */ }
+  }
   const cache = deps.cache === undefined ? defaultCache() : deps.cache
   const cacheKey = cacheRequest(origin, key)
   if (cache) {

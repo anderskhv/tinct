@@ -238,3 +238,14 @@ describe('POST /api/lab-recap', () => {
     expect((init.headers as Record<string, string>)['x-api-key']).toBe('anthropic-key')
   })
 })
+
+it('uses a prepared account recap without a model call, but never one beyond the current place',async()=>{
+ const {ctx}=makeContext(), fetchAnthropic=anthropicOk('Fresh current passage.')
+ const payload={summary:'Prepared passage.',model:'mock',version:RECAP_PROMPT_VERSION,cached:false,coverage:{chapterNumber:645,throughParagraph:3,paragraphCount:6,complete:false,fromChapterNumber:null}}
+ const prepared=vi.fn(async()=>payload)
+ const response=await handleLabRecap(recapRequest(place),env,ctx,allow,{cache:null,fetchAnthropic,prepared})
+ expect(await response.json()).toMatchObject({summary:'Prepared passage.',cached:true})
+ expect(fetchAnthropic).not.toHaveBeenCalled()
+ await handleLabRecap(recapRequest({...place,paragraphIndex:1}),env,ctx,allow,{cache:null,fetchAnthropic,prepared})
+ expect(fetchAnthropic).toHaveBeenCalledOnce()
+})
