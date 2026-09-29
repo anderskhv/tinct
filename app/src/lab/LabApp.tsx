@@ -1,3 +1,4 @@
+import { useRecapPreparation } from './useRecapPreparation'
 import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
 import { useDesktopCommands, useDesktopAppearance, openDesktopCommands } from '../desktopCommands'
@@ -2679,6 +2680,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && (!chromeV2 || !tocOpen),
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
+  })
+  useRecapPreparation({
+    playing: listen.playing,
+    userId: authUser?.id ?? null,
+    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
+    request: {
+      bookId: book.bookId || 'bible', editionKey: readerEditionKey,
+      chapterNumber: book.chapterNumber, paragraphIndex: Math.max(0, placeRef.current.paragraphIndex),
+      completed: finishedChapters.has(book.chapterNumber),
+    },
+    readToken: readSupabaseAccessToken,
   })
   // Picker rows: the position record's finished signal cross-checked with
   // reading memory (a `completed` session marks Finished even if the flag was
