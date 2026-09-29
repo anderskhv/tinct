@@ -427,3 +427,35 @@ it('round-trips bounded layout values and restores appearance without changing e
   expect(restored.compareEdition).toBe('web-en')
   expect([labLineHeight(restored.lineSpacing), labMarginScale(restored.margins), labParagraphGap(restored.paragraphSpacing)]).toEqual([1.48, 1, .28])
 })
+
+describe('whole-book progress with only nearby chapters loaded', () => {
+  it('counts unread chapter metadata instead of treating unloaded prose as zero words', () => {
+    const chapters = [
+      { number: 1, wordCount: 1000, paragraphCount: 10 },
+      { number: 2, wordCount: 1000, paragraphCount: 10 },
+      { number: 3, paragraphCount: 80 },
+    ]
+    const weights = labChapterWordWeights(chapters, 10000)
+    expect(weights.map(chapter => chapter.wordCount)).toEqual([1000, 1000, 8000])
+    const progress = labBookPageEstimate({ currentPage: 5, totalPages: 10, chapterNumber: 1, chapterWeights: chapters, wordsPerPage: 100, bookWordCount: 10000 })
+    expect(progress.percent).toBe(5)
+    expect(progress.totalPages).toBe(100)
+    expect(progress.honest).toBe(false)
+  })
+
+  it('uses observed density when a catalogue total is missing or smaller than loaded text', () => {
+    const chapters = [{ number: 1, wordCount: 1000, paragraphCount: 10 }, { number: 2, paragraphCount: 20 }]
+    expect(labChapterWordWeights(chapters).map(ch => ch.wordCount)).toEqual([1000, 2000])
+    expect(labChapterWordWeights(chapters, 500).map(ch => ch.wordCount)).toEqual([1000, 2000])
+  })
+
+  it('keeps complete selected-edition counts and genuine one-chapter books exact', () => {
+    const chapters = [{ number: 1, wordCount: 1000, paragraphCount: 10 }]
+    expect(labBookPageEstimate({ currentPage: 5, totalPages: 10, chapterNumber: 1, chapterWeights: chapters, wordsPerPage: 100, bookWordCount: 8000 })).toMatchObject({ percent: 50, totalPages: 10, honest: true })
+  })
+
+  it('preserves list order for nonsequential chapter numbering', () => {
+    const chapters = [{ number: 50, wordCount: 100, paragraphCount: 1 }, { number: 1190, paragraphCount: 2 }, { number: 51, wordCount: 100, paragraphCount: 1 }]
+    expect(labBookPageEstimate({ currentPage: 1, totalPages: 2, chapterNumber: 1190, chapterWeights: chapters, wordsPerPage: 100, bookWordCount: 400 })).toMatchObject({ page: 2, totalPages: 4, percent: 50 })
+  })
+})
