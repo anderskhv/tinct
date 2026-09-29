@@ -85,7 +85,8 @@ try {
   await page.evaluate(({packageId,nonce})=>localStorage.setItem('tinct:native-auth-pending',JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+60_000})),{packageId,nonce})
   if(cold)await device.shell('am force-stop '+packageId)
   const callback=packageId+'://auth/callback?flow='+nonce+(cold?'&error=access_denied':'#error=access_denied')
-  await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
+  const launchResult=await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
+  console.log(JSON.stringify({nativeIntentDispatch:String(launchResult).replace(/(?:app\\.tinct\\.reader(?:\\.review)?):\\/\\/[^\\s]+/g,'[redacted callback]')}))
   if(cold)page=await(await device.webView({pkg:packageId})).page()
   await page.locator('[data-auth-status]').filter({hasText:'Sign-in could not be completed. Please try again.'}).waitFor({timeout:60000})
   assert.equal(await page.evaluate(()=>localStorage.getItem('tinct:native-auth-pending')),null,'callback is consumed once')
@@ -107,6 +108,8 @@ try {
   deferred:!!sessionStorage.getItem('tinct:native-auth-return'),
   notice:!!localStorage.getItem('tinct:native-auth-notice'),
   body:document.body.innerText.slice(0,1200),
+  plugins:Object.keys(window.Capacitor?.Plugins||{}),
+  resources:performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')).map(r=>({file:new URL(r.name).pathname,size:r.transferSize})),
  })).catch(()=>({unavailable:true})):{noWebview:true}
  console.log(JSON.stringify({nativeFailureState:state}))
  await fs.writeFile(output+'/native-failure-state.json',JSON.stringify(state,null,2))
@@ -115,6 +118,9 @@ try {
  throw error
 } finally {
  await fs.writeFile(output+'/native-stages.json',JSON.stringify(stages,null,2))
- await fs.writeFile(output+'/native-logcat.txt',execFileSync('adb',['logcat','-d','-v','threadtime'],{maxBuffer:32*1024*1024}).toString())
+ const nativeLog=execFileSync('adb',['logcat','-d','-v','threadtime'],{maxBuffer:32*1024*1024}).toString()
+ await fs.writeFile(output+'/native-logcat.txt',nativeLog)
+ const signals=nativeLog.split('\\n').filter(line=>/Capacitor|AppPlugin|appUrlOpen|Failed to load|TypeError|ReferenceError/.test(line)).slice(-70).map(line=>line.replace(/https?:\\/\\/[^\\s"']+|app\\.tinct\\.reader(?:\\.review)?:\\/\\/[^\\s"']+/g,'[redacted URL]'))
+ console.log(JSON.stringify({nativeBridgeSignals:signals}))
  await device.close()
 }
