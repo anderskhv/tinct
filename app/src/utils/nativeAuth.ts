@@ -72,9 +72,12 @@ export async function startNativeOAuth(client:SupabaseClient,provider:'google'|'
     return true
   }catch(error){localStorage.removeItem(NATIVE_AUTH_PENDING);throw error}
 }
-export function consumeNativeAuthNotice():string|null {
-  if(!isNativeCapacitor())return null
+export function consumeNativeAuthNotice(search=window.location.search):string|null {
+  // The intermediate account page may finish initializing before Browser.close
+  // returns and the final landing navigation occurs. It must not consume the
+  // final page's notice or expose a transient "finished" sign-in state.
+  if(!isNativeCapacitor() || new URLSearchParams(search).get('native-error')!=='1')return null
   const notice=localStorage.getItem(NATIVE_AUTH_NOTICE)
   localStorage.removeItem(NATIVE_AUTH_NOTICE)
-  return notice
+  return notice || 'Sign-in could not be completed. Please try again.'
 }
