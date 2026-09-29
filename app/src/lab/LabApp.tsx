@@ -557,10 +557,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return
     const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setReducedMotion(query.matches)
-    const onChange = () => setReducedMotion(query.matches)
+    const onChange = () => setReducedMotion(query.matches || document.documentElement.dataset.eink === 'true')
+    onChange()
     query.addEventListener?.('change', onChange)
-    return () => query.removeEventListener?.('change', onChange)
+    window.addEventListener('tinct:display-profile', onChange)
+    return () => { query.removeEventListener?.('change', onChange); window.removeEventListener('tinct:display-profile', onChange) }
   }, [])
   // A pointer can be plugged in or unplugged mid-session; re-read it when the
   // capability queries change rather than only at mount.

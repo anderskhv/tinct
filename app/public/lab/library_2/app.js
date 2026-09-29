@@ -1,4 +1,5 @@
 import {periodGroups,inPeriod,populatedShelves} from './browse-groups.js?v=20260928covers';
+import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
@@ -12,7 +13,8 @@ import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928covers';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
 const iconPaths={readArrow:'<path d="M2 12h20m-6-6 6 6-6 6"/>',search:'<circle cx="10.8" cy="10.8" r="7.3"/><path d="m16 16 5 5"/>',play:'<path d="m6 3 15 9-15 9z"/>',minus:'<path d="M5 12h14"/>',mic:'<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-3 0h6"/>',mute:'<path d="m3 3 18 18M9 9v3a3 3 0 0 0 5 2M9 5a3 3 0 0 1 6 0v4M5 10v2a7 7 0 0 0 12 5M19 10v2M12 19v3"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z"/>',end:'<path d="m6 6 12 12M18 6 6 18"/>',send:'<path d="m22 2-7 20-4-9L2 9 22 2ZM11 13 22 2"/>'};
 function icon(name){return `<svg viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name]||''}</svg>`;}
@@ -20,7 +22,7 @@ all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
 let noticeTimer;function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,5000);}
 const images={};const textures=new Map();
-async function loadImage(key,low){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await im.decode();images[key]=im;return im;}
+async function loadImage(key,low){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await im.decode();images[key]=im;if(reduced.matches)drawScene(performance.now());return im;}
 function triangle(ctx,img,s,d){const [p,q,r]=s,[a,b,c]=d;const det=(q[0]-p[0])*(r[1]-p[1])-(r[0]-p[0])*(q[1]-p[1]);const aa=((b[0]-a[0])*(r[1]-p[1])-(c[0]-a[0])*(q[1]-p[1]))/det,cc=((c[0]-a[0])*(q[0]-p[0])-(b[0]-a[0])*(r[0]-p[0]))/det,bb=((b[1]-a[1])*(r[1]-p[1])-(c[1]-a[1])*(q[1]-p[1]))/det,dd=((c[1]-a[1])*(q[0]-p[0])-(b[1]-a[1])*(r[0]-p[0]))/det;ctx.save();ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.lineTo(...c);ctx.closePath();ctx.clip();ctx.transform(aa,bb,cc,dd,a[0]-aa*p[0]-cc*p[1],a[1]-bb*p[0]-dd*p[1]);ctx.drawImage(img,0,0);ctx.restore();}
 function makeTextures(){for(const book of books){const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');if(book.crop){const [x,y,w,h]=book.crop;ctx.drawImage(images.plate,x,y,w,h,0,0,480,720);}else{const corners=[[740,133],[1006,154],[1012,585],[739,588]];const point=(u,v)=>[mix(mix(corners[0][0],corners[1][0],u),mix(corners[3][0],corners[2][0],u),v),mix(mix(corners[0][1],corners[1][1],u),mix(corners[3][1],corners[2][1],u),v)];for(let j=0;j<12;j++)for(let i=0;i<8;i++){const u=i/8,v=j/12,u2=(i+1)/8,v2=(j+1)/12;const s=[point(u,v),point(u2,v),point(u2,v2),point(u,v2)],d=[[u*480,v*720],[u2*480,v*720],[u2*480,v2*720],[u*480,v2*720]];triangle(ctx,images.original,[s[0],s[1],s[2]],[d[0],d[1],d[2]]);triangle(ctx,images.original,[s[0],s[2],s[3]],[d[0],d[2],d[3]]);}}textures.set(book.id,c);}paintCovers();}
 function paintCover(c,id){const texture=textures.get(id);if(!texture)return;c.width=texture.naturalWidth||texture.width;c.height=texture.naturalHeight||texture.height;const ctx=c.getContext('2d');ctx.drawImage(texture,0,0);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=books.find(b=>b.id===id);if(book.typeset){const w=c.width,h=c.height;
@@ -80,7 +82,7 @@ function sceneImage(id,wide){const key=sceneAsset(id,wide);if(!images[key]&&!sce
 // Only the variant the hero's shape needs (wide on landscape screens, phone otherwise).
 const sceneVariant=()=>{const h=$('hero');return h.clientWidth/Math.max(1,h.clientHeight)>1.2?'wide':'phone';};
 function loadScene(id,low){const key=sceneAsset(id,sceneVariant()==='wide');if(!sceneLoads.has(key)){const ready=loadImage(key,low);ready.catch(()=>sceneLoads.delete(key));sceneLoads.set(key,ready);}return sceneLoads.get(key);}
-function showScene(id){const target=sceneIds.has(id)||/^table-(morning|afternoon|evening|night)$/.test(id)?id:'frankenstein';scenePending=target;loadScene(target).then(()=>{if(scenePending!==target||sceneTo===target)return;const now=performance.now();sceneFrom=now-sceneStart<SCENE_FADE/2?sceneFrom:sceneTo;sceneTo=target;sceneStart=now;document.documentElement.dataset.scene=target;}).catch(()=>{});}
+function showScene(id){const target=sceneIds.has(id)||/^table-(morning|afternoon|evening|night)$/.test(id)?id:'frankenstein';scenePending=target;loadScene(target).then(()=>{if(scenePending!==target||sceneTo===target)return;const now=performance.now();sceneFrom=now-sceneStart<SCENE_FADE/2?sceneFrom:sceneTo;sceneTo=target;sceneStart=now;document.documentElement.dataset.scene=target;if(reduced.matches)drawScene(now);}).catch(()=>{});}
 const SCENE_FADE=700;
 // Match each portrait painting's table horizon to the book's base, leaving
 // a little depth behind it on the table, including on shorter phone screens.
@@ -178,7 +180,7 @@ $('reader-theme').onchange=()=>{readerTheme=$('reader-theme').value;applyReaderT
 
 let introGesture=null;
 const interactive='button,a,input,select,summary,textarea';
-function navigateIntro(direction){if(!activeBook||bookProgress!==1||bookAnim||tourAnimation||readerAnimation||mode!=='minimized')return;const compact=bookDestination().tour;if(compact&&tourProgress===0){if(direction>0)$('slip-next').click();return;}if(reading){const body=$('reader-content');if(direction<0&&body.scrollTop<4){$('reader-back').click();}else body.scrollBy({top:direction*body.clientHeight*.8,behavior:reduced.matches?'instant':'smooth'});return;}const tabs=['preface','characters','edition'],index=tabs.indexOf(currentTab),body=$('intro-body');if(direction>0&&body.scrollTop+body.clientHeight<body.scrollHeight-4){body.scrollBy({top:body.clientHeight*.8,behavior:'smooth'});return;}if(direction<0&&body.scrollTop>4){body.scrollBy({top:-body.clientHeight*.8,behavior:'smooth'});return;}if(index===0&&direction<0){if(compact)animateTour(0);return;}if(index===2&&direction>0){$('begin-reading').click();return;}currentTab=tabs[index+direction];renderIntro();}
+function navigateIntro(direction){if(!activeBook||bookProgress!==1||bookAnim||tourAnimation||readerAnimation||mode!=='minimized')return;const compact=bookDestination().tour;if(compact&&tourProgress===0){if(direction>0)$('slip-next').click();return;}if(reading){const body=$('reader-content');if(direction<0&&body.scrollTop<4){$('reader-back').click();}else body.scrollBy({top:direction*body.clientHeight*.8,behavior:reduced.matches?'instant':'smooth'});return;}const tabs=['preface','characters','edition'],index=tabs.indexOf(currentTab),body=$('intro-body');if(direction>0&&body.scrollTop+body.clientHeight<body.scrollHeight-4){body.scrollBy({top:body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(direction<0&&body.scrollTop>4){body.scrollBy({top:-body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(index===0&&direction<0){if(compact)animateTour(0);return;}if(index===2&&direction>0){$('begin-reading').click();return;}currentTab=tabs[index+direction];renderIntro();}
 $('book-overlay').addEventListener('pointerdown',e=>{if(!bookDestination().tour||e.target.closest(interactive))return;introGesture={x:e.clientX,y:e.clientY};});
 $('book-overlay').addEventListener('pointerup',e=>{const g=introGesture;introGesture=null;if(!g||e.target.closest(interactive)||window.getSelection()?.toString())return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5)navigateIntro(dx<0?1:-1);else if(Math.hypot(dx,dy)<8){if(e.clientX<innerWidth*.18)navigateIntro(-1);else if(e.clientX>innerWidth*.82)navigateIntro(1);}});
 $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
@@ -186,7 +188,7 @@ $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
 // is no second orb to cross-fade, and chat never lays it over its controls.
 let mode='minimized',orbMotion=null,drag=null;
 let dock={x:innerWidth-52,y:innerHeight*.43,size:52,edge:'right'},orbPosition={...dock};
-function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(mode==='minimized')magnet();}
+function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(mode==='minimized')magnet();if(reduced.matches)drawOrb(0);}
 function orbTarget(){const space=$(`librarian-${mode}`).querySelector('.orb-space').getBoundingClientRect();const size=Math.min(space.height,space.width,240);return {x:space.x+(space.width-size)/2,y:space.y+(space.height-size)/2,size};}
 function moveOrb(target,done){if(orbMotion)cancelAnimationFrame(orbMotion);const from={...orbPosition},start=performance.now();function frame(now){const t=reduced.matches?1:clamp((now-start)/450,0,1);placeOrb(orbFrame(from,target,t));if(t<1)orbMotion=requestAnimationFrame(frame);else{orbMotion=null;done?.();}}orbMotion=requestAnimationFrame(frame);}
 function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';}
@@ -246,7 +248,18 @@ $('minimize').addEventListener('keydown',e=>{
 addEventListener('pagehide',()=>assistant?.close());
 const dots=Array.from({length:520},(_,i)=>{const y=1-(i+.5)/520*2,r=Math.sqrt(1-y*y),a=i*2.3999632297;return [Math.cos(a)*r,y,Math.sin(a)*r];});
 function drawOrb(time){const c=$('orb'),size=c.clientWidth,dpr=Math.min(devicePixelRatio||1,2);const pixels=Math.round(size*dpr);if(c.width!==pixels){c.width=pixels;c.height=pixels;}const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);const a=reduced.matches?.4:time*.00012,ca=Math.cos(a),sa=Math.sin(a);const projected=dots.map(([x,y,z])=>{const xx=x*ca+z*sa,zz=z*ca-x*sa;return [xx,y,zz];}).sort((a,b)=>a[2]-b[2]);for(const [x,y,z] of projected){const perspective=1/(1.8-z*.22);ctx.fillStyle=`rgba(236,237,222,${.2+(z+1)*.34})`;ctx.beginPath();ctx.arc(size/2+x*size*.76*perspective,size/2+y*size*.76*perspective,Math.max(.48,size*.0052)*(1+z*.27),0,Math.PI*2);ctx.fill();}}
-let lastFrame=0;function ambient(now){if(now-lastFrame>32&&!document.hidden){lastFrame=now;if($('hero').getBoundingClientRect().bottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}requestAnimationFrame(ambient);}placeOrb(dock);$('librarian').dataset.edge=dock.edge;requestAnimationFrame(ambient);
+let lastFrame=0,ambientFrame=0;
+function ambient(now){
+ ambientFrame=0;
+ if(document.hidden)return;
+ if(now-lastFrame>32||reduced.matches){lastFrame=now;if($('hero').getBoundingClientRect().bottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}
+ if(!reduced.matches)ambientFrame=requestAnimationFrame(ambient);
+}
+function refreshAmbient(){cancelAnimationFrame(ambientFrame);ambientFrame=requestAnimationFrame(ambient);}
+addEventListener('tinct:display-profile',refreshAmbient);
+motionPreference.addEventListener('change',refreshAmbient);
+document.addEventListener('visibilitychange',refreshAmbient);
+placeOrb(dock);$('librarian').dataset.edge=dock.edge;refreshAmbient();
 let movedLibrarian=false;
 // Phone landing height is frozen per width so collapsing browser bars do not shift the hero.
 // iPhone browsers float the bottom toolbar over the page; cover tops start at its top edge.
