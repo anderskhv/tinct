@@ -104,3 +104,15 @@ it('hands metadata and the first two audio downloads to the next chapter', async
  expect(fetcher.mock.calls[0][0]).toBe('/api/audio-file?clip=0')
  h.unmount();vi.unstubAllGlobals()
 })
+
+it('prepares the next opening with mobile-network headroom, without waiting for the final minute', async()=>{
+ const h=harness({currentParagraph:10,remainingSeconds:120})
+ await waitFor(()=>expect(h.calls.length).toBeGreaterThan(0))
+})
+it('recovers from one interrupted preparation request before the chapter ends', async()=>{
+ const results=[ready(0,2),ready(1,2),ready(2,2)]
+ const ensure=vi.fn().mockRejectedValueOnce(new TypeError('Network interrupted')).mockResolvedValue(results)
+ const h=harness({currentParagraph:31,ensureImpl:ensure as never})
+ await waitFor(()=>expect(ensure).toHaveBeenCalledTimes(2),{timeout:2000})
+ h.unmount()
+})

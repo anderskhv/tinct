@@ -34,6 +34,8 @@ export function applyNarrationPilotFlag(prefs: LabPrefs, flag: NarrationPilotFla
 }
 
 export interface NarrationVoiceOption {
+  /** Opaque identity of the exact current synthesis configuration, supplied by the server. */
+  cacheIdentity?: string
   key: string
   label: string
   persona?: 'female' | 'male'

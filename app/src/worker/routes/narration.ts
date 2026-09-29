@@ -230,7 +230,16 @@ function publicConfig(config: NarrationConfig) {
 
 async function handleVoices(request: Request, env: NarrationEnv): Promise<Response> {
   if (request.method !== 'GET') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  const response = jsonResponse(publicConfig(narrationConfig(env)), 200, request)
+  const config = narrationConfig(env)
+  const info = publicConfig(config)
+  const voices = await Promise.all(config.voices.map(async voice => ({
+    key: voice.key, label: voice.label, persona: voice.persona,
+    cacheIdentity: await sha256Hex(JSON.stringify([
+      NARRATION_CACHE_VERSION, NARRATION_CHUNKER_VERSION,
+      config.provider, config.model, voice.id, config.settings,
+    ])),
+  })))
+  const response = jsonResponse({ ...info, voices }, 200, request)
   response.headers.set('Cache-Control', 'no-store')
   return response
 }
