@@ -319,12 +319,19 @@ html:not(.library-ready) #librarian{visibility:hidden}
 @media(min-width:900px) { .rt-book-metadata .metadata-details { font-size:18px; } .rt-book-metadata .metadata-category { font-size:11px; } }
 @media(max-width:699px) { .cover-metadata .metadata-category { font-size:9px; } .cover-metadata .metadata-details { font-size:12px; } .rt-book-metadata { gap:9px; } }
 
-.browse-subgroups{border-left:1px solid #eee7d033;padding-left:14px;margin:0 0 10px 4px}
-.browse-subgroups summary{font:12px/1.5 system-ui;color:#b7bfaa;cursor:pointer;padding:5px 0}
-.menu-links .browse-subgroups button{font-size:16px;padding:7px 0}
+
 .browse-date-note{margin-top:12px;max-width:260px}
 
 /* Reveal the returning room only when its books are decoded and composed. */
 #scene{transition:opacity 180ms ease}
 html.returning-scene-pending #scene{opacity:0;transition:none}
 @media(prefers-reduced-motion:reduce){#scene{transition:none}}
+
+/* The same horizontal shelves as Home, with subdivisions on their own page. */
+#collection-books.has-collection-reels{display:block;max-width:none}
+.collection-reel>h2{padding:0}
+.collection-reel .book-row{padding:4px 4px 12px;overscroll-behavior-x:contain}
+.collection-reel .book-row:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+.collection-reel .collection-card{flex:none;width:clamp(135px,calc((100vw - max(56px,5vw) - 126px)/8),220px);scroll-snap-align:start}
+.collection-reel .collection-card .card-wrap{width:100%}
+@media(max-width:699px){.collection-reel .collection-card{width:calc((100vw - 50px)/3.2)}}
