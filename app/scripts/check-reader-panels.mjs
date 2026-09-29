@@ -24,8 +24,11 @@ async function checkLibraryRow(page, name) {
   assert.equal(layout.font,layout.titleFont);assert.equal(layout.size,layout.titleSize);assert.equal(layout.weight,layout.titleWeight);
   assert.equal(layout.radius,'0px');assert(layout.height>=44);
   assert(layout.left>=layout.panelLeft&&layout.right<=layout.panelRight,'library row stays inside the panel');
-  await row.focus();const focus=await row.evaluate(n=>{const s=getComputedStyle(n);return Number.parseFloat(s.outlineWidth)+Number.parseFloat(s.outlineOffset)});
-  assert(focus<=0,'keyboard focus stays inside the panel');
+  // A pointer-opened menu does not imply keyboard modality in WebKit.
+  await row.focus();await page.keyboard.press('Shift+Tab');await page.keyboard.press('Tab');
+  const focus=await row.evaluate(n=>{const s=getComputedStyle(n);return {active:document.activeElement===n,visible:n.matches(':focus-visible'),width:s.outlineWidth,offset:s.outlineOffset}});
+  assert(focus.active&&focus.visible,'Library is reachable by keyboard: '+JSON.stringify(focus));
+  assert(Number.parseFloat(focus.width)>0&&Number.parseFloat(focus.width)+Number.parseFloat(focus.offset)<=0,'keyboard focus stays inside the panel: '+JSON.stringify(focus));
   const screenshot=await page.locator('.lab-book-switcher').screenshot({path:output+'/'+name+'-switcher.jpg',type:'jpeg',quality:80});
   console.log('REVIEW_BEGIN '+name+'-switcher');const encoded=screenshot.toString('base64');for(let i=0;i<encoded.length;i+=12000)console.log('REVIEW_CHUNK '+encoded.slice(i,i+12000));console.log('REVIEW_END');
 }
