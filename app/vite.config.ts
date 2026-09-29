@@ -87,6 +87,10 @@ export default defineConfig(({ mode, command }) => {
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
       },
       output: {
+        // Reserve index-* for the real reader entry. Native plugin entrypoints
+        // also use index.ts; their lazy chunks must not impersonate the app
+        // in shell stamping, production checks or offline registration.
+        chunkFileNames: chunk => chunk.name === 'index' ? 'assets/shared-index-[hash].js' : 'assets/[name]-[hash].js',
         entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'

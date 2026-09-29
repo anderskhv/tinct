@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { describe,it,expect } from 'vitest'
 import { nativeAuthPending,nativeAuthRedirect,parseNativeAuthReturn,nativeAuthLanding } from './nativeAuthReturn'
 const now=1_000_000,nonce='0123456789abcdef',id='app.tinct.reader.review'

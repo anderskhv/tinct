@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { beforeEach,afterEach,describe,it,expect,vi } from 'vitest'
 import type { SupabaseClient } from '@supabase/supabase-js'
 const mocks=vi.hoisted(()=>({
