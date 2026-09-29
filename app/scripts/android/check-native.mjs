@@ -34,7 +34,17 @@ try {
  stage('library-read')
  await page.locator('#read-featured').click()
  await page.locator('#book-overlay').waitFor()
+ // Opening the cover makes the overlay visible before its tour button is
+ // available. Wait for a usable surface rather than racing the animation.
+ await page.waitForFunction(()=>{
+  const next=document.querySelector('#slip-next'),intro=document.querySelector('#intro')
+  return (next && !next.hidden) || (intro?.getAttribute('aria-hidden')==='false' && getComputedStyle(intro).pointerEvents==='auto')
+ })
  if(await page.locator('#slip-next').isVisible())await page.locator('#slip-next').click()
+ await page.waitForFunction(()=>{
+  const intro=document.querySelector('#intro')
+  return intro?.getAttribute('aria-hidden')==='false' && getComputedStyle(intro).pointerEvents==='auto'
+ })
  await page.locator('#begin-reading').click()
  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:60000})
  assert.match(await page.getByTestId('lab-root').innerText(),/Frankenstein/)
