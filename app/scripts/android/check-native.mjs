@@ -17,7 +17,17 @@ try {
  page.setDefaultTimeout(60000)
  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
  assert.equal(await page.evaluate(()=>window.Capacitor?.isNativePlatform()),true)
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))
+ const cover=await page.locator('#hero-book canvas').evaluate(c=>{
+  const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,colors=new Set()
+  for(let i=0;i<d.length;i+=Math.max(4,Math.floor(d.length/4096/4)*4))colors.add([d[i],d[i+1],d[i+2],d[i+3]].join(','))
+  return {width:c.width,height:c.height,colors:colors.size,style:{display:getComputedStyle(c).display,visibility:getComputedStyle(c).visibility,opacity:getComputedStyle(c).opacity},parentFilter:getComputedStyle(c.parentElement).filter}
+ })
+ await fs.writeFile(output+'/native-cover-diagnostics.json',JSON.stringify(cover,null,2))
+ assert(cover.colors>32,'offline cover contains painted image detail')
+ await page.waitForTimeout(500)
  await page.screenshot({path:output+'/native-offline-library.png'})
+ await device.screenshot({path:output+'/native-offline-library-device.png'})
  await page.evaluate(()=>{
   localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'book',fontFamily:'garamond',fontSize:1.3,compareOpen:false}))
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:3,paragraphIndex:0,wordIndex:0,page:0}}))
@@ -40,6 +50,8 @@ try {
  page=await(await device.webView({pkg:'app.tinct.reader'})).page()
  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
  assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','e-ink mode survives restart into the library')
+ const metaInk=await page.locator('.rt-meta').evaluate(n=>getComputedStyle(n).color)
+ assert.equal(metaInk,'rgb(51, 51, 51)','returning-library metadata has dark e-ink contrast')
  await page.screenshot({path:output+'/native-offline-library-restored.png'})
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
