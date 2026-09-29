@@ -21,9 +21,9 @@ try{
   "export default {fetch(request,env){return handleLabPosition(request,env,async()=>request.headers.has('fixture-owner')?{id:request.headers.get('fixture-owner'),email:'fixture@example.invalid'}:null)}};",
   resolveDir:process.cwd(),sourcefile:'position-fixture.ts',loader:'ts'},
   bundle:true,format:'esm',platform:'neutral',external:['cloudflare:workers'],outfile:scriptPath})
- const options={modules:true,scriptPath,compatibilityDate:'2025-09-27',
-  durableObjects:{READER_POSITION:{className:'ReaderPositionCoordinator',useSQLite:true}},
-  durableObjectsPersist:path.join(root,'do'),kvNamespaces:['RATE_LIMIT'],kvPersist:path.join(root,'kv')}
+ const options={cf:false,durableObjectsPersist:path.join(root,'do'),kvPersist:path.join(root,'kv'),workers:[{
+  name:'position-fixture',modules:true,scriptPath,compatibilityDate:'2025-09-27',
+  durableObjects:{READER_POSITION:{className:'ReaderPositionCoordinator',useSQLite:true}},kvNamespaces:['RATE_LIMIT']}]}
  mf=new Miniflare(options)
  const kv=await mf.getKVNamespace('RATE_LIMIT')
  await kv.put('lab-position:'+owner,JSON.stringify(state(8)))
