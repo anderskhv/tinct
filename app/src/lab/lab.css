@@ -7913,3 +7913,26 @@
   margin: .5rem 0;
   border-bottom: 0;
 }
+
+/* Minimized companions remain live as small movable spheres. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
+  position:fixed; z-index:340; left:auto; top:auto; right:20px; bottom:110px;
+  width:64px; height:64px; min-width:64px; max-width:64px; padding:2px;
+  border:1px solid var(--lab-border); border-radius:50%; background:var(--lab-paper);
+  color:var(--lab-ink); box-shadow:0 3px 14px #0002; touch-action:none; cursor:grab;
+  display:grid; place-items:center;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb { bottom:190px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-orb { width:60px; height:60px; padding:0; margin:0; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-words { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-controls {
+  position:absolute; bottom:100%; right:0; display:none; padding:8px; gap:6px;
+  border:1px solid var(--lab-border); border-radius:16px; background:var(--lab-paper);
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill:hover .lab-voice-pill-controls,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill:focus-within .lab-voice-pill-controls { display:flex; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-companion-orb:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill[data-near-top="true"] .lab-voice-pill-controls { top:100%; bottom:auto; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill[data-near-left="true"] .lab-voice-pill-controls { left:0; right:auto; }
