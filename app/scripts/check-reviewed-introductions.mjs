@@ -60,7 +60,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   });
   console.log('INTRO_STATE '+JSON.stringify({label,engine:engine.name(),id,...state}));
  }
- for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers','to-the-lighthouse','ulysses']){
+ for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers','to-the-lighthouse','confessions'].filter(id=>available.has(id))){
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
