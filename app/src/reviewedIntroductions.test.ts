@@ -57,3 +57,36 @@ describe('reviewed library introductions', () => {
     expect(b.gallery).toBeNull()
   })
 })
+
+describe('reviewed author image coverage and credits', () => {
+  const manifest=json('../public/lab/library_2/author-images.json')
+  it('maps each of the 101 supplied books to reviewed local images', () => {
+    expect(manifest.books).toHaveLength(101)
+    expect(new Set(manifest.books.map(book=>book.bookId)).size).toBe(101)
+    expect(manifest.images).toHaveLength(63)
+    for(const book of manifest.books) {
+      expect(book.imageIds.length,book.bookId).toBeGreaterThan(0)
+      for(const id of book.imageIds)expect(manifest.images.some(image=>image.id===id),book.bookId+':'+id).toBe(true)
+    }
+    expect(manifest.books.find(book=>book.bookId==='communist-manifesto').imageIds).toEqual(['karl-marx','friedrich-engels'])
+    expect(manifest.books.find(book=>book.bookId==='federalist-papers').imageIds).toEqual(['alexander-hamilton','james-madison','john-jay'])
+    expect(manifest.books.find(book=>book.bookId==='bible').displayKind).toBe('collection_image')
+  })
+  it('ships the exact reviewed bytes with visible captions and accessible licensing', async () => {
+    const { createHash }=await import('node:crypto')
+    const { renderAuthorFlap }=await import('../public/lab/library_2/authors.js')
+    for(const image of manifest.images) {
+      expect(image.publicPath).toMatch(/^\/lab\/library_2\/assets\/author-flaps\/[a-z0-9-]+\.(jpg|png|webp)$/)
+      const bytes=readFileSync(resolve(__dirname,'../public'+image.publicPath))
+      expect(createHash('sha256').update(bytes).digest('hex'),image.id).toBe(image.sha256)
+      for(const key of ['creator','licence','licenceUrl','sourcePage','changes','caption','alt'])expect(image[key],image.id+':'+key).toBeTruthy()
+      const target=document.createElement('div'),credit=document.createElement('details')
+      renderAuthorFlap([image],target,credit)
+      expect(target.querySelector('img')?.getAttribute('alt')).toBe(image.alt)
+      expect(target.querySelector('figcaption')?.textContent).toBe(image.caption)
+      expect(credit.textContent).toContain(image.creator)
+      expect(credit.textContent).toContain(image.changes)
+      expect([...credit.querySelectorAll('a')].map(a=>a.href)).toEqual([image.licenceUrl,image.sourcePage])
+    }
+  })
+})
