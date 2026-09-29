@@ -20,7 +20,7 @@ export function warmLibraryPreview() {
   }, { once: true })
   const warm = () => {
     if (stopped) return
-    const base = '/lab/library_2/', version = '?v=20260928e'
+    const base = '/lab/library_2/', version = '?v=20260928covers'
     const hour=new Date().getHours(),room=hour>=6&&hour<12?'morning':hour>=12&&hour<17?'afternoon':hour>=17&&hour<21?'evening':'night'
     const urls = [base + `assets/table-${room}-${innerWidth/innerHeight>1.2?'wide':'phone'}.jpg`]
     // Warm the actual public covers, selected book first. This manifest contains
