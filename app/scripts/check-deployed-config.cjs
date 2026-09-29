@@ -1,7 +1,5 @@
 // Check the reachable static import graph, as verify-bundle does locally.
 // Public configuration may live in a shared chunk, not the reader entry file.
-const entry = new URL(process.argv[2])
-const visited = new Set()
 
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -13,7 +11,7 @@ async function fetchJavaScript(url, attempts = 12) {
   let last = 'unavailable'
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 Tinct-Smoke-Test' } })
+      const response = await fetch(url, { redirect: 'error', headers: { 'User-Agent': 'Mozilla/5.0 Tinct-Smoke-Test' } })
       const source = response.ok ? await response.text() : ''
       if (response.ok && !/^\s*</.test(source)) return source
       last = response.ok ? 'returned HTML' : `failed: ${response.status}`
@@ -25,17 +23,29 @@ async function fetchJavaScript(url, attempts = 12) {
   throw new Error(`Bundle request ${last} after ${attempts} attempts`)
 }
 
-async function readGraph(url) {
-  if (visited.has(url.href)) return ''
-  if (url.origin !== entry.origin || !url.pathname.startsWith('/assets/')) throw new Error('Unexpected bundle import')
-  visited.add(url.href)
-  const source = await fetchJavaScript(url)
-  const imports = [...source.matchAll(/(?:from\s*|import\s*)["']([^"']+\.js)["']/g)]
-  const children = await Promise.all(imports.map(match => readGraph(new URL(match[1], url))))
-  return [source, ...children].join('\n')
+async function readGraph(entry, readSource = fetchJavaScript) {
+  const visited = new Set()
+  async function visit(url) {
+    if (visited.has(url.href)) return ''
+    // Vite's shared multi-page entry modules live directly under /lab.
+    // Restrict traversal to public JavaScript on the deployment's own origin.
+    if (url.origin !== entry.origin || !/^\/(?:assets|lab)\/[A-Za-z0-9_.-]+\.js$/.test(url.pathname)) {
+      throw new Error('Unexpected bundle import: ' + url.pathname)
+    }
+    visited.add(url.href)
+    const source = await readSource(url)
+    const imports = [...source.matchAll(/(?:from\s*|import\s*)["']([^"']+\.js)["']/g)]
+    const children = await Promise.all(imports.map(match => visit(new URL(match[1], url))))
+    return [source, ...children].join('\n')
+  }
+  return visit(entry)
 }
-readGraph(entry).then(source => {
-  if (source.includes('/api/audio-file')) console.log('audio-route')
-  if (source.includes('supabase.co')) console.log('supabase-url')
-  if (source.includes('eyJhbGciOi')) console.log('supabase-key')
-}).catch(error => { console.error(error.message); process.exitCode = 1 })
+
+module.exports = { readGraph }
+if (require.main === module) {
+  readGraph(new URL(process.argv[2])).then(source => {
+    if (source.includes('/api/audio-file')) console.log('audio-route')
+    if (source.includes('supabase.co')) console.log('supabase-url')
+    if (source.includes('eyJhbGciOi')) console.log('supabase-key')
+  }).catch(error => { console.error(error.message); process.exitCode = 1 })
+}
