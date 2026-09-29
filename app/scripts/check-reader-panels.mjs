@@ -134,6 +134,16 @@ async function run(engine,name,phone) {
       assert(copied[0].length>=selected.join('').length,'shortcuts copy the full range')
     }
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-selection.png'})
+    if(!phone){
+      // One outside click dismisses; a separate intentional click defines.
+      await page.getByTestId('lab-word').nth(25).click()
+      await page.locator('.selection-popup').waitFor({state:'hidden'})
+      assert.equal(await page.locator('.popup-define').count(),0,'Dismissal does not define the underlying word')
+      await page.getByTestId('lab-word').nth(25).click()
+      await page.getByText(definition,{exact:true}).waitFor()
+      await page.keyboard.press('Escape')
+      await select(page)
+    }
     await page.getByRole('button',{name:'Explain',exact:true}).click()
     await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
     await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
@@ -765,7 +775,11 @@ async function antigoneAudioAvailability(engine,name) {
     await state.context.close()
     state=await boot(browser,false,'antigone','modern-en',10,{narrationEnabled:true})
     await state.page.getByRole('button',{name:'Play',exact:true}).click()
-    await state.page.getByText('Sign in to hear this chapter narrated.',{exact:true}).waitFor()
+    await state.page.getByRole('heading',{name:'Sign in to listen',exact:true}).waitFor()
+    await state.page.getByTestId('lab-account-sign-in').waitFor()
+    assert.equal(await state.page.locator('.lab-listen-error').count(),0,'Signed-out narration uses the account card, not an error strip')
+    assert.equal(await state.page.getByRole('button',{name:'Retry',exact:true}).count(),0)
+    await state.page.screenshot({path:output+'/'+name+'-audio-sign-in.png'})
     assert(state.requests.some(r=>r.narration?.bookId==='antigone' && r.narration.chapter===10),'on-demand narration bypasses a legacy recording hold')
     assert.equal(await state.page.getByText('Audio is temporarily unavailable for this chapter. Other chapters are available. You can keep reading.',{exact:true}).count(),0)
     result.passed=true
