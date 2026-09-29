@@ -22,9 +22,9 @@ try{
   resolveDir:process.cwd(),sourcefile:'position-fixture.ts',loader:'ts'},
   bundle:true,format:'esm',platform:'neutral',external:['cloudflare:workers'],outfile:scriptPath})
  const options={cf:false,resourcePersistencePath:path.join(root,'state'),workers:[{config:{
-  name:'position-fixture',compatibilityDate:'2025-09-27',
+  type:'worker',name:'position-fixture',compatibilityDate:'2025-09-27',
   manifest:{mainModule:'worker.mjs',modules:{'worker.mjs':{type:'esm',contents:await readFile(scriptPath,'utf8')}}},
-  env:{READER_POSITION:{type:'durable-object',worker:'position-fixture',exportName:'ReaderPositionCoordinator'},RATE_LIMIT:{type:'kv',id:'positions'}},
+  env:{READER_POSITION:{type:'durable-object',workerName:'position-fixture',exportName:'ReaderPositionCoordinator'},RATE_LIMIT:{type:'kv',id:'positions'}},
   exports:{ReaderPositionCoordinator:{type:'durable-object',storage:'sqlite'}}
  },dev:{outboundService:{type:'fetcher',handler(){throw new Error('Unexpected external request in storage fixture')}}}}]}
  mf=new Miniflare(options)
