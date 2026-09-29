@@ -76,7 +76,7 @@ self.addEventListener('fetch', (event) => {
       cache.match(event.request).then(cached => {
         if (cached) return cached
         return fetch(event.request).then(response => {
-          if (response.ok) cache.put(event.request, response.clone())
+          if (response.status === 200) event.waitUntil(cache.put(event.request, response.clone()).catch(() => {}))
           return response
         }).catch(() => offlineFallback())
       })
@@ -99,6 +99,7 @@ async function handleAudioMetadata(request) {
 
 function isAppShellNavigation(request, url) {
   if (request.mode !== 'navigate') return false
+  if (['/reader','/lab/phone','/lab/reader','/lab/desktop'].includes(url.pathname)) return true
   if (url.pathname === '/app' || url.pathname === '/app.html' || url.pathname === '/admin/metrics') return true
   if (url.pathname === '/read' || /^\/read\/[a-z0-9-]+\/?$/i.test(url.pathname)) return true
   return false
@@ -139,7 +140,8 @@ async function handleAudioRange(request, event) {
     const range = parseRange(request.headers.get('range'), buffer.byteLength)
     if (range) {
       const size = buffer.byteLength
-      const start = Math.min(range.start, size - 1)
+      if (range.start >= size) return new Response(null, {status:416, headers:{'Content-Range':`bytes */${size}`}})
+      const start = range.start
       const end = Math.min(range.end, size - 1)
       if (start <= end) {
         return new Response(buffer.slice(start, end + 1), {

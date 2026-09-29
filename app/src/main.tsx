@@ -1,3 +1,4 @@
+import { registerReaderOffline } from './utils/registerReaderOffline'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
@@ -42,6 +43,7 @@ if (isEink) {
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const Root = isLabPath(pathname) ? LabApp : App
+if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
   startReaderLoadTrace()
   warmLibraryPreview()
