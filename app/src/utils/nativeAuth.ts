@@ -4,6 +4,7 @@ import { NATIVE_AUTH_PENDING, NATIVE_AUTH_NOTICE, nativeAuthPending, nativeAuthR
 
 let installation: Promise<void> | null=null
 let handling=false
+const DEFERRED_RETURN='tinct:native-auth-return'
 function readPending():NativeAuthPending|null {
   try {return JSON.parse(localStorage.getItem(NATIVE_AUTH_PENDING)??'null')}catch{return null}
 }
@@ -12,6 +13,14 @@ export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,ap
   const result=parseNativeAuthReturn(raw,readPending(),appId,Date.now())
   if(!result || handling)return false
   handling=true
+  // Stop the old reader before changing accounts. Exchanging on its mounted
+  // page could let auth listeners persist that reader's state for a new user.
+  if(!['/lab/sign-in','/lab/sign-in/','/lab/sign-in/index.html'].includes(window.location.pathname)){
+    sessionStorage.setItem(DEFERRED_RETURN,raw)
+    const query=new URLSearchParams({returnTo:result.pending.returnTo})
+    window.location.replace('/lab/sign-in/index.html?'+query)
+    return true
+  }
   // Claim once before exchanging: warm and cold launch events can both arrive.
   localStorage.removeItem(NATIVE_AUTH_PENDING)
   let failed=result.error
@@ -34,6 +43,9 @@ export function installNativeAuth(client:SupabaseClient):Promise<void> {
     const {App}=await import('@capacitor/app')
     const {id}=await App.getInfo()
     await App.addListener('appUrlOpen',event=>{void handleNativeAuthReturn(client,event.url,id)})
+    const deferred=sessionStorage.getItem(DEFERRED_RETURN)
+    sessionStorage.removeItem(DEFERRED_RETURN)
+    if(deferred)await handleNativeAuthReturn(client,deferred,id)
     const launch=await App.getLaunchUrl()
     if(launch?.url)await handleNativeAuthReturn(client,launch.url,id)
   })().catch(error=>{installation=null;throw error})

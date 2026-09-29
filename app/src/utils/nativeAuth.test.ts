@@ -7,10 +7,10 @@ const mocks=vi.hoisted(()=>({
 vi.mock('@capacitor/app',()=>({App:{getInfo:mocks.info,getLaunchUrl:mocks.launch,addListener:mocks.listener}}))
 vi.mock('@capacitor/browser',()=>({Browser:{open:mocks.open,close:mocks.close}}))
 beforeEach(()=>{
- vi.resetModules();vi.clearAllMocks();localStorage.clear()
+ vi.resetModules();vi.clearAllMocks();localStorage.clear();sessionStorage.clear()
  mocks.info.mockResolvedValue({id:'app.tinct.reader.review'});mocks.launch.mockResolvedValue(undefined)
  mocks.listener.mockResolvedValue({remove:vi.fn()});mocks.open.mockResolvedValue(undefined);mocks.close.mockResolvedValue(undefined)
- vi.stubGlobal('window',{Capacitor:{isNativePlatform:()=>true},location:{assign:mocks.assign}})
+ vi.stubGlobal('window',{Capacitor:{isNativePlatform:()=>true},location:{pathname:'/lab/sign-in/index.html',assign:mocks.assign,replace:mocks.assign}})
 })
 afterEach(()=>vi.unstubAllGlobals())
 function client(){
@@ -29,6 +29,16 @@ describe('native OAuth bridge',()=>{
   expect(c.auth.exchangeCodeForSession).toHaveBeenCalledExactlyOnceWith('test-code')
   expect(mocks.assign).toHaveBeenCalledWith('/lab/sign-in/index.html?returnTo=%2Freader&native-return=1')
   expect(await api.handleNativeAuthReturn(c,callback,'app.tinct.reader.review')).toBe(false)
+ })
+ it('moves off the mounted reader before any account exchange',async()=>{
+  vi.stubGlobal('window',{Capacitor:{isNativePlatform:()=>true},location:{pathname:'/reader',assign:mocks.assign,replace:mocks.assign}})
+  const api=await import('./nativeAuth'),c=client()
+  const redirect=await api.authRedirectTo(c,'/reader','oauth','unused')
+  expect(await api.handleNativeAuthReturn(c,redirect+'&code=deferred-code','app.tinct.reader.review')).toBe(true)
+  expect(c.auth.exchangeCodeForSession).not.toHaveBeenCalled()
+  expect(sessionStorage.getItem('tinct:native-auth-return')).toContain('code=deferred-code')
+  expect(localStorage.getItem('tinct:native-auth-pending')).not.toBeNull()
+  expect(mocks.assign).toHaveBeenCalledWith('/lab/sign-in/index.html?returnTo=%2Freader')
  })
  it('ignores a callback for another installation without exchanging a code',async()=>{
   const api=await import('./nativeAuth'),c=client()
