@@ -335,3 +335,5 @@ html.returning-scene-pending #scene{opacity:0;transition:none}
 .collection-reel .collection-card{flex:none;width:clamp(135px,calc((100vw - max(56px,5vw) - 126px)/8),220px);scroll-snap-align:start}
 .collection-reel .collection-card .card-wrap{width:100%}
 @media(max-width:699px){.collection-reel .collection-card{width:calc((100vw - 50px)/3.2)}}
+
+.collection-reel .collection-card h2{padding:0;font-family:Georgia,serif}
