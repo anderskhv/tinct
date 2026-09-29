@@ -3,6 +3,7 @@ import hashlib,json,pathlib,time,urllib.request,urllib.error
 root=pathlib.Path(__file__).resolve().parents[1]
 manifest=json.loads((root/'public/lab/library_2/author-images.json').read_text())
 assert len(manifest['images'])==63 and len(manifest['books'])==101
+mismatches=[]
 for image in manifest['images']:
     url=image['assetUrl']
     assert url.startswith(('https://upload.wikimedia.org/','https://thumb.wikimedia.org/')),image['id']
@@ -18,7 +19,12 @@ for image in manifest['images']:
         except urllib.error.HTTPError as error:
             if error.code!=429 or attempt==2:raise
             time.sleep(5*(attempt+1))
-    assert hashlib.sha256(data).hexdigest()==image['sha256'],image['id']+' differs from reviewed asset'
+    actual=hashlib.sha256(data).hexdigest()
+    if actual!=image['sha256']:
+        mismatches.append({'id':image['id'],'bytes':len(data),'reviewed':image['sha256'],'received':actual})
+        print('BYTE_MISMATCH',json.dumps(mismatches[-1]),flush=True)
+        continue
     target.write_bytes(data)
     print(image['id'],len(data),'verified')
-print('All 63 assets match the reviewed hashes; all 101 books are mapped.')
+print('TRANSFER_RESULT',json.dumps({'verified':len(manifest['images'])-len(mismatches),'mismatches':mismatches}),flush=True)
+if mismatches:raise SystemExit('Reviewed local bytes required for mismatched size variants')
