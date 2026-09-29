@@ -80,9 +80,9 @@ export async function checkBackgroundAudio(device,page,output){
  if(await page.getByTestId('lab-chapter-cover').isVisible())await page.keyboard.press('ArrowRight')
  await page.getByTestId('lab-v2-play').click()
  await page.waitForFunction(()=>window.__nativeAudioClips.some(a=>!a.paused&&a.currentTime>.2),null,{timeout:20000})
- let locked=false
+ let locked=false,controlStage='screen-off playback'
  const snapshot=()=>page.evaluate(()=>({chapter:document.querySelector('.lab')?.dataset.chapter,visibility:document.visibilityState,
-  events:window.__nativeAudioEvents,playbackState:navigator.mediaSession?.playbackState,body:document.body.innerText.slice(-1400),clips:window.__nativeAudioClips.map(a=>({time:a.currentTime,paused:a.paused,ended:a.ended,error:a.error?.code||null}))}))
+  events:window.__nativeAudioEvents,nativeActions:window.__nativeMediaEvents,playbackState:navigator.mediaSession?.playbackState,body:document.body.innerText.slice(-1400),clips:window.__nativeAudioClips.map(a=>({time:a.currentTime,paused:a.paused,ended:a.ended,error:a.error?.code||null}))}))
  try{
   await device.shell('input keyevent 223');locked=true
   await page.waitForTimeout(11000)
@@ -95,15 +95,24 @@ export async function checkBackgroundAudio(device,page,output){
   assert.equal(background.chapter,'596','narration crosses Psalm 117 to Psalm 118 with the screen off')
   assert(nativeSession,'Android exposes a lock-screen media session for Tinct')
   console.log(JSON.stringify({nativeAudioSystem:{power:String(await device.shell('dumpsys power')).split('\n').filter(l=>/mWakefulness=|mWakefulnessChanging=|Display Power/.test(l)),sessions}}))
+  controlStage='system pause'
+  await device.shell('cmd media_session dispatch pause')
+  await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='false'&&window.__nativeAudioClips.every(a=>a.paused||a.ended),null,{timeout:10000,polling:100})
+  controlStage='system resume'
+  await device.shell('cmd media_session dispatch play')
+  await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true'&&window.__nativeAudioClips.some(a=>!a.paused&&!a.ended),null,{timeout:10000,polling:100})
+  controlStage='hardware pause'
   await device.shell('input keyevent 127')
-  await page.waitForFunction(()=>window.__nativeAudioClips.every(a=>a.paused||a.ended),null,{timeout:10000})
+  await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='false'&&window.__nativeAudioClips.every(a=>a.paused||a.ended),null,{timeout:10000,polling:100})
+  controlStage='hardware resume'
   await device.shell('input keyevent 126')
-  await page.waitForFunction(()=>window.__nativeAudioClips.some(a=>!a.paused&&!a.ended),null,{timeout:10000})
-  return {screenOffChapterAdvance:true,lockScreenSession:true,hardwareMediaPauseResume:true,syntheticSilentAudio:true}
+  await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true'&&window.__nativeAudioClips.some(a=>!a.paused&&!a.ended),null,{timeout:10000,polling:100})
+  return {screenOffChapterAdvance:true,lockScreenSession:true,systemMediaPauseResume:true,hardwareMediaPauseResume:true,syntheticSilentAudio:true}
  }catch(error){
   const state=await snapshot().catch(()=>({unavailable:true}))
   const sessions=String(await device.shell('dumpsys media_session'))
-  console.log(JSON.stringify({nativeAudioFailure:{error:String(error),state,sessions,calls}}))
+  const nativeLog=String(await device.shell("logcat -d -s TinctMedia:D '*:S'"))
+  console.log(JSON.stringify({nativeAudioFailure:{controlStage,error:String(error),state,sessions,calls,nativeLog}}))
   await fs.writeFile(output+'/native-audio-failure.json',JSON.stringify({state,sessions,calls},null,2))
   throw error
  }finally{

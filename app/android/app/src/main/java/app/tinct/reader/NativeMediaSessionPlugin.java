@@ -37,6 +37,7 @@ public class NativeMediaSessionPlugin extends Plugin {
         });
     }
     void action(String name, Long position) {
+        if (BuildConfig.DEBUG) android.util.Log.d("TinctMedia", "action=" + name + " listeners=" + hasListeners("action"));
         JSObject event = new JSObject();
         event.put("action", name);
         if (position != null) event.put("seekTime", position / 1000.0);

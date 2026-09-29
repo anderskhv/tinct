@@ -66,6 +66,10 @@ public class NativeNarrationService extends Service {
         session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS | MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS);
         session.setPlaybackToLocal(new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
         session.setCallback(new MediaSession.Callback() {
+            @Override public boolean onMediaButtonEvent(Intent intent) {
+                if (BuildConfig.DEBUG) android.util.Log.d("TinctMedia", "button=" + intent.getParcelableExtra(Intent.EXTRA_KEY_EVENT));
+                return super.onMediaButtonEvent(intent);
+            }
             @Override public void onPlay() { action("play", null); }
             @Override public void onPause() { action("pause", null); }
             @Override public void onStop() { action("pause", null); stopSelf(); }

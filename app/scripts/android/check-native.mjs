@@ -91,23 +91,20 @@ try {
  console.log(JSON.stringify({nativeLibraryGeometry:await page.evaluate(()=>({html:document.documentElement.className,body:document.body.className,nodes:['#hero','.reading-table','#rt-title','#rt-continue'].map(sel=>{const n=document.querySelector(sel),r=n.getBoundingClientRect(),s=getComputedStyle(n);return {sel,rect:{x:r.x,y:r.y,width:r.width,height:r.height},display:s.display,visibility:s.visibility,color:s.color,opacity:s.opacity}})}))}))
  await device.screenshot({path:output+'/native-offline-library-restored.png'})
  console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-library',png:(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64')}}))
- // Temporary, isolated visual probes: identify the layer hiding the returning table.
- console.log(JSON.stringify({nativePaintDiagnostic:await page.evaluate(()=>{
-  const n=document.querySelector('#rt-title'),r=n.getBoundingClientRect(),chain=[]
-  for(let p=n;p;p=p.parentElement){const s=getComputedStyle(p);chain.push({tag:p.tagName,id:p.id,class:p.className,opacity:s.opacity,visibility:s.visibility,display:s.display,transform:s.transform,zIndex:s.zIndex,filter:s.filter,clipPath:s.clipPath})}
-  return {viewport:{width:innerWidth,height:innerHeight,scrollY,dpr:devicePixelRatio},chain,hit:document.elementsFromPoint(r.left+10,r.top+10).map(n=>n.tagName+'#'+n.id+'.'+n.className)}
- })}))
- for(const [name,css] of [
-  ['without-room-layers','#scene,.hero-shade{display:none!important}'],
-  ['table-own-layer','.reading-table{transform:translateZ(0)!important}'],
-  ['force-table-paint','.reading-table,.reading-table *{visibility:visible!important;opacity:1!important}'],
- ]){
-  const probe=await page.addStyleTag({content:css})
-  await page.waitForTimeout(500)
-  const png=await device.screenshot()
-  console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-probe-'+name,png:png.toString('base64')}}))
-  await probe.evaluate(n=>n.remove())
- }
+ const paint=await page.evaluate(async png=>{
+  const img=new Image();img.src='data:image/png;base64,'+png;await img.decode()
+  const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight
+  const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0)
+  // Exclude status/header/navigation bars and the librarian orb at the right.
+  const x=Math.floor(canvas.width*.05),y=Math.floor(canvas.height*.20)
+  const w=Math.floor(canvas.width*.70),h=Math.floor(canvas.height*.65)
+  const pixels=ctx.getImageData(x,y,w,h).data
+  let dark=0
+  for(let i=0;i<pixels.length;i+=4)if(pixels[i]<128&&pixels[i+1]<128&&pixels[i+2]<128)dark++
+  return {dark,total:w*h,fraction:dark/(w*h)}
+ },(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64'))
+ console.log(JSON.stringify({nativeLibraryPaint:paint}))
+ assert(paint.fraction>.005,'the real Android e-ink library paints books and text, beyond the header and orb')
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
  // Exercise the Android deep-link plumbing without contacting an auth

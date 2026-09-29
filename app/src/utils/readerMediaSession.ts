@@ -17,7 +17,15 @@ let installed:Promise<PluginListenerHandle>|null=null
 let active=false,scheduled=false,lastPositionPublish=0,startId=0
 let metadata:MediaMetadata|null=null
 function listen(){
- return installed??=(native.addListener('action',details=>handlers.get(details.action)?.(details)).catch(error=>{installed=null;throw error}))
+ return installed??=(native.addListener('action',details=>{
+  if(import.meta.env.VITE_NATIVE_AUTH_DIAGNOSTICS==='1'){
+   const target=window as unknown as {__nativeMediaEvents?:unknown[]}
+   const events=target.__nativeMediaEvents??=[]
+   events.push({action:details.action,registered:[...handlers.keys()],time:Date.now()})
+   if(events.length>20)events.shift()
+  }
+  handlers.get(details.action)?.(details)
+ }).catch(error=>{installed=null;throw error}))
 }
 function publish(positionOnly=false){
  if(!active||scheduled)return
