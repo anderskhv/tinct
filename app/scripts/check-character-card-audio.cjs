@@ -1,6 +1,6 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5198',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-character-audio';fs.mkdirSync(dir,{recursive:true});
-(async()=>{const b=await chromium.launch();try{const p=await b.newPage({viewport:{width:1440,height:950},hasTouch:true});
+(async()=>{const b=await chromium.launch();try{const p=await b.newPage({serviceWorkers:'block',viewport:{width:1440,height:950},hasTouch:true});
  await p.route('**/api/**',r=>/\/api\/audio-/.test(r.request().url())?r.continue():r.fulfill({status:404,body:'{}'}));
  await p.addInitScript(()=>{window.__characterAudio=[];const OriginalAudio=window.Audio;window.Audio=function(...args){const audio=new OriginalAudio(...args);window.__characterAudio.push(audio);return audio};window.Audio.prototype=OriginalAudio.prototype;sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'the-awakening',primaryEditionKey:'original-en',compareEditionKey:'modern-en',savedPlace:{bookId:'the-awakening',chapterNumber:1,paragraphIndex:3,wordIndex:0,page:0}}))});
  await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(1000);

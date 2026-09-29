@@ -18,7 +18,7 @@ assert.ok(wordIndex >= 0)
  for (const [device, engine] of [['phone', webkit], ['desktop', chromium]]) {
   const browser = await engine.launch()
   try {
-   const page = await browser.newPage({ viewport: device === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 950 }, isMobile: device === 'phone', hasTouch: device === 'phone' })
+   const page = await browser.newPage({serviceWorkers:'block', viewport: device === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 950 }, isMobile: device === 'phone', hasTouch: device === 'phone' })
    page.setDefaultTimeout(30000)
    const responses = [], checks = []
    page.on('response', response => {

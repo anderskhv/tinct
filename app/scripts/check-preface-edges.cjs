@@ -4,7 +4,7 @@ async function state(p){return p.getByTestId('lab-root').evaluate(e=>({book:e.da
 async function stored(p){return p.evaluate(()=>Object.fromEntries(Object.keys(localStorage).filter(k=>/position|reading-log|progress:|reading-memory/.test(k)).map(k=>[k,localStorage.getItem(k)])))}
 async function openCover(p){if(await p.getByTestId('lab-root').getAttribute('data-reader-controls')==='hidden')await p.locator('.lab-header').click({position:{x:20,y:20}});await p.getByTestId('lab-header-chapter').click();await p.getByRole('button',{name:'Cover and preface'}).click()}
 (async()=>{const results=[];for(const engine of [chromium,webkit]){const b=await engine.launch();try{for(const id of ['odyssey','democracy-in-america']){
- const p=await b.newPage({viewport:engine===webkit?{width:390,height:844}:{width:1440,height:950},isMobile:engine===webkit,hasTouch:engine===webkit});
+ const p=await b.newPage({serviceWorkers:'block',viewport:engine===webkit?{width:390,height:844}:{width:1440,height:950},isMobile:engine===webkit,hasTouch:engine===webkit});
  await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));
  await p.addInitScript(id=>{if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:id,primaryEditionKey:id==='bible'?'kjv-en':'original-en',compareEditionKey:id==='bible'?'web-en':'modern-en',savedPlace:{bookId:id,chapterNumber:2,paragraphIndex:1,wordIndex:5,page:0}}))}},id);
  await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(800);

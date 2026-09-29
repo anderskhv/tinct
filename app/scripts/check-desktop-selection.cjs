@@ -7,7 +7,7 @@ fs.mkdirSync(dir, { recursive: true })
   for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
     const browser = await engine.launch()
     try {
-      const page = await browser.newPage({ viewport: { width: 1440, height: 950 } })
+      const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 1440, height: 950 } })
       await page.route('**/api/**', route => route.fulfill({ status: 404, body: '{}' }))
       await page.addInitScript(() => sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId:'the-awakening',primaryEditionKey:'original-en'})))
       await page.goto(origin + '/reader')

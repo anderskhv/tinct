@@ -3,7 +3,7 @@ const {chromium,webkit}=require('playwright'),assert=require('node:assert/strict
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5191',out=process.env.ARTIFACT_DIR||'/tmp/tinct-reader-polish';fs.mkdirSync(out,{recursive:true});
 const engine=process.env.ENGINE||'chromium';
 async function setup(b,mobile,edition='original-en',bookId='democracy-in-america',chapter=1){
- const p=await b.newPage({viewport:mobile?{width:393,height:844}:{width:1440,height:950},isMobile:mobile,hasTouch:mobile});
+ const p=await b.newPage({serviceWorkers:'block',viewport:mobile?{width:393,height:844}:{width:1440,height:950},isMobile:mobile,hasTouch:mobile});
  await p.route('**/api/**',r=>/\/api\/audio-(?:file|manifest)\?/.test(r.request().url())?r.continue():r.fulfill({status:404,body:'{}'}));
  await p.addInitScript(({edition,bookId,chapter})=>{if(!localStorage.getItem('polish-fixture')){localStorage.setItem('polish-fixture','1');sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,compareEditionKey:edition==='original-en'?'modern-en':edition==='kjv-en'?'web-en':'original-en',savedPlace:{bookId,chapterNumber:chapter,paragraphIndex:0,page:0}}))}}, {edition,bookId,chapter});
  await p.goto(origin+'/reader');await ready(p);return p;
