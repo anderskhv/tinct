@@ -13,6 +13,26 @@ const explanation = 'A compact opening grounded in the selected passage.\n\nA se
 const definition = 'pronoun. Used to refer to people or things already identified.'
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
+
+async function checkLibraryRow(page, name) {
+  const row=page.locator('.lab-book-switcher-library');
+  const layout=await row.evaluate(node=>{
+    const s=getComputedStyle(node),p=node.closest('.lab-book-switcher').getBoundingClientRect(),r=node.getBoundingClientRect();
+    const title=node.closest('.lab-book-switcher').querySelector('.lab-book-switcher-copy strong'),t=getComputedStyle(title);
+    return {font:s.fontFamily,size:s.fontSize,weight:s.fontWeight,titleFont:t.fontFamily,titleSize:t.fontSize,titleWeight:t.fontWeight,radius:s.borderRadius,left:r.left,right:r.right,panelLeft:p.left,panelRight:p.right,height:r.height};
+  });
+  assert.equal(layout.font,layout.titleFont);assert.equal(layout.size,layout.titleSize);assert.equal(layout.weight,layout.titleWeight);
+  assert.equal(layout.radius,'0px');assert(layout.height>=44);
+  assert(layout.left>=layout.panelLeft&&layout.right<=layout.panelRight,'library row stays inside the panel');
+  // A pointer-opened menu does not imply keyboard modality in WebKit.
+  await row.focus();await page.keyboard.press('Shift+Tab');await page.keyboard.press('Tab');
+  const focus=await row.evaluate(n=>{const s=getComputedStyle(n);return {active:document.activeElement===n,visible:n.matches(':focus-visible'),width:s.outlineWidth,offset:s.outlineOffset}});
+  assert(focus.active&&focus.visible,'Library is reachable by keyboard: '+JSON.stringify(focus));
+  assert(Number.parseFloat(focus.width)>0&&Number.parseFloat(focus.width)+Number.parseFloat(focus.offset)<=0,'keyboard focus stays inside the panel: '+JSON.stringify(focus));
+  const screenshot=await page.locator('.lab-book-switcher').screenshot({path:output+'/'+name+'-switcher.jpg',type:'jpeg',quality:80});
+  console.log('REVIEW_BEGIN '+name+'-switcher');const encoded=screenshot.toString('base64');for(let i=0;i<encoded.length;i+=12000)console.log('REVIEW_CHUNK '+encoded.slice(i,i+12000));console.log('REVIEW_END');
+}
+
 async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1, fixture={}) {
   const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone, deviceScaleFactor:fixture.deviceScaleFactor||1 })
   const page = await context.newPage()
@@ -185,6 +205,7 @@ async function run(engine,name,phone) {
     await page.keyboard.press('Escape')
     await page.getByTestId('lab-header-book').click()
     await page.getByRole('button',{name:'Library',exact:true}).waitFor()
+    await checkLibraryRow(page,name+'-'+result.layout)
     await page.getByRole('button',{name:'Close book switcher'}).click()
     if(!phone){
       const progress=page.getByTestId('lab-chapter-progress')
@@ -671,6 +692,7 @@ async function mobileChromeRegression(engine,name){
       })
       assert(focus.visible&&focus.offset+focus.width<=0,'first row focus stays inside its box: '+JSON.stringify(focus))
       assert(focus.top>=focus.listTop)
+      await checkLibraryRow(page,name+'-phone-'+theme)
       await page.screenshot({path:output+'/'+name+'-phone-switcher-'+theme+'.png'})
       await page.getByRole('button',{name:'Close book switcher'}).click()
       // A real quiet-reading tap, away from the edge page-turn zones.

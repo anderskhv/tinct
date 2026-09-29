@@ -1,5 +1,5 @@
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260929reviewed';
-import {periodGroups,inPeriod,populatedShelves} from './browse-groups.js?v=20260928covers';
+import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
@@ -340,7 +340,7 @@ async function removeFromMyShelf(id){
  }catch{notice('Your shelf could not be saved. Please try again.');}
 }
 function renderMyBooks(){
- $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.replaceChildren();
+ $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
  const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
  // Desk membership defines Currently reading, including older cached snapshots.
  const reading=table.reading;
@@ -363,21 +363,38 @@ function renderMyBooks(){
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
-function renderCollection(){const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';if(kind==='saved'){renderMyBooks();return;}if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
-if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
-if(kind==='period'){const period=periodGroups.find(p=>p.id===id);selected=period?books.filter(b=>inPeriod(b,period)):[];title=period?period.label+' · '+period.range:title;}$('collection-title').textContent=title;const grid=$('collection-books');grid.replaceChildren();selected.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});$('collection-empty').hidden=selected.length>0;$('collection-empty').textContent=kind==='saved'?'Save books with “＋ Read later” to find them here.':'No books in this group yet.';}
+function collectionCard(book){
+ const card=el('article','collection-card');
+ card.append(coverButton(book),el('h2','',book.title),el('p','',book.author));
+ return card;
+}
+function renderCollection(){
+ const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
+ if(kind==='saved'){renderMyBooks();return;}
+ if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}
+ if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
+ if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
+ if(kind==='period'){const period=periodGroups.find(p=>p.id===id);selected=period?books.filter(b=>inPeriod(b,period)):[];title=period?period.label+' · '+period.range:title;}
+ $('collection-title').textContent=title;
+ const grid=$('collection-books'),groups=collectionReels(kind,id,selected,libraryHouses,title);
+ grid.replaceChildren();grid.classList.toggle('has-collection-reels',groups.length>0);
+ if(groups.length)for(const group of groups){
+  const section=el('section','shelf collection-reel'),heading=el('h2','',group.title),row=el('div','book-row');
+  section.dataset.collectionGroup=group.id;heading.id='collection-group-'+group.id;
+  row.setAttribute('role','region');row.setAttribute('aria-labelledby',heading.id);row.tabIndex=0;
+  group.books.forEach(book=>row.append(collectionCard(book)));
+  section.append(heading,row);grid.append(section);
+ }else selected.forEach(book=>grid.append(collectionCard(book)));
+ $('collection-empty').hidden=selected.length>0;$('collection-empty').textContent='No books in this group yet.';
+}
 function renderBrowseMenus(){
- const add=(host,label,value,range,children)=>{
+ const add=(host,label,value,range)=>{
   const row=el('div','browse-group'),b=el('button','',label);b.onclick=()=>selectCollection(value);
-  if(range)b.append(el('small','',range));row.append(b);
-  if(children.length){const details=el('details','browse-subgroups'),summary=el('summary','', 'Browse '+label);details.append(summary);
-   for(const child of children){const sub=el('button','',child.label);sub.onclick=()=>selectCollection(child.value);if(child.range)sub.append(el('small','',child.range));details.append(sub);}
-   row.append(details);
-  }host.append(row);
+  if(range)b.append(el('small','',range));row.append(b);host.append(row);
  };
  $('menu-categories').replaceChildren();$('menu-periods').replaceChildren();
- for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id,null,populatedShelves(c.id,libraryHouses,books).map(s=>({label:s.title,value:'shelf:'+s.id})));}
- for(const era of eras){if(!books.some(b=>metadata[b.id]?.era===era.id))continue;add($('menu-periods'),era.label,'era:'+era.id,era.range,periodGroups.filter(p=>p.era===era.id&&books.some(b=>inPeriod(b,p))).map(p=>({label:p.label,value:'period:'+p.id,range:p.range})));}
+ for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id);}
+ for(const era of eras){if(!books.some(b=>metadata[b.id]?.era===era.id))continue;add($('menu-periods'),era.label,'era:'+era.id,era.range);}
  $('menu-periods').append(el('small','browse-date-note','Grouped by approximate composition dates; some works span several periods.'));
 }
 renderBrowseMenus();
