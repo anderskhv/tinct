@@ -71,3 +71,40 @@ it('keeps an offline shelf removal explicit without deleting any reader data',as
  expect(localStorage.getItem('tinct-lab-position')).toBe('saved-place');
  expect(localStorage.getItem('tinct:highlights:hamlet')).toBe('saved-highlights');
 })
+
+it('does not replace an acknowledged re-add with an older tombstone, even after reload',async()=>{
+ mock.user='alice';mock.rows=[{key:'library-shelf:confessions',value:null,rev:7}]
+ let api=await import('./libraryTwoSaved');await api.loadSavedBooks()
+ mock.rpc.mockResolvedValue({data:[{applied:true,rev:8}],error:null})
+ await api.setSavedBook('confessions',true)
+ expect((await api.loadSavedBooks()).ids).toEqual(['confessions'])
+ vi.resetModules();api=await import('./libraryTwoSaved')
+ expect((await api.loadSavedBooks()).ids).toEqual(['confessions'])
+ // A genuine later removal still removes it everywhere.
+ mock.rows=[{key:'library-shelf:confessions',value:null,rev:9}]
+ expect((await api.loadSavedBooks()).ids).toEqual([])
+})
+it('does not resurrect a removed book from an older saved row',async()=>{
+ mock.user='alice';mock.rows=[{key:'library-shelf:confessions',value:{saved:true,at:10},rev:7}]
+ const api=await import('./libraryTwoSaved');await api.loadSavedBooks()
+ mock.rpc.mockResolvedValue({data:[{applied:true,rev:8}],error:null})
+ await api.setSavedBook('confessions',false)
+ expect((await api.loadSavedBooks()).ids).toEqual([])
+})
+it('does not replay an old offline removal over a later re-add on another device',async()=>{
+ mock.user='alice'
+ localStorage.setItem('tinct:library-2-saved:alice',JSON.stringify({items:{confessions:{saved:false,at:100}},pending:{confessions:{saved:false,at:100}},revisions:{confessions:7}}))
+ mock.rows=[{key:'library-shelf:confessions',value:{saved:true,at:200},rev:9}]
+ const api=await import('./libraryTwoSaved')
+ expect(await api.loadSavedBooks()).toEqual({ids:['confessions'],synced:true})
+ expect(mock.rpc).not.toHaveBeenCalled()
+})
+it('honours a later re-add returned by a concurrent write conflict instead of retrying the stale deletion',async()=>{
+ mock.user='alice'
+ localStorage.setItem('tinct:library-2-saved:alice',JSON.stringify({items:{confessions:{saved:false,at:100}},pending:{confessions:{saved:false,at:100}},revisions:{confessions:7}}))
+ mock.rows=[{key:'library-shelf:confessions',value:{saved:true,at:50},rev:7}]
+ mock.rpc.mockResolvedValue({data:[{applied:false,conflict:true,rev:8,value:{saved:true,at:200}}],error:null})
+ const api=await import('./libraryTwoSaved')
+ expect(await api.loadSavedBooks()).toEqual({ids:['confessions'],synced:true})
+ expect(mock.rpc).toHaveBeenCalledOnce()
+})
