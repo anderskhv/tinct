@@ -58,6 +58,7 @@ export async function checkNativeDownloads(device, page, output) {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
   const text=await page.evaluate(async()=> (await fetch('/data/editions/native-future-book-original-en.json')).json())
   assert.deepEqual(text.chapters,edition.chapters.slice(0,3),'all downloaded paragraph bytes match the publication')
+  console.log(JSON.stringify({nativeDownloadStage:'new-book-readable',exactText:true}))
   // A later ordinary edition appears without rebuilding or replacing the
   // already installed edition. Simultaneously changed old text is ignored.
   const modern=JSON.parse(await fs.readFile('public/data/editions/frankenstein-modern-en.json','utf8'))
@@ -86,14 +87,15 @@ export async function checkNativeDownloads(device, page, output) {
   await page.locator('#hero-book canvas[data-painted="true"]').waitFor({state:'attached'})
   const beforeEditionReads=calls.filter(url=>url===originalPath).length
   const editions=await page.evaluate(async()=>{
-   const module=await import('/lab/native-books.js')
-   await module.ensureNativeBook('native-future-book',['modern-en'])
+   await import('/lab/native-books.js')
+   await window.__tinctNativeBooks.ensure('native-future-book',['modern-en'])
    return {original:await(await fetch('/data/editions/native-future-book-original-en.json')).json(),
     modern:await(await fetch('/data/editions/native-future-book-modern-en.json')).json()}
   })
   assert.deepEqual(editions.original.chapters,edition.chapters.slice(0,3),'a new edition never replaces installed source text')
   assert.deepEqual(editions.modern.chapters,modern.chapters.slice(0,3),'new edition arrives with exact source bytes')
   assert.equal(calls.filter(url=>url===originalPath).length,beforeEditionReads,'existing text is reused without fetching a changed copy')
+  console.log(JSON.stringify({nativeDownloadStage:'new-edition-readable',oldTextUnchanged:true}))
   await page.waitForTimeout(1500)
   const before=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|highlight|annotation/.test(key))))
   const failure=await page.evaluate(async()=>{
@@ -103,6 +105,7 @@ export async function checkNativeDownloads(device, page, output) {
   const afterFailure=await page.evaluate(async()=> (await window.Capacitor.Plugins.NativeBooks.snapshot()).ready)
   assert(!afterFailure.includes('native-interrupted-book'),'an incomplete pack is never advertised as downloaded')
   assert.deepEqual(await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|highlight|annotation/.test(key)))),before,'download failure does not touch reader data')
+  console.log(JSON.stringify({nativeDownloadStage:'corrupt-transfer-rejected',readerDataUnchanged:true}))
   corrupt=false
   await page.evaluate(()=>window.Capacitor.Plugins.NativeBooks.download({bookId:'native-interrupted-book'}))
   await new Promise(resolve=>server.close(resolve))
