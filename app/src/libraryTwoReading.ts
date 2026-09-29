@@ -209,6 +209,13 @@ async function placeFor(bookId: string): Promise<Place | null> {
   return { chapterNumber: place.sequentialChapter, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
 }
 
+/** Read-only spoiler permission, using the same account-scoped place as Continue. */
+export async function introductionProgress(bookId: string): Promise<{ chapterNumber: number; completed: boolean }> {
+  const table = await loadReadingTable()
+  const place = await placeFor(bookId)
+  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) }
+}
+
 /**
  * Hand a book straight to the production reader, at the reader's place
  * (device merged with the account's cloud copy) in the edition it was read
@@ -435,4 +442,4 @@ export async function hideFromReadingNow(bookId: string): Promise<void> {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress }

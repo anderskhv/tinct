@@ -1,0 +1,9 @@
+#slip-invitation{font:italic var(--slip-font,11px)/1.4 Georgia,serif;margin:12px 0 0;color:inherit}
+#intro-body .reading-orientation{border-top:1px solid var(--page-rule);padding-top:20px;margin-top:26px}
+#intro-body .reading-orientation h3{font:13px/1.4 system-ui,sans-serif;color:var(--page-soft);margin-bottom:9px}
+#intro-body .reading-orientation p{font-size:18px}
+.gallery-toggle{display:block;min-height:44px;margin:8px 0 24px;padding:10px 16px;border:1px solid var(--page-rule);border-radius:6px;color:var(--page-ink);background:transparent;font:16px/1.4 Georgia,serif;text-align:left}
+.gallery-toggle:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.intro-character-list .character{align-items:flex-start}
+.intro-character-list .character-copy{min-width:0}
+.intro-tabs{gap:clamp(12px,2vw,24px)}.intro-tabs button{min-width:0;white-space:normal}
