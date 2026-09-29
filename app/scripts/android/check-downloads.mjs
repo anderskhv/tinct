@@ -1,3 +1,4 @@
+import {restartNativePage} from './native-page.mjs'
 import http from 'node:http'
 import fs from 'node:fs/promises'
 import crypto from 'node:crypto'
@@ -109,9 +110,7 @@ export async function checkNativeDownloads(device, page, output) {
   corrupt=false
   await page.evaluate(()=>window.Capacitor.Plugins.NativeBooks.download({bookId:'native-interrupted-book'}))
   await new Promise(resolve=>server.close(resolve))
-  await device.shell('am force-stop app.tinct.reader.review')
-  await device.shell('am start -n app.tinct.reader.review/app.tinct.reader.MainActivity')
-  page=await(await device.webView({pkg:'app.tinct.reader.review'})).page()
+  page=await restartNativePage(device,'app.tinct.reader.review',()=>device.shell('am start -n app.tinct.reader.review/app.tinct.reader.MainActivity'))
   await page.locator('#hero-book canvas[data-painted="true"]').waitFor({state:'attached'})
   const offline=await page.evaluate(async()=>{
    const ready=(await window.Capacitor.Plugins.NativeBooks.snapshot()).ready

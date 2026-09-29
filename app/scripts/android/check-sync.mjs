@@ -1,3 +1,4 @@
+import {restartNativePage} from './native-page.mjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 
@@ -111,9 +112,7 @@ export async function checkNativeSync(device, page, output) {
   assert.equal(position.books.zechariah.wordIndex,expected.wordIndex)
   assert.equal(await page.evaluate(()=>localStorage.getItem('tinct-lab-highlights')),note)
   // The session must survive actual activity destruction in native secure storage.
-  await device.shell('am force-stop '+packageId)
-  await device.shell('am start -n '+activity)
-  page=await(await device.webView({pkg:packageId})).page()
+  page=await restartNativePage(device,packageId,()=>device.shell('am start -n '+activity))
   await attach(page)
   await page.locator('.reading-table.is-ready #rt-continue').waitFor({timeout:60000})
   await page.waitForFunction(()=>!document.documentElement.classList.contains('returning-pending'))

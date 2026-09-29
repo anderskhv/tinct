@@ -1,3 +1,4 @@
+import {restartNativePage} from './native-page.mjs'
 import {prepareSilentEmulator} from './prepare-silent-emulator.mjs'
 import {checkNativeSync} from './check-sync.mjs'
 import {checkNativeDownloads} from './check-downloads.mjs'
@@ -78,9 +79,7 @@ try {
  await page.waitForTimeout(1500)
  const stored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  stage('force-close')
- await device.shell('am force-stop '+packageId)
- await device.shell('am start -n '+activity)
- page=await(await device.webView({pkg:packageId})).page()
+ page=await restartNativePage(device,packageId,()=>device.shell('am start -n '+activity))
  await page.locator('.reading-table.is-ready #rt-continue').waitFor()
  await page.waitForFunction(()=>!document.documentElement.classList.contains('returning-pending'))
  await page.evaluate(()=>document.fonts.ready)
@@ -92,6 +91,23 @@ try {
  console.log(JSON.stringify({nativeLibraryGeometry:await page.evaluate(()=>({html:document.documentElement.className,body:document.body.className,nodes:['#hero','.reading-table','#rt-title','#rt-continue'].map(sel=>{const n=document.querySelector(sel),r=n.getBoundingClientRect(),s=getComputedStyle(n);return {sel,rect:{x:r.x,y:r.y,width:r.width,height:r.height},display:s.display,visibility:s.visibility,color:s.color,opacity:s.opacity}})}))}))
  await device.screenshot({path:output+'/native-offline-library-restored.png'})
  console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-library',png:(await fs.readFile(output+'/native-offline-library-restored.png')).toString('base64')}}))
+ // Temporary, isolated visual probes: identify the layer hiding the returning table.
+ console.log(JSON.stringify({nativePaintDiagnostic:await page.evaluate(()=>{
+  const n=document.querySelector('#rt-title'),r=n.getBoundingClientRect(),chain=[]
+  for(let p=n;p;p=p.parentElement){const s=getComputedStyle(p);chain.push({tag:p.tagName,id:p.id,class:p.className,opacity:s.opacity,visibility:s.visibility,display:s.display,transform:s.transform,zIndex:s.zIndex,filter:s.filter,clipPath:s.clipPath})}
+  return {viewport:{width:innerWidth,height:innerHeight,scrollY,dpr:devicePixelRatio},chain,hit:document.elementsFromPoint(r.left+10,r.top+10).map(n=>n.tagName+'#'+n.id+'.'+n.className)}
+ })}))
+ for(const [name,css] of [
+  ['without-room-layers','#scene,.hero-shade{display:none!important}'],
+  ['table-own-layer','.reading-table{transform:translateZ(0)!important}'],
+  ['force-table-paint','.reading-table,.reading-table *{visibility:visible!important;opacity:1!important}'],
+ ]){
+  const probe=await page.addStyleTag({content:css})
+  await page.waitForTimeout(500)
+  const png=await device.screenshot()
+  console.log(JSON.stringify({nativeDeviceVisual:{name:'eink-probe-'+name,png:png.toString('base64')}}))
+  await probe.evaluate(n=>n.remove())
+ }
  const restored=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
  assert.deepEqual(restored,stored,'force-close retains local reading anchors and settings')
  // Exercise the Android deep-link plumbing without contacting an auth
@@ -112,11 +128,12 @@ try {
     }catch{window.__nativeReturnCheck={parseError:true}}
    })
   },{packageId,nonce})
-  if(cold)await device.shell('am force-stop '+packageId)
   const callback=packageId+'://auth/callback?flow='+nonce+(cold?'&error=access_denied':'#error=access_denied')
-  const launchResult=await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)
+  let launchResult
+  const launch=async()=>{launchResult=await device.shell("am start -W -a android.intent.action.VIEW -d '"+callback+"' "+packageId)}
+  if(cold)page=await restartNativePage(device,packageId,launch)
+  else await launch()
   console.log(JSON.stringify({nativeIntentDispatch:String(launchResult).replace(/app\.tinct\.reader(?:\.review)?:\/\/[^\s]+/g,'[redacted callback]')}))
-  if(cold)page=await(await device.webView({pkg:packageId})).page()
   try{
   await page.locator('[data-auth-status]').filter({hasText:'Sign-in could not be completed. Please try again.'}).waitFor({timeout:60000})
   assert.equal(await page.evaluate(async()=> (await window.Capacitor.Plugins.NativeAuthStorage.get({key:'tinct:native-auth-pending'})).value??null),null,'callback is consumed once')

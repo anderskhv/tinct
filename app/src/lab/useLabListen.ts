@@ -13,6 +13,7 @@ import {
 } from './labListen'
 import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
 import { setAudioSource } from '../utils/audioPlayback'
+import { isNativeCapacitor } from '../utils/nativePlatform'
 import {readerMediaSession, readerMediaMetadata, playReaderAudioTransition, playReaderAudio, endNativeNarration} from '../utils/readerMediaSession'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
@@ -854,9 +855,11 @@ export function useLabListen(options: UseLabListenOptions) {
     // At an automatic boundary, pausing the ended element before assigning
     // the next source makes WebKit hand lock-screen ownership back to the
     // page. Preserve the active native media session and arm autoplay before
-    // the synchronous source swap. Manual seeks/source changes still pause.
+    // the synchronous source swap. Android instead waits for foreground-service
+    // ownership in playReaderAudioTransition before any playback can start.
+    // Manual seeks/source changes still pause.
     const continuousBoundary = Boolean(andPlay && playingRef.current && audio.ended)
-    audio.autoplay = andPlay
+    audio.autoplay = andPlay && !isNativeCapacitor()
     if (!continuousBoundary) {
       try { audio.pause() } catch { /* ignore */ }
     }
@@ -1222,7 +1225,7 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current = null
     chapterHandoffRef.current = true
     const audio = audioRef.current
-    if (audio) audio.autoplay = true
+    if (audio) audio.autoplay = !isNativeCapacitor()
     playingRef.current = true
     setPlaying(true)
     setFollow({ kind: 'none' })
