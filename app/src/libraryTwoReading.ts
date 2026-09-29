@@ -1,3 +1,4 @@
+import { nativeLibraryCatalogue, ensureNativeBook } from './utils/nativeBooks'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
@@ -107,11 +108,12 @@ function storage(kind: 'local' | 'session'): Storage | null {
 async function loadCatalogue(provided?: Promise<{ books?: CatalogueBook[] }>): Promise<Map<string, CatalogueBook>> {
   if (catalogue) return catalogue
   try {
-    const data = provided ? await provided : await (async () => {
+    const native = await nativeLibraryCatalogue()
+    const data = native ?? (provided ? await provided : await (async () => {
       const response = await fetch(LAB_CATALOGUE_URL)
       if (!response.ok) throw new Error(String(response.status))
       return await response.json() as { books?: CatalogueBook[] }
-    })()
+    })())
     catalogue = new Map((data.books ?? []).map(book => [book.id, book]))
   } catch {
     return new Map()
@@ -215,6 +217,7 @@ async function placeFor(bookId: string): Promise<Place | null> {
  * book page is the fallback when no readable edition is known.
  */
 export async function readerDestination(bookId: string, preferredEdition?: string | null): Promise<string> {
+  await ensureNativeBook(bookId)
   const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
   const book = books.get(bookId)
   const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)

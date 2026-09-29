@@ -1,6 +1,7 @@
 import { registerBiblePoetry } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
+import { ensureNativeBook } from '../utils/nativeBooks'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
@@ -494,6 +495,7 @@ async function applyVerseLines(
 }
 
 export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
+  await ensureNativeBook(input.bookId)
   // One migration for every caller, before the book id is even dispatched on:
   // no reader of this function can aim it at a withdrawn edition.
   const selection: LabBookSourceSelection = {
@@ -600,6 +602,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
 
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
+  await ensureNativeBook(bookId)
   const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
   return loadEditionChapterList(bookId, editionKey)

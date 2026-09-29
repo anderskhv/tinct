@@ -1,3 +1,4 @@
+import { initializeNativeBooks } from './utils/nativeBooks'
 import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
 import React from 'react'
@@ -54,12 +55,15 @@ const render = () => ReactDOM.createRoot(document.getElementById('root')!).rende
 // Saved places and highlights written against text a structural edition
 // release has since replaced move before the reader first reads them. Only a
 // reader holding such data waits, and never for more than a few seconds.
-const contentMigrations = Root === LabApp ? storedContentMigrations() : null
-if (nativeDestination) {
-  window.location.replace(nativeDestination)
-} else if (contentMigrations) {
-  void Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))]).finally(render)
-} else {
+async function begin() {
+  if (nativeDestination) { window.location.replace(nativeDestination); return }
+  if (isCapacitor) await initializeNativeBooks()
+  const contentMigrations = Root === LabApp ? storedContentMigrations() : null
+  if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   render()
 }
+void begin().catch(() => {
+  // Render the ordinary reader error/retry flow; never clear its saved data.
+  render()
+})
 

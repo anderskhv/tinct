@@ -27,6 +27,9 @@ for (const name of await readdir(shardRoot)) {
   const dir=join(shardRoot,name)
   if(!(await stat(dir)).isDirectory())continue
   const mismatches=[]
+  // The Bible reader has its own manifest/chapter loader. Keep those files;
+  // the generic whole-edition shortcut is not used on that path.
+  if(name.startsWith('bible-')) { retained.push({edition:name,reason:'Bible chapter loader'});continue }
   if(name.endsWith('-da')) { retained.push({edition:name,reason:'withdrawn recovery assets'});continue }
   const manifest=JSON.parse(await readFile(join(dir,'manifest.json'),'utf8'))
   const whole=JSON.parse(await readFile(join(root,'data/editions',name+'.json'),'utf8'))
@@ -45,3 +48,7 @@ await writeFile(join(root,'native-edition-storage.json'),JSON.stringify({wholeEd
 await mkdir('artifacts/android',{recursive:true})
 await writeFile('artifacts/android/text-deduplication.json',JSON.stringify({duplicateBytes,compacted,retained},null,2))
 console.log(JSON.stringify({duplicateChapterBytesRemoved:duplicateBytes,compacted:compacted.length,retained}))
+
+// Native catalogue state is versioned independently of private reader data.
+const nativeIndex=JSON.parse(await readFile(join(root,'native-books/index.json'),'utf8'))
+await writeFile(join(root,'native-books/bundled.json'),JSON.stringify({books:nativeIndex.books.map(book=>book.id)}))

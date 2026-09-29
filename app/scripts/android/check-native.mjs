@@ -1,3 +1,4 @@
+import {checkNativeDownloads} from './check-downloads.mjs'
 import {checkBackgroundAudio} from './check-background.mjs'
 import { _android as android } from 'playwright'
 import {execFileSync} from 'node:child_process'
@@ -108,9 +109,12 @@ try {
   assert.deepEqual(afterAuth,stored,'cancelled authentication retains reading data')
  }
  await device.screenshot({path:output+'/native-auth-return.png'})
+ stage('native-book-downloads')
+ const downloaded=await checkNativeDownloads(device,page,output)
+ page=downloaded.page
  stage('native-background-audio')
  const background=await checkBackgroundAudio(device,page,output)
- await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true,authWarmCancellation:true,authColdCancellation:true,realProviderSignIn:false,background},null,2))
+ await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true,authWarmCancellation:true,authColdCancellation:true,realProviderSignIn:false,downloads:downloaded.result,background},null,2))
 } catch(error) {
  // These diagnostics run only in the isolated, signed-out emulator. No
  // callback query, authorization header, or session payload is recorded.

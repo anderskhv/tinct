@@ -6,6 +6,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import com.getcapacitor.BridgeWebViewClient;
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
@@ -14,6 +17,7 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(HomeRolePlugin.class);
         registerPlugin(NativeAuthStoragePlugin.class);
+        registerPlugin(NativeBooksPlugin.class);
         super.onCreate(savedInstanceState);
 
         // Suppress the Android system selection action mode (Copy / Share /
@@ -42,6 +46,17 @@ public class MainActivity extends BridgeActivity {
             public void onDestroyActionMode(ActionMode mode) {}
         };
         WebView webView = getBridge().getWebView();
+        getBridge().setWebViewClient(new BridgeWebViewClient(getBridge()) {
+            @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                if ("https".equals(request.getUrl().getScheme()) && "localhost".equals(request.getUrl().getHost())
+                    && "GET".equals(request.getMethod()) && request.getUrl().getPath() != null
+                    && (request.getUrl().getPath().startsWith("/data/") || request.getUrl().getPath().startsWith("/covers/") || request.getUrl().getPath().startsWith("/lab/prefaces/"))) {
+                    WebResourceResponse cached = NativeBooksStore.get(getApplicationContext()).asset(request.getUrl().getPath());
+                    if (cached != null) return cached;
+                }
+                return super.shouldInterceptRequest(view, request);
+            }
+        });
         // WebView doesn't expose setCustomSelectionActionModeCallback as a
         // public method (it's on TextView), but the underlying View has the
         // selection-toolbar plumbing reachable via reflection. With this
