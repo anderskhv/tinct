@@ -1,3 +1,4 @@
+import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
 import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
@@ -452,6 +453,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const outside = (event: PointerEvent) => {
       const target = event.target
       if (target instanceof Element && target.closest('#lab-audio-speed-popover, [data-testid="lab-hearing-speed"]')) return
+      consumeDismissGesture(event)
       setSpeedPopoverOpen(false)
     }
     const escape = (event: KeyboardEvent) => {

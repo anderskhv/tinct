@@ -1,3 +1,4 @@
+import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import type { CharacterSelection } from '../../services/characters/characterCards'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
@@ -255,15 +256,7 @@ export function SelectionPopup({
       if (popupRef.current?.contains(event.target as Node)) return
       // The first outside gesture only dismisses, including desktop text.
       // Otherwise pointerup can open a definition beneath the closing menu.
-      event.preventDefault(); event.stopImmediatePropagation()
-      // Keep swallowing the initiating gesture after this popup unmounts.
-      // Pointerdown alone does not suppress touchend or a subsequent click.
-      const types = ['pointerup', 'pointermove', 'mousedown', 'mouseup', 'touchstart', 'touchmove', 'touchend', 'click', 'contextmenu'] as const
-      const consume = (next: Event) => { next.preventDefault(); next.stopImmediatePropagation(); if (next.type === 'click') cleanup() }
-      const cleanup = () => { types.forEach(type => window.removeEventListener(type, consume, true)); window.removeEventListener('pointerdown', cleanup, true); clearTimeout(timer) }
-      types.forEach(type => window.addEventListener(type, consume, { capture: true, passive: false }))
-      const timer = window.setTimeout(cleanup, 10_000)
-      window.addEventListener('pointerdown', cleanup, { capture: true, once: true })
+      consumeDismissGesture(event)
       dismissRef.current()
     }
     const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); dismissRef.current() } }
