@@ -71,6 +71,9 @@ jobs:
           TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
         run: bash scripts/smoke-test.sh https://tinct.app
 
+      - name: Verify published Android book downloads
+        run: node scripts/android/check-publication.mjs https://tinct.app
+
       - name: Verify production brand metadata and assets
         run: node scripts/check-brand.mjs
 

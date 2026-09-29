@@ -34,6 +34,7 @@ jobs:
       - name: Check native acceptance script syntax
         run: |
           node --check scripts/android/check-native.mjs
+          node --check scripts/android/check-publication.mjs
           node --check scripts/android/check-background.mjs
           node --check scripts/android/check-downloads.mjs
           node --check scripts/android/check-sync.mjs

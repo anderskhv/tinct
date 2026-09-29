@@ -101,13 +101,17 @@ export async function checkBackgroundAudio(device,page,output){
   controlStage='system resume'
   await device.shell('cmd media_session dispatch play')
   await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true'&&window.__nativeAudioClips.some(a=>!a.paused&&!a.ended),null,{timeout:10000,polling:100})
-  controlStage='hardware pause'
+  // Generic keyboard injection is discarded by the sleeping emulator before
+  // reaching any app. The media-session commands above exercise screen-off
+  // media keys; test foreground keyboard injection separately after waking.
+  await device.shell('input keyevent 224');locked=false
+  controlStage='foreground keyboard pause'
   await device.shell('input keyevent 127')
   await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='false'&&window.__nativeAudioClips.every(a=>a.paused||a.ended),null,{timeout:10000,polling:100})
-  controlStage='hardware resume'
+  controlStage='foreground keyboard resume'
   await device.shell('input keyevent 126')
   await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true'&&window.__nativeAudioClips.some(a=>!a.paused&&!a.ended),null,{timeout:10000,polling:100})
-  return {screenOffChapterAdvance:true,lockScreenSession:true,systemMediaPauseResume:true,hardwareMediaPauseResume:true,syntheticSilentAudio:true}
+  return {screenOffChapterAdvance:true,lockScreenSession:true,systemMediaPauseResume:true,foregroundInjectedMediaPauseResume:true,syntheticSilentAudio:true}
  }catch(error){
   const state=await snapshot().catch(()=>({unavailable:true}))
   const sessions=String(await device.shell('dumpsys media_session'))
