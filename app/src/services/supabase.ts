@@ -1,3 +1,4 @@
+import { nativeAuthStorage } from '../utils/nativeAuthStorage'
 import { isNativeCapacitor } from '../utils/nativePlatform'
 import { installNativeAuth } from '../utils/nativeAuth'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
@@ -13,7 +14,7 @@ function createSupabaseClient(): SupabaseClient | null {
       autoRefreshToken: true,
       detectSessionInUrl: !isNativeCapacitor(),
       ...(isNativeCapacitor() ? { flowType: 'pkce' as const } : {}),
-      storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+      storage: isNativeCapacitor() ? nativeAuthStorage : typeof window !== 'undefined' ? window.localStorage : undefined,
     },
   })
 }

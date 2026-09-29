@@ -1,3 +1,4 @@
+import { nativeAuthStorage } from './nativeAuthStorage'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { isNativeCapacitor } from './nativePlatform'
 import { NATIVE_AUTH_PENDING, NATIVE_AUTH_NOTICE, nativeAuthPending, nativeAuthRedirect, parseNativeAuthReturn, nativeAuthLanding, type NativeAuthPending, type NativeAuthKind } from './nativeAuthReturn'
@@ -5,12 +6,13 @@ import { NATIVE_AUTH_PENDING, NATIVE_AUTH_NOTICE, nativeAuthPending, nativeAuthR
 let installation: Promise<void> | null=null
 let handling=false
 const DEFERRED_RETURN='tinct:native-auth-return'
-function readPending():NativeAuthPending|null {
-  try {return JSON.parse(localStorage.getItem(NATIVE_AUTH_PENDING)??'null')}catch{return null}
+async function readPending():Promise<NativeAuthPending|null> {
+  const saved=await nativeAuthStorage.getItem(NATIVE_AUTH_PENDING)
+  try {return JSON.parse(saved??'null')}catch{return null}
 }
 /** PKCE returns only a short-lived code; tokens never enter app URLs or logs. */
 export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,appId:string):Promise<boolean> {
-  const result=parseNativeAuthReturn(raw,readPending(),appId,Date.now())
+  const result=parseNativeAuthReturn(raw,await readPending(),appId,Date.now())
   if(!result || handling)return false
   handling=true
   // Stop the old reader before changing accounts. Exchanging on its mounted
@@ -22,7 +24,7 @@ export async function handleNativeAuthReturn(client:SupabaseClient,raw:string,ap
     return true
   }
   // Claim once before exchanging: warm and cold launch events can both arrive.
-  localStorage.removeItem(NATIVE_AUTH_PENDING)
+  await nativeAuthStorage.removeItem(NATIVE_AUTH_PENDING)
   let failed=result.error
   try {
     if(!failed){
@@ -57,7 +59,7 @@ export async function authRedirectTo(client:SupabaseClient,returnTo:string,kind:
   const {App}=await import('@capacitor/app')
   const {id}=await App.getInfo()
   const pending=nativeAuthPending(id,crypto.randomUUID(),returnTo,kind,Date.now())
-  localStorage.setItem(NATIVE_AUTH_PENDING,JSON.stringify(pending))
+  await nativeAuthStorage.setItem(NATIVE_AUTH_PENDING,JSON.stringify(pending))
   return nativeAuthRedirect(pending)
 }
 export async function startNativeOAuth(client:SupabaseClient,provider:'google'|'apple'|'github',returnTo:string):Promise<boolean> {
@@ -70,7 +72,7 @@ export async function startNativeOAuth(client:SupabaseClient,provider:'google'|'
     const {Browser}=await import('@capacitor/browser')
     await Browser.open({url:data.url})
     return true
-  }catch(error){localStorage.removeItem(NATIVE_AUTH_PENDING);throw error}
+  }catch(error){await nativeAuthStorage.removeItem(NATIVE_AUTH_PENDING);throw error}
 }
 export function consumeNativeAuthNotice(search=window.location.search):string|null {
   // The intermediate account page may finish initializing before Browser.close

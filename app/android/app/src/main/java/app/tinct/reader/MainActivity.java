@@ -13,6 +13,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(HomeRolePlugin.class);
+        registerPlugin(NativeAuthStoragePlugin.class);
         super.onCreate(savedInstanceState);
 
         // Suppress the Android system selection action mode (Copy / Share /

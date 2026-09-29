@@ -3,6 +3,8 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'app.tinct.reader',
   appName: 'Tinct',
+  // Native bridge calls carry sign-in state; never write payloads to logcat.
+  loggingBehavior: 'none',
   webDir: 'dist',
   server: {
     // In production, load from bundled assets (file://)

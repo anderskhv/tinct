@@ -84,9 +84,9 @@ try {
   stage(cold?'auth-cold-return':'auth-warm-return')
   const nonce=cold?'native-cold-0123456789':'native-warm-0123456789'
   await page.evaluate(async({packageId,nonce})=>{
-   localStorage.setItem('tinct:native-auth-pending',JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+60_000}))
-   await window.Capacitor.Plugins.App.addListener('appUrlOpen',event=>{
-    const pending=JSON.parse(localStorage.getItem('tinct:native-auth-pending')||'null')
+   await window.Capacitor.Plugins.NativeAuthStorage.set({key:'tinct:native-auth-pending',value:JSON.stringify({appId:packageId,nonce,returnTo:'/reader',kind:'oauth',expires:Date.now()+15*60_000})})
+   await window.Capacitor.Plugins.App.addListener('appUrlOpen',async event=>{
+    const pending=JSON.parse((await window.Capacitor.Plugins.NativeAuthStorage.get({key:'tinct:native-auth-pending'})).value||'null')
     try{
      const url=new URL(event.url),fragment=new URLSearchParams(url.hash.slice(1))
      window.__nativeReturnCheck={protocol:url.protocol,host:url.hostname,path:url.pathname,
@@ -102,7 +102,7 @@ try {
   console.log(JSON.stringify({nativeIntentDispatch:String(launchResult).replace(/app\.tinct\.reader(?:\.review)?:\/\/[^\s]+/g,'[redacted callback]')}))
   if(cold)page=await(await device.webView({pkg:packageId})).page()
   await page.locator('[data-auth-status]').filter({hasText:'Sign-in could not be completed. Please try again.'}).waitFor({timeout:60000})
-  assert.equal(await page.evaluate(()=>localStorage.getItem('tinct:native-auth-pending')),null,'callback is consumed once')
+  assert.equal(await page.evaluate(async()=> (await window.Capacitor.Plugins.NativeAuthStorage.get({key:'tinct:native-auth-pending'})).value??null),null,'callback is consumed once')
   assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','account access keeps the e-ink profile')
   const afterAuth=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/position|prefs|eink/.test(key))))
   assert.deepEqual(afterAuth,stored,'cancelled authentication retains reading data')
@@ -118,7 +118,7 @@ try {
   let launchCheck
   try {
    const result=await window.Capacitor.Plugins.App.getLaunchUrl()
-   const pending=JSON.parse(localStorage.getItem('tinct:native-auth-pending')||'null')
+   const pending=JSON.parse((await window.Capacitor.Plugins.NativeAuthStorage.get({key:'tinct:native-auth-pending'})).value||'null')
    const raw=result?.url||'',prefix=pending?.appId+'://'
    const url=new URL(raw.startsWith(prefix)?'https://'+raw.slice(prefix.length):raw)
    launchCheck={schemeMatches:raw.startsWith(prefix),host:url.hostname,path:url.pathname,
@@ -131,7 +131,7 @@ try {
   status:document.querySelector('[data-auth-status]')?.textContent,
   statusHidden:document.querySelector('[data-auth-status]')?.hidden,
   mode:document.querySelector('[data-mode]')?.getAttribute('data-mode'),
-  pending:!!localStorage.getItem('tinct:native-auth-pending'),
+  pending:!!(await window.Capacitor.Plugins.NativeAuthStorage.get({key:'tinct:native-auth-pending'})).value,
   deferred:!!sessionStorage.getItem('tinct:native-auth-return'),
   notice:!!localStorage.getItem('tinct:native-auth-notice'),
   body:document.body.innerText.slice(0,1200),
