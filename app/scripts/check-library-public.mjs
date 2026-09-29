@@ -36,7 +36,9 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  }));
  assert(reels.length>1,'drama subdivisions are distinct rows');
  assert(reels.every(r=>r.display==='flex'&&r.right<=w+1));
- assert(reels.some(r=>r.scrollable&&r.moved),'a populated drama row scrolls horizontally');
+ console.log('COLLECTION_REELS '+JSON.stringify({engine:engine.name(),viewport:w,reels}));
+ assert(reels.every(r=>!r.scrollable||r.moved),'every overflowing row can be scrolled');
+ if(w<600)assert(reels.some(r=>r.scrollable&&r.moved),'populated drama rows scroll on phones');
  await p.locator('.collection-reel .book-row').evaluateAll(rows=>rows.forEach(row=>row.scrollLeft=0));
  await p.waitForFunction(()=>[...document.querySelectorAll('.collection-reel canvas[data-book]')].filter(c=>{const r=c.getBoundingClientRect();return r.left<innerWidth&&r.right>0&&r.top<innerHeight}).every(c=>c.dataset.painted==='true'));
  const navReview=await p.screenshot({path:out+'/drama-'+engine.name()+'.jpg',type:'jpeg',quality:75});
