@@ -96,6 +96,20 @@ try {
  await device.screenshot({path:output+'/native-auth-return.png'})
  await fs.writeFile(output+'/native-results.json',JSON.stringify({device:device.model(),packageId,androidEmulator:true,physicalEink:false,offlineLibrary:true,offlineCovers:true,libraryReadFlow:true,restoredEinkLibrary:true,offlineReading:true,hardwarePageKey:true,pageTurnMs:turnMs,forceClosePersistence:true,authWarmCancellation:true,authColdCancellation:true,realProviderSignIn:false},null,2))
 } catch(error) {
+ // These diagnostics run only in the isolated, signed-out emulator. No
+ // callback query, authorization header, or session payload is recorded.
+ const state=page?await page.evaluate(()=>({
+  path:location.pathname,native:window.Capacitor?.isNativePlatform(),
+  status:document.querySelector('[data-auth-status]')?.textContent,
+  statusHidden:document.querySelector('[data-auth-status]')?.hidden,
+  mode:document.querySelector('[data-mode]')?.getAttribute('data-mode'),
+  pending:!!localStorage.getItem('tinct:native-auth-pending'),
+  deferred:!!sessionStorage.getItem('tinct:native-auth-return'),
+  notice:!!localStorage.getItem('tinct:native-auth-notice'),
+  body:document.body.innerText.slice(0,1200),
+ })).catch(()=>({unavailable:true})):{noWebview:true}
+ console.log(JSON.stringify({nativeFailureState:state}))
+ await fs.writeFile(output+'/native-failure-state.json',JSON.stringify(state,null,2))
  await device.screenshot({path:output+'/native-failure.png'}).catch(()=>{})
  await fs.writeFile(output+'/native-failure.txt',String(error)+'\n'+(page?await page.locator('body').innerText().catch(()=> 'unavailable'):'no webview'))
  throw error
