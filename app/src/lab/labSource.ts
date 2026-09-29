@@ -590,7 +590,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
       wordCount: chapter.paragraphs.length
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
         : undefined,
-      paragraphCount: chapter.paragraphs.length,
+      paragraphCount: chapter.paragraphCount ?? chapter.paragraphs.length,
     })),
     sections: primaryData.sections,
     cast: supporting.cast,
