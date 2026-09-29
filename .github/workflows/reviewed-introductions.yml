@@ -5,6 +5,7 @@ on:
       - 'app/public/lab/library_2/**'
       - 'app/scripts/check-reviewed-introductions.mjs'
       - 'app/src/reviewedIntroductions.test.ts'
+      - 'books/wip/remaining-content-20260929/**'
       - '.github/workflows/reviewed-introductions.yml'
   workflow_run:
     workflows: [deploy]
@@ -15,7 +16,7 @@ jobs:
   browser:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: app

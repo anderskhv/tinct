@@ -91,3 +91,44 @@ describe('reviewed author image coverage and credits', () => {
     }
   })
 })
+
+describe('remaining ninety reviewed introductions', () => {
+  const batch = json('../../books/wip/remaining-content-20260929/book-copy.json')
+  const images = json('../public/lab/library_2/author-images.json')
+  it('covers the exact catalogue complement with the supplied wording and image mappings', () => {
+    expect(batch.books).toHaveLength(90)
+    const allIds=[...source.books,...batch.books].map(book=>book.id)
+    expect(new Set(allIds).size).toBe(101)
+    expect([...allIds].sort()).toEqual(images.books.map(book=>book.bookId).sort())
+    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds].sort())
+    for(const accepted of batch.books){
+      const copy=json('../public/lab/library_2/intro-data/'+accepted.id+'.json')
+      expect(copy.id).toBe(accepted.id)
+      for(const key of ['name','years','occupation','biography'])expect(copy.author[key],accepted.id+':'+key).toBe(accepted.author[key])
+      expect(copy.hook.text).toBe(accepted.hook.text)
+      expect(copy.preface.paragraphs).toEqual(accepted.preface.paragraphs)
+      expect(copy.orientation.text).toBe(accepted.orientation.text)
+      expect(reviewedHooks[accepted.id]).toBe(accepted.hook.text)
+      expect(images.books.find(book=>book.bookId===accepted.id).imageIds).toEqual(accepted.flapImages.imageIds)
+      expect(copy).not.toHaveProperty('gallery')
+      for(const field of ['status','editorialNotes','references','flapImages','readingTime'])expect(copy).not.toHaveProperty(field)
+      expect(copy.author).not.toHaveProperty('status')
+      expect(copy.hook).not.toHaveProperty('status')
+      expect(copy.preface).not.toHaveProperty('status')
+      expect(copy.orientation).not.toHaveProperty('status')
+    }
+  })
+  it('retains existing titles, galleries, identities, spoiler gates and reading metadata', () => {
+    for(const accepted of batch.books){
+      const characters=[{id:'existing-id',aliases:['Existing name'],kind:'person',storyRole:'minor',body:'Existing text',art:'/existing.webp',introVisibility:'hold_until_revealed',revealAfterChapter:26}]
+      const book={id:accepted.id,title:'Existing catalogue title',characters,editions:['original-en'],defaultEditionKey:'original-en',firstChapter:7,wordCount:1234,discoveryAvailable:false}
+      const original=structuredClone(book)
+      applyReviewedIntroduction(book,json('../public/lab/library_2/intro-data/'+accepted.id+'.json'))
+      expect(book.characters).toBe(characters)
+      for(const key of Object.keys(original))expect(book[key],accepted.id+':'+key).toEqual(original[key])
+      expect(book.preface).toEqual(accepted.preface.paragraphs)
+      expect(book.orientation).toBe(accepted.orientation.text)
+      expect(reviewedCast(book)).toBeNull()
+    }
+  })
+})
