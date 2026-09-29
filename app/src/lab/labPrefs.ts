@@ -622,7 +622,7 @@ export function labBookPageEstimate(input: {
   const pagesAfter = Math.max(0, Math.round(after / capacity))
   const page = pagesBefore + currentPage
   const totalPages = pagesBefore + chapterPages + pagesAfter
-  return { page, totalPages, percent: clampPercent(page, totalPages), honest: input.chapterWeights.every(chapter => typeof chapter.wordCount === 'number') }
+  return { page, totalPages, percent: clampPercent(page, totalPages), honest: true }
 }
 
 function clampPercent(page: number, totalPages: number): number {

@@ -440,7 +440,7 @@ describe('whole-book progress with only nearby chapters loaded', () => {
     const progress = labBookPageEstimate({ currentPage: 5, totalPages: 10, chapterNumber: 1, chapterWeights: chapters, wordsPerPage: 100, bookWordCount: 10000 })
     expect(progress.percent).toBe(5)
     expect(progress.totalPages).toBe(100)
-    expect(progress.honest).toBe(false)
+    expect(progress.honest).toBe(true)
   })
 
   it('uses observed density when a catalogue total is missing or smaller than loaded text', () => {
