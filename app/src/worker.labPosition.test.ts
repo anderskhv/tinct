@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { handleLabPosition } from './worker/routes/labPosition'
 import type { LabPositionState } from './lab/labPosition'
 
@@ -295,4 +295,44 @@ it('round-trips chapter bookmarks through the authenticated endpoint and retains
   const stored = await response.json() as LabPositionState
   expect(stored.recentChapters?.['romans:1054']).toEqual(state.books.romans)
   expect(stored.owner).toBe(userId)
+})
+
+describe('durable account routing',()=>{
+  const verify=async()=>({id:userId,email:'fixture@example.invalid'})
+  function fixture(){
+    const read=vi.fn(async()=>({...romansState(),owner:userId}))
+    const update=vi.fn(async(_owner:string,value:LabPositionState)=>({...value,owner:userId}))
+    const getByName=vi.fn(()=>({read,update}))
+    const kv=memoryKv()
+    return {read,update,getByName,kv,env:{READER_POSITION:{getByName} as any,RATE_LIMIT:kv as unknown as KVNamespace}}
+  }
+  it('uses only the authenticated account and bypasses stale KV',async()=>{
+    const f=fixture()
+    f.kv.data.set('lab-position:'+userId,JSON.stringify(genesisFallbackState(900_000)))
+    const response=await handleLabPosition(new Request('https://tinct.app/api/lab-position?user=other'),f.env,verify)
+    expect(f.getByName).toHaveBeenCalledExactlyOnceWith(userId)
+    expect(f.read).toHaveBeenCalledExactlyOnceWith(userId)
+    expect((await response.json()).lastSettledBookId).toBe('romans')
+    expect(response.headers.get('cache-control')).toBe('private, no-store')
+  })
+  it('does not create or read a coordinator before authentication',async()=>{
+    const f=fixture()
+    expect((await handleLabPosition(new Request('https://tinct.app/api/lab-position'),f.env,async()=>null)).status).toBe(401)
+    expect(f.getByName).not.toHaveBeenCalled()
+  })
+  it('sends validated data through one account coordinator',async()=>{
+    const f=fixture()
+    const response=await handleLabPosition(new Request('https://tinct.app/api/lab-position',{method:'PUT',body:JSON.stringify({...romansState(),owner:'forged'})}),f.env,verify)
+    expect(response.status).toBe(200)
+    expect(f.update.mock.calls[0][0]).toBe(userId)
+    expect((await response.json()).owner).toBe(userId)
+    expect(f.kv.data.size).toBe(0)
+  })
+  it('reports coordinator unavailability without falling back to stale state',async()=>{
+    const f=fixture()
+    f.read.mockRejectedValue(new Error('unavailable'));f.update.mockRejectedValue(new Error('unavailable'))
+    expect((await handleLabPosition(new Request('https://tinct.app/api/lab-position'),f.env,verify)).status).toBe(503)
+    expect((await handleLabPosition(new Request('https://tinct.app/api/lab-position',{method:'PUT',body:JSON.stringify(romansState())}),f.env,verify)).status).toBe(503)
+    expect(f.kv.data.size).toBe(0)
+  })
 })

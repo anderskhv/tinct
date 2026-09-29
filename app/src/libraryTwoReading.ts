@@ -8,7 +8,7 @@ import { editionHold } from './data/editionAvailability'
  * (src/labReadingMemory.ts), without its rendering: reading-memory sessions
  * (device mirror, merged with the account's cloud copy when signed in), the
  * reader's position store (device record merged by time with the account's
- * cloud row), and completion marks. The reader owns every position write;
+ * cloud row), and completion marks. The reader owns every reading event; account snapshots are mirrored unchanged;
  * the explicit remove action only changes the existing shelf-hide timestamp.
  *
  * The "so far" summary follows preReader/recapSummaryClient.ts exactly: a
@@ -142,7 +142,16 @@ async function loadPositions(auth: RecapAuth, onReady?: (positions: LabPositionS
   onReady?.(ownedLocal)
   if (!auth.token || !auth.userId || !isOnline()) return ownedLocal
   const cloud = await fetchLabPositionCloud(auth.token).catch(() => null)
-  const merged = accountLabPositionRecord(local, cloud, auth.userId)
+  let merged = accountLabPositionRecord(local, cloud, auth.userId)
+  if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
+  // Keep the account pins we have actually received, not just a presentation
+  // snapshot. A later offline/older cloud response must not make a book vanish.
+  // This copies exact clocks/coordinates; opening the library is not reading.
+  const current = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
+  if (cloud && (!cloud.owner || cloud.owner === auth.userId)
+    && (!current.owner || current.owner === auth.userId)) {
+    merged = writeLabPositionLocal(merged)
+  }
   onReady?.(merged)
   return merged
 }
