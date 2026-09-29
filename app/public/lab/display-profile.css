@@ -1,0 +1,50 @@
+/* Explicit, shared e-ink appearance. It never changes source text or page metrics. */
+html[data-eink="true"],html[data-eink="true"] body,
+html[data-eink="true"] .lab {
+ color-scheme:light!important;
+ --bg:#fff;--cream:#111;--muted:#444;--ink:#111;--line:#777;
+ --lab-paper:#fff!important;--lab-ink:#111!important;--lab-ink-muted:#444!important;
+ --lab-ink-faint:#555!important;--lab-surface:#f2f2f2!important;--lab-border:#777!important;
+ background:#fff!important;color:#111!important;
+}
+html[data-eink="true"] *,html[data-eink="true"] *::before,html[data-eink="true"] *::after {
+ animation:none!important;transition:none!important;scroll-behavior:auto!important;
+ text-shadow:none!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+html[data-eink="true"] :is(.lab-v2-sheet,.lab-super-menu,.lab-contents-v2,.lab-ask-pane,.lab-voice-desktop,.lab-selection-popup,.search-panel,#header,#librarian-panel) {
+ background:#fff!important;color:#111!important;border-color:#777!important;
+}
+html[data-eink="true"] :is(input,textarea,select) { background:#fff!important;color:#111!important;border-color:#777!important; }
+html[data-eink="true"] :is(img,.cover,canvas) { filter:grayscale(1)!important; }
+html[data-eink="true"] :is(.hero-shade,#scene) { background-image:none!important;background-color:#fff!important; }
+html[data-eink="true"] :is(button,a,input,textarea,select):focus-visible { outline:2px solid #111!important;outline-offset:3px; }
+html[data-eink="true"] :is(.lab-chapter-progress,.lab-page-number,.lab-foot-progress) { color:#444!important; }
+.lab-v2-themes:has(.lab-v2-theme.is-eink) { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.lab-v2-theme.is-eink { background:#fff;color:#111;border:1px solid #777; }
+
+html[data-eink="true"] :is(.read-button,#begin-reading,#slip-next) { background:#111!important;color:#fff!important;border:1px solid #111!important; }
+html[data-eink="true"] .book-meta span { background:#fff!important;color:#222!important;border:1px solid #777; }
+html[data-eink="true"] #librarian { background:#111!important;color:#fff!important; }
+html[data-eink="true"] :is([data-testid="lab-page-prev"],[data-testid="lab-page-next"]) { background:#fff!important;color:#111!important;opacity:1!important;border-color:#777!important; }
+
+/* Returning-library copy uses fixed cream tones in normal mode. */
+html[data-eink="true"] :is(.rt-book-metadata,.rt-book-metadata *,.rt-meta,.rt-meta *,.rt-recap,.rt-recap *,#rt-more,.soft,.eyebrow,.author) { color:#333!important;opacity:1!important; }
+html[data-eink="true"] :is(.rt-quote,.rt-book-metadata,.rt-meta) { border-color:#777!important; }
+
+/* Keep all shared library controls opaque and legible, including expanded menus. */
+html[data-eink="true"] :is(#library-menu,#paper,.book-slip,.cover-back,.edition-select,.edition-options,.edition-option,.rt-remove-dialog,#reader) { background:#fff!important;color:#111!important;border-color:#777!important; }
+html[data-eink="true"] :is(.menu-links button,.menu-links summary,.menu-links h2,.menu-links small,.collection-card p,.metadata-category,.metadata-details,.edition-options small,.edition-note,.edition-field h3,.intro-tabs button,.rt-remove-dialog p,#collection-empty,#collection-home,#slip-copy,#slip-caption) { color:#333!important; }
+html[data-eink="true"] :is(.edition-option[aria-pressed="true"],.intro-tabs button[aria-selected="true"]) { background:#eee!important;border-color:#111!important; }
+html[data-eink="true"] :is(#hero-book,.hero-book::after) { filter:none!important; }
+html[data-eink="true"] :is(#book-backdrop,.rt-remove-dialog::backdrop) { background:#ddd!important; }
+
+/* Reader controls share the same solid surfaces; the paper-fold gradient is decorative. */
+html[data-eink="true"] :is(.lab-super-panel,.lab-ask,.lab-ask-chrome,.lab-ask-composer,.lab-voice-panel,.lab-audio-speed-popover,.lab-phone-bar,.lab-desktop-audio,.selection-popup,.lab-contextual-explain,.toc-panel) { background:#fff!important;color:#111!important;border-color:#777!important; }
+html[data-eink="true"] .lab-page-wrap::after { background:none!important; }
+html[data-eink="true"] .lab-header-chapter { background:#eee!important;color:#111!important; }
+html[data-eink="true"] :is(.lab-header-chapter-label,.lab-chapter-progress-info,.lab-desktop-page-footer) { color:#444!important;opacity:1!important; }
+
+/* Account access is part of the same e-ink flow. */
+html[data-eink="true"] :is(.auth-page,.auth-top,.auth-card,.auth-provider,.auth-secondary,.auth-status) { background:#fff!important;color:#111!important;border:1px solid #777!important; }
+html[data-eink="true"] :is(.auth-copy,.auth-fine,.auth-field,.auth-link,.auth-back,.auth-eyebrow,.auth-account-email) { color:#333!important; }
+html[data-eink="true"] .auth-primary { background:#111!important;color:#fff!important;border:1px solid #111!important; }

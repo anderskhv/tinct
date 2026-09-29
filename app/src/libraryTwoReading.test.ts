@@ -1,13 +1,15 @@
 // @vitest-environment jsdom
-import { afterEach, expect, it, vi } from 'vitest'
+import { beforeEach, afterEach, expect, it, vi } from 'vitest'
 import { emptyLabPositionState } from './lab/labPosition'
 import type { RecapLoadDeps } from './readingMemory/recapLoad'
 
 const calls = vi.hoisted(() => ({
+  membership: vi.fn(), saved: vi.fn(),
   auth: vi.fn(), memory: vi.fn(), localPositions: vi.fn(), cloudPositions: vi.fn(),
   completions: vi.fn(), readingList: vi.fn(), readMemory: vi.fn(),
   readPosition: vi.fn(), writePosition: vi.fn(), putPosition: vi.fn(),
 }))
+vi.mock('./libraryTwoSaved', () => ({ loadShelfMembership: calls.membership, setSavedBook: calls.saved, loadSavedBooks: vi.fn() }))
 vi.mock('./services/supabase', () => ({
   supabase: {
     auth: { getSession: calls.auth },
@@ -33,6 +35,7 @@ function gate<T>() {
   return { promise, resolve }
 }
 
+beforeEach(() => { calls.membership.mockResolvedValue({ removed: [], tableHidden: [] }); calls.saved.mockResolvedValue({ ids: [], synced: true }) })
 afterEach(() => { vi.unstubAllGlobals(); vi.resetAllMocks(); vi.resetModules(); localStorage.clear() })
 
 it('removes only shelf visibility and syncs the merged record without altering saved places', async () => {
@@ -51,6 +54,7 @@ it('removes only shelf visibility and syncs the merged record without altering s
   localStorage.setItem('tinct:bookmarks:hamlet', 'unchanged')
   const { hideFromReadingNow } = await import('./libraryTwoReading')
   await hideFromReadingNow('hamlet')
+  expect(calls.saved).toHaveBeenCalledWith('hamlet', true, { tableHidden: true })
   const written = calls.writePosition.mock.calls[0][0]
   expect(written.hidden.hamlet).toBeGreaterThan(100)
   expect(written.books).toEqual(before.books)
@@ -137,7 +141,7 @@ it('resolves the viewer, runs independent reads together, and builds the shelf o
   expect(settled).toBe(false)
 
   completions.resolve({ data: [{ key: 'book-completed:hamlet', value: { bookId: 'hamlet' } }], error: null })
-  expect(await table).toEqual({ mode: 'new', reading: [], finished: [] })
+  expect(await table).toEqual({ mode: 'new', reading: [], finished: [], shelfReading: [] })
   expect(calls.readingList).toHaveBeenCalledOnce()
   expect(calls.readingList.mock.calls[0][0]).toMatchObject({
     viewer: 'viewer-a', memory: { updatedAt: 777 }, positions: { updatedAt: 999 },
@@ -222,5 +226,24 @@ it('paints only the resolved viewer’s cached shelf while fresh cloud state is 
  const result=loadReadingTable({catalogue:Promise.resolve({books:[]}),onCached});expect(onCached).not.toHaveBeenCalled();
  auth.resolve({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});await vi.waitFor(()=>expect(onCached).toHaveBeenCalledWith(cached));
  expect(calls.readingList).not.toHaveBeenCalled();completed.resolve({data:[],error:null});await result;
- expect(JSON.parse(localStorage.getItem('tinct:library-2-table:viewer-b')!)).toEqual({mode:'new',reading:[],finished:[]});
+ expect(JSON.parse(localStorage.getItem('tinct:library-2-table:viewer-b')!)).toEqual({mode:'new',reading:[],finished:[],shelfReading:[]});
+})
+
+it('excludes desk removals from all active-reading lists and honours shelf removals despite old reading history', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  const positions = emptyLabPositionState('device-a', null)
+  calls.localPositions.mockResolvedValue(positions)
+  calls.memory.mockResolvedValue(null)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  calls.membership.mockResolvedValue({removed:['hamlet'],tableHidden:['frankenstein']})
+  const target={chapterNumber:1,pageIndex:0,paragraphIndex:0,wordIndex:0,editionKey:'original-en',chapterLabel:'Chapter 1',at:100}
+  const row=(bookId:string)=>({bookId,target,finishedChapters:[],progress:'middle',lastActiveAt:100,session:null})
+  calls.readingList.mockReturnValue({readingNow:[row('hamlet'),row('frankenstein'),row('crito')],finished:[]})
+  const books=['hamlet','frankenstein','crito'].map(id=>({id,title:id,author:'Author',defaultEditionKey:'original-en',editions:[{key:'original-en',language:'en',style:'original'}],readingStructure:{chapters:[{number:1,title:'Chapter 1',paragraphCount:40}]}}))
+  const {loadReadingTable}=await import('./libraryTwoReading')
+  const table=await loadReadingTable({catalogue:Promise.resolve({books})})
+  expect(table.reading.map(book=>book.bookId)).toEqual(['crito'])
+  expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['crito'])
+  expect(calls.readingList.mock.calls[0][0].positions.hidden).toEqual({})
+  expect(calls.writePosition).not.toHaveBeenCalled()
 })

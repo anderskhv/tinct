@@ -1,18 +1,21 @@
+import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260929reviewed';
 import {periodGroups,inPeriod,populatedShelves} from './browse-groups.js?v=20260928covers';
+import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260928covers';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260928covers';
+import {mountBookshelf} from './bookshelf.js?v=20260929reveal';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap} from './authors.js?v=20260929reviewed';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928covers';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260929reviewed';
 import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928covers';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928covers';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
 const iconPaths={readArrow:'<path d="M2 12h20m-6-6 6 6-6 6"/>',search:'<circle cx="10.8" cy="10.8" r="7.3"/><path d="m16 16 5 5"/>',play:'<path d="m6 3 15 9-15 9z"/>',minus:'<path d="M5 12h14"/>',mic:'<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-3 0h6"/>',mute:'<path d="m3 3 18 18M9 9v3a3 3 0 0 0 5 2M9 5a3 3 0 0 1 6 0v4M5 10v2a7 7 0 0 0 12 5M19 10v2M12 19v3"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z"/>',end:'<path d="m6 6 12 12M18 6 6 18"/>',send:'<path d="m22 2-7 20-4-9L2 9 22 2ZM11 13 22 2"/>'};
 function icon(name){return `<svg viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name]||''}</svg>`;}
@@ -20,7 +23,7 @@ all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
 let noticeTimer;function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,5000);}
 const images={};const textures=new Map();
-async function loadImage(key,low){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await im.decode();images[key]=im;return im;}
+async function loadImage(key,low){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await im.decode();images[key]=im;if(reduced.matches)drawScene(performance.now());return im;}
 function triangle(ctx,img,s,d){const [p,q,r]=s,[a,b,c]=d;const det=(q[0]-p[0])*(r[1]-p[1])-(r[0]-p[0])*(q[1]-p[1]);const aa=((b[0]-a[0])*(r[1]-p[1])-(c[0]-a[0])*(q[1]-p[1]))/det,cc=((c[0]-a[0])*(q[0]-p[0])-(b[0]-a[0])*(r[0]-p[0]))/det,bb=((b[1]-a[1])*(r[1]-p[1])-(c[1]-a[1])*(q[1]-p[1]))/det,dd=((c[1]-a[1])*(q[0]-p[0])-(b[1]-a[1])*(r[0]-p[0]))/det;ctx.save();ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.lineTo(...c);ctx.closePath();ctx.clip();ctx.transform(aa,bb,cc,dd,a[0]-aa*p[0]-cc*p[1],a[1]-bb*p[0]-dd*p[1]);ctx.drawImage(img,0,0);ctx.restore();}
 function makeTextures(){for(const book of books){const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');if(book.crop){const [x,y,w,h]=book.crop;ctx.drawImage(images.plate,x,y,w,h,0,0,480,720);}else{const corners=[[740,133],[1006,154],[1012,585],[739,588]];const point=(u,v)=>[mix(mix(corners[0][0],corners[1][0],u),mix(corners[3][0],corners[2][0],u),v),mix(mix(corners[0][1],corners[1][1],u),mix(corners[3][1],corners[2][1],u),v)];for(let j=0;j<12;j++)for(let i=0;i<8;i++){const u=i/8,v=j/12,u2=(i+1)/8,v2=(j+1)/12;const s=[point(u,v),point(u2,v),point(u2,v2),point(u,v2)],d=[[u*480,v*720],[u2*480,v*720],[u2*480,v2*720],[u*480,v2*720]];triangle(ctx,images.original,[s[0],s[1],s[2]],[d[0],d[1],d[2]]);triangle(ctx,images.original,[s[0],s[2],s[3]],[d[0],d[2],d[3]]);}}textures.set(book.id,c);}paintCovers();}
 function paintCover(c,id){const texture=textures.get(id);if(!texture)return;c.width=texture.naturalWidth||texture.width;c.height=texture.naturalHeight||texture.height;const ctx=c.getContext('2d');ctx.drawImage(texture,0,0);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=books.find(b=>b.id===id);if(book.typeset){const w=c.width,h=c.height;
@@ -59,8 +62,10 @@ loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e
 // Signature books: each has its own painted scene (assets/scene-<id>-{phone,wide}.jpg)
 // and pencil character studies. Frankenstein keeps the original rain room.
 const signature={'frankenstein':{hours:6,genre:'Fiction',question:'What do we owe the intelligence we create?',sketches:['Victor Frankenstein','the creature','Robert Walton'],sheet:'assets/frankenstein-character-studies.png'},'pride-and-prejudice':{hours:11,genre:'Fiction',question:'How far can we trust a first impression?',sketches:['Elizabeth Bennet','Mr. Darcy','Jane Bennet']},'odyssey':{hours:12,genre:'Poetry',question:'How far must we travel to find home?',sketches:['Odysseus','Penelope','Telemachus']},'crime-and-punishment':{hours:21,genre:'Fiction',question:'Can an idea make a crime right?',sketches:['Raskolnikov','Sonya Marmeladov','Porfiry Petrovich']},'the-prince':{hours:3,genre:'Politics',question:'Can a ruler afford to be good?',sketches:['Niccolò Machiavelli','Cesare Borgia']},'meditations':{hours:5,genre:'Philosophy',question:'How do we stay steady in a world we cannot control?',sketches:['Marcus Aurelius','Epictetus']}};
+Object.keys(signature).forEach(id=>{if(reviewedHooks[id])signature[id].question=reviewedHooks[id];});
 const sceneIds=new Set(Object.keys(signature).filter(id=>id!=='frankenstein'));
 let featured=books[0],featureRequest=0,featuredTarget=0;const featuredBooks=Object.keys(signature).map(id=>books.find(b=>b.id===id)).filter(Boolean);
+document.querySelector('.question').textContent=signature[featured.id].question;
 featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label',`Feature ${book.title}`);b.classList.toggle('active',i===0);b.addEventListener('click',async()=>{const request=++featureRequest;featuredTarget=i;b.setAttribute('aria-busy','true');try{await Promise.all([ensureCover(book),loadScene(book.id)]);if(request!==featureRequest)return;featured=book;rememberVisit({featured:book.id});updateHeroAction();const info=signature[book.id];$('hero-time').textContent=readingTime(book)||`~${info.hours} hours to read`;$('hero-genre').textContent=info.genre;$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info.question;$('hero-book').setAttribute('aria-label',`Open ${book.title}`);const c=$('hero-book').querySelector('canvas');c.dataset.book=book.id;paintCover(c,book.id);showScene(book.id);all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',i===j);e.setAttribute('aria-pressed',String(i===j));});}catch{if(request===featureRequest){featuredTarget=featuredBooks.indexOf(featured);notice('This scene could not load. Please try again.');}}finally{b.removeAttribute('aria-busy');}});b.setAttribute('aria-pressed',String(i===0));document.querySelector('.hero-dots').append(b);});
 function updateHeroAction(){const continuing=window.__library2Reading?.reading.some(b=>b.bookId===featured.id);$('read-featured').firstChild.textContent=continuing?'Continue':'Read';}
 async function openFeatured(){if(window.__library2Reading?.reading.some(b=>b.bookId===featured.id)){try{const href=await readerDestination(featured,null);if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});location.assign(href);}catch{notice('Your book could not open. Please try again.');}}else openBook(featured,$('hero-book').querySelector('canvas'));}
@@ -80,7 +85,7 @@ function sceneImage(id,wide){const key=sceneAsset(id,wide);if(!images[key]&&!sce
 // Only the variant the hero's shape needs (wide on landscape screens, phone otherwise).
 const sceneVariant=()=>{const h=$('hero');return h.clientWidth/Math.max(1,h.clientHeight)>1.2?'wide':'phone';};
 function loadScene(id,low){const key=sceneAsset(id,sceneVariant()==='wide');if(!sceneLoads.has(key)){const ready=loadImage(key,low);ready.catch(()=>sceneLoads.delete(key));sceneLoads.set(key,ready);}return sceneLoads.get(key);}
-function showScene(id){const target=sceneIds.has(id)||/^table-(morning|afternoon|evening|night)$/.test(id)?id:'frankenstein';scenePending=target;loadScene(target).then(()=>{if(scenePending!==target||sceneTo===target)return;const now=performance.now();sceneFrom=now-sceneStart<SCENE_FADE/2?sceneFrom:sceneTo;sceneTo=target;sceneStart=now;document.documentElement.dataset.scene=target;}).catch(()=>{});}
+function showScene(id){const target=sceneIds.has(id)||/^table-(morning|afternoon|evening|night)$/.test(id)?id:'frankenstein';scenePending=target;loadScene(target).then(()=>{if(scenePending!==target||sceneTo===target)return;const now=performance.now();sceneFrom=now-sceneStart<SCENE_FADE/2?sceneFrom:sceneTo;sceneTo=target;sceneStart=now;document.documentElement.dataset.scene=target;if(reduced.matches)drawScene(now);}).catch(()=>{});}
 const SCENE_FADE=700;
 // Match each portrait painting's table horizon to the book's base, leaving
 // a little depth behind it on the table, including on shorter phone screens.
@@ -124,9 +129,20 @@ let resolveBookAnimation,resolveTourAnimation,closing=false;
 function animateBook(to){if(bookAnim)cancelAnimationFrame(bookAnim);resolveBookAnimation?.();const from=bookProgress,start=performance.now(),duration=reduced.matches?0:(to?1500:650)*Math.abs(to-from);return new Promise(resolve=>{resolveBookAnimation=resolve;function frame(now){const t=duration?clamp((now-start)/duration,0,1):1;drawBook(t===1?to:mix(from,to,t));if(t<1)bookAnim=requestAnimationFrame(frame);else{bookAnim=null;resolveBookAnimation=null;resolve();}}bookAnim=requestAnimationFrame(frame);});}
 
 const shelleyBiography='Mary Shelley’s mother, feminist Mary Wollstonecraft, died days after her birth. Her father, philosopher William Godwin, nurtured her intellect, though she often felt neglected by him. She ran off with Percy Bysshe Shelley at sixteen and began <i>Frankenstein</i> at eighteen, inspired by her friend Lord Byron’s ghost-story challenge. Despite losing three children and her husband, she raised her surviving son and published six novels before dying at fifty-three.';
-function setSlip(book){const mary=book.id==='frankenstein';const portrait=mary?{src:'assets/mary-shelley-portrait.jpg',alt:'Mary Shelley, painted by Richard Rothwell'}:authorPortrait(book.author);const image=$('slip-portrait');image.hidden=!portrait;if(portrait){image.src=portrait.src;image.alt=portrait.alt;}else{image.removeAttribute('src');image.alt='';}$('slip-caption').replaceChildren(el('span','',mary?book.author+' · 1797–1851':book.author));if(mary){$('slip-caption').append(el('span','','English novelist'));$('slip-copy').innerHTML=shelleyBiography;}else $('slip-copy').textContent=book.summary||book.preface[0];}
+function appendEditorialText(target,copy){target.replaceChildren();String(copy||'').split(/(\*[^*]+\*)/g).forEach(part=>{target.append(part.startsWith('*')&&part.endsWith('*')?el('em','',part.slice(1,-1)):document.createTextNode(part));});}
+function setSlip(book){
+ const mary=book.id==='frankenstein',flap=book.authorFlap;
+ const portraits=book.authorImages||[];
+ renderAuthorFlap(portraits,$('slip-images'),$('slip-image-credits'));
+ if(!portraits.length){const fallback=mary?{src:'assets/mary-shelley-portrait.jpg',alt:'Mary Shelley, painted by Richard Rothwell'}:authorPortrait(book.author);if(fallback){const image=el('img','author-flap-image');image.id='slip-portrait';image.src=fallback.src;image.alt=fallback.alt;$('slip-images').append(image);}}
+ $('slip-caption').replaceChildren(el('span','',flap?[flap.name,flap.years].filter(Boolean).join(' · '):mary?book.author+' · 1797–1851':book.author));
+ if(flap?.occupation)$('slip-caption').append(el('span','',flap.occupation));else if(mary)$('slip-caption').append(el('span','','English novelist'));
+ if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.summary||book.preface[0];
+ $('slip-invitation').textContent=book.hook||'';$('slip-invitation').hidden=!book.hook;
+}
+let introExpanded=false,introProgress=null;
 
-async function openBook(book,canvas){if(activeBook)return;if(menuOpen)setMenu(false);warmSheet(book.id);warmPortrait(book.author);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book),loadIntroduction(book)]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;activeBook=book;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;resetIntroScroll();(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
+async function openBook(book,canvas){if(activeBook)return;if(menuOpen)setMenu(false);warmSheet(book.id);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;activeBook=book;introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;resetIntroScroll();(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
 async function closeBook(){if(!activeBook||closing)return;closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
@@ -137,11 +153,24 @@ function appendParagraphs(target,paragraphs){paragraphs.forEach(p=>target.append
 function renderIntro(){
  const body=$('intro-body');const footer=document.querySelector('.intro-footer');if(footer.parentElement===body)$('intro').append(footer);body.replaceChildren();resetIntroScroll();requestAnimationFrame(()=>{resetIntroScroll();scrollHint();});
  $('intro-heading').textContent='Introduction';
+ document.querySelector('[data-tab="characters"]').textContent=activeBook.galleryTitle||'Characters';
  document.querySelector('.intro-tabs').hidden=false;
  $('begin-reading').textContent='Begin reading →';$('begin-reading').disabled=!availableEditions().length;
  all('[data-tab]').forEach(b=>{b.hidden=false;b.setAttribute('aria-selected',String(b.dataset.tab===currentTab));b.tabIndex=b.dataset.tab===currentTab?0:-1;});
- if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);if(activeBook.id==='frankenstein')body.append(el('p','preface-credit','Anders K. Hvelplund, Copenhagen Sep 24, 2026'));}
- else if(currentTab==='characters'){introCast(activeBook).forEach((c,i)=>{const section=el('section','character');const art=signature[activeBook.id];if(art){const slot=art.sketches.indexOf(c.aliases[0]);const sketch=el('div','character-sketch');if(slot<0)sketch.classList.add('no-sketch');else{sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-studies.jpg`}')`;sketch.style.backgroundPosition=activeBook.id==='frankenstein'?(i?'50% 0':'0 0'):['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.aliases[0]}`);}section.append(sketch);}const text=el('div','character-copy');text.append(el('h3','',c.aliases[0]),el('p','character-role',c.introRole),el('p','',c.subtitle));section.append(text);body.append(section);});}
+ if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);const signature=activeBook.prefaceSignature||(activeBook.id==='frankenstein'?'Anders K. Hvelplund, Copenhagen Sep 24, 2026':null);if(signature)body.append(el('p','preface-credit',signature));if(activeBook.orientation){const orientation=el('section','reading-orientation');orientation.append(el('h3','','Reading orientation'),el('p','',activeBook.orientation));body.append(orientation);}}
+ else if(currentTab==='characters'){
+  const list=el('div','intro-character-list');list.id='intro-character-list';
+  (reviewedCast(activeBook,introExpanded,introProgress)||introCast(activeBook)).forEach((c,i)=>{
+   const section=el('section','character');section.dataset.characterId=c.id||c.introKey||c.aliases[0];
+   const art=signature[activeBook.id];if(art){const slot=art.sketches.indexOf(c.aliases[0]);if(slot>=0){const sketch=el('div','character-sketch');sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-studies.jpg`}')`;sketch.style.backgroundPosition=['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.name||c.aliases[0]}`);section.append(sketch);}}
+   const text=el('div','character-copy');text.append(el('h3','',c.name||c.aliases[0]),el('p','character-role',c.introKey?c.subtitle:c.introRole),el('p','',c.introKey?c.body:c.subtitle));section.append(text);list.append(section);
+  });body.append(list);
+  if(activeBook.galleryTitle){const toggle=el('button','gallery-toggle',introExpanded?'Show fewer characters':activeBook.galleryExpandLabel);toggle.dataset.testid='intro-gallery-toggle';toggle.setAttribute('aria-expanded',String(introExpanded));toggle.setAttribute('aria-controls',list.id);toggle.onclick=async()=>{
+    const book=activeBook;
+    if(!introExpanded&&book.characters.some(c=>c.introVisibility==='hold_until_revealed')&&!introProgress){toggle.disabled=true;toggle.setAttribute('aria-busy','true');try{const api=await readingApi();const progress=await api.introductionProgress(book.id);if(activeBook!==book)return;introProgress=progress;}catch{if(activeBook!==book)return;introProgress=null;}finally{toggle.disabled=false;toggle.removeAttribute('aria-busy');}}
+    if(activeBook!==book)return;introExpanded=!introExpanded;renderIntro();
+  };body.append(toggle);}
+ }
 
  else {
   const field=el('section','edition-field');field.append(el('h3','','Reading edition'));
@@ -178,7 +207,7 @@ $('reader-theme').onchange=()=>{readerTheme=$('reader-theme').value;applyReaderT
 
 let introGesture=null;
 const interactive='button,a,input,select,summary,textarea';
-function navigateIntro(direction){if(!activeBook||bookProgress!==1||bookAnim||tourAnimation||readerAnimation||mode!=='minimized')return;const compact=bookDestination().tour;if(compact&&tourProgress===0){if(direction>0)$('slip-next').click();return;}if(reading){const body=$('reader-content');if(direction<0&&body.scrollTop<4){$('reader-back').click();}else body.scrollBy({top:direction*body.clientHeight*.8,behavior:reduced.matches?'instant':'smooth'});return;}const tabs=['preface','characters','edition'],index=tabs.indexOf(currentTab),body=$('intro-body');if(direction>0&&body.scrollTop+body.clientHeight<body.scrollHeight-4){body.scrollBy({top:body.clientHeight*.8,behavior:'smooth'});return;}if(direction<0&&body.scrollTop>4){body.scrollBy({top:-body.clientHeight*.8,behavior:'smooth'});return;}if(index===0&&direction<0){if(compact)animateTour(0);return;}if(index===2&&direction>0){$('begin-reading').click();return;}currentTab=tabs[index+direction];renderIntro();}
+function navigateIntro(direction){if(!activeBook||bookProgress!==1||bookAnim||tourAnimation||readerAnimation||mode!=='minimized')return;const compact=bookDestination().tour;if(compact&&tourProgress===0){if(direction>0)$('slip-next').click();return;}if(reading){const body=$('reader-content');if(direction<0&&body.scrollTop<4){$('reader-back').click();}else body.scrollBy({top:direction*body.clientHeight*.8,behavior:reduced.matches?'instant':'smooth'});return;}const tabs=['preface','characters','edition'],index=tabs.indexOf(currentTab),body=$('intro-body');if(direction>0&&body.scrollTop+body.clientHeight<body.scrollHeight-4){body.scrollBy({top:body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(direction<0&&body.scrollTop>4){body.scrollBy({top:-body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(index===0&&direction<0){if(compact)animateTour(0);return;}if(index===2&&direction>0){$('begin-reading').click();return;}currentTab=tabs[index+direction];renderIntro();}
 $('book-overlay').addEventListener('pointerdown',e=>{if(!bookDestination().tour||e.target.closest(interactive))return;introGesture={x:e.clientX,y:e.clientY};});
 $('book-overlay').addEventListener('pointerup',e=>{const g=introGesture;introGesture=null;if(!g||e.target.closest(interactive)||window.getSelection()?.toString())return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5)navigateIntro(dx<0?1:-1);else if(Math.hypot(dx,dy)<8){if(e.clientX<innerWidth*.18)navigateIntro(-1);else if(e.clientX>innerWidth*.82)navigateIntro(1);}});
 $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
@@ -186,7 +215,7 @@ $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
 // is no second orb to cross-fade, and chat never lays it over its controls.
 let mode='minimized',orbMotion=null,drag=null;
 let dock={x:innerWidth-52,y:innerHeight*.43,size:52,edge:'right'},orbPosition={...dock};
-function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(mode==='minimized')magnet();}
+function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(mode==='minimized')magnet();if(reduced.matches)drawOrb(0);}
 function orbTarget(){const space=$(`librarian-${mode}`).querySelector('.orb-space').getBoundingClientRect();const size=Math.min(space.height,space.width,240);return {x:space.x+(space.width-size)/2,y:space.y+(space.height-size)/2,size};}
 function moveOrb(target,done){if(orbMotion)cancelAnimationFrame(orbMotion);const from={...orbPosition},start=performance.now();function frame(now){const t=reduced.matches?1:clamp((now-start)/450,0,1);placeOrb(orbFrame(from,target,t));if(t<1)orbMotion=requestAnimationFrame(frame);else{orbMotion=null;done?.();}}orbMotion=requestAnimationFrame(frame);}
 function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';}
@@ -246,7 +275,18 @@ $('minimize').addEventListener('keydown',e=>{
 addEventListener('pagehide',()=>assistant?.close());
 const dots=Array.from({length:520},(_,i)=>{const y=1-(i+.5)/520*2,r=Math.sqrt(1-y*y),a=i*2.3999632297;return [Math.cos(a)*r,y,Math.sin(a)*r];});
 function drawOrb(time){const c=$('orb'),size=c.clientWidth,dpr=Math.min(devicePixelRatio||1,2);const pixels=Math.round(size*dpr);if(c.width!==pixels){c.width=pixels;c.height=pixels;}const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);const a=reduced.matches?.4:time*.00012,ca=Math.cos(a),sa=Math.sin(a);const projected=dots.map(([x,y,z])=>{const xx=x*ca+z*sa,zz=z*ca-x*sa;return [xx,y,zz];}).sort((a,b)=>a[2]-b[2]);for(const [x,y,z] of projected){const perspective=1/(1.8-z*.22);ctx.fillStyle=`rgba(236,237,222,${.2+(z+1)*.34})`;ctx.beginPath();ctx.arc(size/2+x*size*.76*perspective,size/2+y*size*.76*perspective,Math.max(.48,size*.0052)*(1+z*.27),0,Math.PI*2);ctx.fill();}}
-let lastFrame=0;function ambient(now){if(now-lastFrame>32&&!document.hidden){lastFrame=now;if($('hero').getBoundingClientRect().bottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}requestAnimationFrame(ambient);}placeOrb(dock);$('librarian').dataset.edge=dock.edge;requestAnimationFrame(ambient);
+let lastFrame=0,ambientFrame=0;
+function ambient(now){
+ ambientFrame=0;
+ if(document.hidden)return;
+ if(now-lastFrame>32||reduced.matches){lastFrame=now;if($('hero').getBoundingClientRect().bottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}
+ if(!reduced.matches)ambientFrame=requestAnimationFrame(ambient);
+}
+function refreshAmbient(){cancelAnimationFrame(ambientFrame);ambientFrame=requestAnimationFrame(ambient);}
+addEventListener('tinct:display-profile',refreshAmbient);
+motionPreference.addEventListener('change',refreshAmbient);
+document.addEventListener('visibilitychange',refreshAmbient);
+placeOrb(dock);$('librarian').dataset.edge=dock.edge;refreshAmbient();
 let movedLibrarian=false;
 // Phone landing height is frozen per width so collapsing browser bars do not shift the hero.
 // iPhone browsers float the bottom toolbar over the page; cover tops start at its top edge.
@@ -280,17 +320,48 @@ async function toggleSaved(id){
  try{const api=await readingApi();const result=await api.setSavedBook(id,change.saved);if(pendingSaves.get(id)===change)pendingSaves.delete(id);receiveSaved(result.ids);if(!result.synced)notice('Saved on this device. Your shelf will sync when you reconnect.');if(collectionChoice==='saved'&&!activeBook)renderCollection();}
  catch{if(pendingSaves.get(id)===change){pendingSaves.delete(id);change.saved?savedBooks.delete(id):savedBooks.add(id);receiveSaved([...savedBooks]);}notice('Your shelf could not be saved. Please try again.');}
 }
-function paintSaveToggle(t){const on=savedBooks.has(t.dataset.book);t.textContent=on?'✓':'+';t.classList.toggle('on',on);t.setAttribute('aria-pressed',String(on));t.setAttribute('aria-label',`${on?'Remove from To read':'Add to shelf'}: ${t.dataset.title}`);}
+function paintSaveToggle(t){if(t.dataset.shelfRemove==='true'){t.textContent='×';t.classList.remove('on');t.removeAttribute('aria-pressed');t.setAttribute('aria-label','Remove from My shelf: '+t.dataset.title);return;}const on=savedBooks.has(t.dataset.book);t.textContent=on?'✓':'+';t.classList.toggle('on',on);t.setAttribute('aria-pressed',String(on));t.setAttribute('aria-label',`${on?'Remove from To read':'Add to shelf'}: ${t.dataset.title}`);}
 addEventListener('library2:remove-saved',e=>{if(savedBooks.has(e.detail))toggleSaved(e.detail);});
 $('save-book').onclick=()=>toggleSaved(activeBook.id);
 function setMenu(open){menuOpen=open;$('library-menu').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));syncLock();(open?$('menu-close'):$('menu-toggle')).focus({preventScroll:true});}
 $('menu-toggle').onclick=()=>setMenu(!menuOpen);$('menu-close').onclick=()=>setMenu(false);$('library-menu').onclick=e=>{if(e.target===$('library-menu'))setMenu(false);};
 function selectCollection(value){collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
-// My books: what you are reading, what you want to read, and what you have finished.
-function renderMyBooks(){$('collection-title').textContent='My books';const grid=$('collection-books');grid.replaceChildren();const table=window.__library2Reading||{reading:[],finished:[]};const byId=id=>books.find(b=>b.id===id);
- const groups=[['Reading now',table.reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['To read',books.filter(b=>savedBooks.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
- let total=0;groups.forEach(([label,list,kind])=>{if(!list.length)return;total+=list.length;const h=el('h2','my-books-head',label);grid.append(h);list.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);if(kind==='reading'){const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;b.addEventListener('click',async e=>{e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});}card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});});
- $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';}
+// My shelf: what you are reading, what you want to read, and what you have finished.
+async function removeFromMyShelf(id){
+ try{
+  const api=await readingApi();
+  const result=await api.setSavedBook(id,false);
+  receiveSaved(result.ids);
+  const table=window.__library2Reading;
+  if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
+  dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
+  renderMyBooks();
+  if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
+ }catch{notice('Your shelf could not be saved. Please try again.');}
+}
+function renderMyBooks(){
+ $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.replaceChildren();
+ const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
+ // Desk membership defines Currently reading, including older cached snapshots.
+ const reading=table.reading;
+ const present=new Set([...reading,...table.finished].map(row=>row.bookId));
+ const groups=[['Currently reading',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['Saved for later',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
+ let total=0;
+ groups.forEach(([label,list,kind])=>{
+  if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
+  list.forEach(book=>{
+   const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;
+   const toggle=open.querySelector('.save-toggle');
+   if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
+   if(kind==='reading'){
+    const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
+    b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});
+   }
+   card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);
+  });
+ });
+ $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
+}
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
 function renderCollection(){const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';if(kind==='saved'){renderMyBooks();return;}if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
 if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
@@ -316,7 +387,7 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
 const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-studies.jpg`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
 function warmCharacterArt(){
- const warm=()=>featuredBooks.forEach(b=>{warmPortrait(b.author);warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
+ const warm=()=>featuredBooks.forEach(b=>{warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
  const whenModeKnown=()=>{
   const root=document.documentElement;
   if(root.classList.contains('returning'))return;
@@ -371,7 +442,7 @@ registerCommands({
   {id:'library-search',label:'Search books and authors',key:'/',run:()=>{setSearch(true);$('search-input').focus();}},
   {id:'library-chat',label:'Chat with your librarian',key:'c',run:()=>openAssistantCommand('chat')},
   {id:'library-talk',label:'Talk with your librarian',key:'t',run:()=>{if(mode==='talk'){minimize();return;}openAssistantCommand('talk');}},
-  {id:'library-books',label:'My books',key:'b',run:()=>{const b=document.querySelector('[data-collection="saved"]');b?.click();}},
+  {id:'library-books',label:'My shelf',key:'b',run:()=>{const b=document.querySelector('[data-collection="saved"]');b?.click();}},
   {id:'library-menu',label:'Library categories and time periods',key:'i',run:()=>setMenu(true)},
   {id:'library-read',label:'Read the selected book',key:'r',enabled:()=>mode==='minimized',run:()=>{if(activeBook){$('begin-reading').click();}else{const resume=$('rt-continue');if(resume&&!resume.hidden&&resume.getClientRects().length)resume.click();else $('read-featured').click();}}},
   {id:'library-home',label:'Library home',key:'l',run:()=>location.assign('/library')},

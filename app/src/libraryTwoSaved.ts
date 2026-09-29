@@ -3,7 +3,7 @@ import { supabase } from './services/supabase'
 import { versionedWriteApplied } from './services/supabaseStorage.versioning'
 const PREFIX = 'library-shelf:'
 const DEVICE = 'tinct:library-2-saved:'
-type Change = { saved: boolean; at: number }
+type Change = { saved: boolean; at: number; tableHidden?: boolean }
 type State = { items: Record<string, Change>; pending: Record<string, Change> }
 const empty = (): State => ({ items: {}, pending: {} })
 let queue: Promise<unknown> = Promise.resolve()
@@ -50,7 +50,7 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
     const rows = new Map((data ?? []).map(row => [row.key.slice(PREFIX.length), row]))
     // Cloud tombstones remove items on every device; only unacknowledged local
     // actions override the server. Never resurrect a deleted remote book.
-    for (const [id, row] of rows) if (!state.pending[id]) state.items[id] = { saved: row.value?.saved === true, at: Number(row.value?.at) || 0 }
+    for (const [id, row] of rows) if (!state.pending[id]) state.items[id] = { saved: row.value?.saved === true, at: Number(row.value?.at) || 0, ...(row.value?.tableHidden === true ? { tableHidden: true } : {}) }
     for (const [id, change] of Object.entries(state.pending)) {
       let row = rows.get(id)
       for (let attempt = 0; attempt < 3; attempt++) {
@@ -93,11 +93,11 @@ export async function loadSavedBooks(options: { onCached?: (value: { ids: string
     return { ids: ids(state), synced }
   })
 }
-export async function setSavedBook(id: string, saved: boolean) {
+export async function setSavedBook(id: string, saved: boolean, options: { tableHidden?: boolean } = {}) {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) throw new Error('Invalid book')
   const owner = await account(), state = read(owner)
   watchAccount(owner)
-  const change = { saved, at: Date.now() }
+  const change: Change = { saved, at: Date.now(), ...(saved && options.tableHidden ? { tableHidden: true } : {}) }
   state.items[id] = change
   if (owner) state.pending[id] = change
   // Persist each click before joining the cloud queue. A slow request must
@@ -110,4 +110,15 @@ export async function setSavedBook(id: string, saved: boolean) {
     write(owner, state)
     return { ids: ids(state), synced }
   })
+}
+
+/** Explicit membership overrides inferred reading history without deleting it. */
+export async function loadShelfMembership() {
+  await loadSavedBooks()
+  const owner = await account()
+  const state = read(owner)
+  return {
+    removed: Object.entries(state.items).filter(([, item]) => !item.saved).map(([id]) => id),
+    tableHidden: Object.entries(state.items).filter(([, item]) => item.saved && item.tableHidden).map(([id]) => id),
+  }
 }

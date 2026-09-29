@@ -1,5 +1,5 @@
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
-import { loadSavedBooks, setSavedBook } from './libraryTwoSaved'
+import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
 /**
  * Returning-reader data for the library_2 design (public/lab/library_2).
@@ -79,6 +79,8 @@ export interface ReadingTable {
   mode: LibraryMode
   reading: ReadingTableBook[]
   finished: ReadingTableFinished[]
+  /** Compatibility alias for the same active reading list shown at the desk. */
+  shelfReading?: ReadingTableBook[]
 }
 
 export type SummaryResult =
@@ -207,6 +209,13 @@ async function placeFor(bookId: string): Promise<Place | null> {
   return { chapterNumber: place.sequentialChapter, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
 }
 
+/** Read-only spoiler permission, using the same account-scoped place as Continue. */
+export async function introductionProgress(bookId: string): Promise<{ chapterNumber: number; completed: boolean }> {
+  const table = await loadReadingTable()
+  const place = await placeFor(bookId)
+  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) }
+}
+
 /**
  * Hand a book straight to the production reader, at the reader's place
  * (device merged with the account's cloud copy) in the edition it was read
@@ -276,6 +285,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   }
   // Independent account reads start together; reconcile every mirror before
   // deriving the shelf, so slower memory/completion reads cannot paint stale data.
+  const membershipReady = loadShelfMembership()
   const positionsReady = loadPositions(auth, warmArtwork)
   const memoryReady = loadRecap({
     auth: readAuth,
@@ -295,19 +305,20 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       else localStorage.removeItem(`tinct:${row.key}`)
     }
   }, () => {}) : Promise.resolve()
-  const [positions] = await Promise.all([positionsReady, memoryReady, completionsReady])
+  const [positions, membership] = await Promise.all([positionsReady, membershipReady, memoryReady, completionsReady])
   lastPositions = positionsWithProduction(positions, books)
   const list = readingList({
     memory: readDeviceReadingMemory(),
     viewer: auth.userId,
-    positions: positionsWithProduction(positions, books),
+    // Explicit membership owns visibility; old hide stamps remain recovery data.
+    positions: lastPositions ? { ...lastPositions, hidden: {} } : null,
     books: bookInfos(books),
     completedBookIds: completedBookIds(),
   })
   lastRows = new Map(list.readingNow.map(row => [row.bookId, row]))
   const table: ReadingTable = {
     mode: libraryModeFor(list),
-    reading: list.readingNow.map(row => {
+    reading: list.readingNow.filter(row => !membership.removed.includes(row.bookId)).map(row => {
       const book = books.get(row.bookId)
       const selectedEdition = book?.editions.find(edition => edition.key === row.target.editionKey)
       const estimateBook = selectedEdition?.readingStructure ? { ...book, readingStructure: selectedEdition.readingStructure } : book
@@ -326,14 +337,18 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         recap: row.recap,
       }
     }),
-    finished: list.finished.map(row => {
+    finished: list.finished.filter(row => !membership.removed.includes(row.bookId)).map(row => {
       const book = books.get(row.bookId)
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),
   }
+  table.reading = table.reading.filter(row => !membership.tableHidden.includes(row.bookId)
+    && !((positions?.hidden?.[row.bookId] ?? 0) >= (lastRows.get(row.bookId)?.lastActiveAt ?? 1)))
+  table.shelfReading = table.reading
+  if (!table.reading.length) table.mode = 'new'
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
   if (auth.token) {
-    const candidates = list.readingNow.flatMap(row => {
+    const candidates = list.readingNow.filter(row => table.reading.some(book => book.bookId === row.bookId)).flatMap(row => {
       const request = summaryRequestFor(row, books.get(row.bookId))
       return request ? [{ request, lastActiveAt:row.session?.lastActiveAt ?? row.target.at ?? Date.now() }] : []
     })
@@ -415,6 +430,8 @@ export async function hideFromReadingNow(bookId: string): Promise<void> {
   const auth = await readAuth()
   const local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
   if (local.owner && local.owner !== auth.userId) throw new Error('Account changed')
+  await setSavedBook(bookId, true, { tableHidden: true })
+  if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
   const next = withHiddenFromReadingNow({ ...local, owner: auth.userId }, bookId, Date.now())
   const stored = writeLabPositionLocal(next)
   // Invalidate only this viewer's fast-paint snapshot before the next fresh load.
@@ -425,4 +442,4 @@ export async function hideFromReadingNow(bookId: string): Promise<void> {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress }

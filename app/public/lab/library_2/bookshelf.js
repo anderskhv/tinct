@@ -1,4 +1,4 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260928f';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260929reveal';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928f';
 import { createBookshelf } from './bookshelf-view.js?v=20260928f';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928f';
@@ -12,7 +12,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  const loading=document.createElement('div');loading.className='bookshelf-loading';loading.setAttribute('aria-label','Loading your library');loading.hidden=!window.__library2Boot?.hint;hero.before(loading);
  let view=null,table={mode:'new',reading:[],finished:[]},saved=[],catalogue=[],api=null,loadingNow=false,pendingUpdate=false,ready=Promise.resolve(),resumeReady=Promise.resolve();
  try{catalogue=JSON.parse(sessionStorage.getItem('tinct:library-2-catalogue')||'[]');}catch{}
- function settle(){loading.hidden=true;html.classList.remove('returning-pending');}
+ function settle(){loading.hidden=true;html.classList.remove('returning-pending');if(!html.classList.contains('returning')||shelfStudy)html.classList.remove('returning-scene-pending');}
  function show(key){
   html.classList.add('returning');html.dataset.returningView=shelfStudy?'shelf':'table';root.hidden=!shelfStudy;
   if(!sample)rememberVisit({mode:'shelf'});
@@ -23,7 +23,9 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     if(sample){table={...table,reading:table.reading.filter(b=>b.bookId!==id)};present();return;}
     await resumeReady;
     await api.hideFromReadingNow(id);
-    table={...table,reading:table.reading.filter(b=>b.bookId!==id)};
+    const retained=await api.loadSavedBooks();saved=retained.ids;onSaved(saved);
+    const reading=table.reading.filter(b=>b.bookId!==id);
+    table={...table,reading,shelfReading:reading};
     present();
     // Hide synchronously from the current view, then reconcile account data.
     ready=load(true);
@@ -69,6 +71,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   }finally{loadingNow=false;}
  }
  addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}});
+ addEventListener('library2:shelf-removed',event=>{const id=event.detail;table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
  addEventListener('library2:overlayclosed',()=>{if(pendingUpdate&&view){pendingUpdate=false;view.update(table,saved,catalogue);}});
  // Preserve the live scene in the back/forward cache while refreshing its data.
  addEventListener('pageshow',event=>{if(event.persisted&&!sample)ready=load(true);});

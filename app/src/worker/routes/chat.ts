@@ -343,7 +343,7 @@ async function consumeStreamedRound(
             jsonBuffers.set(index, '')
           } else {
             blocks[index] = block.type === 'text' ? { type: 'text', text: String((block as TextBlock).text ?? '') } : block
-            if (sink) sink.write(event, data)
+            if (sink && block.type === 'text') sink.write(event, data)
           }
           break
         }
@@ -378,7 +378,7 @@ async function consumeStreamedRound(
             } catch {
               (block as ToolUseBlock).input = { malformed: raw.slice(0, 200) }
             }
-          } else if (sink) {
+          } else if (sink && block?.type === 'text') {
             sink.write(event, data)
           }
           break
@@ -534,14 +534,12 @@ function focusedSourceQuery(messages: SafeMessage[], book?: BookRef): string {
 async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstResponse?: Response): Promise<RoundOutcome> {
   const system = cacheableSystem(input.system)
   const messages: unknown[] = [...input.messages]
-  let forwardedText = ''
   let firstTextSeen = false
   const noteText = () => {
     if (firstTextSeen) return
     firstTextSeen = true
     input.onFirstText()
   }
-  let separatorPending = false
   const prefetchedSource = input.prefetchSource ? await input.prefetchSource() : null
   let sourceSearchAttempted = Boolean(prefetchedSource)
   if (prefetchedSource) {
@@ -558,18 +556,6 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
       }],
     })
   }
-  const roundSink: ClientSink | null = sink ? {
-    write(event, data) {
-      if (separatorPending && data.type === 'content_block_delta') {
-        const delta = data.delta as { type?: string; text?: string } | undefined
-        if (delta?.type === 'text_delta' && delta.text) {
-          separatorPending = false
-          sink.write('content_block_delta', { type: 'content_block_delta', index: data.index ?? 0, delta: { type: 'text_delta', text: '\n\n' } })
-        }
-      }
-      sink.write(event, data)
-    },
-  } : null
 
   for (let round = 0; round <= MAX_TOOL_ROUNDS; round++) {
     // Public-source lookup is deliberately bounded to one attempt. Once its
@@ -599,8 +585,18 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
         return { ok: false, status: response.status, body }
       }
     }
+    // A tool-eligible round may contain a provisional answer before asking
+    // for evidence. Keep it private until we know this is the final answer.
+    // Forced answer rounds still stream immediately.
+    const held: Array<{ event: string; data: Record<string, unknown> }> = []
+    const roundSink: ClientSink | null = sink && !forceText ? {
+      write(event, data) {
+        if (data.type === 'message_start' || data.type === 'ping') sink.write(event, data)
+        else held.push({ event, data })
+      },
+    } : sink
     if (input.stream) {
-      outcome = await consumeStreamedRound(response, roundSink, { firstRound: round === 0, onText: noteText })
+      outcome = await consumeStreamedRound(response, roundSink, { firstRound: round === 0, onText: forceText ? noteText : () => {} })
     } else {
       const data = await response.json() as { content?: ContentBlock[]; stop_reason?: string | null; usage?: AnthropicUsage }
       logAnthropicCacheUsage(round === 0 ? 'chat' : 'chat_tool_round', data.usage)
@@ -611,17 +607,15 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
     if (outcome.stopReason !== 'tool_use' || calls.length === 0 || forceText) {
       if (!input.stream) {
         const finalText = textOf(outcome.content)
-        const merged = forwardedText && finalText ? `${forwardedText}\n\n${finalText}` : (finalText || forwardedText)
-        if (merged) noteText()
-        const message = { ...(outcome.message ?? {}), content: [{ type: 'text', text: merged }], stop_reason: outcome.stopReason }
+        if (finalText) noteText()
+        const message = { ...(outcome.message ?? {}), content: [{ type: 'text', text: finalText }], stop_reason: outcome.stopReason }
         return { ok: true, content: message.content, stopReason: outcome.stopReason, message }
       }
+      if (!forceText && sink) {
+        if (textOf(outcome.content)) noteText()
+        for (const { event, data } of held) sink.write(event, data)
+      }
       return outcome
-    }
-    const roundText = textOf(outcome.content)
-    if (roundText) {
-      forwardedText = forwardedText ? `${forwardedText}\n\n${roundText}` : roundText
-      separatorPending = true
     }
     const toolStartedAt = Date.now()
     const results = await executeToolCalls(input.retrieval, calls, input.research)

@@ -92,6 +92,17 @@ describe('LabAccountSheet', () => {
   })
 })
 
+it('offers narration sign-in without a retry error or an exhausted chat allowance message', () => {
+  const onClose = vi.fn()
+  render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} desktop />)
+  expect(screen.getByRole('heading', {name:'Sign in to listen'})).toBeTruthy()
+  expect(screen.getByTestId('lab-account-sign-in').className).toBe('lab-account-primary')
+  expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toContain('returnTo=%2Freader')
+  expect(screen.queryByText(LAB_COPY.accountBody)).toBeNull()
+  fireEvent.click(screen.getByRole('button', {name:'Keep reading'}))
+  expect(onClose).toHaveBeenCalledOnce()
+})
+
 describe('LabSecondBookNudge', () => {
   it('is one line with a create-account link and a dismiss', () => {
     const onDismiss = vi.fn()

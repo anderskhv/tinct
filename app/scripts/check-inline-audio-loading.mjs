@@ -139,6 +139,15 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     result.passed = true
   } catch (error) {
     result.error = error.stack
+    result.failureState = await page.evaluate(() => ({
+      readerReady: document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady,
+      playLabel: document.querySelector('[data-testid="lab-v2-play"]')?.getAttribute('aria-label'),
+      notice: document.querySelector('[data-testid="lab-narration-error"]')?.textContent,
+      loading: !!document.querySelector('[data-testid="lab-audio-spinner"]'),
+      audio: window.__audio && { paused: window.__audio.paused, readyState: window.__audio.readyState, networkState: window.__audio.networkState, currentTime: window.__audio.currentTime, errorCode: window.__audio.error?.code },
+      events: window.__audioEvents?.map(({ type, time, currentTime }) => ({ type, time, currentTime })),
+    })).catch(() => null)
+    console.log('INLINE_AUDIO_FAILURE ' + JSON.stringify({ label, errors, calls: calls.map(({ at, status, generated, delayed, injectedFailure }) => ({ at, status, generated, delayed, injectedFailure })), state: result.failureState }))
     await page.screenshot({ path: output + '/' + label + '-failure.png' }).catch(() => {})
     await context.tracing.stop({ path: output + '/' + label + '-trace.zip' }).catch(() => {})
   } finally {

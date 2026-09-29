@@ -408,8 +408,8 @@ describe('lab ask reading trail and in-book retrieval', () => {
   it('renders what the reader has read recently and the retrieval rule when a book is named', () => {
     const instructions = buildLabAskInstructions({ ...base, bookId: 'bible', editionKey: 'kjv-en' })
     expect(instructions).toContain(LAB_ASK_BOOK_TOOLS_RULE)
-    expect(instructions).toContain('say one short holding phrase before the search')
-    expect(instructions).toContain('Never describe thinking or searching, never comment on the question')
+    expect(instructions).toContain('Finish needed lookups before answering')
+    expect(instructions).toContain('Do not announce searches, describe failed lookup attempts')
     expect(instructions).toContain('Do not make a lookup a prerequisite for an answer you already know')
     expect(instructions).toContain('Missing context alone is not uncertainty')
     expect(instructions).toContain('Never say you cannot see earlier chapters')
