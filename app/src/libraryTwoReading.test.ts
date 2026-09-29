@@ -35,7 +35,7 @@ function gate<T>() {
   return { promise, resolve }
 }
 
-beforeEach(() => { calls.membership.mockResolvedValue({ removed: [], tableHidden: [] }); calls.saved.mockResolvedValue({ ids: [], synced: true }) })
+beforeEach(() => { calls.readPosition.mockReturnValue(emptyLabPositionState('device-a', null)); calls.writePosition.mockImplementation(value => value); calls.membership.mockResolvedValue({ removed: [], tableHidden: [] }); calls.saved.mockResolvedValue({ ids: [], synced: true }) })
 afterEach(() => { vi.unstubAllGlobals(); vi.resetAllMocks(); vi.resetModules(); localStorage.clear() })
 
 it('removes only shelf visibility and syncs the merged record without altering saved places', async () => {
@@ -229,7 +229,7 @@ it('paints only the resolved viewer’s cached shelf while fresh cloud state is 
  expect(JSON.parse(localStorage.getItem('tinct:library-2-table:viewer-b')!)).toEqual({mode:'new',reading:[],finished:[],shelfReading:[]});
 })
 
-it('retains table removals on My shelf and honours shelf removals despite old reading history', async () => {
+it('excludes desk removals from all active-reading lists and honours shelf removals despite old reading history', async () => {
   calls.auth.mockResolvedValue({data:{session:null}})
   const positions = emptyLabPositionState('device-a', null)
   calls.localPositions.mockResolvedValue(positions)
@@ -243,7 +243,62 @@ it('retains table removals on My shelf and honours shelf removals despite old re
   const {loadReadingTable}=await import('./libraryTwoReading')
   const table=await loadReadingTable({catalogue:Promise.resolve({books})})
   expect(table.reading.map(book=>book.bookId)).toEqual(['crito'])
-  expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['frankenstein','crito'])
+  expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['crito'])
   expect(calls.readingList.mock.calls[0][0].positions.hidden).toEqual({})
+  expect(calls.writePosition).not.toHaveBeenCalled()
+})
+
+it('keeps all received account pins when a later library refresh returns an older subset', async () => {
+  calls.auth.mockResolvedValue({data:{session:{user:{id:'viewer-a'},access_token:'token'}}})
+  let device = emptyLabPositionState('device-a', 'viewer-a')
+  calls.localPositions.mockImplementation(async()=>structuredClone(device))
+  calls.readPosition.mockImplementation(()=>structuredClone(device))
+  calls.writePosition.mockImplementation(next=>{ device=structuredClone(next);return next })
+  calls.memory.mockResolvedValue(null)
+  calls.completions.mockResolvedValue({data:[],error:null})
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  const real = await vi.importActual<typeof import('./preReader/libraryRecap')>('./preReader/libraryRecap')
+  calls.readingList.mockImplementation(real.readingList)
+  vi.stubGlobal('fetch',vi.fn(async()=>new Response('{}')))
+  const pin=(bookId:string,at:number)=>({bookId,headerBook:bookId,chapterNumber:1,sequentialChapter:1,paragraphIndex:3,wordIndex:7,pageIndex:1,primaryEditionKey:'original-en',updatedAt:at,deviceId:'phone',rev:1})
+  const cloud=emptyLabPositionState('phone','viewer-a')
+  cloud.books={confessions:pin('confessions',100),hamlet:pin('hamlet',200),'to-the-lighthouse':pin('to-the-lighthouse',300)}
+  cloud.lastSettledBookId='to-the-lighthouse';cloud.lastSettledAt=300;cloud.updatedAt=300
+  calls.cloudPositions.mockResolvedValueOnce(cloud)
+  const books=Object.keys(cloud.books).map(id=>({id,title:id,author:'Author',defaultEditionKey:'original-en',editions:[{key:'original-en',language:'en',style:'original'}],readingStructure:{chapters:[1,2,3].map(number=>({number,title:'Chapter '+number,paragraphCount:40}))}}))
+  const api=await import('./libraryTwoReading')
+  expect((await api.loadReadingTable({catalogue:Promise.resolve({books})})).reading.map(book=>book.bookId)).toContain('confessions')
+  expect(device.books.confessions).toEqual(cloud.books.confessions)
+  expect(device.lastSettledAt).toBe(300)
+  const older={...cloud,books:{hamlet:cloud.books.hamlet},lastSettledBookId:'hamlet',lastSettledAt:200}
+  calls.cloudPositions.mockResolvedValueOnce(older)
+  const refreshed=await api.loadReadingTable()
+  expect(refreshed.reading.map(book=>book.bookId)).toHaveLength(3)
+  expect(refreshed.shelfReading?.map(book=>book.bookId)).toContain('confessions')
+  calls.cloudPositions.mockResolvedValueOnce(null)
+  expect((await api.loadReadingTable()).reading.map(book=>book.bookId)).toHaveLength(3)
+  expect(device.books.confessions).toEqual(cloud.books.confessions)
+  expect(calls.putPosition).not.toHaveBeenCalled()
+})
+
+it('never mirrors a response after the account changed, or merges over another owner’s device record', async () => {
+  let user='viewer-a'
+  calls.auth.mockImplementation(async()=>({data:{session:{user:{id:user},access_token:'token'}}}))
+  const local=emptyLabPositionState('device-a','viewer-a')
+  calls.localPositions.mockResolvedValue(local)
+  calls.readPosition.mockReturnValue(emptyLabPositionState('device-a','viewer-b'))
+  calls.memory.mockResolvedValue(null);calls.completions.mockResolvedValue({data:[],error:null})
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  calls.readingList.mockReturnValue({readingNow:[],finished:[]})
+  const cloud=emptyLabPositionState('cloud','viewer-a')
+  calls.cloudPositions.mockResolvedValue(cloud)
+  const api=await import('./libraryTwoReading')
+  await api.loadReadingTable({catalogue:Promise.resolve({books:[]})})
+  expect(calls.writePosition).not.toHaveBeenCalled()
+  const request=gate<typeof cloud>();calls.cloudPositions.mockReturnValue(request.promise)
+  const loading=api.loadReadingTable()
+  await vi.waitFor(()=>expect(calls.cloudPositions).toHaveBeenCalledTimes(2))
+  user='viewer-b';request.resolve(cloud)
+  await expect(loading).rejects.toThrow('Account changed')
   expect(calls.writePosition).not.toHaveBeenCalled()
 })

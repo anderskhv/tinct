@@ -1,10 +1,10 @@
 /** The library's To read shelf. No reading position or completion writes. */
 import { supabase } from './services/supabase'
-import { versionedWriteApplied } from './services/supabaseStorage.versioning'
+import { coerceRev, versionedWriteApplied } from './services/supabaseStorage.versioning'
 const PREFIX = 'library-shelf:'
 const DEVICE = 'tinct:library-2-saved:'
 type Change = { saved: boolean; at: number; tableHidden?: boolean }
-type State = { items: Record<string, Change>; pending: Record<string, Change> }
+type State = { items: Record<string, Change>; pending: Record<string, Change>; revisions?: Record<string, number> }
 const empty = (): State => ({ items: {}, pending: {} })
 let queue: Promise<unknown> = Promise.resolve()
 let viewer: string | null | undefined
@@ -39,6 +39,16 @@ function write(owner: string | null, state: State) {
 function ids(state: State): string[] {
   return Object.entries(state.items).filter(([, item]) => item.saved).sort((a, b) => b[1].at - a[1].at).map(([id]) => id)
 }
+function acceptRow(state: State, id: string, row: { value?: Change | null; rev?: number | null }) {
+  const revision = coerceRev(row.rev), known = state.revisions?.[id]
+  if (known !== undefined && (revision === undefined || revision < known)) return
+  if (revision !== undefined) (state.revisions ??= {})[id] = revision
+  state.items[id] = { saved: row.value?.saved === true, at: Number(row.value?.at) || 0, ...(row.value?.tableHidden === true ? { tableHidden: true } : {}) }
+}
+function rememberRevision(state: State, id: string, raw: unknown) {
+  const revision = coerceRev(raw)
+  if (revision !== undefined) (state.revisions ??= {})[id] = Math.max(state.revisions?.[id] ?? 0, revision)
+}
 async function sync(owner: string | null, state: State): Promise<boolean> {
   if (!owner || !supabase) return true
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return false
@@ -50,18 +60,26 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
     const rows = new Map((data ?? []).map(row => [row.key.slice(PREFIX.length), row]))
     // Cloud tombstones remove items on every device; only unacknowledged local
     // actions override the server. Never resurrect a deleted remote book.
-    for (const [id, row] of rows) if (!state.pending[id]) state.items[id] = { saved: row.value?.saved === true, at: Number(row.value?.at) || 0, ...(row.value?.tableHidden === true ? { tableHidden: true } : {}) }
+    for (const [id, row] of rows) if (!state.pending[id]) acceptRow(state, id, row)
     for (const [id, change] of Object.entries(state.pending)) {
       let row = rows.get(id)
       for (let attempt = 0; attempt < 3; attempt++) {
         if (await account() !== owner) throw new Error('Account changed')
+        if (state.pending[id] !== change) break
+        // A queued removal from an older visit must not delete a later re-add
+        // on another device, including a value returned by a CAS conflict.
+        if (!change.saved && row?.value?.saved === true && Number(row.value.at) > change.at) {
+          delete state.pending[id]
+          acceptRow(state, id, row)
+          break
+        }
         const { data: result, error: failed } = await client.rpc('commit_user_data', {
           p_user_id: owner, p_key: PREFIX + id, p_value: change.saved ? change : null,
           p_expected_rev: row?.rev ?? null,
         })
         if (failed) break
         const committed = Array.isArray(result) ? result[0] : result
-        if (versionedWriteApplied(committed)) { if (state.pending[id] === change) delete state.pending[id]; break }
+        if (versionedWriteApplied(committed)) { rememberRevision(state, id, committed.rev); if (state.pending[id] === change) delete state.pending[id]; break }
         row = committed
       }
     }

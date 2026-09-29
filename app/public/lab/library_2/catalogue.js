@@ -1,3 +1,4 @@
+import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260929complete';
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
@@ -64,6 +65,7 @@ export function attachCatalogue(book, entry) {
 
 /** Preface paragraphs and cast for a catalogue book, loaded once when it is opened. */
 export async function loadIntroduction(book) {
+  await loadReviewedIntroduction(book);
   if (book.preface && book.characters) return;
   const id = encodeURIComponent(book.id);
   const json = url => fetch(url).then(r => (r.ok ? r.json() : null)).catch(() => null);
@@ -78,7 +80,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260928covers').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260929reviewed').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });

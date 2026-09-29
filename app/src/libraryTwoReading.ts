@@ -9,7 +9,7 @@ import { editionHold } from './data/editionAvailability'
  * (src/labReadingMemory.ts), without its rendering: reading-memory sessions
  * (device mirror, merged with the account's cloud copy when signed in), the
  * reader's position store (device record merged by time with the account's
- * cloud row), and completion marks. The reader owns every position write;
+ * cloud row), and completion marks. The reader owns every reading event; account snapshots are mirrored unchanged;
  * the explicit remove action only changes the existing shelf-hide timestamp.
  *
  * The "so far" summary follows preReader/recapSummaryClient.ts exactly: a
@@ -80,7 +80,7 @@ export interface ReadingTable {
   mode: LibraryMode
   reading: ReadingTableBook[]
   finished: ReadingTableFinished[]
-  /** Reading books retained on My shelf, including those removed from the table. */
+  /** Compatibility alias for the same active reading list shown at the desk. */
   shelfReading?: ReadingTableBook[]
 }
 
@@ -144,7 +144,16 @@ async function loadPositions(auth: RecapAuth, onReady?: (positions: LabPositionS
   onReady?.(ownedLocal)
   if (!auth.token || !auth.userId || !isOnline()) return ownedLocal
   const cloud = await fetchLabPositionCloud(auth.token).catch(() => null)
-  const merged = accountLabPositionRecord(local, cloud, auth.userId)
+  let merged = accountLabPositionRecord(local, cloud, auth.userId)
+  if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
+  // Keep the account pins we have actually received, not just a presentation
+  // snapshot. A later offline/older cloud response must not make a book vanish.
+  // This copies exact clocks/coordinates; opening the library is not reading.
+  const current = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
+  if (cloud && (!cloud.owner || cloud.owner === auth.userId)
+    && (!current.owner || current.owner === auth.userId)) {
+    merged = writeLabPositionLocal(merged)
+  }
   onReady?.(merged)
   return merged
 }
@@ -209,6 +218,13 @@ async function placeFor(bookId: string): Promise<Place | null> {
   const place = positionPlacesByBook(lastPositions, books, books.get('bible')?.readingStructure?.chapters).get(bookId)
   if (!place) return null
   return { chapterNumber: place.sequentialChapter, pageIndex: place.pageIndex, paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex, editionKey: place.primaryEditionKey ?? null }
+}
+
+/** Read-only spoiler permission, using the same account-scoped place as Continue. */
+export async function introductionProgress(bookId: string): Promise<{ chapterNumber: number; completed: boolean }> {
+  const table = await loadReadingTable()
+  const place = await placeFor(bookId)
+  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) }
 }
 
 /**
@@ -338,9 +354,9 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),
   }
-  table.shelfReading = table.reading
   table.reading = table.reading.filter(row => !membership.tableHidden.includes(row.bookId)
     && !((positions?.hidden?.[row.bookId] ?? 0) >= (lastRows.get(row.bookId)?.lastActiveAt ?? 1)))
+  table.shelfReading = table.reading
   if (!table.reading.length) table.mode = 'new'
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
   if (auth.token) {
@@ -438,4 +454,4 @@ export async function hideFromReadingNow(bookId: string): Promise<void> {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress }

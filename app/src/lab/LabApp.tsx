@@ -1,3 +1,4 @@
+import { bibleBookTransition } from '../narration/bookTransition'
 import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
 import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
@@ -1007,6 +1008,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     paragraphs: book.paragraphs,
     followParagraphs: book.followParagraphs,
     audioTitle: book.audioTitle,
+      chapters: book.chapters,
   }))
   const [browseWhileListening, setBrowseWhileListening] = useState(false)
   const [audioChapterTransitioning, setAudioChapterTransitioning] = useState(false)
@@ -1092,9 +1094,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!signal.aborted) storeNarrationReplay(context, results)
     return results
   }, [authToken])
+  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok'
+    ? bibleBookTransition(listenSource.bookId, listenSource.chapters, listenSource.chapterNumber) : null,
+  [narrationInfo?.provider, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
+  const narrationEndingEnsure = useCallback(async (signal: AbortSignal, mode?: 'next' | 'all', fromChunk?: number) => {
+    if (!bookTransition || !narrationVoice) return []
+    const token = authToken ?? await readSupabaseAccessToken()
+    if (signal.aborted) return []
+    return ensureNarration({
+      kind: 'book-transition', nextChapter: bookTransition.nextChapter,
+      bookId: listenSource.bookId, editionKey: prefs.primaryEdition,
+      chapter: listenSource.chapterNumber, voice: narrationVoice,
+      paragraphs: [{ index: 0, text: bookTransition.text, fromChunk }], mode,
+    }, { signal, authToken: token })
+  }, [bookTransition, narrationVoice, authToken, listenSource.bookId, listenSource.chapterNumber, prefs.primaryEdition])
   const narrationOption = useMemo(
-    () => (narrationApplies && narrationVoice ? { voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared } : null),
-    [narrationApplies, narrationVoice, narrationEnsure, narrationPrepared],
+    () => (narrationApplies && narrationVoice ? {
+      voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared,
+      endingCue: bookTransition ? { text: bookTransition.text, ensure: narrationEndingEnsure } : undefined,
+    } : null),
+    [narrationApplies, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
   )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
@@ -1151,8 +1170,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
       audioTitle: book.audioTitle,
+      chapters: book.chapters,
     })
-  }, [book.bookId, book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, listen.playing, browseWhileListening])
+  }, [book.bookId, book.chapterNumber, book.paragraphs, book.followParagraphs, book.audioTitle, book.chapters, listen.playing, browseWhileListening])
 
   const handoffWritesSuspended = Boolean(
     readerHandoff
@@ -1801,6 +1821,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
       audioTitle: book.audioTitle,
+      chapters: book.chapters,
     }
     const chapterChanged = nextSource.chapterNumber !== listenSource.chapterNumber
     if (chapterChanged) {
@@ -3398,6 +3419,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       paragraphs: loaded.paragraphs,
       followParagraphs: loaded.followParagraphs,
       audioTitle: loaded.audioTitle,
+      chapters: loaded.chapters,
     })
     consumedOpeningRef.current = continuation
       ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
@@ -3706,6 +3728,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       paragraphs: book.paragraphs,
       followParagraphs: book.followParagraphs,
       audioTitle: book.audioTitle,
+      chapters: book.chapters,
     }))
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
@@ -3807,9 +3830,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const startCallVoice = useCallback(() => {
     const greeting = preparationReturnRef.current === book.bookId ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined
     void ask.startVoice(greeting).then((started) => {
+      // A cancelled older attempt must not close Reconnect or a newer call.
       // A start the account policy or the microphone refused leaves nothing to
       // show a call for; the notice already says why.
-      if (!started) { setCallOpen(false); returnToPreparation() }
+      if (started === false) { setCallOpen(false); returnToPreparation() }
     })
   }, [ask, book.bookId, book.bookTitle, returnToPreparation])
 
@@ -3838,13 +3862,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!showPhoneChrome) {
       setDesktopAskOpen(true)
       void ask.startVoice().then((started) => {
-        if (!started) setVoiceGate('off')
+        if (started === false) setVoiceGate('off')
       })
       return
     }
     openPhoneAsk()
     void ask.startVoice().then((started) => {
-      if (!started) setVoiceGate('off')
+      if (started === false) setVoiceGate('off')
     })
   }, [ask, captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
 

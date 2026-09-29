@@ -3,6 +3,14 @@ import { describe,it,expect,vi } from 'vitest'
 import { nativeAuthPending,nativeAuthRedirect,parseNativeAuthReturn,nativeAuthLanding } from './nativeAuthReturn'
 const now=1_000_000,nonce='0123456789abcdef',id='app.tinct.reader.review'
 describe('native auth returns',()=>{
+ it('uses the shared welcome and return-to-reading completion after native sign-in',()=>{
+  for(const kind of ['oauth','signup'] as const){
+   const landing=nativeAuthLanding(nativeAuthPending(id,nonce,'/reader?book=bible#verse-5',kind,now))
+   const params=new URL(landing,'https://localhost').searchParams
+   expect(params.get('callback')).toBe(kind)
+   expect(params.get('returnTo')).toBe('/reader?book=bible#verse-5')
+  }
+ })
  it('keeps the review app separate and the reading destination local',()=>{
   const p=nativeAuthPending(id,nonce,'/reader?book=frankenstein','oauth',now)
   expect(nativeAuthRedirect(p)).toBe(id+'://auth/callback?flow='+nonce)

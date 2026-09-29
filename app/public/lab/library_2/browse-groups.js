@@ -25,3 +25,16 @@ export function populatedShelves(category, houses, books) {
   return (houses.find(h=>h.id===houseId)?.shelves||[])
     .map(s=>({...s,bookIds:s.bookIds.filter(id=>ids.has(id))})).filter(s=>s.bookIds.length);
 }
+
+/** Subdivisions live on the category page; every selected book remains reachable. */
+export function collectionReels(kind, id, books, houses, title) {
+  let groups=[];
+  if(kind==='category'&&id!=='all')groups=populatedShelves(id,houses,books)
+    .map(s=>({id:s.id,title:s.title,books:books.filter(b=>s.bookIds.includes(b.id))}));
+  if(kind==='era')groups=periodGroups.filter(p=>p.era===id)
+    .map(p=>({id:p.id,title:p.label+' · '+p.range,books:books.filter(b=>inPeriod(b,p))})).filter(g=>g.books.length);
+  if(!groups.length)return [];
+  const grouped=new Set(groups.flatMap(g=>g.books.map(b=>b.id))),remaining=books.filter(b=>!grouped.has(b.id));
+  if(remaining.length)groups.push({id:'more-'+id,title:'More '+title,books:remaining});
+  return groups;
+}

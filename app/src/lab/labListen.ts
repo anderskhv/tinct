@@ -30,6 +30,8 @@ export interface LabAudioTitleClip {
 
 export interface LabAudioParagraphClip {
   kind: 'paragraph'
+  /** Audio-only navigation cue: never a source word or persisted reading place. */
+  announcement?: boolean
   index: number
   file: string
   duration?: number
@@ -188,7 +190,7 @@ export function followPlayingClip(
   clip: LabAudioClip | undefined,
   currentTime: number,
 ): FollowTarget {
-  if (!clip || clip.kind === 'title') return { kind: 'none' }
+  if (!clip || clip.kind === 'title' || clip.announcement) return { kind: 'none' }
   if (clip.chunk) {
     // A sentence-group clip paints from its own timings; the word index is
     // offset into the paragraph. Without usable timings the paragraph is the

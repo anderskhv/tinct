@@ -16,7 +16,15 @@ export async function checkBackgroundAudio(device,page,output){
  body.writeUInt16LE(2,32);body.writeUInt16LE(16,34);body.write('data',36);body.writeUInt32LE(body.length-44,40)
  // Mute Android's media output, not the audio element: a muted element can
  // suppress the very native media session this check is intended to exercise.
- const muted=String(await device.shell('cmd media_session volume --stream 3 --set 0 --get'))
+ // AudioService applies the shell volume change asynchronously. A combined
+ // --set/--get can report the old value, so verify it separately before playing.
+ await device.shell('cmd media_session volume --stream 3 --set 0')
+ let muted=''
+ for(let attempt=0;attempt<20;attempt++){
+  muted=String(await device.shell('cmd media_session volume --stream 3 --get'))
+  if(/volume is 0\b/i.test(muted))break
+  await new Promise(resolve=>setTimeout(resolve,250))
+ }
  assert.match(muted,/volume is 0\b/i,'the isolated emulator media output is muted')
  for(let i=0;i<sampleRate*duration;i++)body.writeInt16LE(Math.round(8000*Math.sin(2*Math.PI*440*i/sampleRate)),44+i*2)
  const calls=[]

@@ -34,6 +34,6 @@ export function nativeAuthLanding(pending: NativeAuthPending, failed=false): str
   const query=new URLSearchParams({returnTo:safeLabReturnTo(pending.returnTo)})
   if(failed)query.set('native-error','1')
   else if(pending.kind==='reset')query.set('mode','reset')
-  else query.set('native-return','1')
+  else query.set('callback',pending.kind)
   return '/lab/sign-in/index.html?'+query
 }

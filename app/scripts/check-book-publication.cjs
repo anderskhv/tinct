@@ -8,7 +8,9 @@ const results={book,live,assets:[],cases:[]}
 const clean=s=>s.replace(/_/g,'').replace(/\s+/g,' ').trim()
 async function boot(browser,phone,ed,fixture={}){
  const context=await browser.newContext({viewport:phone?{width:390,height:844}:{width:1440,height:950},hasTouch:phone,serviceWorkers:'block'})
- const page=await context.newPage(),calls=[],errors=[],legacy=[]
+ const page=await context.newPage(),calls=[],errors=[],legacy=[],network=[],started=Date.now()
+ const track=(phase,req,extra={})=>{const url=new URL(req.url());if(url.pathname.startsWith('/api/narration/'))network.push({phase,path:url.pathname,at:Date.now()-started,...extra})}
+ page.on('request',req=>track('request',req));page.on('response',response=>track('response',response.request(),{status:response.status()}));page.on('requestfailed',req=>track('failed',req,{error:req.failure()?.errorText}))
  page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message))
  await page.route('**/*',async route=>{
   const req=route.request(),url=new URL(req.url())
@@ -42,7 +44,7 @@ async function boot(browser,phone,ed,fixture={}){
  await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
  const bundle=await page.locator('script[src]').evaluateAll(ns=>ns.map(n=>new URL(n.src).pathname).find(x=>/\/assets\/index-.*\.js$/.test(x)))
  if(process.env.TINCT_EXPECTED_BUNDLE)assert.equal(bundle,process.env.TINCT_EXPECTED_BUNDLE)
- return {context,page,calls,errors,legacy,bundle}
+ return {context,page,calls,errors,legacy,bundle,network,started}
 }
 async function toggleCompare(page,phone){
  if(!phone){
@@ -111,9 +113,26 @@ async function main(){
     await toggleCompare(page,phone)
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
     assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
-    await page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first().click()
+    const play=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first()
+    const diagnostics=async()=>({calls:calls.length,network:state.network.map(event=>({...event})),errors:[...errors],screen:await page.evaluate(()=>({
+      root:{...document.querySelector('[data-testid="lab-root"]')?.dataset},
+      play:[...document.querySelectorAll('button[data-testid]')].filter(n=>['lab-v2-play','lab-listen','lab-desktop-play'].includes(n.dataset.testid)).map(n=>({testid:n.dataset.testid,label:n.getAttribute('aria-label'),disabled:n.disabled,visible:!!n.getClientRects().length})),
+      notices:[...document.querySelectorAll('[data-testid="lab-narration-error"],[data-testid="lab-account-sheet"],[role="alert"]')].map(n=>n.textContent)
+    }))})
+    const beforePlay=await diagnostics(),playAt=Date.now()
+    const ensureRequest=page.waitForRequest(req=>new URL(req.url()).pathname==='/api/narration/ensure',{timeout:10000})
+    ensureRequest.catch(()=>{})
+    await play.click()
     await page.waitForTimeout(1500)
-    assert(calls.length>0,'Play must use streaming narration')
+    const callsAtOriginalDeadline=calls.length
+    let requestObserved=true
+    try{await ensureRequest}catch{requestObserved=false}
+    const elapsedToRequest=Date.now()-playAt
+    const playback={device,ed,beforePlay,playAt:playAt-state.started,callsAtOriginalDeadline,requestObserved,elapsedToRequest,settled:await diagnostics()}
+    console.log('PLAYBACK_DIAGNOSTIC '+JSON.stringify(playback))
+    results.cases.push({device,edition:ed,playbackDiagnostic:playback})
+    if(!calls.length)await page.screenshot({path:out+'/'+device+'-'+ed+'-play-failure.png'})
+    assert(requestObserved&&calls.length>0,'Play must use streaming narration within the bounded request wait')
     const request=calls[0];assert.equal(request.bookId,book);assert.equal(request.editionKey,ed);assert.equal(request.chapter,1)
     assert(request.paragraphs.some(p=>p.index===0&&/^[a-f0-9]{64}$/.test(p.textHash)),'Streaming must carry opening text identity')
     assert.equal(legacy.filter(url=>url.startsWith('/api/audio-file')).length,0,'Must not load obsolete recordings')

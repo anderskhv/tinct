@@ -1,13 +1,14 @@
-import {periodGroups,inPeriod,populatedShelves} from './browse-groups.js?v=20260928covers';
+import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260929complete';
+import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260929shelf';
-import {authorPortrait,warmPortrait} from './authors.js?v=20260928covers';
+import {mountBookshelf} from './bookshelf.js?v=20260929reveal';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap} from './authors.js?v=20260929reviewed';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260928covers';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260929complete';
 import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928covers';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
@@ -61,8 +62,10 @@ loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e
 // Signature books: each has its own painted scene (assets/scene-<id>-{phone,wide}.jpg)
 // and pencil character studies. Frankenstein keeps the original rain room.
 const signature={'frankenstein':{hours:6,genre:'Fiction',question:'What do we owe the intelligence we create?',sketches:['Victor Frankenstein','the creature','Robert Walton'],sheet:'assets/frankenstein-character-studies.png'},'pride-and-prejudice':{hours:11,genre:'Fiction',question:'How far can we trust a first impression?',sketches:['Elizabeth Bennet','Mr. Darcy','Jane Bennet']},'odyssey':{hours:12,genre:'Poetry',question:'How far must we travel to find home?',sketches:['Odysseus','Penelope','Telemachus']},'crime-and-punishment':{hours:21,genre:'Fiction',question:'Can an idea make a crime right?',sketches:['Raskolnikov','Sonya Marmeladov','Porfiry Petrovich']},'the-prince':{hours:3,genre:'Politics',question:'Can a ruler afford to be good?',sketches:['Niccolò Machiavelli','Cesare Borgia']},'meditations':{hours:5,genre:'Philosophy',question:'How do we stay steady in a world we cannot control?',sketches:['Marcus Aurelius','Epictetus']}};
+Object.keys(signature).forEach(id=>{if(reviewedHooks[id])signature[id].question=reviewedHooks[id];});
 const sceneIds=new Set(Object.keys(signature).filter(id=>id!=='frankenstein'));
 let featured=books[0],featureRequest=0,featuredTarget=0;const featuredBooks=Object.keys(signature).map(id=>books.find(b=>b.id===id)).filter(Boolean);
+document.querySelector('.question').textContent=signature[featured.id].question;
 featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label',`Feature ${book.title}`);b.classList.toggle('active',i===0);b.addEventListener('click',async()=>{const request=++featureRequest;featuredTarget=i;b.setAttribute('aria-busy','true');try{await Promise.all([ensureCover(book),loadScene(book.id)]);if(request!==featureRequest)return;featured=book;rememberVisit({featured:book.id});updateHeroAction();const info=signature[book.id];$('hero-time').textContent=readingTime(book)||`~${info.hours} hours to read`;$('hero-genre').textContent=info.genre;$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info.question;$('hero-book').setAttribute('aria-label',`Open ${book.title}`);const c=$('hero-book').querySelector('canvas');c.dataset.book=book.id;paintCover(c,book.id);showScene(book.id);all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',i===j);e.setAttribute('aria-pressed',String(i===j));});}catch{if(request===featureRequest){featuredTarget=featuredBooks.indexOf(featured);notice('This scene could not load. Please try again.');}}finally{b.removeAttribute('aria-busy');}});b.setAttribute('aria-pressed',String(i===0));document.querySelector('.hero-dots').append(b);});
 function updateHeroAction(){const continuing=window.__library2Reading?.reading.some(b=>b.bookId===featured.id);$('read-featured').firstChild.textContent=continuing?'Continue':'Read';}
 async function openFeatured(){if(window.__library2Reading?.reading.some(b=>b.bookId===featured.id)){try{const href=await readerDestination(featured,null);if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});location.assign(href);}catch{notice('Your book could not open. Please try again.');}}else openBook(featured,$('hero-book').querySelector('canvas'));}
@@ -126,9 +129,20 @@ let resolveBookAnimation,resolveTourAnimation,closing=false;
 function animateBook(to){if(bookAnim)cancelAnimationFrame(bookAnim);resolveBookAnimation?.();const from=bookProgress,start=performance.now(),duration=reduced.matches?0:(to?1500:650)*Math.abs(to-from);return new Promise(resolve=>{resolveBookAnimation=resolve;function frame(now){const t=duration?clamp((now-start)/duration,0,1):1;drawBook(t===1?to:mix(from,to,t));if(t<1)bookAnim=requestAnimationFrame(frame);else{bookAnim=null;resolveBookAnimation=null;resolve();}}bookAnim=requestAnimationFrame(frame);});}
 
 const shelleyBiography='Mary Shelley’s mother, feminist Mary Wollstonecraft, died days after her birth. Her father, philosopher William Godwin, nurtured her intellect, though she often felt neglected by him. She ran off with Percy Bysshe Shelley at sixteen and began <i>Frankenstein</i> at eighteen, inspired by her friend Lord Byron’s ghost-story challenge. Despite losing three children and her husband, she raised her surviving son and published six novels before dying at fifty-three.';
-function setSlip(book){const mary=book.id==='frankenstein';const portrait=mary?{src:'assets/mary-shelley-portrait.jpg',alt:'Mary Shelley, painted by Richard Rothwell'}:authorPortrait(book.author);const image=$('slip-portrait');image.hidden=!portrait;if(portrait){image.src=portrait.src;image.alt=portrait.alt;}else{image.removeAttribute('src');image.alt='';}$('slip-caption').replaceChildren(el('span','',mary?book.author+' · 1797–1851':book.author));if(mary){$('slip-caption').append(el('span','','English novelist'));$('slip-copy').innerHTML=shelleyBiography;}else $('slip-copy').textContent=book.summary||book.preface[0];}
+function appendEditorialText(target,copy){target.replaceChildren();String(copy||'').split(/(\*[^*]+\*)/g).forEach(part=>{target.append(part.startsWith('*')&&part.endsWith('*')?el('em','',part.slice(1,-1)):document.createTextNode(part));});}
+function setSlip(book){
+ const mary=book.id==='frankenstein',flap=book.authorFlap;
+ const portraits=book.authorImages||[];
+ renderAuthorFlap(portraits,$('slip-images'),$('slip-image-credits'));
+ if(!portraits.length){const fallback=mary?{src:'assets/mary-shelley-portrait.jpg',alt:'Mary Shelley, painted by Richard Rothwell'}:authorPortrait(book.author);if(fallback){const image=el('img','author-flap-image');image.id='slip-portrait';image.src=fallback.src;image.alt=fallback.alt;$('slip-images').append(image);}}
+ $('slip-caption').replaceChildren(el('span','',flap?[flap.name,flap.years].filter(Boolean).join(' · '):mary?book.author+' · 1797–1851':book.author));
+ if(flap?.occupation)$('slip-caption').append(el('span','',flap.occupation));else if(mary)$('slip-caption').append(el('span','','English novelist'));
+ if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.summary||book.preface[0];
+ $('slip-invitation').textContent=book.hook||'';$('slip-invitation').hidden=!book.hook;
+}
+let introExpanded=false,introProgress=null;
 
-async function openBook(book,canvas){if(activeBook)return;if(menuOpen)setMenu(false);warmSheet(book.id);warmPortrait(book.author);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book),loadIntroduction(book)]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;activeBook=book;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;resetIntroScroll();(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
+async function openBook(book,canvas){if(activeBook)return;if(menuOpen)setMenu(false);warmSheet(book.id);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;activeBook=book;introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;resetIntroScroll();(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
 async function closeBook(){if(!activeBook||closing)return;closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
@@ -139,11 +153,24 @@ function appendParagraphs(target,paragraphs){paragraphs.forEach(p=>target.append
 function renderIntro(){
  const body=$('intro-body');const footer=document.querySelector('.intro-footer');if(footer.parentElement===body)$('intro').append(footer);body.replaceChildren();resetIntroScroll();requestAnimationFrame(()=>{resetIntroScroll();scrollHint();});
  $('intro-heading').textContent='Introduction';
+ document.querySelector('[data-tab="characters"]').textContent=activeBook.galleryTitle||'Characters';
  document.querySelector('.intro-tabs').hidden=false;
  $('begin-reading').textContent='Begin reading →';$('begin-reading').disabled=!availableEditions().length;
  all('[data-tab]').forEach(b=>{b.hidden=false;b.setAttribute('aria-selected',String(b.dataset.tab===currentTab));b.tabIndex=b.dataset.tab===currentTab?0:-1;});
- if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);if(activeBook.id==='frankenstein')body.append(el('p','preface-credit','Anders K. Hvelplund, Copenhagen Sep 24, 2026'));}
- else if(currentTab==='characters'){introCast(activeBook).forEach((c,i)=>{const section=el('section','character');const art=signature[activeBook.id];if(art){const slot=art.sketches.indexOf(c.aliases[0]);const sketch=el('div','character-sketch');if(slot<0)sketch.classList.add('no-sketch');else{sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-studies.jpg`}')`;sketch.style.backgroundPosition=activeBook.id==='frankenstein'?(i?'50% 0':'0 0'):['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.aliases[0]}`);}section.append(sketch);}const text=el('div','character-copy');text.append(el('h3','',c.aliases[0]),el('p','character-role',c.introRole),el('p','',c.subtitle));section.append(text);body.append(section);});}
+ if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);const signature=activeBook.prefaceSignature||(activeBook.id==='frankenstein'?'Anders K. Hvelplund, Copenhagen Sep 24, 2026':null);if(signature)body.append(el('p','preface-credit',signature));if(activeBook.orientation){const orientation=el('section','reading-orientation');orientation.append(el('h3','','Reading orientation'),el('p','',activeBook.orientation));body.append(orientation);}}
+ else if(currentTab==='characters'){
+  const list=el('div','intro-character-list');list.id='intro-character-list';
+  (reviewedCast(activeBook,introExpanded,introProgress)||introCast(activeBook)).forEach((c,i)=>{
+   const section=el('section','character');section.dataset.characterId=c.id||c.introKey||c.aliases[0];
+   const art=signature[activeBook.id];if(art){const slot=art.sketches.indexOf(c.aliases[0]);if(slot>=0){const sketch=el('div','character-sketch');sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-studies.jpg`}')`;sketch.style.backgroundPosition=['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.name||c.aliases[0]}`);section.append(sketch);}}
+   const text=el('div','character-copy');text.append(el('h3','',c.name||c.aliases[0]),el('p','character-role',c.introKey?c.subtitle:c.introRole),el('p','',c.introKey?c.body:c.subtitle));section.append(text);list.append(section);
+  });body.append(list);
+  if(activeBook.galleryTitle){const toggle=el('button','gallery-toggle',introExpanded?'Show fewer characters':activeBook.galleryExpandLabel);toggle.dataset.testid='intro-gallery-toggle';toggle.setAttribute('aria-expanded',String(introExpanded));toggle.setAttribute('aria-controls',list.id);toggle.onclick=async()=>{
+    const book=activeBook;
+    if(!introExpanded&&book.characters.some(c=>c.introVisibility==='hold_until_revealed')&&!introProgress){toggle.disabled=true;toggle.setAttribute('aria-busy','true');try{const api=await readingApi();const progress=await api.introductionProgress(book.id);if(activeBook!==book)return;introProgress=progress;}catch{if(activeBook!==book)return;introProgress=null;}finally{toggle.disabled=false;toggle.removeAttribute('aria-busy');}}
+    if(activeBook!==book)return;introExpanded=!introExpanded;renderIntro();
+  };body.append(toggle);}
+ }
 
  else {
   const field=el('section','edition-field');field.append(el('h3','','Reading edition'));
@@ -313,16 +340,17 @@ async function removeFromMyShelf(id){
  }catch{notice('Your shelf could not be saved. Please try again.');}
 }
 function renderMyBooks(){
- $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.replaceChildren();
+ $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
  const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
- const reading=table.shelfReading||table.reading;
+ // Desk membership defines Currently reading, including older cached snapshots.
+ const reading=table.reading;
  const present=new Set([...reading,...table.finished].map(row=>row.bookId));
- const groups=[['Reading now',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['To read',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
+ const groups=[['Currently reading',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['Saved for later',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
   list.forEach(book=>{
-   const card=el('article','collection-card'),open=coverButton(book);
+   const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;
    const toggle=open.querySelector('.save-toggle');
    if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
    if(kind==='reading'){
@@ -335,21 +363,38 @@ function renderMyBooks(){
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
-function renderCollection(){const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';if(kind==='saved'){renderMyBooks();return;}if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
-if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
-if(kind==='period'){const period=periodGroups.find(p=>p.id===id);selected=period?books.filter(b=>inPeriod(b,period)):[];title=period?period.label+' · '+period.range:title;}$('collection-title').textContent=title;const grid=$('collection-books');grid.replaceChildren();selected.forEach(book=>{const card=el('article','collection-card');const open=coverButton(book);card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);});$('collection-empty').hidden=selected.length>0;$('collection-empty').textContent=kind==='saved'?'Save books with “＋ Read later” to find them here.':'No books in this group yet.';}
+function collectionCard(book){
+ const card=el('article','collection-card');
+ card.append(coverButton(book),el('h2','',book.title),el('p','',book.author));
+ return card;
+}
+function renderCollection(){
+ const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
+ if(kind==='saved'){renderMyBooks();return;}
+ if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}
+ if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
+ if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
+ if(kind==='period'){const period=periodGroups.find(p=>p.id===id);selected=period?books.filter(b=>inPeriod(b,period)):[];title=period?period.label+' · '+period.range:title;}
+ $('collection-title').textContent=title;
+ const grid=$('collection-books'),groups=collectionReels(kind,id,selected,libraryHouses,title);
+ grid.replaceChildren();grid.classList.toggle('has-collection-reels',groups.length>0);
+ if(groups.length)for(const group of groups){
+  const section=el('section','shelf collection-reel'),heading=el('h2','',group.title),row=el('div','book-row');
+  section.dataset.collectionGroup=group.id;heading.id='collection-group-'+group.id;
+  row.setAttribute('role','region');row.setAttribute('aria-labelledby',heading.id);row.tabIndex=0;
+  group.books.forEach(book=>row.append(collectionCard(book)));
+  section.append(heading,row);grid.append(section);
+ }else selected.forEach(book=>grid.append(collectionCard(book)));
+ $('collection-empty').hidden=selected.length>0;$('collection-empty').textContent='No books in this group yet.';
+}
 function renderBrowseMenus(){
- const add=(host,label,value,range,children)=>{
+ const add=(host,label,value,range)=>{
   const row=el('div','browse-group'),b=el('button','',label);b.onclick=()=>selectCollection(value);
-  if(range)b.append(el('small','',range));row.append(b);
-  if(children.length){const details=el('details','browse-subgroups'),summary=el('summary','', 'Browse '+label);details.append(summary);
-   for(const child of children){const sub=el('button','',child.label);sub.onclick=()=>selectCollection(child.value);if(child.range)sub.append(el('small','',child.range));details.append(sub);}
-   row.append(details);
-  }host.append(row);
+  if(range)b.append(el('small','',range));row.append(b);host.append(row);
  };
  $('menu-categories').replaceChildren();$('menu-periods').replaceChildren();
- for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id,null,populatedShelves(c.id,libraryHouses,books).map(s=>({label:s.title,value:'shelf:'+s.id})));}
- for(const era of eras){if(!books.some(b=>metadata[b.id]?.era===era.id))continue;add($('menu-periods'),era.label,'era:'+era.id,era.range,periodGroups.filter(p=>p.era===era.id&&books.some(b=>inPeriod(b,p))).map(p=>({label:p.label,value:'period:'+p.id,range:p.range})));}
+ for(const c of categories){if(c.id!=='all'&&!books.some(b=>metadata[b.id]?.form===c.id))continue;add($('menu-categories'),c.label,'category:'+c.id);}
+ for(const era of eras){if(!books.some(b=>metadata[b.id]?.era===era.id))continue;add($('menu-periods'),era.label,'era:'+era.id,era.range);}
  $('menu-periods').append(el('small','browse-date-note','Grouped by approximate composition dates; some works span several periods.'));
 }
 renderBrowseMenus();
@@ -359,7 +404,7 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
 const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-studies.jpg`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
 function warmCharacterArt(){
- const warm=()=>featuredBooks.forEach(b=>{warmPortrait(b.author);warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
+ const warm=()=>featuredBooks.forEach(b=>{warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
  const whenModeKnown=()=>{
   const root=document.documentElement;
   if(root.classList.contains('returning'))return;

@@ -136,6 +136,9 @@ export interface NarrationParagraphNotReady {
 export type NarrationParagraphResult = NarrationParagraphState | NarrationParagraphNotReady
 
 export interface NarrationEnsureRequest {
+  /** Trusted book-boundary UI; the server derives its words from edition metadata. */
+  kind?: 'book-transition'
+  nextChapter?: number
   bookId: string
   editionKey: string
   chapter: number
@@ -182,7 +185,7 @@ export async function ensureNarration(
     response = await fetchImpl(apiUrl('/api/narration/ensure'), {
       method: 'POST',
       headers,
-      body: JSON.stringify({ bookId: request.bookId, editionKey: request.editionKey, chapter: request.chapter, voice: request.voice, paragraphs, mode: request.mode ?? 'next' }),
+      body: JSON.stringify({ kind: request.kind, nextChapter: request.nextChapter, bookId: request.bookId, editionKey: request.editionKey, chapter: request.chapter, voice: request.voice, paragraphs, mode: request.mode ?? 'next' }),
       signal: deadline.signal,
     })
   } catch (error) {

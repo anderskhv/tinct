@@ -66,12 +66,24 @@ jobs:
         with:
           name: voice-capture-acceptance
           path: app/artifacts/voice-capture
+      - name: Verify sign-in completion without real accounts
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-sign-in.mjs
+      - name: Save sign-in acceptance
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sign-in-acceptance
+          path: app/artifacts/sign-in
       - name: Verify reader panels and selection
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-reader-panels.mjs
       - name: Verify reader feedback fixes
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-reader-feedback.mjs
+      - name: Verify spoken Bible book transition silently
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-book-transition.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
         if: always()
@@ -80,6 +92,7 @@ jobs:
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
+            app/artifacts/book-transition
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-public.mjs

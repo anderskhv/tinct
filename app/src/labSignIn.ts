@@ -1,3 +1,5 @@
+import type { Session } from '@supabase/supabase-js'
+import { isInitialAccountSession, navigateAfterAuth } from './lab/labAuthCompletion'
 import { authRedirectTo, startNativeOAuth, consumeNativeAuthNotice } from './utils/nativeAuth'
 import { safeLabReturnTo } from './lab/labSignInReturn'
 import {
@@ -16,7 +18,7 @@ import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
 
-type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account'
+type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account' | 'welcome'
 
 const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')
 const form = root?.querySelector<HTMLFormElement>('[data-auth-form]')
@@ -25,13 +27,19 @@ const submit = root?.querySelector<HTMLButtonElement>('[data-auth-submit]')
 const email = root?.querySelector<HTMLInputElement>('[name=email]')
 const password = root?.querySelector<HTMLInputElement>('[name=password]')
 const confirmPassword = root?.querySelector<HTMLInputElement>('[name=confirmPassword]')
-const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'account'])
+const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'account', 'welcome'])
 const initialParams = new URLSearchParams(location.search)
 let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
   ? initialParams.get('mode') as Mode
   : 'signin'
 
 const returnTo = safeLabReturnTo(initialParams.get('returnTo'))
+const callback = initialParams.get('callback')
+const nativeNotice = consumeNativeAuthNotice()
+const returnedError = labOAuthReturnError(location.search, location.hash)
+const returnedTokens = new URLSearchParams(location.hash.slice(1))
+const authReturn = Boolean(callback || initialParams.has('code') || returnedTokens.has('access_token') || pendingProvider())
+if (returnedTokens.get('type') === 'recovery') mode = 'reset'
 
 function setStatus(message = '', tone: 'error' | 'success' | 'neutral' = 'neutral') {
   if (!status) return
@@ -53,10 +61,10 @@ function setMode(next: Mode) {
   root.querySelectorAll<HTMLElement>('[data-mode-copy]').forEach(node => {
     node.hidden = node.dataset.modeCopy !== mode
   })
-  email?.closest<HTMLElement>('[data-email-field]')?.toggleAttribute('hidden', mode === 'reset' || mode === 'account')
-  password?.closest<HTMLElement>('[data-password-field]')?.toggleAttribute('hidden', mode === 'forgot' || mode === 'account')
+  email?.closest<HTMLElement>('[data-email-field]')?.toggleAttribute('hidden', mode === 'reset' || mode === 'account' || mode === 'welcome')
+  password?.closest<HTMLElement>('[data-password-field]')?.toggleAttribute('hidden', mode === 'forgot' || mode === 'account' || mode === 'welcome')
   confirmPassword?.closest<HTMLElement>('[data-confirm-field]')?.toggleAttribute('hidden', mode !== 'reset')
-  if (submit) submit.hidden = mode === 'account'
+  if (submit) submit.hidden = mode === 'account' || mode === 'welcome'
   setStatus()
   const url = new URL(location.href)
   if (mode === 'signin') url.searchParams.delete('mode')
@@ -66,7 +74,18 @@ function setMode(next: Mode) {
 }
 
 function returnToLibrary() {
-  location.assign(returnTo)
+  navigateAfterAuth(returnTo)
+}
+
+function completeSignIn(session: Session, newAccount = false) {
+  reconcileLabDeviceIdentity(session.user.id)
+  setSignedInCookie()
+  rememberPendingProvider(null)
+  const clean = new URL(withoutOAuthReturnParams(location.href), location.origin)
+  clean.searchParams.delete('callback')
+  history.replaceState(null, '', clean)
+  if (newAccount || isInitialAccountSession(session.user)) setMode('welcome')
+  else returnToLibrary()
 }
 
 function credentials() {
@@ -86,22 +105,18 @@ async function submitAuth(event: SubmitEvent) {
     if (mode === 'signin') {
       const { data, error } = await supabase.auth.signInWithPassword(values)
       if (error) throw error
-      setSignedInCookie()
-      // A different account than this device last held: wipe before it reads.
-      reconcileLabDeviceIdentity(data.session?.user?.id)
-      returnToLibrary()
+      if (!data.session) throw new Error('Sign in did not finish. Please try again.')
+      completeSignIn(data.session)
     } else if (mode === 'create') {
       const { data, error } = await supabase.auth.signUp({
         ...values,
-        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}`) },
+        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(returnTo)}`) },
       })
       if (error) throw error
       if (data.session) {
-        setSignedInCookie()
-        reconcileLabDeviceIdentity(data.session.user?.id)
-        returnToLibrary()
+        completeSignIn(data.session, true)
       } else {
-        setStatus('Check your email to confirm your account, then return here to sign in.', 'success')
+        setStatus('Check your email and follow the confirmation link to start reading.', 'success')
       }
     } else if (mode === 'forgot') {
       const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
@@ -236,29 +251,51 @@ form?.addEventListener('submit', submitAuth)
 
 async function initialize() {
   const back = root?.querySelector<HTMLAnchorElement>('[data-auth-back]')
-  if (back) back.href = returnTo
-  applyProviderCapabilities()
-  if (!supabase) {
-    setMode(mode)
-    setStatus('Sign in is temporarily unavailable.', 'error')
-    return
+  if (back) {
+    back.href = returnTo
+    back.textContent = /\/(?:reader|read\/|phone|desktop)/.test(returnTo) ? '← Back to reading' : '← Library'
   }
-  const { data } = await supabase.auth.getSession()
-  // Every lab sign-in comes back through this page — email and each provider
-  // round-trip alike — so it is where a changed identity is caught.
-  reconcileLabDeviceIdentity(data.session?.user?.id)
-  const accountEmail = root?.querySelector<HTMLElement>('[data-account-email]')
-  if (accountEmail) accountEmail.textContent = data.session?.user.email || ''
-  if (data.session?.user) setSignedInCookie()
-  if (data.session?.user && mode !== 'reset' && mode !== 'create') setMode('account')
-  else setMode(mode)
-  // After setMode, which clears the status line.
-  if (!data.session?.user) reportProviderReturnError()
-  else rememberPendingProvider(null)
-  const nativeNotice = consumeNativeAuthNotice()
-  if (nativeNotice) setStatus(nativeNotice, 'error')
-  if (data.session?.user && initialParams.get('native-return') === '1') returnToLibrary()
-  if (root) root.dataset.ready = 'true'
+  root?.querySelectorAll<HTMLElement>('[data-return]').forEach(button => {
+    button.textContent = button.closest('[data-mode-copy="welcome"]')
+      ? (/\/(?:reader|read\/|phone|desktop)/.test(returnTo) ? 'Continue reading' : 'Explore the library')
+      : (/\/(?:reader|read\/|phone|desktop)/.test(returnTo) ? 'Return to reading' : 'Return to Library')
+  })
+  applyProviderCapabilities()
+  try {
+    if (!supabase) throw new Error('Sign in is temporarily unavailable.')
+    const { data, error } = await supabase.auth.getSession()
+    if (error) throw error
+    // Report a failed callback even if the browser still holds an older session.
+    if (returnedError || nativeNotice) {
+      setMode('signin')
+      if (nativeNotice) {
+        const clean = new URL(location.href)
+        clean.searchParams.delete('native-error')
+        history.replaceState(null, '', clean)
+        rememberPendingProvider(null)
+        setStatus(nativeNotice, 'error')
+      } else reportProviderReturnError()
+      return
+    }
+    reconcileLabDeviceIdentity(data.session?.user?.id)
+    const accountEmail = root?.querySelector<HTMLElement>('[data-account-email]')
+    if (accountEmail) accountEmail.textContent = data.session?.user.email || ''
+    if (data.session?.user) {
+      setSignedInCookie()
+      if (mode === 'reset') setMode('reset')
+      else if (authReturn) completeSignIn(data.session, callback === 'signup')
+      else setMode(mode === 'welcome' ? 'welcome' : 'account')
+      rememberPendingProvider(null)
+    } else {
+      setMode(mode === 'welcome' || mode === 'account' ? 'signin' : mode)
+      reportProviderReturnError()
+    }
+  } catch (error) {
+    setMode('signin')
+    setStatus(messageOf(error) || 'Sign in could not finish. Please try again.', 'error')
+  } finally {
+    if (root) root.dataset.ready = 'true'
+  }
 }
 
 void initialize()

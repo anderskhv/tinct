@@ -35,6 +35,12 @@ jobs:
       - run: node scripts/check-eink-browser.mjs
         env:
           EINK_LIVE: ${{ github.event_name == 'workflow_run' && '1' || '0' }}
+      - name: Check the current production appearance before releasing a changed check
+        if: github.event_name == 'pull_request'
+        run: node scripts/check-eink-browser.mjs
+        env:
+          EINK_LIVE: '1'
+          EINK_OUTPUT: artifacts/eink-browser/current-production
       - uses: actions/upload-artifact@v4
         if: always()
         with:

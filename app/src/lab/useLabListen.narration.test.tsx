@@ -2,7 +2,7 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
-import { narrationLookAheadWidth, useLabListen } from './useLabListen'
+import { narrationLookAheadWidth, useLabListen, type LabNarrationOption } from './useLabListen'
 import { NarrationEnsureError, type NarrationParagraphResult, type NarrationParagraphState } from './labNarration'
 import { chunkNarrationText, narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
 
@@ -59,7 +59,7 @@ async function state(index: number, ready: number, options: { words?: boolean; d
 
 interface EnsureCall { fromChunks?: Record<number, number>; indexes: number[]; mode?: string; signal: AbortSignal; resolve: (results: NarrationParagraphResult[]) => void; reject: (error: Error) => void }
 
-function harness(options: { voice?: string; speed?: number; prepared?: () => NarrationParagraphResult[] } = {}) {
+function harness(options: { voice?: string; speed?: number; prepared?: () => NarrationParagraphResult[]; endingCue?: LabNarrationOption['endingCue']; onChapterComplete?: () => boolean } = {}) {
   const pending: Array<{ resolve: () => void; reject: (error: Error) => void }> = []
   const audio = new EventTarget() as HTMLAudioElement
   Object.assign(audio, {
@@ -98,7 +98,8 @@ function harness(options: { voice?: string; speed?: number; prepared?: () => Nar
       paragraphs: props.paragraphs ?? PARAGRAPHS,
       followParagraphs: props.paragraphs ? followedFor(props.paragraphs) : followed,
       createAudio: () => audio,
-      narration: props.narrationOn ? { voice: props.voice, ensure, prepared: options.prepared } : null,
+      onChapterComplete: options.onChapterComplete,
+      narration: props.narrationOn ? { voice: props.voice, ensure, prepared: options.prepared, endingCue: options.endingCue } : null,
     }),
     { initialProps: { voice: options.voice ?? 'a', narrationOn: true, edition: 'original-en' } as Props },
   )
@@ -764,5 +765,72 @@ describe('replay after reopening a reader', () => {
     await waitFor(() => expect(changed.calls).toHaveLength(1))
     expect(changed.audio.play).not.toHaveBeenCalled()
     changed.unmount()
+  })
+})
+
+describe('spoken navigation stays outside reader text', () => {
+  const text = 'You have completed Ezra. Next book: Nehemiah.'
+  async function cueState(): Promise<NarrationParagraphState> {
+    const tokens = narrationTextForParagraph(text).split(' ')
+    return { paragraph: 0, status: 'ready', textHash: await sha256Hex(tokens.join(' ')),
+      chunkCount: 1, readyChunks: 1, chunks: [{ index: 0, wordFrom: 0, wordTo: tokens.length,
+        ready: true, url: '/api/audio-file?path=cue.mp3', duration: 4 }], duration: 4 }
+  }
+  it('uses the same player after the final source words, paints no cue words and advances once', async () => {
+    const prepared = await Promise.all(PARAGRAPHS.map((_, i) => state(i, 99)))
+    const cue = await cueState(), ensureCue = vi.fn(async () => [cue]), onChapterComplete = vi.fn(() => true)
+    const h = harness({ prepared: () => prepared, endingCue: { text, ensure: ensureCue }, onChapterComplete })
+    expect(ensureCue).not.toHaveBeenCalled()
+    await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 3, wordIndex: 0 }) })
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(ensureCue).toHaveBeenCalledOnce())
+    expect(h.result.current.followParagraphs.map(p => p.text)).toEqual(PARAGRAPHS)
+    expect(h.audio.src).toContain('hash-3-0')
+    expect(onChapterComplete).not.toHaveBeenCalled()
+    await act(async () => { h.audio.currentTime = 4; h.audio.dispatchEvent(new Event('ended')) })
+    expect(h.audio.src).toContain('cue.mp3')
+    await act(async () => h.pending[1].resolve())
+    expect(h.result.current.follow).toEqual({ kind: 'none' })
+    act(() => h.result.current.pause())
+    expect(h.audio.autoplay).toBe(false)
+    act(() => h.result.current.resume())
+    await act(async () => h.pending[2].resolve())
+    expect(h.audio.src).toContain('cue.mp3')
+    await act(async () => { h.audio.currentTime = 4; h.audio.dispatchEvent(new Event('ended')); h.audio.dispatchEvent(new Event('ended')) })
+    expect(onChapterComplete).toHaveBeenCalledOnce()
+    h.unmount()
+  })
+  it('a paused pending cue never starts late or advances the reader', async () => {
+    const prepared = await Promise.all(PARAGRAPHS.map((_, i) => state(i, 99)))
+    let resolveCue!: (value: NarrationParagraphResult[]) => void
+    const ensureCue = vi.fn(() => new Promise<NarrationParagraphResult[]>(resolve => { resolveCue = resolve }))
+    const onChapterComplete = vi.fn(() => true)
+    const h = harness({ prepared: () => prepared, endingCue: { text, ensure: ensureCue }, onChapterComplete })
+    await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 3, wordIndex: 0 }) })
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(ensureCue).toHaveBeenCalledOnce())
+    await act(async () => { h.audio.currentTime = 4; h.audio.dispatchEvent(new Event('ended')) })
+    act(() => h.result.current.pause())
+    await act(async () => resolveCue([await cueState()]))
+    expect(h.audio.play).toHaveBeenCalledTimes(1)
+    expect(h.result.current.playing).toBe(false)
+    expect(onChapterComplete).not.toHaveBeenCalled()
+    expect(h.result.current.followParagraphs).toHaveLength(PARAGRAPHS.length)
+    h.unmount()
+  })
+  it('changing voice discards a pending cue before it can play', async () => {
+    const prepared = await Promise.all(PARAGRAPHS.map((_, i) => state(i, 99)))
+    let resolveCue!: (value: NarrationParagraphResult[]) => void
+    const ensureCue = vi.fn(() => new Promise<NarrationParagraphResult[]>(resolve => { resolveCue = resolve }))
+    const h = harness({ prepared: () => prepared, endingCue: { text, ensure: ensureCue } })
+    await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 3, wordIndex: 0 }) })
+    await act(async () => h.pending[0].resolve())
+    await waitFor(() => expect(ensureCue).toHaveBeenCalledOnce())
+    h.rerender({ voice: 'b', narrationOn: true, edition: 'original-en' })
+    await act(async () => resolveCue([await cueState()]))
+    expect(h.audio.play).toHaveBeenCalledTimes(1)
+    expect(h.result.current.playing).toBe(false)
+    expect(h.result.current.clips).toHaveLength(0)
+    h.unmount()
   })
 })

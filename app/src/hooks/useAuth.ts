@@ -1,3 +1,5 @@
+import { labOAuthRedirectTo } from '../lab/labSignInProviders'
+import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { authRedirectTo, startNativeOAuth } from '../utils/nativeAuth'
 import { useState, useEffect, useCallback } from 'react'
 import type { User, Session } from '@supabase/supabase-js'
@@ -16,7 +18,7 @@ interface UseAuthReturn {
   isLoading: boolean
   likelyAuthenticated: boolean
   isPasswordRecovery: boolean
-  signUp: (email: string, password: string) => Promise<{ error?: string }>
+  signUp: (email: string, password: string) => Promise<{ error?: string; confirmationRequired?: boolean }>
   signIn: (email: string, password: string) => Promise<{ error?: string }>
   signInWithGoogle: () => Promise<void>
   signOut: () => Promise<void>
@@ -148,18 +150,18 @@ export function useAuth(): UseAuthReturn {
     if (!supabase) return { error: 'Auth not configured' }
     // Preserve the user's current page so the email-confirmation link returns
     // them to their book, not the landing page.
-    const path = window.location.pathname === '/' ? '/read' : window.location.pathname
-    const { error } = await supabase.auth.signUp({
+    const path = window.location.pathname === '/' || window.location.pathname === '/read' ? '/reader' : window.location.pathname
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        emailRedirectTo: await authRedirectTo(supabase, path, 'signup', `${window.location.origin}${path}`),
+        emailRedirectTo: await authRedirectTo(supabase, safeLabReturnTo(path + window.location.search + window.location.hash), 'signup', `${window.location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(safeLabReturnTo(path + window.location.search + window.location.hash))}`),
         data: { attribution: getAttributionPayload() },
       },
     })
     if (error) return { error: error.message }
     trackEvent('signup_completed', { method: 'email', path })
-    return {}
+    return { confirmationRequired: !data.session }
   }, [])
 
   const signIn = useCallback(async (email: string, password: string) => {
@@ -175,12 +177,12 @@ export function useAuth(): UseAuthReturn {
     // Preserve the user's current location so OAuth doesn't bounce them to the
     // landing page. The SPA will process Supabase's OAuth URL fragment on
     // return, populate the session, and the user stays on their book.
-    const path = window.location.pathname === '/' ? '/read' : window.location.pathname
+    const path = window.location.pathname === '/' || window.location.pathname === '/read' ? '/reader' : window.location.pathname
     trackEvent('signup_started', { method: 'google', path })
-    if (await startNativeOAuth(supabase, 'google', path)) return
+    if (await startNativeOAuth(supabase, 'google', safeLabReturnTo(path + window.location.search + window.location.hash))) return
     await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}${path}` },
+      options: { redirectTo: labOAuthRedirectTo(window.location.origin, safeLabReturnTo(path + window.location.search + window.location.hash)) },
     })
   }, [])
 
@@ -201,7 +203,7 @@ export function useAuth(): UseAuthReturn {
   const resetPassword = useCallback(async (email: string) => {
     if (!supabase) return { error: 'Auth not configured' }
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: await authRedirectTo(supabase, window.location.pathname, 'reset', `${window.location.origin}?reset-password=true`),
+      redirectTo: await authRedirectTo(supabase, safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash), 'reset', `${window.location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash))}`),
     })
     if (error) return { error: error.message }
     return {}
