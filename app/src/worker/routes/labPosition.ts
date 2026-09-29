@@ -1,3 +1,4 @@
+import type { ReaderPositionCoordinator } from '../readerPositionCoordinator'
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import {
@@ -7,6 +8,7 @@ import {
 } from '../../lab/labPosition'
 
 export type LabPositionEnv = {
+  READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RATE_LIMIT?: KVNamespace
 }
 
@@ -43,11 +45,18 @@ export async function handleLabPosition(
     return jsonResponse({ error: 'Unauthorized' }, 401, request)
   }
 
+  const coordinator=env.READER_POSITION?.getByName(user.id)
+  const reply=(state: LabPositionState) => {
+    const response=jsonResponse(state,200,request)
+    response.headers.set('Cache-Control','private, no-store')
+    return response
+  }
   if (request.method === 'GET') {
-    return jsonResponse(await readStored(env, user.id), 200, request)
+    try { return reply(coordinator ? await coordinator.read(user.id) : await readStored(env,user.id)) }
+    catch { return jsonResponse({error:'Position sync temporarily unavailable'},503,request) }
   }
 
-  if (!env.RATE_LIMIT) {
+  if (!env.RATE_LIMIT && !coordinator) {
     return jsonResponse({ error: 'Not configured' }, 503, request)
   }
 
@@ -64,6 +73,10 @@ export async function handleLabPosition(
   }
 
   const incoming = parseLabPositionState(parsed, user.id)
+  if(coordinator){
+    try { return reply(await coordinator.update(user.id,incoming)) }
+    catch { return jsonResponse({error:'Position sync temporarily unavailable'},503,request) }
+  }
   const current = await readStored(env, user.id)
   // Chapter existence is a client concern. Server last-write-wins per biblical
   // book so two devices cannot clobber each other's Romans/Genesis pins.

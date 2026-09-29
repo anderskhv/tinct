@@ -31,8 +31,8 @@
   "r2_buckets": [
     { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" }
   ],
-  "durable_objects": { "bindings": [{ "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }] },
-  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }],
+  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }] },
+  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }],
   "triggers": {
     "crons": ["0 9 * * *"]
   }
