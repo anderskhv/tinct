@@ -4405,7 +4405,16 @@ describe('lab reader first paint: one resolved position', () => {
     const headings = observeHeadings(root)
     // The handoff's placeholder label ("Chapter 1054") is never painted.
     expect(screen.getByTestId('lab-header-chapter').textContent).not.toMatch(/Chapter/)
-    await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Hebrews 3/))
+    try {
+      await waitFor(() => expect(screen.getByTestId('lab-passage-headline').textContent).toMatch(/Hebrews 3/))
+    } catch (error) {
+      console.error('Continue resume diagnostic', JSON.stringify({
+        headings: headings.trail,
+        position: JSON.parse(localStorage.getItem('tinct-lab-position') || 'null'),
+        requests: vi.mocked(fetch).mock.calls.map(([url, init]) => ({ url: String(url), method: init?.method || 'GET' })),
+      }))
+      throw error
+    }
     await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
     await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)) })
     headings.stop()
