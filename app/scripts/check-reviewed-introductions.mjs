@@ -11,17 +11,17 @@ const gallery=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929
 const cases=[...source.books.map(b=>b.id),'communist-manifesto','federalist-papers'],report=[]
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex')
 if(live){
- const files=['app.js','index.html','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
+ const files=['app.js','index.html','styles.css','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
  for(const file of files){
   const local=fs.readFileSync('public/lab/library_2/'+file),response=await fetch(origin+'/lab/library_2/'+file+'?verified='+hash(local))
   assert.equal(response.status,200,file)
   assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(local),file+' matches reviewed release')
  }
 }
-for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
+for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[webkit,393,844,'reduce'],[webkit,393,844,'no-preference']]){
  const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
  try{
- const context=await browser.newContext({viewport:{width,height},serviceWorkers:'block',reducedMotion:'reduce',...(engine===webkit?{isMobile:true,hasTouch:true}:{})})
+ const context=await browser.newContext({viewport:{width,height},serviceWorkers:'block',reducedMotion,...(engine===webkit?{isMobile:true,hasTouch:true}:{})})
  await context.addInitScript(()=>{
   window.__introTrace=[]
   const note=value=>{window.__introTrace.push({at:performance.now(),...value});if(window.__introTrace.length>80)window.__introTrace.shift()}
@@ -52,7 +52,7 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
   });
   console.log('INTRO_STATE '+JSON.stringify({label,engine:engine.name(),id,...state}));
  }
- for(const id of cases){
+ for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers']){
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
@@ -78,18 +78,18 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
    assert.equal(await page.locator('#slip-copy').textContent(),accepted.author.biography.replace(/\*([^*]+)\*/g,'$1'))
   }
   if(['frankenstein','bible','federalist-papers'].includes(id)){
-   await page.screenshot({path:out+'/'+engine.name()+'-'+id+'-flap.png'})
+   await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-flap.png'})
    const b64=(await page.screenshot({type:'jpeg',quality:65})).toString('base64')
-   console.log('REVIEW_BEGIN '+engine.name()+'-'+id+'-flap')
+   console.log('REVIEW_BEGIN '+engine.name()+'-'+reducedMotion+'-'+id+'-flap')
    for(let i=0;i<b64.length;i+=3000)console.log('REVIEW_CHUNK '+b64.slice(i,i+3000))
-   console.log('REVIEW_END '+engine.name()+'-'+id+'-flap')
+   console.log('REVIEW_END '+engine.name()+'-'+reducedMotion+'-'+id+'-flap')
   }
-  const nextVisible=await page.locator('#slip-next').isVisible();
-  await introState('before Continue; visible='+nextVisible,id);
-  if(nextVisible){
+  if(flapGeometry.compact){
+   await page.locator('#slip-next').waitFor({state:'visible'});
+   assert(await page.locator('#slip-next').evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))}),'Continue owns its visible tap target: '+id);
    await page.locator('#slip-next').click()
    try{await page.waitForFunction(()=>document.getElementById('intro').getAttribute('aria-hidden')==='false'&&document.getElementById('intro').style.pointerEvents==='auto',null,{timeout:5000})}
-   catch(error){console.log('INTRO_TRANSITION_FAILURE '+JSON.stringify({engine:engine.name(),id,screen:await page.evaluate(()=>({trace:window.__introTrace,intro:document.getElementById('intro').outerHTML.slice(0,180),shape:document.getElementById('book-shape').style.cssText,cover:document.getElementById('turning-cover').style.cssText,active:document.activeElement?.id}))}));await page.screenshot({path:out+'/'+engine.name()+'-'+id+'-transition-failure.png'});throw error}
+   catch(error){console.log('INTRO_TRANSITION_FAILURE '+JSON.stringify({engine:engine.name(),id,screen:await page.evaluate(()=>({trace:window.__introTrace,intro:document.getElementById('intro').outerHTML.slice(0,180),shape:document.getElementById('book-shape').style.cssText,cover:document.getElementById('turning-cover').style.cssText,active:document.activeElement?.id}))}));await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-transition-failure.png'});throw error}
   }
   await page.locator('#begin-reading').waitFor()
   if(accepted){
@@ -108,10 +108,10 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
    const expected=cast.characters.filter(c=>c.visibility!=='hold_until_revealed')
    assert.deepEqual(await page.locator('#intro-character-list .character-copy > p:last-child').allTextContents(),expected.map(c=>c.body))
    if(id==='jane-eyre')assert(!(await page.locator('#intro-character-list').textContent()).includes('Bertha'))
-   await page.screenshot({path:out+'/'+engine.name()+'-'+id+'-gallery.png'})
+   await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-gallery.png'})
   }
   assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'no viewport overflow: '+id)
-  report.push({engine:engine.name(),book:id,authorImages:images.length,reviewedCopy:!!accepted,expandedGallery:!!cast})
+  report.push({engine:engine.name(),reducedMotion,book:id,authorImages:images.length,reviewedCopy:!!accepted,expandedGallery:!!cast})
  }
  await page.evaluate(()=>{
   const now=Date.now(),place={bookId:'jane-eyre',headerBook:'Jane Eyre',chapterNumber:26,sequentialChapter:26,paragraphIndex:0,wordIndex:0,pageIndex:0,primaryEditionKey:'original-en',updatedAt:now,deviceId:'introduction-fixture',rev:1}
@@ -119,7 +119,7 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
  })
  await page.goto(origin+'/library?view=book-detail&book=jane-eyre')
  await page.locator('#book-overlay').waitFor();await page.locator('#page-back').waitFor()
- if(await page.locator('#slip-next').isVisible())await page.locator('#slip-next').click()
+ if(width<1100){await page.locator('#slip-next').waitFor();await page.locator('#slip-next').click();await page.waitForFunction(()=>document.getElementById('intro').getAttribute('aria-hidden')==='false')}
  await page.locator('[data-tab=characters]').click();await page.getByTestId('intro-gallery-toggle').click()
  await page.locator('[data-character-id=bertha-mason]').waitFor()
  assert.deepEqual(errors,[]);assert.deepEqual(providerRequests,[])
