@@ -1,3 +1,4 @@
+import type { ReaderPositionCoordinator } from './readerPositionCoordinator'
 import { parseLabPositionState, biblicalBookId, parseBiblicalPlaceTitle } from '../lab/labPosition'
 import { createBookRetrieval } from './lib/bookRetrieval'
 import { DurableObject } from 'cloudflare:workers'
@@ -6,8 +7,8 @@ import type { LabRecapRequest, LabRecapResponse } from '../recapSummary'
 import { handleLabRecap, type LabRecapEnv } from './routes/labRecap'
 
 /** One account's optional recap work. No positions, tokens or annotations are written here. */
-export class RecapPreparationCoordinator extends DurableObject<LabRecapEnv> {
-  constructor(ctx: DurableObjectState, env: LabRecapEnv) {
+export class RecapPreparationCoordinator extends DurableObject<LabRecapEnv & { READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator> }> {
+  constructor(ctx: DurableObjectState, env: LabRecapEnv & { READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator> }) {
     super(ctx, env)
     ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS recap_state (id INTEGER PRIMARY KEY, value TEXT NOT NULL)')
   }
@@ -39,7 +40,9 @@ export class RecapPreparationCoordinator extends DurableObject<LabRecapEnv> {
     // optional observer never writes back to the position record.
     if (owner && this.env.RATE_LIMIT && this.env.ASSETS) {
       const target = state.entries[next.bookId]
-      const raw = await this.env.RATE_LIMIT.get('lab-position:'+owner,'json')
+      const raw = this.env.READER_POSITION
+        ? await this.env.READER_POSITION.getByName(owner).read(owner)
+        : await this.env.RATE_LIMIT.get('lab-position:'+owner,'json')
       let pinId = target.request.bookId
       if (pinId === 'bible') {
         const chapter = await createBookRetrieval({assets:this.env.ASSETS,origin:'https://tinct.app',book:target.request}).chapterText(target.request.chapterNumber)

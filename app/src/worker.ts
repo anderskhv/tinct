@@ -1,3 +1,4 @@
+import type { ReaderPositionCoordinator } from './worker/readerPositionCoordinator'
 import { handleRecapPreparation } from './worker/routes/recapPreparation'
 import type { RecapPreparationCoordinator } from './worker/recapPreparationCoordinator'
 import { handleFeaturedPreview } from './worker/routes/featuredPreview'
@@ -49,6 +50,7 @@ import {
 export { serveSpaWithMetaForTest } from './worker/routes/seo'
 
 interface Env {
+  READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
