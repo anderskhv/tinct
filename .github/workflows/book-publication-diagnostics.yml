@@ -30,7 +30,6 @@ jobs:
         env:
           READER_LIVE: '1'
           TEST_BOOK: ${{ matrix.book }}
-          TINCT_EXPECTED_BUNDLE: /assets/index-BPqe6QZk.js
           ARTIFACT_DIR: artifacts/publication-diagnostic
         run: node scripts/check-book-publication.cjs
       - uses: actions/upload-artifact@v4
