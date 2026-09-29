@@ -267,14 +267,19 @@ export function useLabAsk(options: UseLabAskOptions) {
   useEffect(() => {
     if (!viewerId || !cloudWriter || !chatBookId) { setHistoryStatus('ready'); return }
     let cancelled = false
+    let running = false
     const run = async () => {
+      if (running || cancelled) return
+      running = true
+      try {
       setHistoryStatus('loading')
       await migrateLegacyLabChatHistoryCloud({
         userId: viewerId,
         fetchLegacy: () => fetchLabChatHistoryCloud(liveToken),
       })
+      if (cancelled) return
       let unavailable = false
-      const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true })
+      const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true }, () => !cancelled)
       if (cancelled || loadedForBookRef.current !== chatBookId) return
       setHistoryStatus(unavailable ? 'unavailable' : 'ready')
       setConversations(merged)
@@ -287,14 +292,20 @@ export function useLabAsk(options: UseLabAskOptions) {
         dumpLabTalkTurns(next)
         return next
       })
+      } finally { running = false }
     }
     const failed = () => { if (!cancelled) setHistoryStatus('unavailable') }
     void run().catch(failed)
     const onOnline = () => { void run().catch(failed) }
+    const onVisible = () => { if (document.visibilityState === 'visible') onOnline() }
     window.addEventListener('online', onOnline)
+    window.addEventListener('focus', onVisible)
+    document.addEventListener('visibilitychange', onVisible)
     return () => {
       cancelled = true
       window.removeEventListener('online', onOnline)
+      window.removeEventListener('focus', onVisible)
+      document.removeEventListener('visibilitychange', onVisible)
     }
     // liveToken only feeds the one-time legacy fetch; a token refresh must not re-sync.
     // eslint-disable-next-line react-hooks/exhaustive-deps
