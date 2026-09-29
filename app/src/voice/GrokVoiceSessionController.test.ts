@@ -208,6 +208,29 @@ describe('tools', () => {
     expect(sent.find(event => event.type === 'response.create')).toEqual({ type: 'response.create', response: { instructions: 'Use the source evidence.' } })
   })
 
+  it('waits for every result before starting one answer for a lookup batch', async () => {
+    let finishSecond!: (value: { output: unknown; responseInstructions: string }) => void
+    const onApplicationTool = vi.fn()
+      .mockResolvedValueOnce({ output: { ok: false }, responseInstructions: 'Do not invent an attribution.' })
+      .mockImplementationOnce(() => new Promise(resolve => { finishSecond = resolve }))
+    const { controller, sent } = connected({ onApplicationTool })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'batch' } })
+    for (const call_id of ['one', 'two']) controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'search_reading_sources', call_id, arguments: '{"query":"Ezra"}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'batch', status: 'completed' } })
+    await vi.waitFor(() => expect(onApplicationTool).toHaveBeenCalledTimes(2))
+    expect(sent.filter(event => event.type === 'response.create')).toHaveLength(0)
+    finishSecond({ output: { ok: true, notes: 'Verified evidence.' }, responseInstructions: 'Answer from the verified evidence.' })
+    await vi.waitFor(() => expect(sent.filter(event => event.type === 'response.create')).toHaveLength(1))
+    const outputIndices = sent.map((event, index) => event.type === 'conversation.item.create' ? index : -1).filter(index => index >= 0)
+    expect(outputIndices).toHaveLength(2)
+    expect(sent.findIndex(event => event.type === 'response.create')).toBeGreaterThan(Math.max(...outputIndices))
+    const answer = JSON.stringify(sent.find(event => event.type === 'response.create'))
+    expect(answer).toContain('Do not invent an attribution.')
+    expect(answer).toContain('Answer from the verified evidence.')
+    controller.stop()
+  })
+
   it('keeps the session prompt and reference when a tool follow-up adds its own guidance', async () => {
     // xAI response.instructions replace the session prompt for that response.
     // Guidance alone once produced "The requested passage could not be retrieved." verbatim.

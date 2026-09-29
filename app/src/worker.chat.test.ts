@@ -628,6 +628,9 @@ describe('book-grounded lab chat', () => {
           sse('content_block_delta', { index: 0, delta: { type: 'thinking_delta', thinking: 'I should search the open book.' } }),
           sse('content_block_delta', { index: 0, delta: { type: 'signature_delta', signature: 'signed-reasoning' } }),
           sse('content_block_stop', { index: 0 }),
+          sse('content_block_start', { index: 2, content_block: { type: 'text', text: '' } }),
+          sse('content_block_delta', { index: 2, delta: { type: 'text_delta', text: "I can't find that right now; let me search." } }),
+          sse('content_block_stop', { index: 2 }),
           sse('content_block_start', { index: 1, content_block: { type: 'tool_use', id: 'toolu_s', name: 'find_in_book', input: {} } }),
           sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: '{"query": "court of' } }),
           sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: ' the prison"}' } }),
@@ -670,6 +673,7 @@ describe('book-grounded lab chat', () => {
     expect((bodies[1].messages as Array<{ content: unknown }>)[1].content).toEqual([
       { type: 'thinking', thinking: 'I should search the open book.', signature: 'signed-reasoning' },
       { type: 'tool_use', id: 'toolu_s', name: 'find_in_book', input: { query: 'court of the prison' } },
+      { type: 'text', text: "I can't find that right now; let me search." },
     ])
     const toolResult = ((bodies[1].messages as Array<{ content: unknown }>)[2].content) as Array<{ content: string; is_error?: boolean }>
     expect(toolResult[0].is_error).toBeUndefined()
@@ -680,6 +684,9 @@ describe('book-grounded lab chat', () => {
     expect((text.match(/^event: message_stop$/gm) || []).length).toBe(1)
     expect(text).not.toContain('tool_use')
     expect(text).not.toContain('input_json_delta')
+    expect(text).not.toContain("I can't find that right now")
+    expect(text).not.toContain('thinking')
+    expect(text).not.toContain('signed-reasoning')
     expect(text).toContain('Zedekiah moved him to the court of the prison.')
     expect(text).toContain('"stop_reason":"end_turn"')
     expect(waitUntil).toHaveBeenCalled()
@@ -691,6 +698,26 @@ describe('book-grounded lab chat', () => {
       audience: 'signed', path: 'book_grounded', outcome: 'completed', had_text: true,
       provider_rounds: 2, tool_rounds: 1,
     })
+  })
+
+  it('returns only the final answer in non-streamed tool chat', async () => {
+    const fetchMock = vi.fn().mockResolvedValueOnce(anthropicReply([
+      { type: 'text', text: "I can't find that right now." },
+      { type: 'tool_use', id: 'lookup', name: 'read_chapter', input: { chapter: '782' } },
+    ], 'tool_use')).mockResolvedValueOnce(anthropicReply([
+      { type: 'text', text: 'The passage describes the court of the prison.' },
+    ], 'end_turn'))
+    vi.stubGlobal('fetch', fetchMock)
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(chatRequest({ stream: false,
+      messages: [{ role: 'user', content: 'Where is that passage?' }],
+      book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    const body = await response.text()
+    await Promise.all(pending)
+    expect(body).not.toContain("I can't find")
+    expect(body).toContain('The passage describes the court of the prison.')
+    expect(fetchMock).toHaveBeenCalledTimes(2)
   })
 
   it('keeps the plain path when no book is named and caps the system prompt with one', async () => {
@@ -818,7 +845,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     expect(cancel).toHaveBeenCalledTimes(1)
   })
 
-  it('does not retry a later tool-round rejection after already forwarding text', async () => {
+  it('keeps provisional tool text private and allows one retry before any answer was published', async () => {
     const fetchMock = vi.fn().mockResolvedValueOnce(sseResponse([
       sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
       sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Let me check.' } }),
@@ -828,6 +855,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
       sse('message_delta', { delta: { stop_reason: 'tool_use' } }),
       sse('message_stop', {}),
     ])).mockResolvedValueOnce(Response.json({ error: { type: 'overloaded_error' } }, { status: 529 }))
+      .mockResolvedValueOnce(Response.json({ error: { type: 'overloaded_error' } }, { status: 529 }))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
     const response = await handleLabChat(chatRequest({ stream: true,
@@ -835,8 +863,8 @@ describe('chat failure diagnostics and interrupted answers', () => {
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
     const text = await response.text()
     await Promise.all(pending)
-    expect(text).toContain('Let me check.')
+    expect(text).not.toContain('Let me check.')
     expect(text).toContain('overloaded_error')
-    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(fetchMock).toHaveBeenCalledTimes(3)
   })
 })

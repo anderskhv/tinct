@@ -522,7 +522,8 @@ export class GrokVoiceSessionController {
     const ordered = [...calls].sort((a, b) => Number(b.name === 'resume_audiobook') - Number(a.name === 'resume_audiobook'))
     this.toolRoundsInFlight++
     this.toolQueue = this.toolQueue.then(async () => {
-      let continued = false
+      let hasOutput = false
+      const guidance: string[] = []
       const perTool = new Map<string, number>()
       for (const call of ordered) {
         if (generation !== this.generation) return
@@ -531,6 +532,7 @@ export class GrokVoiceSessionController {
         const count = (perTool.get(call.name) ?? 0) + 1
         perTool.set(call.name, count)
         if (count > MAX_CALLS_PER_TOOL_PER_TURN) {
+          hasOutput = true
           this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify({ ok: false, reason: 'skipped_too_many_parallel_calls' }) } })
           continue
         }
@@ -556,11 +558,15 @@ export class GrokVoiceSessionController {
         if (generation !== this.generation) return
         if (result.output === undefined) continue
         this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(result.output) } })
-        if (!continued) {
-          continued = true
-          this.followUpPending = true
-          this.send({ type: 'response.create', ...(result.responseInstructions ? { response: { instructions: this.withSessionInstructions(result.responseInstructions) } } : {}) })
-        }
+        hasOutput = true
+        if (result.responseInstructions) guidance.push(result.responseInstructions)
+      }
+      // Answer once, with the whole lookup batch. Responding after the first
+      // result can start an answer that the remaining evidence contradicts.
+      if (hasOutput && generation === this.generation) {
+        this.followUpPending = true
+        const instructions = [...new Set(guidance)].join('\n\n')
+        this.send({ type: 'response.create', ...(instructions ? { response: { instructions: this.withSessionInstructions(instructions) } } : {}) })
       }
     }).catch(() => { /* Individual tool failures return a result above. */ }).finally(() => {
       if (generation !== this.generation) return
