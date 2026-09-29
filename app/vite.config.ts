@@ -1,3 +1,5 @@
+import { BOOKS } from './src/data/bookRegistry'
+import { buildNativeBooks } from './scripts/android/native-books'
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import type { IncomingMessage, ServerResponse } from 'http'
@@ -85,8 +87,13 @@ export default defineConfig(({ mode, command }) => {
         labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
+        nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
       },
       output: {
+        // Reserve index-* for the real reader entry. Native plugin entrypoints
+        // also use index.ts; their lazy chunks must not impersonate the app
+        // in shell stamping, production checks or offline registration.
+        chunkFileNames: chunk => chunk.name === 'index' ? 'assets/shared-index-[hash].js' : 'assets/[name]-[hash].js',
         entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
@@ -97,6 +104,8 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/library-assistant.js'
               : chunk.name === 'libraryTwoAssistant'
                 ? 'lab/library-2-assistant.js'
+              : chunk.name === 'nativeBooks'
+                ? 'lab/native-books.js'
               : chunk.name === 'libraryTwoReading'
                 ? 'lab/library-2-reading.js'
               : 'assets/[name]-[hash].js',
@@ -120,6 +129,9 @@ export default defineConfig(({ mode, command }) => {
         })
       },
       generateBundle() {
+        const native = buildNativeBooks(path.resolve(process.cwd(), 'public'), BOOKS, JSON.parse(serializedPreReaderCatalogue), entryPrefaces as Map<string, string>)
+        this.emitFile({type:'asset', fileName:'native-books/index.json', source:native.index})
+        for (const [fileName, source] of Object.entries(native.manifests)) this.emitFile({type:'asset', fileName, source})
         for(const [id,source] of entryPrefaces) this.emitFile({type:'asset',fileName:`lab/prefaces/${id}.json`,source:source as string})
         this.emitFile({
           type: 'asset',

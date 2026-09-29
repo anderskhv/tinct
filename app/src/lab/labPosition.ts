@@ -758,7 +758,13 @@ export function createLabPositionController(opts: {
       state = next
     },
     note(input) {
-      const now = input.now ?? nowFn()
+      // A real action follows the account record this device has already
+      // observed, even when its wall clock is behind the other device's.
+      // Otherwise merge-before-write discards the new page as an older pin.
+      const observed = Math.max(state.updatedAt, state.lastSettledAt,
+        ...Object.values(state.books).map(place => place.updatedAt))
+      const clock = input.now ?? nowFn()
+      const now = observed > 0 ? Math.max(clock, observed + 1) : clock
       const place = { ...input.place, updatedAt: now, deviceId: opts.deviceId }
       // Merely opening a chapter must not replace its useful bookmark with zero.
       if (input.reason !== 'chapter-jump' && input.reason !== 'open-book' && input.reason !== 'mode-change'

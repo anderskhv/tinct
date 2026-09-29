@@ -6,6 +6,9 @@ import {
   loadEditionWindow,
 } from './editionLoader'
 
+const platform = vi.hoisted(() => ({ native: false }))
+vi.mock('../utils/nativePlatform', () => ({ isNativeCapacitor: () => platform.native }))
+
 function jsonResponse(value: unknown): Response {
   return new Response(JSON.stringify(value), {
     status: 200,
@@ -19,6 +22,7 @@ describe('editionLoader chapter shards', () => {
   })
 
   afterEach(() => {
+    platform.native = false
     vi.restoreAllMocks()
   })
 
@@ -67,4 +71,24 @@ describe('editionLoader chapter shards', () => {
     expect(editionDataUrl('odyssey', 'modern-en'))
       .toBe('/data/editions/odyssey-modern-en.json?v=dev')
   })
+})
+
+it('reads the native whole-book copy offline without requesting duplicate shards', async () => {
+  platform.native = true
+  vi.stubGlobal('__BUILD_VERSION__', 'dev')
+  const requested: string[] = []
+  const chapters = [{number:1,title:'One',paragraphs:['Exact first paragraph.']},{number:2,title:'Two',paragraphs:['Exact second paragraph.']}]
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    const url=String(input); requested.push(url)
+    if(url==='/native-edition-storage.json') return jsonResponse({wholeEditions:['anna-karenina-modern-en']})
+    if(url.includes('/api/edition-patches')) return jsonResponse([])
+    if(url.includes('/data/editions/anna-karenina-modern-en.json')) return jsonResponse({chapters})
+    throw new Error('Unexpected network path: '+url)
+  }))
+  try {
+    const data=await loadEditionWindow('anna-karenina','modern-en',2,{bypassCache:true})
+    expect(data.chapters).toEqual(chapters)
+    expect(data.windowed).toBeUndefined()
+    expect(requested.some(url=>url.includes('editions-chapters'))).toBe(false)
+  } finally { platform.native=false; vi.restoreAllMocks() }
 })

@@ -1,0 +1,65 @@
+name: Signed Android APK
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: android-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+      - run: bash ../scripts/cloud-setup.sh
+      - run: npm test
+      - name: Build the bundled native reader
+        run: npm run build:android
+        env:
+          CI: true
+      - run: npm run verify-bundle
+      - name: Sign the production APK with its permanent identity
+        working-directory: app/android
+        env:
+          TINCT_ANDROID_KEYSTORE_BASE64: ${{ secrets.TINCT_ANDROID_KEYSTORE_BASE64 }}
+          TINCT_ANDROID_STORE_PASSWORD: ${{ secrets.TINCT_ANDROID_STORE_PASSWORD }}
+          TINCT_ANDROID_KEY_ALIAS: ${{ secrets.TINCT_ANDROID_KEY_ALIAS }}
+          TINCT_ANDROID_KEY_PASSWORD: ${{ secrets.TINCT_ANDROID_KEY_PASSWORD }}
+        run: |
+          for name in TINCT_ANDROID_KEYSTORE_BASE64 TINCT_ANDROID_STORE_PASSWORD TINCT_ANDROID_KEY_ALIAS TINCT_ANDROID_KEY_PASSWORD; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing permanent Android signing configuration: $name"
+              exit 1
+            fi
+          done
+          export TINCT_ANDROID_KEYSTORE="$RUNNER_TEMP/tinct-release.keystore"
+          trap 'rm -f "$TINCT_ANDROID_KEYSTORE"' EXIT
+          umask 077
+          printf '%s' "$TINCT_ANDROID_KEYSTORE_BASE64" | base64 --decode > "$TINCT_ANDROID_KEYSTORE"
+          bash gradlew assembleRelease testReleaseUnitTest --no-daemon
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --print-certs app/build/outputs/apk/release/app-release.apk
+          sha256sum app/build/outputs/apk/release/app-release.apk > app/build/outputs/apk/release/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tinct-android-signed
+          path: |
+            app/android/app/build/outputs/apk/release/app-release.apk
+            app/android/app/build/outputs/apk/release/SHA256SUMS
+          if-no-files-found: error

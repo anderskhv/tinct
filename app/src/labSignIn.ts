@@ -1,5 +1,6 @@
 import type { Session } from '@supabase/supabase-js'
 import { isInitialAccountSession, navigateAfterAuth } from './lab/labAuthCompletion'
+import { authRedirectTo, startNativeOAuth, consumeNativeAuthNotice } from './utils/nativeAuth'
 import { safeLabReturnTo } from './lab/labSignInReturn'
 import {
   LAB_OAUTH_PENDING_KEY,
@@ -34,6 +35,7 @@ let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
 
 const returnTo = safeLabReturnTo(initialParams.get('returnTo'))
 const callback = initialParams.get('callback')
+const nativeNotice = consumeNativeAuthNotice()
 const returnedError = labOAuthReturnError(location.search, location.hash)
 const returnedTokens = new URLSearchParams(location.hash.slice(1))
 const authReturn = Boolean(callback || initialParams.has('code') || returnedTokens.has('access_token') || pendingProvider())
@@ -108,7 +110,7 @@ async function submitAuth(event: SubmitEvent) {
     } else if (mode === 'create') {
       const { data, error } = await supabase.auth.signUp({
         ...values,
-        options: { emailRedirectTo: `${location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(returnTo)}` },
+        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(returnTo)}`) },
       })
       if (error) throw error
       if (data.session) {
@@ -118,7 +120,7 @@ async function submitAuth(event: SubmitEvent) {
       }
     } else if (mode === 'forgot') {
       const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-        redirectTo: `${location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(returnTo)}`,
+        redirectTo: await authRedirectTo(supabase, returnTo, 'reset', `${location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(returnTo)}`),
       })
       if (error) throw error
       setStatus('Password reset link sent. Check your email.', 'success')
@@ -206,6 +208,7 @@ async function signInWithProvider(button: HTMLElement) {
   rememberPendingProvider(provider)
   let failure: unknown = null
   try {
+    if (await startNativeOAuth(supabase, provider, returnTo)) { setBusy(false); return }
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: labOAuthRedirectTo(location.origin, returnTo) },
@@ -263,9 +266,15 @@ async function initialize() {
     const { data, error } = await supabase.auth.getSession()
     if (error) throw error
     // Report a failed callback even if the browser still holds an older session.
-    if (returnedError) {
+    if (returnedError || nativeNotice) {
       setMode('signin')
-      reportProviderReturnError()
+      if (nativeNotice) {
+        const clean = new URL(location.href)
+        clean.searchParams.delete('native-error')
+        history.replaceState(null, '', clean)
+        rememberPendingProvider(null)
+        setStatus(nativeNotice, 'error')
+      } else reportProviderReturnError()
       return
     }
     reconcileLabDeviceIdentity(data.session?.user?.id)

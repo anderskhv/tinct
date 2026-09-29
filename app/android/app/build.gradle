@@ -1,7 +1,14 @@
 apply plugin: 'com.android.application'
 
+def releaseKeystore = System.getenv('TINCT_ANDROID_KEYSTORE')
+def releaseStorePassword = System.getenv('TINCT_ANDROID_STORE_PASSWORD')
+def releaseKeyAlias = System.getenv('TINCT_ANDROID_KEY_ALIAS')
+def releaseKeyPassword = System.getenv('TINCT_ANDROID_KEY_PASSWORD')
+def releaseSigningConfigured = [releaseKeystore, releaseStorePassword, releaseKeyAlias, releaseKeyPassword].every { it }
+
 android {
     namespace = "app.tinct.reader"
+    buildFeatures { buildConfig true }
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "app.tinct.reader"
@@ -16,8 +23,23 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        if (releaseSigningConfigured) {
+            release {
+                storeFile file(releaseKeystore)
+                storePassword releaseStorePassword
+                keyAlias releaseKeyAlias
+                keyPassword releaseKeyPassword
+            }
+        }
+    }
     buildTypes {
+        debug {
+            applicationIdSuffix '.review'
+            versionNameSuffix '-review'
+        }
         release {
+            if (releaseSigningConfigured) signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -51,4 +73,15 @@ try {
     }
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
+
+/** Never distribute an unsigned release or silently substitute a debug identity. */
+tasks.configureEach { task ->
+    if (task.name in ['packageRelease', 'bundleRelease']) {
+        task.doFirst {
+            if (!releaseSigningConfigured) {
+                throw new GradleException('Release signing is required. Configure the TINCT_ANDROID signing secrets; do not use the review key.')
+            }
+        }
+    }
 }

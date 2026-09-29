@@ -1,3 +1,5 @@
+import { initializeNativeBooks } from './utils/nativeBooks'
+import { nativeEntryDestination } from './utils/nativeEntry'
 import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
 import React from 'react'
@@ -36,6 +38,7 @@ if (isEink) {
 }
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
+const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
 const Root = isLabPath(pathname) ? LabApp : App
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
@@ -52,10 +55,15 @@ const render = () => ReactDOM.createRoot(document.getElementById('root')!).rende
 // Saved places and highlights written against text a structural edition
 // release has since replaced move before the reader first reads them. Only a
 // reader holding such data waits, and never for more than a few seconds.
-const contentMigrations = Root === LabApp ? storedContentMigrations() : null
-if (contentMigrations) {
-  void Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))]).finally(render)
-} else {
+async function begin() {
+  if (nativeDestination) { window.location.replace(nativeDestination); return }
+  if (isCapacitor) await initializeNativeBooks()
+  const contentMigrations = Root === LabApp ? storedContentMigrations() : null
+  if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   render()
 }
+void begin().catch(() => {
+  // Render the ordinary reader error/retry flow; never clear its saved data.
+  render()
+})
 

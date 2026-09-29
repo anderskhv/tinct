@@ -1,5 +1,6 @@
 import { labOAuthRedirectTo } from '../lab/labSignInProviders'
 import { safeLabReturnTo } from '../lab/labSignInReturn'
+import { authRedirectTo, startNativeOAuth } from '../utils/nativeAuth'
 import { useState, useEffect, useCallback } from 'react'
 import type { User, Session } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured } from '../services/supabase'
@@ -154,7 +155,7 @@ export function useAuth(): UseAuthReturn {
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(safeLabReturnTo(path + window.location.search + window.location.hash))}`,
+        emailRedirectTo: await authRedirectTo(supabase, safeLabReturnTo(path + window.location.search + window.location.hash), 'signup', `${window.location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(safeLabReturnTo(path + window.location.search + window.location.hash))}`),
         data: { attribution: getAttributionPayload() },
       },
     })
@@ -178,6 +179,7 @@ export function useAuth(): UseAuthReturn {
     // return, populate the session, and the user stays on their book.
     const path = window.location.pathname === '/' || window.location.pathname === '/read' ? '/reader' : window.location.pathname
     trackEvent('signup_started', { method: 'google', path })
+    if (await startNativeOAuth(supabase, 'google', safeLabReturnTo(path + window.location.search + window.location.hash))) return
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: labOAuthRedirectTo(window.location.origin, safeLabReturnTo(path + window.location.search + window.location.hash)) },
@@ -201,7 +203,7 @@ export function useAuth(): UseAuthReturn {
   const resetPassword = useCallback(async (email: string) => {
     if (!supabase) return { error: 'Auth not configured' }
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash))}`,
+      redirectTo: await authRedirectTo(supabase, safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash), 'reset', `${window.location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash))}`),
     })
     if (error) return { error: error.message }
     return {}

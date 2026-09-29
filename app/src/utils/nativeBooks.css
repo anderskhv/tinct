@@ -1,0 +1,11 @@
+.native-book-download {
+  box-sizing: border-box; max-width: min(28rem, calc(100vw - 2rem)); border: 1px solid #b8a889;
+  border-radius: 1rem; padding: 1.5rem; background: #e8dfc9; color: #292317; font-family: Georgia, serif;
+}
+.native-book-download::backdrop { background: rgba(0,0,0,.28); }
+.native-book-download p:first-child { margin: 0 0 .75rem; font-size: 1.3rem; }
+.native-book-download p { line-height: 1.45; }
+.native-book-download progress { display: block; width: 100%; margin: 1rem 0; accent-color: #484b38; }
+.native-book-download button { font: inherit; padding: .55rem 1.2rem; border: 1px solid #8c816c; border-radius: 2rem; background: transparent; color: inherit; }
+[data-eink="true"] .native-book-download { background: white; color: black; border-color: black; border-radius: 0; }
+[data-eink="true"] .native-book-download::backdrop { background: white; }

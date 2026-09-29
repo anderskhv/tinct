@@ -12,7 +12,9 @@ import {
   type LabAudioTitleClip,
 } from './labListen'
 import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
-import { playAudioTransition, setAudioSource } from '../utils/audioPlayback'
+import { setAudioSource } from '../utils/audioPlayback'
+import { isNativeCapacitor } from '../utils/nativePlatform'
+import {readerMediaSession, readerMediaMetadata, playReaderAudioTransition, playReaderAudio, endNativeNarration} from '../utils/readerMediaSession'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
 import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
@@ -692,6 +694,7 @@ export function useLabListen(options: UseLabListenOptions) {
       setPlaying(false)
       setFollow({ kind: 'none' })
       setSrc(null)
+      endNativeNarration()
     }
     const handleTimeUpdate = () => {
       const current = clipsRef.current[clipIndexRef.current]
@@ -811,6 +814,7 @@ export function useLabListen(options: UseLabListenOptions) {
       try { audio.removeAttribute('src') } catch { /* jsdom */ }
     }
     audioRef.current = null
+    endNativeNarration()
   }, [])
 
   const playClip = useCallback((index: number, offsetSeconds: number, andPlay = true) => {
@@ -851,9 +855,11 @@ export function useLabListen(options: UseLabListenOptions) {
     // At an automatic boundary, pausing the ended element before assigning
     // the next source makes WebKit hand lock-screen ownership back to the
     // page. Preserve the active native media session and arm autoplay before
-    // the synchronous source swap. Manual seeks/source changes still pause.
+    // the synchronous source swap. Android instead waits for foreground-service
+    // ownership in playReaderAudioTransition before any playback can start.
+    // Manual seeks/source changes still pause.
     const continuousBoundary = Boolean(andPlay && playingRef.current && audio.ended)
-    audio.autoplay = andPlay
+    audio.autoplay = andPlay && !isNativeCapacitor()
     if (!continuousBoundary) {
       try { audio.pause() } catch { /* ignore */ }
     }
@@ -888,7 +894,7 @@ export function useLabListen(options: UseLabListenOptions) {
     playingRef.current = true
     setPlaying(true)
     if (clip.kind === 'paragraph' && clip.narration) { scheduleNarrationLookAhead(); downloadAhead() }
-    void playAudioTransition(
+    void playReaderAudioTransition(
       audio,
       expectedSrc,
       () => requestIsCurrent(request) && playingRef.current,
@@ -1168,7 +1174,7 @@ export function useLabListen(options: UseLabListenOptions) {
     retryPlaybackRef.current = () => { playClipRef.current(clipIndexRef.current, positionRef.current.time) }
     playingRef.current = true
     applyRate(audio, speed)
-    audio.play().then(() => {
+    playReaderAudio(audio, () => requestIsCurrent(request) && playingRef.current).then(() => {
       if (!requestIsCurrent(request)) return
       setPending(false)
       applyRate(audio, speed)
@@ -1208,6 +1214,7 @@ export function useLabListen(options: UseLabListenOptions) {
     setPlaying(false)
     setFollow({ kind: 'none' })
     setSrc(null)
+    endNativeNarration()
   }, [setPending])
 
   /** Preserve native media-session ownership while React loads the next chapter. */
@@ -1218,7 +1225,7 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current = null
     chapterHandoffRef.current = true
     const audio = audioRef.current
-    if (audio) audio.autoplay = true
+    if (audio) audio.autoplay = !isNativeCapacitor()
     playingRef.current = true
     setPlaying(true)
     setFollow({ kind: 'none' })
@@ -1302,12 +1309,12 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [estimatedClipDuration, playClip, playPlace, playing])
 
   useEffect(() => {
-    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
-    const session = navigator.mediaSession
+    const session = readerMediaSession()
+    if (!session) return
     try {
       // iOS shows title and artist, not album: lead with the chapter.
       const book = options.bookTitle || options.bookId || 'Tinct audiobook'
-      if (typeof MediaMetadata !== 'undefined') session.metadata = new MediaMetadata({
+      session.metadata = readerMediaMetadata({
         title: options.chapterTitle || `Chapter ${options.chapterNumber ?? 1}`,
         artist: book,
         album: book,
@@ -1325,15 +1332,17 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, options.coverSrc, pause, resume, seek, seekChapter])
 
   useEffect(() => {
-    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
-    try { navigator.mediaSession.playbackState = playing ? 'playing' : 'paused' } catch { /* unsupported */ }
+    const session = readerMediaSession()
+    if (!session) return
+    try { session.playbackState = playing ? 'playing' : 'paused' } catch { /* unsupported */ }
   }, [playing])
 
   // Each sentence group swaps the element's source, and a locked phone runs no
   // animation frames to re-render. Publish the chapter clock from the native
   // media events too, so the lock screen never falls back to the group's own.
   publishPositionRef.current = () => {
-    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
+    const session = readerMediaSession()
+    if (!session) return
     const audio = audioRef.current
     let elapsed = 0
     let duration = 0
@@ -1348,7 +1357,7 @@ export function useLabListen(options: UseLabListenOptions) {
     })
     if (duration <= 0) return
     try {
-      navigator.mediaSession.setPositionState({
+      session.setPositionState({
         duration: Math.max(0.001, duration),
         playbackRate: audio?.playbackRate || speed,
         position: Math.max(0, Math.min(elapsed, Math.max(0, duration - 0.001))),

@@ -16,7 +16,10 @@ export function loadCatalogueData() {
     // twice by WebKit when the catalogue requires cache revalidation.
     const early = window.__library2Catalogue;
     delete window.__library2Catalogue;
-    catalogueData = (early || fetch(CATALOGUE_URL).then(response => {
+    const native = window.Capacitor?.isNativePlatform?.()
+      ? import('/lab/native-books.js').then(() => window.__tinctNativeBooks.catalogue())
+      : null;
+    catalogueData = (native || early || fetch(CATALOGUE_URL).then(response => {
       if (!response.ok) throw new Error(`Catalogue ${response.status}`);
       return response.json();
     })).catch(error => { catalogueData = null; throw error; });

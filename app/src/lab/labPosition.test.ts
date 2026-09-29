@@ -611,3 +611,35 @@ describe('recent chapter bookmarks', () => {
     expect(parseLabPositionState({ ...a, recentChapters: { wrong: saved() } }).recentChapters).toEqual({})
   })
 })
+
+describe('reading after a bookmark from a faster device clock', () => {
+  it('keeps consecutive offline page turns newer than the already observed phone pin', () => {
+    const phone: LabPositionState = {
+      ...emptyLabPositionState('phone'),
+      books: { romans: romans({updatedAt: 10_000, deviceId: 'phone', rev: 30}) },
+      lastSettledBookId: 'romans', lastSettledAt: 10_000, updatedAt: 10_000,
+    }
+    const controller = createLabPositionController({deviceId: DEVICE})
+    controller.replace(phone)
+    controller.note({place: romans({paragraphIndex: 3, wordIndex: 7, rev: 2}), reason: 'page-turn', now: 9_500})
+    const first = mergeLabPositionStatesByTime(phone, controller.state())
+    expect(first.books.romans).toMatchObject({paragraphIndex: 3, wordIndex: 7, updatedAt: 10_001})
+    controller.note({place: romans({paragraphIndex: 4, wordIndex: 1, rev: 3}), reason: 'page-turn', now: 9_550})
+    const second = mergeLabPositionStatesByTime(first, controller.state())
+    expect(resumePlace(second)).toMatchObject({paragraphIndex: 4, wordIndex: 1, updatedAt: 10_002})
+    const beforeHide = controller.state()
+    controller.flush('hide')
+    expect(controller.state()).toBe(beforeHide)
+  })
+
+  it('also preserves an explicit backwards chapter choice with a slower clock', () => {
+    const controller = createLabPositionController({deviceId: DEVICE})
+    controller.replace({
+      ...emptyLabPositionState('phone'),
+      books: { romans: romans({updatedAt: 10_000, deviceId: 'phone'}) },
+      lastSettledBookId: 'romans', lastSettledAt: 10_000, updatedAt: 10_000,
+    })
+    controller.note({place: romans({chapterNumber: 7, sequentialChapter: 1053, paragraphIndex: 0, wordIndex: 0}), reason: 'chapter-jump', now: 9_500})
+    expect(resumePlace(controller.state())).toMatchObject({chapterNumber: 7, sequentialChapter: 1053, updatedAt: 10_001})
+  })
+})

@@ -1,26 +1,24 @@
 package app.tinct.reader;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.PermissionRequest;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import com.getcapacitor.BridgeWebViewClient;
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
 
-    private static final int REQ_RECORD_AUDIO = 1001;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(HomeRolePlugin.class);
+        registerPlugin(NativeAuthStoragePlugin.class);
+        registerPlugin(NativeBooksPlugin.class);
+        registerPlugin(NativeMediaSessionPlugin.class);
         super.onCreate(savedInstanceState);
 
         // Suppress the Android system selection action mode (Copy / Share /
@@ -49,6 +47,17 @@ public class MainActivity extends BridgeActivity {
             public void onDestroyActionMode(ActionMode mode) {}
         };
         WebView webView = getBridge().getWebView();
+        getBridge().setWebViewClient(new BridgeWebViewClient(getBridge()) {
+            @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                if ("https".equals(request.getUrl().getScheme()) && "localhost".equals(request.getUrl().getHost())
+                    && "GET".equals(request.getMethod()) && request.getUrl().getPath() != null
+                    && (request.getUrl().getPath().startsWith("/data/") || request.getUrl().getPath().startsWith("/covers/") || request.getUrl().getPath().startsWith("/lab/prefaces/"))) {
+                    WebResourceResponse cached = NativeBooksStore.get(getApplicationContext()).asset(request.getUrl().getPath());
+                    if (cached != null) return cached;
+                }
+                return super.shouldInterceptRequest(view, request);
+            }
+        });
         // WebView doesn't expose setCustomSelectionActionModeCallback as a
         // public method (it's on TextView), but the underlying View has the
         // selection-toolbar plumbing reachable via reflection. With this
@@ -61,76 +70,28 @@ public class MainActivity extends BridgeActivity {
                 .invoke(webView, emptyActionMode);
         } catch (Exception ignored) {}
 
-        // Permission delegate: when the WebView's page calls
-        // getUserMedia / SpeechRecognition, Android wraps that in a
-        // PermissionRequest. Default Capacitor behaviour is to deny silently
-        // (mic immediately unavailable, voice mode appears to "fast-fail").
-        // Auto-grant if the app already has Android-level permission.
-        getBridge().getWebView().setWebChromeClient(new WebChromeClient() {
-            @Override
-            public void onPermissionRequest(final PermissionRequest request) {
-                runOnUiThread(() -> {
-                    String[] requested = request.getResources();
-                    boolean wantsAudio = false;
-                    for (String r : requested) {
-                        if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(r)) {
-                            wantsAudio = true;
-                            break;
-                        }
-                    }
-                    if (!wantsAudio) {
-                        request.deny();
-                        return;
-                    }
-                    int granted = ContextCompat.checkSelfPermission(
-                        MainActivity.this, Manifest.permission.RECORD_AUDIO);
-                    if (granted == PackageManager.PERMISSION_GRANTED) {
-                        request.grant(new String[] { PermissionRequest.RESOURCE_AUDIO_CAPTURE });
-                    } else {
-                        // Ask Android for the permission. The WebView request
-                        // is denied for now; the user will tap mic again after
-                        // granting and the second attempt succeeds.
-                        ActivityCompat.requestPermissions(
-                            MainActivity.this,
-                            new String[] { Manifest.permission.RECORD_AUDIO },
-                            REQ_RECORD_AUDIO
-                        );
-                        request.deny();
-                    }
-                });
-            }
-        });
+        // Keep Capacitor's BridgeWebChromeClient: it completes the original
+        // microphone request after Android permission is granted, and owns
+        // file selection, JavaScript dialogs and other bridge behavior.
+
     }
 
-    /**
-     * Intercept hardware key events (Boox page-turn buttons map to VOLUME keys).
-     */
+    /** Dedicated page keys use the reader's normal keyboard path. Volume stays volume. */
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            switch (event.getKeyCode()) {
-                case KeyEvent.KEYCODE_VOLUME_UP:
-                case KeyEvent.KEYCODE_PAGE_UP:
-                    getBridge().getWebView().evaluateJavascript(
-                        "window.dispatchEvent(new CustomEvent('tinct:page-nav', {detail:{direction:'prev'}}))",
-                        null
-                    );
-                    return true;
-                case KeyEvent.KEYCODE_VOLUME_DOWN:
-                case KeyEvent.KEYCODE_PAGE_DOWN:
-                    getBridge().getWebView().evaluateJavascript(
-                        "window.dispatchEvent(new CustomEvent('tinct:page-nav', {detail:{direction:'next'}}))",
-                        null
-                    );
-                    return true;
+        final int code = event.getKeyCode();
+        final boolean pageKey = code == KeyEvent.KEYCODE_PAGE_UP || code == KeyEvent.KEYCODE_PAGE_DOWN;
+        final WebView view = getBridge() == null ? null : getBridge().getWebView();
+        final String url = view == null ? null : view.getUrl();
+        final boolean reader = url != null && (url.contains("/reader") || url.contains("/lab/phone"));
+        if (pageKey && reader) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                String key = code == KeyEvent.KEYCODE_PAGE_UP ? "PageUp" : "PageDown";
+                view.evaluateJavascript(
+                    "(document.activeElement||document.body).dispatchEvent(new KeyboardEvent('keydown',{key:'"
+                    + key + "',bubbles:true,cancelable:true}))", null);
             }
-        }
-        if (event.getAction() == KeyEvent.ACTION_UP) {
-            switch (event.getKeyCode()) {
-                case KeyEvent.KEYCODE_VOLUME_UP:
-                case KeyEvent.KEYCODE_VOLUME_DOWN:
-                    return true;
-            }
+            return true;
         }
         return super.dispatchKeyEvent(event);
     }

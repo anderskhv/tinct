@@ -8,7 +8,12 @@ const path = require('path')
 
 const assetsDir = path.join(__dirname, '..', 'dist', 'assets')
 const files = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : []
-const bundle = files.find(n => n.startsWith('index-') && n.endsWith('.js'))
+const bundles = files.filter(n => n.startsWith('index-') && n.endsWith('.js'))
+if (bundles.length > 1) {
+  console.error('✗ ambiguous reader entry bundles — shared chunks must not use index-*')
+  process.exit(1)
+}
+const bundle = bundles[0]
 if (!bundle) {
   console.error('✗ no dist/assets/index-*.js bundle found — run `npm run build` first')
   process.exit(1)
