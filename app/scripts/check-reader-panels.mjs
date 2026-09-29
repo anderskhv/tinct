@@ -788,7 +788,7 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-super').click()
     assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Book editions','Settings','Library','Account'])
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
-    assert.equal(await page.locator('.lab-super-row.has-rule').count(),3)
+    assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
     await page.getByTestId('lab-super-row-editions').click()
     await page.getByTestId('lab-v2-main-edition').click()
