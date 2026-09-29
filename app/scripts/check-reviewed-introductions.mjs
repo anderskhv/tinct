@@ -45,6 +45,13 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
   if(file.startsWith(path.resolve('dist')+'/')&&fs.existsSync(file)&&fs.statSync(file).isFile())return route.fulfill({path:file})
   return route.abort()
  })
+ async function introState(label,id){
+  const state=await page.evaluate(()=>{
+   const ids=['book-shape','turning-cover','book-slip','slip-next','intro','page-back'];
+   return {trace:window.__introTrace,elements:ids.map(id=>{const e=document.getElementById(id),r=e.getBoundingClientRect(),c=getComputedStyle(e),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {id,hidden:e.hidden,inert:e.inert,aria:e.getAttribute('aria-hidden'),inline:e.style.cssText,rect:{x:r.x,y:r.y,width:r.width,height:r.height},computed:{transform:c.transform,display:c.display,visibility:c.visibility,opacity:c.opacity,pointerEvents:c.pointerEvents,transition:c.transition,animation:c.animation},hit:hit?.id||hit?.tagName}}),animations:document.getAnimations().map(a=>({target:a.effect?.target?.id,state:a.playState,time:a.currentTime,frames:a.effect?.getKeyframes?.()})),stylesheets:[...document.styleSheets].map(s=>s.href),active:document.activeElement?.id};
+  });
+  console.log('INTRO_STATE '+JSON.stringify({label,engine:engine.name(),id,...state}));
+ }
  for(const id of cases){
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
@@ -77,7 +84,9 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
    for(let i=0;i<b64.length;i+=3000)console.log('REVIEW_CHUNK '+b64.slice(i,i+3000))
    console.log('REVIEW_END '+engine.name()+'-'+id+'-flap')
   }
-  if(await page.locator('#slip-next').isVisible()){
+  const nextVisible=await page.locator('#slip-next').isVisible();
+  await introState('before Continue; visible='+nextVisible,id);
+  if(nextVisible){
    await page.locator('#slip-next').click()
    try{await page.waitForFunction(()=>document.getElementById('intro').getAttribute('aria-hidden')==='false'&&document.getElementById('intro').style.pointerEvents==='auto',null,{timeout:5000})}
    catch(error){console.log('INTRO_TRANSITION_FAILURE '+JSON.stringify({engine:engine.name(),id,screen:await page.evaluate(()=>({trace:window.__introTrace,intro:document.getElementById('intro').outerHTML.slice(0,180),shape:document.getElementById('book-shape').style.cssText,cover:document.getElementById('turning-cover').style.cssText,active:document.activeElement?.id}))}));await page.screenshot({path:out+'/'+engine.name()+'-'+id+'-transition-failure.png'});throw error}
@@ -91,7 +100,7 @@ for(const [engine,width,height] of [[chromium,1440,900],[webkit,393,844]]){
   }
   const cast=gallery.books.find(book=>book.bookId===id)
   if(cast){
-   await page.locator('[data-tab=characters]').click()
+   try{await page.locator('[data-tab=characters]').click()}catch(error){await introState('Characters failed',id);throw error}
    assert.equal(await page.locator('[data-tab=characters]').textContent(),cast.sectionTitle)
    assert.equal(await page.locator('#intro-character-list .character').count(),cast.characters.filter(c=>c.visibility==='featured').length)
    await page.getByTestId('intro-gallery-toggle').click()
