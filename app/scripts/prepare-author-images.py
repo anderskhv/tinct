@@ -5,7 +5,7 @@ manifest=json.loads((root/'public/lab/library_2/author-images.json').read_text()
 assert len(manifest['images'])==63 and len(manifest['books'])==101
 for image in manifest['images']:
     url=image['assetUrl']
-    assert url.startswith('https://upload.wikimedia.org/'),image['id']
+    assert url.startswith(('https://upload.wikimedia.org/','https://thumb.wikimedia.org/')),image['id']
     target=root/'public'/image['publicPath'].lstrip('/')
     target.parent.mkdir(parents=True,exist_ok=True)
     if target.exists() and hashlib.sha256(target.read_bytes()).hexdigest()==image['sha256']:
