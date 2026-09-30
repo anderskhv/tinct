@@ -92,7 +92,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'jane-eyre': { editions: EN, revision: '2026-09-25.1' },
   'great-expectations': { editions: EN, revision: '2026-09-12.1' },
   'treasure-island': { editions: EN, revision: '2026-09-12.1' },
-  'moby-dick': { editions: EN, revision: '2026-09-12.1' },
+  'moby-dick': { editions: EN, revision: '2026-09-30.1' },
   'crime-and-punishment': { editions: EN, revision: '2026-09-24.1' },
   'anna-karenina': { editions: EN, revision: '2026-09-12.1' },
   'brothers-karamazov': { editions: EN, revision: '2026-09-12.1' },

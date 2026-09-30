@@ -140,6 +140,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'moby-dick': {
+    revision: 'text-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '2ab04dd727bbe5804b7acf1d05f578cfed5aef17c08d7d72b6db9101f8c1763c',
+        after: '1a3f31bbe6bb4bea415a29b509c81f303074bc858854c7bc00a49e8b68ffd52c',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
