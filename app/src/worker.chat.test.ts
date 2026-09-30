@@ -700,6 +700,51 @@ describe('book-grounded lab chat', () => {
     })
   })
 
+  it('streams a long lookup-capable answer before the provider round ends', async () => {
+    const encoder = new TextEncoder()
+    let finish!: () => void
+    const finished = new Promise<void>(resolve => { finish = resolve })
+    const answer = 'Zedekiah kept Jeremiah in the court of the prison. '.repeat(6)
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        controller.enqueue(encoder.encode(sse('message_start', { message: { usage: {} } })))
+        controller.enqueue(encoder.encode(sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } })))
+        controller.enqueue(encoder.encode(sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: answer } })))
+        await finished
+        controller.enqueue(encoder.encode(sse('content_block_stop', { index: 0 })))
+        controller.enqueue(encoder.encode(sse('message_delta', { delta: { stop_reason: 'end_turn' }, usage: {} })))
+        controller.enqueue(encoder.encode(sse('message_stop', {})))
+        controller.close()
+      },
+    })
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(stream, { headers: { 'content-type': 'text/event-stream' } })))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(chatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Where is Jeremiah held?' }],
+      book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    const reader = response.body!.getReader()
+    const decoder = new TextDecoder()
+    let seen = ''
+    while (!seen.includes('court of the prison')) {
+      const { done, value } = await reader.read()
+      if (done) break
+      seen += decoder.decode(value, { stream: true })
+    }
+    // The answer reached the reader while the provider was still writing.
+    expect(seen).toContain('court of the prison')
+    expect(seen).not.toContain('message_stop')
+    finish()
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      seen += decoder.decode(value, { stream: true })
+    }
+    await Promise.all(pending)
+    expect((seen.match(/^event: message_start$/gm) || []).length).toBe(1)
+    expect((seen.match(/^event: message_stop$/gm) || []).length).toBe(1)
+  })
+
   it('returns only the final answer in non-streamed tool chat', async () => {
     const fetchMock = vi.fn().mockResolvedValueOnce(anthropicReply([
       { type: 'text', text: "I can't find that right now." },

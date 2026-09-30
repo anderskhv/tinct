@@ -14,7 +14,14 @@ interface LabBookSwitcherProps {
 export function LabBookSwitcher({ current, rows, loading, error, onClose, onSelect, onLibrary }: LabBookSwitcherProps) {
   const activeRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
-  useEffect(() => { activeRef.current?.focus() }, [current.bookId, rows])
+  // Put focus on the current book when the switcher opens or its rows first
+  // arrive. A later catalogue refresh must not pull focus from a control the
+  // reader has already moved to (e.g. Library).
+  useEffect(() => {
+    const focused = document.activeElement
+    if (focused && focused !== activeRef.current && panelRef.current?.contains(focused)) return
+    activeRef.current?.focus()
+  }, [current.bookId, rows])
 
   const keepFocusInside = (event: ReactKeyboardEvent<HTMLElement>) => {
     if (event.key !== 'Tab') return

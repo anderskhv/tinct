@@ -44,11 +44,17 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
  const state = await page.evaluate(() => {
   const root=document.querySelector('[data-testid="lab-root"]')
   const lines=[...document.querySelectorAll('.lab-passage:not(.lab-native-page-flow) [data-testid="lab-reading-stage"] .lab-hearing-line')].filter(p=>p.getBoundingClientRect().width>0)
-  return { chapter:root.dataset.chapter, place:root.dataset.place, lines:lines.map(p=>({text:p.textContent,align:getComputedStyle(p).textAlign,margin:getComputedStyle(p).marginBottom,poetic:p.classList.contains('is-poetic-line'),top:p.getBoundingClientRect().top,bottom:p.getBoundingClientRect().bottom})) }
+  return { chapter:root.dataset.chapter, place:root.dataset.place, lines:lines.map(p=>({text:p.textContent,align:getComputedStyle(p).textAlign,margin:getComputedStyle(p).marginBottom,joined:p.querySelectorAll('.lab-prose-join').length,words:[...p.querySelectorAll('[data-testid="lab-word"]')].map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),top:p.getBoundingClientRect().top,bottom:p.getBoundingClientRect().bottom})) }
  })
  if (name==='proverbs') {
+  // BSB stores each poetic half-line as a paragraph; the reader sets a verse
+  // run as one justified prose paragraph, as WEB does, and every word keeps
+  // its source paragraph and word index.
   assert(state.lines.length>0)
-  assert(state.lines.every(p=>p.poetic && p.align==='start'),JSON.stringify(state))
+  assert(state.lines.every(p=>p.align==='justify'),JSON.stringify(state))
+  assert(state.lines.some(p=>p.joined>=3 && new Set(p.words.map(k=>k.split(':')[0])).size>=4),JSON.stringify(state))
+  const keys=state.lines.flatMap(p=>p.words)
+  assert(keys.length>0 && keys.every((k,i)=>{if(!i)return true;const [p,w]=k.split(':').map(Number),[q,v]=keys[i-1].split(':').map(Number);return (p===q&&w===v+1)||(p===q+1&&w===0)}),JSON.stringify(keys))
  }
  await page.screenshot({path:`${output}/${name}.png`,fullPage:true})
  if (name==='ezra') {
