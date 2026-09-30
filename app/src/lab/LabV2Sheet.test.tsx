@@ -31,7 +31,7 @@ function openReading() {
 }
 
 function openSheet() {
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
   return openReading()
 }
 
@@ -193,7 +193,7 @@ describe('the font picker', () => {
 
 describe('account', () => {
   it('opens on the same sheet, and its last row sits on the rows above it', () => {
-    render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-account'))
     expect(layer()).toBe('account')
@@ -217,7 +217,7 @@ it('makes audiobook following an explicit setting in the current reader menu', (
 
 it('restores a non-Bible audiobook before opening reader settings', () => {
   writeLabPrefs({ ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false }, 'phone')
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'the-histories', bookTitle: 'The Histories', editions: THE_HISTORIES.editions }} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'the-histories', bookTitle: 'The Histories', editions: THE_HISTORIES.editions }} authToken={null} />)
   openReading()
   fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
   fireEvent.click(screen.getByTestId('lab-super'))

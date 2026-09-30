@@ -140,12 +140,8 @@ async function stub(page, now, timings) {
 }
 
 async function openPanel(page, phone) {
-  if (phone) {
-    await page.getByTestId('lab-super').click()
-    await page.getByTestId('lab-super-row-chat').click()
-  } else {
-    await page.getByTestId('lab-desktop-chat').click()
-  }
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-chat').click()
   await page.getByTestId('lab-ask-thread').waitFor()
 }
 
@@ -189,7 +185,7 @@ async function run(browser, { phone, viewport }) {
     }))
   }, [storedOnDevice(now), authSession(now), PROVERBS_18])
 
-  await page.goto(`${BASE}/${phone ? 'lab/phone?chrome=v2' : 'lab/desktop'}`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=${phone ? 'phone' : 'desktop'}`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-book').waitFor()
   await page.waitForTimeout(2000)
 

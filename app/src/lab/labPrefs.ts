@@ -59,17 +59,14 @@ export const LAB_FONT_LABELS: Record<LabFontFamily, string> = {
 }
 
 /**
- * Literata is V2's default reading face; the reader that ships today keeps
- * the face it ships with. A reader who has actually chosen a face keeps that
- * choice in both, which is what `null` is for: it is the difference between
- * "never picked" and "picked Garamond", and only the first one moves.
+ * Literata is the default reading face. A reader who has actually chosen a
+ * face keeps that choice, which is what `null` is for: it is the difference
+ * between "never picked" and "picked Garamond", and only the first one moves.
  */
-export const LAB_V2_DEFAULT_FONT: LabFontFamily = 'literata'
-export const LAB_V1_DEFAULT_FONT: LabFontFamily = 'garamond'
+export const LAB_DEFAULT_FONT: LabFontFamily = 'literata'
 
-export function labReadingFont(family: LabFontFamily | null, chromeV2: boolean): LabFontFamily {
-  if (family) return family
-  return chromeV2 ? LAB_V2_DEFAULT_FONT : LAB_V1_DEFAULT_FONT
+export function labReadingFont(family: LabFontFamily | null): LabFontFamily {
+  return family ?? LAB_DEFAULT_FONT
 }
 
 export type LabTheme = 'system' | 'light' | 'dark' | 'book'

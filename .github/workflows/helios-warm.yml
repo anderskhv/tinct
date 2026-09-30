@@ -1,0 +1,52 @@
+name: Warm Helios narration
+# One-time, owner-approved spend (~$10-20). Dry run is the default and never
+# calls the Worker or xAI. Auth is the expiring body-bound HMAC derived from the
+# existing XAI_API_KEY Actions secret (same path as grok-openings-release.yml);
+# the secret never leaves the runner. The Worker enforces the daily/monthly
+# ceilings; the script stops cleanly on a ceiling or 429 and reports.
+on:
+  workflow_dispatch:
+    inputs:
+      books:
+        description: Comma-separated book ids
+        default: odyssey,bible,pride-and-prejudice,the-republic,the-manual,the-aeneid,iliad,frankenstein,jungle-book,beowulf
+      chapters:
+        description: Comma-separated chapter numbers (Bible chapters 1-3 are Genesis 1-3)
+        default: '1,2,3'
+      dry_run:
+        description: Plan and estimate only; no synthesis
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: helios-warm
+  cancel-in-progress: false
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.13.0
+      - run: bash ../scripts/cloud-setup.sh
+      - run: node --check scripts/warm-helios.mjs
+      - name: Plan or warm Helios (voice m only)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          HELIOS_BOOKS: ${{ inputs.books }}
+          HELIOS_CHAPTERS: ${{ inputs.chapters }}
+          HELIOS_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          npx esbuild scripts/warm-helios.mjs --bundle --platform=node --format=esm --outfile=/tmp/tinct-warm-helios.mjs
+          node /tmp/tinct-warm-helios.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: helios-warm-summary
+          path: app/artifacts/helios-warm

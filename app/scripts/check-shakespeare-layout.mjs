@@ -30,7 +30,7 @@ async function boot(page, scenario) {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en', compareEdition: 'modern-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
-  await page.goto(origin + '/reader?chrome=v2', { waitUntil: 'domcontentloaded' })
+  await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)

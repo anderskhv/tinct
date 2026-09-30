@@ -60,27 +60,6 @@ export function labAfterTalk(returnTo: LabReturnTo): LabChromeState {
 
 export const LAB_CONNECTING_FAIL_MS = 8000
 
-export type LabVoiceGatePhase = 'off' | 'connecting' | 'ready'
-
-export function nextLabVoiceGate(
-  current: LabVoiceGatePhase,
-  conversationState: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing',
-  voiceActive: boolean,
-  notice?: string | null,
-  _userSpeechStarted?: boolean,
-): LabVoiceGatePhase {
-  if (notice || conversationState === 'idle') return 'off'
-  if (!voiceActive && conversationState !== 'connecting' && conversationState !== 'listening' && conversationState !== 'thinking') {
-    return 'off'
-  }
-  // The gate describes transport setup only. Once the live voice machine
-  // reports listening, thinking, or speaking, reveal that exact state rather
-  // than holding a synthetic startup label over it.
-  if (conversationState !== 'connecting') return 'off'
-  if (current === 'off' || current === 'connecting') return 'connecting'
-  return current
-}
-
 export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'): string | null {
   if (phase === 'connecting') return 'Connecting'
   if (phase === 'listening') return 'Listening'
@@ -254,8 +233,6 @@ export function labShowReaderRail(input: {
 
 export type LabPhoneBarMode = 'reading' | 'hearing' | 'talking'
 
-export const LAB_PHONE_BAR_ITEMS = ['Play', 'Chat', 'Talk'] as const
-export const LAB_GEAR_ITEMS = ['Library', 'Reading', 'Layout'] as const
 /** Phone footer / sheet mode. The Play | Chat | Talk bar stays on. */
 export function labPhoneBarMode(
   state: LabChromeState,

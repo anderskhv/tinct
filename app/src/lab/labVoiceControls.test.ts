@@ -110,11 +110,9 @@ describe('Lab production voice-tool bridge', () => {
       view,
       phoneAskOpen: false,
       desktopAskOpen: false,
-      gearOpen: false,
       tocOpen: false,
       inTheBookOpen: false,
       peekBook: false,
-      settingsSection: 'reading',
     })
     const adapter = createLabVoiceToolAdapter<LabVoiceViewSnapshot>({
       getViewSnapshot: snapshot,

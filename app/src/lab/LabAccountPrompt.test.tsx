@@ -50,8 +50,14 @@ function chatCalls(fetchMock: ReturnType<typeof chatFetch>) {
   return fetchMock.mock.calls.filter(call => CHAT_ENDPOINT.test(String(call[0])))
 }
 
+/** A row of the reader's menu, opened first when it is not open. */
+function menuRow(id: string) {
+  if (!screen.queryByTestId('lab-super-menu')) fireEvent.click(screen.getByTestId('lab-super'))
+  return screen.getByTestId(`lab-super-row-${id}`)
+}
+
 function openDesktopChat() {
-  fireEvent.click(screen.getByTestId('lab-desktop-chat'))
+  fireEvent.click(menuRow('chat'))
 }
 
 function sendTyped(text: string) {
@@ -187,7 +193,7 @@ describe('lab account prompt in the reader', () => {
     expect(chatCalls(fetchMock)).toHaveLength(1)
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
 
-    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    fireEvent.click(menuRow('talk'))
     expect((await screen.findByTestId('lab-account-sheet')).getAttribute('data-action')).toBe('voice')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBe(String(LAB_FREE_AI_ACTIONS))
@@ -241,7 +247,7 @@ describe('lab account prompt in the reader', () => {
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    fireEvent.click(menuRow('talk'))
     const sheet = await screen.findByTestId('lab-account-sheet')
     expect(sheet.getAttribute('data-action')).toBe('voice')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
@@ -260,7 +266,7 @@ describe('lab account prompt in the reader', () => {
     const fetchMock = chatFetch()
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} online authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-phone-talk'))
+    fireEvent.click(menuRow('talk'))
     expect((await screen.findByTestId('lab-account-sheet')).getAttribute('data-action')).toBe('voice')
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('voice-session'))).toBe(false)
     fireEvent.click(screen.getByTestId('lab-account-dismiss'))
@@ -274,7 +280,7 @@ describe('lab account prompt in the reader', () => {
     const fetchMock = vi.fn(() => new Promise(() => { /* never answered */ }))
     vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
-    fireEvent.click(screen.getByTestId('lab-desktop-talk'))
+    fireEvent.click(menuRow('talk'))
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
     await waitFor(() => expect(screen.getByTestId('lab-account-sheet')).toBeTruthy())
     expect(screen.getByTestId('lab-account-sheet').getAttribute('data-action')).toBe('voice')

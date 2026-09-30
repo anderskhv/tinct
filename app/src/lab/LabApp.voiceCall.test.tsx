@@ -256,18 +256,8 @@ describe('Talk on the desktop with Chrome V2', () => {
   })
 })
 
-describe('Talk without the Chrome V2 flag', () => {
-  it('keeps the chat sheet the unflagged reader ships with', async () => {
-    renderPhone('')
-    fireEvent.click(screen.getByTestId('lab-phone-talk'))
-    await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
-    expect(screen.queryByTestId('lab-call')).toBeNull()
-    expect(screen.queryByTestId('lab-call-bar')).toBeNull()
-  })
-})
-
 it('opens the book introduction in the library from Contents, without a cover or preface in the reader', async () => {
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
+  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
   const before = readerPlace()
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
   expect(screen.queryByRole('button', { name: 'Cover', exact: true })).toBeNull()

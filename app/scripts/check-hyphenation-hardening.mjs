@@ -53,7 +53,7 @@ async function boot(page, handoff) {
     if (document.documentElement) observeMedia()
     else addEventListener('DOMContentLoaded', observeMedia, { once: true })
   }, handoff)
-  await page.goto(`${origin}/reader?chrome=v2`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-root').waitFor({ timeout: 45000 })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
