@@ -60,6 +60,20 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  macbeth: {
+    revision: 'macbeth-completeness-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    editions: {
+      'original-en': {
+        before: '2650bcc666428a808584fd6f99534f71474a4e99a085c7ae6b87234e24e30608',
+        after: '9df987bdf1a1a8c50d44e0c4c2ab6a18e2580f47114810232e8022eecca207c6',
+      },
+      'modern-en': {
+        before: '0c85273086804fdd02abee81842de15338b61a2288bb26805e9b2f2d505d02f1',
+        after: 'c597a985ce096a923b03a5072e52f6d8bd5bbc44c0c11fd924ff4e0019351bec',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

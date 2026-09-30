@@ -277,7 +277,8 @@ export const MACBETH: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // Paragraph structure differs from the repaired English editions (806 against 840).
+      aligned: false,
       hasAudio: true,
     },
   ],

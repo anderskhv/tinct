@@ -29,7 +29,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-09-30.1', perEdition: true },
   // 2026-09-10.1 — Hamlet, Macbeth, four philosophy/reference, nine plays
   hamlet: { editions: EN, revision: '2026-09-10.1' },
-  macbeth: { editions: EN, revision: '2026-09-10.1' },
+  macbeth: { editions: EN, revision: '2026-09-30.1' },
   crito: { editions: EN, revision: '2026-09-10.1' },
   apology: { editions: EN, revision: '2026-09-10.1' },
   'the-manual': { editions: EN, revision: '2026-09-10.1' },

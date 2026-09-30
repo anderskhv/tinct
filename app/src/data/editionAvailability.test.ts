@@ -12,7 +12,7 @@ import { createReaderHandoffIntent, getEditionSelectionViewModel, searchPreReade
 
 describe('temporary edition holds preserve identities and recovery', () => {
   it('pins every held asset to the bytes independently fetched from production', () => {
-    expect(Object.keys(manifest.editions)).toHaveLength(16)
+    expect(Object.keys(manifest.editions)).toHaveLength(14)
     for (const [key, evidence] of Object.entries(manifest.editions)) {
       const [bookId, editionKey] = key.split('/')
       expect(getBook(bookId)?.editions.some(e => e.key === editionKey), key).toBe(true)
@@ -42,7 +42,7 @@ describe('temporary edition holds preserve identities and recovery', () => {
     for (const book of BOOKS) {
       expect(isBookTemporarilyHeld(book.id)).toBe(book.editions.every(e => Boolean(editionHold(book.id, e.key))))
     }
-    expect(searchPreReaderBooks('Macbeth').some(book => book.id === 'macbeth')).toBe(false)
+    expect(searchPreReaderBooks('Macbeth').some(book => book.id === 'macbeth')).toBe(true)
     expect(searchPreReaderBooks('As You Like It').some(book => book.id === 'as-you-like-it')).toBe(false)
     expect(isBookDiscoverable('jerusalem')).toBe(true)
     expect(isBookDiscoverable('faust-part-1')).toBe(true)
