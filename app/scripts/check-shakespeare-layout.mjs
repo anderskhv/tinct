@@ -1,4 +1,4 @@
-// Legacy-library regression coverage. Public entry is checked by check-library-public.mjs.
+// Shakespeare reader layout coverage. The public library is checked by check-library-public.mjs.
 import { chromium, webkit, devices } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -17,7 +17,7 @@ async function prepare(context) {
     if (url.origin !== origin || route.request().method() !== 'GET') return route.abort()
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
     if (live) return route.continue()
-    const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname === '/lab/' ? '/lab/index.html' : url.pathname))
+    const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname))
     if (file.startsWith(path.resolve('dist') + '/')) try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
     return route.abort()
   })
@@ -130,55 +130,6 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         results.push({ engine, scenario, state })
         console.log('PASS', engine, index, scenario.book, scenario.width, scenario.layout, scenario.size, scenario.alignment)
       } catch (error) { await page.screenshot({ path: `${output}/${engine}-${index}-failure.png` }); throw error } finally { await context.close() }
-    }
-    for (const reducedMotion of ['no-preference', 'reduce']) {
-      const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'block', reducedMotion })
-      await prepare(context)
-      const page = await context.newPage()
-      // A committed SVG can precede React's effect; a completed finite animation
-      // also disappears from getAnimations(). Observe the native start instead.
-      await page.addInitScript(() => {
-        window.__dockAnimations = []
-        const animate = Element.prototype.animate
-        Element.prototype.animate = function (...args) {
-          const animation = animate.apply(this, args)
-          if (this.matches('.library-dock-edge rect')) {
-            const entry = { timing: animation.effect.getTiming(), startedAt: performance.now(), finished: false, cancelled: false }
-            window.__dockAnimations.push(entry)
-            animation.finished.then(() => { entry.finished = true }, () => { entry.cancelled = true })
-          }
-          return animation
-        }
-      })
-      await page.goto(origin + '/lab/?view=library', { waitUntil: 'domcontentloaded' })
-      const edge = page.locator('.library-dock-edge rect')
-      await edge.waitFor({ state: 'attached' })
-      if (reducedMotion !== 'reduce') {
-        try { await page.waitForFunction(() => window.__dockAnimations.length > 0, null, { timeout: 5000 }) }
-        catch (error) {
-          console.log('DOCK_START_FAILURE', JSON.stringify(await page.evaluate(() => {
-            const edge = document.querySelector('.library-dock-edge rect')
-            return { trace: window.__dockAnimations, reduced: matchMedia('(prefers-reduced-motion: reduce)').matches, panel: edge?.closest('[data-view-panel]')?.className, connected: edge?.isConnected, active: edge?.getAnimations().map(a => ({ state: a.playState, timing: a.effect.getTiming() })) }
-          })))
-          throw error
-        }
-      }
-      const timing = await page.evaluate(() => window.__dockAnimations.map(entry => entry.timing))
-      if (reducedMotion === 'reduce') assert.equal(timing.length, 0)
-      else { assert.equal(timing.length, 1); assert.equal(timing[0].iterations, 3); assert.equal(timing[0].duration, 3200) }
-      await page.getByRole('button', { name: 'Search', exact: true }).click()
-      await page.getByRole('button', { name: 'Close', exact: true }).click()
-      await page.waitForTimeout(10000)
-      assert.equal(await edge.evaluate(n => n.getAnimations().filter(a => a.playState === 'running').length), 0)
-      assert.equal(await edge.evaluate(n => getComputedStyle(n).opacity), '0')
-      const trace = await page.evaluate(() => window.__dockAnimations)
-      console.log('DOCK_ANIMATION_TRACE', JSON.stringify({ engine, reducedMotion, trace }))
-      assert.equal(trace.length, reducedMotion === 'reduce' ? 0 : 1, 'opening Search does not restart the perimeter')
-      if (reducedMotion !== 'reduce') assert(trace[0].finished && !trace[0].cancelled, 'three cycles finish naturally')
-      assert.equal(await page.locator('.library-glass-dock > button').count(), 3)
-      await page.screenshot({ path: `${output}/${engine}-library-${reducedMotion}.png` })
-      results.push({ engine, reducedMotion, timing, stopped: true })
-      await context.close()
     }
   } finally { await browser.close(); await fs.writeFile(`${output}/results.json`, JSON.stringify(results, null, 2)) }
 }

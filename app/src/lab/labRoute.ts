@@ -33,6 +33,8 @@ export function legacyLabPageRedirect(pathname: string, search = ''): string | n
     case '/lab/library':
     case '/lab/library_2':
     case '/lab/library-2':
+    case '/lab/library_2/desktop.html':
+    case '/lab/library_2/mobile.html':
       target = PAGE_LIBRARY
       break
     case '/lab/reader':

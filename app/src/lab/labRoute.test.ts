@@ -24,7 +24,7 @@ describe('legacy /lab page redirects', () => {
   const to = (path: string, search = '') => legacyLabPageRedirect(path, search)
   it('sends every old page URL to its canonical page', () => {
     for (const path of ['/lab', '/lab/', '/lab/index.html', '/lab/landing']) expect(to(path)).toBe('/')
-    for (const path of ['/lab/library', '/lab/library/', '/lab/library_2', '/lab/library_2/', '/lab/library_2/index.html', '/lab/library-2', '/lab/library-2/', '/lab/library-2/index.html']) expect(to(path)).toBe('/library')
+    for (const path of ['/lab/library', '/lab/library/', '/lab/library_2', '/lab/library_2/', '/lab/library_2/index.html', '/lab/library-2', '/lab/library-2/', '/lab/library-2/index.html', '/lab/library_2/desktop.html', '/lab/library_2/mobile.html']) expect(to(path)).toBe('/library')
     for (const path of ['/lab/reader', '/lab/reader/']) expect(to(path)).toBe('/reader')
     for (const path of ['/lab/sign-in', '/lab/sign-in/', '/lab/sign-in/index.html']) expect(to(path)).toBe('/sign-in')
     for (const path of ['/lab/featured', '/lab/featured/', '/lab/featured/index.html']) expect(to(path)).toBe('/featured')

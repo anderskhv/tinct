@@ -1,24 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
-import worker, { serveSpaWithMetaForTest } from './worker'
+import worker from './worker'
 import { filterHeldDiscoveryCards, handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
-
-function envWithAppShell(html = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app</body></html>') {
-  return {
-    ASSETS: {
-      fetch: async () => new Response(html, {
-        status: 200,
-        headers: { 'Content-Type': 'text/html; charset=utf-8' },
-      }),
-    },
-  }
-}
 
 function routerEnv() {
   const shell = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app shell</body></html>'
   const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey/summary">The Odyssey</a></body></html>'
-  const lab = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Tinct mobile landing and onboarding lab</title></head><body><div id="tinct-onboarding-worlds-v5">lab shell</div></body></html>'
-  const library2 = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Library 2</title></head><body><div id="tinct-library-2">library 2 shell</div></body></html>'
   const labSignIn = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Sign in</title></head><body><div id="tinct-lab-sign-in">sign in shell</div></body></html>'
   const notFound = '<!doctype html><html><head><title>Page not found — Tinct</title></head><body><a class="nf-wm" href="/">Tinct.</a><h1>This page isn’t on the shelf.</h1><a href="/library">Browse the library</a></body></html>'
   return {
@@ -34,16 +21,7 @@ function routerEnv() {
         if (url.pathname === '/read/') {
           return new Response(hub, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
-        if (url.pathname === '/lab/index.html') {
-          return new Response(null, { status: 307, headers: { Location: '/lab/' } })
-        }
-        if (url.pathname === '/lab/') {
-          return new Response(lab, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
-        }
         if (url.pathname === '/lab/library_2/') { return new Response('<html><head><title>Tinct</title></head><body>approved cinematic library</body></html>', {headers:{'Content-Type':'text/html'}}) }
-        if (url.pathname === '/lab/library-2/') {
-          return new Response(library2, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
-        }
         if (url.pathname === '/404.html') {
           return new Response(notFound, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         }
@@ -90,78 +68,6 @@ function routerEnv() {
 }
 
 const ctx = { waitUntil: () => undefined } as unknown as ExecutionContext
-
-describe('worker SEO SPA metadata', () => {
-  it('injects book metadata and Book JSON-LD into /read book shells', async () => {
-    const resp = await serveSpaWithMetaForTest(
-      'GET',
-      new URL('https://tinct.app/read/odyssey'),
-      envWithAppShell() as never,
-      {
-        title: 'Read The Odyssey Online | Tinct',
-        description: 'Read the Odyssey online with modern editions and an AI reading companion.',
-        bookName: 'The Odyssey',
-        author: 'Homer',
-      },
-      'https://tinct.app/read/odyssey',
-      'book',
-    )
-
-    expect(resp).not.toBeNull()
-    expect(resp?.headers.get('Cache-Control')).toBe('no-store')
-    const html = await resp!.text()
-    expect(html).toContain('<title>Read The Odyssey Online | Tinct</title>')
-    expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/odyssey">')
-    expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/odyssey.jpg">')
-    expect(html).toContain('<meta property="og:image:width" content="1200">')
-    expect(html).toContain('<meta property="og:image:height" content="630">')
-    expect(html).toContain('"@type":"Book"')
-    expect(html).toContain('"name":"The Odyssey"')
-    expect(html).toContain('"name":"Homer"')
-  })
-
-  it('escapes HTML meta fields while preserving JSON-LD strings', async () => {
-    const resp = await serveSpaWithMetaForTest(
-      'GET',
-      new URL('https://tinct.app/read/test-book'),
-      envWithAppShell() as never,
-      {
-        title: 'Bad <title> "quoted"',
-        description: 'Description with <script>alert(1)</script> & quotes',
-        bookName: 'Bad <Book>',
-        author: 'Author "Name"',
-      },
-      'https://tinct.app/read/test-book',
-      'book',
-    )
-
-    const html = await resp!.text()
-    expect(html).toContain('<title>Bad &lt;title&gt; &quot;quoted&quot;</title>')
-    expect(html).toContain('content="Description with &lt;script&gt;alert(1)&lt;/script&gt; &amp; quotes"')
-    expect(html).toContain('"name":"Bad <Book>"')
-    expect(html).toContain('"name":"Author \\"Name\\""')
-  })
-
-  it('returns no body for HEAD while keeping SEO headers', async () => {
-    const resp = await serveSpaWithMetaForTest(
-      'HEAD',
-      new URL('https://tinct.app/read/odyssey'),
-      envWithAppShell() as never,
-      {
-        title: 'Read The Odyssey Online | Tinct',
-        description: 'Read the Odyssey online with modern editions and an AI reading companion.',
-        bookName: 'The Odyssey',
-        author: 'Homer',
-      },
-      'https://tinct.app/read/odyssey',
-      'book',
-    )
-
-    expect(resp?.status).toBe(200)
-    expect(resp?.headers.get('Content-Type')).toBe('text/html; charset=utf-8')
-    expect(await resp!.text()).toBe('')
-  })
-})
 
 describe('worker SEO routing', () => {
   it.each(['/privacy-policy', '/privacy-policy/', '/privacy-policy.html'])('redirects the legacy privacy URL %s to /privacy', async (pathname) => {
@@ -270,13 +176,12 @@ describe('worker SEO routing', () => {
     expect(await resp.text()).toBe('')
   })
 
-  it('keeps every Lab interaction script executable under the production CSP', async () => {
-    const source = readFileSync(new URL('../public/lab/index.html', import.meta.url), 'utf8')
+  it('keeps every library script executable under the production CSP', async () => {
+    const source = readFileSync(new URL('../public/lab/library_2/index.html', import.meta.url), 'utf8')
     const scripts = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
     expect(scripts.length).toBeGreaterThan(0)
     expect(scripts.every(([, attributes, body]) => /\bsrc=/i.test(attributes) && body.trim() === '')).toBe(true)
-    expect(source).toMatch(/src="\/lab\/catalogue-runtime\.js\?v=[\w-]+"/)
-    expect(source).not.toContain('src="/lab/interaction-runtime.js')
+    expect(source).toMatch(/src="app\.js\?v=[\w-]+"/)
 
     const resp = await worker.fetch(new Request('https://tinct.app/library'), routerEnv() as never, ctx)
     const csp = resp.headers.get('Content-Security-Policy') || ''
@@ -591,11 +496,8 @@ it('routes Faust recommendation cards through the labelled German book landing',
   expect(filterHeldDiscoveryCards(card)).toBe('<a href="/read/faust-part-1" class="guide-card"><div>Faust</div></a>')
 })
 
- it.each(['/','/index.html','/library','/library/'])('serves the cinematic library with or without preview opt-in at %s',async path=>{
- const result=await worker.fetch(new Request('https://tinct.app'+path,{headers:{Cookie:'tinct_library_preview=1'}}),routerEnv() as never,ctx)
+ it.each(['/','/index.html','/library','/library/'])('serves the cinematic library at %s',async path=>{
+ const result=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
  expect(await result.text()).toContain('approved cinematic library')
  expect(result.headers.get('Cache-Control')).toBe('no-store')
- const publicResult=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
- expect(await publicResult.text()).toContain('approved cinematic library')
  })
-

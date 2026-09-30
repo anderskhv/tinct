@@ -84,8 +84,6 @@ export default defineConfig(({ mode, command }) => {
         labFeaturedAccess: path.resolve(process.cwd(), 'src/labFeaturedAccess.ts'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
-        labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
-        labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
@@ -99,11 +97,7 @@ export default defineConfig(({ mode, command }) => {
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'
-            : chunk.name === 'labReadingMemory'
-              ? 'lab/reading-memory.js'
-              : chunk.name === 'labLibraryAssistant'
-                ? 'lab/library-assistant.js'
-              : chunk.name === 'libraryTwoAssistant'
+            : chunk.name === 'libraryTwoAssistant'
                 ? 'lab/library-2-assistant.js'
               : chunk.name === 'nativeBooks'
                 ? 'lab/native-books.js'
@@ -150,6 +144,11 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
+          if (pathOnly === '/lab/featured-access.js') {
+            req.url = `/src/labFeaturedAccess.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/lab/auth-status.js') {
             req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
             next()
@@ -162,11 +161,6 @@ export default defineConfig(({ mode, command }) => {
           }
           if (pathOnly === '/lab/library-2-reading.js') {
             req.url = `/src/libraryTwoReading.ts${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
-          if (pathOnly === '/lab/reading-memory.js') {
-            req.url = `/src/labReadingMemory.ts${url.slice(pathOnly.length)}`
             next()
             return
           }

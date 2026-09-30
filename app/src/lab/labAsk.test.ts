@@ -112,17 +112,6 @@ describe('lab ask context', () => {
     expect(instructions).not.toMatch(/Good to hear from you/i)
     expect(instructions).not.toContain("I'm listening.")
   })
-
-  it('leaves production in-car instructions on the AudioStrip path', () => {
-    const strip = readFileSync(resolve(__dirname, '../components/AudioStrip.tsx'), 'utf8')
-    const session = readFileSync(resolve(__dirname, '../hooks/useVoiceSession.ts'), 'utf8')
-    const context = readFileSync(resolve(__dirname, '../voice/context.ts'), 'utf8')
-    expect(context).toContain('buildGrokVoiceInstructions')
-    expect(context).toContain('resume_audiobook')
-    expect(session).toContain('Production App.tsx leaves this unset')
-    expect(strip).not.toContain("from '../lab/")
-    expect(strip).not.toContain('buildLabAskInstructions')
-  })
 })
 
 describe('lab voice phase is not a timer', () => {

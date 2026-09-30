@@ -21,7 +21,7 @@ fs.mkdirSync(out, { recursive: true })
     text: document.querySelector('.lab-page-wrap').innerText.slice(0, 180),
   }))
   try {
-    await page.goto(base + '/lab/phone?chrome=v2', { waitUntil: 'networkidle' })
+    await page.goto(base + '/reader?layout=phone', { waitUntil: 'networkidle' })
     await ready()
     // These accessibility controls are visually hidden on the mobile layout.
     for (let i = 0; i < 8; i++) {
@@ -39,32 +39,6 @@ fs.mkdirSync(out, { recursive: true })
       checks.push({ reload: i + 1, ...after })
       await page.screenshot({ path: path.join(out, `after-${i}.png`) })
     }
-    // Several public books make the formerly empty leading shelf space visible.
-    await page.evaluate(() => {
-      const state = JSON.parse(localStorage.getItem('tinct-lab-position'))
-      const source = Object.values(state.books)[0]
-      for (const [bookId, title] of [['romeo-and-juliet', 'Romeo and Juliet'], ['odyssey', 'The Odyssey'], ['pride-and-prejudice', 'Pride and Prejudice']]) {
-        state.books[bookId] = { ...source, bookId, headerBook: title, chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: Date.now() - 60000 }
-      }
-      localStorage.setItem('tinct-lab-position', JSON.stringify(state))
-    })
-    await page.goto(base + '/lab/library', { waitUntil: 'networkidle' })
-    await page.getByRole('button', { name: 'Continue reading', exact: true }).waitFor()
-    await page.waitForTimeout(1000)
-    const library = await page.evaluate(() => {
-      const popular = document.querySelector('[data-library-popular]')
-      const summary = document.querySelector('.lib-recap-summary')
-      const cover = document.querySelector('.lib-now-item').getBoundingClientRect()
-      const cta = document.querySelector('.lib-now-cta').getBoundingClientRect()
-      const search = document.querySelector('.lib-search').getBoundingClientRect()
-      return { hiddenPopular: !popular || getComputedStyle(popular).display === 'none', summaryHidden: !summary || getComputedStyle(summary).display === 'none', firstCoverLeft: cover.left, gapAfterButton: search.top - cta.bottom, books: document.querySelectorAll('.lib-now-item').length }
-    })
-    assert(library.hiddenPopular, 'Hidden popular shelf still takes space')
-    assert(library.summaryHidden, 'Missing recap still takes space')
-    assert(library.firstCoverLeft >= 10 && library.firstCoverLeft < 40, 'First cover is parked in the middle')
-    assert(library.gapAfterButton < 70, 'Empty gap remains below Continue reading')
-    checks.push({ library })
-    await page.screenshot({ path: path.join(out, 'library.png'), fullPage: true })
     assert(errors.length === 0, errors.join('\n'))
     fs.writeFileSync(path.join(out, 'report.json'), JSON.stringify({ checks, errors }, null, 2))
     console.log(JSON.stringify({ checks, errors }))

@@ -4,9 +4,8 @@ import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import AdminApp from './AdminApp'
 import { LabApp } from './lab/LabApp'
-import { isLabPath } from './lab/labRoute'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
@@ -39,7 +38,9 @@ if (isEink) {
 
 const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
-const Root = isLabPath(pathname) ? LabApp : App
+// The reader is the only public app surface; /admin/metrics is the private
+// dashboard. The Worker serves this bundle at no other path.
+const Root = pathname === '/admin/metrics' ? AdminApp : LabApp
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader') {
   startReaderLoadTrace()
