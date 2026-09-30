@@ -62,7 +62,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   macbeth: {
     revision: 'macbeth-completeness-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'original-en': {
         before: '2650bcc666428a808584fd6f99534f71474a4e99a085c7ae6b87234e24e30608',
@@ -76,7 +76,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   'as-you-like-it': {
     revision: 'as-you-like-it-completeness-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'original-en': {
         before: '2c04249b4ea528612cfa8f41031ed7a78fff2e453f15fbccf7d55f03905ce179',
@@ -90,7 +90,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   'faust-part-1': {
     revision: 'faust-part-1-replacement-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'original-en': {
         before: 'bff236838e6e5ee6baeb7afd16c6b1c1b2872f87605f21e79e4cd5198a997395',
@@ -108,7 +108,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   jerusalem: {
     revision: 'jerusalem-completeness-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'original-en': {
         before: '747b53bedd58d9ba65877185247a8545dac4bddcd1e8219cf5315da00cdac47c',
@@ -122,7 +122,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   'vindication-rights-of-woman': {
     revision: 'text-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'modern-en': {
         before: '4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63',
@@ -132,7 +132,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   'second-treatise': {
     revision: 'text-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'modern-en': {
         before: '177b364414c437af89fe5d09b8922d71ff772ccf7da6ec2e64c710ed061269bf',
@@ -142,7 +142,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   'moby-dick': {
     revision: 'text-2026-09-30.1',
-    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
     editions: {
       'modern-en': {
         before: '2ab04dd727bbe5804b7acf1d05f578cfed5aef17c08d7d72b6db9101f8c1763c',
