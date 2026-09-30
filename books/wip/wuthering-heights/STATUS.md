@@ -1,13 +1,14 @@
-# Wuthering Heights — NOT READY
+# Wuthering Heights — wh1 COMPLETE; whole book NOT READY
 
 - Branch: `content/wuthering-heights-codex`.
-- Original-en: complete, 34/34 chapters, 1,931 paragraphs; source reconstruction and JSON validation pass. Committed before modern rendering at `a070424d`.
-- Modern-en: completed Chapters I–VIII, 8/34 chapters, 375 paragraphs. Remaining IX–XXXIV (26 chapters). The modern JSON intentionally contains only completed chapters.
-- Gate on completed range 1–2: PASS; weighted similarity 0.478; light/mechanical 0/2; identical long paragraphs 0/88; no wrapped scaffolding or truncated quotations.
-- Gate on new range 3–6: PASS; weighted similarity 0.511; light/mechanical 0/4; identical long paragraphs 0/110; no wrapped scaffolding or truncated quotations.
-- Gates: new range 7–8 PASS (0.480); cumulative 1–8 PASS (0.495), zero light/mechanical chapters, zero identical long paragraphs, no wrapped scaffolding or truncated quotations.
-- Whole-book gate: NOT RUN / NOT READY — 26 modern chapters absent.
-- Companion content: pending.
-- Content accepted: NO — incomplete package.
-- Published: NO. No integration, registry changes, audio, deployment or publication performed.
-- Exact resume point: Chapter IX, paragraph 1. Continue reading and rendering from the validated original; do not insert placeholders.
+- Owned modern range: Chapters I–XI ONLY. Completed 11/11, 674 paragraphs, 37,860 whitespace-delimited words, in `parts/modern-en.wh1.json`.
+- Original-en: complete, 34 chapters, 1,931 paragraphs, validated and committed at `a070424d` before any modern rendering. Original unchanged thereafter.
+- Gate 1–11: PASS, weighted similarity 0.487; light/mechanical 0/11; identical long paragraphs 1/529 (0.2%); wrapped scaffolding 0; truncated quotations 0. Output: `review/gate-1-11.txt`.
+- All JSON validates. Each modern paragraph maps to its source paragraph and is at least 75% of source word count. Already-passing Chapters I–VIII are unchanged.
+- No remaining work on this session’s modern range. STOPPED at the end of Chapter XI as instructed.
+- Chapters XII–XXXIV belong to the other two sessions. Do not overwrite their files or pad this part with unrendered text. Their results are not present or verified in this checkout.
+- Whole-book gate: NOT RUN. Requires assembling accepted parts for 1–34 and checking against the pinned original.
+- Companion files: next task in this session (onboarding, characters, taxonomy, handoff).
+- Content accepted: PENDING independent editorial acceptance; wh1 author QA and mandatory classifier PASS. Whole book NOT READY.
+- Published: NO. No integration, registry edits, deployment or narration performed.
+- Next integration step: collect other sessions’ parts, combine by actual chapter number without paragraph changes, then validate and gate all 34 chapters. This session does not own that integration.
