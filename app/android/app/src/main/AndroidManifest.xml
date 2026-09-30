@@ -22,13 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- HOME eligibility: lets the user set Tinct as the default launcher
-                 on an e-reader so a power-on wakes straight into the book. -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.HOME" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            <!-- No HOME intent filter: Tinct must not offer itself as a launcher
+                 until lab settings can set and release that choice. -->
 
             <!-- Deep link for OAuth callback -->
             <intent-filter>

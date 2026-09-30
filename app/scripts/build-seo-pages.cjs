@@ -537,7 +537,7 @@ function renderChapter(book, ch) {
 
   <nav class="top">
     <a href="/" class="logo">Tinct<span>.</span></a>
-    <a href="/read/${book.id}?chapter=${ch.n}&amp;edition=modern-en" class="top-cta">Read this chapter free →</a>
+    <a href="/reader?book=${book.id}&amp;edition=modern-en&amp;chapter=${ch.n}" class="top-cta">Read this chapter free →</a>
   </nav>
 
   <main>
@@ -596,7 +596,7 @@ ${nextHtml}
       </a>
     </div>
 
-    <p class="end-cta"><a href="/read/${book.id}?chapter=${ch.n}&amp;edition=modern-en">Read Chapter ${ch.n} in the reader →</a></p>
+    <p class="end-cta"><a href="/reader?book=${book.id}&amp;edition=modern-en&amp;chapter=${ch.n}">Read Chapter ${ch.n} in the reader →</a></p>
 
   </main>
 
@@ -885,7 +885,7 @@ function renderSummary(book) {
             <div class="tour-num">${esc(chapterLabel(book, ch.n))}</div>
             <h3 class="tour-title">${esc(normalizeChapterCopy(ch.tourTitle || ch.title))}</h3>
             <p class="tour-text">${ch.tour || ''}</p>
-            <div class="tour-foot"><a href="/read/${book.id}?chapter=${ch.n}&amp;edition=modern-en">Read ${esc(chapterLabel(book, ch.n))} in the reader →</a></div>
+            <div class="tour-foot"><a href="/reader?book=${book.id}&amp;edition=modern-en&amp;chapter=${ch.n}">Read ${esc(chapterLabel(book, ch.n))} in the reader →</a></div>
           </article>`
   ).join('\n\n')
 

@@ -542,6 +542,17 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // In-app opens (a query, or a signed-in reader) go to the book in the
       // library, as does a book without a static SEO page.
       if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+        // Older pages linked /read/{book}?chapter=N&edition=E. Open the live
+        // reader on that chapter and edition instead of the library detail.
+        const chapter = url.searchParams.get('chapter')
+        if (chapter && /^\d{1,5}$/.test(chapter) && Number(chapter) > 0) {
+          const reader = new URL('/reader', url.origin)
+          reader.searchParams.set('book', bookId)
+          const edition = url.searchParams.get('edition')
+          if (edition && /^[a-z0-9-]{1,40}$/.test(edition)) reader.searchParams.set('edition', edition)
+          reader.searchParams.set('chapter', String(Number(chapter)))
+          return new Response(null, { status: 302, headers: { Location: reader.pathname + reader.search, 'Cache-Control': 'no-store' } })
+        }
         const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
         target.searchParams.set('view', 'book-detail')

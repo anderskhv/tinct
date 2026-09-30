@@ -41,6 +41,28 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
   }
 }
 
+/**
+ * Public deep link: `/reader?book=<id>&edition=<key>&chapter=<n>`. The SEO book
+ * and chapter pages ("Start reading in Tinct") use it. A link that names a
+ * chapter opens exactly that chapter (paragraph 0) in that edition, even if
+ * the reader has a saved place in the same book; a link without a chapter is
+ * not a handoff at all, so the reader's own saved position is never
+ * overridden. Book and edition are validated against the registry, and an
+ * unknown book yields null (the normal reader entry); an unavailable edition falls back to original-en.
+ */
+export function readerHandoffFromUrlParams(params: URLSearchParams | null): ReaderHandoffIntent | null {
+  const bookId = params?.get('book')
+  const chapterText = params?.get('chapter')
+  if (!params || !bookId || !chapterText || !/^\d{1,5}$/.test(chapterText)) return null
+  const chapterNumber = Number(chapterText)
+  if (chapterNumber < 1 || !getBook(bookId)) return null
+  const savedPlace = { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 }
+  const open = (primaryEditionKey: string) => createReaderHandoffIntent({ bookId, primaryEditionKey, savedPlace, startAtSavedPlace: true })
+  const edition = params.get('edition') || 'original-en'
+  // An edition the book lacks or withholds keeps the chapter in the default edition.
+  return open(edition) ?? (edition === 'original-en' ? null : open('original-en'))
+}
+
 /** React StrictMode may evaluate component initializers twice; consume storage once per document. */
 export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
   if (!pageHandoffRead) {
@@ -55,7 +77,7 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
     pageHandoff = heldBook && (isBookTemporarilyHeld(heldBook) || editionHold(heldBook, heldEdition))
       ? createReaderHandoffIntent({ bookId: heldBook, primaryEditionKey: heldEdition,
           savedPlace: { bookId: heldBook, chapterNumber: positive('chapter', 1), paragraphIndex: positive('paragraph', 0), wordIndex: positive('word', 0), page: 0 } })
-      : consumeLabReaderHandoff()
+      : consumeLabReaderHandoff() ?? readerHandoffFromUrlParams(params)
   }
   return pageHandoff
 }

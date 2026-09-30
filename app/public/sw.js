@@ -2,7 +2,9 @@
 //
 // Strategy:
 //   - App shell:
-//       Network-first for navigations with cached /app.html fallback. The
+//       Network-first for /reader navigations; the cached /app.html is used
+//       only when the network request itself fails (offline). Redirects,
+//       404s and 5xx responses always pass through. The
 //       deployed dist/sw.js is stamped after build with the exact current
 //       bundle/font URLs and a cache name derived from those URLs.
 //   - Editions (/data/editions/*.json and /data/editions-chapters/*.json):
@@ -105,11 +107,14 @@ function isAppShellNavigation(request, url) {
 }
 
 async function handleAppShellNavigation(request) {
+  // Any answer from the server is the answer: a redirect (navigations use
+  // redirect:'manual', so it arrives as an opaqueredirect with ok === false),
+  // a 404 or a 5xx must reach the browser untouched. Only a network failure
+  // (fetch throws) means the reader is genuinely offline and gets the shell.
   try {
-    const response = await fetch(request)
-    if (response.ok) return response
+    return await fetch(request)
   } catch {
-    // Fall back below.
+    // Offline: fall back below.
   }
 
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
