@@ -175,14 +175,18 @@ echo "9. CSS"
 CSS_FILE=$(printf '%s\n' "$HTML" | sed -n 's/.*href="\(\/assets\/index-[^"]*\.css\)".*/\1/p' | head -1)
 if [ -n "$CSS_FILE" ]; then
   # Straight after a deploy the edge can serve the new page before the
-  # stylesheet it names: 11 s after #191's rollout, over 30 s after #195's.
-  # Retry for up to two minutes; a real miss still fails.
-  for attempt in $(seq 1 24); do
+  # stylesheet it names: 11 s after #191's rollout, over 30 s after #195's,
+  # over two minutes after #275's and #281's (a freshly uploaded stylesheet
+  # answered 404 at the runner's edge while the new bundle was served).
+  # Retry for up to five minutes, logging each miss; a real miss still fails.
+  for attempt in $(seq 1 60); do
     CSS_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL$CSS_FILE" 2>/dev/null)
     [ -n "$CSS_STATUS" ] || CSS_STATUS="000"
     [ "$CSS_STATUS" = "200" ] && break
+    [ $((attempt % 6)) -eq 1 ] && echo "    stylesheet $CSS_FILE: $CSS_STATUS (attempt $attempt)"
     sleep 5
   done
+  [ "$CSS_STATUS" = "200" ] && [ "$attempt" -gt 1 ] && echo "    stylesheet served after $attempt attempt(s)"
   if [ "$CSS_STATUS" = "200" ]; then
     pass "CSS loads (200)"
   else
