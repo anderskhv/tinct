@@ -1,0 +1,161 @@
+submitted {'request_id': '7eab347d-fa4c-9069-bacf-7dcad2010c6e'}
+submitted {'request_id': '9fd9aa3b-3d18-98a4-8e53-cf14f36be302'}
+submitted {'request_id': 'd23ba8aa-ece3-9e92-93fc-2231929afc8d'}
+submitted {'request_id': '2d33638a-0eb8-9f1e-ac7c-21c898810309'}
+submitted {'request_id': '42862cac-b7f2-91cf-b4af-f0c2c0be4942'}
+submitted {'request_id': '3375522a-7e5d-90c9-b680-20ebb77f80cc'}
+submitted {'request_id': 'aecd2030-9bdc-9b1e-82c0-9a28d536913e'}
+submitted {'request_id': '27fe6b10-7ee0-9cdf-8227-60525789f41c'}
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+pending 
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 5700000000}, 'progress': 100}
+Exception in thread Thread-6 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+pending 
+pending 
+pending 
+pending 
+pending 
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 7100000000}, 'progress': 100}
+Exception in thread Thread-5 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 7100000000}, 'progress': 100}
+Exception in thread Thread-2 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 8500000000}, 'progress': 100}
+Exception in thread Thread-8 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 7100000000}, 'progress': 100}
+Exception in thread Thread-4 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 8500000000}, 'progress': 100}
+Exception in thread Thread-1 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 8500000000}, 'progress': 100}
+Exception in thread Thread-7 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+pending 
+done {'status': 'done', 'model': 'grok-imagine-video-1.5', 'usage': {'cost_in_usd_ticks': 11300000000}, 'progress': 100}
+Exception in thread Thread-3 (gen):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "<string>", line 19, in gen
+  File "/usr/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/user/tinct/video/one-in-the-morning/fetch.sh'
+BATCH DONE

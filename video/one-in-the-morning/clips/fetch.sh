@@ -10,6 +10,6 @@ for i in $(seq 1 200); do
   if [ -z "$SIZE" ] || [ "$SIZE" -eq 0 ]; then
     cp "$OUT.part" /tmp/_probe.mp4 2>/dev/null && [ -z "$($FF -v error -i /tmp/_probe.mp4 -f null - 2>&1 | head -1)" ] && [ "$s" -gt 100000 ] && break
   fi
-  curl -sS -m 60 --speed-limit 20000 --speed-time 15 -C - -o "$OUT.part" "$URL" 2>/dev/null
+  curl -sS -m 300 --speed-limit 500 --speed-time 45 -C - -o "$OUT.part" "$URL" 2>/dev/null
 done
 mv "$OUT.part" "$OUT"; echo "$OUT $(stat -c %s "$OUT") / ${SIZE:-unknown}"
