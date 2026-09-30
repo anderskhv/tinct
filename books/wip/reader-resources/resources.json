@@ -2,10 +2,9 @@
   "package": "reader-resources",
   "version": 1,
   "date": "2026-09-30",
-  "status": "proposal, awaiting Anders's picks",
+  "status": "approved list, all items in (no controversy filter)",
   "fields": {
-    "when": "before | while | after",
-    "spoilers": "none | light | full",
+    "has_spoilers": "true if it gives away major plot or the ending",
     "type": "video | podcast | essay | x | tiktok | reddit"
   },
   "reddit": "Not researched: reddit.com is blocked from the cloud environment. Allow it in network settings or supply links.",
@@ -18,9 +17,8 @@
         "url": "https://podcasts.apple.com/us/podcast/frankenstein/id73330895?i=1000438236187",
         "date": "2019-05",
         "length": "55 min",
-        "spoilers": "full",
-        "when": "after",
-        "why": "Three academics on the Villa Diodati origin, Romantic science and how the novel has been read."
+        "why": "Three academics on the Villa Diodati origin, Romantic science and how the novel has been read.",
+        "has_spoilers": true
       },
       {
         "type": "essay",
@@ -29,9 +27,8 @@
         "url": "https://lithub.com/jeanette-winterson-and-mark-oconnell-on-the-future-of-humanity-in-a-tech-dominated-world/",
         "date": "2019-10-01",
         "length": "15 min read",
-        "spoilers": "light",
-        "when": "while",
-        "why": "Reads the novel through AI: 'the first generations to read it not as gothic horror but as contemporary reality'."
+        "why": "Reads the novel through AI: 'the first generations to read it not as gothic horror but as contemporary reality'.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -40,10 +37,9 @@
         "url": "https://conversationswithtyler.com/episodes/david-deutsch/",
         "date": "2021-06-02",
         "length": "full episode (one remark)",
-        "spoilers": "none",
-        "when": "after",
         "why": "Deutsch reads Frankenstein as an allegory of a parent who doesn't respect their creation. Link to the transcript.",
-        "pre_publish_check": "Anders recalls two Deutsch posts on X making the parenting point; add them once the URLs are found."
+        "pre_publish_check": "Anders recalls two Deutsch posts on X making the parenting point; add them once the URLs are found.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -52,9 +48,8 @@
         "url": "https://podcasts.apple.com/nz/podcast/guillermo-del-toro-finally-makes-his-own-frankenstein/id214089682?i=1000733180492",
         "date": "2025-10-23",
         "length": "46 min",
-        "spoilers": "light",
-        "when": "before",
-        "why": "A filmmaker's lifelong attachment to the creature. About his 2025 film, not a study of the novel."
+        "why": "A filmmaker's lifelong attachment to the creature. About his 2025 film, not a study of the novel.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -63,10 +58,9 @@
         "url": "https://www.youtube.com/watch?v=SyyrwoCec1k",
         "date": "2014",
         "length": "~12 min",
-        "spoilers": "light",
-        "when": "before",
         "why": "Short introduction to Romanticism and early science fiction. Part 2 (hRDjmyEvmBI) spoils the ending.",
-        "pre_publish_check": "Confirm length and date."
+        "pre_publish_check": "Confirm length and date.",
+        "has_spoilers": false
       }
     ],
     "notes-from-underground": [
@@ -77,9 +71,8 @@
         "url": "https://www.philosophizethis.org/transcript/episode-218-transcript",
         "date": "2024-12-17",
         "length": "~35 min",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Clear background on the 'stone wall' of reason, utopian socialism and the narrator's spite."
+        "why": "Clear background on the 'stone wall' of reason, utopian socialism and the narrator's spite.",
+        "has_spoilers": false
       },
       {
         "type": "essay",
@@ -88,10 +81,8 @@
         "url": "https://world.hey.com/dhh/misery-starts-when-the-struggle-ends-390c700f",
         "date": "2022-09-22",
         "length": "4 min read",
-        "spoilers": "none",
-        "when": "after",
         "why": "Uses the book's 'piano key' argument to explain why people reject a comfortable utopia. 'I can't recommend it highly enough.'",
-        "flag": "Author has written politically contentious posts."
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -100,10 +91,8 @@
         "url": "https://verybadwizards.com/episode/episode-156-notes-from-underground-pt-1",
         "date": "2019-01-22",
         "length": "1:43:37",
-        "spoilers": "light",
-        "when": "while",
         "why": "A philosopher and a psychologist argue over whether the narrator is a hero or a self-loather. Pt. 2 (Ep. 157) is full spoilers.",
-        "flag": "Heavy profanity; the first segment is off-topic."
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -112,11 +101,9 @@
         "url": "https://www.youtube.com/watch?v=4qZ3EsrKPsc",
         "date": "2017-02",
         "length": "full lecture",
-        "spoilers": "light",
-        "when": "after",
         "why": "University of Toronto lecture; its Dostoevsky section covers the 'men are not piano keys' argument.",
-        "flag": "Polarising public figure; general lecture, not a close reading.",
-        "pre_publish_check": "Confirm length."
+        "pre_publish_check": "Confirm length.",
+        "has_spoilers": false
       },
       {
         "type": "x",
@@ -125,10 +112,8 @@
         "url": "https://x.com/jordanbpeterson/status/1086072183359590400",
         "date": "2019-01-18",
         "length": "post",
-        "spoilers": "none",
-        "when": "before",
         "why": "A plain endorsement.",
-        "flag": "Polarising public figure."
+        "has_spoilers": false
       }
     ],
     "crime-and-punishment": [
@@ -139,9 +124,8 @@
         "url": "https://podcasts.apple.com/us/podcast/crime-and-punishment/id73330895?i=1000456796219",
         "date": "2019-11-14",
         "length": "53 min",
-        "spoilers": "full",
-        "when": "after",
-        "why": "Three Russianists, including one of the novel's translators."
+        "why": "Three Russianists, including one of the novel's translators.",
+        "has_spoilers": true
       },
       {
         "type": "podcast",
@@ -150,9 +134,8 @@
         "url": "https://podcasts.apple.com/us/podcast/episode-219-dostoevsky-crime-and-punishment/id659155419?i=1000681350924",
         "date": "2024-12-23",
         "length": "32 min",
-        "spoilers": "light",
-        "when": "while",
-        "why": "Russian nihilism, rational egoism and confession, explained clearly."
+        "why": "Russian nihilism, rational egoism and confession, explained clearly.",
+        "has_spoilers": false
       },
       {
         "type": "essay",
@@ -161,9 +144,8 @@
         "url": "https://www.commentary.org/articles/gary-morson/how-to-read-crime-and-punishment/",
         "date": "1992-06",
         "length": "long read",
-        "spoilers": "full",
-        "when": "after",
-        "why": "A leading Dostoevsky scholar on ideology against everyday wisdom, and on the epilogue."
+        "why": "A leading Dostoevsky scholar on ideology against everyday wisdom, and on the epilogue.",
+        "has_spoilers": true
       },
       {
         "type": "video",
@@ -172,10 +154,9 @@
         "url": "https://www.youtube.com/watch?v=ACpLJQCt3uE",
         "date": null,
         "length": "lecture",
-        "spoilers": "full",
-        "when": "after",
         "why": "Great-books lecture comparing Raskolnikov with Nietzsche's Übermensch.",
-        "pre_publish_check": "Confirm length, date and content."
+        "pre_publish_check": "Confirm length, date and content.",
+        "has_spoilers": true
       }
     ],
     "the-prince": [
@@ -186,9 +167,8 @@
         "url": "https://youtu.be/U1FrhkLQnCI",
         "date": "2026-06-16",
         "length": "1:37:06",
-        "spoilers": "light",
-        "when": "before",
-        "why": "A Renaissance historian on the diplomat, torture and exile behind the book, and why it reads like a job application."
+        "why": "A Renaissance historian on the diplomat, torture and exile behind the book, and why it reads like a job application.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -197,9 +177,8 @@
         "url": "https://www.youtube.com/watch?v=88IxTQT8PBM",
         "date": "2026-06-30",
         "length": "5:15",
-        "spoilers": "none",
-        "when": "before",
-        "why": "The five-minute version; the best teaser."
+        "why": "The five-minute version; the best teaser.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -208,9 +187,8 @@
         "url": "https://www.youtube.com/watch?v=mU7hdGKOGyk",
         "date": "2022-05-01 (1992 lecture)",
         "length": "42:50",
-        "spoilers": "full",
-        "when": "after",
-        "why": "Classic Great Minds lecture placing the book in the history of political thought."
+        "why": "Classic Great Minds lecture placing the book in the history of political thought.",
+        "has_spoilers": true
       },
       {
         "type": "video",
@@ -219,9 +197,8 @@
         "url": "https://www.youtube.com/watch?v=qEt5CQ5Mz7U",
         "date": "2026-09-08",
         "length": "55:48",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Palmer's new podcast season on the real Machiavelli, told as a story."
+        "why": "Palmer's new podcast season on the real Machiavelli, told as a story.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -230,9 +207,8 @@
         "url": "https://www.bbc.co.uk/programmes/p004y26p",
         "date": "2004-12-09",
         "length": "45 min",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Skinner is the leading Machiavelli scholar; strong on the Florentine setting."
+        "why": "Skinner is the leading Machiavelli scholar; strong on the Florentine setting.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -241,9 +217,8 @@
         "url": "https://www.youtube.com/watch?v=u2FANdhTDyI",
         "date": "2008-09-21",
         "length": "37:21",
-        "spoilers": "full",
-        "when": "while",
-        "why": "University lecture following the text. Part 2: bzMXZiR6P7U."
+        "why": "University lecture following the text. Part 2: bzMXZiR6P7U.",
+        "has_spoilers": true
       }
     ],
     "meditations": [
@@ -254,9 +229,8 @@
         "url": "https://www.youtube.com/watch?v=Auuk1y4DRgk",
         "date": "2020-06-02",
         "length": "42:29",
-        "spoilers": "light",
-        "when": "before",
-        "why": "His most-watched lecture: the emperor who wrote only to himself."
+        "why": "His most-watched lecture: the emperor who wrote only to himself.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -265,11 +239,9 @@
         "url": "https://www.youtube.com/watch?v=G9P9D9hptq8",
         "date": "2026-09-15",
         "length": "1:04:49 (Meditations ~1:03)",
-        "spoilers": "none",
-        "when": "before",
         "why": "Shopify's CEO keeps 'a copy of meditations in most rooms' and reads it at random. Link to the timestamp.",
-        "flag": "Outspoken public figure.",
-        "pre_publish_check": "Add the X clip if Anders has the link."
+        "pre_publish_check": "Add the X clip if Anders has the link.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -278,9 +250,8 @@
         "url": "https://www.bbc.co.uk/programmes/m000sjxt",
         "date": "2021-02-25",
         "length": "53 min",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Three classicists on his life, Stoic background and the text."
+        "why": "Three classicists on his life, Stoic background and the text.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -289,10 +260,8 @@
         "url": "https://tim.blog/2015/08/18/the-evolutionary-angel-naval-ravikant/",
         "date": "2015-08-18",
         "length": "~2:12",
-        "spoilers": "none",
-        "when": "before",
         "why": "Naval: 'I almost recommend everybody start there because it will change your world view on what you think success means.'",
-        "flag": "Strong public opinions."
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -301,9 +270,8 @@
         "url": "https://www.youtube.com/watch?v=AeneSNqDuL0",
         "date": "2026-04-19",
         "length": "32:09",
-        "spoilers": "light",
-        "when": "after",
-        "why": "A read-aloud of key passages; good for review."
+        "why": "A read-aloud of key passages; good for review.",
+        "has_spoilers": false
       }
     ],
     "the-manual": [
@@ -314,10 +282,8 @@
         "url": "https://world.hey.com/dhh/wisdom-is-not-what-you-know-e8cf9191",
         "date": "2023-06-26",
         "length": "3 min read",
-        "spoilers": "none",
-        "when": "before",
         "why": "He rereads it twice a year: 'a cognitive double espresso. Such punch in such a small cup.'",
-        "flag": "Author has written politically contentious posts."
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -326,9 +292,8 @@
         "url": "https://www.youtube.com/watch?v=KnFxKECY3Ck",
         "date": "2022-03-03",
         "length": "28:26",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Practical guide to approaching the text and its translations."
+        "why": "Practical guide to approaching the text and its translations.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -337,9 +302,8 @@
         "url": "https://www.youtube.com/watch?v=p2KHo95Qknk",
         "date": "2021-04-08",
         "length": "15:16",
-        "spoilers": "light",
-        "when": "while",
-        "why": "A calm, well-made essay on non-attachment."
+        "why": "A calm, well-made essay on non-attachment.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -348,9 +312,8 @@
         "url": "https://partiallyexaminedlife.com/2015/09/21/ep124-1-epictetus/",
         "date": "2015-09-21",
         "length": "~1 h",
-        "spoilers": "full",
-        "when": "after",
-        "why": "Philosophers argue over whether the advice holds up; a deliberately sceptical counterweight."
+        "why": "Philosophers argue over whether the advice holds up; a deliberately sceptical counterweight.",
+        "has_spoilers": true
       },
       {
         "type": "x",
@@ -359,9 +322,8 @@
         "url": "https://x.com/dhh/status/938179791315902464",
         "date": "2017-12-05",
         "length": "post",
-        "spoilers": "none",
-        "when": "before",
-        "why": "A founder's short endorsement of reading the Stoics directly."
+        "why": "A founder's short endorsement of reading the Stoics directly.",
+        "has_spoilers": false
       }
     ],
     "pride-and-prejudice": [
@@ -372,9 +334,8 @@
         "url": "https://www.youtube.com/watch?v=NSL55lOwznU",
         "date": "2019-03-21",
         "length": "5:01",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Five-minute introduction to Austen's irony."
+        "why": "Five-minute introduction to Austen's irony.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -383,9 +344,8 @@
         "url": "https://www.youtube.com/watch?v=5xTh44G6RYs",
         "date": "2018-02-06",
         "length": "11:44",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Regency context, Austen's life and the web of characters. Part 2 (dhgEpr87Yac) is for after."
+        "why": "Regency context, Austen's life and the web of characters. Part 2 (dhgEpr87Yac) is for after.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -394,9 +354,8 @@
         "url": "https://podcasts.apple.com/us/podcast/pride-prejudice-and-peer-pressure/id1451109634?i=1000740744831",
         "date": "2025-12-11",
         "length": "52 min",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Leading Austen scholars and the director of Jane Austen's House."
+        "why": "Leading Austen scholars and the director of Jane Austen's House.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -405,9 +364,8 @@
         "url": "https://www.youtube.com/watch?v=lz-2aifHZQE",
         "date": "2023-10-12",
         "length": "57:53",
-        "spoilers": "full",
-        "when": "after",
-        "why": "The museum's annual lecture by a leading Austen scholar."
+        "why": "The museum's annual lecture by a leading Austen scholar.",
+        "has_spoilers": true
       },
       {
         "type": "essay",
@@ -416,9 +374,8 @@
         "url": "https://en.wikisource.org/wiki/The_Common_Reader/Jane_Austen",
         "date": "1925",
         "length": "20 min read",
-        "spoilers": "light",
-        "when": "after",
-        "why": "A great novelist's appreciation of another; public domain."
+        "why": "A great novelist's appreciation of another; public domain.",
+        "has_spoilers": false
       },
       {
         "type": "tiktok",
@@ -427,9 +384,8 @@
         "url": "https://www.tiktok.com/@rebeccaromney/video/7502584021596212526",
         "date": "2025-05-09",
         "length": "1:31",
-        "spoilers": "none",
-        "when": "before",
-        "why": "A book-history curiosity from a credible expert."
+        "why": "A book-history curiosity from a credible expert.",
+        "has_spoilers": false
       }
     ],
     "odyssey": [
@@ -440,9 +396,8 @@
         "url": "https://www.youtube.com/watch?v=8Z9FQxcCAZ0",
         "date": "2017-01-30",
         "length": "4:57",
-        "spoilers": "light",
-        "when": "before",
-        "why": "Five-minute orientation to the poem's structure."
+        "why": "Five-minute orientation to the poem's structure.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -451,9 +406,8 @@
         "url": "https://podcasts.apple.com/us/podcast/in-her-translation-of-the-odyssey-emily-wilson-aimed/id1587369865?i=1000726962572",
         "date": "2025-09-16",
         "length": "9:37",
-        "spoilers": "light",
-        "when": "before",
-        "why": "A short primer from the translator on epithets and hierarchy."
+        "why": "A short primer from the translator on epithets and hierarchy.",
+        "has_spoilers": false
       },
       {
         "type": "podcast",
@@ -462,9 +416,8 @@
         "url": "https://www.lrb.co.uk/podcasts-and-videos/podcasts/close-readings/among-the-ancients-the-odyssey",
         "date": "2023-02-14",
         "length": "49 min",
-        "spoilers": "full",
-        "when": "while",
-        "why": "The translator on 'home', the hero's twisting nature and violence."
+        "why": "The translator on 'home', the hero's twisting nature and violence.",
+        "has_spoilers": true
       },
       {
         "type": "podcast",
@@ -473,9 +426,8 @@
         "url": "https://www.bbc.co.uk/programmes/p004y297",
         "date": "2004-09-09",
         "length": "45 min",
-        "spoilers": "full",
-        "when": "after",
-        "why": "Three leading classicists on composition and meaning."
+        "why": "Three leading classicists on composition and meaning.",
+        "has_spoilers": true
       },
       {
         "type": "essay",
@@ -484,9 +436,8 @@
         "url": "https://www.emilyrcwilson.com/emilyrcwilson-scholia",
         "date": "2018–19",
         "length": "threads",
-        "spoilers": "light",
-        "when": "while",
-        "why": "Her X threads on the Cyclops, the Sirens and Argos, archived by her."
+        "why": "Her X threads on the Cyclops, the Sirens and Argos, archived by her.",
+        "has_spoilers": false
       },
       {
         "type": "tiktok",
@@ -495,9 +446,8 @@
         "url": "https://www.tiktok.com/@greatbooksprof/video/7287203137285426437",
         "date": "2023-10-07",
         "length": "2:22",
-        "spoilers": "light",
-        "when": "while",
-        "why": "A thoughtful short take on one episode."
+        "why": "A thoughtful short take on one episode.",
+        "has_spoilers": false
       },
       {
         "type": "video",
@@ -506,10 +456,8 @@
         "url": "https://www.youtube.com/watch?v=ywEJesNh0pY",
         "date": "2026-07-22",
         "length": "56:59",
-        "spoilers": "full",
-        "when": "after",
         "why": "Timely because of the 2026 film.",
-        "flag": "Her critique of the film was widely debated; frame neutrally."
+        "has_spoilers": true
       }
     ],
     "jekyll-and-hyde": [
@@ -520,9 +468,8 @@
         "url": "https://podcasts.apple.com/us/podcast/774-robert-louis-stevenson-with-leo-damrosch/id1048375034?i=1000748851821",
         "date": "2026-02-09",
         "length": "58 min",
-        "spoilers": "light",
-        "when": "before",
-        "why": "A biographer on Stevenson's life."
+        "why": "A biographer on Stevenson's life.",
+        "has_spoilers": false
       },
       {
         "type": "essay",
@@ -531,9 +478,8 @@
         "url": "https://www.gutenberg.org/cache/epub/614/pg614-images.html#page153",
         "date": "1888",
         "length": "25 min read",
-        "spoilers": "full",
-        "when": "after",
-        "why": "The author on how a dream gave him the story. Reveals the twist."
+        "why": "The author on how a dream gave him the story. Reveals the twist.",
+        "has_spoilers": true
       },
       {
         "type": "video",
@@ -542,9 +488,8 @@
         "url": "https://www.youtube.com/watch?v=uZqm6mqCJa0",
         "date": "2025-08-18",
         "length": "14:31",
-        "spoilers": "full",
-        "when": "after",
-        "why": "The novella against pop-culture assumptions."
+        "why": "The novella against pop-culture assumptions.",
+        "has_spoilers": true
       },
       {
         "type": "podcast",
@@ -553,9 +498,8 @@
         "url": "https://podcasts.apple.com/us/podcast/many-faces-of-jekyll-and-hyde-in-pop-culture/id916273527?i=1000766498715",
         "date": "2026-05-06",
         "length": "38 min",
-        "spoilers": "full",
-        "when": "after",
-        "why": "From the Hulk to Walter White, with an academic guest."
+        "why": "From the Hulk to Walter White, with an academic guest.",
+        "has_spoilers": true
       },
       {
         "type": "video",
@@ -564,9 +508,8 @@
         "url": "https://www.youtube.com/watch?v=3kUElZGMXm8",
         "date": "2019-10-31",
         "length": "13:08",
-        "spoilers": "full",
-        "when": "after",
-        "why": "A funny but accurate retelling."
+        "why": "A funny but accurate retelling.",
+        "has_spoilers": true
       }
     ]
   }
