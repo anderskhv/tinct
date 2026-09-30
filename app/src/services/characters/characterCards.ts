@@ -45,7 +45,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'merry-wives-of-windsor': { editions: EN, revision: '2026-09-10.1' },
   // 2026-09-11.1 — three reference packages
   'us-founding-documents': { editions: EN, revision: '2026-09-11.1' },
-  'kant-groundwork': { editions: EN, revision: '2026-09-11.1' },
+  'kant-groundwork': { editions: EN, revision: '2026-09-30.3' },
   'descartes-meditations': { editions: EN, revision: '2026-09-11.1' },
   // 2026-09-11.2 — bulk release of the validated queue
   'a-little-princess': { editions: EN, revision: '2026-09-11.2' },
