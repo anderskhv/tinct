@@ -1,0 +1,26 @@
+Command: python3 /private/tmp/tinct-middlemarch-a/books/classify-modern-en.py /private/tmp/middlemarch-session-a-gate/mm-a --gate --chapters 1-13 --per-chapter
+Reading-unit indices 1–13 = Prelude (number 0) + chapters 1–12. Baseline is a verbatim JSON excerpt of the committed original. Candidate is an exact byte copy of parts/modern-en.mm-a.json.
+
+  ch    1  sim 0.540  REAL        Prelude
+  ch    2  sim 0.508  REAL        Book I: Miss Brooke — Chapter I
+  ch    3  sim 0.547  REAL        Book I: Miss Brooke — Chapter II
+  ch    4  sim 0.497  REAL-HEAVY  Book I: Miss Brooke — Chapter III
+  ch    5  sim 0.574  REAL        Book I: Miss Brooke — Chapter IV
+  ch    6  sim 0.480  REAL-HEAVY  Book I: Miss Brooke — Chapter V
+  ch    7  sim 0.532  REAL        Book I: Miss Brooke — Chapter VI
+  ch    8  sim 0.510  REAL        Book I: Miss Brooke — Chapter VII
+  ch    9  sim 0.525  REAL        Book I: Miss Brooke — Chapter VIII
+  ch   10  sim 0.524  REAL        Book I: Miss Brooke — Chapter IX
+  ch   11  sim 0.488  REAL-HEAVY  Book I: Miss Brooke — Chapter X
+  ch   12  sim 0.520  REAL        Book I: Miss Brooke — Chapter XI
+  ch   13  sim 0.519  REAL        Book I: Miss Brooke — Chapter XII
+/private/tmp/middlemarch-session-a-gate/mm-a original-en -> modern-en  (13 chapters)
+  weighted similarity : 0.517   (gate: <= 0.75)
+  light+mechanical    : 0/13 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/630 = 0.2%   (gate: <= 5%)
+  buckets: REAL-HEAVY 3  REAL 10  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+Exit code: 0
