@@ -4,8 +4,30 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 const root=path.resolve('dist'),out='artifacts/library-public';fs.mkdirSync(out,{recursive:true});
 (async()=>{const live=process.env.LIBRARY_LIVE==='1';
+// Desktop film loops: the visible wide painting's loop loads only after idle, and
+// never on phones or with reduced motion. Playwright's Chromium lacks H.264, so
+// report support to exercise the real gate; the request itself proves the src.
+async function checkSceneFilm(b,engine,label,options,expected){
+ const c=await b.newContext({serviceWorkers:'block',...options});
+ await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};});
+ const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
+ if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
+ await p.goto('https://tinct.app/library');await p.locator('#read-featured').waitFor();
+ assert.equal(films.length,0,label+': no film before the page is idle');
+ if(expected){
+  await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
+  assert.deepEqual(films[0],{path:'/lab/library_2/'+expected,type:'media'},label+': film for the visible scene');
+ }else{
+  await p.waitForTimeout(5000);
+  assert.equal(await p.locator('video').count(),0,label+': no video element');
+  assert.deepEqual(films,[],label+': no film requested');
+ }
+ console.log('SCENE_FILM '+JSON.stringify({engine,label,films}));await c.close();
+}
 for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  const b=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})});
+ if(engine===chromium){await checkSceneFilm(b,'chromium','desktop',{viewport:{width:w,height:h}},'assets/scenes/room-wide-v2.mp4');await checkSceneFilm(b,'chromium','reduced-motion',{viewport:{width:w,height:h},reducedMotion:'reduce'},null);}
+ else await checkSceneFilm(b,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
  await p.goto('https://tinct.app/');await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===6);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
