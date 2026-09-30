@@ -1,0 +1,17 @@
+  ch    1  sim 1.000  MECHANICAL  Mowgli's Brothers
+  ch    2  sim 0.969  LIGHT       Kaa's Hunting
+  ch    3  sim 0.954  LIGHT       "Tiger! Tiger!"
+  ch    4  sim 0.985  MECHANICAL  The White Seal
+  ch    5  sim 0.976  MECHANICAL  "Rikki-Tikki-Tavi"
+  ch    6  sim 0.945  LIGHT       Toomai of the Elephants
+  ch    7  sim 0.977  MECHANICAL  Her Majesty's Servants
+jungle-book original-en -> modern-en  (7 chapters)
+  weighted similarity : 0.972   (gate: <= 0.75)
+  light+mechanical    : 7/7 = 100.0%   (gate: <= 5%)
+  identical long paras: 374/812 = 46.1%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 0  LIGHT 3  MECHANICAL 4
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+
+Exit code: 1
