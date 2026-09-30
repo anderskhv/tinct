@@ -4,7 +4,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 
-const live = process.env.READER_LIVE === '1', origin = 'https://tinct.app'
+const live = process.env.READER_LIVE === '1', origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/book-transition'
 await fs.mkdir(output, { recursive: true })
 const bundled = await build({ stdin: { contents: "export { chunkNarrationText, narrationTextForParagraph, sha256Hex } from './src/narration/narrationCore'", resolveDir: process.cwd() },

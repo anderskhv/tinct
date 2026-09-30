@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 const live = process.env.READER_LIVE === '1'
-const origin = 'https://tinct.app'
+const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/reader-feedback-20260928'
 await fs.mkdir(output, { recursive: true })
 const browser = await chromium.launch({ headless: true, args: ['--mute-audio','--no-sandbox','--disable-gpu'], ...(process.env.QA_CHROMIUM ? { executablePath: process.env.QA_CHROMIUM } : {}) })

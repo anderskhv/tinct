@@ -164,6 +164,11 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     const host = hostRef.current
     if (!host) return
     let cancelled = false, frame = 0, generation = 0
+    // The host size the last map was measured at. A new ResizeObserver always
+    // reports once on observe; when that size is the one just measured, a
+    // second full measurement would only repeat the first.
+    let measuredSize = ''
+    const hostSize = () => `${host.clientWidth}x${host.clientHeight}`
     const source = paragraphs.map(tokenizeHearingWords)
     const target = comparison?.map(tokenizeHearingWords)
     // Editions paragraphed differently (BSB beside KJV) pair verse by verse.
@@ -189,6 +194,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
         if (cancelled || revision !== generation) return
         frame = requestAnimationFrame(() => {
           if (cancelled || revision !== generation || host.clientWidth < 10 || host.clientHeight < 10) return
+          measuredSize = hostSize()
           const page = host.querySelector<HTMLElement>('.lab-desktop-measure-page')!
           const header = host.querySelector<HTMLElement>('.lab-passage-header')!
           const rows = host.querySelector<HTMLElement>('.lab-desktop-measure-rows')!
@@ -299,7 +305,9 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
       })
     }
     schedule()
-    const observer = new ResizeObserver(schedule)
+    const observer = new ResizeObserver(() => {
+      if (hostSize() !== measuredSize) schedule()
+    })
     observer.observe(host)
     document.fonts?.addEventListener('loadingdone', schedule)
     return () => { cancelled = true; cancelAnimationFrame(frame); observer.disconnect(); document.fonts?.removeEventListener('loadingdone', schedule) }

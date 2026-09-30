@@ -5,7 +5,7 @@ import path from 'node:path'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
-const origin = 'https://tinct.app'
+const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/reader-panels'
 await fs.mkdir(output, { recursive: true })
 const results = []

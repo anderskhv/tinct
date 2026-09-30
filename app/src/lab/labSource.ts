@@ -5,6 +5,7 @@ import { ensureNativeBook } from '../utils/nativeBooks'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
+import { editionShardManifestUrl, editionShardPath, editionShardUrl } from '../data/editionUrls'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { LAB_COPY } from './labCopy'
@@ -327,7 +328,7 @@ function labBuildVersion(): string {
 async function loadBibleManifest(editionKey = LAB_EDITION_KEY): Promise<BibleManifest> {
   const cached = bibleManifestCache.get(editionKey)
   if (cached) return cached
-  const url = `/data/editions-chapters/${LAB_BOOK_ID}-${editionKey}/manifest.json?v=${encodeURIComponent(labBuildVersion())}`
+  const url = editionShardManifestUrl(LAB_BOOK_ID, editionKey, labBuildVersion())
   const res = await fetch(url)
   if (!res.ok) throw new Error(`bible manifest HTTP ${res.status}`)
   const data = await res.json() as { chapters?: BibleManifest['chapters']; sections?: Section[] }
@@ -340,14 +341,14 @@ async function loadBibleManifest(editionKey = LAB_EDITION_KEY): Promise<BibleMan
 }
 
 function chapterPath(entry: { number: number; path?: string }): string {
-  return entry.path || `ch${String(entry.number).padStart(4, '0')}.json`
+  return entry.path || editionShardPath(entry.number)
 }
 
 async function loadBibleChapterText(editionKey: string, entry: { number: number; path?: string }): Promise<string[]> {
   const cacheKey = chapterTextCacheKey(editionKey, entry.number)
   const cached = chapterTextCache.get(cacheKey)
   if (cached) return cached
-  const url = `/data/editions-chapters/${LAB_BOOK_ID}-${editionKey}/${chapterPath(entry)}?v=${encodeURIComponent(labBuildVersion())}`
+  const url = editionShardUrl(LAB_BOOK_ID, editionKey, chapterPath(entry), labBuildVersion())
   const res = await fetch(url)
   if (!res.ok) return []
   const data = await res.json() as { paragraphs?: string[] }

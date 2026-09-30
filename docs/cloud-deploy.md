@@ -36,7 +36,7 @@ Local `app/.env` is optional for CI; it is still used when present on a develope
 ## GitHub Actions
 
 - **Verify** (all PRs + `main` + `cursor/**`): `.github/workflows/verify.yml` — test, build, verify-bundle.
-- **Deploy** (`main` push + manual): `.github/workflows/deploy.yml` — tests then `npm run deploy` + `scripts/smoke-test.sh` against `https://tinct.app`.
+- **Deploy** (`main` push + manual): `.github/workflows/deploy.yml` — tests, then a staged release: `npm run release:upload` (version preview, no traffic), acceptance against the preview URL, `npm run release:promote`, production checks, automatic `npm run rollback` on post-promote failure. Details and the migrations fallback are in `AGENTS.md` (Deploy flow).
 
 ### One-time GitHub setup
 

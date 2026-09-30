@@ -1,5 +1,19 @@
 
 (()=>{
+// The veil drawn on leaving for the reader takes the reader's own paper, so a
+// reader in dark or book paper never passes through a light screen. Same
+// resolution as src/lab/readerBoot.ts; unknown or layout-dependent keeps #efe6cc.
+try {
+  const prefs = JSON.parse(localStorage.getItem('tinct-lab-prefs') || 'null') || {};
+  const valid = theme => ['system','light','dark','book'].includes(theme) ? theme : null;
+  const themes = prefs.version === 2 && prefs.shared && typeof prefs.shared === 'object'
+    ? [valid(prefs.phone?.theme) || 'system', valid(prefs.desktop?.theme) || 'system']
+    : [valid(prefs.theme) || (Object.keys(prefs).length ? (prefs.darkMode === true ? 'dark' : 'light') : 'system')];
+  const dark = typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches;
+  const resolved = [...new Set(themes.map(theme => theme === 'system' ? (dark ? 'dark' : 'light') : theme))];
+  const paper = resolved.length === 1 ? {dark:'#171411',book:'#e7dcc7'}[resolved[0]] : null;
+  if (paper && localStorage.getItem('tinct:display-profile') !== 'eink') document.documentElement.style.setProperty('--reader-paper', paper);
+} catch {}
 // Preserve the existing recent-reader shortcut only at the bare home entry.
 // Explicit Library, book links and review modes always display the library.
 // The production reader still resolves the account, edition and exact position.

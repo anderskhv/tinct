@@ -4,7 +4,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 const live = process.env.SHAKESPEARE_LIVE === '1'
-const origin = 'https://tinct.app', output = 'artifacts/shakespeare-layout'
+const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, ''), output = 'artifacts/shakespeare-layout'
 await fs.mkdir(output, { recursive: true })
 const results = []
 async function prepare(context) {

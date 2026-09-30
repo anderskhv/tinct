@@ -8,6 +8,7 @@ import path from 'path'
 import { serializePreReaderCatalogue } from './src/preReader/catalogue'
 import { addLibraryReadingStructures } from './src/preReader/libraryReadingStructure'
 import { legacyLabPageRedirect } from './src/lab/labRoute'
+import { buildReaderBootScript } from './scripts/readerBootScript'
 
 const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   serializePreReaderCatalogue(),
@@ -72,6 +73,9 @@ export default defineConfig(({ mode, command }) => {
     ? `${Date.now().toString(36)}`
     : 'dev'
 
+  let readerBootBuild: ReturnType<typeof buildReaderBootScript> | null = null
+  const readerBoot = () => (readerBootBuild ??= buildReaderBootScript(buildVersion))
+
   return {
   define: {
     __BUILD_VERSION__: JSON.stringify(buildVersion),
@@ -109,6 +113,38 @@ export default defineConfig(({ mode, command }) => {
   },
   plugins: [
     react(),
+    {
+      // The reader's head script: starts the opening chapter's requests and
+      // paints the stored paper before the app bundle runs (src/lab/readerBoot.ts).
+      name: 'reader-boot',
+      apply: () => !isCapacitor,
+      configureServer(server) {
+        server.middlewares.use('/lab/reader-boot.js', (_req: IncomingMessage, res: ServerResponse) => {
+          res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Cache-Control': 'no-store' })
+          res.end(buildReaderBootScript(buildVersion).source)
+        })
+      },
+      transformIndexHtml: {
+        order: 'post',
+        handler(_html, ctx) {
+          if (path.resolve(ctx.filename) !== path.resolve(process.cwd(), 'index.html')) return
+          const src = command === 'build' ? `/${readerBoot().fileName}` : '/lab/reader-boot.js'
+          // English hyphenation is lazy-loaded, but the first page is measured
+          // with it (LabApp waits for it briefly); fetch it beside the bundle.
+          const hyphenation = Object.values(ctx.bundle ?? {}).filter(chunk => chunk.type === 'chunk'
+            && chunk.moduleIds.some(id => /[\\/]node_modules[\\/](?:hypher|hyphenation\.en-us)[\\/]/.test(id)))
+          return [
+            { tag: 'script', attrs: { src }, injectTo: 'head-prepend' },
+            ...hyphenation.map(chunk => ({ tag: 'link', attrs: { rel: 'modulepreload', crossorigin: true, href: `/${chunk.fileName}` }, injectTo: 'head' as const })),
+          ]
+        },
+      },
+      generateBundle() {
+        if (command !== 'build') return
+        const boot = readerBoot()
+        this.emitFile({ type: 'asset', fileName: boot.fileName, source: boot.source })
+      },
+    },
     {
       name: 'lab-pre-reader-catalogue',
       configureServer(server) {

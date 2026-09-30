@@ -1,6 +1,6 @@
 // Silent, isolated built/live acceptance. No synthesis, microphone or account writes.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
-const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin='https://tinct.app',out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
+const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 assert(['to-the-lighthouse','symposium'].includes(book));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
