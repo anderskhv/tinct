@@ -21,6 +21,8 @@ Rule (from acclaim-quote policy): an entry ships only with a primary source URL.
 | [Books that bust bubbles](https://world.hey.com/dhh/books-that-bust-bubbles-35c46be2) (2021-12-01) | Sowell *A Conflict of Visions*; Haidt *The Coddling of the American Mind*; Kishimi/Koga *The Courage to Be Disliked* (Adler); McWhorter *Woke Racism*; Shellenberger *San Fransicko*, *Apocalypse Never*; Murray *Facing Reality*; Taibbi *Hate Inc* | All in copyright. Reading list is explicitly framed by him ("books for left-leaning readers to challenge their worldview"). |
 | [You gotta read Less Is More](https://world.hey.com/dhh/you-gotta-read-less-is-more-88a4f37f) (2021-03-03) | Hickel *Less Is More*, *The Divide*; Wallace-Wells *The Uninhabitable Earth*; Piketty *Capital in the 21st Century* | In copyright. |
 | [Misery starts when the struggle ends](https://world.hey.com/dhh/misery-starts-when-the-struggle-ends-390c700f) (2022-09-22) | **Dostoevsky, *Notes from Underground*** (`notes-from-underground`, in Tinct); Orwell essay "Can socialists be happy?"; Sowell *Knowledge and Decisions* | On Notes: "a remarkable book, and a mercifully short one too, compared to the rest of Dostoevsky's works. I can't recommend it highly enough." Also points to a Jordan Peterson lecture on it. |
+| [Picking a purpose](https://world.hey.com/dhh/picking-a-purpose-bd8ff341) (2023-12-24) | Frankl *Man's Search for Meaning* (opens the post with it); Fromm *The Pathology of Normalcy*; Dostoevsky *Notes from Underground*; Sartre *Existentialism and Humanism*; Kishimi/Koga *The Courage to Be Disliked* | Draws on Frankl at length; the fetch found no explicit "read this" line for Frankl, so treat as "cites and builds on", not "recommends". |
+| [The responsibility is the reward](https://world.hey.com/dhh/the-responsibility-is-the-reward-69e5b73f) (2023-05-02) | Frankl (quotes "he who has a why to live for can bear almost any how"); Peterson *12 Rules for Life* | Quote use only. |
 | [The will to power will return](https://world.hey.com/dhh/the-will-to-power-will-return-58ffb9dc) (2026-07-12) | Strauss & Howe *The Fourth Turning*; Fukuyama *The End of History* (linked) | Cited as framework, not a review. |
 
 `Wolves, sheep, and gypsies` and `The Rape of Britain` only list his own books in the byline; no other book content.
@@ -31,6 +33,8 @@ Rule (from acclaim-quote policy): an entry ships only with a primary source URL.
 
 ## Finding from the blog pass
 His blog posts are mostly opinion and tech; the true book-review posts are 2021 (two). Almost all of what they recommend is in copyright, so they don't help fill Tinct. His Tinct-relevant picks (Kafka, Kierkegaard, Dostoevsky, Stoics, Orwell) come from tweets and podcasts, so the tweet list is the key missing source.
+
+**Man's Search for Meaning (Frankl):** sourced as cited/relied on by DHH (two posts above). Not addable to Tinct: Frankl died 1997, the book is in copyright. It can appear on a DHH list only as a "not in Tinct" entry. An aggregator quote ("part holocaust first-person account, part exposition of logotherapy...") came from a search summary and is not verified; don't use it.
 
 ## Tier B — cited by aggregators (mostrecommendedbooks.com, readthistwice.com) to a DHH tweet; tweet URL not yet opened
 
