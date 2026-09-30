@@ -1,0 +1,27 @@
+ .gitignore                          |    5 +
+ addbooks/README.md                  |  103 ++++
+ addbooks/VERIFICATION.md            |   71 +++
+ addbooks/build-report.json          | 1000 +++++++++++++++++++++++++++++++++++
+ addbooks/package.json               |    1 +
+ addbooks/qa/browser-report.json     |   56 ++
+ addbooks/qa/desktop-empty.png       |  Bin 0 -> 64408 bytes
+ addbooks/qa/desktop-filters.png     |  Bin 0 -> 119003 bytes
+ addbooks/qa/desktop-no-results.png  |  Bin 0 -> 58539 bytes
+ addbooks/qa/desktop-results.png     |  Bin 0 -> 219813 bytes
+ addbooks/qa/diff-stat.txt           |   27 +
+ addbooks/qa/phone-empty.png         |  Bin 0 -> 40270 bytes
+ addbooks/qa/phone-filters.png       |  Bin 0 -> 55675 bytes
+ addbooks/qa/phone-no-results.png    |  Bin 0 -> 36651 bytes
+ addbooks/qa/phone-results.png       |  Bin 0 -> 80343 bytes
+ addbooks/qa/search-results.json     |  182 +++++++
+ addbooks/scripts/build-index        |  366 +++++++++++++
+ addbooks/scripts/test-search.mjs    |   38 ++
+ addbooks/scripts/test_builder.py    |  115 ++++
+ addbooks/scripts/verify-browser.mjs |   83 +++
+ addbooks/site/app.js                |  122 +++++
+ addbooks/site/index.html            |   52 ++
+ addbooks/site/search-worker.js      |   32 ++
+ addbooks/site/search.js             |  108 ++++
+ addbooks/site/style.css             |  649 +++++++++++++++++++++++
+ addbooks/site/sw.js                 |   32 ++
+ 26 files changed, 3042 insertions(+)
