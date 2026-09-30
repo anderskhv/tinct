@@ -4,7 +4,7 @@
 - Base/current-main instruction revision: `221d6b78d`, fetched 2026-09-30.
 - Initial source checkpoint: `609d7699a`; validated source correction: `5025ea671`.
 - Chapters 1–2 content: `2628fd0aa`; earlier handoff: `17e742c09`; chapters 3–5 checkpoint: `d1ee250f1`.
-- Latest English content checkpoint: PENDING_COMMIT_RECORD (recorded in the subsequent handoff-only commit).
+- Latest English content checkpoint: `069e5205c73235927205953b28bd33bae2c122e9` (recorded in the subsequent handoff-only commit).
 - Owned paths only: `books/wip/the-trial/`, `books/raw/the-trial/`.
 - German: **10 chapters / 140 paragraphs**, counts 20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10.
 - Modern English: **7 of 10 chapters**, complete chapter numbers **1, 2, 3, 4, 5, 6, 10**; **84 paragraphs**, counts 20 / 28 / 11 / 8 / 3 / 4 / 10. No incomplete or placeholder chapter in the edition.
