@@ -31,6 +31,7 @@ import { isMachineMadeOriginal } from './data/editionDefaults'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
+import { readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
 import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
 
@@ -89,6 +90,8 @@ export type SummaryResult =
   | { status: 'none' | 'recent' | 'from-reader' | 'offline' | 'account-required' | 'unavailable'; text: null }
 
 const BOOK_COMPLETED_PREFIX = 'tinct:book-completed:'
+/** How recently the reader must have been left for the desk to lead with that book. */
+const JUST_READ_MS = 60 * 60 * 1000
 /** An explicit id keeps position reads side-effect free. */
 const LIBRARY_POSITION_DEVICE_ID = 'lab-library'
 
@@ -279,11 +282,18 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   const cacheKey = 'tinct:library-2-table:' + (auth.userId ?? 'guest')
   // Resolve identity before reading its snapshot. Cached presentation never
   // supplies a resume target; that still comes from the merged position store.
+  let cached: ReadingTable | null = null
   try {
-    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null')
-    if (cached && Array.isArray(cached.reading) && Array.isArray(cached.finished)) options.onCached?.(cached)
+    const parsed = JSON.parse(localStorage.getItem(cacheKey) || 'null')
+    if (parsed && Array.isArray(parsed.reading) && Array.isArray(parsed.finished)) cached = parsed
   } catch { /* Fresh reads remain authoritative. */ }
+  // The book the reader just left leads the first paint, so the desk never
+  // waits for the account reads to show it (they confirm it moments later).
+  const justRead = justLeftReader(auth.userId)
+  const needsCatalogue = !!justRead && !cached?.reading.some(book => book.bookId === justRead.bookId)
+  if (cached && !needsCatalogue) options.onCached?.(withJustRead(cached, justRead, null))
   const books = await catalogueReady
+  if (needsCatalogue) options.onCached?.(withJustRead(cached ?? { mode: 'returning', reading: [], finished: [] } as ReadingTable, justRead, books.get(justRead!.bookId) ?? null))
   const warmArtwork = (positions: LabPositionState | null) => {
     if (!options.onArtwork || !positions) return
     const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
@@ -384,6 +394,38 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   }
   try { localStorage.setItem(cacheKey, JSON.stringify(table)) } catch { /* Optional fast paint. */ }
   return table
+}
+
+/** The book the reader was just in (the reader's library boot snapshot), if recent and this account's. */
+function justLeftReader(userId: string | null): { bookId: string; title: string; chapterLabel: string; headline: string } | null {
+  const snapshot = readLabLibraryBootSnapshot()
+  const hero = snapshot?.hero
+  if (!snapshot || !hero || snapshot.userId !== userId) return null
+  if (!hero.lastReadAt || Date.now() - hero.lastReadAt > JUST_READ_MS) return null
+  return { bookId: hero.bookId, title: hero.title, chapterLabel: hero.chapterLabel, headline: hero.headline }
+}
+
+function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftReader>, book: CatalogueBook | null): ReadingTable {
+  if (!justRead) return table
+  const existing = table.reading.find(row => row.bookId === justRead.bookId)
+  if (!existing && !book) return table
+  const lead: ReadingTableBook = existing
+    ? { ...existing, chapterLabel: justRead.chapterLabel || existing.chapterLabel }
+    : {
+        bookId: justRead.bookId,
+        title: book?.title ?? justRead.title,
+        author: book?.author ?? '',
+        cover: book?.art?.src ?? null,
+        wordCount: book?.wordCount ?? null,
+        displayYear: book?.displayYear || '',
+        tone: book?.cover?.background ?? null,
+        chapterLabel: justRead.chapterLabel,
+        headline: justRead.headline,
+        percent: null,
+        recap: null,
+      }
+  const reading = [lead, ...table.reading.filter(row => row.bookId !== justRead.bookId)]
+  return { ...table, mode: 'returning', reading, shelfReading: reading }
 }
 
 function summaryRequestFor(row: ReadingListRow, book: CatalogueBook | undefined): LabRecapRequest | null {

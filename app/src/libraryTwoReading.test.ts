@@ -335,3 +335,21 @@ it('paints each book with its stored summary so the desk never shows the positio
   const table=await loadReadingTable({catalogue:Promise.resolve({books})})
   expect(table.reading[0].recap).toBe('Augustine recounts nine wayward years.')
 })
+
+it('leads the first paint with the book the reader just left, before the account reads finish', async () => {
+ const completed=gate<{data:[];error:null}>();
+ calls.auth.mockResolvedValue({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});calls.memory.mockResolvedValue(null);
+ calls.localPositions.mockResolvedValue(emptyLabPositionState('device-b','viewer-b'));
+ calls.cloudPositions.mockResolvedValue(emptyLabPositionState('cloud','viewer-b'));
+ calls.completions.mockReturnValue(completed.promise);calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0});calls.readingList.mockReturnValue({readingNow:[],finished:[]});
+ localStorage.setItem('tinct:library-2-table:viewer-b',JSON.stringify({mode:'returning',reading:[{bookId:'bible',title:'The Bible'},{bookId:'to-the-lighthouse',title:'To the Lighthouse'}],finished:[]}));
+ localStorage.setItem('tinct:lab-library-boot',JSON.stringify({v:1,at:Date.now(),userId:'viewer-b',readingNow:2,finished:0,row:[],hero:{bookId:'confessions',title:'Confessions',chapterLabel:'Book 3',headline:'You stopped in Book 3',lastReadAt:Date.now(),coverSrc:null,coverSrcSet:null,note:null}}));
+ const onCached=vi.fn(),{loadReadingTable}=await import('./libraryTwoReading');
+ const result=loadReadingTable({catalogue:Promise.resolve({books:[{id:'confessions',title:'Confessions',author:'Augustine',art:{src:'/covers/confessions.webp'},editions:[]}]}),onCached});
+ await vi.waitFor(()=>expect(onCached).toHaveBeenCalled());
+ const first=onCached.mock.calls[0][0];
+ expect(first.reading.map((book:{bookId:string})=>book.bookId)).toEqual(['confessions','bible','to-the-lighthouse']);
+ expect(first.reading[0]).toMatchObject({title:'Confessions',chapterLabel:'Book 3',cover:'/covers/confessions.webp'});
+ expect(calls.readingList).not.toHaveBeenCalled();
+ completed.resolve({data:[],error:null});await result;
+})
