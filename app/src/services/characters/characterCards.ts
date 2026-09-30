@@ -123,7 +123,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'nicomachean-ethics': { editions: EN, revision: '2026-09-12.1' },
   'aristotle-politics': { editions: EN, revision: '2026-09-12.1' },
   leviathan: { editions: EN, revision: '2026-09-12.1' },
-  'second-treatise': { editions: EN, revision: '2026-09-12.1' },
+  'second-treatise': { editions: EN, revision: '2026-09-30.1' },
   'beyond-good-and-evil': { editions: EN, revision: '2026-09-12.1' },
   'genealogy-of-morals': { editions: EN, revision: '2026-09-12.1' },
   'democracy-in-america': { editions: EN, revision: '2026-09-12.1' },

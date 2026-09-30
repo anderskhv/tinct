@@ -130,6 +130,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'second-treatise': {
+    revision: 'text-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '177b364414c437af89fe5d09b8922d71ff772ccf7da6ec2e64c710ed061269bf',
+        after: 'f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
