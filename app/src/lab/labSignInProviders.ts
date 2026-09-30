@@ -79,11 +79,11 @@ export function labOAuthErrorMessage(provider: LabOAuthProvider, message?: strin
 /**
  * The path Supabase is told to return to after an OAuth, email-confirmation or
  * password-reset round trip. Supabase only honours redirect URLs on its
- * dashboard allow-list, which lists this path. Readers never stay on it: the
- * Worker answers it with a permanent redirect to `/sign-in`, keeping the query
- * and fragment. Switch to `/sign-in` once that URL is on the allow-list.
+ * dashboard allow-list (`https://tinct.app/sign-in*`). This is the sign-in page
+ * itself. Older emails still point at `/lab/sign-in`, which the Worker answers
+ * with a permanent redirect to `/sign-in`, keeping the query and fragment.
  */
-export const LAB_AUTH_CALLBACK_PATH = '/lab/sign-in'
+export const LAB_AUTH_CALLBACK_PATH = '/sign-in'
 
 /**
  * Where the provider round-trip comes back to: the same lab sign-in page,

@@ -67,8 +67,9 @@ describe('LabAccountSheet', () => {
     expect(sheet.getAttribute('data-action')).toBe('chat')
     expect(screen.getByRole('dialog').getAttribute('aria-labelledby')).toBe('lab-account-title')
     expect(screen.getByText(LAB_COPY.accountEyebrow)).toBeTruthy()
-    expect(screen.getByText(LAB_COPY.accountTitle)).toBeTruthy()
+    expect(screen.getByRole('heading', {name: 'Create a free account to keep using AI'})).toBeTruthy()
     expect(screen.getByText(LAB_COPY.accountBody)).toBeTruthy()
+    expect(sheet.textContent).not.toMatch(/\d+ free AI/)
     expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader%3Fvoice%3Dv2')
     expect(screen.getByTestId('lab-account-create').textContent).toBe(LAB_COPY.accountCreate)
     expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
@@ -92,14 +93,29 @@ describe('LabAccountSheet', () => {
   })
 })
 
-it('offers narration sign-in without a retry error or an exhausted chat allowance message', () => {
+it('shares one prompt between listening and AI: same eyebrow, body tail and buttons in the same order', () => {
   const onClose = vi.fn()
-  render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} desktop />)
-  expect(screen.getByRole('heading', {name:'Sign in to listen'})).toBeTruthy()
-  expect(screen.getByTestId('lab-account-sign-in').className).toBe('lab-account-primary')
-  expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toContain('returnTo=%2Freader')
-  expect(screen.queryByText(LAB_COPY.accountBody)).toBeNull()
-  fireEvent.click(screen.getByRole('button', {name:'Keep reading'}))
+  const { rerender } = render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} desktop />)
+  const audio = screen.getByTestId('lab-account-sheet')
+  expect(screen.getByText('Free account')).toBeTruthy()
+  expect(screen.getByRole('heading', {name: 'Create a free account to keep listening'})).toBeTruthy()
+  expect(audio.textContent).toContain('Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.')
+  expect(audio.textContent).not.toMatch(/\d+ free AI/)
+  const order = (root: HTMLElement) => Array.from(root.querySelectorAll('a.lab-account-primary, .lab-account-secondary')).map(node => node.textContent)
+  expect(order(audio)).toEqual(['Create free account', 'Keep reading', 'Sign in'])
+  expect(screen.getByTestId('lab-account-create').className).toBe('lab-account-primary')
+  expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader')
+  expect(screen.getByTestId('lab-account-sign-in').className).toBe('lab-account-secondary')
+  // The quiet text button carries the same class as the Sign in link.
+  expect(screen.getByRole('button', {name: 'Keep reading'}).className).toBe('lab-account-secondary')
+  rerender(<LabAccountSheet open action="chat" returnTo="/reader" onClose={onClose} desktop />)
+  expect(order(screen.getByTestId('lab-account-sheet'))).toEqual(['Create free account', 'Keep reading', 'Sign in'])
+})
+
+it('closes on a single tap of Keep reading', () => {
+  const onClose = vi.fn()
+  render(<LabAccountSheet open action="audio" returnTo="/reader" onClose={onClose} />)
+  fireEvent.click(screen.getByRole('button', {name: 'Keep reading'}))
   expect(onClose).toHaveBeenCalledOnce()
 })
 

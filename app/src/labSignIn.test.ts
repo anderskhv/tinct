@@ -149,7 +149,7 @@ describe('lab sign-in providers', () => {
       expect(auth.signInWithOAuth).toHaveBeenCalledTimes(1)
       expect(auth.signInWithOAuth).toHaveBeenCalledWith({
         provider,
-        options: { redirectTo: `${location.origin}/lab/sign-in?callback=oauth&returnTo=%2Freader%3Fvoice%3Dv2` },
+        options: { redirectTo: `${location.origin}/sign-in?callback=oauth&returnTo=%2Freader%3Fvoice%3Dv2` },
       })
     }
   })
@@ -161,7 +161,7 @@ describe('lab sign-in providers', () => {
     await flush()
     expect(auth.signInWithOAuth).toHaveBeenCalledWith({
       provider: 'google',
-      options: { redirectTo: `${location.origin}/lab/sign-in?callback=oauth&returnTo=%2Flibrary` },
+      options: { redirectTo: `${location.origin}/sign-in?callback=oauth&returnTo=%2Flibrary` },
     })
   })
 

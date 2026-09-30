@@ -3711,15 +3711,28 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => window.removeEventListener('keydown', onKey)
   }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
+  const audioAccountRequiredRef = useRef(false)
   const narrationAccountRequired = listen.narration.status === 'error' && listen.narration.reason === 'unauthenticated'
   useEffect(() => {
     if (!narrationAccountRequired) return
-    setAccountPrompt({ action: 'audio' })
+    // Signed-out readers cannot listen. Stop the request, leave the listening
+    // chrome (its transport bar would replay the previous audio) and remember
+    // it, so the next Play asks again instead of starting anything.
+    audioAccountRequiredRef.current = true
     listen.dismissNarration()
-  }, [narrationAccountRequired, listen.dismissNarration])
+    listen.pause()
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setChrome('reading')
+    setReturnTo('reading')
+    setPeekBook(false)
+    setAccountPrompt({ action: 'audio' })
+  }, [narrationAccountRequired, listen.dismissNarration, listen.pause])
+  useEffect(() => { if (signedIn) audioAccountRequiredRef.current = false }, [signedIn])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
     if (temporaryHold) return
+    if (audioAccountRequiredRef.current && !signedIn) { setAccountPrompt({ action: 'audio' }); return }
     if (listen.isPending()) { listen.pause(); return }
     if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
@@ -3792,7 +3805,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setInTheBookOpen(false)
     notePlace('play')
     void (chromeV2 ? listen.startAtPlace(place) : listen.start(place))
-  }, [temporaryHold, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
