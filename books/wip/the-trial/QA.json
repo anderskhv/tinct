@@ -1,0 +1,35 @@
+{
+  "status": "ORIGINAL STRUCTURE PASS; RIGHTS REVIEW OPEN; MODERN-EN NOT STARTED",
+  "chapters": 10,
+  "paragraphs": 141,
+  "paragraphsByChapter": [
+    21,
+    28,
+    11,
+    8,
+    3,
+    4,
+    28,
+    10,
+    18,
+    10
+  ],
+  "wordsByChapter": [
+    9589,
+    5203,
+    8042,
+    2610,
+    2295,
+    6985,
+    16921,
+    10337,
+    8050,
+    1768
+  ],
+  "emptyParagraphs": 0,
+  "emptyHTMLNodesExcluded": 1,
+  "pageMarkers": 0,
+  "extraction": "One paragraph per nonempty direct child p of ch1..ch10 divBody. Removed span.pageNum, collapsed HTML whitespace; all other text retained. No headings, afterword, contents, colophon or license in edition. One empty p in chapter 1 excluded.",
+  "boundaries": "All 10 openings and endings match corresponding source chapter p nodes. Source-boundaries.json records full first and last paragraphs.",
+  "englishQA": "Not run: English edition absent."
+}
