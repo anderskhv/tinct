@@ -1,4 +1,4 @@
-import { registerBiblePoetry } from './labPoetry'
+import { registerLineatedChapter } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
@@ -352,6 +352,8 @@ async function loadBibleChapterText(editionKey: string, entry: { number: number;
   if (!res.ok) return []
   const data = await res.json() as { paragraphs?: string[] }
   const paragraphs = Array.isArray(data.paragraphs) ? data.paragraphs : []
+  // BSB stores poetry one line per paragraph; the reader sets it as prose.
+  if (/^bsb-/.test(editionKey)) registerLineatedChapter(paragraphs)
   if (paragraphs.length > 0) chapterTextCache.set(cacheKey, paragraphs)
   return paragraphs
 }
@@ -410,8 +412,6 @@ export async function loadLabSource(
       (editions?.readingFirst && !editions.compare) || !bibleEditionHasChapter(compare, entry.number) ? Promise.resolve([]) : loadBibleChapterText(compare, compareEntry).catch(() => []),
     ])
     if (paragraphs.length === 0) return bibleFallbackSource()
-    registerBiblePoetry(entry.title, paragraphs)
-    registerBiblePoetry(entry.title, compareParagraphs)
 
     const chapters = manifest.chapters.map(item => ({
       number: item.number,

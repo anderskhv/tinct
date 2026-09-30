@@ -1,4 +1,3 @@
-import { poetryClass } from './labPoetry'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
@@ -42,7 +41,6 @@ export function labMeasureParagraphInto(
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
 ): HTMLElement {
-  p.classList.toggle('is-poetic-line', !!poetryClass(lineation?.text))
   const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]
@@ -127,5 +125,22 @@ export function labMeasureParagraphInto(
     }
     return line
   }))
+  return p
+}
+
+/**
+ * A BSB poetry line joined to the visual paragraph before it (labPoetry):
+ * measured exactly as LabPassage paints it -- a space, then the line's words in
+ * a `lab-prose-join` span inside the same block.
+ */
+export function labMeasureJoinInto(
+  p: HTMLElement,
+  words: MeasurableWord[],
+  lineation?: { text?: string; from: number },
+): HTMLElement {
+  const span = document.createElement('span')
+  span.className = 'lab-prose-join'
+  labMeasureParagraphInto(span, words, lineation)
+  p.append(' ', span)
   return p
 }

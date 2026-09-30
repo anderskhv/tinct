@@ -1,4 +1,4 @@
-import { poeticGroupEnd } from './labPoetry'
+import { proseRuns, sliceJoinsPrevious } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { fitChapterEnd } from './labChapterEndPaging'
@@ -6,7 +6,7 @@ import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVers
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
-import { labMeasureParagraphInto } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
  * when the two editions have different lengths. No translated words are lost. */
@@ -59,13 +59,6 @@ export function measuredDesktopPages(
   lengths.forEach((length, paragraphIndex) => {
     if (pages.length >= pageLimit) return
     if (start && paragraphIndex < start.paragraphIndex) return
-    if (paragraphs && segments.length) {
-      const end = poeticGroupEnd(paragraphs, paragraphIndex)
-      const group = lengths.slice(paragraphIndex, end).map((to, offset) => ({ paragraphIndex: paragraphIndex + offset, from: 0, to }))
-      // Keep a short complete poetic unit together only if it fits a fresh
-      // measured page. Long units still split normally, with no blank pages.
-      if (end > paragraphIndex + 1 && fits(group, false) && !fits([...segments, ...group], isFirst())) commit()
-    }
     const resumes = start && paragraphIndex === start.paragraphIndex
     let from = resumes ? start.wordIndex : 0
     let headBreak: number | undefined = resumes && start.wordIndex < length ? start.headBreak : undefined
@@ -229,18 +222,41 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
                 row.className = 'lab-desktop-measure-row'
                 const stack = document.createElement('div')
                 stack.style.cssText = 'display:flex;flex-direction:column'
-                for (const segment of group.segments) stack.append(makeParagraph(segment, source, paragraphs))
+                group.segments.forEach((segment, index) => {
+                  const line = makeParagraph(segment, source, paragraphs)
+                  // A joined BSB line keeps its own row here, set tight (LabPassage).
+                  if (sliceJoinsPrevious(paragraphs, group.segments[index - 1], segment)) line.classList.add('is-joined-row')
+                  stack.append(line)
+                })
                 const cell = document.createElement('div')
                 cell.className = 'lab-compare-cell'
-                for (const piece of group.pieces) cell.append(makeParagraph(piece, target, comparison))
+                for (const run of proseRuns(comparison, group.pieces)) {
+                  const p = makeParagraph(group.pieces[run[0]], target, comparison)
+                  for (const index of run.slice(1)) {
+                    const piece = group.pieces[index]
+                    labMeasureJoinInto(p, segmentWordTexts(target[piece.paragraphIndex] || [], piece), { text: comparison[piece.paragraphIndex], from: piece.from })
+                  }
+                  cell.append(p)
+                }
                 row.append(stack, cell)
                 rows.append(row)
               }
-            } else for (const segment of segments) {
+            } else if (comparison && target) for (const segment of segments) {
               const row = document.createElement('div')
               row.className = 'lab-desktop-measure-row'
               row.append(makeParagraph(segment, source, paragraphs))
-              if (comparison && target) row.append(makeParagraph(comparisonSegment(segment, paragraphs, comparison), target, comparison))
+              row.append(makeParagraph(comparisonSegment(segment, paragraphs, comparison), target, comparison))
+              rows.append(row)
+            } else for (const run of proseRuns(paragraphs, segments)) {
+              // BSB poetry lines paint inside one visual paragraph (labPoetry).
+              const row = document.createElement('div')
+              row.className = 'lab-desktop-measure-row'
+              const p = makeParagraph(segments[run[0]], source, paragraphs)
+              for (const index of run.slice(1)) {
+                const segment = segments[index]
+                labMeasureJoinInto(p, segmentWordTexts(source[segment.paragraphIndex] || [], segment), { text: paragraphs[segment.paragraphIndex], from: segment.from })
+              }
+              row.append(p)
               rows.append(row)
             }
             const bottom = withEnd && end ? end.getBoundingClientRect().bottom : rows.getBoundingClientRect().bottom

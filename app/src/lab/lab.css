@@ -2331,14 +2331,13 @@
   line-height: 1.42;
 }
 
-/* Source poetic lines stay ragged and close enough to read as a couplet.
-   This applies equally to the hidden measurement and painted reader. */
-.lab .lab-passage.is-reading .lab-hearing-stage .lab-hearing-line.is-poetic-line,
-.lab .lab-hearing-line.is-poetic-line {
-  text-align: start;
-  text-align-last: auto;
-  margin-bottom: 0.2em;
-}
+/* BSB poetry is set as prose (labPoetry.ts): a joined source line paints
+   inline, inside the visual paragraph of the line before it. Verse-paired
+   Compare keeps one grid row per source line, so there a joined line only
+   sits tight against its verse, in the painted grid and its measurement. */
+.lab-prose-join { display: inline; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-hearing-line.is-joined-row { margin-top: 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-hearing-line:has(+ .lab-hearing-line.is-joined-row) { margin-bottom: 0; }
 
 /* Keeps a verse number welded to its first word. `vertical-align: baseline`
    and no padding matter for highlights: an inline-block that sits off the
