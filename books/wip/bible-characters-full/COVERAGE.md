@@ -1,6 +1,6 @@
 # Coverage
 
-All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
+All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `37cf805b2dc7269131e0aa8273a00d1071345e1ed123a3be611a16534b4fb3b9`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
 
 ## Per-edition summary
 
@@ -8,7 +8,7 @@ All numbers are for the accepted candidate `package/bible.v1.json` (contentVersi
 |---|---:|---:|---:|---:|
 | Characters | 150 | 150 | 150 | 196 |
 | Characters with ≥1 link | 150 | 150 | 150 | 196 |
-| **Links (mentions)** | **12,628** | **12,714** | **13,114** | **14,049** |
+| **Links (mentions)** | **24,757** | **24,695** | **25,156** | **26,508** |
 | Links in the live file (main fe699e90) | 1,444 | 1,437 | none | none |
 | Name-form hits scanned (person lexicon, 235 forms) | 14,645 | 14,730 | 15,083 | 16,279 |
 | … linked as a person | 12,429 | 12,511 | 12,905 | 13,844 |
@@ -145,10 +145,10 @@ The 149 existing ids are unchanged and no id was removed. The 46 new ids exist o
 | `apollonius-menestheus` | Apollonius | – | – | – | – | – | 2 |
 | `apollonius-samaria` | Apollonius | – | – | – | – | – | 2 |
 | `apollos` | Apollos | 5 | 5 | 10 | 10 | 11 | 10 |
-| `ark-of-the-covenant` | the Ark of the Covenant | 14 | 14 | 14 | 14 | 14 | 14 |
+| `ark-of-the-covenant` | the Ark of the Covenant | 14 | 14 | 198 | 197 | 196 | 199 |
 | `asa` | Asa | 5 | 5 | 59 | 59 | 60 | 59 |
 | `asmodaeus` | Asmodaeus | – | – | – | – | – | 2 |
-| `babylon` | Babylon | 14 | 14 | 14 | 14 | 14 | 14 |
+| `babylon` | Babylon | 14 | 14 | 293 | 293 | 292 | 317 |
 | `bacchides` | Bacchides | – | – | – | – | – | 20 |
 | `bagoas` | Bagoas | – | – | – | – | – | 6 |
 | `balaam` | Balaam | 8 | 8 | 63 | 63 | 73 | 63 |
@@ -187,7 +187,7 @@ The 149 existing ids are unchanged and no id was removed. The 46 new ids exist o
 | `gabael` | Gabael | – | – | – | – | – | 7 |
 | `gamaliel` | Gamaliel | 5 | 5 | 2 | 2 | 3 | 2 |
 | `gideon` | Gideon | 14 | 14 | 53 | 53 | 70 | 54 |
-| `god-the-lord` | God | 20 | 20 | 20 | 20 | 20 | 20 |
+| `god-the-lord` | God | 20 | 20 | 11069 | 10929 | 10854 | 11285 |
 | `gorgias` | Gorgias | – | – | – | – | – | 11 |
 | `habakkuk` | Habakkuk | 2 | 2 | 2 | 2 | 2 | 7 |
 | `hagar` | Hagar | 8 | 8 | 12 | 14 | 17 | 14 |
@@ -305,7 +305,7 @@ The 149 existing ids are unchanged and no id was removed. The 46 new ids exist o
 | `susanna` | Susanna | – | – | – | – | – | 10 |
 | `the-lamb` | the Lamb | 14 | 14 | 28 | 29 | 35 | 29 |
 | `the-other-apostles` | Bartholomew, James son of Alphaeus, Thaddaeus, and Simon the Zealot | 3 | 4 | 20 | 18 | 17 | 18 |
-| `the-temple` | the Temple | 14 | 14 | 12 | 13 | 12 | 12 |
+| `the-temple` | the Temple | 14 | 14 | 476 | 470 | 601 | 549 |
 | `the-word` | the Word | 4 | 3 | 6 | 6 | 6 | 6 |
 | `thomas` | Thomas | 12 | 11 | 12 | 11 | 11 | 11 |
 | `timothy` | Timothy | 7 | 8 | 24 | 24 | 26 | 24 |
@@ -319,4 +319,4 @@ The 149 existing ids are unchanged and no id was removed. The 46 new ids exist o
 | `zechariah-prophet` | Zechariah | 4 | 4 | 6 | 6 | 6 | 6 |
 | `zephaniah` | Zephaniah | 1 | 1 | 1 | 1 | 1 | 1 |
 | `zerubbabel` | Zerubbabel | 5 | 5 | 25 | 25 | 25 | 26 |
-| `zion` | Zion | 8 | 8 | 8 | 8 | 8 | 8 |
+| `zion` | Zion | 8 | 8 | 161 | 161 | 167 | 177 |

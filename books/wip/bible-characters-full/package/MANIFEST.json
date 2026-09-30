@@ -1,7 +1,7 @@
 {
  "file": "bible.v1.json",
- "bytes": 10735192,
- "sha256": "1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb",
+ "bytes": 16478269,
+ "sha256": "37cf805b2dc7269131e0aa8273a00d1071345e1ed123a3be611a16534b4fb3b9",
  "contentVersion": "2026-09-30.1",
  "schemaVersion": 1,
  "bookId": "bible",
@@ -14,31 +14,31 @@
  "editionSlices": {
   "method": "Parse bible.v1.json, take editions[<key>], re-serialise as compact JSON (separators ',' and ':', ensure_ascii=false, key order preserved), UTF-8; SHA-256 of those bytes.",
   "sha256": {
-   "kjv-en": "3c9bd59d6a7c37aaa5c44b5765036b7250690f924f8f95c1d50bce17d355d903",
-   "web-en": "6b57144787e3cdd319025e18aa6c8daa213f06afe91dea18423647bca3e60c4b",
-   "bsb-en": "2d72fbe81c0667957e8118c7023824a7377197367f6110599430530a6a9181ab",
-   "webc-en": "fe37edb0db1394c26220e3d83441a020308ddc1fe17153176c9d52f1d9bc8d57"
+   "kjv-en": "0c8de4c1f510ab4837430774e269ce75b76bb7ee46ff6dddc8a1345ee4806530",
+   "web-en": "d5d997e5c937ee1cf3584c87e86bca13d10de995dd0a7ad34c4b94e5e5e83efa",
+   "bsb-en": "5ed3a00b764ab2b8119b492d412f0b0d2a684c5866aefb7b3899034b17a07e9c",
+   "webc-en": "b812e46dd289065c97a9ff210a4d5abdb4260e3c74651f215f051996327f851b"
   }
  },
  "perEdition": {
   "kjv-en": {
    "characters": 150,
-   "mentions": 12628,
+   "mentions": 24757,
    "sourceSha256": "53823ea3d19a3d7b986563f9fb7015be4a75bb102bd6e6a714ee64ceed0ff26e"
   },
   "web-en": {
    "characters": 150,
-   "mentions": 12714,
+   "mentions": 24695,
    "sourceSha256": "b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa"
   },
   "bsb-en": {
    "characters": 150,
-   "mentions": 13114,
+   "mentions": 25156,
    "sourceSha256": "8da0bc1ae32d9c2e05ba5811d953e24bdff8351913ad8f2199142ca0081c61d9"
   },
   "webc-en": {
    "characters": 196,
-   "mentions": 14049,
+   "mentions": 26508,
    "sourceSha256": "695cff11f0ec1197edf3cc0aa975a7805ed7e36365001f9bfa1ac86703ac52d7"
   }
  },

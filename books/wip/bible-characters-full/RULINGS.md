@@ -89,8 +89,8 @@ Counts are name occurrences by final decision; `NONE` = deliberately not linked.
 |---|---|---|---|---|
 | `simon-peter` | 51 | 52 | 50 | 52 |
 | `simon-maccabeus` | 0 | 0 | 0 | 68 |
-| `the-other-apostles` | 4 | 4 | 4 | 4 |
 | `simon-magus` | 4 | 4 | 4 | 4 |
+| `the-other-apostles` | 4 | 4 | 4 | 4 |
 | NONE (not linked) | 67 | 66 | 59 | 79 |
 
 **Joseph / Joses**
@@ -285,3 +285,14 @@ One further occurrence (`bsb-en|977.11.12`, Luke 4:13 “the devil” → `satan
 - Zephaniah 1:1 “Hizkiah” (not stated to be the king); 1 Chr 3:23 Hizkiah.
 - 2 Samuel 23:1 “the God of Jacob” and Malachi 1:2 second Jacob (“yet I loved Jacob”) are linked to the people although one reviewer each read them otherwise.
 
+
+## Non-person cards linked everywhere (final round)
+
+Scope: `god-the-lord`, `ark-of-the-covenant`, `the-temple`, `babylon`, `zion` — every occurrence in all four editions, minus the exclusions below (matched by verse identity, so BSB and WEBC follow the KJV/WEB verse ruling).
+
+- **God/LORD/Yahweh:** one card. Every capitalised “God”, “GOD”, “LORD”, “Yahweh”, “Jehovah”, “Jah/Yah” (also inside “God of Israel”, “house of the LORD”). Mixed-case “Lord” is **not** linked (Adonai, Jesus, or a human lord depending on verse). Idols/“gods” in lowercase are not linked.
+- **Ark:** every “ark” except Noah’s ark (Gen 6:14–9:18, Matt 24:38, Luke 17:27, Heb 11:7, 1 Pet 3:20, Sir 44:17–18, Wis 10:4) and Moses’ basket (Ex 2:3–5). Revelation 11:19 “ark of his testament” is linked.
+- **Zion:** every Zion/Sion except Deut 4:48 (Sion = Hermon).
+- **Babylon:** every occurrence (city, empire, and Revelation’s Babylon).
+- **Temple:** the Jerusalem temple of Solomon, the second temple and Herod’s. Not linked: Pentateuch/Joshua/Judges/1–2 Samuel “house of the LORD/God” (tabernacle, Shiloh, Nob, Bethel), 1 Chr 6:31–48 and 9:23 (tent), Ezekiel 40–48 (visionary), Revelation (heavenly; Rev 11:1–2 also, ruled consistently), pagan temples (of Dagon, Rimmon, Diana/Artemis, Baal, Bel, Babylon, Nanaea; Isa 15:2; Bar 6:13; 2 Macc 1:13–15, 9:2; 1 Macc 6:1–4), Jesus’ body (John 2:19, 2:21), church-as-temple metaphors (1 Cor 3:16–17, 6:19, 2 Cor 6:16, Eph 2:21, 1 Tim 3:15, 1 Pet 2:5, 4:17, 1 Cor 8:10, Acts 17:24, Heb 10:21), 2 Thess 2:4, and uncertain referents (Ps 11:4, Ps 18:6 / 2 Sam 22:7, Hos 8:1, Amos 8:3, Mic 1:2, 1:7, Bar 3:24). John 2:20 (Herod’s building) is linked; 2 Chr 36:7 (temple vessels taken to Babylon) is linked.
+- **Judgement calls to overrule if wanted:** 2 Thess 2:4, Psalm 11:4/18:6, Rev 11:1–2 (reviewers split; left unlinked).

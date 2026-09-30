@@ -4,7 +4,7 @@ Status: **content accepted / handed off — not published.** Nothing in `app/**`
 
 ## What to take
 
-- `package/bible.v1.json` — SHA-256 `1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb`, 10,735,192 bytes, `contentVersion` `2026-09-30.1`. Same schema as the live file (`schemaVersion` 1, `normalization` `prose-reader-v1`, `offsetUnit` `utf16`) with four editions: `kjv-en`, `web-en`, `bsb-en`, `webc-en`.
+- `package/bible.v1.json` — SHA-256 `37cf805b2dc7269131e0aa8273a00d1071345e1ed123a3be611a16534b4fb3b9`, 16,478,269 bytes, `contentVersion` `2026-09-30.1`. Same schema as the live file (`schemaVersion` 1, `normalization` `prose-reader-v1`, `offsetUnit` `utf16`) with four editions: `kjv-en`, `web-en`, `bsb-en`, `webc-en`.
 - `package/MANIFEST.json` — file hash plus SHA-256 of each edition slice (method in the file), so a per-edition split can be verified byte-for-byte.
 - Everything else in this folder is review/provenance and is not needed at runtime.
 
@@ -22,10 +22,10 @@ Status: **content accepted / handed off — not published.** Nothing in `app/**`
 
 | edition | `verifyCharacters` | mentions | resolve → own card | resolve null / wrong | existing-highlight → null | snapshot reveal problems |
 |---|---|---|---|---|---|---|
-| kjv-en | passes | 12,628 | all | 0 / 0 | all | 0 |
-| web-en | passes | 12,714 | all | 0 / 0 | all | 0 |
-| bsb-en | passes | 13,114 | all | 0 / 0 | all | 0 |
-| webc-en | passes | 14,049 | all | 0 / 0 | all | 0 |
+| kjv-en | passes | 24,757 | all | 0 / 0 | all | 0 |
+| web-en | passes | 24,695 | all | 0 / 0 | all | 0 |
+| bsb-en | passes | 25,156 | all | 0 / 0 | all | 0 |
+| webc-en | passes | 26,508 | all | 0 / 0 | all | 0 |
 
 Every mention resolves to its own card; there are no identical or partially overlapping spans, so the resolver’s “tied ⇒ null” rule never triggers. For every snapshot, the card body at `availableAt` equals the snapshot and one offset earlier equals the previous snapshot (the same assertion the Hamlet test makes). The verifier’s hash gates hold: `sourceSha256` equals the edition file bytes and `paragraphHashes` equal SHA-256 of `normalizeParagraph` for every paragraph. The same rules were re-implemented and run separately on the committed file (`review/structural-verification.json`).
 
@@ -38,18 +38,20 @@ Every mention resolves to its own card; there are no identical or partially over
 
 ## Size and loading (needs your decision)
 
-The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 10,735,192 bytes (≈2.92 MB gzip) because the cap of ~20 links per character is gone and two editions were added. `loadCharacters` fetches the whole file for whichever edition is open, so a KJV reader would download BSB and WEBC links as well. Per-edition slices are 2.0 MB (kjv-en), 2.0 MB (web-en), 4.2 MB (bsb-en) and 2.5 MB (webc-en) before gzip; their hashes are in `MANIFEST.json`. Splitting into per-edition sidecar files (or trimming the loader to read one edition) is a code change I did not make; the schema does not need to change for it.
+The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 16,478,269 bytes (≈3.31 MB gzip) because the cap of ~20 links per character is gone and two editions were added. `loadCharacters` fetches the whole file for whichever edition is open, so a KJV reader would download BSB and WEBC links as well. Per-edition slices are 3.5 MB (kjv-en), 3.5 MB (web-en), 5.6 MB (bsb-en) and 4.0 MB (webc-en) before gzip; their hashes are in `MANIFEST.json`. Splitting into per-edition sidecar files (or trimming the loader to read one edition) is a code change I did not make; the schema does not need to change for it.
 
 ## What moves in the reader
 
 - **Card ids are unchanged (149) and none was removed**; 46 ids are new and only exist in `webc-en` (Catholic-only books, see `COVERAGE.md`). Saved links keyed by id keep working.
 - Existing links at 1,444 (kjv) / 1,437 (web) positions: about 92% unchanged; the rest are corrected or removed (`CHANGES-TO-EXISTING-LINKS.md`). Saved *highlight* spans are unaffected — highlights are the reader’s, and the resolver returns `null` on an existing highlight by design.
-- **First-mention positions moved for 70 existing cards (kjv/web pairs counted separately)**, 41 of them earlier. Full coverage finds a name before the point the sampled links first showed it. The reveal rule (`snapshots[0].availableAt == firstMention`, no spoilers before it) is preserved by construction; where the old first snapshot described a later event, an earlier one-sentence **cameo snapshot** was added (marked below). The table lists the cards whose first mention moved **earlier** (the ones where a reveal could matter); the rest moved later because a wrong early link was removed. All moves are in `review/first-mention-moves.json`. Please spot-read the cameo cards in the reader:
+- **First-mention positions moved for 73 existing cards (kjv/web pairs counted separately)**, 43 of them earlier. Full coverage finds a name before the point the sampled links first showed it. The reveal rule (`snapshots[0].availableAt == firstMention`, no spoilers before it) is preserved by construction; where the old first snapshot described a later event, an earlier one-sentence **cameo snapshot** was added (marked below). The table lists the cards whose first mention moved **earlier** (the ones where a reveal could matter); the rest moved later because a wrong early link was removed. All moves are in `review/first-mention-moves.json`. Please spot-read the cameo cards in the reader:
 
 | Card | Edition | Old first mention | New first mention | Snapshots old→new | Early “cameo” snapshot added |
 |---|---|---|---|---|---|
 | `ananias-and-sapphira` | kjv-en | Acts 5:1 | Acts 5:1 | 1→1 |  |
 | `ananias-and-sapphira` | web-en | Acts 5:1 | Acts 5:1 | 1→1 |  |
+| `ark-of-the-covenant` | kjv-en | Numbers 10:33 | Exodus 25:10 | 1→6 |  |
+| `ark-of-the-covenant` | web-en | Numbers 10:33 | Exodus 25:10 | 1→6 |  |
 | `barnabas` | kjv-en | Acts 4:36 | Acts 4:36 | 1→1 |  |
 | `barnabas` | web-en | Acts 4:36 | Acts 4:36 | 1→1 |  |
 | `daniels-companions` | kjv-en | Daniel 1:7 | Daniel 1:6 | 1→1 |  |
@@ -92,7 +94,9 @@ The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 10,735,192 
 
 ## Non-person cards
 
-God/the LORD (20 links), the Ark of the Covenant (14), the Temple (12–13), Babylon (14) and Zion (8) were **not expanded**; they keep their old sampled counts, re-anchored by verse in BSB and WEBC. Holy Spirit, the Word, the Lamb and the Eden serpent are completed by exact phrase. Expanding God/LORD would add thousands of links (“God” 4,116 and “LORD” 6,649 in KJV) and is a product question (README, open question 1).
+All five are now **fully expanded** in all four editions (per edition, links): `god-the-lord` 10,854–11,285 (kind `deity`; God, GOD, LORD, Yahweh, Jehovah, Jah — mixed-case “Lord” is not linked), `the-temple` 470–601, `ark-of-the-covenant` 196–199, `babylon` 292–317, `zion` 161–177. Kinds used: `deity`, `object`, `personification`, `people` (`israel-the-people`) in addition to `person`/`spirit`. Each card has progressive snapshots (God: Gen 12:1, Ex 3:14, Ex 20:1, Matt 3:16; Ark, Temple, Babylon, Zion likewise, listed in the card data) so nothing reveals later story early.
+
+Verifier nuance: nested spans are common now (e.g. “LORD” inside “house of the LORD”, “God” inside “God of Israel”). Some pairs start at the same offset with the outer span longer; the app resolver picks the narrowest containing mention, so this is fine, and the app’s `verifyCharacters` reports 0 identical or partially overlapping pairs. Anything stricter than that in a coding-side check would need the same allowance. Expect `webRevelationRelease.test.ts` counts to change further (God/LORD links now dominate the mention count).
 
 ## Other things worth knowing
 

@@ -82,3 +82,7 @@ Author rulings on reviewer disagreements: KJV 143.5.311 and 143.7.237 (Num 26:28
 - One occurrence (`bsb-en|977.11.12`, Luke 4:13) has no reviewer line (see RULINGS).
 - New Catholic cards (26) got the same identity review as everything else; their **card texts** (name/subtitle/body) were written for this package and have a spoiler-safe reveal chain but no separate editorial review beyond the author’s.
 
+
+## Stage 11 — blind review of the non-person expansion
+
+2,031 items in 46 shards: every KJV temple/ark form including the ones the rules exclude, plus samples of God/LORD, Babylon, Zion and the same forms in web-en, bsb-en, webc-en. Reviewers saw only the text and the policy (Addendum 6, `review/non-person-round4/POLICY.md`) and answered a card id or `NONE` with an exact quote. Agreement with the rules was 98.6% (28 disagreements). Outcome: adopted the reviewers on tabernacle-era 1 Chr 6:31–48 and 9:23, Rimmon (2 Kings 5:18), Isa 15:2, Baruch 3:24 and 6:13, John 2:19 and 2:21, Hos 8:1, Amos 8:3, Mic 1:2 and 1:7, Ps 11:4 and 18:6 (with 2 Sam 22:7 for consistency); changed 2 Chr 36:7 to linked (reviewers unanimous); kept 2 Thess 2:4 and Rev 11:1–2 unlinked (reviewers split; documented). After the changes the package was rebuilt and re-verified (independent structural check 0 errors; app verifier all mentions resolve, 0 snapshot problems, all four editions). Reviewers are Claude sessions; a human spot check of the temple ranges is advisable.

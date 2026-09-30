@@ -5,11 +5,11 @@ The live `bible.v1.json` (main fe699e90, contentVersion `2026-09-24.1`) carries 
 |  | kjv-en | web-en |
 |---|---|---|
 | Old links | 1,444 | 1,437 |
-| Kept, identical span and card | 1298 | 1297 |
-| Kept, same card, span changed (widened/narrowed) | 34 | 29 |
-| Same place, **different card** (identity correction) | 55 | 56 |
-| **Removed** (not a reference to that card) | 57 | 55 |
-| New links in the package | 11,241 | 11,332 |
+| Kept, identical span and card | 1263 | 1270 |
+| Kept, same card, span changed (widened/narrowed) | 69 | 54 |
+| Same place, **different card** (identity correction) | 56 | 56 |
+| **Removed** (not a reference to that card) | 56 | 57 |
+| New links in the package | 23,369 | 23,315 |
 
 About 90% of the old links stand exactly as they were. The rest were wrong or imprecise and fall into these groups.
 
@@ -46,6 +46,7 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | Acts 21:18 | `james-zebedee` | `james-the-just` | James | kjv-en, web-en |
 | Acts 5:1 | `ananias-of-damascus` | `ananias-and-sapphira` | Ananias | kjv-en, web-en |
 | Acts 5:5 | `ananias-of-damascus` | `ananias-and-sapphira` | Ananias | kjv-en, web-en |
+| Exodus 23:19 | `the-temple` | `god-the-lord` | the house of the LORD | kjv-en |
 | Genesis 34:7 | `jacob` | `israel-the-people` | Israel | kjv-en |
 | Genesis 36:31 | `jacob` | `israel-the-people` | Israel | web-en |
 | Genesis 47:27 | `jacob` | `israel-the-people` | Israel | web-en |
@@ -145,16 +146,17 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | Numbers 26:46 | `sarah` | Sarah | kjv-en |
 | Revelation 2:20 | `jezebel` | Jezebel | kjv-en, web-en |
 
-**not the referent (animal / building / other emperor or cohort)** (7)
+**not the referent (animal / building / other emperor or cohort)** (8)
 
 | Reference | Was | Text | Editions |
 |---|---|---|---|
+| 1 Samuel 1:9 | `the-temple` | the temple | web-en |
 | Acts 25:21 | `caesar-augustus` | Augustus | kjv-en |
 | Acts 25:25 | `caesar-augustus` | Augustus | kjv-en |
 | Acts 27:1 | `caesar-augustus` | Augustus | kjv-en |
-| Exodus 23:19 | `the-temple` | the house of the LORD | kjv-en |
 | Ezra 5:14 | `the-temple` | the temple | web-en |
 | Genesis 49:17 | `serpent-eden` | serpent | kjv-en, web-en |
+| Revelation 16:17 | `the-temple` | the temple | web-en |
 | Revelation 21:22 | `the-temple` | the temple | kjv-en |
 
 **city / tower / house / dynasty of David** (5)
