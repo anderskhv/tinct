@@ -29,3 +29,29 @@ PASS on Prelude + chapters 1–12 (reading-unit indices 1–13), using the uncha
 ## Handoff / remaining work
 
 Session A's assigned rendering is complete. Modern-en whole book: NOT READY. Resume whole-book rendering at Chapter 13 (Book II: Old and Young); chapters 13–86 and Finale are outside session A. Assemble the complete modern edition only after all parts exist, then run the whole-book gate and editorial acceptance review. No integration or publication performed. Only session A's Middlemarch content/source/status/gate files were changed.
+
+## Session mm-c2 — DONE
+
+- Branch: `content/middlemarch-codex-mm-c2`, based on `origin/content/middlemarch-codex-a` (`ac68bd58c55e88ff1bf361404c7b037ff4818535`).
+- Owned content: `parts/modern-en.mm-c2.json` only; this STATUS entry is the requested handoff. Other sessions’ files untouched.
+- Chapters 38–40 complete: 66 / 64 / 95 paragraphs (225 total), original numbers and titles, empty sections, epigraphs preserved verbatim. Committed original used directly; no source re-parsing.
+- Workflow skimmed: `books/BOOK-TASK-WORKFLOW.md` at the branch baseline.
+- One read-only gate run, using absolute-path temporary excerpts of the committed original and exact candidate bytes. Reading-unit indices 1–3 correspond to real chapters 38–40. Structural alignment and epigraph checks pass.
+- Candidate SHA-256: `b34661e7576cab890e80d1c1e9998a1ee67d79b62f2709d73aa921e145357a9e`.
+- Gate command: `python3 /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/middlemarch-mm-c2/books/classify-modern-en.py /var/folders/zx/rn3bhrf971d2xfn4_915v7dr0000gn/T/middlemarch-mm-c2-gate-dikepkjz/mm-c2 --gate --chapters 1-3 --per-chapter`.
+
+```text
+ch    1  sim 0.523  REAL        Book IV: Three Love Problems — Chapter XXXVIII
+  ch    2  sim 0.478  REAL-HEAVY  Book IV: Three Love Problems — Chapter XXXIX
+  ch    3  sim 0.488  REAL-HEAVY  Book IV: Three Love Problems — Chapter XL
+/var/folders/zx/rn3bhrf971d2xfn4_915v7dr0000gn/T/middlemarch-mm-c2-gate-dikepkjz/mm-c2 original-en -> modern-en  (3 chapters)
+  weighted similarity : 0.493   (gate: <= 0.75)
+  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)
+  identical long paras: 5/207 = 2.4%   (gate: <= 5%)
+  buckets: REAL-HEAVY 2  REAL 1  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+```
+
+- No mm-c2 work remains. Whole-book assembly and integration remain outside this session; no publication performed.
