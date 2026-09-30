@@ -309,16 +309,20 @@ ${body}
 `
 }
 
+/**
+ * Live-reader deep link for a chapter and edition. The reader validates the
+ * book and edition and opens exactly this chapter (see readerHandoffFromUrlParams).
+ */
+function readerChapterHref(bookId, chapter, editionKey) {
+  return `/reader?book=${bookId}&amp;edition=${editionKey}&amp;chapter=${chapter}`
+}
+
 function buildBookIndexPage(book, edition) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
   const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
-  const readerHref = ['faust-part-1', 'jerusalem'].includes(book.id)
-    ? `/read/${book.id}?chapter=1&edition=${editionKey}`
-    : book.id === 'to-the-lighthouse'
-      ? `/read/${book.id}?chapter=1&edition=modern-en&compare=original-en`
-      : `/read/${book.id}?chapter=1&edition=original-en&compare=modern-en&split=1`
+  const readerHref = readerChapterHref(book.id, 1, editionKey)
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
@@ -387,7 +391,7 @@ function buildGeneratedChapterPage(book, edition, chapter, index) {
   <p class="kicker">Chapter ${number}</p>
   <h1>${escapeHtml(chapterTitle)}</h1>
   <p class="dek">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
-  <a class="cta" href="/read/${book.id}?chapter=${number}">Open this chapter in Tinct</a>
+  <a class="cta" href="${readerChapterHref(book.id, number, path.basename(edition.file).slice(book.id.length + 1, -5))}">Open this chapter in Tinct</a>
   <article>
   ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
   </article>

@@ -296,6 +296,21 @@ describe('worker SEO routing', () => {
     expect(signedIn.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
   })
 
+  it('opens the live reader on the named chapter and edition from a legacy /read/{book}?chapter= link', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/read/odyssey?chapter=4&edition=modern-en&compare=original-en&split=1'), routerEnv() as never, ctx)
+    expect(resp.status).toBe(302)
+    expect(resp.headers.get('Location')).toBe('/reader?book=odyssey&edition=modern-en&chapter=4')
+    const noEdition = await worker.fetch(new Request('https://tinct.app/read/odyssey?chapter=2'), routerEnv() as never, ctx)
+    expect(noEdition.headers.get('Location')).toBe('/reader?book=odyssey&chapter=2')
+    const bad = await worker.fetch(new Request('https://tinct.app/read/odyssey?chapter=x'), routerEnv() as never, ctx)
+    expect(bad.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
+  })
+
+  it('serves /reader?book=&edition=&chapter= as the reader without redirecting', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/reader?book=odyssey&edition=modern-en&chapter=4'), routerEnv() as never, ctx)
+    expect(resp.status).toBe(200)
+  })
+
   it('serves the reader as a noindex surface', async () => {
     const reader = await worker.fetch(new Request('https://tinct.app/reader?layout=phone'), routerEnv() as never, ctx)
     expect(reader.status).toBe(200)

@@ -187,6 +187,8 @@ if [ -n "$CSS_FILE" ]; then
     pass "CSS loads (200)"
   else
     fail "CSS returned $CSS_STATUS"
+    # Headers of the miss (which edge, cache status) for diagnosing it.
+    curl -sI "$URL$CSS_FILE" 2>/dev/null | grep -iE '^(HTTP|cf-ray|cf-cache-status|age|cache-control|server|content-type)' | sed 's/^/    /'
   fi
 else
   fail "CSS file not found in HTML"

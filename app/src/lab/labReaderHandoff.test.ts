@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoff, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, readerHandoffFromUrlParams } from './labReaderHandoff'
 import { DEFAULT_LAB_PREFS } from './labPrefs'
 
 function storageWith(value: unknown) {
@@ -112,4 +112,34 @@ it('retains an explicit audiobook when returning to a saved book without a new a
   const prefs = prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, audioEdition: 'original-en', audioFollowsPrimary: false }, handoff)
   expect(prefs).toMatchObject({ primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false })
   expect(handoff?.savedPlace).toMatchObject({ chapterNumber: 2, paragraphIndex: 1 })
+})
+
+describe('Reader URL deep link (/reader?book=&edition=&chapter=)', () => {
+  const link = (query: string) => readerHandoffFromUrlParams(new URLSearchParams(query))
+
+  it('opens the named chapter and edition, starting at that chapter even over a saved place', () => {
+    expect(link('book=odyssey&edition=modern-en&chapter=3')).toMatchObject({
+      bookId: 'odyssey',
+      primaryEditionKey: 'modern-en',
+      startAtSavedPlace: true,
+      savedPlace: { bookId: 'odyssey', chapterNumber: 3, paragraphIndex: 0 },
+    })
+  })
+
+  it('defaults the edition to original-en', () => {
+    expect(link('book=odyssey&chapter=1')).toMatchObject({ primaryEditionKey: 'original-en' })
+  })
+
+  it('is not a handoff without a chapter, so saved positions are never overridden', () => {
+    expect(link('book=odyssey&edition=original-en')).toBeNull()
+  })
+
+  it('rejects unknown books, editions and malformed chapters', () => {
+    expect(link('book=nope&chapter=1')).toBeNull()
+    expect(link('book=odyssey&edition=nope&chapter=1')).toMatchObject({ primaryEditionKey: 'original-en', savedPlace: { chapterNumber: 1 } })
+    expect(link('book=odyssey&chapter=0')).toBeNull()
+    expect(link('book=odyssey&chapter=abc')).toBeNull()
+    expect(link('chapter=2')).toBeNull()
+    expect(readerHandoffFromUrlParams(null)).toBeNull()
+  })
 })
