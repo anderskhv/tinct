@@ -34,7 +34,7 @@ function openTalk(authToken: string | null = null) {
 it('lets a direct voice resume command finish before closing the call successfully', async () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('{}', { status: 404 })))
   vi.stubGlobal('navigator', { ...navigator, mediaDevices: { getUserMedia: () => new Promise(() => {}) } })
-  openTalk()
+  openTalk('reader-token')
   await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
 
   // A transcript is evidence of what was said, not a second command handler.
@@ -130,7 +130,8 @@ it('gives Talk the Grok contract: reference data apart from the prompt, and the 
   expect(names).not.toContain('ask_companion')
   const resume = (options.tools as Array<{ name: string; parameters: { required?: string[] } }>).find(tool => tool.name === 'resume_audiobook')!
   expect(resume.parameters.required).toEqual(['play_audio'])
-  expect(options.labGuest).toBe(true)
+  // Voice sessions require sign-in: the signed-out route is never used.
+  expect(options.labGuest).toBe(false)
 })
 
 it('carries the Explain quote and its explanation into Talk as reference data', async () => {

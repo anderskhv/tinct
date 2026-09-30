@@ -41,6 +41,28 @@ describe('chat upstream failure handling', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2)
   })
 
+  it.each([
+    [402, { error: { type: 'api_error', message: 'Payment required' } }],
+    [400, { error: { type: 'invalid_request_error', message: 'Your credit balance is too low to access the API.' } }],
+  ])('answers a provider budget error %i with the resting state, without retrying', async (status, body) => {
+    const fetchMock = vi.fn().mockResolvedValue(Response.json(body, { status }))
+    vi.stubGlobal('fetch', fetchMock)
+    const response = await fetchChatUpstream('key', {})
+    expect(response.status).toBe(503)
+    expect(await response.json()).toEqual({ type: 'error', error: { type: 'ai_resting', message: 'AI is resting — try again later.' } })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('answers a provider rate limit that outlasts the retry with the resting state', async () => {
+    const fetchMock = vi.fn().mockImplementation(async () => Response.json({ error: { type: 'rate_limit_error', message: 'x' } }, { status: 429 }))
+    vi.stubGlobal('fetch', fetchMock)
+    const promise = fetchChatUpstream('key', {})
+    await vi.advanceTimersByTimeAsync(350)
+    const response = await promise
+    expect(response.status).toBe(503)
+    expect(await response.json()).toMatchObject({ error: { type: 'ai_resting' } })
+  })
+
   it.each([400, 401, 403, 404, 413])('does not retry non-transient %i or expose credentials', async status => {
     const fetchMock = vi.fn().mockResolvedValue(Response.json({ error: { type: 'authentication_error', message: 'secret credential details' } }, { status }))
     vi.stubGlobal('fetch', fetchMock)

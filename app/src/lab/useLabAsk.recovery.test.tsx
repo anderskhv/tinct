@@ -2,6 +2,9 @@
 import { act, cleanup, renderHook } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { useLabAsk, type UseLabAskOptions } from './useLabAsk'
+import { LAB_COPY } from './labCopy'
+import { isAiRestingError } from './labCompanion'
+import { COMPANION_MAX_TOKENS, buildCompanionSystem, companionBookRef, companionSelectionMessage, parseCompanionRequest } from '../companion/companionRequest'
 
 const { trackEvent } = vi.hoisted(() => ({ trackEvent: vi.fn() }))
 
@@ -125,13 +128,19 @@ it('explains a selected passage without adding it to chat history', async () => 
 
   expect(answer).toContain('Jeremiah 49')
   expect(result.current.turns).toHaveLength(before)
-  const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { messages: Array<{ content: string }>; book?: { bookId?: string; editionKey?: string } }
-  expect(request.messages[0].content).toContain('<selected_passage>\nThe selected words.\n</selected_passage>')
-  expect(request.messages[0].content).toContain('without using knowledge from later in the work')
+  const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { companion: unknown; system?: string; messages?: unknown }
+  // Structured only: the Worker builds the prompt and the question.
+  expect(request.system).toBeUndefined()
+  expect(request.messages).toBeUndefined()
+  const parsed = parseCompanionRequest(request.companion)!
+  expect(parsed.intent).toBe('explain')
+  const question = companionSelectionMessage(parsed)!
+  expect(question).toContain('<selected_passage>\nThe selected words.\n</selected_passage>')
+  expect(question).toContain('without using knowledge from later in the work')
   // The selection's edition names the text; Explain streams without book lookups.
-  expect(JSON.stringify(request)).toContain('World English Bible')
-  expect(request.book).toBeUndefined()
-  expect(JSON.stringify(request)).not.toContain('read_chapter')
+  expect(buildCompanionSystem(parsed)).toContain('World English Bible')
+  expect(companionBookRef(parsed)).toBeNull()
+  expect(buildCompanionSystem(parsed)).not.toContain('read_chapter')
 })
 
 it('does not clear a new draft when retrying an earlier failed turn', async () => {
@@ -219,7 +228,7 @@ it('sends the successor edition when the reader still holds a withdrawn one', as
 
   await act(async () => { await result.current.sendTyped('recap this chapter') })
   const body = JSON.parse(fetcher.mock.calls[0][1].body)
-  expect(body.book).toMatchObject({ bookId: 'bible', editionKey: 'web-en', chapterNumber: 794 })
+  expect(companionBookRef(parseCompanionRequest(body.companion)!)).toMatchObject({ bookId: 'bible', editionKey: 'web-en', chapterNumber: 794 })
   expect(JSON.stringify(body)).not.toContain('modern-en')
 })
 
@@ -319,8 +328,9 @@ it('drops a speculative explanation nobody opened and keeps one the reader did',
   act(() => result.current.discardSpeculativeExplanation())
   await expect(opened).resolves.toBeTruthy()
   expect(fetcher).toHaveBeenCalledTimes(2)
-  expect(JSON.parse(fetcher.mock.calls[1][1].body).max_tokens).toBe(450)
-  expect(JSON.parse(fetcher.mock.calls[1][1].body).messages[0].content).toContain('at most 25 words')
+  const parsed = parseCompanionRequest(JSON.parse(fetcher.mock.calls[1][1].body).companion)!
+  expect(COMPANION_MAX_TOKENS[parsed.intent]).toBe(450)
+  expect(companionSelectionMessage(parsed)).toContain('at most 25 words')
 })
 
 it('records a displayed explanation once and sends it as context for the next question', async () => {
@@ -349,4 +359,20 @@ it('requests a fresh explanation after remount', async () => {
   const second = renderHook(() => useLabAsk(base))
   await act(async () => { await second.result.current.explainSelection(input, vi.fn()) })
   expect(fetcher).toHaveBeenCalledTimes(2)
+})
+
+it('shows the calm resting message when the AI ceiling or a provider limit is reached', async () => {
+  const resting = () => new Response(JSON.stringify({ type: 'error', error: { type: 'ai_resting', message: 'AI is resting — try again later.' } }), { status: 503, headers: { 'Content-Type': 'application/json' } })
+  const fetcher = vi.fn().mockImplementation(async () => resting())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('Who speaks here?') })
+  expect(result.current.notice).toBe(LAB_COPY.aiResting)
+  expect(fetcher).toHaveBeenCalledTimes(1)
+  let caught: unknown
+  await act(async () => {
+    await result.current.explainSelection({ text: 'The selected words.', editionKey: 'web-en', paragraphs: base.paragraphs, paragraphIndex: 0 }, vi.fn()).catch(error => { caught = error })
+  })
+  expect(isAiRestingError(caught)).toBe(true)
+  expect((caught as Error).message).toBe(LAB_COPY.aiResting)
 })

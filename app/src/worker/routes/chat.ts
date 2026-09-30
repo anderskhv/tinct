@@ -14,6 +14,18 @@ import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
 import { searchReadingSources } from './voiceResearch'
+import {
+  COMPANION_INTENT_EFFORT,
+  COMPANION_MAX_TOKENS,
+  buildCompanionSystem,
+  companionBookRef,
+  companionSelectionMessage,
+  companionTrailChapters,
+  parseCompanionRequest,
+  type CompanionRequest,
+} from '../../companion/companionRequest'
+import type { LibraryCatalogue } from '../../lab/libraryLibrarian'
+import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -79,6 +91,8 @@ type ParsedChatBody = {
   book?: unknown
   /** Recently visited chapters; only their numbers are used, to order find_in_book. */
   readingTrail?: unknown
+  /** Structured reader context; the Worker builds the prompt from it (see companionRequest.ts). */
+  companion?: unknown
 }
 
 type SafeMessage = { role: 'user' | 'assistant'; content: string }
@@ -663,13 +677,42 @@ function labGuestIp(request: Request): string {
     || 'lab-guest'
 }
 
+/**
+ * Signed-out companion. Only structured requests are accepted, so every
+ * system prompt is built here; each call reserves against the daily ceiling
+ * for signed-out AI first and is refused, calmly, when it is spent.
+ */
 export async function handleLabChat(
   request: Request,
   env: ChatEnv,
   ctx: ExecutionContext,
   checkRateLimit: CheckRateLimit,
+  reserveGuestSpend?: ReserveGuestSpend,
 ): Promise<Response> {
-  return handleChat(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true })
+  return handleChat(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true, reserveGuestSpend })
+}
+
+const CATALOGUE_PATH = '/lab/catalogue.json'
+const CATALOGUE_TTL_MS = 5 * 60_000
+let catalogueCache: { at: number; catalogue: LibraryCatalogue } | null = null
+
+export function resetLibraryCatalogueCacheForTest(): void {
+  catalogueCache = null
+}
+
+async function loadLibraryCatalogue(env: ChatEnv, request: Request): Promise<LibraryCatalogue | null> {
+  if (catalogueCache && Date.now() - catalogueCache.at < CATALOGUE_TTL_MS) return catalogueCache.catalogue
+  if (!env.ASSETS) return null
+  try {
+    const response = await env.ASSETS.fetch(new Request(new URL(CATALOGUE_PATH, new URL(request.url).origin)))
+    if (!response.ok) return null
+    const catalogue = await response.json() as LibraryCatalogue
+    if (!catalogue || !Array.isArray(catalogue.books)) return null
+    catalogueCache = { at: Date.now(), catalogue }
+    return catalogue
+  } catch {
+    return null
+  }
 }
 
 export async function handleChat(
@@ -678,7 +721,7 @@ export async function handleChat(
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   checkRateLimit: CheckRateLimit,
-  options?: { allowLabGuest?: boolean },
+  options?: { allowLabGuest?: boolean; reserveGuestSpend?: ReserveGuestSpend },
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
@@ -740,14 +783,36 @@ export async function handleChat(
     const body = parsedBody.body
     if (typeof body !== 'object' || body === null) return jsonResponse({ error: 'Invalid request body' }, 400, request)
 
-    // Validate input
-    const systemResult = validateSystemParam(body.system)
-    if (systemResult.error) return jsonResponse({ error: systemResult.error }, 400, request)
-    const system = systemResult.system
-    const messages = Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
-    const maxTokens = Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
+    // Structured requests: the Worker builds the prompt, the output bound and
+    // the effort. Signed-out callers may send nothing else. A signed-in
+    // caller may still send a validated system prompt (recap summaries).
+    let companion: CompanionRequest | null = null
+    if (body.companion !== undefined || allowLabGuest) {
+      companion = parseCompanionRequest(body.companion)
+      if (!companion) return jsonResponse({ error: 'Invalid companion request' }, 400, request)
+    }
+    let system: AnthropicSystemParam
+    if (companion) {
+      let catalogue: LibraryCatalogue | null = null
+      if (companion.intent === 'library') {
+        catalogue = await loadLibraryCatalogue(env, request)
+        if (!catalogue) return jsonResponse({ error: 'Service unavailable' }, 503, request)
+      }
+      system = buildCompanionSystem(companion, { catalogue }).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
+    } else {
+      const systemResult = validateSystemParam(body.system)
+      if (systemResult.error) return jsonResponse({ error: systemResult.error }, 400, request)
+      system = systemResult.system
+    }
+    const selectionMessage = companion ? companionSelectionMessage(companion) : null
+    const messages = selectionMessage !== null
+      ? [{ role: 'user', content: selectionMessage }]
+      : Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
+    const maxTokens = companion
+      ? COMPANION_MAX_TOKENS[companion.intent]
+      : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
     const stream = body.stream === true
-    const effort = parseCompanionEffort(body.effort)
+    const effort = companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
 
     // Validate message structure and truncate per-message to the cap.
     // Long histories accumulate over a session; rather than reject the whole
@@ -768,17 +833,29 @@ export async function handleChat(
       }
     }
 
-    // Book-grounded path: the client named the open book, so the model may
-    // read other chapters. Only the lab reader sends `book`; the production
-    // reader's requests take the plain path below unchanged.
-    const book: BookRef | null = parseBookRef(body.book)
+    // Book-grounded path: the open book is named, so the model may read
+    // other chapters. Structured requests derive it from their context.
+    const book: BookRef | null = parseBookRef(companion ? companionBookRef(companion) : body.book)
+    const trailChapters = companion ? companionTrailChapters(companion) : parseReadingTrailChapters(body.readingTrail)
+
+    if (allowLabGuest) {
+      const systemChars = typeof system === 'string' ? system.length : system.reduce((sum, block) => sum + block.text.length, 0)
+      const estimate = estimateAiCostMicros({
+        inputChars: systemChars + safeMessages.reduce((sum, message) => sum + message.content.length, 0),
+        maxTokens,
+        tools: Boolean(book && env.ASSETS),
+      })
+      const reserved = options?.reserveGuestSpend ? await options.reserveGuestSpend(estimate) : false
+      if (!reserved) return jsonResponse(aiRestingBody(), 503, request)
+    }
+
     if (book && env.ASSETS) {
       timing.path = 'book_grounded'
       timing.contextReadyMs = Date.now() - timing.startedAt
       return await handleBookGroundedChat({
         request, env, ctx, apiKey, book, system, safeMessages, maxTokens, stream, effort, charge,
         timing,
-        trailChapters: parseReadingTrailChapters(body.readingTrail),
+        trailChapters,
         researchKey: userId ? env.OPENAI_API_KEY : undefined,
         researchGate: userId && env.OPENAI_API_KEY
           ? () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6)

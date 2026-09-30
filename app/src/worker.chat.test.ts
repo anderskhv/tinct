@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
-import { handleChat, handleLabChat, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS } from './worker/routes/chat'
+import { handleChat, handleLabChat as handleLabChatRoute, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS } from './worker/routes/chat'
 import { CHAT_STREAM_IDLE_MS } from './worker/lib/chatUpstream'
 
 const userId = '11111111-1111-4111-8111-111111111111'
@@ -29,6 +29,32 @@ function chatRequest(body: unknown, init: RequestInit = {}) {
     headers: { 'content-type': 'application/json', ...(init.headers || {}) },
     ...init,
   })
+}
+
+const allowSpend = vi.fn(async () => true)
+
+/** Signed-out requests are structured: the Worker builds the prompt from reader context. */
+function guestBody(body: Record<string, unknown>) {
+  const { system: _system, book, readingTrail, ...rest } = body as { system?: unknown; book?: { bookId: string; editionKey: string; chapterNumber?: number }; readingTrail?: unknown[] }
+  return {
+    ...rest,
+    companion: {
+      intent: 'ask',
+      context: {
+        bookTitle: 'The Bible', bookAuthor: 'Various', chapterLabel: 'Jeremiah 37', paragraphs: ['Zedekiah the king.'], paragraphIndex: 0,
+        ...(book ? { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber } : {}),
+        ...(readingTrail ? { readingTrail } : {}),
+      },
+    },
+  }
+}
+
+function labChatRequest(body: Record<string, unknown>, init: RequestInit = {}) {
+  return chatRequest(guestBody(body), init)
+}
+
+function handleLabChat(request: Request, routeEnv: Parameters<typeof handleLabChatRoute>[1], ctx: ExecutionContext, rateLimit: Parameters<typeof handleLabChatRoute>[3], reserve: (units: number) => Promise<boolean> = allowSpend) {
+  return handleLabChatRoute(request, routeEnv, ctx, rateLimit, reserve)
 }
 
 describe('chat route', () => {
@@ -203,7 +229,7 @@ describe('chat route', () => {
     const { ctx, waitUntil } = makeExecutionContext()
 
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Who wrote Romans?' }] }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Who wrote Romans?' }] }),
       { ANTHROPIC_API_KEY: 'anthropic-key' },
       ctx,
       rateLimit,
@@ -257,7 +283,7 @@ describe('chat route', () => {
     const { ctx, waitUntil } = makeExecutionContext()
 
     const response = await handleLabChat(
-      chatRequest({
+      labChatRequest({
         stream: true,
         messages: [{ role: 'user', content: 'Who is Athena here?' }],
       }),
@@ -403,7 +429,7 @@ describe('book-grounded lab chat', () => {
     const { ctx, waitUntil } = makeExecutionContext()
 
     const response = await handleLabChat(
-      chatRequest({
+      labChatRequest({
         system: 'You are the companion.',
         messages: [{ role: 'user', content: 'How did Jeremiah get out of prison?' }],
         book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
@@ -421,7 +447,11 @@ describe('book-grounded lab chat', () => {
     expect(bodies).toHaveLength(2)
     const tools = (bodies[0].tools as Array<{ name: string }>).map(tool => tool.name)
     expect(tools).toEqual(['read_chapter', 'find_in_book'])
-    expect(bodies[0].system).toEqual([{ type: 'text', text: 'You are the companion.', cache_control: { type: 'ephemeral' } }])
+    const system = bodies[0].system as Array<{ type: string; text: string; cache_control: unknown }>
+    expect(system).toHaveLength(1)
+    expect(system[0].text).toContain("You are Tinct's reading companion")
+    expect(system[0].text).not.toContain('You are the companion.')
+    expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
     const second = bodies[1].messages as Array<{ role: string; content: unknown }>
     expect(second).toHaveLength(3)
     expect(second[1]).toEqual({ role: 'assistant', content: [{ type: 'tool_use', id: 'toolu_1', name: 'read_chapter', input: { chapter: 'Jeremiah 32' } }] })
@@ -542,7 +572,7 @@ describe('book-grounded lab chat', () => {
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Who is the king?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Who is the king?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
@@ -569,7 +599,7 @@ describe('book-grounded lab chat', () => {
     }))
     const { ctx } = makeExecutionContext()
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Earlier?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Earlier?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
@@ -595,7 +625,7 @@ describe('book-grounded lab chat', () => {
     }))
     const { ctx } = makeExecutionContext()
     const response = await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'Keep looking.' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'Keep looking.' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
@@ -719,7 +749,7 @@ describe('book-grounded lab chat', () => {
     })
     vi.stubGlobal('fetch', vi.fn(async () => new Response(stream, { headers: { 'content-type': 'text/event-stream' } })))
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true,
+    const response = await handleLabChat(labChatRequest({ stream: true,
       messages: [{ role: 'user', content: 'Where is Jeremiah held?' }],
       book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -754,7 +784,7 @@ describe('book-grounded lab chat', () => {
     ], 'end_turn'))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: false,
+    const response = await handleLabChat(labChatRequest({ stream: false,
       messages: [{ role: 'user', content: 'Where is that passage?' }],
       book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -775,20 +805,18 @@ describe('book-grounded lab chat', () => {
     }))
     const { ctx } = makeExecutionContext()
     await handleLabChat(
-      chatRequest({ messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'Bad Id!', editionKey: 'kjv-en' } }),
+      labChatRequest({ messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'Bad Id!', editionKey: 'kjv-en' } }),
       { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
       ctx,
       async () => true,
     )
     expect(bodies[0].tools).toBeUndefined()
-    await handleLabChat(
-      chatRequest({ system: 'x'.repeat(40_000), messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'bible', editionKey: 'kjv-en' } }),
-      { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets },
-      ctx,
-      async () => true,
-    )
+    const huge = guestBody({ messages: [{ role: 'user', content: 'hi' }], book: { bookId: 'bible', editionKey: 'kjv-en' } })
+    huge.companion.context.paragraphs = Array.from({ length: 20 }, () => 'x'.repeat(19_000))
+    await handleLabChat(chatRequest(huge), { ANTHROPIC_API_KEY: 'anthropic-key', ASSETS: assets }, ctx, async () => true)
     const system = bodies[1].system as Array<{ text: string; cache_control: unknown }>
-    expect(system[0].text).toHaveLength(MAX_SYSTEM_PROMPT_LENGTH)
+    expect(system[0].text.length).toBeLessThanOrEqual(MAX_SYSTEM_PROMPT_LENGTH)
+    expect(system[0].text).toContain('[…chapter continues]')
     expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
   })
 })
@@ -805,7 +833,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     const fetchMock = vi.fn().mockRejectedValue(new Error('private upstream failure'))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({
+    const response = await handleLabChat(labChatRequest({
       stream: true, messages: [{ role: 'user', content: 'private reader question' }],
       ...(book ? { book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } } : {}),
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -825,7 +853,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     const fetchMock = vi.fn().mockResolvedValue(response)
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
-    const result = await handleLabChat(chatRequest({ stream: true,
+    const result = await handleLabChat(labChatRequest({ stream: true,
       messages: [{ role: 'user', content: 'question' }],
       ...(book ? { book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 } } : {}),
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
@@ -849,7 +877,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
       sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Unfinished' } }),
     ])))
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
+    const response = await handleLabChat(labChatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
     const text = await response.text()
     await Promise.all(pending)
     expect(text).toContain('Unfinished')
@@ -883,7 +911,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
     const cancel = vi.fn()
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(new ReadableStream({ cancel }))))
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
+    const response = await handleLabChat(labChatRequest({ stream: true, messages: [{ role: 'user', content: 'hi' }] }), { ANTHROPIC_API_KEY: 'key' }, ctx, async () => true)
     const text = response.text()
     await vi.advanceTimersByTimeAsync(CHAT_STREAM_IDLE_MS)
     expect(await text).toContain('upstream_timeout')
@@ -904,7 +932,7 @@ describe('chat failure diagnostics and interrupted answers', () => {
       .mockResolvedValueOnce(Response.json({ error: { type: 'overloaded_error' } }, { status: 529 }))
     vi.stubGlobal('fetch', fetchMock)
     const { ctx, pending } = makeExecutionContext()
-    const response = await handleLabChat(chatRequest({ stream: true,
+    const response = await handleLabChat(labChatRequest({ stream: true,
       messages: [{ role: 'user', content: 'check' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
     }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
     const text = await response.text()

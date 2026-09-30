@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { parseContextualLookup, type ContextualLookup } from './contextualLookup'
+import { isAiRestingError } from '../../lab/labCompanion'
+import { LAB_COPY } from '../../lab/labCopy'
 
 /** An unknown name is resolved in its passage before falling back to a lexical
  * definition. Late answers never replace a newer selection. */
@@ -20,10 +22,11 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions }: {
       const result = parseContextualLookup(text)
       if (!result) throw new Error('Empty or invalid lookup')
       if (active) { setAnswer(result); setStatus('ready') }
-    }).catch(() => { if (active) setStatus('error') })
+    }).catch((error) => { if (active) setStatus(isAiRestingError(error) ? 'resting' : 'error') })
     return () => { active = false }
   }, [word, attempt])
   if (status === 'loading') return <div className="popup-define-status" role="status">Looking up…</div>
+  if (status === 'resting') return <div className="popup-define-status">{LAB_COPY.aiResting}</div>
   if (status === 'error') return <div className="popup-define-status">Lookup unavailable. <button type="button" onClick={() => setAttempt(value => value + 1)}>Try again</button></div>
   if (answer?.kind === 'person') return <div className="popup-character" data-testid="popup-contextual-character">
     <small>At this passage</small>

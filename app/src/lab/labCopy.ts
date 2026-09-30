@@ -65,6 +65,8 @@ export const LAB_COPY = {
   signInAsk: 'Sign in to ask about this page.',
   balanceEmpty: 'Your AI chat balance is empty. Top up to continue.',
   askUnavailable: 'Ask is unavailable right now.',
+  /** A daily ceiling or a provider limit was reached; reading is unaffected. */
+  aiResting: 'AI is resting — try again later.',
   offlineCast: 'You can read this introduction now. Ask needs a connection.',
   markAction: 'Keep this passage',
   labNote: 'Private lab for the new reading chrome.',

@@ -23,7 +23,9 @@
     "NARRATION_PILOT": "1",
     "NARRATION_PROVIDER": "grok",
     "NARRATION_DAILY_BYTES": "2000000",
-    "NARRATION_MONTHLY_BYTES": "10000000"
+    "NARRATION_MONTHLY_BYTES": "10000000",
+    // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
+    "GUEST_AI_DAILY_CENTS": "500"
   },
   "kv_namespaces": [
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }
@@ -31,8 +33,8 @@
   "r2_buckets": [
     { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" }
   ],
-  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }] },
-  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }],
+  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }, { "name": "USAGE_COORDINATOR", "class_name": "UsageCoordinator" }] },
+  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }, { "tag": "usage-coordinator-v1", "new_sqlite_classes": ["UsageCoordinator"] }],
   "triggers": {
     "crons": ["0 9 * * *"]
   }

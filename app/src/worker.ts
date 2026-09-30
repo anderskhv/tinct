@@ -9,6 +9,9 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
  */
 
 import { handleOptions, jsonResponse } from './worker/lib/responses'
+import { createRateLimiter } from './worker/lib/rateLimit'
+import { createGuestSpendReserver } from './worker/lib/aiSpend'
+import type { UsageCoordinator } from './worker/usageCoordinator'
 import { isValidUUID } from './worker/lib/security'
 import { supabaseGet } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
@@ -51,6 +54,10 @@ import {
 interface Env {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
+  /** Atomic rate-limit windows and the daily ceiling for signed-out AI. */
+  USAGE_COORDINATOR?: DurableObjectNamespace<UsageCoordinator>
+  /** Whole US cents per UTC day for signed-out AI; see lib/aiSpend.ts. */
+  GUEST_AI_DAILY_CENTS?: string
   ANTHROPIC_API_KEY: string
   OPENAI_API_KEY?: string
   XAI_API_KEY?: string
@@ -76,37 +83,6 @@ interface Env {
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
   ASSETS: { fetch: (request: Request) => Promise<Response> }
-}
-
-// ===== Rate Limiting (KV-backed, persistent across cold starts) =====
-
-const RATE_LIMIT_WINDOW_SECONDS = 60
-const RATE_LIMIT_MAX = 10
-
-async function checkRateLimit(key: string, kv?: KVNamespace, maxRequests = RATE_LIMIT_MAX): Promise<boolean> {
-  if (!kv) return true // Graceful degradation if KV not configured
-
-  try {
-    const kvKey = `rl:${key}`
-    const entry = await kv.get<{ count: number; resetAt: number }>(kvKey, 'json')
-    const now = Date.now()
-
-    if (!entry || now > entry.resetAt) {
-      await kv.put(kvKey, JSON.stringify({ count: 1, resetAt: now + RATE_LIMIT_WINDOW_SECONDS * 1000 }), {
-        expirationTtl: RATE_LIMIT_WINDOW_SECONDS * 2,
-      })
-      return true
-    }
-
-    if (entry.count >= maxRequests) return false
-
-    await kv.put(kvKey, JSON.stringify({ count: entry.count + 1, resetAt: entry.resetAt }), {
-      expirationTtl: Math.max(1, Math.ceil((entry.resetAt - now) / 1000) + 1),
-    })
-    return true
-  } catch {
-    return true // If KV fails, allow the request (fail open — quota check is the real guard)
-  }
 }
 
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
@@ -171,6 +147,10 @@ export default {
     const indexNowResponse = handleIndexNowVerification(request, env)
     if (indexNowResponse) return indexNowResponse
 
+    // Atomic and fail-closed (see lib/rateLimit.ts).
+    const checkRateLimit = createRateLimiter(env)
+    const reserveGuestSpend = createGuestSpendReserver(env)
+
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     }
@@ -178,14 +158,14 @@ export default {
     switch (url.pathname) {
       case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
-      case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit)
+      case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
-      case '/api/lab-voice-session': return handleLabVoiceSession(request, env, ctx, checkRateLimit)
+      case '/api/lab-voice-session': return handleLabVoiceSession(request)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
       case '/api/recap-preparation': return handleRecapPreparation(request, env, verifyUser)
-      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { prepared: async target => {
+      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { reserveGuestSpend, prepared: async target => {
         if (!env.RECAP_PREPARATION) return null
         const user = await verifyUser(env, request)
         return user && isValidUUID(user.id) ? env.RECAP_PREPARATION.getByName(user.id).lookup(target) : null
@@ -196,7 +176,7 @@ export default {
       case '/api/create-portal': return handleCreatePortal(request, env, verifyUser)
       case '/api/cancel-subscription': return handleCancelSubscription(request, env, verifyUser)
       case '/api/subscription-info': return handleSubscriptionInfo(request, env, verifyUser)
-      case '/api/report-issue': return handleReportIssue(request, env, ctx, verifyUser, sendEmail)
+      case '/api/report-issue': return handleReportIssue(request, env, ctx, verifyUser, sendEmail, { checkRateLimit, reserveGuestSpend })
       case '/api/report-status': return handleReportStatus(request, env)
       case '/api/approve-fix': return handleApproveFix(request, env, {
         fetchParagraphContext,
