@@ -9,16 +9,25 @@ Validated Gutenberg 145 Title/Author. Complete original: Prelude + 86 chapters +
 
 Modern-en: NOT READY. Session A owns Prelude and chapters 1–12 in `parts/modern-en.mm-a.json`; rendering begins next. No other session files edited. Nothing published.
 
-## Session mm-d — checkpoint 2026-09-30
+## Session mm-d — DONE 2026-09-30
 
 Branch: `content/middlemarch-codex-mm-d`.
-Base: `content/middlemarch-codex-a` at `d67f0de0906b674e0a66487a54776676ad88a567`, after its STATUS.md declared ORIGINAL READY.
 Owned edition file: `books/wip/middlemarch/parts/modern-en.mm-d.json`.
 
-Chapters 41–48 COMPLETE in modern English: 8 chapters, 354 paragraphs. Original chapter numbers, titles, paragraph counts, epigraphs, and empty sections preserved. SOURCE.md confirms the numbering; assignment remains chapters 41–54. No other session's content edited.
+Chapters 41–54 COMPLETE: 14 chapters, 712 paragraphs. This continuation appended chapters 49–54 (358 paragraphs: 34, 53, 51, 86, 61, 73). Chapters 41–48 are unchanged against the starting commit. Same schema, real chapter numbers, exact source titles and paragraph counts preserved. New chapter epigraphs retained verbatim, including the three-paragraph Dante epigraph in chapter 54. No placeholders or source-copy body paragraphs. No other session files edited.
 
-GATE PASS: existing `books/classify-modern-en.py`, unmodified, using an absolute temporary book prefix with baseline and target slices for completed chapters. Temporary fixtures removed after the read-only gate. Weighted similarity 0.465; LIGHT/MECHANICAL 0/8; identical long paragraphs 0/316; wrapped scaffolding 0; truncated quotations 0. Additional schema, number, title, nonempty paragraph, and per-chapter paragraph-count checks passed. Gate display positions 1–8 correspond to real chapters 41–48.
+GATE PASS, run once for 49–54 and once for the whole part 41–54 using the existing unmodified `books/classify-modern-en.py --gate --per-chapter` with absolute temporary book prefixes and matching original/modern slices. Temporary fixtures removed automatically.
 
-Candidate SHA-256: `3bb193c7450f82793813250d93537a0605f13269872d269b0f98db37ce6aa811`.
+| Range | Weighted similarity | LIGHT/MECHANICAL | Identical long paragraphs | Wrapped scaffolding | Truncated quotations |
+|---|---:|---:|---:|---:|---:|
+| 49–54 | 0.496 | 0/6 | 7/323 (2.2%) | 0 | 0 |
+| 41–54 | 0.480 | 0/14 | 7/639 (1.1%) | 0 | 0 |
 
-TOKEN-LIMIT CHECKPOINT: stopped at the end of chapter 48 with the gate passing, before the normal 10–12-chapter batch size. RESUME AT CHAPTER 49; chapters 49–54 remain unwritten. No placeholders or source copies stand in for unfinished chapters. No onboarding, characters, taxonomy, integration, or publication performed.
+Gate display positions 1–6 correspond to chapters 49–54; positions 1–14 in the whole-part run correspond to chapters 41–54. The identical long paragraphs are preserved epigraphs.
+
+JSON/schema, chapter sequence, titles, nonempty paragraphs, paragraph alignment, epigraph preservation, and unchanged 41–48 checks passed. Reviewed all 14 new-paragraph word-count flags below 75% against their source: sentence-level compression, with the corresponding actions, arguments and details retained; no omitted content identified.
+
+Candidate SHA-256: `bdaa1ae55aad5a299190c2107dd5bbf6ac5ad1b7bff3266282451ecc86e5eec8`.
+Instruction reference: remote main `8a6cd1b220c4734386dc77d4b5f7ca179c0a09dd`; this user's explicit Codex content assignment controls authorship and scope.
+
+No resume point remains for mm-d. Content branch only; no onboarding, characters, taxonomy, integration, narration or publication performed.
