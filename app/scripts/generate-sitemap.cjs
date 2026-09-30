@@ -112,6 +112,10 @@ function chapterCount(bookId) {
   }
 }
 
+// Mirrors MACHINE_MADE_ORIGINALS in src/data/editionDefaults.ts: labelled
+// "original" but machine-made, so never the edition a static page shows.
+const MACHINE_MADE_ORIGINALS = new Set(['fear-and-trembling/original-en'])
+
 function preferredEditionPath(bookId) {
   const candidates = [
     path.join(EDITIONS_DIR, `${bookId}-original-en.json`),
@@ -119,7 +123,8 @@ function preferredEditionPath(bookId) {
     path.join(EDITIONS_DIR, `${bookId}-original-de.json`),
   ]
   const holds = require('../src/data/editionAvailability.json').editions
-  return candidates.find(file => !holds[bookId + '/' + path.basename(file).slice(bookId.length + 1, -5)] && fs.existsSync(file))
+  const key = file => bookId + '/' + path.basename(file).slice(bookId.length + 1, -5)
+  return candidates.find(file => !holds[key(file)] && !MACHINE_MADE_ORIGINALS.has(key(file)) && fs.existsSync(file))
 }
 
 function loadPreferredEdition(bookId) {
@@ -183,8 +188,6 @@ function seoChapterTitle(book, chapterTitle) {
 }
 
 function seoBookDescription(book) {
-  if (book.id === 'faust-part-1') return 'Read Faust Part One in its original German. English and Danish editions are temporarily unavailable pending correction.'
-  if (book.id === 'jerusalem') return 'Read Jerusalem in Velma Swanston Howard’s English translation. Tinct Modern editions are temporarily unavailable pending correction.'
   const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
   if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
   const compact = `Read free, no ads. Modern compare, AI guide, cast, and audio for ${book.title}.`
