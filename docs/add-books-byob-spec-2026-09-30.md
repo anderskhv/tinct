@@ -23,16 +23,43 @@ taxonomy automatically. Curated promotion goes through the normal book workflow.
 
 ## Experience
 
-- **One search.** Library search shows Tinct books first, then a section
-  "Not in Tinct yet — public domain" with an **Add** action.
-- **`tinct.app/addbooks`.** Same catalog search plus an "Upload your EPUB"
-  drop zone. Linked from the empty-search state, settings and marketing.
-- **Edition toggle.** On an "Original text" book the toggle shows
-  "Modern English: not available" (catalog books add the paid offer) rather
-  than disappearing.
-- **Readiness.** Conversion takes seconds; the book appears in the user's
-  library as soon as the structural QA gate passes. Low-scoring books are
-  labelled "may render imperfectly" or fail with a clear message.
+- **Home: My shelf.** The existing My shelf (reading / to read / finished)
+  gains an **Add a book** entry. Added catalog books and personal uploads
+  appear on My shelf alongside curated books, with their class label.
+- **One search.** Library search shows Tinct books first, then
+  "Not in Tinct yet — free to add" with an **Add** action (adds to My shelf).
+- **`tinct.app/addbooks`.** Direct link to the same catalog search plus the
+  "Upload your EPUB" drop zone. Linked from My shelf, the empty-search state
+  and marketing; every work also gets an indexable page for SEO.
+- **Readiness.** Conversion takes seconds; the book appears on My shelf as
+  soon as the structural QA gate passes. Low-scoring books are labelled
+  "may render imperfectly" or fail with a clear message.
+
+## Catalog breadth
+
+Goal: the best place to find free, legally open books. Include every source we
+can ingest legally; one entry per work, with the best available edition chosen
+automatically (Standard Ebooks > Gutenberg > Wikisource > open-access
+publisher file > scan).
+
+| Phase | Sources |
+|---|---|
+| 1 | Standard Ebooks, Project Gutenberg (US) |
+| 2 | Wikisource (whole books only), open-access books (DOAB/OAPEN, Open Textbook Library) |
+| 3 | Internet Archive / HathiTrust public-domain full-view scans, behind the quality gate |
+| 3 | Gutenberg Canada/Australia, Faded Page — region-gated (below) |
+
+Rules per work in the index:
+
+- **Public-domain status per region.** The shared pool shows a work only where
+  it is public domain (at minimum US and EU/life+70). Works public domain in
+  only some countries are hidden elsewhere.
+- **Licence and permissions.** Creative Commons works record their licence:
+  ND = no modern English; NC = no paid modernization or paywalled access.
+- **Quality score** shown to readers ("Clean text" / "Scanned text, may
+  contain errors").
+- Other languages are indexed and labelled; the reader experience stays
+  English-first per the language scope.
 
 ## Catalog import pipeline
 
@@ -61,15 +88,19 @@ per-user cache namespace (the user ID is part of the cache identity), so an
 upload never reuses or supplies recordings for any other account, even when
 the text is identical. Per-user synthesis quota on top of the global ceilings.
 
-## Paid modern English (catalog imports only)
+## Modern English (catalog imports only)
 
+- **Cost passthrough.** The requesting reader pays what generation costs us
+  (measured tokens × current API price), shown before they confirm. No margin.
 - Chapter-parallel generation; chapter 1 ready first, the rest unlocks while
-  reading. Original text is readable immediately.
-- The first paying reader funds a shared, labelled "machine-modernized,
-  unreviewed" edition. Popular books are candidates for full Tinct Edition
-  promotion.
-- Price from measured token counts and current API pricing — not estimated here.
-- Production spend category and pricing need Anders' decision.
+  reading.
+- **Default edition rule.** Until a modern edition exists, the default is the
+  source text (the original, or for translated works the public-domain human
+  translation). When the AI modern edition is complete it becomes the default
+  for that book for everyone; the source text stays one toggle away. Labelled
+  "AI modern English, unreviewed" until promoted through the curated workflow.
+- One paid generation per work: later readers get the shared edition free.
+- Never for personal uploads, or for CC-ND / CC-NC works.
 
 ## Personal uploads — liability posture (not legal advice)
 
@@ -101,8 +132,8 @@ Imported/uploaded books use namespaced IDs (`pd:<gutenbergId>`,
 
 ## Open decisions for Anders
 
-- Catalog sources: Gutenberg only, or also Standard Ebooks / Open Library.
 - Add limits per tier and whether self-add is Premium-only.
-- Modern-English pricing and the production spend category.
+- Whether an unreviewed AI edition should become default before any spot check.
+- Production spend category for passthrough modern English (price = cost, decided).
 - New dependency for EPUB parsing (e.g. JSZip).
 - Storage schema for jobs, user libraries and uploads.
