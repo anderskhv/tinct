@@ -19,7 +19,7 @@ import {
   type LabTheme,
 } from './labPrefs'
 
-export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition'
+export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
 
 /**
  * One height, in pixels, for every layer. Capped against the viewport so a
@@ -113,6 +113,7 @@ export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
   advanced: 'Advanced settings',
   font: 'Font',
   account: 'Account',
+  catchup: 'Catch me up',
 }
 
 /**

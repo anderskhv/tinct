@@ -1,0 +1,154 @@
+/* "Catch me up": a V2 sheet (same surface as the other super-menu layers)
+   holding a vertical timeline. Playfair titles, EB Garamond recaps, Plex Mono
+   chrome. The timeline mirrors the menu icon: small filled dots for what has
+   been read, an open ring for "You are here". */
+
+.lab[data-chrome-version="v2"] .lab-catch-up .lab-catch-up-body {
+  padding: 4px 16px 8px;
+  overscroll-behavior: contain;
+  overflow-anchor: auto;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 4px;
+}
+
+/* The line the dots sit on. */
+.lab[data-chrome-version="v2"] .lab-catch-up-timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  bottom: 14px;
+  width: 1px;
+  background: currentColor;
+  opacity: 0.18;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-here { position: relative; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry {
+  position: relative;
+  /* Long timelines: entries off screen are neither laid out nor painted. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 92px;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry { padding: 0 0 16px 22px; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-dot {
+  position: absolute;
+  /* Inside the entry's own box: content-visibility clips anything outside it. */
+  left: 2px;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-current .lab-catch-up-dot { opacity: 0.85; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-title {
+  margin: 0 0 3px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: inherit;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-text {
+  margin: 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+  color: inherit;
+}
+
+/* Quiet placeholders: three faint lines where the recap will be. */
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder {
+  display: grid;
+  gap: 7px;
+  padding: 5px 0 2px;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder i {
+  display: block;
+  height: 9px;
+  border-radius: 5px;
+  background: currentColor;
+  opacity: 0.08;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder i:nth-child(2) { width: 92%; }
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder i:nth-child(3) { width: 58%; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-retry {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--lab-v2-quiet);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-here {
+  padding: 0 0 2px 22px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 20px;
+  color: var(--lab-v2-quiet);
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-here .lab-catch-up-dot {
+  left: 0;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  background: transparent;
+  border: 1.6px solid currentColor;
+  opacity: 1;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-foot {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(127, 116, 99, 0.18);
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-discuss {
+  min-width: 132px;
+  height: 36px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-ink);
+  color: var(--lab-paper);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder i {
+    animation: lab-catch-up-breathe 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes lab-catch-up-breathe {
+  50% { opacity: 0.14; }
+}
