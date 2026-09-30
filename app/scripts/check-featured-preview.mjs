@@ -45,10 +45,10 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
   if(url.pathname==='/api/featured-preview')return route.fulfill({status:200,contentType:'text/html',body:html})
   if(live)return route.continue()
   if(url.origin!=='https://tinct.app')return route.abort()
-  const p=url.pathname==='/lab/featured'?'/lab/featured/index.html':url.pathname
+  const p=url.pathname==='/featured'?'/lab/featured/index.html':url.pathname
   try{return await route.fulfill({path:path.resolve('dist','.'+p)})}catch{return route.abort()}
  })
- await page.goto('https://tinct.app/lab/featured')
+ await page.goto('https://tinct.app/featured')
  await page.waitForSelector('iframe')
  const frame=page.frames().find(f=>f!==page.mainFrame())
  await frame.waitForSelector('html[data-ready=true]')

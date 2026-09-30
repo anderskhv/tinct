@@ -19,7 +19,7 @@ page.on('pageerror',error=>report.errors.push(error.message))
 await page.route('**/*',async route=>{
   const url=new URL(route.request().url())
   if(!live&&url.origin===origin&&route.request().method()==='GET'){
-    const pathname=['/reader','/lab/phone'].includes(url.pathname)?'/app.html':url.pathname
+    const pathname=['/reader'].includes(url.pathname)?'/app.html':url.pathname
     const filename=path.resolve('dist','.'+pathname)
     if(filename.startsWith(path.resolve('dist')+'/')){
       try{if((await fs.stat(filename)).isFile())return route.fulfill({path:filename})}catch{}

@@ -168,7 +168,7 @@ async function main() {
         shots.push(file)
       }
 
-      await page.goto(`${BASE}/lab/phone?chrome=v2`, { waitUntil: 'domcontentloaded' })
+      await page.goto(`${BASE}/reader?layout=phone`, { waitUntil: 'domcontentloaded' })
       await page.waitForSelector('[data-testid="lab-root"]')
       await page.waitForTimeout(1200)
 

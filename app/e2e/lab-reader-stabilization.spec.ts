@@ -189,7 +189,7 @@ for (const viewport of VIEWPORTS) {
     const context = await readerContext(browser, viewport)
     const page = await context.newPage()
     await seedReader(page, { bookId: 'meditations', primaryEditionKey: 'original-en' })
-    await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+    await page.goto('/reader', { waitUntil: 'networkidle' })
     const root = page.getByTestId('lab-root')
     const cover = page.getByTestId('lab-chapter-cover')
     await expect(root).toHaveAttribute('data-cover-page', 'true')
@@ -244,7 +244,7 @@ test('Left and Justify remain distinct through reader lifecycle transitions', as
       body: JSON.stringify({ paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 30 }] }),
     }))
     await page.route('**/api/audio-file**', route => route.fulfill({ status: 404, body: 'Not found' }))
-    await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+    await page.goto('/reader', { waitUntil: 'networkidle' })
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'war-and-peace')
     const phoneLayout = await page.getByTestId('lab-root').getAttribute('data-lab-layout') === 'phone'
     await expect.poll(() => textAlignments(page)).toEqual(['justify'])
@@ -349,7 +349,7 @@ test('trusted sidecars drive one-word follow while a missing sidecar stays parag
       }
       return route.fulfill({ status: 404, body: 'Not found' })
     })
-    await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+    await page.goto('/reader', { waitUntil: 'networkidle' })
     await page.getByTestId('lab-listen').click()
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-playing', 'true')
 

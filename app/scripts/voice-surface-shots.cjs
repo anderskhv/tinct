@@ -234,7 +234,7 @@ async function phone(browser, theme) {
     await page.screenshot({ path: file })
     results.shots.push(file)
   }
-  await page.goto(`${BASE}/lab/phone?chrome=v2`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=phone`, { waitUntil: 'domcontentloaded' })
   await page.waitForSelector('[data-testid="lab-root"][data-reader-ready="true"]')
   await page.waitForTimeout(900)
   await shot('0-reader')
@@ -297,7 +297,7 @@ async function phoneReducedMotion(browser) {
   })
   await context.addInitScript(STUB)
   const page = await context.newPage()
-  await page.goto(`${BASE}/lab/phone?chrome=v2`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=phone`, { waitUntil: 'domcontentloaded' })
   await page.waitForSelector('[data-testid="lab-root"][data-reader-ready="true"]')
   await page.click('[data-testid="lab-super"]')
   await page.click('[data-testid="lab-super-row-talk"]')
@@ -327,7 +327,7 @@ async function desktop(browser, theme) {
     await page.screenshot({ path: file })
     results.shots.push(file)
   }
-  await page.goto(`${BASE}/lab/desktop?chrome=v2`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=desktop`, { waitUntil: 'domcontentloaded' })
   await page.waitForSelector('[data-testid="lab-root"][data-reader-ready="true"]')
   await page.waitForTimeout(900)
   await shot('0-reader')

@@ -45,7 +45,7 @@ async function putReaderState(page: Page, seed: ReaderSeed): Promise<void> {
 }
 
 async function openReader(page: Page, seed: ReaderSeed): Promise<void> {
-  await page.goto('/lab/reader', { waitUntil: 'domcontentloaded' })
+  await page.goto('/reader', { waitUntil: 'domcontentloaded' })
   await putReaderState(page, seed)
   await page.reload({ waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', seed.bookId)

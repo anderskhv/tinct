@@ -62,24 +62,24 @@ function sendTyped(text: string) {
 describe('LabAccountSheet', () => {
   it('renders the copy, the two sign-in links with the return target, and nothing when closed', () => {
     const onClose = vi.fn()
-    const { rerender } = render(<LabAccountSheet open action="chat" returnTo="/lab/reader?voice=v2" onClose={onClose} />)
+    const { rerender } = render(<LabAccountSheet open action="chat" returnTo="/reader?voice=v2" onClose={onClose} />)
     const sheet = screen.getByTestId('lab-account-sheet')
     expect(sheet.getAttribute('data-action')).toBe('chat')
     expect(screen.getByRole('dialog').getAttribute('aria-labelledby')).toBe('lab-account-title')
     expect(screen.getByText(LAB_COPY.accountEyebrow)).toBeTruthy()
     expect(screen.getByText(LAB_COPY.accountTitle)).toBeTruthy()
     expect(screen.getByText(LAB_COPY.accountBody)).toBeTruthy()
-    expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/lab/sign-in?mode=create&returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+    expect(screen.getByTestId('lab-account-create').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader%3Fvoice%3Dv2')
     expect(screen.getByTestId('lab-account-create').textContent).toBe(LAB_COPY.accountCreate)
-    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/lab/sign-in?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
     expect(screen.getByTestId('lab-account-sign-in').textContent).toBe(LAB_COPY.accountSignIn)
-    rerender(<LabAccountSheet open={false} action="chat" returnTo="/lab/reader" onClose={onClose} />)
+    rerender(<LabAccountSheet open={false} action="chat" returnTo="/reader" onClose={onClose} />)
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
   })
 
   it('dismisses on the close button, the backdrop and Escape, but not on the card', () => {
     const onClose = vi.fn()
-    render(<LabAccountSheet open action="voice" returnTo="/lab/reader" onClose={onClose} desktop />)
+    render(<LabAccountSheet open action="voice" returnTo="/reader" onClose={onClose} desktop />)
     expect(screen.getByTestId('lab-account-sheet').className).toContain('is-desktop-popover')
     fireEvent.click(screen.getByRole('dialog'))
     expect(onClose).not.toHaveBeenCalled()
@@ -106,10 +106,10 @@ it('offers narration sign-in without a retry error or an exhausted chat allowanc
 describe('LabSecondBookNudge', () => {
   it('is one line with a create-account link and a dismiss', () => {
     const onDismiss = vi.fn()
-    render(<LabSecondBookNudge returnTo="/lab/reader" onDismiss={onDismiss} />)
+    render(<LabSecondBookNudge returnTo="/reader" onDismiss={onDismiss} />)
     const nudge = screen.getByTestId('lab-second-book-nudge')
     expect(nudge.textContent).toContain(`${LAB_COPY.secondBookNudge}${LAB_COPY.secondBookNudgeLink}`)
-    expect(screen.getByTestId('lab-second-book-nudge-link').getAttribute('href')).toBe('/lab/sign-in?mode=create&returnTo=%2Flab%2Freader')
+    expect(screen.getByTestId('lab-second-book-nudge-link').getAttribute('href')).toBe('/sign-in?mode=create&returnTo=%2Freader')
     fireEvent.click(screen.getByLabelText(LAB_COPY.secondBookNudgeDismiss))
     expect(onDismiss).toHaveBeenCalledTimes(1)
   })
@@ -137,7 +137,7 @@ describe('lab account prompt in the reader', () => {
     const sheet = await screen.findByTestId('lab-account-sheet')
     expect(sheet.getAttribute('data-action')).toBe('chat')
     expect(screen.getByText(LAB_COPY.accountTitle)).toBeTruthy()
-    expect(screen.getByTestId('lab-account-create').getAttribute('href')).toContain('/lab/sign-in?mode=create&returnTo=')
+    expect(screen.getByTestId('lab-account-create').getAttribute('href')).toContain('/sign-in?mode=create&returnTo=')
     // Not sent: no extra network call, no extra user turn, counter unchanged.
     expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
     expect(screen.getAllByTestId('lab-ask-turn-user')).toHaveLength(LAB_FREE_AI_ACTIONS)

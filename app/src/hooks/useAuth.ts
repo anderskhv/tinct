@@ -1,4 +1,4 @@
-import { labOAuthRedirectTo } from '../lab/labSignInProviders'
+import { LAB_AUTH_CALLBACK_PATH, labOAuthRedirectTo } from '../lab/labSignInProviders'
 import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { authRedirectTo, startNativeOAuth } from '../utils/nativeAuth'
 import { useState, useEffect, useCallback } from 'react'
@@ -155,7 +155,7 @@ export function useAuth(): UseAuthReturn {
       email,
       password,
       options: {
-        emailRedirectTo: await authRedirectTo(supabase, safeLabReturnTo(path + window.location.search + window.location.hash), 'signup', `${window.location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(safeLabReturnTo(path + window.location.search + window.location.hash))}`),
+        emailRedirectTo: await authRedirectTo(supabase, safeLabReturnTo(path + window.location.search + window.location.hash), 'signup', `${window.location.origin}${LAB_AUTH_CALLBACK_PATH}?callback=signup&returnTo=${encodeURIComponent(safeLabReturnTo(path + window.location.search + window.location.hash))}`),
         data: { attribution: getAttributionPayload() },
       },
     })
@@ -203,7 +203,7 @@ export function useAuth(): UseAuthReturn {
   const resetPassword = useCallback(async (email: string) => {
     if (!supabase) return { error: 'Auth not configured' }
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: await authRedirectTo(supabase, safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash), 'reset', `${window.location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash))}`),
+      redirectTo: await authRedirectTo(supabase, safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash), 'reset', `${window.location.origin}${LAB_AUTH_CALLBACK_PATH}?mode=reset&returnTo=${encodeURIComponent(safeLabReturnTo(window.location.pathname + window.location.search + window.location.hash))}`),
     })
     if (error) return { error: error.message }
     return {}

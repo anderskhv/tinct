@@ -175,30 +175,63 @@ describe('worker SEO routing', () => {
     expect(resp.status).not.toBe(301)
   })
 
-  it.each(['/lab', '/lab/', '/lab/landing'])('serves the standalone noindex lab at %s', async (pathname) => {
+  it.each([
+    ['/lab', '/'],
+    ['/lab/', '/'],
+    ['/lab/landing', '/'],
+    ['/lab/index.html', '/'],
+    ['/lab/library', '/library'],
+    ['/lab/library_2', '/library'],
+    ['/lab/library_2/', '/library'],
+    ['/lab/library_2/index.html', '/library'],
+    ['/lab/library-2', '/library'],
+    ['/lab/library-2/', '/library'],
+    ['/lab/reader', '/reader'],
+    ['/lab/phone', '/reader?layout=phone'],
+    ['/lab/desktop/', '/reader?layout=desktop'],
+    ['/lab/sign-in', '/sign-in'],
+    ['/lab/sign-in/', '/sign-in'],
+    ['/lab/sign-in/index.html', '/sign-in'],
+    ['/lab/featured', '/featured'],
+    ['/lab/featured/', '/featured'],
+  ])('redirects the old page URL %s permanently to %s', async (pathname, target) => {
+    for (const method of ['GET', 'HEAD']) {
+      const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`, { method }), routerEnv() as never, ctx)
+      expect(resp.status).toBe(308)
+      expect(resp.headers.get('Location')).toBe(target)
+    }
+  })
+
+  it('keeps the query string when redirecting an old page URL', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/lab/library_2/?book=hamlet&view=book-detail'), routerEnv() as never, ctx)
+    expect(resp.status).toBe(308)
+    expect(resp.headers.get('Location')).toBe('/library?book=hamlet&view=book-detail')
+    const phone = await worker.fetch(new Request('https://tinct.app/lab/phone?chrome=v2&voice=v2'), routerEnv() as never, ctx)
+    expect(phone.headers.get('Location')).toBe('/reader?voice=v2&layout=phone')
+  })
+
+  it('does not redirect asset files under the old folders, and answers unknown /lab pages with 404', async () => {
+    const asset = await worker.fetch(new Request('https://tinct.app/lab/sign-in-runtime.js'), routerEnv() as never, ctx)
+    expect(asset.status).toBe(200)
+    expect(asset.headers.get('Location')).toBeNull()
+    const unknown = await worker.fetch(new Request('https://tinct.app/lab/experiment'), routerEnv() as never, ctx)
+    expect(unknown.status).toBe(404)
+  })
+
+  it.each(['/', '/library', '/library/'])('serves the library at %s with the URL unchanged', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
+    expect(resp.headers.get('Location')).toBeNull()
     expect(resp.headers.get('Cache-Control')).toBe('no-store')
-    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
     const html = await resp.text()
-    expect(html).toContain('id="tinct-onboarding-worlds-v5"')
+    expect(html).toContain('approved cinematic library')
     expect(html).not.toContain('app shell')
   })
 
-  it.each(['/lab/library-2', '/lab/library-2/'])('serves Library 2 at %s without changing the existing Lab entry', async (pathname) => {
+  it.each(['/sign-in', '/sign-in/'])('serves the sign-in page at %s with the URL unchanged', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
-    expect(resp.headers.get('Cache-Control')).toBe('no-store')
-    expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
-    const html = await resp.text()
-    expect(html).toContain('id="tinct-library-2"')
-    expect(html).not.toContain('id="tinct-onboarding-worlds-v5"')
-    expect(html).not.toContain('app shell')
-  })
-
-  it.each(['/lab/sign-in', '/lab/sign-in/'])('serves the real Lab sign-in route at %s', async (pathname) => {
-    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
-    expect(resp.status).toBe(200)
+    expect(resp.headers.get('Location')).toBeNull()
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
     const html = await resp.text()
     expect(html).toContain('id="tinct-lab-sign-in"')
@@ -245,7 +278,7 @@ describe('worker SEO routing', () => {
     expect(source).toMatch(/src="\/lab\/catalogue-runtime\.js\?v=[\w-]+"/)
     expect(source).not.toContain('src="/lab/interaction-runtime.js')
 
-    const resp = await worker.fetch(new Request('https://tinct.app/lab/'), routerEnv() as never, ctx)
+    const resp = await worker.fetch(new Request('https://tinct.app/library'), routerEnv() as never, ctx)
     const csp = resp.headers.get('Content-Security-Policy') || ''
     const scriptDirective = csp.split(';').find(directive => directive.trim().startsWith('script-src')) || ''
     expect(scriptDirective).toContain("script-src 'self'")
@@ -349,30 +382,25 @@ describe('worker SEO routing', () => {
 
     const fromApp = await worker.fetch(new Request('https://tinct.app/read/odyssey?from=app'), env as never, ctx)
     expect(fromApp.status).toBe(302)
-    expect(fromApp.headers.get('Location')).toBe('/lab/?book=odyssey&view=book-detail')
+    expect(fromApp.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
 
     const signedIn = await worker.fetch(new Request('https://tinct.app/read/odyssey', {
       headers: { Cookie: 'tinct_auth=1' },
     }), env as never, ctx)
     expect(signedIn.status).toBe(302)
-    expect(signedIn.headers.get('Location')).toBe('/lab/?book=odyssey&view=book-detail')
+    expect(signedIn.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
   })
 
-  it('serves the standalone /lab entry and nested reader as noindex surfaces', async () => {
-    const lab = await worker.fetch(new Request('https://tinct.app/lab'), routerEnv() as never, ctx)
-    expect(lab.status).toBe(200)
-    expect(lab.headers.get('X-Robots-Tag')).toContain('noindex')
-    expect(lab.headers.get('Cache-Control')).toBe('no-store')
-    const html = await lab.text()
+  it('serves the reader as a noindex surface', async () => {
+    const reader = await worker.fetch(new Request('https://tinct.app/reader?layout=phone'), routerEnv() as never, ctx)
+    expect(reader.status).toBe(200)
+    expect(reader.headers.get('X-Robots-Tag')).toContain('noindex')
+    expect(reader.headers.get('Cache-Control')).toBe('no-store')
+    const html = await reader.text()
     expect(html).toContain('name="robots"')
     expect(html).toContain('noindex')
-    expect(html).toContain('lab shell')
 
-    const nested = await worker.fetch(new Request('https://tinct.app/lab/phone'), routerEnv() as never, ctx)
-    expect(nested.headers.get('X-Robots-Tag')).toContain('noindex')
-    expect(await nested.text()).toContain('name="robots"')
-
-    const head = await worker.fetch(new Request('https://tinct.app/lab', { method: 'HEAD' }), routerEnv() as never, ctx)
+    const head = await worker.fetch(new Request('https://tinct.app/reader', { method: 'HEAD' }), routerEnv() as never, ctx)
     expect(head.headers.get('X-Robots-Tag')).toContain('noindex')
     expect(await head.text()).toBe('')
   })
@@ -395,13 +423,13 @@ describe('worker SEO routing', () => {
   })
 
   it.each([
-    ['/lab/reader?chrome=v2&book=bible&chapter=3&voiceTrial=full', '/reader?book=bible&chapter=3'],
-    ['/app?signin=1', '/lab/sign-in'],
-    ['/lab/library?chrome=v2', '/library'],
-    ['/app?book=ulysses', '/library?book=ulysses&view=book-detail'],
-  ])('preserves public navigation intent from %s', async (path, target) => {
+    ['/lab/reader?chrome=v2&book=bible&chapter=3&voiceTrial=full', '/reader?book=bible&chapter=3', 308],
+    ['/app?signin=1', '/sign-in', 302],
+    ['/lab/library?chrome=v2', '/library', 308],
+    ['/app?book=ulysses', '/library?book=ulysses&view=book-detail', 302],
+  ])('preserves public navigation intent from %s', async (path, target, status) => {
     const response = await worker.fetch(new Request('https://tinct.app' + path), routerEnv() as never, ctx)
-    expect(response.status).toBe(302)
+    expect(response.status).toBe(status)
     expect(response.headers.get('Location')).toBe(target)
   })
 
@@ -412,7 +440,7 @@ describe('worker SEO routing', () => {
     expect(response.headers.get('X-Robots-Tag')).toContain('noindex')
   })
 
-  it.each(['/library', '/reader', '/lab/phone'])('permits only the Omarchy palette endpoint on %s', async (path) => {
+  it.each(['/library', '/reader', '/reader?layout=phone'])('permits only the Omarchy palette endpoint on %s', async (path) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${path}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
     const policy = resp.headers.get('Content-Security-Policy') || ''

@@ -27,15 +27,15 @@ describe('LabSettingsSheet', () => {
     fireEvent.click(screen.getByTestId('lab-settings-account'))
     const link = screen.getByTestId('lab-account-sign-in') as HTMLAnchorElement
     expect(link.getAttribute('href')).toBe(LAB_SIGN_IN_URL)
-    expect(LAB_SIGN_IN_URL).toBe('/lab/sign-in?returnTo=%2Flibrary')
-    expect(LAB_ACCOUNT_URL).toBe('/lab/sign-in?mode=account&returnTo=%2Flibrary')
+    expect(LAB_SIGN_IN_URL).toBe('/sign-in?returnTo=%2Flibrary')
+    expect(LAB_ACCOUNT_URL).toBe('/sign-in?mode=account&returnTo=%2Flibrary')
     expect(screen.queryByTestId('lab-account-manage')).toBeNull()
   })
 
   it('sends the sign-in link back to the current reader path when one is given', () => {
-    render(<LabSettingsSheet open section="reading" onSection={() => {}} onClose={() => {}} prefs={DEFAULT_LAB_PREFS} onPrefs={() => {}} editions={[]} audioEditions={[]} returnTo="/lab/desktop?voice=v2" />)
+    render(<LabSettingsSheet open section="reading" onSection={() => {}} onClose={() => {}} prefs={DEFAULT_LAB_PREFS} onPrefs={() => {}} editions={[]} audioEditions={[]} returnTo="/reader?voice=v2" />)
     fireEvent.click(screen.getByTestId('lab-settings-account'))
-    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/lab/sign-in?returnTo=%2Flab%2Fdesktop%3Fvoice%3Dv2')
+    expect(screen.getByTestId('lab-account-sign-in').getAttribute('href')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
   })
 })
 

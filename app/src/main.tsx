@@ -41,7 +41,7 @@ const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
 const Root = isLabPath(pathname) ? LabApp : App
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
-if (pathname === '/reader' || pathname === '/lab/phone' || pathname === '/lab/reader') {
+if (pathname === '/reader') {
   startReaderLoadTrace()
   warmLibraryPreview()
 }

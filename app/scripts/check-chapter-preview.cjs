@@ -36,7 +36,7 @@ for(const config of configs){
   if(process.env.READER_BUILT==='1')await p.route('**/*',async r=>{
    const u=new URL(r.request().url())
    if(u.origin===origin){
-    const name=['/reader','/lab/phone','/lab/desktop'].includes(u.pathname)?'/app.html':u.pathname
+    const name=['/reader'].includes(u.pathname)?'/app.html':u.pathname
     const file=path.resolve('dist','.'+name),root=path.resolve('dist')+'/'
     if(file.startsWith(root)&&fs.existsSync(file)&&fs.statSync(file).isFile())return r.fulfill({path:file})
     return r.abort()

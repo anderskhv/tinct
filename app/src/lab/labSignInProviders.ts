@@ -77,13 +77,22 @@ export function labOAuthErrorMessage(provider: LabOAuthProvider, message?: strin
 }
 
 /**
+ * The path Supabase is told to return to after an OAuth, email-confirmation or
+ * password-reset round trip. Supabase only honours redirect URLs on its
+ * dashboard allow-list, which lists this path. Readers never stay on it: the
+ * Worker answers it with a permanent redirect to `/sign-in`, keeping the query
+ * and fragment. Switch to `/sign-in` once that URL is on the allow-list.
+ */
+export const LAB_AUTH_CALLBACK_PATH = '/lab/sign-in'
+
+/**
  * Where the provider round-trip comes back to: the same lab sign-in page,
  * carrying the reader's already-validated `returnTo` — identical to what the
  * Google button has always done, so every provider lands the reader back
  * where they were.
  */
 export function labOAuthRedirectTo(origin: string, returnTo: string): string {
-  return `${origin}/lab/sign-in?callback=oauth&returnTo=${encodeURIComponent(returnTo)}`
+  return `${origin}${LAB_AUTH_CALLBACK_PATH}?callback=oauth&returnTo=${encodeURIComponent(returnTo)}`
 }
 
 /** Which provider a round-trip was started for, remembered across the redirect. */

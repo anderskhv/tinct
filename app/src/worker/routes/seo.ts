@@ -1,7 +1,7 @@
 import { libraryEntryPath } from './libraryTwoRelease'
 import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
-import { isLabPath } from '../../lab/labRoute'
+import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
 
 export type SeoEnv = {
@@ -230,19 +230,15 @@ function isLabPathname(pathname: string): boolean {
   return isLabPath(pathname)
 }
 
+// Public page URL -> the static asset page that answers it. The address bar
+// keeps the public URL; the asset folder is never a navigation target.
 const LAB_PRE_READER_PATHS = new Map([
-  ['/lab/featured', '/lab/featured/'],
-  ['/lab/featured/', '/lab/featured/'],
+  ['/featured', '/lab/featured/'],
+  ['/featured/', '/lab/featured/'],
   ['/library', '/lab/'],
   ['/library/', '/lab/'],
-  ['/lab', '/lab/'],
-  ['/lab/', '/lab/'],
-  ['/lab/landing', '/lab/'],
-  ['/lab/library', '/lab/'],
-  ['/lab/library-2', '/lab/library-2/'],
-  ['/lab/library-2/', '/lab/library-2/'],
-  ['/lab/sign-in', '/lab/sign-in/'],
-  ['/lab/sign-in/', '/lab/sign-in/'],
+  ['/sign-in', '/lab/sign-in/'],
+  ['/sign-in/', '/lab/sign-in/'],
 ])
 
 function isLabStaticAssetPath(pathname: string): boolean {
@@ -336,7 +332,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   // A temporary availability page preserves old links and content assets.
   // Run before static/cached SEO pages; raw data stays available for recovery.
   const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
-  const queryBook = ['/', '/library', '/lab', '/lab/', '/lab/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const queryBook = ['/', '/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
   const holdBook = queryBook || publicBook
   const germanBookLanding = /^\/(?:read\/)?faust-part-1\/?$/.test(url.pathname) && !url.search
   const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' || germanBookLanding ? 'original-de' : 'original-en')
@@ -482,14 +478,16 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     if (request.method === 'GET' || request.method === 'HEAD') {
+      // Old /lab page URLs: permanent redirects to the canonical page. Only
+      // exact page URLs match, so asset files under /lab/ are still served.
+      const legacyTarget = legacyLabPageRedirect(url.pathname, url.search)
+      if (legacyTarget) {
+        return new Response(null, { status: 308, headers: { Location: legacyTarget, 'Cache-Control': 'public, max-age=3600' } })
+      }
       const destination = new URL(url.toString())
-      if (url.pathname === '/lab/reader' && url.searchParams.get('chrome') === 'v2') {
-        destination.pathname = '/reader'
-      } else if (url.pathname === '/lab/library') {
-        destination.pathname = '/library'
-      } else if (url.pathname === '/app') {
+      if (url.pathname === '/app') {
         if (url.searchParams.has('signin')) {
-          destination.pathname = '/lab/sign-in'
+          destination.pathname = '/sign-in'
           destination.searchParams.delete('signin')
         } else {
           destination.pathname = '/library'
@@ -505,12 +503,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
-    // Standalone design handoff; isolate its files from the reader SPA.
-    if ((request.method === 'GET' || request.method === 'HEAD') &&
-        (url.pathname === '/lab/library_2' || url.pathname.startsWith('/lab/library_2/'))) {
-      const assetUrl = new URL(url.toString())
-      if (url.pathname === '/lab/library_2') assetUrl.pathname = '/lab/library_2/'
-      const response = await env.ASSETS.fetch(new Request(assetUrl, request))
+    // The library's own files (scripts, styles, covers); isolate them from the reader SPA.
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname.startsWith('/lab/library_2/')) {
+      const response = await env.ASSETS.fetch(request)
       const result = new Response(response.body, response)
       result.headers.set('X-Robots-Tag', 'noindex, noarchive')
       if ((response.headers.get('Content-Type') || '').includes('text/html')) {
@@ -519,8 +514,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return result
     }
 
-    // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
-    // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
+    // The catalogue-backed library, sign-in and featured preview pages are
+    // static assets answered at their public URL. The reader SPA is /reader.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
       const entryPath = /^\/library\/?$/.test(url.pathname) ? libraryEntryPath(request.headers.get('Cookie')) : LAB_PRE_READER_PATHS.get(url.pathname)!
       const labResp = await serveLabPreReader(request.method, url, env, entryPath)
@@ -616,7 +611,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         if (staticBookResp) return staticBookResp
       }
       if ((url.search || hasAuthCookie) && (BOOK_META[bookId] || GENERATED_BOOK_META[bookId])) {
-        const target = new URL('/lab/', url.origin)
+        const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
         target.searchParams.set('view', 'book-detail')
         return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
@@ -671,7 +666,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Unknown-path handling. This used to be an SPA fallback that answered any
     // unmatched URL with the React shell and a 200, which meant a typo or an
     // old link served a different product and told crawlers the page existed.
-    // Every public entry (/, /library, /reader, /read, /read/{bookId}, /lab/*,
+    // Every public entry (/, /library, /reader, /sign-in, /read, /read/{bookId},
     // /admin/metrics, static pages) is matched above, so anything reaching here
     // really is missing: answer with the branded 404 page and a 404 status.
     // CRITICAL: /assets/* must 404 cleanly, not fall through to HTML.

@@ -20,7 +20,7 @@ async function routeBuiltApp(page, delayEnglish) {
     if (/\/assets\/en-us-[^/]+\.js$/.test(url.pathname)) await delayEnglish()
     if (live) return route.continue()
     if (url.origin !== origin) return route.continue()
-    const pathname = ['/reader', '/lab/phone', '/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname
+    const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname
     const filename = path.resolve('dist', `.${pathname}`)
     if (!filename.startsWith(`${path.resolve('dist')}/`)) return route.abort()
     try {

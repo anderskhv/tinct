@@ -62,7 +62,7 @@ await page.addInitScript(({ persona }) => {
 }, { persona })
 
 try {
-  await page.goto(origin + '/lab/phone?chrome=v2', { waitUntil: 'domcontentloaded' })
+  await page.goto(origin + '/reader?layout=phone', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45_000 })
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-talk').click()

@@ -4,7 +4,7 @@ async function main(){const results=[];for(const [desktop,chapter] of [[false,77
  const p=await b.newPage({serviceWorkers:'block',viewport:desktop?{width:1440,height:950}:{width:360,height:640},isMobile:!desktop,hasTouch:!desktop});const requests=[]; p.setDefaultTimeout(15000);p.on('pageerror',e=>console.error(e.message))
  await p.route('**/api/{chat,lab-chat}',async route=>{requests.push(route.request().postDataJSON());await route.fulfill({contentType:'application/json',body:JSON.stringify({content:[{text:'The chapter closes with its final invitation and blessing.'}]})})})
  await p.addInitScript(chapter=>{sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',compareEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:chapter,paragraphIndex:0,page:0}}))},chapter)
- await p.goto(origin+'/lab/phone'); // Requirement: verify the production phone entry point too.
+ await p.goto(origin+'/reader?layout=phone'); // Requirement: verify the production phone entry point too.
  if(!desktop) { await p.getByTestId('lab-book').waitFor(); await p.screenshot({path:path.join(dir,'lab-phone-entry.png')}) }
  await p.goto(origin+'/reader')
  await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(700)

@@ -73,7 +73,7 @@ async function seedCompareReader(context: BrowserContext): Promise<void> {
 }
 
 async function openReader(page: Page): Promise<void> {
-  await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+  await page.goto('/reader', { waitUntil: 'networkidle' })
   const root = page.getByTestId('lab-root')
   await expect(root).toHaveAttribute('data-book-id', 'bible')
   await expect(root).toHaveAttribute('data-reader-ready', 'true')

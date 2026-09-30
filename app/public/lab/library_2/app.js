@@ -72,7 +72,7 @@ async function openFeatured(){if(window.__library2Reading?.reading.some(b=>b.boo
 $('hero-book').onclick=$('read-featured').onclick=openFeatured;
 addEventListener('library2:reading',updateHeroAction);
 // Signed in: Account; signed out: Sign in. Both go to the production account page and come back here.
-{const signedIn=document.documentElement.classList.contains('signed-in');$('sign-in').textContent=signedIn?'Account':'Sign in';$('sign-in').onclick=()=>location.assign(`/lab/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/lab/library_2/')}`);}
+{const signedIn=document.documentElement.classList.contains('signed-in');$('sign-in').textContent=signedIn?'Account':'Sign in';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/library')}`);}
 $('header').querySelector('.logo').onclick=e=>{e.preventDefault();if(activeBook)closeBook();else selectCollection('home');};
 addEventListener('scroll',()=>$('header').classList.toggle('scrolled',scrollY>20),{passive:true});
 

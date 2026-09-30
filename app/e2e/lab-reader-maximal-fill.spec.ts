@@ -84,7 +84,7 @@ async function waitForSettledText(page: Page): Promise<string> {
 }
 
 async function openReader(page: Page, seed: ReaderSeed): Promise<string> {
-  await page.goto('/lab/reader', { waitUntil: 'domcontentloaded' })
+  await page.goto('/reader', { waitUntil: 'domcontentloaded' })
   await putReaderState(page, seed)
   await page.reload({ waitUntil: 'domcontentloaded' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', seed.bookId)

@@ -109,7 +109,7 @@ export type LabLayoutHint = 'phone' | 'desktop' | null
  *    two-column spread is the layout an open book has.
  *
  * `isLabPhoneSurface` still forces the phone surface for an iPhone user
- * agent, a touch screen at most 430px wide, and a `/lab/phone` override.
+ * agent, a touch screen at most 430px wide, and a `/reader?layout=phone` override.
  */
 export const LAB_PHONE_QUERY = '(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))'
 

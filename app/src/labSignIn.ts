@@ -12,6 +12,7 @@ import {
   labOAuthReturnError,
   withoutOAuthReturnParams,
   type LabOAuthProvider,
+  LAB_AUTH_CALLBACK_PATH,
 } from './lab/labSignInProviders'
 import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
 import { wipeLabDeviceUserData } from './lab/labSignOut'
@@ -110,7 +111,7 @@ async function submitAuth(event: SubmitEvent) {
     } else if (mode === 'create') {
       const { data, error } = await supabase.auth.signUp({
         ...values,
-        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}/lab/sign-in?callback=signup&returnTo=${encodeURIComponent(returnTo)}`) },
+        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}${LAB_AUTH_CALLBACK_PATH}?callback=signup&returnTo=${encodeURIComponent(returnTo)}`) },
       })
       if (error) throw error
       if (data.session) {
@@ -120,7 +121,7 @@ async function submitAuth(event: SubmitEvent) {
       }
     } else if (mode === 'forgot') {
       const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-        redirectTo: await authRedirectTo(supabase, returnTo, 'reset', `${location.origin}/lab/sign-in?mode=reset&returnTo=${encodeURIComponent(returnTo)}`),
+        redirectTo: await authRedirectTo(supabase, returnTo, 'reset', `${location.origin}${LAB_AUTH_CALLBACK_PATH}?mode=reset&returnTo=${encodeURIComponent(returnTo)}`),
       })
       if (error) throw error
       setStatus('Password reset link sent. Check your email.', 'success')
