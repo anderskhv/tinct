@@ -19,3 +19,12 @@ Chapters 13–22 rendered: 10 chapters, 549 paragraphs, original chapter numbers
 Absolute-path gate: PASS, using temporary paired editions containing only the rendered range and the unchanged `books/classify-modern-en.py`. Gate display indices 1–10 map to real chapters 13–22. Weighted similarity 0.514; light/mechanical 0/10; identical long paragraphs 0/489; wrapped scaffolding 0; truncated quotations 0. Separate assertions passed for schema, chapter numbers, titles, paragraph counts, and nonempty strings.
 Candidate SHA-256: `89619b57b464690b2cd5a9adc8b5c7aa757bec7f76ed7b900cea302794f2c273`.
 This is a partial content checkpoint, not a publication or complete-assignment claim.
+
+## Session mm-b — COMPLETE — 2026-09-30
+
+Completed assigned real chapters **13–26**, 14 chapters and **723 paragraphs**, in `books/wip/middlemarch/parts/modern-en.mm-b.json`. Chapter numbers, source titles, paragraph order and counts preserved; epigraphs rendered in their original paragraph positions. No remaining mm-b chapters; no resume point required.
+
+Final absolute-path gate over the complete mm-b range: **GATE PASS**. Temporary paired editions only; unchanged repository classifier. Its display indices 1–14 correspond to actual chapters 13–26. Weighted similarity **0.508**; REAL 9; REAL-HEAVY 5; LIGHT/MECHANICAL 0/14; identical long paragraphs 0/642; wrapped scaffolding 0; truncated quotations 0. Schema, exact range, titles, counts, and nonempty paragraph assertions passed. Chapter word-count ratios range 0.819–0.934 of source.
+
+Accepted candidate SHA-256: `c3cbad1c8c608751bae1dfb808b1a669dd7a6e6d036e9080bcc7b565f740d1f4`.
+First gate checkpoint commit: `ec4251d` (chapters 13–22). Final checkpoint adds chapters 23–26. Only the mm-b part and this required status update are included in mm-b commits. Other sessions' content and original source remain unchanged. Ready for assembly with the other session parts and the complete-book gate; not published.
