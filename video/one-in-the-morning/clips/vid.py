@@ -9,6 +9,7 @@ def gen(name, image, prompt, duration=6, model='grok-imagine-video-1.5', resolut
     r = call('https://api.x.ai/v1/videos/generations', {'model': model, 'prompt': prompt, 'image': {'url': 'data:image/jpeg;base64,' + b64},
              'duration': duration, 'aspect_ratio': '16:9', 'resolution': resolution})
     print('submitted', r); rid = r.get('request_id') or r.get('id')
+    open(name + '.rid', 'w').write(rid)
     while True:
         time.sleep(8); s = call(f'https://api.x.ai/v1/videos/{rid}')
         st = s.get('status'); print(st, {k: v for k, v in s.items() if k not in ('video',)} if st != 'pending' else '')
