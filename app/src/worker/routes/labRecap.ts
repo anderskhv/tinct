@@ -29,8 +29,9 @@ import {
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { jsonResponse } from '../lib/responses'
+import { createAiMeter, requestGuestKey, type LedgerEnv } from '../lib/aiUsage'
 
-export type LabRecapEnv = {
+export type LabRecapEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
   RATE_LIMIT?: KVNamespace
   ASSETS?: AssetsBinding
@@ -52,6 +53,8 @@ export interface LabRecapDeps {
   createRetrieval?: typeof createBookRetrieval
   /** Daily ceiling for signed-out AI. Absent = refused (fail closed). */
   reserveGuestSpend?: ReserveGuestSpend
+  /** Who to bill in the cost ledger when the request carries a session. Runs in the background write. */
+  resolveUser?: (request: Request) => Promise<string | null>
 }
 
 export const RECAP_MAX_TOKENS = 300
@@ -242,6 +245,10 @@ export async function handleLabRecap(
   const content = userMessage({ parsed, chapter, coverage, passage })
   const estimate = estimateAiCostMicros({ inputChars: RECAP_SYSTEM_PROMPT.length + content.length, maxTokens: RECAP_MAX_TOKENS })
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
+  const meter = createAiMeter(env, ctx, {
+    guest: requestGuestKey(request),
+    resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
+  }, { feature: 'recap', bookId: parsed.bookId, model: COMPANION_MODEL })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
       model: COMPANION_MODEL,
@@ -255,6 +262,7 @@ export async function handleLabRecap(
       return jsonResponse({ error: 'Summary unavailable' }, 502, request)
     }
     const message = await response.json() as AnthropicMessage
+    meter.anthropic(message.usage)
     const summary = message.stop_reason === 'refusal' ? '' : textOf(message)
     if (!summary) return jsonResponse({ error: 'Summary unavailable' }, 502, request)
     console.log(JSON.stringify({

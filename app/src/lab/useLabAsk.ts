@@ -13,6 +13,7 @@ import { useVoiceSession } from '../hooks/useVoiceSession'
 import { COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { trackEvent } from '../utils/analytics'
+import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import type { TinctVoiceToolAdapter } from '../voice/tinctTools'
 import {
@@ -469,6 +470,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       else setNotice(LAB_COPY.signInVoice)
       return false
     }
+    trackFunnelOnce('ai_first_use', { signed_in: true, feature: 'talk' })
+    trackFunnel('member_ai_use', { feature: 'talk' })
     const request = ++voiceStartRequestRef.current
     voice.unlockAudio()
     setNotice(null)

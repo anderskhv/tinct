@@ -2,9 +2,10 @@ import { GROK_CLIENT_SECRET_TTL_SECONDS, GROK_VOICE_MODEL } from '../../voice/gr
 import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
 import { AI_RESTING_MESSAGE, AI_RESTING_TYPE } from '../lib/aiSpend'
 import { isProviderBudgetError } from '../lib/chatUpstream'
-import { jsonResponse } from '../lib/responses'
+import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
+import { recordAiUsage, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
 
 export type VoiceEnv = SupabaseEnv & {
   /** Grok native speech-to-speech: mints the browser's ephemeral client secret. */
@@ -109,6 +110,8 @@ export async function handleVoiceSession(
     if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
       ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
     }
+    // Cost ledger: the session row. Connected seconds arrive later from /api/voice-usage.
+    recordAiUsage(env as LedgerEnv, ctx, { userId }, { feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds: 0, cost_usd: 0 })
 
     return jsonResponse({
       value: data.value,
@@ -119,4 +122,42 @@ export async function handleVoiceSession(
     logVoiceStartFailure(500, `exception: ${error instanceof Error ? error.message : 'unknown'}`, Boolean(user))
     return jsonResponse({ error: 'Could not start a voice session.' }, 500, request)
   }
+}
+
+/**
+ * The longest a single Talk session can legitimately be billed for. The browser
+ * talks to xAI directly, so connected time is self-reported; a report is capped
+ * here so a bad client cannot inflate the ledger. Provider session limit
+ * UNVERIFIED (the 10-minute client-secret TTL only bounds opening the socket).
+ */
+export const TALK_SESSION_MAX_SECONDS = 1800
+
+/**
+ * POST /api/voice-usage {seconds, bookId?}: the client reports connected Talk
+ * time when a session ends or the page is hidden. Signed-in only. Always 204
+ * for a well-formed report; the ledger write is best effort and never blocks.
+ */
+export async function handleVoiceUsage(
+  request: Request,
+  env: VoiceEnv,
+  ctx: ExecutionContext,
+  verifyUser: VerifyUser,
+  checkRateLimit: CheckRateLimit,
+): Promise<Response> {
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  const user = await verifyUser(env, request)
+  if (!user || !isValidUUID(user.id)) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!await checkRateLimit(`voice-usage:${user.id}`, env.RATE_LIMIT, 30)) return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
+  const contentLength = parseInt(request.headers.get('content-length') || '0', 10)
+  if (contentLength > 1024) return jsonResponse({ error: 'Request too large' }, 413, request)
+  let body: { seconds?: unknown; bookId?: unknown }
+  try { body = await request.json() as typeof body } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
+  const raw = typeof body?.seconds === 'number' ? body.seconds : NaN
+  if (!Number.isFinite(raw) || raw <= 0) return jsonResponse({ error: 'Invalid seconds' }, 400, request)
+  const seconds = Math.min(raw, TALK_SESSION_MAX_SECONDS)
+  const bookId = typeof body.bookId === 'string' && /^[a-z0-9-]{1,64}$/.test(body.bookId) ? body.bookId : null
+  recordAiUsage(env as LedgerEnv, ctx, { userId: user.id }, {
+    feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds, book_id: bookId, cost_usd: talkCostUsd(seconds),
+  })
+  return new Response(null, { status: 204, headers: corsHeaders(request) })
 }

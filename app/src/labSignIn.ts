@@ -17,6 +17,7 @@ import {
 import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
 import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
+import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
 
 type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account' | 'welcome'
@@ -78,14 +79,26 @@ function returnToLibrary() {
   navigateAfterAuth(returnTo)
 }
 
+const SIGNUP_LOGGED_KEY = 'tinct-funnel-signup-logged'
+
+/** signup_completed once per account per device, however the round-trip ends. */
+function trackSignupCompleted(userId: string, method: string) {
+  try {
+    if (localStorage.getItem(SIGNUP_LOGGED_KEY) === userId) return
+    localStorage.setItem(SIGNUP_LOGGED_KEY, userId)
+  } catch { /* private mode: at worst one duplicate */ }
+  trackFunnel('signup_completed', { method })
+}
+
 function completeSignIn(session: Session, newAccount = false) {
+  const method = pendingProvider() ? 'oauth' : 'email'
   reconcileLabDeviceIdentity(session.user.id)
   setSignedInCookie()
   rememberPendingProvider(null)
   const clean = new URL(withoutOAuthReturnParams(location.href), location.origin)
   clean.searchParams.delete('callback')
   history.replaceState(null, '', clean)
-  if (newAccount || isInitialAccountSession(session.user)) setMode('welcome')
+  if (newAccount || isInitialAccountSession(session.user)) { setFunnelToken(session.access_token); trackSignupCompleted(session.user.id, method); setMode('welcome') }
   else returnToLibrary()
 }
 
@@ -109,6 +122,7 @@ async function submitAuth(event: SubmitEvent) {
       if (!data.session) throw new Error('Sign in did not finish. Please try again.')
       completeSignIn(data.session)
     } else if (mode === 'create') {
+      trackFunnel('signup_started', { method: 'email' })
       const { data, error } = await supabase.auth.signUp({
         ...values,
         options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}${LAB_AUTH_CALLBACK_PATH}?callback=signup&returnTo=${encodeURIComponent(returnTo)}`) },
@@ -207,6 +221,7 @@ async function signInWithProvider(button: HTMLElement) {
   setBusy(true)
   setStatus()
   rememberPendingProvider(provider)
+  if (mode === 'create') trackFunnel('signup_started', { method: provider || 'oauth' })
   let failure: unknown = null
   try {
     if (await startNativeOAuth(supabase, provider, returnTo)) { setBusy(false); return }
@@ -299,4 +314,5 @@ async function initialize() {
   }
 }
 
+funnel('sign-in')
 void initialize()

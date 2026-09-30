@@ -37,6 +37,20 @@ export async function supabaseUpdate(env: SupabaseEnv, table: string, id: string
   })
 }
 
+/** Insert one or many rows without asking for them back (cheapest write). */
+export async function supabaseInsertMinimal(env: SupabaseEnv, table: string, data: object) {
+  return fetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'return=minimal',
+    },
+    body: JSON.stringify(data),
+  })
+}
+
 export async function supabaseInsert(env: SupabaseEnv, table: string, data: Record<string, unknown>) {
   return fetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
     method: 'POST',

@@ -12,6 +12,8 @@
  * one place later; nothing reads it to gate anything yet.
  */
 
+import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
+
 /** Device counter of AI actions taken while anonymous. In the `tinct:` namespace `clearLocalUserData` wipes. */
 export const LAB_AI_ACTIONS_KEY = 'tinct:lab-ai-actions'
 /** Set once the second-book nudge has been shown on this device. */
@@ -108,7 +110,18 @@ export function gateLabAiAction(input: { signedIn: boolean; storage?: LabPromptS
   const storage = input.storage === undefined ? browserStorage() : input.storage
   const decision = decideLabAiAction({ signedIn: input.signedIn, storage })
   if (decision.allowed && decision.reason === 'free') recordLabAiAction(storage)
+  trackLabAiGate(decision, input.signedIn)
   return decision
+}
+
+/**
+ * Funnel events for one gated AI turn: the device's first AI use, a member's
+ * use, and an anonymous reader reaching the free allowance. Fire and forget.
+ */
+function trackLabAiGate(decision: LabAiActionDecision, signedIn: boolean): void {
+  if (!decision.allowed) { trackFunnel('anon_limit_reached', { free_actions: LAB_FREE_AI_ACTIONS }); return }
+  trackFunnelOnce('ai_first_use', { signed_in: signedIn })
+  if (signedIn) trackFunnel('member_ai_use')
 }
 
 /** Lab sign-in page URL. The sign-in runtime owns the return-target safety policy. */

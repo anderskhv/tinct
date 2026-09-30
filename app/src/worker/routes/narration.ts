@@ -1,3 +1,4 @@
+import { WARM_GUEST_KEY, narrationCostUsd, recordAiUsage, requestGuestKey, type AiIdentity, type LedgerEnv } from '../lib/aiUsage'
 import { bibleBookTransition } from '../../narration/bookTransition'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { isEditionWithheld } from '../../data/withheldEditions'
@@ -32,7 +33,7 @@ import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokT
  * text, so a changed paragraph simply stops matching and is regenerated.
  */
 
-import { jsonResponse } from '../lib/responses'
+import { corsHeaders, jsonResponse } from '../lib/responses'
 import { supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import {
   DEFAULT_NARRATION_SETTINGS,
@@ -210,9 +211,37 @@ export async function handleNarration(request: Request, env: NarrationEnv, ctx: 
     case 'ensure': return handleEnsure(request, env, ctx, deps, 'reader')
     case 'prepare': return new Response(null, { status: 204 }) // Opening/browsing must never synthesize.
     case 'warm': return handleEnsure(request, env, ctx, deps, 'warm')
+    case 'listen': return handleListen(request, env, ctx, deps)
     case 'usage': return handleUsage(request, env, deps)
     default: return jsonResponse({ error: 'Not found' }, 404, request)
   }
+}
+
+/** The most listening one report may claim: a batch is about a minute of playback. */
+export const NARRATION_LISTEN_MAX_SECONDS = 300
+
+/**
+ * POST /api/narration/listen {bookId, seconds}: the reader reports listened
+ * time in batches, so the ledger shows who listens even when every recording
+ * came from cache. Signed-in readers are billed by account, others by hashed
+ * IP. Always cheap: one rate-limit check and a background ledger write.
+ */
+async function handleListen(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps): Promise<Response> {
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  if (parseInt(request.headers.get('content-length') || '0', 10) > 1024) return jsonResponse({ error: 'Request too large' }, 413, request)
+  let body: { bookId?: unknown; seconds?: unknown }
+  try { body = await request.json() as typeof body } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
+  const raw = typeof body?.seconds === 'number' ? body.seconds : NaN
+  if (!Number.isFinite(raw) || raw <= 0) return jsonResponse({ error: 'Invalid seconds' }, 400, request)
+  const bookId = typeof body.bookId === 'string' && /^[a-z0-9-]{1,64}$/.test(body.bookId) ? body.bookId : null
+  const user = request.headers.get('authorization') ? await deps.verifyUser(env, request) : null
+  const ledger: AiIdentity = user?.id ? { userId: user.id } : { guest: requestGuestKey(request) }
+  if (!await deps.checkRateLimit(`narration-listen:${user?.id ?? requestGuestKey(request)}`, env.RATE_LIMIT, 30)) return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
+  recordAiUsage(env as LedgerEnv, ctx, ledger, {
+    feature: 'narration_listen', provider: 'xai', model: narrationConfig(env).model,
+    seconds: Math.min(raw, NARRATION_LISTEN_MAX_SECONDS), book_id: bookId, cost_usd: 0,
+  })
+  return new Response(null, { status: 204, headers: corsHeaders(request) })
 }
 
 function publicConfig(config: NarrationConfig) {
@@ -930,6 +959,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   }
   let userId: string
   let cacheOnlyGuest = false
+  // Cost ledger owner: the signed-in reader, else the hashed IP key, or "warm".
+  let ledger: AiIdentity = { guest: WARM_GUEST_KEY }
   if (caller === 'warm') {
     userId = 'warm'
   } else {
@@ -942,6 +973,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       return new Response(null, { status: 204 })
     }
     userId = user?.id || `guest:${request.headers.get('cf-connecting-ip') || 'unknown'}`
+    ledger = user?.id ? { userId: user.id } : { guest: requestGuestKey(request) }
   }
 
   let body: EnsureRequestBody
@@ -992,6 +1024,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   let generatedThisRequest = 0
   let generationDone = mode === 'cache' || cacheOnlyGuest
   let preparedDuration = 0
+  let cachedChars = 0
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.
   const usageDelta: UsageCounters = { ...EMPTY_USAGE }
@@ -1031,7 +1064,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       state.ready.forEach(item => countedReady.add(item.index))
       if (preparedDuration >= targetSeconds) generationDone = true
     }
-    if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
+    if (state.ready.length > 0) {
+      bump({ requests: 1, cacheHits: 1 })
+      for (const ready of state.ready) cachedChars += chunks.find(item => item.index === ready.index)?.text.length ?? 0
+    }
     let failure: EnsureParagraphResult | null = null
     const extra: Record<string, unknown> = {}
     let adoptedByProbe = 0
@@ -1139,6 +1175,13 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
             text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
             deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
           })
+        // The provider has billed these characters whether or not validation passes.
+        if (config.provider === 'grok') {
+          recordAiUsage(env as LedgerEnv, ctx, ledger, {
+            feature: 'narration_generate', provider: 'xai', model: config.model, chars: chunk.text.length,
+            cache_hit: false, book_id: bookId, cost_usd: narrationCostUsd(chunk.text.length),
+          })
+        }
         const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
         await recordProviderOutcome(kv, now(), true)
         if (!validation.ok || !validation.timingsUsable) {
@@ -1248,6 +1291,13 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
   }
   if (usageDelta.requests > 0) ctx.waitUntil(addUsage(kv, now(), usageDelta))
+  // One free row per request that served recordings from the cache.
+  if (cachedChars > 0 && caller === 'reader' && config.provider === 'grok') {
+    recordAiUsage(env as LedgerEnv, ctx, ledger, {
+      feature: 'narration_generate', provider: 'xai', model: config.model, chars: cachedChars,
+      cache_hit: true, book_id: bookId, cost_usd: 0,
+    })
+  }
   return jsonResponse({
     bookId, editionKey, chapter, voice: voice.key, model: config.model, mode,
     paragraphs: results,

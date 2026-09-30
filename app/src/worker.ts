@@ -25,9 +25,10 @@ import {
   handleWebhook,
 } from './worker/routes/billing'
 import { handleAdminIssues } from './worker/routes/adminIssues'
+import { handleEvents } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
 import { handleChat, handleLabChat } from './worker/routes/chat'
-import { handleLabVoiceSession, handleVoiceSession } from './worker/routes/voice'
+import { handleLabVoiceSession, handleVoiceSession, handleVoiceUsage } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
 import { handleLabRecap } from './worker/routes/labRecap'
@@ -97,6 +98,15 @@ async function verifyUser(env: Env, request: Request): Promise<{ id: string; ema
   return res.json() as Promise<{ id: string; email: string }>
 }
 
+/** Ledger attribution for routes that accept signed-out callers: resolved in the background write only. */
+function ledgerUser(env: Env) {
+  return async (request: Request): Promise<string | null> => {
+    if (!request.headers.get('authorization')) return null
+    const user = await verifyUser(env, request)
+    return user && isValidUUID(user.id) ? user.id : null
+  }
+}
+
 async function verifySiteAdmin(env: Env, request: Request): Promise<boolean> {
   const user = await verifyUser(env, request)
   if (!user || !isValidUUID(user.id)) return false
@@ -160,21 +170,23 @@ export default {
       case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend)
-      case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit)
+      case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
       case '/api/recap-preparation': return handleRecapPreparation(request, env, verifyUser)
-      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { reserveGuestSpend, prepared: async target => {
+      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env), prepared: async target => {
         if (!env.RECAP_PREPARATION) return null
         const user = await verifyUser(env, request)
         return user && isValidUUID(user.id) ? env.RECAP_PREPARATION.getByName(user.id).lookup(target) : null
       } })
-      case '/api/lab-catch-up': return handleLabCatchUp(request, env, ctx, checkRateLimit, { reserveGuestSpend })
+      case '/api/lab-catch-up': return handleLabCatchUp(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env) })
       case '/api/balance': return handleBalance(request, env, verifyUser)
-      case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser)
-      case '/api/webhook': return handleWebhook(request, env)
+      case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser, ctx)
+      case '/api/webhook': return handleWebhook(request, env, ctx)
       case '/api/create-portal': return handleCreatePortal(request, env, verifyUser)
       case '/api/cancel-subscription': return handleCancelSubscription(request, env, verifyUser)
       case '/api/subscription-info': return handleSubscriptionInfo(request, env, verifyUser)

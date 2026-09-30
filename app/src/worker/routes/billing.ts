@@ -1,5 +1,6 @@
 import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
+import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
 
 type VerifiedUser = { id: string; email: string }
@@ -36,7 +37,7 @@ export async function handleBalance(request: Request, env: BillingEnv, verifyUse
   return jsonResponse(profiles?.[0] || { token_balance_cents: 0, total_tokens_used: 0, messages_used_this_period: 0, message_balance: 0 }, 200, request)
 }
 
-export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser): Promise<Response> {
+export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser, ctx?: ExecutionContext): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
@@ -137,13 +138,14 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     }
     const checkoutUrl = stripeData.url
     if (!checkoutUrl) return jsonResponse({ error: 'Payment processing failed' }, 500, request)
+    recordServerEvent(env, ctx, { name: 'checkout_started', userId: user.id, props: { type: String(body.type).slice(0, 32) } })
     return jsonResponse({ url: checkoutUrl }, 200, request)
   } catch {
     return jsonResponse({ error: 'Payment processing failed' }, 500, request)
   }
 }
 
-export async function handleWebhook(request: Request, env: BillingEnv): Promise<Response> {
+export async function handleWebhook(request: Request, env: BillingEnv, ctx?: ExecutionContext): Promise<Response> {
   if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
   if (!env.STRIPE_WEBHOOK_SECRET || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return Response.json({ error: 'Service unavailable' }, { status: 500 })
@@ -184,6 +186,7 @@ export async function handleWebhook(request: Request, env: BillingEnv): Promise<
       const type = obj.metadata?.type
       const userId = obj.metadata?.supabase_user_id
       if (!userId || !isValidUUID(userId)) break
+      recordServerEvent(env, ctx, { name: 'checkout_completed', userId, props: { type: String(type ?? 'unknown').slice(0, 32) } })
 
       if (type === 'subscription') {
         await supabaseUpdate(env, 'profiles', userId, {

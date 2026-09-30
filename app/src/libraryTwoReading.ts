@@ -25,6 +25,7 @@ import { loadRecap, type RecapAuth } from './readingMemory/recapLoad'
 import { accountLabPositionRecord, withHiddenFromReadingNow, type LabPositionState } from './lab/labPosition'
 import { fetchLabPositionCloud, prepareLabPositionLocal, readLabPositionLocal, writeLabPositionLocal, putLabPositionCloud } from './lab/labPositionStore'
 import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
+import { trackFunnel, trackFunnelOnce } from './utils/funnel'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
 import { isMachineMadeOriginal } from './data/editionDefaults'
@@ -491,10 +492,14 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
   const outcome = (async (): Promise<SummaryResult> => {
     const auth = await readAuth()
     const decision = decideLabAiAction({ signedIn: Boolean(auth.userId) })
-    if (!decision.allowed) return { status: 'account-required', text: null }
+    if (!decision.allowed) { trackFunnel('anon_limit_reached', { feature: 'recap' }); return { status: 'account-required', text: null } }
     const result = await requestLabRecapSummary({ request, token: auth.token }).catch(() => ({ ok: false as const, error: 'request failed' }))
     if (!result.ok) return { status: 'unavailable', text: null }
     if (decision.reason === 'free' && !result.response.cached) recordLabAiAction()
+    if (!result.response.cached) {
+      trackFunnelOnce('ai_first_use', { signed_in: Boolean(auth.userId), feature: 'recap' })
+      if (auth.userId) trackFunnel('member_ai_use', { feature: 'recap' })
+    }
     storeRecapSummary(storage('local'), key, result.response.summary, Date.now())
     return { status: 'fresh', text: result.response.summary }
   })()
