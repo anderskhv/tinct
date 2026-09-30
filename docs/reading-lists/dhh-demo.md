@@ -14,6 +14,23 @@ Rule (from acclaim-quote policy): an entry ships only with a primary source URL.
 | The Daily Stoic (Holiday) | no (in copyright) | same — step 4 |
 | Maverick (Semler), Punished by Rewards, Myth of the Spoiled Child (Kohn), Age of Absurdity (Foley), Drive (Pink), Turn the Ship Around! (Marquet), Origins of Political Order / Political Order and Political Decay (Fukuyama), The Big Short, 4-Hour Workweek, Understanding Exposure | no (all in copyright) | Tim Ferriss show notes #195, https://tim.blog/2016/10/27/david-heinemeier-hansson/ |
 
+## Tier A (blog) — DHH's own book-review posts on HEY World, read directly
+
+| Post | Books | Notes |
+|---|---|---|
+| [Books that bust bubbles](https://world.hey.com/dhh/books-that-bust-bubbles-35c46be2) (2021-12-01) | Sowell *A Conflict of Visions*; Haidt *The Coddling of the American Mind*; Kishimi/Koga *The Courage to Be Disliked* (Adler); McWhorter *Woke Racism*; Shellenberger *San Fransicko*, *Apocalypse Never*; Murray *Facing Reality*; Taibbi *Hate Inc* | All in copyright. Reading list is explicitly framed by him ("books for left-leaning readers to challenge their worldview"). |
+| [You gotta read Less Is More](https://world.hey.com/dhh/you-gotta-read-less-is-more-88a4f37f) (2021-03-03) | Hickel *Less Is More*, *The Divide*; Wallace-Wells *The Uninhabitable Earth*; Piketty *Capital in the 21st Century* | In copyright. |
+| [The will to power will return](https://world.hey.com/dhh/the-will-to-power-will-return-58ffb9dc) (2026-07-12) | Strauss & Howe *The Fourth Turning*; Fukuyama *The End of History* (linked) | Cited as framework, not a review. |
+
+`Wolves, sheep, and gypsies` and `The Rape of Britain` only list his own books in the byline; no other book content.
+
+## User-attested, source URL still needed
+- **Notes from Underground** (`notes-from-underground`): Anders confirms DHH has it. The web searches found no post or tweet; the item is on aggregators without a source. Need the link (likely a tweet or podcast).
+- The first "five books that meant the most to me" tweet, https://x.com/dhh/status/1739664047191232973, exists but X returned HTTP 402 to the fetcher; contents unread. It is probably the best single "canon" source and should be read by hand.
+
+## Finding from the blog pass
+His blog posts are mostly opinion and tech; the true book-review posts are 2021 (two). Almost all of what they recommend is in copyright, so they don't help fill Tinct. His Tinct-relevant picks (Kafka, Kierkegaard, Dostoevsky, Stoics, Orwell) come from tweets and podcasts, so the tweet list is the key missing source.
+
 ## Tier B — cited by aggregators (mostrecommendedbooks.com, readthistwice.com) to a DHH tweet; tweet URL not yet opened
 
 | Book | In Tinct? | Aggregator claim |
