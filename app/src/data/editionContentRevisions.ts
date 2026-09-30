@@ -120,6 +120,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'vindication-rights-of-woman': {
+    revision: 'text-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63',
+        after: '6a398f5b8be7c85ad6fafa8d1e414674bcd7f193daf129844b83ada8f9cb056a',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
