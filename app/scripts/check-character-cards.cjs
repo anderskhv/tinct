@@ -7,7 +7,7 @@ async function press(word){await word.dispatchEvent('pointerdown',{pointerType:'
  const p=await b.newPage({serviceWorkers:'block',viewport:{width:conf.width,height:conf.height},isMobile:conf.width<800,hasTouch:true});const errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));
  await p.addInitScript(({edition})=>{sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'the-awakening',primaryEditionKey:edition,compareEditionKey:edition==='original-en'?'modern-en':'original-en'}))},{edition});
- await p.goto(origin+'/reader');const panel=p.getByTestId('lab-book-preface');await panel.waitFor();await panel.getByRole('button',{name:'Begin reading',exact:true}).first().click();
+ await p.goto(origin+'/reader');
  await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(1300);
  const words=p.locator('.lab-page-wrap [data-testid="lab-word"]');
  console.log(conf.name,edition,(await words.allTextContents()).join(' ').slice(0,600));

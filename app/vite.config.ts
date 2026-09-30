@@ -14,7 +14,7 @@ const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   path.resolve(process.cwd(), 'public'),
 ))
 
-// The entry uses the same exact approved text files as the reader registry.
+// The library introduction serves these exact approved text files.
 const entryPrefaces = new Map(JSON.parse(serializedPreReaderCatalogue).books.flatMap((book: { id: string }) => {
   const file = path.resolve(process.cwd(), 'src/data/prefaces', `${book.id}.txt`)
   return fs.existsSync(file) ? [[book.id, JSON.stringify({bookId:book.id, language:'en', paragraphs:fs.readFileSync(file,'utf8').trim().split(/\n\s*\n/)})]] : []

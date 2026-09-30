@@ -3,23 +3,14 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { LabChapterCover } from './LabChapterCover'
 afterEach(cleanup)
-it('keeps preparation first, Start reading second, and does not turn the cover page through either action', () => {
-  const before = vi.fn(), start = vi.fn(), turn = vi.fn()
-  render(<LabChapterCover title="The Odyssey" series="Homer" editionLabel="Original English" imageSrc="/cover.webp" onPageTurn={turn} onToggleControls={vi.fn()} onBefore={before} onStart={start} />)
-  const actions = [...screen.getByTestId('lab-cover-entry').querySelectorAll('button')]
-  expect(actions.map(action => action.querySelector('strong')?.textContent)).toEqual(['Before you begin', 'Start reading'])
-  fireEvent.pointerDown(actions[0]); fireEvent.pointerUp(actions[0]); fireEvent.click(actions[0])
-  expect(before).toHaveBeenCalledTimes(1)
-  expect(turn).not.toHaveBeenCalled()
-  fireEvent.click(actions[1])
-  expect(start).toHaveBeenCalledTimes(1)
-})
-
-it('returns to the library without triggering cover navigation', () => {
-  const library = vi.fn(), turn = vi.fn()
-  render(<LabChapterCover title="Macbeth" series="Shakespeare" editionLabel="Original" onPageTurn={turn} onToggleControls={vi.fn()} onLibrary={library} />)
-  const back = screen.getByRole('button', { name: '← Back to Library' })
-  fireEvent.pointerDown(back); fireEvent.pointerUp(back); fireEvent.keyDown(back, { key: ' ' }); fireEvent.click(back)
-  expect(library).toHaveBeenCalledTimes(1)
-  expect(turn).not.toHaveBeenCalled()
+it('shows a Bible book opening as a plain title page that turns with the keyboard', () => {
+  const turn = vi.fn()
+  render(<LabChapterCover title="Exodus" series="The Bible" editionLabel="King James Version" onPageTurn={turn} onToggleControls={vi.fn()} />)
+  const cover = screen.getByTestId('lab-chapter-cover')
+  expect(cover.querySelector('h2')?.textContent).toBe('Exodus')
+  expect(cover.querySelector('img')).toBeNull()
+  expect(cover.querySelectorAll('button')).toHaveLength(0)
+  fireEvent.keyDown(cover, { key: 'ArrowRight' })
+  fireEvent.keyDown(cover, { key: 'ArrowLeft' })
+  expect(turn.mock.calls).toEqual([[1], [-1]])
 })

@@ -7,6 +7,17 @@ import { resolveAudioEditionKey } from '../utils/audioEditionSelection'
 
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/library'
+/**
+ * A book's introduction in the library (library_2 opens the book on its
+ * introduction tab). `preview` is an optional `?name=value` query of preview
+ * flags to carry along, such as `?voiceTrial=mini`.
+ */
+export function labLibraryIntroductionUrl(bookId: string, editionKey?: string, preview = ''): string {
+  const params = new URLSearchParams({ book: bookId })
+  if (editionKey) params.set('edition', editionKey)
+  new URLSearchParams(preview).forEach((value, name) => { if (!params.has(name)) params.set(name, value) })
+  return `${LAB_LIBRARY_URL}?${params}`
+}
 /** Sign-in page URL. Pass the current reader path so the reader comes back to the same book after signing in. */
 export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
   return `/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`

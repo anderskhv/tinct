@@ -70,6 +70,5 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
  await p.screenshot({path:out+'/'+engine+'-audio.png'});await p.getByTestId('lab-v2-play').click();await p.waitForTimeout(250);assert.ok((await snap(p)).bottom<(await snap(p)).limit);
  results.push({reload:true,speedKeyboardAndPointer:true});
  await p.close();
- const cover=await b.newPage({serviceWorkers:'block',viewport:{width:1440,height:950}});await cover.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await cover.addInitScript(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'democracy-in-america',primaryEditionKey:'original-en'})));await cover.goto(origin+'/reader');await cover.getByTestId('lab-chapter-cover').waitFor();await cover.waitForTimeout(500);const r=await cover.locator('.lab-chapter-cover-art').evaluate(e=>({height:e.getBoundingClientRect().height,fit:getComputedStyle(e).objectFit,screen:innerHeight}));assert.ok(r.height<=r.screen);assert.equal(r.fit,'contain');await cover.screenshot({path:out+'/'+engine+'-cover.png'});results.push({cover:r});await cover.close();
  console.log(JSON.stringify(results,null,2));fs.writeFileSync(out+'/'+engine+'-results.json',JSON.stringify(results,null,2));
 }finally{await b.close()}})().catch(e=>{console.error(e);process.exit(1)});

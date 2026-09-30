@@ -2041,6 +2041,25 @@ describe('lab bible book', () => {
     expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(progress)
   })
 
+  it('has no cover before the first page of another book: the introduction lives in the library', () => {
+    render(<LabApp pathname="/reader" source={{
+      ...sourceWithWords(),
+      bookId: 'jane-eyre',
+      bookTitle: 'Jane Eyre',
+      editions: getBook('jane-eyre')!.editions,
+      paragraphs: ['There was no possibility of taking a walk that day.'],
+      chapters: [{ number: 1, title: 'Chapter 1', path: 'ch0001.json' }, { number: 2, title: 'Chapter 2', path: 'ch0002.json' }],
+    }} />)
+    const root = screen.getByTestId('lab-root')
+    const place = root.getAttribute('data-place')
+    expect(screen.queryByTestId('lab-chapter-cover')).toBeNull()
+    fireEvent.keyDown(document.body, { key: 'ArrowLeft' })
+    expect(screen.queryByTestId('lab-chapter-cover')).toBeNull()
+    expect(root.getAttribute('data-cover-page')).toBe('false')
+    expect(root.getAttribute('data-chapter')).toBe('1')
+    expect(root.getAttribute('data-place')).toBe(place)
+  })
+
   it('Previous on Genesis 2 page 1 goes to Genesis 1 last', async () => {
     const pageA = ['In the beginning God created the heaven and the earth.', ...Array.from({ length: 79 }, (_, i) => `g1a${i}`)].join(' ')
     const pageB = Array.from({ length: 80 }, (_, i) => `g1b${i}`).join(' ')

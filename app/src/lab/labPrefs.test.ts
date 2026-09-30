@@ -9,6 +9,7 @@ import {
   LAB_LIBRARY_URL,
   LAB_SIGN_IN_URL,
   labAccountUrl,
+  labLibraryIntroductionUrl,
   labSignInUrl,
   LAB_MAX_FONT_SIZE,
   LAB_MIN_FONT_SIZE,
@@ -167,6 +168,13 @@ describe('lab prefs', () => {
     expect(LAB_LIBRARY_URL).not.toContain('?')
     expect(LAB_LIBRARY_URL).not.toBe('/read/library')
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')
+  })
+
+  it('links a book introduction to the library book overlay for the reader edition', () => {
+    expect(labLibraryIntroductionUrl('to-the-lighthouse', 'original-en')).toBe('/library?book=to-the-lighthouse&edition=original-en')
+    expect(labLibraryIntroductionUrl('bible', '')).toBe('/library?book=bible')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?voiceTrial=mini')).toBe('/library?book=crito&edition=modern-en&voiceTrial=mini')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?book=bible')).toBe('/library?book=crito&edition=modern-en')
   })
 
   it('defaults to page of chapter and persists every knob', () => {

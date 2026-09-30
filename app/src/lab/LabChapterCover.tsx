@@ -5,15 +5,10 @@ interface LabChapterCoverProps {
   title: string
   series: string
   editionLabel: string
-  imageSrc?: string
   ground?: string
   accent?: string
   onPageTurn: (direction: LabPageTurnDirection) => void
   onToggleControls: () => void
-  onLibrary?: () => void
-  onBefore?: () => void
-  onStart?: () => void
-  continued?: boolean
 }
 
 export function labCoverTone(title: string): number {
@@ -22,7 +17,8 @@ export function labCoverTone(title: string): number {
   return hash % 5
 }
 
-export function LabChapterCover({ title, series, editionLabel, imageSrc, ground, accent, onPageTurn, onToggleControls, onLibrary, onBefore, onStart, continued = false }: LabChapterCoverProps) {
+/** The Bible's book-opening page (Genesis, Exodus, ...) between two books. */
+export function LabChapterCover({ title, series, editionLabel, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
   const coverRef = useRef<HTMLElement>(null)
   const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
 
@@ -33,7 +29,7 @@ export function LabChapterCover({ title, series, editionLabel, imageSrc, ground,
   return (
     <article
       ref={coverRef}
-      className={`lab-chapter-cover is-tone-${labCoverTone(title)}`}
+      className={`lab-chapter-cover is-book-opening is-tone-${labCoverTone(title)}`}
       style={{
         ...(ground ? { ['--lab-cover-ground' as string]: ground } : {}),
         ...(ground ? { ['--lab-cover-shade' as string]: `color-mix(in srgb, ${ground} 72%, black)` } : {}),
@@ -74,23 +70,13 @@ export function LabChapterCover({ title, series, editionLabel, imageSrc, ground,
         else if (tap == null && Math.abs(deltaX) <= 10 && Math.abs(deltaY) <= 10) onToggleControls()
       }}
     >
-      {onLibrary && <button type="button" className="lab-cover-library" onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onKeyDown={event => event.stopPropagation()} onClick={onLibrary}>← <span>Back to Library</span></button>}
-      {imageSrc ? <img className="lab-chapter-cover-art" src={imageSrc} alt={`${title} cover`} draggable={false} onLoad={event => { const image = event.currentTarget; if (image.naturalHeight) coverRef.current?.style.setProperty('--lab-cover-ratio', String(image.naturalWidth / image.naturalHeight)) }} /> : <div className="lab-chapter-cover-book">
+      <div className="lab-chapter-cover-book">
         <span className="lab-chapter-cover-series">{series}</span>
         <span className="lab-chapter-cover-mark" aria-hidden="true">{title.slice(0, 1)}</span>
         <h2>{title}</h2>
         <span className="lab-chapter-cover-rule" aria-hidden="true" />
         <small>{editionLabel}</small>
-      </div>}
-      {onStart && <div className="lab-cover-entry" data-testid="lab-cover-entry"
-        onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}>
-        {onBefore && <button type="button" onClick={onBefore}>
-          <strong>Before you begin</strong><span>Read the preface. Meet the characters. Ask or talk.</span>
-        </button>}
-        <button type="button" className="is-primary" onClick={onStart}>
-          <strong>{continued ? 'Continue reading' : 'Start reading'}</strong><span>{continued ? 'Return to your place.' : 'Straight to page one.'}</span>
-        </button>
-      </div>}
+      </div>
     </article>
   )
 }
