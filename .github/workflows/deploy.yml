@@ -17,9 +17,9 @@ on:
         description: 'staged = preview then promote (default); direct = classic deploy, acceptance after it is live'
         type: choice
         options:
-          - staged
           - direct
-        default: staged
+          - staged
+        default: direct
 
 permissions:
   contents: read
@@ -64,12 +64,15 @@ jobs:
           REQUESTED_MODE: ${{ inputs.mode }}
           BASE_SHA: ${{ github.event.before }}
         run: |
-          mode=staged
-          reason='staged release'
-          if [ "$REQUESTED_MODE" = direct ]; then
-            mode=direct
-            reason='direct mode requested'
-          else
+          # Direct is the default: Cloudflare gives no preview URL to a Worker
+          # with Durable Objects, so a staged release cannot test before promote.
+          # Direct deploys record the previous version and roll back
+          # automatically if any acceptance step fails afterwards.
+          mode=direct
+          reason='direct deploy with automatic rollback'
+          if [ "$REQUESTED_MODE" = staged ]; then
+            mode=staged
+            reason='staged release (requested)'
             changed=$(node scripts/release-tools.cjs migrations-changed "$BASE_SHA" | sed 's/^changed=//')
             if [ "$changed" != false ]; then
               mode=direct
@@ -87,8 +90,8 @@ jobs:
       # ---- Stage 1: get the new build somewhere testable -------------------
 
       - name: Record the version currently serving production
-        if: steps.plan.outputs.mode == 'staged'
         id: previous
+        continue-on-error: true
         run: node scripts/release-tools.cjs current-version >> "$GITHUB_OUTPUT"
 
       - name: Upload new Worker Version (serves no traffic)
@@ -119,7 +122,12 @@ jobs:
 
       - name: Deploy to Cloudflare Workers (direct mode)
         if: steps.plan.outputs.mode == 'direct' || steps.preview.outputs.fallback == 'true'
-        run: npm run deploy
+        id: deploy
+        run: |
+          # A staged upload that fell back has already built; the build rewrites
+          # generated files, which the clean-checkout guard would refuse.
+          if [ "${{ steps.preview.outputs.fallback }}" = true ]; then git checkout -- .; fi
+          npm run deploy
 
       - name: Record deployed bundle hash
         id: bundle
@@ -313,10 +321,10 @@ jobs:
       # The job still ends red; this just stops users staying on a bad version.
 
       - name: Roll production back to the previous version
-        if: ${{ failure() && steps.promote.outcome == 'success' }}
+        if: ${{ failure() && (steps.promote.outcome == 'success' || steps.deploy.outcome == 'success') }}
         env:
           PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
         run: |
-          echo "::error::post-promote check failed; rolling back to ${PREVIOUS_VERSION:-the previous deployment}"
+          echo "::error::a check failed after the new version went live; rolling back to ${PREVIOUS_VERSION:-the previous deployment}"
           npm run rollback -- "$PREVIOUS_VERSION"
           echo "Rolled back to ${PREVIOUS_VERSION:-the previous deployment}. Fix forward, then push again." >> "$GITHUB_STEP_SUMMARY"
