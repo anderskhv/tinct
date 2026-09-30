@@ -537,7 +537,8 @@ export const AS_YOU_LIKE_IT: Book = {
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true,
       hasAudio: true,
     },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    // Chapter structure differs from the repaired English editions (17 chapters against 23).
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
