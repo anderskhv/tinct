@@ -88,6 +88,24 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'faust-part-1': {
+    revision: 'faust-part-1-replacement-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    editions: {
+      'original-en': {
+        before: 'bff236838e6e5ee6baeb7afd16c6b1c1b2872f87605f21e79e4cd5198a997395',
+        after: 'e36200c60fe9e763555461ea2d65f9772058aa737635688e7b79ad4010bee79d',
+      },
+      'modern-en': {
+        before: '9e66da5b45267bfb3cae70905897d9f9c1397bd1d1c8b080bf325cda0046d28b',
+        after: '7c7b27df8c77e069e8641b8154f67f26d57afab36d73072865d061998d201dfe',
+      },
+      'original-de': {
+        before: 'edb0081f759c0eb256ed303711932af743784a87f1cc6716dab7d15365bc83e5',
+        after: '3e69f81d08d33c8b3aae0d7c1c7b05757f6944317ba68ff754a0f2aaf4b2f66c',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

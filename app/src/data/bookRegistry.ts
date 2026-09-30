@@ -2081,7 +2081,7 @@ export const FAUST_PART_1: Book = {
       style: 'original',
       label: 'Goethe (1808)',
       year: 1808,
-      // Verse set line by line: 1,056 paragraphs against the English editions' 895.
+      // Verse set line by line: 1,095 paragraphs against the English editions' 1,060.
       aligned: false,
     },
     {
@@ -2091,7 +2091,8 @@ export const FAUST_PART_1: Book = {
       label: 'Bayard Taylor (1870)',
       translator: 'Bayard Taylor',
       year: 1870,
-      aligned: false,
+      // Same 28 chapters and 1,060 paragraphs as Modern English (Taylor, PG 14591).
+      aligned: true,
     },
     {
       key: 'modern-en',
@@ -2106,7 +2107,8 @@ export const FAUST_PART_1: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // Built on the earlier English text (895 paragraphs), not the Taylor replacement (1,060).
+      aligned: false,
       hasAudio: true,
     },
   ],

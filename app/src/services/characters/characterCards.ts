@@ -107,7 +107,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'the-aeneid': { editions: EN, revision: '2026-09-12.1' },
   'divine-comedy': { editions: EN, revision: '2026-09-12.1' },
   'paradise-lost': { editions: EN, revision: '2026-09-12.1' },
-  'faust-part-1': { editions: EN, revision: '2026-09-12.1' },
+  'faust-part-1': { editions: EN, revision: '2026-09-30.1' },
   'the-histories': { editions: EN, revision: '2026-09-12.1' },
   'peloponnesian-war': { editions: EN, revision: '2026-09-12.1' },
   'the-republic': { editions: EN, revision: '2026-09-12.1' },
