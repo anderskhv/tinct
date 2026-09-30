@@ -357,6 +357,7 @@ describe('tools', () => {
     Object.assign(controller, { anchor })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Back to the book.' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'c1', arguments: '{"play_audio":true}' })
     controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
     await vi.waitFor(() => expect(audio.resumePlayback).toHaveBeenCalledWith(anchor, true))
@@ -370,6 +371,7 @@ describe('tools', () => {
     Object.assign(controller, { anchor })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Back to the book. Bye.' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'end_voice_session', call_id: 'c1', arguments: '{}' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'c2', arguments: '{"play_audio":true}' })
     controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
@@ -396,12 +398,58 @@ describe('tools', () => {
     const { controller, sent } = connected({}, { audio: { pausePlayback: () => null, resumePlayback: resume, skipPlayback: skip }, tools: [{ type: 'function', name: 'next_chapter', parameters: {} }] })
     controller.handleEvent({ type: 'session.updated' })
     controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'On to the next chapter.' })
     controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'next_chapter', call_id: 'skip', arguments: '{}' })
     controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
     await vi.waitFor(() => expect(skip).toHaveBeenCalledWith('next_chapter'))
     await new Promise(resolve => setTimeout(resolve, 10))
     expect(resume).toHaveBeenCalledTimes(resumePlayback ? 1 : 0)
     expect(sent.some(event => event.type === 'conversation.item.create')).toBe(!resumePlayback)
+    // Already confirmed aloud: the move is not confirmed a second time.
+    expect(sent.some(event => event.type === 'response.create')).toBe(false)
+  })
+
+  it('says a confirmation first when restart_chapter arrives without one, and acts only after it is heard', async () => {
+    const resume = vi.fn()
+    const skip = vi.fn().mockResolvedValue({ resumePlayback: true })
+    const { controller, sent } = connected({}, { audio: { pausePlayback: () => null, resumePlayback: resume, skipPlayback: skip }, tools: [{ type: 'function', name: 'restart_chapter', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'restart_chapter', call_id: 'restart', arguments: '{}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(sent.some(event => event.type === 'conversation.item.create')).toBe(true))
+    const confirmation = sent.find(event => event.type === 'conversation.item.create')!
+    expect(confirmation.item).toMatchObject({ type: 'force_message', role: 'assistant', content: [{ text: 'Restarting Genesis 1.' }] })
+    await new Promise(resolve => setTimeout(resolve, 20))
+    // Nothing moves or plays while the confirmation is still being spoken.
+    expect(skip).not.toHaveBeenCalled()
+    expect(resume).not.toHaveBeenCalled()
+    controller.handleEvent({ type: 'response.created', response: { id: 'r2' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Restarting Genesis 1.' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r2', status: 'completed' } })
+    await vi.waitFor(() => expect(skip).toHaveBeenCalledWith('restart_chapter'))
+    await vi.waitFor(() => expect(resume).toHaveBeenCalledTimes(1))
+    expect(controller.getSnapshot().isActive).toBe(false)
+  })
+
+  it('starts the audiobook only once the spoken confirmation has finished playing', async () => {
+    const { controller, audio } = connected()
+    const anchor = { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, paragraphIndex: 0, paragraphNumber: 1, offsetSeconds: 0 }
+    Object.assign(controller, { anchor })
+    const playing = { onended: null, stop: vi.fn() }
+    const sources = (controller as unknown as { sources: Set<unknown> }).sources
+    sources.add(playing)
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', delta: 'Playing the audiobook.' })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'resume_audiobook', call_id: 'c1', arguments: '{"play_audio":true}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await new Promise(resolve => setTimeout(resolve, 150))
+    // The confirmation is still coming out of the speaker: Talk keeps it.
+    expect(audio.resumePlayback).not.toHaveBeenCalled()
+    expect(playing.stop).not.toHaveBeenCalled()
+    sources.delete(playing)
+    await vi.waitFor(() => expect(audio.resumePlayback).toHaveBeenCalledWith(anchor, true))
   })
 })
 

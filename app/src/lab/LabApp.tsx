@@ -132,7 +132,7 @@ import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderP
 import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
-import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, sentenceStartWordIndex, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
+import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, ensurePageIdentity, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
 import { SelectionPopup, type PopupMode, type SelectionInfo } from '../components/reader/SelectionPopup'
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
@@ -1014,6 +1014,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [audioChapterTransitioning, setAudioChapterTransitioning] = useState(false)
   const audioChapterCompleteRef = useRef<() => boolean>(() => false)
   const browseWhileListeningRef = useRef(false)
+  /** A word the reader tapped while audio was paused: the place Play resumes from. */
+  const pausedJumpRef = useRef<{ bookId: string; chapterNumber: number; paragraphIndex: number; wordIndex: number } | null>(null)
   const listenPlayingRef = useRef(false)
 
   const lockPaginationRef = useRef(false)
@@ -1817,15 +1819,30 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     standbyPagesRef.current = { key: standbyKeyRef.current, pages }
   }, [])
 
+  /**
+   * A tap on a word while the transport is up (playing or paused). It is a
+   * jump: audio moves to exactly that word. Playing, it carries on from there;
+   * paused, it stays paused and Play later resumes from the start of that
+   * word's sentence (see resumeListeningPlace).
+   */
   const seekAudioToWord = useCallback(async (paragraphIndex: number, wordIndex: number) => {
     browseWhileListeningRef.current = false
     setBrowseWhileListening(false)
-    const timed = book.followParagraphs.find(item => item.index === paragraphIndex)
-    const snapped = timed?.words
-      ? sentenceStartWordIndex(timed.words, wordIndex)
-      : wordIndex
+    const snapped = wordIndex
     const place = { paragraphIndex, wordIndex: snapped }
     placeRef.current = place
+    const playingNow = listen.playing || listen.isPending()
+    if (!playingNow && chromeV2) {
+      const sameChapter = listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber
+      // The player's own cursor moves too, so every later resume path (Play,
+      // the lock screen, the end of Talk) starts from the word chosen here.
+      if (sameChapter && listen.src) listen.seekToPlace(paragraphIndex, snapped)
+      pausedJumpRef.current = { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber, ...place }
+      setReadingPageIndex(pageIndexForPlace(readingPagesRef.current, paragraphIndex, snapped))
+      notePlace('pause', place)
+      return
+    }
+    pausedJumpRef.current = null
     const nextSource = {
       bookId: book.bookId || 'bible',
       chapterNumber: book.chapterNumber,
@@ -1844,13 +1861,35 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setChrome('hearing')
     setReadingPageIndex(pageIndexForPlace(readingPagesRef.current, paragraphIndex, snapped))
     notePlace('play', place)
-    if (!chapterChanged && listen.src) {
+    if (!chapterChanged && listen.src && listen.playing) {
       listen.seekToPlace(paragraphIndex, snapped)
-      if (!listen.playing) listen.resume()
       return
     }
+    // Still loading (or nothing loaded yet): this tap supersedes that start.
     await listen.startAtPlace(place)
-  }, [book, listen, listenSource.chapterNumber, notePlace])
+  }, [book, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, notePlace])
+
+  /** The first word of the sentence holding `place`, in the chapter audio is on. */
+  const sentenceStartPlace = useCallback((place: { paragraphIndex: number; wordIndex: number }) => {
+    const sameChapter = listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber
+    const paragraphs = sameChapter ? book.paragraphs : listenSource.paragraphs
+    const words = tokenizeHearingWords(paragraphs[place.paragraphIndex] || '')
+    return { paragraphIndex: place.paragraphIndex, wordIndex: listeningSentenceStart(words, place.wordIndex) }
+  }, [book.bookId, book.chapterNumber, book.paragraphs, listenSource.bookId, listenSource.chapterNumber, listenSource.paragraphs])
+
+  /**
+   * Where paused listening picks up on this chapter: the word the reader
+   * tapped since pausing, else the word last heard — always from the start
+   * of its sentence, so audio never resumes mid-sentence.
+   */
+  const resumeListeningPlace = useCallback((): { paragraphIndex: number; wordIndex: number } | null => {
+    const jump = pausedJumpRef.current
+    if (jump && jump.bookId === (book.bookId || 'bible') && jump.chapterNumber === book.chapterNumber) return sentenceStartPlace(jump)
+    const follow = listen.follow
+    if (follow.kind === 'word') return sentenceStartPlace(follow)
+    if (follow.kind === 'paragraph') return { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+    return null
+  }, [book.bookId, book.chapterNumber, listen.follow, sentenceStartPlace])
 
   useLayoutEffect(() => {
     lastVvRef.current = 0
@@ -2353,11 +2392,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   askNoticeRef.current = ask.notice
 
   const interruptHearForAsk = useCallback(() => {
-    const hearingNow = listen.playing
+    // Captured as the companion opens: only audio that was actually playing
+    // (or starting) then comes back when it closes. Paused audio stays paused.
+    const hearingNow = listen.playing || listen.isPending()
+    // This tap may be the last gesture before the companion starts audio
+    // ("play the audiobook"), which then runs outside any gesture.
+    listen.unlockPlayback()
     // Opening a companion pauses audio once. Follow-up actions inside that
-    // companion must not overwrite the original return mode after the audio
-    // element is already paused.
-    if (!hearingNow && pausedForAskRef.current) return
+    // same companion must not overwrite the original return mode after the
+    // audio element is already paused. A companion opened afresh always
+    // captures anew: a flag left over from an earlier session (Talk handed
+    // to Chat, a call surface) must not resume audio the reader paused.
+    const companionOpen = phoneAskOpenRef.current || desktopAskOpenRef.current || callOpenRef.current || chromeRef.current === 'talking'
+    if (!hearingNow && pausedForAskRef.current && companionOpen) return
     const returnMode: LabReturnTo = hearingNow ? 'hearing' : 'reading'
     pausedForAskRef.current = hearingNow
     setReturnTo(returnMode)
@@ -2395,10 +2442,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPhoneAskOpen(false)
     setDesktopAskOpen(false)
     setPeekBook(false)
-    // Closing Talk returns to the mode it interrupted. The explicit voice
-    // command "resume the audiobook" is different: it must begin audio even
-    // when Talk was opened from ordinary reading.
-    const interruptedAudio = pausedForAskRef.current || returnToRef.current === 'hearing'
+    // Closing Talk returns to the mode it interrupted: audio resumes only if
+    // it was playing when Talk opened (captured then, in pausedForAskRef).
+    // The explicit voice command "resume the audiobook" is different: it
+    // must begin audio even when Talk was opened from ordinary reading.
+    const interruptedAudio = pausedForAskRef.current
     const shouldHear = forceHearing || interruptedAudio
     pausedForAskRef.current = false
     if (!shouldHear) {
@@ -2418,9 +2466,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setBrowseWhileListening(false)
       setInTheBookOpen(false)
     }
+    // A return from Talk, Chat or a prompt starts at the sentence's first word.
     if (listen.src) listen.resume(true)
-    else void (chromeV2 ? listen.startAtPlace(placeRef.current) : listen.start(placeRef.current))
-  }, [ask, listen, chromeV2, callOpen, book.bookId, returnToPreparation])
+    else {
+      const place = sentenceStartPlace(placeRef.current)
+      placeRef.current = place
+      void (chromeV2 ? listen.startAtPlace(place) : listen.start(place))
+    }
+  }, [ask, listen, chromeV2, callOpen, book.bookId, returnToPreparation, sentenceStartPlace])
   resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
@@ -2428,11 +2481,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // A held-back Talk leaves the talking chrome the way a closed Talk does.
     if (request?.action === 'voice') resumeListenAfterAsk()
   }, [accountPrompt, resumeListenAfterAsk])
+  // A speed change alone never decides whether audio resumes after Talk:
+  // that is fixed by whether audio was playing when Talk opened.
   setSpeedRef.current = (rate) => {
     listen.setSpeed(rate)
-    pausedForAskRef.current = true
-    setReturnTo('hearing')
-    returnToRef.current = 'hearing'
   }
 
   useEffect(() => {
@@ -2464,7 +2516,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
       return
     }
-    if (pausedForAskRef.current || returnToRef.current === 'hearing') {
+    if (pausedForAskRef.current) {
       resumeListenAfterAsk()
     } else {
       // Voice that ended with a notice (mic refused, token missing, timed
@@ -2503,7 +2555,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     typedLoadingRef.current = ask.typedLoading
     if (!wasLoading || ask.typedLoading || ask.voiceActive) return
     if (phoneAskOpenRef.current || desktopAskOpenRef.current) return
-    if (!pausedForAskRef.current && returnToRef.current !== 'hearing') return
+    if (!pausedForAskRef.current) return
     if (chromeRef.current === 'talking') return
     resumeListenAfterAsk()
   }, [ask.typedLoading, ask.voiceActive, resumeListenAfterAsk])
@@ -3554,8 +3606,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // A companion-initiated move opens the reader at the new place. It only
     // brings the audiobook back when this companion session paused it; a move
     // from ordinary reading (or one made to look something up) stays silent.
+    // "Restart the chapter" asks to hear it from the top: it plays after the
+    // confirmation whatever the audio was doing when the companion opened.
     const outcome: LabPlaybackNavigationOutcome = {
-      resumePlayback: shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: pausedForAskRef.current }),
+      resumePlayback: kind === 'restart_chapter' || shouldResumePlaybackAfterNavigation({ sessionStartedFromPlayback: pausedForAskRef.current }),
     }
     const resolved = resolveLabPlaybackSkip({
       kind,
@@ -3779,12 +3833,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const visiblePlace = Number.isInteger(visibleParagraphIndex) && Number.isInteger(visibleWordIndex)
       ? { paragraphIndex: visibleParagraphIndex, wordIndex: visibleWordIndex }
       : null
-    const place = ((!showPhoneChrome || chromeV2) ? visiblePlace : null) ?? (page
+    // Paused with the transport still up on this chapter (a page turn puts it
+    // away): Play resumes the listening place — the word last heard, or the
+    // word the reader tapped since — from the start of its sentence.
+    const resumePlace = chromeV2 && listeningHere && pausedTransportVisible ? resumeListeningPlace() : null
+    const place = resumePlace ?? ((!showPhoneChrome || chromeV2) ? visiblePlace : null) ?? (page
       ? { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       : placeRef.current)
-    // Reader Play starts the visible page. A saved audio cursor can belong
-    // to an earlier page (or a later word on this page), so never resume it here.
+    // Otherwise Reader Play starts the visible page. A saved audio cursor can
+    // belong to an earlier page (or a later word on this page), so never resume it here.
+    pausedJumpRef.current = null
     placeRef.current = place
+    if (resumePlace) setReadingPageIndex(pageIndexForPlace(readingPages, resumePlace.paragraphIndex, resumePlace.wordIndex))
     if (chromeV2) {
       const head = pageAnchorOf(page)
       pageAnchorRef.current = head
@@ -3805,7 +3865,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setInTheBookOpen(false)
     notePlace('play')
     void (chromeV2 ? listen.startAtPlace(place) : listen.start(place))
-  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, readingPageIndex, readingPages, showPhoneChrome])
+  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, chromeV2, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, pausedTransportVisible, readingPageIndex, readingPages, resumeListeningPlace, showPhoneChrome])
 
   startHearingRef.current = () => startHearing({ force: true })
 
@@ -4683,7 +4743,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             speed={listen.speed}
             browseWhileListening={browseWhileListening}
             inlineHearingPaint={chromeV2 && pausedTransportVisible && !listen.playing && !mobileCompareActive || showHearing && listen.playing && (chromeV2 || !showPhoneChrome && !browseWhileListening)}
-            onSeekToWord={listen.playing ? seekAudioToWord : undefined}
+            onSeekToWord={listen.playing || listen.pending || (chromeV2 && pausedTransportVisible && !mobileCompareActive) ? seekAudioToWord : undefined}
             onTogglePlay={() => {
               if (listen.isPending() || listen.playing) listen.pause()
               else if (listen.src) listen.resume()
