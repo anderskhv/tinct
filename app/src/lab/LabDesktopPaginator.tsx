@@ -32,28 +32,43 @@ export type WordBreakLookup = (paragraphIndex: number, wordIndex: number) => num
  * next word takes it, hyphenated, rather than ending short: the longest break
  * that still fits wins, so the line is filled as far as it can be. The word is
  * then shared with the next page (see `segmentWordTexts`). Without `breaks`,
- * or where no break fits, the page ends between words as it always has. */
+ * or where no break fits, the page ends between words as it always has.
+ *
+ * With `start`, pagination resumes mid-chapter at that word — the point just
+ * after a page that is being kept as it is. No page of the result is the
+ * chapter's first (no heading), and `headBreak` continues a word the kept page
+ * already showed the opening of. */
+export interface LabPaginationStart {
+  paragraphIndex: number
+  wordIndex: number
+  headBreak?: number
+}
+
 export function measuredDesktopPages(
   lengths: number[],
   fits: (segments: ChapterPageSegment[], first: boolean) => boolean,
   breaks?: WordBreakLookup,
   pageLimit = Infinity,
   paragraphs?: string[],
+  start?: LabPaginationStart,
 ): ChapterHearingPage[] {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
   const commit = () => { if (segments.length) pages.push({ ...segments[0], segments }); segments = [] }
+  const isFirst = () => !start && pages.length === 0
   lengths.forEach((length, paragraphIndex) => {
     if (pages.length >= pageLimit) return
+    if (start && paragraphIndex < start.paragraphIndex) return
     if (paragraphs && segments.length) {
       const end = poeticGroupEnd(paragraphs, paragraphIndex)
       const group = lengths.slice(paragraphIndex, end).map((to, offset) => ({ paragraphIndex: paragraphIndex + offset, from: 0, to }))
       // Keep a short complete poetic unit together only if it fits a fresh
       // measured page. Long units still split normally, with no blank pages.
-      if (end > paragraphIndex + 1 && fits(group, false) && !fits([...segments, ...group], pages.length === 0)) commit()
+      if (end > paragraphIndex + 1 && fits(group, false) && !fits([...segments, ...group], isFirst())) commit()
     }
-    let from = 0
-    let headBreak: number | undefined
+    const resumes = start && paragraphIndex === start.paragraphIndex
+    let from = resumes ? start.wordIndex : 0
+    let headBreak: number | undefined = resumes && start.wordIndex < length ? start.headBreak : undefined
     while (from < length && pages.length < pageLimit) {
       const segment = (to: number, tailFragment?: number): ChapterPageSegment => ({
         paragraphIndex,
@@ -63,11 +78,11 @@ export function measuredDesktopPages(
         ...(tailFragment != null ? { tailFragment } : {}),
       })
       const full = segment(length)
-      if (fits([...segments, full], pages.length === 0)) { segments.push(full); break }
+      if (fits([...segments, full], isFirst())) { segments.push(full); break }
       let low = from, high = length
       while (low < high) {
         const to = Math.ceil((low + high) / 2)
-        if (fits([...segments, segment(to)], pages.length === 0)) low = to
+        if (fits([...segments, segment(to)], isFirst())) low = to
         else high = to - 1
       }
       if (low === from && segments.length) { commit(); continue }
@@ -88,7 +103,7 @@ export function measuredDesktopPages(
       if (to === low && to < length && breaks) {
         const points = breaks(paragraphIndex, to)
         for (let index = points.length - 1; index >= 0; index -= 1) {
-          if (fits([...segments, segment(to, points[index])], pages.length === 0)) {
+          if (fits([...segments, segment(to, points[index])], isFirst())) {
             tailFragment = points[index]
             break
           }
