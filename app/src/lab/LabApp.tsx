@@ -77,6 +77,7 @@ import { readLabBookChat } from './labChatHistory'
 import { labChapterStatuses, labFinishedChapterSet } from './labChapterStatus'
 import { loadChapterText, readDeviceReadingMemory } from '../readingMemory'
 import { useAuth } from '../hooks/useAuth'
+import { useLabReadingYear } from './useLabReadingYear'
 import { LabSettingsSheet } from './LabSettingsSheet'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
@@ -705,7 +706,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   }
-  const countedPageRef = useRef<string | null>(null)
   // Only a Bible book opening (Genesis, Exodus, ...) shows a cover page.
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
   const explicitStartAnchor = useMemo(() => (
@@ -769,32 +769,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // async chapter response from replacing the tuple after the user turned back.
   const chapterNavigationRef = useRef(0)
 
-  useEffect(() => {
-    const identity = `${book.chapterNumber}:${readingPageIndex}:${chapterCoverTitle ? 'cover' : 'text'}`
-    if (countedPageRef.current == null) { countedPageRef.current = identity; return }
-    if (countedPageRef.current === identity) return
-    countedPageRef.current = identity
-    try {
-      const current = Math.max(0, Number(localStorage.getItem('tinct-lab-page-turns') || 0))
-      localStorage.setItem('tinct-lab-page-turns', String(current + 1))
-    } catch { /* private mode */ }
-  }, [book.chapterNumber, chapterCoverTitle, readingPageIndex])
-
-  useEffect(() => {
-    let last = Date.now()
-    const timer = window.setInterval(() => {
-      const now = Date.now()
-      if (document.visibilityState === 'visible' && !gearOpen && !tocOpen) {
-        try {
-          const elapsed = Math.min(60, Math.max(0, Math.round((now - last) / 1000)))
-          const current = Math.max(0, Number(localStorage.getItem('tinct-lab-reading-seconds') || 0))
-          localStorage.setItem('tinct-lab-reading-seconds', String(current + elapsed))
-        } catch { /* private mode */ }
-      }
-      last = now
-    }, 30_000)
-    return () => window.clearInterval(timer)
-  }, [gearOpen, tocOpen])
 
   useEffect(() => {
     if (!mobileCompareEnabled && book.paragraphs.length > 0) setMobileCompareActive(false)
@@ -922,7 +896,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (view !== 'chat') setDesktopAskOpen(false)
     setPeekBook(false)
 
-    if (view === 'settings') {
+    if (view === 'settings' && chromeV2) {
+      setSuperSheet('reading')
+    } else if (view === 'settings') {
       setSettingsSection('layout')
       setGearOpen(true)
     } else if (view === 'chat') {
@@ -1110,6 +1086,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
+  useLabReadingYear({
+    userId: authUser?.id ?? null,
+    bookId: book.bookId || 'bible',
+    chapter: book.chapterNumber,
+    page: readingPageIndex,
+    onCover: Boolean(chapterCoverTitle),
+    paused: gearOpen || tocOpen,
+    listeningRef: listenPlayingRef,
+  })
   // Warm narration ahead of the reader: the chapter's opening on arrival, the
   // next chapter's opening when the reader nears the end of this one.
   const narrationCurrentParagraph = listen.playing && listen.follow.kind !== 'none'
