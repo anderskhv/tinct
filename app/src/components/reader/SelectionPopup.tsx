@@ -227,6 +227,9 @@ export function SelectionPopup({
   const character = selection.character
   const card = galleryId ? character?.gallery.find(entry => entry.card.id === galleryId)?.card : character?.card
   const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Mentioned in passing' }
+  // Cards can be places, objects, peoples or personifications; "figure" only fits a being.
+  const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Mentioned in passing' }
+  const roleLabel = card?.role ? (['person', 'spirit', 'deity'].includes(card.kind) ? roles : nonFigureRoles)[card.role] : null
 
   const showDefinePanel = popupMode === 'define'
   const informationMode = character ? 'character' : homeMode === 'define' ? 'define' : null
@@ -313,7 +316,7 @@ export function SelectionPopup({
           <div className="popup-character-heading"><small>At this passage</small><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
           {popupMode === 'character' && card && <>
             <h2>{card.name}</h2>
-            {card.role && <small>{roles[card.role]}</small>}
+            {roleLabel && <small>{roleLabel}</small>}
             <p className="popup-character-subtitle">{card.subtitle}</p>
             <p>{card.body}</p>
 

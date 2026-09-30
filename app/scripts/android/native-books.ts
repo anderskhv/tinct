@@ -36,6 +36,8 @@ export function buildNativeBooks(
       if (name === view.id + '-threads.json' || name === view.id + '-lines.json') add('data/editions/' + name)
     }
     add('data/characters/' + view.id + '.v1.json')
+    // Large packages (the Bible) ship one sidecar per edition: <id>.v1.<edition>.json.
+    for (const edition of editions) add('data/characters/' + view.id + '.v1.' + edition.key + '.json')
     add('data/onboarding/' + view.id + '.json')
     add('covers/v2/' + view.id + '.webp')
     const preface = prefaces.get(view.id)

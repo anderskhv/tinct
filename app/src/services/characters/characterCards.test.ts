@@ -95,20 +95,21 @@ it('requests the current content revision instead of an immutable old URL', asyn
   } finally { vi.unstubAllGlobals() }
 })
 
-describe.each(['kjv-en', 'web-en'])('Bible Baruch %s', key => {
+describe.each(['kjv-en', 'web-en', 'bsb-en', 'webc-en'])('Bible Baruch %s', key => {
   it('resolves Jeremiah 45, excludes other Baruchs and preserves explicit highlights', async () => {
-    const bible = JSON.parse(readFileSync('public/data/characters/bible.v1.json', 'utf8'))
+    const bible = JSON.parse(readFileSync(`public/data/characters/bible.v1.${key}.json`, 'utf8'))
     const raw = readFileSync(`public/data/editions/bible-${key}.json`)
     const data = (await verifyCharacters(bible, 'bible', key, Uint8Array.from(raw).buffer))!
     expect(data).not.toBeNull()
-    const mention = data.edition.mentions.find(m => m.chapterNumber === 790)!
+    const mention = data.edition.mentions.find(m => m.chapterNumber === 790 && m.characterId === 'baruch-neriah')!
     const text = data.paragraphs[790][mention.paragraphIndex]
     const args = [data, 790, mention.paragraphIndex, mention.startOffset, mention.endOffset, text] as const
     expect(resolveCharacter(...args)?.card.subtitle).toContain('Jeremiah’s scribe')
     expect(resolveCharacter(...args, true)).toBeNull()
     const baruchMentions = data.edition.mentions.filter(m => m.characterId === 'baruch-neriah')
     expect(baruchMentions.length).toBeGreaterThan(0)
-    expect(baruchMentions.every(m => m.chapterNumber >= 746 && m.chapterNumber <= 797)).toBe(true)
+    // WEB Catholic also carries the deuterocanonical Book of Baruch (chapter 1321).
+    expect(baruchMentions.every(m => (m.chapterNumber >= 746 && m.chapterNumber <= 797) || (key === 'webc-en' && m.chapterNumber === 1321))).toBe(true)
     for (const m of baruchMentions) expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, data.paragraphs[m.chapterNumber][m.paragraphIndex])?.card.id).toBe('baruch-neriah')
   })
 })
