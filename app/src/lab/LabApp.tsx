@@ -82,6 +82,7 @@ import { LabSettingsSheet } from './LabSettingsSheet'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
+import { LabCatchUpSheet } from './LabCatchUpSheet'
 import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
@@ -4288,6 +4289,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
     if (id === 'summarize') { handleChapterChat('discuss'); return }
+    if (id === 'catchup') { setSuperSheet('catchup'); return }
     if (id === 'editions') { setSuperSheet('editions'); return }
     if (id === 'settings') { setSuperSheet('reading'); return }
     if (id === 'account') { setSuperSheet('account'); return }
@@ -4622,6 +4624,22 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={signInReturnTo}
+        />
+      )}
+      {chromeV2 && !frontispieceVisible && superSheet === 'catchup' && !book.chaptersProvisional && (
+        // Read-only over the reader: it takes the place once, at open, and never writes one.
+        <LabCatchUpSheet
+          bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle}
+          chapters={book.chapters} sections={book.sections}
+          chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
+          completed={finishedChapters.has(book.chapterNumber)}
+          readChapters={() => new Set(labChapterStatuses({
+            bookId: book.bookId || 'bible', chapterNumbers: book.chapters.map(chapter => chapter.number), finished: finishedChapters,
+            memory: readDeviceReadingMemory(), position: readPositionState(), viewer: authUser?.id ?? null, conversations: readLabBookChat(book.bookId || 'bible'),
+          }).keys())}
+          readToken={readSupabaseAccessToken}
+          onClose={() => setSuperSheet(null)}
+          onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
