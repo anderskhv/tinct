@@ -32,7 +32,7 @@ Only three standalone internal Roman-numeral divisions in the first story were d
 - Modern story 1: 259 paragraphs, 7,924 / 8,518 source words.
 - Modern story 2: 215 paragraphs, 7,939 / 9,105 source words.
 - All completed paragraphs meet >=75%; full coordinates in qa/alignment-and-length.json.
-- Completed-story similarity gate PASS: weighted 0.480, zero LIGHT/MECHANICAL stories, 1/255 identical long paragraphs, no wrapped scaffolding or truncated quotations.
+- Completed-story similarity gate PASS: weighted 0.481, zero LIGHT/MECHANICAL stories, 1/255 identical long paragraphs, no wrapped scaffolding or truncated quotations.
 - The single unchanged long paragraph is the royal letter in story 1 paragraph 22, whose word order is crucial evidence. Other literal literary quotations and names stay intact.
 - Whole-book gate FAIL: 12 versus 2 chapters. Required story 3–4 batch gate pending.
 - Original chronology inconsistencies and historical stereotypes remain; no silent editorial correction.
