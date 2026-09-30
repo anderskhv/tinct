@@ -194,9 +194,38 @@ Counts are name occurrences by final decision; `NONE` = deliberately not linked.
 | Possessive place/dynasty forms | David’s city/tower/tent; X’s house (David, Saul, Ahab, Eli, Joab …); “house of your servant David”; “city of his father David”; “like that of Jeroboam”; “house and lineage/family of X” | not linked | So that KJV “house of X”/“city of David” and WEB/WEBC “X’s house”/“David’s city” and BSB “city of his father David” all behave the same way. Literal residences stay linked: 1 Samuel 19:11 and Psalm 59:1 “David’s house”. |
 | Mark 2:15; Luke 5:27–29 | Levi | → `matthew-apostle` | Levi the tax collector (identified with Matthew by the Matt 9:9 parallel; see Contested). |
 
+## Catholic historical figures added in the second round (webc-en only)
+
+Resolved by verse ranges (the names are unambiguous inside these books) and then re-decided blind for all 280 occurrences (`REVIEW-RECORD.md`, stage 9). Anything the text does not settle is **not linked**.
+
+| Card | Linked in | Deliberately not linked |
+|---|---|---|
+| `nicanor` | 1 Macc 3:38, 7:26–47, 9:1; 2 Macc 8–9, 14–15 | 2 Macc 12:2 (Nicanor governor of Cyprus) |
+| `bacchides` | 1 Macc 7–10 | 2 Macc 8:30 (“Timotheus and Bacchides”, possibly another officer) |
+| `alcimus` | 1 Macc 7, 9; 2 Macc 14 |  |
+| `gorgias` | 1 Macc 3–5; 2 Macc 8:9, 10:14, 12:32–37 |  |
+| `tryphon` | 1 Macc 11:39–15:39 |  |
+| `lysias` | 1 Macc 3–7; 2 Macc 10–14 | Claudius Lysias (Acts 23–24) |
+| `razis` | 2 Macc 14:37 | only one mention: the rest of the story uses “he” |
+| `bagoas` | Judith 12–14 |  |
+| `manasses-judith` | Judith 8, 10, 16 | Manasses in Tobit 14:10 |
+| `gabael` | Tobit 1:14–10:2 | Tobit 1:1 (Gabael the ancestor) |
+| `demetrius-i` | 1 Macc 7:1–10:66 (incl. the second “Demetrius” in “Demetrius, son of Demetrius”, 10:67); 2 Macc 14 |  |
+| `demetrius-ii` | 1 Macc 10:67 (first occurrence)–15:22; 2 Macc 1:7 (169th year) | Demetrius the silversmith stays `demetrius-silversmith` |
+| `alexander-balas` | 1 Macc 10:1–11:39 | Alexander the Great (1 Macc 1:1, 1:7, 6:2) and all other Alexanders (Mark 15:21, Acts 4:6, 19:33, 1 Tim 1:20, 2 Tim 4:14) |
+| `ptolemy-philometor` | 1 Macc 1:18, 10:51–11:18; 2 Macc 1:10, 9:29 | 1 Macc 15:16 (King Ptolemy addressed by Rome), 2 Macc 6:8, 8:8–9, 10:12 (Macron) — identity not settled by the text |
+| `ptolemy-dorymenes` | 1 Macc 3:38; 2 Macc 4:45–46 |  |
+| `ptolemy-abubus` | 1 Macc 16:11–18 |  |
+| `jason-high-priest` | 2 Macc 1:7, 4:7–5:6 | Jason son of Eleazar (1 Macc 8:17), Antipater son of Jason (12:16, 14:22), Jason of Cyrene (2 Macc 2:23), Jason of Thessalonica (Acts 17) |
+| `apollonius-samaria` | 1 Macc 3:10–12 |  |
+| `apollonius-coelesyria` | 1 Macc 10:69–89 |  |
+| `apollonius-menestheus` | 2 Macc 4:4, 4:21 | Apollonius of Tarsus (2 Macc 3:5, 3:7), the “lord of pollutions” (5:24), son of Gennaeus (12:2) — identity not settled by the text |
+
+One occurrence (`webc-en|1226.8.648`, 1 Macc 7:44 “Nicanor had fallen”) was not returned by its blind reviewer; it is the direct continuation of 7:43 and is trivially Nicanor.
+
 ## Where the independent reviewers disagreed with the final decision
 
-Blind reviewers re-decided **6,897** occurrences (every identity-ambiguous occurrence plus every context-pattern decision of an ambiguous family). They agreed with the final package on 6,862 (99.49%). The remaining 35 disagreements are listed here; none is an unresolved error — each is a policy hard case, an author ruling above, or a candidate-list limitation.
+Blind reviewers re-decided **7,176** occurrences (every identity-ambiguous occurrence plus every context-pattern decision of an ambiguous family). They agreed with the final package on 7,141 (99.51%). The remaining 35 disagreements are listed here; none is an unresolved error — each is a policy hard case, an author ruling above, or a candidate-list limitation.
 
 | id | ref | form | final | reviewer | disposition |
 |---|---|---|---|---|---|

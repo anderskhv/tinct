@@ -1,22 +1,22 @@
 # Coverage
 
-All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `4aa0071715a6018d7459268dd522f2d09b37d935426b8cd0dadcccfeeb75c541`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
+All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `740258f37b4944efb105e40bb32b6e22d18d262548d2154f77ac271d3f24c9ed`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
 
 ## Per-edition summary
 
 | | kjv-en | web-en | bsb-en | webc-en |
 |---|---:|---:|---:|---:|
-| Characters | 149 | 149 | 149 | 175 |
-| Characters with ≥1 link | 149 | 149 | 149 | 175 |
-| **Links (mentions)** | **9,948** | **10,026** | **11,034** | **10,914** |
+| Characters | 149 | 149 | 149 | 195 |
+| Characters with ≥1 link | 149 | 149 | 149 | 195 |
+| **Links (mentions)** | **9,948** | **10,026** | **11,034** | **11,175** |
 | Links in the live file (main fe699e90) | 1,444 | 1,437 | none | none |
-| Name-form hits scanned (person lexicon, 222 forms) | 14,630 | 14,716 | 15,070 | 16,037 |
-| … linked as a person | 9,749 | 9,823 | 10,825 | 10,709 |
-|    – by name-range rule | 9,041 | 9,112 | 10,061 | 9,612 |
+| Name-form hits scanned (person lexicon, 235 forms) | 14,645 | 14,730 | 15,083 | 16,279 |
+| … linked as a person | 9,749 | 9,823 | 10,825 | 10,970 |
+|    – by name-range rule | 9,041 | 9,112 | 10,061 | 9,873 |
 |    – by context pattern (e.g. “John the Baptist”) | 106 | 101 | 97 | 99 |
 |    – by per-occurrence adjudication | 602 | 610 | 667 | 998 |
-| … deliberately **not** linked | 4,881 | 4,893 | 4,245 | 5,328 |
-|    – tribe / nation / other person / place by rule range | 4,112 | 4,146 | 3,504 | 4,444 |
+| … deliberately **not** linked | 4,896 | 4,907 | 4,258 | 5,309 |
+|    – tribe / nation / other person / place by rule range | 4,127 | 4,160 | 3,517 | 4,425 |
 |    – “house of X” / “X’s house” (dynasty, family) | 318 | 318 | 304 | 335 |
 |    – city / tower / tent of X (place compounds) | 57 | 66 | 58 | 70 |
 |    – by context pattern (e.g. “Simon the tanner”) | 26 | 22 | 18 | 19 |
@@ -66,7 +66,7 @@ For each edition two independent reviewers took 10 characters each (20 in total)
 | kjv-en, web-en, bsb-en | david, moses, jesus, abraham, simon-peter, saul-paul, pontius-pilate, judas-iscariot, mary-magdalene, herod-the-great | isaac, solomon, samuel, elijah, isaiah, jeremiah, stephen, barnabas, hezekiah, nebuchadnezzar |
 | webc-en | the same ten as A | samuel, elijah, isaiah, jeremiah, judith, holofernes, tobit, tobias, susanna, judas-maccabeus |
 
-## New Catholic-only characters (webc-en only, 26 cards)
+## New Catholic-only characters (webc-en only, 46 cards)
 
 | id | name | links | first mention (chapter.paragraph.offset) |
 |---|---|---:|---|
@@ -96,8 +96,28 @@ For each edition two independent reviewers took 10 characters each (20 in total)
 | `menelaus` | Menelaus | 17 | 1239.4.48 |
 | `heliodorus` | Heliodorus | 13 | 1238.0.1096 |
 | `jesus-ben-sira` | Jesus son of Sirach | 3 | 1270.0.398 |
+| `nicanor` | Nicanor | 41 | 1222.8.46 |
+| `bacchides` | Bacchides | 20 | 1226.1.467 |
+| `alcimus` | Alcimus | 15 | 1226.1.57 |
+| `gorgias` | Gorgias | 11 | 1222.8.59 |
+| `tryphon` | Tryphon | 21 | 1230.7.291 |
+| `lysias` | Lysias | 24 | 1222.7.889 |
+| `razis` | Razis | 1 | 1249.8.52 |
+| `bagoas` | Bagoas | 6 | 1215.5.160 |
+| `manasses-judith` | Manasses | 6 | 1211.0.360 |
+| `gabael` | Gabael | 7 | 1190.1.1723 |
+| `demetrius-i` | Demetrius I | 19 | 1226.0.39 |
+| `demetrius-ii` | Demetrius II | 27 | 1229.17.40 |
+| `alexander-balas` | Alexander Balas | 24 | 1229.0.36 |
+| `ptolemy-philometor` | Ptolemy Philometor | 13 | 1220.4.274 |
+| `ptolemy-dorymenes` | Ptolemy son of Dorymenes | 3 | 1222.8.16 |
+| `ptolemy-abubus` | Ptolemy son of Abubus | 3 | 1235.2.3 |
+| `jason-high-priest` | Jason | 11 | 1236.1.200 |
+| `apollonius-samaria` | Apollonius | 2 | 1222.1.3 |
+| `apollonius-coelesyria` | Apollonius | 5 | 1229.17.226 |
+| `apollonius-menestheus` | Apollonius | 2 | 1239.0.535 |
 
-The 149 existing ids are unchanged and no id was removed. The 26 new ids exist only in `webc-en`; the other three editions do not contain the Catholic-only books.
+The 149 existing ids are unchanged and no id was removed. The 46 new ids exist only in `webc-en`; the other three editions do not contain the Catholic-only books.
 
 ## Per-character counts (all ids)
 
@@ -112,17 +132,24 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `agrippa-ii` | Agrippa | 5 | 5 | 12 | 12 | 11 | 12 |
 | `ahab` | Ahab | 14 | 14 | 74 | 74 | 78 | 74 |
 | `ahikar` | Ahikar | – | – | – | – | – | 7 |
+| `alcimus` | Alcimus | – | – | – | – | – | 15 |
+| `alexander-balas` | Alexander Balas | – | – | – | – | – | 24 |
 | `amos` | Amos | 7 | 7 | 7 | 7 | 7 | 8 |
 | `ananias-and-sapphira` | Ananias and Sapphira | 1 | 1 | 4 | 4 | 4 | 4 |
 | `ananias-of-damascus` | Ananias | 5 | 5 | 6 | 6 | 6 | 6 |
 | `andrew` | Andrew | 8 | 8 | 13 | 13 | 13 | 13 |
 | `anna-tobit` | Anna | – | – | – | – | – | 8 |
 | `antiochus-epiphanes` | Antiochus Epiphanes | – | – | – | – | – | 25 |
+| `apollonius-coelesyria` | Apollonius | – | – | – | – | – | 5 |
+| `apollonius-menestheus` | Apollonius | – | – | – | – | – | 2 |
+| `apollonius-samaria` | Apollonius | – | – | – | – | – | 2 |
 | `apollos` | Apollos | 5 | 5 | 10 | 10 | 11 | 10 |
 | `ark-of-the-covenant` | the Ark of the Covenant | 14 | 14 | 14 | 14 | 14 | 14 |
 | `asa` | Asa | 5 | 5 | 59 | 59 | 60 | 59 |
 | `asmodaeus` | Asmodaeus | – | – | – | – | – | 2 |
 | `babylon` | Babylon | 14 | 14 | 14 | 14 | 14 | 14 |
+| `bacchides` | Bacchides | – | – | – | – | – | 20 |
+| `bagoas` | Bagoas | – | – | – | – | – | 6 |
 | `balaam` | Balaam | 8 | 8 | 63 | 63 | 73 | 63 |
 | `barabbas` | Barabbas | 5 | 5 | 11 | 11 | 12 | 11 |
 | `barnabas` | Barnabas | 8 | 8 | 30 | 30 | 36 | 30 |
@@ -141,6 +168,8 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `david` | David | 20 | 20 | 980 | 1054 | 1041 | 1064 |
 | `deborah` | Deborah | 8 | 8 | 9 | 9 | 10 | 9 |
 | `delilah` | Delilah | 6 | 6 | 6 | 6 | 7 | 6 |
+| `demetrius-i` | Demetrius I | – | – | – | – | – | 19 |
+| `demetrius-ii` | Demetrius II | – | – | – | – | – | 27 |
 | `demetrius-silversmith` | Demetrius | 2 | 2 | 2 | 2 | 3 | 2 |
 | `edna` | Edna | – | – | – | – | – | 7 |
 | `eleazar-scribe` | Eleazar | – | – | – | – | – | 2 |
@@ -154,9 +183,11 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `ezra` | Ezra | 14 | 14 | 22 | 22 | 26 | 22 |
 | `felix` | Felix | 5 | 5 | 9 | 9 | 9 | 9 |
 | `festus` | Festus | 5 | 5 | 13 | 13 | 16 | 13 |
+| `gabael` | Gabael | – | – | – | – | – | 7 |
 | `gamaliel` | Gamaliel | 5 | 5 | 2 | 2 | 3 | 2 |
 | `gideon` | Gideon | 14 | 14 | 53 | 53 | 70 | 54 |
 | `god-the-lord` | God | 20 | 20 | 20 | 20 | 20 | 20 |
+| `gorgias` | Gorgias | – | – | – | – | – | 11 |
 | `habakkuk` | Habakkuk | 2 | 2 | 2 | 2 | 2 | 7 |
 | `hagar` | Hagar | 8 | 8 | 12 | 14 | 17 | 14 |
 | `haggai` | Haggai | 5 | 5 | 11 | 11 | 11 | 11 |
@@ -174,6 +205,7 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `jacob` | Israel | 40 | 40 | 266 | 270 | 298 | 282 |
 | `james-the-just` | James | 8 | 8 | 11 | 11 | 11 | 11 |
 | `james-zebedee` | James son of Zebedee | 8 | 8 | 21 | 21 | 21 | 21 |
+| `jason-high-priest` | Jason | – | – | – | – | – | 11 |
 | `jehoshaphat` | Jehoshaphat | 5 | 5 | 77 | 77 | 79 | 77 |
 | `jehu` | Jehu | 8 | 8 | 49 | 49 | 70 | 49 |
 | `jeremiah` | Jeremiah | 20 | 20 | 138 | 138 | 142 | 145 |
@@ -206,8 +238,10 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `lot` | Lot | 8 | 8 | 34 | 34 | 37 | 36 |
 | `luke-evangelist` | Luke | 2 | 2 | 2 | 2 | 2 | 2 |
 | `lydia` | Lydia | 3 | 2 | 2 | 2 | 2 | 2 |
+| `lysias` | Lysias | – | – | – | – | – | 24 |
 | `malachi` | Malachi | 1 | 1 | 1 | 1 | 1 | 1 |
 | `manasseh-king` | Manasseh | 5 | 5 | 26 | 26 | 32 | 26 |
+| `manasses-judith` | Manasses | – | – | – | – | – | 6 |
 | `mark-evangelist` | Mark | 4 | 4 | 12 | 12 | 12 | 12 |
 | `martha` | Martha | 8 | 8 | 13 | 13 | 14 | 13 |
 | `mary-magdalene` | Mary Magdalene | 11 | 11 | 15 | 15 | 15 | 15 |
@@ -229,6 +263,7 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `nebuchadnezzar` | Nebuchadnezzar | 14 | 14 | 91 | 91 | 95 | 97 |
 | `nebuchadnezzar-judith` | Nebuchadnezzar | – | – | – | – | – | 20 |
 | `nehemiah` | Nehemiah | 8 | 8 | 5 | 5 | 6 | 14 |
+| `nicanor` | Nicanor | – | – | – | – | – | 41 |
 | `nicodemus` | Nicodemus | 5 | 5 | 5 | 5 | 5 | 5 |
 | `noah` | Noah | 14 | 14 | 54 | 54 | 57 | 56 |
 | `obadiah-prophet` | Obadiah | 1 | 1 | 1 | 1 | 1 | 1 |
@@ -239,10 +274,14 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `philip-apostle` | Philip | 5 | 5 | 16 | 16 | 15 | 16 |
 | `pontius-pilate` | Pontius Pilate | 14 | 14 | 56 | 56 | 64 | 56 |
 | `priscilla-and-aquila` | Priscilla and Aquila | 5 | 5 | 12 | 12 | 14 | 12 |
+| `ptolemy-abubus` | Ptolemy son of Abubus | – | – | – | – | – | 3 |
+| `ptolemy-dorymenes` | Ptolemy son of Dorymenes | – | – | – | – | – | 3 |
+| `ptolemy-philometor` | Ptolemy Philometor | – | – | – | – | – | 13 |
 | `rachel` | Rachel | 8 | 8 | 47 | 48 | 49 | 48 |
 | `raguel` | Raguel | – | – | – | – | – | 23 |
 | `rahab` | Rahab | 8 | 8 | 8 | 8 | 11 | 8 |
 | `raphael-angel` | Raphael | – | – | – | – | – | 14 |
+| `razis` | Razis | – | – | – | – | – | 1 |
 | `rebekah` | Rebekah | 8 | 8 | 31 | 31 | 32 | 31 |
 | `rehoboam` | Rehoboam | 8 | 8 | 52 | 52 | 56 | 53 |
 | `ruth` | Ruth | 12 | 12 | 13 | 13 | 24 | 13 |
@@ -271,6 +310,7 @@ The 149 existing ids are unchanged and no id was removed. The 26 new ids exist o
 | `titus` | Titus | 5 | 5 | 13 | 13 | 14 | 14 |
 | `tobias` | Tobias | – | – | – | – | – | 32 |
 | `tobit` | Tobit | – | – | – | – | – | 23 |
+| `tryphon` | Tryphon | – | – | – | – | – | 21 |
 | `uriah` | Uriah the Hittite | 5 | 5 | 27 | 27 | 28 | 27 |
 | `uzziah-bethulia` | Ozias | – | – | – | – | – | 13 |
 | `zacchaeus` | Zacchaeus | 3 | 3 | 3 | 3 | 4 | 4 |

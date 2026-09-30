@@ -4,7 +4,7 @@ Status: **content accepted / handed off — not published.** Nothing in `app/**`
 
 ## What to take
 
-- `package/bible.v1.json` — SHA-256 `4aa0071715a6018d7459268dd522f2d09b37d935426b8cd0dadcccfeeb75c541`, 9,391,089 bytes, `contentVersion` `2026-09-30.1`. Same schema as the live file (`schemaVersion` 1, `normalization` `prose-reader-v1`, `offsetUnit` `utf16`) with four editions: `kjv-en`, `web-en`, `bsb-en`, `webc-en`.
+- `package/bible.v1.json` — SHA-256 `740258f37b4944efb105e40bb32b6e22d18d262548d2154f77ac271d3f24c9ed`, 9,446,701 bytes, `contentVersion` `2026-09-30.1`. Same schema as the live file (`schemaVersion` 1, `normalization` `prose-reader-v1`, `offsetUnit` `utf16`) with four editions: `kjv-en`, `web-en`, `bsb-en`, `webc-en`.
 - `package/MANIFEST.json` — file hash plus SHA-256 of each edition slice (method in the file), so a per-edition split can be verified byte-for-byte.
 - Everything else in this folder is review/provenance and is not needed at runtime.
 
@@ -25,7 +25,7 @@ Status: **content accepted / handed off — not published.** Nothing in `app/**`
 | kjv-en | passes | 9,948 | all | 0 / 0 | all | 0 |
 | web-en | passes | 10,026 | all | 0 / 0 | all | 0 |
 | bsb-en | passes | 11,034 | all | 0 / 0 | all | 0 |
-| webc-en | passes | 10,914 | all | 0 / 0 | all | 0 |
+| webc-en | passes | 11,175 | all | 0 / 0 | all | 0 |
 
 Every mention resolves to its own card; there are no identical or partially overlapping spans, so the resolver’s “tied ⇒ null” rule never triggers. For every snapshot, the card body at `availableAt` equals the snapshot and one offset earlier equals the previous snapshot (the same assertion the Hamlet test makes). The verifier’s hash gates hold: `sourceSha256` equals the edition file bytes and `paragraphHashes` equal SHA-256 of `normalizeParagraph` for every paragraph. The same rules were re-implemented and run separately on the committed file (`review/structural-verification.json`).
 
@@ -38,11 +38,11 @@ Every mention resolves to its own card; there are no identical or partially over
 
 ## Size and loading (needs your decision)
 
-The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 9,391,089 bytes (≈2.83 MB gzip) because the cap of ~20 links per character is gone and two editions were added. `loadCharacters` fetches the whole file for whichever edition is open, so a KJV reader would download BSB and WEBC links as well. Per-edition slices are 1.7 MB (kjv-en), 1.7 MB (web-en), 3.9 MB (bsb-en) and 2.1 MB (webc-en) before gzip; their hashes are in `MANIFEST.json`. Splitting into per-edition sidecar files (or trimming the loader to read one edition) is a code change I did not make; the schema does not need to change for it.
+The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 9,446,701 bytes (≈2.83 MB gzip) because the cap of ~20 links per character is gone and two editions were added. `loadCharacters` fetches the whole file for whichever edition is open, so a KJV reader would download BSB and WEBC links as well. Per-edition slices are 1.7 MB (kjv-en), 1.7 MB (web-en), 3.9 MB (bsb-en) and 2.1 MB (webc-en) before gzip; their hashes are in `MANIFEST.json`. Splitting into per-edition sidecar files (or trimming the loader to read one edition) is a code change I did not make; the schema does not need to change for it.
 
 ## What moves in the reader
 
-- **Card ids are unchanged (149) and none was removed**; 26 ids are new and only exist in `webc-en` (Catholic-only books, see `COVERAGE.md`). Saved links keyed by id keep working.
+- **Card ids are unchanged (149) and none was removed**; 46 ids are new and only exist in `webc-en` (Catholic-only books, see `COVERAGE.md`). Saved links keyed by id keep working.
 - Existing links at 1,444 (kjv) / 1,437 (web) positions: about 92% unchanged; the rest are corrected or removed (`CHANGES-TO-EXISTING-LINKS.md`). Saved *highlight* spans are unaffected — highlights are the reader’s, and the resolver returns `null` on an existing highlight by design.
 - **First-mention positions moved for 70 existing cards (kjv/web pairs counted separately)**, 41 of them earlier. Full coverage finds a name before the point the sampled links first showed it. The reveal rule (`snapshots[0].availableAt == firstMention`, no spoilers before it) is preserved by construction; where the old first snapshot described a later event, an earlier one-sentence **cameo snapshot** was added (marked below). The table lists the cards whose first mention moved **earlier** (the ones where a reveal could matter); the rest moved later because a wrong early link was removed. All moves are in `review/first-mention-moves.json`. Please spot-read the cameo cards in the reader:
 
