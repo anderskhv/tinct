@@ -1,5 +1,5 @@
 {
-  "status": "NOT READY — chapters 7–9 missing; rights and title-provenance review open",
+  "status": "CONTENT COMPLETE — 10/10; editorial approval and EU editorial-rights clearance pending",
   "original": {
     "chapters": 10,
     "paragraphs": 140,
@@ -42,7 +42,7 @@
     "apparatusAndPageMarkers": "Excluded; no numbered page markers remain"
   },
   "modernEn": {
-    "chapters": 7,
+    "chapters": 10,
     "completedChapterNumbers": [
       1,
       2,
@@ -50,9 +50,12 @@
       4,
       5,
       6,
+      7,
+      8,
+      9,
       10
     ],
-    "paragraphs": 84,
+    "paragraphs": 140,
     "paragraphsByChapter": [
       20,
       28,
@@ -60,19 +63,22 @@
       8,
       3,
       4,
+      28,
+      10,
+      18,
       10
     ],
     "jsonValid": true,
     "completedChaptersAligned": true,
-    "wholeBookChapterAndParagraphEquality": false,
-    "wholeBookEqualityReason": "German 10 chapters/140 paragraphs; English seven complete chapters (1–6,10)/84 paragraphs. Chapters 7–9 absent, no scaffold or partial chapter.",
+    "wholeBookChapterAndParagraphEquality": true,
+    "wholeBookEqualityReason": "Both editions contain exactly chapters 1–10 and 140 corresponding paragraphs.",
     "emptyOrStubParagraphs": [],
     "ratioFlags": [],
     "ratioMinimum": 0.9237,
     "ratioMaximum": 1.2432,
     "ratioRule": "English/German whitespace-delimited words, flag below 0.60 or above 2.00; per-paragraph output in paragraph-ratios.json",
     "germanFunctionWordScan": [],
-    "languageReview": "Authoring agent reviewed rendered paragraphs against German; names/place names and the English loanword schnapps retained. Heuristic is supplementary, not proof of language or fidelity.",
+    "languageReview": "All paragraphs self-reviewed during direct rendering. Whole-book supplementary German-word scan has no hits; retained names/place names are intentional. Primary agent independently checked first three paragraphs of 7–9; targeted second-agent reviews below. Heuristic is not proof of fidelity.",
     "firstThreeParagraphSpotRead": {
       "1": "PASS: accusation and arrest; guards, documents and law; abandoned attempt to force departure retained.",
       "2": "PASS: notice and scheduling; deputy manager invitation and Hesterer; route and three bank employees retained.",
@@ -81,15 +87,49 @@
       "5": "PASS: guards, punishment, attempted bribe, rationalisation, fiancée claim and next-day repetition (all three paragraphs).",
       "6": "PASS: uncle’s entrance; complete letter, bank conversation, journey and lawyer’s introduction; Leni and study scene. Karl/Albert and name-day/birthday variation retained.",
       "10": "PASS: two gentlemen, gloves, children and theatre question; linking arms; light, faces and cleanliness.",
-      "7–9": "NOT RUN: English absent."
+      "7": "PASS: winter office scene; complete lawyer discourse including secret process, counsel restrictions, official hierarchy, stairway incident and unreliability of influence; repeated progress/delay claims. Independently checked by primary agent.",
+      "8": "PASS: dismissal decision and motivation; complete arrival/Block/Leni/kitchen exchange; renewed decision and consultation motive. Independently checked by primary agent.",
+      "9": "PASS: Italian assignment, office fears, complete reception and language preparation, half-past-nine call and hounding repetition. Independently checked by primary agent."
     },
-    "independentReview": "Not performed; self-reviewed candidate only",
+    "independentReview": {
+      "firstThreeParagraphs": [
+        7,
+        8,
+        9
+      ],
+      "additionalFullParagraphs": {
+        "7": [
+          23,
+          28
+        ],
+        "8": [
+          8,
+          10
+        ],
+        "9": [
+          12,
+          15,
+          16
+        ]
+      },
+      "result": "PASS after documented wording corrections; no omissions or substantive reversals found in reviewed passages. Not a claim of a separate second reading of every paragraph in the book."
+    },
     "similarityGate": "Not used per approved cross-language QA replacement",
-    "missingChapterNumbers": [
-      7,
-      8,
-      9
-    ]
+    "missingChapterNumbers": [],
+    "wordsByChapter": [
+      9755,
+      5390,
+      8213,
+      2571,
+      2261,
+      6940,
+      17625,
+      10894,
+      8627,
+      1794
+    ],
+    "words": 74070,
+    "openingsAndEndings": "PASS: source-aligned beginnings/endings for all ten chapters; no apparatus or placeholders."
   },
   "onboarding": {
     "valid": true,
@@ -98,5 +138,6 @@
     "acclaim": "omitted",
     "castEntries": 11
   },
-  "scope": "Only owned content paths; no app build required, no app/registry changes or publication"
+  "scope": "Only owned content paths; no app build required, no app/registry changes or publication",
+  "reproduce": "python3 books/wip/the-trial/validate.py; result saved in qa-output.txt"
 }

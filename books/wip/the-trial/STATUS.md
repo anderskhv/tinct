@@ -1,11 +1,11 @@
-# NOT READY — modern-en 7/10
+# CONTENT COMPLETE — modern-en 10/10
 
-Complete English chapters: **1, 2, 3, 4, 5, 6, 10** — **84 aligned paragraphs**. German: 10 chapters / 140 paragraphs.
+Both editions contain **10 chapters / 140 matching paragraphs**. English: **74,070 words**. No missing chapters, placeholders or translation resume point.
 
-**Resume chapter 7, paragraph 1. Chapters 7–9 remain: 56 paragraphs, 35,308 German words. Chapter 10 is already complete.** No partial or placeholder chapters are present.
+**Content QA passed:** valid JSON; exact paragraph counts; no empty/stub paragraphs, ratio outliers or German-word scan hits; all chapter openings/endings checked; first three paragraphs of every chapter spot-read. Targeted independent reviews and resulting corrections are recorded in HANDOFF.md. Reproduce with `python3 books/wip/the-trial/validate.py`; output in qa-output.txt.
 
-Completed pairs pass JSON, count, empty/stub, word-ratio and supplementary German-word checks. First three paragraphs of every completed chapter have been spot-read against German. Whole-book equality remains incomplete, not passed. The user's requested 10/10 has not yet been reached; stopped at complete chapter boundaries at the output-budget limit.
+Ready for Anders’s content review. **Publication remains unapproved and editorial-rights clearance remains open** for Brod’s arrangement/interventions. All ten neutral chapter-label decisions and their provenance are recorded for approval. Six source-absent fragments remain omitted. No human English baseline is supplied.
 
-Onboarding and character/taxonomy proposals are supplied. Individual manuscript-title provenance and Brod editorial-rights questions remain open. See HANDOFF.md for the incidental English-title search-snippet disclosure. No publication, registry/app edits, Anthropic spend or translation API.
+Onboarding, character/taxonomy proposals, SOURCE.md, HANDOFF.md, QA.json and pinned hashes are complete. No app/registry edits, publication, translation API or Anthropic spend.
 
-Branch: `content/the-trial-codex`. Authoritative checkout: `work/the-trial-content-isolated`. SHA256SUMS pins the current files; HANDOFF.md records checkpoint commits.
+Branch: `content/the-trial-codex`. Authoritative checkout: `work/the-trial-content-isolated`. See HANDOFF.md for exact content checkpoint and the incidental English-title search-snippet disclosure.

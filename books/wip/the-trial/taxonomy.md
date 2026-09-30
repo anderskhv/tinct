@@ -18,6 +18,6 @@
 | Available comparison | `original-de` only; no human English baseline |
 | Canon/list membership | None asserted; no list attribution invented |
 
-House, shelf and era identifiers were checked read-only against current-main `app/src/data/libraryTaxonomy.ts`. Theme labels and tradition are proposals. No runtime metadata or registry was changed. Do not mark the pair complete/aligned at book level while chapters 3–10 of modern-en are missing.
+House, shelf and era identifiers were checked read-only against current-main `app/src/data/libraryTaxonomy.ts`. Theme labels and tradition are proposals. No runtime metadata or registry was changed. Both editions are complete and aligned: ten chapters and 140 paragraphs each. Editorial acceptance and rights clearance remain separate from content QA.
 
 Reader description proposal: A bank official is arrested without being told the charge; his search for an explanation entangles him in the court's procedures and his own assumptions.

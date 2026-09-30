@@ -1,64 +1,61 @@
-# The Trial — NOT READY
+# The Trial — CONTENT COMPLETE / READY FOR ANDERS’S REVIEW
 
-- Branch: `content/the-trial-codex`.
-- Base/current-main instruction revision: `221d6b78d`, fetched 2026-09-30.
-- Initial source checkpoint: `609d7699a`; validated source correction: `5025ea671`.
-- Chapters 1–2 content: `2628fd0aa`; earlier handoff: `17e742c09`; chapters 3–5 checkpoint: `d1ee250f1`.
-- Latest English content checkpoint: `069e5205c73235927205953b28bd33bae2c122e9` (recorded in the subsequent handoff-only commit).
+- Branch: `content/the-trial-codex`; base/current-main revision `221d6b78d`, fetched 2026-09-30.
+- Authoritative checkout: `work/the-trial-content-isolated`.
+- Initial source checkpoint `609d7699a`; validated source correction `5025ea671`.
+- Earlier English checkpoints: `2628fd0aa` (1–2), `d1ee250f1` (3–5), `069e5205c73235927205953b28bd33bae2c122e9` (6,10); prior handoff `ae21fc0596cd75a8517ed8a552f84e989c9a764c`.
+- Final content checkpoint: recorded after commit below.
 - Owned paths only: `books/wip/the-trial/`, `books/raw/the-trial/`.
-- German: **10 chapters / 140 paragraphs**, counts 20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10.
-- Modern English: **7 of 10 chapters**, complete chapter numbers **1, 2, 3, 4, 5, 6, 10**; **84 paragraphs**, counts 20 / 28 / 11 / 8 / 3 / 4 / 10. No incomplete or placeholder chapter in the edition.
-- **Outstanding: chapters 7–9, 56 paragraphs, 35,308 German words. Resume chapter 7, paragraph 1. Chapter 10 is already done: do not overwrite it during continuation.**
-- The request to reach 10/10 is **not achieved**. This checkpoint stops at completed chapter boundaries because the remaining full chapters exceed the turn's remaining output budget. An optional request for permission to use parallel writing agents received no answer during the turn; no agents were spawned.
-- Onboarding, character proposal and taxonomy proposal supplied; not registered or published.
+- **German and modern-en: ten complete chapters / 140 paragraphs each**, counts 20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10. No missing, partial or placeholder chapters. English: **74,070 words**.
+- Onboarding, character proposal, taxonomy proposal, source evidence, reproducible QA and hashes supplied. No remaining translation resume point.
 - German SHA-256: `caf39bade270a8718f3867720b97533e25364c8948c2b8a7738a11f1d6138d0f`.
-- English SHA-256: `97aa57b5f8ecf8a16bc18f9c88339731852e1e789adb578bb2dfe66d0edecb0d`.
-- All package and raw evidence hashes pinned in SHA256SUMS.
+- English SHA-256: `cb956f19857689fd14a2e7e929802134b1960841a4299bc5923d42ada84e16a2`.
+- Raw 1925 transcription SHA-256: `39806572aa000c1db7319503636a41505cc55ed7f9b01499070643ca7b5c23ec`.
+- SHA256SUMS pins every package and retained raw evidence file, excluding itself.
 
 ## QA output
 
-- PASS: JSON parsing for all package JSON; original retains the validated ten-chapter source extraction.
-- PASS: all **84 completed pairs** have matching chapter numbers and paragraph counts; zero empty/stub paragraphs; zero ratio flags outside 0.60–2.00; zero supplementary German-function-word scan hits.
-- PASS: first three English paragraphs of **each completed chapter (1–6,10)** spot-read against German. Chapters 7–9 pending, not passed. In chapter 5 this covers the whole chapter; in chapter 6 the third paragraph completes the study/Leni scene.
-- PASS: new chapter openings/endings checked against German. All authored paragraph text follows the supplied source in order, without paragraph mergers, splits, summaries or deliberate omissions.
-- FAIL / INCOMPLETE: whole-book chapter and paragraph equality, German 10/140 versus English 7/84. No book-level readiness or alignment claim.
-- PASS: onboarding has exactly three whyItMatters, four angleCards, cast, About, and no acclaim field.
-- Review level: authoring-agent self-review and opening spot checks only; no independent literary acceptance. Ratio details: paragraph-ratios.json; summary: QA.json.
-- Changed coordinates in this continuation: every paragraph of chapters 3, 4, 5, 6 and 10. Chapters 1–2 unchanged.
+**PASS**: JSON validity; identical ten chapter numbers and all 140 paragraph positions; no empty/stub/copied-German paragraphs; no supplementary German-word scan hits; no English/German word ratios outside 0.60–2.00. Observed minimum **0.9237**, maximum **1.2432**. No ratio exceptions required inspection.
+
+**PASS**: the German edition compared exactly against all 140 extracted source paragraphs after the documented apparatus/separator removals. Chapter openings and endings verified. First three English paragraphs of **every chapter** spot-read against the German; primary agent independently checked those of chapters 7–9.
+
+**PASS**: independent second-agent comparisons of complete paragraphs 7:23,28; 8:8,10; 9:12,15,16. These include the painter’s legal remedies, Block’s humiliation, the parable and competing interpretations. Corrections applied: removed an unsupported cotton-fibre detail; clarified ending representation; replaced literal calques about advice and adulthood; corrected the scope of “after all”; rendered *haarfein* as subtle rather than equally balanced; made court-file traffic and the attendant’s dismissal precise. Legal distinctions remain actual acquittal / apparent acquittal / protraction.
+
+**PASS**: onboarding has About, exactly three whyItMatters, four angleCards, cast, and no acclaim. Its openingText equals the first English paragraph. Character/taxonomy files remain proposals.
+
+Reproduce automated checks: `python3 books/wip/the-trial/validate.py`. Output: `qa-output.txt`; structured results: `QA.json`; every pair’s word counts: `paragraph-ratios.json`. The approved cross-language QA replaces the similarity gate. Review means complete authoring self-review plus the specified independent spot checks, **not** an independent second reading of every paragraph or an objective literary “10/10” certification.
 
 ## Translation-provenance disclosure
 
-No English translation was intentionally fetched or used as a baseline. However, a broad German provenance search returned an unsolicited Reddit result snippet naming a Parry translation and quoting a short English chapter label. **I saw that snippet.** I did not open the result, retrieve translation prose, compare against it, or use its wording. Do not describe this session as having zero incidental exposure to English translation wording. No Wyllie, Muir or other English edition was opened or downloaded.
+No English translation was intentionally fetched or used as a baseline. However, an earlier broad German provenance search returned an unsolicited Reddit result snippet naming a Parry translation and quoting a short English chapter label. **I saw that snippet.** I did not open the result, retrieve translation prose, compare against it, or use its wording. Do not describe this session as having zero incidental exposure to English translation wording. No Wyllie, Muir or other English edition was opened or downloaded.
 
-`modern-en` is a **Tinct rendering from the German without a human English baseline, so English readers have only the German to compare against**. Every English paragraph was composed directly by the authoring agent from its German counterpart, not by a translation script, regex, translation API or another model call. Python was used only for source extraction, serialising authored strings and QA.
+`modern-en` is a **Tinct rendering from the German without a human English baseline, so English readers have only the German to compare against**. Every English paragraph was composed directly by Codex authoring agents from its German counterpart. Anders’s follow-up authorised parallel completion of chapters 7–9. No translation script, regex translation, translation API or Anthropic spend was used. Python handled extraction, serialisation of authored prose, applying specific reviewed editorial corrections and QA.
 
-## Chapter-title provenance and proposed decisions
+## Chapter-title provenance and decisions for Anders
 
+Brod’s 1925 afterword attributes headings collectively to Kafka. DLA confirms Kafka’s short labels on manuscript bundles; seven title leaves were inspected directly, supplementing this general testimony. The table separates observed labels from inferences about the printed edition. Exact punctuation, later numbering and expansion must not be attributed to Kafka solely on Brod’s testimony. **All ten reading units retain the independently written neutral labels `Kapitel N` / `Chapter N`; approve this consistent treatment.**
 
-The 1925 afterword attributes the headings collectively to Kafka. This is Brod's testimony, not independent authentication of each printed heading's exact wording. DLA confirms Kafka's bundles and Brod's ordering. No individual title leaf has yet been collated. None of the printed headings is carried into the candidate; the neutral labels below require Anders's editorial approval. Unverified attribution must not become an assertion of Kafka authorship.
-
-| Chapter | Printed heading, for provenance only | Attribution evidence / uncertainty | Candidate labels DE / EN |
+| Chapter | Printed heading, provenance only | Evidence and attribution decision | Candidate DE / EN |
 |---|---|---|---|
-| 1 | Verhaftung · Gespräch mit Frau Grubach · Dann Fräulein Bürstner | Brod's general attribution; composite wording not independently verified; possibly editorial | Kapitel 1 / Chapter 1 |
-| 2 | Erste Untersuchung | Brod's general attribution to Kafka; exact manuscript wording unverified | Kapitel 2 / Chapter 2 |
-| 3 | Im leeren Sitzungssaal · Der Student · Die Kanzleien | Brod's general attribution; composite wording not independently verified | Kapitel 3 / Chapter 3 |
-| 4 | Die Freundin des Fräulein Bürstner | Brod's general attribution; exact title and expansions unverified; possibly editorial | Kapitel 4 / Chapter 4 |
-| 5 | Der Prügler | Brod's general attribution to Kafka; exact manuscript wording unverified | Kapitel 5 / Chapter 5 |
-| 6 | Der Onkel · Leni | Brod's general attribution; composite wording not independently verified | Kapitel 6 / Chapter 6 |
-| 7 | Advokat · Fabrikant · Maler | Brod's general attribution; composite wording not independently verified | Kapitel 7 / Chapter 7 |
-| 8 | Kaufmann Block · Kündigung des Advokaten | Brod's general attribution; exact manuscript wording unverified; known rearrangement of four lines in body | Kapitel 8 / Chapter 8 |
-| 9 | Im Dom | Brod's general attribution to Kafka; DLA's writing page independently identifies the manuscript bundle with this name | Kapitel 9 / Chapter 9 |
-| 10 | Ende | Brod's general attribution to Kafka; exact manuscript wording unverified | Kapitel 10 / Chapter 10 |
+| 1 | Verhaftung · Gespräch mit Frau Grubach · Dann Fräulein Bürstner | Manuscript opening at DLA canvas 3 is untitled; DLA identifies this bundle by its opening sentence. Treat the printed composite as editorial/Brod-supplied, not verified Kafka wording; do not reuse. | Kapitel 1 / Chapter 1 |
+| 2 | Erste Untersuchung | Kafka bundle label visible at canvas 53; printed wording corroborated. Use neutral label for consistency. | Kapitel 2 / Chapter 2 |
+| 3 | Im leeren Sitzungssaal · Der Student · Die Kanzleien | Three-part Kafka label visible at canvas 79. Words corroborated, printed separators are editorial presentation. Use neutral label. | Kapitel 3 / Chapter 3 |
+| 4 | Die Freundin des Fräulein Bürstner | Scholarly manuscript account identifies `B’s Freundin`. Printed expanded wording appears editorial/Brod’s expansion; do not reuse. This leaf was not directly inspected. | Kapitel 4 / Chapter 4 |
+| 5 | Der Prügler | Kafka label visible at canvas 119; printed wording corroborated. Use neutral label. | Kapitel 5 / Chapter 5 |
+| 6 | Der Onkel · Leni | Two-part Kafka label visible at canvas 131; printed words corroborated. Use neutral label. | Kapitel 6 / Chapter 6 |
+| 7 | Advokat · Fabrikant · Maler | Three-part Kafka label visible at canvas 163; words corroborated. Use neutral label. | Kapitel 7 / Chapter 7 |
+| 8 | Kaufmann Block · Kündigung des Advokaten | Two-part Kafka label visible at canvas 223; words corroborated. Body’s four-line rearrangement remains a separate Brod issue. Use neutral label. | Kapitel 8 / Chapter 8 |
+| 9 | Im Dom | Kafka label visible at canvas 259 and corroborated by DLA’s writing exhibit. Use neutral label. | Kapitel 9 / Chapter 9 |
+| 10 | Ende | DLA’s manuscript exhibition identifies the ending chapter by this name, supporting Kafka origin alongside Brod’s general testimony. This title leaf was not directly inspected. Use neutral label. | Kapitel 10 / Chapter 10 |
 
-Chapter 9 corroboration: https://www.literatursehen.com/themenseite/schreiben/ . Source/rights references are in SOURCE.md.
+Evidence URLs and retained image details are in SOURCE.md; image and metadata hashes are in SHA256SUMS. Low-resolution cover inspection is not claimed as expert handwriting authentication. Two editorial-title inferences are explicitly identified rather than guessed to be Kafka’s wording.
 
-## Open decisions and limits
+## Remaining approvals and known limits
 
-1. Approve the proposed neutral labels and complete the individual manuscript-title attribution audit. Collective attribution by Brod does not authenticate each printed wording.
-2. Resolve Brod's arrangement and textual interventions for Denmark/EU. The German source is verified as a transcription of the 1925 first edition, but the entire edited edition is not certified free of protected original editorial contributions. Neutral headings do not clear ordering or the four-line rearrangement in chapter 8. Do not publish pending resolution.
-3. Keep the ten main chapters only for now. Six additional manuscript fragments are absent from the 1925 source; do not fetch a modern critical edition to fill them. Brod identifies chapter 8 itself as nearly finished. The novel is not represented as completed by Kafka.
-4. Finish modern-en chapters 7–9 and the same QA for each; then require identical whole-book counts and a full acceptance review. The approved cross-language QA replaces the similarity gate.
-5. Character JSON is a proposal, not runtime characters.v1 data. Actual first-mention offsets, per-edition paragraph hashes, spoiler-aware snapshots and name disambiguation remain for completed-text integration.
+1. **Content is complete; publication is not authorised or cleared.** Anders must approve the neutral-label decisions above and the ten-unit selection. No further translation is missing.
+2. Resolve Brod’s arrangement and original textual interventions for Denmark/EU before any publication. Verified 1925 source provenance and neutral headings do not by themselves clear ordering or the four-line rearrangement in chapter 8. The candidate intentionally preserves the requested 1925 sequence for review; no legal conclusion of full editorial clearance is claimed.
+3. Six additional manuscript fragments are absent from this source and remain omitted. Do not fetch a modern critical edition to fill them. Brod describes chapter 8 as nearly finished; the novel is not represented as completed by Kafka.
+4. Character JSON remains a proposal. Runtime first-mention offsets, per-edition paragraph hashes, spoiler-aware snapshots and name disambiguation belong to later integration, which was not authorised in this content-only task.
 
 ## Source variations and rendering decisions
 
