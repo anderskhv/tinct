@@ -38,7 +38,7 @@ const get = async path => {
    assert.equal(catalogue.books.find(b=>b.id===id)?.discoveryAvailable,false)
    assert.ok(!catalogue.houses.some(h=>h.shelves.some(s=>s.bookIds.includes(id))))
  }
- for(const [id,key] of [['faust-part-1','original-de'],['jerusalem','original-en']]){
+ for(const [id,key] of [['faust-part-1','modern-en'],['jerusalem','modern-en'],['macbeth','modern-en'],['as-you-like-it','modern-en']]){
    const book=catalogue.books.find(b=>b.id===id)
    assert.equal(book.discoveryAvailable,true)
    assert.equal(book.defaultEditionKey,key)

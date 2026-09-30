@@ -60,6 +60,96 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  macbeth: {
+    revision: 'macbeth-completeness-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'original-en': {
+        before: '2650bcc666428a808584fd6f99534f71474a4e99a085c7ae6b87234e24e30608',
+        after: '9df987bdf1a1a8c50d44e0c4c2ab6a18e2580f47114810232e8022eecca207c6',
+      },
+      'modern-en': {
+        before: '0c85273086804fdd02abee81842de15338b61a2288bb26805e9b2f2d505d02f1',
+        after: 'c597a985ce096a923b03a5072e52f6d8bd5bbc44c0c11fd924ff4e0019351bec',
+      },
+    },
+  },
+  'as-you-like-it': {
+    revision: 'as-you-like-it-completeness-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'original-en': {
+        before: '2c04249b4ea528612cfa8f41031ed7a78fff2e453f15fbccf7d55f03905ce179',
+        after: '8ab533a42958f570a59d12e686793d4397ff0efe6c9b061acfb468d645254358',
+      },
+      'modern-en': {
+        before: 'df270fa2b605950982107d654d395fe0eaa0226208f9a5b185d06d7da2b5f8e4',
+        after: '5a4e95bbf50e3affb4581cc5acd53d19322642e81894342bc56bd03fc7f75e48',
+      },
+    },
+  },
+  'faust-part-1': {
+    revision: 'faust-part-1-replacement-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'original-en': {
+        before: 'bff236838e6e5ee6baeb7afd16c6b1c1b2872f87605f21e79e4cd5198a997395',
+        after: 'e36200c60fe9e763555461ea2d65f9772058aa737635688e7b79ad4010bee79d',
+      },
+      'modern-en': {
+        before: '9e66da5b45267bfb3cae70905897d9f9c1397bd1d1c8b080bf325cda0046d28b',
+        after: '7c7b27df8c77e069e8641b8154f67f26d57afab36d73072865d061998d201dfe',
+      },
+      'original-de': {
+        before: 'edb0081f759c0eb256ed303711932af743784a87f1cc6716dab7d15365bc83e5',
+        after: '3e69f81d08d33c8b3aae0d7c1c7b05757f6944317ba68ff754a0f2aaf4b2f66c',
+      },
+    },
+  },
+  jerusalem: {
+    revision: 'jerusalem-completeness-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'original-en': {
+        before: '747b53bedd58d9ba65877185247a8545dac4bddcd1e8219cf5315da00cdac47c',
+        after: '20d0ed3ecce5e4b440fec2e4373b337222c6a734f37f9cf769d94cecc248c48a',
+      },
+      'modern-en': {
+        before: '6cdbf3a5904a26d5edffc0ad45325f29af16e8cd6bc0a959f92450c3b33c00ee',
+        after: '47c0c1c78ef4b342c793f7ffd07dabbbe96334c67d7ca85dbfa9aafdf9f521b0',
+      },
+    },
+  },
+  'vindication-rights-of-woman': {
+    revision: 'text-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'modern-en': {
+        before: '4e7e6143670a4ca29fa6f004587578e56102ac7b2f1b00814ddefb303084ba63',
+        after: '6a398f5b8be7c85ad6fafa8d1e414674bcd7f193daf129844b83ada8f9cb056a',
+      },
+    },
+  },
+  'second-treatise': {
+    revision: 'text-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'modern-en': {
+        before: '177b364414c437af89fe5d09b8922d71ff772ccf7da6ec2e64c710ed061269bf',
+        after: 'f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2',
+      },
+    },
+  },
+  'moby-dick': {
+    revision: 'text-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T19:04:00Z'),
+    editions: {
+      'modern-en': {
+        before: '2ab04dd727bbe5804b7acf1d05f578cfed5aef17c08d7d72b6db9101f8c1763c',
+        after: '1a3f31bbe6bb4bea415a29b509c81f303074bc858854c7bc00a49e8b68ffd52c',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
