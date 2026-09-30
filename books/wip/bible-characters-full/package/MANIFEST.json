@@ -1,0 +1,52 @@
+{
+ "file": "bible.v1.json",
+ "bytes": 9391089,
+ "sha256": "4aa0071715a6018d7459268dd522f2d09b37d935426b8cd0dadcccfeeb75c541",
+ "contentVersion": "2026-09-30.1",
+ "schemaVersion": 1,
+ "bookId": "bible",
+ "editions": [
+  "kjv-en",
+  "web-en",
+  "bsb-en",
+  "webc-en"
+ ],
+ "editionSlices": {
+  "method": "Parse bible.v1.json, take editions[<key>], re-serialise as compact JSON (separators ',' and ':', ensure_ascii=false, key order preserved), UTF-8; SHA-256 of those bytes.",
+  "sha256": {
+   "kjv-en": "ced240095dd52bf42fed2193b1be175721542cf128f59cd18d1a99e30a969051",
+   "web-en": "27d5c17ebcabefeb2db3b0f5ae56cf3c458375e3118049871deabeee1a0f94be",
+   "bsb-en": "bce213f4ff4d77aebcafc40bca1bd7bf2127f87986f8dbd96c4535e5e6b79764",
+   "webc-en": "80b88a9606fd8e2afad9c98994377361e06abe3bba7f99d1058c1c9028135d25"
+  }
+ },
+ "perEdition": {
+  "kjv-en": {
+   "characters": 149,
+   "mentions": 9948,
+   "sourceSha256": "53823ea3d19a3d7b986563f9fb7015be4a75bb102bd6e6a714ee64ceed0ff26e"
+  },
+  "web-en": {
+   "characters": 149,
+   "mentions": 10026,
+   "sourceSha256": "b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa"
+  },
+  "bsb-en": {
+   "characters": 149,
+   "mentions": 11034,
+   "sourceSha256": "8da0bc1ae32d9c2e05ba5811d953e24bdff8351913ad8f2199142ca0081c61d9"
+  },
+  "webc-en": {
+   "characters": 175,
+   "mentions": 10914,
+   "sourceSha256": "695cff11f0ec1197edf3cc0aa975a7805ed7e36365001f9bfa1ac86703ac52d7"
+  }
+ },
+ "gzipBytesApprox": 2827110,
+ "previousLiveFile": {
+  "path": "app/public/data/characters/bible.v1.json",
+  "bytes": 1483305,
+  "sha256": "2a19267d61858b2791032da1113562297b0c4a06f738099e780a279b3352125c",
+  "contentVersion": "2026-09-24.1"
+ }
+}
