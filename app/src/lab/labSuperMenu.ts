@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'chat' | 'talk' | 'summarize' | 'editions' | 'library' | 'settings' | 'account'
+export type LabSuperMenuId = 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -18,13 +18,15 @@ export interface LabSuperMenuRow {
 }
 
 /**
- * Seven rows: chapter actions, reading choices, then library and account.
+ * Eight rows: chapter actions (Catch me up, approved 2026-09-30, sits right
+ * under Summarize), reading choices, then library and account.
  */
 export function labSuperMenuRows(_input: { phone?: boolean } = {}): LabSuperMenuRow[] {
   return [
     { id: 'chat', label: 'Chat' },
     { id: 'talk', label: 'Talk' },
     { id: 'summarize', label: 'Summarize' },
+    { id: 'catchup', label: 'Catch me up' },
     { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
     { id: 'settings', label: 'Settings', chevron: true },
     { id: 'library', label: 'Library', ruleBefore: true },

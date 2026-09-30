@@ -264,7 +264,7 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Book editions', 'Settings', 'Library', 'Account'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Library', 'Account'])
     expect(labels).not.toContain('Play')
     // No section headers and no sub-labels: a row is an icon and a word.
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
@@ -272,7 +272,7 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['chat', 'talk', 'summarize', 'editions', 'settings', 'library', 'account'])
+      .toEqual(['chat', 'talk', 'summarize', 'catchup', 'editions', 'settings', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -303,6 +303,45 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super-row-settings'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
+  })
+
+  it('puts Catch me up right under Summarize, with its timeline icon', () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    const rows = [...screen.getByTestId('lab-super-menu').querySelectorAll('[data-row]')].map(node => node.getAttribute('data-row'))
+    expect(rows.indexOf('catchup')).toBe(rows.indexOf('summarize') + 1)
+    const icon = screen.getByTestId('lab-super-row-catchup').querySelector('svg')!
+    expect(icon.getAttribute('viewBox')).toBe('0 0 24 24')
+    expect(icon.getAttribute('stroke-width')).toBe('1.6')
+    expect(icon.querySelectorAll('circle')).toHaveLength(3)
+    expect(icon.querySelector('circle[r="2.2"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-catchup').textContent).toBe('Catch me up')
+  })
+
+  it('opens Catch me up as its own sheet; a failing AI shows a quiet retry and closing leaves the page where it was', async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/lab-recap') || url.includes('/api/lab-catch-up')) return { ok: false, status: 502, json: async () => ({ error: 'x' }) }
+      return { ok: false, status: 404, json: async () => ({}) }
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    renderPhone()
+    const before = { chapter: root().getAttribute('data-chapter'), header: screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent }
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-catchup'))
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    expect(screen.getByTestId('lab-catch-up')).toBeTruthy()
+    expect(root().getAttribute('data-super-sheet')).toBe('catchup')
+    // The settings sheet does not draw over it.
+    expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
+    expect(screen.getByTestId('lab-catch-up-here').textContent).toBe('You are here')
+    await waitFor(() => expect(screen.getByTestId('lab-catch-up-retry')).toBeTruthy())
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-recap'))).toBe(true)
+    fireEvent.click(screen.getByTestId('lab-catch-up-close'))
+    expect(screen.queryByTestId('lab-catch-up')).toBeNull()
+    expect(root().getAttribute('data-super-sheet')).toBe('closed')
+    expect(root().getAttribute('data-chapter')).toBe(before.chapter)
+    expect(screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent).toBe(before.header)
   })
 
   it('opens Account on the same sheet rather than leaving the book', () => {
