@@ -73,7 +73,7 @@ describe('reviewed author image coverage and credits', () => {
     expect(manifest.books.find(book=>book.bookId==='federalist-papers').imageIds).toEqual(['alexander-hamilton','james-madison','john-jay'])
     expect(manifest.books.find(book=>book.bookId==='bible').displayKind).toBe('collection_image')
   })
-  it('ships the exact reviewed bytes with visible captions and accessible licensing', async () => {
+  it('ships the exact reviewed bytes without captions and with accessible licensing', async () => {
     const { createHash }=await import('node:crypto')
     const { renderAuthorFlap, renderImageCredits }=await import('../public/lab/library_2/authors.js')
     // Every portrait is credited on the library's Image credits page, not in the flap.
@@ -87,7 +87,7 @@ describe('reviewed author image coverage and credits', () => {
       const target=document.createElement('div')
       renderAuthorFlap([image],target)
       expect(target.querySelector('img')?.getAttribute('alt')).toBe(image.alt)
-      expect(target.querySelector('figcaption')?.textContent).toBe(image.caption)
+      expect(target.querySelector('figcaption')).toBeNull()
       expect(target.textContent).not.toContain(image.licence)
       const record=[...page.querySelectorAll('p')].find(p=>p.textContent.startsWith(image.authorName+' · '+image.creator+' · ')&&p.textContent.includes(image.changes)
         &&[...p.querySelectorAll('a')].map(a=>a.href).join()===[image.licenceUrl,image.sourcePage].join())
