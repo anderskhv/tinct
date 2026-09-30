@@ -9,7 +9,7 @@ Chapter 1, paragraphs 1–74 (one-based): complete sentence-by-sentence renderin
 
 ## Gates
 Before: similarity 0.881; LIGHT/MECHANICAL 1/1 (100%); identical long paragraphs 7/73 (9.6%); scaffolding 0; truncated quotations 0; FAIL.
-After: see `gate-after.txt` for the absolute-path whole-book PASS and final numbers. Every paragraph meets 75% of original word count; minimum ratio 0.852. Exclamation-mark counts match in every paragraph.
+After: similarity 0.505; LIGHT/MECHANICAL 0/1 (0%); identical long paragraphs 0/73 (0%); scaffolding 0; truncated quotations 0; PASS. See `gate-after.txt` for the absolute-path whole-book run. Every paragraph meets 75% of original word count; minimum ratio 0.852. Exclamation-mark counts match in every paragraph.
 
 ## SHA-256
 - `magna-carta-modern-en.json`: `9fc3a296b172b3d144fb95c673b6627407520b9036b7cd00d9cd894ff65e198c`
