@@ -133,7 +133,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'vindication-rights-of-woman': { editions: EN, revision: '2026-09-30.2' },
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
   jerusalem: { editions: EN, revision: '2026-09-30.1' },
-  'fear-and-trembling': { editions: EN, revision: '2026-09-12.1' },
+  'fear-and-trembling': { editions: ['modern-en'], revision: '2026-09-30.1' },
   'magna-carta': { editions: EN, revision: '2026-09-12.1' },
 }
 /** Public path of the character package a reader needs for one edition. */

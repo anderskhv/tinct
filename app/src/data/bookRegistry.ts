@@ -2119,9 +2119,9 @@ export const FEAR_AND_TREMBLING: Book = {
   id: 'fear-and-trembling',
   title: 'Fear and Trembling',
   author: 'Søren Kierkegaard',
-  description: 'A short, savage book about Abraham — the father of faith — who is told by God to murder his son. Kierkegaard, writing under the name Johannes de Silentio, refuses every comfortable Hegelian explanation and forces the reader to feel what faith actually demands. The "knight of faith" and the "teleological suspension of the ethical" begin here.',
+  description: 'A short, savage book about Abraham — the father of faith — who is told by God to murder his son. Kierkegaard, writing under the name Johannes de silentio, refuses every comfortable Hegelian explanation and forces the reader to feel what faith actually demands. The "knight of faith" and the "teleological suspension of the ethical" begin here.',
   year: 1843,
-  wordCount: 40000,
+  wordCount: 43700,
   coverColor: '#1a1a24',
   coverAccent: '#a08a4a',
   editions: [
@@ -2138,13 +2138,15 @@ export const FEAR_AND_TREMBLING: Book = {
       language: 'en',
       style: 'original',
       label: 'Original (English)',
-      aligned: true,
+      // Machine translation on the earlier 232-paragraph structure; the accepted
+      // text has 184 printed paragraphs. Never a default (editionDefaults).
+      aligned: false,
     },
     {
       key: 'modern-en',
       language: 'en',
       style: 'modern',
-      label: 'Modern English',
+      label: 'Tinct Modern English — translated from Danish',
       aligned: true,
       hasAudio: true,
     },
@@ -2153,7 +2155,8 @@ export const FEAR_AND_TREMBLING: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // 232 paragraphs against the accepted 184.
+      aligned: false,
       hasAudio: true,
     },
   ],
