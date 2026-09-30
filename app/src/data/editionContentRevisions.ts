@@ -152,7 +152,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   'fear-and-trembling': {
     revision: 'fear-and-trembling-structure-2026-09-30.1',
-    releasedAt: Date.parse('2026-10-01T00:00:00Z'),
+    releasedAt: Date.parse('2026-09-30T20:25:00Z'),
     editions: {
       'modern-en': {
         before: '152776f19e1b707b610d2bee033d6984ed0f1e26826b314e2d0541d9c0b49132',
