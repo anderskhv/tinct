@@ -214,6 +214,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'hume-enquiry': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
+        after: 'cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

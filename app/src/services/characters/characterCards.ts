@@ -60,7 +60,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
   gilgamesh: { editions: EN, revision: '2026-09-11.2' },
   'heart-of-darkness': { editions: EN, revision: '2026-09-30.3' },
-  'hume-enquiry': { editions: EN, revision: '2026-09-11.2' },
+  'hume-enquiry': { editions: EN, revision: '2026-09-30.3' },
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
   'jekyll-and-hyde': { editions: EN, revision: '2026-09-24.1' },
   'julius-caesar': { editions: EN, revision: '2026-09-24.1' },
