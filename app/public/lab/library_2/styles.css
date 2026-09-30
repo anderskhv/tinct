@@ -179,7 +179,8 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
 .rt-recap small{display:block;font:10.5px system-ui;letter-spacing:.14em;text-transform:uppercase;color:#b8bea9;margin-bottom:5px}
 /* Always three lines tall, so switching books never moves anything. */
 .rt-recap p{margin:0;font-style:italic;font-size:15.5px;line-height:1.45;max-height:4.35em;color:#e4dec9;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.rt-recap.open p{-webkit-line-clamp:unset;max-height:none}
+.rt-recap.open p{-webkit-line-clamp:unset;display:block;max-height:min(34vh,15em);overflow-y:auto;overscroll-behavior:contain;cursor:pointer}
+.reading-table.recap-open .rt-remove{visibility:hidden;pointer-events:none}
 .rt-recap button{font:12px system-ui;color:#b8bea9;margin:4px 0 0 14px;padding:2px 0;text-decoration:underline;text-decoration-color:#b8bea966;text-underline-offset:3px}
 .rt-recap button.is-hidden{visibility:hidden}
 .rt-continue{display:inline-flex;margin-top:12px;text-decoration:none;border-radius:999px}
