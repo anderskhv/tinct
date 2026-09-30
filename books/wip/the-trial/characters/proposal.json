@@ -1,0 +1,153 @@
+{
+  "bookId": "the-trial",
+  "status": "proposal-only; not a runtime character index",
+  "language": "en",
+  "policy": "No generated mentions or offsets until both editions are complete and pinned. Use staged, spoiler-aware snapshots following the existing characters.v1 convention at integration. Intro chapters are discovery aids, not publication-ready appearance coordinates.",
+  "characters": [
+    {
+      "id": "josef-k",
+      "name": "Josef K.",
+      "aliases": [
+        "K.",
+        "Josef K."
+      ],
+      "introChapter": 1,
+      "body": "A senior bank employee who expects reason, status and professional competence to make his position clear. An unexplained arrest draws those expectations into question."
+    },
+    {
+      "id": "grubach",
+      "name": "Mrs Grubach",
+      "aliases": [
+        "Frau Grubach",
+        "Mrs Grubach"
+      ],
+      "introChapter": 1,
+      "body": "K.’s landlady, whose concern for her lodgers includes close attention to their reputations. Her domestic judgments accompany the first official intrusion."
+    },
+    {
+      "id": "burstner",
+      "name": "Miss Bürstner",
+      "aliases": [
+        "Fräulein Bürstner",
+        "Miss Bürstner"
+      ],
+      "introChapter": 1,
+      "body": "A typist whose room is used during K.’s arrest. She listens to his account while insisting on her own time, space and responsibility."
+    },
+    {
+      "id": "examining-magistrate",
+      "name": "The examining magistrate",
+      "aliases": [
+        "Untersuchungsrichter",
+        "examining magistrate"
+      ],
+      "introChapter": 2,
+      "body": "He presides over the crowded room where K. tries to turn his examination into a public challenge to the proceedings."
+    },
+    {
+      "id": "uncle",
+      "name": "K.’s uncle",
+      "aliases": [
+        "Onkel Karl",
+        "Albert"
+      ],
+      "introChapter": 6,
+      "body": "A relative from the country who takes an urgent interest in K.’s case and introduces him to a lawyer."
+    },
+    {
+      "id": "huld",
+      "name": "Huld",
+      "aliases": [
+        "Huld"
+      ],
+      "introChapter": 6,
+      "body": "A lawyer approached through K.’s uncle. His account of defence work raises questions about access, influence and dependence."
+    },
+    {
+      "id": "leni",
+      "name": "Leni",
+      "aliases": [
+        "Leni"
+      ],
+      "introChapter": 6,
+      "body": "A woman in the lawyer’s household who takes a close personal interest in K."
+    },
+    {
+      "id": "titorelli",
+      "name": "Titorelli",
+      "aliases": [
+        "Titorelli"
+      ],
+      "introChapter": 7,
+      "body": "A painter with connections to the court, approached as a possible source of help."
+    },
+    {
+      "id": "block",
+      "name": "Block",
+      "aliases": [
+        "Block",
+        "Kaufmann Block"
+      ],
+      "introChapter": 8,
+      "body": "A merchant whose experience of the proceedings gives K. another perspective on seeking legal assistance."
+    },
+    {
+      "id": "priest",
+      "name": "The priest",
+      "aliases": [
+        "Geistliche",
+        "priest"
+      ],
+      "introChapter": 9,
+      "body": "A clergyman whose conversation with K. turns on how a story about access to the law can be understood."
+    },
+    {
+      "id": "franz",
+      "name": "Franz",
+      "aliases": [
+        "Franz"
+      ],
+      "introChapter": 1,
+      "body": "One of the guards at K.’s arrest. Keep him distinct from Willem and from the supervisor."
+    },
+    {
+      "id": "willem",
+      "name": "Willem",
+      "aliases": [
+        "Willem"
+      ],
+      "introChapter": 1,
+      "body": "The other guard at K.’s arrest, who explains the authority’s connection to guilt."
+    },
+    {
+      "id": "supervisor",
+      "name": "The supervisor",
+      "aliases": [
+        "Aufseher",
+        "supervisor"
+      ],
+      "introChapter": 1,
+      "body": "The official who speaks to K. in Miss Bürstner’s room. Not the examining magistrate."
+    }
+  ],
+  "additionalCandidates": [
+    "Rabensteiner",
+    "Kullich",
+    "Kaminer",
+    "The deputy manager",
+    "Elsa",
+    "Captain Lanz",
+    "The washerwoman",
+    "The student",
+    "The court usher",
+    "The flogger"
+  ],
+  "nameReview": [
+    "Hasterer in chapter 1; Hesterer in chapter 2. Preserve source forms in the rendering; one identity is a proposal, not a silent textual correction.",
+    "The source calls K.’s uncle Karl in chapter 6 paragraph 1; he introduces himself as Albert in paragraph 2. Preserve the variation, use the neutral display name and review the alias decision.",
+    "Titorelli is explicitly a professional name; do not invent a legal name.",
+    "Do not expose later statements about the priest’s institutional role in an initial snapshot.",
+    "Do not merge the supervisor, examining magistrate, court usher, lawyer or priest.",
+    "Do not match every isolated K as Josef K.; require contextual boundary checks."
+  ]
+}

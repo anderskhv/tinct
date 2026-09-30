@@ -25,12 +25,14 @@ Fischer's bibliographical page (metadata only, no edition text consulted) confir
 
 ## Extraction
 
-`original-de` follows the Werther/Faust German-edition key. Ten flat chapters, 140 reading paragraphs. One paragraph per nonempty direct HTML paragraph in source chapters ch1–ch10; removed page-number spans and collapsed HTML whitespace. One empty HTML paragraph in chapter 1 is a separator, not a reading paragraph, and was excluded. Paragraphs were otherwise neither merged nor split. Printed titles replaced by original neutral labels `Kapitel 1`–`Kapitel 10`; English labels `Chapter 1`–`Chapter 10`.
+`original-de` follows the Werther/Faust German-edition key. Ten flat chapters, 140 reading paragraphs. One paragraph per prose-bearing direct HTML paragraph in source chapters ch1–ch10; removed page-number spans and collapsed HTML whitespace. One empty HTML paragraph in chapter 1 is a separator, not a reading paragraph, and was excluded. Paragraphs were otherwise neither merged nor split. Printed titles replaced by original neutral labels `Kapitel 1`–`Kapitel 10`; English labels `Chapter 1`–`Chapter 10`.
 
 Title pages, contents, afterword, colophon, correction list, Gutenberg license/header/footer and page numbers remain outside the reading edition. PG's raw HTML is preserved unmodified for evidence. `source-boundaries.json` records every chapter's first and last paragraph. `QA.json` records counts and validation.
 
 ## English source policy
 
-No third-party English translation of The Trial has been fetched, read or consulted in this task. `modern-en` is to be rendered directly from the pinned German by Codex, sentence by sentence, one English paragraph per German paragraph. No translation script, translation API or Anthropic API is used. The German is the only textual comparison baseline.
+No third-party English translation was intentionally fetched or consulted. Disclosure: an unsolicited search-result snippet named a Parry translation and included a short English chapter label. The agent saw that snippet but did not open the result, retrieve translation prose, compare against it or use its wording. The session therefore cannot be described as having zero incidental exposure to English translation wording. `modern-en` is being rendered directly from the pinned German by Codex, sentence by sentence, one English paragraph per German paragraph. No translation script, translation API or Anthropic API is used. The German is the only textual comparison baseline.
 
 Source extraction correction: the standalone asterisk between chapter 1 paragraphs 9 and 10 is a scene separator, not prose. Excluded from the paragraph array in both editions; scene break position retained here. Initial checkpoint 609d7699a included it as a paragraph; superseded by this correction.
+
+Current English candidate (chapters 1–2 only) SHA-256: `9e6a8cace96071ffdb9d03a556bfe9a6be7383413c4912ec97e3fa89555b0669`. Remaining chapters have not been rendered.
