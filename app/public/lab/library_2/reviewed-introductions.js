@@ -106,7 +106,7 @@ export const reviewedHooks = {
 const pending = new Map();
 export async function loadReviewedIntroduction(book) {
   if (!Object.hasOwn(reviewedHooks, book.id)) return false;
-  if (!pending.has(book.id)) pending.set(book.id, fetch('/lab/library_2/intro-data/' + encodeURIComponent(book.id) + '.json?v=20260929complete')
+  if (!pending.has(book.id)) pending.set(book.id, fetch('/lab/library_2/intro-data/' + encodeURIComponent(book.id) + '.json?v=20260930fix')
     .then(response => { if (!response.ok) throw new Error('Introduction unavailable'); return response.json(); })
     .catch(error => { pending.delete(book.id); throw error; }));
   applyReviewedIntroduction(book, await pending.get(book.id));

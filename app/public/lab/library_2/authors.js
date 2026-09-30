@@ -41,9 +41,9 @@ export function renderAuthorFlap(images, target) {
   });
 }
 /** Every author portrait's attribution, in one place (licences such as CC BY-SA require it). */
-export async function renderImageCredits(target) {
-  if(!authorManifest) await loadAuthorFlap('').catch(()=>{});
-  const manifest=await authorManifest.catch?.(()=>null) ?? await authorManifest;
+export async function renderImageCredits(target, provided) {
+  if(!provided&&!authorManifest) await loadAuthorFlap('');
+  const manifest=provided||await authorManifest;
   target.replaceChildren();
   const list=document.createElement('div');list.className='image-credits';
   for(const image of manifest?.images||[]){
