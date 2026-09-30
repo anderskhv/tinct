@@ -1,0 +1,110 @@
+{
+  "bookId": "dracula",
+  "status": "proposal-only; no runtime mentions or offsets",
+  "characters": [
+    {
+      "id": "dracula-jonathan-harker",
+      "name": "Jonathan Harker",
+      "aliases": ["Jonathan Harker", "Mr. Harker", "Jonathan"],
+      "description": "The English solicitor whose journey to Dracula’s castle begins the record. His professional attention to detail becomes a means of resisting terror.",
+      "sourceChapters": [1, 2, 3, 4, 9, 19, 27],
+      "identityNote": "Do not attach Harker family references automatically to Jonathan; Mina also becomes Harker. Journal headings identify a narrator, not a new character."
+    },
+    {
+      "id": "dracula-mina-harker",
+      "name": "Mina Harker",
+      "aliases": ["Mina Murray", "Mina Harker", "Miss Murray", "Mrs. Harker", "Madam Mina", "Mina", "Wilhelmina"],
+      "description": "Jonathan’s partner and Lucy’s friend, whose reading, transcription and reasoning help the group turn separate experiences into a shared record.",
+      "sourceChapters": [5, 6, 8, 9, 14, 17, 24, 26, 27],
+      "identityNote": "Mina Murray and Mina Harker are one person. Preserve the name appropriate to the date of each document; avoid retrospective renaming. Do not resolve every occurrence of Harker to Mina."
+    },
+    {
+      "id": "dracula-count-dracula",
+      "name": "Count Dracula",
+      "aliases": ["Count Dracula", "Dracula", "the Count"],
+      "description": "The Transylvanian nobleman whose move to England links the novel’s scattered witnesses. His courtesy is inseparable from threats and control.",
+      "sourceChapters": [1, 2, 3, 4, 21, 23, 27],
+      "identityNote": "Castle Dracula is a place. Dracula family ancestors mentioned in Chapter 3 must not all be collapsed into the present Count. Jonathan infers in Chapter 3 that the carriage driver was the Count; do not reveal that through an early spoiler-bearing alias."
+    },
+    {
+      "id": "dracula-lucy-westenra",
+      "name": "Lucy Westenra",
+      "aliases": ["Lucy Westenra", "Miss Westenra", "Miss Lucy", "Lucy"],
+      "description": "Mina’s close friend, whose letters present a voice full of affection, humour and uncertainty. Her illness draws together the people who care for her.",
+      "sourceChapters": [5, 6, 8, 9, 10, 11, 12, 16],
+      "identityNote": "The living and Un-Dead Lucy share one identity. The bloofer lady connection is a later revelation, not an opening-card alias. Mrs. Westenra is Lucy’s mother, a different person."
+    },
+    {
+      "id": "dracula-john-seward",
+      "name": "Dr. John Seward",
+      "aliases": ["Dr. John Seward", "Dr. Seward", "John Seward", "Jack Seward", "Seward"],
+      "description": "An asylum doctor, Lucy’s suitor and Van Helsing’s former pupil. He dictates a diary while trying to reconcile clinical habits with events outside his experience.",
+      "sourceChapters": [5, 6, 9, 12, 18, 21, 27],
+      "identityNote": "John and Jack can refer to Seward, but require context; John must not capture Jonathan. Generic doctor references need speaker and scene review."
+    },
+    {
+      "id": "dracula-abraham-van-helsing",
+      "name": "Professor Abraham Van Helsing",
+      "aliases": ["Abraham Van Helsing", "Van Helsing", "Dr. Van Helsing", "Professor Van Helsing"],
+      "description": "Seward’s learned friend and teacher from Amsterdam. His resourcefulness, compassion and forceful reasoning coexist with distinctive, sometimes irregular English.",
+      "sourceChapters": [9, 10, 13, 14, 18, 24, 27],
+      "identityNote": "Professor and doctor may identify the same man here, but neither word is a safe global alias. Do not regularise his voice into Seward’s clinical register."
+    },
+    {
+      "id": "dracula-arthur-holmwood",
+      "name": "Arthur Holmwood",
+      "aliases": ["Arthur Holmwood", "Mr. Holmwood", "Hon. Arthur Holmwood", "Arthur", "Art"],
+      "description": "Lucy’s chosen partner and the friend of Seward and Quincey Morris. His personal loyalties and practical resources help bind the group together.",
+      "sourceChapters": [5, 9, 12, 16, 27],
+      "identityNote": "Arthur becomes Lord Godalming after his father’s death. Resolve Lord Godalming/Godalming by chronology and referent: earlier mentions may mean his father. Add the title only with that disambiguation, never by a blind alias pass."
+    },
+    {
+      "id": "dracula-quincey-morris",
+      "name": "Quincey P. Morris",
+      "aliases": ["Quincey P. Morris", "Quincey Morris", "Mr. Morris", "Morris"],
+      "description": "The Texan traveller whose humour accompanies a readiness to act. He stays a loyal friend to Lucy and Arthur after his own proposal is refused.",
+      "sourceChapters": [5, 12, 18, 27],
+      "identityNote": "Quincey alone is ambiguous in the final NOTE, where it names the Harkers’ child. Do not conflate the child with Morris."
+    },
+    {
+      "id": "dracula-renfield",
+      "name": "R. M. Renfield",
+      "aliases": ["R. M. Renfield", "Mr. Renfield", "Renfield"],
+      "description": "Seward’s patient, whose fascination with life and whose changing behaviour challenge the doctor’s reading of him. His speech should retain its intelligence and shifts of purpose.",
+      "sourceChapters": [5, 6, 18, 20, 21],
+      "identityNote": "Do not invent expanded first names for the initials. Descriptions of his condition belong to particular observers, not an added modern diagnosis."
+    },
+    {
+      "id": "dracula-peter-hawkins",
+      "name": "Peter Hawkins",
+      "aliases": ["Peter Hawkins", "Mr. Hawkins"],
+      "description": "Jonathan’s employer in Exeter, whose trust and affection give the young solicitor a professional and personal foundation.",
+      "sourceChapters": [2, 3, 9, 13],
+      "identityNote": "A separate person from Jonathan; Jonathan’s reference to a second father is figurative."
+    },
+    {
+      "id": "dracula-mrs-westenra",
+      "name": "Mrs. Westenra",
+      "aliases": ["Mrs. Westenra"],
+      "description": "Lucy’s mother, herself in poor health. Her efforts to care for her daughter are shaped by what others have not told her.",
+      "sourceChapters": [6, 8, 10, 11],
+      "identityNote": "Never merge her with Lucy; bare Westenra is ambiguous. Do not invent a given name."
+    },
+    {
+      "id": "dracula-three-women",
+      "name": "The three women at the castle",
+      "aliases": [],
+      "description": "Three unnamed women whose beauty and threat disturb Jonathan’s account of his captivity.",
+      "sourceChapters": [3, 4, 27],
+      "identityNote": "Collective proposal only. Two are dark and one fair. Do not invent names or assert that the novel explicitly calls them Dracula’s wives or brides. If integration needs individual cards, use separate unnamed identities supported by local text."
+    },
+    {
+      "id": "dracula-quincey-harker",
+      "name": "Quincey Harker",
+      "aliases": [],
+      "description": "Jonathan and Mina’s son in the novel’s concluding NOTE.",
+      "sourceChapters": [27],
+      "identityNote": "Ending-only, spoiler-bearing card proposal. The NOTE calls him Quincey and describes additional names without listing them. Harker is the family surname used here for disambiguation; do not fabricate the full sequence of names or link his mentions to Quincey Morris."
+    }
+  ]
+}
