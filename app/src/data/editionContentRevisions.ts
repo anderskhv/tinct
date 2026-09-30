@@ -204,6 +204,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'jungle-book': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640',
+        after: 'b6b99a55ce2c4bd26f8b43f45c02b56bc75ce24cbc7d9457b9db8b1cf9ee0823',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

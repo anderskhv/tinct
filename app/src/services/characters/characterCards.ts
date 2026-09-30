@@ -64,7 +64,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
   'jekyll-and-hyde': { editions: EN, revision: '2026-09-24.1' },
   'julius-caesar': { editions: EN, revision: '2026-09-24.1' },
-  'jungle-book': { editions: EN, revision: '2026-09-11.2' },
+  'jungle-book': { editions: EN, revision: '2026-09-30.3' },
   'king-lear': { editions: EN, revision: '2026-09-11.2' },
   medea: { editions: EN, revision: '2026-09-11.2' },
   'merchant-of-venice': { editions: EN, revision: '2026-09-11.2' },
