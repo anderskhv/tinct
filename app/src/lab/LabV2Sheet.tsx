@@ -1,4 +1,5 @@
 import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
+import { useReadingYearTotals } from './useLabReadingYear'
 import { useEffect, useState, type ReactNode } from 'react'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
@@ -192,6 +193,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     likelyAuthenticated: auth.likelyAuthenticated,
   })
   const [resetStatus, setResetStatus] = useState('')
+  const yearTotals = useReadingYearTotals(auth.user?.id ?? null, layer === 'account')
 
   useEffect(() => {
     if (!layer) return
@@ -485,9 +487,9 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
               <div className="lab-v2-year">
                 <p className="lab-v2-group-label">This year</p>
                 <div className="lab-v2-year-stats">
-                  <span><strong>{labReadingHours()}</strong> hours</span>
-                  <span><strong>{labPagesTurned()}</strong> pages</span>
-                  <span><strong>{auth.user ? '1' : '—'}</strong> books</span>
+                  <span><strong>{yearTotals.seconds < 3600 ? '<1' : Math.round(yearTotals.seconds / 3600)}</strong> hours</span>
+                  <span><strong>{yearTotals.pages.toLocaleString('en-US')}</strong> pages</span>
+                  <span><strong>{yearTotals.books}</strong> books</span>
                 </div>
               </div>
               <div className="lab-v2-rows">
@@ -525,20 +527,4 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   )
 }
 
-function labReadingHours(): string {
-  const seconds = readCounter('tinct-lab-reading-seconds')
-  return seconds < 3600 ? '<1' : String(Math.round(seconds / 3600))
-}
-
-function labPagesTurned(): string {
-  return readCounter('tinct-lab-page-turns').toLocaleString('en-US')
-}
-
-function readCounter(key: string): number {
-  try {
-    return Math.max(0, Number(localStorage.getItem(key) || 0))
-  } catch {
-    return 0
-  }
-}
 
