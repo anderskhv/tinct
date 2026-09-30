@@ -459,7 +459,8 @@ describe('approved brand entry metadata', () => {
 
 describe('temporary edition direct links', () => {
   it('explains holds before serving cached pages and retains exact recovery coordinates', async () => {
-    for (const path of ['/read/macbeth/chapter-8', '/as-you-like-it', '/read/jerusalem?edition=modern-en&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-en', '/jerusalem?edition=modern-en', '/?book=macbeth', '/app?book=as-you-like-it', '/read?book=macbeth']) {
+    // Only the withdrawn Danish editions remain held; no whole book is held.
+    for (const path of ['/read/macbeth/chapter-8?edition=modern-da', '/read/jerusalem?edition=modern-da&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-da', '/jerusalem?edition=modern-da']) {
       const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
       expect(response.status).toBe(200)
       expect(response.headers.get('Cache-Control')).toBe('no-store')
@@ -470,14 +471,14 @@ describe('temporary edition direct links', () => {
       expect(html).toContain('saved')
       if (path.includes('chapter-8')) expect(html).toContain('chapter=8')
       if (path.includes('paragraph=59')) {
-        expect(html).toContain('heldEdition=modern-en')
+        expect(html).toContain('heldEdition=modern-da')
         expect(html).toContain('paragraph=59')
         expect(html).toContain('word=2')
       }
     }
   })
   it('does not intercept sound edition links or the recovery reader', async () => {
-    for (const path of ['/reader?heldBook=macbeth&heldEdition=modern-en', '/read/jerusalem?edition=original-en', '/read/faust-part-1?edition=original-de', '/read/faust-part-1', '/faust-part-1']) {
+    for (const path of ['/reader?heldBook=macbeth&heldEdition=modern-da', '/read/jerusalem?edition=original-en', '/read/jerusalem?edition=modern-en', '/read/faust-part-1?edition=original-de', '/read/faust-part-1', '/faust-part-1', '/read/macbeth', '/as-you-like-it', '/?book=macbeth']) {
       const response = await handleSeoAndStaticRequest(new Request('https://tinct.app' + path), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
       expect(await response.text()).not.toContain('<h2>Temporarily unavailable</h2>')
     }
@@ -492,18 +493,19 @@ it('never labels a retained English static excerpt as Faust original German', as
 })
 
 it('retains one-based library start links when opening held-edition recovery', async () => {
-  const response = await handleSeoAndStaticRequest(new Request('https://tinct.app/library?book=macbeth&edition=modern-en&start=8.3'), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
+  const response = await handleSeoAndStaticRequest(new Request('https://tinct.app/library?book=macbeth&edition=modern-da&start=8.3'), routerEnv(), { waitUntil() {} } as unknown as ExecutionContext)
   const html = await response.text()
   expect(html).toContain('chapter=8')
   expect(html).toContain('paragraph=2')
-  expect(html).toContain('heldEdition=modern-en')
+  expect(html).toContain('heldEdition=modern-da')
 })
 
-it('hides held Read next cards without rewriting editorial text or sound links', () => {
-  const held = '<a href="/read/macbeth/summary" class="guide-card"><div>Macbeth</div></a>'
+it('no longer hides Read next cards for Macbeth, whose repaired English editions are released', () => {
+  // No whole book is held now, so the filter leaves every card and editorial text alone.
+  const released = '<a href="/read/macbeth/summary" class="guide-card"><div>Macbeth</div></a>'
   const sound = '<a href="/read/hamlet/summary" class="guide-card"><div>Hamlet</div></a>'
   const editorial = '<p>Macbeth is mentioned here.</p>'
-  expect(filterHeldDiscoveryCards(held + sound + editorial)).toBe(sound + editorial)
+  expect(filterHeldDiscoveryCards(released + sound + editorial)).toBe(released + sound + editorial)
 })
 
 it('routes Faust recommendation cards through the labelled German book landing', () => {

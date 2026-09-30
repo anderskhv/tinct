@@ -22,7 +22,7 @@ describe('temporary edition holds protect direct audio access', () => {
   })
   it('blocks public narration chapter discovery before bucket access', async () => {
     const list = vi.fn()
-    const response = await handleNarration(new Request('https://tinct.app/api/narration/chapter?bookId=macbeth&editionKey=modern-en&chapter=1&voice=f'), {AUDIO_BUCKET:{list}} as never, {} as never, {} as never)
+    const response = await handleNarration(new Request('https://tinct.app/api/narration/chapter?bookId=macbeth&editionKey=modern-da&chapter=1&voice=f'), {AUDIO_BUCKET:{list}} as never, {} as never, {} as never)
     expect(response.status).toBe(503)
     expect(list).not.toHaveBeenCalled()
   })
@@ -33,7 +33,7 @@ describe('held editions cannot synthesize through ensure or authorised warm', ()
     const get=vi.fn(), put=vi.fn(), fetchImpl=vi.fn()
     const response=await handleNarration(new Request('https://tinct.app/api/narration/'+route,{
       method:'POST',headers:{'Content-Type':'application/json','x-narration-admin':'test-admin-token-long-enough'},
-      body:JSON.stringify({bookId:'macbeth',editionKey:'modern-en',chapter:1,voice:'a',paragraphs:[{index:0}]})
+      body:JSON.stringify({bookId:'macbeth',editionKey:'modern-da',chapter:1,voice:'a',paragraphs:[{index:0}]})
     }),{
       NARRATION_PILOT:'1',NARRATION_PROVIDER:'fish',FISH_AUDIO_API_KEY:'test',
       NARRATION_VOICE_A_ID:'test-voice',NARRATION_ADMIN_TOKEN:'test-admin-token-long-enough',AUDIO_BUCKET:{get,put}
