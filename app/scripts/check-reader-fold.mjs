@@ -30,7 +30,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
-      return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages).includes('<word>')) ? definition : explanation) })
+      return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>')) ? definition : explanation) })
     }
     // Exercise the shared missing-entry UI without paying for inference.
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})

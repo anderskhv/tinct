@@ -68,6 +68,16 @@ describe('usage coordinator', () => {
     await c.alarm()
     expect(await coordinator(store).hit(1, 60_000)).toBe(true)
   })
+
+  it('keeps counting on the same instance after an idle window is cleared', async () => {
+    const c = coordinator()
+    expect(await c.hit(1, 60_000)).toBe(true)
+    vi.advanceTimersByTime(120_000)
+    await c.alarm()
+    expect(await c.hit(1, 60_000)).toBe(true)
+    expect(await c.hit(1, 60_000)).toBe(false)
+    expect(c.reserve('2026-09-30', 1, 10)).toBe(true)
+  })
 })
 
 describe('rate limiter and ceiling fail closed', () => {

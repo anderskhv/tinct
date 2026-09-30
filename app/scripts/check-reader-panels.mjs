@@ -52,7 +52,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
-      return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages).includes('<word>')) ? definition : explanation) })
+      return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>')) ? definition : explanation) })
     }
     // Exercise the shared missing-entry UI without paying for inference.
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
@@ -200,7 +200,7 @@ async function run(engine,name,phone) {
     assert.notEqual((await page.locator('.popup-define [data-reader-window-handle]').innerText()).trim(),'Define')
     assert.equal(await page.getByText('Define',{exact:true}).count(),0)
     assert.equal(await page.locator('.lab-contextual-explain').count(),0)
-    assert(requests.some(body=>(body.companion?.intent==='define'||JSON.stringify(body.messages).includes('<word>'))))
+    assert(requests.some(body=>(body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>'))))
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-definition.png'})
     await page.keyboard.press('Escape')
     await page.getByTestId('lab-header-book').click()
@@ -849,7 +849,7 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
     await page.getByText('A compact opening grounded in the selected passage.').waitFor()
-    assert(requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'||JSON.stringify(body.messages).includes('Recap this chapter.')),'summary uses existing chapter chat')
+    assert(requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'||JSON.stringify(body.messages??[]).includes('Recap this chapter.')),'summary uses existing chapter chat')
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
     result.passed=true
