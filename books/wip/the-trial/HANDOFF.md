@@ -1,3 +1,7 @@
+# Current checkpoint — supersedes the earlier partial counts below
+
+Chapters 1–5 / 70 English paragraphs complete; resume chapter 6 paragraph 1. QA.json and SHA256SUMS describe the current files. Original remains 10/140; full equality is incomplete. Work continues under the user’s request to reach 10/10.
+
 # The Trial — NOT READY
 
 - Branch: `content/the-trial-codex`.
