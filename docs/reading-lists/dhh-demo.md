@@ -20,12 +20,13 @@ Rule (from acclaim-quote policy): an entry ships only with a primary source URL.
 |---|---|---|
 | [Books that bust bubbles](https://world.hey.com/dhh/books-that-bust-bubbles-35c46be2) (2021-12-01) | Sowell *A Conflict of Visions*; Haidt *The Coddling of the American Mind*; Kishimi/Koga *The Courage to Be Disliked* (Adler); McWhorter *Woke Racism*; Shellenberger *San Fransicko*, *Apocalypse Never*; Murray *Facing Reality*; Taibbi *Hate Inc* | All in copyright. Reading list is explicitly framed by him ("books for left-leaning readers to challenge their worldview"). |
 | [You gotta read Less Is More](https://world.hey.com/dhh/you-gotta-read-less-is-more-88a4f37f) (2021-03-03) | Hickel *Less Is More*, *The Divide*; Wallace-Wells *The Uninhabitable Earth*; Piketty *Capital in the 21st Century* | In copyright. |
+| [Misery starts when the struggle ends](https://world.hey.com/dhh/misery-starts-when-the-struggle-ends-390c700f) (2022-09-22) | **Dostoevsky, *Notes from Underground*** (`notes-from-underground`, in Tinct); Orwell essay "Can socialists be happy?"; Sowell *Knowledge and Decisions* | On Notes: "a remarkable book, and a mercifully short one too, compared to the rest of Dostoevsky's works. I can't recommend it highly enough." Also points to a Jordan Peterson lecture on it. |
 | [The will to power will return](https://world.hey.com/dhh/the-will-to-power-will-return-58ffb9dc) (2026-07-12) | Strauss & Howe *The Fourth Turning*; Fukuyama *The End of History* (linked) | Cited as framework, not a review. |
 
 `Wolves, sheep, and gypsies` and `The Rape of Britain` only list his own books in the byline; no other book content.
 
 ## User-attested, source URL still needed
-- **Notes from Underground** (`notes-from-underground`): Anders confirms DHH has it. The web searches found no post or tweet; the item is on aggregators without a source. Need the link (likely a tweet or podcast).
+- ~~Notes from Underground~~: resolved, sourced to the 2022-09-22 blog post above (Tier A).
 - The first "five books that meant the most to me" tweet, https://x.com/dhh/status/1739664047191232973, exists but X returned HTTP 402 to the fetcher; contents unread. It is probably the best single "canon" source and should be read by hand.
 
 ## Finding from the blog pass
