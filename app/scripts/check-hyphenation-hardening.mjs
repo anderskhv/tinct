@@ -4,7 +4,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 const live = process.env.HYPHENATION_LIVE === '1'
-const origin = 'https://tinct.app'
+const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/hyphenation-hardening'
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 await fs.mkdir(output, { recursive: true })

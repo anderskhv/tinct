@@ -79,7 +79,7 @@ Interpretation rules:
   deployment owner. When a genuine blocker exists, every report to Anders includes
   a concise `Needs your decision` line with the concrete choice and recommendation;
   do not invent blockers or re-ask for already approved work.
-- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, release through the GitHub Actions deploy workflow using Node 24.13.0 and `npm run deploy` from `app/`. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler deploy`. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
+- Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, release by merging to `main`: the GitHub Actions deploy workflow (Node 24.13.0) runs the staged release described under Deploy flow. `npm run deploy` from `app/` remains only for the migrations fallback and emergencies. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler` (deploy, versions, rollback); use the npm scripts. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
 - While Anders assigns content work to Claude, Codex owns code and technical
   pipelines only. Codex does not author or semantically approve translations,
@@ -101,17 +101,36 @@ npm run build
 npm run verify-bundle
 ```
 
-After those gates pass, release through GitHub Actions on Node 24.13.0.
-In an authorized remote deployment environment with the existing deploy credential,
-the equivalent command is:
+After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13.0) does the rest.
+
+### Deploy flow (staged release)
+
+`.github/workflows/deploy.yml` runs on every push to `main` (and manually):
+
+1. `npm test`.
+2. Choose mode. Staged is the default. The workflow falls back to a classic `npm run deploy` (acceptance after it is live, no automatic rollback) only when the Durable Object `migrations` list in `app/wrangler.jsonc` changed against the pushed base commit (or cannot be compared), or when run manually with `mode=direct`. Migrations cannot ride a version upload, so a migration change is deliberately a classic deploy; review it as such and expect no one-command rollback across it.
+3. Record the version now serving production (used for rollback).
+4. `npm run release:upload`: build, verify-bundle, clean-main check, then `wrangler versions upload`. The new version serves **no** traffic and gets a preview URL (`https://<8-char-version>-tinct.<subdomain>.workers.dev`).
+5. Wait until the preview serves the exact built bundle, then run the pre-promote checks against it. Acceptance scripts read the target from `TINCT_ORIGIN` (default `https://tinct.app`), so one variable retargets them.
+   Pre-promote: `smoke-test.sh`, Android publication, Omarchy, inline audio loading, reader panels, reader feedback, book transition, Shakespeare layout, hyphenation, Lighthouse and Symposium publication. These exercise the Worker, assets and reader, which the preview shares with production (same bindings, secrets and data).
+6. Any failure before promotion stops the job. Production is untouched.
+7. `npm run release:promote -- <version-id>` sends 100% of traffic to the version; the job waits for production to serve the new bundle.
+8. Post-promote checks against `https://tinct.app`: smoke test, brand metadata (canonical URLs name the production host), production sign-in (Supabase redirect allow-list, cookies), Grok microphone recovery (only with `[reader-voice-qa]` in the commit message), featured preview and public library (hardcoded to production).
+9. If any step after promotion fails, the job runs `npm run rollback -- <previous-version-id>` and still finishes red. Fix forward and push again.
+
+Preview URLs must be enabled for the `tinct` Worker (Cloudflare dashboard, Workers > tinct > Settings > Domains & Routes). Without them the upload step fails with a clear message before anything is promoted; run the workflow with `mode=direct` in the meantime.
+
+### Rollback
 
 ```bash
 cd app
-node --version  # must be Node 24; configured by the remote environment
-npm run deploy
+npm run rollback                    # production returns to the previous deployment
+npm run rollback -- <version-id>    # or to a specific version (`npx wrangler versions list` shows ids)
 ```
 
-`npm run deploy` is the only approved deploy path because it chains build, bundle verification, and Wrangler. Do not run raw `wrangler deploy`.
+This wraps `wrangler rollback --yes` with the `.env` credential. Cloudflare refuses a rollback across a Durable Object migration; after a migration deploy, fix forward instead. Never run raw `wrangler`.
+
+`npm run deploy` (build, verify-bundle, wrangler deploy) is the only approved direct deploy path. Do not run raw `wrangler deploy`.
 
 **Deploy without your Mac:** add `CLOUDFLARE_API_TOKEN` (Workers deploy token) to GitHub Actions secrets and/or Cursor Cloud environment secrets. See `docs/cloud-deploy.md` and `.github/workflows/deploy.yml`.
 
@@ -121,9 +140,9 @@ Do not ask Anders to deploy or to verify production. When app/lab work is done:
 
 1. **Tests** — `npm test` (or focused `src/lab/` when lab-only).
 2. **Build gates** — `npm run build` + `npm run verify-bundle` from `app/`.
-3. **Deploy** — merge to `main` (GitHub Actions deploy) or `npm run deploy` from `app/` when the Cloudflare token is in the environment. Do not stop at “PR ready”; ship it.
-4. **Confirm deploy** — wait for the `deploy` workflow to succeed (smoke test green). Ignore non-blocking **Workers Builds: tinct** Cloudflare dashboard failures when GitHub `deploy` passed.
-5. **Production verify on tinct.app** — open `https://tinct.app/lab/phone` (mobile viewport ~390×844), not localhost only. Confirm:
+3. **Deploy** — merge to `main` (GitHub Actions staged release). Use `npm run deploy` from `app/` only for the migrations fallback or an emergency, when the Cloudflare token is in the environment. Do not stop at “PR ready”; ship it.
+4. **Confirm deploy** — wait for the `deploy` workflow to succeed (pre-promote and post-promote checks green, no rollback step run). Ignore non-blocking **Workers Builds: tinct** Cloudflare dashboard failures when GitHub `deploy` passed.
+5. **Production verify on tinct.app** — open `https://tinct.app/reader` (mobile viewport ~390×844; `?layout=phone|desktop` forces a layout), not localhost only. Confirm:
    - JS bundle filename in HTML/Network matches the new `assets/index-*.js` from the deploy.
    - The specific change you shipped (e.g. Genesis 1 page 1: no mid-sentence cut, ink clears pagination bar).
    - Save a screenshot to walkthrough artifacts when visual.
@@ -184,17 +203,19 @@ paths remain rollback code and must not be selected as a failed-Grok fallback.
 
 Readers only ever see `/` and `/library` (the library), `/reader`, `/sign-in`, `/featured` (admin preview), `/read/{bookId}` (SEO pages), `/admin/metrics`, and API/asset paths. Never link, redirect, `location.assign` or pass a return URL to an asset-folder page such as `/lab/library_2/`, `/lab/sign-in/` or `/lab/phone`. The Worker serves `/library`, `/sign-in` and `/featured` from static assets with the URL unchanged, and answers the old `/lab` page URLs with a 308 to the canonical page (`legacyLabPageRedirect` in `app/src/lab/labRoute.ts`). `/reader?layout=phone|desktop` forces a layout for QA. The `/lab` namespace is free for future experiments. Supabase OAuth/email callbacks still name `/lab/sign-in` (the redirect the Worker forwards); move them to `/sign-in` once that URL is on Supabase's redirect allow-list.
 
-The legacy React `App` (and its hooks, `readerSession`, components) was deleted in 2026-09. The invariants below describe rules the old `useReadingPosition`/`useReadingLog` enforced; the live reader is `app/src/lab/LabApp.tsx` with `labPosition`/`readingMemory`. Treat the list as the behavioural contract, not as a pointer to files.
+The legacy React reader (`app/src/App.tsx`, `useReadingPosition`, `useReadingLog`, `readerSession`) was deleted on 2026-09-30. The live reader is `app/src/lab/LabApp.tsx` at `/reader`. The invariants below are the behavioural contract the old code enforced; they now apply to the lab position and sync code.
 
 ## Reader And Position Invariants
+
+High-risk files (trace the data flow and run the matching tests before editing): `app/src/lab/LabApp.tsx`, `labPosition.ts`, `labPositionStore.ts`, `useLabPositionSync.ts`, `labReaderHandoff.ts`, `useLabReadingYear.ts` and `labReadingYear.ts`, `useLabHighlights.ts`, `useLabListen.ts`, `app/src/services/storage.ts`, `app/src/services/supabaseStorage.versioning.ts`, and the `/api/lab-position` route in `app/src/worker.ts`. Their tests sit beside them (`labPosition*.test.ts`, `useLabPosition*.test.tsx`, `labReadingYear.test.ts`, `supabaseStorage.versioning.test.ts`); run `npm test` from `app/` before and after.
 
 These are production-critical:
 
 - Position writes must keep `bookId`, `chapterNumber`, page, and paragraph data as a coherent tuple.
-- ReaderSession is the source for persisted reader-state tuples. `App.tsx` owns a reducer-backed `readerSessionState` and passes that to `useReadingPosition` and `useReadingLog`; legacy reader page/chapter state may still drive rendering during migration, but it must not be used as the persisted content tuple.
+- The lab position store (`labPositionStore.ts`, synced by `useLabPositionSync.ts`) is the only source for persisted position tuples. Render state in `LabApp.tsx` must not be used as the persisted content tuple. Position is keyed per biblical book, local is truth and cloud is a signed-in backup (see the header of `labPosition.ts`).
 - Any code path that changes `currentBookId` must re-derive chapter and saved position for the new book.
 - Position writes must be suspended while overlays/auth/onboarding/loading states can expose stale reader state.
-- Reading history/progress writes must require a ready same-book ReaderSession location before touching `reading-log:*` or `progress:*`.
+- Reading history/progress writes (including the reading-year data in `useLabReadingYear.ts`) must require a ready same-book location before touching `reading-log:*` or `progress:*`.
 - User-data writes are versioned through `commit_user_data`; deletes are tombstone writes (`value: null`) so other devices receive the change.
 - Backward chapter writes require a recent user-navigation signal.
 - Positions loaded from storage/cloud must be validated against the actual book structure.

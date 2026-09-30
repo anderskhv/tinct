@@ -5,7 +5,7 @@ import assert from 'node:assert/strict'
 import os from 'node:os'
 import { spawn } from 'node:child_process'
 
-const live=process.env.TINCT_DESKTOP_LIVE==='1', origin='https://tinct.app', output='artifacts/omarchy'
+const live=process.env.TINCT_DESKTOP_LIVE==='1', origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''), output='artifacts/omarchy'
 await fs.mkdir(output,{recursive:true})
 const report=[]
 // Candidate browsers must enforce the deployed policy, not an unrestricted

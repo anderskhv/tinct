@@ -4,7 +4,7 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 
 const live = process.env.READER_LIVE === '1'
-const origin = 'https://tinct.app'
+const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/inline-audio-loading'
 await fs.mkdir(output, { recursive: true })
 const report = { live, cases: [], generated: 0, note: 'Delayed real cached responses exercise preparation without new synthesis; native playback is not mocked.' }
