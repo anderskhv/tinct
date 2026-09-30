@@ -3,7 +3,7 @@
 - Branch: `content/the-trial-codex`.
 - Base/current-main instruction revision: `221d6b78d`, fetched 2026-09-30; workflow and README unchanged from inspected revision.
 - Original checkpoints: `609d7699a` (initial extraction), superseded by `5025ea671` (scene-separator correction; validated original).
-- Current content checkpoint: PENDING_COMMIT_RECORD. Exact package revision is also available from `git log -- books/wip/the-trial`.
+- Current content checkpoint: `2628fd0aa7ea40ce46f3d9b4db7f26a06face8f4` (edition/metadata/QA content; subsequent handoff-only commit records this identifier). Exact package revision is also available from `git log -- books/wip/the-trial`.
 - Owned paths only: `books/wip/the-trial/`, `books/raw/the-trial/`.
 - German: 10 chapters / 140 prose paragraphs, counts **20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10**.
 - Modern English: **chapters 1–2 complete as authoring-agent candidates**, 48 paragraphs (20 / 28). No partial chapter or placeholder chapters.
