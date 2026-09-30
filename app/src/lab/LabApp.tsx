@@ -8,14 +8,11 @@ import { lookupWordAtPoint } from './labLookupWord'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
-import { readCoverTransition } from '../../public/lab/cover-transition.js'
 import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
-import { LabBookPreface } from './LabBookPreface'
 import { LabBookSwitcher } from './LabBookSwitcher'
-import { getBookPreface } from '../data/bookPrefaces'
 import { LabChapterEnd } from './LabChapterEnd'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
@@ -90,6 +87,7 @@ import type { LabSuperMenuId } from './labSuperMenu'
 import {
   labLineHeight, labMarginScale, labParagraphGap,
   LAB_LIBRARY_URL,
+  labLibraryIntroductionUrl,
   labAccountUrl,
   bibleEditions,
   labFontFamilyCss,
@@ -143,7 +141,7 @@ import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
-import { clearLabAiActionCount, labCurrentPath, labBookSignInReturn, type LabAccountPromptRequest } from './labAccountPrompt'
+import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, splitLabPagesAtAnchor, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
@@ -708,10 +706,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   }
   const countedPageRef = useRef<string | null>(null)
-  const initialFrontispieceRef = useRef(Boolean(readerHandoff && (!readerHandoff.savedPlace || readerHandoff.startAtSavedPlace)))
-  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(() => (
-    readerHandoff && (!readerHandoff.savedPlace || readerHandoff.startAtSavedPlace) ? book.bookTitle : null
-  ))
+  // Only a Bible book opening (Genesis, Exodus, ...) shows a cover page.
+  const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
   const explicitStartAnchor = useMemo(() => (
     readerHandoff?.startAtSavedPlace
       && readerHandoff.savedPlace?.chapterNumber === book.chapterNumber
@@ -721,28 +717,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         }
       : null
   ), [book.chapterNumber, readerHandoff])
-  const [preparationChat, setPreparationChat] = useState(false)
-  const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(() => readerHandoff && readCoverTransition(readerHandoff.bookId) ? readerHandoff.bookId : null)
-  const [preparationCompanion, setPreparationCompanion] = useState(false)
-  const preparationReturnRef = useRef<string | null>(null)
-  const returnToPreparation = useCallback(() => {
-    const origin = preparationReturnRef.current
-    preparationReturnRef.current = null
-    setPreparationCompanion(false)
-    if (origin !== book.bookId) return false
-    setPrefaceCoverBook(origin)
-    setPreparationChat(false)
-    return true
-  }, [book.bookId])
-  useEffect(() => {
-    if (preparationReturnRef.current && preparationReturnRef.current !== book.bookId) {
-      preparationReturnRef.current = null
-      setPreparationCompanion(false)
-      setPreparationChat(false)
-    }
-  }, [book.bookId])
-  const approvedPreface = chromeV2 ? getBookPreface(book.bookId || 'bible') : undefined
-  const prefaceVisible = Boolean(approvedPreface && prefaceCoverBook === book.bookId && !preparationCompanion)
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
@@ -1193,7 +1167,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     sourceLocked: Boolean(source || (readerHandoff && !readerHandoff.resumeLatest)),
     resumeLibraryBookId: readerHandoff?.resumeLatest ? readerHandoff.bookId : undefined,
     resolveBeforePaint: chromeV2,
-    writesSuspended: Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
+    writesSuspended: Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || (chromeV2 && tocOpen),
     authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
@@ -1254,7 +1228,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     },
   })
   const initialResolving = !initialPositionResolved || remoteResumePending
-  const positionWritesSuspended = Boolean(temporaryHold) || prefaceVisible || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
+  const positionWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
   // reader knows the account and the place: hand them over when leaving for
   // the library and whenever the page is hidden, so the library never has to
@@ -1496,8 +1470,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         }
       }
       setReaderLoadError('')
-      setChapterCoverTitle(current => initialFrontispieceRef.current ? loaded.bookTitle : current)
-      initialFrontispieceRef.current = false
       setBook(loaded)
       markReaderLoadTrace('required_text_ready', { endOf: 'required_text', outcome: 'success' })
     }).catch((error) => {
@@ -2420,18 +2392,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     ask.stopVoice()
     if (chromeV2) ask.dismissNotice()
-    if (!forceHearing && preparationReturnRef.current === book.bookId) {
-      stayInAskRef.current = false
-      pausedForAskRef.current = false
-      setVoiceGate('off')
-      setPhoneAskOpen(false)
-      setDesktopAskOpen(false)
-      setPeekBook(false)
-      setChrome('reading')
-      returnToPreparation()
-      return
-    }
-    if (forceHearing) { preparationReturnRef.current = null; setPreparationCompanion(false); setPrefaceCoverBook(null) }
     if (stayInAskRef.current) {
       stayInAskRef.current = false
       setVoiceGate('off')
@@ -2473,7 +2433,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       placeRef.current = place
       void (chromeV2 ? listen.startAtPlace(place) : listen.start(place))
     }
-  }, [ask, listen, chromeV2, callOpen, book.bookId, returnToPreparation, sentenceStartPlace])
+  }, [ask, listen, chromeV2, callOpen, sentenceStartPlace])
   resumeListenRef.current = (forceAudio = true) => resumeListenAfterAsk(forceAudio)
   const closeAccountPrompt = useCallback(() => {
     const request = accountPrompt
@@ -3706,9 +3666,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const working = workingPagesRef.current
     const pages = labNavPageList(pagesStableRef.current, working, reading)
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
+    // Only the Bible has opening pages (one per biblical book). Other books
+    // have no cover in the reader: their introduction lives in the library.
     const openingTitle = book.bookTitle === LAB_COPY.bookTitle
       ? bibleBookOpeningTitle(book.chapters, book.chapterNumber)
-      : (book.chapterNumber === book.chapters[0]?.number ? book.bookTitle : null)
+      : null
     if (index === 0 && openingTitle && !listen.playing) {
       setChapterCoverTitle(openingTitle)
       return
@@ -3745,7 +3707,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
   // overlays keep their keys; the chapter cover handles its own arrows and
   // marks the event handled, so it never double-turns here.
-  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || prefaceVisible || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
+  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || gearOpen || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
   useEffect(() => {
     if (keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) return
     const onKey = (event: KeyboardEvent) => {
@@ -3955,14 +3917,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.bookId, book.chapterNumber, goToChapter, notePlace])
 
   const startCallVoice = useCallback(() => {
-    const greeting = preparationReturnRef.current === book.bookId ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined
-    void ask.startVoice(greeting).then((started) => {
+    void ask.startVoice().then((started) => {
       // A cancelled older attempt must not close Reconnect or a newer call.
       // A start the account policy or the microphone refused leaves nothing to
       // show a call for; the notice already says why.
-      if (started === false) { setCallOpen(false); returnToPreparation() }
+      if (started === false) setCallOpen(false)
     })
-  }, [ask, book.bookId, book.bookTitle, returnToPreparation])
+  }, [ask])
 
   const handleTalk = useCallback(() => {
     setCallStartedAt(Date.now())
@@ -4246,7 +4207,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const chatPanelEscapes = chromeV2 && chrome !== 'talking'
     && (showPhoneChrome ? phoneAskOpen : desktopAskOpen)
     && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
-    && !gearOpen && !speedPopoverOpen && accountPrompt == null && !prefaceVisible
+    && !gearOpen && !speedPopoverOpen && accountPrompt == null
   useEffect(() => {
     if (!chatPanelEscapes) return
     const onKey = (event: KeyboardEvent) => {
@@ -4323,6 +4284,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
   }, [chromeV2, handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
 
+  // Contents -> Introduction opens the book's introduction in the library.
+  // The navigation waits for the commit that closes Contents: writes are
+  // suspended while Contents is open, and the place must be flushed (the
+  // 'hide' flush uses keepalive) before the reader document is left.
+  const [introductionRequested, setIntroductionRequested] = useState(false)
+  const openIntroduction = useCallback(() => {
+    listen.pause()
+    setTocOpen(false)
+    setIntroductionRequested(true)
+  }, [listen])
+  useEffect(() => {
+    if (!introductionRequested || tocOpen) return
+    setIntroductionRequested(false)
+    notePlace('hide')
+    rememberLibraryPlace()
+    window.location.assign(labLibraryIntroductionUrl(book.bookId || 'bible', prefs.primaryEdition, readerPreviewSearch(window.location.search)))
+  }, [book.bookId, introductionRequested, notePlace, prefs.primaryEdition, rememberLibraryPlace, tocOpen])
+
   const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
     && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
@@ -4366,10 +4345,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const commandOverlay = gearOpen || tocOpen || inTheBookOpen || speedPopoverOpen
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
   const canReadCommand = () => !initialResolving && !frontispieceVisible && !temporaryHold
-  const canTurnCommand = () => !initialResolving && !temporaryHold && !prefaceVisible && !phoneAskOpen && !desktopAskOpen && !callOpen
+  const canTurnCommand = () => !initialResolving && !temporaryHold && !phoneAskOpen && !desktopAskOpen && !callOpen
   const editionCommand = (kind: string) => bookEditions.find(e => e.key === `${kind}-en`)
   useDesktopCommands({
-    blocked: () => commandOverlay || prefaceVisible || initialResolving || Boolean(temporaryHold),
+    blocked: () => commandOverlay || initialResolving || Boolean(temporaryHold),
     prepare: () => { setGearOpen(false); setTocOpen(false); setSuperMenuOpen(false); setSuperSheet(null); setBookSwitcherOpen(false); setSpeedPopoverOpen(false); setSelectionPopup(null); setInTheBookOpen(false); setAccountPrompt(null) },
     commands: [
       { id: 'chat', label: 'Chat about this book', key: 'c', enabled: canReadCommand, run: () => { handleChat(); requestAnimationFrame(() => askInputRef.current?.focus({ preventScroll: true })) } },
@@ -4388,7 +4367,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
-      { id: 'account', label: 'Account and credits', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'account', label: 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ],
   })
@@ -4630,7 +4609,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             : null}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
-          returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
+          returnTo={signInReturnTo}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
@@ -4677,10 +4656,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           )}
           {chapterCoverTitle ? (
             <LabChapterCover
-              imageSrc={chromeV2 && chapterCoverTitle === book.bookTitle ? `/covers/v2/${book.bookId || 'bible'}.webp` : undefined}
-              onLibrary={chapterCoverTitle === book.bookTitle ? () => handleSuperMenuSelect('library') : undefined}
               title={chapterCoverTitle}
-              series={chapterCoverTitle === book.bookTitle ? book.bookAuthor : book.bookTitle}
+              series={book.bookTitle}
               editionLabel={book.editionLabel}
               ground={getBook(book.bookId || 'bible')?.coverColor}
               accent={getBook(book.bookId || 'bible')?.coverAccent}
@@ -4693,9 +4670,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 }
               }}
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
-              onBefore={chapterCoverTitle === book.bookTitle && approvedPreface ? () => setPrefaceCoverBook(book.bookId) : undefined}
-              onStart={chapterCoverTitle === book.bookTitle ? () => goNext() : undefined}
-              continued={Boolean(readerHandoff?.savedPlace && !readerHandoff.startAtSavedPlace)}
             />
           ) : <LabPassage
             pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
@@ -4856,7 +4830,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
-            preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
             view={callView}
             turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
@@ -4882,7 +4855,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         )}
         {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || phoneAsk) && (
           <LabAskPane
-            preparationSuggestions={preparationChat}
             chromeV2={chromeV2}
             focusTurnId={chromeV2 ? contentsConversation?.messages.find(message => message.role === 'user')?.id : undefined}
             onBackToContents={chromeV2 && contentsConversation ? returnToContents : undefined}
@@ -4897,7 +4869,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             attachment={askAttachment?.bookId === book.bookId ? askAttachment : null}
             onRemoveAttachment={() => setAskAttachment(null)}
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
-            onSubmit={(text) => { setPreparationChat(false); dictation.stop(); handleAsk(text) }}
+            onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
             onMic={handleMic}
             onVoiceMode={chromeV2 ? () => {
               dictation.stop()
@@ -4905,7 +4877,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             } : handleVoiceMode}
             onRetry={ask.retryTyped}
             notice={chromeV2 ? (dictation.notice || ask.notice) : ask.notice}
-            onDone={phoneAsk && !chromeV2 ? undefined : () => { setPreparationChat(false); dictation.stop(); closePhoneAsk() }}
+            onDone={phoneAsk && !chromeV2 ? undefined : () => { dictation.stop(); closePhoneAsk() }}
             phoneSheet={!!phoneAsk}
             desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
             onKeyboardOpenChange={setPhoneKeyboardOpen}
@@ -5306,55 +5278,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           setPeekBook(chrome === 'hearing')
         }}
         desktop={!showPhoneChrome}
-        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
+        returnTo={signInReturnTo}
         onLeaveToLibrary={rememberLibraryPlace}
       />
 
       <LabAccountSheet
         open={accountPrompt !== null}
         action={accountPrompt?.action ?? 'chat'}
-        returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
+        returnTo={signInReturnTo}
         onClose={closeAccountPrompt}
         desktop={!showPhoneChrome}
       />
 
-      {prefaceCoverBook === book.bookId && approvedPreface && <LabBookPreface
-        open={prefaceVisible && accountPrompt === null}
-        key={approvedPreface.bookId}
-        preface={approvedPreface} title={book.bookTitle} cover={`/covers/v2/${approvedPreface.bookId}.webp`}
-        continued={readerHandoff ? Boolean(readerHandoff.savedPlace && !readerHandoff.startAtSavedPlace) : Boolean(boot.resume)}
-        ready={!initialResolving && book.paragraphs.length > 0}
-        cast={book.cast}
-        editions={bookEditions}
-        audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-        audioChoice={prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''}
-        onAudioChoice={value => updatePrefs({ ...prefs, audioEdition: value || prefs.primaryEdition, audioFollowsPrimary: value === '' })}
-        primaryEdition={prefs.primaryEdition}
-        secondaryEdition={prefs.compareOpen ? prefs.compareEdition : ''}
-        onEditions={(primary, secondary) => updatePrefs({ ...prefs, primaryEdition: primary, compareEdition: secondary || prefs.compareEdition, compareOpen: Boolean(secondary) })}
-        onBack={() => setPrefaceCoverBook(null)}
-        onAsk={(question) => {
-          preparationReturnRef.current = book.bookId || 'bible'
-          setPreparationCompanion(true)
-          setPreparationChat(true)
-          setDraft(question)
-          handleChat()
-        }}
-        onTalk={() => {
-          preparationReturnRef.current = book.bookId || 'bible'
-          setPreparationCompanion(true)
-          handleTalk()
-        }}
-        onRead={() => {
-          setPrefaceCoverBook(null)
-          if (chapterCoverTitle === book.bookTitle) goNext()
-          // Programmatic focus is useful for a hardware keyboard, but WebKit
-          // paints it as a focus-visible ring after a touch-only book entry.
-          if (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches) {
-            requestAnimationFrame(() => labRootRef.current?.querySelector<HTMLButtonElement>('[data-testid="lab-header-chapter"]')?.focus({ preventScroll: true }))
-          }
-        }}
-      />}
       {chromeV2 && <LabContentsV2
         onSwitchBook={openBookSwitcher}
         open={tocOpen}
@@ -5377,20 +5312,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
-        onOpenCover={() => {
-          listen.pause()
-          setTocOpen(false)
-          setPrefaceCoverBook(null)
-          setChapterCoverTitle(book.bookTitle)
-        }}
-        onOpenPreface={approvedPreface ? () => {
-          listen.pause()
-          setTocOpen(false)
-          // Keep the real cover mounted behind the dialog. The preface's Back
-          // transition measures this exact target before returning to it.
-          setChapterCoverTitle(book.bookTitle)
-          setPrefaceCoverBook(book.bookId || 'bible')
-        } : undefined}
+        onOpenIntroduction={openIntroduction}
         onWarmChapter={warmChapterTexts}
         onClose={() => setTocOpen(false)}
       />}
@@ -5436,7 +5358,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
       {callFullScreen && (
         <LabVoiceCall
-          preparationWelcome={preparationCompanion ? `Let’s prepare you for your reading of ${book.bookTitle}.` : undefined}
           view={callView}
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}

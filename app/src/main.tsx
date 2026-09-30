@@ -11,9 +11,7 @@ import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
 import './index.css'
-import { prepareBeforeBeginDesign } from './lab/beforeBeginDesign'
 import { loadDesktopExperience } from './desktopCommands'
-prepareBeforeBeginDesign()
 loadDesktopExperience()
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices.

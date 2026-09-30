@@ -148,38 +148,6 @@
   position: relative;
 }
 
-.lab-cover-entry {
-  position: absolute;
-  z-index: 3;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
-  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--lab-cover-ground) 88%, black) 28%);
-  pointer-events: auto;
-}
-.lab-cover-entry button {
-  width: 100%;
-  min-height: 64px;
-  display: grid;
-  gap: 2px;
-  padding: 10px 14px;
-  border: 0;
-  border-top: 1px solid color-mix(in srgb, white 25%, transparent);
-  background: color-mix(in srgb, var(--lab-cover-ground) 80%, transparent);
-  color: #fffaf0;
-  text-align: left;
-  font: inherit;
-  cursor: pointer;
-  backdrop-filter: blur(18px) saturate(.9);
-}
-.lab-cover-entry button:first-child { border-radius: 12px 12px 0 0; }
-.lab-cover-entry button:last-child { border-radius: 0 0 12px 12px; }
-.lab-cover-entry button.is-primary { background: color-mix(in srgb, var(--lab-cover-ground) 62%, white 10%); }
-.lab-cover-entry strong { font: 600 1.05rem/1.2 'EB Garamond', Georgia, serif; }
-.lab-cover-entry span { color: rgba(255,250,240,.76); font: 400 .82rem/1.3 system-ui, sans-serif; }
-.lab-cover-entry button:focus-visible { outline: 2px solid #fffaf0; outline-offset: -3px; }
-
 .lab-chapter-cover.is-tone-1 { --lab-cover-ground:#5b4636; --lab-cover-shade:#3f3026; --lab-cover-accent:#d8c5a0; }
 .lab-chapter-cover.is-tone-2 { --lab-cover-ground:#482c32; --lab-cover-shade:#301d22; --lab-cover-accent:#dbc17e; }
 .lab-chapter-cover.is-tone-3 { --lab-cover-ground:#70505b; --lab-cover-shade:#4d3640; --lab-cover-accent:#ead3c7; }
@@ -5417,8 +5385,6 @@
 .lab .popup-highlight-palette .popup-color-dot{margin:0;cursor:pointer}
 .lab .popup-highlight-palette .popup-add-note{width:38px;height:40px;border:0;border-left:1px solid var(--lab-border,#cfc8b8);background:none;color:inherit;font:28px/1 system-ui;cursor:pointer}
 .lab .popup-highlight-palette .popup-add-note.is-pressed{transform:rotate(45deg);transform-origin:50% 50%;opacity:.7}
-.lab .lab-preparation-questions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 0}
-.lab .lab-preparation-questions button{border:1px solid var(--lab-border,#cfc8b8);background:transparent;color:inherit;border-radius:14px;padding:10px 14px;font:14px/1.4 system-ui;text-align:left;cursor:pointer}
 
 /* Shared by visible paragraphs and their pagination measurement copies. */
 .lab-verse-speaker, .lab-verse-dialogue, .lab-speech-run { display: contents; }
@@ -5443,13 +5409,6 @@
   white-space: nowrap; -webkit-user-select: none; user-select: none;
 }
 .lab[data-shakespeare-layout="flowing"] .lab-verse-break::after { content: '\00a0·'; }
-.lab-cover-library {
-  position: absolute; z-index: 3; top: max(16px, env(safe-area-inset-top)); left: 16px;
-  display: flex; align-items: center; gap: 7px; min-height: 40px; padding: 8px 15px;
-  border: 1px solid var(--lab-border); border-radius: 999px;
-  background: var(--lab-paper); color: var(--lab-ink); font: inherit; font-size: 15px;
-  cursor: pointer; box-shadow: 0 2px 10px #0002;
-}
 
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the preview shell behind `?chrome=v2`.
@@ -7161,12 +7120,8 @@
 .lab[data-chrome-version="v2"] .lab-v2-step-select { flex:1; min-width:0; padding:12px 8px; border:0; background:transparent; color:inherit; font:inherit; }
 
 .lab[data-chrome-version="v2"].is-frontispiece .lab-body { padding:0; }
-.lab[data-chrome-version="v2"] .lab-chapter-cover:has(.lab-chapter-cover-art) { padding:0; border:0; background:var(--lab-paper); }
-.lab[data-chrome-version="v2"] .lab-chapter-cover-art { width:100%; height:100%; display:block; object-fit:cover; }
-
 .lab[data-chrome-version="v2"].is-frontispiece.is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"].is-frontispiece.has-phone-chrome:not(.has-phone-ask) .lab-body { padding-bottom:0; }
-.lab[data-chrome-version="v2"].is-desktop .lab-chapter-cover-art { object-fit:contain; background:var(--lab-cover-ground); }
 
 /* Audio browsing changes ink only; it never changes the page measurements. */
 .lab[data-chrome-version="v2"] .lab-passage.is-inline-hearing .lab-hearing-word.is-upcoming { color: #706e69; }
@@ -7403,7 +7358,6 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-body { height: 100%; flex: 1 1 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-page-wrap { height: 100%; min-height: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover { position: absolute; inset: 0; min-height: 0; overflow: hidden; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-work { line-height: 1.35; padding-bottom: 2px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-controls .lab-v2-play,
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-controls .lab-super {
@@ -7413,8 +7367,6 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 68px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { right: 30px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: #dccbaa; color: var(--lab-ink); text-decoration: none; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover:has(.lab-chapter-cover-art),
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover-art { background: var(--lab-paper); }
 
 /* Opening and ending controls are measured separately from book words. */
 .lab[data-chrome-version="v2"] .lab-passage-header.has-preview {
@@ -7630,10 +7582,6 @@
   }
 }
 
-/* Match desktop entry actions to the actual contained portrait artwork. */
-.lab[data-chrome-version="v2"].is-desktop .lab-chapter-cover { container-type: size; }
-.lab[data-chrome-version="v2"].is-desktop .lab-cover-entry { width: min(100%, calc(100cqh * var(--lab-cover-ratio, .667))); left: 50%; right: auto; transform: translateX(-50%); box-sizing: border-box; }
-
 /* Reader feedback: expansion belongs to one desktop leaf; controls float above
    the text without allocating a header row. Overlay scrollbars need ink clearance. */
 .lab[data-chrome-version="v2"] .lab-ask-thread { scrollbar-gutter: stable; padding-right: 20px; }
@@ -7655,13 +7603,6 @@
    around it. A separate inline-block box, painted as one band, sat a few
    pixels off the neighbouring marks in WebKit (2026-09-19 phone QA). */
 .lab[data-chrome-version="v2"] .lab-verse-unit { padding-top: 0; }
-
-/* Approved cover entry: art remains dominant; compact choices sit on its lower edge. */
-.lab[data-chrome-version="v2"] .lab-cover-entry{background:transparent;padding:0 18px max(18px,env(safe-area-inset-bottom))}
-.lab[data-chrome-version="v2"] .lab-cover-entry button{min-height:54px;padding:9px 14px;background:#20231feb;border:1px solid #ffffff20;backdrop-filter:blur(18px)}
-.lab[data-chrome-version="v2"] .lab-cover-entry button+button{border-top:0}
-.lab[data-chrome-version="v2"] .lab-cover-entry strong{font:500 20px/1.2 'EB Garamond',Georgia,serif}
-.lab[data-chrome-version="v2"] .lab-cover-entry span{font:400 12px/1.4 system-ui,sans-serif;color:#c1c1b6}
 
 
 
@@ -7918,25 +7859,25 @@
   --highlight-gold:#dcca98; --highlight-rose:#dbb8af; --highlight-sage:#bac69f;
   --highlight-sky:#b6c9ce; --highlight-lavender:#c5bdd0;
 }
-/* Text-only book dividers use the same paper and ink as their reader. */
-.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) {
+/* Bible book openings use the same paper and ink as their reader. */
+.lab[data-chrome-version="v2"] .lab-chapter-cover.is-book-opening {
   background:var(--lab-paper); color:var(--lab-ink);
   --lab-cover-accent:var(--lab-ink-muted);
 }
-.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art))::before { border-color:var(--lab-border); }
-.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) .lab-chapter-cover-mark { display:none; }
+.lab[data-chrome-version="v2"] .lab-chapter-cover.is-book-opening::before { border-color:var(--lab-border); }
+.lab[data-chrome-version="v2"] .lab-chapter-cover.is-book-opening .lab-chapter-cover-mark { display:none; }
 
-.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) .lab-chapter-cover-book {
+.lab[data-chrome-version="v2"] .lab-chapter-cover.is-book-opening .lab-chapter-cover-book {
   color: var(--lab-ink);
   outline: 0;
   box-shadow: none;
   gap: 1.5rem;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) h2 {
+.lab[data-chrome-version="v2"] .lab-chapter-cover.is-book-opening h2 {
   color: var(--lab-ink);
   font-weight: 400;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-cover:not(:has(.lab-chapter-cover-art)) .lab-chapter-cover-rule {
+.lab[data-chrome-version="v2"] .lab-chapter-cover.is-book-opening .lab-chapter-cover-rule {
   height: 0;
   width: 3rem;
   margin: .5rem 0;

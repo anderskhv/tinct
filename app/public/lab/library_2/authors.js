@@ -34,10 +34,10 @@ export async function loadAuthorFlap(bookId) {
 export function renderAuthorFlap(images, target) {
   target.replaceChildren();
   images.forEach((image,index)=>{
-    const figure=document.createElement('figure'),portrait=document.createElement('img'),caption=document.createElement('figcaption');
+    const figure=document.createElement('figure'),portrait=document.createElement('img');
     figure.className='author-flap-figure';portrait.className='author-flap-image';if(index===0)portrait.id='slip-portrait';
     portrait.src=image.publicPath;portrait.alt=image.alt;portrait.decoding='async';
-    caption.textContent=image.caption;figure.append(portrait,caption);target.append(figure);
+    figure.append(portrait);target.append(figure);
   });
 }
 /** Every author portrait's attribution, in one place (licences such as CC BY-SA require it). */

@@ -68,7 +68,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   const images=manifest.books.find(book=>book.bookId===id).imageIds.map(imageId=>manifest.images.find(image=>image.id===imageId))
   assert.equal(await page.locator('#slip-images img').count(),images.length,id+' complete author attribution')
   await page.waitForFunction(()=>[...document.querySelectorAll('#slip-images img')].every(image=>image.complete&&image.naturalWidth>0))
-  assert.deepEqual(await page.locator('#slip-images figcaption').allTextContents(),images.map(image=>image.caption))
+  assert.equal(await page.locator('#slip-images figcaption').count(),0,'author portraits carry no caption')
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForFunction(()=>document.querySelector('#book-slip')?.inert===false)
   await page.waitForTimeout(300)
