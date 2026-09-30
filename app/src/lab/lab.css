@@ -4474,6 +4474,16 @@
 }
 .lab[data-shakespeare-layout="flowing"] .lab-verse-break::after { content: '\00a0·'; }
 
+/* Author footnotes: a zero-width anchor keeps the marker out of line breaking
+   and page measurement; the button is positioned against it. */
+.lab-footnote-anchor { display: inline-block; position: relative; width: 0; height: 0; overflow: visible; user-select: none; -webkit-user-select: none; }
+.lab-footnote-mark { position: absolute; left: 1px; bottom: .5em; min-width: 1.1em; padding: .35em .3em; margin: -.35em -.3em; border: 0; background: transparent; color: var(--lab-ink-muted); cursor: pointer; font: 600 .62em/1 'IBM Plex Mono', monospace; font-variant-numeric: lining-nums; text-align: center; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
+.lab-footnote-mark:hover { color: var(--lab-ink); text-decoration: underline; }
+.lab-footnote-mark:focus-visible { outline: 2px solid currentColor; outline-offset: 1px; border-radius: 3px; }
+.lab-footnote .lab-footnote-body p { margin: 0; font-size: 15px; line-height: 1.5; }
+.lab-footnote-number { font: 600 .7em/1 'IBM Plex Mono', monospace; margin-right: .2em; vertical-align: super; }
+
+
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the reader shell.
 

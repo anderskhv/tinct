@@ -11,6 +11,8 @@ import { usesRetainedBella } from '../narration/bellaRetention'
 import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
 import { isAudioHeld } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
+import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
+import { LabFootnote, type OpenFootnote } from './LabFootnote'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
 import { LabChapterEnd } from './LabChapterEnd'
@@ -1627,6 +1629,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
   const compareCharacters = useCharacterCards(firstPageShown && prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
+  // Author footnotes, for the edition actually on the page; other editions never request any.
+  const chapterFootnotes = useChapterFootnotes(firstPageShown ? book.bookId : undefined, readerEditionKey, book.chapterNumber, readerParagraphs)
+  const [openFootnote, setOpenFootnote] = useState<OpenFootnote | null>(null)
+  const showFootnote = useCallback((note: PlacedFootnote, marker: HTMLElement) => {
+    const rect = marker.getBoundingClientRect()
+    const showBelow = window.innerHeight - rect.bottom > rect.top
+    setOpenFootnote({ note, x: Math.max(24, Math.min(window.innerWidth - 24, rect.left + rect.width / 2)), y: showBelow ? rect.bottom + 8 : rect.top - 8, showBelow })
+  }, [])
   const define = useDefine()
   const [crossSelecting, setCrossSelecting] = useState<ChapterSelectionPart[] | null>(null)
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
@@ -2999,6 +3009,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
   useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
+  // A new passage or view invalidates an open note, as it does a selection card.
+  useLayoutEffect(() => { setOpenFootnote(null) }, [book.bookId, book.chapterNumber, readerParagraphs, readerEditionKey, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
   const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup', highlightId?: string, context?: { chapterNumber: number; chapterLabel: string; paragraphs: string[] }) => {
     if (initialResolving || frontispieceVisible || phoneAskOpen) return
@@ -4609,6 +4621,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             keyboardSelection
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
+            footnotes={chapterFootnotes}
+            onFootnote={showFootnote}
             selectingRange={crossChapterRange(book.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null)}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             tapZones={pageTurnAffordance.tapZones}
@@ -5211,6 +5225,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           lab
         />
       )}
+
+      {openFootnote && <LabFootnote open={openFootnote} onClose={() => setOpenFootnote(null)} />}
 
       {!showPhoneChrome && (
         <p className="lab-visually-hidden" data-testid="lab-desktop-panes">

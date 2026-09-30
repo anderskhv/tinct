@@ -6,6 +6,7 @@ import { comparisonSegment } from './LabDesktopPaginator'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
+import type { PlacedFootnote } from './labFootnotes'
 import {
   buildHighlightRange,
   highlightAt,
@@ -112,6 +113,13 @@ interface LabPassageProps {
    * continued-tail measurement re-runs when this key changes.
    */
   layoutKey?: string
+  /**
+   * The chapter's author footnotes on these paragraphs. Each paints a marker
+   * after its word: zero-width and outside every word span, so pagination,
+   * word indexes, selection and narration are exactly as without it.
+   */
+  footnotes?: PlacedFootnote[]
+  onFootnote?: (note: PlacedFootnote, marker: HTMLElement) => void
 }
 
 function wordSpacing(
@@ -459,6 +467,8 @@ export function LabPassage({
   onCycleSpeed,
   hideTransport = false,
   markedIndexes,
+  footnotes,
+  onFootnote,
   focusParagraph,
   discussedParagraph = null,
   dimmed,
@@ -937,7 +947,12 @@ export function LabPassage({
     setLocalSelecting(null)
   }
 
-  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false) => {
+  const footnotesAt = useMemo(() => {
+    const at = new Map<string, PlacedFootnote[]>()
+    for (const note of footnotes ?? []) at.set(`${note.paragraphIndex}:${note.wordIndex}`, [...(at.get(`${note.paragraphIndex}:${note.wordIndex}`) ?? []), note])
+    return at
+  }, [footnotes])
+  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false, ownChapter = true) => {
     // Verse-paired Compare lays each primary line in its own grid row, so
     // lines are never joined there; a joined BSB line only sits tight.
     const gridRows = alignCompare && compare
@@ -992,6 +1007,11 @@ export function LabPassage({
                           {spacing}
                           {renderWordText(word.text, word.emphasis)}
                         </span>
+                        {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
+                          <span key={note.id} className="lab-footnote-anchor">
+                            <button type="button" className="lab-footnote-mark" data-testid="lab-footnote-mark" data-footnote-id={note.id} onClick={event => onFootnote?.(note, event.currentTarget)}>{note.number}</button>
+                          </span>
+                        ))}
                         </Fragment>
                       )
                     }, { text: paragraphs[paragraphIndex], from: wordBase }, (spacing, wordIndex) => {
@@ -1064,7 +1084,7 @@ export function LabPassage({
     onPointerUp={event => { event.stopPropagation(); onPointerEnd(event) }}
     onPointerCancel={event => { event.stopPropagation(); onPointerCancel() }}
     onContextMenu={event => { event.stopPropagation(); if (onSelectRange) event.preventDefault() }}
-  >{renderReadingLines(readingLines, true)}</div>
+  >{renderReadingLines(readingLines, true, false)}</div>
 
   return (
     <article
@@ -1163,7 +1183,7 @@ export function LabPassage({
             <LabChapterHeading title={nextChapterOpening.title} preview={Boolean(nextChapterOpening.onPrimer)} onPreview={nextChapterOpening.onPrimer} measuring />
           )}
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
-            {previousChapterEnding && renderReadingLines(readingLines, true)}
+            {previousChapterEnding && renderReadingLines(readingLines, true, false)}
             {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
             {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">

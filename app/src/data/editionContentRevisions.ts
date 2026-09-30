@@ -150,6 +150,20 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'fear-and-trembling': {
+    revision: 'fear-and-trembling-structure-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T20:25:00Z'),
+    editions: {
+      'modern-en': {
+        before: '152776f19e1b707b610d2bee033d6984ed0f1e26826b314e2d0541d9c0b49132',
+        after: 'c48a325258381311e61ff70a2c9a3972e5e75cc1dac2b9b357e7022f85111fb8',
+      },
+      'original-da': {
+        before: 'c61144bbf51a930748799d4ff30ff48031ee12452ada5eb5391f684e8961d63a',
+        after: '290fec6aa962cce75058c7c0286cc9a4c9aca00066be5cb535d528b7af2b8934',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
