@@ -3,6 +3,7 @@ import type { EditionData, EditionKey } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 import { perfMark, perfMeasure } from '../utils/perf'
 import { CHAPTER_SHARDED_EDITION_IDS } from './editionShardRegistry'
+import { editionPatchesPath, editionShardManifestUrl, editionShardUrl, editionWholeUrl } from './editionUrls'
 
 const cache = new Map<string, EditionData>()
 const inFlight = new Map<string, Promise<EditionData>>()
@@ -64,11 +65,11 @@ export function isChapterShardedEdition(bookId: string, editionKey: EditionKey):
 }
 
 export function editionDataUrl(bookId: string, editionKey: EditionKey): string {
-  return `/data/editions/${bookId}-${editionKey}.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+  return editionWholeUrl(bookId, editionKey, __BUILD_VERSION__)
 }
 
 export function editionChapterShardManifestUrl(bookId: string, editionKey: EditionKey): string {
-  return `/data/editions-chapters/${bookId}-${editionKey}/manifest.json?v=${encodeURIComponent(__BUILD_VERSION__)}`
+  return editionShardManifestUrl(bookId, editionKey, __BUILD_VERSION__)
 }
 
 function chapterShardWindowEnabled(bookId: string, editionKey: EditionKey): boolean {
@@ -90,7 +91,7 @@ async function fetchEditionPatches(bookId: string, editionKey: EditionKey): Prom
   // patches into its pinned text and annotation coordinates.
   if (isNativeCapacitor()) return []
   try {
-    const res = await fetch(apiUrl(`/api/edition-patches?bookId=${encodeURIComponent(bookId)}&editionKey=${encodeURIComponent(editionKey)}`))
+    const res = await fetch(apiUrl(editionPatchesPath(bookId, editionKey)))
     if (!res.ok) return []
     return await res.json() as EditionPatch[]
   } catch {
@@ -181,7 +182,7 @@ async function loadChapterShard(
   const base = `/data/editions-chapters/${bookId}-${editionKey}/`
   const chapterUrl = opts.bypassCache
     ? `${base}${entry.path}?fresh=1`
-    : `${base}${entry.path}?v=${encodeURIComponent(__BUILD_VERSION__)}`
+    : editionShardUrl(bookId, editionKey, entry.path, __BUILD_VERSION__)
   const fetchInit: RequestInit = opts.bypassCache ? { cache: 'no-store' } : {}
   const chapter = await fetchJson(chapterUrl, fetchInit)
   if (!chapter || typeof chapter !== 'object' || !Array.isArray((chapter as { paragraphs?: unknown }).paragraphs)) {
@@ -224,6 +225,9 @@ export async function loadEditionWindow(
     return loadEdition(bookId, editionKey, opts)
   }
 
+  // Patches travel beside the text. Requested only once the chapters had
+  // arrived, their bounded wait (PATCH_WAIT_MS) was added to every window load.
+  const patchesPromise = fetchEditionPatches(bookId, editionKey)
   try {
     const manifestData = await loadChapterShardManifest(bookId, editionKey, opts)
     const requested = new Set([centerChapter - 1, centerChapter, centerChapter + 1])
@@ -262,7 +266,6 @@ export async function loadEditionWindow(
       throw new Error(`Edition ${cacheKey} chapter window is malformed`)
     }
 
-    const patchesPromise = fetchEditionPatches(bookId, editionKey)
     return applyEditionPatches(cacheKey, data, patchesPromise, false)
   } catch (err) {
     if (opts.bypassCache) throw err
