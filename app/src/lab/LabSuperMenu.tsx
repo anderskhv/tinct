@@ -29,6 +29,15 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
     )
   }
   if (id === 'summarize') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M8 6h12M8 12h12M8 18h12M3 6h.1M3 12h.1M3 18h.1" /></svg>
+  if (id === 'catchup') return (
+    <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+      <path d="M6 6.6v3M6 12.6v3.2" />
+      <circle cx="6" cy="5" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="6" cy="11" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="6" cy="18" r="2.2" />
+      <path d="M11 5h9M11 11h9M11 18h5" />
+    </svg>
+  )
   if (id === 'library') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m10 5-7 7 7 7M3 12h18" /></svg>
   if (id === 'editions') {
     return (
