@@ -328,9 +328,18 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     completedBookIds: completedBookIds(),
   })
   lastRows = new Map(list.readingNow.map(row => [row.bookId, row]))
+  // One rule for every removal (My shelf ×, desk × to Saved for later, the
+  // legacy desk hide stamp): it hides the book only while it is at least as
+  // new as the book's latest reading. Reading the book again brings it back.
+  // An unknown removal time (0) stays hidden, as before.
+  const removedSince = (at: Record<string, number> | undefined, ids: string[], bookId: string, readAt: number | null | undefined) => {
+    if (!ids.includes(bookId)) return false
+    const removedAt = at?.[bookId] ?? 0
+    return removedAt <= 0 || removedAt >= (readAt ?? 0)
+  }
   const table: ReadingTable = {
     mode: libraryModeFor(list),
-    reading: list.readingNow.filter(row => !membership.removed.includes(row.bookId)).map(row => {
+    reading: list.readingNow.filter(row => !removedSince(membership.removedAt, membership.removed, row.bookId, row.lastActiveAt)).map(row => {
       const book = books.get(row.bookId)
       const selectedEdition = book?.editions.find(edition => edition.key === row.target.editionKey)
       const estimateBook = selectedEdition?.readingStructure ? { ...book, readingStructure: selectedEdition.readingStructure } : book
@@ -349,12 +358,12 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         recap: row.recap,
       }
     }),
-    finished: list.finished.filter(row => !membership.removed.includes(row.bookId)).map(row => {
+    finished: list.finished.filter(row => !removedSince(membership.removedAt, membership.removed, row.bookId, row.finishedAt)).map(row => {
       const book = books.get(row.bookId)
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),
   }
-  table.reading = table.reading.filter(row => !membership.tableHidden.includes(row.bookId)
+  table.reading = table.reading.filter(row => !removedSince(membership.tableHiddenAt, membership.tableHidden, row.bookId, lastRows.get(row.bookId)?.lastActiveAt)
     && !((positions?.hidden?.[row.bookId] ?? 0) >= (lastRows.get(row.bookId)?.lastActiveAt ?? 1)))
   table.shelfReading = table.reading
   if (!table.reading.length) table.mode = 'new'

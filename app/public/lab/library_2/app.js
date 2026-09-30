@@ -4,11 +4,11 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260929reveal';
+import {mountBookshelf} from './bookshelf.js?v=20260930shelf';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap} from './authors.js?v=20260929reviewed';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260929complete';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260930shelf';
 import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928covers';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
@@ -119,7 +119,7 @@ let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=nu
 const editionChoices=new Map();
 function availableEditions(){return (activeBook.editions||[]).filter(e=>e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
 function choices(){const available=availableEditions();if(!editionChoices.has(activeBook.id))editionChoices.set(activeBook.id,{main:available.find(e=>e.key===activeBook.defaultEditionKey)?.key||available[0]?.key||null});return editionChoices.get(activeBook.id);}
-let pageLocked=false,lockedScroll=0;function syncLock(){const lock=!!(activeBook||searchOpen||menuOpen||mode!=='minimized');if(lock===pageLocked)return;pageLocked=lock;if(lock){lockedScroll=scrollY;Object.assign(document.body.style,{position:'fixed',top:-lockedScroll+'px',left:'0',right:'0',overflow:'hidden'});}else{for(const key of ['position','top','left','right','overflow'])document.body.style[key]='';scrollTo({top:lockedScroll,behavior:'instant'});}}
+let pageLocked=false,lockedScroll=0;function syncLock(){const lock=!!(activeBook||searchOpen||menuOpen||mode!=='minimized');if(lock===pageLocked)return;pageLocked=lock;if(!lock)queueMicrotask(()=>dispatchEvent(new Event('library2:interactive')));if(lock){lockedScroll=scrollY;Object.assign(document.body.style,{position:'fixed',top:-lockedScroll+'px',left:'0',right:'0',overflow:'hidden'});}else{for(const key of ['position','top','left','right','overflow'])document.body.style[key]='';scrollTo({top:lockedScroll,behavior:'instant'});}}
 function rectOf(c){const r=c.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};}
 export function bookDestination(){const dest=destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches);if(dest.tour){const u=ease(tourProgress),height=window.visualViewport?.height||innerHeight;const short=height<500,pageWidth=Math.min((innerWidth-40)/.66,short?620:(height-128)/1.5,620),pageHeight=short?height-128:pageWidth*1.5;dest.x=mix(20+pageWidth,0,u);dest.y=mix(60+(height-128-pageHeight)/2,0,u);dest.w=mix(pageWidth,innerWidth,u);dest.h=mix(pageHeight,height,u);}return dest;}
 const screenBack=el('button','page-back','← Back');screenBack.id='page-back';screenBack.hidden=true;$('book-overlay').append(screenBack);
@@ -325,7 +325,7 @@ addEventListener('library2:remove-saved',e=>{if(savedBooks.has(e.detail))toggleS
 $('save-book').onclick=()=>toggleSaved(activeBook.id);
 function setMenu(open){menuOpen=open;$('library-menu').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));syncLock();(open?$('menu-close'):$('menu-toggle')).focus({preventScroll:true});}
 $('menu-toggle').onclick=()=>setMenu(!menuOpen);$('menu-close').onclick=()=>setMenu(false);$('library-menu').onclick=e=>{if(e.target===$('library-menu'))setMenu(false);};
-function selectCollection(value){collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
+function selectCollection(value){collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My shelf: what you are reading, what you want to read, and what you have finished.
 async function removeFromMyShelf(id){
  try{

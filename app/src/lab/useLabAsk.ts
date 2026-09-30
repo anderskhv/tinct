@@ -857,6 +857,10 @@ export function useLabAsk(options: UseLabAskOptions) {
         editionLabel: input.editionLabel,
         paragraphs: input.paragraphs,
         paragraphIndex: input.paragraphIndex,
+        // Explain answers the selected passage from the chapter supplied in
+        // the prompt. Without book lookups the worker streams the answer as
+        // it is written instead of holding the whole round (see chat.ts).
+        lookups: false,
       }
       const authToken = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
       if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
@@ -878,7 +882,6 @@ export function useLabAsk(options: UseLabAskOptions) {
               ? `${CONTEXTUAL_LOOKUP_PROMPT}\n<word>${text}</word>`
               : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
           }],
-          ...labCompanionBookFields(context),
         }),
       })
       if (!response.ok) throw new LabChatError(`http_${response.status}`)

@@ -108,6 +108,8 @@ export interface LabAskContext {
   /** Registry book id + edition key. When both are set the request carries `book` and the worker serves read_chapter / find_in_book. */
   bookId?: string
   editionKey?: string
+  /** False for single-passage requests (Explain / define) that answer from the chapter already supplied, without book lookups. */
+  lookups?: boolean
   chapterCount?: number
   pageNumber?: number
   totalPages?: number
@@ -230,7 +232,7 @@ export function buildLabAskInstructions(input: LabAskContext): string {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
   const current = (input.paragraphs[idx] || '').replace(/\s+/g, ' ').trim()
-  const toolsAvailable = Boolean(input.bookId && input.editionKey)
+  const toolsAvailable = Boolean(input.bookId && input.editionKey) && input.lookups !== false
 
   const lines = [
     LAB_ASK_POLICY,

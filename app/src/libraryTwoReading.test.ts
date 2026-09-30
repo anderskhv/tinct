@@ -302,3 +302,20 @@ it('never mirrors a response after the account changed, or merges over another o
   await expect(loading).rejects.toThrow('Account changed')
   expect(calls.writePosition).not.toHaveBeenCalled()
 })
+
+it('returns a removed or desk-hidden book to Currently reading once it is read again after the removal', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+  calls.memory.mockResolvedValue(null)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  // Removed from My shelf at 150 / moved to Saved for later at 150.
+  calls.membership.mockResolvedValue({removed:['confessions','hamlet'],tableHidden:['frankenstein','crito'],removedAt:{confessions:150,hamlet:150},tableHiddenAt:{frankenstein:150,crito:150}})
+  const row=(bookId:string,lastActiveAt:number)=>({bookId,target:{chapterNumber:1,pageIndex:0,paragraphIndex:0,wordIndex:0,editionKey:'original-en',chapterLabel:'Chapter 1',at:lastActiveAt},finishedChapters:[],progress:'middle',lastActiveAt,session:null})
+  // Confessions and Crito were read after their removal; Hamlet and Frankenstein were not.
+  calls.readingList.mockReturnValue({readingNow:[row('confessions',200),row('crito',200),row('hamlet',100),row('frankenstein',100)],finished:[]})
+  const books=['confessions','crito','hamlet','frankenstein'].map(id=>({id,title:id,author:'Author',defaultEditionKey:'original-en',editions:[{key:'original-en',language:'en',style:'original'}],readingStructure:{chapters:[{number:1,title:'Chapter 1',paragraphCount:40}]}}))
+  const {loadReadingTable}=await import('./libraryTwoReading')
+  const table=await loadReadingTable({catalogue:Promise.resolve({books})})
+  expect(table.reading.map(book=>book.bookId)).toEqual(['confessions','crito'])
+  expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['confessions','crito'])
+})

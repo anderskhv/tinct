@@ -57,9 +57,9 @@ it('retains a table-hidden book and its visibility across devices and reloads',a
  mock.rows=[{key:'library-shelf:hamlet',value:{saved:true,at:10,tableHidden:true},rev:1}];
  vi.resetModules();api=await import('./libraryTwoSaved');
  expect((await api.loadSavedBooks()).ids).toEqual(['hamlet']);
- expect(await api.loadShelfMembership()).toEqual({removed:[],tableHidden:['hamlet']});
+ expect(await api.loadShelfMembership()).toMatchObject({removed:[],tableHidden:['hamlet']});
  mock.rows=[{key:'library-shelf:hamlet',value:null,rev:2}];
- expect(await api.loadShelfMembership()).toEqual({removed:['hamlet'],tableHidden:[]});
+ expect(await api.loadShelfMembership()).toMatchObject({removed:['hamlet'],tableHidden:[]});
 })
 it('keeps an offline shelf removal explicit without deleting any reader data',async()=>{
  mock.user='alice';mock.read.mockResolvedValue({data:null,error:{message:'offline'}});
@@ -67,7 +67,7 @@ it('keeps an offline shelf removal explicit without deleting any reader data',as
  localStorage.setItem('tinct:highlights:hamlet','saved-highlights');
  let api=await import('./libraryTwoSaved');await api.setSavedBook('hamlet',false);
  vi.resetModules();api=await import('./libraryTwoSaved');
- expect(await api.loadShelfMembership()).toEqual({removed:['hamlet'],tableHidden:[]});
+ expect(await api.loadShelfMembership()).toMatchObject({removed:['hamlet'],tableHidden:[]});
  expect(localStorage.getItem('tinct-lab-position')).toBe('saved-place');
  expect(localStorage.getItem('tinct:highlights:hamlet')).toBe('saved-highlights');
 })
@@ -107,4 +107,12 @@ it('honours a later re-add returned by a concurrent write conflict instead of re
  const api=await import('./libraryTwoSaved')
  expect(await api.loadSavedBooks()).toEqual({ids:['confessions'],synced:true})
  expect(mock.rpc).toHaveBeenCalledOnce()
+})
+it('dates cloud tombstones by their row clock so later reading can outrank them',async()=>{
+ mock.user='alice';mock.rows=[{key:'library-shelf:confessions',value:null,rev:3,updated_at:'2026-09-29T10:00:00Z'},{key:'library-shelf:hamlet',value:{saved:true,at:500,tableHidden:true},rev:2,updated_at:'2026-09-29T11:00:00Z'}]
+ const api=await import('./libraryTwoSaved')
+ const membership=await api.loadShelfMembership()
+ expect(membership.removed).toEqual(['confessions'])
+ expect(membership.removedAt).toEqual({confessions:Date.parse('2026-09-29T10:00:00Z')})
+ expect(membership.tableHiddenAt).toEqual({hamlet:500})
 })
