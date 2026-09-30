@@ -16,7 +16,7 @@ workflow.
 |---|---|---|---|---|---|---|
 | Tinct Edition | Curated book workflow | Everyone | Yes (reviewed) | Play-only Grok, shared cache | Full | "Tinct Edition" |
 | Catalog import | Gutenberg / public domain, self-added | Everyone (shared pool) | Optional, paid, machine-modernized, unreviewed | Play-only Grok, shared cache | Yes | "Original text" |
-| Personal upload | User EPUB | Uploader only | **Never** | Off at launch (see below) | Yes, private | "Your upload" |
+| Personal upload | User EPUB | Uploader only | **Never** | Play-only Grok, private per-user cache | Yes, private | "Your upload" |
 
 Imported and uploaded books never enter `bookRegistry.ts` or the curated
 taxonomy automatically. Curated promotion goes through the normal book workflow.
@@ -56,11 +56,10 @@ Unchanged architecture (`docs/audiobook-architecture-2026-09-21.md`,
 synthesis with ~45 s rolling buffer, content-addressed shared cache, Durable
 Object leases and spend ceilings. Catalog imports use it as-is.
 
-Personal uploads: **no narration at launch.** A recording is a derivative work,
-and the shared content-addressed cache would let identical uploads by different
-users share recordings — Tinct would in effect distribute audio between
-accounts. If added later it needs a per-user cache namespace (no cross-user
-reuse), a per-user quota, and legal sign-off.
+Personal uploads: narration is allowed, fully private. Upload chunks use a
+per-user cache namespace (the user ID is part of the cache identity), so an
+upload never reuses or supplies recordings for any other account, even when
+the text is identical. Per-user synthesis quota on top of the global ceilings.
 
 ## Paid modern English (catalog imports only)
 
@@ -77,10 +76,10 @@ reuse), a per-user quota, and legal sign-off.
 Protection comes from hosting safe harbors (US DMCA, EU Digital Services Act),
 which require acting as a passive host:
 
-- Private to the uploader; never shared, deduped across users, indexed or
-  searchable by others.
-- No translation, no narration at launch; reading, highlights, notes and chat
-  only.
+- Completely private: text, audio, chat context and any derived data are
+  scoped to the uploader. No cross-user dedupe, cache reuse, indexing or search.
+- No modern-English translation. Reading, highlights, notes, chat and private
+  narration only.
 - Terms: uploader warrants rights; notice-and-takedown process with a contact
   point; repeat-infringer policy; DMCA designated agent registration.
 - DRM-protected files are rejected; no circumvention.
