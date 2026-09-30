@@ -105,14 +105,27 @@ describe('readerBootPreloads matches the loader byte for byte', () => {
   it('a chapter-sharded edition: the manifest, the chapter window and patches', async () => {
     expect(CHAPTER_SHARDED_EDITION_IDS).toContain('moby-dick-modern-en')
     const expected = preloads('moby-dick', 'modern-en', 12)
-    expect(expected).toHaveLength(5)
-    expect((await loaderRequests('moby-dick', 'modern-en', 12)).sort()).toEqual([...expected].sort())
+    // Manifest, chapters 12 and 11, patches; chapter 13 is left to the loader.
+    expect(expected).toHaveLength(4)
+    const requested = await loaderRequests('moby-dick', 'modern-en', 12)
+    expect(expected.every(url => requested.includes(url))).toBe(true)
+    expect(requested.filter(url => !expected.includes(url))).toHaveLength(1)
+  })
+
+  it('never preloads past the last chapter (a 404 the loader would not make)', () => {
+    const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../public/data/editions-chapters/moby-dick-modern-en/manifest.json'), 'utf8')) as { chapters: Array<{ number: number; path: string }> }
+    const last = Math.max(...manifest.chapters.map(chapter => chapter.number))
+    const published = new Set(manifest.chapters.map(chapter => chapter.path))
+    const shards = preloads('moby-dick', 'modern-en', last).filter(url => /\/ch\d+\.json/.test(url))
+    expect(shards.length).toBeGreaterThan(0)
+    for (const url of shards) expect(published.has(url.match(/(ch\d+\.json)/)![1])).toBe(true)
   })
 
   it('a sharded first chapter has no chapter 0 to fetch', async () => {
     const expected = preloads('moby-dick', 'original-en', 1)
     expect(expected.some(url => url.includes('ch0000'))).toBe(false)
-    expect((await loaderRequests('moby-dick', 'original-en', 1)).sort()).toEqual([...expected].sort())
+    const requested = await loaderRequests('moby-dick', 'original-en', 1)
+    expect(expected.every(url => requested.includes(url))).toBe(true)
   })
 
   it('the Bible: its manifest and the one chapter', async () => {

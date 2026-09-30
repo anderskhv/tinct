@@ -76,8 +76,8 @@ export interface ReaderBootPreloadOptions {
 /**
  * The requests `loadLabBookSource` makes first for this handoff, most
  * urgent first. The Bible reads its chapter manifest and one chapter; a
- * chapter-sharded book its manifest and the chapter with both neighbours
- * (the loader's window); any other book its whole edition. Non-Bible text is
+ * chapter-sharded book its manifest, the chapter and the one before (the
+ * loader's window, less the next chapter, which may not exist); any other book its whole edition. Non-Bible text is
  * joined by its patches, which the loader waits on for up to 350 ms.
  */
 export function readerBootPreloads(handoff: ReaderBootHandoff, options: ReaderBootPreloadOptions): string[] {
@@ -94,7 +94,9 @@ export function readerBootPreloads(handoff: ReaderBootHandoff, options: ReaderBo
     // A reader who switched the window off may be on the whole-book path;
     // guess nothing rather than download a book twice.
     if (options.shardWindowDisabled) return []
-    const window = [chapterNumber, chapterNumber - 1, chapterNumber + 1].filter(number => number >= 1)
+    // The next chapter is left to the loader: without the manifest the boot
+    // script cannot know it exists, and a preload past the last chapter 404s.
+    const window = [chapterNumber, chapterNumber - 1].filter(number => number >= 1)
     return [
       editionShardManifestUrl(bookId, key, version),
       ...window.map(number => editionShardUrl(bookId, key, editionShardPath(number), version)),
