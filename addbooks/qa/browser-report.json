@@ -1,0 +1,56 @@
+{
+  "viewports": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1080
+      },
+      "coldLoadMs": 1232,
+      "offlineReload": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "name": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "coldLoadMs": 1208,
+      "offlineReload": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "queries": {
+    "Odyssey": {
+      "top3": [
+        "The Odyssey",
+        "A Martian Odyssey",
+        "The Authoress of the Odyssey"
+      ],
+      "searchMs": 26.3
+    },
+    "dostoevsky": {
+      "top3": [
+        "Crime and Punishment",
+        "The Brothers Karamazov",
+        "White nights, and other stories"
+      ],
+      "searchMs": 17
+    },
+    "pride prejudice": {
+      "top3": [
+        "Pride and Prejudice",
+        "Pride and Prejudice, a play founded on Jane Austen's novel"
+      ],
+      "searchMs": 28.8
+    },
+    "meditations marcus": {
+      "top3": [
+        "Meditations"
+      ],
+      "searchMs": 21.8
+    }
+  },
+  "errors": []
+}

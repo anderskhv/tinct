@@ -78,3 +78,8 @@ output/narration-pilot/*.mp3
 
 # Voice smoke artifacts
 app/artifacts/grok-voice-smoke*/
+
+# Standalone Add books prototype source downloads and generated large catalogue
+/addbooks/.cache/
+/addbooks/site/data/index.json
+/addbooks/site/data/index.json.gz

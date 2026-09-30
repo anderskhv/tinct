@@ -1,0 +1,366 @@
+#!/usr/bin/env python3
+"""Build the standalone catalogue with Python's standard library. No app imports."""
+import argparse
+import collections
+import gzip
+import hashlib
+import json
+import re
+import shutil
+import tarfile
+import unicodedata
+import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
+import zipfile
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+BASE = ROOT / 'addbooks'
+CACHE = BASE / '.cache'
+PG_URL = 'https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2'
+SE_URL = 'https://standardebooks.org/feeds/atom/new-releases'
+NS = {'pg': 'http://www.gutenberg.org/2009/pgterms/', 'dc': 'http://purl.org/dc/terms/',
+      'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'rel': 'http://id.loc.gov/vocabulary/relators/',
+      'a': 'http://www.w3.org/2005/Atom', 'media': 'http://search.yahoo.com/mrss/'}
+RDF_ABOUT = '{' + NS['rdf'] + '}about'
+
+def clean(value):
+    return ' '.join((value or '').split())
+
+def norm(value):
+    value = ''.join(c for c in unicodedata.normalize('NFKD', value.casefold()) if not unicodedata.combining(c))
+    return clean(re.sub(r'[^\w]+', ' ', value, flags=re.UNICODE)).replace('_', ' ')
+
+def title_key(value):
+    return re.sub(r'^(the|a|an) ', '', norm(value))
+
+def name_key(value):
+    return ' '.join(sorted(norm(re.sub(r'\([^)]*\)', '', value)).split()))
+
+def text(node, path, default=''):
+    return clean(node.findtext(path, default, NS))
+
+def integer(value):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return None
+
+def person(name, birth=None, death=None, aliases=None):
+    # Gutenberg uses "Surname, Firstname" (possibly followed by an honorific).
+    parts = name.split(', ', 1)
+    display = parts[1] + ' ' + parts[0] if len(parts) == 2 else name
+    return {'name': display, 'birthYear': birth, 'deathYear': death,
+            'aliases': sorted(set(aliases or []) - {display})}
+
+def people(node, path):
+    return [person(text(p, 'pg:name'), integer(text(p, 'pg:birthdate')),
+                   integer(text(p, 'pg:deathdate')), [clean(x.text) for x in p.findall('pg:alias', NS)])
+            for p in node.findall(path + '/pg:agent', NS)]
+
+def values(node, path):
+    return sorted({clean(x.text) for x in node.findall(path + '//rdf:value', NS) if clean(x.text)})
+
+def fetch(url, path, offline=False, refresh=False):
+    if path.exists() and not refresh:
+        return path
+    if offline:
+        raise RuntimeError('Missing cached input: ' + str(path))
+    req = urllib.request.Request(url, headers={'User-Agent': 'TinctAddBooksPrototype/1.0 (catalog metadata only)'})
+    print('Fetching ' + url, flush=True)
+    tmp = path.with_suffix(path.suffix + '.part')
+    try:
+        with urllib.request.urlopen(req, timeout=120) as response, tmp.open('wb') as out:
+            shutil.copyfileobj(response, out)
+        tmp.replace(path)
+    finally:
+        tmp.unlink(missing_ok=True)
+    return path
+
+def parse_pg(data):
+    root = ET.fromstring(data)
+    book = root.find('pg:ebook', NS)
+    if book is None:
+        return None, 'notEbook'
+    if text(book, 'dc:rights').rstrip('.') != 'Public domain in the USA':
+        return None, 'notPublicDomainUS'
+    if 'Text' not in values(book, 'dc:type'):
+        return None, 'notText'
+    pgid = book.attrib[RDF_ABOUT].split('/')[-1]
+    formats = [(f.attrib[RDF_ABOUT].replace('http://', 'https://'), values(f, 'dc:format'))
+               for f in book.findall('dc:hasFormat/pg:file', NS)]
+    epubs = sorted([u for u, mime in formats if 'application/epub+zip' in mime],
+                   key=lambda u: ('.images' not in u, '.epub3' not in u, u))
+    covers = sorted([u for u, mime in formats if 'image/jpeg' in mime and '.cover.' in u],
+                    key=lambda u: ('.medium.' not in u, u))
+    raw = book.findtext('dc:title', '', NS).strip()
+    parts = re.split(r'[\r\n]+|\s+:\s+|:\s+|[;,]\s+[Oo]r,?\s+', raw, maxsplit=1)
+    title, subtitle = clean(parts[0]), clean(parts[1]) if len(parts) > 1 else None
+    # Volume/part/abridgement identity must not be lost by splitting a subtitle.
+    if subtitle and re.search(r'\b(volume|vol\.?|part|book|abridg|selections)\b', subtitle, re.I):
+        title, subtitle = clean(raw), None
+    subjects = []
+    for subject in book.findall('dc:subject', NS):
+        scheme = subject.find('.//{http://purl.org/dc/dcam/}memberOf')
+        if scheme is not None and scheme.get('{' + NS['rdf'] + '}resource', '').endswith('/LCC'):
+            continue
+        subjects += values(subject, '.')
+    return {'id': 'pg:' + pgid, 'source': 'Gutenberg', 'sourceId': pgid,
+            'title': title, 'subtitle': subtitle, 'authors': people(book, 'dc:creator'),
+            'translators': people(book, 'rel:trl'), 'language': values(book, 'dc:language') or ['und'],
+            'originalLanguage': None, 'firstPublishedYear': None,
+            'subjects': sorted(set(subjects)), 'bookshelves': values(book, 'pg:bookshelf'),
+            'epubUrl': epubs[0] if epubs else None, 'coverUrl': covers[0] if covers else None,
+            'sourceUrl': 'https://www.gutenberg.org/ebooks/' + pgid,
+            'popularity': integer(text(book, 'pg:downloads')) or 0,
+            'rights': 'Public domain in the USA', 'quality': 'standard'}, None
+
+def parse_se(data):
+    root = ET.fromstring(data)
+    if root.tag != '{' + NS['a'] + '}feed':
+        raise ValueError('Standard Ebooks input must be an Atom/OPDS acquisition feed')
+    editions = []
+    for entry in root.findall('a:entry', NS):
+        url = text(entry, 'a:id')
+        links = entry.findall('a:link', NS)
+        epubs = [l.get('href') for l in links if l.get('type') == 'application/epub+zip']
+        if not epubs:
+            continue
+        if not url.startswith('https://standardebooks.org/ebooks/'):
+            raise ValueError('Unexpected Standard Ebooks entry ID: ' + url)
+        thumbnail = entry.find('media:thumbnail', NS)
+        covers = [l.get('href') for l in links if 'image' in l.get('rel', '')]
+        authors = [person(text(p, 'a:name')) for p in entry.findall('a:author', NS)]
+        translators = []
+        for contributor in entry.findall('a:contributor', NS):
+            role = ' '.join(contributor.itertext()).lower() + ' '.join(contributor.attrib.values()).lower()
+            if 'trl' in role or 'translator' in role:
+                translators.append(person(text(contributor, 'a:name')))
+        rights = text(entry, 'a:rights')
+        if rights and not re.search(r'public domain', rights, re.I):
+            continue
+        editions.append({'id': 'se:' + url.split('/ebooks/')[1], 'source': 'Standard Ebooks',
+                         'sourceId': url.split('/ebooks/')[1], 'sourceUrl': url,
+                         'title': text(entry, 'a:title'), 'subtitle': text(entry, 'a:subtitle') or None,
+                         'authors': authors, 'translators': translators,
+                         'language': [text(entry, 'dc:language') or 'en'],
+                         'originalLanguage': None, 'firstPublishedYear': None,
+                         'subjects': sorted({c.get('term') for c in entry.findall('a:category', NS) if c.get('term')}),
+                         'bookshelves': [], 'epubUrl': sorted(epubs, key=lambda u: ('_advanced.' in u, u))[0],
+                         'coverUrl': thumbnail.get('url') if thumbnail is not None else (covers[0] if covers else None),
+                         'popularity': 0, 'quality': 'clean', 'rights': 'Public domain in the USA; SE contributions CC0'})
+    next_urls = [l.get('href') for l in root.findall('a:link', NS) if l.get('rel') == 'next']
+    return editions, next_urls
+
+def enrich_se(editions, pg_editions, args, report):
+    # Feed membership is authoritative. Only fetch listed EPUBs; read metadata, never book text.
+    opf = {'o': 'http://www.idpf.org/2007/opf', 'd': 'http://purl.org/dc/elements/1.1/'}
+    known = collections.defaultdict(dict)
+    for e in pg_editions:
+        for p in e['authors'] + e['translators']:
+            for n in [p['name']] + p['aliases']:
+                identity = (p['name'], p['birthYear'], p['deathYear'])
+                known[name_key(n)][identity] = p
+    for e in editions:
+        cache_id = hashlib.sha256(e['id'].encode()).hexdigest()[:20]
+        path = fetch(e['epubUrl'], CACHE / ('se-' + cache_id + '.epub'), args.offline, args.refresh)
+        with zipfile.ZipFile(path) as archive:
+            container = ET.fromstring(archive.read('META-INF/container.xml'))
+            package_path = container.find('.//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile').get('full-path')
+            metadata = ET.fromstring(archive.read(package_path)).find('o:metadata', opf)
+        metas = metadata.findall('o:meta', opf)
+        translated_ids = {m.get('refines', '').lstrip('#') for m in metas if m.get('property') == 'role' and m.text == 'trl'}
+        e['translators'] = [person(clean(p.text)) for p in metadata.findall('d:contributor', opf) if p.get('id') in translated_ids]
+        subtitle_ids = {m.get('refines', '').lstrip('#') for m in metas if m.get('property') == 'title-type' and m.text == 'subtitle'}
+        e['subtitle'] = next((clean(p.text) for p in metadata.findall('d:title', opf) if p.get('id') in subtitle_ids), e['subtitle'])
+        e['languageTags'] = [clean(p.text) for p in metadata.findall('d:language', opf)]
+        e['language'] = sorted({l.split('-')[0] for l in e['languageTags']}) or e['language']
+        e['sourceGutenbergIds'] = [m[1] for p in metadata.findall('d:source', opf) if (m := re.search(r'gutenberg.org/(?:ebooks/|files/)([0-9]+)', p.text or ''))]
+        for field in ('authors', 'translators'):
+            enriched = []
+            for p in e[field]:
+                candidates = known.get(name_key(p['name']), {})
+                if len(candidates) == 1:
+                    match = next(iter(candidates.values()))
+                    p = {**match, 'name': p['name'], 'aliases': sorted(set(match['aliases'] + [match['name']]) - {p['name']})}
+                enriched.append(p)
+            e[field] = enriched
+    report['standardEbooksMetadataPackages'] = len(editions)
+
+def load_registry(path):
+    # Fail closed if the source layout changes. Parse metadata only; never execute TS.
+    source = re.sub(r'//[^\n]*', '', path.read_text())
+    match = re.search(r'export const BOOKS\s*:\s*Book\[\]\s*=\s*\[([^\]]+)\]', source)
+    if not match:
+        raise ValueError('Cannot locate live BOOKS in registry')
+    live = re.findall(r'\b[A-Z][A-Z_0-9]*\b', match[1])
+    blocks = dict(re.findall(r'export const (\w+): Book = \{(.*?)\n\}', source, re.S))
+    result = []
+    for symbol in live:
+        block = blocks[symbol]
+        item = {}
+        for field in ('id', 'title', 'author'):
+            m = re.search(r'\b' + field + r'''\s*:\s*(['"])((?:\\.|(?!\1).)*)\1''', block)
+            if not m:
+                raise ValueError('Cannot parse ' + symbol + '.' + field)
+            item[field] = m[2].replace("\\'", "'").replace('\\"', '"')
+        year = re.search(r'\byear:\s*(-?\d+)', block)
+        item['year'] = int(year[1]) if year else None
+        result.append(item)
+    return result
+
+def group_editions(editions, report):
+    # Exact normalized full-author identities + life dates, then title+language. Never fuzzy-merge.
+    authors = {}
+    for edition in editions:
+        if edition['source'] == 'Gutenberg':
+            for p in edition['authors']:
+                identity = name_key(p['name']) + ':' + str(p['birthYear']) + ':' + str(p['deathYear'])
+                for name in [p['name']] + p['aliases']:
+                    authors.setdefault(name_key(name), set()).add(identity)
+    report['ambiguousAuthorNames'] = sum(len(identities) > 1 for identities in authors.values())
+    grouped = {}
+    for e in editions:
+        keys = []
+        for p in e['authors']:
+            options = authors.get(name_key(p['name']), set())
+            dated = name_key(p['name']) + ':' + str(p['birthYear']) + ':' + str(p['deathYear'])
+            keys.append(dated if dated in options else (next(iter(options)) if len(options) == 1 else name_key(p['name']) + ':' + e['id']))
+        # Unknown/collective authors and anthologies cannot safely share a title key.
+        generic = not keys or all(name_key(p['name']) in ('various', 'anonymous', 'unknown') for p in e['authors'])
+        anthology = bool(re.search(r'\b(short fiction|collected|selected|complete works|poems|stories|essays)\b', e['title'], re.I))
+        canonical_title = title_key(e['title'])
+        for p in e['authors']:
+            suffix = ' of ' + norm(p['name'])
+            if canonical_title.endswith(suffix):
+                canonical_title = canonical_title[:-len(suffix)]
+        # Two catalogued translations with an explicit, unambiguous expanded title.
+        if canonical_title == 'meditations of the emperor marcus aurelius antoninus' and any('marcus aurelius' in norm(p['name']) for p in e['authors']):
+            canonical_title = 'meditations'
+        key = (canonical_title, tuple(sorted(keys)), tuple(e['language']), e['id'] if generic or anthology else '')
+        grouped.setdefault(key, []).append(e)
+    works = []
+    for editions in grouped.values():
+        editions.sort(key=lambda e: (e['source'] != 'Standard Ebooks', -e['popularity'], e['id']))
+        preferred = editions[0]
+        # Work ID anchored to smallest Gutenberg ID where possible, independent of popularity.
+        pgids = [int(e['sourceId']) for e in editions if e['source'] == 'Gutenberg']
+        wid = 'pg:' + str(min(pgids)) if pgids else preferred['id']
+        work = {k: preferred[k] for k in ('title', 'subtitle', 'authors', 'translators', 'language', 'originalLanguage', 'firstPublishedYear', 'quality')}
+        work.update(id=wid, subjects=sorted({s for e in editions for s in e['subjects']}),
+                    bookshelves=sorted({s for e in editions for s in e['bookshelves']}),
+                    editions=editions, popularity=sum(e['popularity'] for e in editions), onTinct=False, tinctIds=[])
+        works.append(work)
+    report['duplicatesMerged'] = sum(len(w['editions']) for w in works) - len(works)
+    report['crossSourceWorks'] = sum(len({e['source'] for e in w['editions']}) > 1 for w in works)
+    return sorted(works, key=lambda w: w['id'])
+
+def match_tinct(works, registry, report):
+    by_title = collections.defaultdict(list)
+    for w in works:
+        for key in {title_key(w['title'])} | {title_key(e['title']) for e in w['editions']}:
+            by_title[key].append(w)
+    matched, ambiguous, unmatched = [], [], []
+    for b in registry:
+        candidates = []
+        registry_authors = re.split(r'\s+&\s+', b['author'])
+        for w in by_title.get(title_key(b['title']), []):
+            # Aliases permit full-name/initial variants. Require all registry author tokens.
+            names = [n for e in w['editions'] for p in e['authors'] for n in [p['name']] + p['aliases']]
+            def same_author(author, name):
+                tokens = set(norm(author).split())
+                return name_key(author) == name_key(name) or (len(tokens) > 1 and tokens <= set(norm(name).split()))
+            if all(any(same_author(author, n) for n in names) for author in registry_authors):
+                candidates.append(w)
+        if candidates:
+            for w in candidates:
+                w['onTinct'] = True
+                w['tinctIds'].append(b['id'])
+                w['firstPublishedYear'] = b['year']
+                w['yearSource'] = 'Tinct live registry'
+            matched.append({'id': b['id'], 'title': b['title'], 'workIds': [w['id'] for w in candidates]})
+        else:
+            # Report title-only matches for review; they never receive the badge.
+            possible = by_title.get(title_key(b['title']), [])
+            (ambiguous if possible else unmatched).append({**b, 'candidateIds': [w['id'] for w in possible]})
+    report.update(tinctLiveBooks=len(registry), tinctBooksMatched=len(matched),
+                  worksOnTinct=sum(w['onTinct'] for w in works), tinctMatches=matched,
+                  tinctUnmatched=unmatched, tinctAmbiguous=ambiguous)
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--offline', action='store_true', help='Use cached source downloads only')
+    parser.add_argument('--refresh', action='store_true', help='Refresh source downloads')
+    parser.add_argument('--se-feed', type=Path, action='append', help='Authorized local Atom/OPDS export; repeat for pages')
+    args = parser.parse_args()
+    if args.offline and args.refresh:
+        parser.error('--offline and --refresh are mutually exclusive')
+    CACHE.mkdir(parents=True, exist_ok=True)
+    pg = fetch(PG_URL, CACHE / 'rdf-files.tar.bz2', args.offline, args.refresh)
+    report = {'builtAt': datetime.now(timezone.utc).isoformat(), 'gutenbergSource': PG_URL,
+              'standardEbooksCoverage': 'provided export (completeness not verified)' if args.se_feed else 'partial: public feed, latest 15 releases',
+              'skipped': {}, 'warnings': []}
+    editions, skipped = [], collections.Counter()
+    count = 0
+    with tarfile.open(pg, 'r|bz2') as archive:
+        for member in archive:
+            if not member.isfile() or not member.name.endswith('.rdf'):
+                continue
+            edition, reason = parse_pg(archive.extractfile(member).read())
+            count += 1
+            if edition:
+                editions.append(edition)
+            else:
+                skipped[reason] += 1
+            if count % 20000 == 0:
+                print('Read ' + str(count) + ' Gutenberg records', flush=True)
+    report.update(gutenbergRecords=count, gutenbergEditions=len(editions), gutenbergWithoutEpub=sum(e['epubUrl'] is None for e in editions), skipped=dict(skipped))
+    feeds = args.se_feed or [fetch(SE_URL, CACHE / 'standardebooks-new-releases.xml', args.offline, args.refresh)]
+    se = {}
+    for feed in feeds:
+        entries, next_urls = parse_se(feed.read_bytes())
+        for e in entries:
+            se[e['id']] = e
+        if next_urls:
+            report['warnings'].append('Feed has next pages; supply every authorized page with --se-feed: ' + ', '.join(next_urls))
+    enrich_se(list(se.values()), editions, args, report)
+    editions.extend(se.values())
+    report['standardEbooksEditions'] = len(se)
+    works = group_editions(editions, report)
+    match_tinct(works, load_registry(ROOT / 'app/src/data/bookRegistry.ts'), report)
+    report.update(works=len(works), editions=len(editions),
+                  languages=dict(sorted(collections.Counter(l for w in works for l in w['language']).items())),
+                  seUnmatched=[{'id': w['id'], 'title': w['title'], 'sourceGutenbergIds': w['editions'][0].get('sourceGutenbergIds', [])} for w in works if w['quality'] == 'clean' and all(e['source'] != 'Gutenberg' for e in w['editions'])],
+                  missingOriginalLanguage=sum(w['originalLanguage'] is None for w in works),
+                  missingFirstPublishedYear=sum(w['firstPublishedYear'] is None for w in works))
+    report['warnings'] += ['Original language and first publication year are null unless explicitly known. Gutenberg release dates are not first-publication dates.',
+                           'Public-domain text records without an EPUB remain indexed with epubUrl=null.',
+                           'Grouping is conservative: title + full author/alias + language. Volumes, anthologies, and different-language titles may remain separate.',
+                           'SE translators and language tags are read from EPUB package metadata; PG missing translator fields remain unknown.',
+                           'US source rights only. EU and other region clearance is not implemented in this search-only prototype.']
+    if not args.se_feed:
+        report['warnings'].insert(0, 'Standard Ebooks full feeds require authorized access. This build contains only the 15 public recent releases.')
+    # Keep the full ambiguity candidate inventory out of the small report.
+    title_groups = collections.defaultdict(list)
+    for w in works:
+        title_groups[title_key(w['title'])].append(w['id'])
+    review = {k: ids for k, ids in title_groups.items() if len(ids) > 1}
+    (CACHE / 'grouping-review.json').write_text(json.dumps(review, ensure_ascii=False))
+    report['sameTitleReviewGroups'] = len(review)
+    report['groupingReviewSample'] = dict(list(sorted(review.items()))[:12])
+    report['sourceSHA256'] = {str(p.name): hashlib.sha256(p.read_bytes()).hexdigest() for p in [pg] + feeds}
+    payload = {'version': 1, 'builtAt': report['builtAt'], 'coverage': report['standardEbooksCoverage'], 'works': works}
+    raw = json.dumps(payload, ensure_ascii=False, separators=(',', ':')).encode()
+    compressed = gzip.compress(raw, compresslevel=9, mtime=0)
+    out = BASE / 'site/data'
+    out.mkdir(parents=True, exist_ok=True)
+    (out / 'index.json').write_bytes(raw)
+    (out / 'index.json.gz').write_bytes(compressed)
+    report.update(indexBytes=len(raw), indexGzipBytes=len(compressed), commitIndex=len(compressed) <= 5_000_000)
+    (BASE / 'build-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    print(json.dumps({k: report[k] for k in ('gutenbergRecords', 'gutenbergEditions', 'standardEbooksEditions', 'works', 'editions', 'duplicatesMerged', 'crossSourceWorks', 'tinctBooksMatched', 'worksOnTinct', 'indexBytes', 'indexGzipBytes', 'commitIndex')}, indent=2))
+
+if __name__ == '__main__':
+    main()
