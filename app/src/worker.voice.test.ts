@@ -150,7 +150,7 @@ describe('voice session route (Grok native speech-to-speech)', () => {
     expect(xaiBody).toEqual({ expires_after: { seconds: GROK_CLIENT_SECRET_TTL_SECONDS } })
   })
 
-  it('blocks readers without chat access before contacting xAI', async () => {
+  it('opens voice for signed-in readers whose legacy message allowance is spent', async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       if (String(input).includes('/rest/v1/profiles')) {
         return Response.json([{
@@ -161,7 +161,8 @@ describe('voice session route (Grok native speech-to-speech)', () => {
           created_at: '2025-01-01T12:00:00Z',
         }])
       }
-      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+      if (String(input) === XAI_CLIENT_SECRETS_URL) return Response.json({ value: 'client-secret', expires_at: 1 })
+      return Response.json({})
     })
     vi.stubGlobal('fetch', fetchMock)
     const { ctx } = makeExecutionContext()
@@ -172,8 +173,9 @@ describe('voice session route (Grok native speech-to-speech)', () => {
       async () => ({ id: userId, email: 'reader@example.com' }),
       async () => true,
     )
-    expect(response.status).toBe(402)
-    expect(fetchMock.mock.calls.some(call => String(call[0]) === XAI_CLIENT_SECRETS_URL)).toBe(false)
+    // AI_ALLOWANCE_ENFORCED is off while the credit model is designed.
+    expect(response.status).toBe(200)
+    expect(fetchMock.mock.calls.some(call => String(call[0]) === XAI_CLIENT_SECRETS_URL)).toBe(true)
   })
 
   it('rate limits signed-in readers per minute', async () => {
