@@ -55,6 +55,11 @@ Escape every variable as HTML, except `opening_line` and `books_phrase`, which c
 4. Pass `textContent` alongside `htmlContent`.
 5. SPF/DKIM: Brevo DKIM (`brevo1`/`brevo2._domainkey`) is live and DMARC is `p=none`. The SPF record does not list Brevo; that is harmless because DKIM covers alignment, but tidy it later.
 
-## Needs Anders
-- **Consent:** under EU and Danish marketing rules, promotional email generally needs consent. The trial and next-book emails count as promotional; the welcome is closer to service mail. Add a clear line at sign-up ("We'll send you a few reading emails; unsubscribe any time"), and confirm the approach. This is not legal advice.
-- **The `sender_address` text** to show in the footer.
+## Consent (decided by Anders, 30 September 2026)
+Keep it subtle so it never interrupts sign-up:
+- One small, muted line directly under the sign-up button (email and Google alike): **"We'll send you a few reading emails. Unsubscribe any time."** No checkbox, no modal, no extra step.
+- Every lifecycle email carries the one-click unsubscribe link and headers. The opt-out takes effect immediately and is stored on the profile.
+- `welcome` counts as service mail; the trial and next-book emails are the promotional ones this notice covers.
+- Footer sender line: **"Tinct, Copenhagen, Denmark"**.
+
+Anders chose this light-touch approach. A stricter version (an unticked checkbox) remains an option if legal advice ever calls for it. This is not legal advice.
