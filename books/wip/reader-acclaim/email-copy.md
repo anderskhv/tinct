@@ -35,6 +35,8 @@ Content for the lifecycle email that suggests a next book. The email code reads 
 
 ## Card presentation rules
 
+- If a card has a `display` field, show that line instead of quote + label (Collison, Lex Fridman).
+- Honour every `pre_send_check` (screenshots of pages behind bot walls) before the first send.
 - Put the label before the name, exactly as in `cards.json`: "Recommended by", "Rated highly by", "Read by", "Discussed by" or "Kept by".
 - Quote exactly. Never shorten a quote without an ellipsis, and never paraphrase inside quotation marks.
 - Every `qualification` in `cards.json` is binding. For example: del Toro is "on his Frankenstein film"; Plutarch reports Alexander; Darwin's "Formerly" stays in; Collison's line is a bookshelf rating.

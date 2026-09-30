@@ -24,11 +24,11 @@
       "era": "contemporary",
       "label": "Recommended by",
       "quote": "I keep coming back to Meditations. It's just such an easy book. I almost recommend everybody start there because it will change your world view on what you think success means.",
-      "source_url": "https://tim.blog/2015/08/18/the-evolutionary-angel-naval-ravikant/",
+      "source_url": "https://tim.blog/wp-content/uploads/2018/07/97-naval-ravikant.pdf",
       "date": "2015-08-18",
-      "context": "The Tim Ferriss Show interview",
+      "context": "The Tim Ferriss Show #97, official transcript",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "evidence_id": "E034"
     },
@@ -40,12 +40,12 @@
       "label": "Recommended by",
       "quote": "I have a copy of meditations in most rooms I spend time in.",
       "source_url": "https://fs.blog/knowledge-project-podcast/tobi-lutke-3/",
-      "date": "2026-09-15",
+      "date": "2026-09-10",
       "context": "The Knowledge Project, around 1:03:23",
       "verification": "secondary",
-      "recheck": "pending-recheck",
+      "recheck": "needs-work",
       "use": "second",
-      "qualification": "Wording matches two external transcripts; check against the episode audio before use.",
+      "qualification": "Only a machine transcript is reachable (podscripts); the official FS transcript is members-only. Check the audio at ~1:03:23 before use.",
       "evidence_id": "E004"
     },
     {
@@ -59,7 +59,7 @@
       "date": "2022-09-22",
       "context": "Essay \"Misery starts when the struggle ends\"",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "evidence_id": "E001"
     },
@@ -74,7 +74,7 @@
       "date": "2015-01-17",
       "context": "\"The very best books I read in 2014\"",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "evidence_id": "E073"
     },
@@ -89,10 +89,11 @@
       "date": null,
       "context": "His reading list, on ancient epics",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
-      "qualification": "Said of ancient epics as a group, including Gilgamesh; keep the group context.",
-      "evidence_id": "E066"
+      "qualification": "Said of the classic epics as a group ('Reading the classic epics can feel like work but there is value in it.'), within his Gilgamesh entry. Keep the group framing.",
+      "evidence_id": "E066",
+      "pre_send_check": "Page is behind a bot wall; wording confirmed via rendered fetch. Take a screenshot of the Gilgamesh entry before first send."
     },
     {
       "id": "C06",
@@ -103,9 +104,9 @@
       "quote": "I really loved Thucydides.",
       "source_url": "https://tim.blog/wp-content/uploads/2018/07/61-matt-mullenweg.pdf",
       "date": "2015",
-      "context": "The Tim Ferriss Show interview transcript",
+      "context": "The Tim Ferriss Show #61 transcript, p. 7",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "evidence_id": "E054"
     },
@@ -120,10 +121,11 @@
       "date": null,
       "context": "His bookshelf's label for the books he marks in green; Democracy in America is marked green",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
-      "qualification": "A rating label, not a sentence about this book. Present as 'Rated \"particularly great\" on his bookshelf'.",
-      "evidence_id": "E017"
+      "qualification": "A colour rating on his bookshelf (abridged Mentor edition), not a sentence about the book. Show only as the display line; screenshot the green mark before first send.",
+      "evidence_id": "E017",
+      "display": "Marked “particularly great” on Patrick Collison’s bookshelf"
     },
     {
       "id": "C08",
@@ -136,7 +138,7 @@
       "date": "2018-02-03",
       "context": "The Tim Ferriss Show transcript",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "qualification": "Author-level line; he follows it immediately with discovering Pride and Prejudice, so present it on this book with that context.",
       "evidence_id": "E053"
@@ -150,9 +152,9 @@
       "quote": "It was the Iliad that made Greece my paradise.",
       "source_url": "https://www.gutenberg.org/files/2397/2397-h/2397-h.htm",
       "date": "1903",
-      "context": "The Story of My Life, chapter XXI",
+      "context": "The Story of My Life, chapter XXI (she read it in Greek)",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead"
     },
     {
@@ -162,15 +164,14 @@
       "era": "contemporary",
       "label": "Recommended by",
       "quote": "Listen to The Iliad as an audiobook. It was meant to be spoken.",
-      "source_url": "https://recommentions.com/elon-musk/books/the-illiad-by-homer/",
+      "source_url": "https://x.com/elonmusk/status/1700076168106701249",
       "date": "2023-09-08",
       "context": "Post on X",
       "verification": "secondary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "listen-only",
-      "qualification": "Approved only for the Iliad/Listen line. Confirm the original post before use; he recommends a modern Penguin audio translation, not our edition.",
-      "evidence_id": "E038",
-      "original_url": "https://x.com/elonmusk/status/1700076168106701249"
+      "qualification": "Approved only beside a Listen button or in narration promotion. Confirmed via X's official embed; this post does not mention any edition.",
+      "evidence_id": "E038"
     },
     {
       "id": "C11",
@@ -181,9 +182,9 @@
       "quote": "I feel that it brings together more of the insights of history than any other book.",
       "source_url": "https://www.crmvet.org/nars/6501_mlk_playboy.pdf",
       "date": "1965-01",
-      "context": "Playboy interview with Alex Haley, asked which book he would take to a desert island apart from the Bible",
+      "context": "Playboy interview, January 1965 (PDF p. 11): asked which one book apart from the Bible he would take",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead"
     },
     {
@@ -193,13 +194,13 @@
       "era": "historical",
       "label": "Recommended by",
       "quote": "I think nothing equals Macbeth. It is wonderful.",
-      "source_url": "https://www.abrahamlincoln.org/lincoln-speaks/lincolns-shakespeare/index.html",
+      "source_url": "https://housedivided.dickinson.edu/sites/lincoln/letter-to-james-hackett-august-17-1863/",
       "date": "1863-08-17",
       "context": "Letter to the actor James Hackett",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
-      "qualification": "Macbeth is on a whole-book hold (docs/edition-holds-2026-09-25.md). Do not recommend it until the hold is lifted."
+      "qualification": "Macbeth is on a whole-book hold; do not recommend until it is lifted. Cite the House Divided text: other copies read 'none equals'."
     },
     {
       "id": "C13",
@@ -207,12 +208,12 @@
       "person": "Abraham Lincoln",
       "era": "historical",
       "label": "Read by",
-      "quote": "others I have gone over perhaps as frequently as any unprofessional reader. Among the latter are Lear, Richard Third, Henry Eighth, Hamlet, and especially Macbeth.",
-      "source_url": "https://www.abrahamlincoln.org/lincoln-speaks/lincolns-shakespeare/index.html",
+      "quote": "…others I have gone over perhaps as frequently as any unprofessional reader. Among the latter are Lear, Richard Third, Henry Eighth, Hamlet, and especially Macbeth.",
+      "source_url": "https://housedivided.dickinson.edu/sites/lincoln/letter-to-james-hackett-august-17-1863/",
       "date": "1863-08-17",
       "context": "Letter to the actor James Hackett",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "second"
     },
     {
@@ -221,14 +222,15 @@
       "person": "Ryan Holiday",
       "era": "contemporary",
       "label": "Recommended by",
-      "quote": "Philosophy runs through this play",
+      "quote": "Philosophy runs through this play—all sorts of great lines.",
       "source_url": "https://ryanholiday.net/the-reading-list/",
       "date": null,
       "context": "His reading list",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
-      "evidence_id": "E067"
+      "evidence_id": "E067",
+      "pre_send_check": "Page is behind a bot wall; wording confirmed via rendered fetch. Screenshot the Hamlet entry before first send."
     },
     {
       "id": "C15",
@@ -236,14 +238,14 @@
       "person": "Charles Darwin",
       "era": "historical",
       "label": "Read by",
-      "quote": "Formerly Milton's Paradise Lost had been my chief favourite, and in my excursions during the voyage of the 'Beagle,' when I could take only a single volume, I always chose Milton.",
-      "source_url": "https://darwin-online.org.uk/converted/pdf/1958_autobiography_F1497.pdf",
-      "date": "1876",
-      "context": "Autobiography",
+      "quote": "Formerly Milton's ‘Paradise Lost’ had been my chief favourite, and in my excursions during the voyage of the ‘Beagle,’ when I could take only a single volume, I always chose Milton.",
+      "source_url": "https://www.gutenberg.org/ebooks/2010",
+      "date": "1887",
+      "context": "Autobiography, in The Life and Letters of Charles Darwin (1887 text)",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
-      "qualification": "'Formerly': he later says he lost his taste for poetry. Keep the Beagle context; don't present it as a lifelong favourite."
+      "qualification": "'Formerly' is his: he later writes he 'cannot endure to read a line of poetry'. Present it as his Beagle companion, never as a lifelong favourite. Use this 1887 text only (the 1958 Barlow edition adds 'small')."
     },
     {
       "id": "C16",
@@ -256,7 +258,7 @@
       "date": "1850",
       "context": "\"Montaigne; or, the Skeptic\", Representative Men",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "qualification": "He read Charles Cotton's translation."
     },
@@ -268,10 +270,10 @@
       "label": "Recommended by",
       "quote": "There is plenty to study and see simply by looking inwards",
       "source_url": "https://ryanholiday.net/42-books-that-will-make-you-a-better-person-each-described-in-1-sentence/",
-      "date": "2017",
+      "date": "2018-04-06",
       "context": "\"42 books that will make you a better person\"",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "second",
       "evidence_id": "E074"
     },
@@ -286,7 +288,7 @@
       "date": "2019-10-01",
       "context": "Written exchange with Mark O'Connell, Literary Hub",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "lead",
       "qualification": "Verified by the 30 September research agent. She also writes: \"There are so many lessons for us in her book.\""
     },
@@ -301,7 +303,7 @@
       "date": "2025-10-23",
       "context": "NPR Fresh Air, on Victor in his 2025 film",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "second",
       "qualification": "About Victor in his film adaptation, not a reading recommendation. Always say 'on his Frankenstein film'."
     },
@@ -311,15 +313,16 @@
       "person": "Lex Fridman",
       "era": "contemporary",
       "label": "Recommended by",
-      "quote": null,
-      "source_url": "https://lexfridman.com/?p=6322",
-      "date": null,
-      "context": "Podcast with Norman Ohler, around 4:11:56: calls it his favourite Dostoevsky novel",
+      "quote": "Brothers Karamazov.",
+      "source_url": "https://lexfridman.com/norman-ohler-transcript/",
+      "date": "2025-09-19",
+      "context": "Lex Fridman Podcast #481, 04:11:56, answering Norman Ohler's 'Which one's your favorite?' about Dostoevsky",
       "verification": "primary",
-      "recheck": "pending-recheck",
-      "use": "lead",
-      "qualification": "No exact quote captured yet. Needs a transcript quote before use; until then use only 'his favourite Dostoevsky novel' as a paraphrase-free label is NOT allowed.",
-      "evidence_id": "E044"
+      "recheck": "verified",
+      "use": "second",
+      "qualification": "A one-phrase answer; use only as a second card with the display line. 'It's such a great book' nearby is about a different book.",
+      "evidence_id": "E044",
+      "display": "Asked for his favourite Dostoevsky, Lex Fridman answered: “Brothers Karamazov.”"
     },
     {
       "id": "C21",
@@ -327,14 +330,14 @@
       "person": "Alexander the Great",
       "era": "historical",
       "label": "Kept by",
-      "quote": null,
+      "quote": "he constantly laid Homer's Iliads, according to the copy corrected by Aristotle, called the casket copy, with his dagger under his pillow, declaring that he esteemed it a perfect portable treasure of all military virtue and knowledge.",
       "source_url": "https://classics.mit.edu/Plutarch/alexandr.html",
       "date": null,
-      "context": "Plutarch, Life of Alexander 8: kept a copy corrected by Aristotle under his pillow with his dagger",
+      "context": "Plutarch, Life of Alexander, tr. John Dryden, reporting Onesicritus",
       "verification": "ancient-testimony",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "story",
-      "qualification": "Plutarch wrote centuries later, citing Onesicritus. Present as 'Plutarch says Alexander kept…', never as Alexander's words."
+      "qualification": "Present as 'Plutarch reports, citing Onesicritus, that Alexander…'. Never as Alexander's own words."
     },
     {
       "id": "C22",
@@ -345,11 +348,11 @@
       "quote": "I had long ago read Jane Austen's Sense and Sensibility, and now I thought I would have Pride and Prejudice.",
       "source_url": "https://archives.chu.cam.ac.uk/collections/research-guides/bulldogs-copy-of-jane-austen/",
       "date": "1943-12",
-      "context": "Recovering from pneumonia; his daughter Sarah read it aloud (Closing the Ring)",
+      "context": "His memoirs, recovering from illness and fever at Carthage, December 1943; Sarah read it aloud",
       "verification": "primary",
-      "recheck": "pending-recheck",
+      "recheck": "verified",
       "use": "second",
-      "qualification": "Exact wording must be checked against the archive page or Closing the Ring."
+      "qualification": "The archive page doesn't say 'pneumonia'; don't add it. Also usable: 'I had always thought it would be better than its rival.' / 'Sarah read it to me beautifully from the foot of the bed.'"
     }
   ],
   "why_read_old_books": [
@@ -360,7 +363,8 @@
       "quote": "Any book that survived for two thousand years has been filtered through many people.",
       "source_url": "https://www.navalmanack.com/almanack-of-naval-ravikant/learn-to-love-to-read",
       "verification": "authorized_compilation",
-      "recheck": "verified-in-research (quote-verification excerpt)"
+      "recheck": "verified",
+      "qualification": "Eric Jorgenson's edited compilation of Naval, not a verbatim transcript; label as 'The Almanack of Naval Ravikant'."
     },
     {
       "id": "W02",
@@ -370,7 +374,8 @@
       "source_url": "https://tim.blog/2018/12/24/the-tim-ferriss-show-patrick-collison/",
       "date": "2018-12-24",
       "verification": "primary",
-      "recheck": "verified-in-research (quote-verification excerpt)"
+      "recheck": "do-not-use",
+      "qualification": "He means books up to ~10 years old (example: The Dream Machine, 2001), not the classics. Using it for classics misrepresents him."
     },
     {
       "id": "W03",
@@ -379,7 +384,8 @@
       "quote": "You could spend your entire life only reading timeless works which is what smart people used to do.",
       "source_url": "https://a16z.com/marc-andreessen-on-productivity-scheduling-reading-habits-work-and-more/",
       "verification": "primary",
-      "recheck": "verified-in-research (quote-verification excerpt)"
+      "recheck": "verified",
+      "date": "2020-09-07"
     },
     {
       "id": "W04",
@@ -390,7 +396,7 @@
       "date": "1944",
       "context": "Introduction to Athanasius, On the Incarnation",
       "verification": "primary",
-      "recheck": "pending-recheck"
+      "recheck": "verified"
     },
     {
       "id": "W05",
@@ -401,7 +407,11 @@
       "date": "1854",
       "context": "Walden, \"Reading\"",
       "verification": "primary",
-      "recheck": "pending-recheck"
+      "recheck": "verified"
     }
-  ]
+  ],
+  "verification": {
+    "date": "2026-09-30",
+    "method": "Independent fact-check agent; raw pages/PDFs downloaded and compared; see VERIFICATION.md"
+  }
 }
