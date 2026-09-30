@@ -17,12 +17,16 @@ Twelve flat reading units, numbered 1–12, with the source’s chapter subtitle
 
 Excluded: Gutenberg header/footer and licence, front-matter title/author/edition label, contents list, the front-matter illustration placeholder, nine lines of decorative asterisks (six in chapter 1, three in chapter 5), and the terminal `THE END` label. Chapter headings are represented by chapter metadata, not duplicate reading paragraphs. There are no other illustration captions in the selected reading body.
 
-Paragraph counts by chapter: **24, 26, 48, 42, 75, 80, 105, 71, 92, 81, 74, 71**; total **789**. Whitespace-delimited word count: **26,309**. All 12 beginnings and endings checked against the pinned raw text, from Alice beside her sister to the sister’s imagining Alice’s later life and “the happy summer days.”
+Paragraph counts by chapter: **24, 26, 48, 42, 75, 80, 105, 71, 92, 81, 74, 71**; total **789**. Whitespace-delimited word count: **26,298**. All 12 beginnings and endings checked against the pinned raw text, from Alice beside her sister to the sister’s imagining Alice’s later life and “the happy summer days.”
 
-Pinned original JSON SHA-256: `c7d770162fd2dbc6cfc829d8e74f22f8cb403e88dbea219a9aaae37512683134`.
+Pinned original JSON SHA-256: `aec5399bf14ddb6c6e84aadda4ada12a36201f48fc1f12f992e1f60b4e88f226`.
 
 ## Editorial baseline
 
 This English original is the sole baseline for the modern rendering and the proposed Compare default. Retain Carroll’s deliberate mistakes, logic, wordplay, invented words, names, French accents and shifts in voice. Verse quotations remain intact where a paraphrase would destroy the parody or a later joke. The modern edition is for the general Tinct reader, not a children’s adaptation.
 
 Owned paths: `books/wip/alice-in-wonderland/` and `books/raw/alice-in-wonderland/`. No integration, registry change, narration or publication is authorized in this assignment.
+
+## Source correction before chapter 10 rendering
+
+Close reading found two inline apparatus labels in chapter 10, paragraphs 59 and 70: `[later editions continued as follows`. The labels and closing brackets are excluded, but every verse line they introduce is retained as its own source paragraph. This edition therefore includes the later-edition continuations explicitly supplied by Gutenberg’s Millennium Fulcrum text; it is not claimed to reproduce the first impression of 1865. Chapter 10 paragraph 77 rejoins the source hard-wrap inside “pennyworth”. No paragraph identities or counts change. Earlier chapters and their gate excerpts are unchanged. The original’s earlier checkpoint hash was `c7d770162fd2dbc6cfc829d8e74f22f8cb403e88dbea219a9aaae37512683134`; use the corrected hash above for subsequent review.

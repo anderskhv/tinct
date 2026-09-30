@@ -10,3 +10,5 @@
 - Content accepted: **NO — partial book**.
 - Published: **NO**.
 - Wuthering Heights and Middlemarch not started, preserving priority order.
+
+Baseline checkpoint: chapter 10 apparatus labels removed with their full verse retained; paragraph counts unchanged. This source correction is committed before chapter 10 modernization. Chapter 9 is drafted locally but remains pending the next batch gate.
