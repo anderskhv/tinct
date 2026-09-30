@@ -21,13 +21,23 @@ describe('evaluateChatAccess', () => {
     })).toEqual({ allowed: true })
   })
 
-  it('blocks exhausted free users after trial', () => {
+  it('keeps signed-in AI open while the allowance is not enforced', () => {
+    expect(evaluateChatAccess({
+      messages_used_this_period: 500,
+      message_balance: 0,
+      subscription_status: null,
+      subscription_period_end: null,
+      created_at: '2025-01-01T12:00:00Z',
+    })).toEqual({ allowed: true })
+  })
+
+  it('blocks exhausted free users after trial when enforced', () => {
     expect(evaluateChatAccess({
       messages_used_this_period: 0,
       message_balance: 0,
       subscription_status: null,
       subscription_period_end: null,
       created_at: '2025-01-01T12:00:00Z',
-    })).toEqual({ allowed: false, error: 'No messages remaining. Buy a chat pack to continue.' })
+    }, true)).toEqual({ allowed: false, error: 'No messages remaining. Buy a chat pack to continue.' })
   })
 })

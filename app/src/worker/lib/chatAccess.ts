@@ -1,5 +1,13 @@
 export const MONTHLY_MESSAGE_LIMIT = 100
 
+/**
+ * Signed-in AI is open while the credit model is designed (Anders,
+ * 2026-09-30): chat packs no longer exist, so the old message allowance
+ * would only block readers. Rate limits, the guest ceiling and sign-in for
+ * voice still apply. Set true to enforce the allowance again.
+ */
+export const AI_ALLOWANCE_ENFORCED = false
+
 export type ChatProfile = {
   messages_used_this_period: number
   message_balance: number
@@ -8,8 +16,8 @@ export type ChatProfile = {
   created_at: string | null
 }
 
-export function evaluateChatAccess(profile: ChatProfile | null): { allowed: true } | { allowed: false; error: string } {
-  if (!profile) return { allowed: true }
+export function evaluateChatAccess(profile: ChatProfile | null, enforce = AI_ALLOWANCE_ENFORCED): { allowed: true } | { allowed: false; error: string } {
+  if (!enforce || !profile) return { allowed: true }
 
   const accountCreatedAt = profile.created_at ? new Date(profile.created_at) : null
   const trialDaysRemaining = accountCreatedAt

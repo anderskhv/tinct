@@ -179,6 +179,7 @@ const TuneIcon = () => (
  */
 export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
+  const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
     const update = () => updateEink(document.documentElement.dataset.eink === 'true')
     window.addEventListener('tinct:display-profile', update)
@@ -286,10 +287,11 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                     <span className="lab-v2-theme-label">{label}</span>
                   </button>
                 ))}
-                <button type="button" className={`lab-v2-theme is-eink${eink ? ' is-active' : ''}`} data-testid="lab-v2-theme-eink" aria-pressed={eink}
+                {/* E-ink is the display profile of e-readers (set by the device or ?eink=1), not a theme to pick on phones or desktops. */}
+                {(eink || einkOffered) && <button type="button" className={`lab-v2-theme is-eink${eink ? ' is-active' : ''}`} data-testid="lab-v2-theme-eink" aria-pressed={eink}
                   onClick={() => { window.dispatchEvent(new Event('tinct:appearance-reset')); setEinkProfile(true); onPrefs({ ...prefs, theme:'light', darkMode:false }) }}>
                   <span className="lab-v2-theme-face">Aa</span><span className="lab-v2-theme-label">E-ink</span>
-                </button>
+                </button>}
               </div>
               <div className="lab-v2-size">
                 <span className="lab-v2-size-small" aria-hidden="true">A</span>
@@ -479,14 +481,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                 <strong>{auth.user?.email || 'Reader account'}</strong>
                 <span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span>
               </div>
-              <div className="lab-v2-rows">
-                <div className="lab-v2-row">
-                  <span className="lab-v2-row-label">AI credits remaining</span>
-                  <span className="lab-v2-value is-plain">
-                    {auth.user ? balance.messagesRemaining.toLocaleString('en-US') : '—'}
-                  </span>
-                </div>
-              </div>
+              {/* No AI credits row while signed-in AI is open (AI_ALLOWANCE_ENFORCED); the credit model will add one back. */}
               <div className="lab-v2-year">
                 <p className="lab-v2-group-label">This year</p>
                 <div className="lab-v2-year-stats">
