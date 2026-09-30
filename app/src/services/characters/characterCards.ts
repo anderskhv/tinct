@@ -55,7 +55,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   beowulf: { editions: EN, revision: '2026-09-11.2' },
   candide: { editions: EN, revision: '2026-09-23.1' },
   'comedy-of-errors': { editions: EN, revision: '2026-09-11.2' },
-  'communist-manifesto': { editions: EN, revision: '2026-09-11.2' },
+  'communist-manifesto': { editions: EN, revision: '2026-09-30.3' },
   'discourse-on-inequality': { editions: EN, revision: '2026-09-11.2' },
   'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
   gilgamesh: { editions: EN, revision: '2026-09-11.2' },
