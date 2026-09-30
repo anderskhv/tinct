@@ -70,7 +70,7 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
   assert.equal(await page.getByText('AI definition',{exact:true}).count(),0)
   const selection=await page.evaluate(()=>[...CSS.highlights.values()].flatMap(h=>[...h].map(r=>r.toString())))
   assert(selection.includes('Sherebiah') && !selection.includes('Sherebiah—a'),JSON.stringify(selection))
-  assert(requests.some(r=>JSON.stringify(r.messages).includes('<word>Sherebiah</word>')))
+  assert(requests.some(r=>(r.companion?.intent==='define'&&r.companion.selection==='Sherebiah')||JSON.stringify(r.messages).includes('<word>Sherebiah</word>')))
   await page.screenshot({path:`${output}/definition.png`,fullPage:true})
  }
  assert.deepEqual(errors,[])

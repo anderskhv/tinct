@@ -4,6 +4,12 @@ import { afterEach, expect, it, vi } from 'vitest'
 import { useLabAsk, type UseLabAskOptions } from './useLabAsk'
 import { createChapterChatRequest, CHAPTER_CHAT_MESSAGES } from './labChapterChat'
 import { readLabBookChat, turnsFromConversations, appendLabChatTurn } from './labChatHistory'
+import { buildCompanionSystem, companionBookRef, parseCompanionRequest } from '../companion/companionRequest'
+/** What the Worker builds from the structured request the hook sends. */
+function served(payload: { companion: unknown }) {
+  const parsed = parseCompanionRequest(payload.companion)!
+  return { system: buildCompanionSystem(parsed), book: companionBookRef(parsed)! }
+}
 const load = vi.hoisted(() => vi.fn())
 vi.mock('../data/editionLoader', () => ({ loadEditionWindow: load }))
 vi.mock('../hooks/useAuth', () => ({ useAuth: () => ({ session: null, likelyAuthenticated: false }) }))
@@ -24,8 +30,9 @@ it('loads the next chapter once, keeps request/display separate, and restores ac
   await act(async () => { release({ chapters: [{ number: 780, paragraphs: ['Jehoiakim. Rechabites. Temple.'] }] }); await pending })
   const payload = JSON.parse(fetcher.mock.calls[0][1].body)
   expect(payload.messages.at(-1).content).toBe(CHAPTER_CHAT_MESSAGES.prepare)
-  expect(payload.system).toContain('Jehoiakim. Rechabites. Temple.')
-  expect(payload.book).toMatchObject({ bookId: 'bible', chapterNumber: 779, editionKey: 'kjv-en' })
+  expect(payload.system).toBeUndefined()
+  expect(served(payload).system).toContain('Jehoiakim. Rechabites. Temple.')
+  expect(served(payload).book).toMatchObject({ bookId: 'bible', chapterNumber: 779, editionKey: 'kjv-en' })
   expect(result.current.turns[0].content).toBe(CHAPTER_CHAT_MESSAGES.prepare)
   const restored = turnsFromConversations(readLabBookChat('bible'))
   expect(restored).toHaveLength(2)
@@ -68,7 +75,7 @@ it('replays an account-gated action against its captured chapter after signing i
   expect(fetcher).not.toHaveBeenCalled();expect(onAccountPrompt).toHaveBeenCalledTimes(1)
   rerender({signedIn:true,chapterNumber:900})
   await act(async()=>{await result.current.sendTyped(CHAPTER_CHAT_MESSAGES.prepare)})
-  expect(JSON.parse(fetcher.mock.calls[0][1].body).book.chapterNumber).toBe(779)
+  expect(served(JSON.parse(fetcher.mock.calls[0][1].body)).book.chapterNumber).toBe(779)
 })
 it('retains normal balance errors and retry while ignoring model navigation commands on chapter actions', async () => {
   const fetcher=vi.fn().mockResolvedValueOnce(new Response('{}',{status:402})).mockResolvedValueOnce(new Response(JSON.stringify({content:[{text:'Chapter recap. [[next_chapter]] [[resume_audiobook]] [[set_playback_speed:2]]'}]}),{headers:{'Content-Type':'application/json'}}))
@@ -105,8 +112,8 @@ it('anchors a fresh Bible question in Zechariah after an Ezra conversation', asy
   rerender({ chapterNumber: 918, chapterLabel: 'Zechariah 7' })
   await act(async () => { await result.current.sendTyped('Summarize this book so far.') })
   const payload = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
-  expect(payload.book.chapterNumber).toBe(918)
-  expect(payload.system).toContain('Zechariah 7')
+  expect(served(payload).book.chapterNumber).toBe(918)
+  expect(served(payload).system).toContain('Zechariah 7')
   expect(payload.messages.at(-1).content).toContain('Zechariah 7')
   expect(payload.messages[0].content).toContain('Historical message location')
   expect(readLabBookChat('bible').flatMap(c => c.messages).filter(m => m.role === 'user').at(-1)?.content).toBe('Summarize this book so far.')

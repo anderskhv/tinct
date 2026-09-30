@@ -1,6 +1,7 @@
 import { COMPANION_EFFORT_VOICE, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { nearbyParagraphWindow } from '../voice/context'
+import { LAB_COPY } from './labCopy'
 import type { LabReadingTrailEntry } from './labReadingTrail'
 
 export interface LabTalkContext {
@@ -284,7 +285,9 @@ export type AnthropicStreamResult = {
 /** A reader-facing failure, without raw provider messages or request contents. */
 export class LabChatError extends Error {
   constructor(public readonly type = 'interrupted') {
-    super(type === 'rate_limit_error'
+    super(type === AI_RESTING_ERROR_TYPE
+      ? LAB_COPY.aiResting
+      : type === 'rate_limit_error'
       ? 'Ask is busy. Please try again in a minute.'
       : type === 'overloaded_error'
         ? 'The answer service is busy. Please try again shortly.'
@@ -293,6 +296,20 @@ export class LabChatError extends Error {
           : 'The answer was interrupted. Please try again.')
     this.name = 'LabChatError'
   }
+}
+
+/** A daily ceiling or a provider limit: the calm "AI is resting" state. */
+export const AI_RESTING_ERROR_TYPE = 'ai_resting'
+
+export function isAiRestingError(error: unknown): boolean {
+  return error instanceof LabChatError && error.type === AI_RESTING_ERROR_TYPE
+}
+
+/** The structured error type of a failed companion response, else `http_<status>`. */
+export async function labChatErrorType(response: { status: number; json?: () => Promise<unknown> }): Promise<string> {
+  const data = await response.json?.().catch(() => null) as { error?: { type?: unknown } } | null
+  const type = data && typeof data.error === 'object' && data.error ? data.error.type : null
+  return type === AI_RESTING_ERROR_TYPE ? AI_RESTING_ERROR_TYPE : `http_${response.status}`
 }
 
 export function extractAnthropicSseDelta(line: string): string {

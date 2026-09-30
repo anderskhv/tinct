@@ -1,6 +1,7 @@
-import { CONTEXTUAL_LOOKUP_PROMPT, parseContextualLookup } from '../components/reader/contextualLookup'
+import { parseContextualLookup } from '../components/reader/contextualLookup'
+import type { CompanionRequest } from '../companion/companionRequest'
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
-import { CHAPTER_CHAT_MESSAGES, buildChapterChatInstructions, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
+import { CHAPTER_CHAT_MESSAGES, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
 import { labVoiceRequestsAudio } from './labVoiceControls'
 import { BOOK_PASSAGE_TOOL, buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
@@ -9,7 +10,7 @@ import type { ChatMessage } from '../types'
 import { useAuth } from '../hooks/useAuth'
 import { useTinctVoiceTools } from '../hooks/useTinctVoiceTools'
 import { useVoiceSession } from '../hooks/useVoiceSession'
-import { COMPANION_EFFORT_VOICE, COMPANION_EFFORT_TYPED, COMPANION_MODEL } from '../companionModel'
+import { COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { trackEvent } from '../utils/analytics'
 import { migrateWithheldEdition } from '../data/withheldEditions'
@@ -17,7 +18,6 @@ import type { TinctVoiceToolAdapter } from '../voice/tinctTools'
 import {
   affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
-  buildLabAskInstructions,
   isResumeListenCommand,
   LAB_VOICE_TOOLS,
   labConversationState,
@@ -33,7 +33,7 @@ import {
 } from './labAsk'
 import {
   LabChatError,
-  labCompanionBookFields,
+  labChatErrorType,
   readAnthropicResponse,
 } from './labCompanion'
 import { buildLabReadingTrail, openingLineOf, recordTrailVisit, type LabReadingTrailEntry, type LabTrailVisit } from './labReadingTrail'
@@ -105,15 +105,7 @@ export interface UseLabAskOptions {
   voicePersona?: 'female' | 'male'
 }
 
-/** The card shows the first paragraph whole, then "More". The opener's word
- *  cap is what keeps it to two or three lines on a phone; the rest is capped
- *  at three short paragraphs so the expanded card stays a glance, not a read. */
-export const LAB_EXPLAIN_PROMPT = [
-  'Explain this selected passage for a reader at this point in the book.',
-  'First paragraph: the answer itself, one sentence, at most 25 words. It must stand alone. If the passage is a name or place, say what it is and why it is here, nothing more. Then a blank line.',
-  'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.',
-  'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
-].join('\n\n')
+export { LAB_EXPLAIN_PROMPT } from '../companion/companionRequest'
 
 export function useLabAsk(options: UseLabAskOptions) {
   const { session, likelyAuthenticated } = useAuth()
@@ -417,7 +409,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const voice = useVoiceSession({
     authToken: liveToken,
     isAnonymous: !liveToken,
-    labGuest: true,
+    // Voice sessions require sign-in; a signed-out Talk shows the account sheet.
+    labGuest: false,
     bookId: options.bookId || LAB_CHAT_BOOK_ID,
     editionKey: askEditionKey, editionLabel: options.editionLabel,
     bookTitle: options.bookTitle,
@@ -469,8 +462,11 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const startVoice = useCallback(async (greeting?: string): Promise<boolean | 'cancelled'> => {
     if (voice.isActive || starting) return true
-    if (!decideLabAiAction({ signedIn }).allowed) {
-      optionsRef.current.onAccountPrompt?.({action:'voice'})
+    // Talk requires an account. Signed out, the host shows the account sheet
+    // (or, with no host, the sign-in notice); no session is requested.
+    if (!signedIn || !decideLabAiAction({ signedIn }).allowed) {
+      if (optionsRef.current.onAccountPrompt) optionsRef.current.onAccountPrompt({ action: 'voice' })
+      else setNotice(LAB_COPY.signInVoice)
       return false
     }
     const request = ++voiceStartRequestRef.current
@@ -601,9 +597,9 @@ export function useLabAsk(options: UseLabAskOptions) {
       }, viewerId)
     }
     try {
-      let actionSystem: string | undefined
+      let chapterTarget: string[] | undefined
       if (chapterRequest) {
-        try { actionSystem = buildChapterChatInstructions(chapterRequest, await loadChapterChatTarget(chapterRequest)) }
+        try { chapterTarget = await loadChapterChatTarget(chapterRequest) }
         catch { fail('Couldn’t load the chapter. Please try again.'); return }
       }
       if (!stillHere()) return
@@ -638,14 +634,22 @@ export function useLabAsk(options: UseLabAskOptions) {
       const personalEvidence = !chapterRequest && requestsPersonalHistory(text) ? await personalHistoryEvidence(text, viewerId ?? null) : ''
       if (!stillHere()) return
       let assistantId = nextId()
+      // Structured context only: the Worker builds the prompt from it.
+      const companion: CompanionRequest = chapterRequest
+        ? {
+            intent: 'chapter',
+            context,
+            chapter: {
+              action: chapterRequest.action,
+              ...(chapterRequest.action.kind === 'prepare' ? { target: chapterTarget } : {}),
+              ...(chapterRequest.activity ? { activity: chapterRequest.activity } : {}),
+            },
+          }
+        : { intent: 'ask', context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) } }
       const body = JSON.stringify({
-        model: COMPANION_MODEL,
-        max_tokens: 1024,
         stream: true,
-        effort: COMPANION_EFFORT_TYPED,
-        system: actionSystem ?? buildLabAskInstructions({ ...context, personalHistory: personalEvidence }),
+        companion,
         messages: history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message),
-        ...labCompanionBookFields(context),
       })
       let rawReply = ''
       let firstFailureType: string | null = null
@@ -664,8 +668,9 @@ export function useLabAsk(options: UseLabAskOptions) {
           }
           if (!response.ok) {
             const data = await response.json().catch(() => ({})) as { error?: { message?: string; type?: string } | string }
-            const message = typeof data.error === 'string' ? data.error : data.error?.message || LAB_COPY.askUnavailable
             const type = typeof data.error === 'object' && data.error?.type ? data.error.type : `http_${response.status}`
+            const message = type === 'ai_resting' ? LAB_COPY.aiResting
+              : typeof data.error === 'string' ? data.error : data.error?.message || LAB_COPY.askUnavailable
             if (attempt === 1 && (response.status === 502 || response.status === 504)) { firstFailureType = type; continue }
             fail(message, { type, status: response.status, attempts: attempt })
             return
@@ -870,21 +875,13 @@ export function useLabAsk(options: UseLabAskOptions) {
         method: 'POST',
         headers,
         signal: entry.abort.signal,
+        // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
-          model: COMPANION_MODEL,
-          max_tokens: 450,
           stream: true,
-          effort: COMPANION_EFFORT_VOICE,
-          system: buildLabAskInstructions(context),
-          messages: [{
-            role: 'user',
-            content: input.intent === 'define'
-              ? `${CONTEXTUAL_LOOKUP_PROMPT}\n<word>${text}</word>`
-              : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${text}\n</selected_passage>`,
-          }],
+          companion: { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text } satisfies CompanionRequest,
         }),
       })
-      if (!response.ok) throw new LabChatError(`http_${response.status}`)
+      if (!response.ok) throw new LabChatError(await labChatErrorType(response))
       const answer = await readAnthropicResponse(response, value => { entry.text = value; entry.listeners.forEach(listener => listener(value)) })
       // Reject before caching so Try again makes a fresh request.
       if (input.intent === 'define' && !parseContextualLookup(answer)) throw new LabChatError('unavailable')

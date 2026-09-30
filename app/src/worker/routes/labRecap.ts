@@ -27,6 +27,7 @@ import {
   type LabRecapResponse,
 } from '../../recapSummary'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
+import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { jsonResponse } from '../lib/responses'
 
 export type LabRecapEnv = {
@@ -49,6 +50,8 @@ export interface LabRecapDeps {
   /** Anthropic transport; defaults to fetch. */
   fetchAnthropic?: (payload: Record<string, unknown>, apiKey: string) => Promise<Response>
   createRetrieval?: typeof createBookRetrieval
+  /** Daily ceiling for signed-out AI. Absent = refused (fail closed). */
+  reserveGuestSpend?: ReserveGuestSpend
 }
 
 export const RECAP_MAX_TOKENS = 300
@@ -236,15 +239,21 @@ export async function handleLabRecap(
   }
 
   const passage = buildRecapPassage({ chapter, throughParagraph, previous })
+  const content = userMessage({ parsed, chapter, coverage, passage })
+  const estimate = estimateAiCostMicros({ inputChars: RECAP_SYSTEM_PROMPT.length + content.length, maxTokens: RECAP_MAX_TOKENS })
+  if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
       model: COMPANION_MODEL,
       max_tokens: RECAP_MAX_TOKENS,
       system: RECAP_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: userMessage({ parsed, chapter, coverage, passage }) }],
+      messages: [{ role: 'user', content }],
       output_config: { effort: 'low' },
     }, apiKey)
-    if (!response.ok) return jsonResponse({ error: 'Summary unavailable' }, 502, request)
+    if (!response.ok) {
+      if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)
+      return jsonResponse({ error: 'Summary unavailable' }, 502, request)
+    }
     const message = await response.json() as AnthropicMessage
     const summary = message.stop_reason === 'refusal' ? '' : textOf(message)
     if (!summary) return jsonResponse({ error: 'Summary unavailable' }, 502, request)

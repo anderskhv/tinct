@@ -1,3 +1,5 @@
+import { aiRestingBody } from './aiSpend'
+
 /** Provider diagnostics deliberately exclude prompts, bodies, users and keys. */
 const ERROR_TYPES = new Set([
   'invalid_request_error', 'authentication_error', 'permission_error', 'not_found_error',
@@ -105,6 +107,15 @@ async function errorBody(response: Response): Promise<unknown> {
   }
 }
 
+/** Account-level budget or spend limits at the provider: retrying cannot help. */
+export function isProviderBudgetError(status: number, body: unknown): boolean {
+  if (status === 402) return true
+  const error = body && typeof body === 'object' ? (body as { error?: unknown }).error : null
+  const message = error && typeof error === 'object' ? (error as { message?: unknown }).message : null
+  if (typeof message !== 'string') return false
+  return /credit balance|usage limit|spend limit|spending limit|billing|quota/i.test(message)
+}
+
 function retryDelay(response: Response): number | null {
   const header = response.headers.get('retry-after')
   if (!header) return 350
@@ -137,6 +148,10 @@ export async function fetchChatUpstream(apiKey: string, payload: Record<string, 
     if (response.ok) return response
     const body = await errorBody(response)
     const type = providerErrorType(body)
+    if (isProviderBudgetError(response.status, body)) {
+      logChatFailure('http', 'provider_budget', response, { attempt, retry: false })
+      return Response.json(aiRestingBody(), { status: 503 })
+    }
     const delay = retryDelay(response)
     const retry = allowRetry && attempt === 1 && RETRY_STATUSES.has(response.status) && delay !== null
     logChatFailure('http', type, response, {
@@ -147,6 +162,8 @@ export async function fetchChatUpstream(apiKey: string, payload: Record<string, 
       await new Promise(resolve => setTimeout(resolve, delay!))
       continue
     }
+    // A provider limit that outlasts the retry is shown as the calm resting state.
+    if (response.status === 429) return Response.json(aiRestingBody(), { status: 503 })
     // Provider authentication failures are not the reader's authentication failures.
     const status = response.status === 429 || response.status === 529 ? 503 : 502
     return Response.json(safeChatError(type), { status })

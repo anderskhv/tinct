@@ -1,5 +1,7 @@
 import { GROK_CLIENT_SECRET_TTL_SECONDS, GROK_VOICE_MODEL } from '../../voice/grokConfig'
 import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
+import { AI_RESTING_MESSAGE, AI_RESTING_TYPE } from '../lib/aiSpend'
+import { isProviderBudgetError } from '../lib/chatUpstream'
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
@@ -29,19 +31,15 @@ function logVoiceStartFailure(status: number, reason: string, signedIn: boolean)
   console.log(JSON.stringify({ event: 'voice_session_failed', status, reason: reason.slice(0, 160), signedIn }))
 }
 
-function labGuestIp(request: Request): string {
-  return request.headers.get('cf-connecting-ip')
-    || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
-    || 'lab-guest'
-}
-
-export async function handleLabVoiceSession(
-  request: Request,
-  env: VoiceEnv,
-  ctx: ExecutionContext,
-  checkRateLimit: CheckRateLimit,
-): Promise<Response> {
-  return handleVoiceSession(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true })
+/**
+ * Voice sessions require sign-in. The former signed-out route answers with
+ * the same 401 the signed-in route gives without a session, so older
+ * clients show their sign-in prompt instead of an error.
+ */
+export async function handleLabVoiceSession(request: Request): Promise<Response> {
+  if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
+  logVoiceStartFailure(401, 'sign_in_required', false)
+  return jsonResponse({ error: 'Authentication required' }, 401, request)
 }
 
 /**
@@ -56,51 +54,39 @@ export async function handleVoiceSession(
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   checkRateLimit: CheckRateLimit,
-  options?: { allowLabGuest?: boolean },
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
   const apiKey = env.XAI_API_KEY
   if (!apiKey) return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
 
-  const allowLabGuest = options?.allowLabGuest === true
-  const user = allowLabGuest ? null : await verifyUser(env, request)
-  if (!allowLabGuest) {
-    if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
-    if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
+  const user = await verifyUser(env, request)
+  if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
+  const userId = user.id
+  const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
+    ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
+        .then(async (profileRes) => {
+          if (!profileRes.ok) return null
+          const profiles = await profileRes.json() as ChatProfile[]
+          return profiles?.[0] ?? null
+        })
+        .catch(() => null)
+    : Promise.resolve(null)
+
+  const [rateAllowed, profile] = await Promise.all([
+    checkRateLimit(`voice:${userId}`, env.RATE_LIMIT, 6),
+    profilePromise,
+  ])
+  if (!rateAllowed) {
+    logVoiceStartFailure(429, 'rate_limited', true)
+    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
-  const userId = user?.id ?? `lab-guest:${labGuestIp(request)}`
-  if (allowLabGuest) {
-    const rateAllowed = await checkRateLimit(`lab-voice:${labGuestIp(request)}`, env.RATE_LIMIT, 6)
-    if (!rateAllowed) {
-      logVoiceStartFailure(429, 'rate_limited', false)
-      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
-    }
-  } else {
-    const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
-      ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
-          .then(async (profileRes) => {
-            if (!profileRes.ok) return null
-            const profiles = await profileRes.json() as ChatProfile[]
-            return profiles?.[0] ?? null
-          })
-          .catch(() => null)
-      : Promise.resolve(null)
 
-    const [rateAllowed, profile] = await Promise.all([
-      checkRateLimit(`voice:${userId}`, env.RATE_LIMIT, 6),
-      profilePromise,
-    ])
-    if (!rateAllowed) {
-      logVoiceStartFailure(429, 'rate_limited', true)
-      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
-    }
-
-    const access = evaluateChatAccess(profile)
-    if (!access.allowed) {
-      logVoiceStartFailure(402, 'no_access', true)
-      return jsonResponse({ error: access.error }, 402, request)
-    }
+  const access = evaluateChatAccess(profile)
+  if (!access.allowed) {
+    logVoiceStartFailure(402, 'no_access', true)
+    return jsonResponse({ error: access.error }, 402, request)
   }
 
   try {
@@ -113,10 +99,14 @@ export async function handleVoiceSession(
     if (!response.ok || typeof data.value !== 'string' || !data.value) {
       const message = typeof data.error === 'string' ? data.error : data.error?.message
       logVoiceStartFailure(response.status, `provider: ${message || 'no client secret'}`, Boolean(user))
+      // Provider credit, spend or rate limits: a calm resting state, not a raw provider message.
+      if (response.status === 402 || response.status === 429 || isProviderBudgetError(response.status, data)) {
+        return jsonResponse({ error: AI_RESTING_MESSAGE, code: AI_RESTING_TYPE }, 503, request)
+      }
       return jsonResponse({ error: message || 'Could not start a voice session.' }, response.status >= 400 ? response.status : 502, request)
     }
 
-    if (user && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
       ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
     }
 
