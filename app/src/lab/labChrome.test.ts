@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, LAB_GEAR_ITEMS, LAB_PHONE_BAR_ITEMS, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextLabVoiceGate, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -31,26 +31,6 @@ describe('lab chrome states', () => {
     expect(labVoicePhaseLabel('thinking')).toBe('Thinking')
     expect(labVoicePhaseLabel('speaking')).toBe('Speaking')
     expect(labVoicePhaseLabel('idle')).toBeNull()
-  })
-
-  it('shows setup only while the live session is connecting', () => {
-    expect(nextLabVoiceGate('off', 'connecting', true)).toBe('connecting')
-    expect(nextLabVoiceGate('connecting', 'connecting', true)).toBe('connecting')
-    expect(nextLabVoiceGate('connecting', 'listening', true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'thinking', true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'speaking', true)).toBe('off')
-    expect(nextLabVoiceGate('off', 'listening', true)).toBe('off')
-    expect(nextLabVoiceGate('off', 'thinking', true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'idle', false)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'idle', true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'connecting', true, 'Sign in to ask by voice.')).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'connecting', false)).toBe('connecting')
-  })
-
-  it('does not mask a live state after the microphone becomes active', () => {
-    expect(nextLabVoiceGate('connecting', 'listening', true, null, true)).toBe('off')
-    expect(nextLabVoiceGate('connecting', 'speaking', true, null, true)).toBe('off')
-    expect(nextLabVoiceGate('ready', 'speaking', true, null, true)).toBe('off')
   })
 })
 
@@ -440,16 +420,6 @@ describe('lab paused vs playing chrome slot', () => {
     expect(labShowReaderRail({ phoneAsk: true, phoneChrome: true, pageCount: 3, playing: false })).toBe(false)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: false, pageCount: 3, playing: false })).toBe(true)
     expect(labShowReaderRail({ phoneAsk: false, phoneChrome: false, pageCount: 3, playing: true })).toBe(false)
-  })
-
-  it('keeps the phone bar as Play | Chat | Talk and the gear as Library / Reading / Layout', () => {
-    expect(LAB_PHONE_BAR_ITEMS).toEqual(['Play', 'Chat', 'Talk'])
-    expect(LAB_GEAR_ITEMS).toEqual(['Library', 'Reading', 'Layout'])
-    expect(LAB_GEAR_ITEMS).not.toContain('This book')
-    expect(LAB_GEAR_ITEMS).not.toContain('Compare')
-    expect(LAB_GEAR_ITEMS).not.toContain('Home')
-    expect(LAB_GEAR_ITEMS).not.toContain('Saved')
-    expect(LAB_GEAR_ITEMS).not.toContain('Profile')
   })
 })
 

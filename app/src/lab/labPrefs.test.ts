@@ -17,8 +17,7 @@ import {
   LAB_ACCESSIBILITY_FONTS,
   LAB_FONT_LABELS,
   LAB_READING_FONTS,
-  LAB_V1_DEFAULT_FONT,
-  LAB_V2_DEFAULT_FONT,
+  LAB_DEFAULT_FONT,
   labFontFamilyCss,
   labReadingFont,
   labFootProgress,
@@ -374,16 +373,11 @@ describe('the reading faces', () => {
     }
   })
 
-  it('moves the default in V2 only, and never moves a face a reader picked', () => {
-    // Never chosen: the new reader gets the new default, today's reader does not.
-    expect(labReadingFont(null, true)).toBe(LAB_V2_DEFAULT_FONT)
-    expect(labReadingFont(null, false)).toBe(LAB_V1_DEFAULT_FONT)
-    expect(LAB_V2_DEFAULT_FONT).toBe('literata')
-    expect(LAB_V1_DEFAULT_FONT).toBe('garamond')
-    // Chosen: the choice holds in both chromes, including the old three.
+  it('defaults to Literata, and never moves a face a reader picked', () => {
+    expect(labReadingFont(null)).toBe(LAB_DEFAULT_FONT)
+    expect(LAB_DEFAULT_FONT).toBe('literata')
     for (const family of ['garamond', 'baskerville', 'sourceserif', 'literata', 'atkinson'] as const) {
-      expect(labReadingFont(family, true)).toBe(family)
-      expect(labReadingFont(family, false)).toBe(family)
+      expect(labReadingFont(family)).toBe(family)
     }
   })
 

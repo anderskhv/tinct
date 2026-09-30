@@ -11,7 +11,7 @@ it('never starts legacy English audio before configuration or after a configurat
  vi.stubGlobal('Audio',class {play=play;pause(){};addEventListener(){};removeEventListener(){};removeAttribute(){}})
  const base=fallbackLabSource()
  const source={...base,followParagraphs:base.paragraphs.map((text,index)=>({index,text,file:'p'+index+'.mp3',duration:20}))}
- render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={source} authToken={null}/>)
+ render(<LabApp pathname="/lab/phone" source={source} authToken={null}/>)
  fireEvent.click(screen.getByTestId('lab-v2-play'))
  await act(async()=>{await Promise.resolve()})
  fireEvent.click(screen.getByTestId('lab-v2-play'))
@@ -52,7 +52,7 @@ it('asks again on every Play after Keep reading, closing on a single tap and nev
   if(url.includes('/api/narration/ensure')){ensures+=1;return new Response('',{status:401})}
   return new Response('',{status:404})
  }))
- render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken={null}/>)
+ render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null}/>)
  await waitFor(()=>expect(vi.mocked(fetch).mock.calls.some(call=>String(call[0]).includes('/api/narration/voices'))).toBe(true))
  await act(async()=>{await new Promise(resolve=>setTimeout(resolve,30))})
  for(let round=1;round<=3;round++){

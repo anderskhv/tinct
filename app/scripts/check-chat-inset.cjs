@@ -10,7 +10,7 @@ for(const [width,height,theme] of [[1440,950,'light'],[1440,950,'dark'],[1024,76
  await context.route('**/*',async r=>{const u=new URL(r.request().url());if(u.pathname.startsWith('/api/')){if(['/api/chat','/api/lab-chat'].includes(u.pathname)&&r.request().method()==='POST'){sends++;return r.fulfill({status:200,contentType:'application/json',body:JSON.stringify({content:[{text:answer}]})})}return r.fulfill({status:404,body:'{}'})}if(u.origin!==new URL(base).origin)return r.abort();return r.continue()})
  await page.addInitScript(({theme})=>{localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme,fontFamily:'garamond',fontSize:1.3,compareOpen:false}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:1134,paragraphIndex:0,page:0}}))},{theme})
  try{
- await page.goto(base+(mobile?'/reader?layout=phone':'/reader?chrome=v2'));await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.chapter==='1134');await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500)
+ await page.goto(base+(mobile?'/reader?layout=phone':'/reader'));await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.chapter==='1134');await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500)
  const place=await page.getByTestId('lab-root').getAttribute('data-place')
  await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-chat').click()
  assert.equal(await page.locator('.lab-desktop-companion-mark').count(),0,'Chat has no decorative dots')

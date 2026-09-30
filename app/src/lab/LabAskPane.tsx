@@ -9,7 +9,6 @@ import { LabMarkdown } from './LabMarkdown'
 
 interface LabAskPaneProps {
   conversationState: LabConversationState
-  chromeV2?: boolean
   focusTurnId?: string | null
   onBackToContents?: () => void
   dictationState?: 'idle' | 'starting' | 'listening'
@@ -110,7 +109,6 @@ function VoiceIcon() {
 
 export function LabAskPane({
   conversationState,
-  chromeV2 = false,
   focusTurnId,
   onBackToContents,
   dictationState = 'idle',
@@ -155,7 +153,7 @@ export function LabAskPane({
     const content = field.scrollHeight
     field.style.height = `${Math.min(content, LAB_ASK_MAX_COMPOSER_PX)}px`
     if (content > LAB_ASK_MAX_COMPOSER_PX) field.style.overflowY = 'auto'
-  }, [draft, chromeV2])
+  }, [draft])
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -324,7 +322,7 @@ export function LabAskPane({
     } else {
       if (newTurn || justOpened) setSpacer(node, null)
       // Open on fresh writing space; the complete thread remains immediately above.
-      if (justOpened && chromeV2 && !focusTurnId && !typedLoading && spacerRef.current) {
+      if (justOpened && !focusTurnId && !typedLoading && spacerRef.current) {
         spacerRef.current.style.height = `${node.clientHeight}px`
       }
       const shouldFollow = justOpened
@@ -336,11 +334,11 @@ export function LabAskPane({
     didPositionThreadRef.current = true
     repinRef.current = false
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [chromeV2, focusTurnId, hidden, holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
+  }, [focusTurnId, hidden, holdReplyTop, pinToBottom, pinToReplyTop, setSpacer, turns, typedLoading])
 
   const focusedTurnRef = useRef<string | null>(null)
   useLayoutEffect(() => {
-    if (!chromeV2 || !focusTurnId || focusedTurnRef.current === focusTurnId) return
+    if (!focusTurnId || focusedTurnRef.current === focusTurnId) return
     const index = turns.findIndex(turn => turn.id === focusTurnId)
     if (index < 0) return
     if (hidden > index) { setHiddenCount(index); return }
@@ -351,7 +349,7 @@ export function LabAskPane({
     nearBottomRef.current = false
     pinnedScrollTopRef.current = null
     focusedTurnRef.current = focusTurnId
-  }, [chromeV2, focusTurnId, hidden, turns])
+  }, [focusTurnId, hidden, turns])
 
   // The phone keyboard shrinks the thread; keep the newest message in view
   // when the reader was already at the bottom.
@@ -391,7 +389,7 @@ export function LabAskPane({
   const noticeNode = (notice || localError) && (
     <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}{onRetry && !typedLoading && <button type="button" className="lab-text-btn" onClick={onRetry}>Try again</button>}</p>
   )
-  const dictationNode = chromeV2 && dictationState !== 'idle' && (
+  const dictationNode = dictationState !== 'idle' && (
     <p className="lab-ask-voice-status" role="status" data-testid="lab-dictation-status">
       {dictationState === 'starting' ? 'Starting microphone…' : 'Listening — tap stop to finish'}
     </p>
@@ -409,7 +407,7 @@ export function LabAskPane({
   )
   const composerNode = (
     <form
-      className={`lab-ask-composer${chromeV2 ? " is-multiline" : ""}`}
+      className="lab-ask-composer is-multiline"
       data-testid="lab-ask-composer"
       data-voice-phase={conversationState}
       onSubmit={(event) => {
@@ -443,7 +441,7 @@ export function LabAskPane({
       <label className="lab-visually-hidden" htmlFor="lab-ask-input">
         {LAB_COPY.askPlaceholder}
       </label>
-      {chromeV2 ? <textarea
+      <textarea
         id="lab-ask-input"
         data-testid="lab-ask-input"
         ref={node => {
@@ -468,34 +466,17 @@ export function LabAskPane({
           submit()
         }}
         placeholder={attachment ? 'Ask about this passage…' : LAB_COPY.askPlaceholder}
-      /> : (<input
-        id="lab-ask-input"
-        data-testid="lab-ask-input"
-        ref={inputRef as Ref<HTMLInputElement>}
-        type="text"
-        className="lab-ask-input"
-        value={draft}
-        onFocus={() => onKeyboardOpenChange?.(true)}
-        onBlur={() => onKeyboardOpenChange?.(false)}
-        onChange={(event) => onDraftChange(event.target.value)}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter') {
-            event.preventDefault()
-            submit()
-          }
-        }}
-        placeholder={attachment ? 'Ask about this passage…' : LAB_COPY.askPlaceholder}
-        autoComplete="off"
-      />)}
+      />
       <button
         type="button"
         className="lab-ask-icon lab-ask-mic"
         onClick={onMic}
-        aria-label={chromeV2 ? (dictationState === 'idle' ? 'Dictate a question' : 'Stop dictation') : LAB_COPY.micLabel}
-        {...(chromeV2 ? { 'aria-pressed': dictationState !== 'idle', disabled: conversationState !== 'idle' } : {})}
+        aria-label={dictationState === 'idle' ? 'Dictate a question' : 'Stop dictation'}
+        aria-pressed={dictationState !== 'idle'}
+        disabled={conversationState !== 'idle'}
         data-testid="lab-ask-mic"
       >
-        {chromeV2 && dictationState !== 'idle' ? (
+        {dictationState !== 'idle' ? (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <rect x="6" y="6" width="12" height="12" rx="2" />
           </svg>
@@ -504,7 +485,7 @@ export function LabAskPane({
       <button
         type="button"
         className="lab-ask-send"
-        hidden={chromeV2 && !canSend}
+        hidden={!canSend}
         aria-label={LAB_COPY.sendLabel}
         data-testid="lab-ask-send"
         disabled={typedLoading || !canSend}
@@ -516,7 +497,7 @@ export function LabAskPane({
         }}
         onClick={submit}
       >
-        {chromeV2 ? <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg> : LAB_COPY.sendLabel}
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       {conversationState !== 'idle' && (
         <button
@@ -530,7 +511,7 @@ export function LabAskPane({
           <span className="lab-ask-voice-x" aria-hidden="true">×</span>
         </button>
       )}
-      {conversationState === 'idle' && !canSend && (!chromeV2 || dictationState === 'idle') && (
+      {conversationState === 'idle' && !canSend && dictationState === 'idle' && (
         <button
           type="button"
           className="lab-ask-icon lab-ask-voice"
@@ -575,11 +556,11 @@ export function LabAskPane({
             onClick={() => { textareaRef.current?.blur(); onKeyboardOpenChange?.(false); onDone?.() }}
             data-testid="lab-ask-done"
           >
-            {chromeV2 ? '← Back to book' : LAB_COPY.done}
+            ← Back to book
           </button>
         </div>
       )}
-      {chromeV2 && onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
+      {onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
       {empty ? (
         <p className="lab-ask-greeting">{syncing ? LAB_COPY.askHistoryLoading : LAB_COPY.askGreeting}</p>
       ) : (
@@ -610,7 +591,7 @@ export function LabAskPane({
                 <div
                   className={`lab-ask-turn is-${turn.role}`}
                   data-testid={`lab-ask-turn-${turn.role}`}
-                  {...(chromeV2 ? { 'data-turn-id': turn.id } : {})}
+                  data-turn-id={turn.id}
                 >
                   {turn.role === 'user' ? (
                     <p className="lab-ask-user">
@@ -625,7 +606,7 @@ export function LabAskPane({
                       <LabMarkdown>{turn.content}</LabMarkdown>
                     </div>
                   )}
-                  {chromeV2 && (
+                  {(
                     <div className="lab-ask-meta">
                       {turn.timestamp != null && Number.isFinite(turn.timestamp) && (
                         <time className="lab-ask-time" dateTime={new Date(turn.timestamp).toISOString()}>

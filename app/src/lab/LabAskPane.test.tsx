@@ -104,19 +104,18 @@ describe('lab ask typed send', () => {
         phoneSheet
       />,
     )
-    expect(screen.getByTestId('lab-ask-send').textContent).toBe('Send')
+    expect(screen.getByTestId('lab-ask-send').getAttribute('aria-label')).toBe('Send')
     const send = screen.getByTestId('lab-ask-send')
     expect(fireEvent.pointerDown(send)).toBe(false)
     fireEvent.click(send)
     expect(onSubmit).toHaveBeenCalledWith('Who is Calypso?')
-    fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter' })
+    fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter', ctrlKey: true })
     expect(onSubmit).toHaveBeenCalledTimes(2)
   })
 
-  it('shows Send even when the box is empty', () => {
+  it('keeps Send hidden while the box is empty', () => {
     render(pane('idle'))
-    expect(screen.getByTestId('lab-ask-send')).toBeTruthy()
-    expect(screen.getByTestId('lab-ask-send').textContent).toBe('Send')
+    expect(screen.getByTestId('lab-ask-send').hasAttribute('hidden')).toBe(true)
   })
 })
 
@@ -125,7 +124,6 @@ describe('selected passage attachment', () => {
     const onRemoveAttachment = vi.fn()
     render(
       <LabAskPane
-        chromeV2
         conversationState="idle"
         voiceActive={false}
         typedLoading={false}
@@ -150,7 +148,6 @@ describe('selected passage attachment', () => {
   it('renders an attached passage separately from its question in history', () => {
     render(
       <LabAskPane
-        chromeV2
         conversationState="idle"
         voiceActive={false}
         typedLoading={false}
@@ -595,7 +592,7 @@ describe('lab ask thread shows the answer begin', () => {
 it('shows stored dates in V2 and keeps older messages accessible', () => {
   const onDone = vi.fn()
   const turns = Array.from({ length: 45 }, (_, index) => ({ id: `dated-${index}`, role: 'user' as const, content: `Saved question ${index}`, source: 'typed' as const, timestamp: Date.UTC(2026, 8, 1, 9, index) }))
-  render(<LabAskPane chromeV2 conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} onDone={onDone} phoneSheet />)
+  render(<LabAskPane conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} onDone={onDone} phoneSheet />)
   const firstVisibleTime = document.querySelector('time')
   expect(firstVisibleTime?.getAttribute('datetime')).toBe(new Date(turns[5].timestamp).toISOString())
   const footer = firstVisibleTime?.closest('.lab-ask-meta')
@@ -611,14 +608,14 @@ it('shows stored dates in V2 and keeps older messages accessible', () => {
 
 it('reveals the requested old conversation beyond the initial history window', () => {
   const turns = Array.from({ length: 60 }, (_, index) => ({ id: `selected-${index}`, role: 'user' as const, content: `History question ${index}`, source: 'typed' as const }))
-  render(<LabAskPane chromeV2 focusTurnId="selected-2" conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} phoneSheet />)
+  render(<LabAskPane focusTurnId="selected-2" conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} phoneSheet />)
   expect(screen.getByText('History question 2')).toBeTruthy()
   expect(document.querySelector('[data-turn-id="selected-2"]')).toBeTruthy()
 })
 
 describe('V2 multiline composer and copying', () => {
   const base = {
-    chromeV2: true, conversationState: 'idle' as const, voiceActive: false,
+    conversationState: 'idle' as const, voiceActive: false,
     typedLoading: false, turns: [], onDraftChange: vi.fn(), onSubmit: vi.fn(),
     onMic: vi.fn(), onVoiceMode: vi.fn(), phoneSheet: true,
   }
@@ -683,7 +680,7 @@ describe('chat dictation control', () => {
   it('shows a stop square while starting and listening, then restores the microphone', () => {
     const onMic = vi.fn()
     const props = {
-      chromeV2: true, conversationState: 'idle' as const, voiceActive: false,
+      conversationState: 'idle' as const, voiceActive: false,
       typedLoading: false, turns: [], draft: '', onDraftChange: vi.fn(),
       onSubmit: vi.fn(), onMic, onVoiceMode: vi.fn(),
     }
@@ -709,7 +706,6 @@ describe('chat dictation control', () => {
 describe('lab ask composer: Enter', () => {
   const base = (onSubmit: (text: string) => void, phoneSheet: boolean) => (
     <LabAskPane
-      chromeV2
       conversationState="idle"
       voiceActive={false}
       typedLoading={false}
@@ -768,7 +764,6 @@ describe('lab ask composer: Enter', () => {
 describe('lab ask composer: the growing field never flashes a scrollbar', () => {
   const pane = (draft: string) => (
     <LabAskPane
-      chromeV2
       conversationState="idle"
       voiceActive={false}
       typedLoading={false}

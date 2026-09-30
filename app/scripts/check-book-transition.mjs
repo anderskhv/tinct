@@ -75,7 +75,7 @@ for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
     HTMLMediaElement.prototype.play = async function () { this.muted = true; throw Error('Unexpected native audio') }
     if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia = async () => { throw Error('Microphone disabled') }
    }, { chapter: outgoing.number, paragraph: outgoing.paragraphs.length - 1 })
-   await page.goto(origin + '/reader?chrome=v2', { waitUntil: 'domcontentloaded' })
+   await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
    await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
    await page.evaluate(() => document.fonts.ready)
    if (live && process.env.TINCT_EXPECTED_BUNDLE) assert((await page.content()).includes(process.env.TINCT_EXPECTED_BUNDLE))

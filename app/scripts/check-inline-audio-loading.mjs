@@ -72,7 +72,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled') } })
   }, { theme, voice })
   try {
-    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?chrome=v2'), { waitUntil: 'domcontentloaded' })
+    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     await page.evaluate(() => document.fonts.ready)
     await page.waitForTimeout(500)

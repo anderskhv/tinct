@@ -34,7 +34,7 @@ function renderPhone(props: Record<string, unknown> = {}) {
   return render(
     <LabApp
       pathname="/lab/phone"
-      search="?chrome=v2"
+     
       authToken={null}
       source={{
         ...fallbackLabSource(),
@@ -150,16 +150,6 @@ describe('what Compare says about itself', () => {
     expect(screen.getByTestId('lab-root').querySelector('[data-testid="lab-compare-hint"]')).toBeNull()
   })
 
-  it('leaves the swap alone without the flag', () => {
-    withCompare()
-    render(<LabApp pathname="/lab/phone" search="" authToken={null} source={{
-      ...fallbackLabSource(),
-      paragraphs: ['Old wording begins here and continues through the original passage.'],
-      compareParagraphs: ['Modern wording starts here and continues through the comparison passage.'],
-    }} />)
-    swipe(screen.getByTestId('lab-book'), 0, -110)
-    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
-  })
 })
 
 describe('the standby edition', () => {
@@ -188,16 +178,6 @@ describe('the standby edition', () => {
     expect(screen.getAllByTestId('lab-native-page-measure')).toHaveLength(1)
   })
 
-  it('is not measured without the flag', () => {
-    withNativePaging()
-    withCompare()
-    render(<LabApp pathname="/lab/phone" search="" authToken={null} source={{
-      ...fallbackLabSource(),
-      paragraphs: ['Old wording begins here and continues through the original passage.'],
-      compareParagraphs: ['Modern wording starts here and continues through the comparison passage.'],
-    }} />)
-    expect(screen.getAllByTestId('lab-native-page-measure')).toHaveLength(1)
-  })
 })
 
 describe('where the compare page begins', () => {

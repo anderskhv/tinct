@@ -15,7 +15,7 @@ interface LabAccountSheetProps {
 /**
  * The account sheet shown on an anonymous reader's eleventh AI action. The
  * held-back turn is never sent; closing the sheet returns to reading. Same
- * overlay pattern as LabSettingsSheet (bottom sheet on phones, popover on
+ * overlay pattern as the reader sheets (bottom sheet on phones, popover on
  * desktop), one title, one sentence, a cream pill and a text link.
  */
 export function LabAccountSheet({ open, action, returnTo, onClose, desktop = false }: LabAccountSheetProps) {
@@ -42,7 +42,7 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
         aria-labelledby="lab-account-title"
         onClick={event => event.stopPropagation()}
       >
-        <span className="lab-ss-grabber" aria-hidden="true" />
+        <span className="lab-account-grabber" aria-hidden="true" />
         <button
           type="button"
           className="lab-account-close"

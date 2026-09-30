@@ -98,20 +98,8 @@ describe('the chrome V2 flag', () => {
     expect(screen.getByTestId('lab-super')).toBeTruthy()
     unmount()
 
-    render(<LabApp pathname="/lab/reader" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/reader" source={fallbackLabSource()} authToken={null} />)
     expect(root().getAttribute('data-chrome-version')).toBe('v2')
-  })
-
-  it('leaves the reader on today’s chrome without the flag', () => {
-    renderPhone('')
-    expect(root().getAttribute('data-chrome-version')).toBeNull()
-    expect(root().getAttribute('data-transport')).toBeNull()
-    expect(root().getAttribute('data-super-menu')).toBeNull()
-    expect(screen.queryByTestId('lab-super')).toBeNull()
-    expect(screen.queryByTestId('lab-v2-play')).toBeNull()
-    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
-    // The gear is still the phone's only top-right control.
-    expect(screen.getByTestId('lab-gear')).toBeTruthy()
   })
 
   it('uses the tested voice experience by default with the new chrome', () => {
@@ -283,7 +271,7 @@ describe('the super-menu', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
-      search="?chrome=v2"
+     
       authToken={null}
       source={{
         ...fallbackLabSource(),
@@ -369,11 +357,6 @@ describe('the foot', () => {
     expect(screen.getByTestId('lab-chapter-progress')).toBeTruthy()
   })
 
-  it('keeps the bar without the flag', () => {
-    renderPhone('')
-    expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
-    expect(screen.getByTestId('lab-phone-chat')).toBeTruthy()
-  })
 })
 
 describe('Escape on the phone', () => {
@@ -400,7 +383,7 @@ describe('Escape on the phone', () => {
 
 describe('the desktop', () => {
   it('gets the same two controls, and the same menu and sheet behind them', () => {
-    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     expect(root().getAttribute('data-chrome-version')).toBe('v2')
     expect(screen.getByTestId('lab-v2-play')).toBeTruthy()
     expect(screen.getByTestId('lab-super')).toBeTruthy()
@@ -417,20 +400,12 @@ describe('the desktop', () => {
   })
 
   it('closes the Chat panel on Escape, like the menu and the sheet', () => {
-    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
     expect(root().getAttribute('data-desktop-panel')).toBe('chat')
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(root().getAttribute('data-desktop-panel')).toBe('none')
-  })
-
-  it('keeps today\u2019s desktop chrome without the flag', () => {
-    render(<LabApp pathname="/lab/desktop" search="" source={fallbackLabSource()} authToken={null} />)
-    expect(root().getAttribute('data-chrome-version')).toBeNull()
-    expect(screen.getByTestId('lab-gear')).toBeTruthy()
-    expect(screen.getByTestId('lab-desktop-action-rail')).toBeTruthy()
-    expect(screen.queryByTestId('lab-super')).toBeNull()
   })
 })
 
@@ -542,7 +517,7 @@ describe('the first view', () => {
     )
     // Auth resolving late used to flip the one-shot identity from device to
     // account and replay the spin. The latch is per mount now.
-    view.rerender(<LabApp pathname="/lab/phone" search="?chrome=v2" source={fallbackLabSource()} authToken="late-token" />)
+    view.rerender(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="late-token" />)
     await new Promise(done => setTimeout(done, 700))
     expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
   })
@@ -588,7 +563,7 @@ describe('the V2 surface', () => {
     expect(css).not.toMatch(/lab-page-wrap[^{]*\{[^}]*backdrop-filter/)
   })
 
-  it('keeps every V2 rule behind the flag', () => {
+  it('keeps every chrome rule scoped to the chrome attribute', () => {
     const v2 = css.slice(css.indexOf('Reader chrome V2'))
     const selectors = v2
       .split('\n')
@@ -621,7 +596,7 @@ describe('the Margins preference on the desktop leaves', () => {
   }
 
   it('carries the margins choice to the desktop leaves as a scale, not only as a rem figure', () => {
-    render(<LabApp pathname="/lab/desktop" search="?chrome=v2" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     openAdvanced()
     // The rem figure the phone reads, and the scale the desktop leaves read.
     for (const [rem, scale] of [['1.085rem', '0.7'], ['2.2475rem', '1.45'], ['1.55rem', '1']] as const) {
