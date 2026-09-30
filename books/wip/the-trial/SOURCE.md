@@ -7,7 +7,7 @@
 - Pinned raw file: `books/raw/the-trial/pg69327-images.html`
 - SHA-256: `39806572aa000c1db7319503636a41505cc55ed7f9b01499070643ca7b5c23ec`.
 - PG release 2022-11-11; header update 2024-10-19. Its corrections table is retained in the raw evidence. The edition follows those disclosed transcription corrections, not an independently reconstructed facsimile transcription. No claim of a complete scan-by-scan collation.
-- German JSON SHA-256: `b9258d9c10792adc35368961a8aab5a5c93144086a866b906514354dd555afde`.
+- German JSON SHA-256: `caf39bade270a8718f3867720b97533e25364c8948c2b8a7738a11f1d6138d0f`.
 
 ## Rights evidence and limits
 
@@ -25,10 +25,12 @@ Fischer's bibliographical page (metadata only, no edition text consulted) confir
 
 ## Extraction
 
-`original-de` follows the Werther/Faust German-edition key. Ten flat chapters, 141 reading paragraphs. One paragraph per nonempty direct HTML paragraph in source chapters ch1–ch10; removed page-number spans and collapsed HTML whitespace. One empty HTML paragraph in chapter 1 is a separator, not a reading paragraph, and was excluded. Paragraphs were otherwise neither merged nor split. Printed titles replaced by original neutral labels `Kapitel 1`–`Kapitel 10`; English labels `Chapter 1`–`Chapter 10`.
+`original-de` follows the Werther/Faust German-edition key. Ten flat chapters, 140 reading paragraphs. One paragraph per nonempty direct HTML paragraph in source chapters ch1–ch10; removed page-number spans and collapsed HTML whitespace. One empty HTML paragraph in chapter 1 is a separator, not a reading paragraph, and was excluded. Paragraphs were otherwise neither merged nor split. Printed titles replaced by original neutral labels `Kapitel 1`–`Kapitel 10`; English labels `Chapter 1`–`Chapter 10`.
 
 Title pages, contents, afterword, colophon, correction list, Gutenberg license/header/footer and page numbers remain outside the reading edition. PG's raw HTML is preserved unmodified for evidence. `source-boundaries.json` records every chapter's first and last paragraph. `QA.json` records counts and validation.
 
 ## English source policy
 
 No third-party English translation of The Trial has been fetched, read or consulted in this task. `modern-en` is to be rendered directly from the pinned German by Codex, sentence by sentence, one English paragraph per German paragraph. No translation script, translation API or Anthropic API is used. The German is the only textual comparison baseline.
+
+Source extraction correction: the standalone asterisk between chapter 1 paragraphs 9 and 10 is a scene separator, not prose. Excluded from the paragraph array in both editions; scene break position retained here. Initial checkpoint 609d7699a included it as a paragraph; superseded by this correction.

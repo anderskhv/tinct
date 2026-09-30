@@ -4,7 +4,7 @@
 - Base/current-main instruction revision: `221d6b78d` (fetched 2026-09-30).
 - Commit: initial original checkpoint is the commit introducing this file; exact checkpoint hash will be recorded in the next content checkpoint. `git log -- books/wip/the-trial` resolves package commits without a self-referential hash.
 - Owned paths only: `books/wip/the-trial/`, `books/raw/the-trial/`.
-- Original: ten flat chapters, 141 paragraphs; counts 21 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10.
+- Original: ten flat chapters, 140 paragraphs; counts 20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10.
 - Original structural QA passed; JSON valid; no empty reading paragraphs; chapter openings/endings retained; no apparatus. See QA.json and source-boundaries.json.
 - Pinned hashes: SOURCE.md and SHA256SUMS.
 - Modern English: not yet started at this checkpoint. Resume chapter 1, paragraph 1.
@@ -39,3 +39,5 @@ Chapter 9 corroboration: https://www.literatursehen.com/themenseite/schreiben/ .
 ## Integration
 
 Content proposal only. Future integration must use `original-de` and `modern-en`, preserve flat chapter/paragraph identities, and wait for full bilingual QA and rights/editorial acceptance. Onboarding, character and taxonomy proposals are pending at this checkpoint.
+
+Source extraction correction: the standalone asterisk between chapter 1 paragraphs 9 and 10 is a scene separator, not prose. Excluded from the paragraph array in both editions; scene break position retained here. Initial checkpoint 609d7699a included it as a paragraph; superseded by this correction.
