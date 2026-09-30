@@ -4,7 +4,7 @@
 - Authoritative checkout: `work/the-trial-content-isolated`.
 - Initial source checkpoint `609d7699a`; validated source correction `5025ea671`.
 - Earlier English checkpoints: `2628fd0aa` (1–2), `d1ee250f1` (3–5), `069e5205c73235927205953b28bd33bae2c122e9` (6,10); prior handoff `ae21fc0596cd75a8517ed8a552f84e989c9a764c`.
-- Final content checkpoint: recorded after commit below.
+- Final content checkpoint: `db4e425bd832393b113f54e5e9fdcf6d2c6134df`, pushed to `origin/content/the-trial-codex`. This subsequent handoff-only commit records that immutable content revision.
 - Owned paths only: `books/wip/the-trial/`, `books/raw/the-trial/`.
 - **German and modern-en: ten complete chapters / 140 paragraphs each**, counts 20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10. No missing, partial or placeholder chapters. English: **74,070 words**.
 - Onboarding, character proposal, taxonomy proposal, source evidence, reproducible QA and hashes supplied. No remaining translation resume point.

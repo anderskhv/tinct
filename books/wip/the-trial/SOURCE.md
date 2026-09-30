@@ -39,7 +39,7 @@ Current complete English edition: **10 chapters / 140 paragraphs / 74,070 words*
 
 ## Manuscript-title audit evidence
 
-DLA manuscript `HS00213991` was inspected only for title provenance, not substituted for the 1925 reading text. METS metadata: https://digital.dla-marbach.de/viewer/metsresolver?id=HS00213991 (local `manuscript-mets.xml`). The archive's modern divider at canvas 1 mentions the ordering of the 1990 critical edition; that divider was observed and retained as evidence, but neither that edition's text nor its ordering was used. Canvas 3 is the untitled opening manuscript page. These are pinned as `manuscript-0001.jpg` and `manuscript-0003.jpg`.
+DLA manuscript `HS00213991` was inspected only for title provenance, not substituted for the 1925 reading text. METS metadata: https://digital.dla-marbach.de/viewer/metsresolver?id=HS00213991 (local `manuscript-mets.xml`, original CRLF line endings retained byte-for-byte). The archive's modern divider at canvas 1 mentions the ordering of the 1990 critical edition; that divider was observed and retained as evidence, but neither that edition's text nor its ordering was used. Canvas 3 is the untitled opening manuscript page. These are pinned as `manuscript-0001.jpg` and `manuscript-0003.jpg`.
 
 Seven retained title images correspond to canvases 53, 79, 119, 131, 163, 223 and 259. Their original download URLs follow this exact pattern, substituting the four-digit canvas number:
 `https://digital.dla-marbach.de/viewer/api/v1/records/HS00213991/files/images/HS00213991_0053.tif/full/!400,400/0/default.jpg`
