@@ -1,7 +1,7 @@
 // Reviewed prose handoff, 29 September 2026. Keep source wording exact.
 // Chapter-aware reader character stores remain separate from this library gallery.
 export const reviewedHooks = {
-  "frankenstein": "What happens when we create a new intelligence but refuse to recognise and honor its personhood?",
+  "frankenstein": "What do we owe to the intelligence we create?",
   "pride-and-prejudice": "What if you're wrong about the person you can't stand?",
   "odyssey": "Would you refuse to become a god?",
   "crime-and-punishment": "Can you circumvent the moral order?",
