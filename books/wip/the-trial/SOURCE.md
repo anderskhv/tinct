@@ -35,4 +35,4 @@ No third-party English translation was intentionally fetched or consulted. Discl
 
 Source extraction correction: the standalone asterisk between chapter 1 paragraphs 9 and 10 is a scene separator, not prose. Excluded from the paragraph array in both editions; scene break position retained here. Initial checkpoint 609d7699a included it as a paragraph; superseded by this correction.
 
-Current English candidate (chapters 1–2 only) SHA-256: `9e6a8cace96071ffdb9d03a556bfe9a6be7383413c4912ec97e3fa89555b0669`. Remaining chapters have not been rendered.
+Current English candidate (complete chapters 1–6 and 10 only) SHA-256: `97aa57b5f8ecf8a16bc18f9c88339731852e1e789adb578bb2dfe66d0edecb0d`. Chapters 7–9 remain unrendered.

@@ -1,5 +1,5 @@
 {
-  "status": "NOT READY — chapters 6–10 missing; rights and title-provenance review open",
+  "status": "NOT READY — chapters 7–9 missing; rights and title-provenance review open",
   "original": {
     "chapters": 10,
     "paragraphs": 140,
@@ -42,26 +42,30 @@
     "apparatusAndPageMarkers": "Excluded; no numbered page markers remain"
   },
   "modernEn": {
-    "chapters": 5,
+    "chapters": 7,
     "completedChapterNumbers": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6,
+      10
     ],
-    "paragraphs": 70,
+    "paragraphs": 84,
     "paragraphsByChapter": [
       20,
       28,
       11,
       8,
-      3
+      3,
+      4,
+      10
     ],
     "jsonValid": true,
     "completedChaptersAligned": true,
     "wholeBookChapterAndParagraphEquality": false,
-    "wholeBookEqualityReason": "German 10/140; English 5/70. Chapters 6–10 missing.",
+    "wholeBookEqualityReason": "German 10 chapters/140 paragraphs; English seven complete chapters (1–6,10)/84 paragraphs. Chapters 7–9 absent, no scaffold or partial chapter.",
     "emptyOrStubParagraphs": [],
     "ratioFlags": [],
     "ratioMinimum": 0.9237,
@@ -75,10 +79,17 @@
       "3": "PASS: empty room, books, woman and court/student relations; no omission in the three long opening paragraphs.",
       "4": "PASS: unsuccessful approaches, letters, room move, breakfast and reconciliation dispute.",
       "5": "PASS: guards, punishment, attempted bribe, rationalisation, fiancée claim and next-day repetition (all three paragraphs).",
-      "6–10": "NOT RUN: English absent."
+      "6": "PASS: uncle’s entrance; complete letter, bank conversation, journey and lawyer’s introduction; Leni and study scene. Karl/Albert and name-day/birthday variation retained.",
+      "10": "PASS: two gentlemen, gloves, children and theatre question; linking arms; light, faces and cleanliness.",
+      "7–9": "NOT RUN: English absent."
     },
     "independentReview": "Not performed; self-reviewed candidate only",
-    "similarityGate": "Not used per approved cross-language QA replacement"
+    "similarityGate": "Not used per approved cross-language QA replacement",
+    "missingChapterNumbers": [
+      7,
+      8,
+      9
+    ]
   },
   "onboarding": {
     "valid": true,

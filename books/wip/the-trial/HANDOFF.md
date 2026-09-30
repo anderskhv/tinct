@@ -1,28 +1,30 @@
-# Current checkpoint — supersedes the earlier partial counts below
-
-Chapters 1–5 / 70 English paragraphs complete; resume chapter 6 paragraph 1. QA.json and SHA256SUMS describe the current files. Original remains 10/140; full equality is incomplete. Work continues under the user’s request to reach 10/10.
-
 # The Trial — NOT READY
 
 - Branch: `content/the-trial-codex`.
-- Base/current-main instruction revision: `221d6b78d`, fetched 2026-09-30; workflow and README unchanged from inspected revision.
-- Original checkpoints: `609d7699a` (initial extraction), superseded by `5025ea671` (scene-separator correction; validated original).
-- Current content checkpoint: `2628fd0aa7ea40ce46f3d9b4db7f26a06face8f4` (edition/metadata/QA content; subsequent handoff-only commit records this identifier). Exact package revision is also available from `git log -- books/wip/the-trial`.
+- Base/current-main instruction revision: `221d6b78d`, fetched 2026-09-30.
+- Initial source checkpoint: `609d7699a`; validated source correction: `5025ea671`.
+- Chapters 1–2 content: `2628fd0aa`; earlier handoff: `17e742c09`; chapters 3–5 checkpoint: `d1ee250f1`.
+- Latest English content checkpoint: PENDING_COMMIT_RECORD (recorded in the subsequent handoff-only commit).
 - Owned paths only: `books/wip/the-trial/`, `books/raw/the-trial/`.
-- German: 10 chapters / 140 prose paragraphs, counts **20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10**.
-- Modern English: **chapters 1–2 complete as authoring-agent candidates**, 48 paragraphs (20 / 28). No partial chapter or placeholder chapters.
-- Resume: **chapter 3, paragraph 1**, directly from the pinned German. Stopped at a chapter boundary for the remaining context/output budget; chapter 3 alone has 8,042 German words.
-- Onboarding, character proposal and taxonomy proposal supplied; not accepted or registered.
-- Pinned hashes: SHA256SUMS and SOURCE.md; German `caf39bade270a8718f3867720b97533e25364c8948c2b8a7738a11f1d6138d0f`; English `9e6a8cace96071ffdb9d03a556bfe9a6be7383413c4912ec97e3fa89555b0669`.
+- German: **10 chapters / 140 paragraphs**, counts 20 / 28 / 11 / 8 / 3 / 4 / 28 / 10 / 18 / 10.
+- Modern English: **7 of 10 chapters**, complete chapter numbers **1, 2, 3, 4, 5, 6, 10**; **84 paragraphs**, counts 20 / 28 / 11 / 8 / 3 / 4 / 10. No incomplete or placeholder chapter in the edition.
+- **Outstanding: chapters 7–9, 56 paragraphs, 35,308 German words. Resume chapter 7, paragraph 1. Chapter 10 is already done: do not overwrite it during continuation.**
+- The request to reach 10/10 is **not achieved**. This checkpoint stops at completed chapter boundaries because the remaining full chapters exceed the turn's remaining output budget. An optional request for permission to use parallel writing agents received no answer during the turn; no agents were spawned.
+- Onboarding, character proposal and taxonomy proposal supplied; not registered or published.
+- German SHA-256: `caf39bade270a8718f3867720b97533e25364c8948c2b8a7738a11f1d6138d0f`.
+- English SHA-256: `97aa57b5f8ecf8a16bc18f9c88339731852e1e789adb578bb2dfe66d0edecb0d`.
+- All package and raw evidence hashes pinned in SHA256SUMS.
 
 ## QA output
 
-- PASS: JSON parsing for all package JSON; German exactly matches all source prose paragraphs after documented extraction cleanup.
-- PASS: completed English chapters have matching chapter numbers and paragraph counts; zero empty or stub paragraphs; zero ratio flags outside 0.60–2.00; supplemental German-function-word scan has zero hits.
-- PASS: first three English paragraphs of **each completed chapter (1 and 2)** spot-read against German. Details in QA.json. Chapters 3–10 are pending, not passed.
-- FAIL / INCOMPLETE: whole-book equality, German 10/140 versus English 2/48. No book-level readiness or alignment claim.
-- PASS: onboarding has exactly three whyItMatters, four angleCards, cast, About and no acclaim field.
-- Review level: self-reviewed during rendering and opening spot checks; no independent literary acceptance yet. Paragraph ratio output is in paragraph-ratios.json.
+- PASS: JSON parsing for all package JSON; original retains the validated ten-chapter source extraction.
+- PASS: all **84 completed pairs** have matching chapter numbers and paragraph counts; zero empty/stub paragraphs; zero ratio flags outside 0.60–2.00; zero supplementary German-function-word scan hits.
+- PASS: first three English paragraphs of **each completed chapter (1–6,10)** spot-read against German. Chapters 7–9 pending, not passed. In chapter 5 this covers the whole chapter; in chapter 6 the third paragraph completes the study/Leni scene.
+- PASS: new chapter openings/endings checked against German. All authored paragraph text follows the supplied source in order, without paragraph mergers, splits, summaries or deliberate omissions.
+- FAIL / INCOMPLETE: whole-book chapter and paragraph equality, German 10/140 versus English 7/84. No book-level readiness or alignment claim.
+- PASS: onboarding has exactly three whyItMatters, four angleCards, cast, About, and no acclaim field.
+- Review level: authoring-agent self-review and opening spot checks only; no independent literary acceptance. Ratio details: paragraph-ratios.json; summary: QA.json.
+- Changed coordinates in this continuation: every paragraph of chapters 3, 4, 5, 6 and 10. Chapters 1–2 unchanged.
 
 ## Translation-provenance disclosure
 
@@ -55,7 +57,7 @@ Chapter 9 corroboration: https://www.literatursehen.com/themenseite/schreiben/ .
 1. Approve the proposed neutral labels and complete the individual manuscript-title attribution audit. Collective attribution by Brod does not authenticate each printed wording.
 2. Resolve Brod's arrangement and textual interventions for Denmark/EU. The German source is verified as a transcription of the 1925 first edition, but the entire edited edition is not certified free of protected original editorial contributions. Neutral headings do not clear ordering or the four-line rearrangement in chapter 8. Do not publish pending resolution.
 3. Keep the ten main chapters only for now. Six additional manuscript fragments are absent from the 1925 source; do not fetch a modern critical edition to fill them. Brod identifies chapter 8 itself as nearly finished. The novel is not represented as completed by Kafka.
-4. Finish modern-en chapters 3–10 and the same QA for each; then require identical whole-book counts and a full acceptance review. The approved cross-language QA replaces the similarity gate.
+4. Finish modern-en chapters 7–9 and the same QA for each; then require identical whole-book counts and a full acceptance review. The approved cross-language QA replaces the similarity gate.
 5. Character JSON is a proposal, not runtime characters.v1 data. Actual first-mention offsets, per-edition paragraph hashes, spoiler-aware snapshots and name disambiguation remain for completed-text integration.
 
 ## Source variations and rendering decisions
@@ -63,8 +65,10 @@ Chapter 9 corroboration: https://www.literatursehen.com/themenseite/schreiben/ .
 - Chapter 1: source describes the spectator's beard first as reddish, later as fair; retained.
 - Chapters 1–2: Hasterer / Hesterer retained as printed. Do not silently harmonise.
 - Chapter 2: K. says his arrest was about ten days earlier; retained despite surrounding scheduling tensions.
+- Chapter 3 opens with Sunday evening and then says he goes on Sunday; the source chronology is retained.
+- Chapter 6 contrasts name day in Erna’s letter with birthday in K.’s reflections; retained.
 - Chapter 6: the uncle is Karl in paragraph 1 and introduces himself as Albert in paragraph 2. Use neutral display name in proposed cast; retain source variants when rendering.
-- Legal terms used so far: Wächter = guard; Aufseher = supervisor; Untersuchungsrichter = examining magistrate; Staatsanwalt = public prosecutor; Prokurist = authorised signatory (erster Prokurist = chief authorised signatory); Untersuchung = examination; Verhör = questioning; Verfahren = proceedings; Prozeß = case or proceedings according to context. Preserve the distinction between accusation, arrest and guilt; do not make the narrator certify K.'s conclusions.
+- Legal terms used so far: Kanzleidirektor = chief clerk; Armenadvokat = lawyer for the poor; Auskunftgeber = information officer; Beweisanträge = applications for evidence to be taken; Wächter = guard; Aufseher = supervisor; Untersuchungsrichter = examining magistrate; Staatsanwalt = public prosecutor; Prokurist = authorised signatory (erster Prokurist = chief authorised signatory); Untersuchung = examination; Verhör = questioning; Verfahren = proceedings; Prozeß = case or proceedings according to context. Preserve the distinction between accusation, arrest and guilt; do not make the narrator certify K.'s conclusions.
 - Chapter 1 scene break: standalone asterisk after prose paragraph 9 is not a reading paragraph; an empty HTML paragraph is also excluded. Initial extraction counted the asterisk; checkpoint 5025ea671 corrected it. Scene-break position is recorded in QA.json.
 
 ## Integration and workspace notes
