@@ -6,8 +6,8 @@ Machine-readable copies: `rulings.json` (this file’s tables) and `identity-dec
 
 1. **Identity first, from the verse and its context.** Every occurrence of an ambiguous name (Mary, James, John, Judas/Judah, Simon/Simeon, Joseph, Herod, Philip, Zechariah, Ananias, Jacob/Israel, Jesus/Joshua, Elijah/Elias, Devil/Satan, the Maccabean Judas/Jonathan/Simon/Antiochus, Tobit’s Sarah/Anna and so on) was either resolved by an explicit range or context rule, or read and decided one by one. Undecidable cases are **not linked**, and the reason is recorded.
 2. **Name variants are linked, pronouns are not.** Elias/Elijah, Esaias/Isaiah, Jeremias/Jeremy/Jeremiah, Simon Peter/Peter/Cephas, Simeon at Acts 15:14, Saul/Paul, Sarai/Sarah, Abram/Abraham, Noe/Noah, Hoshea/Joshua, Rachab/Rahab, Shemuel (1 Chr 6:33), the Levi of Mark 2/Luke 5 and Silvanus/Silas all resolve to the person.
-3. **Tribes, nations, dynasties and places are not the person.** “Israel”, “Judah”, “Jacob” as the people; “house of X”/“X’s house”, “tribe of”, “sons of X” in a census or tribal context; “city/tower/tent of David”; “the temple of Babylon” are not linked. A patronymic or genealogy that names the man (“Manasseh son of Joseph”, “God of Abraham, Isaac and Jacob”, “sons of Israel” inside the Genesis 32–50 family narrative) is linked.
-4. **Poetic Jacob/Israel parallelism is not linked** (Psalms, prophets, Numbers 23–24, tribal blessings); this is the single largest source of reviewer disagreement (see below) and is flagged as a policy question.
+3. **Tribes, nations, dynasties and places are not the person.** Where “Israel” or “Jacob” means the *people* (children of Israel, house of Jacob, God/King/Holy One of Israel, kingdom of Israel, Jacob in Numbers 23–24 and the Psalms) it is linked to the separate card `israel-the-people`, not to the patriarch. “Judah” as tribe or land, “house of X”/“X’s house”, “tribe of”, “sons of X” in a census or tribal context; “city/tower/tent of David”; “the temple of Babylon” are not linked. A patronymic or genealogy that names the man (“Manasseh son of Joseph”, “God of Abraham, Isaac and Jacob”, “sons of Israel” inside the Genesis 32–50 family narrative) is linked.
+4. **Poetic Jacob/Israel parallelism is linked to `israel-the-people`** (Psalms, prophets, Numbers 23–24, tribal blessings). Where the verse itself is about the man — patriarch formulas (“Abraham, Isaac and Israel”), “son of Israel”, “born to Israel”, “Reuben the firstborn of Israel”, “Israel our father”, and the verses the blind reviewers read as the man (Ps 105:10 and 23, 1 Chr 16:17, Ezek 28:25 and 37:25, Mic 7:20, Isa 58:14, Mal 1:2 “Esau Jacob’s brother”) — it is linked to the patriarch `jacob`.
 5. **Non-persons are not people.** A demon or human “devil” is not Satan; “the last Adam” is Christ, not the first man; Tubal-Cain is not Cain; Rahab of Isaiah 30:7 is Egypt; Nahum in Luke 3:25 is an ancestor, not the prophet; Augustus’ band (Acts 27:1) and the Augustus of Acts 25 (Nero) are not Luke 2’s emperor; “no temple” in Rev 21:22 and the temple of Babylon are not the Jerusalem temple.
 6. **A person who shares a name with a card but is another person has no card** (other Jeremiahs, Ahab’s court, Ananias the high priest, Philip the tetrarch, Mary the wife of Clopas, Mary mother of James, Simon of Cyrene, Judas of Galilee …): not linked.
 
@@ -129,15 +129,17 @@ Counts are name occurrences by final decision; `NONE` = deliberately not linked.
 
 | card | kjv-en | web-en | bsb-en | webc-en |
 |---|---|---|---|---|
-| `jacob` | 230 | 234 | 261 | 244 |
-| NONE (not linked) | 147 | 147 | 148 | 163 |
+| `jacob` | 236 | 240 | 267 | 250 |
+| `israel-the-people` | 137 | 137 | 138 | 153 |
+| NONE (not linked) | 4 | 4 | 4 | 4 |
 
 **Israel**
 
 | card | kjv-en | web-en | bsb-en | webc-en |
 |---|---|---|---|---|
-| `jacob` | 36 | 36 | 37 | 38 |
-| NONE (not linked) | 2538 | 2547 | 1937 | 2717 |
+| `israel-the-people` | 2520 | 2528 | 1917 | 2697 |
+| `jacob` | 53 | 53 | 56 | 56 |
+| NONE (not linked) | 1 | 2 | 1 | 2 |
 
 **Jesus**
 
@@ -178,7 +180,8 @@ Counts are name occurrences by final decision; `NONE` = deliberately not linked.
 | Luke 6:16, Acts 1:13 | the James in “Judas the brother/son of James” | not linked | The text does not say which James (Alphaeus’ or the Lord’s brother). Undecided ⇒ NONE. |
 | Matthew 24:5, 24:23; Mark 13:6, 13:21; Luke 21:8 | Christ | not linked | Impostors use the title (“I am Christ”, “Lo, here is Christ”); it is not a reference to Jesus. Generic uses that name the expected Messiah of the real Jesus story (Luke 3:15, John 1:20, 1:25, 3:28 …) stay linked. |
 | 1 Kings 11:39; 2 Chronicles 13:8, 23:3, 32:33; Ezra 8:2; Jeremiah 33:22 | David | not linked | “seed of David”, “sons of David” as dynasty/family, “sepulchres of the sons of David”, a clan in Ezra 8:2 — same treatment as “house of David”. |
-| Isaiah 58:14 | Jacob | not linked | “the heritage of Jacob thy father” — the people’s inheritance (policy addendum 2). One audit and two blind reviewers read it as the patriarch; the record keeps it unlinked in all four editions for consistency. |
+| Isaiah 58:14; Ps 105:10, 23; 1 Chr 16:17; Ezek 28:25, 37:25; Mic 7:20; Mal 1:2 (first Jacob); Ezra 8:18; Judges 18:29 | Jacob / Israel | → `jacob` (the man) | Independent reviewers read the patriarch in every edition (“heritage of Jacob thy father”, “my servant Jacob”, “truth to Jacob, mercy to Abraham”, “Esau Jacob’s brother”, “Levi, the son of Israel”, “Dan … born to Israel”). Supersedes the earlier unlinked ruling. |
+| Every other Jacob / Israel that means the nation | Jacob / Israel | → `israel-the-people` | New card. About 2,000–2,700 links per edition: children/house/kingdom of Israel, King/God/Holy One of Israel, Jacob and Israel in Psalms, prophets, Numbers 23–24, tribal blessings, and NT uses. Man-readings that stay with the patriarch: patriarch triads (Abraham, Isaac, Israel), “son of Israel”, “born to Israel”, “Reuben the firstborn of Israel”, “our father Israel”. Skipped entirely: Joseph’s father Jacob (Matt 1:15–16), Genesis 49:24 (Jacob’s own words), El-elohe-Israel (Gen 33:20), Jacob’s well. |
 | Genesis 4:22 | Cain (Tubal-Cain) | not linked | A descendant of Lamech, not Adam’s son. |
 | Luke 3:25 | Nahum | not linked | An ancestor in Jesus’s genealogy, not the prophet Nahum. |
 | Acts 25:21, 25:25, 27:1 | Augustus | not linked | The emperor of Acts 25 is Nero; “Augustus’ band” (27:1) is a cohort. Only Luke 2:1 is Caesar Augustus. |
@@ -225,45 +228,39 @@ One occurrence (`webc-en|1226.8.648`, 1 Macc 7:44 “Nicanor had fallen”) was 
 
 ## Where the independent reviewers disagreed with the final decision
 
-Blind reviewers re-decided **7,176** occurrences (every identity-ambiguous occurrence plus every context-pattern decision of an ambiguous family). They agreed with the final package on 7,141 (99.51%). The remaining 35 disagreements are listed here; none is an unresolved error — each is a policy hard case, an author ruling above, or a candidate-list limitation.
+Blind reviewers re-decided **7,176** occurrences (every identity-ambiguous occurrence plus every context-pattern decision of an ambiguous family). They agreed with the final package on 7,147 (99.60%; for Jacob/Israel a reviewer’s NONE from before the people card existed counts as agreeing with a link to `israel-the-people`, which has its own review, `REVIEW-RECORD.md` stage 10). The remaining 29 disagreements are listed here; none is an unresolved error — each is a policy hard case, an author ruling above, or a candidate-list limitation.
 
 | id | ref | form | final | reviewer | disposition |
 |---|---|---|---|---|---|
-| kjv-en|926.0.143 | Malachi 1:2 | Esau | NONE | esau | Malachi 1:2–3 (with Obadiah, Jer 49) uses Esau/Jacob for Edom/Israel — nations (addendum 2). Romans 9:13, which names the men, is linked. |
+| kjv-en|926.0.143 | Malachi 1:2 | Esau | NONE | esau | “Was not Esau Jacob’s brother?” names the man (linked to `jacob`); “yet I loved Jacob / hated Esau” contrasts the nations (Jacob linked to `israel-the-people`; Esau nation-use unlinked). Reviewers split on the second Jacob. |
 | kjv-en|342.0.14 | 1 Chronicles 4:1 | Judah | NONE | judah-patriarch | Verse ruling (genealogy of later descendants). |
-| kjv-en|583.4.173 | Psalms 105:23 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
 | kjv-en|143.5.311 | Numbers 26:28 | Joseph | NONE | joseph-patriarch | “sons/children of Joseph” in a tribal census or allotment = the tribes (addendum 2). |
-| kjv-en|737.2.821 | Isaiah 58:14 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| kjv-en|900.3.685 | Micah 7:20 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
+| kjv-en|583.4.140 | Psalms 105:23 | Israel | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
+| kjv-en|830.4.946 | Ezekiel 28:25 | Jacob | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
+| kjv-en|839.4.946 | Ezekiel 37:25 | Jacob | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
+| kjv-en|926.0.148 | Malachi 1:2 | Jacob | jacob | NONE | “Was not Esau Jacob’s brother?” names the man (linked to `jacob`); “yet I loved Jacob / hated Esau” contrasts the nations (Jacob linked to `israel-the-people`; Esau nation-use unlinked). Reviewers split on the second Jacob. |
 | kjv-en|979.3.28 | Luke 6:16 | James | NONE | the-other-apostles | Verse ruling: which James is not stated. |
 | kjv-en|1019.2.551 | Acts 1:13 | James | NONE | the-other-apostles | Verse ruling: which James is not stated. |
 | web-en|963.0.412 | Mark 6:3 | Judah | jude-apostle | NONE | Deterministic: Matt 13:55/Mark 6:3 Judas is Jesus’s brother → `jude-apostle`; the reviewer was offered only the patriarch card. |
-| web-en|830.4.938 | Ezekiel 28:25 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| web-en|839.4.933 | Ezekiel 37:25 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| web-en|900.3.684 | Micah 7:20 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
+| web-en|737.2.818 | Isaiah 58:14 | Jacob | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
+| web-en|926.0.140 | Malachi 1:2 | Jacob | jacob | NONE | “Was not Esau Jacob’s brother?” names the man (linked to `jacob`); “yet I loved Jacob / hated Esau” contrasts the nations (Jacob linked to `israel-the-people`; Esau nation-use unlinked). Reviewers split on the second Jacob. |
 | web-en|33.3.536 | Genesis 33:20 | Israel | NONE | jacob | “El-elohe-Israel” is an altar name (God, the God of Israel), not the man — not linked. |
+| web-en|583.4.152 | Psalms 105:23 | Israel | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
+| web-en|583.4.181 | Psalms 105:23 | Jacob | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
 | web-en|143.5.299 | Numbers 26:28 | Joseph | NONE | joseph-patriarch | “sons/children of Joseph” in a tribal census or allotment = the tribes (addendum 2). |
-| bsb-en|926.3.14 | Malachi 1:2 | Jacob | NONE | jacob | Malachi 1:2–3 (with Obadiah, Jer 49) uses Esau/Jacob for Edom/Israel — nations (addendum 2). Romans 9:13, which names the men, is linked. |
 | bsb-en|952.10.307 | Matthew 23:35 | Zechariah | NONE | zechariah-prophet | Zechariah son of Berechiah: whether the prophet or the son of Jehoiada (2 Chr 24:20) is disputed; cannot tell ⇒ NONE. |
 | bsb-en|203.1.39 | Joshua 16:4 | Joseph | NONE | joseph-patriarch | “sons/children of Joseph” in a tribal census or allotment = the tribes (addendum 2). |
 | bsb-en|211.16.252 | Joshua 24:32 | Joseph | NONE | joseph-patriarch | “sons/children of Joseph” in a tribal census or allotment = the tribes (addendum 2). |
-| bsb-en|926.3.9 | Malachi 1:2 | Esau | NONE | esau | Malachi 1:2–3 (with Obadiah, Jer 49) uses Esau/Jacob for Edom/Israel — nations (addendum 2). Romans 9:13, which names the men, is linked. |
-| bsb-en|583.45.0 | Psalms 105:23 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| bsb-en|737.65.46 | Isaiah 58:14 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| bsb-en|830.90.73 | Ezekiel 28:25 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| bsb-en|839.13.56 | Ezekiel 37:25 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| bsb-en|900.83.33 | Micah 7:20 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
+| bsb-en|926.3.9 | Malachi 1:2 | Esau | NONE | esau | “Was not Esau Jacob’s brother?” names the man (linked to `jacob`); “yet I loved Jacob / hated Esau” contrasts the nations (Jacob linked to `israel-the-people`; Esau nation-use unlinked). Reviewers split on the second Jacob. |
 | bsb-en|342.0.21 | 1 Chronicles 4:1 | Judah | NONE | judah-patriarch | Verse ruling (genealogy of later descendants). |
+| bsb-en|583.44.8 | Psalms 105:23 | Israel | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
 | webc-en|1229.0.68 | 1 Maccabees 10:1 | Antiochus | NONE | antiochus-epiphanes | “Alexander Epiphanes, the son of Antiochus”: the text does not say which Antiochus; cannot tell ⇒ NONE. |
 | webc-en|342.0.14 | 1 Chronicles 4:1 | Judah | NONE | judah-patriarch | Verse ruling (genealogy of later descendants). |
 | webc-en|963.0.411 | Mark 6:3 | Judah | jude-apostle | NONE | Deterministic: Matt 13:55/Mark 6:3 Judas is Jesus’s brother → `jude-apostle`; the reviewer was offered only the patriarch card. |
 | webc-en|143.1.2717 | Numbers 26:28 | Joseph | NONE | joseph-patriarch | “sons/children of Joseph” in a tribal census or allotment = the tribes (addendum 2). |
-| webc-en|583.0.1690 | Psalms 105:23 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| webc-en|830.9.241 | Ezekiel 28:25 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| webc-en|839.9.207 | Ezekiel 37:25 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
-| webc-en|900.0.2919 | Micah 7:20 | Jacob | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
+| webc-en|737.4.406 | Isaiah 58:14 | Jacob | jacob | NONE | Reviewers read the patriarch; now linked to `jacob`. |
+| webc-en|926.3.13 | Malachi 1:2 | Jacob | jacob | NONE | “Was not Esau Jacob’s brother?” names the man (linked to `jacob`); “yet I loved Jacob / hated Esau” contrasts the nations (Jacob linked to `israel-the-people`; Esau nation-use unlinked). Reviewers split on the second Jacob. |
 | webc-en|33.12.346 | Genesis 33:20 | Israel | NONE | jacob | “El-elohe-Israel” is an altar name (God, the God of Israel), not the man — not linked. |
-| webc-en|583.0.1661 | Psalms 105:23 | Israel | NONE | jacob | Poetic/prophetic Jacob = the people receiving land, oath or heritage (addendum 2). **Policy question for Anders**: reviewers read the patriarch. |
 
 One further occurrence (`bsb-en|977.11.12`, Luke 4:13 “the devil” → `satan`) has no reviewer line; the same verse in KJV, WEB and WEBC was reviewed and agreed.
 
@@ -286,5 +283,5 @@ One further occurrence (`bsb-en|977.11.12`, Luke 4:13 “the devil” → `satan
 
 - John 4:25 “Messiah is coming” (woman’s general expectation); Matthew 1:23 “Immanuel” (a title); “Pontius” in “Pontius Pilate” (only “Pilate” is the span; cosmetic).
 - Zephaniah 1:1 “Hizkiah” (not stated to be the king); 1 Chr 3:23 Hizkiah.
-- Isaiah 58:14, Ezekiel 28:25, 37:25, Micah 7:20, Psalm 105:23: see reviewer table.
+- 2 Samuel 23:1 “the God of Jacob” and Malachi 1:2 second Jacob (“yet I loved Jacob”) are linked to the people although one reviewer each read them otherwise.
 

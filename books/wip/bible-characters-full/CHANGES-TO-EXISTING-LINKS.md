@@ -7,9 +7,9 @@ The live `bible.v1.json` (main fe699e90, contentVersion `2026-09-24.1`) carries 
 | Old links | 1,444 | 1,437 |
 | Kept, identical span and card | 1298 | 1297 |
 | Kept, same card, span changed (widened/narrowed) | 34 | 29 |
-| Same place, **different card** (identity correction) | 44 | 44 |
-| **Removed** (not a reference to that card) | 68 | 67 |
-| New links in the package | 8,572 | 8,656 |
+| Same place, **different card** (identity correction) | 55 | 56 |
+| **Removed** (not a reference to that card) | 57 | 55 |
+| New links in the package | 11,241 | 11,332 |
 
 About 90% of the old links stand exactly as they were. The rest were wrong or imprecise and fall into these groups.
 
@@ -46,6 +46,17 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | Acts 21:18 | `james-zebedee` | `james-the-just` | James | kjv-en, web-en |
 | Acts 5:1 | `ananias-of-damascus` | `ananias-and-sapphira` | Ananias | kjv-en, web-en |
 | Acts 5:5 | `ananias-of-damascus` | `ananias-and-sapphira` | Ananias | kjv-en, web-en |
+| Genesis 34:7 | `jacob` | `israel-the-people` | Israel | kjv-en |
+| Genesis 36:31 | `jacob` | `israel-the-people` | Israel | web-en |
+| Genesis 47:27 | `jacob` | `israel-the-people` | Israel | web-en |
+| Genesis 49:16 | `jacob` | `israel-the-people` | Israel | kjv-en, web-en |
+| Genesis 49:28 | `jacob` | `israel-the-people` | Israel | kjv-en, web-en |
+| Genesis 50:25 | `jacob` | `israel-the-people` | Israel | kjv-en, web-en |
+| Isaiah 2:3 | `jacob` | `israel-the-people` | Jacob | kjv-en |
+| Isaiah 42:24 | `jacob` | `israel-the-people` | Jacob | web-en |
+| Isaiah 43:1 | `jacob` | `israel-the-people` | Jacob | kjv-en |
+| Isaiah 59:20 | `jacob` | `israel-the-people` | Jacob | web-en |
+| Isaiah 60:16 | `jacob` | `israel-the-people` | Jacob | kjv-en |
 | John 11:19 | `mary-mother-of-jesus` | `mary-of-bethany` | Mary | kjv-en, web-en |
 | John 11:32 | `mary-mother-of-jesus` | `mary-of-bethany` | Mary | kjv-en, web-en |
 | John 19:25 | `mary-of-bethany` | `mary-magdalene` | Mary | kjv-en, web-en |
@@ -53,6 +64,8 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | John 20:18 | `mary-of-bethany` | `mary-magdalene` | Mary | kjv-en, web-en |
 | John 4:5 | `joseph-of-arimathea` | `joseph-patriarch` | Joseph | kjv-en, web-en |
 | John 6:42 | `joseph-of-arimathea` | `joseph-husband-of-mary` | Joseph | kjv-en, web-en |
+| Lamentations 2:2 | `jacob` | `israel-the-people` | Jacob | web-en |
+| Lamentations 2:3 | `jacob` | `israel-the-people` | Jacob | kjv-en |
 | Luke 10:39 | `mary-mother-of-jesus` | `mary-of-bethany` | Mary | kjv-en, web-en |
 | Luke 1:27 | `mary-of-bethany` | `mary-mother-of-jesus` | Mary | kjv-en, web-en |
 | Luke 1:39 | `mary-of-bethany` | `mary-mother-of-jesus` | Mary | kjv-en, web-en |
@@ -73,6 +86,12 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | Matthew 27:61 | `mary-mother-of-jesus` | `mary-magdalene` | Mary | kjv-en, web-en |
 | Matthew 2:1 | `herod-antipas` | `herod-the-great` | Herod | kjv-en, web-en |
 | Matthew 2:16 | `herod-antipas` | `herod-the-great` | Herod | kjv-en, web-en |
+| Micah 2:7 | `jacob` | `israel-the-people` | Jacob | kjv-en, web-en |
+| Numbers 23:23 | `jacob` | `israel-the-people` | Jacob | web-en |
+| Numbers 24:5 | `jacob` | `israel-the-people` | Jacob | kjv-en |
+| Psalms 147:19 | `jacob` | `israel-the-people` | Jacob | web-en |
+| Psalms 78:21 | `jacob` | `israel-the-people` | Jacob | kjv-en |
+| Psalms 78:5 | `jacob` | `israel-the-people` | Jacob | web-en |
 
 ## Removed links
 
@@ -126,34 +145,6 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | Numbers 26:46 | `sarah` | Sarah | kjv-en |
 | Revelation 2:20 | `jezebel` | Jezebel | kjv-en, web-en |
 
-**nation/tribe or tribal-blessing use** (23)
-
-| Reference | Was | Text | Editions |
-|---|---|---|---|
-| Genesis 33:20 | `jacob` | Israel | web-en |
-| Genesis 34:7 | `jacob` | Israel | kjv-en |
-| Genesis 36:31 | `jacob` | Israel | web-en |
-| Genesis 47:27 | `jacob` | Israel | web-en |
-| Genesis 49:10 | `judah-patriarch` | Judah | kjv-en, web-en |
-| Genesis 49:16 | `jacob` | Israel | kjv-en, web-en |
-| Genesis 49:24 | `jacob` | Jacob | kjv-en |
-| Genesis 49:27 | `benjamin` | Benjamin | kjv-en, web-en |
-| Genesis 49:28 | `jacob` | Israel | kjv-en, web-en |
-| Genesis 50:25 | `jacob` | Israel | kjv-en, web-en |
-| Isaiah 2:3 | `jacob` | Jacob | kjv-en |
-| Isaiah 42:24 | `jacob` | Jacob | web-en |
-| Isaiah 43:1 | `jacob` | Jacob | kjv-en |
-| Isaiah 59:20 | `jacob` | Jacob | web-en |
-| Isaiah 60:16 | `jacob` | Jacob | kjv-en |
-| Lamentations 2:2 | `jacob` | Jacob | web-en |
-| Lamentations 2:3 | `jacob` | Jacob | kjv-en |
-| Micah 2:7 | `jacob` | Jacob | kjv-en, web-en |
-| Numbers 23:23 | `jacob` | Jacob | web-en |
-| Numbers 24:5 | `jacob` | Jacob | kjv-en |
-| Psalms 147:19 | `jacob` | Jacob | web-en |
-| Psalms 78:21 | `jacob` | Jacob | kjv-en |
-| Psalms 78:5 | `jacob` | Jacob | web-en |
-
 **not the referent (animal / building / other emperor or cohort)** (7)
 
 | Reference | Was | Text | Editions |
@@ -184,6 +175,15 @@ About 90% of the old links stand exactly as they were. The rest were wrong or im
 | Numbers 1:10 | `gamaliel` | Gamaliel | kjv-en, web-en |
 | Numbers 7:54 | `gamaliel` | Gamaliel | kjv-en, web-en |
 | Numbers 7:59 | `gamaliel` | Gamaliel | kjv-en, web-en |
+
+**nation/tribe or tribal-blessing use** (4)
+
+| Reference | Was | Text | Editions |
+|---|---|---|---|
+| Genesis 33:20 | `jacob` | Israel | web-en |
+| Genesis 49:10 | `judah-patriarch` | Judah | kjv-en, web-en |
+| Genesis 49:24 | `jacob` | Jacob | kjv-en |
+| Genesis 49:27 | `benjamin` | Benjamin | kjv-en, web-en |
 
 **demon / human adversary, not Satan** (3)
 

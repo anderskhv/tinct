@@ -1,7 +1,7 @@
 {
  "file": "bible.v1.json",
- "bytes": 9446701,
- "sha256": "740258f37b4944efb105e40bb32b6e22d18d262548d2154f77ac271d3f24c9ed",
+ "bytes": 10735192,
+ "sha256": "1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb",
  "contentVersion": "2026-09-30.1",
  "schemaVersion": 1,
  "bookId": "bible",
@@ -14,31 +14,31 @@
  "editionSlices": {
   "method": "Parse bible.v1.json, take editions[<key>], re-serialise as compact JSON (separators ',' and ':', ensure_ascii=false, key order preserved), UTF-8; SHA-256 of those bytes.",
   "sha256": {
-   "kjv-en": "ced240095dd52bf42fed2193b1be175721542cf128f59cd18d1a99e30a969051",
-   "web-en": "27d5c17ebcabefeb2db3b0f5ae56cf3c458375e3118049871deabeee1a0f94be",
-   "bsb-en": "bce213f4ff4d77aebcafc40bca1bd7bf2127f87986f8dbd96c4535e5e6b79764",
-   "webc-en": "8147adf069fce5f3b428a95374ce400e5ae3b78a6c2413490a6d484828c76d16"
+   "kjv-en": "3c9bd59d6a7c37aaa5c44b5765036b7250690f924f8f95c1d50bce17d355d903",
+   "web-en": "6b57144787e3cdd319025e18aa6c8daa213f06afe91dea18423647bca3e60c4b",
+   "bsb-en": "2d72fbe81c0667957e8118c7023824a7377197367f6110599430530a6a9181ab",
+   "webc-en": "fe37edb0db1394c26220e3d83441a020308ddc1fe17153176c9d52f1d9bc8d57"
   }
  },
  "perEdition": {
   "kjv-en": {
-   "characters": 149,
-   "mentions": 9948,
+   "characters": 150,
+   "mentions": 12628,
    "sourceSha256": "53823ea3d19a3d7b986563f9fb7015be4a75bb102bd6e6a714ee64ceed0ff26e"
   },
   "web-en": {
-   "characters": 149,
-   "mentions": 10026,
+   "characters": 150,
+   "mentions": 12714,
    "sourceSha256": "b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa"
   },
   "bsb-en": {
-   "characters": 149,
-   "mentions": 11034,
+   "characters": 150,
+   "mentions": 13114,
    "sourceSha256": "8da0bc1ae32d9c2e05ba5811d953e24bdff8351913ad8f2199142ca0081c61d9"
   },
   "webc-en": {
-   "characters": 195,
-   "mentions": 11175,
+   "characters": 196,
+   "mentions": 14049,
    "sourceSha256": "695cff11f0ec1197edf3cc0aa975a7805ed7e36365001f9bfa1ac86703ac52d7"
   }
  },

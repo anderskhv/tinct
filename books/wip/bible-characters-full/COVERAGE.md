@@ -1,26 +1,27 @@
 # Coverage
 
-All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `740258f37b4944efb105e40bb32b6e22d18d262548d2154f77ac271d3f24c9ed`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
+All numbers are for the accepted candidate `package/bible.v1.json` (contentVersion `2026-09-30.1`, SHA-256 `1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb`), computed from the pinned edition bytes in `SOURCES-PINNED.md`.
 
 ## Per-edition summary
 
 | | kjv-en | web-en | bsb-en | webc-en |
 |---|---:|---:|---:|---:|
-| Characters | 149 | 149 | 149 | 195 |
-| Characters with ≥1 link | 149 | 149 | 149 | 195 |
-| **Links (mentions)** | **9,948** | **10,026** | **11,034** | **11,175** |
+| Characters | 150 | 150 | 150 | 196 |
+| Characters with ≥1 link | 150 | 150 | 150 | 196 |
+| **Links (mentions)** | **12,628** | **12,714** | **13,114** | **14,049** |
 | Links in the live file (main fe699e90) | 1,444 | 1,437 | none | none |
 | Name-form hits scanned (person lexicon, 235 forms) | 14,645 | 14,730 | 15,083 | 16,279 |
-| … linked as a person | 9,749 | 9,823 | 10,825 | 10,970 |
-|    – by name-range rule | 9,041 | 9,112 | 10,061 | 9,873 |
+| … linked as a person | 12,429 | 12,511 | 12,905 | 13,844 |
+|    – by name-range rule | 9,057 | 9,128 | 10,079 | 9,890 |
+|    – as **Israel (the people)**: Jacob/Israel meaning the nation (`israel-the-people`) | 2,657 | 2,665 | 2,055 | 2,850 |
 |    – by context pattern (e.g. “John the Baptist”) | 106 | 101 | 97 | 99 |
-|    – by per-occurrence adjudication | 602 | 610 | 667 | 998 |
-| … deliberately **not** linked | 4,896 | 4,907 | 4,258 | 5,309 |
-|    – tribe / nation / other person / place by rule range | 4,127 | 4,160 | 3,517 | 4,425 |
-|    – “house of X” / “X’s house” (dynasty, family) | 318 | 318 | 304 | 335 |
+|    – by per-occurrence adjudication | 609 | 617 | 674 | 1,005 |
+| … deliberately **not** linked | 2,216 | 2,219 | 2,178 | 2,435 |
+|    – tribe / nation / other person / place by rule range | 1,754 | 1,779 | 1,733 | 1,887 |
+|    – “house of X” / “X’s house” (dynasty, family) | 144 | 144 | 139 | 147 |
 |    – city / tower / tent of X (place compounds) | 57 | 66 | 58 | 70 |
 |    – by context pattern (e.g. “Simon the tanner”) | 26 | 22 | 18 | 19 |
-|    – by per-occurrence adjudication | 355 | 331 | 351 | 449 |
+|    – by per-occurrence adjudication | 222 | 198 | 220 | 301 |
 |    – by verse ruling (RULINGS.md) | 11 | 9 | 9 | 9 |
 |    – type use (“the last Adam”, “sons of Adam”) | 2 | 1 | 1 | 2 |
 
@@ -38,7 +39,7 @@ Non-person cards (God/the LORD, Ark, the Temple, Babylon, Zion) are **not** expa
 | Abraham (`abraham`) | 40 | 40 | 311 | 313 | 335 | 326 |
 | Simon Peter (`simon-peter`) | 20 | 20 | 199 | 199 | 220 | 200 |
 | Paul (`saul-paul`) | 40 | 40 | 187 | 186 | 249 | 186 |
-| Israel (`jacob`) | 40 | 40 | 266 | 270 | 298 | 282 |
+| Israel (`jacob`) | 40 | 40 | 289 | 293 | 323 | 306 |
 | Joseph (`joseph-patriarch`) | 20 | 20 | 180 | 179 | 211 | 183 |
 | Solomon (`solomon`) | 20 | 20 | 301 | 303 | 308 | 308 |
 | John the Baptist (`john-the-baptist`) | 14 | 14 | 92 | 92 | 110 | 92 |
@@ -202,7 +203,8 @@ The 149 existing ids are unchanged and no id was removed. The 46 new ids exist o
 | `isaac` | Isaac | 14 | 14 | 130 | 130 | 139 | 136 |
 | `isaiah` | Isaiah | 20 | 20 | 53 | 53 | 56 | 55 |
 | `ishmael` | Ishmael | 8 | 8 | 20 | 20 | 22 | 20 |
-| `jacob` | Israel | 40 | 40 | 266 | 270 | 298 | 282 |
+| `israel-the-people` | Israel (the people) | – | – | 2657 | 2665 | 2055 | 2850 |
+| `jacob` | Israel | 40 | 40 | 289 | 293 | 323 | 306 |
 | `james-the-just` | James | 8 | 8 | 11 | 11 | 11 | 11 |
 | `james-zebedee` | James son of Zebedee | 8 | 8 | 21 | 21 | 21 | 21 |
 | `jason-high-priest` | Jason | – | – | – | – | – | 11 |

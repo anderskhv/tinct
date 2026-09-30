@@ -4,7 +4,7 @@ Status: **content accepted / handed off — not published.** Nothing in `app/**`
 
 ## What to take
 
-- `package/bible.v1.json` — SHA-256 `740258f37b4944efb105e40bb32b6e22d18d262548d2154f77ac271d3f24c9ed`, 9,446,701 bytes, `contentVersion` `2026-09-30.1`. Same schema as the live file (`schemaVersion` 1, `normalization` `prose-reader-v1`, `offsetUnit` `utf16`) with four editions: `kjv-en`, `web-en`, `bsb-en`, `webc-en`.
+- `package/bible.v1.json` — SHA-256 `1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb`, 10,735,192 bytes, `contentVersion` `2026-09-30.1`. Same schema as the live file (`schemaVersion` 1, `normalization` `prose-reader-v1`, `offsetUnit` `utf16`) with four editions: `kjv-en`, `web-en`, `bsb-en`, `webc-en`.
 - `package/MANIFEST.json` — file hash plus SHA-256 of each edition slice (method in the file), so a per-edition split can be verified byte-for-byte.
 - Everything else in this folder is review/provenance and is not needed at runtime.
 
@@ -22,10 +22,10 @@ Status: **content accepted / handed off — not published.** Nothing in `app/**`
 
 | edition | `verifyCharacters` | mentions | resolve → own card | resolve null / wrong | existing-highlight → null | snapshot reveal problems |
 |---|---|---|---|---|---|---|
-| kjv-en | passes | 9,948 | all | 0 / 0 | all | 0 |
-| web-en | passes | 10,026 | all | 0 / 0 | all | 0 |
-| bsb-en | passes | 11,034 | all | 0 / 0 | all | 0 |
-| webc-en | passes | 11,175 | all | 0 / 0 | all | 0 |
+| kjv-en | passes | 12,628 | all | 0 / 0 | all | 0 |
+| web-en | passes | 12,714 | all | 0 / 0 | all | 0 |
+| bsb-en | passes | 13,114 | all | 0 / 0 | all | 0 |
+| webc-en | passes | 14,049 | all | 0 / 0 | all | 0 |
 
 Every mention resolves to its own card; there are no identical or partially overlapping spans, so the resolver’s “tied ⇒ null” rule never triggers. For every snapshot, the card body at `availableAt` equals the snapshot and one offset earlier equals the previous snapshot (the same assertion the Hamlet test makes). The verifier’s hash gates hold: `sourceSha256` equals the edition file bytes and `paragraphHashes` equal SHA-256 of `normalizeParagraph` for every paragraph. The same rules were re-implemented and run separately on the committed file (`review/structural-verification.json`).
 
@@ -38,7 +38,7 @@ Every mention resolves to its own card; there are no identical or partially over
 
 ## Size and loading (needs your decision)
 
-The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 9,446,701 bytes (≈2.83 MB gzip) because the cap of ~20 links per character is gone and two editions were added. `loadCharacters` fetches the whole file for whichever edition is open, so a KJV reader would download BSB and WEBC links as well. Per-edition slices are 1.7 MB (kjv-en), 1.7 MB (web-en), 3.9 MB (bsb-en) and 2.1 MB (webc-en) before gzip; their hashes are in `MANIFEST.json`. Splitting into per-edition sidecar files (or trimming the loader to read one edition) is a code change I did not make; the schema does not need to change for it.
+The live file is 1,483,305 bytes (≈0.60 MB gzip). The candidate is 10,735,192 bytes (≈2.92 MB gzip) because the cap of ~20 links per character is gone and two editions were added. `loadCharacters` fetches the whole file for whichever edition is open, so a KJV reader would download BSB and WEBC links as well. Per-edition slices are 2.0 MB (kjv-en), 2.0 MB (web-en), 4.2 MB (bsb-en) and 2.5 MB (webc-en) before gzip; their hashes are in `MANIFEST.json`. Splitting into per-edition sidecar files (or trimming the loader to read one edition) is a code change I did not make; the schema does not need to change for it.
 
 ## What moves in the reader
 
@@ -96,6 +96,7 @@ God/the LORD (20 links), the Ark of the Covenant (14), the Temple (12–13), Bab
 
 ## Other things worth knowing
 
+- **New card kind.** `israel-the-people` has `kind: "people"` (all other cards are `person` or `spirit`). The verifier accepts any string kind; check that card rendering does not switch on kind.
 - Offsets are UTF-16 code units on `normalizeParagraph` text (newline → space, runs of spaces collapsed) — identical to the live convention. The verse-number superscripts are part of the text; no link touches them.
 - BSB has 38,464 paragraphs; a single verse can be several paragraphs. Nothing depends on cross-edition paragraph equality: the package never maps a paragraph index between editions.
 - The WEB text contains bracketed additions (“[the house of] Aaron”) and en-dash-free double hyphens (“--Jesus”); the scanner reads a name that follows “--”, which the old sampled links never reached (1 Thess 1:10).

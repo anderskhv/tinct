@@ -10,16 +10,16 @@ Cards now link **every** appearance of each named person (name and real name var
 
 |  | kjv-en | web-en | bsb-en | webc-en |
 |---|---|---|---|---|
-| Characters | 149 | 149 | 149 | 195 |
-| **Links** | **9,948** | **10,026** | **11,034** | **11,175** |
+| Characters | 150 | 150 | 150 | 196 |
+| **Links** | **12,628** | **12,714** | **13,114** | **14,049** |
 | Links in the live file (fe699e90) | 1,444 | 1,437 | — | — |
 | David / Jesus / Moses links (live: 20 / 20 / 20) | 980 / 1,541 / 847 | 1,054 / 1,532 / 849 | 1,041 / 1,971 / 870 | 1,064 / 1,538 / 877 |
 | Ambiguous occurrences decided one by one | 957 | 941 | 1,018 | 1,447 |
-| Independently re-decided (blind) | 1,582 (agree 99.5%) | 1,555 (agree 99.6%) | 1,698 (agree 99.4%) | 2,341 (agree 99.6%) |
+| Independently re-decided (blind) | 1,582 (agree 99.4%) | 1,555 (agree 99.5%) | 1,698 (agree 99.6%) | 2,341 (agree 99.7%) |
 | Link sample audited (≥300 required) | 538 | 537 | 534 | 423 |
 | Pinned `sourceSha256` (first 12) | `53823ea3d19a…` | `b0f491656782…` | `8da0bc1ae32d…` | `695cff11f0ec…` |
 
-`package/bible.v1.json`: 9,446,701 bytes, SHA-256 `740258f37b4944efb105e40bb32b6e22d18d262548d2154f77ac271d3f24c9ed`. Same schema and the same 149 ids as the live file, plus 46 new ids in `webc-en`. The app’s own `verifyCharacters`/`resolveCharacter`/`releasedCard` accept it for all four editions with every mention resolving to its own card.
+`package/bible.v1.json`: 10,735,192 bytes, SHA-256 `1b1f6e89d96cf4cfc478e4beb8ab1a70e943ad00f8400687d16089c8b237f5cb`. Same schema and the same 149 ids as the live file, plus 46 new ids in `webc-en`. The app’s own `verifyCharacters`/`resolveCharacter`/`releasedCard` accept it for all four editions with every mention resolving to its own card.
 
 ## Contents
 
@@ -44,7 +44,7 @@ All confirmed against the exact spans and fixed in all four editions: Luke 2:16 
 ## Open questions for Anders
 
 1. **Non-person cards.** God/the LORD (20 links), Ark (14), Temple (12–13), Babylon (14) and Zion (8) were carried forward *unexpanded*: “complete coverage” of God/LORD would add about 4,000–4,400 “God” and 6,500–6,800 “LORD/Yahweh” links per edition and is a product call. Holy Spirit, the Word, the Lamb and the serpent are complete by exact phrase.
-2. **Poetic Jacob/Israel.** Following the policy, the patriarch’s name used for the *people* in poetry and prophecy (Ps 105:23, Ezek 28:25 and 37:25, Mic 7:20, Isa 58:14, Malachi 1:2–3 as nations) is **not** linked, while patriarch formulas, genealogies, narrative and NT retrospectives are. The blind reviewers repeatedly read those verses as the man (most of the 35 remaining reviewer disagreements in `RULINGS.md`). If you prefer linking them, it is a one-rule change.
+2. **Jacob / Israel meaning the people — done, as you chose (option A).** A new card `israel-the-people` (“Israel (the people)”) is linked wherever the name means the nation: children/house/kingdom of Israel, God/King/Holy One of Israel, Jacob and Israel in the Psalms and prophets, Numbers 23–24, the tribal blessings, the New Testament. That is about 2,000–2,700 links per edition. Where the verse is about the man — patriarch formulas, “son of Israel”, “born to Israel”, “Esau Jacob’s brother”, “my servant Jacob” and the like — the link stays on the patriarch card. Judah, Joseph, Levi etc. as tribes are still not linked. **God, the LORD, the Ark, the Temple, Babylon and Zion remain unexpanded (question 1); tell me if “everywhere” was meant to cover them too.**
 3. **Catholic-only figures** — done in this round at your request. 46 new cards in `webc-en`: the first 26 (Tobit … Jesus ben Sira) plus Nicanor, Bacchides, Alcimus, Gorgias, Tryphon, Lysias, Razis, Bagoas, Manasses (Judith’s husband), Gabael, Demetrius I and II, Alexander Balas, Ptolemy Philometor / son of Dorymenes / son of Abubus, Jason the high priest and three Apolloniuses (of Samaria, of Coelesyria, son of Menestheus). Same-name people whose identity the text does not settle stay **unlinked** and are recorded: Nicanor of Cyprus, Bacchides at 2 Macc 8:30, Ptolemy (1 Macc 15:16; 2 Macc 6:8, 8:8–9, 10:12), Apollonius of Tarsus / the ‘lord of pollutions’ / son of Gennaeus, Jason son of Eleazar and Jason of Cyrene, Alexander the Great, and Gabael the ancestor in Tobit 1:1. The mother and seven sons of 2 Macc 7 are never named in the text, so there is no name to link.
 4. **Contested links kept** (Joshua 21:13 “children of Aaron”, “David their king” in the prophets, Levi = Matthew, and the others in `RULINGS.md`) are listed so you can overrule them.
 
