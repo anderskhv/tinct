@@ -30,3 +30,12 @@ Owned paths: `books/wip/alice-in-wonderland/` and `books/raw/alice-in-wonderland
 ## Source correction before chapter 10 rendering
 
 Close reading found two inline apparatus labels in chapter 10, paragraphs 59 and 70: `[later editions continued as follows`. The labels and closing brackets are excluded, but every verse line they introduce is retained as its own source paragraph. This edition therefore includes the later-edition continuations explicitly supplied by Gutenberg’s Millennium Fulcrum text; it is not claimed to reproduce the first impression of 1865. Chapter 10 paragraph 77 rejoins the source hard-wrap inside “pennyworth”. No paragraph identities or counts change. Earlier chapters and their gate excerpts are unchanged. The original’s earlier checkpoint hash was `c7d770162fd2dbc6cfc829d8e74f22f8cb403e88dbea219a9aaae37512683134`; use the corrected hash above for subsequent review.
+
+## Primary source for acclaim
+
+Langford Reed, Foreword to Lewis Carroll, *Further Nonsense Verse and Prose* (New York: D. Appleton and Company, 1926), p. 11. Project Gutenberg eBook 77627: https://www.gutenberg.org/ebooks/77627 states “Public domain in the USA.” Header Title/Author/Editor were verified before extracting the quotation. This is Reed’s own evaluative writing, a primary source for his opinion, not independent verification of his general claim about reception. Only the short attributed excerpt appears in onboarding. No illustrations from this volume are used.
+
+- Download: https://www.gutenberg.org/cache/epub/77627/pg77627.txt
+- Raw file: `books/raw/alice-in-wonderland/acclaim-pg77627.txt`
+- SHA-256: `39f0502400e1191c4ca7aae93f9bac3bb02a14b619133fff4d9be0c4864562fa`
+- Exact excerpt verified after whitespace unwrapping: “Few books have met with such unequivocal praise from the critics and such instantaneous favour from the public”. The excerpt ends at a clause boundary; the source continues with Reed’s opinion about the book’s popularity.
