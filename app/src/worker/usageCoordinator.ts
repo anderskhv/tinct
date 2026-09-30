@@ -49,12 +49,12 @@ export class UsageCoordinator extends DurableObject {
 
   async alarm(): Promise<void> {
     const row = this.ctx.storage.sql.exec<{ reset_at: number }>('SELECT reset_at FROM request_window WHERE id=1').toArray()[0]
-    const hasSpend = this.ctx.storage.sql.exec<{ n: number }>('SELECT COUNT(*) AS n FROM spend').one().n > 0
     if (row && Date.now() < row.reset_at) {
       await this.ctx.storage.setAlarm(row.reset_at)
       return
     }
-    if (!hasSpend) await this.ctx.storage.deleteAll()
-    else this.ctx.storage.sql.exec('DELETE FROM request_window')
+    // Clear rows, never drop tables: the live instance created its schema once
+    // in the constructor and keeps serving hits after this alarm.
+    this.ctx.storage.sql.exec('DELETE FROM request_window')
   }
 }
