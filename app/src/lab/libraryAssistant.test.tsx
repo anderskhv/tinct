@@ -9,9 +9,11 @@ const mocks = vi.hoisted(() => ({
   stop: vi.fn(),
   unlockAudio: vi.fn(),
   setMicMuted: vi.fn(),
+  currentToken: null as string | null,
 }))
 
 vi.mock('../hooks/useAuth', () => ({ useAuth: () => mocks.auth }))
+vi.mock('./labAuth', async (original) => ({ ...(await original<typeof import('./labAuth')>()), readSupabaseAccessToken: async () => mocks.currentToken }))
 vi.mock('../hooks/useVoiceSession', () => ({
   useVoiceSession: () => ({
     state: 'listening', activity: 'listening', connection: 'connected', micMuted: false,
@@ -34,6 +36,7 @@ beforeEach(() => {
   vi.stubGlobal('matchMedia', vi.fn(() => ({matches:true,addEventListener:vi.fn(),removeEventListener:vi.fn()})))
 
   mocks.auth = { user: { id: 'user-a' }, session: { access_token: 'token-a' }, isLoading: false }
+  mocks.currentToken = null
   mocks.start.mockClear(); mocks.stop.mockClear(); mocks.unlockAudio.mockClear(); mocks.setMicMuted.mockClear()
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(catalogue), { status: 200, headers: { 'Content-Type': 'application/json' } })))
 })
@@ -86,6 +89,37 @@ describe('library assistant lifecycle', () => {
     view.rerender(<LibraryAssistant />)
     await waitFor(() => expect(chatSignal?.aborted).toBe(true))
     expect(screen.queryByText('Something about justice')).toBeNull()
+  })
+})
+
+describe('signed-in librarian chat', () => {
+  const route = (chat: (init?: RequestInit) => Response) => vi.mocked(fetch).mockImplementation(async (url, init) => {
+    if (String(url).includes('/api/chat') || String(url).includes('/api/lab-chat')) return chat(init)
+    if (String(url).includes('catalogue.json')) return new Response(JSON.stringify(catalogue), { status: 200, headers: { 'Content-Type': 'application/json' } })
+    return new Response('[]', { status: 200, headers: { 'Content-Type': 'application/json' } })
+  })
+  const ask = async () => {
+    render(<LibraryAssistant />)
+    fireEvent.click(screen.getByRole('button', { name: 'Chat' }))
+    const field = await screen.findByRole('textbox', { name: 'Message the librarian' })
+    fireEvent.change(field, { target: { value: 'Something about justice' } })
+    fireEvent.submit(field.closest('form')!)
+  }
+
+  it('sends the current session token, not the one held since the page opened', async () => {
+    mocks.currentToken = 'token-current'
+    const seen: string[] = []
+    route(init => { seen.push(String((init?.headers as Record<string, string>)?.Authorization)); return new Response('', { status: 500 }) })
+    await ask()
+    await waitFor(() => expect(seen).toEqual(['Bearer token-current']))
+  })
+
+  it('never tells a signed-in reader to sign in or shows the guest allowance', async () => {
+    route(() => new Response(JSON.stringify({ error: 'Authentication required' }), { status: 401 }))
+    await ask()
+    expect(await screen.findByText('Your sign-in has expired. Please sign in again.')).toBeTruthy()
+    expect(screen.queryByText('Sign in to continue with the librarian.')).toBeNull()
+    expect(screen.queryByText(/free AI interactions/)).toBeNull()
   })
 })
 

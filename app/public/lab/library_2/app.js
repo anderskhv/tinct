@@ -226,7 +226,7 @@ async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
  $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
- assistantLoading=import('/lab/library-2-assistant.js?v=20260928-omarchy').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+ assistantLoading=import('/lab/library-2-assistant.js?v=20260930-token').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
   returnTo:location.pathname+location.search,

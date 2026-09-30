@@ -11,6 +11,8 @@ import { decideLabAiAction, gateLabAiAction, labSignInHref } from './lab/labAcco
 import { LabChatError, isAiRestingError, labChatErrorType, readAnthropicResponse } from './lab/labCompanion'
 import { LAB_COPY } from './lab/labCopy'
 import { apiUrl } from './utils/apiUrl'
+import { readSupabaseAccessToken } from './lab/labAuth'
+import { supabase } from './services/supabase'
 import type { ChatMessage } from './types'
 import labVoiceCss from './lab/lab.css?inline'
 import {
@@ -274,20 +276,32 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
     setSending(true)
     setFailedQuestion(null)
     try {
-      const response = await fetch(apiUrl(token ? '/api/chat' : '/api/lab-chat'), {
+      const post = (bearer: string | null) => fetch(apiUrl(bearer ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         signal: controller.signal,
-        headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        headers: { 'Content-Type': 'application/json', ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}) },
         body: JSON.stringify({
           stream: true,
           companion: { intent: 'library', library: { contextBookId: contextBook?.id ?? null } },
           messages: history.map(turn => ({ role: turn.role, content: turn.content })),
         }),
       })
+      // The held session token can be stale after a device sleeps; read the
+      // current one, and refresh once if the Worker still rejects it.
+      const bearer = signedIn ? (await readSupabaseAccessToken().catch(() => null)) ?? token : null
+      let response = await post(bearer)
+      if (response.status === 401 && bearer && supabase) {
+        const refreshed = (await supabase.auth.refreshSession().catch(() => null))?.data.session?.access_token
+        if (refreshed && request === requestRef.current) response = await post(refreshed)
+      }
       if (request !== requestRef.current) return
       if (response.status === 401 || response.status === 402) {
-        showAccount('chat', text)
-        throw new Error('account')
+        if (!signedIn) {
+          showAccount('chat', text)
+          throw new Error('account')
+        }
+        const detail = response.status === 402 ? ((await response.json().catch(() => null)) as { error?: string } | null)?.error : null
+        throw new Error(response.status === 402 ? `allowance:${detail || 'No messages remaining.'}` : 'session')
       }
       if (!response.ok) throw new LabChatError(await labChatErrorType(response))
       const answer = await readAnthropicResponse(response, accumulated => {
@@ -300,7 +314,7 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
       if (controller.signal.aborted || request !== requestRef.current) return
       setFailedQuestion(text)
       setTurns(current => current.map(turn => turn.id === assistantId
-        ? { ...turn, pending: false, error: true, content: error instanceof Error && error.message === 'account' ? 'Sign in to continue with the librarian.' : isAiRestingError(error) ? LAB_COPY.aiResting : 'The librarian was interrupted. Please try again.' }
+        ? { ...turn, pending: false, error: true, content: error instanceof Error && error.message === 'account' ? 'Sign in to continue with the librarian.' : error instanceof Error && error.message === 'session' ? 'Your sign-in has expired. Please sign in again.' : error instanceof Error && error.message.startsWith('allowance:') ? error.message.slice(10) : isAiRestingError(error) ? LAB_COPY.aiResting : 'The librarian was interrupted. Please try again.' }
         : turn))
     } finally {
       if (request === requestRef.current) setSending(false)
