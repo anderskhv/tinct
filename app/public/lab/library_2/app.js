@@ -4,12 +4,13 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260930jr';
+import {mountBookshelf} from './bookshelf.js?v=20260930ed';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260930jr';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260930fix';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260930ed';
+import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
+import {mountSceneVideo} from './scene-video.js?v=20260930film';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928covers';
@@ -94,7 +95,9 @@ function cropForScene(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&ph
 let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
 if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
 addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
-function drawScene(time){const canvas=$('scene'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(devicePixelRatio||1,2);if(!w||!h)return;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const wide=w/h>1.2;const fade=reduced.matches||!sceneFrom?1:ease(clamp((time-sceneStart)/SCENE_FADE,0,1));if(fade===1)sceneFrom=null;const layer=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||alpha<=0)return;const c=cropForScene(id,w,h,img,img.naturalWidth>img.naturalHeight);ctx.globalAlpha=alpha;ctx.drawImage(scenePainting(img,id),c.x,c.y,c.w,c.h,0,0,w,h);ctx.globalAlpha=1;};if(sceneFrom)layer(sceneFrom,1);layer(sceneTo,fade);drawBookGround(ctx);if(!reduced.matches){const life=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||id==='frankenstein')return;const imageWide=img.naturalWidth>img.naturalHeight;drawSceneLife(ctx,id,imageWide,img,cropForScene(id,w,h,img,imageWide),alpha,time);};if(sceneFrom)life(sceneFrom,1-fade);life(sceneTo,fade);}const rain=(sceneTo==='frankenstein'?fade:0)+(sceneFrom==='frankenstein'?1-fade:0);if(reduced.matches||rain<=0)return;const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);ctx.save();ctx.globalAlpha=rain;ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);ctx.beginPath();(wide?widePanes:panes).forEach(p=>{ctx.moveTo(...p[0]);p.slice(1).forEach(q=>ctx.lineTo(...q));ctx.closePath();});ctx.clip();if(!wide){ctx.beginPath();ctx.rect(0,0,1183,1330);ctx.rect(492,178,202,378);ctx.clip('evenodd');}ctx.lineWidth=1.05;for(let i=0;i<140;i++){const x=(wide?1040:520)+(i*73.39)%(wide?520:660),y=((time*.10+i*51.79)%(wide?525:510))-20;ctx.strokeStyle=`rgba(212,235,218,${.15+(i%4)*.04})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1.3,y+13+(i%7));ctx.stroke();}ctx.restore();}
+// Desktop film loops of the wide paintings; the canvas composites their frames.
+const sceneVideo=mountSceneVideo($('hero'),$('scene'));
+function drawScene(time){const canvas=$('scene'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(devicePixelRatio||1,2);if(!w||!h)return;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const wide=w/h>1.2;const fade=reduced.matches||!sceneFrom?1:ease(clamp((time-sceneStart)/SCENE_FADE,0,1));if(fade===1)sceneFrom=null;const current=sceneImage(sceneTo,wide);sceneVideo.sync(sceneTo,wide&&!!current&&current.naturalWidth>current.naturalHeight);const layer=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||alpha<=0)return;const imageWide=img.naturalWidth>img.naturalHeight,c=cropForScene(id,w,h,img,imageWide);ctx.globalAlpha=alpha;ctx.drawImage(scenePainting(img,id),c.x,c.y,c.w,c.h,0,0,w,h);ctx.globalAlpha=1;const film=imageWide&&wide&&sceneVideo.frame(id);if(film)drawSceneFilm(ctx,id,film,img,c,w,h,alpha);};if(sceneFrom)layer(sceneFrom,1);layer(sceneTo,fade);drawBookGround(ctx);if(!reduced.matches){const life=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||id==='frankenstein')return;const imageWide=img.naturalWidth>img.naturalHeight;drawSceneLife(ctx,id,imageWide,img,cropForScene(id,w,h,img,imageWide),alpha,time);};if(sceneFrom)life(sceneFrom,1-fade);life(sceneTo,fade);}const rain=((sceneTo==='frankenstein'?fade:0)+(sceneFrom==='frankenstein'?1-fade:0))*(1-(wide&&sceneVideo.frame('frankenstein')?.alpha||0));if(reduced.matches||rain<=0)return;const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);ctx.save();ctx.globalAlpha=rain;ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);ctx.beginPath();(wide?widePanes:panes).forEach(p=>{ctx.moveTo(...p[0]);p.slice(1).forEach(q=>ctx.lineTo(...q));ctx.closePath();});ctx.clip();if(!wide){ctx.beginPath();ctx.rect(0,0,1183,1330);ctx.rect(492,178,202,378);ctx.clip('evenodd');}ctx.lineWidth=1.05;for(let i=0;i<140;i++){const x=(wide?1040:520)+(i*73.39)%(wide?520:660),y=((time*.10+i*51.79)%(wide?525:510))-20;ctx.strokeStyle=`rgba(212,235,218,${.15+(i%4)*.04})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1.3,y+13+(i%7));ctx.stroke();}ctx.restore();}
 
 // Paint contact and cast shadows on the actual table, away from the room light.
 const coverReflections=new WeakMap();
@@ -118,7 +121,7 @@ $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>se
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
 const editionChoices=new Map();
 function availableEditions(){return (activeBook.editions||[]).filter(e=>e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
-function choices(){const available=availableEditions();if(!editionChoices.has(activeBook.id))editionChoices.set(activeBook.id,{main:available.find(e=>e.key===activeBook.defaultEditionKey)?.key||available[0]?.key||null});return editionChoices.get(activeBook.id);}
+function choices(){const available=availableEditions();if(!editionChoices.has(activeBook.id)){const main=available.find(e=>e.key===activeBook.defaultEditionKey)?.key||available[0]?.key||null;editionChoices.set(activeBook.id,{main,compare:null,explicit:false});}const picked=editionChoices.get(activeBook.id);if(!('compare' in picked))picked.compare=null;return picked;}
 let pageLocked=false,lockedScroll=0;function syncLock(){const lock=!!(activeBook||searchOpen||menuOpen||mode!=='minimized');if(lock===pageLocked)return;pageLocked=lock;if(!lock)queueMicrotask(()=>dispatchEvent(new Event('library2:interactive')));if(lock){lockedScroll=scrollY;Object.assign(document.body.style,{position:'fixed',top:-lockedScroll+'px',left:'0',right:'0',overflow:'hidden'});}else{for(const key of ['position','top','left','right','overflow'])document.body.style[key]='';scrollTo({top:lockedScroll,behavior:'instant'});}}
 function rectOf(c){const r=c.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};}
 export function bookDestination(){const dest=destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches);if(dest.tour){const u=ease(tourProgress),height=window.visualViewport?.height||innerHeight;const short=height<500,pageWidth=Math.min((innerWidth-40)/.66,short?620:(height-128)/1.5,620),pageHeight=short?height-128:pageWidth*1.5;dest.x=mix(20+pageWidth,0,u);dest.y=mix(60+(height-128-pageHeight)/2,0,u);dest.w=mix(pageWidth,innerWidth,u);dest.h=mix(pageHeight,height,u);}return dest;}
@@ -173,11 +176,23 @@ function renderIntro(){
  }
 
  else {
-  const field=el('section','edition-field');field.append(el('h3','','Reading edition'));
-  const versions=availableEditions();
-  versions.forEach(version=>{const b=el('button','edition-option');b.append(el('strong','',version.label||version.key));if(version.provenanceLabel)b.append(el('small','',version.provenanceLabel));b.setAttribute('aria-pressed',String(choices().main===version.key));b.onclick=()=>{choices().main=version.key;renderIntro();};field.append(b);});
-  if(!versions.length)field.append(el('p','','No edition is currently available to start.'));
-  body.append(field);
+  // Two dropdowns: the edition to read, and an optional edition to compare with
+  // (None by default: the single-edition view is the default, Compare is opt-in).
+  const versions=availableEditions(),picked=choices();
+  const dropdown=(label,options,current,onPick)=>{
+   const field=el('section','edition-field');field.append(el('h3','',label));
+   const details=el('details','edition-select'),summary=el('summary'),chosen=options.find(o=>o.key===current)||options[0];
+   summary.setAttribute('aria-label',label);summary.append(el('span','',chosen?.label||''),el('span','chevron','⌄'));details.append(summary);
+   const list=el('div','edition-options');
+   options.forEach(option=>{const b=el('button','edition-option');b.type='button';b.append(el('strong','',option.label));if(option.note)b.append(el('small','',option.note));b.setAttribute('aria-pressed',String(option.key===(chosen?.key??null)));b.onclick=()=>{details.open=false;onPick(option.key);};list.append(b);});
+   details.append(list);details.ontoggle=()=>{if(details.open)all('.edition-select').forEach(d=>{if(d!==details)d.open=false;});};
+   field.append(details);if(chosen?.note)field.append(el('p','edition-note',chosen.note));body.append(field);
+  };
+  const asOption=v=>({key:v.key,label:v.label||v.key,note:v.provenanceLabel||''});
+  if(versions.length){
+   dropdown('Reading edition',versions.map(asOption),picked.main,key=>{picked.main=key;picked.explicit=true;if(picked.compare===key)picked.compare=null;renderIntro();});
+   if(versions.length>1)dropdown('Compare with',[{key:null,label:'None',note:''},...versions.filter(v=>v.key!==picked.main).map(asOption)],picked.compare??null,key=>{picked.compare=key;renderIntro();});
+  }else{const field=el('section','edition-field');field.append(el('p','','No edition is currently available to start.'));body.append(field);}
  }
  fitIntroFooter();
 }
@@ -186,7 +201,7 @@ function resetIntroScroll(){for(const id of ['intro','intro-body','paper'])$(id)
 all('[data-tab]').forEach(b=>{b.onclick=()=>{currentTab=b.dataset.tab;renderIntro();};b.onkeydown=e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const tabs=all('[data-tab]').filter(t=>!t.hidden);const i=tabs.indexOf(b);tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length].click();all('[data-tab]').find(t=>t.getAttribute('aria-selected')==='true').focus();};});
 // Straight into the production reader at the reader's place: one short fade, no intermediate pages.
 let leaving=false;
-async function startReading(){if(leaving||!activeBook)return;leaving=true;try{const href=await readerDestination(activeBook,choices().main);if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});document.body.classList.add('leaving');location.assign(href);}catch{leaving=false;document.body.classList.remove('leaving');notice('This edition could not open. Please try again.');}}
+async function startReading(){if(leaving||!activeBook)return;leaving=true;try{const picked=choices(),href=await readerDestination(activeBook,picked.main,{compare:picked.compare,explicit:picked.explicit});if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});document.body.classList.add('leaving');location.assign(href);}catch{leaving=false;document.body.classList.remove('leaving');notice('This edition could not open. Please try again.');}}
 $('begin-reading').onclick=startReading;
 addEventListener('pageshow',event=>{if(event.persisted){
  // Browser Back restores the library scene, not the preface we left behind.
@@ -427,7 +442,7 @@ const bookshelf=mountBookshelf({hero:$('hero'),enabled:()=>!activeBook&&!searchO
  }
 });
 const linkedBook=new URLSearchParams(location.search).get('book');
-if(linkedBook)loadCatalogueData().then(data=>{const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return;let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);}const requested=new URLSearchParams(location.search).get('edition');if(entry.editions?.some(e=>e.key===requested&&e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested});return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>notice('This book could not load. Please try again.'));
+if(linkedBook)loadCatalogueData().then(data=>{const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return;let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);}const requested=new URLSearchParams(location.search).get('edition');if(entry.editions?.some(e=>e.key===requested&&e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>notice('This book could not load. Please try again.'));
 
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
 drawOrb(performance.now());document.documentElement.classList.add('library-ready');

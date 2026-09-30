@@ -237,19 +237,28 @@ export async function introductionProgress(bookId: string): Promise<{ chapterNum
  * hand-off the production library writes and returns the URL to open; the
  * book page is the fallback when no readable edition is known.
  */
-export async function readerDestination(bookId: string, preferredEdition?: string | null): Promise<string> {
+export async function readerDestination(
+  bookId: string,
+  preferredEdition?: string | null,
+  /** From the introduction's edition dropdowns: an explicit pick wins over the saved edition. */
+  choice?: { compare?: string | null; explicit?: boolean },
+): Promise<string> {
   await ensureNativeBook(bookId)
   const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
   const book = books.get(bookId)
   const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
   const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
-  const edition = [saved, preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null].find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
+  const preferred = preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null
+  const order = choice?.explicit ? [preferred, saved] : [saved, preferred]
+  const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
+  const compare = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null
   const intent = {
     kind: 'open-reader',
     resumeLatest: true,
     bookId,
     primaryEditionKey: edition,
+    ...(compare ? { compareEditionKey: compare } : {}),
     // A new reader has already met the book in the library's introduction, so
     // they start on page one rather than on the reader's own cover page.
     savedPlace: place

@@ -353,3 +353,23 @@ it('leads the first paint with the book the reader just left, before the account
  expect(calls.readingList).not.toHaveBeenCalled();
  completed.resolve({data:[],error:null});await result;
 })
+
+it('an edition picked in the introduction wins over the saved one, keeps the place, and carries the compare edition', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.memory.mockResolvedValue(null)
+  calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  const target={chapterNumber:7,pageIndex:4,paragraphIndex:11,wordIndex:23,editionKey:'original-en',chapterLabel:'Chapter 7',at:Date.now()}
+  calls.readingList.mockReturnValue({readingNow:[{bookId:'frankenstein',target,finishedChapters:[],progress:'middle',lastActiveAt:Date.now(),session:null}],finished:[]})
+  const api=await import('./libraryTwoReading')
+  await api.loadReadingTable({catalogue:Promise.resolve({books:[{id:'frankenstein',title:'Frankenstein',author:'Mary Shelley',defaultEditionKey:'modern-en',editions:[{key:'original-en',language:'en',style:'original'},{key:'modern-en',language:'en',style:'modern'}],readingStructure:{chapters:[{number:7,title:'Chapter 7',paragraphCount:40}]}}]})})
+  // Not an explicit pick (the default shown): the saved edition still wins.
+  await api.readerDestination('frankenstein','modern-en',{compare:null,explicit:false})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({primaryEditionKey:'original-en'})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareEditionKey).toBeUndefined()
+  await api.readerDestination('frankenstein','modern-en',{compare:'original-en',explicit:true})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({primaryEditionKey:'modern-en',compareEditionKey:'original-en',savedPlace:{chapterNumber:7,paragraphIndex:11,wordIndex:23}})
+  // A compare edition equal to the reading edition is dropped.
+  await api.readerDestination('frankenstein','modern-en',{compare:'modern-en',explicit:true})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareEditionKey).toBeUndefined()
+})
