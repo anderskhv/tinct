@@ -797,7 +797,7 @@ async function antigoneAudioAvailability(engine,name) {
     await state.context.close()
     state=await boot(browser,false,'antigone','modern-en',10,{narrationEnabled:true})
     await state.page.getByRole('button',{name:'Play',exact:true}).click()
-    await state.page.getByRole('heading',{name:'Sign in to listen',exact:true}).waitFor()
+    await state.page.getByRole('heading',{name:'Create a free account to keep listening',exact:true}).waitFor()
     await state.page.getByTestId('lab-account-sign-in').waitFor()
     assert.equal(await state.page.locator('.lab-listen-error').count(),0,'Signed-out narration uses the account card, not an error strip')
     assert.equal(await state.page.getByRole('button',{name:'Retry',exact:true}).count(),0)

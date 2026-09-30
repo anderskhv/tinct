@@ -1,7 +1,7 @@
 // Reviewed prose handoff, 29 September 2026. Keep source wording exact.
 // Chapter-aware reader character stores remain separate from this library gallery.
 export const reviewedHooks = {
-  "frankenstein": "What happens when we create a new intelligence but refuse to recognise and honor its personhood?",
+  "frankenstein": "What do we owe to the intelligence we create?",
   "pride-and-prejudice": "What if you're wrong about the person you can't stand?",
   "odyssey": "Would you refuse to become a god?",
   "crime-and-punishment": "Can you circumvent the moral order?",
@@ -106,7 +106,7 @@ export const reviewedHooks = {
 const pending = new Map();
 export async function loadReviewedIntroduction(book) {
   if (!Object.hasOwn(reviewedHooks, book.id)) return false;
-  if (!pending.has(book.id)) pending.set(book.id, fetch('/lab/library_2/intro-data/' + encodeURIComponent(book.id) + '.json?v=20260929complete')
+  if (!pending.has(book.id)) pending.set(book.id, fetch('/lab/library_2/intro-data/' + encodeURIComponent(book.id) + '.json?v=20260930fix')
     .then(response => { if (!response.ok) throw new Error('Introduction unavailable'); return response.json(); })
     .catch(error => { pending.delete(book.id); throw error; }));
   applyReviewedIntroduction(book, await pending.get(book.id));

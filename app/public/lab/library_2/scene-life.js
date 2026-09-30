@@ -253,7 +253,10 @@ function rain(ctx,panes,key,time,alpha){
   });ctx.restore();
 }
 export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
-  const spec=SCENES[id]?.[wide?'wide':'phone'];if(!spec||alpha<=0||!img)return;
+  // Drawn candles, water and rain read as artificial on large screens (Anders,
+  // 2026-09-30): wide scenes stay as the still painting until a filmed loop exists.
+  if(wide)return;
+  const spec=SCENES[id]?.phone;if(!spec||alpha<=0||!img)return;
   ctx.save();ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);
   // A little breeze in the painted foliage, confined inside the glass panes.
   // Reuse the painting itself; neither the mullions nor the bridge can move.

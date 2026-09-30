@@ -11,7 +11,7 @@ import {
   type LabAudioClip,
   type LabAudioTitleClip,
 } from './labListen'
-import { sentenceStartWordIndex, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips } from './labHearing'
+import { listeningSentenceStart, nextHearingSpeed, parseHearingSpeed, playbackTimeSeconds, seekAcrossClips, tokenizeHearingWords } from './labHearing'
 import { setAudioSource } from '../utils/audioPlayback'
 import { isNativeCapacitor } from '../utils/nativePlatform'
 import {readerMediaSession, readerMediaMetadata, playReaderAudioTransition, playReaderAudio, endNativeNarration} from '../utils/readerMediaSession'
@@ -149,6 +149,16 @@ function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
 
 function waitingForNarration(clip: LabAudioClip | undefined, audio: HTMLAudioElement): boolean {
   return clip?.kind === 'paragraph' && !!clip.narration && (!clip.url || !audio.src.endsWith(clip.url))
+}
+
+/**
+ * 8 ms of silence. Played muted inside a tap to unlock the narration element
+ * (see `unlockPlayback`); never heard and never a narration source.
+ */
+export const LAB_SILENT_UNLOCK_SRC = 'data:audio/wav;base64,UklGRmQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YUAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA'
+
+function isUnlockSource(audio: HTMLAudioElement): boolean {
+  return typeof audio.src === 'string' && audio.src.startsWith('data:audio/wav;base64,UklGRmQ')
 }
 
 function defaultCreateAudio(): HTMLAudioElement {
@@ -697,6 +707,7 @@ export function useLabListen(options: UseLabListenOptions) {
       endNativeNarration()
     }
     const handleTimeUpdate = () => {
+      if (primingRef.current || isUnlockSource(audio)) return
       const current = clipsRef.current[clipIndexRef.current]
       if (waitingForNarration(current, audio)) return
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
@@ -727,7 +738,7 @@ export function useLabListen(options: UseLabListenOptions) {
       playClipRef.current(next, 0)
     }
     const handleError = () => {
-      if (switchingRef.current) return
+      if (switchingRef.current || primingRef.current || isUnlockSource(audio)) return
       const current = clipsRef.current[clipIndexRef.current]
       if (current?.kind === 'paragraph' && current.narration) {
         if (!playingRef.current) return
@@ -748,6 +759,7 @@ export function useLabListen(options: UseLabListenOptions) {
       else if (!optionsRef.current.onChapterComplete?.()) finishPlayback()
     }
     const handlePlaying = () => {
+      if (primingRef.current) return
       if (!playingRef.current) {
         // A late native start after cancellation must stay silent.
         audio.autoplay = false
@@ -773,6 +785,10 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [setPending, syncFollow])
 
   const detachRef = useRef<(() => void) | null>(null)
+  const primingRef = useRef(false)
+  /** The element's own muted state from before the unlock clip muted it. */
+  const primingMutedRef = useRef(false)
+  const unlockedRef = useRef(false)
 
   const ensureAudio = useCallback((): HTMLAudioElement => {
     if (audioRef.current) return audioRef.current
@@ -817,6 +833,50 @@ export function useLabListen(options: UseLabListenOptions) {
     endNativeNarration()
   }, [])
 
+  /**
+   * Unlock the narration element inside a reader gesture. iOS WebKit lets an
+   * audio element start later, outside a gesture, only once it has played
+   * inside one. Audio that Talk or Chat starts ("play the audiobook") runs
+   * from a WebSocket or network callback, long after the tap; on an element
+   * that had never played, that first play() was refused and the reader saw
+   * "Audio couldn't start" until Retry (a tap) supplied the gesture. Call
+   * this synchronously from the tap that opens the companion. It plays 8 ms
+   * of muted silence once, then leaves the element empty. An element that
+   * already holds narration has played inside a gesture and is left alone.
+   */
+  const unlockPlayback = useCallback(() => {
+    if (unlockedRef.current || optionsRef.current.playbackUnavailable) return
+    const audio = ensureAudio()
+    if (audio.src || playingRef.current || pendingRef.current) { unlockedRef.current = true; return }
+    unlockedRef.current = true
+    primingRef.current = true
+    const wasMuted = Boolean(audio.muted)
+    primingMutedRef.current = wasMuted
+    try { audio.muted = true } catch { /* jsdom */ }
+    const finish = (unlocked: boolean) => {
+      if (!primingRef.current) return
+      primingRef.current = false
+      if (!unlocked) unlockedRef.current = false
+      // A real play request may already own the element; leave it be.
+      if (isUnlockSource(audio)) {
+        try { audio.pause() } catch { /* ignore */ }
+        try { audio.removeAttribute('src') } catch { /* ignore */ }
+      }
+      try { audio.muted = wasMuted } catch { /* jsdom */ }
+    }
+    try {
+      audio.src = LAB_SILENT_UNLOCK_SRC
+      // Calling play() inside the gesture is what unlocks the element; pause
+      // at once so nothing, not even silence, keeps the output. An abort from
+      // that pause still counts; a refusal (no gesture) tries again next tap.
+      const played = audio.play()
+      try { audio.pause() } catch { /* ignore */ }
+      Promise.resolve(played).then(() => finish(true), (error: unknown) => finish((error as Error)?.name === 'AbortError'))
+    } catch {
+      finish(false)
+    }
+  }, [ensureAudio])
+
   const playClip = useCallback((index: number, offsetSeconds: number, andPlay = true) => {
     pendingPlaceRef.current = null
     if (optionsRef.current.playbackUnavailable) return false
@@ -850,7 +910,17 @@ export function useLabListen(options: UseLabListenOptions) {
     switchingRef.current = true
     clipIndexRef.current = index
     setClipIndex(index)
+    // The clip and offset just chosen are the listening position now. The
+    // clock guard in syncFollow ignores a zero time on the same clip, so a
+    // jump back to a clip's first word would otherwise leave the previous
+    // offset behind for a later resume or retry to replay.
+    positionRef.current = { clipIndex: index, time: offsetSeconds }
     setSrc(url)
+    if (primingRef.current) {
+      // The unlock clip is still settling: this real request owns the element now.
+      primingRef.current = false
+      try { audio.muted = primingMutedRef.current } catch { /* jsdom */ }
+    }
     const sameSrc = audio.src === url || audio.src.endsWith(url)
     // At an automatic boundary, pausing the ended element before assigning
     // the next source makes WebKit hand lock-screen ownership back to the
@@ -1118,8 +1188,12 @@ export function useLabListen(options: UseLabListenOptions) {
   const seekToPlace = useCallback((paragraphIndex: number, wordIndex: number) => {
     const clips = clipsRef.current
     if (clips.length === 0) return
-    playPlace(clips, { paragraphIndex, wordIndex }, playing, false)
-  }, [playPlace, playing])
+    const andPlay = playingRef.current
+    playPlace(clips, { paragraphIndex, wordIndex }, andPlay, false)
+    // Paused: the chosen word is the place Play resumes from, so it is also
+    // the word painted as the paused listening place.
+    if (!andPlay) setFollow({ kind: 'word', paragraphIndex, wordIndex })
+  }, [playPlace])
 
   const pause = useCallback(() => {
     setPending(false)
@@ -1136,10 +1210,42 @@ export function useLabListen(options: UseLabListenOptions) {
     // Pause retains the verified last word; chapter/source changes still clear it.
   }, [setPending])
 
+  /** The word the listening position is on: a place still being prepared, or the current clip at its clock. */
+  const currentListenPlace = (): { paragraphIndex: number; wordIndex: number } | null => {
+    const pendingPlace = pendingPlaceRef.current
+    if (pendingPlace) return { paragraphIndex: pendingPlace.paragraphIndex ?? 0, wordIndex: pendingPlace.wordIndex ?? 0 }
+    const clip = clipsRef.current[clipIndexRef.current]
+    if (!clip || clip.kind !== 'paragraph') return null
+    const audio = audioRef.current
+    const loaded = Boolean(audio?.src && clip.url && audio.src.endsWith(clip.url))
+    const time = loaded ? playbackTimeSeconds(audio!.currentTime || 0, positionRef.current.time) : positionRef.current.time
+    const base = clip.chunk?.wordFrom ?? 0
+    const words = clip.words
+    if (!words?.length) return { paragraphIndex: clip.index, wordIndex: base }
+    let index = 0
+    while (index + 1 < words.length && words[index + 1].start <= time) index++
+    return { paragraphIndex: clip.index, wordIndex: base + index }
+  }
+
   const resume = useCallback((fromSentenceStart = false) => {
     if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
     const request = ++playRequestRef.current
     const audio = audioRef.current
+    const current = clipsRef.current[clipIndexRef.current]
+    const reenter = Boolean(pendingPlaceRef.current || (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !audio.src.endsWith(current.url))))
+    if (fromSentenceStart && reenter) {
+      // A recording that is not on the element yet: resume through the place,
+      // from the start of the sentence that holds it.
+      const place = currentListenPlace()
+      if (place) {
+        const text = narrationParagraphs().find(paragraph => paragraph.index === place.paragraphIndex)?.text
+          ?? optionsRef.current.paragraphs[place.paragraphIndex] ?? ''
+        const wordIndex = listeningSentenceStart(tokenizeHearingWords(text), place.wordIndex)
+        pendingPlaceRef.current = null
+        playPlaceRef.current(clipsRef.current, { paragraphIndex: place.paragraphIndex, wordIndex }, true)
+        return
+      }
+    }
     if (pendingPlaceRef.current) {
       playPlaceRef.current(clipsRef.current, pendingPlaceRef.current, true)
       return
@@ -1147,8 +1253,7 @@ export function useLabListen(options: UseLabListenOptions) {
     // Narration: the current clip may still need preparing, or its recording
     // arrived while paused and the element still holds the previous chunk;
     // either way re-enter through playClip rather than replaying the element.
-    const current = clipsRef.current[clipIndexRef.current]
-    if (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !audio.src.endsWith(current.url))) {
+    if (reenter) {
       playClip(clipIndexRef.current, positionRef.current.time)
       return
     }
@@ -1162,10 +1267,13 @@ export function useLabListen(options: UseLabListenOptions) {
       if (words?.length) {
         let index = 0
         while (index + 1 < words.length && words[index + 1].start <= audio.currentTime) index++
-        audio.currentTime = words[sentenceStartWordIndex(words, index)].start
+        const start = words[listeningSentenceStart(words, index)].start
+        audio.currentTime = start
+        positionRef.current = { clipIndex: clipIndexRef.current, time: start }
       } else {
         // Without verified word timings, the current paragraph is the safe boundary.
         audio.currentTime = 0
+        positionRef.current = { clipIndex: clipIndexRef.current, time: 0 }
       }
     }
     setPending(true)
@@ -1418,6 +1526,7 @@ export function useLabListen(options: UseLabListenOptions) {
     resume,
     stop,
     handoffChapter,
+    unlockPlayback,
     seek,
     seekChapter,
     cycleSpeed,

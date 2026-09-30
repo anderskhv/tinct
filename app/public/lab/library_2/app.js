@@ -1,15 +1,15 @@
-import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260929complete';
+import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260930fix';
 import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260930centre';
-import {authorPortrait,loadAuthorFlap,renderAuthorFlap} from './authors.js?v=20260929reviewed';
+import {mountBookshelf} from './bookshelf.js?v=20260930fix';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930fix';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260930centre';
-import {drawSceneLife,scenePainting} from './scene-life.js?v=20260928covers';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20260930fix';
+import {drawSceneLife,scenePainting} from './scene-life.js?v=20260930fix';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime} from './book-metadata.js?v=20260928covers';
@@ -61,7 +61,7 @@ loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e
  if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice!=='home')renderCollection();}).catch(()=>{});
 // Signature books: each has its own painted scene (assets/scene-<id>-{phone,wide}.jpg)
 // and pencil character studies. Frankenstein keeps the original rain room.
-const signature={'frankenstein':{hours:6,genre:'Fiction',question:'What do we owe the intelligence we create?',sketches:['Victor Frankenstein','the creature','Robert Walton'],sheet:'assets/frankenstein-character-studies.png'},'pride-and-prejudice':{hours:11,genre:'Fiction',question:'How far can we trust a first impression?',sketches:['Elizabeth Bennet','Mr. Darcy','Jane Bennet']},'odyssey':{hours:12,genre:'Poetry',question:'How far must we travel to find home?',sketches:['Odysseus','Penelope','Telemachus']},'crime-and-punishment':{hours:21,genre:'Fiction',question:'Can an idea make a crime right?',sketches:['Raskolnikov','Sonya Marmeladov','Porfiry Petrovich']},'the-prince':{hours:3,genre:'Politics',question:'Can a ruler afford to be good?',sketches:['Niccolò Machiavelli','Cesare Borgia']},'meditations':{hours:5,genre:'Philosophy',question:'How do we stay steady in a world we cannot control?',sketches:['Marcus Aurelius','Epictetus']}};
+const signature={'frankenstein':{hours:6,genre:'Fiction',question:'What do we owe to the intelligence we create?',sketches:['Victor Frankenstein','the creature','Robert Walton'],sheet:'assets/frankenstein-character-ink.png'},'pride-and-prejudice':{hours:11,genre:'Fiction',question:'How far can we trust a first impression?',sketches:['Elizabeth Bennet','Mr. Darcy','Jane Bennet']},'odyssey':{hours:12,genre:'Poetry',question:'How far must we travel to find home?',sketches:['Odysseus','Penelope','Telemachus']},'crime-and-punishment':{hours:21,genre:'Fiction',question:'Can an idea make a crime right?',sketches:['Raskolnikov','Sonya Marmeladov','Porfiry Petrovich']},'the-prince':{hours:3,genre:'Politics',question:'Can a ruler afford to be good?',sketches:['Niccolò Machiavelli','Cesare Borgia']},'meditations':{hours:5,genre:'Philosophy',question:'How do we stay steady in a world we cannot control?',sketches:['Marcus Aurelius','Epictetus']}};
 Object.keys(signature).forEach(id=>{if(reviewedHooks[id])signature[id].question=reviewedHooks[id];});
 const sceneIds=new Set(Object.keys(signature).filter(id=>id!=='frankenstein'));
 let featured=books[0],featureRequest=0,featuredTarget=0;const featuredBooks=Object.keys(signature).map(id=>books.find(b=>b.id===id)).filter(Boolean);
@@ -133,12 +133,11 @@ function appendEditorialText(target,copy){target.replaceChildren();String(copy||
 function setSlip(book){
  const mary=book.id==='frankenstein',flap=book.authorFlap;
  const portraits=book.authorImages||[];
- renderAuthorFlap(portraits,$('slip-images'),$('slip-image-credits'));
+ renderAuthorFlap(portraits,$('slip-images'));
  if(!portraits.length){const fallback=mary?{src:'assets/mary-shelley-portrait.jpg',alt:'Mary Shelley, painted by Richard Rothwell'}:authorPortrait(book.author);if(fallback){const image=el('img','author-flap-image');image.id='slip-portrait';image.src=fallback.src;image.alt=fallback.alt;$('slip-images').append(image);}}
  $('slip-caption').replaceChildren(el('span','',flap?[flap.name,flap.years].filter(Boolean).join(' · '):mary?book.author+' · 1797–1851':book.author));
  if(flap?.occupation)$('slip-caption').append(el('span','',flap.occupation));else if(mary)$('slip-caption').append(el('span','','English novelist'));
  if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.summary||book.preface[0];
- $('slip-invitation').textContent=book.hook||'';$('slip-invitation').hidden=!book.hook;
 }
 let introExpanded=false,introProgress=null;
 
@@ -157,15 +156,16 @@ function renderIntro(){
  document.querySelector('.intro-tabs').hidden=false;
  $('begin-reading').textContent='Begin reading →';$('begin-reading').disabled=!availableEditions().length;
  all('[data-tab]').forEach(b=>{b.hidden=false;b.setAttribute('aria-selected',String(b.dataset.tab===currentTab));b.tabIndex=b.dataset.tab===currentTab?0:-1;});
- if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);const signature=activeBook.prefaceSignature||(activeBook.id==='frankenstein'?'Anders K. Hvelplund, Copenhagen Sep 24, 2026':null);if(signature)body.append(el('p','preface-credit',signature));if(activeBook.orientation){const orientation=el('section','reading-orientation');orientation.append(el('h3','','Reading orientation'),el('p','',activeBook.orientation));body.append(orientation);}}
+ if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);}
  else if(currentTab==='characters'){
   const list=el('div','intro-character-list');list.id='intro-character-list';
   (reviewedCast(activeBook,introExpanded,introProgress)||introCast(activeBook)).forEach((c,i)=>{
    const section=el('section','character');section.dataset.characterId=c.id||c.introKey||c.aliases[0];
-   const art=signature[activeBook.id];if(art){const slot=art.sketches.indexOf(c.aliases[0]);if(slot>=0){const sketch=el('div','character-sketch');sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-studies.jpg`}')`;sketch.style.backgroundPosition=['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.name||c.aliases[0]}`);section.append(sketch);}}
+   // Sketches belong to the featured cast only; gallery characters have none.
+   const art=(!c.introVisibility||c.introVisibility==='featured')?signature[activeBook.id]:null;if(art){const slot=art.sketches.indexOf(c.aliases[0]);if(slot>=0){const sketch=el('div','character-sketch');sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-ink.png`}')`;sketch.style.backgroundPosition=['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.name||c.aliases[0]}`);section.append(sketch);}}
    const text=el('div','character-copy');text.append(el('h3','',c.name||c.aliases[0]),el('p','character-role',c.introKey?c.subtitle:c.introRole),el('p','',c.introKey?c.body:c.subtitle));section.append(text);list.append(section);
   });body.append(list);
-  if(activeBook.galleryTitle){const toggle=el('button','gallery-toggle',introExpanded?'Show fewer characters':activeBook.galleryExpandLabel);toggle.dataset.testid='intro-gallery-toggle';toggle.setAttribute('aria-expanded',String(introExpanded));toggle.setAttribute('aria-controls',list.id);toggle.onclick=async()=>{
+  if(activeBook.galleryTitle){const toggle=el('button','gallery-toggle',introExpanded?'Show fewer characters':'Explore the full character gallery');toggle.dataset.testid='intro-gallery-toggle';toggle.setAttribute('aria-expanded',String(introExpanded));toggle.setAttribute('aria-controls',list.id);toggle.onclick=async()=>{
     const book=activeBook;
     if(!introExpanded&&book.characters.some(c=>c.introVisibility==='hold_until_revealed')&&!introProgress){toggle.disabled=true;toggle.setAttribute('aria-busy','true');try{const api=await readingApi();const progress=await api.introductionProgress(book.id);if(activeBook!==book)return;introProgress=progress;}catch{if(activeBook!==book)return;introProgress=null;}finally{toggle.disabled=false;toggle.removeAttribute('aria-busy');}}
     if(activeBook!==book)return;introExpanded=!introExpanded;renderIntro();
@@ -371,6 +371,7 @@ function collectionCard(book){
 function renderCollection(){
  const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
  if(kind==='saved'){renderMyBooks();return;}
+ if(kind==='credits'){$('collection-title').textContent='Image credits';const grid=$('collection-books');grid.classList.remove('has-collection-reels');$('collection-empty').hidden=true;void renderImageCredits(grid).catch(()=>{grid.textContent='Image credits could not load. Please try again.';});return;}
  if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}
  if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
  if(kind==='shelf'){const shelf=libraryHouses.flatMap(h=>h.shelves).find(s=>s.id===id);selected=books.filter(b=>shelf?.bookIds.includes(b.id));title=shelf?.title||title;}
@@ -402,7 +403,7 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 
 // Warm the optional artwork only after the landing page has finished loading.
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
-const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-studies.jpg`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
+const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-ink.png`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
 function warmCharacterArt(){
  const warm=()=>featuredBooks.forEach(b=>{warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
  const whenModeKnown=()=>{

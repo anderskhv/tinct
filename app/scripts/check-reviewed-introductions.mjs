@@ -78,11 +78,10 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   })
   console.log('FLAP_GEOMETRY '+JSON.stringify({engine:engine.name(),id,...flapGeometry}))
   if(flapGeometry.compact){assert(flapGeometry.next.y>=0&&flapGeometry.next.bottom<=height+2,'Continue stays in the viewport: '+id);assert(flapGeometry.flap.x>=-2&&flapGeometry.flap.right<=width+2,'Author flap fits viewport: '+id)}
-  const credits=await page.locator('#slip-image-credits').textContent()
-  for(const image of images){assert(credits.includes(image.creator));assert(credits.includes(image.changes))}
+  // Flaps carry no question and no credits; attributions live on the Image credits page.
+  assert.equal(await page.locator('#slip-image-credits, #slip-invitation').count(),0,'flap has no credits or question: '+id)
   const accepted=source.books.find(book=>book.id===id)
   if(accepted){
-   assert.equal(await page.locator('#slip-invitation').textContent(),accepted.hook.text)
    assert.equal(await page.locator('#slip-copy').textContent(),accepted.author.biography.replace(/\*([^*]+)\*/g,'$1'))
   }
   if(['frankenstein','bible','federalist-papers','to-the-lighthouse','ulysses'].includes(id)){
@@ -93,13 +92,6 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    console.log('REVIEW_END '+engine.name()+'-'+reducedMotion+'-'+id+'-flap')
   }
   if(flapGeometry.compact){
-   await page.locator('#slip-image-credits summary').scrollIntoViewIfNeeded();
-   await page.locator('#slip-image-credits summary').click();
-   assert(await page.locator('#slip-image-credits').evaluate(e=>e.open),'Image credits open: '+id);
-   const creditLinks=page.locator('#slip-image-credits a');
-   assert.equal(await creditLinks.count(),images.length*2,'Every portrait has a licence and source link');
-   await creditLinks.last().scrollIntoViewIfNeeded();
-   assert(await creditLinks.last().isVisible(),'Last author credit remains accessible');
    await page.locator('#slip-next').waitFor({state:'visible'});
    assert(await page.locator('#slip-next').evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))}),'Continue owns its visible tap target: '+id);
    await page.locator('#slip-next').click()
@@ -110,8 +102,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   if(accepted){
    const paragraphs=await page.locator('#intro-body > p').allTextContents()
    assert.deepEqual(paragraphs.slice(0,accepted.preface.paragraphs.length),accepted.preface.paragraphs,id+' exact reviewed preface')
-   assert.equal(await page.locator('.reading-orientation p').textContent(),accepted.orientation.text)
-   if(accepted.preface.signature)assert.equal(await page.locator('.preface-credit').textContent(),accepted.preface.signature)
+   assert.equal(await page.locator('.reading-orientation, .preface-credit').count(),0,id+' preface has no signature or orientation')
   }
   const cast=gallery.books.find(book=>book.bookId===id)
   if(cast){

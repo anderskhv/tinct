@@ -664,6 +664,58 @@ describe('mouse word lookup and dragging', () => {
 })
 
 
+describe('tap to move while listening', () => {
+  const text = ['one two three four']
+  const props = () => passageProps(text, { paragraphIndex: 0, from: 0, to: 4 })
+  it('moves the audio on a mouse click and never opens a lookup', () => {
+    const select = vi.fn(), seek = vi.fn(), turn = vi.fn()
+    render(<LabPassage {...props()} tapZones="all" onSelectRange={select} onSeekToWord={seek} onPageTurn={turn} />)
+    vi.spyOn(screen.getByTestId('lab-book'), 'getBoundingClientRect')
+      .mockReturnValue({ left: 0, right: 800, top: 0, bottom: 600, width: 800, height: 600, x: 0, y: 0, toJSON: () => ({}) } as DOMRect)
+    const word = screen.getAllByTestId('lab-word')[2]
+    fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 400, clientY: 100 })
+    fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 400, clientY: 100 })
+    fireEvent.click(word, { clientX: 400, clientY: 100 })
+    expect(seek).toHaveBeenCalledOnce()
+    expect(seek).toHaveBeenCalledWith(0, 2)
+    expect(select).not.toHaveBeenCalled()
+    expect(turn).not.toHaveBeenCalled()
+  })
+  it('moves the audio on a short finger tap', () => {
+    const select = vi.fn(), seek = vi.fn()
+    render(<LabPassage {...props()} onSelectRange={select} onSeekToWord={seek} />)
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
+    fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
+    expect(seek).toHaveBeenCalledWith(0, 1)
+    expect(select).not.toHaveBeenCalled()
+  })
+  it('keeps Define one long press away: a held finger selects the word instead of moving the audio', () => {
+    vi.useFakeTimers()
+    try {
+      const select = vi.fn(), seek = vi.fn()
+      render(<LabPassage {...props()} onSelectRange={select} onSeekToWord={seek} />)
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
+      act(() => vi.advanceTimersByTime(200))
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 10, clientY: 20 })
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 10, 20, undefined)
+      expect(seek).not.toHaveBeenCalled()
+    } finally { vi.useRealTimers() }
+  })
+  it('still selects a mouse drag across words', () => {
+    const select = vi.fn(), seek = vi.fn()
+    render(<LabPassage {...props()} onSelectRange={select} onSeekToWord={seek} />)
+    const words = screen.getAllByTestId('lab-word')
+    words.forEach((word, i) => vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left: i * 40, right: i * 40 + 30, top: 20, bottom: 40, width: 30, height: 20 } as DOMRect))
+    fireEvent.pointerDown(words[0], { pointerType: 'mouse', button: 0, clientX: 5, clientY: 30 })
+    fireEvent.pointerMove(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 85, clientY: 30 })
+    fireEvent.pointerUp(screen.getByTestId('lab-book'), { pointerType: 'mouse', clientX: 85, clientY: 30 })
+    expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'one two three' }), 85, 30, undefined)
+    expect(seek).not.toHaveBeenCalled()
+  })
+})
+
 describe('touch selection owns the gesture', () => {
   it('blocks native selection/panning and never turns or swaps at a page edge', () => {
     vi.useFakeTimers()

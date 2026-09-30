@@ -517,6 +517,8 @@ export function LabPassage({
     comparison: boolean
     pointerType: string
     highlightId?: string
+    /** Listening: the word a short tap moves the audio to (never a lookup). */
+    seek?: LabWordPlace
   } | null>(null)
   const edgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const edgeDirectionRef = useRef<-1 | 1 | null>(null)
@@ -571,7 +573,7 @@ export function LabPassage({
   // explicitly on the paginated passage (never on popup controls).
   useEffect(() => {
     const article = articleRef.current
-    if (!article || hearing || !onSelectRange || onSeekToWord) return
+    if (!article || hearing || !onSelectRange) return
     const preventNativeTouch = (event: TouchEvent) => {
       if (event.touches.length > 1) return
       const target = event.target as Element | null
@@ -681,7 +683,12 @@ export function LabPassage({
       const line = (event.target as Element)?.closest?.('.lab-hearing-line')
       if (line) place = nearestWordPlaceIn(line, event.clientX, event.clientY)
     }
-    if (place && onSeekToWord) return
+    // Listening: a short tap on a word moves the audio there (decided on
+    // release); a long press or a drag still selects, so Define stays one
+    // long press away. Compare-side words belong to another edition.
+    const seekTarget = event.target instanceof Element ? event.target.closest('[data-testid="lab-word"]') : null
+    const seek = onSeekToWord && place && seekTarget && !seekTarget.closest('.lab-book-col-compare') ? place : undefined
+    if (place && onSeekToWord && !seek) return
     if (!place && !onPageTurn) return
     // A word at the left/right edge can still be long-pressed. A short release
     // remains an edge page turn, while the long-press timer wins for selection.
@@ -700,6 +707,7 @@ export function LabPassage({
       comparison: !!(event.target as Element).closest('.lab-book-col-compare'),
       pointerType: event.pointerType,
       highlightId: (event.target as Element).closest('[data-highlight-id]')?.getAttribute('data-highlight-id') || undefined,
+      seek,
     }
     dragRef.current = drag
     if (touchSelection && selectionPlace) {
@@ -838,6 +846,17 @@ export function LabPassage({
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
     const surfaceRect = event.currentTarget.getBoundingClientRect()
+    // Listening: a tap on a word moves the audio to it. It is never a lookup
+    // and never a page turn; a long press (touch) or a drag (mouse) became a
+    // selection above and is handled as one below.
+    if (drag.seek && onSeekToWord && !drag.selecting && !selectingRange
+      && Math.abs(deltaX) <= 10 && Math.abs(deltaY) <= 10
+      && (drag.pointerType === 'mouse' || duration <= 500)) {
+      dragRef.current = null
+      setLocalSelecting(null)
+      onSeekToWord(drag.seek.paragraphIndex, drag.seek.wordIndex)
+      return
+    }
     const visibleHighlights = drag.comparison ? compareHighlights : highlights
     const savedHighlight = visibleHighlights.find(mark => mark.id === drag.highlightId && mark.chapterNumber === chapterNumber)
       ?? (drag.start ? highlightAt(visibleHighlights, chapterNumber, drag.start.paragraphIndex, drag.start.wordIndex) : undefined)
@@ -969,12 +988,6 @@ export function LabPassage({
                           data-word-index={absoluteWord}
                           data-highlight-id={mark?.id}
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
-                          onClick={onSeekToWord
-                            ? (event) => {
-                                event.stopPropagation()
-                                onSeekToWord(paragraphIndex, absoluteWord)
-                              }
-                            : undefined}
                         >
                           {spacing}
                           {renderWordText(word.text, word.emphasis)}
@@ -1061,7 +1074,7 @@ export function LabPassage({
         'lab-passage',
         'lab-book',
         'is-reading',
-        !hearing && onSelectRange && !onSeekToWord ? 'owns-text-selection' : '',
+        !hearing && onSelectRange ? 'owns-text-selection' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
         (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',

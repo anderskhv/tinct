@@ -1,6 +1,6 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260930centre-b';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930centre-b';
-import { createBookshelf } from './bookshelf-view.js?v=20260930centre';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260930fix-b';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930fix-b';
+import { createBookshelf } from './bookshelf-view.js?v=20260930fix';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928f';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {

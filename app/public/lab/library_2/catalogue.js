@@ -1,4 +1,4 @@
-import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260929complete';
+import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930fix';
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
