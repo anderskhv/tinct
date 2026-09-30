@@ -5225,10 +5225,17 @@
   align-self: center;
   margin-top: .75rem;
   padding: .3rem .2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: #4f4940;
+  font: inherit;
   font-size: .95rem;
   text-decoration: underline;
   text-underline-offset: .18em;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .lab-account-overlay.is-desktop-popover { background: rgba(28, 24, 18, .16); }
 .lab-account-overlay.is-desktop-popover .lab-account-sheet {

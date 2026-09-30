@@ -53,14 +53,14 @@ export function LabAccountSheet({ open, action, returnTo, onClose, desktop = fal
           ×
         </button>
         <p className="lab-account-eyebrow">{LAB_COPY.accountEyebrow}</p>
-        <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? 'Sign in to listen' : LAB_COPY.accountTitle}</h2>
-        <p className="lab-account-body">{action === 'audio' ? 'Sign in or create an account to hear this chapter. Your reading place will be kept.' : LAB_COPY.accountBody}</p>
-        <a className="lab-account-primary" href={labSignInHref(action === 'audio' ? 'signin' : 'create', returnTo)} data-testid={action === 'audio' ? 'lab-account-sign-in' : 'lab-account-create'}>
-          {action === 'audio' ? 'Sign in' : LAB_COPY.accountCreate}
+        <h2 className="lab-account-title" id="lab-account-title">{action === 'audio' ? LAB_COPY.accountTitleAudio : LAB_COPY.accountTitle}</h2>
+        <p className="lab-account-body">{action === 'audio' ? LAB_COPY.accountBodyAudio : LAB_COPY.accountBody}</p>
+        <a className="lab-account-primary" href={labSignInHref('create', returnTo)} data-testid="lab-account-create">
+          {LAB_COPY.accountCreate}
         </a>
-        <button type="button" className="lab-account-secondary" onClick={onClose}>{action === 'audio' ? 'Keep reading' : 'Keep reading without AI'}</button>
-        <a className="lab-account-secondary" href={labSignInHref(action === 'audio' ? 'create' : 'signin', returnTo)} data-testid={action === 'audio' ? 'lab-account-create' : 'lab-account-sign-in'}>
-          {action === 'audio' ? 'Create account' : LAB_COPY.accountSignIn}
+        <button type="button" className="lab-account-secondary" data-testid="lab-account-keep-reading" onClick={onClose}>{LAB_COPY.accountKeepReading}</button>
+        <a className="lab-account-secondary" href={labSignInHref('signin', returnTo)} data-testid="lab-account-sign-in">
+          {LAB_COPY.accountSignIn}
         </a>
       </section>
     </div>
