@@ -206,7 +206,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     return () => window.removeEventListener('keydown', onKey)
   }, [layer, onClose])
 
-  if (!layer) return null
+  // Catch me up is its own sheet (LabCatchUpSheet); it shares the layer so every overlay guard applies.
+  if (!layer || layer === 'catchup') return null
 
   const font = labReadingFont(prefs.fontFamily, true)
   const editionName = (key: string) => {

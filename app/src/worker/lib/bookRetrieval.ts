@@ -350,7 +350,19 @@ export interface BookRetrieval {
   findInBook(input: unknown): Promise<ToolOutcome>
   /** The raw chapter (untrimmed paragraphs) for server-side callers such as the recap summary; null when the edition lacks it. */
   chapterText(chapterNumber: number): Promise<ChapterText | null>
+  /** The edition's chapter list and sections (the edition that actually loaded), or null. */
+  editionIndex(): Promise<{ chapters: ChapterEntry[]; sections?: SectionNode[]; editionKey: string } | null>
+  /**
+   * Several raw chapters in the order asked. Past a handful of shards it reads
+   * the whole edition in one asset request instead, so a long unit (a biblical
+   * book, a part of a novel) stays inside the subrequest budget. A chapter
+   * that cannot be read is null.
+   */
+  chaptersText(chapterNumbers: number[]): Promise<Array<ChapterText | null>>
 }
+
+/** Beyond this many chapters, `chaptersText` reads the whole edition once. */
+export const CHAPTERS_TEXT_SHARD_LIMIT = 24
 
 export function createBookRetrieval(input: {
   assets: AssetsBinding
@@ -527,6 +539,21 @@ export function createBookRetrieval(input: {
 
   return {
     chapterText: loadChapter,
+
+    async editionIndex() {
+      const edition = await loadIndex()
+      return edition ? { chapters: edition.index.chapters, sections: edition.index.sections, editionKey: edition.editionKey } : null
+    },
+
+    async chaptersText(chapterNumbers: number[]) {
+      const index = await loadIndexOnly()
+      if (!index) return chapterNumbers.map(() => null)
+      if (!index.whole && chapterNumbers.length > CHAPTERS_TEXT_SHARD_LIMIT) {
+        const whole = await loadWhole()
+        if (whole) return chapterNumbers.map(number => whole.get(number) ?? null)
+      }
+      return Promise.all(chapterNumbers.map(loadChapter))
+    },
 
     async readChapter(rawInput: unknown): Promise<ToolOutcome> {
       const resolved = await resolveChapterNumber(rawInput)
