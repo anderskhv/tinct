@@ -2484,6 +2484,74 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
+    "id": "alice-in-wonderland",
+    "title": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "year": "1865",
+    "ySort": 1865,
+    "form": "novel",
+    "era": "modern",
+    "hue": 150,
+    "blurb": "Alice follows a hurried rabbit into a world of shifting sizes, disputed meanings and impatient rulers.",
+    "themes": [
+      "language",
+      "identity",
+      "authority"
+    ],
+    "shelves": [
+      "english-novels",
+      "satirical-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "wuthering-heights",
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "year": "1847",
+    "ySort": 1847,
+    "form": "novel",
+    "era": "modern",
+    "hue": 285,
+    "blurb": "Two Yorkshire households carry a childhood attachment, a family grievance and a struggle over property into another generation.",
+    "themes": [
+      "revenge",
+      "class",
+      "inheritance"
+    ],
+    "shelves": [
+      "english-novels",
+      "gothic-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "middlemarch",
+    "title": "Middlemarch",
+    "author": "George Eliot",
+    "year": "1871",
+    "ySort": 1871,
+    "form": "novel",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Interwoven lives in a provincial town test what ambition, marriage, and sympathy can make possible.",
+    "themes": [
+      "marriage",
+      "ambition",
+      "sympathy"
+    ],
+    "shelves": [
+      "english-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
     "id": "hume-enquiry",
     "title": "An Enquiry Concerning Human Understanding",
     "author": "David Hume",

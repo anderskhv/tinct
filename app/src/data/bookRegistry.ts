@@ -3302,6 +3302,67 @@ export const TO_THE_LIGHTHOUSE: Book = {
   ],
 }
 
+// STAGED (not in BOOKS): Alice's Adventures in Wonderland, Wuthering Heights and
+// Middlemarch. English-only packages, integrated 2026-09-30 on
+// integration/new-books-alice-wh-middlemarch. Text, onboarding and taxonomy are in
+// place; covers, character cards, SEO pages and Anders's approval are not.
+// Do not add these to BOOKS until the public-release checklist in the
+// integration handoff is complete.
+//
+// Alice: the original is Gutenberg's Millennium Fulcrum Edition 3.0, which keeps
+// two verse continuations from later editions; it is not a transcription of the
+// 1865 first impression.
+export const ALICE_IN_WONDERLAND: Book = {
+  id: 'alice-in-wonderland',
+  title: 'Alice\'s Adventures in Wonderland',
+  author: 'Lewis Carroll',
+  description: 'Alice follows a hurried rabbit down a hole into a world of shifting sizes, disputed meanings and impatient rulers. Carroll\'s twelve-chapter tale turns manners, lessons, arguments and courtroom procedure into nonsense that is stricter than it looks.',
+  year: 1865,
+  wordCount: 26000,
+  coverColor: '#1f3a2c',
+  coverAccent: '#d4b25a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Carroll (Original)', year: 1865, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+export const WUTHERING_HEIGHTS: Book = {
+  id: 'wuthering-heights',
+  title: 'Wuthering Heights',
+  author: 'Emily Brontë',
+  description: 'Two Yorkshire households carry a childhood attachment, a family grievance and a struggle over property into another generation. A tenant\'s curiosity and a housekeeper\'s memory tell the story, and neither is a neutral witness.',
+  year: 1847,
+  wordCount: 116000,
+  coverColor: '#26262c',
+  coverAccent: '#9fb0bd',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1847)', year: 1847, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// Middlemarch has 88 reading units: Prelude, chapters I-LXXXVI and Finale. The
+// source package numbered the Prelude 0 (chapters 1-86, Finale 87), but the
+// reader, position store, chat history and worker routes all reject chapter
+// numbers below 1. Both editions, the shards and the notes therefore number the
+// units 1-88 in reading order: Prelude = 1, Eliot's chapter N = N + 1,
+// Finale = 88. Titles keep Eliot's own labels ("Book I: Miss Brooke — Chapter I").
+export const MIDDLEMARCH: Book = {
+  id: 'middlemarch',
+  title: 'Middlemarch',
+  author: 'George Eliot',
+  description: 'Interwoven lives in a provincial town test what ambition, marriage and sympathy can make possible. Eliot follows Dorothea Brooke, Tertius Lydgate and the households around them on the eve of reform.',
+  year: 1871,
+  wordCount: 316000,
+  coverColor: '#2b2618',
+  coverAccent: '#c5a45e',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1871–72)', year: 1871, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
 export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH]
 
 export const ALL_BOOKS: Book[] = BOOKS

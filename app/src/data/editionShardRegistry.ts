@@ -33,6 +33,8 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "leviathan-modern-da",
   "leviathan-modern-en",
   "leviathan-original-en",
+  "middlemarch-modern-en",
+  "middlemarch-original-en",
   "moby-dick-modern-da",
   "moby-dick-modern-en",
   "moby-dick-original-en",
@@ -53,5 +55,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "war-and-peace-modern-en",
   "war-and-peace-original-en",
   "wealth-of-nations-modern-en",
-  "wealth-of-nations-original-en"
+  "wealth-of-nations-original-en",
+  "wuthering-heights-modern-en",
+  "wuthering-heights-original-en"
 ] as const
