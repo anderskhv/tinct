@@ -209,7 +209,13 @@ for(const engine of [chromium,webkit]) {
     await page.keyboard.press('Escape')
     await page.waitForFunction(()=>!document.documentElement.dataset.tinctCommandsOpen)
     await page.keyboard.press('t')
-    await page.waitForFunction(()=>window.__tinctMicAttempts>0)
+    // Guests are asked to create an account before Talk opens a voice session;
+    // signed-in readers reach the (silenced) microphone. Either keeps the page.
+    await page.waitForFunction(()=>window.__tinctMicAttempts>0||!!document.querySelector('[data-testid="lab-account-sheet"]'))
+    if(await page.getByTestId('lab-account-sheet').isVisible().catch(()=>false)){
+      await page.getByTestId('lab-account-keep-reading').click()
+      await page.getByTestId('lab-account-sheet').waitFor({state:'hidden'})
+    }
     assert.equal(await first(),settledParagraph,'Talk keeps its reading anchor even when microphone is unavailable')
     assert.equal(requests.filter(x=>/chat$|voice-session$/.test(x)).length,0,'no real AI calls during keyboard verification')
     await page.setViewportSize({width:390,height:844})
