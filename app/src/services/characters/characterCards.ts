@@ -70,7 +70,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'merchant-of-venice': { editions: EN, revision: '2026-09-11.2' },
   midsummer: { editions: EN, revision: '2026-09-11.2' },
   'much-ado-about-nothing': { editions: EN, revision: '2026-09-11.2' },
-  'notes-from-underground': { editions: EN, revision: '2026-09-11.2' },
+  'notes-from-underground': { editions: EN, revision: '2026-09-30.3' },
   'oedipus-at-colonus': { editions: EN, revision: '2026-09-11.2' },
   'oedipus-rex': { editions: EN, revision: '2026-09-11.2' },
   'on-liberty': { editions: EN, revision: '2026-09-11.2' },

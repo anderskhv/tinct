@@ -184,6 +184,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'notes-from-underground': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8df3e74890b26ce3febb108540f3a7a32fd3afdc93b1d047cbe6b053793a0449',
+        after: 'f1b0a5dc65b4d9c67b43d3f26306ba17577dddad6c58292d445d65b5ced8eff1',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
