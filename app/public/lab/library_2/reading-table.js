@@ -171,7 +171,7 @@ function markup(table) {
     <a class="rt-continue read-button" id="rt-continue" href="#">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></a></div>
     <dialog class="rt-remove-dialog" id="rt-remove-dialog" aria-labelledby="rt-remove-heading">
       <h2 id="rt-remove-heading">Remove from currently reading?</h2>
-      <p>Your saved place will be kept.</p>
+      <p>It stays on My shelf under Saved for later, and your place is kept.</p>
       <div><button type="button" id="rt-remove-cancel" autofocus>Keep book</button><button type="button" id="rt-remove-confirm">Remove</button></div>
     </dialog>`;
 }
@@ -271,7 +271,9 @@ function wire(view, table, demo, keepBookId, options={}) {
     };
     move();
   }
-  remove.onclick=e=>{e.stopPropagation();dialog.dataset.book=table.reading[current].bookId;dialog.showModal();};
+  // Name the book in the confirmation: the × sits beside neighbouring spines,
+  // so a generic question could confirm removing a book the reader never chose.
+  remove.onclick=e=>{e.stopPropagation();const b=table.reading[current];dialog.dataset.book=b.bookId;view.querySelector('#rt-remove-heading').textContent=`Remove ${b.title} from currently reading?`;dialog.showModal();};
   dialog.addEventListener('click',e=>{e.stopPropagation();if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
   view.querySelector('#rt-remove-cancel').onclick=()=>dialog.close();
   dialog.addEventListener('close',()=>remove.focus({preventScroll:true}));

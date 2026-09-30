@@ -4,7 +4,7 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
 import {readVisit,rememberVisit} from './visit.js?v=20260928covers';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20260930shelf';
+import {mountBookshelf} from './bookshelf.js?v=20260930name';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap} from './authors.js?v=20260929reviewed';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
