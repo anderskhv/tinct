@@ -56,11 +56,11 @@ Escape every variable as HTML, except `opening_line` and `books_phrase`, which c
 5. SPF/DKIM: Brevo DKIM (`brevo1`/`brevo2._domainkey`) is live and DMARC is `p=none`. The SPF record does not list Brevo; that is harmless because DKIM covers alignment, but tidy it later.
 
 ## Consent (decided by Anders, 30 September 2026)
-Ask in context; don't add anything to sign-up.
-- **Service mail, sent to every real account:** `welcome`, plus a factual trial-status notice (no sales pitch) for readers who haven't opted in.
-- **Opt-in mail:** `keep-reading`, `next-book` and the promotional trial emails (`keep-companion`, `companion-ready`) go only to readers who said yes.
-- **The prompt:** after the reader finishes their first chapter, or the first time they leave mid-book (whichever comes first), show one small inline prompt in the reader, not a modal: **"Want a nudge when you've been away, and the occasional book suggestion?"** with **[Yes please]** and **No thanks**. Ask once. If dismissed, ask at most once more after 2 weeks of reading, and never again after "No thanks".
-- **Consent record:** store yes/no with a timestamp and the prompt wording version on the profile. Every opt-in email carries one-click unsubscribe, and opting out takes effect immediately.
+Ask only at sign-up. There is no prompt or nudge anywhere in the reader.
+- **The control:** one small, **unticked** checkbox on the sign-up sheet, directly under the sign-up buttons, applying to email and Google sign-up alike: **"☐ Send me occasional reading emails"**. Use muted small print, no extra step and no layout shift, so it reads as a footnote. It must never be pre-ticked.
+- **Ticked:** the reader gets `keep-reading`, `next-book` and the promotional trial emails (`keep-companion`, `companion-ready`).
+- **Not ticked:** the reader gets only service mail: `welcome` and a factual trial-status notice with no sales pitch.
+- **Consent record:** store yes/no with a timestamp and the wording version on the profile. Every opt-in email carries one-click unsubscribe, and opting out takes effect immediately. Readers can switch reading emails on later from account settings.
 - **Footer sender line:** "Tinct, Copenhagen, Denmark".
-- **Why:** under Danish and EU rules, email promoting our own service counts as marketing even when the thing promoted is free, and a notice alone isn't consent. The soft opt-in exception is tied to a sale, so a free account probably doesn't qualify. This is not legal advice.
+- **Why:** under Danish and EU rules, email promoting our own service counts as marketing even when it's free, and a notice alone or a pre-ticked box isn't consent. This is not legal advice.
 
