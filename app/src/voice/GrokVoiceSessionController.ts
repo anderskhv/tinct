@@ -55,6 +55,32 @@ const LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS = 5_000
 /** Grok has fanned out up to 999 parallel lookups in one turn; run only this many per tool. */
 export const MAX_CALLS_PER_TOOL_PER_TURN = 8
 const ACKNOWLEDGED_LOOKUP_TOOLS = new Set(['search_reading_sources', 'search_personal_reading_history', 'get_book_passage'])
+/** How long the app waits for a spoken playback confirmation before acting anyway. */
+export const PLAYBACK_CONFIRMATION_TIMEOUT_MS = 4_000
+/** How long the app lets Talk's own speech finish before starting the audiobook anyway. */
+export const PLAYBACK_DRAIN_TIMEOUT_MS = 10_000
+
+/** Tools that move or start the audiobook: said aloud first, then done. */
+export function isPlaybackControlTool(name: string): boolean {
+  return name === 'resume_audiobook' || isLabPlaybackSkip(name)
+}
+
+/**
+ * The one line the app has Grok say when it called a playback tool without
+ * saying anything first. Short and literal, so the reader knows what is about
+ * to happen before the audiobook takes the speaker.
+ */
+export function playbackConfirmationFor(name: string, chapterLabel?: string): string {
+  const chapter = (chapterLabel || '').trim()
+  switch (name) {
+    case 'restart_chapter': return chapter ? `Restarting ${chapter}.` : 'Restarting the chapter.'
+    case 'next_chapter': return 'On to the next chapter.'
+    case 'previous_chapter': return 'Back to the previous chapter.'
+    case 'next_paragraph': return 'Skipping ahead a paragraph.'
+    case 'previous_paragraph': return 'Going back a paragraph.'
+    default: return 'Back to the book.'
+  }
+}
 const EARLY_CAPTURE_MAX_SECONDS = 15
 
 const CAPTURE_WORKLET = `class TinctPcmCapture extends AudioWorkletProcessor {
@@ -152,6 +178,8 @@ export class GrokVoiceSessionController {
   private visibilityListening = false
   private releaseAudioSession: (() => void) | null = null
   private lookupAcknowledgement: { resolve: () => void } | null = null
+  /** A forced playback confirmation that has been sent and not yet fully generated. */
+  private playbackConfirmation: { resolve: () => void } | null = null
   /** The socket opened for setup closed or errored before the session was ready. */
   private setupSocketFailed = false
   private acknowledgementsSaid = 0
@@ -524,8 +552,13 @@ export class GrokVoiceSessionController {
         const spoken = /[\p{L}\p{N}]/u.test(text)
         if (spoken && (cancelled || this.sources.size === 0)) this.callbacks.onTurn('assistant', text, cancelled ? { cancelled: true } : undefined)
         else if (spoken) this.spoken = { text }
-        if (!cancelled && response.calls.length) this.runToolCalls(response.calls)
+        if (!cancelled && response.calls.length) this.runToolCalls(response.calls, spoken || response.audioStarted)
         this.response = null
+        if (this.playbackConfirmation) {
+          const confirmation = this.playbackConfirmation
+          this.playbackConfirmation = null
+          confirmation.resolve()
+        }
         if (this.lookupAcknowledgement) {
           const acknowledgement = this.lookupAcknowledgement
           this.lookupAcknowledgement = null
@@ -569,7 +602,43 @@ export class GrokVoiceSessionController {
     }
   }
 
-  private runToolCalls(calls: ToolCall[]): void {
+  /**
+   * Before a playback tool acts, the reader hears what is about to happen and
+   * the companion finishes speaking. Without this the audiobook either started
+   * with no word of warning (a bare tool call) or cut the confirmation off
+   * mid-word, because the tool ran when the answer finished *generating*, not
+   * when it finished *playing*, and starting playback stops Talk's audio.
+   */
+  private async confirmPlaybackControl(call: ToolCall, spoken: boolean, generation: number): Promise<void> {
+    if (!spoken && generation === this.generation && this.ui.isActive) {
+      const heard = new Promise<void>(resolve => { this.playbackConfirmation = { resolve } })
+      this.send({ type: 'conversation.item.create', item: {
+        type: 'force_message', role: 'assistant', interruptible: true,
+        content: [{ type: 'output_text', text: playbackConfirmationFor(call.name, this.input?.context.chapterLabel) }],
+      } })
+      let timer: ReturnType<typeof setTimeout> | undefined
+      await Promise.race([heard, new Promise<void>(resolve => { timer = setTimeout(resolve, PLAYBACK_CONFIRMATION_TIMEOUT_MS) })])
+      clearTimeout(timer)
+      this.playbackConfirmation = null
+    }
+    await this.untilSpeechDrained(generation)
+  }
+
+  /** Resolves once nothing of Talk's is generating or still playing (bounded). */
+  private untilSpeechDrained(generation: number): Promise<void> {
+    const started = Date.now()
+    return new Promise(resolve => {
+      const poll = () => {
+        if (generation !== this.generation) { resolve(); return }
+        const generating = Boolean(this.response && !this.response.done)
+        if ((!generating && this.sources.size === 0) || Date.now() - started > PLAYBACK_DRAIN_TIMEOUT_MS) { resolve(); return }
+        setTimeout(poll, 50)
+      }
+      poll()
+    })
+  }
+
+  private runToolCalls(calls: ToolCall[], spokeFirst = false): void {
     const generation = this.generation
     // "Take me back to the book" often arrives with a goodbye too. The resume carries the
     // reader's place, so it must run before anything that ends the session.
@@ -577,6 +646,7 @@ export class GrokVoiceSessionController {
     this.toolRoundsInFlight++
     this.toolQueue = this.toolQueue.then(async () => {
       let hasOutput = false
+      let confirmed = false
       const guidance: string[] = []
       const perTool = new Map<string, number>()
       for (const call of ordered) {
@@ -589,6 +659,11 @@ export class GrokVoiceSessionController {
           hasOutput = true
           this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify({ ok: false, reason: 'skipped_too_many_parallel_calls' }) } })
           continue
+        }
+        if (isPlaybackControlTool(call.name) && !confirmed) {
+          confirmed = true
+          await this.confirmPlaybackControl(call, spokeFirst, generation)
+          if (generation !== this.generation) return
         }
         let acknowledgementWait: Promise<void> | null = null
         const acknowledgementTimer = ACKNOWLEDGED_LOOKUP_TOOLS.has(call.name) ? setTimeout(() => {
@@ -612,6 +687,8 @@ export class GrokVoiceSessionController {
         if (generation !== this.generation) return
         if (result.output === undefined) continue
         this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(result.output) } })
+        // A move already confirmed aloud needs no second spoken answer: keep listening.
+        if (confirmed && isLabPlaybackSkip(call.name)) continue
         hasOutput = true
         if (result.responseInstructions) guidance.push(result.responseInstructions)
       }
@@ -892,6 +969,10 @@ export class GrokVoiceSessionController {
     if (this.lookupAcknowledgement) {
       this.lookupAcknowledgement.resolve()
       this.lookupAcknowledgement = null
+    }
+    if (this.playbackConfirmation) {
+      this.playbackConfirmation.resolve()
+      this.playbackConfirmation = null
     }
     this.toolQueue = Promise.resolve()
     this.setupSocketFailed = false

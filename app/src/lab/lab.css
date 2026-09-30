@@ -7479,6 +7479,11 @@
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { box-shadow: inset 0 1px 0 #ffffff35, 0 5px 20px #00000012; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock .lab-desktop-audio-dismiss { margin-left: 2px; width: 32px; min-width: 32px; height: 32px; display: grid; place-items: center; padding: 0; }
+/* One row, always. Paused, the dock gains a close (×) after Talk; it sits
+   inline at the end in an implicit column instead of wrapping onto a second
+   row under the controls (2026-09-30 desktop report). */
+.lab[data-chrome-version="v2"] .lab-desktop-audio-dock { grid-auto-flow: column; grid-auto-columns: auto; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { grid-template-columns: repeat(4, 40px) minmax(0, 1fr); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: #6b5738; text-decoration-color: #d4ac70; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.has-paragraph-follow .lab-hearing-line.is-paragraph-current { box-shadow: -3px 0 0 #aa8249; }
 /* Equal 36px painted discs within 44px hit areas, with one consistent ink. */

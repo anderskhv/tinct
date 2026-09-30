@@ -1620,6 +1620,24 @@ describe('lab chrome', () => {
     expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
   })
 
+  it('keeps audio paused after Talk when it was paused as Talk opened', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    render(<LabApp pathname="/lab/phone" source={sourceWithWords()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0'))
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.paused).toBe(true)
+    fireEvent.click(screen.getByTestId('lab-phone-talk'))
+    expect(screen.getByTestId('lab-listen').textContent).toContain('Read')
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)) })
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
+    expect(audio.paused).toBe(true)
+  })
+
   it('shows Play in Chat when Talk interrupts active audio and resumes that audio', async () => {
     const audio = new FakeAudio()
     vi.stubGlobal('Audio', class {
@@ -2297,6 +2315,41 @@ describe('lab bible book', () => {
       expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0')
     })
     expect(screen.getByTestId('lab-header-chapter').textContent).toMatch(/Genesis 2/)
+  })
+
+  it('a speed change from the companion does not resume audio that was paused when it opened', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class {
+      constructor() { return audio }
+    })
+    const bibleFetch = mockBibleFetch()
+    vi.stubGlobal('fetch', async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/chat')) {
+        return { ok: true, status: 200, json: async () => ({ content: [{ text: 'Twice as fast. [[set_playback_speed:2]]' }] }) }
+      }
+      return bibleFetch(input)
+    })
+    render(<LabApp pathname="/lab/desktop" source={{
+      ...bibleFallbackSource(),
+      paragraphs: ['In the beginning God created the heaven and the earth.', 'And the earth was without form, and void.'],
+      followParagraphs: [
+        { index: 0, text: 'In the beginning God created the heaven and the earth.', file: 'p0.mp3', duration: 4 },
+        { index: 1, text: 'And the earth was without form, and void.', file: 'p1.mp3', duration: 4 },
+      ],
+    }} authToken="signed-in" />)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    await waitFor(() => expect(screen.getByTestId('lab-listen-status').textContent).toBe('playing:0'))
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.paused).toBe(true)
+    openDesktopAsk()
+    fireEvent.change(screen.getByPlaceholderText('Ask'), { target: { value: 'play it faster' } })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    await waitFor(() => expect(audio.playbackRate).toBe(2))
+    openDesktopAsk()
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)) })
+    expect(audio.paused).toBe(true)
+    expect(screen.getByTestId('lab-listen-status').textContent).toBe('stopped')
   })
 
   it('does not start the book after a plain book question', async () => {
@@ -4738,6 +4791,53 @@ describe('lab keyboard page turns', () => {
     expect(screen.queryByTestId('lab-settings-sheet')).toBeNull()
     fireEvent.keyDown(window, { key: 'ArrowRight' })
     expect(document.querySelector('.lab-hearing-line')?.textContent).toBe(second)
+  })
+})
+
+describe('V2 listening place (2026-09-30)', () => {
+  const wordAt = (index: number) => screen.getByTestId('lab-book')
+    .querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="${index}"]`)!
+  const tap = (word: HTMLElement) => {
+    fireEvent.pointerDown(word, { pointerType: 'mouse', button: 0, clientX: 50, clientY: 50 })
+    fireEvent.pointerUp(word, { pointerType: 'mouse', clientX: 50, clientY: 50 })
+  }
+
+  it('a tap while listening moves audio to that exact word and never opens Define', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class { constructor() { return audio } })
+    render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(audio.paused).toBe(false))
+    tap(wordAt(25))
+    await waitFor(() => expect(audio.currentTime).toBeCloseTo(25 * 0.3))
+    expect(audio.paused).toBe(false)
+    expect(document.querySelector('.selection-popup')).toBeNull()
+  })
+
+  it('resumes after pause from the sentence of the latest place, including a word tapped while paused', async () => {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class { constructor() { return audio } })
+    render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(audio.paused).toBe(false))
+    // Jump to w25 while playing, then pause and play: back to the start of
+    // that sentence (w20), not to the page's first word.
+    tap(wordAt(25))
+    await waitFor(() => expect(audio.currentTime).toBeCloseTo(25 * 0.3))
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    expect(audio.paused).toBe(true)
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(audio.paused).toBe(false))
+    expect(audio.currentTime).toBeCloseTo(20 * 0.3)
+    // Pause, tap w45 while paused: audio moves but stays paused, no Define.
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    expect(audio.paused).toBe(true)
+    tap(wordAt(45))
+    expect(audio.paused).toBe(true)
+    expect(document.querySelector('.selection-popup')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(audio.paused).toBe(false))
+    expect(audio.currentTime).toBeCloseTo(40 * 0.3)
   })
 })
 
