@@ -234,6 +234,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'a-little-princess': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020',
+        after: '0c85e130eb972dc490e337dc6e11a8c35930b29b6b34ea1c9740d80821e85b1e',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

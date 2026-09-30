@@ -48,7 +48,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'kant-groundwork': { editions: EN, revision: '2026-09-30.3' },
   'descartes-meditations': { editions: EN, revision: '2026-09-11.1' },
   // 2026-09-11.2 — bulk release of the validated queue
-  'a-little-princess': { editions: EN, revision: '2026-09-11.2' },
+  'a-little-princess': { editions: EN, revision: '2026-09-30.3' },
   antigone: { editions: EN, revision: '2026-09-11.2' },
   'around-the-world-80-days': { editions: EN, revision: '2026-09-30.3' },
   bacchae: { editions: EN, revision: '2026-09-11.2' },
