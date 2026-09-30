@@ -526,6 +526,19 @@ function focusedSourceQuery(messages: SafeMessage[], book?: BookRef): string {
   return `${prefix}${userTurns.join('\n').slice(-(1000 - prefix.length))}`
 }
 
+/** Held text longer than this in a lookup-capable round is an answer, not a process note. */
+export const HELD_TEXT_RELEASE_CHARS = 240
+
+function isToolUseStart(data: Record<string, unknown>): boolean {
+  const block = data.content_block as { type?: string } | undefined
+  return data.type === 'content_block_start' && block?.type === 'tool_use'
+}
+
+function textDeltaLength(data: Record<string, unknown>): number {
+  const delta = data.delta as { type?: string; text?: string } | undefined
+  return data.type === 'content_block_delta' && delta?.type === 'text_delta' ? (delta.text?.length ?? 0) : 0
+}
+
 /**
  * Runs the Anthropic call with the book tools, executing tool calls
  * server-side for up to MAX_TOOL_ROUNDS rounds, then one forced-text round.
@@ -588,11 +601,23 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
     // A tool-eligible round may contain a provisional answer before asking
     // for evidence. Keep it private until we know this is the final answer.
     // Forced answer rounds still stream immediately.
+    // Process notes are a sentence at most, so once a round's text passes
+    // HELD_TEXT_RELEASE_CHARS with no tool call it is the answer: release
+    // what was held and stream the rest as it is written.
     const held: Array<{ event: string; data: Record<string, unknown> }> = []
+    let heldChars = 0
+    let released = false
     const roundSink: ClientSink | null = sink && !forceText ? {
       write(event, data) {
-        if (data.type === 'message_start' || data.type === 'ping') sink.write(event, data)
-        else held.push({ event, data })
+        if (released || data.type === 'message_start' || data.type === 'ping') { sink.write(event, data); return }
+        if (isToolUseStart(data)) heldChars = -Infinity
+        held.push({ event, data })
+        heldChars += textDeltaLength(data)
+        if (heldChars >= HELD_TEXT_RELEASE_CHARS) {
+          released = true
+          noteText()
+          for (const item of held.splice(0)) sink.write(item.event, item.data)
+        }
       },
     } : sink
     if (input.stream) {
@@ -613,7 +638,7 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
       }
       if (!forceText && sink) {
         if (textOf(outcome.content)) noteText()
-        for (const { event, data } of held) sink.write(event, data)
+        for (const { event, data } of held.splice(0)) sink.write(event, data)
       }
       return outcome
     }
