@@ -131,6 +131,21 @@
   visibility: hidden;
 }
 
+/* Opening the reader: the first page fades in once when it is laid
+   out, instead of appearing in one frame. Opacity only, so nothing moves. */
+.lab-page-wrap.is-first-reveal {
+  animation: lab-first-reveal .24s ease-out both;
+}
+
+@keyframes lab-first-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-page-wrap.is-first-reveal { animation: none; }
+}
+
 .lab-chapter-cover {
   --lab-cover-ground: #18364a;
   --lab-cover-shade: #102737;

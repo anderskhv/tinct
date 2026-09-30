@@ -40,9 +40,21 @@ export function warmLibraryPreview() {
     void (async () => { for (let i=0;i<unique.length && !stopped;i+=2) await Promise.all(unique.slice(i,i+2).map(url => fetch(url, { priority: 'low', signal: controller.signal } as RequestInit).then(r => r.arrayBuffer()).catch(() => { stopped = true; controller.abort() }))) })()
     keepVisit()
   }
-  const schedule = () => {
+  const idle = () => {
     if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 5000 })
     else setTimeout(warm, 1500)
+  }
+  // The reader's own first page comes first: idle time while its chapter is
+  // still downloading is not spare bandwidth. Bounded, so a reader that never
+  // becomes ready still warms the way back.
+  const schedule = () => {
+    const startedAt = Date.now()
+    const waitForReader = () => {
+      if (stopped) return
+      if (document.querySelector('[data-reader-ready="true"]') || Date.now() - startedAt > 10000) idle()
+      else setTimeout(waitForReader, 250)
+    }
+    waitForReader()
   }
   if (document.readyState === 'complete') schedule()
   else window.addEventListener('load', schedule, { once: true })

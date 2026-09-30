@@ -200,7 +200,7 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
  .rt-arrows button{width:36px;height:36px;border-radius:50%;border:1px solid #eee7d02d;background:#0c1a13b3;font:16px system-ui;color:#eee7d0}
 }
 /* Leaving for the reader: one quiet fade to paper, instead of intermediate pages. */
-body.leaving::after{content:'';position:fixed;inset:0;z-index:1000;background:#efe6cc;animation:leave-fade .24s ease-out both}
+body.leaving::after{content:'';position:fixed;inset:0;z-index:1000;background:var(--reader-paper,#efe6cc);animation:leave-fade .24s ease-out both}
 @keyframes leave-fade{from{opacity:0}to{opacity:1}}
 /* Want to read: a quiet + on shelf covers. */
 .card-wrap{position:relative;flex:none}.collection-card .card-wrap{width:100%}

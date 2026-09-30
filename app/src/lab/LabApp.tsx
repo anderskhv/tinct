@@ -128,6 +128,8 @@ import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bib
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
+import { LAB_THEME_PAPER } from './readerBoot'
+import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
 import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
@@ -189,6 +191,11 @@ function phoneSurfaceInput(layoutOverride: ReturnType<typeof labLayoutOverride>)
     screenWidth: window.screen?.width,
   }
 }
+
+/** How long the first page's fade-in class stays; the animation itself is shorter (lab.css). */
+const LAB_FIRST_REVEAL_MS = 400
+/** Longest the first text waits for hyphenation patterns before paging without them. */
+const LAB_HYPHENATION_WAIT_MS = 300
 
 function readPhoneSurface(layoutOverride: ReturnType<typeof labLayoutOverride>): boolean {
   if (typeof window === 'undefined') return layoutOverride === 'phone'
@@ -1383,7 +1390,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     root.setAttribute('data-theme', resolvedTheme)
     root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
-    themeColor.content = resolvedTheme === 'dark' ? '#171411' : resolvedTheme === 'book' ? '#e7dcc7' : '#f2eee4'
+    themeColor.content = LAB_THEME_PAPER[resolvedTheme === 'dark' || resolvedTheme === 'book' ? resolvedTheme : 'light']
     root.style.backgroundColor = themeColor.content
     document.body.style.backgroundColor = themeColor.content
     return () => {
@@ -1434,6 +1441,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? prefs.compareEdition
       : undefined
     markReaderLoadTrace('required_text_start', { startOf: 'required_text' })
+    // The paginators measure a chapter once with dictionary breaks instead of
+    // once without and again when the patterns land. They are small and
+    // preloaded with the page, so waiting (bounded) costs the text nothing.
+    const hyphenLang = hyphenLangForEdition(primaryEditionKey)
+    const hyphensSettled = hyphenLang
+      ? Promise.race([loadHyphenator(hyphenLang), new Promise<void>(resolve => window.setTimeout(resolve, LAB_HYPHENATION_WAIT_MS))])
+      : null
     loadLabBookSource({
         readingFirst: chromeV2,
       bookId: activeBookId,
@@ -1441,7 +1455,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       primaryEditionKey,
       compareEditionKey,
       audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
-    }).then((loaded) => {
+    }).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
       // Bible's legacy loader has a Genesis fallback for network failures;
       // never let that replace a requested Bible chapter. Generic books may
@@ -1645,10 +1659,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, chromeV2 ? { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs } : undefined)
-  const primaryCharacters = useCharacterCards(book.bookId, prefs.primaryEdition)
+  // Set once the first page is on screen. Work the opening page does not
+  // need (character cards, neighbouring chapters) waits for it rather than
+  // sharing the network and main thread with the reader's first text.
+  const [firstPageShown, setFirstPageShown] = useState(false)
+  const primaryCharacters = useCharacterCards(firstPageShown ? book.bookId : undefined, prefs.primaryEdition)
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
-  const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
+  const compareCharacters = useCharacterCards(firstPageShown && prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
   const define = useDefine()
   const [crossSelecting, setCrossSelecting] = useState<ChapterSelectionPart[] | null>(null)
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
@@ -2955,14 +2973,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [readingPages, showHearing, showPhoneChrome, desktopSpread, openingOnRight, listen.pending, listen.playing, listen.follow])
 
   useEffect(() => {
-    if ((book.bookId || 'bible') !== 'bible') return
+    if ((book.bookId || 'bible') !== 'bible' || !firstPageShown) return
     const editions = {
       primary: prefs.primaryEdition,
       compare: prefs.compareEdition,
       audio: audioEditionKey,
     }
     prefetchLabChapterTexts(book.chapterNumber, editions, 3)
-  }, [book.bookId, book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey])
+  }, [book.bookId, book.chapterNumber, book.chapters, prefs.primaryEdition, prefs.compareEdition, audioEditionKey, firstPageShown])
 
   const warmChapterTexts = useCallback((number: number) => {
     if ((book.bookId || 'bible') !== 'bible') return
@@ -4141,6 +4159,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const readerReady = readerLaidOut
     && (!measuredPaging || nativeMeasuredContent === readerParagraphs)
     && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey)
+  // The first page fades in once, in the render that makes it visible.
+  const [firstRevealDone, setFirstRevealDone] = useState(false)
+  const firstReveal = chromeV2 && readerReady && !firstRevealDone
+  useEffect(() => {
+    if (!readerReady) return
+    setFirstPageShown(true)
+    const timer = window.setTimeout(() => setFirstRevealDone(true), LAB_FIRST_REVEAL_MS)
+    return () => window.clearTimeout(timer)
+  }, [readerReady])
   useEffect(() => {
     if (!readerReady) return
     markReaderLoadTrace('pagination_ready', { outcome: 'success' })
@@ -4620,7 +4647,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       <div className="lab-body">
         {!(showPhoneChrome && phoneAsk) && (
         <div
-          className={`lab-page-wrap${chromeV2 && showPhoneChrome && !measuredPaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
+          className={`lab-page-wrap${chromeV2 && showPhoneChrome && !measuredPaging && settleIndex != null && settleIndex <= readingPageIndex ? ' is-measuring-visible-page' : ''}${initialResolving ? ' is-resolving' : ''}${firstReveal ? ' is-first-reveal' : ''}${chromeV2 && showPhoneChrome && mobileCompareEnabled ? ' can-swap' : ''}`}
           ref={pageWrapRef}
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}

@@ -8,7 +8,9 @@ afterEach(() => {
   sessionStorage.clear()
 })
 
-function setup(saveData = false) {
+function setup(saveData = false, readerReady = true) {
+  document.body.replaceChildren()
+  if (readerReady) document.body.innerHTML = '<div data-reader-ready="true"></div>'
   vi.spyOn(document, 'readyState', 'get').mockReturnValue('complete')
   vi.stubGlobal('requestIdleCallback', (run: () => void) => { run(); return 1 })
   Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData } })
@@ -75,4 +77,31 @@ test('stops when a request rejects before pagehide, as WebKit does at navigation
   await new Promise(resolve => setTimeout(resolve,0))
   expect(requests.mock.calls[0][1].signal?.aborted).toBe(true)
   expect(requests).toHaveBeenCalledTimes(2)
+})
+
+test('waits for the reader’s first page before warming the library', async () => {
+  vi.useFakeTimers()
+  try {
+    const requests = setup(false, false)
+    warmLibraryPreview()
+    await vi.advanceTimersByTimeAsync(2000)
+    expect(requests).not.toHaveBeenCalled()
+    document.body.innerHTML = '<div data-reader-ready="true"></div>'
+    await vi.advanceTimersByTimeAsync(300)
+    expect(requests).toHaveBeenCalled()
+  } finally {
+    vi.useRealTimers()
+  }
+})
+
+test('warms anyway once a reader that never becomes ready has had its time', async () => {
+  vi.useFakeTimers()
+  try {
+    const requests = setup(false, false)
+    warmLibraryPreview()
+    await vi.advanceTimersByTimeAsync(10500)
+    expect(requests).toHaveBeenCalled()
+  } finally {
+    vi.useRealTimers()
+  }
 })
