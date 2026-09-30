@@ -12,8 +12,8 @@
 | Template | Subject | Preheader (hidden text in the template) | Trigger | Suppression |
 |---|---|---|---|---|
 | `welcome` | Welcome to Tinct | Your reading companion comes with every book. | On sign-up (event-driven, not the daily cron) | Real accounts only, not anonymous ones |
-| `keep-reading` / `keep-reading-with-question` | `{{book_title}}` | Here's where the story stood. | 3 days without reading a started book | At most weekly; **stop after 2 ignored**; then one stalled `next-book` for that book, then nothing |
-| `next-book` / `next-book-classic-lead` | From `pairings.json` (`subject`), matched to the lead actually used | Target book hook | Finished a book, or 2 ignored `keep-reading` emails | Eligibility rules in `books/wip/reader-acclaim/pairings.json` |
+| `keep-reading` / `keep-reading-with-question` | `{{book_title}}` | Here's where the story stood. | 3 days without reading a started book (opted-in readers only) | At most weekly; **stop after 2 ignored**; then one stalled `next-book` for that book, then nothing |
+| `next-book` / `next-book-classic-lead` | From `pairings.json` (`subject`), matched to the lead actually used | Target book hook | Finished a book, or 2 ignored `keep-reading` emails (opted-in readers only) | Eligibility rules in `books/wip/reader-acclaim/pairings.json` |
 | `keep-companion` | Would you like to keep your companion and audiobooks? | `{{hours_reading}} reading, {{hours_listening}} listening.` | Trial day 25, reader used the companion or audiobooks | **Only once checkout works** |
 | `keep-companion-light` | Your first month in Tinct | Your first month ends on `{{trial_end_date}}`. | Trial day 25, little or no use | Only once checkout works |
 | `companion-ready` | Your companion is ready when you are | Everything you've read is still here. | Trial day 30, not subscribed | Only once checkout works |
@@ -56,10 +56,11 @@ Escape every variable as HTML, except `opening_line` and `books_phrase`, which c
 5. SPF/DKIM: Brevo DKIM (`brevo1`/`brevo2._domainkey`) is live and DMARC is `p=none`. The SPF record does not list Brevo; that is harmless because DKIM covers alignment, but tidy it later.
 
 ## Consent (decided by Anders, 30 September 2026)
-Keep it subtle so it never interrupts sign-up:
-- One small, muted line directly under the sign-up button (email and Google alike): **"We'll send you a few reading emails. Unsubscribe any time."** No checkbox, no modal, no extra step.
-- Every lifecycle email carries the one-click unsubscribe link and headers. The opt-out takes effect immediately and is stored on the profile.
-- `welcome` counts as service mail; the trial and next-book emails are the promotional ones this notice covers.
-- Footer sender line: **"Tinct, Copenhagen, Denmark"**.
+Ask in context; don't add anything to sign-up.
+- **Service mail, sent to every real account:** `welcome`, plus a factual trial-status notice (no sales pitch) for readers who haven't opted in.
+- **Opt-in mail:** `keep-reading`, `next-book` and the promotional trial emails (`keep-companion`, `companion-ready`) go only to readers who said yes.
+- **The prompt:** after the reader finishes their first chapter, or the first time they leave mid-book (whichever comes first), show one small inline prompt in the reader, not a modal: **"Want a nudge when you've been away, and the occasional book suggestion?"** with **[Yes please]** and **No thanks**. Ask once. If dismissed, ask at most once more after 2 weeks of reading, and never again after "No thanks".
+- **Consent record:** store yes/no with a timestamp and the prompt wording version on the profile. Every opt-in email carries one-click unsubscribe, and opting out takes effect immediately.
+- **Footer sender line:** "Tinct, Copenhagen, Denmark".
+- **Why:** under Danish and EU rules, email promoting our own service counts as marketing even when the thing promoted is free, and a notice alone isn't consent. The soft opt-in exception is tied to a sale, so a free account probably doesn't qualify. This is not legal advice.
 
-Anders chose this light-touch approach. A stricter version (an unticked checkbox) remains an option if legal advice ever calls for it. This is not legal advice.
