@@ -9,22 +9,20 @@ Validated Gutenberg 145 Title/Author. Complete original: Prelude + 86 chapters +
 
 Modern-en: NOT READY. Session A owns Prelude and chapters 1–12 in `parts/modern-en.mm-a.json`; rendering begins next. No other session files edited. Nothing published.
 
-## Session mm-f — partial checkpoint, 2026-09-30
+## Session mm-f — DONE, 2026-09-30
 
-Branch: content/middlemarch-codex-mm-f
-Base: content/middlemarch-codex-a at d67f0de0906b674e0a66487a54776676ad88a567, after this file reported ORIGINAL READY.
+Branch: `content/middlemarch-codex-mm-f`
+Prior part revision: `a3feefd246e698e60641e54f8e8053e0b7fd98a1`.
 
-Modern-en mm-f: PARTIAL — chapters 69–74 complete, 310 paragraphs, in parts/modern-en.mm-f.json. Original numbers, titles, paragraph counts and order preserved. No placeholders for unfinished chapters.
+Modern-en mm-f: DONE — chapters 69–86 and Finale (source chapter 87), 19 reading units, 792 paragraphs in `parts/modern-en.mm-f.json`. Appended chapters 75–87: exactly 482 paragraphs. Chapters 69–74 remain unchanged against the prior committed part; schema unchanged. Actual source chapter numbers, titles, paragraph counts/order, and all epigraphs for 75–86 preserved. No resume point remains for mm-f.
 
-GATE PASS: review/mm-f/gate-69-74.txt. Weighted similarity 0.464; no LIGHT/MECHANICAL chapters, identical long paragraphs, wrapped scaffolding, or truncated quotations. The gate prints slice positions 1–6; these correspond to actual chapters 69–74, which remain unchanged in both JSON files. Gate invoked with an absolute file prefix against a source slice and a relative symlink to this session's part; no live edition paths modified.
+Requested gates run once each using the absolute-path prefix and owned source slice/relative candidate symlink:
+- `review/mm-f/gate-75-87.txt`: PASS, weighted similarity 0.503; slice positions 7–19 correspond to actual chapters 75–87.
+- `review/mm-f/gate-69-87.txt`: PASS, weighted similarity 0.487; slice positions 1–19 correspond to actual chapters 69–87.
+- Both: no LIGHT/MECHANICAL chapters, wrapped scaffolding, or truncated quotations. Identical long paragraphs are preserved epigraphs (11; 2.7% of new batch, 1.6% of whole part).
 
-This is the token-boundary exception to the normal 10–12 chapter cadence. Resume at chapter 75, paragraph index 0. Remaining: chapters 75–86 plus Finale (source number 87). Continue from the committed part, then gate the next 10–12 chapters and the final remainder. Do not treat this checkpoint as the completed mm-f assignment.
+JSON, exact source alignment, nonempty paragraphs, unchanged prior chapters, and epigraph checks passed. Existing truncation audit saved as `review/mm-f/truncation-69-87.txt`: 18 inherited flags in untouched 69–74 and three new short-paragraph flags (77:26, 84:6, 84:53; zero-based paragraph indices). All three new flags were compared with their sources and preserve their full meaning. No content edits were made after the two passing gates. Candidate/source hashes, paragraph coordinates, and verification limits are in `review/mm-f/completion-69-87.json`.
 
-Also written:
-- onboarding/middlemarch.json: exactly 3 whyItMatters, 4 reading angles, cast; acclaim omitted; opening quoted from the original Prelude.
-- characters/middlemarch.proposal.json: proposed identities, aliases, spoiler constraints, and integration requirements. Production anchors/hashes remain pending the assembled edition.
-- taxonomy.md: existing Novels / 19th-Century English Novels placement.
+`taxonomy.md` now proposes House, Shelf, form, era, literary canon description, and explicit named-list metadata without unsupported membership claims. Proposal only; nothing registered. Existing onboarding and character proposals remain unchanged. No other session files edited.
 
-Validation details, original/candidate SHA-256, and changed paragraph indices: review/mm-f/checkpoint-69-74.json. Checks establish structural alignment and heuristic gate passage; independent semantic review and full assembled-book acceptance remain pending.
-
-Owned changes only: this mm-f status section, parts/modern-en.mm-f.json, review/mm-f/**, onboarding/middlemarch.json, characters/middlemarch.proposal.json, taxonomy.md, all under books/wip/middlemarch/. No other session files edited. Workflow skimmed at the base revision under the explicit lean instruction. Nothing published.
+Owned changes: this mm-f status section, `parts/modern-en.mm-f.json`, `review/mm-f/**`, and `taxonomy.md`, all under `books/wip/middlemarch/`. Historical 69–74 checkpoint and gate reports retained. No app changes, publication, or narration work. Independent semantic review and acceptance of the assembled book, including character anchors/hashes, remain integration work.
