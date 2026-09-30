@@ -180,6 +180,12 @@ paths remain rollback code and must not be selected as a failed-Grok fallback.
   provider or publication instructions. Follow the root cloud-first release
   and isolated, muted browser verification rules.
 
+## Public URLs
+
+Readers only ever see `/` and `/library` (the library), `/reader`, `/sign-in`, `/featured` (admin preview), `/read/{bookId}` (SEO pages), `/admin/metrics`, and API/asset paths. Never link, redirect, `location.assign` or pass a return URL to an asset-folder page such as `/lab/library_2/`, `/lab/sign-in/` or `/lab/phone`. The Worker serves `/library`, `/sign-in` and `/featured` from static assets with the URL unchanged, and answers the old `/lab` page URLs with a 308 to the canonical page (`legacyLabPageRedirect` in `app/src/lab/labRoute.ts`). `/reader?layout=phone|desktop` forces a layout for QA. The `/lab` namespace is free for future experiments. Supabase OAuth/email callbacks still name `/lab/sign-in` (the redirect the Worker forwards); move them to `/sign-in` once that URL is on Supabase's redirect allow-list.
+
+The legacy React `App` (and its hooks, `readerSession`, components) was deleted in 2026-09. The invariants below describe rules the old `useReadingPosition`/`useReadingLog` enforced; the live reader is `app/src/lab/LabApp.tsx` with `labPosition`/`readingMemory`. Treat the list as the behavioural contract, not as a pointer to files.
+
 ## Reader And Position Invariants
 
 These are production-critical:

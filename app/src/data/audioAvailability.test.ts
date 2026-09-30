@@ -4,7 +4,6 @@ import manifest from './audioAvailability.json'
 import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from './audioAvailability'
 import { PRE_READER_CATALOGUE, createReaderHandoffIntent } from '../preReader/catalogue'
 import { listableBooks } from '../../public/lab/library-model.js'
-import { fullShelf } from '../../public/lab/entry-model.js'
 import { LAB_AUDIO } from '../lab/labListen'
 import census from '../../../artifacts/audio-highlight-census-2026-09-11/edition-summary.json'
 describe('reversible edition discovery availability', () => {
@@ -23,7 +22,6 @@ describe('reversible edition discovery availability', () => {
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
     expect(PRE_READER_CATALOGUE.books).toHaveLength(101)
     expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(92)
-    expect(fullShelf(PRE_READER_CATALOGUE)).toHaveLength(92)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!

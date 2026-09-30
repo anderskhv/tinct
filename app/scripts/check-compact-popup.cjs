@@ -21,7 +21,7 @@ const assert = require('assert')
       contentType: 'application/json',
       body: JSON.stringify({ content: [{ text: 'The passage turns private doubt into a question about action.' }] }),
     }))
-    await page.goto(base + (name === 'phone' ? '/lab/phone?chrome=v2' : '/reader'))
+    await page.goto(base + (name === 'phone' ? '/reader?layout=phone' : '/reader'))
     await page.locator('.lab-hearing-word').first().waitFor()
     await page.waitForTimeout(1_200)
 

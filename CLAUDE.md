@@ -175,6 +175,8 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 
 ## Invariants (DO NOT VIOLATE)
 
+> **2026-09-30:** The legacy React `App.tsx` reader and its hooks (`useReadingPosition`, `useReadingLog`, `readerSession`) were deleted; the live reader is `src/lab/` at `/reader`. Invariants 1–8 below describe that removed code and are kept as the design record; the same rules apply to the live reader's position and sync code (`src/lab/labPosition*`, `labPositionStore`).
+
 These rules exist because their absence caused recurring sync bugs (B1, B19, B21 from 2026-04-27 test day, the Apr 23 `tinct-current-book` regression, and 2026-04-25 chat divider pollution). Every rule has a unit test in `app/src/hooks/useReadingPosition.guards.test.ts`. **If a rule looks unnecessary, run the tests before deleting anything.** "This seems redundant" is the exact thought that historically bites us.
 
 1. **Persisted reader state always carries matching `bookId` + `chapterNumber` as a tuple.** ReaderSession is the source for persisted position/history/progress tuples. `App.tsx` owns a reducer-backed `readerSessionState` and passes it to `useReadingPosition` and `useReadingLog`; legacy reader state may still drive rendering during migration, but it must not be used as the persisted content tuple. `useReadingPosition.saveNow` delegates to `readerSession/positionSync.commitReadingPosition()`, which gates writes with `canPersistLocation()` and then writes the validated readerSession location.

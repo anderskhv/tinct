@@ -54,27 +54,27 @@ afterEach(() => {
 
 describe('lab sign-in runtime', () => {
   it('honours a reader returnTo (with its query) on the back link and in the account mode URL', async () => {
-    history.replaceState(null, '', '/lab/sign-in?mode=account&returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+    history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader%3Fvoice%3Dv2')
     mountSignInShell()
     await import('./labSignIn')
     await flush()
     const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')!
     expect(root.dataset.ready).toBe('true')
     expect(root.dataset.mode).toBe('account')
-    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/lab/reader?voice=v2')
-    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/lab/reader?voice=v2')
+    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/reader?voice=v2')
+    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/reader?voice=v2')
   })
 
   it('falls back to the library for a foreign returnTo', async () => {
-    history.replaceState(null, '', '/lab/sign-in?returnTo=https%3A%2F%2Fevil.example%2Flab%2Freader')
+    history.replaceState(null, '', '/sign-in?returnTo=https%3A%2F%2Fevil.example%2Freader')
     mountSignInShell()
     await import('./labSignIn')
     await flush()
-    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/lab/library')
+    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/library')
   })
 
   it('wipes this reader\'s device data on sign out and keeps device-level preferences', async () => {
-    history.replaceState(null, '', '/lab/sign-in?mode=account&returnTo=%2Flab%2Fdesktop')
+    history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader')
     localStorage.setItem('tinct-lab-position', '{"books":{}}')
     localStorage.setItem('tinct:reading-memory', '{"owner":"user-a"}')
     localStorage.setItem('tinct:chat-history:lab', '[]')
@@ -87,7 +87,7 @@ describe('lab sign-in runtime', () => {
     // jsdom's Location is unforgeable, so the `location.assign(returnTo)` that
     // follows is not observable here (jsdom logs "Not implemented: navigation").
     // The returnTo it navigates to is the same value the back link carries.
-    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/lab/desktop')
+    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/reader')
     document.querySelector<HTMLButtonElement>('[data-sign-out]')!.click()
     await flush()
     await flush()
@@ -105,7 +105,7 @@ describe('lab sign-in providers', () => {
   const providerButtons = () => [...document.querySelectorAll<HTMLButtonElement>('[data-oauth]')]
 
   async function mount(search = '') {
-    history.replaceState(null, '', `/lab/sign-in${search}`)
+    history.replaceState(null, '', `/sign-in${search}`)
     mountSignInShell()
     await import('./labSignIn')
     await flush()
@@ -113,7 +113,7 @@ describe('lab sign-in providers', () => {
 
   it('renders Google above the email form, in that order, in sign-in mode', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    await mount('?returnTo=%2Flab%2Flibrary')
+    await mount('?returnTo=%2Flibrary')
     const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')!
     expect(root.dataset.mode).toBe('signin')
     expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google'])
@@ -130,7 +130,7 @@ describe('lab sign-in providers', () => {
 
   it('renders the same Google button in create-account mode', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    await mount('?mode=create&returnTo=%2Flab%2Flibrary')
+    await mount('?mode=create&returnTo=%2Flibrary')
     expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('create')
     expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google'])
   })
@@ -143,13 +143,13 @@ describe('lab sign-in providers', () => {
       document.body.innerHTML = ''
       auth.signInWithOAuth.mockClear()
       auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-      await mount('?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
+      await mount('?returnTo=%2Freader%3Fvoice%3Dv2')
       document.querySelector<HTMLButtonElement>(`[data-oauth="${provider}"]`)!.click()
       await flush()
       expect(auth.signInWithOAuth).toHaveBeenCalledTimes(1)
       expect(auth.signInWithOAuth).toHaveBeenCalledWith({
         provider,
-        options: { redirectTo: `${location.origin}/lab/sign-in?callback=oauth&returnTo=%2Flab%2Freader%3Fvoice%3Dv2` },
+        options: { redirectTo: `${location.origin}/lab/sign-in?callback=oauth&returnTo=%2Freader%3Fvoice%3Dv2` },
       })
     }
   })
@@ -161,7 +161,7 @@ describe('lab sign-in providers', () => {
     await flush()
     expect(auth.signInWithOAuth).toHaveBeenCalledWith({
       provider: 'google',
-      options: { redirectTo: `${location.origin}/lab/sign-in?callback=oauth&returnTo=%2Flab%2Flibrary` },
+      options: { redirectTo: `${location.origin}/lab/sign-in?callback=oauth&returnTo=%2Flibrary` },
     })
   })
 
@@ -173,7 +173,7 @@ describe('lab sign-in providers', () => {
       return { ...actual, LAB_SIGN_IN_PROVIDERS: ['google', 'github'] as const }
     })
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    await mount('?returnTo=%2Flab%2Flibrary')
+    await mount('?returnTo=%2Flibrary')
     expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google', 'github'])
     document.querySelector<HTMLButtonElement>('[data-oauth="apple"]')!.click()
     await flush()
@@ -185,7 +185,7 @@ describe('lab sign-in providers', () => {
     const description = 'Unsupported provider: provider is not enabled'
     sessionStorage.setItem('tinct:lab-oauth-provider', 'apple')
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    await mount(`?returnTo=%2Flab%2Flibrary#error=server_error&error_code=validation_failed&error_description=${encodeURIComponent(description)}`)
+    await mount(`?returnTo=%2Flibrary#error=server_error&error_code=validation_failed&error_description=${encodeURIComponent(description)}`)
     const status = document.querySelector<HTMLElement>('[data-auth-status]')!
     expect(status.hidden).toBe(false)
     expect(status.dataset.tone).toBe('error')
@@ -199,15 +199,15 @@ describe('lab sign-in providers', () => {
 
   it('passes the raw description through when it does not know which provider was tried', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    await mount('?returnTo=%2Flab%2Flibrary&error=access_denied')
+    await mount('?returnTo=%2Flibrary&error=access_denied')
     expect(document.querySelector<HTMLElement>('[data-auth-status]')!.textContent).toBe('access_denied')
     expect(new URLSearchParams(location.search).has('error')).toBe(false)
-    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/lab/library')
+    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/library')
   })
 
   it('shows the error notice when signInWithOAuth itself fails, and stays usable', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    await mount('?returnTo=%2Flab%2Flibrary')
+    await mount('?returnTo=%2Flibrary')
     auth.signInWithOAuth.mockImplementationOnce(async () => ({
       data: { url: null, provider: 'apple' },
       error: { message: 'Unsupported provider: provider is not enabled' },
@@ -266,7 +266,7 @@ describe('completed authentication', () => {
   const session = (user = newUser) => ({ access_token: 'test-token', user })
   const ready = async (query: string, user = newUser) => {
     auth.getSession.mockResolvedValueOnce({ data: { session: session(user) } } as never)
-    history.replaceState(null, '', '/lab/sign-in' + query)
+    history.replaceState(null, '', '/sign-in' + query)
     mountSignInShell()
     await import('./labSignIn')
     await flush()
@@ -303,7 +303,7 @@ describe('completed authentication', () => {
 
   it('does not show a welcome to a signed-out reader who edits the URL', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    history.replaceState(null, '', '/lab/sign-in?mode=welcome')
+    history.replaceState(null, '', '/sign-in?mode=welcome')
     mountSignInShell()
     await import('./labSignIn')
     await flush()
@@ -319,7 +319,7 @@ describe('completed authentication', () => {
 
   it('welcomes immediate email signup and asks for confirmation when needed', async () => {
     auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
-    history.replaceState(null, '', '/lab/sign-in?mode=create&returnTo=%2Freader%3Fbook%3Dbible')
+    history.replaceState(null, '', '/sign-in?mode=create&returnTo=%2Freader%3Fbook%3Dbible')
     mountSignInShell()
     await import('./labSignIn')
     await flush()

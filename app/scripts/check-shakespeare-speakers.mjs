@@ -17,7 +17,7 @@ async function prepare(context) {
     if (url.origin !== origin || route.request().method() !== 'GET') return route.abort()
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
     if (live) return route.continue()
-    const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname === '/library' ? '/lab/index.html' : url.pathname))
+    const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname))
     if (file.startsWith(path.resolve('dist') + '/')) try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
     return route.abort()
   })

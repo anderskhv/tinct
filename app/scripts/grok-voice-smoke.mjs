@@ -6,7 +6,7 @@
  * The browser's microphone is Chromium's fake capture device playing the given
  * WAV (a synthetic spoken question, 24 kHz mono PCM16, followed by silence,
  * looped by Chromium). Audio output is muted. No real microphone is opened and
- * nothing is audible. The page is the Chrome V2 phone reader at /lab/phone.
+ * nothing is audible. The page is the Chrome V2 phone reader at /reader?layout=phone.
  *
  * It verifies: connection, a substantive spoken answer (audio bytes, not
  * transcript), an interruption when the looped question starts again mid
@@ -78,7 +78,7 @@ async function launch(wav) {
 }
 
 async function openTalk(page) {
-  await page.goto(`${base}/lab/phone?chrome=v2`, { waitUntil: 'networkidle' })
+  await page.goto(`${base}/reader?layout=phone`, { waitUntil: 'networkidle' })
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-talk').click()
   await page.getByTestId('lab-call').waitFor({ timeout: 15000 })

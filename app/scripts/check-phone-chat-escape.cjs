@@ -34,7 +34,7 @@ async function main() {
       savedPlace: { bookId: 'odyssey', chapterNumber: 1, paragraphIndex: 0, page: 0 },
     }))
   })
-  await page.goto(`${BASE}/lab/phone?chrome=v2`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=phone`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-book').waitFor()
   await page.waitForTimeout(2500)
 

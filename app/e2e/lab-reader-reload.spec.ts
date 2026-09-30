@@ -36,7 +36,7 @@ async function openFromHandoff(page: Page, handoff: ReaderHandoff): Promise<void
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(next))
     sessionStorage.setItem('tinct:test-reader-reload-seeded', 'true')
   }, { next: handoff, oldPosition: OLD_BIBLE_POSITION })
-  await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+  await page.goto('/reader', { waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', handoff.bookId)
   if (!handoff.savedPlace) {
     await expect(page.getByTestId('lab-chapter-cover')).toBeVisible()

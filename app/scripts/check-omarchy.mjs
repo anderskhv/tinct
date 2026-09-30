@@ -65,7 +65,7 @@ for(const engine of [chromium,webkit]) {
     if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:true,voices:[{key:'f',label:'Ara',persona:'female'}]}})
     if(req.method()!=='GET') {requests.push(url.pathname);return route.fulfill({status:401,json:{error:'Acceptance test: no provider calls'}})}
     if(!live&&url.origin===origin){
-      const pathname=['/','/library','/library/'].includes(url.pathname)?'/lab/library_2/index.html':['/reader','/lab/phone'].includes(url.pathname)?'/app.html':url.pathname
+      const pathname=['/','/library','/library/'].includes(url.pathname)?'/lab/library_2/index.html':['/reader'].includes(url.pathname)?'/app.html':url.pathname
       const file=path.resolve('dist','.'+pathname)
       if(file.startsWith(path.resolve('dist')+'/')){try{if((await fs.stat(file)).isFile())return route.fulfill({path:file,headers:{'Content-Security-Policy':candidateCsp}})}catch{}}
     }
@@ -213,7 +213,7 @@ for(const engine of [chromium,webkit]) {
     assert.equal(await first(),settledParagraph,'Talk keeps its reading anchor even when microphone is unavailable')
     assert.equal(requests.filter(x=>/chat$|voice-session$/.test(x)).length,0,'no real AI calls during keyboard verification')
     await page.setViewportSize({width:390,height:844})
-    await page.goto(origin+'/lab/phone',{waitUntil:'domcontentloaded'})
+    await page.goto(origin+'/reader?layout=phone',{waitUntil:'domcontentloaded'})
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'themed phone reader fits the viewport')
     await shot('phone-persia')

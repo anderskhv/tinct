@@ -1,8 +1,5 @@
-import { libraryEntryPath } from '../worker/routes/libraryTwoRelease'
-
 /** Low-priority public assets only. Never mounts a library or reads/writes positions. */
 export function warmLibraryPreview() {
-  if (libraryEntryPath(document.cookie) !== '/lab/library_2/') return
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
   if (connection?.saveData || navigator.onLine === false) return
   const controller = new AbortController()

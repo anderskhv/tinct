@@ -40,7 +40,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     }
     if (req.method() !== 'GET') return route.abort()
     if (!live && url.origin === origin) {
-      const pathname = ['/lab/phone', '/reader'].includes(url.pathname) ? '/app.html' : url.pathname
+      const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname
       const file = path.resolve('dist', '.' + pathname)
       if (file.startsWith(path.resolve('dist') + '/')) {
         try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
@@ -72,7 +72,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled') } })
   }, { theme, voice })
   try {
-    await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), { waitUntil: 'domcontentloaded' })
+    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?chrome=v2'), { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     await page.evaluate(() => document.fonts.ready)
     await page.waitForTimeout(500)

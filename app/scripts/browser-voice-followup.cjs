@@ -123,7 +123,7 @@ const INIT = () => {
         await page.screenshot({ path: path.join(out, 'final.png') });
     };
     try {
-        await page.goto(`${base}/lab/phone?chrome=v2&voiceTrial=${model}`, { waitUntil: 'domcontentloaded' });
+        await page.goto(`${base}/reader?layout=phone&voiceTrial=${model}`, { waitUntil: 'domcontentloaded' });
         await page.getByTestId('lab-header-chapter').waitFor({ timeout: 20000 });
         if (!['research','back','start'].includes(scenario)) {
           await page.getByTestId('lab-v2-play').click();

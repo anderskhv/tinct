@@ -10,7 +10,7 @@ async function routeLocal(context){
   const u=new URL(route.request().url())
   if(u.origin!==origin)return route.abort()
   if(u.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
-  const file=path.resolve('dist','.'+(u.pathname==='/'?'/lab/library_2/index.html':u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname))
+  const file=path.resolve('dist','.'+(['/','/library'].includes(u.pathname)?'/lab/library_2/index.html':u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname))
   try{if(file.startsWith(path.resolve('dist')+'/')&&(await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}
   return route.abort()
  })
@@ -19,7 +19,7 @@ try{
  const context=await browser.newContext({viewport:{width:1440,height:950},serviceWorkers:'block'})
  await routeLocal(context)
  const page=await context.newPage()
- await page.goto(origin+'/lab/library_2/?view=new',{waitUntil:'domcontentloaded'})
+ await page.goto(origin+'/library?view=new',{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>document.querySelectorAll('canvas[data-book]').length>100)
  const inventory=await page.evaluate(async()=>{
   const {loadCatalogue,libraryBook}=await import('/lab/library_2/catalogue.js')

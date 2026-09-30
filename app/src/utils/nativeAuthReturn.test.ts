@@ -15,7 +15,7 @@ describe('native auth returns',()=>{
   const p=nativeAuthPending(id,nonce,'/reader?book=frankenstein','oauth',now)
   expect(nativeAuthRedirect(p)).toBe(id+'://auth/callback?flow='+nonce)
   expect(nativeAuthLanding(p)).toContain('returnTo=%2Freader%3Fbook%3Dfrankenstein')
-  expect(nativeAuthPending(id,nonce,'https://other.test/reader','oauth',now).returnTo).toBe('/lab/library')
+  expect(nativeAuthPending(id,nonce,'https://other.test/reader','oauth',now).returnTo).toBe('/library')
  })
  it('accepts only a matching, unexpired app/code/flow',()=>{
   const p=nativeAuthPending(id,nonce,'/reader','oauth',now)

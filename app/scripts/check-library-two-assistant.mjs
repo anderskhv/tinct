@@ -23,7 +23,7 @@ try {
       }
       if (request.method() !== 'GET') return route.abort()
       if (!live && url.origin === 'https://tinct.app') {
-        const filename = path.resolve('dist', '.' + (url.pathname === '/lab/library_2/' ? '/lab/library_2/index.html' : url.pathname))
+        const filename = path.resolve('dist', '.' + (url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname))
         if (!filename.startsWith(path.resolve('dist') + '/')) return route.abort()
         try { if ((await fs.stat(filename)).isFile()) return route.fulfill({ path:filename }) } catch {}
       }
@@ -31,7 +31,7 @@ try {
     })
     const page = await context.newPage(), errors = []
     page.on('pageerror', error => errors.push(error.message))
-    await page.goto('https://tinct.app/lab/library_2/', { waitUntil:'networkidle' })
+    await page.goto('https://tinct.app/library', { waitUntil:'networkidle' })
     assert.equal(await page.locator('#librarian-live').evaluate(el => Boolean(el.shadowRoot)), false, 'assistant stays lazy')
     await page.locator('#librarian').click()
     await page.locator('#chat:not([disabled])').waitFor({ timeout:30000 })

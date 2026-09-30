@@ -100,7 +100,7 @@ export interface UseLabAskOptions {
   voiceToolAdapter: TinctVoiceToolAdapter<LabVoiceViewSnapshot>
   onVoiceToolAction?: (entry: LabVoiceActionEntry) => void
   onVoiceToolSessionStart?: () => void
-  /** `'v2'` only from `/lab/reader?voice=v2` and Chrome V2. Defaults to Voice V1. */
+  /** `'v2'` only from `/reader?voice=v2` and Chrome V2. Defaults to Voice V1. */
   voiceVersion?: LabVoiceVersion
   voicePersona?: 'female' | 'male'
 }

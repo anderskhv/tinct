@@ -7,6 +7,7 @@ import fs from 'fs'
 import path from 'path'
 import { serializePreReaderCatalogue } from './src/preReader/catalogue'
 import { addLibraryReadingStructures } from './src/preReader/libraryReadingStructure'
+import { legacyLabPageRedirect } from './src/lab/labRoute'
 
 const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   serializePreReaderCatalogue(),
@@ -83,8 +84,6 @@ export default defineConfig(({ mode, command }) => {
         labFeaturedAccess: path.resolve(process.cwd(), 'src/labFeaturedAccess.ts'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
-        labReadingMemory: path.resolve(process.cwd(), 'src/labReadingMemory.ts'),
-        labLibraryAssistant: path.resolve(process.cwd(), 'src/labLibraryAssistant.tsx'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
@@ -98,11 +97,7 @@ export default defineConfig(({ mode, command }) => {
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'
-            : chunk.name === 'labReadingMemory'
-              ? 'lab/reading-memory.js'
-              : chunk.name === 'labLibraryAssistant'
-                ? 'lab/library-assistant.js'
-              : chunk.name === 'libraryTwoAssistant'
+            : chunk.name === 'libraryTwoAssistant'
                 ? 'lab/library-2-assistant.js'
               : chunk.name === 'nativeBooks'
                 ? 'lab/native-books.js'
@@ -149,6 +144,11 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
+          if (pathOnly === '/lab/featured-access.js') {
+            req.url = `/src/labFeaturedAccess.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/lab/auth-status.js') {
             req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
             next()
@@ -164,33 +164,30 @@ export default defineConfig(({ mode, command }) => {
             next()
             return
           }
-          if (pathOnly === '/lab/reading-memory.js') {
-            req.url = `/src/labReadingMemory.ts${url.slice(pathOnly.length)}`
-            next()
+          // Old /lab page URLs redirect to the canonical page, as in the Worker.
+          const legacyTarget = req.method === 'GET' || req.method === 'HEAD'
+            ? legacyLabPageRedirect(pathOnly, url.slice(pathOnly.length))
+            : null
+          if (legacyTarget) {
+            res.writeHead(308, { Location: legacyTarget })
+            res.end()
             return
           }
-          if (pathOnly === '/lab/sign-in' || pathOnly === '/lab/sign-in/') {
-            req.url = `/lab/sign-in/index.html${url.slice(pathOnly.length)}`
+          // Canonical page URLs are served from their static asset pages.
+          const pageAssets: Record<string, string> = {
+            '/sign-in': '/lab/sign-in/index.html',
+            '/sign-in/': '/lab/sign-in/index.html',
+            '/featured': '/lab/featured/index.html',
+            '/featured/': '/lab/featured/index.html',
+            '/': '/lab/library_2/index.html',
+            '/index.html': '/lab/library_2/index.html',
+            '/library': '/lab/library_2/index.html',
+            '/library/': '/lab/library_2/index.html',
+          }
+          if (pageAssets[pathOnly]) {
+            req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`
             next()
             return
-          }
-          if (pathOnly === '/lab/library-2' || pathOnly === '/lab/library-2/') {
-            req.url = `/lab/library-2/index.html${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
-          if (pathOnly === '/lab' || pathOnly === '/lab/' || pathOnly === '/lab/landing' || pathOnly === '/lab/library' || pathOnly === '/library') {
-            req.url = `/lab/index.html${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
-          if (pathOnly === '/' || pathOnly === '/index.html') {
-            const landingPath = path.join(process.cwd(), 'public', 'lab', 'index.html')
-            if (fs.existsSync(landingPath)) {
-              res.writeHead(200, { 'Content-Type': 'text/html' })
-              fs.createReadStream(landingPath).pipe(res)
-              return
-            }
           }
           next()
         })

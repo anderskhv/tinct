@@ -114,13 +114,13 @@ export function gateLabAiAction(input: { signedIn: boolean; storage?: LabPromptS
 export function labSignInHref(mode: 'create' | 'signin', returnTo: string): string {
   const query = new URLSearchParams()
   if (mode === 'create') query.set('mode', 'create')
-  query.set('returnTo', returnTo || '/lab/library')
-  return `/lab/sign-in?${query.toString()}`
+  query.set('returnTo', returnTo || '/library')
+  return `/sign-in?${query.toString()}`
 }
 
 /** Where the reader is now, for the sign-in return link. */
 export function labCurrentPath(loc: { pathname: string; search: string } | null = typeof location === 'undefined' ? null : location): string {
-  if (!loc) return '/lab/library'
+  if (!loc) return '/library'
   return `${loc.pathname}${loc.search}`
 }
 

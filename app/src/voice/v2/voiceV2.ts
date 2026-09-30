@@ -1,5 +1,5 @@
 /**
- * Voice V2 preview vocabulary. Selected only by `/lab/reader?voice=v2`.
+ * Voice V2 preview vocabulary. Selected only by `/reader?voice=v2`.
  *
  * V2 reports a user-visible activity phase that is derived purely from
  * observed session events (WebRTC data channel, Realtime events, the
