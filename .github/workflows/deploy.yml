@@ -74,6 +74,10 @@ jobs:
             if [ "$changed" != false ]; then
               mode=direct
               reason="Durable Object migrations changed or could not be compared (changed=$changed)"
+            elif ! git diff --quiet "$BASE_SHA" HEAD -- wrangler.jsonc; then
+              # Worker settings (routes, preview URLs, bindings) apply through a full deploy.
+              mode=direct
+              reason='wrangler.jsonc changed'
             fi
           fi
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
@@ -98,19 +102,23 @@ jobs:
 
       - name: Point acceptance at the version preview URL
         if: steps.plan.outputs.mode == 'staged'
+        id: preview
         env:
           PREVIEW_URL: ${{ steps.upload.outputs.preview_url }}
         run: |
           if [ -z "$PREVIEW_URL" ]; then
-            echo '::error::wrangler returned no preview URL. Enable Preview URLs for the tinct Worker (Cloudflare dashboard: Workers > tinct > Settings > Domains & Routes) or run this workflow with mode=direct.'
-            exit 1
+            # Never stall releases: deploy directly (acceptance then runs on production, as before).
+            echo '::warning::wrangler returned no preview URL; falling back to a direct deploy. Check preview_urls in wrangler.jsonc and the Worker settings.'
+            echo 'fallback=true' >> "$GITHUB_OUTPUT"
+            echo 'Release mode: **direct (no preview URL)**' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
           fi
           echo "TINCT_ORIGIN=$PREVIEW_URL" >> "$GITHUB_ENV"
           echo "TEST_ORIGIN=$PREVIEW_URL" >> "$GITHUB_ENV"
           echo "Preview: $PREVIEW_URL (version ${{ steps.upload.outputs.version_id }})" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Deploy to Cloudflare Workers (direct mode)
-        if: steps.plan.outputs.mode == 'direct'
+        if: steps.plan.outputs.mode == 'direct' || steps.preview.outputs.fallback == 'true'
         run: npm run deploy
 
       - name: Record deployed bundle hash
@@ -237,7 +245,7 @@ jobs:
       # ---- Stage 3: promote, then verify what only production can prove ----
 
       - name: Promote the version to 100% of production traffic
-        if: steps.plan.outputs.mode == 'staged'
+        if: steps.plan.outputs.mode == 'staged' && steps.preview.outputs.fallback != 'true'
         id: promote
         run: npm run release:promote -- "${{ steps.upload.outputs.version_id }}"
 
@@ -247,7 +255,7 @@ jobs:
           echo 'TEST_ORIGIN=https://tinct.app' >> "$GITHUB_ENV"
 
       - name: Confirm production serves the new bundle
-        if: steps.plan.outputs.mode == 'staged'
+        if: steps.plan.outputs.mode == 'staged' && steps.preview.outputs.fallback != 'true'
         run: |
           expected=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
           for attempt in $(seq 1 30); do

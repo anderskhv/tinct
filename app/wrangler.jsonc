@@ -3,6 +3,9 @@
   "name": "tinct",
   "main": "src/workerEntry.ts",
   "compatibility_date": "2025-09-27",
+  // Staged releases (.github/workflows/deploy.yml) test each uploaded version on its preview URL before promoting it.
+  "workers_dev": true,
+  "preview_urls": true,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1,

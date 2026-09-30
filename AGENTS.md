@@ -108,7 +108,7 @@ After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13
 `.github/workflows/deploy.yml` runs on every push to `main` (and manually):
 
 1. `npm test`.
-2. Choose mode. Staged is the default. The workflow falls back to a classic `npm run deploy` (acceptance after it is live, no automatic rollback) only when the Durable Object `migrations` list in `app/wrangler.jsonc` changed against the pushed base commit (or cannot be compared), or when run manually with `mode=direct`. Migrations cannot ride a version upload, so a migration change is deliberately a classic deploy; review it as such and expect no one-command rollback across it.
+2. Choose mode. Staged is the default. The workflow falls back to a classic `npm run deploy` (acceptance after it is live, no automatic rollback) when the Durable Object `migrations` list in `app/wrangler.jsonc` changed against the pushed base commit (or cannot be compared), when `app/wrangler.jsonc` changed at all (Worker settings apply through a full deploy), or when run manually with `mode=direct`. Migrations cannot ride a version upload, so a migration change is deliberately a classic deploy; review it as such and expect no one-command rollback across it.
 3. Record the version now serving production (used for rollback).
 4. `npm run release:upload`: build, verify-bundle, clean-main check, then `wrangler versions upload`. The new version serves **no** traffic and gets a preview URL (`https://<8-char-version>-tinct.<subdomain>.workers.dev`).
 5. Wait until the preview serves the exact built bundle, then run the pre-promote checks against it. Acceptance scripts read the target from `TINCT_ORIGIN` (default `https://tinct.app`), so one variable retargets them.
@@ -118,7 +118,7 @@ After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13
 8. Post-promote checks against `https://tinct.app`: smoke test, brand metadata (canonical URLs name the production host), production sign-in (Supabase redirect allow-list, cookies), Grok microphone recovery (only with `[reader-voice-qa]` in the commit message), featured preview and public library (hardcoded to production).
 9. If any step after promotion fails, the job runs `npm run rollback -- <previous-version-id>` and still finishes red. Fix forward and push again.
 
-Preview URLs must be enabled for the `tinct` Worker (Cloudflare dashboard, Workers > tinct > Settings > Domains & Routes). Without them the upload step fails with a clear message before anything is promoted; run the workflow with `mode=direct` in the meantime.
+Preview URLs are enabled in code (`"workers_dev": true, "preview_urls": true` in `app/wrangler.jsonc`; the first deploy after a `wrangler.jsonc` change is a direct deploy, which applies them). If an upload still returns no preview URL, the workflow warns and falls back to a direct deploy so releases never stall; check the Worker's Domains & Routes settings if that warning appears.
 
 ### Rollback
 
