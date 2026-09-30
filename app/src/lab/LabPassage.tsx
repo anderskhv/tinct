@@ -1,5 +1,5 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
-import { poetryClass } from './labPoetry'
+import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -283,10 +283,30 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
   })
 }
 
+/**
+ * BSB poetry lines join the visual paragraph of the line before them (see
+ * labPoetry). A joined line keeps its own words, indexes and handlers; only the
+ * block it is painted in changes. The first line of a run paints directly in
+ * the block, each further one inside a `lab-prose-join` span after a space.
+ */
+function joinedLines(run: number[], body: (lineIndex: number) => ReactNode, member?: (lineIndex: number) => Record<string, unknown>): ReactNode[] {
+  return run.map((lineIndex, position) => position === 0
+    ? <Fragment key={lineIndex}>{body(lineIndex)}</Fragment>
+    : <Fragment key={lineIndex}>{' '}<span className="lab-prose-join" {...member?.(lineIndex)}>{body(lineIndex)}</span></Fragment>)
+}
+
+/** The visual paragraph goes on to the next page: justify its last line like any interior one. */
+function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphIndex?: number; from?: number; words: Array<{ text: string; fragment?: boolean }> }>, run: number[]): boolean {
+  const last = lines[run[run.length - 1]]
+  return lineContinuesParagraph(paragraphs, last) || sliceRunContinues(paragraphs, lineSlice(last))
+}
+
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
-  return lines.map((line, lineIndex) => (
-    <p key={lineIndex} className={`lab-hearing-line${poetryClass(paragraphs[line.paragraphIndex ?? 0])}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}>
-      {renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
+  return proseRuns(paragraphs, lines.map(lineSlice)).map(run => (
+    <p key={run[0]} className={`lab-hearing-line${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
+      {joinedLines(run, (lineIndex) => {
+        const line = lines[lineIndex]
+        return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
         // The page-edge fragment: its hyphen is drawn by CSS, as on the reading page.
         ? <span key={`${lineIndex}-${wordIndex}`} className="lab-word-fragment" aria-hidden="true">{spacing}{word.text}</span>
         : (
@@ -294,7 +314,8 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
           {spacing}
           {renderWordText(word.text, word.emphasis)}
         </span>
-      ), lineationFor(paragraphs, line))}
+      ), lineationFor(paragraphs, line))
+      })}
     </p>
   ))
 }
@@ -331,16 +352,20 @@ function renderHearingWords(
   const lines = readingPage
     ? hearingReadingPageLines(paragraphs, readingPage, follow)
     : hearingStageLines(paragraph, follow, chapterPages)
-  return lines.map((line, lineIndex) => {
-    const paragraphIndex = line.paragraphIndex ?? fallbackParagraphIndex
-    const paragraphCurrent = follow.kind === 'paragraph' && paragraphIndex === follow.paragraphIndex
+  const lineParagraph = (lineIndex: number) => lines[lineIndex].paragraphIndex ?? fallbackParagraphIndex
+  const paragraphCurrent = (lineIndex: number) => follow.kind === 'paragraph' && lineParagraph(lineIndex) === follow.paragraphIndex
+  return proseRuns(paragraphs, lines.map(lineSlice)).map((run) => {
+    const paragraphIndex = lineParagraph(run[0])
     return (
       <p
-        key={lineIndex}
-        className={`lab-hearing-line${poetryClass(paragraphs[paragraphIndex])}${paragraphCurrent ? ' is-paragraph-current' : ''}${lineContinuesParagraph(paragraphs, line) ? ' is-continued' : ''}`}
+        key={run[0]}
+        className={`lab-hearing-line${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
-        {renderWordGroups(line.words, (word, wordIndex, spacing) => {
+        {joinedLines(run, (lineIndex) => {
+          const line = lines[lineIndex]
+          const paragraphIndex = lineParagraph(lineIndex)
+          return renderWordGroups(line.words, (word, wordIndex, spacing) => {
           // A sentence-level follow widens "current" to the whole span; word-level is unchanged.
           const role = word.wordIndex != null ? followWordRole(follow, paragraphIndex, word.wordIndex) ?? word.role : word.role
           return (
@@ -358,7 +383,8 @@ function renderHearingWords(
               {renderWordText(word.text, word.emphasis)}
             </span>
           )
-        }, lineationFor(paragraphs, line, fallbackParagraphIndex))}
+        }, lineationFor(paragraphs, line, fallbackParagraphIndex))
+        }, lineIndex => ({ 'data-follow-granularity': followGranularityAttr(followParagraphs, lineParagraph(lineIndex)) }))}
       </p>
     )
   })
@@ -892,27 +918,17 @@ export function LabPassage({
     setLocalSelecting(null)
   }
 
-  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false) => (
-    pageLines.map((line, lineIndex) => {
-                const paragraphIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false) => {
+    // Verse-paired Compare lays each primary line in its own grid row, so
+    // lines are never joined there; a joined BSB line only sits tight.
+    const gridRows = alignCompare && compare
+    const lineParagraph = (lineIndex: number) => pageLines[lineIndex].paragraphIndex ?? readingPage?.paragraphIndex ?? 0
+    const slices = pageLines.map(lineSlice)
+    const lineBody = (lineIndex: number) => {
+                const line = pageLines[lineIndex]
+                const paragraphIndex = lineParagraph(lineIndex)
                 const wordBase = line.from ?? readingPage?.from ?? 0
-                return (
-                  <p
-                    key={lineIndex}
-                    id={secondary ? undefined : `lab-p-${paragraphIndex}`}
-                    className={[
-                      'lab-hearing-line',
-                      poetryClass(paragraphs[paragraphIndex]),
-                      inlineHearingPaint && follow.kind === 'paragraph' && follow.paragraphIndex === paragraphIndex ? 'is-paragraph-current' : '',
-                      lineContinuesParagraph(paragraphs, line) ? 'is-continued' : '',
-                      markedIndexes.has(paragraphIndex) ? 'is-marked' : '',
-                      focusParagraph === paragraphIndex ? 'is-focus' : '',
-                      discussedParagraph === paragraphIndex ? 'is-discussed' : '',
-                    ].filter(Boolean).join(' ')}
-                    style={alignCompare && compare ? { gridColumn: 1, gridRow: lineIndex + 1 } : undefined}
-                    data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}
-                  >
-                    {renderWordGroups(line.words, (word, wordIndex, spacing) => {
+                return renderWordGroups(line.words, (word, wordIndex, spacing) => {
                       const absoluteWord = wordBase + wordIndex
                       const mark = highlightAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
                       const color = mark?.color ?? null
@@ -977,11 +993,36 @@ export function LabPassage({
                       const previousSelecting = !!activeSelecting && onPrimary && wordInHighlightRange(activeSelecting, paragraphIndex, previousWord)
                       const className = labHighlightGapCssClass(color, selecting, previousColor, previousSelecting)
                       return className ? <span className={className} data-highlight-id={mark?.id}>{spacing}</span> : spacing
-                    })}
+                    })
+    }
+    return proseRuns(paragraphs, slices, !gridRows).map((run) => {
+                const lineIndex = run[0]
+                const paragraphIndex = lineParagraph(lineIndex)
+                const anyParagraph = (test: (index: number) => boolean) => run.some(index => test(lineParagraph(index)))
+                return (
+                  <p
+                    key={lineIndex}
+                    id={secondary ? undefined : `lab-p-${paragraphIndex}`}
+                    className={[
+                      'lab-hearing-line',
+                      gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
+                      inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
+                      runContinuesParagraph(paragraphs, pageLines, run) ? 'is-continued' : '',
+                      anyParagraph(index => markedIndexes.has(index)) ? 'is-marked' : '',
+                      anyParagraph(index => focusParagraph === index) ? 'is-focus' : '',
+                      anyParagraph(index => discussedParagraph === index) ? 'is-discussed' : '',
+                    ].filter(Boolean).join(' ')}
+                    style={gridRows ? { gridColumn: 1, gridRow: lineIndex + 1 } : undefined}
+                    data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}
+                  >
+                    {joinedLines(run, lineBody, index => ({
+                      id: secondary ? undefined : `lab-p-${lineParagraph(index)}`,
+                      'data-follow-granularity': inlineHearingPaint ? followGranularityAttr(followParagraphs, lineParagraph(index)) : undefined,
+                    }))}
                   </p>
                 )
               })
-  )
+  }
 
   if (openingOnly) return <div
     ref={articleRef as React.RefObject<HTMLDivElement>}
@@ -1133,9 +1174,9 @@ export function LabPassage({
               const primaryIndex = line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0
               const from = line.from ?? readingPage?.from ?? 0
               const compareSelecting = !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison)
-              const renderPiece = (paragraphIndex: number, segment: { from: number; to: number }, key: number | string, style?: CSSProperties) => {
+              const pieceWords = (paragraphIndex: number, segment: { from: number; to: number }) => {
               const words = tokenizeHearingWords(source[paragraphIndex] || '')
-              return <p key={key} className={`lab-hearing-line${poetryClass(source[paragraphIndex])}`} style={style} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
+              return asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
                 const absoluteWord = segment.from + index
                 const mark = highlightAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
                 const color = mark?.color ?? null
@@ -1144,8 +1185,14 @@ export function LabPassage({
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
                 const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
                 return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
-              }))}</p>
+              }))
               }
+              const pieceData = (paragraphIndex: number, segment: { from: number; to: number }) => ({
+                'data-compare-paragraph': paragraphIndex, 'data-compare-from': segment.from, 'data-compare-to': segment.to,
+              })
+              const renderPiece = (paragraphIndex: number, segment: { from: number; to: number }, key: number | string, style?: CSSProperties) => (
+                <p key={key} className="lab-hearing-line" style={style} {...pieceData(paragraphIndex, segment)}>{pieceWords(paragraphIndex, segment)}</p>
+              )
               const gridCell = alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined
               if (verseGroupAt) {
                 // Verse-paired: the compare verses this line opens, possibly
@@ -1153,7 +1200,13 @@ export function LabPassage({
                 // coordinates, spanning the primary lines of those verses.
                 const group = verseGroupAt.get(lineIndex)
                 if (!group) return null
-                return <div key={lineIndex} className="lab-compare-cell" style={{ gridColumn: 2, gridRow: `${lineIndex + 1} / span ${group.segments.length}` }}>{group.pieces.map((piece, index) => renderPiece(piece.paragraphIndex, piece, index))}</div>
+                // A BSB compare cell sets its verses as prose, as the reading column does.
+                const pieces = group.pieces
+                return <div key={lineIndex} className="lab-compare-cell" style={{ gridColumn: 2, gridRow: `${lineIndex + 1} / span ${group.segments.length}` }}>{proseRuns(source, pieces).map(run => run.length === 1
+                  ? renderPiece(pieces[run[0]].paragraphIndex, pieces[run[0]], run[0])
+                  : <p key={run[0]} className="lab-hearing-line" {...pieceData(pieces[run[0]].paragraphIndex, pieces[run[0]])}>
+                    {joinedLines(run, index => pieceWords(pieces[index].paragraphIndex, pieces[index]), index => pieceData(pieces[index].paragraphIndex, pieces[index]))}
+                  </p>)}</div>
               }
               const segment = alignCompare ? comparisonSegment({ paragraphIndex: primaryIndex, from, to: from + line.words.length }, paragraphs, source) : { from, to: from + line.words.length }
               if (!alignCompare && segment.to <= segment.from) return null
@@ -1200,9 +1253,11 @@ export function LabPageMeasurePaint(input: {
       <div className="lab-book-columns">
         <div className="lab-book-col">
           <div className="lab-hearing-stage">
-            {lines.map((line, lineIndex) => (
-              <p key={lineIndex} className="lab-hearing-line">
-                {renderWordGroups(line.words, (word, wordIndex, spacing) => (
+            {proseRuns(input.paragraphs, lines.map(lineSlice)).map(run => (
+              <p key={run[0]} className="lab-hearing-line">
+                {joinedLines(run, (lineIndex) => {
+                  const line = lines[lineIndex]
+                  return renderWordGroups(line.words, (word, wordIndex, spacing) => (
                   <span
                     key={`${lineIndex}-${wordIndex}`}
                     className={input.hearingPaint
@@ -1212,7 +1267,8 @@ export function LabPageMeasurePaint(input: {
                     {spacing}
                     {renderWordText(word.text, word.emphasis)}
                   </span>
-                ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))}
+                ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))
+                })}
               </p>
             ))}
           </div>

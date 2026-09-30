@@ -1,8 +1,8 @@
-import { poetryClass } from './labPoetry'
+import { proseJoins, proseRuns } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureParagraphInto } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
 import {
@@ -197,7 +197,7 @@ function NativeWord({
   )
 }
 
-function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphIndex: number }) {
+function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[] {
   const words = tokenizeHearingWords(text)
   const rendered: Array<{ at: number; node: ReactNode }> = []
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
@@ -237,7 +237,30 @@ function NativeParagraph({ text, paragraphIndex }: { text: string; paragraphInde
       rendered.push({ at: wordIndex, node })
     }
   }
-  return <p className={`lab-hearing-line${poetryClass(text)}`}>{nativeVerseLines(text, rendered)}</p>
+  return nativeVerseLines(text, rendered)
+}
+
+/**
+ * One painted visual paragraph: a source paragraph, plus any BSB poetry lines
+ * joined to it (labPoetry), each in a `lab-prose-join` span after a space --
+ * the same markup the reading page paints, so the column flow places words
+ * where the reader will.
+ */
+function NativeParagraph({ paragraphs, run }: { paragraphs: string[]; run: number[] }) {
+  return <p className="lab-hearing-line">{run.map((paragraphIndex, position) => position === 0
+    ? <Fragment key={paragraphIndex}>{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</Fragment>
+    : <Fragment key={paragraphIndex}>{' '}<span className="lab-prose-join">{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</span></Fragment>)}</p>
+}
+
+/** Whole source paragraphs grouped into the visual paragraphs they paint as. */
+function nativeRuns(paragraphs: string[]): number[][] {
+  const joins = proseJoins(paragraphs)
+  const runs: number[][] = []
+  paragraphs.forEach((_, index) => {
+    if (index > 0 && joins[index]) runs[runs.length - 1].push(index)
+    else runs.push([index])
+  })
+  return runs
 }
 
 /**
@@ -340,12 +363,15 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           if (end) end.hidden = !withEnd
           header.hidden = !first
           stage.replaceChildren()
-          for (const segment of segments) {
-            const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
+          for (const run of proseRuns(paragraphs, segments)) {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
-            labMeasureParagraphInto(p, words, {
-              text: paragraphs[segment.paragraphIndex], from: segment.from,
+            run.forEach((index, position) => {
+              const segment = segments[index]
+              const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
+              const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
+              if (position === 0) labMeasureParagraphInto(p, words, lineation)
+              else labMeasureJoinInto(p, words, lineation)
             })
             stage.append(p)
           }
@@ -410,8 +436,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           <div className="lab-book-columns">
             <div className="lab-book-col">
               <div className="lab-hearing-stage">
-                {paragraphs.map((paragraph, paragraphIndex) => (
-                  <NativeParagraph key={paragraphIndex} text={paragraph} paragraphIndex={paragraphIndex} />
+                {nativeRuns(paragraphs).map(run => (
+                  <NativeParagraph key={run[0]} paragraphs={paragraphs} run={run} />
                 ))}
               </div>
             </div>
