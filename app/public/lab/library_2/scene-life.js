@@ -67,6 +67,7 @@ for(const [period,flames] of Object.entries(roomFires)){
 // Grade once, not on every animation frame. This also works in browsers which
 // don't implement CanvasRenderingContext2D.filter (including older iOS Safari).
 const paintings = new WeakMap();
+const GRADE = 'rgb(8,23,17)', GRADE_ALPHA = .24;
 export function scenePainting(img, id) {
   if (id !== 'pride-and-prejudice') return img;
   if (!paintings.has(img)) {
@@ -74,7 +75,8 @@ export function scenePainting(img, id) {
     canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    ctx.fillStyle = 'rgba(8,23,17,.24)';
+    ctx.fillStyle = GRADE;
+    ctx.globalAlpha = GRADE_ALPHA;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     paintings.set(img, canvas);
   }
@@ -252,9 +254,21 @@ function rain(ctx,panes,key,time,alpha){
     ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+length*.08,y+length);ctx.stroke();
   });ctx.restore();
 }
+// Draw a filmed loop (see scene-video.js) through the painting's own crop,
+// graded exactly like scenePainting: (1-a)*graded still + a*graded film.
+export function drawSceneFilm(ctx,id,film,img,crop,w,h,alpha) {
+  const a=alpha*film.alpha;if(a<=0)return;
+  const v=film.video,sx=v.videoWidth/img.naturalWidth,sy=v.videoHeight/img.naturalHeight;
+  const graded=id==='pride-and-prejudice';
+  ctx.save();ctx.globalAlpha=graded?(1-GRADE_ALPHA)*a/(1-GRADE_ALPHA*a):a;
+  ctx.drawImage(v,crop.x*sx,crop.y*sy,crop.w*sx,crop.h*sy,0,0,w,h);
+  if(graded){ctx.globalAlpha=GRADE_ALPHA*a;ctx.fillStyle=GRADE;ctx.fillRect(0,0,w,h);}
+  ctx.restore();
+}
 export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   // Drawn candles, water and rain read as artificial on large screens (Anders,
-  // 2026-09-30): wide scenes stay as the still painting until a filmed loop exists.
+  // 2026-09-30): wide scenes stay as the still painting, animated on desktop
+  // only by their filmed loops (drawSceneFilm).
   if(wide)return;
   const spec=SCENES[id]?.phone;if(!spec||alpha<=0||!img)return;
   ctx.save();ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);
