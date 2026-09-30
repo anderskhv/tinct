@@ -6523,17 +6523,35 @@
   min-height: 0;
 }
 
-/* Keep the pagination boundary fixed when transport opens or closes.
-   The reserved space fits the controls without moving any book words. */
+/* The box the reserved foot actually is.
+   `.lab-bottom-chrome` is what pagination measures — it is handed to
+   `measureLabPageMetrics` as the chrome boundary, and the native page map is
+   laid out in the column above it — so it says exactly what the foot holds,
+   and the body's padding agrees with it. With the transport closed that is
+   the painted progress line only: every line of the column is used. */
 .lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-body {
   height: auto;
-  padding-bottom: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(1.25rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
 }
 .lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
 .lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
-  height: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  height: calc(1.25rem + max(0.35rem, env(safe-area-inset-bottom, 0px)));
   padding-bottom: 0;
+}
+
+/* With the transport up the rail sits above it, and the column ends above
+   the rail: 20px of rail over the 3.72rem the transport takes. The page on
+   screen does not reflow when this changes — the transport covers its last
+   line — and only the pages after it are laid out again at this height
+   (LabApp's page freeze, `labPagesKeepingPrefix`). */
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-body,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-body {
+  padding-bottom: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+}
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
+  height: calc(4.97rem + env(safe-area-inset-bottom, 0px));
 }
 
 /* Desktop: the rail's column is gone, and its width goes to the page. */

@@ -1701,6 +1701,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const pageMetricGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
+  // V2 phone: the audio transport opening or closing changes the reserved
+  // foot. The page on screen (and those before it) is kept exactly; only the
+  // pages after it are laid out at the new height (see labPagesKeepingPrefix).
+  // `transportOpenRef` is the foot now; `mapTransportOpenRef` the foot the
+  // native map in use was measured against.
+  const [pageFreeze, setPageFreeze] = useState<{ content: string[]; layoutKey: string; pages: ChapterHearingPage[] } | null>(null)
+  const pageFreezeRef = useRef(pageFreeze)
+  pageFreezeRef.current = pageFreeze
+  const transportOpenRef = useRef(false)
+  const mapTransportOpenRef = useRef<boolean | null>(null)
   const keepPlayingChapterRef = useRef<number | null>(null)
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
@@ -1734,6 +1744,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       || next.length === 0
     ) return
     setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+    mapTransportOpenRef.current = transportOpenRef.current
     if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('NATIVE_MAP', JSON.stringify({layout: readerStateRef.current, incoming: incoming.slice(0,5), next: next.slice(0,5), current:readingPagesRef.current.slice(0,5), keep:pageAnchorRef.current}))
     const current = readingPagesRef.current
     const working = workingPagesRef.current
@@ -2240,6 +2251,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       // word by word here causes repeated synchronous layouts before paint
       // and changes later page boundaries on every navigation.
       if (labPageFitsPaint(painted)) return
+      // The foot just changed height under this page (the transport opened
+      // or closed) and the map has not caught up, or this is a page kept
+      // through that change: its words stay where they are and the
+      // transport covers its last line. Peeling it would move them.
+      const frozen = pageFreezeRef.current
+      if (
+        mapTransportOpenRef.current !== transportOpenRef.current
+        || (frozen && frozen.content === readerParagraphs && pageIdx < frozen.pages.length)
+      ) return
 
       const next = shrinkNativePageAfterPaint(readerParagraphs, pages, pageIdx, painted)
       if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('PAINT_SHRINK', JSON.stringify({pageIdx,painted,before:pages.slice(0,5),after:next.slice(0,5)}))
@@ -2604,6 +2624,40 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     && !mobileCompareActive
     && (listen.pending || listen.playing || audioChapterTransitioning || (chromeV2 && pausedTransportVisible))
   const desktopAudioBarActive = !showPhoneChrome && (listen.pending || listen.playing || (chromeV2 && pausedTransportVisible))
+  const phoneTransportOpen = chromeV2 && showPhoneChrome && audioBarActive
+  transportOpenRef.current = phoneTransportOpen
+  const lastPhoneTransportRef = useRef(phoneTransportOpen)
+  // The page that was on screen as of the previous commit. A page turn can
+  // close the paused transport in the same commit; the page turned to was
+  // never seen under the old foot, so it is laid out afresh, not kept.
+  const shownPageIndexRef = useRef(readingPageIndex)
+  useLayoutEffect(() => {
+    const previous = lastPhoneTransportRef.current
+    const shownIndex = shownPageIndexRef.current
+    lastPhoneTransportRef.current = phoneTransportOpen
+    shownPageIndexRef.current = readingPageIndex
+    if (previous === phoneTransportOpen) return
+    const pages = readingPagesRef.current
+    if (
+      !measuredPaging || desktopPaging || !chromeV2
+      || nativeMeasuredContent !== readerParagraphs || pages.length === 0
+      || explicitStartAnchor || comparePassageRef.current?.paragraphs === readerParagraphs
+    ) {
+      setPageFreeze(null)
+      return
+    }
+    // Keep the page on screen, and every page before it, exactly as laid
+    // out. The paginator lays out only what follows at the new foot, from
+    // the word after the kept page — so a page reached in this same commit
+    // still begins on the same word.
+    const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
+    const index = Math.min(current, Math.max(0, shownIndex))
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on the foot changing only; tracks the shown page every commit
+  })
+  // A new chapter, edition or typography lays the whole chapter out afresh.
+  const nativeLayoutKey = layoutKeyFor(readerEditionKey)
+  useEffect(() => { setPageFreeze(null) }, [readerParagraphs, nativeLayoutKey])
   // V2 has no reading bar. Play is in the top bar and Chat, Talk and Compare
   // are in the menu; what the foot holds is the progress line, and the
   // transport for as long as audio plays. The space the bar took goes to the
@@ -4677,6 +4731,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               paragraphs={readerParagraphs}
               editionKey={readerEditionKey}
               layoutKey={layoutKeyFor(readerEditionKey)}
+              keepPages={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.pages : undefined}
               onPages={applyNativePages}
             />
           )}

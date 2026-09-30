@@ -22,7 +22,7 @@ import {
   type ChapterPageSegment,
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
-import { measuredDesktopPages } from './LabDesktopPaginator'
+import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
@@ -124,6 +124,54 @@ export function balanceNativeChapterTail(pages: ChapterHearingPage[]): ChapterHe
     segments: nextLastSegments.length > 1 ? nextLastSegments : undefined,
   }
   return next
+}
+
+/**
+ * Where the page after `page` begins: the word after its last one, carrying
+ * any hyphenated opening the page already showed of that word. Null when the
+ * page ends the chapter.
+ */
+export function labResumeAfterPage(
+  page: ChapterHearingPage | undefined,
+  lengths: number[],
+): LabPaginationStart | null {
+  const tail = chapterPageTail(page)
+  if (!tail) return null
+  if (tail.to < (lengths[tail.paragraphIndex] ?? 0)) {
+    return {
+      paragraphIndex: tail.paragraphIndex,
+      wordIndex: tail.to,
+      ...(tail.tailFragment != null ? { headBreak: tail.tailFragment } : {}),
+    }
+  }
+  for (let paragraphIndex = tail.paragraphIndex + 1; paragraphIndex < lengths.length; paragraphIndex += 1) {
+    if (lengths[paragraphIndex] > 0) return { paragraphIndex, wordIndex: 0 }
+  }
+  return null
+}
+
+/**
+ * The page map after the reserved foot changes height under an open page
+ * (the audio transport opening or closing). The pages up to and including
+ * the one on screen are kept exactly — no word the reader is looking at
+ * moves; with the transport up it simply covers that page's last line — and
+ * only the rest of the chapter is laid out again, from the word after the
+ * kept page, at the new height. `paginateFrom` lays out a remainder;
+ * `fitEnd` reserves the chapter actions on the final leaf.
+ */
+export function labPagesKeepingPrefix(
+  kept: ChapterHearingPage[],
+  lengths: number[],
+  paginateFrom: (start: LabPaginationStart) => ChapterHearingPage[],
+  fitEnd?: (pages: ChapterHearingPage[]) => ChapterHearingPage[],
+): ChapterHearingPage[] {
+  if (kept.length === 0) return kept
+  const start = labResumeAfterPage(kept[kept.length - 1], lengths)
+  if (!start) return kept
+  const rest = paginateFrom(start)
+  if (rest.length === 0) return kept
+  const pages = [...kept, ...rest]
+  return fitEnd ? fitEnd(pages) : pages
 }
 
 /** Convert browser-laid-out word columns into the existing reader page contract. */
@@ -266,6 +314,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   chapterActions = false,
   hasNextChapter = false,
   editionKey,
+  keepPages,
   onPages,
 }: {
   chapterTitle: string
@@ -276,6 +325,12 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
+  /**
+   * Pages to keep verbatim at the head of the map (the reader's current page
+   * and those before it) when the foot changes height under them. Only the
+   * remainder is laid out at the new height. Ignored if the width changes.
+   */
+  keepPages?: ChapterHearingPage[]
   onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
@@ -299,6 +354,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     let firstFrame = 0
     let secondFrame = 0
     let publishedPages: ChapterHearingPage[] | null = null
+    // The kept pages were laid out at this width; a different width (a
+    // rotation) invalidates them and the whole chapter is laid out again.
+    let keepWidth: number | null = null
 
     const measure = () => {
       if (cancelled) return
@@ -355,8 +413,19 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
-        pages = measuredDesktopPages(sourceWords.map(words => words.length), fits, wordBreaks, Infinity, paragraphs)
-        if (chapterActions) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
+        const lengths = sourceWords.map(words => words.length)
+        const fitEnd = chapterActions
+          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true))
+          : undefined
+        if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
+        const kept = keepPages?.length && keepWidth === pageWidth
+          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start), fitEnd)
+          : null
+        if (kept && chapterPagesCover(paragraphs, kept)) pages = kept
+        else {
+          pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs)
+          if (fitEnd) pages = fitEnd(pages)
+        }
         if (end) end.hidden = true
         stage.replaceChildren()
       }
@@ -400,7 +469,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       observer?.disconnect()
       document.fonts?.removeEventListener?.('loadingdone', schedule)
     }
-  }, [chapterTitle, paragraphs, layoutKey, fillPages, chapterActions, hasNextChapter, onPages, hyphenLang, hyphensReady])
+  }, [chapterTitle, paragraphs, layoutKey, fillPages, chapterActions, hasNextChapter, onPages, hyphenLang, hyphensReady, keepPages])
 
   return (
     <div ref={hostRef} className="lab-page-measure lab-native-page-measure" aria-hidden="true" data-testid="lab-native-page-measure">
