@@ -56,7 +56,7 @@ await writeFile(join(root,'native-books/bundled.json'),JSON.stringify({books:bun
 let onDemandBytes=0
 for(const folder of ['data/editions','data/editions-chapters','data/characters']) {
   for(const name of await readdir(join(root,folder))) {
-    const keep=bundledBooks.some(id=>name.startsWith(id+'-')||name===id+'.v1.json')
+    const keep=bundledBooks.some(id=>name.startsWith(id+'-')||name===id+'.v1.json'||name.startsWith(id+'.v1.'))
     if(keep)continue
     const target=join(root,folder,name)
     onDemandBytes+=await bytes(target)

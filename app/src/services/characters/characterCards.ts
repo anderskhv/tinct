@@ -19,11 +19,14 @@ const EN = ['original-en', 'modern-en']
  * and the release revision that versions its sidecar URL. Bump the revision when
  * a package is re-published so readers stop hitting the immutable old URL.
  */
-export const characterReleases: Record<string, { editions: string[]; revision: string }> = {
+export const characterReleases: Record<string, { editions: string[]; revision: string; perEdition?: boolean }> = {
   'to-the-lighthouse': { editions: EN, revision: '2026-09-25.1' },
   // 2026-09-09.2 — pilots
   'the-awakening': { editions: EN, revision: '2026-09-09.2' },
-  bible: { editions: ['kjv-en', 'web-en'], revision: '2026-09-24.1' },
+  // 2026-09-30.1 — every appearance linked in four editions. The 16.5 MB package
+  // is served as one sidecar per edition (see characterAssetPath) so a reader
+  // downloads only the edition that is open.
+  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-09-30.1', perEdition: true },
   // 2026-09-10.1 — Hamlet, Macbeth, four philosophy/reference, nine plays
   hamlet: { editions: EN, revision: '2026-09-10.1' },
   macbeth: { editions: EN, revision: '2026-09-10.1' },
@@ -133,6 +136,9 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'fear-and-trembling': { editions: EN, revision: '2026-09-12.1' },
   'magna-carta': { editions: EN, revision: '2026-09-12.1' },
 }
+/** Public path of the character package a reader needs for one edition. */
+export const characterAssetPath = (bookId: string, editionKey: string) =>
+  characterReleases[bookId]?.perEdition ? `/data/characters/${bookId}.v1.${editionKey}.json` : `/data/characters/${bookId}.v1.json`
 const supportedEditions = (bookId: string): string[] | undefined => characterReleases[bookId]?.editions
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
   if (!supportedEditions(bookId)?.includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
@@ -164,7 +170,7 @@ export function loadCharacters(bookId?: string, editionKey?: string): Promise<Ve
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json?v=${characterReleases[bookId].revision}`)])
+      const [asset, source] = await Promise.all([fetch(`${characterAssetPath(bookId, editionKey)}?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json?v=${characterReleases[bookId].revision}`)])
       if (!asset.ok || !source.ok) return null
       return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
     } catch { return null }

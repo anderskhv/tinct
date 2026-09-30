@@ -4,7 +4,7 @@ const fs = require('node:fs'), path = require('node:path'), assert = require('no
 const origin = process.env.TEST_ORIGIN || 'https://tinct.app'
 const dir = process.env.ARTIFACT_DIR || 'artifacts/web-revelation'
 fs.mkdirSync(dir, { recursive: true })
-const asset = JSON.parse(fs.readFileSync('public/data/characters/bible.v1.json', 'utf8'))
+const asset = JSON.parse(fs.readFileSync('public/data/characters/bible.v1.web-en.json', 'utf8'))
 const edition = JSON.parse(fs.readFileSync('public/data/editions/bible-web-en.json', 'utf8'))
 const chapter = edition.chapters.find(ch => ch.number === 1189)
 assert.equal(chapter.paragraphs.length, 5)
@@ -23,7 +23,7 @@ assert.ok(wordIndex >= 0)
    const responses = [], checks = []
    page.on('response', response => {
     const url = new URL(response.url())
-    const targets = ['/data/characters/bible.v1.json', '/data/editions/bible-web-en.json', '/data/editions-chapters/bible-web-en/ch1189.json']
+    const targets = ['/data/characters/bible.v1.web-en.json', '/data/editions/bible-web-en.json', '/data/editions-chapters/bible-web-en/ch1189.json']
     if (targets.includes(url.pathname)) checks.push((async () => {
      assert.equal(response.status(), 200)
      assert.deepEqual(await response.body(), fs.readFileSync('public' + url.pathname))
@@ -67,7 +67,7 @@ assert.ok(wordIndex >= 0)
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'), place)
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').length), 0)
     await Promise.all(checks)
-    for (const prefix of ['/data/characters/bible.v1.json?', '/data/editions/bible-web-en.json?', '/data/editions-chapters/bible-web-en/ch1189.json?']) assert.ok(responses.some(url => url.startsWith(prefix)), prefix)
+    for (const prefix of ['/data/characters/bible.v1.web-en.json?', '/data/editions/bible-web-en.json?', '/data/editions-chapters/bible-web-en/ch1189.json?']) assert.ok(responses.some(url => url.startsWith(prefix)), prefix)
     await page.screenshot({ path: `${dir}/${device}-card.png` })
     results.push({ device, place, responses })
     await page.context().tracing.stop()
