@@ -1,6 +1,6 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260929reveal';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260928f';
-import { createBookshelf } from './bookshelf-view.js?v=20260928f';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260930shelf-b';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930shelf-b';
+import { createBookshelf } from './bookshelf-view.js?v=20260930shelf';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928f';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
@@ -72,7 +72,11 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  }
  addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}});
  addEventListener('library2:shelf-removed',event=>{const id=event.detail;table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
- addEventListener('library2:overlayclosed',()=>{if(pendingUpdate&&view){pendingUpdate=false;view.update(table,saved,catalogue);}});
+ // A refresh that lands behind the menu, search, a book or My shelf is applied as
+ // soon as the desk is visible again, so the desk and My shelf never disagree.
+ const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(table,saved,catalogue);}};
+ addEventListener('library2:overlayclosed',flushPending);
+ addEventListener('library2:interactive',flushPending);
  // Preserve the live scene in the back/forward cache while refreshing its data.
  addEventListener('pageshow',event=>{if(event.persisted&&!sample)ready=load(true);});
  addEventListener('online',()=>{if(!sample)ready=load(true);});

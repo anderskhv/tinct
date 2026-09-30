@@ -52,6 +52,10 @@ describe('the sheet', () => {
     expect(screen.getByTestId('lab-v2-sheet')).toBe(sheet)
     fireEvent.click(screen.getByTestId('lab-v2-sheet-back'))
     expect(layer()).toBe('advanced')
+    // Advanced settings returns to Settings rather than closing the sheet.
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-back'))
+    expect(layer()).toBe('reading')
+    expect(screen.getByTestId('lab-v2-sheet')).toBe(sheet)
     expect(LAB_V2_SHEET_HEIGHT_PX).toBe(452)
   })
 

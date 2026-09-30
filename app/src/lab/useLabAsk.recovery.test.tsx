@@ -128,7 +128,10 @@ it('explains a selected passage without adding it to chat history', async () => 
   const request = JSON.parse(String(fetcher.mock.calls[0][1]?.body)) as { messages: Array<{ content: string }>; book?: { bookId?: string; editionKey?: string } }
   expect(request.messages[0].content).toContain('<selected_passage>\nThe selected words.\n</selected_passage>')
   expect(request.messages[0].content).toContain('without using knowledge from later in the work')
-  expect(JSON.stringify(request)).toContain('web-en')
+  // The selection's edition names the text; Explain streams without book lookups.
+  expect(JSON.stringify(request)).toContain('World English Bible')
+  expect(request.book).toBeUndefined()
+  expect(JSON.stringify(request)).not.toContain('read_chapter')
 })
 
 it('does not clear a new draft when retrying an earlier failed turn', async () => {

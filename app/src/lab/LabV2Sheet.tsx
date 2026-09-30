@@ -242,6 +242,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('editions')}>‹ Editions</button>
         ) : layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
+        ) : layer === 'advanced' ? (
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Settings</button>
         ) : (
           <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
         )}

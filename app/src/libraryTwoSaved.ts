@@ -39,11 +39,14 @@ function write(owner: string | null, state: State) {
 function ids(state: State): string[] {
   return Object.entries(state.items).filter(([, item]) => item.saved).sort((a, b) => b[1].at - a[1].at).map(([id]) => id)
 }
-function acceptRow(state: State, id: string, row: { value?: Change | null; rev?: number | null }) {
+function acceptRow(state: State, id: string, row: { value?: Change | null; rev?: number | null; updated_at?: string | null }) {
   const revision = coerceRev(row.rev), known = state.revisions?.[id]
   if (known !== undefined && (revision === undefined || revision < known)) return
   if (revision !== undefined) (state.revisions ??= {})[id] = revision
-  state.items[id] = { saved: row.value?.saved === true, at: Number(row.value?.at) || 0, ...(row.value?.tableHidden === true ? { tableHidden: true } : {}) }
+  // A tombstone carries no value, so its removal time is the row's own clock.
+  // Membership compares that time with later reading (loadShelfMembership).
+  const at = Number(row.value?.at) || Date.parse(row.updated_at ?? '') || 0
+  state.items[id] = { saved: row.value?.saved === true, at, ...(row.value?.tableHidden === true ? { tableHidden: true } : {}) }
 }
 function rememberRevision(state: State, id: string, raw: unknown) {
   const revision = coerceRev(raw)
@@ -54,7 +57,7 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return false
   const client = supabase
   try {
-    const { data, error } = await client.from('user_data').select('key,value,rev').eq('user_id', owner).like('key', PREFIX + '%')
+    const { data, error } = await client.from('user_data').select('key,value,rev,updated_at').eq('user_id', owner).like('key', PREFIX + '%')
     if (error) return false
     if (await account() !== owner) throw new Error('Account changed')
     const rows = new Map((data ?? []).map(row => [row.key.slice(PREFIX.length), row]))
@@ -130,13 +133,22 @@ export async function setSavedBook(id: string, saved: boolean, options: { tableH
   })
 }
 
-/** Explicit membership overrides inferred reading history without deleting it. */
+/**
+ * Explicit membership overrides inferred reading history without deleting it.
+ * Each removal carries its time (`removedAt`, `tableHiddenAt`; 0 = unknown):
+ * it holds only until the reader reads that book again, exactly like the
+ * desk's own hide stamp, so no removal can hide a book being read forever.
+ */
 export async function loadShelfMembership() {
   await loadSavedBooks()
   const owner = await account()
   const state = read(owner)
+  const removed = Object.entries(state.items).filter(([, item]) => !item.saved)
+  const tableHidden = Object.entries(state.items).filter(([, item]) => item.saved && item.tableHidden)
   return {
-    removed: Object.entries(state.items).filter(([, item]) => !item.saved).map(([id]) => id),
-    tableHidden: Object.entries(state.items).filter(([, item]) => item.saved && item.tableHidden).map(([id]) => id),
+    removed: removed.map(([id]) => id),
+    tableHidden: tableHidden.map(([id]) => id),
+    removedAt: Object.fromEntries(removed.map(([id, item]) => [id, item.at || 0])) as Record<string, number>,
+    tableHiddenAt: Object.fromEntries(tableHidden.map(([id, item]) => [id, item.at || 0])) as Record<string, number>,
   }
 }
