@@ -49,6 +49,26 @@ interface AccountMetricsResponse {
 
 type WindowDays = 1 | 7 | 14 | 30
 
+/** The ship-3 funnel, in order. Counted per anonymous device (payload.device_id), falling back to the tab session. */
+const FUNNEL_STEPS: Array<{ name: string; label: string }> = [
+  { name: 'landing_view', label: 'Landing view' },
+  { name: 'book_opened', label: 'Book opened' },
+  { name: 'first_page_turn', label: 'First page turn' },
+  { name: 'chapter_completed', label: 'Chapter completed' },
+  { name: 'ai_first_use', label: 'First AI use' },
+  { name: 'anon_limit_reached', label: 'Free limit reached' },
+  { name: 'signup_started', label: 'Signup started' },
+  { name: 'signup_completed', label: 'Signup completed' },
+  { name: 'member_ai_use', label: 'Member AI use' },
+  { name: 'checkout_started', label: 'Checkout started' },
+  { name: 'checkout_completed', label: 'Checkout completed' },
+]
+
+function visitorKey(row: AnalyticsRow): string {
+  const device = row.payload?.device_id
+  return typeof device === 'string' && device ? device : row.session_id
+}
+
 const TARGETS = {
   visitors: 100,
   bookOpeners: 40,
@@ -189,7 +209,21 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     const durations = rows.filter(r => r.event_type === 'page_duration')
     const events = rows.filter(r => r.event_type === 'event')
     const bookPageviews = pageviews.filter(r => /^\/read\/[^/]+\/\d+$/.test(r.path))
-    const bookOpenSessions = new Set(bookPageviews.map(r => r.session_id))
+    const bookOpenedEvents = events.filter(r => eventName(r) === 'book_opened')
+    const bookOpenSessions = new Set([...bookPageviews, ...bookOpenedEvents].map(r => r.session_id))
+    const funnel = FUNNEL_STEPS.map(step => ({
+      ...step,
+      devices: unique(events.filter(r => eventName(r) === step.name).map(visitorKey)),
+    }))
+    const funnelDuration = new Map<string, { ms: number; devices: Set<string> }>()
+    for (const row of durations) {
+      const surface = typeof row.payload?.surface === 'string' ? row.payload.surface : null
+      if (!surface) continue
+      const current = funnelDuration.get(surface) || { ms: 0, devices: new Set<string>() }
+      current.ms += row.duration_ms || 0
+      current.devices.add(visitorKey(row))
+      funnelDuration.set(surface, current)
+    }
 
     const durationBySession = new Map<string, number>()
     for (const row of durations) {
@@ -198,7 +232,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     const tenMinuteReaders = [...durationBySession.entries()].filter(([, ms]) => ms >= 10 * 60 * 1000).map(([sessionId]) => sessionId)
 
     const signupEvents = events.filter(r => eventName(r) === 'signup_completed')
-    const chatEvents = events.filter(r => eventName(r) === 'chat_message_sent' || eventName(r) === 'chapter_reflection_started')
+    const chatEvents = events.filter(r => ['chat_message_sent', 'chapter_reflection_started', 'ai_first_use', 'member_ai_use'].includes(eventName(r)))
     const audioEvents = events.filter(r => eventName(r) === 'audio_started')
     const checkoutEvents = events.filter(r => eventName(r) === 'checkout_started')
     const aiOrAudioSessions = new Set([...chatEvents, ...audioEvents].map(r => r.session_id))
@@ -214,8 +248,8 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     }
 
     const bookCounts = new Map<string, Set<string>>()
-    for (const row of bookPageviews) {
-      const bookId = bookIdFromPath(row.path)
+    for (const row of [...bookPageviews, ...bookOpenedEvents]) {
+      const bookId = row.event_type === 'event' ? (typeof row.payload?.book_id === 'string' ? row.payload.book_id : null) : bookIdFromPath(row.path)
       if (!bookId) continue
       const set = bookCounts.get(bookId) || new Set<string>()
       set.add(row.session_id)
@@ -232,6 +266,11 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       audioUsers: unique(audioEvents.map(r => r.session_id)),
       aiOrAudioUsers: aiOrAudioSessions.size,
       checkoutStarts: checkoutEvents.length,
+      funnel,
+      timeOnSurface: [...funnelDuration.entries()].map(([surface, data]) => ({
+        surface, devices: data.devices.size, minutes: Math.round((data.ms / 60000) * 10) / 10,
+        avgMinutes: data.devices.size ? Math.round((data.ms / 60000 / data.devices.size) * 10) / 10 : 0,
+      })),
       signedInUsers: unique(rows.map(r => r.user_id)),
       topSources: [...sourceCounts.entries()]
         .map(([source, data]) => ({ source, sessions: data.sessions.size, accounts: data.accounts, checkoutStarts: data.checkoutStarts }))
@@ -313,6 +352,41 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
         {metricCard('Accounts', metrics.accounts, TARGETS.accounts, pct(metrics.accounts, metrics.visitors))}
         {metricCard('AI/audio users', metrics.aiOrAudioUsers, TARGETS.aiOrAudioUsers, `${metrics.aiUsers} AI · ${metrics.audioUsers} audio`)}
         {metricCard('Checkout starts', metrics.checkoutStarts, undefined, `${pct(metrics.checkoutStarts, metrics.visitors)} of visitors`)}
+      </section>
+
+      <section style={styles.twoCol}>
+        <div style={styles.panel}>
+          <h2 style={styles.heading}>Funnel</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Step</th><th>Devices</th><th>Of landing</th></tr></thead>
+            <tbody>
+              {metrics.funnel.map(step => (
+                <tr key={step.name}>
+                  <td>{step.label}</td>
+                  <td>{step.devices}</td>
+                  <td>{pct(step.devices, metrics.funnel[0]?.devices || 0)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div style={styles.panel}>
+          <h2 style={styles.heading}>Time on page</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Surface</th><th>Devices</th><th>Total</th><th>Average</th></tr></thead>
+            <tbody>
+              {metrics.timeOnSurface.map(row => (
+                <tr key={row.surface}>
+                  <td>{row.surface}</td>
+                  <td>{row.devices}</td>
+                  <td>{row.minutes}m</td>
+                  <td>{row.avgMinutes}m</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section style={styles.twoCol}>

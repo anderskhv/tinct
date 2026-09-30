@@ -1,4 +1,5 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { narrationCostUsd } from './worker/lib/aiUsage'
 import { handleNarration, narrationConfig, synthesizeWithGoogle, synthesizeWithGrok, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handleAudioFile } from './worker/routes/audio'
 import { NARRATION_CACHE_VERSION, chunkNarrationText, narrationBlobKeys, narrationCacheIdentity, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
@@ -817,6 +818,81 @@ describe('Grok narration rollout', () => {
     expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).status).toBe(401)
     expect(h.fish.calls).toHaveLength(1)
   })
+  describe('cost ledger', () => {
+    const READER = '11111111-1111-4111-8111-111111111111'
+    const ledgerEnv = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }
+    function ledgerRows() {
+      const rows: Array<Record<string, unknown>> = []
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+        if (String(input).endsWith('/rest/v1/ai_usage_events')) { rows.push(JSON.parse(String(init?.body))); return new Response(null, { status: 201 }) }
+        return new Response('unexpected', { status: 500 })
+      }))
+      return rows
+    }
+    afterEach(() => { vi.unstubAllGlobals() })
+
+    it('records the characters sent to the provider per generated chunk, then a free cache-hit row', async () => {
+      const rows = ledgerRows()
+      const { h } = grokHarness()
+      Object.assign(h.env, ledgerEnv)
+      h.deps.verifyUser = async () => ({ id: READER, email: 'reader@example.com' })
+      const first = await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }] })
+      expect(first.json.generated).toBeGreaterThan(0)
+      const sent = h.fish.calls.map(call => (JSON.parse(call.body) as { text: string }).text.length)
+      const generated = rows.filter(row => row.cache_hit === false)
+      expect(generated.map(row => row.chars)).toEqual(sent)
+      expect(generated[0]).toMatchObject({ feature: 'narration_generate', provider: 'xai', user_id: READER, guest_key: null, book_id: 'odyssey', model: 'grok-tts-v1' })
+      expect(generated[0].cost_usd).toBe(narrationCostUsd(sent[0]))
+      expect(JSON.stringify(rows)).not.toContain('Muse')
+
+      const before = rows.length
+      const again = await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }] })
+      expect(again.json.generated).toBe(0)
+      expect(rows.slice(before)).toHaveLength(1)
+      expect(rows[before]).toMatchObject({ feature: 'narration_generate', cache_hit: true, cost_usd: 0, user_id: READER })
+      expect(rows[before].chars).toBe(sent.reduce((sum, n) => sum + n, 0))
+    })
+
+    it('attributes a signed-out cached read to the hashed key and admin pre-warming to "warm"', async () => {
+      const rows = ledgerRows()
+      const { h } = grokHarness()
+      Object.assign(h.env, ledgerEnv)
+      h.deps.verifyUser = async () => ({ id: READER, email: 'reader@example.com' })
+      await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }] }, { 'x-narration-admin': 'warm-token-0123456789abcdef' }, 'warm')
+      expect(rows.length).toBeGreaterThan(0)
+      expect(rows.every(row => row.guest_key === 'warm' && row.user_id === null)).toBe(true)
+      rows.length = 0
+      h.deps.verifyUser = async () => null
+      const cached = await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }] })
+      expect(cached.status).toBe(200)
+      expect(rows).toHaveLength(1)
+      expect(rows[0]).toMatchObject({ cache_hit: true, user_id: null })
+      expect(String(rows[0].guest_key)).toMatch(/^[0-9a-f]{20}$/)
+    })
+
+    it('records listened seconds per book from a reader or a signed-out device, capped per report', async () => {
+      const rows = ledgerRows()
+      const { h } = grokHarness()
+      Object.assign(h.env, ledgerEnv)
+      h.deps.verifyUser = async () => ({ id: READER, email: 'reader@example.com' })
+      const listen = async (body: unknown) => {
+        const response = await handleNarration(new Request('https://tinct.app/api/narration/listen', { method: 'POST', headers: { 'content-type': 'application/json', authorization: 'Bearer t' }, body: JSON.stringify(body) }), h.env, h.ctx, h.deps)
+        await Promise.all(h.ctx.waited)
+        return response.status
+      }
+      expect(await listen({ bookId: 'odyssey', seconds: 60 })).toBe(204)
+      expect(rows[0]).toMatchObject({ feature: 'narration_listen', seconds: 60, book_id: 'odyssey', user_id: READER, cost_usd: 0 })
+      expect(await listen({ bookId: 'odyssey', seconds: 99_999 })).toBe(204)
+      expect(rows[1].seconds).toBe(300)
+      expect(await listen({ bookId: 'odyssey', seconds: 0 })).toBe(400)
+      expect(await listen({ bookId: 'odyssey', seconds: 'x' })).toBe(400)
+      h.deps.verifyUser = async () => null
+      expect(await listen({ bookId: '../x', seconds: 30 })).toBe(204)
+      expect(rows[2]).toMatchObject({ user_id: null, book_id: null, seconds: 30 })
+      expect(rows).toHaveLength(3)
+    })
+  })
+
   it('requires sign-in for an uncached seek even when other chunks are cached', async () => {
     const { h } = grokHarness()
     const last = chunkNarrationText(PARAGRAPHS[4]).length - 1

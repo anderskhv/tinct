@@ -7,6 +7,7 @@ import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderRe
 import { IDLE_VOICE_SNAPSHOT, type StartVoiceSessionInput, type VoiceSessionCallbacks, type VoiceUiSnapshot } from './session'
 import { LAB_AUDIO_CONSTRAINTS, type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
 import { isBenignRealtimeError } from './v2/voiceV2'
+import { reportTalkSeconds } from '../utils/usageReport'
 
 export type GrokEvent = {
   type: string
@@ -165,6 +166,9 @@ export class GrokVoiceSessionController {
   private generation = 0
   private ready = false
   private stopping = false
+  /** When the provider session became ready: the start of billable connected time. */
+  private connectedAt: number | null = null
+  private readonly handlePageHide = () => this.reportConnected()
   private anchor: AudioPlaybackAnchor | null = null
   private instructions = ''
   private contextTimer: ReturnType<typeof setTimeout> | null = null
@@ -485,6 +489,8 @@ export class GrokVoiceSessionController {
       case 'session.updated': {
         if (this.ready) return
         this.ready = true
+        this.connectedAt = Date.now()
+        if (typeof window !== 'undefined') window.addEventListener('pagehide', this.handlePageHide)
         try { if (!this.captureSource) this.startCapture() }
         catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.'); return }
         this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
@@ -929,7 +935,17 @@ export class GrokVoiceSessionController {
     if (this.ui.isActive && this.ui.activity === 'speaking') this.emit({ activity: 'listening', state: 'listening' })
   }
 
+  /** Report connected seconds once (session end or page hide) for the cost ledger. */
+  private reportConnected(): void {
+    if (this.connectedAt === null) return
+    const seconds = (Date.now() - this.connectedAt) / 1000
+    this.connectedAt = null
+    if (typeof window !== 'undefined') window.removeEventListener('pagehide', this.handlePageHide)
+    reportTalkSeconds({ seconds, authToken: this.input?.authToken, bookId: this.input?.context?.bookId })
+  }
+
   stop(): void {
+    this.reportConnected()
     this.stopping = true
     this.generation++
     this.setupAbort?.abort()

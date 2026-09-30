@@ -124,8 +124,7 @@ describe('voice session route (Grok native speech-to-speech)', () => {
     expect(await response.json()).toEqual({ value: 'xai-realtime-secret', expires_at: 1_789_740_000, model: GROK_VOICE_MODEL })
     expect(xaiBody).toEqual({ expires_after: { seconds: GROK_CLIENT_SECRET_TTL_SECONDS } })
     expect(xaiAuth).toBe('Bearer xai-test-key')
-    expect(waitUntil).toHaveBeenCalledTimes(1)
-    await Promise.all(pending)
+    await Promise.all(pending) // the message charge plus one ai_usage_events ledger row
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rest/v1/rpc/use_message'))).toBe(true)
   })
 

@@ -36,6 +36,7 @@ import {
   readLabPositionLocal,
   writeLabPositionLocal,
 } from './labPositionStore'
+import { trackFunnel } from '../utils/funnel'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { currentContentRevision } from '../data/editionContentRevisions'
 
@@ -657,7 +658,10 @@ export function useLabPositionSync(args: {
     if (!controller) return
     const before = controller.state()
     const after = controller.finish({ bookId: labLibraryBookId(bookRef.current), sequentialChapter })
-    if (after !== before) setFinishedRevision(revision => revision + 1)
+    if (after !== before) {
+      setFinishedRevision(revision => revision + 1)
+      trackFunnel('chapter_completed', { book_id: labLibraryBookId(bookRef.current), chapter: sequentialChapter })
+    }
   }, [])
 
   const libraryBookId = labLibraryBookId(args.book)

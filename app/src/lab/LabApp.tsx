@@ -29,6 +29,9 @@ import {
   type NarrationParagraphResult,
 } from './labNarration'
 import { readSupabaseAccessToken } from './labAuth'
+import { useLabFunnel } from './useLabFunnel'
+import { useLabListenReport } from './useLabListenReport'
+import { trackFunnelOnce } from '../utils/funnel'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { flushSync } from 'react-dom'
@@ -978,6 +981,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const lockPaginationRef = useRef(false)
 
+  useLabFunnel({ bookId: book.bookId || 'bible', ready: book.paragraphs.length > 0, signedIn, authToken })
+
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
@@ -1094,6 +1099,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
+  useLabListenReport(listen.playing, listenSource.bookId || book.bookId || 'bible')
   useLabReadingYear({
     userId: authUser?.id ?? null,
     bookId: book.bookId || 'bible',
@@ -3632,9 +3638,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const nextPage = desktopSpread ? (index + (openingOnRight ? 1 : 2) < pages.length ? index + (openingOnRight ? 1 : 2) : null) : adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
+      trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' })
       goToPage(nextPage)
       return
     }
+    trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' })
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without
