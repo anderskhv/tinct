@@ -130,7 +130,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'essays-montaigne': { editions: EN, revision: '2026-09-12.1' },
   'federalist-papers': { editions: EN, revision: '2026-09-12.1' },
   'wealth-of-nations': { editions: EN, revision: '2026-09-12.1' },
-  'vindication-rights-of-woman': { editions: EN, revision: '2026-09-30.1' },
+  'vindication-rights-of-woman': { editions: EN, revision: '2026-09-30.2' },
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
   jerusalem: { editions: EN, revision: '2026-09-30.1' },
   'fear-and-trembling': { editions: EN, revision: '2026-09-12.1' },
