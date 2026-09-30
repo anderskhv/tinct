@@ -365,6 +365,13 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   }
   table.reading = table.reading.filter(row => !removedSince(membership.tableHiddenAt, membership.tableHidden, row.bookId, lastRows.get(row.bookId)?.lastActiveAt)
     && !((positions?.hidden?.[row.bookId] ?? 0) >= (lastRows.get(row.bookId)?.lastActiveAt ?? 1)))
+  // Paint each book's stored "so far" summary with the table itself, so the
+  // desk never flashes the position headline first (cache reads only).
+  await Promise.all(table.reading.map(async book => {
+    if (book.recap) return
+    const cached = await summaryFor(book.bookId).catch(() => null)
+    if (cached?.status === 'cached') book.recap = cached.text
+  }))
   table.shelfReading = table.reading
   if (!table.reading.length) table.mode = 'new'
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')

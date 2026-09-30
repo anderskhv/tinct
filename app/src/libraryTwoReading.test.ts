@@ -319,3 +319,19 @@ it('returns a removed or desk-hidden book to Currently reading once it is read a
   expect(table.reading.map(book=>book.bookId)).toEqual(['confessions','crito'])
   expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['confessions','crito'])
 })
+
+it('paints each book with its stored summary so the desk never shows the position line first', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+  calls.memory.mockResolvedValue(null)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  const target={chapterNumber:4,pageIndex:0,paragraphIndex:3,wordIndex:0,editionKey:'original-en',chapterLabel:'Book 4',paragraphCount:40,at:100}
+  calls.readingList.mockReturnValue({readingNow:[{bookId:'confessions',target,finishedChapters:[],progress:'middle',lastActiveAt:100,session:null,recap:null}],finished:[]})
+  const { recapCacheKey } = await import('./recapSummary')
+  const { storeRecapSummary } = await import('./preReader/recapSummaryClient')
+  storeRecapSummary(localStorage, recapCacheKey({bookId:'confessions',editionKey:'original-en',chapterNumber:4,paragraphIndex:3,paragraphCount:40,completed:false,previousChapterNumber:null}), 'Augustine recounts nine wayward years.', Date.now())
+  const books=[{id:'confessions',title:'Confessions',author:'Augustine',defaultEditionKey:'original-en',editions:[{key:'original-en',language:'en',style:'original'}],readingStructure:{chapters:[{number:4,title:'Book 4',paragraphCount:40}]}}]
+  const {loadReadingTable}=await import('./libraryTwoReading')
+  const table=await loadReadingTable({catalogue:Promise.resolve({books})})
+  expect(table.reading[0].recap).toBe('Augustine recounts nine wayward years.')
+})

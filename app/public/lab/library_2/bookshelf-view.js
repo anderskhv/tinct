@@ -1,6 +1,6 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20260930name-v';
+import { bindingFor } from './reading-table.js?v=20260930centre-v';
 
 export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
 root.innerHTML=bookshelfMarkup;

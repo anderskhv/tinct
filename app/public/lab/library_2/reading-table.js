@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930shelf-t';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930centre-t';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
 import {renderBookMetadata} from './book-metadata.js?v=20260928covers';
@@ -307,7 +307,7 @@ function wire(view, table, demo, keepBookId, options={}) {
    * is pulled forward and turned to face the reader, turning a few degrees
    * (alternating direction per change); the others stand spine-out, spines
    * flush with its cover. Positions come from real footprints, so neighbours
-   * never overlap, and the row is anchored at the left of the stage.
+   * never overlap, and the row is centred on the stage.
    */
   function layout(instant) {
     const W = H * 2 / 3, gap = Math.max(2, H * 0.01), around = H * 0.08;
@@ -322,9 +322,12 @@ function wire(view, table, demo, keepBookId, options={}) {
     if (current === 0) left = -chosenFoot / 2;
     if (current === books.length - 1) right = chosenFoot / 2;
     const pad = innerWidth >= 900 ? 0 : 20, minEdge = -stageW / 2 + pad, maxEdge = stageW / 2 - pad;
-    let shift = minEdge - left;
-    if (right + shift > maxEdge) shift -= right + shift - maxEdge;
-    shift = Math.max(shift, minEdge + chosenFoot / 2);
+    // Centre the row on the table; when it is wider than the stage, keep it
+    // inside the edges, and the chosen book always fully in view.
+    let shift = -(left + right) / 2;
+    if (left + shift < minEdge) shift = minEdge - left;
+    if (right + shift > maxEdge) shift = maxEdge - right;
+    shift = Math.min(Math.max(shift, minEdge + chosenFoot / 2), maxEdge - chosenFoot / 2);
     books.forEach((book, i) => {
       const chosen = i === current;
       book.classList.toggle('is-current', chosen);
@@ -382,6 +385,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     const recap = $('rt-recap'), box = $('rt-recap-box');
     recap.textContent = text;
     box.classList.remove('open');
+    view.classList.remove('recap-open');
     $('rt-more').textContent = 'Read more';
     requestAnimationFrame(() => { $('rt-more').classList.toggle('is-hidden', recap.scrollHeight <= recap.clientHeight + 1); });
   }
@@ -437,7 +441,11 @@ function wire(view, table, demo, keepBookId, options={}) {
   dots.forEach(dot => { dot.onclick = () => select(+dot.dataset.i, true); });
   $('rt-prev').onclick = () => select(current - 1, true);
   $('rt-next').onclick = () => select(current + 1, true);
-  $('rt-more').onclick = () => { const open = $('rt-recap-box').classList.toggle('open'); $('rt-more').textContent = open ? 'Show less' : 'Read more'; };
+  // An open recap scrolls in its own box with Show less always in view, and
+  // the remove × is hidden meanwhile, so closing it can never remove the book.
+  const toggleRecap = open => { $('rt-recap-box').classList.toggle('open', open); view.classList.toggle('recap-open', open); $('rt-more').textContent = open ? 'Show less' : 'Read more'; if (!open) $('rt-recap').scrollTop = 0; };
+  $('rt-more').onclick = () => toggleRecap(!$('rt-recap-box').classList.contains('open'));
+  $('rt-recap').addEventListener('click', () => { if ($('rt-recap-box').classList.contains('open')) toggleRecap(false); });
   // Arrow keys belong to the focused reading table, never to a dialog above it.
   view.addEventListener('keydown', e => {
     if (dialog.open || e.defaultPrevented || e.target.closest?.('input,textarea,select,[contenteditable]')) return;
