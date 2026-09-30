@@ -80,7 +80,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260930justread').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260930edpick').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });
@@ -93,10 +93,10 @@ export function readingApi() {
  * reader at the reader's place (merged device and cloud), else from the start
  * in the chosen edition. Without the engine, the production book page.
  */
-export async function readerDestination(book, preferredEdition) {
+export async function readerDestination(book, preferredEdition, choice) {
   try {
     const api = await readingApi();
-    return await api.readerDestination(book.id, preferredEdition || null);
+    return await api.readerDestination(book.id, preferredEdition || null, choice);
   } catch {
     return `/library?book=${encodeURIComponent(book.id)}&view=book-detail`;
   }

@@ -6,7 +6,7 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930jr-t';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930ed-t';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
 import {renderBookMetadata} from './book-metadata.js?v=20260928covers';
