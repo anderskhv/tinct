@@ -224,6 +224,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'around-the-world-80-days': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
+        after: '834deaf955b4642198f078c721910e65c4f4a77da19131f913cd13d0c40d46d3',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
