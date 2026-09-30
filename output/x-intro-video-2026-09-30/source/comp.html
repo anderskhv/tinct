@@ -1,0 +1,444 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tinct film</title>
+<link rel="stylesheet" href="../fonts/local.css">
+<style>
+  :root { --cream: #efe8d4; --muted: #b9bfaa; --bg: #0e120d; }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+  .plate { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform, opacity; }
+  .layer { position: absolute; inset: 0; pointer-events: none; }
+  #flash { background: radial-gradient(ellipse 34% 58% at 80% 26%, rgba(214,228,255,.95), rgba(160,190,255,.35) 45%, rgba(0,0,0,0) 75%); mix-blend-mode: screen; opacity: 0; }
+  #hookShade { background:
+      linear-gradient(90deg, rgba(8,11,9,.72) 0%, rgba(8,11,9,.42) 34%, rgba(8,11,9,0) 62%),
+      linear-gradient(0deg, rgba(8,11,9,.55) 0%, rgba(8,11,9,0) 42%); opacity: 0; }
+  .hook { position: absolute; left: 118px; bottom: 140px; width: 1100px; color: var(--cream); opacity: 0; }
+  .kicker { font: 500 23px/1 'IBM Plex Mono', monospace; letter-spacing: .24em; text-transform: uppercase; color: rgba(239,232,212,.72); margin: 0 0 30px 4px; }
+  .kicker b { font-weight: 500; color: rgba(239,232,212,.95); }
+  .q { font: 400 90px/1.06 'EB Garamond', serif; letter-spacing: -.014em; margin: 0; text-wrap: balance; text-shadow: 0 2px 40px rgba(0,0,0,.45); }
+  .w { display: inline-block; will-change: transform, opacity, filter; }
+  #card { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); text-align: center; }
+  #card p { margin: 0; font: 400 78px/1.12 'EB Garamond', serif; letter-spacing: -.01em; opacity: 0; text-shadow: 0 2px 30px rgba(0,0,0,.5); }
+  #card .l1 { font-style: italic; color: rgba(239,232,212,.86); }
+  #card .l2 { margin-top: 18px; }
+  #pill { position: absolute; left: 50%; bottom: 58px; transform: translateX(-50%); padding: 20px 40px 22px; border-radius: 999px;
+          background: rgba(18,23,17,.80); border: 1px solid rgba(239,232,212,.14); box-shadow: 0 18px 50px rgba(0,0,0,.28);
+          backdrop-filter: blur(14px) saturate(1.1); color: var(--cream); font: 400 50px/1.1 'EB Garamond', serif; letter-spacing: -.005em; white-space: nowrap; opacity: 0; }
+  #pill i { font-style: italic; }
+  #cursor { position: absolute; left: 0; top: 0; width: 34px; height: 34px; overflow: visible; transform-origin: 3px 2px; opacity: 0; filter: drop-shadow(0 3px 5px rgba(0,0,0,.35)); }
+  #ring { position: absolute; left: 0; top: 0; width: 10px; height: 10px; border-radius: 50%; border: 2.5px solid rgba(31,74,92,.9); opacity: 0; transform: translate(-50%,-50%); }
+  #end { opacity: 0; }
+  #endInner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); }
+  #mark { width: 132px; height: 132px; border-radius: 30px; background: #252820; box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(239,232,212,.08); display: grid; place-items: center; }
+  #mark svg { width: 132px; height: 132px; }
+  #word { margin-top: 34px; font: 400 132px/1 'Playfair Display', serif; letter-spacing: -.01em; }
+  #tag { margin-top: 26px; font: italic 400 54px/1.2 'EB Garamond', serif; color: rgba(239,232,212,.9); }
+  #url { margin-top: 52px; font: 500 42px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; color: var(--cream); padding: 18px 34px; border: 1px solid rgba(239,232,212,.28); border-radius: 999px; }
+  #fine { margin-top: 26px; font: 400 26px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: rgba(239,232,212,.6); }
+  #vignette { background: radial-gradient(ellipse 75% 75% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.42) 100%); }
+  #endScrim { position:absolute; inset:0; background: radial-gradient(ellipse 42% 48% at 50% 50%, rgba(10,12,9,.62), rgba(10,12,9,.25) 70%, rgba(10,12,9,0) 100%); }
+  #grain { opacity: .06; mix-blend-mode: overlay; background-repeat: repeat; }
+  #black { background: #000; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <img class="plate" id="p0"><img class="plate" id="p1"><img class="plate" id="p2">
+  <div class="layer" id="flash"></div>
+  <div class="layer" id="hookShade"></div>
+  <div class="hook" id="h1"><p class="kicker">Mary Shelley <b>·</b> 1818</p><p class="q">What do we owe to the intelligence we create?</p></div>
+  <div class="hook" id="h2"><p class="kicker">Homer <b>·</b> c. 700 BC</p><p class="q">Would you refuse to become a god?</p></div>
+  <div class="hook" id="h3"><p class="kicker">Niccolò Machiavelli <b>·</b> 1532</p><p class="q">How good can you afford to be?</p></div>
+  <div class="hook" id="h4"><p class="kicker">Marcus Aurelius <b>·</b> c. 170 AD</p><p class="q">Why is it so hard to be the person you mean to be?</p></div>
+  <div class="layer" id="card"><p class="l1">You always meant to read them.</p><p class="l2">This time, you’ll finish.</p></div>
+  <div class="layer" id="end">
+    <div id="endScrim"></div>
+    <div id="endInner">
+      <div id="mark"><svg viewBox="0 0 512 512"><g transform="translate(256 256) scale(29.3333) translate(-11.9 -12)"><g transform="matrix(1 0 -0.19438 1 2.33256 0)" fill="none" stroke="#eee8db" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path id="t1" d="M11.4 8V13.4C11.4 15.3 12.5 16.1 14.4 15.8"/><path id="t2" d="M8.7 10.4H15"/></g></g></svg></div>
+      <div id="word">Tinct</div>
+      <div id="tag">Fall in love with the books that matter.</div>
+      <div id="url">tinct.app</div>
+      <div id="fine">101 classics · Free to read</div>
+    </div>
+  </div>
+  <div id="pill"></div>
+  <div id="ring"></div>
+  <svg id="cursor" viewBox="0 0 34 34"><path id="arrow" d="M3 2 L3 26 L9.2 20.3 L13.4 30 L17.6 28.2 L13.5 18.7 L22 18.7 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><g id="ibeam" style="display:none" fill="none" stroke-linecap="round"><path d="M3 -8 C5.5 -8 7 -7 7 -5 L7 9 C7 11 5.5 12 3 12 M11 -8 C8.5 -8 7 -7 7 -5 M11 12 C8.5 12 7 11 7 9 M4.5 2 L9.5 2" stroke="#fff" stroke-width="4"/><path d="M3 -8 C5.5 -8 7 -7 7 -5 L7 9 C7 11 5.5 12 3 12 M11 -8 C8.5 -8 7 -7 7 -5 M11 12 C8.5 12 7 11 7 9 M4.5 2 L9.5 2" stroke="#111" stroke-width="1.7"/></g></svg>
+  <div class="layer" id="vignette"></div>
+  <div class="layer" id="grain"></div>
+  <div class="layer" id="paper" style="background:#ece7db;opacity:0"></div>
+  <div class="layer" id="black"></div>
+</div>
+<script>
+const FPS = 24;
+const pad = (n, w = 4) => String(n).padStart(w, '0');
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const prog = (f, a, b) => clamp((f - a) / (b - a));
+const eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;   // easeInOutCubic
+const eo = t => 1 - Math.pow(1 - t, 3);                                       // easeOutCubic
+const eoq = t => 1 - Math.pow(1 - t, 5);                                      // easeOutQuint
+const sine = t => -(Math.cos(Math.PI * t) - 1) / 2;
+const $ = id => document.getElementById(id);
+
+// ---- sources -------------------------------------------------------------
+const CAP = '../cap/';
+const src = {
+  s1: i => `${CAP}s1-frank/f${pad(clamp(i, 0, 83))}.jpg`,
+  s2: i => `${CAP}s2-odyssey/f${pad(clamp(i, 0, 65))}.jpg`,
+  s3: i => `${CAP}s3-prince/f${pad(clamp(i, 0, 65))}.jpg`,
+  s4: i => `${CAP}s4-medit/f${pad(clamp(i, 0, 143))}.jpg`,
+  s6: i => `${CAP}s6-hero/f${pad(clamp(i, 0, 103))}.jpg`,
+  r1: () => `${CAP}reader/r1-modern.png`,
+  r2: () => `${CAP}reader/r2-compare.png`,
+  ix: i => `${CAP}interact/i${pad(clamp(i, 0, 191))}.jpg`,
+  end: i => `end/e${pad(clamp(i, 1, 100))}.jpg`,
+};
+
+// ---- camera: capture space is 1600x900 CSS px (images are 2x) ------------
+// z = 1 shows the whole capture; (cx, cy) is the CSS point at frame centre.
+const HOOK = { cx: 800, cy: 414, z: 900 / 828 };           // hero area only
+const FULL = { cx: 800, cy: 450, z: 1 };
+const cam = (cx, cy, z) => ({ cx, cy, z });
+const mixCam = (a, b, t) => ({ cx: lerp(a.cx, b.cx, t), cy: lerp(a.cy, b.cy, t), z: Math.exp(lerp(Math.log(a.z), Math.log(b.z), t)) });
+function placeCapture(el, c) {
+  const s = 0.6 * c.z;
+  const tx = 960 - 2 * c.cx * s, ty = 540 - 2 * c.cy * s;
+  el.style.width = '3200px'; el.style.height = '1800px';
+  el.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+}
+function placeCover(el, zoom) {   // end-card room: 1536x1024 covering 1920x1080
+  const s = 1920 / 1536 * zoom;
+  el.style.width = '1536px'; el.style.height = '1024px';
+  el.style.transform = `translate(${960 - 768 * s}px, ${540 - 512 * s}px) scale(${s})`;
+}
+const toOut = (x, y, c) => ({ x: 960 + (x - c.cx) * 1.2 * c.z, y: 540 + (y - c.cy) * 1.2 * c.z });
+
+// ---- timeline ------------------------------------------------------------
+const T = {
+  h1: [0, 71], h2: [72, 125], h3: [126, 179], h4: [180, 245],
+  card: [246, 305], hero: 300, heroEnd: 403,
+  cmp: [404, 499], ex: [500, 595], chat: [596, 675], end: [676, 767],
+};
+const TOTAL = 768;
+const XF = 5; // half-length of hook crossfades
+
+// Hook plates: each hook runs with a slow push; neighbouring hooks crossfade.
+function hookPlate(k, f) {
+  const [a, b] = T['h' + k];
+  const key = 's' + k;
+  const i = f - a + (k === 1 ? 0 : XF);           // captured frames include lead-in
+  const t = (f - a) / (b - a);
+  const push = [ [0, -4, 1.00, 1.075], [0, 0, 1.0, 1.06], [0, 0, 1.0, 1.06], [0, 0, 1.0, 1.05] ][k - 1];
+  const c = cam(HOOK.cx + push[0] + (k === 1 ? lerp(-18, 10, t) : lerp(-10, 10, t)), HOOK.cy + push[1], HOOK.z * lerp(push[2], push[3], sine(clamp(t, 0, 1))));
+  return { src: src[key](i), cam: c };
+}
+
+function plates(f) {
+  const out = [];
+  if (f < T.h4[0] + XF) {
+    for (let k = 1; k <= 4; k++) {
+      const [a, b] = T['h' + k];
+      if (f < a - XF || f > b + XF) continue;
+      let op = 1;
+      if (k > 1 && f < a + XF) op = sine(prog(f, a - XF, a + XF));
+      out.push({ ...hookPlate(k, f), op });
+    }
+    return out;
+  }
+  if (f < T.hero + 14) {
+    // Meditations room keeps running under the card; blur and dim, then pull back to the full app
+    const base = hookPlate(4, f);
+    const pull = eio(prog(f, 282, 312));
+    const c = mixCam(base.cam, FULL, pull);
+    const dim = prog(f, 244, 258) * (1 - prog(f, 296, 312));
+    const blur = 20 * sine(dim);
+    const bright = 1 - 0.62 * sine(dim);
+    const flt = `blur(${blur.toFixed(2)}px) brightness(${bright.toFixed(3)})`;
+    out.push({ src: base.src, cam: c, op: 1, filter: flt });
+    if (f >= T.hero) {
+      const j = f - T.hero;
+      out.push({ src: src.s6(j), cam: mixCam(c, heroCam(f), prog(f, T.hero, T.hero + 14)), op: sine(prog(f, T.hero, T.hero + 12)), filter: flt });
+    }
+    return out;
+  }
+  if (f <= T.heroEnd + 10) {
+    const j = Math.min(f - T.hero, 103);
+    const c = heroCam(f);
+    out.push({ src: src.s6(j), cam: c, op: 1 });
+    if (f >= 406) out.push({ src: src.r1(), cam: readerCam(f), op: 1 });
+    return out;
+  }
+  if (f < T.ex[0]) {
+    // Compare: modern page, then the 1862 page lays in beside it
+    const c = readerCam(f);
+    out.push({ src: src.r1(), cam: c, op: 1 });
+    const w = prog(f, 420, 438);
+    if (w > 0) out.push({ src: src.r2(), cam: c, op: 1, wipe: w });
+    return out;
+  }
+  if (f < T.chat[0]) {
+    const c = readerCam(f);
+    const i = exFrame(f);
+    if (f < 512) { out.push({ src: src.r2(), cam: c, op: 1 }); out.push({ src: src.ix(i), cam: c, op: sine(prog(f, 500, 512)) }); return out; }
+    if (f >= 560 && f < 566) { out.push({ src: src.ix(53), cam: c, op: 1 }); out.push({ src: src.ix(74), cam: c, op: sine(prog(f, 559, 566)) }); return out; }
+    out.push({ src: src.ix(i), cam: c, op: 1 });
+    return out;
+  }
+  if (f < T.end[0] + 14) {
+    const c = readerCam(f);
+    if (f < 606) { out.push({ src: src.ix(92), cam: c, op: 1 }); out.push({ src: src.ix(116), cam: c, op: sine(prog(f, 596, 606)) }); return out; }
+    out.push({ src: src.ix(chatFrame(f)), cam: c, op: 1 });
+    if (f >= T.end[0]) out.push({ end: true, src: src.end(f - T.end[0] + 1), op: sine(prog(f, T.end[0], T.end[0] + 14)) });
+    return out;
+  }
+  out.push({ end: true, src: src.end(f - T.end[0] + 1), op: 1 });
+  return out;
+}
+
+function heroCam(f) {
+  // full UI, gentle push while the book opens, then dive into the introduction
+  const push = sine(prog(f, 300, 380));
+  let c = cam(800 + 8 * push, 450 - 4 * push, lerp(1.0, 1.035, push));
+  const dive = eio(prog(f, 396, 412));
+  if (dive > 0) c = mixCam(c, cam(1110, 470, 1.55), dive);
+  return c;
+}
+function readerCam(f) {
+  const a = cam(800, 450, 1.10), full = cam(800, 452, 1.0);
+  const right = cam(1172, 318, 1.9), left = cam(424, 318, 1.9);
+  const exC = cam(402, 612, 2.0);
+  const chatA = cam(1142, 560, 1.72), chatB = cam(1142, 372, 1.72);
+  if (f < 420) return mixCam(a, full, eo(prog(f, 400, 420)));
+  if (f < 440) return full;
+  if (f < 466) return mixCam(full, right, eio(prog(f, 440, 466)));
+  if (f < 474) return right;
+  if (f < 494) return mixCam(right, left, eio(prog(f, 474, 494)));
+  if (f < 500) return left;
+  if (f < 518) return mixCam(left, exC, eio(prog(f, 500, 518)));
+  if (f < 596) return exC;
+  if (f < 612) return mixCam(exC, chatA, eio(prog(f, 596, 612)));
+  if (f < 647) return chatA;
+  if (f < 659) return mixCam(chatA, chatB, eio(prog(f, 647, 659)));
+  return chatB;
+}
+// Explain: real capture frames i0..i53 then the answer i74..i92
+function exFrame(f) {
+  if (f < 506) return 0;
+  if (f < 560) return f - 506;           // 0..53
+  return clamp(74 + (f - 566), 74, 92);
+}
+// Chat: open panel i116, cursor to input, typing, thinking, streaming answer
+function chatFrame(f) {
+  if (f < 606) return 116;
+  return clamp(117 + (f - 606), 117, 191);
+}
+
+// ---- cursor --------------------------------------------------------------
+let IXMETA = null, S6META = null;
+function cursorState(f) {
+  // returns {x, y, op, press} in OUTPUT px
+  if (f >= T.hero && f < 412) {
+    const j = f - T.hero, m = S6META, c = heroCam(f);
+    let p;
+    if (j < 18) p = m.cursorFrom;
+    else if (j <= 30) { const k = eo((j - 18) / 12); p = { x: lerp(m.cursorFrom.x, m.cursorTo.x, k), y: lerp(m.cursorFrom.y, m.cursorTo.y, k) }; }
+    else p = m.cursorTo;
+    const bb = m.beginBox, bt = { x: bb.x + bb.width * 0.3, y: bb.y + bb.height * 0.55 };
+    if (f >= 378) { const k = eio(prog(f, 378, 394)); p = { x: lerp(m.cursorTo.x, bt.x, k), y: lerp(m.cursorTo.y, bt.y, k) }; }
+    const o = toOut(p.x, p.y, c);
+    const op = prog(f, T.hero + 8, T.hero + 16) * (1 - prog(f, 402, 408));
+    const press = (j >= 40 && j < 43) || (f >= 396 && f < 399);
+    return { ...o, op, press, click: j === 40 ? 1 : (f === 396 ? 1 : 0), z: 1 };
+  }
+  if (f >= 500 && f < 596) {
+    const c = readerCam(f), i = exFrame(f);
+    const fr = IXMETA.frames.find(x => x.f === i && x.mouse);
+    if (!fr) return { op: 0 };
+    const o = toOut(fr.mouse.x, fr.mouse.y, c);
+    const op = prog(f, 506, 511) * (1 - prog(f, 574, 580));
+    const press = (i >= 10 && i < 22) || (i >= 44 && i < 47);
+    return { ...o, op, press, click: (i === 44 && f === 550) ? 1 : 0, z: c.z, ibeam: i < 22 };
+  }
+  if (f >= 606 && f < 676) {
+    const c = readerCam(f), i = chatFrame(f);
+    const fr = IXMETA.frames.find(x => x.f === i && x.mouse);
+    if (!fr) return { op: 0 };
+    const o = toOut(fr.mouse.x, fr.mouse.y, c);
+    const op = prog(f, 606, 610) * (1 - prog(f, 640, 648));
+    return { ...o, op, press: i >= 125 && i < 127, click: 0, z: c.z };
+  }
+  return { op: 0 };
+}
+let clickFrames = [];
+function drawCursor(f) {
+  const st = cursorState(f);
+  const el = $('cursor');
+  el.style.opacity = st.op || 0;
+  $('arrow').style.display = st.ibeam ? 'none' : ''; $('ibeam').style.display = st.ibeam ? '' : 'none';
+  if (st.op > 0) {
+    const size = 30 * Math.pow(st.z || 1, 0.55);
+    const sc = (size / 34) * (st.press ? 0.86 : 1);
+    el.style.transform = st.ibeam ? `translate(${st.x - 7}px, ${st.y - 2}px) scale(${sc * 1.25})` : `translate(${st.x - 3}px, ${st.y - 2}px) scale(${sc})`;
+  }
+  // click ring: find most recent click within 10 frames
+  const ring = $('ring');
+  const recent = clickFrames.filter(c => f >= c.f && f < c.f + 11).pop();
+  if (recent) {
+    const k = (f - recent.f) / 10;
+    const d = lerp(10, 64, eo(k));
+    ring.style.width = ring.style.height = d + 'px';
+    ring.style.left = recent.x + 'px'; ring.style.top = recent.y + 'px';
+    ring.style.opacity = (1 - k) * 0.75;
+    ring.style.borderColor = recent.dark ? 'rgba(239,232,212,.95)' : 'rgba(31,74,92,.85)';
+  } else ring.style.opacity = 0;
+}
+
+// ---- text ----------------------------------------------------------------
+function splitWords(el) {
+  const q = el.querySelector('.q');
+  const words = q.textContent.split(' ');
+  q.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+}
+function drawHook(k, f) {
+  const el = $('h' + k);
+  const [a, b] = T['h' + k];
+  const start = a + (k === 1 ? 4 : 3), outA = b - 6, outB = b + 2;
+  if (f < a - 2 || f > outB) { el.style.opacity = 0; return; }
+  el.style.opacity = 1;
+  const exit = prog(f, outA, outB);
+  const kick = el.querySelector('.kicker');
+  const kt = eo(prog(f, start - 2, start + 10));
+  kick.style.opacity = kt * (1 - exit);
+  kick.style.transform = `translateY(${(1 - kt) * 10 - exit * 6}px)`;
+  const ws = el.querySelectorAll('.w');
+  const stagger = k === 1 ? 2.2 : 1.7;
+  ws.forEach((w, i) => {
+    const t = eoq(prog(f, start + 3 + i * stagger, start + 3 + i * stagger + 14));
+    w.style.opacity = t * (1 - exit);
+    w.style.transform = `translateY(${(1 - t) * 22 - exit * 10}px)`;
+    w.style.filter = `blur(${((1 - t) * 10 + exit * 6).toFixed(2)}px)`;
+  });
+}
+function drawCard(f) {
+  const [a] = T.card;
+  const l1 = document.querySelector('#card .l1'), l2 = document.querySelector('#card .l2');
+  const out = prog(f, 294, 302);
+  const t1 = eo(prog(f, a + 4, a + 20)), t2 = eo(prog(f, a + 22, a + 38));
+  l1.style.opacity = t1 * (1 - out); l1.style.transform = `translateY(${(1 - t1) * 16}px)`; l1.style.filter = `blur(${((1 - t1) * 8 + out * 6).toFixed(2)}px)`;
+  l2.style.opacity = t2 * (1 - out); l2.style.transform = `translateY(${(1 - t2) * 16}px)`; l2.style.filter = `blur(${((1 - t2) * 8 + out * 6).toFixed(2)}px)`;
+}
+const PILLS = [
+  { a: 444, b: 476, html: 'English, as it was in 1862.' },
+  { a: 480, b: 506, html: 'English, as it is <i>now.</i>' },
+  { a: 526, b: 592, html: 'Select any line. Tinct explains it.' },
+  { a: 606, b: 672, html: 'Or ask it anything.' },
+];
+function drawPill(f) {
+  const p = PILLS.find(p => f >= p.a - 1 && f <= p.b + 1);
+  const el = $('pill');
+  if (!p) { el.style.opacity = 0; return; }
+  if (el.dataset.k !== String(p.a)) { el.innerHTML = p.html; el.dataset.k = p.a; }
+  const tin = eo(prog(f, p.a, p.a + 8)), tout = prog(f, p.b - 6, p.b);
+  el.style.opacity = tin * (1 - tout);
+  el.style.transform = `translateX(-50%) translateY(${(1 - tin) * 14 + tout * 6}px)`;
+}
+function drawEnd(f) {
+  const [a] = T.end;
+  const el = $('end');
+  if (f < a) { el.style.opacity = 0; return; }
+  el.style.opacity = 1;
+  const inn = $('endInner');
+  const mk = eo(prog(f, a + 8, a + 22));
+  $('mark').style.opacity = mk; $('mark').style.transform = `translateY(${(1 - mk) * 18}px) scale(${lerp(.92, 1, mk)})`;
+  // pen stroke: the t draws itself
+  const t1 = $('t1'), t2 = $('t2');
+  const L1 = t1.getTotalLength(), L2 = t2.getTotalLength();
+  const d1 = eio(prog(f, a + 12, a + 26)), d2 = eio(prog(f, a + 22, a + 30));
+  t1.style.strokeDasharray = L1; t1.style.strokeDashoffset = L1 * (1 - d1);
+  t2.style.strokeDasharray = L2; t2.style.strokeDashoffset = L2 * (1 - d2);
+  const set = (id, s, e, dy = 16) => { const t = eo(prog(f, a + s, a + e)); const n = $(id); n.style.opacity = t; n.style.transform = `translateY(${(1 - t) * dy}px)`; n.style.filter = `blur(${((1 - t) * 6).toFixed(2)}px)`; };
+  set('word', 20, 34); set('tag', 30, 44); set('url', 40, 52); set('fine', 46, 58);
+}
+
+// ---- grain ---------------------------------------------------------------
+const grainTiles = [];
+function makeGrain() {
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let t = 0; t < 8; t++) {
+    const c = document.createElement('canvas'); c.width = c.height = 384;
+    const g = c.getContext('2d'); const im = g.createImageData(384, 384);
+    for (let i = 0; i < im.data.length; i += 4) { const v = 128 + (rnd() + rnd() + rnd() - 1.5) * 150; im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = 255; }
+    g.putImageData(im, 0, 0); grainTiles.push(c.toDataURL());
+  }
+}
+
+// ---- render --------------------------------------------------------------
+const plateEls = [$('p0'), $('p1'), $('p2')];
+async function seek(f) {
+  const ps = plates(f);
+  const loads = [];
+  plateEls.forEach((el, k) => {
+    const p = ps[k];
+    if (!p) { el.style.opacity = 0; return; }
+    const url = new URL(p.src, location.href).href;
+    if (el.src !== url) { el.src = url; loads.push(el.decode().catch(() => {})); }
+    if (p.end) { const z = lerp(1.08, 1.02, eo(prog(f, T.end[0], T.end[1]))); placeCover(el, z); el.style.filter = `blur(9px) brightness(.5) saturate(.95)`; }
+    else { placeCapture(el, p.cam); el.style.filter = p.filter || 'none'; }
+    el.style.opacity = p.op;
+    if (p.wipe !== undefined) {
+      // lay the compare page in over the right-hand page, top to bottom, feathered
+      const c = p.cam, s = 0.6 * c.z;
+      const x0 = (797) * 2;                  // gutter, in image px
+      const yEdge = lerp(-120, 1900, eio(p.wipe));
+      el.style.webkitMaskImage = `linear-gradient(180deg, #000 ${yEdge - 120}px, transparent ${yEdge + 60}px)`;
+      el.style.webkitMaskSize = '3200px 1800px';
+      el.style.clipPath = p.wipe >= 1 ? 'none' : `inset(0 0 0 ${x0}px)`;
+    } else { el.style.webkitMaskImage = 'none'; el.style.clipPath = 'none'; }
+  });
+  // lightning over Frankenstein's window
+  const fl = f < 40 ? Math.max(0, (f >= 8 ? Math.exp(-(f - 8) / 2.2) * 0.9 : 0) + (f >= 13 ? Math.exp(-(f - 13) / 3.5) * 0.55 : 0)) : 0;
+  $('flash').style.opacity = clamp(fl);
+  if (fl > 0.01 && ps[0]) ps[0] && (plateEls[0].style.filter = `brightness(${(1 + fl * 0.35).toFixed(3)})`);
+  // shade for hook text (fades out through the card)
+  $('hookShade').style.opacity = f <= T.h4[1] + 4 ? 1 : 1 - prog(f, T.h4[1] + 4, T.h4[1] + 16);
+  for (let k = 1; k <= 4; k++) drawHook(k, f);
+  $('card').style.opacity = f >= T.card[0] && f <= T.card[1] ? 1 : 0;
+  drawCard(f);
+  drawPill(f);
+  drawEnd(f);
+  drawCursor(f);
+  // vignette: stronger on film, lighter on paper
+  const paper = f >= 404 && f < T.end[0] ? 1 : (f >= 396 && f < 404 ? prog(f, 396, 404) : (f >= T.end[0] && f < T.end[0] + 14 ? 1 - prog(f, T.end[0], T.end[0] + 14) : 0));
+  $('vignette').style.opacity = lerp(1, 0.35, paper);
+  $('grain').style.backgroundImage = `url(${grainTiles[f % grainTiles.length]})`;
+  $('grain').style.backgroundPosition = `${(f * 97) % 384}px ${(f * 53) % 384}px`;
+  $('grain').style.opacity = lerp(0.075, 0.045, paper);
+  // fade from black at the very start (2 frames) for a clean first frame
+  $('black').style.opacity = 0;
+  $('paper').style.opacity = f < 398 || f > 418 ? 0 : (f < 406 ? sine(prog(f, 398, 406)) : 1 - sine(prog(f, 406, 418)));
+  await Promise.all(loads);
+  await document.fonts.ready;
+  return true;
+}
+
+async function init() {
+  IXMETA = await (await fetch('../cap/interact/meta.json')).json();
+  S6META = await (await fetch('../cap/s6-hero/meta.json')).json();
+  for (let k = 1; k <= 4; k++) splitWords($('h' + k));
+  makeGrain();
+  // click rings in output coordinates
+  const addClick = (f, dark) => { const st = cursorState(f); if (st.op > 0 || true) clickFrames.push({ f, x: st.x, y: st.y, dark }); };
+  addClick(T.hero + 40, true); addClick(396, false); addClick(550, false); addClick(606 + (125 - 117), false);
+  await document.fonts.load("400 84px 'EB Garamond'"); await document.fonts.load("italic 400 78px 'EB Garamond'");
+  await document.fonts.load("400 132px 'Playfair Display'"); await document.fonts.load("500 23px 'IBM Plex Mono'");
+  window.__ready = true;
+}
+window.seek = seek; window.TOTAL = TOTAL;
+init();
+</script>
+</body>
+</html>
