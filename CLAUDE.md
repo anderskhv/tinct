@@ -6,6 +6,8 @@ Requests to **add, onboard, prepare, translate, modernize or repair a book** act
 
 This is task-specific: Claude may implement and release code when Anders explicitly assigns a coding/release task, following current repository rules and serialized release ownership. Do not infer that assignment from a book request.
 
+> **Tooling change — 2026-09-30:** Claude is now Anders's main and only coding tool; the OpenAI/Codex subscription has lapsed. Every reference in this repo to "Codex" as owner of code, registry, integration, publication or deploy now means **Claude, in a separate, explicitly requested step**. Book tasks still produce the isolated content package first (`books/wip/{assignment}/`); integration and publication follow only when Anders asks for them, under the `AGENTS.md` release rules. `AGENTS.md`, `docs/workflow-boundaries.md` and `books/AGENTS.md` still use the old Codex wording and are read with this substitution until they are revised.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 > **2026-06-17 update:** This file is historical and contains stale counts,

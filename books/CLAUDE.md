@@ -2,6 +2,8 @@
 
 > **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts; Codex owns code, registry, live paths and publication. This task-specific rule overrides broader path/permission lists below.
 
+> **Tooling change — 2026-09-30:** Claude is now the only tool; Codex is retired. Wherever this guide says Codex owns registry, app integration, verification or publication, Claude does that work as a separate step Anders explicitly requests, after the content package is accepted. Keep the content package and the integration/publication step in separate commits.
+
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 Use this guide from the current cloud checkout. Start with [Adding books](README.md); historical Mac paths are not cloud-accessible work destinations.
