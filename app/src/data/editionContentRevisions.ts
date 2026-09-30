@@ -106,6 +106,20 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  jerusalem: {
+    revision: 'jerusalem-completeness-2026-09-30.1',
+    releasedAt: Date.parse('2026-09-30T12:00:00Z'),
+    editions: {
+      'original-en': {
+        before: '747b53bedd58d9ba65877185247a8545dac4bddcd1e8219cf5315da00cdac47c',
+        after: '20d0ed3ecce5e4b440fec2e4373b337222c6a734f37f9cf769d94cecc248c48a',
+      },
+      'modern-en': {
+        before: '6cdbf3a5904a26d5edffc0ad45325f29af16e8cd6bc0a959f92450c3b33c00ee',
+        after: '47c0c1c78ef4b342c793f7ffd07dabbbe96334c67d7ca85dbfa9aafdf9f521b0',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

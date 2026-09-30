@@ -132,7 +132,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'wealth-of-nations': { editions: EN, revision: '2026-09-12.1' },
   'vindication-rights-of-woman': { editions: EN, revision: '2026-09-12.1' },
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
-  jerusalem: { editions: EN, revision: '2026-09-12.1' },
+  jerusalem: { editions: EN, revision: '2026-09-30.1' },
   'fear-and-trembling': { editions: EN, revision: '2026-09-12.1' },
   'magna-carta': { editions: EN, revision: '2026-09-12.1' },
 }

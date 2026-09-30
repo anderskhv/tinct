@@ -1245,7 +1245,8 @@ export const JERUSALEM: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      aligned: true,
+      // 18 chapters against the repaired English editions' 17.
+      aligned: false,
       hasAudio: true,
     },
   ],
