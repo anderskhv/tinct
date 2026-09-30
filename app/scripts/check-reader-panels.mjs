@@ -826,7 +826,7 @@ async function menuRedesign(engine,name,phone) {
     const {page,requests}=state
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Book editions','Settings','Library','Account'])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Catch me up','Book editions','Settings','Library','Account'])
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
     assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
