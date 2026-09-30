@@ -6,11 +6,9 @@ afterEach(() => {
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
   sessionStorage.clear()
-  document.cookie = 'tinct_library_preview=;max-age=0'
 })
 
 function setup(saveData = false) {
-  document.cookie = 'tinct_library_preview=1'
   vi.spyOn(document, 'readyState', 'get').mockReturnValue('complete')
   vi.stubGlobal('requestIdleCallback', (run: () => void) => { run(); return 1 })
   Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData } })
@@ -45,7 +43,6 @@ test('does not spend bandwidth when Save Data is enabled', () => {
 
 test('preloads the public library for ordinary reader visits', () => {
   const requests = setup()
-  document.cookie = 'tinct_library_preview=;max-age=0'
   warmLibraryPreview()
   expect(requests).toHaveBeenCalled()
 })

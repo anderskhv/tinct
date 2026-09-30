@@ -23,7 +23,7 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
   if (url.pathname.startsWith('/data/dict/')) return route.fulfill({ json: {} })
   if (url.pathname.startsWith('/api/')) return route.fulfill({ json: {} })
   if (!live && url.origin === origin) {
-   const target = path.resolve('dist', '.' + (['/lab/phone', '/lab/reader', '/reader'].includes(url.pathname) ? '/app.html' : url.pathname))
+   const target = path.resolve('dist', '.' + (['/reader'].includes(url.pathname) ? '/app.html' : url.pathname))
    if (target.startsWith(path.resolve('dist') + '/')) {
     try { if ((await fs.stat(target)).isFile()) return route.fulfill({ path: target }) } catch {}
    }
@@ -37,7 +37,7 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices) navigator.mediaDevices.getUserMedia=async()=>{throw Error('Microphone disabled')}
  },{chapter,paragraph})
- await page.goto(origin+'/lab/phone?chrome=v2',{waitUntil:'domcontentloaded'})
+ await page.goto(origin+'/reader?layout=phone',{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
  await page.evaluate(()=>document.fonts.ready)
  await page.waitForTimeout(1100)

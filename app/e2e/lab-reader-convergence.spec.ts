@@ -30,7 +30,7 @@ async function seedHandoff(page: Page, saved = false): Promise<void> {
 }
 
 async function openFrontispiece(page: Page): Promise<void> {
-  await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+  await page.goto('/reader', { waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'meditations')
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-ready', 'true')
   await expect(page.getByTestId('lab-chapter-cover')).toContainText('Meditations')
@@ -87,7 +87,7 @@ test('a genuine resume skips the frontispiece and restores the saved chapter', a
   const context = await readerContext(browser, { width: 390, height: 844, phone: true })
   const page = await context.newPage()
   await seedHandoff(page, true)
-  await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+  await page.goto('/reader', { waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'meditations')
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-chapter', '4')
   await expect(page.getByTestId('lab-chapter-cover')).toHaveCount(0)
@@ -101,7 +101,7 @@ test('reader themes cover the whole phone and desktop reading surface', async ({
       const context = await readerContext(browser, viewport)
       const page = await context.newPage()
       await page.addInitScript(selected => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: selected })), theme)
-      await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+      await page.goto('/reader', { waitUntil: 'networkidle' })
       const root = page.getByTestId('lab-root')
       await expect(root).toHaveAttribute('data-theme', theme)
       const colors = await page.evaluate(() => {
@@ -134,7 +134,7 @@ test('reader themes cover the whole phone and desktop reading surface', async ({
     })
     const systemPage = await systemContext.newPage()
     await systemPage.addInitScript(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'system' })))
-    await systemPage.goto('/lab/reader', { waitUntil: 'networkidle' })
+    await systemPage.goto('/reader', { waitUntil: 'networkidle' })
     await expect(systemPage.getByTestId('lab-root')).toHaveAttribute('data-theme', 'dark')
     await systemContext.close()
   }
@@ -183,7 +183,7 @@ test('phone, tablet, and desktop article geometry stays fixed through repeated p
       body: JSON.stringify({ paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 30 }] }),
     }))
     await page.route('**/words.json**', route => route.fulfill({ status: 404, body: '' }))
-    await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+    await page.goto('/reader', { waitUntil: 'networkidle' })
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'the-art-of-war')
     await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-ready', 'true')
     await expect(page.getByTestId('lab-chapter-cover')).toHaveCount(0)

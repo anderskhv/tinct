@@ -1,7 +1,7 @@
 /**
  * Voice V2 lab layer: instructions, tools, and the companion hop.
  *
- * Only `/lab/reader?voice=v2` selects these. Voice V1 keeps
+ * Only `/reader?voice=v2` selects these. Voice V1 keeps
  * `buildLabTalkInstructions`, `LAB_VOICE_TOOLS`, and `queryLabCompanion`
  * untouched in `labCompanion.ts` / `labAsk.ts`.
  */

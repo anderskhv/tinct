@@ -17,7 +17,7 @@ if (!process.env.TEST_ORIGIN) {
   }
   server = http.createServer((req,res) => {
     const url = new URL(req.url, origin)
-    const file = path.resolve('dist', '.' + (['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname))
+    const file = path.resolve('dist', '.' + (['/reader'].includes(url.pathname) ? '/app.html' : url.pathname))
     if (!file.startsWith(path.resolve('dist') + '/') || !fs.existsSync(file) || !fs.statSync(file).isFile()) { res.writeHead(404);res.end();return }
     const type = {'.js':'application/javascript','.css':'text/css','.json':'application/json','.html':'text/html','.woff2':'font/woff2'}[path.extname(file)] || 'application/octet-stream'
     res.writeHead(200, {'Content-Type':type});fs.createReadStream(file).pipe(res)

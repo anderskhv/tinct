@@ -24,7 +24,7 @@ function span(className: string, text: string, hidden = false): HTMLSpanElement 
 function publish(state: LabAuthState) {
   ;(window as Window & { __tinctLabAuthState?: LabAuthState }).__tinctLabAuthState = state
   document.querySelectorAll<HTMLAnchorElement>('[data-lab-auth-link]').forEach(link => {
-    const returnTo = link.dataset.authReturnTo || '/lab/library'
+    const returnTo = link.dataset.authReturnTo || '/library'
     const named = state.signedIn && link.hasAttribute('data-lab-auth-name') && state.name
     if (named) {
       // The name on wide screens, a small circular glyph with the initial on
@@ -36,8 +36,8 @@ function publish(state: LabAuthState) {
       link.removeAttribute('aria-label')
     }
     link.href = state.signedIn
-      ? `/lab/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo)}`
-      : `/lab/sign-in?returnTo=${encodeURIComponent(returnTo)}`
+      ? `/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo)}`
+      : `/sign-in?returnTo=${encodeURIComponent(returnTo)}`
     link.dataset.authReady = String(state.ready)
     link.dataset.signedIn = String(state.signedIn)
   })

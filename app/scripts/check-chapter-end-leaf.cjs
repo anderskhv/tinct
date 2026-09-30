@@ -15,7 +15,7 @@ async function run(browser,viewport,before){
  await page.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await page.route('**/*supabase.co/**',r=>r.abort())
  await page.addInitScript(()=>{localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:1.3,theme:'light',compareOpen:false}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:1134,paragraphIndex:0,page:0}}))})
  try{
-  await page.goto(origin+(viewport.width<900?'/lab/phone':'/reader'))
+  await page.goto(origin+(viewport.width<900?'/reader?layout=phone':'/reader'))
   await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.chapter==='1134');await page.evaluate(()=>document.fonts.ready)
   if(before)await page.addStyleTag({content:'.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-spread > .lab-chapter-end-page {width:100%;margin-left:auto;}'})
   await page.waitForTimeout(500)

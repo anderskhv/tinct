@@ -47,7 +47,6 @@ import {
   isBlockedBot,
 } from './worker/routes/seo'
 
-export { serveSpaWithMetaForTest } from './worker/routes/seo'
 
 interface Env {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>

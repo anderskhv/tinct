@@ -347,7 +347,7 @@ function CompareIcon() {
 
 export interface LabAppProps {
   pathname?: string
-  /** Query string. Only `?voice=v2` on `/lab/reader` selects the Voice V2 preview. */
+  /** Query string. Only `?voice=v2` on `/reader` selects the Voice V2 preview. */
   search?: string
   online?: boolean
   source?: LabSource
@@ -373,8 +373,8 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
 }
 
 export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
-  const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/lab')
-  const layoutOverride = labLayoutOverride(path)
+  const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
+  const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const chromeV2 = labChromeVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : '')) === 'v2'
   const voiceVersion = chromeV2 ? 'v2' : labVoiceVersion(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   // The face on the page. A reader who has never picked one reads V2's new
@@ -4575,7 +4575,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               {readerLoadAction.label}
             </button>
           )}
-          <a href="/lab/library">Return to the library</a>
+          <a href="/library">Return to the library</a>
         </div>
       )}
 

@@ -41,14 +41,14 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
             if (url.pathname === '/reader') return route.fulfill({ contentType: 'text/html', body: '<p data-auth-destination>Book preserved</p>' })
             if (url.pathname.startsWith('/assets/')) assets.push(url.pathname)
             if (live) return route.continue()
-            const relative = url.pathname === '/lab/sign-in' || url.pathname === '/lab/sign-in/' ? '/lab/sign-in/index.html' : url.pathname
+            const relative = url.pathname === '/sign-in' || url.pathname === '/sign-in/' ? '/lab/sign-in/index.html' : url.pathname
             const file = path.resolve('dist', '.' + relative)
             if (!file.startsWith(path.resolve('dist') + '/')) return route.abort()
             try { return await route.fulfill({ path: file }) } catch { return route.abort() }
           })
           const callback = test === 'email-confirmed' ? 'signup' : 'oauth'
           const query = test === 'signed-out' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
-          await page.goto(origin + '/lab/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' })
+          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' })
           if (test === 'returning-google') {
             await page.waitForURL('**/reader?book=bible#p12')
             assert.equal(await page.locator('[data-auth-destination]').count(), 1)

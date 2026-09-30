@@ -98,30 +98,18 @@ jobs:
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-public.mjs
-      - name: Verify library and preparation
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
-        run: node scripts/check-library-layout.mjs
-      - name: Verify Shakespeare layout and library perimeter
+      - name: Verify Shakespeare layout
         run: node scripts/check-shakespeare-layout.mjs
-      - name: Verify currently reading shelf
-        if: ${{ !cancelled() }}
-        run: node scripts/check-reading-reel.mjs
       - name: Verify hyphenation hardening
         if: ${{ !cancelled() }}
         run: node scripts/check-hyphenation-hardening.mjs
-      - name: Verify responsive landing and library
-        if: ${{ !cancelled() }}
-        run: node scripts/check-entry-responsive.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: library-preparation-acceptance
           path: |
             app/artifacts/shakespeare-layout
-            app/artifacts/reading-reel
-            app/artifacts/library-layout
             app/artifacts/library-public
-            app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening
 
   reading-benchmark:

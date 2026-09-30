@@ -340,11 +340,11 @@ describe('lab prefs', () => {
 
 describe('lab sign-in URLs', () => {
   it('return to the reader path they were given and default to the library', () => {
-    expect(labSignInUrl('/lab/reader?voice=v2')).toBe('/lab/sign-in?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
-    expect(labAccountUrl('/lab/phone')).toBe('/lab/sign-in?mode=account&returnTo=%2Flab%2Fphone')
+    expect(labSignInUrl('/reader?voice=v2')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
+    expect(labAccountUrl('/reader')).toBe('/sign-in?mode=account&returnTo=%2Freader')
     expect(labSignInUrl()).toBe(LAB_SIGN_IN_URL)
     expect(labAccountUrl('')).toBe(LAB_ACCOUNT_URL)
-    expect(LAB_SIGN_IN_URL).toBe(`/lab/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`)
+    expect(LAB_SIGN_IN_URL).toBe(`/sign-in?returnTo=${encodeURIComponent(LAB_LIBRARY_URL)}`)
   })
 })
 

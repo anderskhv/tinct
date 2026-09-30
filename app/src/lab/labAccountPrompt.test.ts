@@ -141,14 +141,14 @@ describe('lab account prompt: paid lines (not enforced)', () => {
 
 describe('lab account prompt: sign-in links', () => {
   it('builds create and sign-in links that return to the reader', () => {
-    expect(labSignInHref('create', '/lab/reader')).toBe('/lab/sign-in?mode=create&returnTo=%2Flab%2Freader')
-    expect(labSignInHref('signin', '/lab/reader?voice=v2')).toBe('/lab/sign-in?returnTo=%2Flab%2Freader%3Fvoice%3Dv2')
-    expect(labSignInHref('signin', '')).toBe('/lab/sign-in?returnTo=%2Flab%2Flibrary')
+    expect(labSignInHref('create', '/reader')).toBe('/sign-in?mode=create&returnTo=%2Freader')
+    expect(labSignInHref('signin', '/reader?voice=v2')).toBe('/sign-in?returnTo=%2Freader%3Fvoice%3Dv2')
+    expect(labSignInHref('signin', '')).toBe('/sign-in?returnTo=%2Flibrary')
   })
 
   it('reads the current path with its query', () => {
-    expect(labCurrentPath({ pathname: '/lab/reader', search: '?voice=v2' })).toBe('/lab/reader?voice=v2')
-    expect(labCurrentPath(null)).toBe('/lab/library')
+    expect(labCurrentPath({ pathname: '/reader', search: '?voice=v2' })).toBe('/reader?voice=v2')
+    expect(labCurrentPath(null)).toBe('/library')
   })
 })
 
@@ -189,6 +189,6 @@ describe('lab account prompt: second-book nudge', () => {
 import { labBookSignInReturn } from './labAccountPrompt'
 it('returns preparation to its selected book without writing a fake reading position', () => {
   expect(labBookSignInReturn('/reader', 'frankenstein', true)).toBe('/library?book=frankenstein&view=book-detail')
-  expect(labBookSignInReturn('/lab/phone?chrome=v2', 'niels-lyhne', true)).toBe('/library?book=niels-lyhne&view=book-detail')
+  expect(labBookSignInReturn('/reader?chrome=v2', 'niels-lyhne', true)).toBe('/library?book=niels-lyhne&view=book-detail')
   expect(labBookSignInReturn('/reader?voice=v2', 'frankenstein', false)).toBe('/reader?voice=v2')
 })

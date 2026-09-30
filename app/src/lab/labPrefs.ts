@@ -9,10 +9,10 @@ import { resolveAudioEditionKey } from '../utils/audioEditionSelection'
 export const LAB_LIBRARY_URL = '/library'
 /** Sign-in page URL. Pass the current reader path so the reader comes back to the same book after signing in. */
 export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
-  return `/lab/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
+  return `/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
 }
 export function labAccountUrl(returnTo: string = LAB_LIBRARY_URL): string {
-  return `/lab/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
+  return `/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
 }
 /** Library defaults, for surfaces with no reader to return to. */
 export const LAB_SIGN_IN_URL = labSignInUrl()

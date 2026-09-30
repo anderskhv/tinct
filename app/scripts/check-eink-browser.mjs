@@ -16,7 +16,7 @@ try{
    if(url.origin!==origin)return route.abort()
    if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
    if(req.method()!=='GET')return route.abort()
-   const pathname=url.pathname==='/reader'?readerShell:url.pathname==='/library'?'/lab/library_2/index.html':url.pathname==='/lab/sign-in'?'/lab/sign-in/index.html':url.pathname
+   const pathname=url.pathname==='/reader'?readerShell:url.pathname==='/library'?'/lab/library_2/index.html':url.pathname==='/sign-in'?'/lab/sign-in/index.html':url.pathname
    const file=path.resolve('dist','.'+pathname)
    if(file.startsWith(path.resolve('dist')+'/'))try{if((await fs.stat(file)).isFile())return route.fulfill({path:file})}catch{}
    return route.abort()
@@ -66,7 +66,7 @@ try{
   await page.screenshot({path:output+'/eink-fonts-'+width+'.png'})
   // Use the public route used by the reader. A nested /lab/*/index.html
   // request is a reader route on production, not the standalone account page.
-  const accountResponse=await page.goto(origin+'/lab/sign-in',{waitUntil:'domcontentloaded'})
+  const accountResponse=await page.goto(origin+'/sign-in',{waitUntil:'domcontentloaded'})
   try{
    assert.equal(accountResponse?.status(),200,'account route responds successfully')
    await page.waitForFunction(()=>document.querySelector('#tinct-lab-sign-in')?.dataset.ready==='true')

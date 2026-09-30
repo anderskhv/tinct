@@ -36,7 +36,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
     if (req.method() !== 'GET') return route.abort()
     if (!live && url.origin === origin) {
-      const pathname = ['/reader','/lab/phone','/lab/desktop'].includes(url.pathname) ? '/app.html' : url.pathname
+      const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname
       const filename = path.resolve('dist', '.' + pathname)
       if (filename.startsWith(path.resolve('dist') + '/')) {
         try { if ((await fs.stat(filename)).isFile()) return route.fulfill({path:filename}) } catch {}
@@ -53,7 +53,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     window.__copied = []
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
   },{bookId,edition,chapterNumber,fixture})
-  await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
+  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(700)

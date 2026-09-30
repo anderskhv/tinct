@@ -69,7 +69,7 @@ async function main() {
     }))
   })
   await page.addInitScript(OBSERVE)
-  await page.goto(`${BASE}/lab/phone?chrome=v2`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${BASE}/reader?layout=phone`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-book').waitFor()
   await page.waitForTimeout(3000)
 

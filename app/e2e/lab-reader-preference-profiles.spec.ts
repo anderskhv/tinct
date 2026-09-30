@@ -16,7 +16,7 @@ type AppearanceEvidence = {
 }
 
 async function seedReader(page: Page): Promise<void> {
-  await page.goto('/lab/reader', { waitUntil: 'domcontentloaded' })
+  await page.goto('/reader', { waitUntil: 'domcontentloaded' })
   await page.evaluate(() => {
     // Deliberately seed V1: this browser lifecycle also proves deterministic
     // migration without requiring a separate synthetic route.

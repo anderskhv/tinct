@@ -20,7 +20,7 @@ async function mobileReader(browser: Browser): Promise<{ context: BrowserContext
 }
 
 async function waitForReader(page: Page): Promise<void> {
-  await page.goto('/lab/phone', { waitUntil: 'networkidle' })
+  await page.goto('/reader?layout=phone', { waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-reading-stage')).toBeVisible()
   await expect.poll(async () => normalized(await page.getByTestId('lab-reading-stage').innerText()).length).toBeGreaterThan(100)
   // The native column preflight and its painted-page correction settle over

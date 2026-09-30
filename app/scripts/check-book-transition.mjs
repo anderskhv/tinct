@@ -49,7 +49,7 @@ for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, body: '{}' })
     if (req.method() !== 'GET' || url.origin !== origin) return route.abort()
     if (!live) {
-     const file = path.resolve('dist', '.' + (['/reader', '/lab/phone'].includes(url.pathname) ? '/app.html' : url.pathname))
+     const file = path.resolve('dist', '.' + (['/reader'].includes(url.pathname) ? '/app.html' : url.pathname))
      if (file.startsWith(path.resolve('dist') + '/')) {
       try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
      }

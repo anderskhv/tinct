@@ -1,7 +1,7 @@
-import { libraryEntryPath } from './libraryTwoRelease'
+import { LIBRARY_ENTRY_PATH } from './libraryTwoRelease'
 import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
-import { isLabPath } from '../../lab/labRoute'
+import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
 
 export type SeoEnv = {
@@ -91,73 +91,6 @@ const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.
 // still pass the asset allowlist so existing readers can recover their data.
 const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_EDITION_HOLDS).map(identity => identity.split('/')[0])])
 
-async function serveSpaWithMeta(
-  requestMethod: string,
-  url: URL,
-  env: SeoEnv,
-  meta: BookMetaEntry & { image?: string },
-  canonical: string,
-  ogType: string,
-): Promise<Response | null> {
-  const appResp = await env.ASSETS.fetch(new Request(`${url.origin}/app.html`))
-  if (!appResp.ok) return null
-
-  const html = await appResp.text()
-  const bookId = canonical.match(/\/read\/([a-z0-9-]+)/)?.[1]
-  const ogImage = meta.image || (bookId && PUBLIC_BOOK_IDS.has(bookId) ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE)
-  const safeTitle = htmlEscape(meta.title)
-  const safeDescription = htmlEscape(meta.description)
-  const safeCanonical = htmlEscape(canonical)
-  const safeOgType = htmlEscape(ogType)
-  const safeOgImage = htmlEscape(ogImage)
-  const injected = `<title>${safeTitle}</title>
-  <meta name="description" content="${safeDescription}">
-  <link rel="canonical" href="${safeCanonical}">
-  <meta property="og:title" content="${safeTitle}">
-  <meta property="og:description" content="${safeDescription}">
-  <meta property="og:url" content="${safeCanonical}">
-  <meta property="og:type" content="${safeOgType}">
-  <meta property="og:site_name" content="Tinct">
-  <meta property="og:image" content="${safeOgImage}">
-  <meta property="og:image:alt" content="${htmlEscape(meta.bookName ? meta.bookName + ' by ' + meta.author + ' — read with Tinct' : 'Tinct — Fall in love with the books that matter.')}">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${safeTitle}">
-  <meta name="twitter:description" content="${safeDescription}">
-  <meta name="twitter:image" content="${safeOgImage}">
-  <meta name="twitter:image:alt" content="${htmlEscape(meta.bookName ? meta.bookName + ' by ' + meta.author + ' — read with Tinct' : 'Tinct — Fall in love with the books that matter.')}">`
-  const bookJsonLd = ogType === 'book'
-    ? `\n  <script type="application/ld+json">${JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Book',
-        '@id': `${canonical}#book`,
-        name: meta.bookName,
-        author: { '@type': 'Person', name: meta.author },
-        description: meta.description,
-        url: canonical,
-        image: ogImage,
-        inLanguage: url.searchParams.get('edition')?.endsWith('-de') ? 'de' : 'en',
-        isAccessibleForFree: true,
-        isPartOf: { '@type': 'WebSite', name: 'Tinct', url: 'https://tinct.app' },
-        publisher: { '@type': 'Organization', name: 'Tinct', url: 'https://tinct.app' },
-      })}</script>`
-    : ''
-  const rewritten = html.replace(/<title>[^<]*<\/title>/, `${injected}${bookJsonLd}`)
-  const newResp = new Response(requestMethod === 'HEAD' ? null : rewritten, {
-    status: 200,
-    headers: { 'Content-Type': 'text/html; charset=utf-8' },
-  })
-  newResp.headers.set('Cache-Control', 'no-store')
-  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-    newResp.headers.set(key, value)
-  }
-  return newResp
-}
-
-export const serveSpaWithMetaForTest = serveSpaWithMeta
-
 async function serveStaticHtml(
   requestMethod: string,
   request: Request,
@@ -230,19 +163,15 @@ function isLabPathname(pathname: string): boolean {
   return isLabPath(pathname)
 }
 
+// Public page URL -> the static asset page that answers it. The address bar
+// keeps the public URL; the asset folder is never a navigation target.
 const LAB_PRE_READER_PATHS = new Map([
-  ['/lab/featured', '/lab/featured/'],
-  ['/lab/featured/', '/lab/featured/'],
-  ['/library', '/lab/'],
-  ['/library/', '/lab/'],
-  ['/lab', '/lab/'],
-  ['/lab/', '/lab/'],
-  ['/lab/landing', '/lab/'],
-  ['/lab/library', '/lab/'],
-  ['/lab/library-2', '/lab/library-2/'],
-  ['/lab/library-2/', '/lab/library-2/'],
-  ['/lab/sign-in', '/lab/sign-in/'],
-  ['/lab/sign-in/', '/lab/sign-in/'],
+  ['/featured', '/lab/featured/'],
+  ['/featured/', '/lab/featured/'],
+  ['/library', LIBRARY_ENTRY_PATH],
+  ['/library/', LIBRARY_ENTRY_PATH],
+  ['/sign-in', '/lab/sign-in/'],
+  ['/sign-in/', '/lab/sign-in/'],
 ])
 
 function isLabStaticAssetPath(pathname: string): boolean {
@@ -336,7 +265,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   // A temporary availability page preserves old links and content assets.
   // Run before static/cached SEO pages; raw data stays available for recovery.
   const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
-  const queryBook = ['/', '/library', '/lab', '/lab/', '/lab/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const queryBook = ['/', '/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
   const holdBook = queryBook || publicBook
   const germanBookLanding = /^\/(?:read\/)?faust-part-1\/?$/.test(url.pathname) && !url.search
   const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' || germanBookLanding ? 'original-de' : 'original-en')
@@ -464,7 +393,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Promote the proven catalogue/reader flow at the public entry. The
     // boot script handles anonymous, returning and recently-reading users.
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
-      const home = await serveLabPreReader(request.method, url, env, libraryEntryPath(request.headers.get('Cookie')))
+      const home = await serveLabPreReader(request.method, url, env, LIBRARY_ENTRY_PATH)
       if (home) {
         const homeTitle = 'Tinct — A New Way to Read'
         const homeDescription = 'Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.'
@@ -482,14 +411,16 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     if (request.method === 'GET' || request.method === 'HEAD') {
+      // Old /lab page URLs: permanent redirects to the canonical page. Only
+      // exact page URLs match, so asset files under /lab/ are still served.
+      const legacyTarget = legacyLabPageRedirect(url.pathname, url.search)
+      if (legacyTarget) {
+        return new Response(null, { status: 308, headers: { Location: legacyTarget, 'Cache-Control': 'public, max-age=3600' } })
+      }
       const destination = new URL(url.toString())
-      if (url.pathname === '/lab/reader' && url.searchParams.get('chrome') === 'v2') {
-        destination.pathname = '/reader'
-      } else if (url.pathname === '/lab/library') {
-        destination.pathname = '/library'
-      } else if (url.pathname === '/app') {
+      if (url.pathname === '/app') {
         if (url.searchParams.has('signin')) {
-          destination.pathname = '/lab/sign-in'
+          destination.pathname = '/sign-in'
           destination.searchParams.delete('signin')
         } else {
           destination.pathname = '/library'
@@ -505,12 +436,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
-    // Standalone design handoff; isolate its files from the reader SPA.
-    if ((request.method === 'GET' || request.method === 'HEAD') &&
-        (url.pathname === '/lab/library_2' || url.pathname.startsWith('/lab/library_2/'))) {
-      const assetUrl = new URL(url.toString())
-      if (url.pathname === '/lab/library_2') assetUrl.pathname = '/lab/library_2/'
-      const response = await env.ASSETS.fetch(new Request(assetUrl, request))
+    // The library's own files (scripts, styles, covers); isolate them from the reader SPA.
+    if ((request.method === 'GET' || request.method === 'HEAD') && url.pathname.startsWith('/lab/library_2/')) {
+      const response = await env.ASSETS.fetch(request)
       const result = new Response(response.body, response)
       result.headers.set('X-Robots-Tag', 'noindex, noarchive')
       if ((response.headers.get('Content-Type') || '').includes('text/html')) {
@@ -519,10 +447,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       return result
     }
 
-    // The standalone Lab entry is the catalogue-backed pre-reader. Keep the
-    // reader SPA on /lab/reader and the explicit phone/desktop QA routes below.
+    // The catalogue-backed library, sign-in and featured preview pages are
+    // static assets answered at their public URL. The reader SPA is /reader.
     if ((request.method === 'GET' || request.method === 'HEAD') && LAB_PRE_READER_PATHS.has(url.pathname)) {
-      const entryPath = /^\/library\/?$/.test(url.pathname) ? libraryEntryPath(request.headers.get('Cookie')) : LAB_PRE_READER_PATHS.get(url.pathname)!
+      const entryPath = LAB_PRE_READER_PATHS.get(url.pathname)!
       const labResp = await serveLabPreReader(request.method, url, env, entryPath)
       if (labResp) return labResp
     }
@@ -597,12 +525,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       if (hubResp) return hubResp
     }
 
-    // Per-book transactional SEO: inject book-specific meta tags into the SPA
-    // shell for /read/{bookId} routes. The SPA still bootstraps for human
-    // visitors (the body is unchanged), but crawlers see a book-specific
-    // title + description + canonical URL — without which every book URL
-    // shares the generic "Tinct — A New Way to Read" title and competes with
-    // itself in search.
+    // /read/{bookId}: the static SEO book page for crawlers and signed-out
+    // visitors (unique title, description and canonical URL per book).
     const bookMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && bookMatch) {
       const bookId = bookMatch[1].toLowerCase()
@@ -610,25 +534,18 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
       // Bare `/read/{bookId}` is the public SEO book page. In-app opens add
       // a query (`?from=app`) and signed-in readers carry `tinct_auth=1`;
-      // both must skip the extra marketing gate and load the SPA.
+      // both skip the marketing page and open the library.
       if (!url.search && !hasAuthCookie) {
         const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
         if (staticBookResp) return staticBookResp
       }
-      if ((url.search || hasAuthCookie) && (BOOK_META[bookId] || GENERATED_BOOK_META[bookId])) {
-        const target = new URL('/lab/', url.origin)
+      // In-app opens (a query, or a signed-in reader) go to the book in the
+      // library, as does a book without a static SEO page.
+      if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+        const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
         target.searchParams.set('view', 'book-detail')
         return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
-      }
-      // Manual BOOK_META wins (hand-tuned copy for marquee books); auto-
-      // generated meta from bookRegistry is the fallback so every book in
-      // the sitemap has unique <title>/<meta description> and we don't
-      // hand Google many duplicate-content URLs.
-      const meta = BOOK_META[bookId] || GENERATED_BOOK_META[bookId]
-      if (meta) {
-        const bookResp = await serveSpaWithMeta(request.method, url, env, meta, `https://tinct.app/read/${bookId}`, 'book')
-        if (bookResp) return bookResp
       }
       return serveNotFound(request.method, url, env)
     }
@@ -671,7 +588,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Unknown-path handling. This used to be an SPA fallback that answered any
     // unmatched URL with the React shell and a 200, which meant a typo or an
     // old link served a different product and told crawlers the page existed.
-    // Every public entry (/, /library, /reader, /read, /read/{bookId}, /lab/*,
+    // Every public entry (/, /library, /reader, /sign-in, /read, /read/{bookId},
     // /admin/metrics, static pages) is matched above, so anything reaching here
     // really is missing: answer with the branded 404 page and a 404 status.
     // CRITICAL: /assets/* must 404 cleanly, not fall through to HTML.

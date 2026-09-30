@@ -32,7 +32,7 @@ async function openIvanChat(page: Page, viewport: ReaderViewport): Promise<void>
       savedPlace: { bookId: 'ivan-ilyich', chapterNumber: 1, paragraphIndex: 0, page: 0 },
     }))
   })
-  await page.goto('/lab/reader', { waitUntil: 'networkidle' })
+  await page.goto('/reader', { waitUntil: 'networkidle' })
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-book-id', 'ivan-ilyich')
   await expect(page.getByTestId('lab-header-work')).toHaveText('The Death of Ivan Ilyich')
   await page.getByTestId(viewport.touch ? 'lab-phone-chat' : 'lab-desktop-chat').click()

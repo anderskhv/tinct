@@ -5,22 +5,31 @@ const ORIGIN = 'https://tinct.app'
 const safe = (value: string | null | undefined) => safeLabReturnTo(value, ORIGIN)
 
 describe('safeLabReturnTo', () => {
-  it('returns the reader routes, with their query strings, so sign-in lands back in the book', () => {
-    expect(safe('/lab/reader')).toBe('/lab/reader')
-    expect(safe('/lab/phone?voice=v2')).toBe('/lab/phone?voice=v2')
-    expect(safe('/lab/desktop?voice=v2#p12')).toBe('/lab/desktop?voice=v2#p12')
-    expect(safe('/lab/reader/')).toBe('/lab/reader/')
+  it('returns the reader route, with its query string, so sign-in lands back in the book', () => {
+    expect(safe('/reader')).toBe('/reader')
+    expect(safe('/reader?voice=v2#p12')).toBe('/reader?voice=v2#p12')
+    expect(safe('/reader/')).toBe('/reader/')
   })
 
-  it('keeps the pre-reader lab routes and the launch routes', () => {
-    expect(safe('/lab/library')).toBe('/lab/library')
-    expect(safe('/lab/library-2?mode=recap')).toBe('/lab/library-2?mode=recap')
-    expect(safe('/lab')).toBe('/lab')
+  it('keeps the launch routes', () => {
     expect(safe('/library')).toBe('/library')
     expect(safe('/library/')).toBe('/library/')
+    expect(safe('/featured')).toBe('/featured')
+    expect(safe('/admin/metrics')).toBe('/admin/metrics')
     expect(safe('/read/odyssey')).toBe('/read/odyssey')
     expect(safe('/read/odyssey/3')).toBe('/read/odyssey/3')
     expect(safe('/read/bible/40?voice=v2')).toBe('/read/bible/40?voice=v2')
+  })
+
+  it('maps old /lab page URLs to the canonical page, never to an asset folder', () => {
+    expect(safe('/lab/reader')).toBe('/reader')
+    expect(safe('/lab/phone?voice=v2')).toBe('/reader?voice=v2&layout=phone')
+    expect(safe('/lab/library')).toBe('/library')
+    expect(safe('/lab/library_2/')).toBe('/library')
+    expect(safe('/lab/library-2?mode=recap')).toBe('/library?mode=recap')
+    expect(safe('/lab/')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('/lab/library_2/app.js')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('/lab/anything-else')).toBe(LAB_DEFAULT_RETURN_TO)
   })
 
   it('falls back to the library for empty and unknown same-origin paths', () => {
@@ -42,18 +51,19 @@ describe('safeLabReturnTo', () => {
     expect(safe('javascript:alert(1)')).toBe(LAB_DEFAULT_RETURN_TO)
     expect(safe('/\\evil.example/lab/reader')).toBe(LAB_DEFAULT_RETURN_TO)
     expect(safe('\\\\evil.example')).toBe(LAB_DEFAULT_RETURN_TO)
-    expect(safe('/lab/reader\\..\\x')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('/reader\\..\\x')).toBe(LAB_DEFAULT_RETURN_TO)
     expect(safe('data:text/html,hi')).toBe(LAB_DEFAULT_RETURN_TO)
   })
 
-  it('honours the same-origin lab path when given the real origin (absolute form)', () => {
-    expect(safe(`${ORIGIN}/lab/reader?voice=v2`)).toBe('/lab/reader?voice=v2')
+  it('honours the same-origin path when given the real origin (absolute form)', () => {
+    expect(safe(`${ORIGIN}/reader?voice=v2`)).toBe('/reader?voice=v2')
   })
 })
 
 it('preserves a launch-reader book through sign-in', () => { expect(safeLabReturnTo('/reader?book=niels-lyhne', 'https://tinct.app')).toBe('/reader?book=niels-lyhne') })
 
 it('does not loop back into sign-in after authentication', () => {
-  expect(safeLabReturnTo('/lab/sign-in?mode=create', 'https://tinct.app')).toBe('/lab/library')
-  expect(safeLabReturnTo('/lab/sign-in/', 'https://tinct.app')).toBe('/lab/library')
+  expect(safeLabReturnTo('/sign-in?mode=create', 'https://tinct.app')).toBe('/library')
+  expect(safeLabReturnTo('/sign-in/', 'https://tinct.app')).toBe('/library')
+  expect(safeLabReturnTo('/lab/sign-in/', 'https://tinct.app')).toBe('/library')
 })
