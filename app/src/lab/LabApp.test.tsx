@@ -7,6 +7,7 @@ import { act, cleanup, createEvent, fireEvent, render, screen, waitFor } from '@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LAB_DESKTOP_PANES, PRODUCTION_DESKTOP_PANES } from './labChrome'
 import { LabApp } from './LabApp'
+import { buildCompanionSystem, parseCompanionRequest } from '../companion/companionRequest'
 import { LabPassage } from './LabPassage'
 import { hearingPages } from './labHearing'
 import { LabVoiceGate } from './LabConversation'
@@ -421,7 +422,7 @@ describe('lab chrome', () => {
         getUserMedia: () => new Promise(() => { /* hang so connecting stays visible */ }),
       },
     })
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="signed-in" />)
     openDesktopAsk()
     fireEvent.click(screen.getByTestId('lab-ask-mic'))
     await waitFor(() => {
@@ -921,10 +922,14 @@ describe('lab chrome', () => {
       return url.includes('/api/chat') && !url.includes('/api/lab-chat')
     })
     const body = JSON.parse(String(chatCall?.[1]?.body))
-    expect(body.system).toContain('[2] So now all who escaped death')
-    expect(body.system).toContain('Avoid unsolicited spoilers beyond the current chapter')
-    expect(body.system).not.toContain('Speak for about 20')
-    expect(body.system).toContain('resume_audiobook')
+    // The reader sends structured context only; the Worker builds the prompt.
+    expect(body.system).toBeUndefined()
+    expect(body.companion.intent).toBe('ask')
+    const system = buildCompanionSystem(parseCompanionRequest(body.companion)!)
+    expect(system).toContain('[2] So now all who escaped death')
+    expect(system).toContain('Avoid unsolicited spoilers beyond the current chapter')
+    expect(system).not.toContain('Speak for about 20')
+    expect(system).toContain('resume_audiobook')
     expect(screen.getByTestId('lab-status').textContent).toBe('Reading · Book 1')
     expect(screen.queryByTestId('lab-hearing')).toBeNull()
     expect(screen.getByTestId('lab-ask-turn-user').textContent).toContain('You')
@@ -1458,8 +1463,8 @@ describe('lab chrome', () => {
     expect(screen.queryByTestId('lab-hearing-pause')).toBeNull()
   })
 
-  it('drops Connecting and shows the chat sheet when unsigned-in Talk fails', async () => {
-    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
+  it('drops Connecting and shows the chat sheet when Talk fails', async () => {
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="signed-in" />)
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
     expect(screen.queryByText('Sign in to ask by voice.')).toBeNull()
@@ -1473,7 +1478,7 @@ describe('lab chrome', () => {
   })
 
   it('keeps the desktop companion open with the notice when Talk fails, instead of closing silently', async () => {
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="signed-in" />)
     fireEvent.click(screen.getByTestId('lab-desktop-talk'))
     expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('talk')
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
@@ -2984,7 +2989,7 @@ describe('lab passage headline pages', () => {
 
   it('does not focus the composer when a phone Talk fails and falls back to Chat', async () => {
     const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
-    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="signed-in" />)
     fireEvent.click(screen.getByTestId('lab-phone-talk'))
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
     expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-sheet')
@@ -3059,7 +3064,7 @@ describe('lab passage headline pages', () => {
 
   it('focuses the composer when a desktop Talk fails and the companion stays open as Chat', async () => {
     const focus = vi.spyOn(HTMLInputElement.prototype, 'focus')
-    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken="signed-in" />)
     fireEvent.click(screen.getByTestId('lab-desktop-talk'))
     expect((await screen.findByTestId('lab-ask-notice')).textContent).toContain("Couldn't start voice")
     await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat'))

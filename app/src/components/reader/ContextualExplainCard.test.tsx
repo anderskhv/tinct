@@ -3,6 +3,7 @@
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { ContextualExplainCard } from './ContextualExplainCard'
+import { LabChatError } from '../../lab/labCompanion'
 
 afterEach(cleanup)
 
@@ -113,4 +114,10 @@ it('keeps close available after expansion and opens highlights without a new exp
   fireEvent.click(screen.getByRole('button', { name: 'Close explanation' }))
   expect(onClose).toHaveBeenCalledOnce()
   expect(request).toHaveBeenCalledOnce()
+})
+
+it('shows the calm resting message when AI is paused', async () => {
+  render(<ContextualExplainCard passage="The passage." request={vi.fn().mockRejectedValue(new LabChatError('ai_resting'))} onAsk={vi.fn()} onClose={vi.fn()} />)
+  await screen.findByText('AI is resting — try again later.')
+  expect(screen.queryByText(/couldn’t be loaded/)).toBeNull()
 })

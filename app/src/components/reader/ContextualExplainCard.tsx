@@ -1,5 +1,7 @@
 import { LabMarkdown } from '../../lab/LabMarkdown'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
+import { isAiRestingError } from '../../lab/labCompanion'
+import { LAB_COPY } from '../../lab/labCopy'
 import { useEffect, useRef, useState } from 'react'
 
 /** The opener is everything before the first blank line; the rest waits
@@ -19,7 +21,7 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
   onHighlight?: () => void
   onClose?: () => void
 }) {
-  const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
+  const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error' | 'resting'>('loading')
   const [expanded, setExpanded] = useState(false)
   const [answer, setAnswer] = useState('')
   const [attempt, setAttempt] = useState(0)
@@ -47,8 +49,8 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
       setStatus('ready')
       recorded = true
       record?.(text)
-    }).catch(() => {
-      if (active) setStatus('error')
+    }).catch((error) => {
+      if (active) setStatus(isAiRestingError(error) ? 'resting' : 'error')
     })
     return () => { active = false; if (!recorded && shown) record?.(shown) }
   }, [attempt, passage])
@@ -76,6 +78,7 @@ export function ContextualExplainCard({ passage, request, onAsk, onTalk, onReady
               <span /><span /><span />
             </div>
           )}
+          {status === 'resting' && <p>{LAB_COPY.aiResting}</p>}
           {status === 'error' && (
             <>
               <p>The explanation couldn’t be loaded. Your passage is still here.</p>

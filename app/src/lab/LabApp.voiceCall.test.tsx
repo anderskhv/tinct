@@ -30,7 +30,7 @@ beforeEach(() => {
 
 function renderPhone(search: string) {
   return render(
-    <LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken={null} />,
+    <LabApp pathname="/lab/phone" search={search} source={fallbackLabSource()} authToken="reader-token" />,
   )
 }
 
@@ -124,7 +124,7 @@ describe('Talk on the phone with Chrome V2', () => {
 
 function renderDesktop(search = '?chrome=v2') {
   return render(
-    <LabApp pathname="/lab/desktop" search={search} source={fallbackLabSource()} authToken={null} />,
+    <LabApp pathname="/lab/desktop" search={search} source={fallbackLabSource()} authToken="reader-token" />,
   )
 }
 
@@ -269,7 +269,7 @@ describe('Talk without the Chrome V2 flag', () => {
 it('opens the existing reader call from the preparation menu', async () => {
   HTMLDialogElement.prototype.showModal = function () { this.open = true }
   HTMLDialogElement.prototype.close = function () { this.open = false }
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
   fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))
   expect(screen.getByTestId('lab-book-preface')).toBeTruthy()
@@ -284,7 +284,7 @@ it('opens the existing reader call from the preparation menu', async () => {
 it('routes Cover and Preface separately and returns Preface to the mounted cover', () => {
   HTMLDialogElement.prototype.showModal = function () { this.open = true }
   HTMLDialogElement.prototype.close = function () { this.open = false }
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
   fireEvent.click(screen.getByRole('button', { name: 'Cover', exact: true }))
   expect(screen.getByTestId('lab-chapter-cover')).toBeTruthy()
@@ -303,7 +303,7 @@ it('routes Cover and Preface separately and returns Preface to the mounted cover
 it('returns from preparation Chat with its disclosures and reading place intact', async () => {
   HTMLDialogElement.prototype.showModal = function () { this.open = true }
   HTMLDialogElement.prototype.close = function () { this.open = false }
-  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken={null} />)
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
   const before = readerPlace()
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
   fireEvent.click(screen.getByRole('button', { name: 'Preface', exact: true }))

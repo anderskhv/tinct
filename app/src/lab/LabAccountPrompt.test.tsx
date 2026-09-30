@@ -270,12 +270,15 @@ describe('lab account prompt in the reader', () => {
     expect(screen.getByTestId('lab-page-wrap')).toBeTruthy()
   })
 
-  it('lets the first voice question through for an anonymous reader', async () => {
-    vi.stubGlobal('fetch', vi.fn(() => new Promise(() => { /* hang the guest voice token */ })))
+  it('asks a signed-out reader to sign in for Talk without requesting a voice session', async () => {
+    const fetchMock = vi.fn(() => new Promise(() => { /* never answered */ }))
+    vi.stubGlobal('fetch', fetchMock)
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} online authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-desktop-talk'))
     expect(localStorage.getItem(LAB_AI_ACTIONS_KEY)).toBeNull()
-    expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
+    await waitFor(() => expect(screen.getByTestId('lab-account-sheet')).toBeTruthy())
+    expect(screen.getByTestId('lab-account-sheet').getAttribute('data-action')).toBe('voice')
+    expect((fetchMock.mock.calls as unknown[][]).some(call => String(call[0]).includes('voice-session'))).toBe(false)
   })
 
   it('never nudges when another book is opened', () => {

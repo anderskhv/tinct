@@ -1,6 +1,7 @@
 import { apiUrl } from '../utils/apiUrl'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
+import { LAB_COPY } from '../lab/labCopy'
 import { VOICE_TOOLS } from './context'
 import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions, grokVoiceFor } from './grokConfig'
 import { IDLE_VOICE_SNAPSHOT, type StartVoiceSessionInput, type VoiceSessionCallbacks, type VoiceUiSnapshot } from './session'
@@ -360,7 +361,7 @@ export class GrokVoiceSessionController {
   }
 
   /** Bound both the HTTP request and its body, before the socket timeout starts. */
-  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: { value?: string; model?: string; error?: string } }> {
+  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: { value?: string; model?: string; error?: string; code?: string } }> {
     const abort = new AbortController()
     this.setupAbort = abort
     let timedOut = false
@@ -379,7 +380,7 @@ export class GrokVoiceSessionController {
           body: '{}',
           signal: abort.signal,
         })
-        const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string }
+        const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string; code?: string }
         return { response, data }
       })()
       return await Promise.race([request, cancelled])
@@ -401,6 +402,8 @@ export class GrokVoiceSessionController {
     if (!response.ok || !data.value) {
       if (response.status === 401) this.callbacks.onNeedAuth?.()
       if (response.status === 402) this.callbacks.onInsufficientBalance?.()
+      // A daily ceiling or provider limit: calm and final for this attempt.
+      if (data.code === 'ai_resting') throw new Error(LAB_COPY.aiResting)
       const message = data.error || 'Voice could not start. Please try again.'
       // The account's own limits are final; the provider or the network may recover.
       throw response.status >= 500 || response.status === 408 ? new RetryableVoiceSetupError(message) : new Error(message)

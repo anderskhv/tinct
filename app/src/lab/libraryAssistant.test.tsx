@@ -144,7 +144,9 @@ it('embeds without the old dock, sends current-book context, and opens recommend
   const field = await screen.findByRole('textbox', { name: 'Message the librarian' })
   fireEvent.change(field, { target: { value: 'Help me prepare' } })
   fireEvent.submit(field.closest('form')!)
-  await waitFor(() => expect(request?.system).toContain('"id":"republic"'))
+  // Structured only: the Worker builds the librarian prompt from the catalogue.
+  await waitFor(() => expect(request?.companion).toEqual({ intent: 'library', library: { contextBookId: 'republic' } }))
+  expect(request?.system).toBeUndefined()
   fireEvent.click(await screen.findByRole('button', { name: /The Republic/ }))
   expect(host.openBook).toHaveBeenCalledWith('republic')
   expect(host.onClose).toHaveBeenCalled()
