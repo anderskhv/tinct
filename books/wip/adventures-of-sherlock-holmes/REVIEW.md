@@ -29,7 +29,7 @@ All 215 paragraph pairs independently read. Alignment, deduction sequence, names
 - 209: restore “felt” rather than raising certainty to “knew”.
 - Expand all paragraphs flagged below the 75% word floor, without omitting or importing content. Final audit has zero flags.
 
-Final independent recheck recorded below when returned. Stories 3–12 have not been modernized or reviewed; no full-book acceptance.
+Final independent recheck verified 208/209 and all 474 paragraph word floors. It caught a dialogue regression after the applicant-count repair: paragraph 115 asked whether anybody else applied while 116 answered “No”. Paragraph 115 now asks “Was he the only applicant?”, restoring the original question/answer logic. Onboarding cardinalities, source grounding, and taxonomy proposal reviewed; no unsupported acclaim. Final changed-passage recheck pending. Stories 3–12 have not been modernized or reviewed; no full-book acceptance.
 
 ## Author QA
 
