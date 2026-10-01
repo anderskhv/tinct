@@ -35,8 +35,11 @@
   #endInner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); }
   #word { margin-top: 0; font: 400 128px/1 'Playfair Display', serif; letter-spacing: -.01em; }
   #pos1 { margin-top: 30px; font: 400 60px/1.15 'EB Garamond', serif; color: var(--cream); letter-spacing: -.01em; }
-  #pos2 { margin-top: 8px; font: italic 400 46px/1.2 'EB Garamond', serif; color: rgba(239,232,212,.78); }
-  #url { margin-top: 44px; font: 500 42px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; color: var(--cream); padding: 18px 34px; border: 1px solid rgba(239,232,212,.3); border-radius: 999px; }
+  #pos2 { margin-top: 6px; font: italic 400 52px/1.2 'EB Garamond', serif; color: rgba(239,232,212,.82); }
+  #url { margin-top: 50px; display: inline-flex; align-items: center; gap: 16px; padding: 16px 40px 18px 44px; border-radius: 999px;
+          background: #efe8d4; color: #1c2119; font: 500 50px/1 'EB Garamond', serif; letter-spacing: .005em;
+          box-shadow: 0 14px 40px rgba(0,0,0,.42), inset 0 -2px 0 rgba(0,0,0,.08); }
+  #url svg { width: 34px; height: 34px; fill: none; stroke: #1c2119; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; margin-top: 4px; }
   #fine { margin-top: 24px; font: 400 25px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: rgba(239,232,212,.6); }
   #vignette { background: radial-gradient(ellipse 75% 75% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.42) 100%); }
   #grain { opacity: .06; mix-blend-mode: overlay; background-repeat: repeat; }
@@ -56,10 +59,9 @@
     <div id="endInner">
 
       <div id="word">Tinct</div>
-      <div id="pos1">The world’s best reading experience.</div>
-      <div id="pos2">Starting with the greatest books ever written.</div>
-      <div id="url">tinct.app</div>
-      <div id="fine">101 classics, free to read · More coming</div>
+      <div id="pos1">The world’s best reading experience</div>
+      <div id="pos2">for the world’s greatest books</div>
+      <div id="url">tinct.app<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></div>
     </div>
   </div>
   <div id="pill"></div>
@@ -289,7 +291,7 @@ function drawEnd(f) {
   if (f < a) { el.style.opacity = 0; return; }
   el.style.opacity = 1;
   const set = (id, s, e) => reveal($(id), eo(prog(f, a + s, a + e)));
-  set('word', 4, 20); set('pos1', 16, 32); set('pos2', 26, 42); set('url', 38, 52); set('fine', 46, 60);
+  set('word', 4, 20); set('pos1', 16, 32); set('pos2', 26, 42); set('url', 38, 52);
 }
 
 // ---- grain ----------------------------------------------------------------

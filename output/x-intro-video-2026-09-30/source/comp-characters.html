@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tinct characters</title>
+<link rel="stylesheet" href="../fonts/local.css">
+<style>
+  :root { --cream: #efe8d4; --muted: #b9bfaa; --bg: #0e120d; }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+  .plate { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform, opacity; }
+  .layer { position: absolute; inset: 0; pointer-events: none; }
+  #flash { background: radial-gradient(ellipse 34% 58% at 80% 26%, rgba(214,228,255,.95), rgba(160,190,255,.35) 45%, rgba(0,0,0,0) 75%); mix-blend-mode: screen; opacity: 0; }
+  #hookShade { background:
+      linear-gradient(90deg, rgba(8,11,9,.72) 0%, rgba(8,11,9,.42) 34%, rgba(8,11,9,0) 62%),
+      linear-gradient(0deg, rgba(8,11,9,.55) 0%, rgba(8,11,9,0) 42%); opacity: 0; }
+  .hook { position: absolute; left: 118px; bottom: 140px; width: 1100px; color: var(--cream); opacity: 0; }
+  .kicker { font: 500 23px/1 'IBM Plex Mono', monospace; letter-spacing: .24em; text-transform: uppercase; color: rgba(239,232,212,.72); margin: 0 0 30px 4px; }
+  .kicker b { font-weight: 500; color: rgba(239,232,212,.95); }
+  .q { font: 400 90px/1.06 'EB Garamond', serif; letter-spacing: -.014em; margin: 0; text-wrap: balance; text-shadow: 0 2px 40px rgba(0,0,0,.45); }
+  .q.n { font-size: 92px; line-height: 1.04; }
+  .q.same { margin-top: 22px; color: rgba(239,232,212,.86); }
+  .w { display: inline-block; will-change: transform, opacity, filter; }
+  .card { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); text-align: center; }
+  .card p { margin: 0; font: 400 80px/1.12 'EB Garamond', serif; letter-spacing: -.012em; text-wrap: balance; }
+  #open p.l1 { color: rgba(239,232,212,.95); }
+  #open p.l2 { margin-top: 8px; font-style: italic; color: rgba(239,232,212,.78); }
+  #cta p { font-size: 86px; }
+  #pill { position: absolute; left: 50%; bottom: 58px; transform: translateX(-50%); padding: 20px 40px 22px; border-radius: 999px;
+          background: rgba(18,23,17,.80); border: 1px solid rgba(239,232,212,.14); box-shadow: 0 18px 50px rgba(0,0,0,.28);
+          backdrop-filter: blur(14px) saturate(1.1); color: var(--cream); font: 400 50px/1.1 'EB Garamond', serif; letter-spacing: -.005em; white-space: nowrap; opacity: 0; }
+  #pill i { font-style: italic; }
+  #cursor { position: absolute; left: 0; top: 0; width: 34px; height: 34px; overflow: visible; transform-origin: 3px 2px; opacity: 0; filter: drop-shadow(0 3px 5px rgba(0,0,0,.35)); }
+  #ring { position: absolute; left: 0; top: 0; width: 10px; height: 10px; border-radius: 50%; border: 2.5px solid rgba(31,74,92,.9); opacity: 0; transform: translate(-50%,-50%); }
+  #end { opacity: 0; }
+  #endScrim { position:absolute; inset:0; background: radial-gradient(ellipse 46% 52% at 50% 50%, rgba(10,12,9,.66), rgba(10,12,9,.28) 70%, rgba(10,12,9,0) 100%); }
+  #endInner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); }
+  #word { margin-top: 0; font: 400 128px/1 'Playfair Display', serif; letter-spacing: -.01em; }
+  #pos1 { margin-top: 30px; font: 400 60px/1.15 'EB Garamond', serif; color: var(--cream); letter-spacing: -.01em; }
+  #pos2 { margin-top: 6px; font: italic 400 52px/1.2 'EB Garamond', serif; color: rgba(239,232,212,.82); }
+  #url { margin-top: 50px; display: inline-flex; align-items: center; gap: 16px; padding: 16px 40px 18px 44px; border-radius: 999px;
+          background: #efe8d4; color: #1c2119; font: 500 50px/1 'EB Garamond', serif; letter-spacing: .005em;
+          box-shadow: 0 14px 40px rgba(0,0,0,.42), inset 0 -2px 0 rgba(0,0,0,.08); }
+  #url svg { width: 34px; height: 34px; fill: none; stroke: #1c2119; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; margin-top: 4px; }
+  #fine { margin-top: 24px; font: 400 25px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: rgba(239,232,212,.6); }
+  #vignette { background: radial-gradient(ellipse 75% 75% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.42) 100%); }
+  #grain { opacity: .06; mix-blend-mode: overlay; background-repeat: repeat; }
+  #paper { background: #ece7db; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <img class="plate" id="p0"><img class="plate" id="p1"><img class="plate" id="p2">
+  <div class="layer" id="flash"></div>
+  <div class="layer" id="hookShade"></div>
+  <div class="hook" id="h1"><p class="kicker">Dostoevsky <b>·</b> Crime and Punishment</p><p class="q n" id="n1">Raskolnikov.</p><p class="q n" id="n2">Rodya.</p><p class="q n" id="n3">Rodion Romanovitch.</p><p class="q n same" id="n4"><i>Same man.</i></p></div>
+  <div class="layer card" id="open"><p class="l1">Nothing you scrolled past today</p><p class="l2">will be read in 200 years.</p></div>
+  <div class="layer card" id="cta"><p>Trade one scroll for one chapter.</p></div>
+  <div class="layer" id="end">
+    <div id="endScrim"></div>
+    <div id="endInner">
+
+      <div id="word">Tinct</div>
+      <div id="pos1">The world’s best reading experience</div>
+      <div id="pos2">for the world’s greatest books</div>
+      <div id="url">tinct.app<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></div>
+    </div>
+  </div>
+  <div id="pill"></div>
+  <div id="ring"></div>
+  <svg id="cursor" viewBox="0 0 34 34"><path id="arrow" d="M3 2 L3 26 L9.2 20.3 L13.4 30 L17.6 28.2 L13.5 18.7 L22 18.7 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/><g id="ibeam" style="display:none" fill="none" stroke-linecap="round"><path d="M3 -8 C5.5 -8 7 -7 7 -5 L7 9 C7 11 5.5 12 3 12 M11 -8 C8.5 -8 7 -7 7 -5 M11 12 C8.5 12 7 11 7 9 M4.5 2 L9.5 2" stroke="#fff" stroke-width="4"/><path d="M3 -8 C5.5 -8 7 -7 7 -5 L7 9 C7 11 5.5 12 3 12 M11 -8 C8.5 -8 7 -7 7 -5 M11 12 C8.5 12 7 11 7 9 M4.5 2 L9.5 2" stroke="#111" stroke-width="1.7"/></g></svg>
+  <div class="layer" id="paper"></div>
+  <div class="layer" id="vignette"></div>
+  <div class="layer" id="grain"></div>
+</div>
+<script>
+// Timeline (24 fps, 934 frames ≈ 39 s)
+//   0– 68  "Nothing you scrolled past today / will be read in 200 years."
+//  54–240  one continuous take: Frankenstein's room, the question, then the book on the table opens (real animation)
+// 228–256  we sink into the page: Letter 1
+// 240–452  Compare: Tinct Modern English, then the 1831 original lays in beside it
+// 452–604  Explain on an 1831 phrase (answer held ~2.6 s)
+// 604–772  Chat: "Is this book really about AI?" (answer held ~2.8 s)
+// 772–840  "Trade one scroll for one chapter."
+// 834–934  end card
+const pad = (n, w = 4) => String(n).padStart(w, '0');
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const prog = (f, a, b) => clamp((f - a) / (b - a));
+const eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const eo = t => 1 - Math.pow(1 - t, 3);
+const eoq = t => 1 - Math.pow(1 - t, 5);
+const sine = t => -(Math.cos(Math.PI * t) - 1) / 2;
+const $ = id => document.getElementById(id);
+
+const CAP = '../cap/';
+const src = {
+  room: i => `${CAP}cp-room/f${pad(clamp(i, 0, 139))}.jpg`,
+  r1: () => `${CAP}v2-read/r1.png`,
+  r2: () => `${CAP}v2-read/r2.png`,
+  ix: i => `${CAP}cp-read/i${pad(clamp(i, 0, 128))}.jpg`,
+  end: i => `end2/e${pad(clamp(i, 1, 180))}.jpg`,
+};
+
+const HOOK = { cx: 800, cy: 414, z: 900 / 828 };
+const FULL = { cx: 800, cy: 450, z: 1 };
+const cam = (cx, cy, z) => ({ cx, cy, z });
+const mixCam = (a, b, t) => ({ cx: lerp(a.cx, b.cx, t), cy: lerp(a.cy, b.cy, t), z: Math.exp(lerp(Math.log(a.z), Math.log(b.z), t)) });
+function placeCapture(el, c) {
+  const s = 0.6 * c.z;
+  el.style.width = '3200px'; el.style.height = '1800px';
+  el.style.transform = `translate(${960 - 2 * c.cx * s}px, ${540 - 2 * c.cy * s}px) scale(${s})`;
+}
+function placeCover(el, zoom) {
+  const s = 1920 / 1536 * zoom;
+  el.style.width = '1536px'; el.style.height = '1024px';
+  el.style.transform = `translate(${960 - 768 * s}px, ${540 - 512 * s}px) scale(${s})`;
+}
+const toOut = (x, y, c) => ({ x: 960 + (x - c.cx) * 1.2 * c.z, y: 540 + (y - c.cy) * 1.2 * c.z });
+
+// v3 timeline (24 fps): one continuous take from the room into the open book, then slower features
+// Characters clip (24 fps, 360 frames): the names → into the book → Rodya → Dounia → end card
+const O = 0, RI = 0;
+const ROOM0 = 0, CLICK = 9999, DIVE0 = 112, READ0 = 128, CTA0 = 300, END0 = 300, TOTAL = 360;
+const RODYA = cam(381, 415, 2.1), DOUNIA = cam(1219, 589, 2.1);
+function roomCam(f) {
+  const t = sine(prog(f, 0, DIVE0));
+  let c = cam(lerp(790, 860, t), lerp(414, 432, t), HOOK.z * lerp(1.0, 1.08, t));
+  c = mixCam(c, cam(1185, 505, 2.6), eio(prog(f, DIVE0 - 4, DIVE0 + 16)));      // into the cover
+  return c;
+}
+const drift = (a, b, f, f0, f1) => mixCam(a, b, sine(prog(f, f0, f1)));
+function readerCam(f) {
+  if (f < 162) return mixCam(cam(560, 430, 1.45), RODYA, eio(prog(f, READ0, 162)));
+  if (f < 214) return drift(RODYA, cam(384, 414, 2.16), f, 162, 214);
+  if (f < 242) return mixCam(cam(384, 414, 2.16), DOUNIA, eio(prog(f, 214, 242)));
+  return drift(DOUNIA, cam(1222, 588, 2.16), f, 242, END0 + 14);
+}
+function rFrame(f) {                 // interaction capture index
+  if (f < 140) return 0;
+  if (f < 200) return f - 140;       // i0..59: approach, select Rodya, card
+  if (f < 218) return 60;            // hold the card
+  if (f < 285) return 61 + (f - 218);// i61..127: dismiss, select Dounia, card
+  return 128;
+}
+function plates(f) {
+  const out = [];
+  if (f < READ0 + 2) {
+    out.push({ src: src.room(f), cam: roomCam(f), op: 1 });
+    return out;
+  }
+  if (f < END0 + 14) {
+    out.push({ src: src.ix(rFrame(f)), cam: readerCam(f), op: 1 });
+    if (f >= END0) out.push({ end: true, src: src.end(f - END0 + 60), op: sine(prog(f, END0, END0 + 14)) });
+    return out;
+  }
+  out.push({ end: true, src: src.end(f - END0 + 60), op: 1 });
+  return out;
+}
+// ---- cursor (reader only; the opening has no cursor) -----------------------
+let RMETA = null, clickFrames = [];
+function cursorState(f) {
+  if (f < 142 || f >= 298) return { op: 0 };
+  const c = readerCam(f), i = rFrame(f);
+  const fr = RMETA.frames.find(x => x.f === i && x.mouse);
+  if (!fr) return { op: 0 };
+  const o = toOut(fr.mouse.x, fr.mouse.y, c);
+  let op = prog(f, 142, 148) * (1 - prog(f, 290, 297));
+  if (i >= 61 && i < 71) op = 0;                       // the dismissing click happens off-camera
+  if (i >= 71 && i < 75) op *= prog(i, 71, 75);
+  return { ...o, op, press: (i >= 18 && i < 27) || (i >= 83 && i < 91), z: c.z, ibeam: (i >= 4 && i < 27) || (i >= 69 && i < 91) };
+}
+function drawCursor(f) {
+  const st = cursorState(f), el = $('cursor');
+  el.style.opacity = st.op || 0;
+  $('arrow').style.display = st.ibeam ? 'none' : ''; $('ibeam').style.display = st.ibeam ? '' : 'none';
+  if (st.op > 0) {
+    const size = 30 * Math.pow(st.z || 1, 0.55), sc = (size / 34) * (st.press ? 0.86 : 1);
+    el.style.transform = st.ibeam ? `translate(${st.x - 7}px, ${st.y - 2}px) scale(${sc * 1.25})` : `translate(${st.x - 3}px, ${st.y - 2}px) scale(${sc})`;
+  }
+  const ring = $('ring'), recent = clickFrames.filter(c => f >= c.f && f < c.f + 11).pop();
+  if (recent) {
+    const k = (f - recent.f) / 10, d = lerp(10, 64, eo(k));
+    ring.style.width = ring.style.height = d + 'px';
+    ring.style.left = recent.x + 'px'; ring.style.top = recent.y + 'px';
+    ring.style.opacity = (1 - k) * 0.75;
+    ring.style.borderColor = recent.dark ? 'rgba(239,232,212,.95)' : 'rgba(31,74,92,.85)';
+  } else ring.style.opacity = 0;
+}
+
+// ---- type -----------------------------------------------------------------
+function splitWords(el) { const q = el.querySelector('.q'); q.innerHTML = q.textContent.split(' ').map(w => `<span class="w">${w}</span>`).join(' '); }
+function reveal(el, t, out = 0, dy = 16) {
+  el.style.opacity = t * (1 - out);
+  el.style.transform = `translateY(${(1 - t) * dy - out * 6}px)`;
+  el.style.filter = `blur(${((1 - t) * 8 + out * 6).toFixed(2)}px)`;
+}
+function drawOpen(f) {
+  const l1 = document.querySelector('#open .l1'), l2 = document.querySelector('#open .l2');
+  const out = prog(f, 40, 50);
+  reveal(l1, eo(prog(f, -8, 10)), out);
+  reveal(l2, eo(prog(f, 12, 26)), out);
+  $('open').style.opacity = 0;
+}
+function drawHook(f) {
+  const el = $('h1'), exit = prog(f, 104, 116);
+  el.style.opacity = f > 118 ? 0 : 1;
+  const kick = el.querySelector('.kicker'), kt = eo(prog(f, -6, 8));
+  kick.style.opacity = kt * (1 - exit); kick.style.transform = `translateY(${(1 - kt) * 10 - exit * 6}px)`;
+  [['n1', 0, 14], ['n2', 18, 32], ['n3', 36, 50], ['n4', 64, 80]].forEach(([id, a, b]) => {
+    const t = eoq(prog(f, a, b)), n = $(id);
+    n.style.opacity = t * (1 - exit);
+    n.style.transform = `translateY(${(1 - t) * 18 - exit * 8}px)`;
+    n.style.filter = `blur(${((1 - t) * 9 + exit * 6).toFixed(2)}px)`;
+  });
+}
+function drawCta(f) {
+  const p = document.querySelector('#cta p');
+  reveal(p, eo(prog(f, CTA0 + 8, CTA0 + 24)), prog(f, END0 - 8, END0 + 2), 18);
+  $('cta').style.opacity = 0;
+}
+const PILLS = [
+  { a: 140, b: 178, html: 'Who’s <i>Rodya?</i>' },
+  { a: 184, b: 296, html: 'Select any name. No spoilers.' },
+];
+function drawPill(f) {
+  const p = PILLS.find(p => f >= p.a - 1 && f <= p.b + 1), el = $('pill');
+  if (!p) { el.style.opacity = 0; return; }
+  if (el.dataset.k !== String(p.a)) { el.innerHTML = p.html; el.dataset.k = p.a; }
+  const tin = eo(prog(f, p.a, p.a + 8)), tout = prog(f, p.b - 6, p.b);
+  el.style.opacity = tin * (1 - tout);
+  el.style.transform = `translateX(-50%) translateY(${(1 - tin) * 14 + tout * 6}px)`;
+}
+function drawEnd(f) {
+  const a = END0, el = $('end');
+  if (f < a) { el.style.opacity = 0; return; }
+  el.style.opacity = 1;
+  const set = (id, s, e) => reveal($(id), eo(prog(f, a + s, a + e)));
+  set('word', 6, 20); set('pos1', 14, 28); set('pos2', 22, 36); set('url', 30, 44);
+}
+
+// ---- grain ----------------------------------------------------------------
+const grainTiles = [];
+function makeGrain() {
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let t = 0; t < 8; t++) {
+    const c = document.createElement('canvas'); c.width = c.height = 384;
+    const g = c.getContext('2d'), im = g.createImageData(384, 384);
+    for (let i = 0; i < im.data.length; i += 4) { const v = 128 + (rnd() + rnd() + rnd() - 1.5) * 150; im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = 255; }
+    g.putImageData(im, 0, 0); grainTiles.push(c.toDataURL());
+  }
+}
+
+// ---- render ---------------------------------------------------------------
+const plateEls = [$('p0'), $('p1'), $('p2')];
+async function seek(f) {
+  const ps = plates(f), loads = [];
+  plateEls.forEach((el, k) => {
+    const p = ps[k];
+    if (!p) { el.style.opacity = 0; return; }
+    const url = new URL(p.src, location.href).href;
+    if (el.src !== url) { el.src = url; loads.push(el.decode().catch(() => {})); }
+    if (p.end) {
+      // reading room under the CTA and end card: soft, then softer
+      const z = lerp(1.10, 1.03, eo(prog(f, CTA0, TOTAL)));
+      placeCover(el, z);
+      const b = lerp(8, 11, sine(prog(f, END0, END0 + 20))), br = lerp(.52, .48, sine(prog(f, END0, END0 + 20)));
+      el.style.filter = `blur(${b.toFixed(2)}px) brightness(${br.toFixed(3)}) saturate(.95)`;
+    } else { placeCapture(el, p.cam); el.style.filter = p.filter || 'none'; }
+    el.style.opacity = p.op;
+    if (p.wipe !== undefined) {
+      const yEdge = lerp(-120, 1900, eio(p.wipe));
+      el.style.webkitMaskImage = `linear-gradient(180deg, #000 ${yEdge - 120}px, transparent ${yEdge + 60}px)`;
+      el.style.webkitMaskSize = '3200px 1800px';
+      el.style.clipPath = p.wipe >= 1 ? 'none' : `inset(0 0 0 ${797 * 2}px)`;
+    } else { el.style.webkitMaskImage = 'none'; el.style.clipPath = p.clipLeft ? `inset(0 ${3200 - 797 * 2}px 0 0)` : 'none'; }
+  });
+  // a single soft flash of lightning as the room is revealed
+  const fl = false && f >= 56 && f < 94 ? Math.exp(-(f - 56) / 3.2) * 0.55 + (f >= 61 ? Math.exp(-(f - 61) / 5) * 0.3 : 0) : 0;
+  $('flash').style.opacity = clamp(fl);
+  if (fl > 0.01 && ps[0]) plateEls[0].style.filter = `brightness(${(1 + fl * 0.3).toFixed(3)})`;
+  $('hookShade').style.opacity = 1 - prog(f, 104, 120);
+  drawOpen(f); drawHook(f); drawCta(f); drawPill(f); drawEnd(f); drawCursor(f);
+  $('paper').style.opacity = f < DIVE0 + 2 || f > 144 ? 0 : (f < READ0 ? sine(prog(f, DIVE0 + 2, READ0)) : 1 - sine(prog(f, READ0, 144)));
+  const paper = f >= READ0 && f < CTA0 ? 1 : (f >= DIVE0 && f < READ0 ? prog(f, DIVE0, READ0) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
+  $('vignette').style.opacity = lerp(1, 0.35, paper);
+  $('grain').style.backgroundImage = `url(${grainTiles[f % grainTiles.length]})`;
+  $('grain').style.backgroundPosition = `${(f * 97) % 384}px ${(f * 53) % 384}px`;
+  $('grain').style.opacity = lerp(0.075, 0.045, paper);
+  await Promise.all(loads);
+  await document.fonts.ready;
+  return true;
+}
+
+async function init() {
+  RMETA = await (await fetch('../cap/cp-read/meta.json')).json();
+  
+  makeGrain();
+  const addClick = (f, dark) => { const st = cursorState(f); clickFrames.push({ f, x: st.x, y: st.y, dark }); };
+  
+  await document.fonts.load("400 90px 'EB Garamond'"); await document.fonts.load("italic 400 80px 'EB Garamond'");
+  await document.fonts.load("400 120px 'Playfair Display'"); await document.fonts.load("500 23px 'IBM Plex Mono'");
+  window.__ready = true;
+}
+window.seek = seek; window.TOTAL = TOTAL;
+init();
+</script>
+</body>
+</html>
