@@ -53,7 +53,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     }
   })
   await page.addInitScript(({ theme, voice }) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en', voicePersona: voice === 'm' ? 'male' : 'female', audiobookVoice: ['orion', 'eve'].includes(voice) ? voice : null }))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en', voicePersona: voice === 'm' ? 'male' : 'female', voicePersonaChosen: true, audiobookVoice: ['orion', 'eve'].includes(voice) ? voice : null }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: 'original-en', savedPlace: { bookId: 'frankenstein', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 } }))
     window.__audio = null; window.__audioEvents = []
     const seen = new WeakSet()

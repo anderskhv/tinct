@@ -58,7 +58,7 @@ for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
     return route.continue()
    })
    await page.addInitScript(({ chapter, paragraph }) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'web-en', theme: 'light', voicePersona: 'female' }))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'web-en', theme: 'light', voicePersona: 'female', voicePersonaChosen: true }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'bible', primaryEditionKey: 'web-en', savedPlace: { bookId: 'bible', chapterNumber: chapter, paragraphIndex: paragraph, wordIndex: 0, page: 0 } }))
     window.__audioCreates = 0; window.__played = []
     class SilentAudio extends EventTarget {

@@ -31,7 +31,7 @@ async function boot(browser,phone,ed,fixture={}){
  })
  await page.addInitScript(({book,ed,fixture})=>{
   localStorage.setItem('tinct:wipe-v1-done','1')
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:ed,compareEdition:ed==='modern-en'?'original-en':'modern-en',compareOpen:true,voicePersona:'female'}))
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:ed,compareEdition:ed==='modern-en'?'original-en':'modern-en',compareOpen:true,voicePersona:'female',voicePersonaChosen:true}))
   if(fixture.position){
    if(!localStorage.getItem('tinct-lab-position'))localStorage.setItem('tinct-lab-position',JSON.stringify(fixture.position))
    if(!localStorage.getItem('tinct-lab-highlights'))localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))

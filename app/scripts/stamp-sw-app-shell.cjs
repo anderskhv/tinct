@@ -27,7 +27,9 @@ if (!fs.existsSync(swPath)) {
   throw new Error(`Missing ${swPath}`)
 }
 
-const urls = new Set(['/app.html'])
+// The reader page itself is the offline shell (see READER_SHELL_URL in sw.js);
+// /app.html is redirected by the Worker and is not the reader.
+const urls = new Set(['/reader'])
 const appHtml = read(appHtmlPath)
 for (const match of appHtml.matchAll(/\b(?:src|href)=["']([^"']+)["']/g)) {
   addLocalUrl(urls, match[1])
