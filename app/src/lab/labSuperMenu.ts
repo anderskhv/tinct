@@ -18,10 +18,10 @@ export interface LabSuperMenuRow {
 }
 
 /**
- * Eight rows: chapter actions (Catch me up, approved 2026-09-30, sits right
- * under Summarize), reading choices, then library and account.
+ * Chapter actions (Catch me up, approved 2026-09-30, sits right under
+ * Summarize), reading choices, then library (phone only) and account.
  */
-export function labSuperMenuRows(_input: { phone?: boolean } = {}): LabSuperMenuRow[] {
+export function labSuperMenuRows({ phone = false }: { phone?: boolean } = {}): LabSuperMenuRow[] {
   return [
     { id: 'chat', label: 'Chat' },
     { id: 'talk', label: 'Talk' },
@@ -29,8 +29,9 @@ export function labSuperMenuRows(_input: { phone?: boolean } = {}): LabSuperMenu
     { id: 'catchup', label: 'Catch me up' },
     { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
     { id: 'settings', label: 'Settings', chevron: true },
-    { id: 'library', label: 'Library', ruleBefore: true },
-    { id: 'account', label: 'Account', chevron: true },
+    // Desktop has the back arrow at the top left instead (2026-10-01).
+    ...(phone ? [{ id: 'library' as const, label: 'Library', ruleBefore: true }] : []),
+    { id: 'account', label: 'Account', chevron: true, ruleBefore: !phone },
   ]
 }
 
