@@ -6,6 +6,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import AdminApp from './AdminApp'
 import { LabApp } from './lab/LabApp'
+import { AddBookPilot } from './addbooks/AddBookPilot'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
@@ -38,7 +39,8 @@ const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
 // The reader is the only public app surface; /admin/metrics is the private
 // dashboard. The Worker serves this bundle at no other path.
-const Root = pathname === '/admin/metrics' ? AdminApp : LabApp
+const addBookPilot = pathname === '/reader' && new URLSearchParams(window.location.search).get('add') === '1'
+const Root = pathname === '/admin/metrics' ? AdminApp : addBookPilot ? AddBookPilot : LabApp
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader') {
   startReaderLoadTrace()

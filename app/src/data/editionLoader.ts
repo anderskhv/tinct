@@ -1,3 +1,4 @@
+import { isUnlistedReaderBook } from './readerBooks'
 import { isNativeCapacitor } from '../utils/nativePlatform'
 import type { EditionData, EditionKey } from '../types'
 import { apiUrl } from '../utils/apiUrl'
@@ -87,6 +88,7 @@ export function isEditionWindowed(data: EditionData | null | undefined): boolean
 }
 
 async function fetchEditionPatches(bookId: string, editionKey: EditionKey): Promise<EditionPatch[]> {
+  if (isUnlistedReaderBook(bookId)) return []
   // A downloaded edition is a verified revision; do not mix live paragraph
   // patches into its pinned text and annotation coordinates.
   if (isNativeCapacitor()) return []

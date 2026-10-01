@@ -505,9 +505,14 @@ function validPlace(place: SavedReaderPlaceInput | undefined, bookId: string): p
   )
 }
 
+export interface ReaderHandoffBook {
+  id: string
+  editions: Array<Pick<PreReaderEditionViewModel, 'key' | 'aligned' | 'availability'>>
+}
+
 export function createReaderHandoffIntent(
   selection: ReaderHandoffSelection,
-  catalogue: PreReaderCatalogue = PRE_READER_CATALOGUE,
+  catalogue: { booksById: ReadonlyMap<string, ReaderHandoffBook> } = PRE_READER_CATALOGUE,
 ): ReaderHandoffIntent | null {
   const book = catalogue.booksById.get(selection.bookId)
   const primary = book?.editions.find(edition => edition.key === selection.primaryEditionKey)

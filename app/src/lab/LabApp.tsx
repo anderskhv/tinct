@@ -159,7 +159,8 @@ import {
 } from './labVoiceControls'
 import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
-import { BOOKS, getBook } from '../data/bookRegistry'
+import { BOOKS } from '../data/bookRegistry'
+import { getReaderBook as getBook, isUnlistedReaderBook } from '../data/readerBooks'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
@@ -494,7 +495,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
   // Narration follows the text on the page: the primary edition, not the
   // Kokoro audio edition, so painted words and spoken words are one text.
-  const narrationApplies = narrationInfo?.enabled === true
+  const narrationApplies = !isUnlistedReaderBook(book.bookId || 'bible') && narrationInfo?.enabled === true
     && narrationVoice != null
     && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber, narrationInfo.provider)
   const retainedBella = narrationInfo?.provider !== 'grok' && usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
@@ -5106,7 +5107,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
-        onOpenIntroduction={openIntroduction}
+        onOpenIntroduction={isUnlistedReaderBook(book.bookId || 'bible') ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         onClose={() => setTocOpen(false)}
       />

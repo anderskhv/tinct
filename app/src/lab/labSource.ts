@@ -2,7 +2,7 @@ import { registerLineatedChapter } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
-import { getBook } from '../data/bookRegistry'
+import { getReaderBook as getBook, isUnlistedReaderBook } from '../data/readerBooks'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
 import { editionShardManifestUrl, editionShardPath, editionShardUrl } from '../data/editionUrls'
@@ -248,6 +248,7 @@ async function loadThreadsJson(): Promise<{ characters?: ThreadCharacter[] }> {
 const bookThreadsJsonCache = new Map<string, { characters?: ThreadCharacter[] }>()
 
 async function loadBookThreadsJson(bookId: string): Promise<{ characters?: ThreadCharacter[] }> {
+  if (isUnlistedReaderBook(bookId)) return { characters: [] }
   if (bookId === LAB_BOOK_ID) return loadThreadsJson()
   const cached = bookThreadsJsonCache.get(bookId)
   if (cached) return cached
