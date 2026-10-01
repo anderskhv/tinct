@@ -196,19 +196,44 @@ def page_flutter(dur=0.7):
 
 
 def rain(dur):
+    """Rain against old glass, built only from shaped noise (no tuned drops).
+    bed:    broadband wash with slow gusts
+    patter: thousands of tiny impacts per second, each a 1-3 ms noise grain
+    taps:   a few heavier drops on the pane, noise bursts with a soft low body
+    """
     n = int(dur * SR)
-    bed = sos_filter(pink(n), 'bandpass', [450, 7500]) * 0.55
-    bed2 = sos_filter(brown(n), 'lowpass', 400) * 0.25
-    drops = np.zeros(n)
-    k = rng.poisson(90 * dur)
-    for _ in range(k):
-        i = rng.integers(0, n - 800)
-        fd = rng.uniform(1800, 6500)
-        ln = rng.integers(120, 500)
-        tt = np.arange(ln) / SR
-        drops[i:i + ln] += rng.uniform(0.05, 0.35) * np.sin(2 * np.pi * fd * tt) * np.exp(-tt / 0.0025)
-    st = np.vstack([bed + bed2 + drops, np.roll(bed, 2400) + bed2 + np.roll(drops, 777)])
-    return st
+    t = np.arange(n) / SR
+    def gust(seed_hz):
+        g = sos_filter(rng.standard_normal(n), 'lowpass', seed_hz)
+        g = g / (np.abs(g).max() + 1e-9)
+        return 0.82 + 0.18 * g
+    chans = []
+    shared_bed = sos_filter(pink(n), 'bandpass', [350, 9000], order=2)
+    for ch in range(2):
+        bed = (0.75 * shared_bed + 0.25 * sos_filter(pink(n), 'bandpass', [350, 9000], order=2)) * gust(0.35)
+        # patter: Poisson grains of filtered noise with power-law sizes
+        rate = 2600
+        k = rng.poisson(rate * dur)
+        idx = rng.integers(0, n - 200, k)
+        amp = (rng.pareto(2.6, k) + 0.15) * 0.06
+        amp = np.minimum(amp, 0.9)
+        imp = np.zeros(n)
+        np.add.at(imp, idx, amp * rng.choice([-1, 1], k))
+        grain = np.exp(-np.arange(int(0.003 * SR)) / (0.0007 * SR)) * rng.standard_normal(int(0.003 * SR))
+        patter = signal.fftconvolve(imp, grain)[:n]
+        patter = sos_filter(patter, 'bandpass', [900, 7000], order=2) * gust(0.5)
+        # heavier taps on the glass
+        taps = np.zeros(n)
+        for _ in range(rng.poisson(5 * dur)):
+            i = rng.integers(0, n - 2000)
+            ln = rng.integers(int(0.004 * SR), int(0.010 * SR))
+            e = np.exp(-np.arange(ln) / (ln / 5))
+            hi = sos_filter(rng.standard_normal(ln), 'bandpass', [1200, 5200], order=1) * e
+            lo = sos_filter(rng.standard_normal(ln), 'bandpass', [180, 700], order=1) * e * 0.6
+            taps[i:i + ln] += rng.uniform(0.15, 0.45) * (hi + lo)
+        chans.append(0.55 * bed + 0.9 * patter + 0.5 * taps)
+    x = np.vstack(chans)
+    return sos_filter(x, 'lowpass', 11000, order=2)
 
 
 def thunder(dur=4.2):

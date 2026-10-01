@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Tinct film v3</title>
+<title>Tinct film v4</title>
 <link rel="stylesheet" href="../fonts/local.css">
 <style>
   :root { --cream: #efe8d4; --muted: #b9bfaa; --bg: #0e120d; }
@@ -22,7 +22,8 @@
   .card { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); text-align: center; }
   .card p { margin: 0; font: 400 80px/1.12 'EB Garamond', serif; letter-spacing: -.012em; text-wrap: balance; }
   #open p.l1 { color: rgba(239,232,212,.95); }
-  #open p.l2 { margin-top: 8px; font-style: italic; color: rgba(239,232,212,.78); }
+  #open p.l2, #bridge p.l2 { margin-top: 8px; font-style: italic; color: rgba(239,232,212,.78); }
+  #bridge p.l1 { color: rgba(239,232,212,.95); }
   #cta p { font-size: 86px; }
   #pill { position: absolute; left: 50%; bottom: 58px; transform: translateX(-50%); padding: 20px 40px 22px; border-radius: 999px;
           background: rgba(18,23,17,.80); border: 1px solid rgba(239,232,212,.14); box-shadow: 0 18px 50px rgba(0,0,0,.28);
@@ -53,6 +54,7 @@
   <div class="layer" id="hookShade"></div>
   <div class="hook" id="h1"><p class="kicker">Mary Shelley <b>·</b> 1818</p><p class="q">What do we owe to the intelligence we create?</p></div>
   <div class="layer card" id="open"><p class="l1">Nothing you scrolled past today</p><p class="l2">will be read in 200 years.</p></div>
+  <div class="layer card" id="bridge"><p class="l1">The most important question about AGI</p><p class="l2">was raised 200 years ago…</p></div>
   <div class="layer card" id="cta"><p>Trade one scroll for one chapter.</p></div>
   <div class="layer" id="end">
     <div id="endScrim"></div>
@@ -263,10 +265,19 @@ function reveal(el, t, out = 0, dy = 16) {
 }
 function drawOpen(f) {
   const l1 = document.querySelector('#open .l1'), l2 = document.querySelector('#open .l2');
-  const out = prog(f, 54, 66);
+  const out = prog(f, 54, 64);
   reveal(l1, eo(prog(f, -8, 12)), out);
   reveal(l2, eo(prog(f, 16, 32)), out);
-  $('open').style.opacity = f < 70 ? 1 : 0;
+  $('open').style.opacity = f < 66 ? 1 : 0;
+}
+// the bridge: 200 years forward, 200 years back
+const BR = 76;
+function drawBridge(F) {
+  const l1 = document.querySelector('#bridge .l1'), l2 = document.querySelector('#bridge .l2');
+  const out = prog(F, 126, 138);
+  reveal(l1, eo(prog(F, 66, 82)), out);
+  reveal(l2, eo(prog(F, 84, 100)), out);
+  $('bridge').style.opacity = F >= 64 && F < 140 ? 1 : 0;
 }
 function drawHook(f) {
   const el = $('h1'), start = 82, outA = 170, outB = 184;
@@ -323,7 +334,8 @@ function makeGrain() {
 
 // ---- render ---------------------------------------------------------------
 const plateEls = [$('p0'), $('p1'), $('p2')];
-async function seek(f) {
+async function seek(F) {
+  const f = F < 54 ? F : F - BR;   // the film after the bridge runs on its own clock
   const ps = plates(f), loads = [];
   plateEls.forEach((el, k) => {
     const p = ps[k];
@@ -356,11 +368,11 @@ async function seek(f) {
   $('flash').style.opacity = clamp(fl);
   if (fl > 0.01 && ps[0]) plateEls[0].style.filter = `brightness(${(1 + fl * 0.3).toFixed(3)})`;
   $('hookShade').style.opacity = sine(prog(f, ROOM0 + 10, ROOM0 + 30)) * (1 - prog(f, CLICK - 10, CLICK + 6));
-  drawOpen(f); drawHook(f); drawCta(f); drawPill(f); drawEnd(f); drawCursor(f);
+  drawOpen(F); drawBridge(F); drawHook(f); drawCta(f); drawPill(f); drawEnd(f); drawCursor(f);
   $('paper').style.opacity = 0;
   const paper = f >= 262 && f < CTA0 ? 1 : (f >= MATCH0 - 20 && f < 262 ? sine(prog(f, MATCH0 - 20, 262)) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
   $('vignette').style.opacity = lerp(1, 0.35, paper);
-  $('grain').style.backgroundImage = `url(${grainTiles[f % grainTiles.length]})`;
+  $('grain').style.backgroundImage = `url(${grainTiles[((f % grainTiles.length) + grainTiles.length) % grainTiles.length]})`;
   $('grain').style.backgroundPosition = `${(f * 97) % 384}px ${(f * 53) % 384}px`;
   $('grain').style.opacity = lerp(0.075, 0.045, paper);
   await Promise.all(loads);
@@ -378,7 +390,7 @@ async function init() {
   await document.fonts.load("400 120px 'Playfair Display'"); await document.fonts.load("500 23px 'IBM Plex Mono'");
   window.__ready = true;
 }
-window.seek = seek; window.TOTAL = TOTAL;
+window.seek = seek; window.TOTAL = TOTAL + BR;
 init();
 </script>
 </body>
