@@ -41,16 +41,6 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
-  'magna-carta': {
-    revision: 'text-2026-10-01.1',
-    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
-    editions: {
-      'modern-en': {
-        before: 'cf7d388da295fff52af25f55d6dd692644b4ca96b521db4e9dc2525deaa5f586',
-        after: '9fc3a296b172b3d144fb95c673b6627407520b9036b7cd00d9cd894ff65e198c',
-      },
-    },
-  },
   symposium: {
   "revision": "symposium-completeness-2026-09-25.1",
   "releasedAt": 1790362800000,

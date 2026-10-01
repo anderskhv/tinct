@@ -134,7 +134,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
   jerusalem: { editions: EN, revision: '2026-09-30.1' },
   'fear-and-trembling': { editions: ['modern-en'], revision: '2026-09-30.1' },
-  'magna-carta': { editions: EN, revision: '2026-10-01.1' },
+  'magna-carta': { editions: EN, revision: '2026-09-12.1' },
 }
 /** Public path of the character package a reader needs for one edition. */
 export const characterAssetPath = (bookId: string, editionKey: string) =>
