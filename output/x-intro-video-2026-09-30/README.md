@@ -1,18 +1,18 @@
 # Tinct films for X, 1 October 2026
 
-Three films share one look and one end card: *Tinct · The world's best reading experience · for the world's greatest books · [tinct.app →]*. They are designed for muted autoplay; every beat reads without sound. Each has a sound-effects-only track (no music) at −18 LUFS.
+Three films share one look and one end card: *Tinct · The world's best reading experience · for the world's greatest books · [tinct.app →]*. They are designed for muted autoplay; every beat reads without sound. All three are silent: they carry a silent audio track, so players treat them as ordinary videos.
 
-All three are 1920×1080, 24 fps, H.264 High (BT.709) with AAC stereo, and within X's upload limits.
+All three are 1920×1080, 24 fps, H.264 High (BT.709) with a silent AAC stereo track, and within X's upload limits.
 
 | File | Length | Use |
 |---|---|---|
-| `tinct-x-intro-v3.3.mp4` | 39.4 s | Launch / pinned post |
+| `tinct-x-intro-v3.4.mp4` | 39.4 s | Launch / pinned post |
 | `tinct-x-15s.mp4` | 15.5 s | Cutdown for replies, reposts and any paid promotion |
 | `tinct-x-characters.mp4` | 15.0 s | Single-feature follow-up: character look-up |
 
 Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the main film and the cutdown; `poster-characters.jpg` (the names over the garret) is for the characters clip.
 
-## Main film: `tinct-x-intro-v3.3.mp4`
+## Main film: `tinct-x-intro-v3.4.mp4`
 
 | Time | Shot | On screen |
 |---|---|---|
@@ -20,18 +20,22 @@ Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the mai
 | 0:02 | Frankenstein's room fades in on a soft lightning flash; the camera drifts toward the book | MARY SHELLEY · 1818: *What do we owe to the intelligence we create?* |
 | 0:07 | The cover swings open in slow motion and the book comes to us; its pages fill the frame | (real library animation, page chrome hidden) |
 | 0:10 | The Introduction's words clear from the page, then Letter 1 inks in, top to bottom | |
-| 0:12 | Letter 1 in Tinct Modern English; the 1831 original lays in beside it | "Mary Shelley's original…" / "…beside plain modern English." |
+| 0:12 | Letter 1 in Tinct Modern English; the 1831 original lays in beside it | "Mary Shelley's original…" / "…beside modern English." |
 | 0:19 | Select "the seat of frost and desolation" on the 1831 page → Explain | "Stuck on a line? Tinct explains it." |
 | 0:25 | Chat: "Is this book really about AI?" | "Ask anything. It knows your page." |
 | 0:32 | Reading room by the fire | *Trade one scroll for one chapter.* |
 | 0:35 | End card | Tinct · The world's best reading experience · *for the world's greatest books* · tinct.app → |
 
-`audio-with-music.m4a` is the alternative soundtrack for the main film, adding a soft synthesized piano and pad: `ffmpeg -i tinct-x-intro-v3.3.mp4 -i audio-with-music.m4a -map 0:v -map 1:a -c copy tinct-x-intro-v3.3-music.mp4`.
+Optional soundtracks for the main film, both synthesized:
+- `audio-sfx.m4a`: sound effects only (rain, distant thunder, the book, pages, clicks, fireside room tone).
+- `audio-with-music.m4a`: the same effects plus a soft piano and pad score.
+
+To add one, run `ffmpeg -i tinct-x-intro-v3.4.mp4 -i audio-sfx.m4a -map 0:v -map 1:a -c copy tinct-x-intro-v3.4-sound.mp4`. If the film gets real sound later, a licensed recording will beat either one.
 
 **Suggested post**
 > Nothing you scrolled past today will be read in 200 years. Frankenstein will.
 >
-> Tinct is the world's best reading experience for the world's greatest books: the original beside plain modern English, and a companion that explains any line.
+> Tinct is the world's best reading experience for the world's greatest books: the original beside modern English, and a companion that explains any line.
 >
 > tinct.app
 
@@ -39,7 +43,7 @@ Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the mai
 
 ## 15 s cutdown: `tinct-x-15s.mp4`
 
-The cutdown keeps the opening line, the room and its question, the cover opening, the same clear-and-ink transition, and one Compare beat ("Mary Shelley's original…" / "…beside plain modern English.") before the end card.
+The cutdown keeps the opening line, the room and its question, the cover opening, the same clear-and-ink transition, and one Compare beat ("Mary Shelley's original…" / "…beside modern English.") before the end card.
 
 **Suggested post:** *Nothing you scrolled past today will be read in 200 years. Read something that will. tinct.app*
 
@@ -70,10 +74,10 @@ The cards are Tinct's real character cards. They come from the reviewed characte
 - **The main film's AI answers were staged.** The Explain and Chat replies were hand-written and streamed into the real UI through a local mock of `/api/lab-chat`. No Anthropic API was called. The character cards are real content, not staged.
 - **The clear-and-ink transition is composited.** It uses two real reader renders of Letter 1: the normal page and the same page with its text hidden (`source/cap-blank.mjs`). They are pixel-identical apart from the text.
 - **The lightning flash is added.** It's a grade on top of the Frankenstein room.
-- **The audio is synthesized.** It comes from `source/audio*.py`.
+- **The optional audio is synthesized.** It comes from `source/audio*.py`; the published cuts are silent.
 - **The build was local, not production.** The captures came from this branch's code, which can be slightly ahead of tinct.app.
 
-Earlier cuts are in git history: v1 `e494aab8`, v2 `19a26c8c`, v3 `dae66ac8`, v3.1 `6215c916`, v3.2 `15a61b21`.
+Earlier cuts are in git history: v1 `e494aab8`, v2 `19a26c8c`, v3 `dae66ac8`, v3.1 `6215c916`, v3.2 `15a61b21`, v3.3 (with sound effects) `580967d0`.
 
 ## Regenerating
 
@@ -95,9 +99,9 @@ The work directory (`FILM_WORK`, default is the current directory) holds `cap/`,
    | `comp-15s.html` | `0-371` |
    | `comp-characters.html` | `0-359` |
 
-6. Make and master the audio with the matching script:
+6. Optional audio (the published cuts are silent). Make and master it with the matching script:
    - Main: `FOLEY_ONLY=1 python3 audio.py raw.wav`. The music alternate is `audio.py` without `FOLEY_ONLY`.
    - Cutdown: `audio-15s.py`. Characters clip: `audio-characters.py`.
    - Master each with `python3 master.py raw.wav out.wav -18 0.55` (music mix: `-16`).
 7. Encode:
-   `ffmpeg -framerate 24 -i <frames>/%04d.png -i out.wav -vf "scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p" -c:v libx264 -preset slow -crf 18 -tune film -profile:v high -g 48 -maxrate 13M -bufsize 26M -colorspace bt709 -color_primaries bt709 -color_trc bt709 -c:a aac -b:a 256k -movflags +faststart <name>.mp4`
+   `ffmpeg -framerate 24 -i <frames>/%04d.png -f lavfi -i anullsrc=r=48000:cl=stereo -map 0:v -map 1:a -shortest -vf "scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p" -c:v libx264 -preset slow -crf 18 -tune film -profile:v high -g 48 -maxrate 13M -bufsize 26M -colorspace bt709 -color_primaries bt709 -color_trc bt709 -c:a aac -b:a 64k -movflags +faststart <name>.mp4` (swap the `anullsrc` input for a `.wav` to include sound)
