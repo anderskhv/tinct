@@ -294,6 +294,66 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Rights replacements: the whole English text of each book was replaced by an
+  // unrelated public-domain translation (paragraph structure and wording both new).
+  // The maps are proportional and low confidence: places land approximately,
+  // highlights stay recoverable and unresolved.
+  'the-art-of-war': {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: '60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61',
+        after: '9ff95e59dbabb51833515ba85ecf5eef4d38436afe7601591eeebf847eb4b327',
+      },
+      'modern-en': {
+        before: 'bf41e7a3a441202531c419e259f908a16b2e0f32fc2fd38beef00755e5267cf5',
+        after: 'a19820ebde2ad3a2d0b394cd7dd40e03148584335e46a7846816b352111ce5ce',
+      },
+    },
+  },
+  medea: {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: '6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731',
+        after: 'f988ee4537a1b824f9526c580d8cb1fb7bc11315e16b6aff9177f91c00b5f3bb',
+      },
+      'modern-en': {
+        before: '2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae',
+        after: '573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b',
+      },
+    },
+  },
+  bacchae: {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: 'fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539',
+        after: 'cea1d64ee2dcc2cb9c3dcc39b1e1f9f52c120a8c6f1ff33cfd22ecf623e5fdcc',
+      },
+      'modern-en': {
+        before: '9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3',
+        after: '7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8',
+      },
+    },
+  },
+  'magna-carta': {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: 'ca7447fb99a427bd9e12b00dcb4a0f5c7452f6da410b4111eb35d47bfacc560f',
+        after: 'fa73abf6f753a48a0c224c65bde46f8f2b8c56f25445224e78819e3c68abd6c4',
+      },
+      'modern-en': {
+        before: 'cf7d388da295fff52af25f55d6dd692644b4ca96b521db4e9dc2525deaa5f586',
+        after: 'cfa05de4109362a5889816ea4a06071944189da833907f3f916f9c323797cabb',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

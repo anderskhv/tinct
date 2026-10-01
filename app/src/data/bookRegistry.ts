@@ -761,9 +761,11 @@ export const THE_ART_OF_WAR: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Giles Translation (1910)',
-      translator: 'Lionel Giles',
-      year: 1910,
+      // Replaced 2026-10-01 (rights): Captain E. F. Calthrop, The Book of War (London: John Murray, 1908),
+      // Project Gutenberg #44024. Calthrop died 1915. Modern English is a Tinct rendering of this text.
+      label: 'Calthrop Translation (1908)',
+      translator: 'E. F. Calthrop',
+      year: 1908,
       aligned: true,
       hasAudio: true,
     },
@@ -775,14 +777,8 @@ export const THE_ART_OF_WAR: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -1886,9 +1882,12 @@ export const BACCHAE: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Murray (1906)',
-      translator: 'Gilbert Murray',
-      year: 1906,
+      // Replaced 2026-10-01 (rights): Arthur S. Way, The Tragedies of Euripides in English Verse, vol. 3
+      // (Macmillan, 1898), text from the Wikisource transcription (CC BY-SA 4.0, Wikisource contributors).
+      // Way died 1930. Modern English is a Tinct rendering of this text, shared under the same licence.
+      label: 'Way (1898)',
+      translator: 'Arthur S. Way',
+      year: 1898,
       aligned: true,
       hasAudio: true,
     },
@@ -1900,14 +1899,8 @@ export const BACCHAE: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -1925,9 +1918,12 @@ export const MEDEA: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Murray (1906)',
-      translator: 'Gilbert Murray',
-      year: 1906,
+      // Replaced 2026-10-01 (rights): Arthur S. Way, The Tragedies of Euripides in English Verse, vol. 1
+      // (Macmillan, 1894), text from the Wikisource transcription (CC BY-SA 4.0, Wikisource contributors).
+      // Way died 1930. Modern English is a Tinct rendering of this text, shared under the same licence.
+      label: 'Way (1894)',
+      translator: 'Arthur S. Way',
+      year: 1894,
       aligned: true,
       hasAudio: true,
     },
@@ -1939,14 +1935,8 @@ export const MEDEA: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -2719,8 +2709,12 @@ export const MAGNA_CARTA: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'English Translation',
-      year: 1215,
+      // Replaced 2026-10-01 (rights): W. S. McKechnie, Magna Carta: A Commentary on the Great Charter of
+      // King John, 2nd ed. (Glasgow: MacLehose, 1914), English charter text as published by Liberty Fund
+      // (Online Library of Liberty). McKechnie died 1930. Modern English is a Tinct rendering of this text.
+      label: 'McKechnie (1914)',
+      translator: 'William Sharp McKechnie',
+      year: 1914,
       aligned: true,
       hasAudio: true,
     },
@@ -2732,14 +2726,8 @@ export const MAGNA_CARTA: Book = {
       aligned: true,
       hasAudio: true,
     },
-      {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
 ],
 }
 

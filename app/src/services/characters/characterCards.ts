@@ -33,7 +33,6 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   crito: { editions: EN, revision: '2026-09-10.1' },
   apology: { editions: EN, revision: '2026-09-10.1' },
   'the-manual': { editions: EN, revision: '2026-09-10.1' },
-  'the-art-of-war': { editions: EN, revision: '2026-09-10.1' },
   'measure-for-measure': { editions: EN, revision: '2026-09-10.1' },
   'henry-v': { editions: EN, revision: '2026-09-10.1' },
   'winters-tale': { editions: EN, revision: '2026-09-10.1' },
@@ -51,7 +50,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'a-little-princess': { editions: EN, revision: '2026-10-01.1' },
   antigone: { editions: EN, revision: '2026-09-11.2' },
   'around-the-world-80-days': { editions: EN, revision: '2026-10-01.1' },
-  bacchae: { editions: EN, revision: '2026-09-11.2' },
+  bacchae: { editions: EN, revision: '2026-10-01.2' },
   beowulf: { editions: EN, revision: '2026-09-11.2' },
   candide: { editions: EN, revision: '2026-09-23.1' },
   'comedy-of-errors': { editions: EN, revision: '2026-09-11.2' },
@@ -66,7 +65,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'julius-caesar': { editions: EN, revision: '2026-09-24.1' },
   'jungle-book': { editions: EN, revision: '2026-10-01.1' },
   'king-lear': { editions: EN, revision: '2026-09-11.2' },
-  medea: { editions: EN, revision: '2026-09-11.2' },
+  medea: { editions: EN, revision: '2026-10-01.2' },
   'merchant-of-venice': { editions: EN, revision: '2026-09-11.2' },
   midsummer: { editions: EN, revision: '2026-09-11.2' },
   'much-ado-about-nothing': { editions: EN, revision: '2026-09-11.2' },
@@ -134,7 +133,6 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
   jerusalem: { editions: EN, revision: '2026-09-30.1' },
   'fear-and-trembling': { editions: ['modern-en'], revision: '2026-09-30.1' },
-  'magna-carta': { editions: EN, revision: '2026-09-12.1' },
 }
 /** Public path of the character package a reader needs for one edition. */
 export const characterAssetPath = (bookId: string, editionKey: string) =>

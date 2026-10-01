@@ -1,0 +1,561 @@
+{
+  "book": "medea",
+  "editions": {
+    "original-en": {
+      "kept": [
+        {
+          "id": "medea",
+          "spellings": [
+            "MEDEA",
+            "Medea"
+          ],
+          "oldMentions": 106,
+          "newMentions": 112
+        },
+        {
+          "id": "jason",
+          "spellings": [
+            "JASON",
+            "Jason"
+          ],
+          "oldMentions": 71,
+          "newMentions": 64
+        },
+        {
+          "id": "pittheus",
+          "spellings": [
+            "Pittheus"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "pelops",
+          "spellings": [
+            "Pelops"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "zeus",
+          "spellings": [
+            "Zeus"
+          ],
+          "oldMentions": 7,
+          "newMentions": 12
+        },
+        {
+          "id": "themis",
+          "spellings": [
+            "Themis"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "orpheus",
+          "spellings": [
+            "Orpheus"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "maia",
+          "spellings": [
+            "Maia"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "ino",
+          "spellings": [
+            "Ino"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "pan",
+          "spellings": [
+            "Pan"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        }
+      ],
+      "dropped": [
+        {
+          "id": "creon",
+          "kind": "person",
+          "name": "Creon",
+          "oldMentions": 24,
+          "reason": "reviewed spelling(s) ['CREON', 'Creon'] do not occur in the new translation"
+        },
+        {
+          "id": "bride",
+          "kind": "unnamed-person",
+          "name": "Creon’s daughter",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "nurse",
+          "kind": "unnamed-role",
+          "name": "The nurse",
+          "oldMentions": 19,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "attendant",
+          "kind": "unnamed-role",
+          "name": "The children’s attendant",
+          "oldMentions": 20,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "children",
+          "kind": "group",
+          "name": "Medea and Jason’s sons",
+          "oldMentions": 68,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "first-child",
+          "kind": "unnamed-role",
+          "name": "The first child",
+          "oldMentions": 2,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "second-child",
+          "kind": "unnamed-role",
+          "name": "The other child",
+          "oldMentions": 2,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "chorus",
+          "kind": "group",
+          "name": "The women of Corinth",
+          "oldMentions": 26,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "leader",
+          "kind": "unnamed-role",
+          "name": "The chorus leader",
+          "oldMentions": 13,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "woman",
+          "kind": "unnamed-role",
+          "name": "A woman of the chorus",
+          "oldMentions": 3,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "another-woman",
+          "kind": "unnamed-role",
+          "name": "Another woman of the chorus",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "aegeus",
+          "kind": "person",
+          "name": "Aegeus",
+          "oldMentions": 33,
+          "reason": "reviewed spelling(s) ['AEGEUS'] do not occur in the new translation"
+        },
+        {
+          "id": "messenger",
+          "kind": "unnamed-role",
+          "name": "The messenger",
+          "oldMentions": 6,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "pelias",
+          "kind": "person",
+          "name": "Pelias",
+          "oldMentions": 4,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "peliads",
+          "kind": "group",
+          "name": "The daughters of Pelias",
+          "oldMentions": 2,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "pandion",
+          "kind": "person",
+          "name": "Pandion",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "erechtheus",
+          "kind": "person",
+          "name": "Erechtheus",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "hecate",
+          "kind": "cultural-figure",
+          "name": "Hecate",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "aphrodite",
+          "kind": "cultural-figure",
+          "name": "Aphrodite",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "apollo",
+          "kind": "cultural-figure",
+          "name": "Apollo",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "hermes",
+          "kind": "cultural-figure",
+          "name": "Hermes",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "muses",
+          "kind": "cultural-figure",
+          "name": "The Muses",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "hera",
+          "kind": "cultural-figure",
+          "name": "Hera",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "skylla",
+          "kind": "cultural-figure",
+          "name": "Skylla",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "athena",
+          "kind": "cultural-figure",
+          "name": "Athena",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "helios",
+          "kind": "cultural-figure",
+          "name": "Helios",
+          "oldMentions": 5,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "old-handmaid",
+          "kind": "unnamed-person",
+          "name": "The old handmaid",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        }
+      ]
+    },
+    "modern-en": {
+      "kept": [
+        {
+          "id": "medea",
+          "spellings": [
+            "MEDEA",
+            "Medea"
+          ],
+          "oldMentions": 109,
+          "newMentions": 112
+        },
+        {
+          "id": "jason",
+          "spellings": [
+            "JASON",
+            "Jason"
+          ],
+          "oldMentions": 71,
+          "newMentions": 64
+        },
+        {
+          "id": "pelias",
+          "spellings": [
+            "Pelias"
+          ],
+          "oldMentions": 5,
+          "newMentions": 5
+        },
+        {
+          "id": "pittheus",
+          "spellings": [
+            "Pittheus"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "pelops",
+          "spellings": [
+            "Pelops"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "zeus",
+          "spellings": [
+            "Zeus"
+          ],
+          "oldMentions": 7,
+          "newMentions": 12
+        },
+        {
+          "id": "themis",
+          "spellings": [
+            "Themis"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "orpheus",
+          "spellings": [
+            "Orpheus"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "maia",
+          "spellings": [
+            "Maia"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "ino",
+          "spellings": [
+            "Ino"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "pan",
+          "spellings": [
+            "Pan"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        }
+      ],
+      "dropped": [
+        {
+          "id": "creon",
+          "kind": "person",
+          "name": "Creon",
+          "oldMentions": 25,
+          "reason": "reviewed spelling(s) ['CREON', 'Creon'] do not occur in the new translation"
+        },
+        {
+          "id": "bride",
+          "kind": "unnamed-person",
+          "name": "Creon’s daughter",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "nurse",
+          "kind": "unnamed-role",
+          "name": "The nurse",
+          "oldMentions": 19,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "attendant",
+          "kind": "unnamed-role",
+          "name": "The children’s attendant",
+          "oldMentions": 20,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "children",
+          "kind": "group",
+          "name": "Medea and Jason’s sons",
+          "oldMentions": 75,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "first-child",
+          "kind": "unnamed-role",
+          "name": "The first child",
+          "oldMentions": 2,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "second-child",
+          "kind": "unnamed-role",
+          "name": "The other child",
+          "oldMentions": 2,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "chorus",
+          "kind": "group",
+          "name": "The women of Corinth",
+          "oldMentions": 26,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "leader",
+          "kind": "unnamed-role",
+          "name": "The chorus leader",
+          "oldMentions": 13,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "woman",
+          "kind": "unnamed-role",
+          "name": "A woman of the chorus",
+          "oldMentions": 3,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "another-woman",
+          "kind": "unnamed-role",
+          "name": "Another woman of the chorus",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "aegeus",
+          "kind": "person",
+          "name": "Aegeus",
+          "oldMentions": 33,
+          "reason": "reviewed spelling(s) ['AEGEUS'] do not occur in the new translation"
+        },
+        {
+          "id": "messenger",
+          "kind": "unnamed-role",
+          "name": "The messenger",
+          "oldMentions": 6,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "peliads",
+          "kind": "group",
+          "name": "The daughters of Pelias",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "pandion",
+          "kind": "person",
+          "name": "Pandion",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "erechtheus",
+          "kind": "person",
+          "name": "Erechtheus",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "hecate",
+          "kind": "cultural-figure",
+          "name": "Hecate",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "aphrodite",
+          "kind": "cultural-figure",
+          "name": "Aphrodite",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "apollo",
+          "kind": "cultural-figure",
+          "name": "Apollo",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "hermes",
+          "kind": "cultural-figure",
+          "name": "Hermes",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "muses",
+          "kind": "cultural-figure",
+          "name": "The Muses",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "hera",
+          "kind": "cultural-figure",
+          "name": "Hera",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "skylla",
+          "kind": "cultural-figure",
+          "name": "Skylla",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "athena",
+          "kind": "cultural-figure",
+          "name": "Athena",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "helios",
+          "kind": "cultural-figure",
+          "name": "Helios",
+          "oldMentions": 5,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "old-handmaid",
+          "kind": "unnamed-person",
+          "name": "The old handmaid",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        }
+      ]
+    }
+  },
+  "revision": "2026-10-01.2"
+}
