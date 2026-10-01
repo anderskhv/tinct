@@ -1,7 +1,7 @@
-BLOCKED: No screened, rights-eligible English source passes the required original-text overlap gate; matching original wording cannot be altered while preserving the exact printed source.
+BLOCKED: No accessible, screenable rights-eligible English source passes the required original-text overlap gate; Walton Volume III is unavailable for lawful paragraph-level screening, and matching original wording cannot be altered while preserving the exact printed source.
 STATUS: INCOMPLETE
 
-The requested 30-chapter package is not complete and must not be integrated. Walton's candidate remains rights-qualified but unscreened; all other eligible sources screened so far fail the original-text overlap gate. See HANDOFF.md.
+The requested 30-chapter package is not complete and must not be integrated. Walton remains rights-qualified but cannot be paragraph-screened from the accessible copies: HathiTrust's viewer is page-at-a-time with a no-save notice, Google Books exposes Volume II rather than Volume III, and NYPL's digital item is an illustration rather than text pages. Every accessible eligible source screened so far fails the original-text overlap gate. See HANDOFF.md.
 
 - Branch: content/replace-candide-codex, based on fetched origin/integration/release-candidate-6 at 95837141b.
 - Verified 1759 Nourse source; raw scans/OCR and rights evidence retained.
