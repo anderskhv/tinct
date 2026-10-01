@@ -80,7 +80,7 @@ This final acceptance supersedes the incomplete checkpoint scopes above. Reviewe
 
 ### Story 10 — The Noble Bachelor (226 pairs)
 
-Preserved Holmes's “right” wordplay, plural hotel rooms, the bride's refusal to claim the attention was upon her, news from New Mexico without inventing a letter, and the initial inference of someone from America without prematurely asserting nationality. Restored the class judgement in “common-looking”. Final reread repaired grammar at paragraphs 39, 102 and 210. Reviewer accepted all 226 pairs and expansions. Source age/date and Scandinavian royal reference remain as written.
+Preserved Holmes's “right” wordplay, plural hotel rooms, Lord St. Simon's refusal to frame the slight as directed at himself, news from New Mexico without inventing a letter, and the initial inference of someone from America without prematurely asserting nationality. Restored the class judgement in “common-looking”. Final reread repaired grammar at paragraphs 39, 102 and 210. Reviewer accepted all 226 pairs and expansions. Source age/date and Scandinavian royal reference remain as written.
 
 ### Story 11 — The Beryl Coronet (222 pairs)
 
