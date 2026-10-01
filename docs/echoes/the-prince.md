@@ -18,3 +18,11 @@ Status: 2026-10-01 starting inventory. Nothing wired into the app.
 
 ## Gaps (need Anders)
 TikToks, YouTube picks, X posts, Reddit; and any famous reader to quote. Candidate verified-quote source already in the repo style: Machiavelli scholarship or historical figures (not yet researched).
+
+## Anders's picks, 2026-10-01 (in this order on the mockup)
+| Item | Verified |
+|---|---|
+| https://www.youtube.com/watch?v=mU7hdGKOGyk&t=1s | oEmbed: "Machiavelli", Michael Sugrue. Old 4:3 lecture footage (thumbnail letterboxed). Unwatched. |
+| https://www.youtube.com/watch?v=U1FrhkLQnCI | oEmbed: "Machiavelli is the most misunderstood thinker of all time – Ada Palmer", channel Dwarkesh Patel. Dwarkesh's own March 2026 episode page (https://www.dwarkesh.com/p/ada-palmer, "Why Leonardo was a saboteur, Gutenberg went broke, and Florence was weird – Ada Palmer") has a transcript, but the fetch said Palmer does not use that "most misunderstood" phrasing there, so this clip's title may come from a different cut; check. Dwarkesh is the tech-podcast voice here. |
+| https://insights.som.yale.edu/insights/what-can-you-learn-machiavelli | Fetched: "What Can You Learn from Machiavelli?", Robert P. Harrison, Yale Insights, 2011-01-01. Candidate lines (summarising tool; verify wording): "You cannot get reality to bend to your will, you can only seduce it into transfiguration." Spoilers: mentions Cesare Borgia's defeat and death (historical). Hero image is a Santi di Tito portrait (credit in filename); not reused. |
+| https://www.youtube.com/watch?v=gB4dNxorewE | oEmbed: "What Machiavelli Has Taught Me", channel "Robert Greene". Unwatched. |
