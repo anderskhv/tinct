@@ -88,4 +88,31 @@ describe('reader boot script', () => {
     expect(preloads()).toHaveLength(0)
     expect(document.documentElement.getAttribute('data-theme')).toBe('light')
   })
+
+  it('starts the signed-in cloud position read with a still-valid stored token, and only then', async () => {
+    const calls: Array<{ url: string; auth: string | null }> = []
+    const install = () => {
+      ;(window as unknown as { fetch: unknown }).fetch = async (url: string, init?: { headers?: Record<string, string> }) => {
+        calls.push({ url, auth: init?.headers?.Authorization ?? null })
+        return { ok: true, json: async () => ({ books: {} }) }
+      }
+    }
+    const now = Math.floor(Date.now() / 1000)
+    install()
+    localStorage.setItem('sb-abc123-auth-token', JSON.stringify({ access_token: 'tok', expires_at: now + 3600 }))
+    runBootScript()
+    expect(calls).toEqual([{ url: '/api/lab-position', auth: 'Bearer tok' }])
+    const slot = (window as unknown as Record<string, { token: string; body: Promise<unknown> }>).__tinctPositionPrefetch
+    expect(slot.token).toBe('tok')
+    expect(await slot.body).toEqual({ books: {} })
+
+    // An expiring token is left to the app's own refresh; a guest has none.
+    for (const stored of [JSON.stringify({ access_token: 'old', expires_at: now + 30 }), null]) {
+      page(); install(); calls.length = 0
+      if (stored) localStorage.setItem('sb-abc123-auth-token', stored)
+      runBootScript()
+      expect(calls).toEqual([])
+      expect((window as unknown as Record<string, unknown>).__tinctPositionPrefetch).toBeUndefined()
+    }
+  })
 })

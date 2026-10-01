@@ -7,10 +7,12 @@ import { CHAPTER_SHARDED_EDITION_IDS } from '../data/editionShardRegistry'
 import {
   LAB_THEME_PAPER,
   READER_BOOT_DEFAULT_FACE_URL,
+  READER_BOOT_POSITION_PREFETCH,
   READER_BOOT_HANDOFF_KEY,
   READER_BOOT_PREFS_KEY,
   readerBootEink,
   readerBootHandoff,
+  readerBootPositionToken,
   readerBootPreloads,
   readerBootTheme,
   readerBootUsesDefaultFace,
@@ -59,6 +61,21 @@ try {
       })) preload(href, 'fetch')
     }
     if (readerBootUsesDefaultFace(prefs)) preload(READER_BOOT_DEFAULT_FACE_URL, 'font')
+    // The signed-in reader's cloud position, started before the bundle runs.
+    if (navigator.onLine !== false) {
+      const entries: Array<[string, string | null]> = []
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i)
+        if (key && key.startsWith('sb-')) entries.push([key, localStorage.getItem(key)])
+      }
+      const token = readerBootPositionToken(entries, Date.now() / 1000)
+      if (token) {
+        const body = fetch('/api/lab-position', { method: 'GET', headers: { Authorization: `Bearer ${token}` } })
+          .then(res => (res.ok ? res.json() : null))
+          .catch(() => null)
+        ;(window as unknown as Record<string, unknown>)[READER_BOOT_POSITION_PREFETCH] = { token, at: Date.now(), body }
+      }
+    }
   }
 } catch {
   // Optional: the app does all of this again on its own.

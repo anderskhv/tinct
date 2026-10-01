@@ -162,3 +162,25 @@ export function readerBootEink(search: string, storedProfile: string | null): bo
   if (query === '1' || query === '0') return query === '1'
   return storedProfile === 'eink'
 }
+
+/**
+ * The signed-in reader waits for its cloud position before the first paint.
+ * The boot script starts that same request while the app bundle downloads,
+ * using the stored Supabase session's access token when it is still valid
+ * for at least a minute (an expiring token is left to the app to refresh).
+ */
+export function readerBootPositionToken(entries: Array<[string, string | null]>, nowSeconds: number): string | null {
+  for (const [key, raw] of entries) {
+    if (!/^sb-[a-z0-9]+-auth-token$/.test(key) || !raw) continue
+    try {
+      const session = JSON.parse(raw) as { access_token?: unknown; expires_at?: unknown }
+      if (typeof session.access_token === 'string' && session.access_token
+        && typeof session.expires_at === 'number' && session.expires_at > nowSeconds + 60) return session.access_token
+    } catch { /* Not a session. */ }
+  }
+  return null
+}
+
+/** Set by the boot script; taken once by the reader's first cloud position read. */
+export interface ReaderBootPositionPrefetch { token: string; at: number; body: Promise<unknown> }
+export const READER_BOOT_POSITION_PREFETCH = '__tinctPositionPrefetch'
