@@ -84,3 +84,10 @@ Manual rendering now extends through the long Roman Comitia chapter, totaling 39
 
 ## Batch checkpoint: modern entries 46–48
 Manual renderings now extend through Book IV Chapter VII, totaling 427/470 paragraphs. Paragraph length, exclamation and ending checks pass across the completed subset. Whole-book classifiers remain incomplete at 48 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
+
+## Full initial render checkpoint
+Manual modern text now contains all 50 source entries and 470 paragraphs. JSON, one-to-one chapter/paragraph alignment, nonempty paragraphs, minimum word length, exclamation counts, and terminal endings pass. The normal and typography-folded classifiers both pass: weighted similarity 0.338, no light/mechanical chapters, no long identical paragraphs, and no truncated quotations.
+
+The overlap gate does not pass. Coordinate-only reports show 85/470 original paragraphs at N=10 and 187/470 at N=8; modern reports show 17/470 at N=10 and 66/470 at N=8. The full outputs are saved in gates/overlap-*.txt and contain coordinates only. The overlap tool was run as instructed and no protected text was opened or displayed. The 1764 witness shares wording with the protected translation, so the assigned repair rule now requires source-based re-rendering of flagged paragraphs, including the original candidate. This means the affected “original-en” paragraphs will become documented source-based renderings rather than verbatim transcription; raw 1764 witnesses remain unchanged. Keep a coordinate/change ledger in scratch/transcription-corrections.json.
+
+The original candidate also has one colon-ended paragraph (entry 8 paragraph 3). Correct it only after checking the 1764 witness, then record the repair. Full scan verification and apparatus/OCR checks remain open.

@@ -1,6 +1,6 @@
-RESUME: Book IV chapter VIII (edition entry 49), paragraph 1: render entries 49–50; re-render source paragraphs flagged by overlap at N=10/N=8; finish source verification and rerun all gates.
+RESUME: Independence repairs: re-render source-based original entry 2 paragraph 3, then the remaining 186 original N=8 flags; modern entry 15 paragraph 1, then 65 modern N=8 flags; rerun all gates and finish source checks.
 STATUS: IN PROGRESS — NOT ACCEPTED
-Modern completed subset: entries 1–48, 427/470 source paragraphs.
-Entries 15–48 were rendered manually sentence-by-sentence. Paragraph length, exclamation and ending checks pass across the completed subset. Whole-book classifier remains FAIL: 50 source chapters versus 48 modern chapters. Typography-folded classifier not run.
-Coordinate-only scan flags 85/470 original paragraphs at N=10; original independence remains FAIL. Modern overlap scan has not been rerun after entries 15–48. Source scan verification and punctuation repairs remain unfinished.
+Initial manual modern rendering now covers all 50 entries and 470 paragraphs. Structure, JSON, paragraph alignment, length, exclamation and terminal-punctuation checks pass.
+Normal and typography-folded classifier gates PASS (50 chapters; weighted similarity 0.338; zero light/mechanical paragraphs; zero truncated quotations).
+Protected-text overlap remains FAIL: original has 85/470 N=10 and 187/470 N=8 flags; modern has 17/470 N=10 and 66/470 N=8 flags. Coordinate-only reports are in gates/overlap-*.txt. The original has entry 8 paragraph 3 ending in a colon; repair and source punctuation verification remain open.
 No model/provider generation API, no PR, merge, app/live-path edit or deployment.
