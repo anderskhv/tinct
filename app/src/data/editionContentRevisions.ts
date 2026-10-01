@@ -27,7 +27,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     editions: {
       'modern-en': {
         before: '8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224',
-        after: '1f26505ff554a0d89eed947bbaae9fa2c3c2ace1594213f36312939e85413e04',
+        after: 'eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511',
       },
     },
   },
@@ -37,7 +37,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     editions: {
       'modern-en': {
         before: '5b14eaa83a4b695afc10e74b203001ac33490f732a1fb42c141749687859d08a',
-        after: '102bb0bba43b994d779c745ff7881dfa7e96408696108cb780ea14b70d09c34f',
+        after: 'e523d52b006da0963c0956cca1aa808145d62238db2686cf415a95ed7d849eb0',
       },
     },
   },
@@ -220,7 +220,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     editions: {
       'modern-en': {
         before: '8df3e74890b26ce3febb108540f3a7a32fd3afdc93b1d047cbe6b053793a0449',
-        after: '00023ab89ab477b3b50ae72181108521bbd4992fac9948ae083a17b3a079dff5',
+        after: '401a1e58e4ff88897bf83a999172e8072dc774ca209e5131ce2d31a1a2332530',
       },
     },
   },
@@ -260,7 +260,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     editions: {
       'modern-en': {
         before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
-        after: '604ac1abf6b11bb2e05b11f3df1e526355ad8df8e40768d17e6355ca1788defb',
+        after: 'a2d94a65fb3f0a3872f105b6300e8c3ab4c61ca0ac84614822a17ff91c05f426',
       },
     },
   },
