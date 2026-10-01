@@ -36,3 +36,39 @@ Final independent recheck verified 208/209 and all 474 paragraph word floors. It
 All JSON parses. Completed chapters have exact source titles/numbers/paragraph counts. Word-floor audit covers every completed paragraph, not just chapter aggregates. Similarity scores are supporting evidence only. No summary paragraphs or original-text placeholder chapters.
 
 Source oddities retained: story 2 date sequence and the narrator's “morning” reference; story 1 Mrs. Turner. Character aliases remain proposed and spoiler-gated; no runtime mention data generated.
+
+## Continuation review — 2026-10-01
+
+The story-1–2 scope above records the first checkpoint. It is superseded by the continuation scope below. Reviewer throughout: source_review, read-only independent reader separate from the author. Every paragraph pair in each completed story was read; word-floor expansions were checked against the source. Similarity alone is not editorial acceptance.
+
+### Story 3 — A Case of Identity (137 pairs)
+
+Restored old gold (not antique style), brilliant-cut diamond, money settled on the woman rather than income settled, and the small bald patch at the centre rather than generic thinning. Expanded paragraphs 20, 60, 101, 108, 120, 133. Repairs and >=75% floor independently verified; accepted.
+
+### Story 4 — The Boscombe Valley Mystery (215 pairs)
+
+Restored absence of a trace of where the stone was taken from (142), explicit deduction of a blunt penknife (184), possibility rather than certainty of future happiness (215), and the early 1860s (203). Expanded flagged paragraphs including 36. Independent final check accepted all repairs and the completed 826 paragraphs in stories 1–4.
+
+### Story 5 — The Five Orange Pips (178 pairs)
+
+Restored difficulty of providing help (18), “fourth day after the new year” (50), uncertain recollection of blue paper (86), and the source's asserted Klan name derivation (133). Doyle's period account is retained without historical correction. Independent reader accepted all expansions, exact names/figures, failure and unresolved ending. All 178 meet the word floor.
+
+### Story 6 — The Man with the Twisted Lip (222 pairs)
+
+Restored the reservation in “speciously” as “superficially plausible” (73), rough handwriting without an unsupported education claim (110), and “dollars” despite the source's currency inconsistency (209). Independent repair check accepted. Retained James, date and floor-level inconsistencies; monetary figures, 421/270 coins, ink/blotting/paper evidence, and reveal preserved.
+
+### Story 7 — The Blue Carbuncle (214 pairs)
+
+Restored treasure without invented burial (52), conjectured rather than incalculable value (56), solid-gold replacement rather than equal-weight comparison (75), and prison-bird characterization (214). Repairs independently accepted. Source natural-history claims and “commuting a felony” remain intact. Supplier chain, goose counts, sums and evidence preserved.
+
+### Story 8 — The Speckled Band (251 pairs)
+
+Restored bile-shot eyes as deep-set eyes with yellowed whites (95), and an undertaking to investigate rather than a promise to discover (188). Independent recheck accepted both and confirmed 251:251 alignment/minimum ratio .75. Kept Miss Roylott, allusions, weapons, exact snake deductions and the source's asserted milk/whistle/ten-second biology.
+
+### Story 9 — The Engineer's Thumb (176 pairs)
+
+Restored the thumb-over-shoulder gesture (4), a carriage with an open door rather than an open carriage (88), payment due rather than already earned (104), and a forfeited fifty-guinea fee (175). Independent reader verified these four repairs and >=75% floor. The independent final recheck read all 58 expanded passages against the source and accepted story 9 with no further defects. Preserved hydraulic operation, horse/circular-drive inference, names, figures, uncertainty and the unresolved escape.
+
+### Current acceptance boundary
+
+Stories 10–12 have not been rendered or reviewed. The original is complete, but the book package remains NOT READY. The cumulative 1–9 gate passes; the actual whole-book gate fails on 12 versus 9 stories. No full-book acceptance is implied. Resume at story 10 paragraph 1.

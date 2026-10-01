@@ -2,9 +2,10 @@
 
 Repository: anderskhv/tinct
 Branch: content/sherlock-adventures-codex
-Instruction/base revision: ab3cc43f2687e6682833db6a66182d150788ffa4
-Source checkpoint: 8f8427c9
-Two-story checkpoint: cd6b55f3
+Checkout/base revision: ab3cc43f2687e6682833db6a66182d150788ffa4
+Current instruction revision: 6dd90ae199a4fff7fc4692c0776158d73cbe171c (origin/main fetched 2026-10-01; required policy files unchanged from the base).
+Original source checkpoint: 8f8427c9
+Nine-story text checkpoint: 209dae8a
 
 Owned content paths only:
 - books/wip/adventures-of-sherlock-holmes/
@@ -12,42 +13,42 @@ Owned content paths only:
 
 ## Resume point
 
-Resume modern-en at **story 3, A Case of Identity, paragraph 1**. Stories 1 and 2 are complete. Stop here at a chapter boundary under the request's token-limited checkpoint rule; do not fill the remaining chapters with original text or summaries. Stories 3–12 are absent from the modern edition, deliberately making the whole-book structure gate fail.
+Resume modern-en at **story 10, The Noble Bachelor, paragraph 1**, followed by The Beryl Coronet and The Copper Beeches. Stories 1–9 are fully rendered. This is a token-limited checkpoint at a complete chapter boundary, not completion of the user's request to make the package ready. Stories 10–12 are absent from modern-en; do not fill them with original text or summaries.
 
-Read the original paragraph in full and render it sentence by sentence. Preserve one paragraph per source paragraph, every deduction, named detail, period assumption, and Watson's narrative voice. Require at least 75% of the source word count per paragraph as well as per story. No regex, dictionary substitutions, or mechanical passes for modernization. The JSON chunks under rendering/ are authored content checkpoints, not scripts; the edition JSON is the authoritative assembled candidate. Keep both consistent when repairing.
+Read each original paragraph in full and render sentence by sentence. Preserve one paragraph per source paragraph, every deduction, named detail, period assumption, allusion, and Watson's voice. The completed candidate meets >=75% of source words in every paragraph as well as every story. No regex or dictionary modernization. Authored JSON chunks under rendering/ mirror the authoritative edition and must stay synchronized during repairs.
 
-Next milestone: complete story 3 (or 4), create an exact completed-story QA snapshot pair containing stories 1–3 (or 1–4), run the existing classifier against its absolute prefix and push. Continue in groups of 3–4 stories. The first scheduled 3–4-story batch has not yet been reached; the two-story pass is an interim checkpoint only. Never claim the snapshot pass is the full-book pass.
+Next milestone: complete and independently review stories 10–12, run their three-story gate and the actual whole-book gate, then push. The classifier checks full structure before applying --chapters, so partial candidates need exact completed-story QA snapshot pairs. Never report a snapshot pass as the full-book pass. Once all 12 stories exist, use the authoritative absolute prefix:
 
-The classifier checks total chapter/paragraph alignment before applying --chapters, so a 12-story original and 2-story partial modern file cannot pass even with --chapters 1-2. QA snapshot originals are exact subsets of the authoritative original; they are not substitutes for the full book.
+`python3 books/classify-modern-en.py /tmp/tinct-sherlock-content/books/wip/adventures-of-sherlock-holmes/editions/adventures-of-sherlock-holmes --gate`
+
+Update the checkout prefix if using another directory; keep it absolute.
 
 ## Source and structure
 
-Project Gutenberg #1661, not #48320. Exact raw bytes and rights evidence are in books/raw/adventures-of-sherlock-holmes/SOURCE.md. Title/Author header verified. Source first committed and pushed before modern rendering. Original has 12 flat story chapters, 2,527 paragraphs, 104,347 whitespace-counted words. The existing English-original jekyll-and-hyde edition supplies the JSON shape.
+Project Gutenberg #1661, not #48320. Exact bytes, verified Title/Author header, SHA-256 and Denmark/EU/US rights evidence are in books/raw/adventures-of-sherlock-holmes/SOURCE.md. Source was committed and pushed before modernization. Original has 12 flat stories, 2,527 paragraphs and 104,347 whitespace-counted words. JSON shape follows the existing English-original jekyll-and-hyde edition.
 
-Only three standalone internal Roman-numeral divisions in the first story were dropped. Chapter labels 7–12 omit the repeated “The Adventure of” prefix for concise titles. SOURCE-REVIEW.json preserves all literal source headings, exact reading boundaries, and independent review evidence. Every retained source paragraph maps one-to-one to original-en; no live reader positions exist to migrate for this new ID.
+Only three standalone internal Roman-numeral divisions in story 1 were removed. Titles 7–12 omit the repeated “The Adventure of” prefix. SOURCE-REVIEW.json records literal headings and exact reading boundaries. All retained source paragraphs map one-to-one to original-en. This new ID has no live reader positions to migrate.
 
 ## Current evidence
 
-- Original: independent source comparison passed for all 12 stories and 2,527 paragraphs.
-- Modern story 1: 259 paragraphs, 7,924 / 8,518 source words.
-- Modern story 2: 215 paragraphs, 7,939 / 9,105 source words.
-- All completed paragraphs meet >=75%; full coordinates in qa/alignment-and-length.json.
-- Completed-story similarity gate PASS: weighted 0.481, zero LIGHT/MECHANICAL stories, 1/255 identical long paragraphs, no wrapped scaffolding or truncated quotations.
-- The single unchanged long paragraph is the royal letter in story 1 paragraph 22, whose word order is crucial evidence. Other literal literary quotations and names stay intact.
-- Whole-book gate FAIL: 12 versus 2 chapters. Required story 3–4 batch gate pending.
-- Original chronology inconsistencies and historical stereotypes remain; no silent editorial correction.
-- Hashes: MANIFEST.json pins the exact content artifacts. No accepted whole-book modern candidate hash exists yet.
+- Original: independent comparison passed for all 12 stories and all 2,527 paragraphs.
+- Modern: nine stories, 1,867 paragraphs. Detailed counts, lengths and changed coordinates in qa/alignment-and-length.json; independent editorial findings in REVIEW.md.
+- Gates for 1–4, 3–6, 5–8 and 7–9 passed. Current cumulative 1–9 gate: weighted similarity 0.474, zero LIGHT/MECHANICAL, 1/1,079 byte-identical long paragraphs, no wrapped scaffolding or truncated quotations.
+- The unchanged long paragraph is the royal letter at story 1 paragraph 22: Holmes analyses its precise word order.
+- Whole-book gate fails honestly at 12 versus 9 stories. No whole-book accepted modern hash exists.
+- Source chronology, period claims, stereotypes and factual oddities remain uncorrected. Examples include story 5's Klan account, story 6's names/date/levels and story 8's snake biology.
+- All completed edition titles/counts, nonempty paragraphs, chunk mirrors and >=75% paragraph floors pass. All package JSON parses. Onboarding cardinalities pass.
+- MANIFEST.json pins exact artifacts, excluding itself to avoid self-reference. Historic QA snapshots describe their checkpoints; ch01-09 is the current cumulative text snapshot.
 
 ## Supporting proposals
 
-Onboarding has About, exactly three whyItMatters entries, four reading angles, and seven cast entries. Acclaim is omitted. Characters/proposal.json supplies 23 selected identities and spoiler/alias decisions, not generated runtime data or an exhaustive mention inventory. Taxonomy.md proposes an accurate short-fiction/detective classification; the present Novels house and novel-only shelf labels need a separate integration decision. No invented canon/list membership.
+Onboarding supplies About, three whyItMatters entries, four reading angles, seven cast entries and no acclaim. Characters/proposal.json contains 23 selected identities and alias/spoiler decisions, not generated runtime data or an exhaustive mention inventory. Taxonomy.md proposes accurate short-fiction/detective placement; the existing Novels house and novel-only shelf labels require a separate integration decision. No invented canon/list membership.
 
 ## Remaining acceptance and integration
 
-1. Render and review stories 3–12; recheck all repaired passages independently.
-2. Pass 3–4-story gates and the full-book gate against the final absolute staged prefix. Finish completeness, alignment, length, name/detail and manual editorial reviews.
-3. Refresh all hashes, changed paragraph coordinates and review records after edits. Update onboarding openingText only from the accepted opening if integration requires it; no scaffold opening is supplied now.
-4. Resolve taxonomy placement and complete/validate runtime character coverage and reveal points under a separate integration assignment. No threads artifact is included; assess whether cross-story thread content is useful during acceptance, without creating app behavior.
-5. Only after content acceptance may an authorised integration task copy accepted editions/onboarding, register the book, set defaults and true alignment flags, validate character links and current narration eligibility/cache keys, and run required app/release verification. This task grants no publication or deployment authorisation.
+1. Render stories 10–12 and independently review all pairs and repairs. Complete final editorial checks and pass the whole-book gate.
+2. Refresh hashes, coordinates, snapshots and acceptance records. Opening text, if required during integration, must come from the accepted opening; no scaffold is supplied.
+3. Resolve taxonomy placement and complete/validate runtime character coverage and reveal points under a separate integration assignment. No threads artifact is supplied; assess its usefulness separately.
+4. Only after full content acceptance may a separately authorised integration task copy editions/onboarding, register the book, set defaults and truthful alignment flags, validate character links and narration eligibility/cache compatibility, and run app/release checks.
 
-English content only. No Danish, narration generation, provider calls, Anthropic API, app edits, registry edits, scripts/config changes, merge to main, deploy, publication, or production asset uploads.
+No publication or deployment is authorised. No Danish, narration generation, provider calls, Anthropic API, app/registry edits, scripts/config changes, merge to main, or production uploads were performed.
