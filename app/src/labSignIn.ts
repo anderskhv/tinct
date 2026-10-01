@@ -94,6 +94,13 @@ function completeSignIn(session: Session, newAccount = false) {
   const method = pendingProvider() ? 'oauth' : 'email'
   reconcileLabDeviceIdentity(session.user.id)
   setSignedInCookie()
+  // The library's own "browsing" note (it had nothing to show the guest) must
+  // not open the signed-in reader's library on the new-reader scene first.
+  // A browse the reader chose stays.
+  try {
+    const visit = JSON.parse(sessionStorage.getItem('tinct:library-2-visit') || 'null')
+    if (visit?.mode === 'discovery' && visit.auto) sessionStorage.removeItem('tinct:library-2-visit')
+  } catch { /* private mode */ }
   rememberPendingProvider(null)
   const clean = new URL(withoutOAuthReturnParams(location.href), location.origin)
   clean.searchParams.delete('callback')
