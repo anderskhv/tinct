@@ -1,8 +1,8 @@
-RESUME: Continue overlap repairs. Current original N=8 136/470; modern N=8 38/470. N=10 remains 53 original and 11 modern. See coordinate-only reports in gates/overlap-*.txt; re-render using the staged 1764 witness and ledger every change.
+RESUME: Continue overlap re-renders from current coordinate reports. Original N=8 134/470; modern N=8 35/470. N=10: original 53 and modern 9. See gates/overlap-*.txt.
 STATUS: IN PROGRESS — NOT ACCEPTED
 
-All 50 chapters / 470 paragraphs align. JSON, minimum paragraph lengths, exclamation counts, and endings pass. Both normal and typography-folded classifiers pass (weighted similarity 0.371, zero light/mechanical, identical-long, or truncated-quote cases).
+The 50-chapter, 470-paragraph editions align. JSON, paragraph length, exclamation, and ending checks pass. Normal and typography-folded classifiers pass (weighted similarity 0.371 / 0.372; zero light/mechanical, identical-long or truncated-quote cases).
 
-Protected-text overlap fails: original N=10 53/470 and N=8 136/470; modern N=10 11/470 and N=8 38/470.
+Overlap acceptance fails: original N=10 53/470, N=8 134/470; modern N=10 9/470, N=8 35/470. Continue until zero N=10 and at most four N=8 flags per edition.
 
-Source completeness/opening/ending verification, scan and OCR cleanup audit, hashes, and final handoff remain. No protected text was read. No API generation, PR, merge, app/live-path edit or deployment.
+Source opening/ending/completeness, scan/OCR cleanup audit, final hashes, and handoff remain. Protected edition text not read. No generation API, PR, merge, live-file edit, or deployment.

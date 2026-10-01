@@ -113,3 +113,6 @@ Entries 18.6, 18.11, 18.12, 19.1, 21.1, 21.4, 23.1, and 24.4, 24.7, 24.10, 24.20
 
 
 Latest checkpoint: entries 25.4, 25.8, 25.12, 26.5, 28.1, and 28.4 re-rendered and logged. Current original overlap is N=10 53/470, N=8 136/470; modern is N=10 11/470, N=8 38/470. Paragraph audit and both classifier variants pass at 0.371. Work remains; STATUS.md holds the next gate state.
+
+
+Additional checkpoint: entries 29.1, 29.5, 29.7, and 29.12 were re-rendered and logged. Current overlap counts are original N=10 53/470, N=8 134/470; modern N=10 9/470, N=8 35/470. Classifier variants and paragraph audit pass. See STATUS.md; work remains.
