@@ -41,6 +41,8 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "peloponnesian-war-modern-da",
   "peloponnesian-war-modern-en",
   "peloponnesian-war-original-en",
+  "sense-and-sensibility-modern-en",
+  "sense-and-sensibility-original-en",
   "symposium-modern-en",
   "symposium-original-en",
   "the-histories-modern-da",

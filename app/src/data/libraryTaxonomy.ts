@@ -2552,6 +2552,28 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
+    "id": "sense-and-sensibility",
+    "title": "Sense and Sensibility",
+    "author": "Jane Austen",
+    "year": "1811",
+    "ySort": 1811,
+    "form": "novel",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Two sisters confront love, money, and the limits of their own judgment after losing the security of their family home.",
+    "themes": [
+      "marriage",
+      "money",
+      "judgment"
+    ],
+    "shelves": [
+      "english-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
     "id": "hume-enquiry",
     "title": "An Enquiry Concerning Human Understanding",
     "author": "David Hume",
