@@ -12,11 +12,11 @@ try {
     await context.addInitScript(() => {
       navigator.mediaDevices.getUserMedia = async () => { throw new Error('Microphone disabled for visual acceptance') }
     })
-    let chatAttempts = 0, requestedContext = ''
+    let chatAttempts = 0, requestedLibrary = null
     await context.route('**/*', async route => {
       const request = route.request(), url = new URL(request.url())
       if (url.pathname === '/api/lab-chat') {
-        requestedContext = request.postDataJSON().system
+        requestedLibrary = request.postDataJSON().companion?.library ?? null
         chatAttempts++
         return chatAttempts === 1 ? route.fulfill({ status:503, body:'Interrupted' })
           : route.fulfill({ json:{ content:[{ type:'text', text:'Try Frankenstein for an atmospheric read. [[book:frankenstein]]' }] } })
@@ -53,7 +53,9 @@ try {
     await field.fill('What should I notice?')
     await page.getByRole('button', { name:'Send', exact:true }).click()
     await page.waitForFunction(() => !document.querySelector('#librarian-live').shadowRoot.textContent.includes('Thinking…'))
-    assert(requestedContext.includes('"id":"frankenstein"'))
+    // The Worker builds the prompt: the client sends the open book and the reader's shelf.
+    assert.equal(requestedLibrary?.contextBookId, 'frankenstein')
+    assert.deepEqual(Object.keys(requestedLibrary?.shelf ?? {}).sort(), ['finished', 'reading', 'saved'])
     await page.locator('#minimize').click()
     await page.waitForTimeout(500)
     await page.locator('#librarian').click()

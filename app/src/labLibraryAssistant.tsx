@@ -24,6 +24,7 @@ import {
   visibleLibrarianText,
   type LibraryCatalogue,
   type LibraryCatalogueBook,
+  type LibraryShelf,
 } from './lab/libraryLibrarian'
 
 type Mode = 'search' | 'chat' | 'talk' | null
@@ -38,6 +39,8 @@ export interface LibraryAssistantHost {
   openBook: (bookId: string) => void
   returnTo: string
   getBookId: () => string | null
+  /** The reader's shelf (book ids), read at send time so it is always current. */
+  getShelf?: () => LibraryShelf | null
 }
 type Turn = { id: string; role: 'user' | 'assistant'; content: string; pending?: boolean; error?: boolean }
 
@@ -171,8 +174,9 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
   const previousUserRef = useRef<string | null | undefined>(undefined)
 
   useEffect(() => {
-    fetch('/lab/catalogue.json?v=20260912-withheld-1')
-      .then(response => response.ok ? response.json() : Promise.reject(new Error('catalogue')))
+    // The library page has usually downloaded this already (1.7 MB): reuse it.
+    const shared = (window as unknown as { __library2CatalogueShared?: Promise<LibraryCatalogue> | null }).__library2CatalogueShared
+    ;(shared ?? fetch('/lab/catalogue.json').then(response => response.ok ? response.json() : Promise.reject(new Error('catalogue'))))
       .then(setCatalogue)
       .catch(() => setCatalogue({ books: [] }))
   }, [])
@@ -183,7 +187,7 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
   const byId = useMemo(() => new Map(books.map(book => [book.id, book])), [books])
   const contextBook = byId.get(contextBookId ?? '')
   // Voice instructions only; typed chat sends structured context and the Worker builds the same prompt.
-  const system = useMemo(() => libraryAssistantSystem(catalogue, contextBook?.id ?? null), [catalogue, contextBook])
+  const system = useMemo(() => libraryAssistantSystem(catalogue, contextBook?.id ?? null, host?.getShelf?.() ?? null), [catalogue, contextBook, host])
 
   const appendVoiceMessage = (message: ChatMessage) => {
     voiceTurnsRef.current = [...voiceTurnsRef.current, message].slice(-20)
@@ -282,7 +286,7 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
         headers: { 'Content-Type': 'application/json', ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}) },
         body: JSON.stringify({
           stream: true,
-          companion: { intent: 'library', library: { contextBookId: contextBook?.id ?? null } },
+          companion: { intent: 'library', library: { contextBookId: contextBook?.id ?? null, shelf: host?.getShelf?.() ?? null } },
           messages: history.map(turn => ({ role: turn.role, content: turn.content })),
         }),
       })

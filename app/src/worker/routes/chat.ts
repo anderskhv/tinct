@@ -24,7 +24,7 @@ import {
   parseCompanionRequest,
   type CompanionRequest,
 } from '../../companion/companionRequest'
-import type { LibraryCatalogue } from '../../lab/libraryLibrarian'
+import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { createAiMeter, requestGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
 
@@ -55,6 +55,8 @@ const MAX_REQUEST_BODY_BYTES = 500_000
 // an Iliad book) while staying well under the model's 200K-token
 // context window. Total bytes still bounded by MAX_REQUEST_BODY_BYTES.
 export const MAX_SYSTEM_PROMPT_LENGTH = 32_000
+/** The whole eligible catalogue (about 32K characters for 94 books) with room to grow. */
+export const LIBRARY_CATALOGUE_PROMPT_MAX = 80_000
 const MAX_MESSAGES = 50
 // Per-message cap so a single bloated turn can't blow the budget. 10K chars
 // is ~2K tokens — a generous ceiling for any real reader question.
@@ -769,6 +771,10 @@ export async function handleChat(
     .catch(() => ({ error: 'Invalid JSON' as const }))
 
   const allowLabGuest = options?.allowLabGuest === true
+  // The librarian's catalogue loads while the caller is authenticated, not after.
+  const libraryCatalogue = bodyPromise
+    .then(parsed => ('body' in parsed && (parsed.body as { companion?: { intent?: unknown } } | null)?.companion?.intent === 'library') ? loadLibraryCatalogue(env, request) : null)
+    .catch(() => null)
   const timing = makeChatRequestTiming(request, allowLabGuest ? 'guest' : 'signed')
   const authStartedAt = Date.now()
   const user = allowLabGuest ? null : await verifyUser(env, request)
@@ -823,12 +829,19 @@ export async function handleChat(
     }
     let system: AnthropicSystemParam
     if (companion) {
-      let catalogue: LibraryCatalogue | null = null
       if (companion.intent === 'library') {
-        catalogue = await loadLibraryCatalogue(env, request)
+        const catalogue: LibraryCatalogue | null = await libraryCatalogue
         if (!catalogue) return jsonResponse({ error: 'Service unavailable' }, 503, request)
+        // Worker-built, so not held to the client-prompt cap. The catalogue is the
+        // same for every reader: cache it; the open book and shelf follow uncached.
+        const parts = libraryAssistantSystemParts(catalogue, companion.library?.contextBookId ?? null, companion.library?.shelf ?? null)
+        system = [
+          { type: 'text' as const, text: parts.catalogue.slice(0, LIBRARY_CATALOGUE_PROMPT_MAX), cache_control: { type: 'ephemeral' as const } },
+          ...(parts.tail ? [{ type: 'text' as const, text: parts.tail.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
+        ]
+      } else {
+        system = buildCompanionSystem(companion).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
       }
-      system = buildCompanionSystem(companion, { catalogue }).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
     } else {
       const systemResult = validateSystemParam(body.system)
       if (systemResult.error) return jsonResponse({ error: systemResult.error }, 400, request)
