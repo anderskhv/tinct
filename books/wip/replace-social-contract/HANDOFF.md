@@ -110,3 +110,6 @@ Entries 13.1, 13.4, 13.6 and 14.1, 14.4, 14.5 were manually re-rendered from the
 ## Continued overlap checkpoint
 
 Entries 18.6, 18.11, 18.12, 19.1, 21.1, 21.4, 23.1, and 24.4, 24.7, 24.10, 24.20 were re-rendered from the staged witness in both editions and entered in the edit ledger. Modern entry 13.1 was independently revised. Current overlap: original N=10 56/470, N=8 139/470; modern N=10 12/470, N=8 44/470. Normal and typography-folded classifiers pass at 0.371. Structure, length, exclamation, and ending checks pass. Work remains; see STATUS.md.
+
+
+Latest checkpoint: entries 25.4, 25.8, 25.12, 26.5, 28.1, and 28.4 re-rendered and logged. Current original overlap is N=10 53/470, N=8 136/470; modern is N=10 11/470, N=8 38/470. Paragraph audit and both classifier variants pass at 0.371. Work remains; STATUS.md holds the next gate state.
