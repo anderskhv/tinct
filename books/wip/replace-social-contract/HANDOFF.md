@@ -122,3 +122,6 @@ Checkpoint: entries 32.5 and 33.1, 33.10 were re-rendered in both editions, docu
 
 
 Checkpoint: entries 35.1, 36.3, 38.1 and 38.9 re-rendered in both editions. The required exclamation count at 35.1 was restored. Latest overlap counts: original N=10 52/470, N=8 130/470; modern N=10 8/470, N=8 29/470. Classifier variants and paragraph audit pass. See STATUS.md; package remains in progress.
+
+
+Checkpoint: entries 33.2, 39.4, and 39.6 were re-rendered in both editions and logged. Latest overlap results: original N=10 52/470, N=8 129/470; modern N=10 8/470, N=8 26/470. Paragraph audit was repaired and now passes. STATUS.md records the remaining work.
