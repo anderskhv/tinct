@@ -7,7 +7,7 @@ Branch: content/release-assets-wh-codex.
    Verification: 497 character-service tests passed; direct runtime validation passed both source hashes, all 2,856 spans and every snapshot boundary. Registry addition used in memory only for direct checks; no shared file changed.
 2. Library introduction complete: preface copied verbatim from LIVE onboarding about; introduction JSON validated. Preface SHA-256 d8dc4efc27101e12c6df65337dfc51e77f57e677109e045de4cbd8bb485da0c6; 167 whitespace-delimited words. Manifest and hook snippets prepared.
 3. Threads complete: 19 identities and 172 chapter-local English entries across LIVE chapters 1–34. JSON shape, unique identities and chapter ranges verified; source spot checks completed.
-4. Integration snippets and final handoff pending.
+4. All four integration snippets and HANDOFF.md complete. Hashes and conservative alias coverage limits recorded.
 
 No publication, deploy, main merge, PR, API calls, narration generation or image changes.
-Resume: item 4, final integration snippets and handoff.
+Resume: none; assigned release-assets package complete. Book remains STAGED.
