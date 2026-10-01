@@ -119,3 +119,6 @@ Additional checkpoint: entries 29.1, 29.5, 29.7, and 29.12 were re-rendered and 
 
 
 Checkpoint: entries 32.5 and 33.1, 33.10 were re-rendered in both editions, documented in the ledger. Latest overlap: original N=10 53/470, N=8 133/470; modern N=10 8/470, N=8 33/470. Classifier variants and paragraph audits pass (weighted 0.372). Acceptance remains open.
+
+
+Checkpoint: entries 35.1, 36.3, 38.1 and 38.9 re-rendered in both editions. The required exclamation count at 35.1 was restored. Latest overlap counts: original N=10 52/470, N=8 130/470; modern N=10 8/470, N=8 29/470. Classifier variants and paragraph audit pass. See STATUS.md; package remains in progress.
