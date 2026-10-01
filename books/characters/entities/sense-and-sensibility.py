@@ -193,7 +193,9 @@ def bind(edition, chapter, paragraph, text, entities):
     # Chapter 48 deliberately sustains a misunderstanding: omit the title there.
     if chapter != 48:
         add('Mrs. Ferrars', 'lucy-steele' if chapter == 47 else 'mrs-ferrars')
-    add('Miss Steele', 'lucy-steele' if chapter == 47 else 'anne-steele')
+    # Modern 21:9 says 'One Miss Steele': either sister, so leave it unbound.
+    if (chapter, paragraph) != (21, 9):
+        add('Miss Steele', 'lucy-steele' if chapter == 47 else 'anne-steele')
     if chapter == 31:
         add('Eliza', 'eliza-elder' if paragraph == 23 else 'eliza-younger')
         add('Mrs. Brandon', 'eliza-elder')

@@ -1,9 +1,8 @@
-# Release assets — STAGED
+# Release assets — COMPLETE / STAGED
 
-- Base/instruction revision: origin/integration/release-candidate-2, 8cfe39e7.
-- Item 1 complete: 24 identities in each final edition; reviewed chapter-end spoiler gates.
-- Verification: 497/497 character-service tests pass; direct runtime verification with in-memory registration passes both editions, all hashes/offsets and disclosure/alias checks. No shared registry or tests edited.
-- Generic baseline compiled first; reviewed builder supplies the two identities omitted by conservative generic aliases and the contextual bindings/gates.
-- Item 2 complete: onboarding about text reused verbatim; library introduction and hook prepared. Preface 170 words; SHA-256 `895b9124e6f200f6867462fcd6dbfe4ff2f50251a705a2cde94a69a284c2f6c9`. JSON and verbatim text checks pass.
-- Resume: item 3 threads and final integration snippets.
-- STAGED only. No deployment, PR, merge, narration generation or Anthropic API use.
+- Items 1–4 complete: 24 character identities in both editions with reviewed spoiler gates; preface and intro; threads covering chapters 1–50; all four integration snippets and HANDOFF.md.
+- Verification: 505/505 focused tests; direct runtime hash/offset/snapshot/identity checks in both editions; JSON, chapter coverage, copy equality and preface checks passed.
+- Preface: 170 words; SHA-256 `895b9124e6f200f6867462fcd6dbfe4ff2f50251a705a2cde94a69a284c2f6c9`.
+- Checkpoints: character cards `26341747`; introduction `456dce57`; final threads/handoff in this commit.
+- Resume: Claude’s separately owned shared-file integration only. No content items remain. See HANDOFF.md for conservative alias omissions and exact final hashes.
+- STAGED only; no shared-file edits, deployment, PR, merge, image work, narration generation, Anthropic calls or generate-editions.cjs run.
