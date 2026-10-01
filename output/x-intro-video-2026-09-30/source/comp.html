@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Tinct film v2</title>
+<title>Tinct film v3</title>
 <link rel="stylesheet" href="../fonts/local.css">
 <style>
   :root { --cream: #efe8d4; --muted: #b9bfaa; --bg: #0e120d; }
@@ -72,16 +72,15 @@
   <div class="layer" id="grain"></div>
 </div>
 <script>
-// Timeline (24 fps, 720 frames = 30 s)
+// Timeline (24 fps, 934 frames ≈ 39 s)
 //   0– 68  "Nothing you scrolled past today / will be read in 200 years."
-//  54–186  Frankenstein's room (real library render, text hidden) + the one question
-// 178–268  pull back to the real library; Read; the book opens; Begin reading
-// 266–290  paper dip into the reader (Letter 1, the page Begin reading opens)
-// 290–386  Compare: the 1831 original lays in beside Tinct Modern English
-// 386–474  Explain on an 1831 phrase
-// 474–558  Chat: "Is this book really about AI?"
-// 558–622  "Trade one scroll for one chapter."
-// 616–720  end card: The world's best reading experience. Starting with the greatest books ever written.
+//  54–240  one continuous take: Frankenstein's room, the question, then the book on the table opens (real animation)
+// 228–256  we sink into the page: Letter 1
+// 240–452  Compare: Tinct Modern English, then the 1831 original lays in beside it
+// 452–604  Explain on an 1831 phrase (answer held ~2.6 s)
+// 604–772  Chat: "Is this book really about AI?" (answer held ~2.8 s)
+// 772–840  "Trade one scroll for one chapter."
+// 834–934  end card
 const pad = (n, w = 4) => String(n).padStart(w, '0');
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -94,8 +93,7 @@ const $ = id => document.getElementById(id);
 
 const CAP = '../cap/';
 const src = {
-  room: i => `${CAP}v2-room/f${pad(clamp(i, 0, 149))}.jpg`,
-  hero: i => `${CAP}v2-hero/f${pad(clamp(i, 0, 91))}.jpg`,
+  room: i => `${CAP}v3-open/f${pad(clamp(i, 0, 199))}.jpg`,
   r1: () => `${CAP}v2-read/r1.png`,
   r2: () => `${CAP}v2-read/r2.png`,
   ix: i => `${CAP}v2-read/i${pad(clamp(i, 0, 179))}.jpg`,
@@ -118,83 +116,82 @@ function placeCover(el, zoom) {
 }
 const toOut = (x, y, c) => ({ x: 960 + (x - c.cx) * 1.2 * c.z, y: 540 + (y - c.cy) * 1.2 * c.z });
 
-const ROOM0 = 54, HERO0 = 178, CLICK_READ = HERO0 + 40, BEGIN_CLICK = 266, READ0 = 276, CTA0 = 558, END0 = 616, TOTAL = 720;
+// v3 timeline (24 fps): one continuous take from the room into the open book, then slower features
+const O = 12;   // the slow-motion opening lands 12 frames later; everything after it shifts
+const ROOM0 = 54, CLICK = 184, DIVE0 = 236, READ0 = 240 + O, CTA0 = 772 + O, END0 = 834 + O, TOTAL = 934 + O;
+const WIPE = [280 + O, 300 + O], TO_RIGHT = [318 + O, 346 + O], TO_LEFT = [384 + O, 414 + O], EX0 = 452 + O, CH0 = 604 + O;
 
 function roomCam(f) {
-  // slow push into the room; at the hand-off, pull back to the whole app
-  const t = prog(f, ROOM0, HERO0);
-  const push = cam(HOOK.cx + lerp(-18, 6, t), HOOK.cy - 4, HOOK.z * lerp(1.0, 1.07, sine(t)));
-  return mixCam(push, heroCam(f), eio(prog(f, HERO0 - 6, HERO0 + 22)));
-}
-function heroCam(f) {
-  const push = sine(prog(f, HERO0 + 20, BEGIN_CLICK - 10));
-  let c = cam(800 + 6 * push, 450 - 4 * push, lerp(1.0, 1.03, push));
-  const dive = eio(prog(f, BEGIN_CLICK - 2, BEGIN_CLICK + 12));
-  if (dive > 0) c = mixCam(c, cam(1140, 470, 1.55), dive);
+  // the camera drifts toward the book on the table; the book opens and comes to us; we sink into the page
+  const t = sine(prog(f, ROOM0, CLICK));
+  let c = cam(lerp(800, 868, t), lerp(414, 436, t), HOOK.z * lerp(1.0, 1.07, t));
+  c = mixCam(c, cam(806, 462, 1.10), eio(prog(f, CLICK, CLICK + 34)));
+  c = mixCam(c, cam(1146, 452, 1.7), eio(prog(f, DIVE0 - 2, DIVE0 + 16)));
   return c;
 }
 const V = {
-  settle0: cam(800, 450, 1.10), full: cam(800, 452, 1.0),
+  settle0: cam(800, 450, 1.08), full: cam(800, 452, 1.0), fullIn: cam(800, 452, 1.03),
   right: cam(1172, 336, 1.9), left: cam(424, 336, 1.9),
-  ex: cam(1205, 586, 2.0),
-  chatA: cam(1142, 560, 1.72), chatB: cam(1142, 372, 1.72),
+  ex: cam(1205, 586, 2.0), exIn: cam(1212, 580, 2.07),
+  chatA: cam(1142, 560, 1.72), chatB: cam(1142, 372, 1.72), chatIn: cam(1146, 368, 1.78),
 };
+const drift = (a, b, f, f0, f1) => mixCam(a, b, sine(prog(f, f0, f1)));
 function readerCam(f) {
-  if (f < 296) return mixCam(V.settle0, V.full, eo(prog(f, READ0, 296)));
-  if (f < 314) return V.full;
-  if (f < 338) return mixCam(V.full, V.right, eio(prog(f, 314, 338)));
-  if (f < 352) return V.right;
-  if (f < 374) return mixCam(V.right, V.left, eio(prog(f, 352, 374)));
-  if (f < 386) return V.left;
-  if (f < 406) return mixCam(V.left, V.ex, eio(prog(f, 386, 406)));
-  if (f < 474) return V.ex;
-  if (f < 490) return mixCam(V.ex, V.chatA, eio(prog(f, 474, 490)));
-  if (f < 520) return V.chatA;
-  if (f < 532) return mixCam(V.chatA, V.chatB, eio(prog(f, 520, 532)));
-  return V.chatB;
+  if (f < (260 + O)) return mixCam(V.settle0, V.full, eo(prog(f, READ0, (260 + O))));
+  if (f < TO_RIGHT[0]) return drift(V.full, V.fullIn, f, (260 + O), TO_RIGHT[0]);
+  if (f < TO_RIGHT[1]) return mixCam(V.fullIn, V.right, eio(prog(f, ...TO_RIGHT)));
+  if (f < TO_LEFT[0]) return V.right;
+  if (f < TO_LEFT[1]) return mixCam(V.right, V.left, eio(prog(f, ...TO_LEFT)));
+  if (f < EX0) return V.left;
+  if (f < EX0 + 26) return mixCam(V.left, V.ex, eio(prog(f, EX0, EX0 + 26)));
+  if (f < (542 + O)) return V.ex;
+  if (f < CH0) return drift(V.ex, V.exIn, f, (542 + O), CH0);
+  if (f < CH0 + 16) return mixCam(V.exIn, V.chatA, eio(prog(f, CH0, CH0 + 16)));
+  if (f < (668 + O)) return V.chatA;
+  if (f < (690 + O)) return mixCam(V.chatA, V.chatB, eio(prog(f, (668 + O), (690 + O))));
+  return drift(V.chatB, V.chatIn, f, (700 + O), CTA0);
 }
-// interaction capture: i4..59 drag/menu/explain/loading, answer from i69, chat from i105
+// interaction capture (cap/v2-read): i4..59 select + Explain + loading; answer i69..91; chat i105..179
 function exFrame(f) {
-  if (f < 392) return 0;
-  if (f < 448) return f - 388;            // 4..59
-  return clamp(69 + (f - 453), 69, 104);
+  if (f < (480 + O)) return 4;
+  if (f < (536 + O)) return f - (476 + O);                 // i4..59 (click on Explain at i51 -> f527)
+  return clamp(69 + (f - (542 + O)), 69, 91);        // answer, then hold
 }
-function chatFrame(f) { return clamp(105 + (f - 484), 105, 179); }
+function chatFrame(f) {
+  if (f < (620 + O)) return 105;
+  if (f < (632 + O)) return f - (515 + O);                 // i105..116 (click into the input at i115 -> f630)
+  if (f < (662 + O)) return 117 + Math.floor((f - (632 + O)) / 2);   // typing, half speed
+  if (f < (674 + O)) return Math.min(143, 132 + (f - (662 + O)));    // typed, sent, thinking
+  if (f < (706 + O)) return 144 + Math.floor((f - (674 + O)) / 2);   // streaming, half speed
+  return clamp(160 + (f - (706 + O)), 160, 179);
+}
 
 function plates(f) {
   const out = [];
-  if (f < HERO0 + 24) {
-    if (f >= ROOM0) {
-      const c = roomCam(f);
-      out.push({ src: src.room(f - ROOM0), cam: c, op: sine(prog(f, ROOM0, ROOM0 + 26)) });
-      if (f >= HERO0) out.push({ src: src.hero(f - HERO0), cam: c, op: sine(prog(f, HERO0, HERO0 + 18)) });
-    }
-    return out;
-  }
   if (f < READ0 + 2) {
-    out.push({ src: src.hero(f - HERO0), cam: heroCam(f), op: 1 });
+    if (f >= ROOM0) out.push({ src: src.room(f - ROOM0), cam: roomCam(f), op: sine(prog(f, ROOM0, ROOM0 + 26)) });
     return out;
   }
-  if (f < 386) {
+  if (f < EX0) {
     const c = readerCam(f);
     out.push({ src: src.r1(), cam: c, op: 1 });
-    const w = prog(f, 296, 314);
+    const w = prog(f, ...WIPE);
     if (w > 0) {
-      out.push({ src: src.r2(), cam: c, op: sine(prog(f, 298, 316)), clipLeft: true });   // left page re-flows: dissolve
-      out.push({ src: src.r2(), cam: c, op: 1, wipe: w });                               // compare page lays in
+      out.push({ src: src.r2(), cam: c, op: sine(prog(f, WIPE[0] + 2, WIPE[1] + 2)), clipLeft: true });
+      out.push({ src: src.r2(), cam: c, op: 1, wipe: w });
     }
     return out;
   }
-  if (f < 474) {
+  if (f < CH0) {
     const c = readerCam(f);
-    if (f < 392) { out.push({ src: src.r2(), cam: c, op: 1 }); out.push({ src: src.ix(0), cam: c, op: sine(prog(f, 386, 392)) }); return out; }
-    if (f >= 448 && f < 454) { out.push({ src: src.ix(59), cam: c, op: 1 }); out.push({ src: src.ix(69), cam: c, op: sine(prog(f, 447, 454)) }); return out; }
+    if (f < EX0 + 6) { out.push({ src: src.r2(), cam: c, op: 1 }); out.push({ src: src.ix(4), cam: c, op: sine(prog(f, EX0, EX0 + 6)) }); return out; }
+    if (f >= (536 + O) && f < (542 + O)) { out.push({ src: src.ix(59), cam: c, op: 1 }); out.push({ src: src.ix(69), cam: c, op: sine(prog(f, (535 + O), (542 + O))) }); return out; }
     out.push({ src: src.ix(exFrame(f)), cam: c, op: 1 });
     return out;
   }
   if (f < CTA0 + 14) {
     const c = readerCam(f);
-    if (f < 484) { out.push({ src: src.ix(exFrame(f)), cam: c, op: 1 }); out.push({ src: src.ix(105), cam: c, op: sine(prog(f, 474, 484)) }); }
+    if (f < CH0 + 10) { out.push({ src: src.ix(91), cam: c, op: 1 }); out.push({ src: src.ix(105), cam: c, op: sine(prog(f, CH0, CH0 + 10)) }); }
     else out.push({ src: src.ix(chatFrame(f)), cam: c, op: 1 });
     if (f >= CTA0) out.push({ end: true, src: src.end(f - CTA0 + 1), op: sine(prog(f, CTA0, CTA0 + 14)) });
     return out;
@@ -203,35 +200,23 @@ function plates(f) {
   return out;
 }
 
-// ---- cursor ---------------------------------------------------------------
-let RMETA = null, HMETA = null, clickFrames = [];
+// ---- cursor (reader only; the opening has no cursor) -----------------------
+let RMETA = null, clickFrames = [];
 function cursorState(f) {
-  if (f >= HERO0 && f < BEGIN_CLICK + 6) {
-    const j = f - HERO0, m = HMETA, c = f < HERO0 + 24 ? roomCam(f) : heroCam(f);
-    let p;
-    if (j < 18) p = m.cursorFrom;
-    else if (j <= 30) { const k = eo((j - 18) / 12); p = { x: lerp(m.cursorFrom.x, m.cursorTo.x, k), y: lerp(m.cursorFrom.y, m.cursorTo.y, k) }; }
-    else if (j < 72) p = m.cursorTo;
-    else { const k = eio(clamp((j - 72) / 12)); p = { x: lerp(m.cursorTo.x, m.beginTarget.x, k), y: lerp(m.cursorTo.y, m.beginTarget.y, k) }; }
-    const o = toOut(p.x, p.y, c);
-    const op = prog(f, HERO0 + 8, HERO0 + 16) * (1 - prog(f, BEGIN_CLICK + 2, BEGIN_CLICK + 6));
-    const press = (j >= 40 && j < 43) || (f >= BEGIN_CLICK && f < BEGIN_CLICK + 3);
-    return { ...o, op, press, z: 1 };
-  }
-  if (f >= 390 && f < 474) {
+  if (f >= EX0 + 20 && f < CH0) {
     const c = readerCam(f), i = exFrame(f);
     const fr = RMETA.frames.find(x => x.f === i && x.mouse);
     if (!fr) return { op: 0 };
     const o = toOut(fr.mouse.x, fr.mouse.y, c);
-    const op = prog(f, 392, 397) * (1 - prog(f, 452, 458));
+    const op = prog(f, EX0 + 22, EX0 + 28) * (1 - prog(f, (548 + O), (556 + O)));
     return { ...o, op, press: (i >= 16 && i < 30) || (i >= 51 && i < 54), z: c.z, ibeam: i < 30 };
   }
-  if (f >= 484 && f < 520) {
+  if (f >= CH0 + 12 && f < (664 + O)) {
     const c = readerCam(f), i = chatFrame(f);
     const fr = RMETA.frames.find(x => x.f === i && x.mouse);
     if (!fr) return { op: 0 };
     const o = toOut(fr.mouse.x, fr.mouse.y, c);
-    const op = prog(f, 485, 489) * (1 - prog(f, 512, 518));
+    const op = prog(f, CH0 + 14, CH0 + 18) * (1 - prog(f, (654 + O), (662 + O)));
     return { ...o, op, press: i >= 115 && i < 117, z: c.z };
   }
   return { op: 0 };
@@ -269,7 +254,7 @@ function drawOpen(f) {
   $('open').style.opacity = f < 70 ? 1 : 0;
 }
 function drawHook(f) {
-  const el = $('h1'), start = 82, outA = 168, outB = 180;
+  const el = $('h1'), start = 82, outA = 170, outB = 184;
   if (f < start - 4 || f > outB) { el.style.opacity = 0; return; }
   el.style.opacity = 1;
   const exit = prog(f, outA, outB);
@@ -284,14 +269,14 @@ function drawHook(f) {
 }
 function drawCta(f) {
   const p = document.querySelector('#cta p');
-  reveal(p, eo(prog(f, CTA0 + 8, CTA0 + 24)), prog(f, 606, 616), 18);
-  $('cta').style.opacity = f >= CTA0 && f < 620 ? 1 : 0;
+  reveal(p, eo(prog(f, CTA0 + 8, CTA0 + 24)), prog(f, END0 - 8, END0 + 2), 18);
+  $('cta').style.opacity = f >= CTA0 && f < END0 + 4 ? 1 : 0;
 }
 const PILLS = [
-  { a: 318, b: 352, html: 'Mary Shelley’s own words.' },
-  { a: 356, b: 388, html: 'And in the English we speak <i>now.</i>' },
-  { a: 410, b: 472, html: 'Stuck on a line? Tinct explains it.' },
-  { a: 488, b: 556, html: 'Ask anything. It knows your page.' },
+  { a: (286 + O), b: (382 + O), html: 'Mary Shelley’s original…' },
+  { a: (388 + O), b: (450 + O), html: '…beside plain modern English.' },
+  { a: (462 + O), b: (600 + O), html: 'Stuck on a line? Tinct explains it.' },
+  { a: (612 + O), b: (768 + O), html: 'Ask anything. It knows your page.' },
 ];
 function drawPill(f) {
   const p = PILLS.find(p => f >= p.a - 1 && f <= p.b + 1), el = $('pill');
@@ -340,7 +325,7 @@ async function seek(f) {
       // reading room under the CTA and end card: soft, then softer
       const z = lerp(1.10, 1.03, eo(prog(f, CTA0, TOTAL)));
       placeCover(el, z);
-      const b = lerp(5, 11, sine(prog(f, 600, 630))), br = lerp(.56, .48, sine(prog(f, 600, 630)));
+      const b = lerp(5, 11, sine(prog(f, END0 - 16, END0 + 14))), br = lerp(.56, .48, sine(prog(f, END0 - 16, END0 + 14)));
       el.style.filter = `blur(${b.toFixed(2)}px) brightness(${br.toFixed(3)}) saturate(.95)`;
     } else { placeCapture(el, p.cam); el.style.filter = p.filter || 'none'; }
     el.style.opacity = p.op;
@@ -355,10 +340,10 @@ async function seek(f) {
   const fl = f >= 62 && f < 100 ? Math.exp(-(f - 62) / 3.2) * 0.55 + (f >= 67 ? Math.exp(-(f - 67) / 5) * 0.3 : 0) : 0;
   $('flash').style.opacity = clamp(fl);
   if (fl > 0.01 && ps[0]) plateEls[0].style.filter = `brightness(${(1 + fl * 0.3).toFixed(3)})`;
-  $('hookShade').style.opacity = sine(prog(f, ROOM0 + 10, ROOM0 + 30)) * (1 - prog(f, HERO0 - 4, HERO0 + 14));
+  $('hookShade').style.opacity = sine(prog(f, ROOM0 + 10, ROOM0 + 30)) * (1 - prog(f, CLICK - 10, CLICK + 6));
   drawOpen(f); drawHook(f); drawCta(f); drawPill(f); drawEnd(f); drawCursor(f);
-  $('paper').style.opacity = f < BEGIN_CLICK + 2 || f > 292 ? 0 : (f < 276 ? sine(prog(f, BEGIN_CLICK + 2, 276)) : 1 - sine(prog(f, 276, 292)));
-  const paper = f >= 276 && f < CTA0 ? 1 : (f >= 268 && f < 276 ? prog(f, 268, 276) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
+  $('paper').style.opacity = f < DIVE0 || f > 256 + O ? 0 : (f < READ0 ? sine(prog(f, DIVE0, READ0)) : 1 - sine(prog(f, READ0, 256 + O)));
+  const paper = f >= READ0 && f < CTA0 ? 1 : (f >= DIVE0 && f < READ0 ? prog(f, DIVE0, READ0) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
   $('vignette').style.opacity = lerp(1, 0.35, paper);
   $('grain').style.backgroundImage = `url(${grainTiles[f % grainTiles.length]})`;
   $('grain').style.backgroundPosition = `${(f * 97) % 384}px ${(f * 53) % 384}px`;
@@ -370,11 +355,10 @@ async function seek(f) {
 
 async function init() {
   RMETA = await (await fetch('../cap/v2-read/meta.json')).json();
-  HMETA = await (await fetch('../cap/v2-hero/meta.json')).json();
   splitWords($('h1'));
   makeGrain();
   const addClick = (f, dark) => { const st = cursorState(f); clickFrames.push({ f, x: st.x, y: st.y, dark }); };
-  addClick(CLICK_READ, true); addClick(BEGIN_CLICK, false); addClick(439, false); addClick(494, false);
+  addClick(527 + O, false); addClick(630 + O, false);
   await document.fonts.load("400 90px 'EB Garamond'"); await document.fonts.load("italic 400 80px 'EB Garamond'");
   await document.fonts.load("400 120px 'Playfair Display'"); await document.fonts.load("500 23px 'IBM Plex Mono'");
   window.__ready = true;

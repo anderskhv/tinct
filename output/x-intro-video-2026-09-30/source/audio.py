@@ -7,7 +7,7 @@ from scipy import signal
 import wave, sys
 
 SR = 48000
-DUR = 30.0
+DUR = 946 / 24.0
 N = int(SR * DUR)
 rng = np.random.default_rng(1818)
 fr = lambda f: f / 24.0            # frame -> seconds
@@ -301,44 +301,48 @@ def wet(x, ir, mix):
     return x * (1 - mix * 0.35) + y * mix
 
 
-# ------------------------------------------------------------------ the score (v2 timeline)
+# ------------------------------------------------------------------ the score (v3 timeline, 946 frames)
+import os
+FOLEY_ONLY = os.environ.get('FOLEY_ONLY') == '1'
+O = 12
 music = buf()
 pads = buf()
-# Opening line in near-silence; the room brings rain; piano enters with the question.
 PADS = [
     (0.0, 2.6, ['D3', 'A3', 'E4']),                    # barely there under the opening line
-    (2.4, 5.0, ['D3', 'A3', 'E4', 'A4']),              # Dsus2: the room
-    (7.4, 2.0, ['B2', 'F#3', 'D4', 'A4']),             # Bm7: pull back to the app
-    (9.1, 2.2, ['G2', 'D3', 'B3', 'F#4']),             # Gmaj7: the book opens
-    (11.3, 2.0, ['A2', 'E3', 'C#4', 'E4']),            # A: into the page
-    (13.3, 2.1, ['D3', 'A3', 'F#4', 'E4']),            # Compare
-    (15.4, 2.1, ['B2', 'F#3', 'D4', 'A4']),
-    (17.5, 2.1, ['G2', 'D3', 'B3', 'F#4']),            # Explain
-    (19.6, 2.0, ['E3', 'B3', 'D4', 'G4']),             # Chat
-    (21.6, 1.7, ['A2', 'E3', 'D4', 'G4']),             # A7sus4: tension before the line
-    (23.25, 6.8, ['D3', 'A3', 'F#4', 'A4', 'D5']),     # resolution: CTA + end card
+    (2.4, 5.3, ['D3', 'A3', 'E4', 'A4']),              # the room and its question
+    (7.6, 2.3, ['B2', 'F#3', 'D4', 'A4']),             # the cover swings open
+    (9.8, 2.3, ['G2', 'D3', 'B3', 'F#4']),             # into the page
+    (12.0, 2.4, ['D3', 'A3', 'F#4', 'E4']),            # the original lays in
+    (14.4, 2.4, ['A2', 'E3', 'C#4', 'E4']),
+    (16.8, 2.5, ['B2', 'F#3', 'D4', 'A4']),
+    (19.3, 2.5, ['G2', 'D3', 'B3', 'F#4']),            # Explain
+    (21.8, 2.4, ['D3', 'A3', 'F#4', 'E4']),
+    (24.2, 1.5, ['A2', 'E3', 'C#4', 'E4']),
+    (25.7, 2.4, ['B2', 'F#3', 'D4', 'A4']),            # Chat
+    (28.1, 2.4, ['G2', 'D3', 'B3', 'F#4']),
+    (30.5, 2.2, ['A2', 'E3', 'D4', 'G4']),             # A7sus4 before the line
+    (32.67, 6.9, ['D3', 'A3', 'F#4', 'A4', 'D5']),     # resolution: CTA + end card
 ]
 for t0, d, notes in PADS:
     g = 0.45 if t0 == 0.0 else 0.9
-    place(pads, pad_chord(notes, d, att=1.2 if t0 > 0 else 1.6, rel=1.4, bright=1100 if t0 < 11 else 1400), t0, gain=g)
+    place(pads, pad_chord(notes, d, att=1.2 if t0 > 0 else 1.6, rel=1.4, bright=1100 if t0 < 10 else 1400), t0, gain=g)
 
 PIANO = [
     (3.45, 'A4', 3.2, 0.40), (3.45, 'D4', 3.2, 0.28),             # the question appears
     (5.45, 'F#4', 2.2, 0.34), (5.45, 'B3', 2.2, 0.22),            # ...and completes
-    (7.40, 'E4', 1.8, 0.30), (7.40, 'A3', 1.8, 0.22),
+    (7.65, 'E4', 2.2, 0.30), (7.65, 'B3', 2.2, 0.22),             # the cover swings open
 ]
 FIG = {
     'D': ['D3', 'A3', 'F#4', 'E4'], 'Bm': ['B2', 'F#3', 'D4', 'C#4'],
-    'G': ['G2', 'D3', 'B3', 'A3'], 'A': ['A2', 'E3', 'C#4', 'E4'], 'Em': ['E3', 'B3', 'G4', 'D4'],
+    'G': ['G2', 'D3', 'B3', 'A3'], 'A': ['A2', 'E3', 'C#4', 'E4'],
 }
-seq = [(9.1, 'G'), (11.3, 'A'), (13.3, 'D'), (15.4, 'Bm'), (17.5, 'G'), (19.6, 'Em'), (21.6, 'A')]
+seq = [(9.8, 'G'), (12.0, 'D'), (14.4, 'A'), (16.8, 'Bm'), (19.3, 'G'), (21.8, 'D'), (24.2, 'A'), (25.7, 'Bm'), (28.1, 'G'), (30.5, 'A')]
 for t0, ch in seq:
     for j, nt in enumerate(FIG[ch]):
-        v = [0.28, 0.20, 0.25, 0.19][j]
-        PIANO.append((t0 + j * 0.47, nt, 1.6 if j < 3 else 1.2, v))
-# the line and the end card: D major, then a high A as the wordmark lands
-PIANO += [(23.25, 'D2', 3.8, 0.34), (23.25, 'A2', 3.8, 0.28), (23.25, 'F#3', 3.8, 0.30), (23.25, 'D4', 3.8, 0.32),
-          (26.15, 'A4', 3.4, 0.30), (26.80, 'F#5', 2.8, 0.18), (27.6, 'D5', 2.2, 0.14)]
+        v = [0.27, 0.19, 0.24, 0.18][j]
+        PIANO.append((t0 + j * 0.55, nt, 1.8 if j < 3 else 1.3, v))
+PIANO += [(32.67, 'D2', 4.0, 0.34), (32.67, 'A2', 4.0, 0.28), (32.67, 'F#3', 4.0, 0.30), (32.67, 'D4', 4.0, 0.32),
+          (35.75, 'A4', 3.4, 0.30), (36.4, 'F#5', 2.8, 0.18), (37.2, 'D5', 2.2, 0.14)]
 for t0, nt, d, v in PIANO:
     pan = np.clip((n2m(nt) - 60) / 30, -0.5, 0.5)
     place(music, piano(nt, d, v), t0, gain=0.9, pan=pan)
@@ -347,38 +351,43 @@ ir_hall = reverb_ir(3.6, 0.7)
 music = wet(music, ir_hall, 0.42)
 music = music - 0.5 * sos_filter(music, 'lowpass', 230, order=2)
 pads = wet(pads, ir_hall, 0.3)
+if FOLEY_ONLY:
+    music *= 0; pads *= 0
 
 # ------------------------------------------------------------------ ambience
 amb = buf()
-r = rain(6.6)
-fade = np.ones(r.shape[1]); fi = int(1.0 * SR); fade[:fi] = np.linspace(0, 1, fi); fo = int(1.6 * SR); fade[-fo:] = np.linspace(1, 0, fo)
-place(amb, r * fade, 1.9, gain=0.30)                      # rain on the window as the room appears
+r = rain(8.4)
+fade = np.ones(r.shape[1]); fi = int(1.0 * SR); fade[:fi] = np.linspace(0, 1, fi); fo = int(1.8 * SR); fade[-fo:] = np.linspace(1, 0, fo)
+place(amb, r * fade, 1.9, gain=0.30 if not FOLEY_ONLY else 0.36)       # rain on the window; slows away as we enter the book
 th = thunder(4.4)
-th[:, :int(0.25 * SR)] *= 0.25                            # distant: soften the crack
+th[:, :int(0.25 * SR)] *= 0.25
 place(amb, sos_filter(th, 'lowpass', 900), fr(62) + 0.12, gain=0.55)
-fe = fire(7.2, rate=9)
+fe = fire(7.0, rate=9)
 fef = np.ones(fe.shape[1]); fef[:int(1.0 * SR)] = np.linspace(0, 1, int(1.0 * SR))
-place(amb, fe * fef, 23.0, gain=0.2)                      # the reading room's fire
+place(amb, fe * fef, 32.4, gain=0.2 if not FOLEY_ONLY else 0.26)       # the reading room's fire
+if FOLEY_ONLY:
+    rt = fire(23.5, rate=5)                                  # quiet fireside room tone under the reading
+    rtf = np.ones(rt.shape[1]); rtf[:int(2.0 * SR)] = np.linspace(0, 1, int(2.0 * SR)); rtf[-int(1.5 * SR):] = np.linspace(1, 0, int(1.5 * SR))
+    place(amb, rt * rtf, 9.6, gain=0.09)
 amb = wet(amb, reverb_ir(1.6, 0.35), 0.12)
 
-# ------------------------------------------------------------------ UI foley
+# ------------------------------------------------------------------ foley
 sfx = buf()
-place(sfx, click(0.9), fr(218), gain=0.22, pan=-0.25)                    # Read
-place(sfx, whoosh(0.8, 300, 1800, 0.3), fr(218) + 0.04, gain=0.20)       # the book lifts and opens
-place(sfx, page_flutter(0.8), fr(224), gain=0.10, pan=0.15)
-place(sfx, click(0.8), fr(266), gain=0.20, pan=0.1)                      # Begin reading
-place(sfx, whoosh(0.7, 700, 3200, 0.35), fr(268), gain=0.14)             # into the page
-place(sfx, page_flutter(0.6), fr(297), gain=0.12, pan=0.35)              # the 1831 page lays in
-place(sfx, whoosh(0.5, 1200, 3800, 0.4), fr(296), gain=0.06, pan=0.35)
-place(sfx, click(0.5), fr(418), gain=0.10, pan=0.3)                      # menu appears
-place(sfx, click(0.9), fr(439), gain=0.18, pan=0.3)                      # Explain
-place(sfx, whoosh(0.45, 1500, 4200, 0.3), fr(448), gain=0.05, pan=0.3)   # the answer resolves
-place(sfx, click(0.7), fr(494), gain=0.14, pan=0.3)                      # focus the input
-for k in range(8):                                                       # typing
-    place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(496) + k * 0.075 + rng.uniform(-0.01, 0.01), gain=0.07, pan=0.3)
-place(sfx, click(0.8), fr(515), gain=0.16, pan=0.3)                      # send
-place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(516), gain=0.06, pan=0.3)
-place(sfx, pen_scratch(0.9), fr(622), gain=0.05)                         # the t draws itself
+place(sfx, page_flutter(0.9), fr(186), gain=0.14, pan=0.35)             # the cover swings open
+place(sfx, whoosh(1.6, 250, 1400, 0.45), fr(196), gain=0.20, pan=0.15)  # the book comes to us (slow)
+place(sfx, page_flutter(0.7), fr(214), gain=0.08, pan=0.0)
+place(sfx, whoosh(0.8, 700, 3200, 0.35), fr(236), gain=0.14)            # into the page
+place(sfx, page_flutter(0.6), fr(293), gain=0.12, pan=0.35)             # the 1831 page lays in
+place(sfx, whoosh(0.5, 1200, 3800, 0.4), fr(292), gain=0.06, pan=0.35)
+place(sfx, click(0.5), fr(518), gain=0.10, pan=0.3)                     # selection menu
+place(sfx, click(0.9), fr(539), gain=0.18, pan=0.3)                     # Explain
+place(sfx, whoosh(0.45, 1500, 4200, 0.3), fr(548), gain=0.05, pan=0.3)  # the answer resolves
+place(sfx, click(0.7), fr(642), gain=0.14, pan=0.3)                     # focus the input
+for k in range(9):                                                      # typing (half speed)
+    place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(644) + k * 0.135 + rng.uniform(-0.015, 0.015), gain=0.07, pan=0.3)
+place(sfx, click(0.8), fr(678), gain=0.16, pan=0.3)                     # send
+place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(679), gain=0.06, pan=0.3)
+place(sfx, pen_scratch(0.9), fr(852), gain=0.05)                        # the t draws itself
 sfx = wet(sfx, reverb_ir(1.2, 0.25), 0.18)
 
 # ------------------------------------------------------------------ mix
