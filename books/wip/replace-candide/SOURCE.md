@@ -59,6 +59,29 @@ Independent date/attribution evidence, reviewed before reading the translation:
 
 The initial three reconstructed London paragraphs have zero N=10 flags but two N=8 flags. Whole-file **uncorrected OCR screening** finds 31/951 OCR blocks flagged at N=10. OCR blocks are NOT source paragraphs and must not be presented as a final paragraph count or final gate. This screening retains OCR errors; it is useful only for locating likely disqualifying exact matches. It does not certify that every match survives scan verification.
 
+## D. Edinburgh 1759 anonymous fallback — screened out
+
+**Candidus; or, All for the Best. By M. de Voltaire. A New Translation.** Edinburgh: Sands, Donaldson, Murray, and Cochran for A. Donaldson, MDCCLIX [1759], ESTC T137620. The title-page/catalogue credits no translator; Folger's record gives only Voltaire as author and identifies the item as a new translation. A contemporary-date anonymous translation is eligible under the assignment's pre-1800 exception, subject to the overlap gate. The second IA volume is the spurious 1761 Part II, not part of Voltaire's novel; it is retained only as an excluded research download.
+
+Bibliographic evidence: [Folger catalogue, ESTC T137620](https://catalog.folger.edu/record/751970), exact record title: “Candidus [electronic resource], or, all for the best. By M. de Voltaire. A new translation.” Imprint and date: “Edinburgh : Printed by Sands, Donaldson, Murray, and Cochran. For A. Donaldson, at Pope's head, MDCCLIX. [1759]”. [Bauman Rare Books, description of the early English translations](https://www.baumanrarebooks.com/rare-books/voltaire-fielding-henry/candid/114098.aspx), exact description: “Finally, an anonymous translation entitled Candidus or, All for the Best was also published by Sands, Donaldson, Murray and Cochran for A. Donaldson.” The first-vol OCR reproduces the title page/imprint; the scan record points to a separate 1761 second part.
+
+Preliminary sample was reconstructed from the first-volume OCR only for screening, not as an edition. At N=10, 2/3 paragraphs flagged; at N=8, 3/3 flagged. It therefore fails the original overlap thresholds. The source was not promoted, and no modern rendering was written from it. Outputs are in `scratch/edinburgh-screening.json`; the word-count coordinates are from the unchanged overlap checker and remain preliminary because this is OCR.
+
+## E. William Walton, 1897–1900 — rights-qualified lead; overlap untested
+
+The three-volume collection is titled *The Whole Prose Romances of François-Marie Arouet de Voltaire, now first completely done into English by William Walton*. Volume III includes *Candide; or, Optimism*. The HathiTrust catalogue identifies “Walton, William, tr.” and its full-view item `pst.000000141468` is marked public domain. The title-level catalogue does not identify a separate adapter or narrative editor; illustrations are by separate artists. Before using any text, inspect the source volume's title and apparatus pages to confirm these responsibilities and obtain a complete scan.
+
+Two independent death-date authorities:
+
+1. [Century Association Archives, William Walton](https://centuryarchives.org/staging/member-directory/?PersonID=3148): exact dates “born November 10, 1843” and “died November 13, 1915”. Its 1916 memorial independently states: “Besides, he translated works of Victor Hugo, Flaubert, Lamartine, Dumas fils, Voltaire, and twenty-one volumes of the novels and stories of Balzac.”
+2. [Library of Congress, collection record](https://www.loc.gov/item/2005676471/): authority form “Walton, William, 1843-1915.” This is independent corroboration of his death no later than 1954.
+
+The [HathiTrust catalogue record](https://catalog.hathitrust.org/Record/012360957) identifies the book as “now first completely done into English by William Walton” and the related name as “Walton, William, tr.” Its three public-domain full-view volumes are individually linked there; Volume III is `pst.000000141468`. Automated requests and the in-app browser currently receive a HathiTrust access challenge, so no Volume III text has been read, downloaded, or screened yet. This candidate may resolve the source issue, but it has not passed the required overlap test. Do not transcribe it until the exact source and full text are accessible and its N=10/N=8 result passes.
+
+## F. Walter Jerrold 1898 lead — not rights-cleared
+
+*Candide; or, All for the Best. A New Translation from the French. With Introduction by Walter Jerrold* (London: G. Redway, 1898) names Jerrold only for the introduction. His death is verified as 1929, but the actual translator is not named or established; post-1800 anonymity does not meet the assignment's exception. The introduction may be omitted, but that does not clear the translator. This scan was inspected only through its title and introductory pages, then removed; it was not used as source text.
+
 ## Other candidates not used
 
 Robert Bruce Boswell was investigated bibliographically. Wikidata Q73769944 and Wikisource give 1846–1933, but they are not independent sources; other results contained inconsistent birth years or repeated the same description. A sufficiently independent second date authority has not been established in this package. His translation has not been downloaded or used as a baseline. Do not promote this investigation to rights clearance.
