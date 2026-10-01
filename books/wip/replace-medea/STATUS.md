@@ -1,2 +1,2 @@
 STATUS: IN PROGRESS
-Source verified and original parsed. Modern rendering begins at Prologue paragraph 1.
+Modern chapters 1–4 drafted; chapters 5–7 and final QA remain.
