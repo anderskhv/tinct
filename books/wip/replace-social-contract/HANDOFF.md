@@ -100,3 +100,8 @@ Further overlap repair checkpoint: entries 15.1, 15.2, 15.6, 15.7, 15.9 and 15.1
 
 
 Latest gate checkpoint: original overlap N=10 67/470, N=8 158/470; modern N=10 16/470, N=8 58/470. Coordinate-only outputs were refreshed in gates/overlap-*.txt. The classifier passes the current un-folded editions (weighted 0.357; zero light/mechanical, identical-long, or truncated quote cases); paragraph length, exclamation, and terminal-ending checks pass. These results do not meet overlap acceptance. Continue repair work; do not mark COMPLETE.
+
+
+## Latest continuation checkpoint
+
+Entries 13.1, 13.4, 13.6 and 14.1, 14.4, 14.5 were manually re-rendered from the 1764 source in both editions; all changes are recorded in scratch/transcription-corrections.json. Current overlap counts: original N=10 66/470 and N=8 154/470; modern N=10 16/470 and N=8 59/470. Classifier passes both normal and typography-folded copies at weighted similarity 0.362; structure, paragraph length, exclamation and ending checks pass. STATUS.md gives the precise next work. Acceptance is not claimed.
