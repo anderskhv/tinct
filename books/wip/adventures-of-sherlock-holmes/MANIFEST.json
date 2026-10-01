@@ -1,0 +1,426 @@
+{
+  "bookId": "adventures-of-sherlock-holmes",
+  "status": "READY — content package",
+  "instructionRevision": "13608e50e27096e5755e83c20861be22f0b9b9c7",
+  "baseRevision": "ab3cc43f2687e6682833db6a66182d150788ffa4",
+  "branch": "content/sherlock-adventures-codex",
+  "acceptedScope": "Complete original source fidelity; all twelve modern stories independently accepted; onboarding and selected character/taxonomy proposals accepted within the content-only scope. Not integrated or published.",
+  "resume": null,
+  "files": [
+    {
+      "path": "books/raw/adventures-of-sherlock-holmes/SOURCE.md",
+      "sha256": "733883f0beeeefa73ae71a45a908c4a68900c10ff94bd145db63d43d785709a3",
+      "bytes": 2508
+    },
+    {
+      "path": "books/raw/adventures-of-sherlock-holmes/raw.txt",
+      "sha256": "922e2a12ccb43a4c9544c260b2166c6ad2097aeb5957faeee113f173bb857cd0",
+      "bytes": 607606
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/HANDOFF.md",
+      "sha256": "d206cc2b527077684e36f22c44b635908814575f98c7e85b104c8522cc034fcf",
+      "bytes": 5397
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/REVIEW.md",
+      "sha256": "72e8f7f858abfe4a1f4732b9d95d5f486f59355db6f201202820c087653cf406",
+      "bytes": 10458
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/SOURCE-REVIEW.json",
+      "sha256": "0c98328523eab7725a7bb7d63f1a0734ef1b6fa2b34578702c569b81e0886eda",
+      "bytes": 17291
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/STATUS.md",
+      "sha256": "a736a7695fd2a3754e43540c327786f7d30429f4d95ffb22156f6edeecd8937a",
+      "bytes": 1365
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/characters/proposal.json",
+      "sha256": "43c0a1e4858c5f708ea3c9405cf52631c5828ca2844d5dec46a45ebfc4f08f06",
+      "bytes": 13722
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/editions/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "06c86bf1984363f278cccfedd66c8da1acaf8ae845f8b739d6cd377e20c0142f",
+      "bytes": 545508
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/editions/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "7e9fd4f88f86853ca0428b45fb64ea0e410b37dea5c190711d217cb8fd71e2ed",
+      "bytes": 600942
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/onboarding/adventures-of-sherlock-holmes.json",
+      "sha256": "019b76a4ada07dcfe044d7070a8651f365f9ebce605e8406cc3f07af62683afc",
+      "bytes": 5861
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/alignment-and-length.json",
+      "sha256": "389fb1241ad81b480ba3adcfe495a9f06c9cb8f0ca005aa04643a140f2457b1c",
+      "bytes": 35930
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "340fa1c85010ef65c37924da177cdfce91f8be6f410e6612382f7593c115bf5f",
+      "bytes": 48997
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "7b1e173c00bef70365ecd0c446d90f56f68eee2c1a3a5ca9e3b8c645601a449c",
+      "bytes": 50391
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-02/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "0298cabed953cb907e05a5847806a81fdf3f3f9ff131aedd60b6f8d9e08c4210",
+      "bytes": 97977
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-02/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "e38bdb59c9579ebec651156bd3c9eb96c56769282681f6767ada7d87aa1047dc",
+      "bytes": 103171
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-02-gate.txt",
+      "sha256": "6c3d6b6e8c65fa4e88373196a104698eb0444b6d12032ab51b2b564fd45a9b13",
+      "bytes": 552
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-03/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "5df542acfc1a00ff5fb5a177bdd417e60c1cd92b5e5662e2d185123316d28805",
+      "bytes": 134871
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-03/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "91a844eb03c9e862aeeb43f6a8f9fec3257d3aa72a0e985d03e850ee99d2b9f0",
+      "bytes": 143361
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-03-gate.txt",
+      "sha256": "6ae52b006b39fdfd163baa2498dcf998e6cbc4ef26303c06878f5d410e110d22",
+      "bytes": 605
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-04/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "716a1de8f3d562601d5582a14151397a226725492e2af3d92c09b46a9c7be68e",
+      "bytes": 183583
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-04/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "10d61fd8a8b643cf8e57d1b4202f710c783560a1ca7cfa4039020bffcc23808d",
+      "bytes": 198042
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-04-gate.txt",
+      "sha256": "ec16a4defece3786cd2615e0643c7e4e4c276933f7fb68f30845dc817eadb92c",
+      "bytes": 667
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-09/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "c2634f99aec92876727f3b91b39ce808cf87754dc87b643a327ba7cb1554ac10",
+      "bytes": 403154
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-09/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "a93080c4a2f3ec7b7d9099481fd1234f01b15e5298d245d85b655abc9eb284fa",
+      "bytes": 442490
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-09-gate.txt",
+      "sha256": "35d3f1f1f573b29fd9a3586a4df1c1c019f438c65996feedc0734294b91560fc",
+      "bytes": 442
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch01-gate.txt",
+      "sha256": "f1e2cc63c645a04a9f2cd98be8b055e25e33ef991d9ca3090f4cfec1454f9dcb",
+      "bytes": 493
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch03-06/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "1798bfd6983574c9eade41cbcf4e21c6a49b60154da3e613fe9b6438835b5113",
+      "bytes": 172142
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch03-06/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "5417018a3f86ff81afe61abc06cf785df91dd1fd14deddf8af04304920997399",
+      "bytes": 189685
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch03-06-gate.txt",
+      "sha256": "d40814b56bf104dfafb2968d2c359dece303d1775452c7a3d7d88b47d5ceeaf2",
+      "bytes": 441
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch05-08/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "9fbaa123b94f6c56bed2e059b4013bd68ec697a14beca5f38a846b82449e4694",
+      "bytes": 177844
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch05-08/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "095e5c6ed558dbd0b2c80e0a3f5b50befbb1beb8e0689ef19b7eda4c9d8b7378",
+      "bytes": 197008
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch05-08-gate.txt",
+      "sha256": "9a9ac627a27913f808de870701417686e141565aef4fce28bdcc8485a9b70f26",
+      "bytes": 441
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch07-09/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "a55b1f5a1194a864710472405e7d1752bab5cdaf77fe812d3fc2f2abe794c0de",
+      "bytes": 133081
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch07-09/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "7e6082050a46428bbc321312e041f132dbb122a7743cb29a1725ced0af466085",
+      "bytes": 149680
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch07-09-gate.txt",
+      "sha256": "10e9cd3c67d2b38b19cee2e03b1b2a3ffc40b3b664b13267e50dde1077673af7",
+      "bytes": 441
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch09-11/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "a0e25e38ef53ed2656c14fddd7b7f0fce53edd0c31a8faedfb1a73ad74948e17",
+      "bytes": 131653
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch09-11/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "778924c2509a2cab5f216da1f9bea301dcd095871fd048cf34fd6624ac414852",
+      "bytes": 149523
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch09-11-gate.txt",
+      "sha256": "ef9047d38739dc9eb64fd2854e2af5adf907e9418db4a024254d46730c932e85",
+      "bytes": 441
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch10-12/adventures-of-sherlock-holmes-modern-en.json",
+      "sha256": "6206f8d460a2bfe337a9251343162949e69ded77ee85b5737d248d2dfaa3362c",
+      "bytes": 142377
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch10-12/adventures-of-sherlock-holmes-original-en.json",
+      "sha256": "db2aa30e286697b11d06e6b94cef8f8c06a0610bc90699ba94e32a376da5b795",
+      "bytes": 158475
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/ch10-12-gate.txt",
+      "sha256": "028f6b6c3049c2e0a05ded538b92caceb261eade471645ee6e98809119eedebd",
+      "bytes": 441
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/qa/whole-book-gate.txt",
+      "sha256": "bc9285f27ab0441284b58c192533f3a37c8de9f4f53f0871717ffbbdc4eeac18",
+      "bytes": 443
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch01-001-090.json",
+      "sha256": "ca306c4a17340204d1a764f975ff437b959219d5800c435a9d0f278c74bec4c8",
+      "bytes": 17319
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch01-091-180.json",
+      "sha256": "c6da3a89cec9f037cf88eec99a65ec99d80386c4a320a0df9f9a06fec0d37ade",
+      "bytes": 16501
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch01-181-259.json",
+      "sha256": "3e0869f8fcf6b702b60abfd973cb683067da404ef5b174a7a07f448da4f37de1",
+      "bytes": 13509
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch02-001-065.json",
+      "sha256": "80d2a331e1d7eeb16be4a35f2b2ab054ab909d9d1028b6981c950cc36ed1ef93",
+      "bytes": 15588
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch02-066-135.json",
+      "sha256": "13f7930cb19154c86671bd37de11a0bfe28f81011a16ccbe2a949dbc83f9a839",
+      "bytes": 10440
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch02-136-215.json",
+      "sha256": "f2d4dbf054a693fefbcbcb4c6f32eaa82086480b19659d41b7377c85eda67042",
+      "bytes": 21570
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch03-001-045.json",
+      "sha256": "101b72059bdc959fc1e10c72a92368f1244d3841d4bda9c378f8955a2a976f33",
+      "bytes": 12013
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch03-046-095.json",
+      "sha256": "fc962c729559121a0669964d5d5ae330b2992623cdac4234af6bc9215ab6f136",
+      "bytes": 11389
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch03-096-137.json",
+      "sha256": "6d25e8a605048ff5ea2601f42a1853a0b777ee68d70aa96754f1aa19992b9050",
+      "bytes": 12581
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch04-001-055.json",
+      "sha256": "cc2dba19742e880c3970011a5c2003ec078ba3b93690158ce3a3d6969d4fae74",
+      "bytes": 13890
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch04-056-110.json",
+      "sha256": "701dbcd15f2eadda012ba398ce1e5bc05de8b584d5b62b3be05eda9e91f9bea8",
+      "bytes": 10232
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch04-111-165.json",
+      "sha256": "96df3f9bfa9140c29f7d3730cfd8195fb3640a7a4a023b4714caccd7dd5fc909",
+      "bytes": 12433
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch04-166-215.json",
+      "sha256": "bd94df2dd998047b03129ef25178432d9221109c433a369a6d6bac27582decc0",
+      "bytes": 10772
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch05-001-060.json",
+      "sha256": "32fe85f9c84020dcc6cd7adf59763a4f9e24571c070b3544625c390c866eec7b",
+      "bytes": 14644
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch05-061-120.json",
+      "sha256": "c0c27ae27c907e0f2d7986bf24b1358552464ae3404db9de2155a0294ec0dc49",
+      "bytes": 11181
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch05-121-178.json",
+      "sha256": "6809219923ba9d7e0e617c117c36a7df652377a82154c9df465fb15bcdcde3ba",
+      "bytes": 10805
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch06-001-065.json",
+      "sha256": "4018029031adddf2337dfa7128f9af2c23334bec16013a0f31b9bce2a6c34eae",
+      "bytes": 20048
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch06-066-150.json",
+      "sha256": "4ac01e54bd391a229cdca56d52c5cf657d1cff0843e8eecae104c425cb834305",
+      "bytes": 12001
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch06-151-222.json",
+      "sha256": "8647a109c9c353c6d1e1a984eba56711234aba945d16f4f90832a1926df58f19",
+      "bytes": 15244
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch07-001-065.json",
+      "sha256": "3327b46c52154c639592c92d1726948f6b8cbc10b0b3867e9cccacf7f51de32e",
+      "bytes": 14628
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch07-066-140.json",
+      "sha256": "6acc4e6c7a8f18501e919249b428ee8c2ab04c2ce153cebd6f934b53ff386bd0",
+      "bytes": 11323
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch07-141-214.json",
+      "sha256": "d46d4a55202e7bd78f7cc16dbbc14901d6a45b14b1ecce16b06802da1944a6ac",
+      "bytes": 14128
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch08-001-065.json",
+      "sha256": "2a2819c3dc1d0f24bd7ea04a3cf5281a3f9d610d719e8bdaa2ae388747476c8a",
+      "bytes": 16310
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch08-066-135.json",
+      "sha256": "ea03ab4f91eba26ca91a29675d136b4da7762a072bfc3e51d02dba24803f5345",
+      "bytes": 11924
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch08-136-200.json",
+      "sha256": "6f6dda309add968f3363b4dd9f903cd53b9a33ee6f76af30896ab8755ff6194a",
+      "bytes": 8494
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch08-201-251.json",
+      "sha256": "53ff9fe34d8ba91839f012c529fb29fb83a6dd1f87a1f7e63d02985d5e79e844",
+      "bytes": 11537
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch09-001-055.json",
+      "sha256": "6fc3fe4ce5e3bce2586a15e58b54b05e4e5fb69754ee4791db06c89f301fc41e",
+      "bytes": 11270
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch09-056-110.json",
+      "sha256": "6ccd0797ba4600b9b3c89ee5c4cd7a9d10e314646680d664e8b99dd3d5443dbc",
+      "bytes": 12509
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch09-111-176.json",
+      "sha256": "d77e2838c70e7a24d7b280c40e03f5977dc9b721b85cdc8f9885126a0f4443b4",
+      "bytes": 16822
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch10-001-075.json",
+      "sha256": "e220351ca1d3d1e0b521315558ee8ba708cd9e2d1a559eac9d76ea53e376aa98",
+      "bytes": 14722
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch10-076-150.json",
+      "sha256": "4d3bcc654725d2620f23388cfe51d1e0f7f06aa9943510dd1a24340ee9fca014",
+      "bytes": 8405
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch10-151-226.json",
+      "sha256": "f55c24c7d67ee9b1103537d292597324453c4d3b8b0d3e951a2705c9b4b67a97",
+      "bytes": 17533
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch11-001-060.json",
+      "sha256": "ccf8ab7c5fc99fe5652b079bc2634cf4b8b521361b5e0a7b73d589c6949a11ac",
+      "bytes": 14584
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch11-061-125.json",
+      "sha256": "1fdf5f8e2770b091c2196df16de018f1f0f83c5683bc8d6385482c8b05a3a728",
+      "bytes": 11506
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch11-126-180.json",
+      "sha256": "e10255f6bce626ffa7a93806bc4d447fda544a4b5a449a061639bcedb7308a50",
+      "bytes": 8113
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch11-181-222.json",
+      "sha256": "a44f9f8fc15aef11ba678a3a1e15ab644c98f7ed9025140890a4c907b548bfa3",
+      "bytes": 12168
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch12-001-055.json",
+      "sha256": "674b45cef2032741679a1c38de3310715881789bf2d17130daea5546a6425f3a",
+      "bytes": 10835
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch12-056-110.json",
+      "sha256": "7b1b855963c34ef5c001a42221c00db1de879ff6f8f5669cda4622cdebe768ee",
+      "bytes": 10918
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch12-111-160.json",
+      "sha256": "43a015fb7c57ed07909240c5328cdbb7cc29319ec9d71eb1bd4481a9c1c60d23",
+      "bytes": 18344
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/rendering/ch12-161-212.json",
+      "sha256": "cebf7c7c4629bbb97ba424091c660e2df94219a31b6ecee8816eb9477a7a1f24",
+      "bytes": 11003
+    },
+    {
+      "path": "books/wip/adventures-of-sherlock-holmes/taxonomy.md",
+      "sha256": "588767116a01736aac13af83a9f80ab76a82db9bb96dbb7b32b8de2f0db16fc9",
+      "bytes": 1730
+    }
+  ]
+}
