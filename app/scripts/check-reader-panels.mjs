@@ -58,7 +58,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
     if (req.method() !== 'GET') return route.abort()
     if (!live && url.origin === origin) {
-      const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname
+      const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname
       const filename = path.resolve('dist', '.' + pathname)
       if (filename.startsWith(path.resolve('dist') + '/')) {
         try { if ((await fs.stat(filename)).isFile()) return route.fulfill({path:filename}) } catch {}
@@ -67,7 +67,9 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     return route.continue()
   })
   await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
-    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
+    // handoffOnce: later navigations (library -> Continue) keep the hand-off the app writes.
+    if (!fixture.handoffOnce || !sessionStorage.getItem('qa:handoff-set')) sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
+    if (fixture.handoffOnce) sessionStorage.setItem('qa:handoff-set', '1')
     if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
@@ -890,12 +892,41 @@ async function revealKeepsPage(engine,name,phone) {
   } finally {await browser.close();results.push(result)}
 }
 
+// Library -> Continue reopens the exact page, every time (guest; QA 2026-10-01 found one page of drift per round trip).
+async function libraryContinueKeepsPage(engine,name,phone) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:phone?'phone-library-continue':'desktop-library-continue',live}
+  try {
+    state=await boot(browser,phone,'frankenstein','original-en',7,{handoffOnce:true})
+    const {page}=state
+    for(let i=0;i<3;i++){if(phone)await page.mouse.click(370,420);else await page.keyboard.press('ArrowRight');await page.waitForTimeout(500)}
+    await page.waitForTimeout(1500)
+    const where=()=>page.getByTestId('lab-root').evaluate(n=>n.dataset.chapter+'@'+n.dataset.place)
+    const start=await where()
+    for(let round=1;round<=2;round++){
+      await page.goto(origin+'/library',{waitUntil:'domcontentloaded'})
+      await page.locator('#rt-continue').waitFor({state:'visible',timeout:30000})
+      await page.waitForTimeout(1000)
+      await page.locator('#rt-continue').click()
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:30000})
+      await page.waitForTimeout(1200)
+      assert.equal(await where(),start,`library Continue round ${round} reopens the same place`)
+    }
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
 if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
   for(const phone of [false,true])await revealKeepsPage(engine,name,phone)
+  for(const phone of [false,true])await libraryContinueKeepsPage(engine,name,phone)
   if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)

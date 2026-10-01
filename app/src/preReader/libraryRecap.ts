@@ -200,8 +200,16 @@ function placeLabel(book: LibraryBookInfo | undefined, place: LabBookPlace): str
 
 /**
  * Where Continue lands for one book: the position store when its record is
- * newer than the newest memory session (or there is no session), else the
- * memory anchor. Null when neither store knows the book.
+ * newer than the newest memory session (or there is no session), or when both
+ * are in the same chapter; else the memory anchor. Null when neither store
+ * knows the book.
+ *
+ * A memory anchor is the last word of the page that was read (recorder
+ * `pageEnd`), and the reader opens on the page that holds the word it is
+ * given — so resuming from it lands a page further on, and every round trip
+ * through the library moved the reader forward (QA 2026-10-01). The position
+ * record is the reader's exact place; the memory anchor only decides when it
+ * is newer and in another chapter.
  */
 export function continueTargetFor(input: {
   book: LibraryBookInfo | undefined
@@ -211,7 +219,9 @@ export function continueTargetFor(input: {
   const { book, session, place } = input
   const bookId = book?.id ?? session?.anchor.bookId ?? null
   if (!bookId) return null
-  const positionWins = place !== null && (session === null || place.updatedAt > session.lastActiveAt)
+  const positionWins = place !== null && (session === null
+    || place.updatedAt > session.lastActiveAt
+    || place.sequentialChapter === session.anchor.chapterNumber)
   if (positionWins && place) {
     return {
       bookId,
