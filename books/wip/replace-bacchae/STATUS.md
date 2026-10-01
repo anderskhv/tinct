@@ -1,2 +1,2 @@
 STATUS: IN PROGRESS
-Modern rendering completed through chapter 6. Chapters 7–11 and final checks pending.
+Chapters 1–10 rendered. Exodos and full final checks pending.
