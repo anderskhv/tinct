@@ -1,4 +1,4 @@
-BLOCKED: No screened rights-eligible source passes the unchanged original-text overlap gate; the only new qualified lead, Morley (1922), is available only as HathiTrust search-only text, while Walton fails the first-paragraph sample.
+BLOCKED: No eligible source currently passes the unchanged original-overlap gate: paragraph-level screening of the 1779 anonymous text flags 54/850 at N=10 and 120/850 at N=8; Morley (1922) remains inaccessible beyond HathiTrust search-only access.
 STATUS: INCOMPLETE
 
 The requested 30-chapter package is not complete and must not be integrated. Walton is rights-qualified, and its Volume III is accessible page-at-a-time in Google Books; a visual first-paragraph sample triggers N=10 (26 overlapping words), so Walton is not viable. Henry Morley's 1922 translation is rights-qualified, but its only identified digital copy is HathiTrust search-only, so no paragraph screen could be performed. Every eligible accessible source screened so far fails the original-text overlap gate. See HANDOFF.md.

@@ -113,3 +113,12 @@ The 1919 *Candide* attributed to Dorset Chambers is ineligible: the pen name ide
 The 1937 Everyman's Library reprint of Smollett's translation is not cleared: a scholarly catalogue identifies the text as “translation by T. Smollett; revised by James Thornton,” and a library authority record dates Thornton 1906–1969. Sources: [CiNii Books](https://ci.nii.ac.jp/ncid/BA19025510) and [Sacred Heart University catalogue authority](https://libcatalog.sacredheart.edu/cgi-bin/koha/opac-detail.pl?biblionumber=5107&shelfbrowse_itemnumber=4183). Thornton is an additional post-cutoff rights holder. No text from this edition was read or used.
 
 The 1896 “new translation by [W.M.T.]” remains unverified. The Langille and Brooks bibliography establishes the imprint and initials but does not identify the translator. No independent identity/death evidence or suitable scan was found; it was not read or used.
+
+
+## I. 1779 anonymous Part I — finer OCR-paragraph exclusion screen
+
+The retained DjVuXML for the Wellcome/Internet Archive 1779 Part I source was segmented by its OCR `PARAGRAPH` units, retaining units with at least five words. The 850-unit candidate screen flags 54 units at N=10 and 120 at N=8 against the protected reference editions with the unchanged checker. OCR boundaries are not verified print-paragraph boundaries, but this conservative screen is decisively over the allowed rates and excludes the candidate without transcription or modern rendering. Screening JSON: `source/1779-paragraph-screen.json`; SHA-256 recorded in `source/SHA256SUMS`.
+
+## J. Henry Morley access and W.M. Thomson identity leads
+
+No change to Morley's 1922 rights clearance; full narrative text remains unavailable in the identified digital holdings. Do not substitute the 1884 composite: available title/catalogue evidence credits Morley only with an introduction, despite one secondary bibliography's contradictory 1884 translation date. The 1896 initials-only translator is identified as William M. Thomson in Langille and Brooks' scholarly article, but identity and death by 1954 remain unverified by two independent sources; no suitable scan was found. Neither source was used. Search-result text from the article was incidentally exposed and is disclosed in HANDOFF.md; no wording was retained or used.
