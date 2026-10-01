@@ -44,7 +44,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname==='/api/narration/voices' && fixture.narrationEnabled!==undefined) {
-      return route.fulfill({json:{enabled:fixture.narrationEnabled,voices:fixture.narrationEnabled?[{key:'f',label:'Female',persona:'female'}]:[]}})
+      return route.fulfill({json:{enabled:fixture.narrationEnabled,voices:fixture.narrationEnabled?[{key:'f',label:'Ara',persona:'female'},{key:'m',label:'Helios',persona:'male'}]:[]}})
     }
     if (url.pathname==='/api/narration/ensure' && fixture.narrationEnabled) {
       requests.push({narration:req.postDataJSON()})

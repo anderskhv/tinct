@@ -62,7 +62,7 @@ for(const engine of [chromium,webkit]) {
   await page.route('**/*',async route=>{
     const req=route.request(),url=new URL(req.url())
     if(url.hostname==='127.0.0.1'&&url.port==='47653')return route.continue()
-    if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:true,voices:[{key:'f',label:'Ara',persona:'female'}]}})
+    if(url.pathname==='/api/narration/voices')return route.fulfill({json:{enabled:true,voices:[{key:'f',label:'Ara',persona:'female'},{key:'m',label:'Helios',persona:'male'}]}})
     if(req.method()!=='GET') {requests.push(url.pathname);return route.fulfill({status:401,json:{error:'Acceptance test: no provider calls'}})}
     if(!live&&url.origin===origin){
       const pathname=['/','/library','/library/'].includes(url.pathname)?'/lab/library_2/index.html':['/reader'].includes(url.pathname)?'/app.html':url.pathname
