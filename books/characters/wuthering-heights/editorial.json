@@ -1,0 +1,537 @@
+{
+  "contentVersion": "2026-10-01.1",
+  "coverage": "19 proposed identities; conservative named bindings, contextual family titles, paragraph-end relationship gates. Bare ambiguous names, pronouns and generic titles are not exhaustive.",
+  "entities": [
+    {
+      "id": "lockwood",
+      "kind": "person",
+      "category": "central",
+      "name": "Mr. Lockwood",
+      "aliases": [
+        "Mr. Lockwood",
+        "Lockwood"
+      ],
+      "subtitle": "The visiting tenant",
+      "body": "He rents Thrushcross Grange and calls on his landlord at Wuthering Heights. His account begins with his own impressions of the place.",
+      "snapshots": [],
+      "contexts": {}
+    },
+    {
+      "id": "ellen-dean",
+      "kind": "person",
+      "category": "central",
+      "name": "Mrs. Dean",
+      "aliases": [
+        "Mrs. Dean",
+        "Ellen Dean",
+        "Nelly Dean",
+        "Nelly",
+        "Ellen",
+        "Nell"
+      ],
+      "subtitle": "The housekeeper at the Grange",
+      "body": "Lockwood turns to the housekeeper for company and information about his neighbours.",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            32
+          ],
+          "name": "Ellen “Nelly” Dean",
+          "body": "She grew up at Wuthering Heights alongside the Earnshaw children. Her history of the household includes events in which she took part, as well as things she witnessed."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "heathcliff",
+      "kind": "person",
+      "category": "central",
+      "name": "Heathcliff",
+      "aliases": [
+        "Mr. Heathcliff",
+        "Heathcliff"
+      ],
+      "subtitle": "Lockwood’s landlord",
+      "body": "He owns the house Lockwood rents. Lockwood admires his reserve on their first meeting, though Heathcliff offers him little welcome.",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            37
+          ],
+          "name": "Heathcliff",
+          "body": "Mr. Earnshaw brought him home from Liverpool as a child with no known family. Heathcliff is his whole name. Nelly recalls his friendship with Catherine and Hindley’s hostility; his ancestry remains unknown."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "catherine-earnshaw",
+      "kind": "person",
+      "category": "central",
+      "name": "Catherine Earnshaw",
+      "aliases": [
+        "Catherine Earnshaw"
+      ],
+      "subtitle": "A name in the old bedroom",
+      "body": "Lockwood finds this name scratched on the ledge of a bed enclosed with wooden panels. Its repetition draws his attention to the room’s earlier occupant.",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            27
+          ],
+          "name": "Catherine Earnshaw",
+          "body": "Her name appears in an old book and on the window ledge. Lockwood dreams of a child calling herself Catherine Linton at the window; his account does not establish a supernatural event."
+        },
+        {
+          "after": [
+            4,
+            32
+          ],
+          "name": "Catherine Earnshaw",
+          "body": "The elder Catherine is Hindley’s sister, a child in the Earnshaw household. She is distinct from the young Mrs. Heathcliff whom Lockwood meets."
+        },
+        {
+          "after": [
+            9,
+            124
+          ],
+          "name": "Catherine Earnshaw",
+          "body": "The elder Catherine marries Edgar Linton and becomes Mrs. Linton. Nelly describes her attachment to Heathcliff alongside her wish for the position Edgar offers."
+        }
+      ],
+      "contexts": {
+        "3:3": [
+          "Catherine Heathcliff",
+          "Catherine Linton"
+        ],
+        "3:27": [
+          "Catherine Linton"
+        ],
+        "3:46": [
+          "Catherine Linton"
+        ],
+        "3:49": [
+          "Catherine Linton"
+        ],
+        "12:6": [
+          "Catherine Linton"
+        ]
+      }
+    },
+    {
+      "id": "catherine-linton-younger",
+      "kind": "person",
+      "category": "central",
+      "name": "Mrs. Heathcliff",
+      "aliases": [],
+      "subtitle": "The young woman at the Heights",
+      "body": "Lockwood addresses the young woman at the house as Mrs. Heathcliff. He has not yet understood her place in the household.",
+      "snapshots": [
+        {
+          "after": [
+            2,
+            47
+          ],
+          "name": "Mrs. Heathcliff",
+          "body": "She is Heathcliff’s daughter-in-law and his son’s widow. Lockwood’s guesses that she is the wife of Heathcliff or of the young man beside him are mistaken."
+        },
+        {
+          "after": [
+            4,
+            15
+          ],
+          "name": "Catherine Linton",
+          "body": "Nelly identifies the young widow as Catherine Linton, her late master’s daughter and her former charge. She is distinct from the Catherine whose name Lockwood found in the bedroom."
+        },
+        {
+          "after": [
+            16,
+            0
+          ],
+          "name": "Catherine Linton",
+          "body": "The younger Catherine is the daughter of Edgar Linton and Catherine Earnshaw. Nelly recounts her birth and her mother’s death as separate lives in the same household."
+        }
+      ],
+      "contexts": {
+        "4:14": [
+          "Catherine Linton"
+        ],
+        "4:15": [
+          "Catherine Linton"
+        ]
+      }
+    },
+    {
+      "id": "hindley-earnshaw",
+      "kind": "person",
+      "category": "major",
+      "name": "Hindley Earnshaw",
+      "aliases": [
+        "Hindley Earnshaw",
+        "Mr. Hindley",
+        "Hindley"
+      ],
+      "subtitle": "The master in Catherine’s diary",
+      "body": "Catherine’s diary names Hindley as the person ruling the household in her father’s absence. She describes his treatment of Heathcliff as atrocious.",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            32
+          ],
+          "name": "Hindley Earnshaw",
+          "body": "Hindley is the elder Catherine’s brother and Hareton’s father. Nelly grew up alongside him and recalls the household under his father, Mr. Earnshaw."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "hareton-earnshaw",
+      "kind": "person",
+      "category": "major",
+      "name": "Hareton Earnshaw",
+      "aliases": [
+        "Hareton Earnshaw",
+        "Hareton"
+      ],
+      "subtitle": "The young man at the Heights",
+      "body": "He gives Lockwood his name angrily after the visitor has repeatedly guessed his position in the household incorrectly.",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            32
+          ],
+          "name": "Hareton Earnshaw",
+          "body": "Hareton is Hindley Earnshaw’s son. The young man Lockwood meets is a separate person from the name on the house’s carving dated 1500."
+        },
+        {
+          "after": [
+            8,
+            13
+          ],
+          "name": "Hareton Earnshaw",
+          "body": "Hareton is Hindley and Frances’s son. Nelly cares for him as a baby after Frances dies; he and the adult whom Lockwood meets are the same person."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "edgar-linton",
+      "kind": "person",
+      "category": "major",
+      "name": "Edgar Linton",
+      "aliases": [
+        "Edgar Linton",
+        "Mr. Edgar",
+        "Edgar"
+      ],
+      "subtitle": "A boy at Thrushcross Grange",
+      "body": "Heathcliff describes seeing Edgar in the Grange’s comfortable drawing room with his sister. Their quarrel over a little dog attracts the watching children’s contempt.",
+      "snapshots": [
+        {
+          "after": [
+            9,
+            124
+          ],
+          "name": "Edgar Linton",
+          "body": "Edgar, Isabella’s brother, marries Catherine Earnshaw. He belongs to the Linton family at Thrushcross Grange."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "isabella-linton",
+      "kind": "person",
+      "category": "major",
+      "name": "Isabella Linton",
+      "aliases": [
+        "Isabella Linton",
+        "Isabella",
+        "Isabel"
+      ],
+      "subtitle": "Edgar’s sister",
+      "body": "She is one of the children Heathcliff watches through the drawing-room window at Thrushcross Grange. His hostile description comes from outside her household.",
+      "snapshots": [
+        {
+          "after": [
+            13,
+            6
+          ],
+          "name": "Isabella Linton",
+          "body": "Isabella has married Heathcliff. Her note to Edgar asks for remembrance and reconciliation, but receives no reply. Her married title, Mrs. Heathcliff, also belongs to a different woman in Lockwood’s opening visits."
+        },
+        {
+          "after": [
+            17,
+            65
+          ],
+          "name": "Isabella Linton",
+          "body": "After leaving Wuthering Heights, Isabella settles near London and gives birth to a son named Linton. She describes the child as sickly in her correspondence with Edgar."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "linton-heathcliff",
+      "kind": "person",
+      "category": "major",
+      "name": "Linton",
+      "aliases": [
+        "Linton Heathcliff"
+      ],
+      "subtitle": "The child named in Isabella’s letters",
+      "body": "Nelly recounts Isabella’s life away from the neighbourhood and the naming of her child.",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            65
+          ],
+          "name": "Linton Heathcliff",
+          "body": "Linton is Isabella and Heathcliff’s son. Linton is his given name; he is distinct from his uncle Edgar Linton and from his father Heathcliff."
+        }
+      ],
+      "contexts": {
+        "17:65": [
+          "Linton"
+        ]
+      }
+    },
+    {
+      "id": "joseph",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Joseph",
+      "aliases": [
+        "Joseph"
+      ],
+      "subtitle": "A servant at Wuthering Heights",
+      "body": "Heathcliff calls on Joseph to take Lockwood’s horse. Lockwood finds the elderly servant sour and unwelcoming.",
+      "snapshots": [],
+      "contexts": {}
+    },
+    {
+      "id": "frances-earnshaw",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Frances",
+      "aliases": [
+        "Frances"
+      ],
+      "subtitle": "A woman in Catherine’s diary",
+      "body": "Catherine’s account places Frances beside the man commanding the children. She joins in his rough treatment of Heathcliff.",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            9
+          ],
+          "name": "Frances",
+          "body": "Frances is Hindley’s wife. Catherine’s diary describes her pulling Heathcliff’s hair at Hindley’s request and then sitting on her husband’s knee."
+        },
+        {
+          "after": [
+            8,
+            13
+          ],
+          "name": "Frances Earnshaw",
+          "body": "Frances is Hareton’s mother. Nelly recounts her illness and death after his birth; little is known of her family before she married Hindley."
+        }
+      ],
+      "contexts": {}
+    },
+    {
+      "id": "mr-earnshaw-elder",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Mr. Earnshaw",
+      "aliases": [
+        "old Earnshaw"
+      ],
+      "subtitle": "The elder Earnshaw",
+      "body": "Nelly recalls the older master of Wuthering Heights setting off on foot for Liverpool.",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            32
+          ],
+          "name": "Mr. Earnshaw",
+          "body": "He is Hindley and the elder Catherine’s father. Nelly remembers his promises of presents before a journey to Liverpool."
+        },
+        {
+          "after": [
+            4,
+            37
+          ],
+          "name": "Mr. Earnshaw",
+          "body": "He brings a homeless child back from Liverpool and raises him in the household as Heathcliff. His care for the child does not establish biological parentage."
+        }
+      ],
+      "contexts": {
+        "4:32": [
+          "Mr. Earnshaw"
+        ],
+        "4:35": [
+          "Mr. Earnshaw"
+        ],
+        "4:36": [
+          "Mr. Earnshaw"
+        ],
+        "4:40": [
+          "Mr. Earnshaw"
+        ],
+        "5:0": [
+          "Mr. Earnshaw"
+        ],
+        "5:1": [
+          "Mr. Earnshaw"
+        ],
+        "5:2": [
+          "Mr. Earnshaw"
+        ],
+        "5:4": [
+          "Mr. Earnshaw"
+        ],
+        "5:5": [
+          "Mr. Earnshaw"
+        ],
+        "8:20": [
+          "Mr. Earnshaw"
+        ]
+      }
+    },
+    {
+      "id": "mrs-earnshaw-elder",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Mrs. Earnshaw",
+      "aliases": [],
+      "subtitle": "The elder Mrs. Earnshaw",
+      "body": "She waits with the children for Mr. Earnshaw to return from his journey to Liverpool.",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            35
+          ],
+          "name": "Mrs. Earnshaw",
+          "body": "She is the mother of Hindley and the elder Catherine. Nelly recalls her anger when her husband brings the unknown child home. She is distinct from Hindley’s wife Frances."
+        }
+      ],
+      "contexts": {
+        "4:33": [
+          "Mrs. Earnshaw"
+        ],
+        "4:35": [
+          "Mrs. Earnshaw"
+        ],
+        "4:39": [
+          "Mrs. Earnshaw"
+        ]
+      }
+    },
+    {
+      "id": "mr-linton-elder",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Mr. Linton",
+      "aliases": [],
+      "subtitle": "The elder Linton",
+      "body": "He belongs to the older generation at Thrushcross Grange. Heathcliff’s account places the children in the drawing room while the adults are absent.",
+      "snapshots": [
+        {
+          "after": [
+            6,
+            7
+          ],
+          "name": "Mr. Linton",
+          "body": "He is Edgar and Isabella’s father, a magistrate at Thrushcross Grange. In Heathcliff’s account he treats the unknown boy as a potential criminal. He is distinct from his son Edgar."
+        }
+      ],
+      "contexts": {
+        "6:5": [
+          "Mr."
+        ],
+        "6:7": [
+          "Mr. Linton"
+        ],
+        "6:10": [
+          "Mr. Linton"
+        ]
+      }
+    },
+    {
+      "id": "mrs-linton-elder",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Mrs. Linton",
+      "aliases": [],
+      "subtitle": "The elder Mrs. Linton",
+      "body": "She belongs to the older generation at Thrushcross Grange, where Heathcliff and Catherine watch the children through a window.",
+      "snapshots": [
+        {
+          "after": [
+            6,
+            7
+          ],
+          "name": "Mrs. Linton",
+          "body": "She is Edgar and Isabella’s mother, addressed by her husband as Mary. She is distinct from Catherine Earnshaw, who also bears the title Mrs. Linton later in the account."
+        }
+      ],
+      "contexts": {
+        "6:7": [
+          "Mrs. Linton",
+          "Mary"
+        ],
+        "6:5": [
+          "Mrs. Linton"
+        ]
+      }
+    },
+    {
+      "id": "kenneth",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Mr. Kenneth",
+      "aliases": [
+        "Mr. Kenneth",
+        "Kenneth"
+      ],
+      "subtitle": "The local doctor",
+      "body": "Kenneth is the medical practitioner consulted by the household. His opinions reach the reader through Nelly’s account.",
+      "snapshots": [],
+      "contexts": {}
+    },
+    {
+      "id": "zillah",
+      "kind": "person",
+      "category": "supporting",
+      "name": "Zillah",
+      "aliases": [
+        "Zillah"
+      ],
+      "subtitle": "A servant at the Heights",
+      "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.",
+      "snapshots": [],
+      "contexts": {}
+    },
+    {
+      "id": "shielders",
+      "kind": "person",
+      "category": "reference",
+      "name": "Mr. Shielders",
+      "aliases": [
+        "Shielders"
+      ],
+      "subtitle": "The curate",
+      "body": "Mr. Linton names Shielders while criticising the children’s upbringing. He is the parish curate, distinct from the preacher in Lockwood’s dream.",
+      "snapshots": [],
+      "contexts": {}
+    }
+  ]
+}
