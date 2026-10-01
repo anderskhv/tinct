@@ -164,6 +164,86 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'communist-manifesto': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62',
+        after: '5cccffe12e998383856f3d80ba64eddfb5371bbfe0b01cf04d0df503fe6760eb',
+      },
+    },
+  },
+  'kant-groundwork': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d',
+        after: '57c821d775792c3950f94a6d394e0d556310b21422e2c3bb2e6b63e77b249a9d',
+      },
+    },
+  },
+  'notes-from-underground': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8df3e74890b26ce3febb108540f3a7a32fd3afdc93b1d047cbe6b053793a0449',
+        after: 'f1b0a5dc65b4d9c67b43d3f26306ba17577dddad6c58292d445d65b5ced8eff1',
+      },
+    },
+  },
+  'heart-of-darkness': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '169c288c26f0c8c07be6d181855123cd982023a0b780262576944f5833afa435',
+        after: 'abcf3c20a7d0b42c15ad3196032cea5a14a113f8cecea35c70d5af8023d4aebf',
+      },
+    },
+  },
+  'jungle-book': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640',
+        after: 'b6b99a55ce2c4bd26f8b43f45c02b56bc75ce24cbc7d9457b9db8b1cf9ee0823',
+      },
+    },
+  },
+  'hume-enquiry': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
+        after: 'cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633',
+      },
+    },
+  },
+  'around-the-world-80-days': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
+        after: '834deaf955b4642198f078c721910e65c4f4a77da19131f913cd13d0c40d46d3',
+      },
+    },
+  },
+  'a-little-princess': {
+    revision: 'text-2026-09-30.3',
+    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020',
+        after: '0c85e130eb972dc490e337dc6e11a8c35930b29b6b34ea1c9740d80821e85b1e',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),
