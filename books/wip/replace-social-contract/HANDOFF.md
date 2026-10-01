@@ -95,3 +95,5 @@ The original candidate also has one colon-ended paragraph (entry 8 paragraph 3).
 ## Independence repair checkpoint
 
 After initial overlap scans, nine original paragraphs were re-rendered from the staged 1764 witness and documented in scratch/transcription-corrections.json. Additional re-renders cover entries 8.10, 11.6 and 11.7. Current original overlap is N=8 166/470; modern remains 66/470. Both fail the acceptance threshold. Raw witnesses remain unchanged. A fresh paragraph-length audit identifies ten modern paragraphs below 75% of the now-edited source; repair those alongside the remaining overlap flags. Exact next coordinates are in STATUS.md. The corrected editions have not yet passed their final gate run.
+
+Further overlap repair checkpoint: entries 15.1, 15.2, 15.6, 15.7, 15.9 and 15.10 were re-rendered from the staged 1764 witness in both editions. Latest counts are original N=8 161/470 and modern N=8 61/470. Both still fail; continue from STATUS.md. No protected wording was consulted.
