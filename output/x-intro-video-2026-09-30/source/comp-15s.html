@@ -95,6 +95,7 @@ const CAP = '../cap/';
 const src = {
   room: i => `${CAP}v3-open/f${pad(clamp(i, 0, 199))}.jpg`,
   r1: () => `${CAP}v2-read/r1.png`,
+  blank: () => `${CAP}v2-read/r1-blank.png`,
   r2: () => `${CAP}v2-read/r2.png`,
   ix: i => `${CAP}v2-read/i${pad(clamp(i, 0, 179))}.jpg`,
   end: i => `end2/e${pad(clamp(i, 1, 180))}.jpg`,
@@ -121,32 +122,44 @@ const toOut = (x, y, c) => ({ x: 960 + (x - c.cx) * 1.2 * c.z, y: 540 + (y - c.c
 const O = 0;
 const RI = 14;                 // room capture index = f + RI (the cover click, capture 130, lands at f116)
 const ROOM0 = 50, CLICK = 116, DIVE0 = 168, READ0 = 180, CTA0 = 306, END0 = 306, TOTAL = 372;
-const WIPE = [196, 212], TO_RIGHT = [214, 234], TO_LEFT = [256, 276];
+const WIPE = [214, 230], TO_RIGHT = [230, 250], TO_LEFT = [266, 286];
 
+const MATCH0 = 180, MATCH1 = 206;
+const MATCH_B = cam(800, 474, 1.25), MATCH_B2 = cam(800, 474, 1.28), MATCH_R = cam(800, 432, 1.25), MATCH_R2 = cam(800, 432, 1.28);
 function roomCam(f) {
   const t = sine(prog(f, ROOM0, CLICK));
   let c = cam(lerp(820, 868, t), lerp(420, 436, t), HOOK.z * lerp(1.02, 1.07, t));
   c = mixCam(c, cam(806, 462, 1.10), eio(prog(f, CLICK, CLICK + 34)));
-  c = mixCam(c, cam(1146, 452, 1.7), eio(prog(f, DIVE0 - 2, DIVE0 + 14)));
+  c = mixCam(c, MATCH_B, eio(prog(f, MATCH0 - 24, MATCH0)));
+  c = mixCam(c, MATCH_B2, sine(prog(f, MATCH0, MATCH1)));
   return c;
 }
 const V = {
   settle0: cam(800, 450, 1.08), full: cam(800, 452, 1.0), fullIn: cam(800, 452, 1.03),
-  right: cam(1172, 336, 1.9), left: cam(424, 336, 1.9), leftIn: cam(428, 334, 1.95),
+  right: cam(1172, 336, 1.9), left: cam(424, 336, 1.9), leftIn: cam(428, 334, 1.95), mid: cam(820, 440, 1.12),
 };
 const drift = (a, b, f, f0, f1) => mixCam(a, b, sine(prog(f, f0, f1)));
 function readerCam(f) {
-  if (f < 196) return mixCam(V.settle0, V.full, eo(prog(f, READ0, 196)));
-  if (f < TO_RIGHT[0]) return drift(V.full, V.fullIn, f, 196, TO_RIGHT[0]);
-  if (f < TO_RIGHT[1]) return mixCam(V.fullIn, V.right, eio(prog(f, ...TO_RIGHT)));
+  if (f < MATCH1) return drift(MATCH_R, MATCH_R2, f, MATCH0 - 2, MATCH1);
+  if (f < TO_RIGHT[0]) return mixCam(MATCH_R2, V.mid, eio(prog(f, MATCH1, TO_RIGHT[0])));
+  if (f < TO_RIGHT[1]) return mixCam(V.mid, V.right, eio(prog(f, ...TO_RIGHT)));
   if (f < TO_LEFT[0]) return V.right;
   if (f < TO_LEFT[1]) return mixCam(V.right, V.left, eio(prog(f, ...TO_LEFT)));
   return drift(V.left, V.leftIn, f, TO_LEFT[1], END0 + 14);
 }
+const ROOMIDX = f => f + RI;
 function plates(f) {
   const out = [];
-  if (f < READ0 + 2) {
-    if (f >= ROOM0) out.push({ src: src.room(f + RI), cam: roomCam(f), op: sine(prog(f, ROOM0, ROOM0 + 18)) });
+  if (f < 214) {
+    if (f >= ROOM0 && f < 192) {
+      const k = prog(f, 178, 192);
+      out.push({ src: src.room(ROOMIDX(f)), cam: roomCam(f), op: sine(prog(f, ROOM0, ROOM0 + 22)), filter: k > 0 ? `blur(${(4 * sine(k)).toFixed(2)}px)` : 'none' });
+    }
+    if (f >= 178) {
+      const c = readerCam(f), k = prog(f, 178, 192);
+      out.push({ src: src.blank(), cam: c, op: sine(k), filter: `blur(${(3 * (1 - sine(k))).toFixed(2)}px)` });
+      if (f >= 190) out.push({ src: src.r1(), cam: c, op: 1, ink: prog(f, 190, 214) });
+    }
     return out;
   }
   if (f < END0 + 14) {
@@ -218,8 +231,8 @@ function drawCta(f) {
   $('cta').style.opacity = 0;
 }
 const PILLS = [
-  { a: 200, b: 254, html: 'Mary Shelley’s original…' },
-  { a: 260, b: 304, html: '…beside plain modern English.' },
+  { a: 216, b: 262, html: 'Mary Shelley’s original…' },
+  { a: 268, b: 304, html: '…beside plain modern English.' },
 ];
 function drawPill(f) {
   const p = PILLS.find(p => f >= p.a - 1 && f <= p.b + 1), el = $('pill');
@@ -266,7 +279,13 @@ async function seek(f) {
       el.style.filter = `blur(${b.toFixed(2)}px) brightness(${br.toFixed(3)}) saturate(.95)`;
     } else { placeCapture(el, p.cam); el.style.filter = p.filter || 'none'; }
     el.style.opacity = p.op;
-    if (p.wipe !== undefined) {
+    if (p.ink !== undefined) {
+      // the words ink in, top to bottom, on a gentle diagonal
+      const e = lerp(-260, 2280, eio(p.ink));
+      el.style.webkitMaskImage = `linear-gradient(176deg, #000 ${e - 240}px, transparent ${e}px)`;
+      el.style.webkitMaskSize = '3200px 1800px';
+      el.style.clipPath = 'none';
+    } else if (p.wipe !== undefined) {
       const yEdge = lerp(-120, 1900, eio(p.wipe));
       el.style.webkitMaskImage = `linear-gradient(180deg, #000 ${yEdge - 120}px, transparent ${yEdge + 60}px)`;
       el.style.webkitMaskSize = '3200px 1800px';
@@ -279,8 +298,8 @@ async function seek(f) {
   if (fl > 0.01 && ps[0]) plateEls[0].style.filter = `brightness(${(1 + fl * 0.3).toFixed(3)})`;
   $('hookShade').style.opacity = sine(prog(f, ROOM0 + 10, ROOM0 + 30)) * (1 - prog(f, CLICK - 10, CLICK + 6));
   drawOpen(f); drawHook(f); drawCta(f); drawPill(f); drawEnd(f); drawCursor(f);
-  $('paper').style.opacity = f < DIVE0 || f > 194 ? 0 : (f < READ0 ? sine(prog(f, DIVE0, READ0)) : 1 - sine(prog(f, READ0, 194)));
-  const paper = f >= READ0 && f < CTA0 ? 1 : (f >= DIVE0 && f < READ0 ? prog(f, DIVE0, READ0) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
+  $('paper').style.opacity = 0;
+  const paper = f >= 192 && f < CTA0 ? 1 : (f >= MATCH0 - 20 && f < 192 ? sine(prog(f, MATCH0 - 20, 192)) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
   $('vignette').style.opacity = lerp(1, 0.35, paper);
   $('grain').style.backgroundImage = `url(${grainTiles[f % grainTiles.length]})`;
   $('grain').style.backgroundPosition = `${(f * 97) % 384}px ${(f * 53) % 384}px`;

@@ -320,9 +320,10 @@ sfx = buf()
 place(sfx, page_flutter(0.9), fr(118), gain=0.14, pan=0.35)              # the cover swings open
 place(sfx, whoosh(1.6, 250, 1400, 0.45), fr(128), gain=0.20, pan=0.15)   # the book comes to us
 place(sfx, page_flutter(0.7), fr(146), gain=0.08)
-place(sfx, whoosh(0.8, 700, 3200, 0.35), fr(168), gain=0.14)             # into the page
-place(sfx, page_flutter(0.6), fr(197), gain=0.12, pan=0.35)              # the 1831 page lays in
-place(sfx, whoosh(0.5, 1200, 3800, 0.4), fr(196), gain=0.06, pan=0.35)
+place(sfx, whoosh(1.0, 500, 2400, 0.5), fr(176), gain=0.10)              # the page clears
+place(sfx, page_flutter(0.5), fr(192), gain=0.05)                        # the words ink in
+place(sfx, page_flutter(0.6), fr(215), gain=0.12, pan=0.35)              # the 1831 page lays in
+place(sfx, whoosh(0.5, 1200, 3800, 0.4), fr(214), gain=0.06, pan=0.35)
 sfx = wet(sfx, reverb_ir(1.2, 0.25), 0.18)
 
 # ------------------------------------------------------------------ mix

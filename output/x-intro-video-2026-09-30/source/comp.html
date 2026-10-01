@@ -95,6 +95,7 @@ const CAP = '../cap/';
 const src = {
   room: i => `${CAP}v3-open/f${pad(clamp(i, 0, 199))}.jpg`,
   r1: () => `${CAP}v2-read/r1.png`,
+  blank: () => `${CAP}v2-read/r1-blank.png`,
   r2: () => `${CAP}v2-read/r2.png`,
   ix: i => `${CAP}v2-read/i${pad(clamp(i, 0, 179))}.jpg`,
   end: i => `end2/e${pad(clamp(i, 1, 180))}.jpg`,
@@ -119,14 +120,18 @@ const toOut = (x, y, c) => ({ x: 960 + (x - c.cx) * 1.2 * c.z, y: 540 + (y - c.c
 // v3 timeline (24 fps): one continuous take from the room into the open book, then slower features
 const O = 12;   // the slow-motion opening lands 12 frames later; everything after it shifts
 const ROOM0 = 54, CLICK = 184, DIVE0 = 236, READ0 = 240 + O, CTA0 = 772 + O, END0 = 834 + O, TOTAL = 934 + O;
-const WIPE = [280 + O, 300 + O], TO_RIGHT = [318 + O, 346 + O], TO_LEFT = [384 + O, 414 + O], EX0 = 452 + O, CH0 = 604 + O;
+const WIPE = [304, 322], TO_RIGHT = [318 + O, 346 + O], TO_LEFT = [384 + O, 414 + O], EX0 = 452 + O, CH0 = 604 + O;
 
+// match-cut: the open book's spread and the reader's spread share the gutter (x≈800); at z 1.25 both fill the frame
+const MATCH0 = 248, MATCH1 = 276;
+const MATCH_B = cam(800, 474, 1.25), MATCH_B2 = cam(800, 474, 1.28), MATCH_R = cam(800, 432, 1.25), MATCH_R2 = cam(800, 432, 1.28);
 function roomCam(f) {
   // the camera drifts toward the book on the table; the book opens and comes to us; we sink into the page
   const t = sine(prog(f, ROOM0, CLICK));
   let c = cam(lerp(800, 868, t), lerp(414, 436, t), HOOK.z * lerp(1.0, 1.07, t));
   c = mixCam(c, cam(806, 462, 1.10), eio(prog(f, CLICK, CLICK + 34)));
-  c = mixCam(c, cam(1146, 452, 1.7), eio(prog(f, DIVE0 - 2, DIVE0 + 16)));
+  c = mixCam(c, MATCH_B, eio(prog(f, MATCH0 - 26, MATCH0)));
+  c = mixCam(c, MATCH_B2, sine(prog(f, MATCH0, MATCH1)));
   return c;
 }
 const V = {
@@ -137,8 +142,9 @@ const V = {
 };
 const drift = (a, b, f, f0, f1) => mixCam(a, b, sine(prog(f, f0, f1)));
 function readerCam(f) {
-  if (f < (260 + O)) return mixCam(V.settle0, V.full, eo(prog(f, READ0, (260 + O))));
-  if (f < TO_RIGHT[0]) return drift(V.full, V.fullIn, f, (260 + O), TO_RIGHT[0]);
+  if (f < MATCH1) return drift(MATCH_R, MATCH_R2, f, MATCH0 - 2, MATCH1);
+  if (f < 306) return mixCam(MATCH_R2, V.full, eio(prog(f, MATCH1, 306)));
+  if (f < TO_RIGHT[0]) return drift(V.full, V.fullIn, f, 306, TO_RIGHT[0]);
   if (f < TO_RIGHT[1]) return mixCam(V.fullIn, V.right, eio(prog(f, ...TO_RIGHT)));
   if (f < TO_LEFT[0]) return V.right;
   if (f < TO_LEFT[1]) return mixCam(V.right, V.left, eio(prog(f, ...TO_LEFT)));
@@ -166,10 +172,19 @@ function chatFrame(f) {
   return clamp(160 + (f - (706 + O)), 160, 179);
 }
 
+const ROOMIDX = f => f - ROOM0;
 function plates(f) {
   const out = [];
-  if (f < READ0 + 2) {
-    if (f >= ROOM0) out.push({ src: src.room(f - ROOM0), cam: roomCam(f), op: sine(prog(f, ROOM0, ROOM0 + 26)) });
+  if (f < 290) {
+    if (f >= ROOM0 && f < 262) {
+      const k = prog(f, 246, 262);
+      out.push({ src: src.room(ROOMIDX(f)), cam: roomCam(f), op: sine(prog(f, ROOM0, ROOM0 + 22)), filter: k > 0 ? `blur(${(4 * sine(k)).toFixed(2)}px)` : 'none' });
+    }
+    if (f >= 246) {
+      const c = readerCam(f), k = prog(f, 246, 262);
+      out.push({ src: src.blank(), cam: c, op: sine(k), filter: `blur(${(3 * (1 - sine(k))).toFixed(2)}px)` });
+      if (f >= 260) out.push({ src: src.r1(), cam: c, op: 1, ink: prog(f, 260, 290) });
+    }
     return out;
   }
   if (f < EX0) {
@@ -273,7 +288,7 @@ function drawCta(f) {
   $('cta').style.opacity = f >= CTA0 && f < END0 + 4 ? 1 : 0;
 }
 const PILLS = [
-  { a: (286 + O), b: (382 + O), html: 'Mary Shelley’s original…' },
+  { a: 308, b: (382 + O), html: 'Mary Shelley’s original…' },
   { a: (388 + O), b: (450 + O), html: '…beside plain modern English.' },
   { a: (462 + O), b: (600 + O), html: 'Stuck on a line? Tinct explains it.' },
   { a: (612 + O), b: (768 + O), html: 'Ask anything. It knows your page.' },
@@ -323,7 +338,13 @@ async function seek(f) {
       el.style.filter = `blur(${b.toFixed(2)}px) brightness(${br.toFixed(3)}) saturate(.95)`;
     } else { placeCapture(el, p.cam); el.style.filter = p.filter || 'none'; }
     el.style.opacity = p.op;
-    if (p.wipe !== undefined) {
+    if (p.ink !== undefined) {
+      // the words ink in, top to bottom, on a gentle diagonal
+      const e = lerp(-260, 2280, eio(p.ink));
+      el.style.webkitMaskImage = `linear-gradient(176deg, #000 ${e - 240}px, transparent ${e}px)`;
+      el.style.webkitMaskSize = '3200px 1800px';
+      el.style.clipPath = 'none';
+    } else if (p.wipe !== undefined) {
       const yEdge = lerp(-120, 1900, eio(p.wipe));
       el.style.webkitMaskImage = `linear-gradient(180deg, #000 ${yEdge - 120}px, transparent ${yEdge + 60}px)`;
       el.style.webkitMaskSize = '3200px 1800px';
@@ -336,8 +357,8 @@ async function seek(f) {
   if (fl > 0.01 && ps[0]) plateEls[0].style.filter = `brightness(${(1 + fl * 0.3).toFixed(3)})`;
   $('hookShade').style.opacity = sine(prog(f, ROOM0 + 10, ROOM0 + 30)) * (1 - prog(f, CLICK - 10, CLICK + 6));
   drawOpen(f); drawHook(f); drawCta(f); drawPill(f); drawEnd(f); drawCursor(f);
-  $('paper').style.opacity = f < DIVE0 || f > 256 + O ? 0 : (f < READ0 ? sine(prog(f, DIVE0, READ0)) : 1 - sine(prog(f, READ0, 256 + O)));
-  const paper = f >= READ0 && f < CTA0 ? 1 : (f >= DIVE0 && f < READ0 ? prog(f, DIVE0, READ0) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
+  $('paper').style.opacity = 0;
+  const paper = f >= 262 && f < CTA0 ? 1 : (f >= MATCH0 - 20 && f < 262 ? sine(prog(f, MATCH0 - 20, 262)) : (f >= CTA0 && f < CTA0 + 14 ? 1 - prog(f, CTA0, CTA0 + 14) : 0));
   $('vignette').style.opacity = lerp(1, 0.35, paper);
   $('grain').style.backgroundImage = `url(${grainTiles[f % grainTiles.length]})`;
   $('grain').style.backgroundPosition = `${(f * 97) % 384}px ${(f * 53) % 384}px`;

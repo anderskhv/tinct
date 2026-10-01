@@ -1,0 +1,13 @@
+const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const S = process.env.FILM_WORK || process.cwd();
+const browser = await chromium.launch({ args: ['--hide-scrollbars', '--mute-audio'] });
+const page = await (await browser.newContext({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 2 })).newPage();
+await page.goto('http://127.0.0.1:3001/'); await page.waitForTimeout(5000);
+await page.getByRole('button', { name: 'Read' }).first().click(); await page.waitForTimeout(2500);
+await page.getByText('Begin reading').first().click(); await page.waitForTimeout(6000);
+await page.mouse.move(1590, 890); await page.waitForTimeout(800);
+await page.screenshot({ path: `${S}/cap/v2-read/r1-check.png` });
+await page.addStyleTag({ content: `*{color:transparent!important;text-shadow:none!important;-webkit-text-fill-color:transparent!important}` });
+await page.waitForTimeout(600);
+await page.screenshot({ path: `${S}/cap/v2-read/r1-blank.png` });
+await browser.close();

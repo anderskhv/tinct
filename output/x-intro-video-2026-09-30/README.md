@@ -6,26 +6,27 @@ All three are 1920×1080, 24 fps, H.264 High (BT.709) with AAC stereo, and withi
 
 | File | Length | Use |
 |---|---|---|
-| `tinct-x-intro-v3.2.mp4` | 39.4 s | Launch / pinned post |
+| `tinct-x-intro-v3.3.mp4` | 39.4 s | Launch / pinned post |
 | `tinct-x-15s.mp4` | 15.5 s | Cutdown for replies, reposts and any paid promotion |
 | `tinct-x-characters.mp4` | 15.0 s | Single-feature follow-up: character look-up |
 
 Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the main film and the cutdown; `poster-characters.jpg` (the names over the garret) is for the characters clip.
 
-## Main film: `tinct-x-intro-v3.2.mp4`
+## Main film: `tinct-x-intro-v3.3.mp4`
 
 | Time | Shot | On screen |
 |---|---|---|
 | 0:00 | Dark | *Nothing you scrolled past today / will be read in 200 years.* |
 | 0:02 | Frankenstein's room fades in on a soft lightning flash; the camera drifts toward the book | MARY SHELLEY · 1818: *What do we owe to the intelligence we create?* |
-| 0:07 | The cover swings open in slow motion and the book comes to us; we sink into the page | (real library animation, page chrome hidden) |
-| 0:10 | Letter 1 in Tinct Modern English; the 1831 original lays in beside it | "Mary Shelley's original…" / "…beside plain modern English." |
+| 0:07 | The cover swings open in slow motion and the book comes to us; its pages fill the frame | (real library animation, page chrome hidden) |
+| 0:10 | The Introduction's words clear from the page, then Letter 1 inks in, top to bottom | |
+| 0:12 | Letter 1 in Tinct Modern English; the 1831 original lays in beside it | "Mary Shelley's original…" / "…beside plain modern English." |
 | 0:19 | Select "the seat of frost and desolation" on the 1831 page → Explain | "Stuck on a line? Tinct explains it." |
 | 0:25 | Chat: "Is this book really about AI?" | "Ask anything. It knows your page." |
 | 0:32 | Reading room by the fire | *Trade one scroll for one chapter.* |
 | 0:35 | End card | Tinct · The world's best reading experience · *for the world's greatest books* · tinct.app → |
 
-`audio-with-music.m4a` is the alternative soundtrack for the main film, adding a soft synthesized piano and pad: `ffmpeg -i tinct-x-intro-v3.2.mp4 -i audio-with-music.m4a -map 0:v -map 1:a -c copy tinct-x-intro-v3.2-music.mp4`.
+`audio-with-music.m4a` is the alternative soundtrack for the main film, adding a soft synthesized piano and pad: `ffmpeg -i tinct-x-intro-v3.3.mp4 -i audio-with-music.m4a -map 0:v -map 1:a -c copy tinct-x-intro-v3.3-music.mp4`.
 
 **Suggested post**
 > Nothing you scrolled past today will be read in 200 years. Frankenstein will.
@@ -38,7 +39,7 @@ Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the mai
 
 ## 15 s cutdown: `tinct-x-15s.mp4`
 
-The cutdown keeps the opening line, the room and its question, the cover opening, and one Compare beat ("Mary Shelley's original…" / "…beside plain modern English.") before the end card.
+The cutdown keeps the opening line, the room and its question, the cover opening, the same clear-and-ink transition, and one Compare beat ("Mary Shelley's original…" / "…beside plain modern English.") before the end card.
 
 **Suggested post:** *Nothing you scrolled past today will be read in 200 years. Read something that will. tinct.app*
 
@@ -67,11 +68,12 @@ The cards are Tinct's real character cards. They come from the reviewed characte
 
 - **Real product rendering.** Rooms, covers, the book-opening animation, the reader, Compare, menus, the Explain card, the Chat panel and the character cards were rendered by the current Tinct code in headless Chromium. The clock was frozen and frames were stepped one at a time at 24 fps, so the UI motion is the app's own. The slow-motion opening comes from stepping the app's own clock slower.
 - **The main film's AI answers were staged.** The Explain and Chat replies were hand-written and streamed into the real UI through a local mock of `/api/lab-chat`. No Anthropic API was called. The character cards are real content, not staged.
+- **The clear-and-ink transition is composited.** It uses two real reader renders of Letter 1: the normal page and the same page with its text hidden (`source/cap-blank.mjs`). They are pixel-identical apart from the text.
 - **The lightning flash is added.** It's a grade on top of the Frankenstein room.
 - **The audio is synthesized.** It comes from `source/audio*.py`.
 - **The build was local, not production.** The captures came from this branch's code, which can be slightly ahead of tinct.app.
 
-Earlier cuts are in git history: v1 `e494aab8`, v2 `19a26c8c`, v3 `dae66ac8`, v3.1 `6215c916`.
+Earlier cuts are in git history: v1 `e494aab8`, v2 `19a26c8c`, v3 `dae66ac8`, v3.1 `6215c916`, v3.2 `15a61b21`.
 
 ## Regenerating
 
@@ -81,7 +83,7 @@ The work directory (`FILM_WORK`, default is the current directory) holds `cap/`,
 2. Transcode the library loops you need (`room-wide-v2`, `scene-crime-and-punishment-wide`) from `app/public/lab/library_2/assets/scenes/` to VP9 in `webm/`, because Playwright's Chromium has no H.264. Serve them with `npx http-server webm -p 3002`.
 3. Run the captures (set `PLAYWRIGHT_MODULE` if Playwright isn't resolvable):
    - Frankenstein opening: `SPEED_RAMP="122:134:0.6" COVER_AT=130 node cap-scene.mjs "Feature Frankenstein" room-wide-v2.webm 2.0 200 v3-open 0 cover`
-   - Frankenstein reader: `node cap-interact.mjs` (into `cap/v2-read`)
+   - Frankenstein reader: `node cap-interact.mjs` (into `cap/v2-read`), then `node cap-blank.mjs` for the text-free page `r1-blank.png`
    - Crime and Punishment room: `node cap-scene.mjs "Feature Crime and Punishment" scene-crime-and-punishment-wide.webm 3.0 140 cp-room`
    - Crime and Punishment look-ups: `node cap-interact-characters.mjs` (into `cap/cp-read`)
 4. Extract the reading room: `ffmpeg -ss 1 -i table-evening-wide.mp4 -frames:v 180 -q:v 2 comp/end2/e%04d.jpg`. Fetch the fonts with `get.py`.
