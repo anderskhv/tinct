@@ -66,6 +66,10 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    if(!sample)try{if(table.mode==='returning'||saved.length)localStorage.setItem('tinct-library-2-reading-table','{"mode":"returning"}');else localStorage.removeItem('tinct-library-2-reading-table');}catch{}
   }catch(error){
    window.__library2LoadError=String(error&&(error.stack||error.message)||error);
+   // Mid-deploy a module the page asks for can be missing for a moment; a
+   // failed import is not retried in place, so reload once (twice at most in
+   // two minutes) before showing the error.
+   if(!view&&!sample&&staleReload()){setTimeout(()=>location.reload(),2500);return;}
    if(view){settle();notice('Showing your saved shelf. It will refresh when you reconnect.');}
    else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>location.reload();const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery',auto:false});settle();html.classList.remove('returning');};loading.append(message,retry,browse);if(new URLSearchParams(location.search).has('debug')){const detail=document.createElement('pre');detail.style.cssText='white-space:pre-wrap;font:11px/1.4 monospace;text-align:left;max-width:100%;overflow:auto;opacity:.8';detail.textContent=window.__library2LoadError;loading.append(detail);}}
    else settle();
@@ -85,4 +89,4 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  ready=load();
  return {show:()=>{if(view||api){show(table.reading.length?'reading':saved.length?'later':'finished');(shelfStudy?root:hero).scrollIntoView({block:'start'});}else ready=load();}};
 }
-
+function staleReload(){try{const now=Date.now(),key='tinct:stale-reload',recent=JSON.parse(sessionStorage.getItem(key)||'[]').filter(at=>now-at<120000);if(recent.length>=2)return false;sessionStorage.setItem(key,JSON.stringify([...recent,now]));return true;}catch{return false;}}
