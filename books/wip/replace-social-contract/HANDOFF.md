@@ -116,3 +116,6 @@ Latest checkpoint: entries 25.4, 25.8, 25.12, 26.5, 28.1, and 28.4 re-rendered a
 
 
 Additional checkpoint: entries 29.1, 29.5, 29.7, and 29.12 were re-rendered and logged. Current overlap counts are original N=10 53/470, N=8 134/470; modern N=10 9/470, N=8 35/470. Classifier variants and paragraph audit pass. See STATUS.md; work remains.
+
+
+Checkpoint: entries 32.5 and 33.1, 33.10 were re-rendered in both editions, documented in the ledger. Latest overlap: original N=10 53/470, N=8 133/470; modern N=10 8/470, N=8 33/470. Classifier variants and paragraph audits pass (weighted 0.372). Acceptance remains open.
