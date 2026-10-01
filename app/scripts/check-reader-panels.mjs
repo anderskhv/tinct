@@ -50,6 +50,10 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
       requests.push({narration:req.postDataJSON()})
       return route.fulfill({status:401,json:{error:'unauthenticated'}})
     }
+    if (url.pathname==='/api/lab-chapter-notes') {
+      const body=req.postDataJSON(); requests.push({chapterNotes:body})
+      return route.fulfill({json:{beats:[{title:'Where it begins',text:'A compact opening grounded in the chapter.'},{title:'Then',text:'A second beat follows it.'}],kind:body.kind,chapterNumber:body.chapterNumber,through:null,source:'model'}})
+    }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
       return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>')) ? definition : explanation) })
@@ -854,8 +858,13 @@ async function menuRedesign(engine,name,phone) {
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
-    await page.getByText('A compact opening grounded in the selected passage.').waitFor()
-    assert(requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'||JSON.stringify(body.messages??[]).includes('Recap this chapter.')),'summary uses existing chapter chat')
+    // Summarize is a card of beats in its own sheet, not a chat answer.
+    await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()
+    assert(requests.some(body=>body.chapterNotes?.kind==='sofar'||body.chapterNotes?.kind==='end'),'summary asks for chapter notes')
+    assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
+    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
+    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)
+    await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
     result.passed=true
