@@ -47,6 +47,8 @@ describe('narration pilot flag and prefs', () => {
     expect(resolveNarrationVoice({ ...DEFAULT_LAB_PREFS, voicePersona: 'female', voicePersonaChosen: true }, voices)).toBe('f')
     expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, voices)).toBe('m')
     expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, [])).toBeNull()
+    // Helios not offered: the first offered voice narrates, never "unavailable".
+    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, [{ key: 'f', label: 'Ara', persona: 'female' as const }])).toBe('f')
   })
 })
 
