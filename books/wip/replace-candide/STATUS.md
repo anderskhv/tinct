@@ -1,7 +1,7 @@
-BLOCKED: No screened rights-eligible English source passes the required original-text overlap gate; the Walton Volume III first-paragraph sample itself triggers N=10, so the source fails screening.
+BLOCKED: No screened rights-eligible source passes the unchanged original-text overlap gate; the only new qualified lead, Morley (1922), is available only as HathiTrust search-only text, while Walton fails the first-paragraph sample.
 STATUS: INCOMPLETE
 
-The requested 30-chapter package is not complete and must not be integrated. Walton is rights-qualified, and its Volume III is accessible page-at-a-time in Google Books; a visual first-paragraph sample triggers N=10 (26 overlapping words), so Walton is not a viable source. The remainder was not transcribed or gated. Every eligible source screened so far fails the original-text overlap gate. See HANDOFF.md.
+The requested 30-chapter package is not complete and must not be integrated. Walton is rights-qualified, and its Volume III is accessible page-at-a-time in Google Books; a visual first-paragraph sample triggers N=10 (26 overlapping words), so Walton is not viable. Henry Morley's 1922 translation is rights-qualified, but its only identified digital copy is HathiTrust search-only, so no paragraph screen could be performed. Every eligible accessible source screened so far fails the original-text overlap gate. See HANDOFF.md.
 
 - Branch: content/replace-candide-codex, based on fetched origin/integration/release-candidate-6 at 95837141b.
 - Verified 1759 Nourse source; raw scans/OCR and rights evidence retained.
