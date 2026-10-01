@@ -13,3 +13,4 @@
 - Verification: character-service suite 497/497 PASS (6 files); direct Middlemarch runtime verification PASS with in-memory registration only; hashes, UTF-16 anchors and gate boundaries PASS.
 - Generic baseline compiled, then reviewed assembly via `build_reviewed.compile_package` and the per-book `bind` function. Final asset is the reviewed assembly.
 - Items 2–4 pending. No shared registry changes, publication, deployment, PR, narration or API generation.
+- Item 2 COMPLETE: preface reuses onboarding `about` verbatim; library introduction includes George Eliot / Mary Ann Evans, hook and live-number orientation. Preface SHA-256 and whitespace word count recorded in `release/manifest-entry.json`; JSON and verbatim checks PASS.
