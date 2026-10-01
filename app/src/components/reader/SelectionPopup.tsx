@@ -432,7 +432,9 @@ export function SelectionPopup({
               aria-label="Highlight note"
               rows={3}
               onClick={e => e.stopPropagation()}
-              autoFocus={!contextualExplain}
+              // Desktop: type straight away (otherwise the reader's letter shortcuts
+              // take the keys). Touch: no focus, so the keyboard waits for a tap.
+              autoFocus={!contextualExplain || (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches === true)}
             />
             <div className="popup-note-actions">
               <button className="popup-button" onClick={() => {

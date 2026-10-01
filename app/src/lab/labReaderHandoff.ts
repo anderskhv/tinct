@@ -78,8 +78,23 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
       ? createReaderHandoffIntent({ bookId: heldBook, primaryEditionKey: heldEdition,
           savedPlace: { bookId: heldBook, chapterNumber: positive('chapter', 1), paragraphIndex: positive('paragraph', 0), wordIndex: positive('word', 0), page: 0 } })
       : consumeLabReaderHandoff() ?? readerHandoffFromUrlParams(params)
+    if (!heldBook && pageHandoff && params?.has('chapter') && readerHandoffFromUrlParams(params)) forgetDeepLinkParams(params)
   }
   return pageHandoff
+}
+
+/**
+ * A deep link opens its chapter once. Leaving `chapter` in the address made a
+ * later reload jump back to it and overwrite the reader's place (QA
+ * 2026-10-01), so the link's own parameters leave the URL once read.
+ */
+function forgetDeepLinkParams(params: URLSearchParams): void {
+  try {
+    const rest = new URLSearchParams(params)
+    for (const key of ['book', 'edition', 'chapter']) rest.delete(key)
+    const query = rest.toString()
+    window.history.replaceState(window.history.state, '', window.location.pathname + (query ? `?${query}` : '') + window.location.hash)
+  } catch { /* the place still opens; only a reload would differ */ }
 }
 
 export function releaseLabReaderHandoffForPage(handoff: ReaderHandoffIntent | null): void {
