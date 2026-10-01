@@ -324,8 +324,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                       { value: 'eve', label: 'Eve · Female' },
                     ] : [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }]}
                     onChange={value => onPrefs(value === 'orion' || value === 'eve'
-                      ? { ...prefs, audiobookVoice: value }
-                      : { ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female' })}
+                      ? { ...prefs, audiobookVoice: value, voicePersonaChosen: true }
+                      : { ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female', voicePersonaChosen: true })}
                   />
                 <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
                   options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
