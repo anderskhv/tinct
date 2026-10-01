@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { lineatedProseJoins, lineSlice, proseJoins, proseRuns, registerLineatedChapter, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
+import { lineatedProseJoins, lineSlice, proseJoins, proseRuns, registerLineatedChapter, registerLoadedChapter, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
 import { LabPassage } from './LabPassage'
 import { measuredDesktopPages } from './LabDesktopPaginator'
 import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
@@ -97,6 +97,18 @@ describe('BSB poetry set as prose', () => {
     const registered = [...paragraphs]
     registerLineatedChapter(registered)
     expect(proseJoins(registered)).toEqual([false, true, true, true])
+  })
+
+  it('registers BSB chapters from any loader, by edition key', () => {
+    // The desktop spread previews the next chapter through its own loader; it
+    // must register BSB poetry too or that leaf paints one line per paragraph.
+    const lines = ['¹ Do not envy wicked men', 'or desire their company;', '² for their hearts devise violence,', 'and their lips declare trouble.']
+    const web = [...lines]
+    registerLoadedChapter('web-en', web)
+    expect(proseJoins(web)).toEqual([false, false, false, false])
+    const bsb = [...lines, '']
+    registerLoadedChapter('bsb-en', bsb)
+    expect(proseJoins(bsb).slice(0, 4)).toEqual([false, true, true, true])
   })
 })
 

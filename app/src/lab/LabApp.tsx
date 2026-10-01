@@ -5,6 +5,7 @@ import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
 import { useDesktopCommands, useDesktopAppearance } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
+import { registerLoadedChapter } from './labPoetry'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
@@ -2660,6 +2661,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       version: typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : undefined,
     }).then(chapter => {
       if (!live || !chapter?.paragraphs.length) return
+      registerLoadedChapter(readerEditionKey, chapter.paragraphs)
       // Use the same complete source as the destination paginator. A truncated
       // sample can mistake its last paragraph for the real chapter ending.
       setNextOpening({ key: nextOpeningKey, title: nextChapterTitle, paragraphs: chapter.paragraphs })

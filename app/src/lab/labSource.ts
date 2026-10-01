@@ -1,4 +1,4 @@
-import { registerLineatedChapter } from './labPoetry'
+import { registerLoadedChapter } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
@@ -354,7 +354,7 @@ async function loadBibleChapterText(editionKey: string, entry: { number: number;
   const data = await res.json() as { paragraphs?: string[] }
   const paragraphs = Array.isArray(data.paragraphs) ? data.paragraphs : []
   // BSB stores poetry one line per paragraph; the reader sets it as prose.
-  if (/^bsb-/.test(editionKey)) registerLineatedChapter(paragraphs)
+  registerLoadedChapter(editionKey, paragraphs)
   if (paragraphs.length > 0) chapterTextCache.set(cacheKey, paragraphs)
   return paragraphs
 }
