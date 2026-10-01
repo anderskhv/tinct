@@ -49,7 +49,8 @@ metadata alone cannot create a completed review.
   Previously delivered or directly addressed static files require separate
   removal/cache handling; this gate is not a remote revocation system.
 - Cover art and audio are outside this review. The pilot uses a typographic cover
-  and has no recording, translation, introduction or annotations.
+  and has no translation, introduction or annotations. Generated narration has its
+  own record and gate: see [NARRATION-RIGHTS.md](NARRATION-RIGHTS.md).
 
 Only **The Time Machine, original English text**, is currently admitted. Wells
 died in 1946 ([Imperial College biography](https://www.imperial.ac.uk/centenary/images/presskit/PR_Imperial.pdf));

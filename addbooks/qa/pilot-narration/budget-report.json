@@ -1,0 +1,26 @@
+{
+  "origin": "http://127.0.0.1:8787",
+  "provider": "mock xAI /v1/tts (no real provider)",
+  "budgetMode": true,
+  "startedAt": "2026-10-01T13:56:47.576Z",
+  "cases": [
+    {
+      "name": "desktop",
+      "scenario": "signed-in reader over the daily narration ceiling is refused before any provider call",
+      "message": "Daily narration limit reached.\nRetry\n×",
+      "ttsCalls": 0,
+      "errors": [],
+      "ok": true
+    },
+    {
+      "name": "phone",
+      "scenario": "signed-in reader over the daily narration ceiling is refused before any provider call",
+      "message": "Daily narration limit reached.\nRetry\n×",
+      "ttsCalls": 0,
+      "errors": [],
+      "ok": true
+    }
+  ],
+  "completedAt": "2026-10-01T13:57:01.379Z",
+  "totalMockTtsCalls": 119
+}

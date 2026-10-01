@@ -3,6 +3,7 @@ import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
+import { isReviewedImportEditionPath } from '../../addbooks/danishRights'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -321,7 +322,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         })
       }
 
-      if (url.pathname.startsWith('/data/editions/') && !editionBookIdFromPath(url.pathname)) {
+      // Reader-only Add imports are not catalogue books, but their reviewed edition files must load.
+      if (url.pathname.startsWith('/data/editions/') && !editionBookIdFromPath(url.pathname) && !isReviewedImportEditionPath(url.pathname)) {
         return new Response(request.method === 'HEAD' ? null : 'Not found', {
           status: 404,
           headers: {

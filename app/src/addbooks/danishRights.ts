@@ -34,3 +34,10 @@ export function danishRightsReview(bookId: string, editionKey: string): DanishRi
   if (manifest.jurisdiction !== 'DK' || manifest.policyVersion !== 1) return undefined
   return manifest.editions.find(review => review.bookId === bookId && review.editionKey === editionKey)
 }
+
+/** True for `/data/editions/{bookId}-{editionKey}.json` of a currently eligible Add import. */
+export function isReviewedImportEditionPath(pathname: string): boolean {
+  if (manifest.jurisdiction !== 'DK' || manifest.policyVersion !== 1) return false
+  const filename = pathname.startsWith('/data/editions/') ? pathname.slice('/data/editions/'.length) : ''
+  return manifest.editions.some(review => filename === `${review.bookId}-${review.editionKey}.json` && eligibleInDenmark(review))
+}

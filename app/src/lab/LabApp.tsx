@@ -161,6 +161,7 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS } from '../data/bookRegistry'
 import { getReaderBook as getBook, isUnlistedReaderBook } from '../data/readerBooks'
+import { importNarrationCleared } from '../addbooks/narrationRights'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
@@ -495,7 +496,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
   // Narration follows the text on the page: the primary edition, not the
   // Kokoro audio edition, so painted words and spoken words are one text.
-  const narrationApplies = !isUnlistedReaderBook(book.bookId || 'bible') && narrationInfo?.enabled === true
+  // Add imports are outside the catalogue: narration needs their own audio
+  // clearance (addbooks/narrationRights.json), never just the text review.
+  const narrationApplies = (!isUnlistedReaderBook(book.bookId || 'bible')
+      || importNarrationCleared(book.bookId || 'bible', prefs.primaryEdition, narrationInfo?.provider))
+    && narrationInfo?.enabled === true
     && narrationVoice != null
     && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber, narrationInfo.provider)
   const retainedBella = narrationInfo?.provider !== 'grok' && usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)

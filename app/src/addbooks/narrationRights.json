@@ -1,0 +1,49 @@
+{
+  "policyVersion": 1,
+  "editions": [
+    {
+      "bookId": "pd-35",
+      "editionKey": "original-en",
+      "status": "cleared-under-policy",
+      "reviewedAt": "2026-10-01",
+      "scope": "generated-narration-of-reviewed-text",
+      "territories": ["DK"],
+      "textReview": {
+        "jurisdiction": "DK",
+        "editionSha256": "1cba8c05c23c8a348c3d153b90e18098c13edc88f3ee2a822921f7e5e84bed99"
+      },
+      "provider": "grok",
+      "model": "grok-tts-v1",
+      "voices": ["ara", "helios", "orion", "eve"],
+      "underlyingWork": "Recording the text and making the recording available are the author's economic rights (Danish Copyright Act section 2). They expired with the text term on 2016-12-31 (Wells died 1946). The narrator speaks only the reviewed, hash-pinned converted text.",
+      "performers": "No human performance is recorded. Speech is synthesised with the provider's stock voices under the provider agreement; no custom or cloned voice is used.",
+      "sourceTerms": "The Project Gutenberg licence, header and trademark text are removed before conversion, so the spoken text contains no Gutenberg material. Gutenberg's licence states that stripped text is a public-domain ebook; the trademark is not used in audio.",
+      "providerTerms": {
+        "name": "xAI Terms of Service - Enterprise",
+        "url": "https://x.ai/legal/terms-of-service-enterprise",
+        "outputOwnership": "assigned-to-customer",
+        "restrictions": [
+          "do not use output to train AI models",
+          "do not misrepresent output as human-generated"
+        ],
+        "checkedAt": "2026-10-01",
+        "checkMethod": "Search-index excerpt of the published terms; a direct fetch was refused (HTTP 403). These are the same terms that already govern Tinct's production Grok narration."
+      },
+      "disclosure": "The Add card states that narration is computer-generated and prepared only on Listen.",
+      "excludes": [
+        "other editions, translations or added material",
+        "human-recorded or third-party audiobooks",
+        "custom or cloned voices",
+        "downloadable or exported audio outside the Tinct reader",
+        "use of the audio to train AI models",
+        "territories other than those listed"
+      ],
+      "notes": "Conservative engineering record, not a lawyer's clearance. It depends on, and is invalidated by any change to, the Danish text review for the same edition hash.",
+      "evidence": [
+        "https://www.retsinformation.dk/eli/lta/2023/1093",
+        "https://www.gutenberg.org/policy/license.html",
+        "https://x.ai/legal/terms-of-service-enterprise"
+      ]
+    }
+  ]
+}

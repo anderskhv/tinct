@@ -2,6 +2,7 @@ import { WARM_GUEST_KEY, narrationCostUsd, recordAiUsage, requestGuestKey, type 
 import { bibleBookTransition } from '../../narration/bookTransition'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
 import { isEditionWithheld } from '../../data/withheldEditions'
+import { importNarrationCleared, isAddImportBook } from '../../addbooks/narrationRights'
 import { verifyReleaseWarmRequest } from '../../narration/narrationReleaseAuth'
 import { grokWordSegments, type GrokTimingEnvelope } from '../../narration/grokTimestamps'
 /**
@@ -296,7 +297,8 @@ async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId
   const paragraphs = entry.paragraphs.map(item => (typeof item === 'string' ? item : ''))
   // Reader-visible text corrections are applied the same way editionLoader does
   // (a patch shorter than half the paragraph is ignored as truncated).
-  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+  // Add imports are pinned to their reviewed hash; the reader skips patches for them too.
+  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY && !isAddImportBook(bookId)) {
     try {
       const res = await supabaseGet(env, `edition_patches?book_id=eq.${encodeURIComponent(bookId)}&edition_key=eq.${encodeURIComponent(editionKey)}&chapter_number=eq.${chapter}&select=paragraph_index,patched_text`)
       if (res.ok) {
@@ -555,6 +557,9 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   if (!isPilotScope(scope.bookId, scope.editionKey, scope.chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
   const voice = config.voices.find(item => item.key === scope.voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
+  if (isAddImportBook(scope.bookId) && !importNarrationCleared(scope.bookId, scope.editionKey, config.provider, voice.id)) {
+    return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
+  }
   const text = await loadChapterParagraphs(request, env, scope.bookId, scope.editionKey, scope.chapter)
   if (!text) return jsonResponse({ error: 'Chapter text unavailable' }, 404, request)
 
@@ -998,6 +1003,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
+  if (isAddImportBook(bookId) && (bookTransition || !importNarrationCleared(bookId, editionKey, config.provider, voice.id))) {
+    return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
+  }
   if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
     return new Response(null, { status: 204 })
   }

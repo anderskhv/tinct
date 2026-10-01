@@ -49,7 +49,7 @@ export function AddBookPilot() {
         <h2>{book.title}</h2><p className="add-book-author">{book.author}</p>
         <p>16 chapters and an epilogue</p>
         <a href="https://www.gutenberg.org/ebooks/35" target="_blank" rel="noreferrer">Project Gutenberg · #35 ↗</a>
-        <p className="add-book-note">Danish copyright term checked for this original text. No comparison or audio.</p>
+        <p className="add-book-note">Danish copyright term checked for this original text. No comparison. Listen uses computer-generated narration, prepared only when you press play.</p>
         <button type="button" disabled={busy} onClick={openBook}>{busy ? 'Opening book…' : error ? 'Try again' : 'Add and read'}</button>
         {error && <p role="alert">{error}</p>}
         {busy && <p role="status">Checking the complete text…</p>}

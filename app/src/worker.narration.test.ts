@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { readFileSync } from 'node:fs'
 import { narrationCostUsd } from './worker/lib/aiUsage'
 import { handleNarration, narrationConfig, synthesizeWithGoogle, synthesizeWithGrok, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handleAudioFile } from './worker/routes/audio'
@@ -817,6 +818,55 @@ describe('Grok narration rollout', () => {
     expect(cached.json.paragraphs[0].status).toBe('ready')
     expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).status).toBe(401)
     expect(h.fish.calls).toHaveLength(1)
+  })
+  describe('Add import narration (pd-35)', () => {
+    const raw = readFileSync('public/data/editions/pd-35-original-en.json', 'utf8')
+    function importHarness() {
+      const result = grokHarness()
+      result.h.env.ASSETS = { fetch: async (request: Request) => {
+        const path = new URL(request.url).pathname
+        if (path === '/data/editions/pd-35-original-en.json' || path === '/data/editions/pd-36-original-en.json') return new Response(raw)
+        return new Response('Not found', { status: 404 })
+      } }
+      return result
+    }
+    const scope = { bookId: 'pd-35', editionKey: 'original-en', chapter: 1, voice: 'f', mode: 'next' }
+    it('narrates the cleared edition from the exact reviewed text, with a spend reservation', async () => {
+      const { h, reservations } = importHarness()
+      const text = JSON.parse(raw).chapters[0].paragraphs[0] as string
+      const res = await ensure(h, { ...scope, paragraphs: [{ index: 0, textHash: await sha256Hex(narrationTextForParagraph(text)) }] })
+      expect(res.status).toBe(200)
+      expect(res.json.generated).toBe(1)
+      expect(reservations).toHaveLength(1)
+      expect(narrationTextForParagraph(text).startsWith(JSON.parse(h.fish.calls[0].body).text.slice(0, 40))).toBe(true)
+      expect((await chapter(h, 'bookId=pd-35&editionKey=original-en&chapter=1&voice=f')).status).toBe(200)
+    })
+    it('refuses uncleared imports, other editions and cues before any spend', async () => {
+      const { h, reservations } = importHarness()
+      expect((await ensure(h, { ...scope, bookId: 'pd-36', paragraphs: [{ index: 0 }] })).status).toBe(403)
+      expect((await ensure(h, { ...scope, editionKey: 'modern-en', paragraphs: [{ index: 0 }] })).status).toBe(403)
+      expect((await ensure(h, { ...scope, kind: 'book-transition', nextChapter: 2, paragraphs: [{ index: 0 }] })).status).toBe(403)
+      expect((await chapter(h, 'bookId=pd-36&editionKey=original-en&chapter=1&voice=f')).status).toBe(403)
+      expect(h.fish.calls).toHaveLength(0)
+      expect(reservations).toHaveLength(0)
+    })
+    it('keeps anonymous readers cache-only and ignores live text patches', async () => {
+      const { h } = importHarness()
+      Object.assign(h.env, { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' })
+      const patched = vi.fn(async () => Response.json([{ paragraph_index: 0, patched_text: 'Replaced words for the whole opening paragraph that would change narration entirely.' }]))
+      vi.stubGlobal('fetch', patched)
+      h.deps.verifyUser = async () => null
+      expect((await ensure(h, { ...scope, paragraphs: [{ index: 0 }] })).status).toBe(401)
+      h.deps.verifyUser = async () => ({ id: 'signed-in', email: 'reader@example.com' })
+      await ensure(h, { ...scope, paragraphs: [{ index: 0 }] })
+      h.deps.verifyUser = async () => null
+      const cached = await ensure(h, { ...scope, paragraphs: [{ index: 0 }] })
+      expect(cached.status).toBe(200)
+      expect(cached.json.paragraphs[0]).toMatchObject({ status: 'partial', readyChunks: 1 })
+      expect(h.fish.calls).toHaveLength(1)
+      expect(patched.mock.calls.filter(([url]) => String(url).includes('edition_patches'))).toHaveLength(0)
+      vi.unstubAllGlobals()
+    })
   })
   describe('cost ledger', () => {
     const READER = '11111111-1111-4111-8111-111111111111'

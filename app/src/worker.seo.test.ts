@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import worker from './worker'
 import { filterHeldDiscoveryCards, handleIndexNowVerification, handleSeoAndStaticRequest } from './worker/routes/seo'
@@ -436,6 +436,20 @@ describe('worker static routing helpers', () => {
     expect(resp.status).toBe(403)
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
     expect(assetFetches).toBe(0)
+  })
+})
+
+describe('reader-only Add import edition files', () => {
+  it('serves only reviewed import editions alongside catalogue editions', async () => {
+    vi.stubGlobal('caches', { default: { match: async () => undefined, put: async () => {} } })
+    const fetched: string[] = []
+    const env = { ASSETS: { fetch: async (request: Request) => { fetched.push(new URL(request.url).pathname); return new Response('{}', { headers: { 'Content-Type': 'application/json' } }) } } }
+    const status = async (path: string) => (await handleSeoAndStaticRequest(new Request('https://tinct.app' + path, { method: 'HEAD' }), env, ctx)).status
+    expect(await status('/data/editions/pd-35-original-en.json')).toBe(200)
+    expect(await status('/data/editions/pd-35-modern-en.json')).toBe(404)
+    expect(await status('/data/editions/pd-36-original-en.json')).toBe(404)
+    expect(fetched).toEqual(['/data/editions/pd-35-original-en.json'])
+    vi.unstubAllGlobals()
   })
 })
 

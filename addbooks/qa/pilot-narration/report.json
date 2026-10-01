@@ -1,0 +1,242 @@
+{
+  "origin": "http://127.0.0.1:8787",
+  "provider": "mock xAI /v1/tts (no real provider)",
+  "budgetMode": false,
+  "startedAt": "2026-10-01T13:53:16.086Z",
+  "cases": [
+    {
+      "name": "desktop",
+      "scenario": "signed-in: open, silent read, play, highlight, pause/resume, seek, chapter end, cache",
+      "silentReading": {
+        "ensures": 0,
+        "ttsCalls": 0
+      },
+      "firstAudioMs": 1907,
+      "highlight": {
+        "first": {
+          "text": "I",
+          "paragraph": "0",
+          "word": "0"
+        },
+        "later": {
+          "text": "Machine.",
+          "paragraph": "0",
+          "word": "14"
+        }
+      },
+      "pause": {
+        "ensuresDuringPause": 0,
+        "pausedAt": {
+          "t": 5.485296,
+          "src": "http://127.0.0.1:8787/api/audio-file?path=narration%2Fgrok%2Fblob%2F92e35c8fae4121692857e314db49b3c4c2efe0d9be0bbf418aba703bb2fd3652.mp3"
+        },
+        "pausedWord": {
+          "text": "fact",
+          "paragraph": "0",
+          "word": "16"
+        },
+        "stillPaused": true
+      },
+      "resume": {
+        "t": 5.277704,
+        "src": "http://127.0.0.1:8787/api/audio-file?path=narration%2Fgrok%2Fblob%2F92e35c8fae4121692857e314db49b3c4c2efe0d9be0bbf418aba703bb2fd3652.mp3",
+        "word": {
+          "text": "The",
+          "paragraph": "0",
+          "word": "15"
+        },
+        "expectedFrom": 15
+      },
+      "wordSeek": {
+        "target": {
+          "x": 1110.0234375,
+          "y": 449.09375,
+          "paragraph": "0",
+          "word": "245",
+          "text": "on"
+        },
+        "after": {
+          "text": "Linnæan.",
+          "paragraph": "0",
+          "word": "249"
+        }
+      },
+      "back15": {
+        "before": {
+          "text": "considerable",
+          "paragraph": "0",
+          "word": "262"
+        },
+        "after": {
+          "text": "particularly",
+          "paragraph": "0",
+          "word": "226"
+        }
+      },
+      "seek": {
+        "via": "timeline 95%",
+        "after": {
+          "text": "but",
+          "paragraph": "22",
+          "word": "77"
+        }
+      },
+      "chapterHandoff": {
+        "from": 3,
+        "to": 4,
+        "playing": true,
+        "word": {
+          "text": "“I",
+          "paragraph": "0",
+          "word": "0"
+        }
+      },
+      "ensures": 40,
+      "ttsCalls": 40,
+      "errors": [],
+      "ok": true
+    },
+    {
+      "name": "desktop",
+      "scenario": "guest: cached opening plays with zero synthesis; uncached chapter asks for an account",
+      "cachedPlayback": {
+        "ttsCalls": 0,
+        "word": {
+          "text": "think",
+          "paragraph": "0",
+          "word": "1"
+        }
+      },
+      "uncached": {
+        "ttsCalls": 0,
+        "prompt": "×\n\nFREE ACCOUNT\n\nCreate a free account to keep listening\n\nListen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.\n\nCreate free acco"
+      },
+      "errors": [],
+      "ok": true
+    },
+    {
+      "name": "desktop",
+      "scenario": "provider failure shows Retry; Retry plays once the provider recovers",
+      "message": "Audio couldn’t start.\nRetry\n×",
+      "retries": 1,
+      "errors": [],
+      "ok": true
+    },
+    {
+      "name": "phone",
+      "scenario": "signed-in: open, silent read, play, highlight, pause/resume, seek, chapter end, cache",
+      "silentReading": {
+        "ensures": 0,
+        "ttsCalls": 0
+      },
+      "firstAudioMs": 884,
+      "highlight": {
+        "first": {
+          "text": "“In",
+          "paragraph": "0",
+          "word": "0"
+        },
+        "later": {
+          "text": "thing",
+          "paragraph": "0",
+          "word": "13"
+        }
+      },
+      "pause": {
+        "ensuresDuringPause": 0,
+        "pausedAt": {
+          "t": 5.23885,
+          "src": "http://127.0.0.1:8787/api/audio-file?path=narration%2Fgrok%2Fblob%2F53ef9c3729aa7744c2cdea25777710f421bc07ce9d78a6d3db86269bbb3f32f3.mp3"
+        },
+        "pausedWord": {
+          "text": "thing",
+          "paragraph": "0",
+          "word": "13"
+        },
+        "stillPaused": true
+      },
+      "resume": {
+        "t": 0.053306,
+        "src": "http://127.0.0.1:8787/api/audio-file?path=narration%2Fgrok%2Fblob%2F53ef9c3729aa7744c2cdea25777710f421bc07ce9d78a6d3db86269bbb3f32f3.mp3",
+        "word": {
+          "text": "“In",
+          "paragraph": "0",
+          "word": "0"
+        },
+        "expectedFrom": 0
+      },
+      "wordSeek": {
+        "target": {
+          "x": 126.6484375,
+          "y": 544.34375,
+          "paragraph": "0",
+          "word": "44",
+          "text": "turned"
+        },
+        "after": {
+          "text": "others",
+          "paragraph": "0",
+          "word": "48"
+        }
+      },
+      "back15": {
+        "before": {
+          "text": "very",
+          "paragraph": "0",
+          "word": "61"
+        },
+        "after": {
+          "text": "up",
+          "paragraph": "0",
+          "word": "20"
+        }
+      },
+      "seek": {
+        "via": "forward 15 s",
+        "presses": 37
+      },
+      "chapterHandoff": {
+        "from": 5,
+        "to": 6,
+        "playing": true,
+        "word": {
+          "text": "thing",
+          "paragraph": "0",
+          "word": "2"
+        }
+      },
+      "ensures": 57,
+      "ttsCalls": 56,
+      "errors": [],
+      "ok": true
+    },
+    {
+      "name": "phone",
+      "scenario": "guest: cached opening plays with zero synthesis; uncached chapter asks for an account",
+      "cachedPlayback": {
+        "ttsCalls": 0,
+        "word": {
+          "text": "“In",
+          "paragraph": "0",
+          "word": "0"
+        }
+      },
+      "uncached": {
+        "ttsCalls": 0,
+        "prompt": "×\n\nFREE ACCOUNT\n\nCreate a free account to keep listening\n\nListen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.\n\nCreate free acco"
+      },
+      "errors": [],
+      "ok": true
+    },
+    {
+      "name": "phone",
+      "scenario": "provider failure shows Retry; Retry plays once the provider recovers",
+      "message": "Audio couldn’t start.\nRetry\n×",
+      "retries": 1,
+      "errors": [],
+      "ok": true
+    }
+  ],
+  "completedAt": "2026-10-01T13:56:05.784Z",
+  "totalMockTtsCalls": 119
+}
