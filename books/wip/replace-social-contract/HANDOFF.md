@@ -45,3 +45,6 @@ Added a manual modern rendering for Book II Chapter IV (entry 15), bringing the 
 
 ## Batch checkpoint: modern entries 15–17
 Manual modern renderings now extend through Book II Chapter VI, with 116/470 paragraphs complete. Entries 15–17 meet the minimum length, exclamation and terminal punctuation checks. Whole-book classifier and typography-folded classifier still require all 50 chapters. Original N=10 overlap remains 85/470; modern N=10/N=8 scans and full-source verification remain open. No protected text was opened.
+
+## Batch checkpoint: modern entries 18–19
+Manual renderings now extend through Book II Chapter VIII, for 131/470 paragraphs. Per-paragraph length and exclamation requirements pass for these entries. The chapter count remains 19 of 50, so the full classifier and folded classifier are incomplete. Original N=10 overlap remains 85/470; modern overlap scans, scan verification and source-ending repair remain outstanding.
