@@ -2,12 +2,13 @@
   "id": "meditations",
   "items": [
     {
-      "id": "tobi-x",
+      "id": "tobi-knowledge-project",
       "layout": "quote_featured",
-      "platform": "x",
-      "url": "https://x.com/tobi/status/1258575206483922950",
-      "quote": "My most read book.",
+      "platform": "youtube",
+      "url": "https://youtu.be/G9P9D9hptq8?t=3802",
+      "quote": "I have a copy of Meditations in most rooms I spend time in.",
       "person": "Tobi Lütke",
+      "publisher": "The Knowledge Project",
       "avatar": {
         "src": "echoes-assets/tobi-avatar.jpg",
         "alt": "Tobi Lütke",
@@ -19,9 +20,10 @@
         }
       },
       "spoiler": "free",
+      "transcriptUrl": "https://fs.blog/knowledge-project-podcast/tobi-lutke-3/",
       "source": {
-        "status": "aggregator_cited",
-        "note": "Cited by mostrecommendedbooks.com; tweet not opened (X blocked). Anders also knows of a Tobi clip: link pending."
+        "status": "read_directly",
+        "note": "Verbatim in the fs.blog transcript (episode \"AI Agents, Better Decisions, and the Future of Work\"; YouTube title \"Tobi Lütke: The Skills AI Makes More Valuable\"; host Shane Parrish; published 2026-09-15). Surrounding words: \"I mean obviously I am a Meditations fan… and I have a copy of Meditations in most rooms I spend time in. So I just do some random reading and it's magical how it's somehow relevant to something I'm wrestling with.\" The t=3802 timestamp link was supplied by Anders; the exact second was not verified. His older tweet \"My most read book.\" (x.com/tobi/status/1258575206483922950) has been DELETED by its author: do not link it."
       }
     },
     {
@@ -43,31 +45,8 @@
       },
       "spoiler": "free",
       "source": {
-        "status": "aggregator_cited",
-        "note": "Cited by mostrecommendedbooks.com; tweet not opened. Tweet ID suggests early 2014."
-      }
-    },
-    {
-      "id": "rogan-podcast",
-      "layout": "quote_card",
-      "platform": "spotify",
-      "url": "https://open.spotify.com/episode/0DsunsN5MGI0CWwvuaxZdt",
-      "quote": "It’s really wild when you think about how long that guy lived and how applicable some of his thoughts are today.",
-      "person": "Joe Rogan",
-      "avatar": {
-        "src": "echoes-assets/rogan-avatar.jpg",
-        "alt": "Joe Rogan",
-        "credit": {
-          "author": "UNCONFIRMED (Commons metadata names a photographer unclearly; confirm on the file page)",
-          "licence": "CC BY 2.0",
-          "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joerogan.jpg"
-        }
-      },
-      "spoiler": "free",
-      "source": {
-        "status": "aggregator_cited",
-        "note": "Spoken quote cited to a Spotify episode (search listed Rogan #1836 with Ryan Holiday); exact words need the audio. Photo is an old stand-up photo; a newer public-domain White House photo exists on Commons (file URL not retrieved)."
+        "status": "verified_tweet",
+        "note": "Confirmed via X's public syndication endpoint: 2014-02-22, @naval, reply \"@semil Have you read Meditations? One of my favorite books of all time.\""
       }
     },
     {
@@ -90,8 +69,8 @@
       },
       "spoiler": "free",
       "source": {
-        "status": "read_via_summary",
-        "note": "DHH speaking per a fetch summary of his Daily Stoic interview; about Stoic texts generally (his reading order names Meditations third). Verify wording."
+        "status": "read_directly",
+        "note": "Verbatim in the raw HTML of https://dailystoic.com/dhh/ (DHH answering \"What are some books… the Daily Stoic audience will enjoy\"). The same answer gives his order: A Guide to the Good Life, On the Shortness of Life, Meditations, The Daily Stoic. The quote is about Stoic texts in general."
       }
     }
   ]

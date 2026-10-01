@@ -46,3 +46,7 @@ Nothing here is verified at the source; X is blocked to our fetcher.
 - **Patrick Collison, Naval Ravikant, Tyler Cowen**: aggregator lists turned up no Odyssey praise.
 - **Podcasters** (Lex Fridman, Joe Rogan, Tim Ferriss, Huberman, Jocko, Shapiro): searched; no verified Odyssey praise found.
 - **Reddit thread title**: still unread (Reddit returns 403 to our fetcher; a search on the title words returned nothing). Needs Anders to paste the full title.
+
+## Source checks done 2026-10-01
+- Reddit title supplied by Anders: "May someone explain to me the importance of 'The Odyssey'?"
+- The Culturist: title and date (2026-06-03) confirmed from the raw page; "Homer is the beginning of the great conversation" is on the page. The line "Reading him is like coming home..." from an earlier summary was NOT on the page; do not use.

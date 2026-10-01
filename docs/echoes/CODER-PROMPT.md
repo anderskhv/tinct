@@ -21,6 +21,6 @@ Definition of done:
 1. Tests added per spec section 7 and `npm test` green (run the focused suites you touched plus the full suite before release); `npm run build` and `npm run verify-bundle` pass.
 2. Browser verification at 390x844 and desktop on the five books (screenshots saved under `docs/echoes/qa/`), including credits popup, link attributes, tab row at 360/390, a book with no Echoes tab, and "Begin reading →". APK check of the in-app browser if you can build it; if not, say exactly what was not verified.
 3. Release through the approved GitHub Actions deploy path per `AGENTS.md`, then verify on production `https://tinct.app/lab/library_2/` (confirm the new bundle/asset hashes), report the deploy run status.
-4. Final report must include: what shipped, files changed, test results, production checks, the list of open items from spec section 10 (so Anders can act), and a `Needs your decision` line if anything blocks you (for example the unconfirmed Rogan photo credit, or platform-terms questions).
+4. Final report must include: what shipped, files changed, test results, production checks, the list of open items from spec section 10 (so Anders can act), and a `Needs your decision` line if anything blocks you (for example platform-terms questions).
 
 If something in the spec conflicts with how library_2 actually works, prefer the existing architecture, make the smallest change that achieves the intent, and note the deviation in your report.

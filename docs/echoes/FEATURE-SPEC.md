@@ -27,8 +27,8 @@ Source of truth for look and feel: the mockups in `docs/echoes/mockups/` (`*.dc.
 Use the existing intro CSS variables and fonts from `intro-review.css` (e.g. `--page-ink`, `--page-rule`, `--page-soft`) rather than the mockup's hex values (mockup palette was sampled from the live screen: paper `#ece6d1`, ink `#2b3426`, soft `#66705a`, rule `#d2cdb8`, dark button `#2d3626`; headings Georgia). Match, do not duplicate.
 
 Components (all in the intro body, vertical stack, 12-20px gaps):
-- **quote_featured** (Deutsch on Frankenstein, Tobi on Meditations): rounded panel (16px radius) on a darker paper tone; the quote in large Georgia (about 30px wide / 23px phone; 52/40px for the very short Tobi quote), then a row with a 44-52px round portrait and "Name ↗". Whole panel is one link.
-- **quote_card** (Naval, Rogan, DHH): bordered card, round 44px portrait on the left, italic Georgia quote (about 20px / 17px), line "Name · Platform ↗". Whole card is one link.
+- **quote_featured** (Deutsch on Frankenstein, Tobi Lütke on Meditations): rounded panel (16px radius) on a darker paper tone; the quote in large Georgia (about 30px wide / 23px phone; 52/40px for the very short Tobi quote), then a row with a 44-52px round portrait and "Name ↗" (when `publisher` is set, "Name on Publisher ↗", e.g. "Tobi Lütke on The Knowledge Project ↗"). Whole panel is one link. Quote size scales with length (Tobi's line is about 40px wide / 30px phone).
+- **quote_card** (Naval, DHH): bordered card, round 44px portrait on the left, italic Georgia quote (about 20px / 17px), line "Name · Platform ↗". Whole card is one link.
 - **video_vertical** (TikTok, YouTube Short): bordered card; 9:16 thumbnail (124x220 wide layout, 96x170 phone) with a centred round play badge (CSS only); right column: the quote(s) in italic Georgia or the caption text in regular Georgia, then a footer row: handle + outlined pill ("TikTok ↗" / "YouTube Short ↗").
 - **video_wide** (YouTube): on wide layout either a 16:9 hero card (thumbnail full width) when it is the only video, or the compact row (220px 16:9 thumb left, text right; phone 124px) when there are several videos. Mockups: Odyssey = hero; Prince = compact rows. Rule: 1 video in the list = hero, 2+ = compact. If `quotes[0]` exists, show it in italic in place of the title (Sugrue).
 - **text_card** (article, thread): bordered card, title (Georgia 21/18px), footer row: byline + outlined pill ("Article ↗" / "Reddit ↗" / "Essay ↗").
@@ -60,10 +60,10 @@ spoiler       free | anchored | full   (+ revealAfterChapter? integer for anchor
 source        { status, note }   QA metadata, never rendered
 ```
 
-Assets: copy `docs/echoes/assets/*` to `app/public/lab/library_2/echoes-assets/` (14 files, 1.8 MB: thumbnails and portraits). They were downloaded once on 2026-10-01 because TikTok thumbnail URLs expire; do not hotlink. Consider re-encoding to modern, smaller files (about 600 px tall max for vertical thumbs, 640 px wide for 16:9, 160 px square portraits) as long as the visual result is unchanged; keep the originals' crop notes in the data (`thumbnailCrop`).
+Assets: copy `docs/echoes/assets/*` to `app/public/lab/library_2/echoes-assets/` (13 files, about 1.5 MB: thumbnails and portraits). They were downloaded once on 2026-10-01 because TikTok thumbnail URLs expire; do not hotlink. Consider re-encoding to modern, smaller files (about 600 px tall max for vertical thumbs, 640 px wide for 16:9, 160 px square portraits) as long as the visual result is unchanged; keep the originals' crop notes in the data (`thumbnailCrop`).
 
 ## 5. Legal and rights (build now, Anders reviews before launch)
-- Portraits come from Wikimedia Commons under CC BY / CC BY-SA; credit data is in each avatar. Rogan's author field is unconfirmed: keep the string "UNCONFIRMED" out of the UI by failing the data test until it is resolved, or render the credit as "Wikimedia Commons, CC BY 2.0" and leave a TODO, but flag it in the report.
+- Portraits come from Wikimedia Commons under CC BY / CC BY-SA; credit data is in each avatar (Deutsch, Tobi Lütke, Naval, DHH). Joe Rogan was dropped from launch.
 - Thumbnails of TikTok / YouTube videos and one tweet-derived quote are used as link previews with credit to the creator. Confirm platform terms; this is a launch decision for Anders, not a code blocker.
 - Do not add third-party-cookie, analytics or tracking calls.
 
@@ -86,9 +86,11 @@ Real `<a>` elements for cards (no click handlers on divs), meaningful `alt` on p
 ## 9. Acceptance (do on the real app at /lab/library_2, not just localhost)
 For each of the five books at 390x844 and desktop: open the book, open the Echoes tab, screenshot; confirm order, thumbnails, quotes, credits popup, link targets; confirm Preface/People/Edition tabs still work and "Begin reading →" still works; confirm a book without data shows no Echoes tab; confirm the tab row does not clip at 360/390. In the APK, confirm a link opens the in-app browser and Back returns to the intro. Follow `AGENTS.md` for build, deploy and production verification.
 
-## 10. Known open items (report these, they are not blockers)
-- Reddit thread title is incomplete (`titleIncomplete: true`); Anders will supply it.
-- Tobi Lütke video clip: link not yet supplied; add as an extra Meditations item when it arrives.
-- Quotes marked `aggregator_cited`, `read_via_summary`, `machine_transcript` in `source.status` need a human check against the original before launch; the renderer must not show these notes.
-- Thumbnails: Hanson's carries loud headline text; Sugrue's is an old 4:3 letterboxed frame (crop in data).
-- Joe Rogan's portrait is an old stand-up photo and DHH's shows him in his twenties; Anders may swap them.
+## 10. Status of sources and open items (updated 2026-10-01)
+Resolved: Reddit thread title supplied by Anders ("May someone explain to me the importance of ‘The Odyssey’?"). Tobi Lütke's older tweet "My most read book." was **deleted by its author**; replaced by the Knowledge Project clip (https://youtu.be/G9P9D9hptq8?t=3802) with a quote read directly from the fs.blog transcript. Joe Rogan removed from launch. Quote checks done against original pages: Deutsch tweet (verified), Naval tweet (verified, a 2014 reply to @semil), DHH (verbatim on dailystoic.com), Tobi (verbatim on fs.blog), The Culturist (title and date verified). `source.status` in the data records the level of each check.
+
+Still open (report, do not block):
+- Machine-transcribed TikTok quotes (Chris, Billy) need a listen before launch; Sugrue's quote is from a transcript pasted by Anders.
+- Not opened/verified at source: Reddit thread content, Medium article (403), Hanson video and its Daily Signal write-up, the Palmer clip, Greene/Peterson/Husband Book Reviews videos (titles verified only).
+- Thumbnails: Hanson's carries loud headline text; Sugrue's is an old 4:3 letterboxed frame (crop in data); Peterson's video is on a fan channel.
+- Platform terms and photo licences: Anders's launch decision. Only Deutsch, Tobi, Naval and DHH portraits are used; the DHH photo shows him in his twenties.

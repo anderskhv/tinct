@@ -29,3 +29,8 @@ TikToks, YouTube picks, X posts, Reddit; and any famous reader to quote. Candida
 
 ### Michael Sugrue lecture: pull quote (2026-10-01)
 Source: transcript Anders pasted (YouTube auto-captions, unpunctuated; not stored here). Chosen for the card (wording from the transcript, punctuation and capitals added): "He's kind of like the Darth Vader of philosophy. He represents all that is evil and unholy." Other strong lines: "[Machiavelli's works are] a handbook on how to be bad"; "no matter how evil or pernicious his teachings we ignore him at our peril"; "There is no man who is less appropriate to the staff of a politician than Machiavelli." Check by ear before launch. Spoiler level of the lecture: it discusses Cesare Borgia's career and the book's argument in detail.
+
+## Source checks done 2026-10-01
+- Yale Insights: raw page confirms title and the line "You cannot get reality to bend to your will, you can only seduce it into transfiguration."
+- Ada Palmer / Dwarkesh: the March 2026 episode page ("Why Leonardo was a saboteur, Gutenberg went broke, and Florence was weird") does not contain "most misunderstood thinker"; the YouTube video with that title is presumably a separate clip. Unwatched.
+- Tobi Lutke (Knowledge Project, fs.blog transcript) calls James Burnham's *The Machiavellians* "unbelievably good, kind of a must read": a possible tangential mention, not about *The Prince*.
