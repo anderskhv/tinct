@@ -11,3 +11,4 @@
 - Deterministic reviewed rebuild and source/runtime byte equality PASS. Shared files and live edition bytes unchanged.
 - Resume point: no asset-authoring work remains; independent editorial/visual review and shared-file integration belong to the receiving lane.
 - No shared files changed. No deploy, merge, PR, narration or Anthropic API calls.
+- Integration review gap: current `spoilerSafeCast` consumes whole current-chapter thread summaries; use/review gated cards before enabling the fallback.

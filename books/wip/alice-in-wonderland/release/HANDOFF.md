@@ -48,7 +48,7 @@ shutil.copyfile(p, 'app/public/data/characters/alice-in-wonderland.v1.json')
 
 - 31 thread entries, 83 English chapter summaries; chapter keys cover live 1–12 exactly. Same 31 IDs as cards/proposal. Shape follows existing convention (`bookId`, `characters`, localized name/epithet, `role`, `searchNames`, `chapters` with `modern-en` summaries).
 - Summaries describe only their named chapter, including that chapter's events; they are not paragraph-gated cards. Static names/epithets stay at the safe initial identity. Ambiguous numeric names and baby/sister generic descriptions have empty thread search lists; other searches use narrow names. No external character links needed.
-- Review the receiving thread consumer's chapter cutoff before integration: whole-chapter summaries contain within-chapter spoilers. Paragraph-safe recognition must use the reviewed character sidecar.
+- Confirmed integration gap: `app/src/lab/labSource.ts:spoilerSafeCast` reads the current chapter’s full summary without a paragraph cutoff. These convention-format threads therefore contain within-chapter spoilers if used by that fallback. The integration owner must review that exposure before enabling it; paragraph-safe recognition must use the reviewed character sidecar. Shared consumer code was not edited.
 - `audioAvailability-entries.txt` supplies proposed English eligible_editions entries only. Existing manifest basis describes a historical recording audit; these proposals mean streaming eligibility under the current Grok policy, not verified recordings. No audio has been generated, played or prewarmed; provider/cache acceptance remains with the separate integration/audio owner.
 
 ## Final validation and scope
