@@ -21,6 +21,16 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'beyond-good-and-evil': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5b14eaa83a4b695afc10e74b203001ac33490f732a1fb42c141749687859d08a',
+        after: 'cb93524c242ca1d17973c98dcdcf0165ffe902700678c85dab369ace30cd44cd',
+      },
+    },
+  },
   symposium: {
   "revision": "symposium-completeness-2026-09-25.1",
   "releasedAt": 1790362800000,
