@@ -1,22 +1,20 @@
-# Walden modern-en repair r9 — checkpoint 4
+# Walden modern-en repair r9 — complete
 
-Status: INCOMPLETE. Whole-book gate FAIL; not accepted for publication.
+Status: COMPLETE — staged whole-book gate PASS.
 Branch: `content/modern-en-repair-r9`
 Owned path: `books/wip/modern-en-repair-r9/walden/`
 
-Completed chapters: 1–15 (425 aligned paragraphs; 422 changed). All fifteen chapter gates PASS. This batch completed chapters 13–15. The previous batch corrected exclamation punctuation at 22 inherited coordinates without changing their prose.
-Pending chapters: 16–18. These retain the initial live modern text.
+Completed chapters: 1–18. No pending chapter or resume point.
+This resume rewrote chapters 9 and 11–18, in three batches of three chapters. Previously completed chapters received only the recorded exclamation and sentence-boundary corrections.
 
-Whole-book gate: FAIL. Similarity 0.521; LIGHT + MECHANICAL 3/18 (16.7%); identical long paragraphs 12/484 (2.5%); detected truncated quotations 0; wrapped scaffolding 0.
-Original baseline: 0.970; 18/18 (100%); 82/484 (16.9%).
-Before this batch: 0.591; 6/18 (33.3%); 19/484 (3.9%).
-All 502 paragraphs align, meet the 75% source-word minimum, and exactly match source exclamation counts.
+Final whole-book gate: PASS. Similarity 0.432; LIGHT + MECHANICAL 0/18 (0.0%); identical long paragraphs 0/484 (0.0%); detected truncated quotations 0; wrapped scaffolding 0.
+Before this resume: 0.686; 9/18 (50.0%); 25/484 (5.2%).
+Live starting baseline: 0.970; 18/18 (100%); 82/484 (16.9%).
 
-## Resume
+All 18 chapters and 502 paragraphs align. All paragraphs retain at least 75% of source words, and every paragraph exactly matches the source count of exclamation marks. No identical paragraph over 40 source words remains. No new bracketed notes or straight quotation marks/apostrophes. Verse lines are restored within existing paragraph strings.
 
-Chapter-boundary checkpoint. No partially rewritten chapter.
-Resume at chapter 16, The Pond in Winter, paragraph 1 (1-based; index 0): 23 paragraphs / 5,204 source words. Then continue chapters 17–18. Preserve completed chapters 1–15. Commit and push after every further 3–4 chapters with updated STATUS, or stop at a chapter boundary if tokens run out.
+Prior pushes this resume: `decd2b2c5` (chapters 9, 11, 12); `27c6f5daf` (chapters 13–15). Final batch: chapters 16–18 and final QA/handoff.
 
-Read and author every paragraph against the staged original. Preserve all details, quotations, voice, verse lines, and paragraph alignment; every paragraph must retain at least 75% of source words and exactly the source count of exclamation marks. No regex/dictionary modernization. Repair all identical paragraphs over 40 words. Rerun the gate with the absolute staged prefix. Do not claim completion before full-book PASS.
+HANDOFF.md contains changed coordinates, before/after metrics, three final spot-reads, source issues, and SHA-256. See also changed-paragraphs.json, punctuation-corrections.json, sentence-boundary-corrections.json, qa-checkpoint.json, SHA256SUMS, verse-line-reference.txt, and gate reports.
 
-See HANDOFF.md, changed-paragraphs.json, punctuation-corrections.json, qa-checkpoint.json, SHA256SUMS, and gate reports. No app/live/registry/script/config edits, deployment, narration, or Anthropic API use.
+Only the owned staging folder was written. No live/app/registry/script/config edits, integration, deployment, narration, or Anthropic API use. Fetch succeeded; checkout was blocked by unrelated changes, which were preserved. Commits on the requested r9 branch use an isolated index without altering the shared active checkout.
