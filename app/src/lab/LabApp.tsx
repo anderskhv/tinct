@@ -85,6 +85,9 @@ import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { LabChapterNotesSheet } from './LabChapterNotesSheet'
+import { chapterNotesText, saveExplanation } from './labChapterNotes'
+import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
@@ -532,6 +535,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
+  // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
+  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string } | null>(null)
   const [superFirstView, setSuperFirstView] = useState(false)
   const superFirstViewRef = useRef(false)
   const revealOnlyRef = useRef(false)
@@ -3464,14 +3469,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next == null) return false
     if (nextChapterOpening?.chapterNumber === next && readingPage) {
+      const endedChapter = book.chapterNumber
       setCarriedEnding({
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, targetChapter: next,
         layoutKey: `${readerLayoutKey}:${fullscreen}`, width: window.innerWidth, height: window.innerHeight,
         title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
-        folio: bookPageEstimate.page, onPrimer: () => handleChapterChat('preview'),
+        folio: bookPageEstimate.page, onPrimer: () => openChapterNotes('primer', endedChapter),
         chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext
-          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => handleChapterChat('discuss')} />,
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => openChapterNotes('end', endedChapter)} />,
       })
     } else setCarriedEnding(null)
     void goToChapter(next, 'start', true)
@@ -4183,11 +4189,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights])
 
+  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber) => {
+    if (initialResolving || book.chaptersProvisional) return
+    const chapter = book.chapters.find(item => item.number === chapterNumber)
+    const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
+    const title = kind === 'primer' ? `Before ${label}` : kind === 'end' ? `${label} in brief` : `${label} so far`
+    dictation.stop()
+    setSuperMenuOpen(false)
+    setChapterNotes({
+      title,
+      request: {
+        bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
+        ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
+      },
+    })
+  }, [book, dictation, initialResolving, readerEditionKey])
+
+  // Chat and Talk carry the card into the conversation the reader chose.
+  const continueChapterNotes = useCallback((mode: 'chat' | 'talk', title: string, beats: ChapterNotesBeat[] | null) => {
+    const notes = chapterNotes
+    setChapterNotes(null)
+    if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
+    if (mode === 'chat') handleChat()
+    else requestAnimationFrame(() => handleTalk())
+  }, [ask, chapterNotes, handleChat, handleTalk])
+
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'summarize') { handleChapterChat('discuss'); return }
+    if (id === 'summarize') { openChapterNotes(finishedChapters.has(book.chapterNumber) ? 'end' : 'sofar'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
     if (id === 'editions') { setSuperSheet('editions'); return }
     if (id === 'settings') { setSuperSheet('reading'); return }
@@ -4516,6 +4547,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
         />
       )}
+      {!frontispieceVisible && chapterNotes && (
+        <LabChapterNotesSheet
+          key={JSON.stringify(chapterNotes.request)}
+          request={chapterNotes.request}
+          title={chapterNotes.title}
+          onClose={() => setChapterNotes(null)}
+          onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
+          onTalk={(title, beats) => continueChapterNotes('talk', title, beats)}
+        />
+      )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
         <strong>Preserved edition · recovery view</strong>
         <p>{TEMPORARY_HOLD_NOTICE} Your reading place and history will not advance in this view. Use Contents to access your highlights and notes.</p>
@@ -4577,12 +4618,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           ) : <LabPassage
             pendingLayout={measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
-            onPreviewChapter={() => handleChapterChat('preview')}
+            onPreviewChapter={() => openChapterNotes('primer')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
-              busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
+              busy={false} onDiscuss={() => openChapterNotes('end')}
             /> : undefined}
             desktopSpread={desktopSpread}
             selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}
@@ -4595,7 +4636,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
-              onPrimer: () => handleChapterChat('prepare'),
+              onPrimer: () => openChapterNotes('primer', nextChapterOpening.chapterNumber),
             } : undefined}
             previousChapterEnding={openingOnRight && carriedEndingCurrent ? {
               ...carriedEndingCurrent, highlights: highlightsApi.highlights,
@@ -5194,7 +5235,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             }
             setPopupMode('note')
           }}
-          onExplanationReady={(answer) => ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })}
+          onExplanationReady={(answer) => saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: selectionPopup.paragraphIndex, passage: selectionPopup.text, answer })}
           onExplain={(answer) => {
             const text = selectionPopup.text
             if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })

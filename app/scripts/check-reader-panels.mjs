@@ -50,6 +50,10 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
       requests.push({narration:req.postDataJSON()})
       return route.fulfill({status:401,json:{error:'unauthenticated'}})
     }
+    if (url.pathname==='/api/lab-chapter-notes') {
+      const body=req.postDataJSON(); requests.push({chapterNotes:body})
+      return route.fulfill({json:{beats:[{title:'Where it begins',text:'A compact opening grounded in the chapter.'},{title:'Then',text:'A second beat follows it.'}],kind:body.kind,chapterNumber:body.chapterNumber,through:null,source:'model'}})
+    }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
       return route.fulfill({ contentType:'text/event-stream', body:sse((body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>')) ? definition : explanation) })
@@ -854,8 +858,13 @@ async function menuRedesign(engine,name,phone) {
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
-    await page.getByText('A compact opening grounded in the selected passage.').waitFor()
-    assert(requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'||JSON.stringify(body.messages??[]).includes('Recap this chapter.')),'summary uses existing chapter chat')
+    // Summarize is a card of beats in its own sheet, not a chat answer.
+    await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()
+    assert(requests.some(body=>body.chapterNotes?.kind==='sofar'||body.chapterNotes?.kind==='end'),'summary asks for chapter notes')
+    assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
+    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
+    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)
+    await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
     result.passed=true
@@ -884,6 +893,39 @@ async function revealKeepsPage(engine,name,phone) {
     await page.waitForTimeout(1500)
     const after=await snap()
     assert.equal(after.chapter,before.chapter,'opening Chat keeps the chapter');assert.equal(after.place,before.place,'opening Chat keeps the place')
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
+// Desktop panels open beside what opened them and grow in place (Anders 2026-10-01).
+async function panelsOpenNearSource(engine,name) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'desktop-panels-near-source',live}
+  try {
+    state=await boot(browser,false,'odyssey','original-en',2)
+    const {page}=state
+    const menu=await page.getByTestId('lab-super').boundingBox()
+    for(const id of ['settings','editions','catchup']){
+      await clickMenu(page,id);await page.waitForTimeout(700)
+      const sheet=await page.locator('section.lab-v2-sheet').first().boundingBox()
+      assert(Math.abs(sheet.x+sheet.width-(menu.x+menu.width))<=40,`${id} opens right-aligned under the Menu button: ${JSON.stringify(sheet)}`)
+      assert(sheet.y>=menu.y+menu.height&&sheet.y<=menu.y+menu.height+60,`${id} opens just below the Menu button: ${JSON.stringify(sheet)}`)
+      await page.keyboard.press('Escape');await page.waitForTimeout(300)
+    }
+    const words=page.getByTestId('lab-word');const a=await words.nth(40).boundingBox(),z=await words.nth(52).boundingBox()
+    await page.mouse.move(a.x+3,a.y+a.height/2);await page.mouse.down();await page.mouse.move(z.x+z.width-3,z.y+z.height/2,{steps:10});await page.mouse.up()
+    await page.getByRole('button',{name:'Explain',exact:true}).click()
+    await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
+    await page.waitForTimeout(400)
+    const before=await page.locator('.selection-popup').boundingBox()
+    await page.getByRole('button',{name:'Expand explanation',exact:true}).click();await page.waitForTimeout(600)
+    const after=await page.locator('.selection-popup').boundingBox()
+    assert(Math.abs(after.x-before.x)<=4&&Math.abs(after.y-before.y)<=4,`Explain grows in place: ${JSON.stringify({before,after})}`)
     assert.deepEqual(state.errors,[])
     result.passed=true
   } catch(error) {
@@ -927,6 +969,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
   for(const phone of [false,true])await revealKeepsPage(engine,name,phone)
   for(const phone of [false,true])await libraryContinueKeepsPage(engine,name,phone)
+  await panelsOpenNearSource(engine,name)
   if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)
