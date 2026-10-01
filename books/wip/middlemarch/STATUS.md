@@ -9,8 +9,10 @@
 
 - Branch: `content/release-assets-middlemarch-codex`; base `8cfe39e709250a7c53942dcb6a582b360d132335` (`origin/integration/release-candidate-2`, fetched).
 - STAGED, not public. Current live numbering supersedes historical source numbering above: Prelude 1; remaining units 2–87; Finale 88.
-- Item 1 COMPLETE: 21 character records in both editions; 6,483 original / 6,113 modern mentions; eight paragraph-end spoiler gates per edition.
+- Item 1 COMPLETE: 21 character records in both editions; 6,470 original / 6,100 modern mentions; eight paragraph-end spoiler gates per edition.
 - Verification: character-service suite 497/497 PASS (6 files); direct Middlemarch runtime verification PASS with in-memory registration only; hashes, UTF-16 anchors and gate boundaries PASS.
 - Generic baseline compiled, then reviewed assembly via `build_reviewed.compile_package` and the per-book `bind` function. Final asset is the reviewed assembly.
-- Items 2–4 pending. No shared registry changes, publication, deployment, PR, narration or API generation.
+- Remaining at this checkpoint: items 2–4. No shared registry changes, publication, deployment, PR, narration or API generation.
 - Item 2 COMPLETE: preface reuses onboarding `about` verbatim; library introduction includes George Eliot / Mary Ann Evans, hook and live-number orientation. Preface SHA-256 and whitespace word count recorded in `release/manifest-entry.json`; JSON and verbatim checks PASS.
+- Item 3 COMPLETE: threads for 22 figures, 181 character/unit entries, both editions, all live units 1–88. Schema and numbering checks PASS. Chapter placement reviewed against accepted edition text.
+- Final character refinement: exclude Captain and Sir Godwin Lydgate from Tertius; distinguish Farebrother’s mother/sister; eight gates now include Raffles’s connection with Bulstrode. Character-service suite remains 497/497 PASS; every Middlemarch mention resolves and preserves highlights; all final gate boundaries PASS.

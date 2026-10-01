@@ -31,7 +31,7 @@ ENTITIES = [{'id': 'dorothea-brooke',
   'kind': 'person',
   'storyRole': 'central',
   'displayName': 'Tertius Lydgate',
-  'aliases': ['Tertius Lydgate', 'Mr. Lydgate', 'Lydgate', 'Tertius'],
+  'aliases': ['Tertius Lydgate', 'Mr. Lydgate', 'Tertius'],
   'subtitle': 'A doctor new to Middlemarch',
   'body': 'A young surgeon newly arrived in Middlemarch, Lydgate attracts attention for his intelligence and '
           'assured manner.'},
@@ -183,4 +183,8 @@ def bind(edition, chapter, paragraph, text, entities):
     for match in alias_pattern('Farebrother').finditer(text):
         if not re.search(r'(?:Mrs\.?|Miss)\s+$', text[:match.start()]):
             candidates.append((match.start(), match.end(), 'camden-farebrother', 'reviewed-context'))
+    # Captain Lydgate and Sir Godwin Lydgate are the doctor's relatives.
+    for match in alias_pattern('Lydgate').finditer(text):
+        if not re.search(r'(?:Captain|Godwin)\s+$', text[:match.start()]):
+            candidates.append((match.start(), match.end(), 'tertius-lydgate', 'reviewed-context'))
     return candidates
