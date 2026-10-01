@@ -26,3 +26,9 @@ Quotes below come from aggregator sites (mostrecommendedbooks.com, bookmarked.cl
 
 ## Gaps (need Anders)
 The Tobi Lutke clip, any TikTok / YouTube / Reddit picks. A free-licence portrait for any quote panel is also needed (Wikimedia Commons check).
+
+## Mockup decisions, 2026-10-01
+Quote page built (wide + phone): Tobi Lutke "My most read book." as the lead panel; then Naval, Joe Rogan and DHH as compact quote cards; one "Photo credits" tap-to-open list.
+- **DHH quote** (from https://dailystoic.com/dhh/, DHH speaking per a fetch summary; verify wording): "The basics are pretty simple, but living them consistently is hard. So returning to the same key texts will serve you well." It is about Stoic texts in general; his reading order names Meditations third. On the Elevate podcast (robertglazer.com) he hedges a Stoic line as "Seneca or Aurelius" and does not name Meditations; not used.
+- **Photos (Wikimedia Commons; licences from Commons metadata, file pages not opened):** Tobi Lutke, "NYC-Commerce-Tobi-Lutki-561.jpg", Benjamin Forrest, CC BY-SA 4.0. Naval, "Naval Ravikant (cropped).jpg", Elias Bizannes, CC BY-SA 2.0. DHH, "David Heinemeier Hansson.jpg", James Duncan Davidson, CC BY 2.0. Joe Rogan, "Joerogan.jpg", CC BY 2.0 (author credit unclear in Commons metadata: confirm before launch). Rogan's and DHH's photos are old (DHH looks about 20s); a public-domain 2026 White House photo of Rogan exists on Commons but its file URL was not retrievable (Wikimedia API rate limit).
+- CC BY-SA means the photo's licence carries share-alike for adaptations; cropping to a circle is generally fine, but check this with whoever reviews licences.
