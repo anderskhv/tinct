@@ -38,3 +38,11 @@ TikToks, X posts, Reddit threads (our tools can't search them), and any famous v
 2. The Culturist, "10 Reasons You Must Read the Odyssey"
 3. YouTube: Victor Davis Hanson, The Daily Signal
 4. Kirk Barbera, "How and Why to Study Homer's The Odyssey" (Medium)
+
+## Quote hunt: tech/podcast voices (2026-10-01)
+Nothing here is verified at the source; X is blocked to our fetcher.
+- **Elon Musk** (best lead). Aggregators attribute: "Love the Iliad and Odyssey" (recommentions.com lists it as 1 mention, no URL) and, about the *Iliad* only, "Best story ever." with source https://x.com/elonmusk/status/1703324372239585397 (via ereader.blog), plus "For maximum alpha, complete with fighting for princesses, the Iliad." (source link on that page points to an Apple Books audiobook page, so it looks mis-cited). Anders should open the tweet(s) and confirm exact wording and date before any quote is used. Note the "Best story ever" quote is about the Iliad, not the Odyssey.
+- **DHH**: search found no Homer or Odyssey recommendation (his five "novels I think about all the time" per an aggregator: 1984, The Trial, The Stranger, Animal Farm, Brave New World).
+- **Patrick Collison, Naval Ravikant, Tyler Cowen**: aggregator lists turned up no Odyssey praise.
+- **Podcasters** (Lex Fridman, Joe Rogan, Tim Ferriss, Huberman, Jocko, Shapiro): searched; no verified Odyssey praise found.
+- **Reddit thread title**: still unread (Reddit returns 403 to our fetcher; a search on the title words returned nothing). Needs Anders to paste the full title.
