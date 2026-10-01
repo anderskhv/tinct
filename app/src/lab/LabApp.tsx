@@ -38,6 +38,7 @@ import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
+import { leaveForLibrary } from './labLeaveForLibrary'
 import { LAB_COPY } from './labCopy'
 import {
   LAB_DESKTOP_PANES,
@@ -4173,7 +4174,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
-    window.location.assign(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`)
+    leaveForLibrary(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`)
   }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
 
   // Contents -> Introduction opens the book's introduction in the library.
@@ -4191,7 +4192,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setIntroductionRequested(false)
     notePlace('hide')
     rememberLibraryPlace()
-    window.location.assign(labLibraryIntroductionUrl(book.bookId || 'bible', prefs.primaryEdition, readerPreviewSearch(window.location.search)))
+    leaveForLibrary(labLibraryIntroductionUrl(book.bookId || 'bible', prefs.primaryEdition, readerPreviewSearch(window.location.search)))
   }, [book.bookId, introductionRequested, notePlace, prefs.primaryEdition, rememberLibraryPlace, tocOpen])
 
   const showChapterEnd = !initialResolving && !book.chaptersProvisional
