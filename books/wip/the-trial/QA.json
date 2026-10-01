@@ -1,5 +1,5 @@
 {
-  "status": "CONTENT COMPLETE — 10/10; editorial approval and EU editorial-rights clearance pending",
+  "status": "independence retest",
   "original": {
     "chapters": 10,
     "paragraphs": 140,
@@ -74,15 +74,15 @@
     "wholeBookEqualityReason": "Both editions contain exactly chapters 1–10 and 140 corresponding paragraphs.",
     "emptyOrStubParagraphs": [],
     "ratioFlags": [],
-    "ratioMinimum": 0.9237,
-    "ratioMaximum": 1.2432,
+    "ratioMinimum": 0.8462,
+    "ratioMaximum": 1.1979,
     "ratioRule": "English/German whitespace-delimited words, flag below 0.60 or above 2.00; per-paragraph output in paragraph-ratios.json",
     "germanFunctionWordScan": [],
-    "languageReview": "All paragraphs self-reviewed during direct rendering. Whole-book supplementary German-word scan has no hits; retained names/place names are intentional. Primary agent independently checked first three paragraphs of 7–9; targeted second-agent reviews below. Heuristic is not proof of fidelity.",
+    "languageReview": "2026-10-01: paragraphs changed in chapters 1–3 rendered sentence by sentence from German and author self-reviewed; German function-word scan has no hits. Retained proper names intentional. Chapters 4–10 await independence remediation. Earlier second-agent reviews do not cover this rewrite.",
     "firstThreeParagraphSpotRead": {
-      "1": "PASS: accusation and arrest; guards, documents and law; abandoned attempt to force departure retained.",
-      "2": "PASS: notice and scheduling; deputy manager invitation and Hesterer; route and three bank employees retained.",
-      "3": "PASS: empty room, books, woman and court/student relations; no omission in the three long opening paragraphs.",
+      "1": "PASS: German-aligned self-review after independence rewrite; no claim of independent second review.",
+      "2": "PASS: German-aligned self-review after independence rewrite; no claim of independent second review.",
+      "3": "PASS: German-aligned self-review after independence rewrite; no claim of independent second review.",
       "4": "PASS: unsuccessful approaches, letters, room move, breakfast and reconciliation dispute.",
       "5": "PASS: guards, punishment, attempted bribe, rationalisation, fiancée claim and next-day repetition (all three paragraphs).",
       "6": "PASS: uncle’s entrance; complete letter, bank conversation, journey and lawyer’s introduction; Leni and study scene. Karl/Albert and name-day/birthday variation retained.",
@@ -117,9 +117,9 @@
     "similarityGate": "Not used per approved cross-language QA replacement",
     "missingChapterNumbers": [],
     "wordsByChapter": [
-      9755,
-      5390,
-      8213,
+      9348,
+      5120,
+      7488,
       2571,
       2261,
       6940,
@@ -128,7 +128,7 @@
       8627,
       1794
     ],
-    "words": 74070,
+    "words": 72668,
     "openingsAndEndings": "PASS: source-aligned beginnings/endings for all ten chapters; no apparatus or placeholders."
   },
   "onboarding": {
@@ -138,6 +138,226 @@
     "acclaim": "omitted",
     "castEntries": 11
   },
-  "scope": "Only owned content paths; no app build required, no app/registry changes or publication",
-  "reproduce": "python3 books/wip/the-trial/validate.py; result saved in qa-output.txt"
+  "scope": "Only books/wip/the-trial/; German unchanged; no app/registry edits, publication, or Anthropic API spend.",
+  "reproduce": "python3 books/wip/the-trial/validate.py; result saved in qa-output.txt",
+  "sha256": {
+    "originalDe": "caf39bade270a8718f3867720b97533e25364c8948c2b8a7738a11f1d6138d0f",
+    "modernEn": "a64f34adc82295ac1c60c66216be410b651d6e84db902e57416a9d79927ba03d",
+    "overlapChecker": "b303bfda2efc3869fd5489f47b2a7095e2fb7536449ee0fc7a81891ea9cc1d86"
+  },
+  "independenceRetest": {
+    "status": "independence retest",
+    "date": "2026-10-01",
+    "completedChapters": [
+      1,
+      2,
+      3
+    ],
+    "resumeChapter": 4,
+    "baselineCommit": "aab318b7acfdc9251fd085e7cb2361b0ab6eee76",
+    "checkerSourceCommit": "333aef81b250e5b03ed113e069decf2e36c59e67",
+    "before": {
+      "n10": 83,
+      "n8": 116
+    },
+    "after": {
+      "n10": 54,
+      "n8": 71
+    },
+    "completedChaptersFlags": {
+      "n10": 0,
+      "n8": 0
+    },
+    "changedParagraphs": [
+      {
+        "chapter": 1,
+        "paragraph": 1
+      },
+      {
+        "chapter": 1,
+        "paragraph": 2
+      },
+      {
+        "chapter": 1,
+        "paragraph": 3
+      },
+      {
+        "chapter": 1,
+        "paragraph": 4
+      },
+      {
+        "chapter": 1,
+        "paragraph": 5
+      },
+      {
+        "chapter": 1,
+        "paragraph": 6
+      },
+      {
+        "chapter": 1,
+        "paragraph": 7
+      },
+      {
+        "chapter": 1,
+        "paragraph": 8
+      },
+      {
+        "chapter": 1,
+        "paragraph": 9
+      },
+      {
+        "chapter": 1,
+        "paragraph": 10
+      },
+      {
+        "chapter": 1,
+        "paragraph": 11
+      },
+      {
+        "chapter": 1,
+        "paragraph": 12
+      },
+      {
+        "chapter": 1,
+        "paragraph": 13
+      },
+      {
+        "chapter": 1,
+        "paragraph": 14
+      },
+      {
+        "chapter": 1,
+        "paragraph": 15
+      },
+      {
+        "chapter": 1,
+        "paragraph": 16
+      },
+      {
+        "chapter": 1,
+        "paragraph": 17
+      },
+      {
+        "chapter": 1,
+        "paragraph": 18
+      },
+      {
+        "chapter": 1,
+        "paragraph": 19
+      },
+      {
+        "chapter": 1,
+        "paragraph": 20
+      },
+      {
+        "chapter": 2,
+        "paragraph": 2
+      },
+      {
+        "chapter": 2,
+        "paragraph": 3
+      },
+      {
+        "chapter": 2,
+        "paragraph": 4
+      },
+      {
+        "chapter": 2,
+        "paragraph": 7
+      },
+      {
+        "chapter": 2,
+        "paragraph": 8
+      },
+      {
+        "chapter": 2,
+        "paragraph": 9
+      },
+      {
+        "chapter": 2,
+        "paragraph": 11
+      },
+      {
+        "chapter": 2,
+        "paragraph": 12
+      },
+      {
+        "chapter": 2,
+        "paragraph": 13
+      },
+      {
+        "chapter": 2,
+        "paragraph": 14
+      },
+      {
+        "chapter": 2,
+        "paragraph": 16
+      },
+      {
+        "chapter": 2,
+        "paragraph": 17
+      },
+      {
+        "chapter": 2,
+        "paragraph": 22
+      },
+      {
+        "chapter": 2,
+        "paragraph": 28
+      },
+      {
+        "chapter": 3,
+        "paragraph": 1
+      },
+      {
+        "chapter": 3,
+        "paragraph": 2
+      },
+      {
+        "chapter": 3,
+        "paragraph": 3
+      },
+      {
+        "chapter": 3,
+        "paragraph": 4
+      },
+      {
+        "chapter": 3,
+        "paragraph": 5
+      },
+      {
+        "chapter": 3,
+        "paragraph": 6
+      },
+      {
+        "chapter": 3,
+        "paragraph": 7
+      },
+      {
+        "chapter": 3,
+        "paragraph": 8
+      },
+      {
+        "chapter": 3,
+        "paragraph": 9
+      },
+      {
+        "chapter": 3,
+        "paragraph": 10
+      },
+      {
+        "chapter": 3,
+        "paragraph": 11
+      }
+    ],
+    "sha256": {
+      "originalDe": "caf39bade270a8718f3867720b97533e25364c8948c2b8a7738a11f1d6138d0f",
+      "modernEn": "a64f34adc82295ac1c60c66216be410b651d6e84db902e57416a9d79927ba03d",
+      "overlapChecker": "b303bfda2efc3869fd5489f47b2a7095e2fb7536449ee0fc7a81891ea9cc1d86"
+    },
+    "wholeBookTargetMet": false,
+    "review": "Direct sentence-by-sentence authoring from German; author self-review. No independent second-agent review in this checkpoint.",
+    "referenceAccess": "Checker-only download/token comparison; no reference translation opened, printed, searched, or read by agent. Residual diagnostics used candidate-only windows and coordinate/count output.",
+    "anthropicApiSpend": 0
+  }
 }

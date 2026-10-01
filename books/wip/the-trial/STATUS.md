@@ -1,11 +1,9 @@
-# CONTENT COMPLETE — modern-en 10/10
+# independence retest
 
-Both editions contain **10 chapters / 140 matching paragraphs**. English: **74,070 words**. No missing chapters, placeholders or translation resume point.
-
-**Content QA passed:** valid JSON; exact paragraph counts; no empty/stub paragraphs, ratio outliers or German-word scan hits; all chapter openings/endings checked; first three paragraphs of every chapter spot-read. Targeted independent reviews and resulting corrections are recorded in HANDOFF.md. Reproduce with `python3 books/wip/the-trial/validate.py`; output in qa-output.txt.
-
-Ready for Anders’s content review. **Publication remains unapproved and editorial-rights clearance remains open** for Brod’s arrangement/interventions. All ten neutral chapter-label decisions and their provenance are recorded for approval. Six source-absent fragments remain omitted. No human English baseline is supplied.
-
-Onboarding, character/taxonomy proposals, SOURCE.md, HANDOFF.md, QA.json and pinned hashes are complete. No app/registry edits, publication, translation API or Anthropic spend.
-
-Branch: `content/the-trial-codex`. Authoritative checkout: `work/the-trial-content-isolated`. See HANDOFF.md for exact content checkpoint and the incidental English-title search-snippet disclosure.
+- Chapters 1–3 repaired: 45 paragraphs, zero flags at N=10 and N=8.
+- Whole book: N=10 **83 → 54/140**; N=8 **116 → 71/140**.
+- Resume: **chapter 4, paragraph 1**; chapters 4–10 pending. Exact remaining coordinates in `review/remaining-n10.json` and `review/remaining-n8.json`.
+- Structure QA PASS: 10 chapters / 140 paragraphs, neutral labels, no empty paragraphs or German scan hits; ratios 0.8462–1.1979.
+- German unchanged; current hashes pinned in QA.json, HANDOFF.md and SHA256SUMS.
+- Incomplete; no publication. No app/registry edits. Anthropic API spend: 0.
+- Branch: `content/the-trial-codex`. Chapter-boundary token checkpoint; next batch 4–6.
