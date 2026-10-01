@@ -57,3 +57,6 @@ The manual modern edition now extends through Book III Chapter I, totaling 180/4
 
 ## Batch checkpoint: modern entries 25–26
 Manual renderings extend through Book III Chapter III, totaling 200/470 paragraphs. Entries 15–26 pass checked paragraph length, exclamation, and ending requirements. The whole-book classifier remains blocked by 50 source chapters versus 26 modern chapters. Original N=10 overlap remains 85/470; modern overlap scans, folded classifier, and full source checks remain outstanding.
+
+## Batch checkpoint: modern entries 27–28
+Manual renderings now extend through Book III Chapter V, totaling 220/470 paragraphs. Entries 15–28 pass checked paragraph length, exclamation and ending requirements. Whole-book classifiers remain blocked by the chapter-count mismatch (50 source, 28 modern). Original N=10 overlap remains 85/470; modern overlap scans and full source checks remain outstanding.
