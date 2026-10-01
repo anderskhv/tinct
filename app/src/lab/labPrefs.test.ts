@@ -220,7 +220,8 @@ describe('lab prefs', () => {
       audioEdition: 'web-en',
       audioSpeed: 1.75,
       compareOpen: true,
-      voicePersona: 'female',
+      // The stored Ara was never marked as chosen: it was the old default.
+      voicePersona: 'male',
     })
     expect(migrated.phone).toEqual(migrated.desktop)
     expect(migrated.phone).toMatchObject({
@@ -459,5 +460,16 @@ describe('whole-book progress with only nearby chapters loaded', () => {
   it('preserves list order for nonsequential chapter numbering', () => {
     const chapters = [{ number: 50, wordCount: 100, paragraphCount: 1 }, { number: 1190, paragraphCount: 2 }, { number: 51, wordCount: 100, paragraphCount: 1 }]
     expect(labBookPageEstimate({ currentPage: 1, totalPages: 2, chapterNumber: 1190, chapterWeights: chapters, wordsPerPage: 100, bookWordCount: 400 })).toMatchObject({ page: 2, totalPages: 4, percent: 50 })
+  })
+
+  it('makes Helios the default and keeps only a voice the reader chose (2026-10-01)', () => {
+    expect(DEFAULT_LAB_PREFS.voicePersona).toBe('male')
+    // An account from before the change: Ara stored, never chosen.
+    expect(parseLabStoredPrefs({ version: 2, shared: { voicePersona: 'female' } }).shared.voicePersona).toBe('male')
+    // A reader who picked Ara keeps her, through a write and a read.
+    const chosen = parseLabStoredPrefs({ version: 2, shared: { voicePersona: 'female', voicePersonaChosen: true } }).shared
+    expect(chosen).toMatchObject({ voicePersona: 'female', voicePersonaChosen: true })
+    writeLabPrefs({ ...DEFAULT_LAB_PREFS, voicePersona: 'female', voicePersonaChosen: true }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ voicePersona: 'female', voicePersonaChosen: true })
   })
 })

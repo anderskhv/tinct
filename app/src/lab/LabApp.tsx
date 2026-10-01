@@ -486,13 +486,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [appearanceProfile, book.bookId, allBookEditions])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
-      if (current.voicePersona === voicePersona) return current
-      const next = { ...current, voicePersona }
+      if (current.voicePersona === voicePersona && current.voicePersonaChosen) return current
+      const next = { ...current, voicePersona, voicePersonaChosen: true }
       writeLabPrefs(next, appearanceProfile)
       return next
     })
   }, [appearanceProfile])
-  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, onRemote: applyRemoteVoicePersona })
+  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.

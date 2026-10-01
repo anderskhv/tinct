@@ -46,15 +46,22 @@ type Turn = { id: string; role: 'user' | 'assistant'; content: string; pending?:
 
 function readLibraryVoicePersona(): VoicePersona {
   try {
-    const parsed = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { shared?: { voicePersona?: string } }
-    return parsed.shared?.voicePersona === 'male' ? 'male' : 'female'
-  } catch { return 'female' }
+    const parsed = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { shared?: { voicePersona?: string; voicePersonaChosen?: boolean } }
+    // Helios unless the reader chose a voice (see labPrefs voicePersonaChosen).
+    return parsed.shared?.voicePersonaChosen === true && parsed.shared.voicePersona === 'female' ? 'female' : 'male'
+  } catch { return 'male' }
+}
+
+function readLibraryVoiceChosen(): boolean {
+  try {
+    return (JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as { shared?: { voicePersonaChosen?: boolean } }).shared?.voicePersonaChosen === true
+  } catch { return false }
 }
 
 function writeLibraryVoicePersona(voicePersona: VoicePersona): void {
   try {
     const parsed = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}') as Record<string, unknown> & { shared?: Record<string, unknown> }
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...parsed, shared: { ...(parsed.shared || {}), voicePersona } }))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...parsed, shared: { ...(parsed.shared || {}), voicePersona, voicePersonaChosen: true } }))
   } catch { /* local persistence is best effort */ }
 }
 
@@ -155,6 +162,7 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
   useVoicePersonaSync({
     userId: auth.user?.id ?? null,
     value: voicePersona,
+    chosen: readLibraryVoiceChosen(),
     onRemote: value => { setVoicePersona(value); writeLibraryVoicePersona(value) },
   })
   const [catalogue, setCatalogue] = useState<LibraryCatalogue | null>(null)
