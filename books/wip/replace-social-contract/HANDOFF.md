@@ -42,3 +42,6 @@ Candidate SHA-256 at checkpoint:
 
 ## Batch checkpoint: modern entries 1–15
 Added a manual modern rendering for Book II Chapter IV (entry 15), bringing the complete modern subset to 99/470 paragraphs. The per-paragraph minimum length and exclamation requirements pass for this entry. The full classifier correctly remains blocked by chapter-count mismatch. A current coordinate-only N=10 scan of the original candidate flags 85/470 paragraphs; these are phrases in the 1764-based transcription and must be assessed/re-rendered under the explicit assignment rule. No protected text was opened; the overlap tool reported coordinates only. The modern N=10/N=8 scan and folded classifier still need to be run after all chapters exist. Source scan checks and the entry 8 paragraph 3 ending repair remain open.
+
+## Batch checkpoint: modern entries 15–17
+Manual modern renderings now extend through Book II Chapter VI, with 116/470 paragraphs complete. Entries 15–17 meet the minimum length, exclamation and terminal punctuation checks. Whole-book classifier and typography-folded classifier still require all 50 chapters. Original N=10 overlap remains 85/470; modern N=10/N=8 scans and full-source verification remain open. No protected text was opened.
