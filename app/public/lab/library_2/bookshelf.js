@@ -1,7 +1,7 @@
 import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20260930ed-b';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20260930ed-b';
 import { createBookshelf } from './bookshelf-view.js?v=20260930ed';
-import { readVisit, rememberVisit, visitMode } from './visit.js?v=20260928f';
+import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
@@ -42,9 +42,9 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
 // An empty cached table must not choose the visit before current reading resolves.
  function present(cached=false){
   const returning=table.mode==='returning'||saved.length>0;
-  const mode=visitMode(returning,override);
+  const mode=visitMode(returning,override,table.reading.length);
   const showReturning=mode==='shelf'&&(shelfStudy||table.reading.length);
-  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelector('.reading-table')?.setAttribute('hidden','');settle();if(!cached)rememberVisit({mode:'discovery'});}
+  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelector('.reading-table')?.setAttribute('hidden','');settle();if(!cached&&readVisit()?.mode!=='discovery')rememberVisit({mode:'discovery',auto:true});}
   window.__library2Reading=table;
   dispatchEvent(new Event('resize'));
   dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
@@ -67,8 +67,8 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   }catch(error){
    window.__library2LoadError=String(error&&(error.stack||error.message)||error);
    if(view){settle();notice('Showing your saved shelf. It will refresh when you reconnect.');}
-   else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>location.reload();const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery'});settle();html.classList.remove('returning');};loading.append(message,retry,browse);if(new URLSearchParams(location.search).has('debug')){const detail=document.createElement('pre');detail.style.cssText='white-space:pre-wrap;font:11px/1.4 monospace;text-align:left;max-width:100%;overflow:auto;opacity:.8';detail.textContent=window.__library2LoadError;loading.append(detail);}}
-   else{rememberVisit({mode:'discovery'});settle();}
+   else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>location.reload();const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery',auto:false});settle();html.classList.remove('returning');};loading.append(message,retry,browse);if(new URLSearchParams(location.search).has('debug')){const detail=document.createElement('pre');detail.style.cssText='white-space:pre-wrap;font:11px/1.4 monospace;text-align:left;max-width:100%;overflow:auto;opacity:.8';detail.textContent=window.__library2LoadError;loading.append(detail);}}
+   else settle();
   }finally{loadingNow=false;}
  }
  addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}});
