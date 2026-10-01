@@ -387,7 +387,6 @@ for k in range(9):                                                      # typing
     place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(644) + k * 0.135 + rng.uniform(-0.015, 0.015), gain=0.07, pan=0.3)
 place(sfx, click(0.8), fr(678), gain=0.16, pan=0.3)                     # send
 place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(679), gain=0.06, pan=0.3)
-place(sfx, pen_scratch(0.9), fr(852), gain=0.05)                        # the t draws itself
 sfx = wet(sfx, reverb_ir(1.2, 0.25), 0.18)
 
 # ------------------------------------------------------------------ mix

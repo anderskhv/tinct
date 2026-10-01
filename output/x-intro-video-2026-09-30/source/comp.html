@@ -33,9 +33,7 @@
   #end { opacity: 0; }
   #endScrim { position:absolute; inset:0; background: radial-gradient(ellipse 46% 52% at 50% 50%, rgba(10,12,9,.66), rgba(10,12,9,.28) 70%, rgba(10,12,9,0) 100%); }
   #endInner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cream); }
-  #mark { width: 120px; height: 120px; border-radius: 28px; background: #252820; box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(239,232,212,.08); display: grid; place-items: center; }
-  #mark svg { width: 120px; height: 120px; }
-  #word { margin-top: 26px; font: 400 120px/1 'Playfair Display', serif; letter-spacing: -.01em; }
+  #word { margin-top: 0; font: 400 128px/1 'Playfair Display', serif; letter-spacing: -.01em; }
   #pos1 { margin-top: 30px; font: 400 60px/1.15 'EB Garamond', serif; color: var(--cream); letter-spacing: -.01em; }
   #pos2 { margin-top: 8px; font: italic 400 46px/1.2 'EB Garamond', serif; color: rgba(239,232,212,.78); }
   #url { margin-top: 44px; font: 500 42px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; color: var(--cream); padding: 18px 34px; border: 1px solid rgba(239,232,212,.3); border-radius: 999px; }
@@ -56,7 +54,7 @@
   <div class="layer" id="end">
     <div id="endScrim"></div>
     <div id="endInner">
-      <div id="mark"><svg viewBox="0 0 512 512"><g transform="translate(256 256) scale(29.3333) translate(-11.9 -12)"><g transform="matrix(1 0 -0.19438 1 2.33256 0)" fill="none" stroke="#eee8db" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path id="t1" d="M11.4 8V13.4C11.4 15.3 12.5 16.1 14.4 15.8"/><path id="t2" d="M8.7 10.4H15"/></g></g></svg></div>
+
       <div id="word">Tinct</div>
       <div id="pos1">The world’s best reading experience.</div>
       <div id="pos2">Starting with the greatest books ever written.</div>
@@ -290,14 +288,8 @@ function drawEnd(f) {
   const a = END0, el = $('end');
   if (f < a) { el.style.opacity = 0; return; }
   el.style.opacity = 1;
-  const mk = eo(prog(f, a + 2, a + 16));
-  $('mark').style.opacity = mk; $('mark').style.transform = `translateY(${(1 - mk) * 18}px) scale(${lerp(.92, 1, mk)})`;
-  const t1 = $('t1'), t2 = $('t2'), L1 = t1.getTotalLength(), L2 = t2.getTotalLength();
-  const d1 = eio(prog(f, a + 6, a + 20)), d2 = eio(prog(f, a + 16, a + 24));
-  t1.style.strokeDasharray = L1; t1.style.strokeDashoffset = L1 * (1 - d1);
-  t2.style.strokeDasharray = L2; t2.style.strokeDashoffset = L2 * (1 - d2);
   const set = (id, s, e) => reveal($(id), eo(prog(f, a + s, a + e)));
-  set('word', 12, 26); set('pos1', 24, 40); set('pos2', 34, 50); set('url', 46, 60); set('fine', 54, 68);
+  set('word', 4, 20); set('pos1', 16, 32); set('pos2', 26, 42); set('url', 38, 52); set('fine', 46, 60);
 }
 
 // ---- grain ----------------------------------------------------------------

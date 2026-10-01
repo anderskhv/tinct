@@ -1,27 +1,28 @@
-# Tinct intro film for X (v3, 1 October 2026)
+# Tinct intro film for X (v3.1, 1 October 2026)
 
-`tinct-x-intro-v3.mp4` is the version to upload.
+`tinct-x-intro-v3.1.mp4` is the version to upload.
 
 | Property | Value |
 |---|---|
 | Length | 39.4 s |
 | Video | 1920×1080, 24 fps, H.264 High (BT.709) |
-| Audio | AAC stereo, −16 LUFS |
+| Audio | AAC stereo, −18 LUFS. Sound effects only, no music: rain, distant thunder, the book, pages, clicks, fireside room tone |
 | File size | 38 MB, within X's upload limits |
 | Thumbnail | `poster.jpg` (frame 156: the Frankenstein room and its question) |
 
 The film is designed for muted autoplay: every beat reads without sound.
 
-`audio-foley-only.m4a` is an alternative soundtrack with no music: rain, distant thunder, the book, pages, clicks and fireside room tone, at −18 LUFS. To use it:
-`ffmpeg -i tinct-x-intro-v3.mp4 -i audio-foley-only.m4a -map 0:v -map 1:a -c copy tinct-x-intro-v3-foley.mp4`
-For a silent cut, run `ffmpeg -i tinct-x-intro-v3.mp4 -an -c copy tinct-x-intro-v3-silent.mp4`.
+`audio-with-music.m4a` is the alternative soundtrack: the same sound effects plus a soft synthesized piano and pad score, at −16 LUFS. To use it:
+`ffmpeg -i tinct-x-intro-v3.1.mp4 -i audio-with-music.m4a -map 0:v -map 1:a -c copy tinct-x-intro-v3.1-music.mp4`
+For a silent cut, run `ffmpeg -i tinct-x-intro-v3.1.mp4 -an -c copy tinct-x-intro-v3.1-silent.mp4`.
 
-Earlier cuts are in git history: v1 in `e494aab8`, v2 in `19a26c8c`.
+Earlier cuts are in git history: v1 in `e494aab8`, v2 in `19a26c8c`, v3 (with music and the "t" mark) in `dae66ac8`.
 
-## Changes in v3
+## Changes in v3 and v3.1
 
 - **The opening is organic.** There is no pull-back to the website and no cursor clicking Read. In one continuous take, the cover on the table swings open in gentle slow motion. The open book comes toward the camera, and the camera sinks into the page and lands on Letter 1.
 - **The features are slower.** Each beat now has a moment to orient, then the action, then a 2.5–3 s hold on the result. Camera moves are slower and there are fewer captions. Typing and the streamed answer run at half speed.
+- **v3.1:** the end card drops the "t" app-icon mark, so the wordmark leads. The main soundtrack is now sound effects only; the scored mix is the alternate.
 
 ## Shot list
 
@@ -34,7 +35,7 @@ Earlier cuts are in git history: v1 in `e494aab8`, v2 in `19a26c8c`.
 | 0:19 | Select "the seat of frost and desolation" on the 1831 page → Explain; answer held | "Stuck on a line? Tinct explains it." |
 | 0:25 | Chat: "Is this book really about AI?"; answer streams and is held | "Ask anything. It knows your page." |
 | 0:32 | Reading room by the fire | *Trade one scroll for one chapter.* |
-| 0:35 | End card: the "t" draws itself | Tinct · The world's best reading experience. · *Starting with the greatest books ever written.* · tinct.app · 101 classics, free to read · More coming |
+| 0:35 | End card | Tinct · The world's best reading experience. · *Starting with the greatest books ever written.* · tinct.app · 101 classics, free to read · More coming |
 
 ## What is real and what is staged
 
@@ -42,7 +43,7 @@ Earlier cuts are in git history: v1 in `e494aab8`, v2 in `19a26c8c`.
 - **The AI answers were staged.** The Explain and Chat replies were hand-written and streamed into the real UI through a local mock of `/api/lab-chat`. No Anthropic API was called. Check that they still sound like the live companion.
 - **The lightning flash is added.** It's a grade on top; the loop's lightning is painted.
 - **The 1818 hook date and the 1831 Compare text differ.** The hook dates the novel to 1818. The Compare edition is Shelley's revised 1831 text, so the caption doesn't name a year.
-- **The audio is synthesized and was not listened to.** Everything comes from `source/audio.py`. It was checked only by measurement.
+- **The audio is synthesized.** Everything comes from `source/audio.py`. The sound-effects track was chosen after a listen; the music mix was checked only by measurement.
 - **The build was local, not production.** The captures came from this branch's code, which can be slightly ahead of tinct.app.
 
 ## Suggested post
@@ -67,7 +68,7 @@ The work directory (`FILM_WORK`, default is the current directory) holds `cap/`,
 4. Extract the reading room: `ffmpeg -ss 1 -i table-evening-wide.mp4 -frames:v 180 -q:v 2 comp/end2/e%04d.jpg`. Fetch the fonts with `get.py`.
 5. Serve the work directory (`npx http-server . -p 3003`) and render with `node render.mjs final 0-945 png`.
 6. Make and master the audio:
-   - `python3 audio.py raw.wav && python3 master.py raw.wav score.wav -16`
-   - Foley only: `FOLEY_ONLY=1 python3 audio.py foley_raw.wav && python3 master.py foley_raw.wav foley.wav -18 0.55`
+   - Main (sound effects only): `FOLEY_ONLY=1 python3 audio.py foley_raw.wav && python3 master.py foley_raw.wav foley.wav -18 0.55`
+   - With music: `python3 audio.py raw.wav && python3 master.py raw.wav score.wav -16`
 7. Encode:
-   `ffmpeg -framerate 24 -i final/%04d.png -i score.wav -vf "scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p" -c:v libx264 -preset slow -crf 18 -tune film -profile:v high -g 48 -maxrate 13M -bufsize 26M -colorspace bt709 -color_primaries bt709 -color_trc bt709 -c:a aac -b:a 256k -movflags +faststart tinct-x-intro-v3.mp4`
+   `ffmpeg -framerate 24 -i final/%04d.png -i foley.wav -vf "scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p" -c:v libx264 -preset slow -crf 18 -tune film -profile:v high -g 48 -maxrate 13M -bufsize 26M -colorspace bt709 -color_primaries bt709 -color_trc bt709 -c:a aac -b:a 256k -movflags +faststart tinct-x-intro-v3.1.mp4`
