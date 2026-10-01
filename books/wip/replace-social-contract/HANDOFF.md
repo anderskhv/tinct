@@ -25,3 +25,17 @@ Source gap restorations checked against printed pp. 44, 62, 113, 143–145, 150,
 Modern entries 1–11: 71 paragraphs. Manual sentence-by-sentence rendering; no mechanical modernization or provider API. All 71 preserve required length and exclamations. Both classifier variants pass; modern overlap at N=10 and N=8: zero. Exact outputs in gates/. Whole book remains incomplete, and original overlap remains failing. Modern entries 12–50 do not yet exist. No placeholder text was inserted.
 
 structure-map.json is a provisional ordinal/proportional mapping of old chapter/paragraph counts to new coordinates. No old titles or wording were inspected. It is unsuitable for exact highlight migration.
+
+## Latest checkpoint: entries 1–14
+
+87 modern paragraphs are complete through Book II Chapter III. Entry 15 paragraph 1 is the exact continuation point. A four-paragraph note in Book III Chapter X (entry 33) had been combined during extraction; its four TEI paragraphs are now restored separately, increasing the source total to 470. This did not affect completed modern coordinates. Proportional structure-map counts were refreshed.
+
+Latest results are in gates/latest-summary.json. The subset passes both classifiers, minimum length, exclamation and modern paragraph endings; the modern candidate has zero N=10 and N=8 overlap flags. Original overlap and full-book alignment remain FAIL. Both full-book classifiers reject the 50-vs-14 chapter mismatch. The source has one colon-ended paragraph at entry 8 paragraph 3. Four source punctuation restorations still require scan confirmation. Full-book opening/ending and transcription review is not claimed complete.
+
+The original-source overlap requirement remains in tension with preserving the 1764 translator's wording. The supplied gate flags genuinely historical phrases. Raw witnesses and the faithful candidate have been preserved, and no historical text has been silently paraphrased to manufacture a PASS. No rights restriction on protected later wording has been waived.
+
+This is a bounded-session checkpoint, not a final content handoff. STATUS begins with the exact continuation point as required.
+
+Candidate SHA-256 at checkpoint:
+- editions/social-contract-original-en.json: `97ab56ab2398f7afdf43c62b95311d7ebce26d4781032137eb4d002953af41b3`
+- editions/social-contract-modern-en.json: `ff72f928207987a73f5f4277afd04206b0d2f4ff76122bccbb4bbcc231e44b01`

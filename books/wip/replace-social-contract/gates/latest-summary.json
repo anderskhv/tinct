@@ -1,0 +1,58 @@
+{
+  "status": "INCOMPLETE / NOT ACCEPTED",
+  "original_chapters": 50,
+  "original_paragraphs": 470,
+  "modern_chapters": 14,
+  "modern_paragraphs": 87,
+  "whole_book_alignment": "FAIL",
+  "completed_subset_issues": [],
+  "original_terminal_ending_issues": [
+    [
+      8,
+      3
+    ]
+  ],
+  "source_scan_review": "incomplete; marked gaps restored; broader transcription review pending",
+  "gates": [
+    {
+      "gate": "batch03-classifier",
+      "exit_code": 0,
+      "output": "gates/batch03-classifier.txt"
+    },
+    {
+      "gate": "batch03-classifier-folded",
+      "exit_code": 0,
+      "output": "gates/batch03-classifier-folded.txt"
+    },
+    {
+      "gate": "full-classifier",
+      "exit_code": 1,
+      "output": "gates/full-classifier.txt"
+    },
+    {
+      "gate": "full-classifier-folded",
+      "exit_code": 1,
+      "output": "gates/full-classifier-folded.txt"
+    },
+    {
+      "gate": "original-overlap-n10",
+      "exit_code": 1,
+      "output": "gates/original-overlap-n10.txt"
+    },
+    {
+      "gate": "original-overlap-n8",
+      "exit_code": 1,
+      "output": "gates/original-overlap-n8.txt"
+    },
+    {
+      "gate": "modern-overlap-n10",
+      "exit_code": 0,
+      "output": "gates/modern-overlap-n10.txt"
+    },
+    {
+      "gate": "modern-overlap-n8",
+      "exit_code": 0,
+      "output": "gates/modern-overlap-n8.txt"
+    }
+  ]
+}
