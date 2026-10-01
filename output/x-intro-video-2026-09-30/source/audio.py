@@ -7,7 +7,7 @@ from scipy import signal
 import wave, sys
 
 SR = 48000
-DUR = 32.0
+DUR = 30.0
 N = int(SR * DUR)
 rng = np.random.default_rng(1818)
 fr = lambda f: f / 24.0            # frame -> seconds
@@ -301,59 +301,47 @@ def wet(x, ir, mix):
     return x * (1 - mix * 0.35) + y * mix
 
 
-# ------------------------------------------------------------------ the score
+# ------------------------------------------------------------------ the score (v2 timeline)
 music = buf()
 pads = buf()
-
-# Pad harmony (D major, contemplative): hooks -> card tension -> resolution -> product -> end bloom
+# Opening line in near-silence; the room brings rain; piano enters with the question.
 PADS = [
-    (0.0, 3.1, ['D3', 'A3', 'E4', 'A4']),              # Dsus2
-    (3.0, 2.35, ['B2', 'F#3', 'D4', 'A4']),            # Bm7
-    (5.25, 2.35, ['G2', 'D3', 'B3', 'F#4']),           # Gmaj7
-    (7.5, 2.9, ['E3', 'B3', 'D4', 'G4']),              # Em7
-    (10.25, 1.0, ['A2', 'E3', 'D4', 'G4']),            # A7sus4 (card: tension)
-    (11.17, 1.9, ['D3', 'A3', 'F#4', 'A4']),           # D (resolution on "This time")
-    (13.0, 2.1, ['D3', 'A3', 'F#4', 'E5']),            # product: Dadd9
-    (15.0, 2.1, ['B2', 'F#3', 'D4', 'A4']),            # Bm7
-    (17.0, 2.1, ['G2', 'D3', 'B3', 'F#4']),            # Gmaj7
-    (19.0, 2.1, ['A2', 'E3', 'C#4', 'E4']),            # A
-    (21.0, 2.1, ['D3', 'A3', 'F#4', 'E5']),
-    (23.0, 2.1, ['B2', 'F#3', 'D4', 'A4']),
-    (25.0, 2.1, ['G2', 'D3', 'B3', 'F#4']),
-    (27.0, 1.25, ['A2', 'E3', 'C#4', 'E4']),
-    (28.17, 3.9, ['D3', 'A3', 'F#4', 'A4', 'D5']),     # end bloom
+    (0.0, 2.6, ['D3', 'A3', 'E4']),                    # barely there under the opening line
+    (2.4, 5.0, ['D3', 'A3', 'E4', 'A4']),              # Dsus2: the room
+    (7.4, 2.0, ['B2', 'F#3', 'D4', 'A4']),             # Bm7: pull back to the app
+    (9.1, 2.2, ['G2', 'D3', 'B3', 'F#4']),             # Gmaj7: the book opens
+    (11.3, 2.0, ['A2', 'E3', 'C#4', 'E4']),            # A: into the page
+    (13.3, 2.1, ['D3', 'A3', 'F#4', 'E4']),            # Compare
+    (15.4, 2.1, ['B2', 'F#3', 'D4', 'A4']),
+    (17.5, 2.1, ['G2', 'D3', 'B3', 'F#4']),            # Explain
+    (19.6, 2.0, ['E3', 'B3', 'D4', 'G4']),             # Chat
+    (21.6, 1.7, ['A2', 'E3', 'D4', 'G4']),             # A7sus4: tension before the line
+    (23.25, 6.8, ['D3', 'A3', 'F#4', 'A4', 'D5']),     # resolution: CTA + end card
 ]
 for t0, d, notes in PADS:
-    place(pads, pad_chord(notes, d, att=1.1 if t0 > 0 else 0.6, rel=1.4, bright=1100 if t0 < 13 else 1400), t0, gain=0.9)
+    g = 0.45 if t0 == 0.0 else 0.9
+    place(pads, pad_chord(notes, d, att=1.2 if t0 > 0 else 1.6, rel=1.4, bright=1100 if t0 < 11 else 1400), t0, gain=g)
 
-# Piano: one note per question, descending line, then resolution
 PIANO = [
-    (0.10, 'A4', 3.0, 0.42), (0.10, 'D4', 3.0, 0.30),
-    (3.00, 'F#4', 2.4, 0.40), (3.00, 'B3', 2.4, 0.26),
-    (5.25, 'E4', 2.3, 0.40), (5.25, 'G3', 2.3, 0.24),
-    (7.50, 'D4', 1.4, 0.40), (8.60, 'B3', 1.8, 0.30), (7.50, 'E3', 2.8, 0.22),
-    (10.30, 'E4', 1.0, 0.30), (10.30, 'A3', 1.0, 0.22),
-    (11.17, 'F#4', 2.2, 0.44), (11.17, 'A3', 2.2, 0.30), (11.17, 'D3', 2.2, 0.30), (11.60, 'A4', 1.9, 0.30),
+    (3.45, 'A4', 3.2, 0.40), (3.45, 'D4', 3.2, 0.28),             # the question appears
+    (5.45, 'F#4', 2.2, 0.34), (5.45, 'B3', 2.2, 0.22),            # ...and completes
+    (7.40, 'E4', 1.8, 0.30), (7.40, 'A3', 1.8, 0.22),
 ]
-# product section: gentle broken chords, one figure per chord
 FIG = {
     'D': ['D3', 'A3', 'F#4', 'E4'], 'Bm': ['B2', 'F#3', 'D4', 'C#4'],
-    'G': ['G2', 'D3', 'B3', 'A3'], 'A': ['A2', 'E3', 'C#4', 'E4'],
+    'G': ['G2', 'D3', 'B3', 'A3'], 'A': ['A2', 'E3', 'C#4', 'E4'], 'Em': ['E3', 'B3', 'G4', 'D4'],
 }
-seq = [(13.0, 'D'), (15.0, 'Bm'), (17.0, 'G'), (19.0, 'A'), (21.0, 'D'), (23.0, 'Bm'), (25.0, 'G'), (27.0, 'A')]
+seq = [(9.1, 'G'), (11.3, 'A'), (13.3, 'D'), (15.4, 'Bm'), (17.5, 'G'), (19.6, 'Em'), (21.6, 'A')]
 for t0, ch in seq:
     for j, nt in enumerate(FIG[ch]):
-        v = [0.30, 0.22, 0.26, 0.20][j]
-        PIANO.append((t0 + j * 0.46, nt, 1.6 if j < 3 else 1.2, v))
-# end: D major chord, then a single high A when the wordmark lands
-PIANO += [(28.17, 'D2', 3.6, 0.36), (28.17, 'A2', 3.6, 0.30), (28.17, 'F#3', 3.6, 0.32), (28.17, 'D4', 3.6, 0.34),
-          (28.95, 'A4', 3.0, 0.32), (29.55, 'F#5', 2.4, 0.2)]
+        v = [0.28, 0.20, 0.25, 0.19][j]
+        PIANO.append((t0 + j * 0.47, nt, 1.6 if j < 3 else 1.2, v))
+# the line and the end card: D major, then a high A as the wordmark lands
+PIANO += [(23.25, 'D2', 3.8, 0.34), (23.25, 'A2', 3.8, 0.28), (23.25, 'F#3', 3.8, 0.30), (23.25, 'D4', 3.8, 0.32),
+          (26.15, 'A4', 3.4, 0.30), (26.80, 'F#5', 2.8, 0.18), (27.6, 'D5', 2.2, 0.14)]
 for t0, nt, d, v in PIANO:
     pan = np.clip((n2m(nt) - 60) / 30, -0.5, 0.5)
     place(music, piano(nt, d, v), t0, gain=0.9, pan=pan)
-
-# distant Florence bell (The Prince)
-place(music, bell(midi(n2m('D4')) * 0.5, 6.5), 5.40, gain=0.10, pan=0.35)
 
 ir_hall = reverb_ir(3.6, 0.7)
 music = wet(music, ir_hall, 0.42)
@@ -362,59 +350,45 @@ pads = wet(pads, ir_hall, 0.3)
 
 # ------------------------------------------------------------------ ambience
 amb = buf()
-r = rain(3.9)
-fade = np.ones(r.shape[1]); fo = int(0.9 * SR); fade[-fo:] = np.linspace(1, 0, fo)
-fi = int(0.05 * SR); fade[:fi] = np.linspace(0, 1, fi)
-place(amb, r * fade, 0.0, gain=0.34)
-place(amb, thunder(4.4), fr(9), gain=0.62)
-place(amb, sea(3.2), 2.55, gain=0.34)
-# The Prince: quiet room, candle, wind at the window
-place(amb, fire(2.6, rate=4) * 0.5, 5.1, gain=0.18)
-# Meditations: winter wind + brazier
-w = wind(6.4)
-wf = np.ones(w.shape[1]); wf[:int(0.5 * SR)] = np.linspace(0, 1, int(0.5 * SR)); wf[-int(1.5 * SR):] = np.linspace(1, 0, int(1.5 * SR))
-place(amb, w * wf, 7.25, gain=0.22)
-fz = fire(9.5, rate=10)
-ff = np.ones(fz.shape[1]); ff[:int(0.5 * SR)] = np.linspace(0, 1, int(0.5 * SR)); ff[-int(1.2 * SR):] = np.linspace(1, 0, int(1.2 * SR))
-place(amb, fz * ff, 7.35, gain=0.22)
-# end card: the reading room's fire
-fe = fire(4.0, rate=9)
-fef = np.ones(fe.shape[1]); fef[:int(0.8 * SR)] = np.linspace(0, 1, int(0.8 * SR))
-place(amb, fe * fef, 28.1, gain=0.2)
-# duck ambience under the card text
-duck = np.ones(N)
-tt = np.arange(N) / SR
-duck *= 1 - 0.55 * np.clip((tt - 10.2) / 0.6, 0, 1) * np.clip((12.9 - tt) / 0.6, 0, 1)
-amb *= duck
+r = rain(6.6)
+fade = np.ones(r.shape[1]); fi = int(1.0 * SR); fade[:fi] = np.linspace(0, 1, fi); fo = int(1.6 * SR); fade[-fo:] = np.linspace(1, 0, fo)
+place(amb, r * fade, 1.9, gain=0.30)                      # rain on the window as the room appears
+th = thunder(4.4)
+th[:, :int(0.25 * SR)] *= 0.25                            # distant: soften the crack
+place(amb, sos_filter(th, 'lowpass', 900), fr(62) + 0.12, gain=0.55)
+fe = fire(7.2, rate=9)
+fef = np.ones(fe.shape[1]); fef[:int(1.0 * SR)] = np.linspace(0, 1, int(1.0 * SR))
+place(amb, fe * fef, 23.0, gain=0.2)                      # the reading room's fire
 amb = wet(amb, reverb_ir(1.6, 0.35), 0.12)
 
 # ------------------------------------------------------------------ UI foley
 sfx = buf()
-place(sfx, click(0.9), fr(340), gain=0.22, pan=-0.2)          # Read
-place(sfx, whoosh(0.8, 300, 1800, 0.3), fr(340) + 0.04, gain=0.20)   # the book lifts and opens
-place(sfx, page_flutter(0.8), fr(346), gain=0.10, pan=0.15)
-place(sfx, click(0.8), fr(396), gain=0.20, pan=0.1)           # Begin reading
-place(sfx, whoosh(0.7, 700, 3200, 0.35), fr(398), gain=0.14)  # into the page
-place(sfx, page_flutter(0.6), fr(421), gain=0.12, pan=0.35)   # compare page lays in
-place(sfx, whoosh(0.5, 1200, 3800, 0.4), fr(420), gain=0.06, pan=0.35)
-place(sfx, click(0.5), fr(528), gain=0.10, pan=-0.3)          # menu appears
-place(sfx, click(0.9), fr(550), gain=0.18, pan=-0.3)          # Explain
-place(sfx, whoosh(0.45, 1500, 4200, 0.3), fr(560), gain=0.05, pan=-0.3)   # card resolves
-place(sfx, click(0.7), fr(614), gain=0.14, pan=0.3)           # focus the input
-for k in range(10):                                           # typing
-    place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(616) + k * 0.083 + rng.uniform(-0.012, 0.012), gain=0.07, pan=0.3)
-place(sfx, click(0.8), fr(640), gain=0.16, pan=0.3)           # send
-place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(641), gain=0.06, pan=0.3)
-place(sfx, pen_scratch(0.9), fr(688), gain=0.05)              # the t draws itself
+place(sfx, click(0.9), fr(218), gain=0.22, pan=-0.25)                    # Read
+place(sfx, whoosh(0.8, 300, 1800, 0.3), fr(218) + 0.04, gain=0.20)       # the book lifts and opens
+place(sfx, page_flutter(0.8), fr(224), gain=0.10, pan=0.15)
+place(sfx, click(0.8), fr(266), gain=0.20, pan=0.1)                      # Begin reading
+place(sfx, whoosh(0.7, 700, 3200, 0.35), fr(268), gain=0.14)             # into the page
+place(sfx, page_flutter(0.6), fr(297), gain=0.12, pan=0.35)              # the 1831 page lays in
+place(sfx, whoosh(0.5, 1200, 3800, 0.4), fr(296), gain=0.06, pan=0.35)
+place(sfx, click(0.5), fr(418), gain=0.10, pan=0.3)                      # menu appears
+place(sfx, click(0.9), fr(439), gain=0.18, pan=0.3)                      # Explain
+place(sfx, whoosh(0.45, 1500, 4200, 0.3), fr(448), gain=0.05, pan=0.3)   # the answer resolves
+place(sfx, click(0.7), fr(494), gain=0.14, pan=0.3)                      # focus the input
+for k in range(8):                                                       # typing
+    place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(496) + k * 0.075 + rng.uniform(-0.01, 0.01), gain=0.07, pan=0.3)
+place(sfx, click(0.8), fr(515), gain=0.16, pan=0.3)                      # send
+place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(516), gain=0.06, pan=0.3)
+place(sfx, pen_scratch(0.9), fr(622), gain=0.05)                         # the t draws itself
 sfx = wet(sfx, reverb_ir(1.2, 0.25), 0.18)
 
 # ------------------------------------------------------------------ mix
+tt = np.arange(N) / SR
 mix = 0.22 * music + 0.07 * pads + 0.8 * amb + 1.7 * sfx
 # gentle master: high-pass rumble, soft saturation, end fade
 mix = sos_filter(mix, 'highpass', 65, order=4)
 mix = mix + 0.35 * sos_filter(mix, 'highpass', 4500)
 end_fade = np.ones(N)
-efn = int(1.1 * SR)
+efn = int(0.9 * SR)
 end_fade[-efn:] = np.cos(np.linspace(0, np.pi / 2, efn)) ** 2
 start_fade = np.minimum(1, tt / 0.02)
 mix *= end_fade * start_fade

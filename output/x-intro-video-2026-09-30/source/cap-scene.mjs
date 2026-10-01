@@ -28,12 +28,13 @@ if (extra === 'open') { clickAt = 40; mouseFrom = { x: 1400, y: 880 }; const b =
 for (let f = 0; f < +nFrames; f++) {
   if (extra === 'open' && f >= 18 && f <= 30) { const k = (f - 18) / 12, e = 1 - Math.pow(1 - k, 3); await page.mouse.move(mouseFrom.x + (mouseTo.x - mouseFrom.x) * e, mouseFrom.y + (mouseTo.y - mouseFrom.y) * e); }
   if (f === clickAt) { await page.mouse.down(); await page.mouse.up(); await page.evaluate(() => new Promise(r => setTimeout(r, 60))); }
+  if (extra === 'open' && f === 70) { meta.beginBox = await page.locator('#begin-reading').boundingBox(); const b = meta.beginBox; meta.beginTarget = { x: b.x + b.width * 0.3, y: b.y + b.height * 0.55 }; }
+  if (extra === 'open' && f >= 72 && f <= 84) { const k = (f - 72) / 12, e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; const a = mouseTo, b = meta.beginTarget; await page.mouse.move(a.x + (b.x - a.x) * e, a.y + (b.y - a.y) * e); }
   await seekTo(+startSec + f * DT / 1000);
   await page.evaluate(ms => window.__vc.step(ms), DT);
   await page.evaluate(() => new Promise(r => setTimeout(r, 25)));
   await page.screenshot({ path: `${OUT}/f${String(f).padStart(4, '0')}.jpg`, type: 'jpeg', quality: 94 });
 }
-if (extra === 'open') meta.beginBox = await page.locator('#begin-reading').boundingBox();
 fs.writeFileSync(`${OUT}/meta.json`, JSON.stringify(meta, null, 1));
 console.log('done', outdir);
 await browser.close();

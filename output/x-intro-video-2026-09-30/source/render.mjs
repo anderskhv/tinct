@@ -9,7 +9,7 @@ const browser = await chromium.launch({ args: ['--hide-scrollbars', '--force-col
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
 page.on('console', m => { if (m.type() === 'error') console.log('CONSOLE', m.text().slice(0, 200)); });
 page.on('pageerror', e => console.log('PAGEERR', e.message));
-await page.goto('http://127.0.0.1:3003/comp/comp.html');
+await page.goto('http://127.0.0.1:3003/comp/' + (process.env.COMP || 'comp.html'));
 await page.waitForFunction(() => window.__ready === true, null, { timeout: 60000 });
 const t0 = Date.now();
 for (const f of frames) {
