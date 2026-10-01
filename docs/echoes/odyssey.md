@@ -24,3 +24,9 @@ Christopher Nolan's film *The Odyssey* (Matt Damon, Tom Holland, Anne Hathaway, 
 
 ## Gaps (need Anders)
 TikToks, X posts, Reddit threads (our tools can't search them), and any famous voice for a top quote. For a quotable first-person "reader" voice, there is no verified candidate yet.
+
+## Anders's picks, 2026-10-01
+| Item | What I could confirm |
+|---|---|
+| [How and Why to Study Homer's The Odyssey](https://medium.com/@kirkjbarbera/how-and-why-to-study-homers-the-odyssey-e1189d04fd18), Kirk Barbera (Medium) | **Not read directly**: Medium/Cloudflare returns 403 to our fetcher (no workaround attempted). From a search summary only: argues the poem anchors three thousand years of literature; frames it as the start of the question "Who am I?"; uses Keats's "On First Looking into Chapman's Homer"; recommends the Fagles translation over Knox. Fagles is in copyright and not Tinct's text (Butler). Anders should paste the lines he likes. |
+| [10 Reasons You Must Read the Odyssey](https://www.theculturist.io/p/10-reasons-you-must-read-the-odyssey), The Culturist and Ascend Book Club, 2026-06-03 | Fetched via a summarising tool, so quoted lines below are **unverified wording**. Ten headings include "Homer as a Forerunner to Christ", "The Coming Home Story", "Understanding Guest-Friendship (Xenia)", "The Question of Fate & Free Will", "The Story of Humanity". Candidate lines: "Homer is the beginning of the great conversation." / "Reading him is like coming home—you see the first conversations that led to the world you inherited." Spoiler level: minimal (themes, not plot). Two uncredited images (don't reuse). No translation recommendation. |
