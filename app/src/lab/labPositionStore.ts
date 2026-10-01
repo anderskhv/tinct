@@ -1,4 +1,5 @@
 import { apiUrl } from '../utils/apiUrl'
+import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from './readerBoot'
 import { LAB_FINISHED_STORAGE_KEY, readFinishedChapters } from './labBibleTree'
 import {
   LAB_POSITION_DEVICE_KEY,
@@ -207,8 +208,30 @@ function writeLabPositionDirty(dirty: boolean): void {
  */
 export const LAB_POSITION_FETCH_TIMEOUT_MS = 10_000
 
+/**
+ * The reader's head script may already have started this GET with the same
+ * token (readerBootEntry). Take that response once, if it is recent; a failed
+ * early request falls back to a normal one. Same request, same data.
+ */
+async function takeBootPositionPrefetch(token: string): Promise<unknown | null> {
+  if (typeof window === 'undefined') return null
+  const slot = window as unknown as Record<string, ReaderBootPositionPrefetch | undefined>
+  const early = slot[READER_BOOT_POSITION_PREFETCH]
+  if (!early) return null
+  delete slot[READER_BOOT_POSITION_PREFETCH]
+  if (early.token !== token || Date.now() - early.at > 20_000) return null
+  return early.body.catch(() => null)
+}
+
 export async function fetchLabPositionCloud(token: string | null | undefined): Promise<LabPositionState | null> {
   if (!token) return null
+  const early = await takeBootPositionPrefetch(token)
+  if (early) {
+    try {
+      preserveUnresolvedSymposiumPositions(early)
+      return await prepareLabPositionMigrations(parseLabPositionState(early, readLabDeviceId()))
+    } catch { /* Fall through to a normal request. */ }
+  }
   const controller = typeof AbortController === 'undefined' ? null : new AbortController()
   const timeout = controller && typeof setTimeout !== 'undefined'
     ? setTimeout(() => controller.abort(), LAB_POSITION_FETCH_TIMEOUT_MS)

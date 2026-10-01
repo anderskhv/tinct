@@ -126,9 +126,29 @@ async function handleAppShellNavigation(request) {
   })
 }
 
+// A content-hashed file never changes, so the cached copy is always right.
+// A fixed-name module (/lab/native-books.js) changes with every build, and the
+// hashed bundles import it by minified export names: a cached copy from an
+// older build made those imports fail ("Your shelves could not load", a
+// reader that never starts). Fixed names are network-first; the cache is the
+// offline fallback.
+const CONTENT_HASHED = /-[A-Za-z0-9_-]{8,}\.(?:js|css|woff2)$/
+
 async function handlePrecachedAppAsset(request) {
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
-  const cached = await cache.match(new URL(request.url).pathname)
+  const path = new URL(request.url).pathname
+  if (!CONTENT_HASHED.test(path) && path.endsWith('.js')) {
+    try {
+      const response = await fetch(request)
+      if (response.ok) await cache.put(path, response.clone())
+      return response
+    } catch {
+      const offline = await cache.match(path)
+      if (offline) return offline
+      throw new Error('offline')
+    }
+  }
+  const cached = await cache.match(path)
   if (cached) return cached
 
   const response = await fetch(request)

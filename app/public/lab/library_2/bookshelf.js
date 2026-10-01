@@ -66,7 +66,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    if(!sample)try{if(table.mode==='returning'||saved.length)localStorage.setItem('tinct-library-2-reading-table','{"mode":"returning"}');else localStorage.removeItem('tinct-library-2-reading-table');}catch{}
   }catch{
    if(view){settle();notice('Showing your saved shelf. It will refresh when you reconnect.');}
-   else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>{loading.replaceChildren();ready=load();};const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery'});settle();html.classList.remove('returning');};loading.append(message,retry,browse);}
+   else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>location.reload();const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery'});settle();html.classList.remove('returning');};loading.append(message,retry,browse);}
    else{rememberVisit({mode:'discovery'});settle();}
   }finally{loadingNow=false;}
  }
