@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Frankenstein Echoes phone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+button{font:inherit;cursor:pointer}
+a.card{text-decoration:none;color:inherit}
+</style>
+</helmet>
+<div style="width:390px;height:844px;display:flex;flex-direction:column;background:#ece6d1;color:#2b3426;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;overflow:hidden;box-sizing:border-box;padding:28px 20px 0 20px">
+
+<div style="display:flex;justify-content:space-between;align-items:center;min-height:44px;flex-shrink:0">
+<button style="background:none;border:0;padding:0;font-size:16px;color:#66705a">← Back</button>
+<button style="background:none;border:0;padding:0;font-size:14px;color:#66705a">+ Add to shelf</button>
+</div>
+
+<h1 style="margin:12px 0 18px 0;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:40px;line-height:1.05;letter-spacing:-0.01em;flex-shrink:0">Introduction</h1>
+
+<div style="display:flex;gap:18px;border-bottom:1px solid #d2cdb8;overflow:hidden;flex-shrink:0">
+<button style="background:none;border:0;padding:0 0 14px 0;font-size:15px;color:#66705a;white-space:nowrap">Preface</button>
+<button style="background:none;border:0;padding:0 0 14px 0;font-size:15px;color:#66705a;white-space:nowrap">People and ideas</button>
+<button aria-current="page" style="background:none;border:0;border-bottom:2px solid #66705a;margin-bottom:-1px;padding:0 0 13px 0;font-size:15px;color:#2b3426;white-space:nowrap">{{tabLabel}}</button>
+<button style="background:none;border:0;padding:0 0 14px 0;font-size:15px;color:#66705a;white-space:nowrap">Pick edition</button>
+</div>
+
+<div style="overflow-y:auto;flex-grow:1;display:flex;flex-direction:column;gap:20px;padding:24px 0 24px 0">
+
+<div style="position:relative;display:flex;flex-direction:column;gap:20px;padding:22px;border-radius:16px;background:#e3dcc2">
+<a class="card" href="https://x.com/DavidDeutschOxf/status/1780499895473836167" target="_blank" rel="noreferrer" style="font-family:Georgia,'Times New Roman',serif;font-size:23px;line-height:1.28;letter-spacing:-0.005em;color:#232b1e">“If and when AGI is invented, the novel’s warning will become life-and-death relevant.”</a>
+<div style="display:flex;align-items:center;gap:12px">
+<button onClick="{{toggleCredit}}" title="Photo: Simon Benjamin, CC BY 3.0" aria-label="Photo credit" style="position:relative;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:none;flex-shrink:0">
+<img src="/_blob/aeb253892c8aeb1d5bd6b34d87a712a7" alt="David Deutsch" style="width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;display:block">
+<span style="position:absolute;right:-2px;bottom:-2px;width:16px;height:16px;border-radius:50%;background:#2d3626;color:#ece6d1;font-size:11px;line-height:16px;font-family:Georgia,serif;font-style:italic;text-align:center">i</span>
+</button>
+<a class="card" href="https://x.com/DavidDeutschOxf/status/1780499895473836167" target="_blank" rel="noreferrer" style="font-size:15px;color:#2b3426">David Deutsch <span style="color:#66705a">on X ↗</span></a>
+</div>
+<sc-if value="{{creditOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:22px;bottom:72px;max-width:260px;padding:8px 10px;border-radius:6px;background:#2d3626;color:#ece6d1;font-size:12px;line-height:1.35">Photo: Simon Benjamin, <a href="https://commons.wikimedia.org/wiki/File:David_Deutsch_(cropped).jpg" target="_blank" rel="noreferrer" style="color:#ece6d1">CC BY 3.0</a></div>
+</sc-if>
+</div>
+
+<a class="card" href="https://www.tiktok.com/@chris.kinda.reads/video/7572341080457334046" target="_blank" rel="noreferrer" style="display:flex;gap:14px;padding:14px;border:1px solid #d9d3bd;border-radius:16px;background:#f6f2e2">
+<div style="position:relative;width:96px;height:170px;flex-shrink:0;border-radius:12px;overflow:hidden;background:#2d3626">
+<img src="/_blob/090b94992b4d945ae7fe1702cf505672" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+<div style="position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+</div>
+</div>
+<div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:12px">
+<div style="display:flex;flex-direction:column;gap:12px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.3;font-style:italic">
+<div>“Have you ever read something so good that you had to stop reading it?”</div>
+<div>“I had to go walk the chapter off. Seriously.”</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-style:normal">
+<span style="font-size:14px;color:#66705a">@chris.kinda.reads</span>
+<span style="font-size:12px;color:#2b3426;padding:3px 10px;border:1px solid #66705a;border-radius:999px">TikTok ↗</span>
+</div>
+</div>
+</a>
+
+<a class="card" href="https://www.tiktok.com/@jeyessays/video/7680951116149853458" target="_blank" rel="noreferrer" style="display:flex;gap:14px;padding:14px;border:1px solid #d9d3bd;border-radius:16px;background:#f6f2e2">
+<div style="position:relative;width:96px;height:170px;flex-shrink:0;border-radius:12px;overflow:hidden;background:#2d3626">
+<img src="/_blob/bd5e28473b50ded0fdde6881b07d6b0f" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+<div style="position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+</div>
+</div>
+<div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:12px">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.3">Victor Frankenstein’s mistake feels remarkably modern… Maybe Frankenstein has something to tell us about the race to build AGI.</div>
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+<span style="font-size:14px;color:#66705a">@jeyessays</span>
+<span style="font-size:12px;color:#2b3426;padding:3px 10px;border:1px solid #66705a;border-radius:999px">TikTok ↗</span>
+</div>
+</div>
+</a>
+</div>
+
+<div style="flex-shrink:0;padding:10px 0 22px 0">
+<button style="width:100%;min-height:56px;border:0;border-radius:10px;background:#2d3626;color:#ece6d1;font-family:Georgia,'Times New Roman',serif;font-size:21px;text-align:left;padding:0 20px">Begin reading →</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tabLabel":{"editor":"enum","options":["Echoes","Elsewhere","Around","Beyond","Resources"],"default":"Echoes"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { creditOpen: false }; }
+  renderVals() {
+    return { tabLabel: this.props.tabLabel ?? 'Echoes', creditOpen: this.state.creditOpen, toggleCredit: () => this.setState({ creditOpen: !this.state.creditOpen }) };
+  }
+}
+</script>
+</body>
+</html>

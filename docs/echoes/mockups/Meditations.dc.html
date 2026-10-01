@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meditations Echoes wide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+button{font:inherit;cursor:pointer}
+a.card{text-decoration:none;color:inherit}
+</style>
+</helmet>
+<div style="width:651px;height:1040px;display:flex;flex-direction:column;background:#ece6d1;color:#2b3426;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;overflow:hidden;box-sizing:border-box;padding:28px 41px 0 41px">
+
+<div style="display:flex;justify-content:space-between;align-items:center;min-height:44px;flex-shrink:0">
+<button style="background:none;border:0;padding:0;font-size:16px;color:#66705a">← Back</button>
+<button style="background:none;border:0;padding:0;font-size:14px;color:#66705a">+ Add to shelf</button>
+</div>
+
+<h1 style="margin:12px 0 18px 0;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:52px;line-height:1.05;letter-spacing:-0.01em;flex-shrink:0">Introduction</h1>
+
+<div style="display:flex;gap:24px;border-bottom:1px solid #d2cdb8;overflow:hidden;flex-shrink:0">
+<button style="background:none;border:0;padding:0 0 14px 0;font-size:18px;color:#66705a;white-space:nowrap">Preface</button>
+<button style="background:none;border:0;padding:0 0 14px 0;font-size:18px;color:#66705a;white-space:nowrap">People and ideas</button>
+<button aria-current="page" style="background:none;border:0;border-bottom:2px solid #66705a;margin-bottom:-1px;padding:0 0 13px 0;font-size:18px;color:#2b3426;white-space:nowrap">{{tabLabel}}</button>
+<button style="background:none;border:0;padding:0 0 14px 0;font-size:18px;color:#66705a;white-space:nowrap">Pick edition</button>
+</div>
+
+<div style="flex-grow:1;display:flex;flex-direction:column;gap:20px;padding:24px 0 24px 0">
+<a class="card" href="https://x.com/tobi/status/1258575206483922950" target="_blank" rel="noreferrer" style="display:flex;flex-direction:column;gap:22px;padding:28px;border-radius:16px;background:#e3dcc2;color:#232b1e">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:1.1;letter-spacing:-0.01em">“My most read book.”</div>
+<div style="display:flex;align-items:center;gap:12px">
+<img src="/_blob/acb63057854a823e4a592d3d1605be27" alt="" style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 25%;display:block;flex-shrink:0">
+<span style="font-size:15px">Tobi Lütke <span style="color:#66705a">on X ↗</span></span>
+</div>
+</a>
+<a class="card" href="https://x.com/naval/status/437307278648025088" target="_blank" rel="noreferrer" style="display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid #d9d3bd;border-radius:16px;background:#f6f2e2">
+<img src="/_blob/3f7f671566546f3644de5cf24565a336" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;display:block;flex-shrink:0">
+<div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.3;font-style:italic">“One of my favorite books of all time.”</div>
+<div style="font-size:14px;color:#66705a">Naval Ravikant · X ↗</div>
+</div>
+</a>
+<a class="card" href="https://open.spotify.com/episode/0DsunsN5MGI0CWwvuaxZdt" target="_blank" rel="noreferrer" style="display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid #d9d3bd;border-radius:16px;background:#f6f2e2">
+<img src="/_blob/23ff824517b45675f605d14a1b5359ca" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:45% 20%;display:block;flex-shrink:0">
+<div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.3;font-style:italic">“It’s really wild when you think about how long that guy lived and how applicable some of his thoughts are today.”</div>
+<div style="font-size:14px;color:#66705a">Joe Rogan · Spotify ↗</div>
+</div>
+</a>
+<a class="card" href="https://dailystoic.com/dhh/" target="_blank" rel="noreferrer" style="display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid #d9d3bd;border-radius:16px;background:#f6f2e2">
+<img src="/_blob/7020fdba6292cad5268e038b60875d8a" alt="" style="width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:48% 10%;display:block;flex-shrink:0">
+<div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px">
+<div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.3;font-style:italic">“The basics are pretty simple, but living them consistently is hard. So returning to the same key texts will serve you well.”</div>
+<div style="font-size:14px;color:#66705a">DHH · The Daily Stoic ↗</div>
+</div>
+</a>
+<div style="position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px">
+<button onClick="{{toggleCredit}}" style="min-height:32px;padding:0;background:none;border:0;font-size:13px;color:#66705a;text-decoration:underline">Photo credits</button>
+<sc-if value="{{creditOpen}}" hint-placeholder-val="{{ false }}">
+<div style="padding:10px 12px;border-radius:8px;background:#2d3626;color:#ece6d1;font-size:12px;line-height:1.5">Tobi Lütke: Benjamin Forrest, CC BY-SA 4.0<br>Naval Ravikant: Elias Bizannes, CC BY-SA 2.0<br>Joe Rogan: Wikimedia Commons, CC BY 2.0<br>DHH: James Duncan Davidson, CC BY 2.0</div>
+</sc-if>
+</div>
+</div>
+
+<div style="flex-shrink:0;padding:10px 0 22px 0">
+<button style="width:100%;min-height:56px;border:0;border-radius:10px;background:#2d3626;color:#ece6d1;font-family:Georgia,'Times New Roman',serif;font-size:21px;text-align:left;padding:0 20px">Begin reading →</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tabLabel":{"editor":"enum","options":["Echoes","Elsewhere","Around","Beyond","Resources"],"default":"Echoes"},"$preview":{"width":651,"height":1040}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { creditOpen: false }; }
+  renderVals() {
+    return { tabLabel: this.props.tabLabel ?? 'Echoes', creditOpen: this.state.creditOpen, toggleCredit: () => this.setState({ creditOpen: !this.state.creditOpen }) };
+  }
+}
+</script>
+</body>
+</html>
