@@ -1,0 +1,50 @@
+{
+  "retrieved": "2026-10-01",
+  "note": "Full OCR files were downloaded to a scratch directory and are NOT retained in the package; excerpts used for extraction are retained with hashes below. Page-image spot checks were made through https://archive.org/download/{id}/page/n{N}_w1100.jpg.",
+  "items": [
+    {
+      "id": "assyrianbabylon00harp",
+      "title": "Assyrian and Babylonian Literature (R. F. Harper, ed.; Appleton 1901)",
+      "ocr_url": "https://archive.org/download/assyrianbabylon00harp/assyrianbabylon00harp_djvu.txt",
+      "ocr_sha256": "6a8d0ff028f78393fa7e13fe8314c68c354d3767d98f50df7b5b1e0d7d05da22",
+      "page_image_offset": "printed p. 335 = n450 (printed + 115)",
+      "excerpt": "extracts/harper-1901-pp324-369-ocr-excerpt.txt",
+      "excerpt_sha256": "37a2ac442e30b3c795d3ad07bd63de34082df2f92f7d3d503442f58664a511eb"
+    },
+    {
+      "id": "anoldbabylonianv00jastuoft",
+      "title": "An Old Babylonian Version of the Gilgamesh Epic (Jastrow & Clay; Yale Oriental Series Researches IV.3, 1920)",
+      "ocr_url": "https://archive.org/download/anoldbabylonianv00jastuoft/anoldbabylonianv00jastuoft_djvu.txt",
+      "ocr_sha256": "73b7ad44a0a5f838abff786be7df78a7f09d764cdaec18ea7403fb1baee8e990",
+      "page_image_offset": "printed p. 69 = n78 (printed + 9)",
+      "excerpt": "extracts/jastrow-clay-1920-translation-ocr-excerpt.txt",
+      "excerpt_sha256": "b6579369dba51a8f02b94679c6c35e74ada39db1f3f9713103b1b13a874a4611"
+    },
+    {
+      "id": "cuneiformparalle00rogeuoft",
+      "title": "Cuneiform Parallels to the Old Testament (R. W. Rogers; Eaton & Mains 1912)",
+      "ocr_url": "https://archive.org/download/cuneiformparalle00rogeuoft/cuneiformparalle00rogeuoft_djvu.txt",
+      "ocr_sha256": "2291d85f53f457c83b3d8da0cd7855788c466af8825bbbc9eda23c8f12041c48",
+      "page_image_offset": "printed p. 83 = n112 (printed + 29)",
+      "excerpt": "extracts/rogers-1912-pp80-91-ocr-excerpt.txt",
+      "excerpt_sha256": "e47bc20df48b42a5bc524f3fab8ceca2eb9f7cb9b804d5f8543c3470f3d50614"
+    }
+  ],
+  "examined_and_rejected": [
+    {
+      "id": "chaldeanaccounto00smituoft",
+      "title": "G. Smith, The Chaldean Account of Genesis, new ed. by A. H. Sayce (1880)",
+      "reason": "Rights-clean (Smith d.1876, Sayce d.1933) but rejected for quality: 1870s Izdubar/Hea-bani readings, numbered line-by-line fragments with editorial 'directions' in place of text; not readable as literature and superseded."
+    },
+    {
+      "id": "religionofbabylo00jastuoft",
+      "title": "M. Jastrow, The Religion of Babylonia and Assyria (1898), ch. XXIII",
+      "reason": "Rights-clean (Jastrow d.1921) but its translated quotations substantially duplicate Muss-Arnolt's passages with variant wording; not added, to avoid mixing readings of the same lines."
+    },
+    {
+      "id": "Thompson 1928",
+      "title": "R. Campbell Thompson, The Epic of Gilgamish",
+      "reason": "Credits Johannes Friedrich (d.1972)."
+    }
+  ]
+}

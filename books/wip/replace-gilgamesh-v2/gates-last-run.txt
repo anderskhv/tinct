@@ -1,0 +1,24 @@
+/home/user/tinct/.claude/worktrees/agent-a5d8ef2dc1b56ed64/books/wip/replace-gilgamesh-v2/editions/gilgamesh original-en -> modern-en  (12 chapters)
+  weighted similarity : 0.479   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/148 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 7  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+--- typography-folded copy
+/tmp/claude-0/-home-user-tinct/b146a23a-d0c5-56ff-ad5d-602fa4f6e9ef/scratchpad/folded/gilgamesh original-en -> modern-en  (12 chapters)
+  weighted similarity : 0.479   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/148 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 7  REAL 5  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+--- overlap N=10 (modern-en vs old live original+modern, --allow original-en)
+N=10: 0/152 paragraphs share a run of >= 10 words with the reference
+
+--- overlap N=8 (modern-en vs old live original+modern, --allow original-en)
+N=8: 0/152 paragraphs share a run of >= 8 words with the reference

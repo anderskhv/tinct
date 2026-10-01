@@ -1,1993 +1,378 @@
 {
-  "bookId": "gilgamesh",
-  "status": "COMPLETE_COUNT_ONLY",
-  "method": "Old protected editions were accessed only for chapter indices and paragraph counts. New coordinates are an approximate proportional mapping within the corresponding tablet; no old text was read.",
-  "old": {
-    "original-en": [
-      {
-        "chapterIndex": 1,
-        "paragraphCount": 21
-      },
-      {
-        "chapterIndex": 2,
-        "paragraphCount": 33
-      },
-      {
-        "chapterIndex": 3,
-        "paragraphCount": 19
-      },
-      {
-        "chapterIndex": 4,
-        "paragraphCount": 17
-      },
-      {
-        "chapterIndex": 5,
-        "paragraphCount": 18
-      },
-      {
-        "chapterIndex": 6,
-        "paragraphCount": 19
-      },
-      {
-        "chapterIndex": 7,
-        "paragraphCount": 16
-      },
-      {
-        "chapterIndex": 8,
-        "paragraphCount": 12
-      },
-      {
-        "chapterIndex": 9,
-        "paragraphCount": 15
-      },
-      {
-        "chapterIndex": 10,
-        "paragraphCount": 27
-      },
-      {
-        "chapterIndex": 11,
-        "paragraphCount": 38
-      },
-      {
-        "chapterIndex": 12,
-        "paragraphCount": 18
-      }
-    ],
-    "modern-en": [
-      {
-        "chapterIndex": 1,
-        "paragraphCount": 21
-      },
-      {
-        "chapterIndex": 2,
-        "paragraphCount": 33
-      },
-      {
-        "chapterIndex": 3,
-        "paragraphCount": 19
-      },
-      {
-        "chapterIndex": 4,
-        "paragraphCount": 17
-      },
-      {
-        "chapterIndex": 5,
-        "paragraphCount": 18
-      },
-      {
-        "chapterIndex": 6,
-        "paragraphCount": 19
-      },
-      {
-        "chapterIndex": 7,
-        "paragraphCount": 16
-      },
-      {
-        "chapterIndex": 8,
-        "paragraphCount": 12
-      },
-      {
-        "chapterIndex": 9,
-        "paragraphCount": 15
-      },
-      {
-        "chapterIndex": 10,
-        "paragraphCount": 27
-      },
-      {
-        "chapterIndex": 11,
-        "paragraphCount": 38
-      },
-      {
-        "chapterIndex": 12,
-        "paragraphCount": 18
-      }
-    ],
-    "modern-da": [
-      {
-        "chapterIndex": 1,
-        "paragraphCount": 21
-      },
-      {
-        "chapterIndex": 2,
-        "paragraphCount": 33
-      },
-      {
-        "chapterIndex": 3,
-        "paragraphCount": 19
-      },
-      {
-        "chapterIndex": 4,
-        "paragraphCount": 17
-      },
-      {
-        "chapterIndex": 5,
-        "paragraphCount": 18
-      },
-      {
-        "chapterIndex": 6,
-        "paragraphCount": 19
-      },
-      {
-        "chapterIndex": 7,
-        "paragraphCount": 16
-      },
-      {
-        "chapterIndex": 8,
-        "paragraphCount": 12
-      },
-      {
-        "chapterIndex": 9,
-        "paragraphCount": 15
-      },
-      {
-        "chapterIndex": 10,
-        "paragraphCount": 27
-      },
-      {
-        "chapterIndex": 11,
-        "paragraphCount": 38
-      },
-      {
-        "chapterIndex": 12,
-        "paragraphCount": 18
-      }
-    ]
+ "bookId": "gilgamesh",
+ "status": "COUNT_BASED_LOW_CONFIDENCE",
+ "method": "The old live editions (origin/main app/public/data/editions/gilgamesh-original-en.json and gilgamesh-modern-en.json) were used only for chapter and paragraph counts and for the n-gram independence gate (which prints coordinates only). Each old paragraph k of a tablet with o paragraphs maps to new paragraph ceil(k*n/o) of the same tablet with n paragraphs. The new text is a different translation with different paragraphing and much sparser content in several tablets, so these coordinates are only a positional guide; anything keyed to old paragraph content (threads, highlights, audio) needs manual remapping or reset.",
+ "newCounts": {
+  "original-en": {
+   "1": 6,
+   "2": 37,
+   "3": 10,
+   "4": 17,
+   "5": 2,
+   "6": 16,
+   "7": 4,
+   "8": 5,
+   "9": 7,
+   "10": 10,
+   "11": 29,
+   "12": 9
   },
-  "new": [
-    {
-      "chapterIndex": 1,
-      "title": "First Tablet",
-      "paragraphCount": 2
-    },
-    {
-      "chapterIndex": 2,
-      "title": "Second Tablet",
-      "paragraphCount": 11
-    },
-    {
-      "chapterIndex": 3,
-      "title": "Third Tablet",
-      "paragraphCount": 2
-    },
-    {
-      "chapterIndex": 4,
-      "title": "Fourth Tablet",
-      "paragraphCount": 5
-    },
-    {
-      "chapterIndex": 5,
-      "title": "Fifth Tablet",
-      "paragraphCount": 2
-    },
-    {
-      "chapterIndex": 6,
-      "title": "Sixth Tablet",
-      "paragraphCount": 8
-    },
-    {
-      "chapterIndex": 7,
-      "title": "Seventh Tablet",
-      "paragraphCount": 1
-    },
-    {
-      "chapterIndex": 8,
-      "title": "Eighth Tablet",
-      "paragraphCount": 2
-    },
-    {
-      "chapterIndex": 9,
-      "title": "Ninth Tablet",
-      "paragraphCount": 5
-    },
-    {
-      "chapterIndex": 10,
-      "title": "Tenth Tablet",
-      "paragraphCount": 7
-    },
-    {
-      "chapterIndex": 11,
-      "title": "Eleventh Tablet",
-      "paragraphCount": 22
-    },
-    {
-      "chapterIndex": 12,
-      "title": "Twelfth Tablet",
-      "paragraphCount": 8
-    }
-  ],
-  "mapping": [
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 19,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 20,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 1,
-      "oldParagraphIndex": 21,
-      "newChapterIndex": 1,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 19,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 20,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 21,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 22,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 23,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 24,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 25,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 9,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 26,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 9,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 27,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 9,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 28,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 10,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 29,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 10,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 30,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 10,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 31,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 11,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 32,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 11,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 2,
-      "oldParagraphIndex": 33,
-      "newChapterIndex": 2,
-      "newParagraphIndex": 11,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 3,
-      "oldParagraphIndex": 19,
-      "newChapterIndex": 3,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 4,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 4,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 5,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 5,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 6,
-      "oldParagraphIndex": 19,
-      "newChapterIndex": 6,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 7,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 7,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 8,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 8,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 9,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 9,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 19,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 20,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 21,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 22,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 23,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 24,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 25,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 26,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 10,
-      "oldParagraphIndex": 27,
-      "newChapterIndex": 10,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 9,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 9,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 10,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 11,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 19,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 11,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 20,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 12,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 21,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 12,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 22,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 13,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 23,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 14,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 24,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 14,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 25,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 15,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 26,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 15,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 27,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 16,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 28,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 16,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 29,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 17,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 30,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 18,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 31,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 18,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 32,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 19,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 33,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 19,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 34,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 20,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 35,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 20,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 36,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 21,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 37,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 22,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 11,
-      "oldParagraphIndex": 38,
-      "newChapterIndex": 11,
-      "newParagraphIndex": 22,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 1,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 2,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 1,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 3,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 4,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 2,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 5,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 6,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 7,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 3,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 8,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 9,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 4,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 10,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 11,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 5,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 12,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 13,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 6,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 14,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 15,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 16,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 7,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 17,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    },
-    {
-      "oldChapterIndex": 12,
-      "oldParagraphIndex": 18,
-      "newChapterIndex": 12,
-      "newParagraphIndex": 8,
-      "confidence": "low-count-only"
-    }
-  ],
-  "reason": "Proportional within-tablet mapping is structural only; paragraph semantics were not inspected in protected files."
+  "modern-en": {
+   "1": 6,
+   "2": 37,
+   "3": 10,
+   "4": 17,
+   "5": 2,
+   "6": 16,
+   "7": 4,
+   "8": 5,
+   "9": 7,
+   "10": 10,
+   "11": 29,
+   "12": 9
+  }
+ },
+ "chapters": [
+  {
+   "chapterIndex": 1,
+   "oldParagraphs": 21,
+   "newParagraphs": 6,
+   "oldToNew": [
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    6
+   ]
+  },
+  {
+   "chapterIndex": 2,
+   "oldParagraphs": 33,
+   "newParagraphs": 37,
+   "oldToNew": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+   ]
+  },
+  {
+   "chapterIndex": 3,
+   "oldParagraphs": 19,
+   "newParagraphs": 10,
+   "oldToNew": [
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    8,
+    8,
+    9,
+    9,
+    10,
+    10
+   ]
+  },
+  {
+   "chapterIndex": 4,
+   "oldParagraphs": 17,
+   "newParagraphs": 17,
+   "oldToNew": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  {
+   "chapterIndex": 5,
+   "oldParagraphs": 18,
+   "newParagraphs": 2,
+   "oldToNew": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  },
+  {
+   "chapterIndex": 6,
+   "oldParagraphs": 19,
+   "newParagraphs": 16,
+   "oldToNew": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    16
+   ]
+  },
+  {
+   "chapterIndex": 7,
+   "oldParagraphs": 16,
+   "newParagraphs": 4,
+   "oldToNew": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4
+   ]
+  },
+  {
+   "chapterIndex": 8,
+   "oldParagraphs": 12,
+   "newParagraphs": 5,
+   "oldToNew": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    5
+   ]
+  },
+  {
+   "chapterIndex": 9,
+   "oldParagraphs": 15,
+   "newParagraphs": 7,
+   "oldToNew": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    7
+   ]
+  },
+  {
+   "chapterIndex": 10,
+   "oldParagraphs": 27,
+   "newParagraphs": 10,
+   "oldToNew": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    6,
+    7,
+    7,
+    8,
+    8,
+    8,
+    9,
+    9,
+    9,
+    10,
+    10,
+    10
+   ]
+  },
+  {
+   "chapterIndex": 11,
+   "oldParagraphs": 38,
+   "newParagraphs": 29,
+   "oldToNew": [
+    1,
+    2,
+    3,
+    4,
+    4,
+    5,
+    6,
+    7,
+    7,
+    8,
+    9,
+    10,
+    10,
+    11,
+    12,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17,
+    17,
+    18,
+    19,
+    20,
+    20,
+    21,
+    22,
+    23,
+    23,
+    24,
+    25,
+    26,
+    26,
+    27,
+    28,
+    29,
+    29
+   ]
+  },
+  {
+   "chapterIndex": 12,
+   "oldParagraphs": 18,
+   "newParagraphs": 9,
+   "oldToNew": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    8,
+    8,
+    9,
+    9
+   ]
+  }
+ ],
+ "chapterTitles": {
+  "old": "Tablet N - descriptive subtitle (from the Colavito text)",
+  "new": "Tablet N (plain Roman numeral)"
+ }
 }
