@@ -56,6 +56,13 @@ export function registerLineatedChapter(paragraphs: string[]): void {
   if (paragraphs.length > 1) lineated.add(chapterKey(paragraphs))
 }
 
+/** Register a loaded chapter when its edition stores poetry line by line (BSB).
+ * Every loader of chapter text calls this -- the desktop spread's next-chapter
+ * opening included -- or that chapter paints one line per paragraph. */
+export function registerLoadedChapter(editionKey: string, paragraphs: string[]): void {
+  if (/^bsb-/.test(editionKey)) registerLineatedChapter(paragraphs)
+}
+
 function verseNumber(text: string): number | null {
   const match = VERSE_START.exec(text)
   if (!match) return null

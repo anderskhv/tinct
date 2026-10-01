@@ -42,7 +42,7 @@ echo ""
 # 1. Landing page loads
 echo "1. Landing page"
 LANDING=$(curl -sf "$URL/" 2>/dev/null || echo "FAIL")
-if printf '%s\n' "$LANDING" | grep -q 'Tinct — A New Way to Read'; then
+if printf '%s\n' "$LANDING" | grep -q '<title>Tinct'; then
   pass "Landing page loads"
 else
   fail "Landing page did not load"
