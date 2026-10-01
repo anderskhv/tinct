@@ -863,11 +863,39 @@ async function menuRedesign(engine,name,phone) {
   } finally {await browser.close();results.push(result)}
 }
 
+// Revealing the reader controls or opening Chat mid-chapter never moves the page.
+async function revealKeepsPage(engine,name,phone) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:phone?'phone-reveal-keeps-page':'desktop-reveal-keeps-page',live}
+  try {
+    state=await boot(browser,phone,'frankenstein','original-en',6)
+    const {page}=state
+    for(let i=0;i<2;i++){if(phone)await page.mouse.click(370,420);else await page.keyboard.press('ArrowRight');await page.waitForTimeout(600)}
+    const snap=()=>page.getByTestId('lab-root').evaluate(n=>({chapter:n.dataset.chapter,place:n.dataset.place,pageHeight:n.dataset.pageHeight,top:Math.round(document.querySelector('[data-testid="lab-word"]')?.getBoundingClientRect().top??-1)}))
+    const before=await snap()
+    if(phone){assert.equal(await page.getByTestId('lab-root').getAttribute('data-reader-controls'),'hidden');await page.locator('.lab-header-brand').first().click()}
+    else await page.mouse.move(720,30)
+    await page.waitForTimeout(600)
+    assert.deepEqual(await snap(),before,'revealing the controls keeps the page still')
+    await clickMenu(page,'chat')
+    await page.waitForTimeout(1500)
+    const after=await snap()
+    assert.equal(after.chapter,before.chapter,'opening Chat keeps the chapter');assert.equal(after.place,before.place,'opening Chat keeps the place')
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
 if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
 if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
+  for(const phone of [false,true])await revealKeepsPage(engine,name,phone)
   if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)
