@@ -36,6 +36,8 @@ export interface LabRecapRequest {
   previousChapterNumber?: number
   /** Shown to the model for context only; not part of the cache key. */
   bookTitle?: string
+  /** Catch me up's short entry (about 40 words, fast model) instead of the 90-word "so far". */
+  brief?: boolean
 }
 
 export interface LabRecapCoverage {
@@ -91,6 +93,7 @@ export function recapCacheKey(input: {
   paragraphCount: number | null
   completed: boolean
   previousChapterNumber?: number | null
+  brief?: boolean
 }): string {
   const through = input.completed
     ? 'end'
@@ -98,5 +101,5 @@ export function recapCacheKey(input: {
       ? String(clampIndex(input.paragraphIndex, RECAP_MAX_PARAGRAPH_INDEX + 1))
       : String(recapCoverageThrough({ paragraphIndex: input.paragraphIndex, paragraphCount: input.paragraphCount, completed: false }))
   const from = input.previousChapterNumber ?? input.chapterNumber
-  return `${RECAP_PROMPT_VERSION}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${from}/${through}`
+  return `${input.brief ? 'brief-v1/' : ''}${RECAP_PROMPT_VERSION}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${from}/${through}`
 }

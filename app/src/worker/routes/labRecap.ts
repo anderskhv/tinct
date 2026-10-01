@@ -14,7 +14,7 @@
  * the lab's anonymous free-action rule is enforced by the client, as for
  * `/api/lab-chat` — and each IP is rate-limited like the lab chat.
  */
-import { COMPANION_MODEL } from '../../companionModel'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from '../../companionModel'
 import {
   LAB_RECAP_ROUTE,
   RECAP_CACHE_TTL_SECONDS,
@@ -73,6 +73,11 @@ export const RECAP_SYSTEM_PROMPT = [
   'No praise, no interpretation, no advice, no preamble, no headings, no bullet points, and no quotation marks around the answer.',
 ].join('\n')
 
+/** Catch me up's entry for the chapter in progress: the same rules, about 40 words. */
+export const RECAP_BRIEF_SYSTEM_PROMPT = RECAP_SYSTEM_PROMPT
+  .replace('in about 90 words, never more than 110, as one paragraph', 'in two short sentences, at most 40 words in all,')
+export const RECAP_BRIEF_MAX_TOKENS = 120
+
 function labGuestIp(request: Request): string {
   return request.headers.get('cf-connecting-ip')
     || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
@@ -82,6 +87,7 @@ function labGuestIp(request: Request): string {
 export type ParsedRecapRequest = Required<Pick<LabRecapRequest, 'bookId' | 'editionKey' | 'chapterNumber' | 'paragraphIndex' | 'completed'>> & {
   previousChapterNumber: number | null
   bookTitle: string | null
+  brief: boolean
 }
 
 /** Validate the body; malformed input is a 400, never a model call. */
@@ -96,7 +102,7 @@ export function parseRecapRequest(raw: unknown): ParsedRecapRequest | null {
   const previous = value.previousChapterNumber
   const previousChapterNumber = typeof previous === 'number' && Number.isInteger(previous) && previous >= 1 && previous === book.chapterNumber - 1 ? previous : null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, paragraphIndex, completed, previousChapterNumber, bookTitle }
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, paragraphIndex, completed, previousChapterNumber, bookTitle, brief: value.brief === true }
 }
 
 function cleanParagraph(text: string): string {
@@ -222,8 +228,10 @@ export async function handleLabRecap(
     paragraphCount,
     completed: coverage.complete,
     previousChapterNumber: coverage.fromChapterNumber,
+    brief: parsed.brief,
   })
-  if (deps.prepared) {
+  // Prepared recaps are the 90-word "so far"; a brief entry is never one of them.
+  if (deps.prepared && !parsed.brief) {
     try {
       const ready = await deps.prepared({ ...parsed, previousChapterNumber: parsed.previousChapterNumber ?? undefined, bookTitle: parsed.bookTitle ?? undefined })
       if (ready && ready.version === RECAP_PROMPT_VERSION && ready.coverage.throughParagraph <= throughParagraph) return jsonResponse({ ...ready, cached: true },200,request)
@@ -243,19 +251,22 @@ export async function handleLabRecap(
 
   const passage = buildRecapPassage({ chapter, throughParagraph, previous })
   const content = userMessage({ parsed, chapter, coverage, passage })
-  const estimate = estimateAiCostMicros({ inputChars: RECAP_SYSTEM_PROMPT.length + content.length, maxTokens: RECAP_MAX_TOKENS })
+  const system = parsed.brief ? RECAP_BRIEF_SYSTEM_PROMPT : RECAP_SYSTEM_PROMPT
+  const model = parsed.brief ? RECAP_FAST_MODEL : COMPANION_MODEL
+  const maxTokens = parsed.brief ? RECAP_BRIEF_MAX_TOKENS : RECAP_MAX_TOKENS
+  const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
     guest: requestGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
-  }, { feature: 'recap', bookId: parsed.bookId, model: COMPANION_MODEL })
+  }, { feature: 'recap', bookId: parsed.bookId, model })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
-      model: COMPANION_MODEL,
-      max_tokens: RECAP_MAX_TOKENS,
-      system: RECAP_SYSTEM_PROMPT,
+      model,
+      max_tokens: maxTokens,
+      system,
       messages: [{ role: 'user', content }],
-      output_config: { effort: 'low' },
+      ...(parsed.brief ? {} : { output_config: { effort: 'low' as const } }),
     }, apiKey)
     if (!response.ok) {
       if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)
@@ -274,7 +285,7 @@ export async function handleLabRecap(
     const payload: LabRecapResponse = {
       summary,
       coverage,
-      model: typeof message.model === 'string' && message.model ? message.model : COMPANION_MODEL,
+      model: typeof message.model === 'string' && message.model ? message.model : model,
       version: RECAP_PROMPT_VERSION,
       cached: false,
     }
