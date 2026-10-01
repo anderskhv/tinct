@@ -58,7 +58,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   return route.continue()
  })
  await page.addInitScript(({entry,voice,chapter,paragraph,word})=>{
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'dark',primaryEdition:entry.editionKey,voicePersona:voice==='m'?'male':'female',audiobookVoice:['orion','eve'].includes(voice)?voice:null}))
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'dark',primaryEdition:entry.editionKey,voicePersona:voice==='m'?'male':'female',voicePersonaChosen:true,audiobookVoice:['orion','eve'].includes(voice)?voice:null}))
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:entry.bookId,primaryEditionKey:entry.editionKey,savedPlace:{bookId:entry.bookId,chapterNumber:chapter,paragraphIndex:paragraph,wordIndex:word,page:0}}))
   window.__audioEvents=[];window.__audio=null
   const observed=new WeakSet()
