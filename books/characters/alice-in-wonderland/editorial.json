@@ -1,0 +1,523 @@
+{
+  "bookId": "alice-in-wonderland",
+  "contentVersion": "2026-10-01.1",
+  "coverage": "31 proposed identities in both final live editions; paragraph-gated names, appearances and trial roles. Context-restricted aliases; inset-story figures excluded.",
+  "coordinateBase": "after uses one-based chapters and zero-based paragraph indices",
+  "entities": [
+    {
+      "id": "alice",
+      "name": "Alice",
+      "category": "central",
+      "kind": "person",
+      "subtitle": "The girl at the centre of the story",
+      "body": "Alice is sitting beside her sister on a bank. The story follows her thoughts and what she notices.",
+      "aliases": [
+        "Alice"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sister",
+      "name": "Alice’s sister",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "Alice’s companion on the bank",
+      "body": "Alice’s unnamed sister is reading beside her on the bank.",
+      "aliases": [
+        "her sister",
+        "Her sister",
+        "my sister"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "white-rabbit",
+      "name": "The White Rabbit",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "The rabbit Alice notices",
+      "body": "A White Rabbit with pink eyes runs close past Alice as she sits on the bank.",
+      "aliases": [
+        "White Rabbit",
+        "the Rabbit",
+        "The Rabbit",
+        "W. RABBIT"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dinah",
+      "name": "Dinah",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "Remembered from home",
+      "body": "Alice thinks of Dinah while falling down the rabbit-hole and wonders whether she will be missed at home.",
+      "aliases": [
+        "Dinah"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            9
+          ],
+          "name": "Dinah",
+          "body": "Dinah is Alice’s cat at home. Falling down the rabbit-hole, Alice remembers her milk at teatime and wishes she were with her."
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "name": "The Mouse",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "Another swimmer in the pool",
+      "body": "Alice notices a mouse swimming in the pool of tears. She has become small enough to share the water with it.",
+      "aliases": [
+        "the Mouse",
+        "The Mouse",
+        "O Mouse"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dodo",
+      "name": "The Dodo",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the creatures in the pool",
+      "body": "The Dodo is among the birds and animals that have fallen into the pool with Alice.",
+      "aliases": [
+        "Dodo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "duck",
+      "name": "The Duck",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the birds in the pool",
+      "body": "The Duck is one of the birds Alice encounters in the pool of tears.",
+      "aliases": [
+        "Duck"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lory",
+      "name": "The Lory",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the birds in the pool",
+      "body": "The Lory belongs to the company of birds and animals in the pool of tears.",
+      "aliases": [
+        "Lory"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eaglet",
+      "name": "The Eaglet",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the birds in the pool",
+      "body": "The Eaglet is among the creatures sharing the pool with Alice.",
+      "aliases": [
+        "Eaglet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pat",
+      "name": "Pat",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "Called by the White Rabbit",
+      "body": "The White Rabbit calls angrily for Pat while Alice is trapped inside the house.",
+      "aliases": [
+        "Pat"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bill",
+      "name": "Bill",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "A helper outside the Rabbit’s house",
+      "body": "Bill is named among the helpers gathering outside the house where Alice is trapped.",
+      "aliases": [
+        "Bill",
+        "the Lizard"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            4,
+            33
+          ],
+          "name": "Bill the Lizard",
+          "body": "Bill is the small lizard among the Rabbit’s helpers. Alice sees him supported by two guinea-pigs after the attempt to send him down the chimney."
+        },
+        {
+          "after": [
+            11,
+            8
+          ],
+          "name": "Bill the Lizard",
+          "body": "Bill the Lizard is now one of the jurors. Alice takes his squeaking pencil, leaving him to try to write on his slate with a finger."
+        }
+      ]
+    },
+    {
+      "id": "caterpillar",
+      "name": "The Caterpillar",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "The creature on the mushroom",
+      "body": "Alice finds a large blue caterpillar on top of a mushroom as she looks for a way to change her size.",
+      "aliases": [
+        "Caterpillar",
+        "blue caterpillar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pigeon",
+      "name": "The Pigeon",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "A bird among the treetops",
+      "body": "A pigeon confronts Alice among the leaves after her neck has grown high above the trees.",
+      "aliases": [
+        "Pigeon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fish-footman",
+      "name": "The Fish-Footman",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "The visitor at the door",
+      "body": "A footman comes out of the wood towards the house Alice is watching.",
+      "aliases": [
+        "Fish-Footman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "frog-footman",
+      "name": "The Frog-Footman",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "The attendant at the door",
+      "body": "A second footman opens the door of the house Alice is watching.",
+      "aliases": [
+        "Frog-Footman",
+        "the Footman",
+        "The Footman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "duchess",
+      "name": "The Duchess",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "Named by the anxious Rabbit",
+      "body": "The White Rabbit mentions the Duchess while hurrying past Alice. Alice has not yet met her.",
+      "aliases": [
+        "Duchess"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            18
+          ],
+          "name": "The Duchess",
+          "body": "Alice finds the Duchess seated in a smoky kitchen, holding a baby while the cook tends a cauldron of soup."
+        }
+      ]
+    },
+    {
+      "id": "cook",
+      "name": "The Duchess’s cook",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "The cook in the kitchen",
+      "body": "The cook is in the smoky kitchen where Alice finds the Duchess holding a baby.",
+      "aliases": [
+        "the cook",
+        "The cook",
+        "Duchess’s cook"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "baby",
+      "name": "The Duchess’s baby",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "The baby in the kitchen",
+      "body": "The Duchess is holding a baby when Alice enters the kitchen.",
+      "aliases": [
+        "the baby",
+        "The baby",
+        "the child",
+        "this child",
+        "a baby"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            47
+          ],
+          "name": "The Duchess’s baby",
+          "body": "The baby Alice carried out of the kitchen has turned into a pig. Alice now sees the change beyond doubt."
+        }
+      ]
+    },
+    {
+      "id": "cheshire-cat",
+      "name": "The cat in the kitchen",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "The cat Alice notices",
+      "body": "A large cat sits in the Duchess’s kitchen among the cook and the sneezing household.",
+      "aliases": [
+        "Cheshire Cat",
+        "Cheshire cat",
+        "Cheshire Puss",
+        "the Cat",
+        "The Cat"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            22
+          ],
+          "name": "The Cheshire Cat",
+          "body": "The Duchess identifies the grinning creature in her kitchen as a Cheshire cat."
+        }
+      ]
+    },
+    {
+      "id": "hatter",
+      "name": "The Hatter",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "A neighbour named by the Cat",
+      "body": "The Cat names a Hatter while giving Alice directions. Alice has not yet met him.",
+      "aliases": [
+        "Hatter"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            0
+          ],
+          "name": "The Hatter",
+          "body": "The Hatter is taking tea with the March Hare beneath a tree. They lean on a sleeping Dormouse between them."
+        }
+      ]
+    },
+    {
+      "id": "march-hare",
+      "name": "The March Hare",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "A neighbour named by the Cat",
+      "body": "The Cat names the March Hare while giving Alice directions. Alice has not yet met him.",
+      "aliases": [
+        "March Hare"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            0
+          ],
+          "name": "The March Hare",
+          "body": "The March Hare is taking tea with the Hatter outside his house. A sleeping Dormouse lies between them."
+        }
+      ]
+    },
+    {
+      "id": "dormouse",
+      "name": "The Dormouse",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "A companion at the tea-table",
+      "body": "The Dormouse sits between the March Hare and the Hatter at their outdoor tea-table.",
+      "aliases": [
+        "Dormouse"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "two",
+      "name": "Two",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the rose-painting gardeners",
+      "body": "Two is one of the three gardeners painting the white roses red near the garden entrance.",
+      "aliases": [
+        "Two"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "five",
+      "name": "Five",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the rose-painting gardeners",
+      "body": "Five is one of the three gardeners Alice sees painting white roses red.",
+      "aliases": [
+        "Five"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "seven",
+      "name": "Seven",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "One of the rose-painting gardeners",
+      "body": "Seven is a fellow gardener named by Five during the argument over splashed paint.",
+      "aliases": [
+        "Seven"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "queen-of-hearts",
+      "name": "The Queen",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "The sender of an invitation",
+      "body": "The Queen is named in an invitation delivered to the Duchess. Alice has not yet met her.",
+      "aliases": [
+        "Queen of Hearts",
+        "QUEEN OF HEARTS",
+        "the Queen",
+        "The Queen"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            8,
+            10
+          ],
+          "name": "The Queen of Hearts",
+          "body": "The Queen of Hearts arrives at the end of the royal procession with the King. She is the Queen whose invitation the footmen delivered to the Duchess."
+        }
+      ]
+    },
+    {
+      "id": "king-of-hearts",
+      "name": "The King of Hearts",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "The king in the royal procession",
+      "body": "The King belongs to the royal procession Alice encounters in the garden.",
+      "aliases": [
+        "King of Hearts",
+        "the King",
+        "The King"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            11,
+            2
+          ],
+          "name": "The King of Hearts",
+          "body": "The King of Hearts is presiding as judge at the trial. He wears his crown on top of his judicial wig."
+        }
+      ]
+    },
+    {
+      "id": "knave-of-hearts",
+      "name": "The Knave of Hearts",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "A member of the royal procession",
+      "body": "The Knave of Hearts is part of the procession Alice watches in the garden.",
+      "aliases": [
+        "Knave of Hearts",
+        "the Knave",
+        "The Knave"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            8,
+            10
+          ],
+          "name": "The Knave of Hearts",
+          "body": "The Knave of Hearts carries the King’s crown on a crimson velvet cushion in the royal procession."
+        },
+        {
+          "after": [
+            11,
+            11
+          ],
+          "name": "The Knave of Hearts",
+          "body": "The Knave stands in chains before the court, accused of taking the Queen’s tarts. The accusation is being tried; it is not proof of guilt."
+        }
+      ]
+    },
+    {
+      "id": "gryphon",
+      "name": "The Gryphon",
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "A creature encountered with the Queen",
+      "body": "Alice comes upon the Gryphon while accompanying the Queen.",
+      "aliases": [
+        "Gryphon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mock-turtle",
+      "name": "The Mock Turtle",
+      "category": "major",
+      "kind": "person",
+      "subtitle": "A creature named by the Queen",
+      "body": "The Queen asks Alice whether she has met the Mock Turtle. Alice has not yet done so.",
+      "aliases": [
+        "Mock Turtle"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            47
+          ],
+          "name": "The Mock Turtle",
+          "body": "Alice finds the Mock Turtle sitting miserably on a rocky ledge. He sighs as though his heart would break, while the Gryphon dismisses his sorrow."
+        }
+      ]
+    },
+    {
+      "id": "tortoise",
+      "name": "Tortoise",
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "The Mock Turtle’s old teacher",
+      "body": "Tortoise is the name the Mock Turtle gives to his old schoolteacher, an old Turtle from his school in the sea.",
+      "aliases": [
+        "Tortoise"
+      ],
+      "snapshots": []
+    }
+  ]
+}
