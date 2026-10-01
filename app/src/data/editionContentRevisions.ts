@@ -284,6 +284,26 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  walden: {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'd2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec',
+        after: 'e6bfb94a075f25c959e1e97da77200aef84e40cec89dd9450f4a8f26c0a6ab01',
+      },
+    },
+  },
+  'on-liberty': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '12be1b0b5132554b0e19863654e4c0fa077e0cc267962106ed5e6e80eb6f1ff7',
+        after: 'cb1b3de53726abe48a58157067c78c72a7f8c99bc9708ad9a804f485a2d00ebb',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

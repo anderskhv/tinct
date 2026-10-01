@@ -73,7 +73,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'notes-from-underground': { editions: EN, revision: '2026-10-01.1' },
   'oedipus-at-colonus': { editions: EN, revision: '2026-09-11.2' },
   'oedipus-rex': { editions: EN, revision: '2026-09-11.2' },
-  'on-liberty': { editions: EN, revision: '2026-09-11.2' },
+  'on-liberty': { editions: EN, revision: 'text-2026-10-01.1' },
   oresteia: { editions: EN, revision: '2026-09-11.2' },
   othello: { editions: EN, revision: '2026-09-11.2' },
   phaedo: { editions: EN, revision: '2026-09-11.2' },
@@ -100,7 +100,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'war-and-peace': { editions: EN, revision: '2026-09-12.1' },
   ulysses: { editions: EN, revision: '2026-09-12.1' },
   'niels-lyhne': { editions: EN, revision: '2026-10-01.1' },
-  walden: { editions: EN, revision: '2026-09-12.1' },
+  walden: { editions: EN, revision: 'text-2026-10-01.1' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
   iliad: { editions: EN, revision: '2026-09-12.1' },
   odyssey: { editions: EN, revision: '2026-09-12.1' },
