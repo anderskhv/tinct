@@ -6,7 +6,13 @@ paragraphs of the candidate that share a run of N or more consecutive identical 
 reference file. Prints ONLY coordinates and counts, never reference wording, so a writing agent can use it
 without reading the protected text.
 
-Usage: python3 overlap-check.py <candidate.json> <protected-reference.json> [<another-reference.json> ...] [--n 10]
+Usage: python3 overlap-check.py <candidate.json> <protected-reference.json> [<another-reference.json> ...] [--n 10] [--allow <free-source.json> ...]
+
+--allow: word runs that ALSO occur in the given free/public-domain source edition (e.g. your own new original-en)
+are not counted as overlap, because a run inherited from the free source is not copied from the protected text.
+Use it for the MODERN-EN gate:  overlap-check.py <modern-en.json> <protected original-en> <protected modern-en> --allow <your original-en.json>.
+The new ORIGINAL-EN (the authentic free translation printed as it is) is exempt from this gate altogether: it
+may share wording with a later translation that borrowed from it; that is not copying.
 Exit code 1 if any paragraph is flagged.
 Pass criterion for publication: ZERO paragraphs flagged at N=10; fewer than 1% of paragraphs at N=8, all of them
 short unavoidable formulas (names, stock phrases).
@@ -26,11 +32,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("candidate"); ap.add_argument("reference", nargs="+")
     ap.add_argument("--n", type=int, default=10)
+    ap.add_argument("--allow", action="append", default=[])
     a = ap.parse_args()
     grams = set()
     for r in a.reference:
         w = words(r)
         grams |= {tuple(w[i:i + a.n]) for i in range(len(w) - a.n + 1)}
+    for r in a.allow:
+        w = words(r)
+        grams -= {tuple(w[i:i + a.n]) for i in range(len(w) - a.n + 1)}
     ch = json.load(open(a.candidate, encoding="utf-8"))["chapters"]
     flagged, total = [], 0
     for ci, c in enumerate(ch, 1):
