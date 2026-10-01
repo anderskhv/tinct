@@ -6,6 +6,7 @@ import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCach
 import { useDesktopCommands, useDesktopAppearance } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { registerLoadedChapter } from './labPoetry'
+import { useBackCloses } from './useBackCloses'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
@@ -581,6 +582,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
+  // Back (phone back gesture, browser Back) closes the panel in front instead
+  // of leaving the reader.
+  useBackCloses(tocOpen, () => setTocOpen(false))
+  useBackCloses(superMenuOpen, () => setSuperMenuOpen(false))
+  useBackCloses(superSheet !== null, () => setSuperSheet(null))
+  useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
+  useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
+  useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
