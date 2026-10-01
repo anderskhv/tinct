@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-01",
+  "chapters": 13,
+  "paragraphs": 385,
+  "counts": [
+    21,
+    17,
+    23,
+    19,
+    20,
+    31,
+    31,
+    16,
+    60,
+    33,
+    72,
+    18,
+    24
+  ],
+  "minimumModernToOriginalWhitespaceWordRatio": 0.7575757575757576,
+  "originalWords": 8329,
+  "modernWords": 8284,
+  "originalExclamations": 0,
+  "modernExclamations": 0,
+  "validation": "PASS",
+  "errors": [],
+  "terminalPunctuationNote": "Colon endings preserve complete source lead-ins; no source paragraph was merged with the following paragraph.",
+  "classifier": "PASS",
+  "classifier-folded": "PASS",
+  "overlap-original-en-n10": {
+    "flagged": 0,
+    "total": 385,
+    "percent": 0.0,
+    "gate": "PASS",
+    "toolExitCode": 0
+  },
+  "overlap-original-en-n8": {
+    "flagged": 3,
+    "total": 385,
+    "percent": 0.7792207792207793,
+    "gate": "PASS",
+    "toolExitCode": 1
+  },
+  "overlap-modern-en-n10": {
+    "flagged": 0,
+    "total": 385,
+    "percent": 0.0,
+    "gate": "PASS",
+    "toolExitCode": 0
+  },
+  "overlap-modern-en-n8": {
+    "flagged": 0,
+    "total": 385,
+    "percent": 0.0,
+    "gate": "PASS",
+    "toolExitCode": 0
+  },
+  "editionSha256": {
+    "the-art-of-war-original-en.json": "0b646eba758fdd45220cf72d4048b2a6fd0a36e4a2ff8a9f4aeda1ebe5d3f733",
+    "the-art-of-war-modern-en.json": "a19820ebde2ad3a2d0b394cd7dd40e03148584335e46a7846816b352111ce5ce"
+  }
+}

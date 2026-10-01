@@ -1,2 +1,4 @@
-STATUS: IN PROGRESS
-All 13 modern chapters drafted; classifier PASS. Final source comparison and QA in progress. Original N=8 threshold clarification pending.
+STATUS: COMPLETE
+13 chapters; 385 aligned paragraphs. All final requested numerical gates PASS.
+Original source has two documented wording repairs under gate d; verbatim extraction retained separately.
+No deploy, merge or PR. See HANDOFF.md and qa/final-gates.json.
