@@ -1,0 +1,1326 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="google-signin-client_id" content="453551886800-09q0r9ke91ke90jcoah8gqal03fjqqam.apps.googleusercontent.com" /><title>
+	Candid First Edition  - Voltaire - Bauman Rare Books 
+</title><meta name="description" content="Candid rare book for sale. This First Edition by VOLTAIRE, Henry FIELDING is available at Bauman Rare Books." /><meta name="og:title" content="Candid" /><meta name="og:type" content="book" /><meta name="og:image" content="https://webdiag547.blob.core.windows.net/live/images%2Fbooks%2F114098.jpg?sv=2020-04-08&st=2026-10-01T01%3A11%3A05Z&se=2031-10-01T01%3A16%3A05Z&sr=c&sp=r&sig=VDhc26%2BCaZRveDu6T8RHymCzgSt%2F86W0a%2Bvbh1XmPgM%3D" /><meta name="og:url" content="https://www.baumanrarebooks.com/rare-books/voltaire-fielding-henry/candid/114098.aspx" /><meta name="og:locale" content="en_US" /><meta name="og:site_name" content="Bauman Rare Books" /><meta name="og:book:author" content="VOLTAIRE FIELDING Henry" /><link href="/Resources/StyledFrontend/assets/css/bundle-2-0-0-0?v=dAQdfWefLTuomZbkfnzb_VqyHkjmWf53CKmaOIUvaa81" rel="stylesheet"/>
+
+
+        <script type="text/javascript" src="/Resources/StyledFrontend/assets/js/libs/modernizr-2.6.2.min.js"></script>        
+        <script type="text/javascript" src="/Resources/StyledFrontend/assets/js/jquery.1.9.1.min.js"></script>
+        
+        <script src="/Resources/StyledFrontend/assets/js/bundle-2-0-0-0?v=9Do2DSMfdmaubm2o0PAYT9EIPFuYO0asgK1ikmUsg6I1"></script>
+<script src="/Resources/js/jquery-autocomplete/bundle-2-0-0-0?v=-Yk6TBwgXvgc4KjX8JZPFDtFAuz7YC-QuGbUDXr5xDk1"></script>
+<link href="/Resources/js/jquery-autocomplete-css/bundle-2-0-0-0?v=RPYtTSDcy1SZeXDdhQOYKhR-P3luA7L1T_rmpk26jn41" rel="stylesheet"/>
+<script src="/Resources/StyledFrontend/assets/complementary-js/bundle-2-0-0-0?v=sFHDHzqknfNP-58GculGoXrj2IfSW8bzegHS6oyosEg1"></script>
+<script src="https://app.termly.io/resource-blocker/dbf80170-a79e-4bec-86e2-0e207cb5712d?autoBlock=on"></script><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2CKN9S');</script>
+<!-- End Google Tag Manager -->
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/375fced41fc5f5abbe7f59fde/92944cf62c2faab7f04880961.js");</script>
+
+        <script type="text/javascript" >
+            var validNavigation = false;
+
+            $(document).ready(function () {
+                InitializeValidations();
+                InitQuickSearch();
+                InitBackToTop();
+                ConfigureBlogUrl();
+                BindNavigationMobile();
+                if ($.isFunction(window.customDocumentReady))
+                    customDocumentReady();
+
+                ShowMessage();
+            });
+
+            function ShowMessage() {
+                var cookieName = '';
+                var message = $("#" + "ctl00_spanOneTimeNotification").text();
+                if (cookieName != '' && message != '' && !readCookie(cookieName)) {
+                    $.prompt(message,
+                        {
+                            buttons: { Confirm: false }
+                        });
+                    createCookie(cookieName, true, 365)
+                }
+            }
+
+            function createCookie(name, value, days) {
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    var expires = "; expires=" + date.toGMTString();
+                }
+                else var expires = "";
+                document.cookie = name + "=" + value + expires + "; path=/";
+            }
+
+            function readCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            function eraseCookie(name) {
+                createCookie(name, "", -1);
+            }
+
+            function InitializeCurrency(currency) {
+                if (CurrencyConverterWS.InitializeExchangeRate != undefined)
+                    CurrencyConverterWS.InitializeExchangeRate(currency);
+            }
+
+            function ChangeCurrency(currencyLink) {
+                
+                var currency = $(currencyLink).attr('data-option');
+                if ($('#ddlCurrency').val() == currency)
+                    return;
+                
+                $('#loadingScreen').fadeIn();
+                
+                InitializeCurrency(currency);
+
+                var symbol = $(currencyLink).attr('data-symbol');
+
+                $('.iCurrency').html(symbol);
+
+                CurrencyConverterWS.StoreCurrency(currency, symbol, function () {
+
+                    ConvertShoppingCartPrices(currency, symbol);
+
+                    if ($.isFunction(window.customCurrencyConvert))
+                        customCurrencyConvert(currency, symbol);
+                    else
+                        $('#loadingScreen').fadeOut();
+                }, function() {});
+            }
+
+            function ConvertShoppingCartPrices(currency, symbol) {
+                var bookIds = [];
+                $('#tblItems').find('.pric').each(function () {
+                    bookIds.push($(this).parent().attr('class'));
+                });
+
+                if (bookIds.length > 0) {
+                    CurrencyConverterWS.CurrencyConversionForBookIds(bookIds, currency, symbol,
+                        function (result) {
+                            $(result).each(function (index, value) {
+                                $('#tblItems tr td[class="' + value.BookId + '"]').find('.pric').text(value.Price);
+                            });
+                        }, function () { });
+
+                    CurrencyConverterWS.CurrencyConversionForBooksSum(bookIds, currency, symbol, function (result) {
+                        $('#ctl00_floating_lblTotal').text('Total: ' + result);
+                    }, function () { });
+                }
+            }
+
+            var bookDiscountsContent = {};
+            function ConfigureBookDiscountTip() {
+                $('.DiscountedListPrice').each(function() {
+                    $(this).qtip({
+                        content: bookDiscountsContent[$(this).attr('item-id')],
+                        position: { corner: { target: 'leftTop', tooltip: 'bottomRight' } },
+                        show: { when: 'mouseover' },
+                        hide: { when: 'mouseleave' },
+                        style: {
+                            border: { width: 2, radius: 4 },
+                            width: 450,
+                            padding: 3,
+                            textAlign: 'center',
+                            tip: true,
+                            name: 'light',
+                            classes: { tooltip: 'rightArrow' }
+                        }
+                    });
+                });
+            }
+
+            function TrackBlog() {
+                BspaceIntegrationWS.TrackExternalLink(23, 'Blog', '"https://www.baumanrarebooks.com/blog"');
+            }
+
+            function BindNavigationMobile() {
+                $("#nav-open-btn").on("click", function () {
+                    $("html").toggleClass("sideMenuOpened");
+                    if (!$("html").hasClass("sideMenuOpened"))
+                        $("#nav #menu li").removeClass("open");
+                });
+
+                $("#nav #menu > li > a").on("click", function (e) {
+                    var $li = $(this).parent();
+                    if ($li.find("ul").length > 0 && $(window).width() <= 767) {
+                        if ($li.hasClass("open")) {
+                            window.location.href = $(this).attr("href");
+                            return;
+                        }
+                        e.preventDefault();
+                        $li.addClass("open");
+                    }
+                });
+            }
+
+            function ConfigureBlogUrl() {
+                var blogLink = $('#menu').find('a[href="https://www.baumanrarebooks.com/blog"]');
+                blogLink.removeAttr('href');
+                blogLink.css('cursor', 'pointer');
+                blogLink.click(function() {
+                    TrackBlog();
+                    window.location.href = 'http://' + 'www.baumanrarebooks.com' + "/blog/";
+                });
+            }
+
+            function wireUpEvents(bookIds) {
+                $(window).on("beforeunload", function () {
+                    if (!validNavigation)
+                        BspaceIntegrationWS.TrackCartAbandon(bookIds);
+                });
+
+                // Attach the event keypress to exclude the F5 refresh
+                $(document).bind('keypress', function (e) {
+                    if (e.keyCode == 116) {
+                        validNavigation = true;
+                    }
+                });
+
+                // Attach the event click for all links in the page
+                $("a").bind("click", function () {
+                    validNavigation = true;
+                });
+
+                // Attach the event submit for all forms in the page
+                $("form").bind("submit", function () {
+                    validNavigation = true;
+                });
+
+                // Attach the event click for all inputs in the page
+                $("input[type=submit]").bind("click", function () {
+                    validNavigation = true;
+                });
+            }
+
+            var accepted = false;
+            function ConfirmSignUp() {
+                var enteredValue = $('#ctl00_txtNewsletterSignupName').val() != '' && $('ctl00_txtNewsletterSignupEmail').val() != '';
+                if (!accepted && enteredValue) {
+                    $.prompt('Thank you for subscribing to receive our emails. Please note that we respect your privacy and will not share your information. All emails will contain an option to unsubscribe at any time. Please confirm below.',
+                    {
+                        buttons: { Confirm: true, Cancel: false },
+                        callback: function(v, m, f) {
+                            accepted = v;
+                            if (v)
+                                $('#ctl00_btnewletter')[0].click();
+                        }
+                    });
+                }
+                else
+                    if(enteredValue)
+                        $('#ctl00_btnewletter')[0].click();
+            }
+
+            function InitBackToTop() {
+                var offset = 220;
+                var duration = 500;
+                jQuery(window).scroll(function () {
+                    if (jQuery(this).scrollTop() > offset) {
+                        jQuery('.back-to-top').fadeIn(duration);
+                    } else {
+                        jQuery('.back-to-top').fadeOut(duration);
+                    }
+                });
+
+                jQuery('.back-to-top').click(function (event) {
+                    event.preventDefault();
+                    jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                    return false;
+                });
+            }
+
+            function ConfigureQuickSearch(txtBox, hdn, btn) {
+                mvnAlgoliaPrediction.initialize();
+                // The autocomplete function is called on the input textbox with id input_element
+                $("#" + txtBox).autocomplete({
+                    // minLength is the minimal number of input characters before starting showing
+                    // the autocomplete
+                    minLength: 1,
+                    source: mvnAlgoliaPrediction.search,
+                    // This function is executed when a suggestion is selected
+                    select: function (event, ui) {
+                        // Sets the text of the input textbox to the title of the object referenced
+                        // by the selected list item
+                        $(this).val(ui.item.label);
+                        $('#' + hdn).val(ui.item.ItemID);
+                        $('#' + btn).click();
+                        //return false;
+                    },
+                    open: function (event, ui) {
+                        //$('#divGrayOut').fadeIn();
+                    },
+                    close: function (event, ui) {
+                        $('#divGrayOut').fadeOut();
+                    }
+                });
+                if (typeof $("#" + txtBox).autocomplete().data("ui-autocomplete") !== 'undefined') {
+                    $("#" + txtBox).autocomplete().data("ui-autocomplete")._renderItem = function (ul, item) {
+                        // ul is the unordered suggestion list
+                        // item is a object in the data object that was send to the response function
+                        // after the JSON request
+                        // We append a custom formatted list item to the suggestion list
+                        var html = mvnAlgoliaPrediction.getDisplayTerm(item);
+                        return $("<li></li>").data("item.autocomplete", item).append(html).appendTo(ul);
+                    };                    
+                }
+            }
+
+            function GreyOut(txt, e, btn) {
+                if ($(txt).val() != "" && e.keyCode != 27) {
+                    $('#divGrayOut').fadeIn();
+                }
+            }
+
+            function InitQuickSearch() {
+                ConfigureQuickSearch('ctl00_txtQuickSearchFloating', 'ctl00_hdListSelectFloat', 'ctl00_btnQuickSearchFloating');
+                ConfigureQuickSearch('ctl00_txtQuickSearch', 'ctl00_hdListSelect', 'ctl00_btnQuickSearch');
+
+                $('#ctl00_txtQuickSearch').keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        $("#ctl00_btnQuickSearch").click();
+                        return false;
+                    }
+                });
+
+                $('#ctl00_txtQuickSearchFloating').keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        $("#ctl00_btnQuickSearchFloating").click();
+                        return false;
+                    }
+                });
+            }
+
+            function BindCollapsible(barContainerSelector, colapse, closedMsg, openedMsg) {
+
+                $(barContainerSelector).keypress(function (e) {
+                    if (e.keyCode == 13) {
+                        $(barContainerSelector).click();
+                    }
+                });
+
+                $(barContainerSelector).on("click", function () {
+                    $(colapse).slideToggle("slow", function () {
+                        var spanSelector = barContainerSelector + " span";
+                        var iconSelector = barContainerSelector + " em";
+                        if ($(this).css('display') == "none") {
+                            $(spanSelector).fadeOut(function () {
+                                $(spanSelector).text(closedMsg);
+                                $(spanSelector).fadeIn();
+                            });
+
+                            $(iconSelector).fadeOut(function () {
+                                $(iconSelector).removeClass('fa-minus-circle');
+                                $(iconSelector).addClass('fa-plus-circle');
+                                $(iconSelector).fadeIn();
+                            });
+                        } else {
+                            ExpandContainer(spanSelector, iconSelector, openedMsg);
+                        }
+                    });
+                });
+            }
+
+            function ExpandContainer(spanSelector, iconSelector, openedMsg) {
+                $(spanSelector).fadeOut(function () {
+                    $(spanSelector).text(openedMsg);
+                    $(spanSelector).fadeIn();
+                });
+
+                $(iconSelector).fadeOut(function () {
+                    $(iconSelector).addClass('fa-minus-circle');
+                    $(iconSelector).removeClass('fa-plus-circle');
+                    $(iconSelector).fadeIn();
+                });
+            }
+        </script>
+        <script type="text/javascript"  src="/Resources/StyledFrontend/assets/js/retina-1.1.0.js"></script>
+        
+   
+    
+     
+    <link href="/Resources/StyledFrontend/assets/book-detail-css/bundle-2-0-0-0?v=x5n4kDSYshBOzRMNKaCSA-S0HRhCqieEq40Q5PNr1RM1" rel="stylesheet"/>
+
+    <script src="/Resources/StyledFrontend/assets/book-detail-js/bundle-2-0-0-0?v=Edve-IlkYR8Jqo3Lci6tLhH1pR_WTZ9SXGhLAF-pXp81"></script>
+
+
+    <script type="text/javascript" src="/Resources/js/qtip/jquery.qtip-1.0.0-rc3.min.js"></script>
+    
+    <script type="text/javascript">
+
+        var bubbleBorderwidth = 1;
+        var bubbleBorderRadius = 3;
+        var bubblePadding = 2;
+        var bubbleStyle = 'light'; //defaults,cream,light,dark,red,green,blue
+
+        function customDocumentReady() {
+			 //Check for existing .figthumb class
+			 if(jQuery(".figthumb").length){
+	 		 jQuery(".mainBookItem").removeClass("full");
+			 }else{
+					jQuery(".mainBookItem").addClass("full");
+					jQuery(".bookitem").css('display', 'none');
+			 }
+			 
+            $('.scroll-panegrid2').jScrollPane({
+				showArrows: false,
+				autoReinitialise: true
+			});
+			
+			$("a.inline").fancybox();
+			$('a.linkVideo').fancybox();
+
+            $('#book_glery').magnificPopup({
+                delegate: 'figure', // child items selector, by clicking on it popup will open
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+
+            InitGlossary();
+        }
+
+        function TrackViewedBook(bookId) {
+            var delayMillis = 5000;
+            setTimeout(function () {
+                BspaceIntegrationWS.TrackViewedBook(bookId);
+            }, delayMillis);
+        }
+
+        function Glossary(word, pIndex, description) {
+            var exists = false;
+            $(".bookDesc p").each(function (index, element) {
+                //var regex = new RegExp(word + '(\\s[e\']?s|[^aiou ]s)|' + word + '\\s', "ig");
+                var regex = new RegExp('\\b' + word + '(?:es|s)?\\b', "i");
+                if (regex.test($(this).html())) {
+                    exists = true;
+					var arr = $(this).html().match(regex);					
+					$(this).html($(this).html().replace(regex, '<span class="glossaryQtip qTip" tabindex="0" qtipindex=' + pIndex + '>' + arr[0] + '</span>'));
+                    return false;
+                }
+            });
+            return exists;
+        }
+
+        function InitGlossary() {
+            $('.glossary li').each(function (index, element) {
+                var glosItem = $($(this).find('span:first-child'));
+                Glossary(glosItem.text(), index, glosItem.next().text());
+            });
+
+            $('.qTip').each(function (index, element) {
+                $(element).qtip({ content: $($($('.glossary li')[$(element).attr('qtipindex')]).find('span')[1]).text(),
+                    position: { corner: { target: 'rightTop', tooltip: 'bottomLeft'} },
+                    show: { when: 'focus' }, hide: { when: 'focusout' },
+                    style: { border: { width: bubbleBorderwidth, radius: bubbleBorderRadius }, width: 300,
+                        padding: bubblePadding, textAlign: 'center', tip: true, name: bubbleStyle
+                    }
+                });
+            });
+        }
+
+        function cerrar() {
+            $.fancybox.close(true);
+        }
+
+        function CloseSuggest() {
+            cerrar();
+            $.prompt('Your books have been sent!');
+        }
+
+        function CloseModalAndGoTo(url) {
+            cerrar();
+            window.location.href = url;
+        }
+
+        function AddToShoppingCart(wishlistId, applyDiscount) {
+            $.checkOutManager('addItemFromWishList', wishlistId, applyDiscount);
+        }
+
+        function customCurrencyConvert(currency, symbol) {
+            $('.ListPrice').each(function () {
+                var price = $(this);
+                var bookId = parseInt(price.parents().find('.itemIdInfo').attr('itemid'));
+                CurrencyConverterWS.CurrencyConversionFromBook(bookId, currency, symbol, true,
+                    function (result) {
+                        price.text(result.Price);
+                        price.parents().find('.DiscountedListPrice').text(result.DiscountedPrice);
+                        var priceDisplay = '<span class=\"priceOverride\">Price:</span><span class=\"priceOverride' +
+                            (result.DiscountedPrice != '' ? " originalPrice" : '') + "\">" + result.Price + "</span>";
+                        
+                        if (result.DiscountedPrice != '')
+                            priceDisplay += "<span class=\"DiscountedListPrice\" item-id=\"" + bookId + "\" >" + result.DiscountedPrice + "</span>";
+
+                        $('.priceToUpdate').html(priceDisplay);
+                        ConfigureBookDiscountTip();
+                        $('#loadingScreen').fadeOut();
+                    });
+            });
+        }
+
+        var isWishlistAddition = false;
+        function AddItemToWishlist() {
+            isWishlistAddition = false;
+            $('#ctl00_floating_siginLi').hide();
+            $('#ctl00_ContentPlaceHolder_btnAddToWishlist').show();
+            $('#ctl00_ContentPlaceHolder_linkAddToWishList').hide();
+            cerrar();
+            $('#ctl00_ContentPlaceHolder_btnAddToWishlist').click();
+        }
+
+        function LaunchSignInForWishtList() {
+            isWishlistAddition = true;
+        }
+
+    </script>
+    
+    <style type="text/css">
+        .linkVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            color: #fff;
+        }
+
+        .priceOverride, .originalPrice, .DiscountedListPrice {
+            width: 100% !important;
+            padding: 0 !important;
+        }
+
+        .originalPrice {
+            text-decoration: line-through;
+        }
+
+        .DiscountedListPrice {
+            width: initial !important;
+        }
+
+        .return.customized {
+            float: left;
+            font-size: smaller;
+        }
+        
+        .return.customized:hover, .return.customized:active {
+                color: black;
+            }
+
+            .return.customized a {
+                text-transform: uppercase;
+                color: black;
+                font-style: italic;
+            }
+
+            .title-sm {
+                font-size: 12px;
+                margin-bottom: 0px;   
+            }
+            .splashProd .desc h5 {
+                font-size: 12px;
+            }
+            .splashProd .desc {
+                font-size: 11px;
+            }
+
+            .splashProd {
+                min-height: auto;
+                height: auto;
+                margin-bottom: 0px;
+            }
+    </style>
+</head>
+    <body>
+        
+        <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2CKN9S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        <form name="aspnetForm" method="post" action="./114098.aspx?itemid=114098" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZI3NelhPWNJGYFWLmzFgvom6sF2Y0vgDTM0oWKjs-pWXGC4WWRiiLveV1_ETd9RrBA2&amp;t=639190700600000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvjmI1gtJp_B_NZL-qLb2fbyRXc7btVwDs80iwQQSKkBpj9cvRfz9XRNUHucFBaBVnMWUn_XG5GvCvEDgH0EeqQsJk1c4w9FVHIePUt6n8Uy77SqHWHiQEcDXVFQJmvpI7IJaeLb4vOTum6fqr_HwL8Q1&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OMk_r2LNYnJmuI1JoKOmTHT0l9cAzI9-JTYWcgHknkP0cx2dEaUcvEW0NAOmqab0GFwiz8yLH6LVuFdsfoj1XdHLkbA2oivQqF6J8wQ4JVsXir0guGuBVqAVxFrORZ-NgqUv2OYof5Udt_InVIhSh-M1&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script src="../../../Resources/js/UI/Checkout/CheckOutGlobal.js?version=2.0" type="text/javascript"></script>
+<script src="../../../Resources/js/UI/CheckOut/BookListingsUI.js?version=2.0" type="text/javascript"></script>
+<script src="../../../AutoCompleteWS.asmx/js" type="text/javascript"></script>
+<script src="../../../CurrencyConverterWS.asmx/js" type="text/javascript"></script>
+<script src="../../../BspaceIntegrationWS.asmx/js" type="text/javascript"></script>
+<script src="../../../ManageItemsWS.asmx/js" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F641130E" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="Pc5lxY12Em1WTjw+IomCjZsdy63MP1q+qmIqBlOIor+/3D8aFXnVlxKLZ4ET1MxxMHHAu9Va3yXz/L7eVwc2UWBtshNwWGKCI8045N1RE7rc7rlDbOhsYlJJazJq/RoPl2xAX2Zsc+PUAu7eerwLT5SnwcmTAQkvMrT1Vbm7khh7iQIWIyNQ5CrxsXRtXIGEdA0AMrBeoSLXZCIQ3MNzhYgAzKJ30RBid0URcN8JDVqXfOagOe5yFZeuQwlYi61zQ0YlCR4WmFDvAYlhI+oFAtH4kptCl6ySMvVfuvQE56s6slFoAPTLIaNLCnO38h7nFYVBhwHYw8nlvG6wqxSn19sn+nbLg3jOsdNbhzI48f5iVqID4RhUmqN6J8djJir5" />
+</div>
+
+            <input type="hidden" name="ctl00$hdnGA4IntegrationEnabled" id="ctl00_hdnGA4IntegrationEnabled" value="True" />
+
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$sm', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+            <div id="container">
+                <div id="inner-wrap">   
+                    <header id="header">
+                       <div class="container">
+							<div class="row">
+								<div id="toprow" class="clearfix hidden-xs">
+									<div id="leftTop" class="col-md-6">
+										<div id="logo-alt" class="hidden-xs">
+											<a id="ctl00_hyperLogo" href="https://www.baumanrarebooks.com/">
+											<img width="379" height="49" src="/Resources/StyledFrontend/assets/img/logo.png" alt="Bauman Rare Books">
+											</a>                                    
+										</div>
+										<ul class="menu-logo">
+											<li><a href="https://www.baumanrarebooks.com/about-us/locations.aspx?location=newyork">New York</a></li> 
+											<li><a href="https://www.baumanrarebooks.com/about-us/locations.aspx?location=philly">Philadelphia</a></li> 
+											<li><a href="https://www.baumanrarebooks.com/about-us/locations.aspx?location=lasvegas"> Las Vegas</a></li>
+										</ul>
+									</div><!-- //leftTop -->
+								
+									<div id="rightop" class="col-md-6">
+										<div class="listop" >
+											
+
+<div id="message_bar">
+    <!-- The content will be dynamically loaded in here -->
+</div>
+
+<ul>
+    <li  style="vertical-align:top; float: left;width:130px" class="cartToggle"><a href="javascript:void(0);"><em class="fa fa-shopping-cart" ></em> Shopping Bag (<span id="ctl00_floating_lblCount">0</span>)</a></li>                       
+    <li   style="vertical-align:top;"><a href="https://www.baumanrarebooks.com/account/wish-list.aspx"><em class="fa fa-star"></em> WishlisT</a></li>
+
+    <li id="ctl00_floating_siginLi" style="vertical-align:top;"><a id="ctl00_floating_signinlink" href="https://www.baumanrarebooks.com/account/login.aspx"><em class="fa fa-user"></em> Sign in</a></li>             
+    <li id="ctl00_floating_liCurrencies" style="vertical-align:middle;">
+        <div class="bfh-selectbox bfh-currencies" data-currency="USD" data-blank="false" data-flags="true">
+            <input type="hidden" value="" id="ddlCurrency" class="hdnCurrency">
+            <input type="hidden" value="" id="ddlSymbol" class="hdnSymbol">
+            <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+                <em class="fa iCurrency">$</em>
+                <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                <strong class="caret"></strong>
+            </a>
+            <div class="bfh-selectbox-options">
+                <div role="listbox">
+                    <ul role="option">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+<input type="hidden" name="ctl00$floating$hdnBookId" id="ctl00_floating_hdnBookId" />
+<div class="nav-top">
+    <div class="bag-box popCart" id="popCart" >
+		<h3>Shopping Bag</h3>
+		<a href="#" class="close" onClick="CloseBag(event)" title="Close Bag"><span style="display:none;">Close</span></a>
+        <div id="itemsContainer" class="items tabwrap scroll-pane">
+            <table id="tblItems" border="0" cellpadding="0" cellspacing="0" class="table">
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <p class="EmptyItems" style=''>
+                You have 0 items in your shopping bag, please add an item to continue.
+            </p>
+        </div>
+        <!--items-->
+        <footer>
+            <span id="ctl00_floating_lblTotal" class="total">$0.00</span>
+            <br />
+            <p class="btn_wrap">
+                <input type="button" class="btn_grey" id="continueShopping" value="Continue shopping" />&nbsp;&nbsp;
+                <input type="submit" name="ctl00$floating$checkOut" value="Go to shopping cart" id="ctl00_floating_checkOut" class="btn_mgenta checkOut" style="display:none;" />
+            </p>
+        </footer>
+    </div>
+    <!--bag-box-->
+</div>
+<!--nav-top-->
+
+									    </div><!-- //listop -->
+										
+										<div class="fsearch">
+											<div role="search" aria-label="search">  
+												<input name="ctl00$txtQuickSearch" type="text" id="ctl00_txtQuickSearch" title="SEARCH BY AUTHOR OR TITLE" class="form-control" aria-label="SEARCH BY AUTHOR OR TITLE" placeholder="SEARCH BY AUTHOR OR TITLE" onkeyup="GreyOut(this, event, &#39;ctl00_btnQuickSearch&#39;);" />
+												<input type="submit" name="ctl00$btnQuickSearch" value="Quick Search" id="ctl00_btnQuickSearch" title="Quick Search" style="display:none" />
+												<input type="hidden" name="ctl00$hdListSelect" id="ctl00_hdListSelect" />
+												<div class="clearfix"></div>
+												<p class="advsrc"><a href="https://www.baumanrarebooks.com/browse-books.aspx?isAdvancedSearch=1">Advanced Search</a></p>
+											</div>
+										</div><!-- //search -->
+									</div><!-- //rightop -->
+								</div> <!-- // Toprow-->
+							</div>
+
+                           <div style="display:none;">
+                               <span id="ctl00_spanOneTimeNotification"></span>
+                               <span id="ctl00_spanOneTimeNotificationCookieName"></span>
+                           </div>
+
+                            <div id="header-xs" class="visible-xs">
+                                <a class="nav-btn" id="nav-open-btn" style="cursor: pointer"></a>
+                                <div id="log-xs"><a id="ctl00_hyperLogoMobile" href="https://www.baumanrarebooks.com/"><img src="/Resources/StyledFrontend/assets/img/logo_mbl@2x.png" width="52" height="46" alt="Bauman Rare Books"></a></div>
+                                <p class="phone-xs"><a href="tel://80099228626"><em class="fa fa-phone"></em>  1-800-99-BAUMAN</a></p>
+                                <a id="ctl00_hyperMobLog" class="user-xs" href="https://www.baumanrarebooks.com/account/login.aspx"><em class="fa fa-user"></em><span style="display:none;">Login</span></a>
+                            </div><!-- //header-xs -->
+                        </div>
+						
+						<div id="fixed-toprow">
+							<div class="container">
+								<div class="row">
+								   
+									<div class="col-md-6">
+										<div id="logomini"><a id="ctl00_HyperLink1" href="https://www.baumanrarebooks.com/"><img src="/Resources/StyledFrontend/assets/img/logomini@2x.png" alt="Bauman Rare Books" width="83" height="89"></a></div>
+										<div class="socSign">
+											<ul>
+												<li class="cartToggle" >
+													<a href="javascript:void(0);" ><em class="fa fa-shopping-cart"></em>&nbsp; Shopping Bag (<span id="ctl00_lblCount"></span>)</a>
+												</li>
+                                                <li id="ctl00_liCurrencies">
+                                                    <div class="bfh-selectbox bfh-currencies" data-currency="USD" data-blank="false" data-flags="true">
+                                                        <input type="hidden" value="" id="ddlCurrencyFloat" class="hdnCurrency">
+                                                        <input type="hidden" value="" id="ddlSymbolFloat" class="hdnSymbol">
+                                                        <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+                                                            <em class="fa iCurrency">$</em>
+                                                            <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                                                            <strong class="caret" style="margin-top: 10px; margin-right: 7px;"></strong>
+                                                        </a>
+                                                        <div class="bfh-selectbox-options" style="top: 50%;">
+                                                            <div role="listbox">
+                                                                <ul role="option">
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+												<li><a href="https://www.baumanrarebooks.com/account/wish-list.aspx"><em class="fa fa-star"></em> WishlisT</a></li>
+												<li id="ctl00_siginLi"><a id="ctl00_signinlink" href="https://www.baumanrarebooks.com/account/login.aspx"><em class="fa fa-user"></em> My Account</a></li>             
+											</ul>
+										 </div><!-- //socSign -->
+									</div>
+
+									 <div class="fsearch col-md-6">
+									   <div role="search">  
+                                            <input name="ctl00$txtQuickSearchFloating" type="text" id="ctl00_txtQuickSearchFloating" title="SEARCH BY AUTHOR OR TITLE" class="form-control" aria-label="SEARCH BY AUTHOR OR TITLE" placeholder="SEARCH BY AUTHOR OR TITLE" onkeyup="GreyOut(this, event, &#39;ctl00_btnQuickSearchFloating&#39;);" />
+                                            <input type="submit" name="ctl00$btnQuickSearchFloating" value="Quick Search" id="ctl00_btnQuickSearchFloating" title="Quick Search" style="display:none" />
+											<input type="hidden" name="ctl00$hdListSelectFloat" id="ctl00_hdListSelectFloat" />
+											<div class="clearfix"></div>
+											<p class="advsrc"><a href="https://www.baumanrarebooks.com/browse-books.aspx?isAdvancedSearch=1">Advanced Search</a></p>
+										</div>
+									</div><!-- //search -->
+
+								</div>
+							</div>
+						 </div><!-- //fixed-toprow -->
+
+                        <nav id="nav" role="navigation">
+                            <span class="strip"></span>
+                            
+                            
+                                    <ul id="menu">        
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl01_hypMenuItem" href="https://www.baumanrarebooks.com/">home</a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl02_hypMenuItem" href="https://www.baumanrarebooks.com/browse-books.aspx">browse</a>
+                                        
+                                                <ul>
+                                            
+                                                <li id="ctl00_rptMenu_ctl02_rptSecondLevelMenu_ctl01_li">
+                                                    <a id="ctl00_rptMenu_ctl02_rptSecondLevelMenu_ctl01_hypSecondLevelMenuItem" href="https://www.baumanrarebooks.com/browse-books.aspx">Browse All Topics</a>
+                                                    
+                                                </li>
+                                            
+                                                <li id="ctl00_rptMenu_ctl02_rptSecondLevelMenu_ctl02_li">
+                                                    <a id="ctl00_rptMenu_ctl02_rptSecondLevelMenu_ctl02_hypSecondLevelMenuItem" href="https://www.baumanrarebooks.com/rare-books/featured/">Featured Books</a>
+                                                    
+                                                </li>
+                                            
+                                                </ul>
+                                            
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl03_hypMenuItem" href="https://www.baumanrarebooks.com/bauman-gifts">gifts</a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl04_hypMenuItem" href="https://www.baumanrarebooks.com/catalogs.aspx">catalogues</a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl05_hypMenuItem" href="https://www.baumanrarebooks.com/selling-something.aspx">sell my books</a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl06_hypMenuItem" href="https://www.baumanrarebooks.com/about-us.aspx">about</a>
+                                        
+                                                <ul>
+                                            
+                                                <li id="ctl00_rptMenu_ctl06_rptSecondLevelMenu_ctl01_li">
+                                                    <a id="ctl00_rptMenu_ctl06_rptSecondLevelMenu_ctl01_hypSecondLevelMenuItem" href="https://www.baumanrarebooks.com/about-us/our-staff.aspx">Staff</a>
+                                                    
+                                                </li>
+                                            
+                                                <li id="ctl00_rptMenu_ctl06_rptSecondLevelMenu_ctl02_li">
+                                                    <a id="ctl00_rptMenu_ctl06_rptSecondLevelMenu_ctl02_hypSecondLevelMenuItem" href="https://www.baumanrarebooks.com/about-us/locations.aspx">Locations</a>
+                                                    
+                                                </li>
+                                            
+                                                <li id="ctl00_rptMenu_ctl06_rptSecondLevelMenu_ctl03_li">
+                                                    <a id="ctl00_rptMenu_ctl06_rptSecondLevelMenu_ctl03_hypSecondLevelMenuItem" href="https://www.baumanrarebooks.com/customer-service/faq.aspx">FAQs</a>
+                                                    
+                                                </li>
+                                            
+                                                </ul>
+                                            
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl07_hypMenuItem" href="https://www.baumanrarebooks.com/contact-us.aspx">contact</a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        <a id="ctl00_rptMenu_ctl08_hypMenuItem" href="https://www.baumanrarebooks.com/account/login.aspx">my account</a>
+                                        
+                                    </li>
+                                
+                                    </ul>
+                                
+                        </nav><!-- //navigation -->
+                    </header><!-- //header -->                
+                
+                <div style="display: none">
+                    <span aria-label="Contact me by fax"><input id="ctl00_contact_me_by_fax_only" type="checkbox" name="ctl00$contact_me_by_fax_only" tabindex="-1" /><label for="ctl00_contact_me_by_fax_only">Contact me by fax</label></span>
+                </div>
+                    
+    <a id="hdnEmailAFriend" style="display: none" class="inline" data-fancybox-type="iframe" rel="nofollow"></a>
+    <div id="main" role="main" class="subpages">
+        <div class="container">
+            
+            
+            <div class="bgwhite">
+              <div class="row">
+                  
+                  <article class="col-sm-8">
+                      <header class="title_dtlbook"> 
+                        <h4 style="margin-top: 0">Candid</h4>
+                        <p>VOLTAIRE&nbsp;&nbsp; &#124; &nbsp;&nbsp;Henry FIELDING</p>
+                      </header>
+
+                  </article>
+
+                  <div class="col-sm-4 sidebtn" >
+                      
+                      
+                      <p class="costcode">
+                          <span id="ctl00_ContentPlaceHolder_ltStockNumber" style="width:100%;">Item#: 114098</span>
+                          
+                          <span id="ctl00_ContentPlaceHolder_lblSold" class="soldMessage">We're sorry, this item has been sold</span>
+                      </p>
+                  </div><!-- //ltr-people -->
+              </div>
+            </div>
+        </div>    
+            <div id="gridimage">
+                <div id="book_glery" class="bookglery">
+                    <figure id="ctl00_ContentPlaceHolder_mainDiv" class="mainBookItem" role="button" href="https://webdiag547.blob.core.windows.net/live/images%2Fbooks%2F114098.jpg?sv=2020-04-08&amp;st=2026-10-01T01%3A11%3A05Z&amp;se=2031-10-01T01%3A16%3A05Z&amp;sr=c&amp;sp=r&amp;sig=VDhc26%2BCaZRveDu6T8RHymCzgSt%2F86W0a%2Bvbh1XmPgM%3D">
+                        <img id="ctl00_ContentPlaceHolder_mainImg" src="https://webdiag547.blob.core.windows.net/live/images%2Fbooks%2F114098.jpg?sv=2020-04-08&amp;st=2026-10-01T01%3A11%3A05Z&amp;se=2031-10-01T01%3A16%3A05Z&amp;sr=c&amp;sp=r&amp;sig=VDhc26%2BCaZRveDu6T8RHymCzgSt%2F86W0a%2Bvbh1XmPgM%3D" alt="Candid" style="border-width:0px;" />
+                    </figure>
+					<div class="bookitem scroll-panegrid2">
+						
+								<figure id="ctl00_ContentPlaceHolder_rpImages_ctl00_imgDiv" class="figthumb" role="button" href="https://webdiag547.blob.core.windows.net/live/images/books/114098a.jpg?sv=2020-04-08&amp;st=2026-10-01T06%3A11%3A06Z&amp;se=2026-10-01T11%3A16%3A06Z&amp;sr=c&amp;sp=r&amp;sig=MBPZHz1wsCXK2k6fI7SP2d8LhLxyvfNwVhxzWcEU2pg%3D">
+									<img id="ctl00_ContentPlaceHolder_rpImages_ctl00_img" src="https://webdiag547.blob.core.windows.net/live/images/books/114098a.jpg?sv=2020-04-08&amp;st=2026-10-01T06%3A11%3A06Z&amp;se=2026-10-01T11%3A16%3A06Z&amp;sr=c&amp;sp=r&amp;sig=MBPZHz1wsCXK2k6fI7SP2d8LhLxyvfNwVhxzWcEU2pg%3D" alt="Candid" style="border-width:0px;" />
+								</figure>
+							
+								<figure id="ctl00_ContentPlaceHolder_rpImages_ctl01_imgDiv" class="figthumb" role="button" href="https://webdiag547.blob.core.windows.net/live/images/books/114098b.jpg?sv=2020-04-08&amp;st=2026-10-01T06%3A11%3A06Z&amp;se=2026-10-01T11%3A16%3A06Z&amp;sr=c&amp;sp=r&amp;sig=MBPZHz1wsCXK2k6fI7SP2d8LhLxyvfNwVhxzWcEU2pg%3D">
+									<img id="ctl00_ContentPlaceHolder_rpImages_ctl01_img" src="https://webdiag547.blob.core.windows.net/live/images/books/114098b.jpg?sv=2020-04-08&amp;st=2026-10-01T06%3A11%3A06Z&amp;se=2026-10-01T11%3A16%3A06Z&amp;sr=c&amp;sp=r&amp;sig=MBPZHz1wsCXK2k6fI7SP2d8LhLxyvfNwVhxzWcEU2pg%3D" alt="Candid" style="border-width:0px;" />
+								</figure>
+							
+								<figure id="ctl00_ContentPlaceHolder_rpImages_ctl02_imgDiv" class="figthumb" role="button" href="https://webdiag547.blob.core.windows.net/live/images/books/114098c.jpg?sv=2020-04-08&amp;st=2026-10-01T06%3A11%3A06Z&amp;se=2026-10-01T11%3A16%3A06Z&amp;sr=c&amp;sp=r&amp;sig=MBPZHz1wsCXK2k6fI7SP2d8LhLxyvfNwVhxzWcEU2pg%3D">
+									<img id="ctl00_ContentPlaceHolder_rpImages_ctl02_img" src="https://webdiag547.blob.core.windows.net/live/images/books/114098c.jpg?sv=2020-04-08&amp;st=2026-10-01T06%3A11%3A06Z&amp;se=2026-10-01T11%3A16%3A06Z&amp;sr=c&amp;sp=r&amp;sig=MBPZHz1wsCXK2k6fI7SP2d8LhLxyvfNwVhxzWcEU2pg%3D" alt="Candid" style="border-width:0px;" />
+								</figure>
+							
+					</div>
+                </div> <!-- //book_glery -->
+            </div>
+            
+            <div class="container">
+            <div class="bgwhite">
+
+            <div class="row">
+                <article class="descbook col-sm-8">
+                    <div id="ctl00_ContentPlaceHolder_divBookDesc" class="bookDesc itemIdInfo" itemid="114098">
+                        <p style="text-align:center;width:100%;margin-top:0px;" id="Headline"><strong>RARE FIRST EDITION IN ENGLISH OF VOLTAIRE'S <em>CANDIDE</em>, 1759</strong></p><p style="text-align:justify;" align="justify"><span>VOLTAIRE. </span><strong>Candid: or, All for the Best. BOUND WITH: FIELDING, Henry. The Journal of a Voyage to Lisbon. </strong>London: J. Nourse; A. Millar, 1759, 1755. Octavo, early full brown mottled calf rebacked, raised bands, red morocco spine label. Housed in a custom clamshell box. </p><p style="text-align:justify;" align="justify"></p><p><em>First edition in English of one of the great classics of world literature, published the same year as the French-language Geneva first edition. Bound with a first edition of Henry Fielding's posthumous Journal of a Voyage to Lisbon.</em></p><p style="text-align:justify;" align="justify"></p><p><em>Candide</em> is the crowning literary achievement of one of the finest stylists to all of literature. Voltaire penned his <em>magnum opus</em> in response to a philosophy of optimism espoused by Liebnitz and Rousseau. Finding their views both useless and dangerous, Voltaire instead believed that humanity had too long acquiesced to the idea that evil and injustice were things to be justified or ignored, rather than faced and defeated. His goal in this wonderfully picaresque novel was to banish such escapisms by exposing them. In <em>Candide</em> Voltaire hoped to bring to his readers a new awareness of cruelty and injustice, spurring them to action or, at the very least, outrage. His novel's deceptively "light-weight parables" and lively tales of "Candide and his equally guileless if more worldly-wise mentor, Dr. Pangloss, and their delicious adventures, still command our attention. The folly of philosophic and religious optimism is displayed with a vigor and wit that carries the reader away. Irony without exaggeration, a perfect restraint in its admirable humor, a gift for the throwaway line… all these show Voltaire's style and originality at their incomparable best" (PMM 204).</p><p>This English edition of Voltaire's immensely readable and highly entertaining classic was published by John Nourse in the same year that the French-language Geneva first edition appeared. For years, Nourse was known as Voltaire's publisher in London, due to his close relationship with the Cramer brothers of Geneva (the "official" printers of Voltaire's French editions). Nourse was, in fact, "the most constant reprinter and publisher of translations of Voltaire's works in England" and from 1753 onward, he "almost automatically both reprinted and translated most of Voltaire's works" (Barber, "Some Early English Editions of Voltaire," <em>British Library Journal</em>, 105-6).</p><p>Copies of the Geneva edition of <em>Candide</em> (the first French printing that preceded 16 others in 1759) were shipped to Paris and Amsterdam on January 15th. The largest consignment of books ever shipped to Nourse left Geneva on January 18th and traveled a circuitous route by water to Basel and then down the Rhine, before finally being shipped across the channel to England. (It should be noted that there is no mention of <em>Candide</em> in the account book for this shipment). John Nourse did, however rather quickly bring out the "pirated" London edition of this French text, announcing its availability on April 26th and noting that an English version was soon to be released. That anonymous translation, entitled <em>Candid, or, All for the Best</em> was first announced to the public by Nourse on May 22, 1759. This translation proved to be so popular that it enjoyed a "carefully revised and corrected" second edition printing in the same year.</p><p>There were three other English translations of <em>Candide</em> published in 1759. Two of them are of the version by William Rider, a scholar of Jesus College, Oxford, which he entitled, <em>Candidus: or, The Optimist</em>. The first was printed in London by J. Scott and J. Gretton and another was published in Dublin by James Joey and William Smith. According to Barber, the London edition of Rider's translation was announced in <em>The Public Advertiser</em> on May 15, 1759—one week before the Nourse announcement—and Barber states that "it is evidence that it was then known that there was some textual problem behind these texts since the Rider translation advertised itself as 'translated from the last correct copy sent by him [Voltaire] as a present to the translator' and added 'The Public need not be entreated to ask from this particular Translation, as we may presume to assert there is no other authenticated copy under the Author's hand of this work in the Kingdom." What is confusing about the allegation in this advertisement is that it presumes there is another translation already available on the market and the buyer is advised "to ask for this particular Translation" rather than to be duped into buying that unnamed (but undoubtedly Nourse) translation which it claimed was inferior. Finally, an anonymous translation entitled <em>Candidus or, All for the Best</em> was also published by Sands, Donaldson, Murray and Cochran for A. Donaldson in Edinburgh, but there is no known publication date associated with that book. Accordingly, this Nourse translation can appropriately be called the first edition in English, as there is ample evidence to support that contention.</p><p>Henry Fielding's <em>Journal </em>is also a sought-after work, the posthumously published journal of his voyage to Portugal in July 1754, in hope of recovering from cirrhosis of the liver. He died in that country on October 8, 1754, and was buried in Lisbon in the English cemetery at St George's Church. "The incidents of his voyage are detailed with great humor and with undiminished interest in life… Mr. Austin Dobson rightly says that it is one 'of the most unfeigned and touching little tracts in our own or any other literature'" (DNB). <em>Candide </em>bound after Fielding's <em>Journal</em>. <em>Journal </em>first issue (though second state), with edited text, as indicated by pages 241-76 misnumbered 193-228. An unedited version, with correct pagination, was suppressed by Henry Fielding's half-brother, but issued later in response to demand prompted by the Lisbon earthquake of November 1755. Rothschild 857 (<em>Journal</em>). Early owner ink signature to title page of <em>Journal </em>and to verso of <em>Candide </em>half title; owner ink stamp and pencil annotations to title page of <em>Journal</em>. Engraved armorial bookplate to verso of <em>Journal </em>title page. Infrequent penciled underlining and marginalia. Bookseller stamp to front pastedown.</p><p style="text-align:justify;" align="justify">Text generally clean, a bit of rubbing to corners of binding, nicely rebacked. An attractive copy.</p>
+                    </div>
+                  </article>
+
+                  <div class="col-sm-4 sidebtn" >
+                      
+                       <a href="https://www.baumanrarebooks.com/account/modal-login.aspx?CustomMessage=" id="ctl00_ContentPlaceHolder_linkAddToWishList" data-fancybox-type="iframe" rel="nofollow" onclick="LaunchSignInForWishtList();" class="btn_mgenta full inline">
+                          <em class="fa fa-star"></em> <span>add to my wishlist </span>
+                      </a>
+
+                      <a id="ctl00_ContentPlaceHolder_askAnExpert" class="btn_mgenta full inline" data-fancybox-type="iframe" rel="nofollow" href="/expertForm.aspx?BookId=114098">ask an Expert</a>
+                      <div id="shippingContent" style="display:none;">
+                        If you are interested in an item from one of our catalogues or our website and would like more information before ordering it, please give us a call; one of our salespeople will be happy to speak with you and answer any questions that you might have. For some items, we can also email digital photographs.<br/><br/>All of our items are guaranteed as described and are shipped on approval. We accept MasterCard, Visa, American Express, Discover, checks and wire transfer. For first-time buyers, we prefer a credit card and we will only ship to the billing address on the card. We do ask that if you are not satisfied with the item, you contact us by phone as quickly as possible and return the item within ten days.<br/><br/>We ship worldwide and all packages will be sent via UPS or Federal Express unless another carrier is requested. Next-day or second-day air service is available upon request. Shipping and insurance charges are additional.
+                        </div>
+                      
+                            
+                      
+                      <div id="ctl00_ContentPlaceHolder_divAuthors">
+                          <table id="ctl00_ContentPlaceHolder_rptAuthors" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+	<tr>
+		<td>
+                                <h4 class="title-sm" style="margin-bottom: 10px">Author's full list of books</h4>
+                            </td>
+	</tr><tr>
+		<td> 
+                                <a id="ctl00_ContentPlaceHolder_rptAuthors_ctl01_hypBooksForAuthor" class="return" href="https://www.baumanrarebooks.com/authors/Henry-FIELDING/202718">FIELDING, Henry &#62;</a>
+                            </td>
+	</tr>
+</table>
+                      </div>
+                      
+                        </div>
+                  </div><!-- //ltr-people -->
+            </div>
+            
+            </div>
+            </div>
+        
+    
+
+    
+                <ul class="glossary" style="display:none;">
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl01_spnTitle">Aquatint</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl01_spnDesc">Copperplate process by which the plate is “bitten” by exposure to acid. By changing the areas of the plate that are exposed and the length of time the plate is submerged in the acid bath, the engraver can obtain fine and varying shades of gray that closely resemble watercolor washes. Although the name contains the word “tint”, this is a black-and-white printing process; aquatint plates can often be hand colored, however.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl02_spnTitle">Armorial</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl02_spnDesc">Used to describe a binding bearing the coat of arms of the original owner, or with bookplates incorporating the owner’s arms.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl03_spnTitle">Association Copy</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl03_spnDesc">copy that belonged to someone connected with the author or the contents of a book.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl04_spnTitle">Boards</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl04_spnDesc">Hard front and rear covers of a bound book which are covered in cloth, leather or paper. “Original boards” refers to cardboard-like front and back boards, from about 1700 to 1840, used as temporary protection for books before their purchasers would have them bound. Of particular value to collectors as evidence of a very early form of the book.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl05_spnTitle">Book-Plate</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl05_spnDesc">Label, generally affixed to the front pastedown, identifying a book’s owner.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl06_spnTitle">Broadside</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl06_spnDesc">Sheet printed on one side, typically for public display, usually larger than folio size (a folio being a broadside-size sheet printed on both sides and folded once, to make four pages).</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl07_spnTitle">Calf</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl07_spnDesc">Binding material made from cowhide—versatile, durable, usually tan or brown in color, of smooth texture with no or little apparent grain. Readily marbled (“tree calf”), mottled, diced, colored, polished, tooled in gilt or blind, even scented (known as “russia”). Reverse calf, with a distinctive suede-like texture, is occasionally used.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl08_spnTitle">Chromolithograph</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl08_spnDesc">Lithograph printed in colors, typically three or more.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl09_spnTitle">Collation</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl09_spnDesc">Process by which the contents of a book are inspected for completeness, checking against internal evidence, the table of contents and/or plate list, and reference works. Also a shorthand bibliographical description of a book’s composition by its leaves and signatures, rather than its pages. A-C, for example, would indicate a quarto volume composed of three signatures or gatherings of eight pages each for a total of 24 pages.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl10_spnTitle">Colophon</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl10_spnDesc">Printed note at the end of a text containing information about the printing of the book.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl11_spnTitle">Doublure</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl11_spnDesc">Pastedowns made not of paper but of leather, for decorative purposes.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl12_spnTitle">Duodecimo</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl12_spnDesc">(12MO) Smaller than an octavo, typically less than six inches tall; smaller formats, such as 24mo and 32mo, are uncommon.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl13_spnTitle">Edition</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl13_spnDesc">Print-run from a single setting of type without substantial change. Depending on demand, any number of printings can be made from a setting of type For example, a first printing might consist of 1000 copies, followed by a second printing of 2500 copies; in which case the book would have a first edition, first printing of 1000 copies, and a first edition, second printing of 2500 copies.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl14_spnTitle">Endpapers</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl14_spnDesc">Extra leaves—plain, colored or decorated—with which a bookbinder covers the insides of the book’s boards, therefore not part of the actual text block. The part of the leaf pasted to the inside of the front board is the front “pastedown,” while the other part of the leaf that forms the first page of the book is the “front free endpaper”; the same applies to the rear pastedown and rear free endpaper.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl15_spnTitle">Engraving</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl15_spnDesc">Illustration produced by carving lines into a metal plate. This is an intaglio process, in which ink is poured over the plate, then wiped from the surface, leaving ink only in the recesses made by the engraver’s tools. The image is then transferred by pressing thick dampened paper against the metal plate with great force—requiring engravings to be printed on a separate stock and separate press from any text.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl16_spnTitle">Errata</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl16_spnDesc">List of mistakes and corrections noted after printing, often compiled on a separate sheet or slip and inserted into the text block.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl17_spnTitle">Flyleaves</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl17_spnDesc">Additional blank leaves following or preceding the endpapers.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl18_spnTitle">Folio</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl18_spnDesc">Book composed of sheets that are folded once and printed on both sides, making two leaves and four pages. Typically above 14 inches tall. Oblong folios are produced the same way but bound at the short edge, producing a book typically more than 14 inches deep.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl19_spnTitle">Fore-Edge</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl19_spnDesc">Edge of the book furthest from the spine. Occasionally the text of a book will be put into a specialized book press and painted, often with a scene from the book or a landscape, so that the painting is invisible when the book is closed but visible when somebody bends the text and fans the pages—known as a fore-edge painting.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl20_spnTitle">Foxing</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl20_spnDesc">Light brown spots that naturally appear on some papers due to oxidation as they age.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl21_spnTitle">Frontispiece</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl21_spnDesc">An illustration facing the title page of a book.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl22_spnTitle">Gathering</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl22_spnDesc">Single sheet of paper that has been printed and folded to form the pages required by the book’s format. A single gathering of a quarto book, then, would be a sheet folded twice, containing four leaves, eight pages of text.. Gatherings are identified by a letter, symbol or number in the lower margin of the first page (the “signature”) to make it easy for the printer to stack them in proper order for sewing.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl23_spnTitle">Gilt Edges</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl23_spnDesc">The three exposed edges of a book have been smoothed and gilded.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl24_spnTitle">Half Title</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl24_spnDesc">Leaf preceding the title page that bears the book’s title, originally used to identify the unbound text block. The book’s binder would often remove and discard the half title at the time of binding. Remaining half-titles are therefore of interest to collectors.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl25_spnTitle">Illuminated</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl25_spnDesc">Decorated by hand. Typically early printed books and especially manuscripts.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl26_spnTitle">Imprint</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl26_spnDesc">Satement of place, publisher and date of publication on a book’s title page.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl27_spnTitle">Incunable</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl27_spnDesc">From the cradle of printing, i.e., any book printed before 1501.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl28_spnTitle">Issue</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl28_spnDesc">A group of books issued by the publisher as a discrete unit. At times, issue refers to timing, such as the “first issue” being offered to the public at an earlier date than the “second issue.” At other times, it refers to specially planned different batches, such as the “trade issue” (widely available) in opposition to a “signed limited issue” (limited to a small amount of copies differing somehow from the trade issue and not widely available).</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl29_spnTitle">Japanese Vellum</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl29_spnDesc">Expensive handmade paper often used in deluxe editions.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl30_spnTitle">Lithograph</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl30_spnDesc">Illustration produced by transferring an image drawn on a carefully prepared stone to paper. The process allowed illustrations to more closely resemble the original drawings, paintings or sketches, as it gave the lithographer a freedom of line impossible to achieve in earlier intaglio and relief processes. It does not require the same sort of pressure as an engraving to transfer the image, but still has to be printed on separate stock from the text</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl31_spnTitle">Marginalia</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl31_spnDesc">Handwritten notes made in the margins by a previous owner.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl32_spnTitle">Mispaginated</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl32_spnDesc">Printer’s error in pagination, typically skipping, transposing or repeating page numbers. Not uncommon in older, larger books, it is not considered a defect, so long as all integral leaves are present.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl33_spnTitle">Modern</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl33_spnDesc">Recently accomplished, when used to describe a book’s binding that is not the original casing. Some books bound recently are bound using techniques, tools and styles of the period of the book’s original issue; when done well this is called a period-style binding, a term that implies “modern” as well.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl34_spnTitle">Morocco</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl34_spnDesc">Binding material made from goatskin—versatile, durable, with a distinctive pebbled texture and visible grain. Readily stretched (“straight-grain”), crushed (flattened smooth), tooled in gilt or blind, inlaid with leathers of different colors. So-called because much of the raw material originally came from the tanneries of North Africa (other types of goatskin bindings denoting regions of origin include levant, turkey, niger).</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl35_spnTitle">Offset</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl35_spnDesc">The unintended transfer of ink from one printed page to an adjacent page.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl36_spnTitle">Period-Style</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl36_spnDesc">binding executed with materials, tools and techniques to approximate the look of a contemporary binding from the period of the book’s publication. The term implies that the binding is modern, or recent, unless otherwise specified.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl37_spnTitle">Plate</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl37_spnDesc">Full-page illustration printed separately from but bound with the text.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl38_spnTitle">Point</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl38_spnDesc">Variation in text, illustration, design or format that allows a bibliographer to distinguish between different editions and different printings of the same edition, or between different states or issues of the same printing.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl39_spnTitle">Presentation Copy</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl39_spnDesc">Book given as a gift by its author, illustrator or publisher. Sometimes refers to a volume given by a notable donor.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl40_spnTitle">Provenance</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl40_spnDesc">History of a particular copy of a book.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl41_spnTitle">Raised Bands</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl41_spnDesc">Horizontal protruding strips found on the spine of a book.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl42_spnTitle">Reback</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl42_spnDesc">To supply a worn binding with a new spine, usually made of the same material as the rest of the binding and decorated to match. When feasible the binder may preserve the original spine and affix it to the new material, described as “rebacked with the original spine laid down.”</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl43_spnTitle">Recase</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl43_spnDesc">To reattach a text block to its binding when it has become loose from its covers. </span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl44_spnTitle">Recto</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl44_spnDesc">The front side of a leaf. The back side is known as the “verso.”</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl45_spnTitle">Trade Edition</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl45_spnDesc">Printing or printings of a book made available for purchase by the general public on publication day (as opposed to a limited edition, often available only by subscription).</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl46_spnTitle">Uncut</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl46_spnDesc">When the edges of the text block (most apparent at the fore and lower edges) have not been trimmed to a uniform size, and are therefore characterized by a ragged or deckle edge. A book may be uncut but opened—i.e., with a paper-knife—but all unopened books (see below) are by nature uncut as well.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl47_spnTitle">Unopened</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl47_spnDesc">When the folds of the sheets of paper making up the text block have not been trimmed away or opened with a paper-knife. While this makes it impossible to read all of the pages, it also indicates a probability that the text block has not been altered since leaving the printer.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl48_spnTitle">Vellum</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl48_spnDesc">Binding material made from specially treated calfskin—durable, with a distinctive ivory color and smooth appearance. Can be tooled in gilt or blind. So-called Japan vellum (or Japon) is a type of thick paper that has been polished smooth and given a glossy finish to resemble vellum.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl49_spnTitle">Verso</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl49_spnDesc">The back or reverse side of a leaf or page. (See “recto.”)</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl50_spnTitle">Woodcut</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl50_spnDesc">Illustration or textual decoration made by cutting away from the surface of a block of wood until the reverse of the image is left in relief; this is then inked and pressed to the paper to leave the image. The woodblock, or multiple blocks, can be fit into the page along with the type, allowing text and illustrations to be printed in the same print run and share the same page (not possible with engravings, which require thicker, damp paper and much more force; nor with lithographs, which require a different printing process altogether). Woodcuts preceded moveable type and are the earliest known printing technology.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl51_spnTitle">Wood-Engraving</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl51_spnDesc">Engraving made with the graver or burin on the cross-section of a piece of boxwood; the harder wood and finer tools allow for more delicate, finely detailed images, while the block can still be set in the page alongside text and printed on the same stock as the text. While much older, wood engravings enjoyed an important renaissance in the late eighteenth century through Thomas Bewick and continued in popularity thorugh the nineteenth century.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl52_spnTitle">Wormhole</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl52_spnDesc">Tiny pinhole-sized trails left by bookworms as they eat through a text block. Much more common in older books printed on handmade papers with a high rag content than in books printed on manufactured papers made from wood pulp with a higher acidic content.</span>
+            </li>
+        
+            <li>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl53_spnTitle">Wrappers</span>
+                <span id="ctl00_ContentPlaceHolder_rptGlossary_ctl53_spnDesc">Paper coverings—plain, marbled or printed—attached by stitches, staples or glue to a text block to identify it and afford it some protection (though much more fragile than a binding in plain, cloth or leather-covered boards). More typical of slim and/or inexpensive volumes such as pamphlets. “Self wrappers” are leaves, blank or printed, that are integral to the text block, conjugate with other leaves and from the same stock. “Original wrappers,” those attached at the time of issue, are scarce and extremely desirable to most collectors.</span>
+            </li>
+        
+                </ul>
+        
+
+
+                    <!-- start: Back to Top -->
+	                <a class="back-to-top" title="Back to top"><em class="sprite-top-arrow"></em></a>
+	                <!-- end: Back to Top -->
+                    
+                    <div class="fancybox-overlay fancybox-overlay-fixed" style="display: none; z-index: 5000;" id="divGrayOut"></div>
+                    <div class="fancybox-overlay fancybox-overlay-fixed" style="display: none; z-index: 6000;" id="divGrayOutBag"></div>
+                    
+                    <div id="loadingScreen" class="fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: none;">
+                        <div id="fancybox-loading">
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <footer id="footer">
+                        <div class="container">
+                            <div class="hidden-xs">
+                            <div class="f-catlog">
+                                <h4>Receive Electronic Catalogues</h4>
+                                
+                                <div class="form-inline validationGroup" role="form">
+                                    <div class="form-group" style="vertical-align: top;">
+                                        <input name="ctl00$txtNewsletterSignupName" type="text" id="ctl00_txtNewsletterSignupName" class="form-control required" placeholder="Full Name" title="Full name is required." aria-label="Full name" />
+                                    </div>
+                                    <div class="form-group" style="vertical-align: top;">
+                                        <input name="ctl00$txtNewsletterSignupEmail" type="text" id="ctl00_txtNewsletterSignupEmail" class="form-control required email" placeholder="Email" title="Please enter a valid email address." aria-label="Email" />
+                                    </div>
+                                    <div class="form-group btnblackwrap" style="vertical-align: top;">
+                                        <a class="btn_black causesValidation" onclick="ConfirmSignUp();" style="cursor: pointer;" tabindex="0" role="button">SIGN UP&nbsp;<em class="fa fa-caret-right"></em></a>
+
+                                    <a id="ctl00_btnewletter" class="btn_black" href="javascript:__doPostBack(&#39;ctl00$btnewletter&#39;,&#39;&#39;)" style="display:none">SIGN UP&nbsp;<em class="fa fa-caret-right"></em></a>
+                                    </div>
+                                </div>
+                            </div> <!-- //f-catlog -->
+
+                            <div class="row">
+                                <div class="wdg-foot col-md-3 col-sm-3">
+                                    <h4 class="ft-title">customer care</h4>
+                                    <ul>
+                                        <li><a href="https://www.baumanrarebooks.com/about-us.aspx">About</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/contact-us.aspx">Contact</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/customer-service/gift-services.aspx">Gift Services</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/customer-service/shipping.aspx">Shipping and Guarantee</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/gift-certificates.aspx">Gift Certificates</a></li>
+                                    </ul>
+                                </div><!-- //wdg-foot -->
+                                <div class="wdg-foot col-md-3 col-sm-3">
+                                    <h4 class="ft-title">books</h4>
+                                    <ul>
+                                        <li><a href="https://www.baumanrarebooks.com/bauman-gifts">Gifts</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/browse-books.aspx">Browse</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/catalogs.aspx">Catalogues</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/selling-something.aspx">Books To Sell</a></li>
+										<li><a href="https://www.baumanrarebooks.com/customer-service/glossary.aspx">Glossary</a></li>
+                                    </ul>
+                                </div><!-- //wdg-foot -->
+
+
+
+                                <div class="wdg-foot col-md-3 col-sm-3">
+                                    <h4 class="ft-title">Connect</h4>
+                                    <ul>
+                                        <li><a href="https://www.baumanrarebooks.com/blog/" onclick="TrackBlog();">Articles</a></li>
+                                        <li><a href="http://www.facebook.com/baumanrarebooks" target="_blank">Facebook</a></li>
+                                        <li><a href="https://www.instagram.com/baumanrarebooks" target="_blank">Instagram</a></li>
+                                    </ul>
+                                </div><!-- //wdg-foot -->
+                                <div class="wdg-foot locate col-md-3 col-sm-3">
+                                    <h4 class="ft-title">locations</h4>
+                                    <ul>
+                                        <li><a href="https://www.baumanrarebooks.com/about-us/locations.aspx?location=newyork"><em class="fa fa-map-marker"></em>&nbsp;  New York</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/about-us/locations.aspx?location=philly"> <em class="fa fa-map-marker"></em>&nbsp; Philadelphia</a></li>
+                                        <li><a href="https://www.baumanrarebooks.com/about-us/locations.aspx?location=lasvegas"><em class="fa fa-map-marker"></em>&nbsp; Las Vegas</a></li>
+                                    </ul>
+                                </div><!-- //wdg-foot -->
+                            </div>
+
+                            <div class="row">
+                                    <div class="left-btm col-md-7 col-sm-7">
+                                    <figure><img src="/Resources/StyledFrontend/assets/img/logo_btm.png" alt=""></figure>
+                                    <p class="copyright"> &copy; Copyright 2026, Bauman Rare Books | <a href="https://www.baumanrarebooks.com/privacy-policy.aspx">Privacy Policy</a> | <a href="https://www.baumanrarebooks.com/accessibility.aspx">Accessibility</a></p>
+                                    </div>
+                            </div>
+                            </div>
+
+                            <div id="footMobile" class="visible-xs">
+                            <ul class="listmenu-xs">
+                                <li><a href="https://www.baumanrarebooks.com/contact-us.aspx">Contact Us <em class="fa fa-plus"></em> </a></li>
+                                <li><a href="https://www.baumanrarebooks.com/account/create-account.aspx">Create An Account <em class="fa fa-plus"></em> </a></li>
+                            </ul>
+
+                            <p class="copyright-xs">&copy; Copyright 2026 Bauman Rare Books <br><a href="https://www.baumanrarebooks.com/privacy-policy.aspx">Privacy Policy</a><br><a href="https://www.baumanrarebooks.com/accessibility.aspx">Accessibility</a></p>
+
+                            </div> <!-- //footMobile -->
+                        </div>
+                     </footer><!-- //footer -->
+                </div>
+            </div>
+        
+
+<script type="text/javascript">
+//<![CDATA[
+PushEvent({"event":"view_item","ecommerce":{"value":17800.0,"currency":"USD","items":[{"item_id":"114098","item_name":"Candid","price":17800.0,"quantity":1}]}});TrackViewedBook(114098);//]]>
+</script>
+</form>
+        
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4c4d3aa4a55a4eb6ab8e170fc7d0fb31","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
