@@ -1,0 +1,68 @@
+$ python3 books/classify-modern-en.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-medea/books/wip/replace-medea/editions/medea --gate
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-medea/books/wip/replace-medea/editions/medea original-en -> modern-en  (7 chapters)
+  weighted similarity : 0.214   (gate: <= 0.75)
+  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/117 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 7  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+
+$ python3 books/classify-modern-en.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-medea/books/wip/replace-medea/scratch/medea --gate
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-medea/books/wip/replace-medea/scratch/medea original-en -> modern-en  (7 chapters)
+  weighted similarity : 0.214   (gate: <= 0.75)
+  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/117 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 7  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+
+$ python3 books/wip/replace-medea/overlap-check.py books/wip/replace-medea/editions/medea-original-en.json app/public/data/editions/medea-original-en.json app/public/data/editions/medea-modern-en.json --n 10
+N=10: 0/238 paragraphs share a run of >= 10 words with the reference
+Assignment threshold: PASS
+
+
+$ python3 books/wip/replace-medea/overlap-check.py books/wip/replace-medea/editions/medea-original-en.json app/public/data/editions/medea-original-en.json app/public/data/editions/medea-modern-en.json --n 8
+N=8: 1/238 paragraphs share a run of >= 8 words with the reference
+  chapter 1 paragraph 15: 9 words inside shared runs
+Assignment threshold: PASS
+
+
+$ python3 books/wip/replace-medea/overlap-check.py books/wip/replace-medea/editions/medea-modern-en.json app/public/data/editions/medea-original-en.json app/public/data/editions/medea-modern-en.json --n 10
+N=10: 0/238 paragraphs share a run of >= 10 words with the reference
+Assignment threshold: PASS
+
+
+$ python3 books/wip/replace-medea/overlap-check.py books/wip/replace-medea/editions/medea-modern-en.json app/public/data/editions/medea-original-en.json app/public/data/editions/medea-modern-en.json --n 8
+N=8: 0/238 paragraphs share a run of >= 8 words with the reference
+Assignment threshold: PASS
+
+
+JSON / alignment / lengths / exclamations / speaker tags / apparatus / endings: PASS
+{
+  "pass": true,
+  "chapters": 7,
+  "paragraphs": 238,
+  "chapterParagraphCounts": [
+    21,
+    9,
+    28,
+    21,
+    65,
+    31,
+    63
+  ],
+  "minimumModernSourceWordRatio": 0.8571428571428571,
+  "sourceExclamations": 166,
+  "modernExclamations": 167,
+  "errors": [],
+  "wordCounts": {
+    "original": 11827,
+    "modern": 12717
+  }
+}
+
+ALL REQUESTED GATES: PASS

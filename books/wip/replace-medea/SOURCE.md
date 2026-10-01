@@ -5,7 +5,7 @@ Retrieved 2026-10-01. Euripides, The Tragedies of Euripides in English Verse, tr
 ## Rights verification
 
 - Wikipedia, https://en.wikipedia.org/wiki/Arthur_Way : “Way died at Ventnor, Isle of Wight, on 25 September 1930.”
-- Wikisource author record, https://en.wikisource.org/wiki/Author:Arthur_Sanders_Way : “This author died in 1930, so works by this author are in the public domain in countries and areas where the copyright term is the author's life plus 95 years or less.”
+- Wikisource author record, https://en.wikisource.org/wiki/Author:Arthur_Sanders_Way : supporting excerpt: “This author died in 1930”; author heading: “Arthur Sanders Way (1847–1930)”. The two complete independent supporting sentences are quoted from Wikipedia and the Australian Dictionary of Biography above/below.
 - Independent biographical authority: G. H. Gellie, Australian Dictionary of Biography, https://adb.anu.edu.au/biography/way-arthur-sanders-4816 : “Way died at Ventnor, Isle of Wight, on 25 September 1930.”
 - Internet Archive / University of Toronto catalogue, https://archive.org/metadata/tragediesofeurip01euriuoft : creator “Way, Arthur Sanders, 1847-1930”; title “The tragedies of Euripides in English verse. By Arthur S. Way”. The scanned title page reads “BY ARTHUR S. WAY, M.A.” and “1894”. No other translator, editor or adapter is named. This meets the assignment's death-before-1955 rule. Euripides is the ancient Greek author.
 
@@ -37,3 +37,25 @@ Speech blocks are paragraphs; uninterrupted chorus speeches remain single paragr
   SHA-256: `aa50f8eeef19f03594f35b61d68f6cf2daead0bbe516e2547b91fbc2d36d6e6e`
 - `way-wikipedia.html` — https://en.wikipedia.org/wiki/Arthur_Way
   SHA-256: `cb4e8e51ce40d3655176c214559fae17225b1d47fa3db2c2e9d4bea03cd28597`
+
+- `scan-title.jpg` — https://archive.org/download/tragediesofeurip01euriuoft/page/n6.jpg
+  SHA-256: `984f333757770f8960d18a34e9fa0ef6fa2f0fbc7ac176434d48c06e2f6072e4`
+
+- `scan-final.jpg` — https://archive.org/download/tragediesofeurip01euriuoft/page/n154.jpg
+  SHA-256: `0aec20a63e7322db0d05486ef3c2d08d9d95c4994e10d2dd96592af502fb8efe`
+
+- `scan-leaf8.jpg` — https://archive.org/download/tragediesofeurip01euriuoft/page/n7.jpg
+  SHA-256: `be24eea401c780a04783181ad553ef715c3880b6d2993bebb54e71b7e5b62917`
+
+- `scan-leaf156.jpg` — https://archive.org/download/tragediesofeurip01euriuoft/page/n155.jpg
+  SHA-256: `80611fc08c74eaea9496eac52f7e509346c60203c393b0ad80b79e734ef76db1`
+
+Scan retrieval note: Internet Archive page index n is one below the leaf number in scandata because leaf 0 is excluded. Initial requests returned the copyright-page library stamp and a blank leaf; these raw files are retained as scan-leaf8.jpg and scan-leaf156.jpg. Corrected title and printed page 123 images were visually inspected.
+
+## Final transcription decisions
+
+All speech text in the Wikisource Medea was compared in sequence with the Internet Archive OCR for the same 1894 edition, including the complete Exodos and every choral passage. The twelve differences of five or more normalized tokens consist only of notes, headings and the relocated initial speaker/direction. Shorter differences were reviewed: running headers, line-number OCR, normal OCR misspellings, ligatures and verse-line hyphenation. No speech omission was found. The files ocr-comparison.json and ocr-comparison-full.json are derived comparison evidence, not new downloaded sources.
+
+The volume's corrigenda explicitly changes “empyrean” to “empyreal” at Medea line 1082; the Wikisource reading is retained. At 7.62, “1 bid” is corrected to “I bid”, visually verified against printed page 123. At 5.40, the dropped opening apostrophe in “Tis” is restored. Stage directions use complete parentheses, with paragraph-final full stops outside the closing parenthesis. Interrupted closing dashes at 5.19 and 7.15 become full stops to satisfy the requested terminal-punctuation rule; no words are removed. Source straight quotation marks and apostrophes remain consistent in both editions. Original verse-line initial capitals are retained.
+
+The 1894 notes cite Greek textual scholarship, including Mahaffy, Paley and Verrall. They are not credited as translators/editors/adapters of this English edition; their notes and alternative readings are excluded. No English rendering other than the verified Way edition was consulted.
