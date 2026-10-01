@@ -4543,6 +4543,9 @@
 .lab[data-chrome-version="v2"].has-phone-chrome .lab-header-controls {
   width: 5.75rem;
   min-width: 5.75rem;
+  /* The buttons unmount while the controls are hidden; the track keeps
+     their 44px so revealing them never moves the page. */
+  min-height: 44px;
   justify-content: flex-end;
   gap: 2px;
 }
