@@ -21,6 +21,26 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'aristotle-politics': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224',
+        after: '4bb0655f382563834a38ae6dc527fc577a577b02461fd8c1e04a7285fe7a0c97',
+      },
+    },
+  },
+  'beyond-good-and-evil': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5b14eaa83a4b695afc10e74b203001ac33490f732a1fb42c141749687859d08a',
+        after: 'cb93524c242ca1d17973c98dcdcf0165ffe902700678c85dab369ace30cd44cd',
+      },
+    },
+  },
   symposium: {
   "revision": "symposium-completeness-2026-09-25.1",
   "releasedAt": 1790362800000,
