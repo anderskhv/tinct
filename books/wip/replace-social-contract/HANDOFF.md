@@ -78,3 +78,6 @@ Manual renderings now extend into Book IV, totaling 338/470 paragraphs. Entries 
 
 ## Batch checkpoint: modern entries 43–44
 Manual renderings now extend through Book IV Chapter III, totaling 358/470 paragraphs. Entries 15–44 pass paragraph length, exclamation, and ending checks. Whole-book classifiers remain incomplete at 44 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
+
+## Batch checkpoint: modern entry 45
+Manual rendering now extends through the long Roman Comitia chapter, totaling 398/470 paragraphs. Paragraph length, exclamation and ending checks pass across the completed subset after correcting entry 39 paragraph 3. The classifier remains incomplete at 45 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
