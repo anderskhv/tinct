@@ -1,0 +1,687 @@
+{
+  "bookId": "sense-and-sensibility",
+  "contentVersion": "2026-10-01.1",
+  "coverage": "All 24 proposed identities; conservative chapter-end disclosures. Named mentions and reviewed ambiguous titles; no pronoun or exhaustive title coverage.",
+  "entities": [
+    {
+      "id": "elinor-dashwood",
+      "name": "Elinor",
+      "kind": "person",
+      "category": "central",
+      "aliases": [
+        "Elinor",
+        "Elinor Dashwood"
+      ],
+      "subtitle": "Dashwood sister",
+      "body": "The eldest of Mrs. Dashwood’s three daughters.",
+      "roleAfter": [
+        1,
+        13
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            13
+          ],
+          "name": "Elinor Dashwood",
+          "body": "Eldest daughter of Henry Dashwood and his second wife."
+        },
+        {
+          "after": [
+            50,
+            20
+          ],
+          "body": "The eldest Dashwood sister. She marries Edward Ferrars and settles with him at the Delaford parsonage."
+        }
+      ]
+    },
+    {
+      "id": "marianne-dashwood",
+      "name": "Marianne",
+      "kind": "person",
+      "category": "central",
+      "aliases": [
+        "Marianne",
+        "Miss Marianne",
+        "Marianne Dashwood"
+      ],
+      "subtitle": "Dashwood sister",
+      "body": "One of Mrs. Dashwood’s daughters, with strong feelings and a love of music.",
+      "roleAfter": [
+        1,
+        13
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            13
+          ],
+          "name": "Marianne Dashwood",
+          "body": "Middle Dashwood sister, musical and emotionally outspoken."
+        },
+        {
+          "after": [
+            50,
+            20
+          ],
+          "body": "The middle Dashwood sister. After recovering from illness and her attachment to Willoughby, she marries Colonel Brandon."
+        }
+      ]
+    },
+    {
+      "id": "margaret-dashwood",
+      "name": "Margaret",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Margaret",
+        "Miss Margaret",
+        "Margaret Dashwood"
+      ],
+      "subtitle": "Dashwood sister",
+      "body": "The youngest of Mrs. Dashwood’s three daughters.",
+      "roleAfter": [
+        1,
+        13
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            13
+          ],
+          "name": "Margaret Dashwood",
+          "body": "Youngest Dashwood sister, thirteen at the opening."
+        }
+      ]
+    },
+    {
+      "id": "mrs-henry-dashwood",
+      "name": "Mrs. Dashwood",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mrs. Henry Dashwood"
+      ],
+      "subtitle": "The Dashwood family",
+      "body": "Henry Dashwood’s wife, mother of his three daughters.",
+      "roleAfter": [
+        1,
+        13
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            13
+          ],
+          "name": "Mrs. Dashwood",
+          "body": "Henry’s widow and mother of Elinor, Marianne, and Margaret."
+        }
+      ]
+    },
+    {
+      "id": "henry-dashwood",
+      "name": "Henry Dashwood",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mr. Henry Dashwood",
+        "Henry Dashwood"
+      ],
+      "subtitle": "The Dashwood family",
+      "body": "The nephew invited to live with his family at Norland.",
+      "roleAfter": [
+        1,
+        13
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            13
+          ],
+          "name": "Henry Dashwood",
+          "body": "Father of John by his first marriage and of three daughters by his second."
+        }
+      ]
+    },
+    {
+      "id": "john-dashwood",
+      "name": "John Dashwood",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mr. John Dashwood",
+        "John Dashwood"
+      ],
+      "subtitle": "The Dashwood family",
+      "body": "Henry Dashwood’s son by his first marriage.",
+      "roleAfter": [
+        1,
+        13
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            13
+          ],
+          "name": "John Dashwood",
+          "body": "The sisters’ half-brother and heir to Norland after Henry’s death."
+        }
+      ]
+    },
+    {
+      "id": "fanny-dashwood",
+      "name": "Mrs. John Dashwood",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mrs. John Dashwood",
+        "Fanny"
+      ],
+      "subtitle": "The Dashwood family",
+      "body": "John Dashwood’s wife.",
+      "roleAfter": [
+        3,
+        20
+      ],
+      "snapshots": [
+        {
+          "after": [
+            3,
+            20
+          ],
+          "name": "Fanny Dashwood",
+          "body": "John’s wife and a member of the Ferrars family."
+        }
+      ]
+    },
+    {
+      "id": "harry-dashwood",
+      "name": "Harry",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Harry",
+        "little Harry"
+      ],
+      "subtitle": "The Dashwood family",
+      "body": "John and Mrs. John Dashwood’s young son.",
+      "roleAfter": [
+        2,
+        28
+      ],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            28
+          ],
+          "name": "Harry Dashwood",
+          "body": "John and Fanny’s young son."
+        }
+      ]
+    },
+    {
+      "id": "edward-ferrars",
+      "name": "Edward Ferrars",
+      "kind": "person",
+      "category": "major",
+      "aliases": [
+        "Edward",
+        "Mr. Edward Ferrars",
+        "Edward Ferrars"
+      ],
+      "subtitle": "The Ferrars family",
+      "body": "The elder brother of Mrs. John Dashwood.",
+      "roleAfter": [
+        3,
+        20
+      ],
+      "snapshots": [
+        {
+          "after": [
+            3,
+            20
+          ],
+          "name": "Edward Ferrars",
+          "body": "Fanny’s elder brother, shy and drawn to domestic life."
+        },
+        {
+          "after": [
+            22,
+            54
+          ],
+          "body": "Fanny Dashwood’s elder brother. Lucy has told Elinor that she and Edward have been secretly engaged for four years."
+        },
+        {
+          "after": [
+            49,
+            46
+          ],
+          "body": "Fanny Dashwood’s elder brother. Released from his engagement when Lucy marries Robert, he has proposed to Elinor and been accepted."
+        }
+      ]
+    },
+    {
+      "id": "robert-ferrars",
+      "name": "Robert Ferrars",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Robert",
+        "Mr. Robert Ferrars",
+        "Robert Ferrars"
+      ],
+      "subtitle": "The Ferrars family",
+      "body": "Edward Ferrars’s younger brother.",
+      "roleAfter": [
+        22,
+        54
+      ],
+      "snapshots": [
+        {
+          "after": [
+            22,
+            54
+          ],
+          "name": "Robert Ferrars",
+          "body": "Edward’s younger brother."
+        }
+      ]
+    },
+    {
+      "id": "mrs-ferrars",
+      "name": "Mrs. Ferrars",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [],
+      "subtitle": "The Ferrars family",
+      "body": "The mother of Edward and his younger brother.",
+      "roleAfter": [
+        4,
+        20
+      ],
+      "snapshots": [
+        {
+          "after": [
+            4,
+            20
+          ],
+          "name": "Mrs. Ferrars",
+          "body": "Edward’s mother, whose wishes have great influence over his prospects."
+        }
+      ]
+    },
+    {
+      "id": "sir-john-middleton",
+      "name": "Sir John Middleton",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Sir John",
+        "Sir John Middleton"
+      ],
+      "subtitle": "Barton Park",
+      "body": "Mrs. Dashwood’s relative, who offers her a cottage in Devonshire.",
+      "roleAfter": [
+        4,
+        20
+      ],
+      "snapshots": [
+        {
+          "after": [
+            4,
+            20
+          ],
+          "name": "Sir John Middleton",
+          "body": "Mrs. Dashwood’s relative and the landlord of Barton Cottage."
+        }
+      ]
+    },
+    {
+      "id": "lady-middleton",
+      "name": "Lady Middleton",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Lady Middleton"
+      ],
+      "subtitle": "Barton Park",
+      "body": "A woman at Barton Park whom Mrs. Dashwood has not yet met.",
+      "roleAfter": [
+        6,
+        9
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            9
+          ],
+          "name": "Lady Middleton",
+          "body": "Sir John’s wife, graceful in manners and devoted to her children."
+        }
+      ]
+    },
+    {
+      "id": "mrs-jennings",
+      "name": "Mrs. Jennings",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mrs. Jennings"
+      ],
+      "subtitle": "Barton circle",
+      "body": "Lady Middleton’s mother.",
+      "roleAfter": [
+        7,
+        8
+      ],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            8
+          ],
+          "name": "Mrs. Jennings",
+          "body": "A sociable widow and the mother of Lady Middleton."
+        }
+      ]
+    },
+    {
+      "id": "colonel-brandon",
+      "name": "Colonel Brandon",
+      "kind": "person",
+      "category": "major",
+      "aliases": [
+        "Brandon",
+        "Colonel Brandon"
+      ],
+      "subtitle": "Barton circle",
+      "body": "A friend of Sir John Middleton.",
+      "roleAfter": [
+        7,
+        8
+      ],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            8
+          ],
+          "name": "Colonel Brandon",
+          "body": "Sir John’s quiet and gentlemanly friend."
+        }
+      ]
+    },
+    {
+      "id": "john-willoughby",
+      "name": "Willoughby",
+      "kind": "person",
+      "category": "major",
+      "aliases": [
+        "Willoughby",
+        "Mr. Willoughby"
+      ],
+      "subtitle": "A visitor at Allenham",
+      "body": "The young man who carries Marianne home after her fall.",
+      "roleAfter": [
+        9,
+        31
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            31
+          ],
+          "name": "Willoughby",
+          "body": "A young visitor at Allenham who helps Marianne after her fall."
+        }
+      ]
+    },
+    {
+      "id": "charlotte-palmer",
+      "name": "Mrs. Palmer",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mrs. Palmer",
+        "Charlotte"
+      ],
+      "subtitle": "Barton circle",
+      "body": "A visitor to the Dashwoods’ cottage.",
+      "roleAfter": [
+        19,
+        41
+      ],
+      "snapshots": [
+        {
+          "after": [
+            19,
+            41
+          ],
+          "name": "Charlotte Palmer",
+          "body": "Lady Middleton’s younger sister."
+        }
+      ]
+    },
+    {
+      "id": "mr-palmer",
+      "name": "Mr. Palmer",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mr. Palmer"
+      ],
+      "subtitle": "Barton circle",
+      "body": "Mrs. Palmer’s husband.",
+      "roleAfter": [
+        19,
+        41
+      ],
+      "snapshots": [
+        {
+          "after": [
+            19,
+            41
+          ],
+          "name": "Mr. Palmer",
+          "body": "Charlotte Palmer’s husband."
+        }
+      ]
+    },
+    {
+      "id": "lucy-steele",
+      "name": "Lucy",
+      "kind": "person",
+      "category": "major",
+      "aliases": [
+        "Lucy",
+        "Miss Lucy",
+        "Lucy Steele",
+        "Miss Lucy Steele"
+      ],
+      "subtitle": "The Steele sisters",
+      "body": "One of the two sisters visiting the Middletons.",
+      "roleAfter": [
+        21,
+        40
+      ],
+      "snapshots": [
+        {
+          "after": [
+            21,
+            40
+          ],
+          "name": "Lucy Steele",
+          "body": "One of the Steele sisters, introduced through the Barton circle."
+        },
+        {
+          "after": [
+            22,
+            54
+          ],
+          "name": "Lucy Steele",
+          "body": "Anne Steele’s younger sister. She tells Elinor that she and Edward Ferrars have been secretly engaged for four years."
+        },
+        {
+          "after": [
+            49,
+            46
+          ],
+          "name": "Lucy Steele",
+          "body": "Anne Steele’s younger sister. Formerly engaged to Edward Ferrars, she has married his younger brother Robert."
+        }
+      ]
+    },
+    {
+      "id": "anne-steele",
+      "name": "Miss Steele",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Nancy",
+        "Anne Steele",
+        "Anne"
+      ],
+      "subtitle": "The Steele sisters",
+      "body": "The elder of the two Steele sisters.",
+      "roleAfter": [
+        21,
+        40
+      ],
+      "snapshots": [
+        {
+          "after": [
+            21,
+            40
+          ],
+          "name": "Anne Steele",
+          "body": "Lucy’s elder sister."
+        }
+      ]
+    },
+    {
+      "id": "mrs-smith",
+      "name": "Mrs. Smith",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Mrs. Smith"
+      ],
+      "subtitle": "Allenham",
+      "body": "The woman living at Allenham, where Marianne has been visiting.",
+      "roleAfter": [
+        13,
+        76
+      ],
+      "snapshots": [
+        {
+          "after": [
+            13,
+            76
+          ],
+          "name": "Mrs. Smith",
+          "body": "The elderly owner of Allenham and a relative of Willoughby."
+        }
+      ]
+    },
+    {
+      "id": "eliza-elder",
+      "name": "Eliza",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [],
+      "subtitle": "Brandon’s recollections",
+      "body": "A woman Colonel Brandon recalls loving in his youth.",
+      "roleAfter": [
+        31,
+        42
+      ],
+      "snapshots": [
+        {
+          "after": [
+            31,
+            42
+          ],
+          "name": "Eliza (the elder)",
+          "body": "Colonel Brandon’s early love and relation, later married to his brother."
+        }
+      ]
+    },
+    {
+      "id": "eliza-younger",
+      "name": "Miss Williams",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Miss Williams",
+        "Eliza Williams"
+      ],
+      "subtitle": "Mentioned at Barton",
+      "body": "A woman Mrs. Jennings mentions in connection with Colonel Brandon.",
+      "roleAfter": [
+        13,
+        76
+      ],
+      "snapshots": [
+        {
+          "after": [
+            13,
+            76
+          ],
+          "name": "Miss Williams",
+          "body": "Miss Williams, a woman mentioned in connection with Colonel Brandon."
+        },
+        {
+          "after": [
+            31,
+            42
+          ],
+          "name": "Eliza Williams",
+          "body": "The daughter of the Eliza whom Brandon loved in his youth. Her mother entrusted her to his care. Brandon tells Elinor that Willoughby seduced and abandoned her, leaving her pregnant."
+        }
+      ]
+    },
+    {
+      "id": "miss-grey",
+      "name": "Miss Grey",
+      "kind": "person",
+      "category": "supporting",
+      "aliases": [
+        "Miss Grey"
+      ],
+      "subtitle": "Mentioned in London",
+      "body": "A woman Mrs. Jennings discusses in connection with Willoughby.",
+      "roleAfter": [
+        30,
+        42
+      ],
+      "snapshots": [
+        {
+          "after": [
+            30,
+            42
+          ],
+          "name": "Miss Grey",
+          "body": "A woman discussed by Mrs. Jennings in connection with Willoughby."
+        }
+      ]
+    }
+  ],
+  "aliasPolicy": [
+    "Miss Dashwood at 9:9 is Marianne; other reviewed singular occurrences are Elinor.",
+    "London Mrs. Dashwood exceptions identify Fanny; other singular occurrences identify Henry’s wife.",
+    "Mrs. Ferrars in chapter 47 is Lucy; omit chapter 48 because the dialogue sustains a misunderstanding; other occurrences are the mother.",
+    "Miss Steele is Anne/Nancy except chapter 47, where it explicitly means Lucy. Omit 21:9, where modern-en says “One Miss Steele” without identifying the sister.",
+    "Eliza in 31:23 and chapter 46 is the elder; later chapter 31 references and chapters 44/47 refer to her daughter. Mrs. Brandon is the elder in chapter 31 and Marianne in chapter 50.",
+    "Bare John, Mr. Dashwood and Mr. Ferrars are deliberately omitted; the latter can leak the mistaken groom’s identity in chapter 47.",
+    "Coordinates use live chapters 1–50 and zero-based paragraphs, shared by the aligned editions."
+  ]
+}
