@@ -9,6 +9,12 @@
  */
 export const COMPANION_MODEL = 'claude-sonnet-5'
 
+/**
+ * Catch me up's short recaps: a few sentences each, many per timeline, so
+ * speed matters more than depth. Haiku takes no `output_config.effort`.
+ */
+export const RECAP_FAST_MODEL = 'claude-haiku-4-5-20251001'
+
 export type CompanionEffort = 'low' | 'medium' | 'high'
 
 /** Spoken answers: latency first. */

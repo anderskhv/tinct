@@ -6,9 +6,9 @@
 import { CATCH_UP_ROUTE, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
 import { requestLabRecapSummary } from '../preReader/recapSummaryClient'
 
-/** Requests in flight at once. Newest entries go first. */
-export const CATCH_UP_CONCURRENCY = 2
-/** Without a scroll observer, the newest few entries are the ones on screen. */
+/** Requests in flight at once. The oldest entries go first, in reading order. */
+export const CATCH_UP_CONCURRENCY = 3
+/** Without a scroll observer, the first few entries are the ones on screen. */
 export const CATCH_UP_INITIAL_WANTED = 5
 /** After a rate limit or a resting AI, wait this long before asking again on our own. */
 export const CATCH_UP_COOLDOWN_MS = 20_000
@@ -84,7 +84,7 @@ export function catchUpShouldCoolDown(status: number): boolean {
 export type CatchUpLoadState = 'idle' | 'loading' | 'ok' | 'error'
 
 /**
- * Which entries to start next: wanted, idle, newest first, within the
+ * Which entries to start next: wanted, idle, oldest first, within the
  * concurrency left over. Entries the reader has not scrolled near are never
  * started, so a 60-chapter timeline is not 60 requests at once.
  */
@@ -99,7 +99,7 @@ export function nextCatchUpKeys(input: {
   const room = Math.max(0, limit - busy)
   if (!room) return []
   const next: string[] = []
-  for (let i = input.keys.length - 1; i >= 0 && next.length < room; i--) {
+  for (let i = 0; i < input.keys.length && next.length < room; i++) {
     const key = input.keys[i]
     if (input.wanted.has(key) && (input.states[key] ?? 'idle') === 'idle') next.push(key)
   }

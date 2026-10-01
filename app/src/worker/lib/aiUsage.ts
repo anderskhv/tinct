@@ -32,12 +32,16 @@ export const AI_PRICING_VERSION = '2026-09-30'
 export interface AnthropicRates { inputPerMTok: number; outputPerMTok: number; cacheReadPerMTok: number; cacheWritePerMTok: number }
 
 const SONNET_5: AnthropicRates = { inputPerMTok: 2, outputPerMTok: 10, cacheReadPerMTok: 0.2, cacheWritePerMTok: 2.5 }
+/** Haiku 4.5 list price ($1 / $5 per MTok); Catch me up's recaps. Not re-checked against the live pricing page. */
+const HAIKU_4_5: AnthropicRates = { inputPerMTok: 1, outputPerMTok: 5, cacheReadPerMTok: 0.1, cacheWritePerMTok: 1.25 }
 
 export const AI_PRICING = {
   version: AI_PRICING_VERSION,
   anthropic: {
     'claude-sonnet-5': SONNET_5,
     'claude-sonnet-5.5': SONNET_5,
+    'claude-haiku-4-5-20251001': HAIKU_4_5,
+    'claude-haiku-4-5': HAIKU_4_5,
   } as Record<string, AnthropicRates>,
   /** Rates used for an Anthropic model this table does not name. */
   anthropicFallback: SONNET_5,
