@@ -39,6 +39,10 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  assert(await stoics.count()>0,'philosophy has a Stoic book row');
  assert((await stoics.innerText()).includes('Meditations'));
  assert.equal(await stoics.locator('.book-row').getAttribute('role'),'region');
+ // Browser Back closes a category instead of leaving Tinct (QA 2026-10-01).
+ await p.goBack();await p.waitForFunction(()=>document.getElementById('collection').hidden);
+ assert.equal(new URL(p.url()).host,'tinct.app','Back from a category stays in Tinct');
+ await p.locator('#menu-toggle').click();await p.locator('#menu-categories button').filter({hasText:/^Philosophy$/}).click();
  await p.locator('#collection-back').click();
  await p.locator('#menu-toggle').click();
  await p.locator('#menu-periods button').filter({hasText:/^Antiquity/}).click();
