@@ -161,6 +161,7 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
+import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
 import './lab.css'
@@ -2699,6 +2700,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
   askPageRef.current = { pageNumber: chapterProgress.currentPage, totalPages: chapterProgress.totalPages }
+  // Talk on the lock screen: the book's cover and title while a call is open,
+  // then back to the chapter details narration shows.
+  useEffect(() => {
+    if (!callOpen) return
+    const session = readerMediaSession()
+    if (!session) return
+    const title = book.bookTitle || 'Tinct'
+    const artwork = [{ src: new URL(`/covers/v2/${book.bookId || 'bible'}.webp`, window.location.href).href, sizes: '540x810', type: 'image/webp' }]
+    try {
+      session.metadata = readerMediaMetadata({ title: `Talking about ${title}`, artist: 'Tinct', album: title, artwork })
+      session.playbackState = 'playing'
+    } catch { /* unsupported */ }
+    return () => {
+      try {
+        session.metadata = readerMediaMetadata({ title: book.chapterTitle || title, artist: title, album: title, artwork })
+        session.playbackState = 'paused'
+      } catch { /* unsupported */ }
+    }
+  }, [callOpen, book.bookId, book.bookTitle, book.chapterTitle])
   // Durable reading memory: a read-only observer of the rendered tuple. It
   // records sessions for the library recap and never touches position logic.
   useLabReadingMemory({
