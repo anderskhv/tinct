@@ -6,6 +6,7 @@ import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCach
 import { useDesktopCommands, useDesktopAppearance } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
 import { registerLoadedChapter } from './labPoetry'
+import { useBackCloses } from './useBackCloses'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
@@ -299,6 +300,14 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   )
 }
 
+function LibraryBackIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function SkipIcon({ direction, seconds = 15 }: { direction: 'back' | 'forward'; seconds?: number }) {
   const path = direction === 'back'
     ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15'
@@ -581,6 +590,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
+  // Back (phone back gesture, browser Back) closes the panel in front instead
+  // of leaving the reader.
+  useBackCloses(tocOpen, () => setTocOpen(false))
+  useBackCloses(superMenuOpen, () => setSuperMenuOpen(false))
+  useBackCloses(superSheet !== null, () => setSuperSheet(null))
+  useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
+  useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
+  useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
@@ -4435,6 +4452,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           },
         } : {})}
       >
+        {/* Desktop: the way back to the library, icon only. The phone keeps
+            Library in the t menu and has its own Back. */}
+        {!showPhoneChrome && (
+          <button
+            type="button"
+            className="lab-v2-library-back"
+            data-testid="lab-library-back"
+            aria-label="Back to library"
+            title="Library"
+            onClick={() => handleSuperMenuSelect('library')}
+          >
+            <LibraryBackIcon size={LAB_V2_PLAY_PX} />
+          </button>
+        )}
         <div
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}

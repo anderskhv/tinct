@@ -6967,3 +6967,27 @@
 .lab[data-chrome-version="v2"] .lab-book-switcher-library-arrow{justify-self:center;color:var(--lab-ink-muted)}
 .lab[data-chrome-version="v2"] .lab-book-switcher-library:hover{background:color-mix(in srgb,var(--lab-ink) 5%,transparent)}
 .lab[data-chrome-version="v2"] .lab-book-switcher-library:focus-visible{outline:2px solid var(--lab-ink);outline-offset:-4px}
+
+/* Desktop: back to the library, icon only, top left — the same 42px disc and
+   ink as Play and the t on the right, and it dims with them after a turn. */
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-library-back {
+  position: absolute;
+  left: 24px;
+  top: 15px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--lab-border);
+  border-radius: 999px;
+  background: rgba(var(--lab-v2-panel-ink), 0.62);
+  box-shadow: 0 8px 24px rgba(53, 43, 30, 0.08);
+  color: inherit;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-library-back { border-color: transparent; background: transparent; box-shadow: none; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-v2-library-back { opacity: .32; }
+@media (hover: hover) {
+  .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-v2-library-back { opacity: 1; }
+}
