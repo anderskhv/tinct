@@ -11,6 +11,8 @@ let catalogueData = null;
 // Share the raw catalogue with the returning-reader adapter. Its reading list
 // also needs books hidden from discovery, so filtering belongs only below.
 export function loadCatalogueData() {
+  // One download per page, however many copies of this module the page loaded.
+  if (!catalogueData && window.__library2CatalogueShared) catalogueData = window.__library2CatalogueShared;
   if (!catalogueData) {
     // Reuse the returning page's head-start fetch; a fetch preload is requested
     // twice by WebKit when the catalogue requires cache revalidation.
@@ -22,7 +24,8 @@ export function loadCatalogueData() {
     catalogueData = (native || early || fetch(CATALOGUE_URL).then(response => {
       if (!response.ok) throw new Error(`Catalogue ${response.status}`);
       return response.json();
-    })).catch(error => { catalogueData = null; throw error; });
+    })).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
+    window.__library2CatalogueShared = catalogueData;
   }
   return catalogueData;
 }
