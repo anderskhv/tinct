@@ -39,3 +39,6 @@ This is a bounded-session checkpoint, not a final content handoff. STATUS begins
 Candidate SHA-256 at checkpoint:
 - editions/social-contract-original-en.json: `97ab56ab2398f7afdf43c62b95311d7ebce26d4781032137eb4d002953af41b3`
 - editions/social-contract-modern-en.json: `ff72f928207987a73f5f4277afd04206b0d2f4ff76122bccbb4bbcc231e44b01`
+
+## Batch checkpoint: modern entries 1–15
+Added a manual modern rendering for Book II Chapter IV (entry 15), bringing the complete modern subset to 99/470 paragraphs. The per-paragraph minimum length and exclamation requirements pass for this entry. The full classifier correctly remains blocked by chapter-count mismatch. A current coordinate-only N=10 scan of the original candidate flags 85/470 paragraphs; these are phrases in the 1764-based transcription and must be assessed/re-rendered under the explicit assignment rule. No protected text was opened; the overlap tool reported coordinates only. The modern N=10/N=8 scan and folded classifier still need to be run after all chapters exist. Source scan checks and the entry 8 paragraph 3 ending repair remain open.
