@@ -1,6 +1,6 @@
 STATUS: IN PROGRESS
-Source verified: Rousseau (1778), Kenrick (1779), 1764 edition.
-Same-edition transcription acquired; source cleanup and scan verification in progress.
-Original draft: 50 entries, 467 paragraphs. Modern rendering not started.
-Independence preliminary gate: FAIL, 83/467 original-draft paragraphs at N=10.
-Not accepted; no app integration, publication, PR, main merge or deployment.
+Book I plus Advertisement and Introduction rendered: entries 1–11, 71 paragraphs.
+Books II–IV not yet rendered; next source coordinate is entry 12 paragraph 1.
+Book I classifier and folded classifier PASS; length/exclamation/ending checks PASS; modern N=10 and N=8 zero flags.
+Original edition 50 entries / 467 paragraphs: source corrections recorded, full scan review and overlap gate unresolved.
+Whole-book alignment FAIL (modern incomplete). NOT ACCEPTED.

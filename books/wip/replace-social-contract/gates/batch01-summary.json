@@ -1,0 +1,40 @@
+{
+  "scope": "Book I including front matter ONLY; whole book incomplete",
+  "chapters": 11,
+  "paragraphs": 71,
+  "length_exclamation_ending_issues": [],
+  "gates": [
+    {
+      "name": "book1-classifier",
+      "exit_code": 0,
+      "summary": "/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-social-contract/books/wip/replace-social-contract/scratch/book1 original-en -> modern-en  (11 chapters)"
+    },
+    {
+      "name": "book1-classifier-folded",
+      "exit_code": 0,
+      "summary": "/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-social-contract/books/wip/replace-social-contract/scratch/book1-folded original-en -> modern-en  (11 chapters)"
+    },
+    {
+      "name": "original-overlap-n10",
+      "exit_code": 1,
+      "summary": "N=10: 83/467 paragraphs share a run of >= 10 words with the reference"
+    },
+    {
+      "name": "modern-overlap-n10",
+      "exit_code": 0,
+      "summary": "N=10: 0/71 paragraphs share a run of >= 10 words with the reference"
+    },
+    {
+      "name": "original-overlap-n8",
+      "exit_code": 1,
+      "summary": "N=8: 185/467 paragraphs share a run of >= 8 words with the reference"
+    },
+    {
+      "name": "modern-overlap-n8",
+      "exit_code": 0,
+      "summary": "N=8: 0/71 paragraphs share a run of >= 8 words with the reference"
+    }
+  ],
+  "whole_book_alignment": "FAIL: original 50 entries; modern 11 entries",
+  "acceptance": "NOT ACCEPTED"
+}

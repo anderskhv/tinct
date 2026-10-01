@@ -17,3 +17,11 @@ A broad bibliographic search returned a Wikipedia overview containing a translat
 Coordinate-only overlap tool copied unchanged from origin/claude/busy-fermi-111knc as requested. First run against scratch/original-draft.json: N=10, FAIL, 83/467 paragraphs flagged. This detects phrasing already present in the 1764 source; it is not evidence of derivation from a later translation. The user nevertheless requires zero flags, including the original candidate. This remains unresolved and must not be represented as passing. Do not silently alter the historical witness or call a rewritten paragraph an exact transcription; record every editorial alteration if applying the user's requested re-rendering rule.
 
 Other gates have not passed and completion is not claimed. No Anthropic calls, generation scripts, deployment, PR, merge or edits outside the owned content folder.
+
+## Batch 1 checkpoint
+
+Source gap restorations checked against printed pp. 44, 62, 113, 143–145, 150, 162, 179, 194, 197, 200, 204, 209, 229, 231; title page, Advertisement and final p.249 visually inspected. Scan URL n-indices differ from scandata leafNum because excluded leaves are skipped; use printed page numbers. Corrections, including transparent editorial repairs of damaged print, are listed in scratch/transcription-corrections.json. Four uncertain punctuation repairs still need scan confirmation. The original has one colon-ended source paragraph (entry 8 paragraph 3), which still conflicts with the requested terminal-ending gate.
+
+Modern entries 1–11: 71 paragraphs. Manual sentence-by-sentence rendering; no mechanical modernization or provider API. All 71 preserve required length and exclamations. Both classifier variants pass; modern overlap at N=10 and N=8: zero. Exact outputs in gates/. Whole book remains incomplete, and original overlap remains failing. Modern entries 12–50 do not yet exist. No placeholder text was inserted.
+
+structure-map.json is a provisional ordinal/proportional mapping of old chapter/paragraph counts to new coordinates. No old titles or wording were inspected. It is unsuitable for exact highlight migration.
