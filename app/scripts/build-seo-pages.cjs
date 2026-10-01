@@ -70,6 +70,13 @@ function chapterLabel(book, n) {
   return normalizeChapterCopy(book.chapterLabel ? book.chapterLabel(n) : `Chapter ${n}`)
 }
 
+/** "Hamlet Scene 3", but "Psalm 23" (not "Psalms Psalm 23") where the label names the book. */
+function chapterHeading(book, n) {
+  const label = chapterLabel(book, n)
+  const lead = label.replace(/\s+\d.*$/, '')
+  return lead && book.title.startsWith(lead) ? label : `${book.title} ${label}`
+}
+
 function chapterTitle(ch) {
   return normalizeChapterCopy(ch.title)
 }
@@ -107,7 +114,7 @@ function chapterMetaDescription(book, ch) {
   const source = ch.hook || ch.blurb || ch.summary?.[0] || ch.tour || chapterTitle(ch)
   return metaDescription(
     `${chapterTitle(ch)}: ${truncateText(source, 125)}`,
-    `Chapter ${ch.n} summary, themes, characters, and full reader links for ${book.title}.`,
+    `${chapterLabel(book, ch.n)} summary, themes, characters, and full reader links for ${book.title}.`,
   )
 }
 
@@ -497,7 +504,7 @@ function footer() {
 
 function renderChapter(book, ch) {
   const N = book.chapters.length
-  const title = `${book.title} Chapter ${ch.n} Summary | Tinct`
+  const title = `${chapterHeading(book, ch.n)} Summary | Tinct`
   const description = chapterMetaDescription(book, ch)
   const canonical = `https://tinct.app/read/${book.id}/chapter-${ch.n}`
 
@@ -518,13 +525,13 @@ function renderChapter(book, ch) {
   const prevCh = book.chapters.find(c => c.n === ch.n - 1)
   const nextCh = book.chapters.find(c => c.n === ch.n + 1)
   const prevHtml = prevCh
-    ? `      <a href="/read/${book.id}/chapter-${prevCh.n}" class="nav-prev"><div class="nav-label">← Previous · Chapter ${prevCh.n}</div><div class="nav-title">${esc(chapterTitle(prevCh))}</div></a>`
+    ? `      <a href="/read/${book.id}/chapter-${prevCh.n}" class="nav-prev"><div class="nav-label">← Previous · ${esc(chapterLabel(book, prevCh.n))}</div><div class="nav-title">${esc(chapterTitle(prevCh))}</div></a>`
     : `      <span class="nav-spacer"></span>`
   const nextHtml = nextCh
-    ? `      <a href="/read/${book.id}/chapter-${nextCh.n}" class="nav-next"><div class="nav-label">Next · Chapter ${nextCh.n} →</div><div class="nav-title">${esc(chapterTitle(nextCh))}</div></a>`
+    ? `      <a href="/read/${book.id}/chapter-${nextCh.n}" class="nav-next"><div class="nav-label">Next · ${esc(chapterLabel(book, nextCh.n))} →</div><div class="nav-title">${esc(chapterTitle(nextCh))}</div></a>`
     : `      <span class="nav-spacer"></span>`
 
-  const jsonLd = bookBreadcrumbJsonLd(book, `Chapter ${ch.n}`, canonical)
+  const jsonLd = bookBreadcrumbJsonLd(book, chapterLabel(book, ch.n), canonical)
 
   return `${head({ title, description, canonical, jsonLd })}
 
@@ -543,7 +550,7 @@ function renderChapter(book, ch) {
   <main>
 
     <div class="breadcrumb">
-      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/${book.id}/summary">${esc(book.title)}</a> · <a href="/read/${book.id}/chapters">Chapters</a> · <span>Chapter ${ch.n}</span>
+      <a href="/">Tinct</a> · <a href="/read">Library</a> · <a href="/read/${book.id}/summary">${esc(book.title)}</a> · <a href="/read/${book.id}/chapters">Chapters</a> · <span>${esc(chapterLabel(book, ch.n))}</span>
     </div>
 
     <div class="booknum">${esc(chapterLabel(book, ch.n))} of ${N}</div>
@@ -596,7 +603,7 @@ ${nextHtml}
       </a>
     </div>
 
-    <p class="end-cta"><a href="/reader?book=${book.id}&amp;edition=modern-en&amp;chapter=${ch.n}">Read Chapter ${ch.n} in the reader →</a></p>
+    <p class="end-cta"><a href="/reader?book=${book.id}&amp;edition=modern-en&amp;chapter=${ch.n}">Read ${esc(chapterLabel(book, ch.n))} in the reader →</a></p>
 
   </main>
 
@@ -1038,3 +1045,4 @@ function main() {
 }
 
 if (require.main === module) main()
+module.exports = { chapterLabel, chapterHeading }
