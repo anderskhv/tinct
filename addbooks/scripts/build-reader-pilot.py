@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Pinned, fail-closed Gutenberg HTML -> Tinct reader edition. Python stdlib only."""
+from danish_rights import require_review
 import hashlib
 import json
 import re
@@ -63,6 +64,7 @@ class Chapters(HTMLParser):
             raise ValueError(f'Uncaptured text inside chapter: {text!r} at {self.getpos()}')
 
 def build():
+    rights = require_review('pd-35', 'original-en', SOURCE, SOURCE_SHA256)
     cached = ROOT / 'addbooks/.cache/pg35.html'
     cached.parent.mkdir(parents=True, exist_ok=True)
     if not cached.exists():
@@ -92,12 +94,15 @@ def build():
     assert text.endswith('gratitude and a mutual tenderness still lived on in the heart of man.')
     assert not re.search(r'Project Gutenberg|START OF|END OF|<[^>]+>', text)
     data = (json.dumps({'chapters': chapters}, ensure_ascii=False, separators=(',', ':')) + '\n').encode()
+    if hashlib.sha256(data).hexdigest() != rights['editionSha256']:
+        raise ValueError('Converted text differs from the Danish rights-reviewed artifact')
     destination = ROOT / 'app/public/data/editions/pd-35-original-en.json'
     destination.write_bytes(data)
     report = {
         'bookId': 'pd-35', 'title': 'The Time Machine', 'author': 'H. G. Wells',
         'sourceId': '35', 'source': SOURCE, 'catalogue': 'https://www.gutenberg.org/ebooks/35',
-        'rights': 'Public domain in the USA (Gutenberg catalogue); original English text, 1895. H. G. Wells died in 1946.',
+        'rights': 'DK: eligible under the recorded text-only review; ordinary economic term expired 2017-01-01. US: public domain per Gutenberg.',
+        'danishRightsReview': rights,
         'sourceSha256': digest, 'editionSha256': hashlib.sha256(data).hexdigest(),
         'chapters': len(chapters), 'paragraphs': sum(len(c['paragraphs']) for c in chapters),
         'words': len(text.split()), 'bytes': len(data),

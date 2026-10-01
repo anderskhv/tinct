@@ -19,7 +19,7 @@ The converter uses Python's standard HTML parser. It keeps source chapter and pa
 
 The converter checks title, author, language, source checksum, every supported chapter tag, opening and closing text and chapter completeness. Changed upstream bytes fail closed until someone inspects and updates the source pin. This source-specific pilot uses HTML because the Gutenberg EPUB endpoint failed during acquisition. A general EPUB importer remains future work.
 
-The underlying English text is public domain in the USA according to Gutenberg. Publication year is 1895; Wells died in 1946. Gutenberg's US designation alone is not a worldwide rights policy. Further catalogue expansion needs explicit jurisdiction/edition checks and source terms review. The source link and provenance accompany this pilot.
+The original English text passes the conservative [Danish rights eligibility policy](DANISH-RIGHTS.md): Wells died in 1946 and the ordinary Danish economic term ended on 2016-12-31. Both the builder and the reader-only list require a documented edition review; missing or unresolved evidence excludes an edition. Source and converted bytes are pinned to that review. Gutenberg's US designation alone is never sufficient. This covers the original text only, not arbitrary translations, added material, covers or audio. The existing public library and separate US-based search dataset have not been audited by this change.
 
 ## Reproduce
 
@@ -49,8 +49,9 @@ The browser test starts an ephemeral localhost server for `app/dist`, launches i
 ## Verification record
 
 - Baseline: 2,929 tests passed, one skipped.
-- Final: 2,933 tests passed, one skipped; production build and `verify-bundle` passed.
-- Verified bundle: `index-DXjuGmzJ.js`.
+- Final including Danish eligibility: 2,955 tests passed, one skipped; production build and `verify-bundle` passed.
+- Danish gate: 22 regression checks cover term boundaries, joint contributors, translators, missing evidence, source substitution, artifact integrity, Python/browser agreement and revoked handoffs.
+- Verified bundle: `index-CNOce9vu.js`.
 - Desktop 1365×900 and phone 390×844: Add, failed-download retry, complete contents, chapter selection, page turns with consecutive source-word boundaries, short paragraphs sharing a page, reload/resume, repeated Add and epilogue. Explain selection was exercised with a labelled mock streaming response. No horizontal overflow or page errors.
 - Screenshots capture the actual reader from the locally served production build. No LLM requests were made. The production companion routes were checked with GET requests (405 Method not allowed), which return before provider invocation.
 
@@ -66,4 +67,4 @@ This proves a single book can pass through conversion and into the real reader w
 
 Unlisted assets are accessible to anyone who knows their URL. This is not private file storage or an authenticated private library. Existing reading-position storage is reused; no Supabase schema, Worker, API, CI, dependency, taxonomy or registry changes were required. Browser QA verifies guest/local position persistence. Signed-in cross-device sync, offline installation, native Android and live AI generation were not tested. Explain UI and structured request context were checked with mocked provider responses. Narration is explicitly unavailable for the unlisted book, and its contents menu does not link to a nonexistent library introduction.
 
-Next: approve and verify the unlisted live release; connect one search result to this flow; generalize the converter with source-specific structural checks and immutable source/edition IDs. Only then add durable import jobs, private ownership where needed, source-rights gating and broader book formats. Public-library publication remains a separate decision.
+Next: approve and verify the unlisted live release; apply the Danish edition review to search candidates before connecting search to this flow; generalize the converter with source-specific structural checks and immutable source/edition IDs. Only then add durable import jobs, private ownership where needed, a separate licence-based eligibility path and broader book formats. Public-library publication remains a separate decision.

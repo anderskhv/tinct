@@ -11,7 +11,7 @@ export function AddBookPilot() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   async function openBook() {
-    if (busy) return
+    if (busy || !book) return
     setBusy(true)
     setError('')
     try {
@@ -36,6 +36,7 @@ export function AddBookPilot() {
       setBusy(false)
     }
   }
+  if (!book) return <main className="add-book-pilot"><h1>Add a book</h1><p>No editions currently meet the Denmark eligibility checks.</p><a href="/reader">← Reader</a></main>
   return <main className="add-book-pilot">
     <a className="add-book-back" href="/reader">← Reader</a>
     <p className="add-book-eyebrow">Tinct · Add a book · Pilot</p>
@@ -48,7 +49,7 @@ export function AddBookPilot() {
         <h2>{book.title}</h2><p className="add-book-author">{book.author}</p>
         <p>16 chapters and an epilogue</p>
         <a href="https://www.gutenberg.org/ebooks/35" target="_blank" rel="noreferrer">Project Gutenberg · #35 ↗</a>
-        <p className="add-book-note">Public domain in the USA. Original text; no comparison or audio.</p>
+        <p className="add-book-note">Danish copyright term checked for this original text. No comparison or audio.</p>
         <button type="button" disabled={busy} onClick={openBook}>{busy ? 'Opening book…' : error ? 'Try again' : 'Add and read'}</button>
         {error && <p role="alert">{error}</p>}
         {busy && <p role="status">Checking the complete text…</p>}
