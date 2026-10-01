@@ -2574,6 +2574,28 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
+    "id": "adventures-of-sherlock-holmes",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "year": "1892",
+    "ySort": 1892,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Twelve cases from Baker Street, told by Watson, in which an apparently trivial detail turns an entire explanation.",
+    "themes": [
+      "observation",
+      "inference",
+      "deception"
+    ],
+    "shelves": [
+      "detective-fiction"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
     "id": "hume-enquiry",
     "title": "An Enquiry Concerning Human Understanding",
     "author": "David Hume",
@@ -2945,6 +2967,11 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "Doubles, monsters, dark houses",
     "hue": 265
   },
+  "detective-fiction": {
+    "title": "Detective Fiction",
+    "sub": "Cases, clues and the logic of inference",
+    "hue": 265
+  },
   "satirical-novels": {
     "title": "Satire",
     "sub": "Voltaire and the philosophical tale",
@@ -3039,8 +3066,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
   },
   {
     "id": "novel",
-    "title": "Novels",
-    "sub": "Long-form prose, by tradition",
+    "title": "Fiction",
+    "sub": "Novels and stories, by tradition",
     "hue": 25,
     "shelves": [
       "russian-novels",
@@ -3049,7 +3076,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "modernist-novels",
       "nordic-novels",
       "gothic-novels",
-      "satirical-novels"
+      "satirical-novels",
+      "detective-fiction"
     ]
   },
   {
@@ -3115,6 +3143,10 @@ export const LIBRARY_FORMS = [
   {
     "id": "novel",
     "label": "Novels"
+  },
+  {
+    "id": "short-stories",
+    "label": "Short stories"
   },
   {
     "id": "epic",
