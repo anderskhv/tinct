@@ -1,0 +1,126 @@
+{
+  "status": "ACCEPTED",
+  "date": "2026-10-01",
+  "authorization": "User explicitly authorized independent reviewer agents: yes.",
+  "reviewedBaseCommit": "367e4849d6d3b26d365a98c302fa41f754b45b85",
+  "reviewedBaseModernSha256": "c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512",
+  "acceptedOriginalSha256": "26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0",
+  "acceptedModernSha256": "1a90844c9fc047e9cdc5a6e4e27a6c9a7fcd25bfacf786ea1afbde62e35e4f6c",
+  "coordinateConvention": "chapter and paragraph are one-based",
+  "method": "Read-only independent comparison of every source/modern paragraph; final corrections rechecked and all other paragraphs verified unchanged against the reviewed base commit.",
+  "reviewers": [
+    {
+      "id": "/root/review_01_17",
+      "scope": "Semantic/accessibility chapters 1–17; supporting content, identity/spoiler review and provenance",
+      "paragraphPairs": 474,
+      "recheckedCorrections": [
+        "2:3"
+      ],
+      "unchangedParagraphsVerified": 473,
+      "verdict": "ACCEPTED; no outstanding findings"
+    },
+    {
+      "id": "/root/review_18_34",
+      "scope": "Semantic/accessibility chapters 18–34",
+      "paragraphPairs": 711,
+      "recheckedCorrections": [
+        "20:20",
+        "31:26",
+        "31:28",
+        "31:30"
+      ],
+      "unchangedParagraphsVerified": 707,
+      "verdict": "ACCEPTED; no outstanding findings"
+    },
+    {
+      "id": "/root/review_35_50",
+      "scope": "Semantic/accessibility chapters 35–50",
+      "paragraphPairs": 621,
+      "recheckedCorrections": [
+        "36:2",
+        "42:9",
+        "42:15",
+        "46:34"
+      ],
+      "unchangedParagraphsVerified": 617,
+      "verdict": "ACCEPTED; no outstanding material findings"
+    }
+  ],
+  "totalParagraphPairs": 1806,
+  "textFindings": [
+    {
+      "coordinate": "2:3",
+      "issue": "Duplicated generosity/possible construction",
+      "resolution": "Replaced the redundant sentence with a direct question preserving the amount and claim."
+    },
+    {
+      "coordinate": "20:20",
+      "issue": "Reciprocal hospitality became order of most recent guests",
+      "resolution": "Clarified that the last shared dinner was hosted by the Middletons."
+    },
+    {
+      "coordinate": "31:26",
+      "issue": "Religious period judgment softened",
+      "resolution": "Restored life of sin in Brandon’s speech."
+    },
+    {
+      "coordinate": "31:28",
+      "issue": "Moral judgment of guilty connection lost",
+      "resolution": "Restored illicit affair in Brandon’s attributed account."
+    },
+    {
+      "coordinate": "31:30",
+      "issue": "Dangling address-knowledge phrase",
+      "resolution": "Made the girl, rather than Willoughby, the explicit subject of not knowing his address."
+    },
+    {
+      "coordinate": "36:2",
+      "issue": "Professed eagerness and actual indifference incorrectly equated",
+      "resolution": "Restored the contrast between outward eagerness and little real regard."
+    },
+    {
+      "coordinate": "42:9",
+      "issue": "Solitary walks could read as walks with the Palmers",
+      "resolution": "Clarified during her stay, and preserved the return to the house."
+    },
+    {
+      "coordinate": "42:15",
+      "issue": "Epicurism allusion replaced only with explanatory wording",
+      "resolution": "Restored Epicurean reference with its contextual sense: Epicurean love of luxury."
+    },
+    {
+      "coordinate": "46:34",
+      "issue": "Speech could read as hearing/deciphering",
+      "resolution": "Replaced make out with manage to say."
+    }
+  ],
+  "supportingReview": {
+    "reviewer": "/root/review_01_17",
+    "verdict": "ACCEPTED",
+    "checks": [
+      "All 24 character evidence anchors exactly match pinned source",
+      "Character identities and disclosure gates",
+      "About, 3 whyItMatters with contemporary lines, 4 angles, 11 cast, original opening, no invented acclaim",
+      "Taxonomy identifiers and proposal-only scope",
+      "Metadata counts and provenance",
+      "All 50 original chapter bodies independently compared with raw",
+      "Gutenberg catalogue/header and official Denmark/EU rights evidence"
+    ],
+    "corrections": [
+      {
+        "character": "marianne-dashwood",
+        "resolution": "Chapter-1 introductory description uses intelligent instead of musical."
+      },
+      {
+        "character": "john-willoughby",
+        "resolution": "Initial display Mr. Willoughby; canonical full name withheld until after chapter 30, evidence 30:37."
+      }
+    ],
+    "reviewedCorrectedProposalSha256": "db838e34ac0f5fe9f8c489c8e3f462c7c36a8591e07185e45d1d4786762308ad",
+    "finalProposalSha256": "10e08abc048a966621a0639a716689366d2e9a88ad657480598c88514d2a3ac6",
+    "subsequentChange": "Only reviewStatus metadata changed to accepted, expressly covered by reviewer’s final acceptance."
+  },
+  "unresolvedFindings": [],
+  "runtimeIntegrationReviewed": false,
+  "publicationAuthorized": false
+}

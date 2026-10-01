@@ -1,10 +1,10 @@
 # Full-book editorial QA
 
-Candidate complete; independent acceptance pending. This is an author review record, not an independent reviewer’s approval.
+READY — complete content accepted. This document distinguishes the author checks below from the independent review recorded in independent-reviews.json.
 
 ## Structural and automated checks
 
-Both editions: 50 sequential flat chapters, empty sections, 1,806 nonempty paragraphs. Chapter numbers, titles, order and paragraph counts agree. The source has 118,639 whitespace-delimited words; modern-en has 106,042 (89.38%). Every individual paragraph meets the 75% floor, including short dialogue; minimum ratio 0.75000. See alignment-and-length.json for every pair and hash.
+Both editions: 50 sequential flat chapters, empty sections, 1,806 nonempty paragraphs. Chapter numbers, titles, order and paragraph counts agree. The source has 118,639 whitespace-delimited words; modern-en has 106,057 (89.39%). Every individual paragraph meets the 75% floor, including short dialogue; minimum ratio 0.75000. See alignment-and-length.json for every pair and hash.
 
 The original body was compared chapter by chapter with all 50 raw body sections, ignoring whitespace and excluding headings and the three documented end markers. No source prose was removed or corrected. Original SHA-256: 26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0.
 
@@ -32,8 +32,12 @@ All 24 character evidence quotations match their original-en coordinates. Identi
 
 Taxonomy and metadata remain proposals. No unsupported acclaim or named canon membership is asserted.
 
-## Remaining acceptance requirement
+## Independent acceptance
 
-The mandatory book workflow requires independent reviews. No independent semantic/accessibility or character/spoiler review has occurred. The session prohibits spawning reviewer agents without explicit authorization; a request was presented and remains unanswered. These author checks and automated results must not be represented as independent acceptance. The complete candidate is ready for that review; acceptance status remains NOT READY until it is completed and findings resolved.
+The user explicitly authorized reviewer agents. Three read-only reviewers compared every paragraph: /root/review_01_17 covered 474 pairs, /root/review_18_34 covered 711, and /root/review_35_50 covered 621, for all 1,806 pairs. They assessed semantic completeness, names/allusions, full dialogue, period judgments, irony and modern readability. All three accepted the final corrected modern hash below after rechecking their corrections and verifying all other text unchanged.
 
-Modern candidate SHA-256: c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512.
+Nine text findings were resolved at 2:3, 20:20, 31:26, 31:28, 31:30, 36:2, 42:9, 42:15 and 46:34. These repair redundant wording, reciprocal dining etiquette, religious/moral language in Brandon’s account, a dangling modifier, professed versus actual regard, solitary walks during a visit, the Epicurean allusion, and spoken words versus deciphered words. See independent-review-corrections.json for exact before/after text and paragraph hashes. Every batch and the whole-book gate passed again after these corrections; all paragraph word floors remain satisfied.
+
+The first reviewer separately accepted onboarding, character identities/disclosures, metadata, taxonomy and source/rights evidence. All 50 raw-to-original chapter bodies were independently reconstructed and verified. Two character corrections were accepted: Marianne’s chapter-1 introductory copy says intelligent rather than musical; Willoughby initially displays as Mr. Willoughby, with the full name held until after chapter 30. No unresolved findings remain. Independent acceptance records and exact scope are in independent-reviews.json.
+
+Accepted modern SHA-256: 1a90844c9fc047e9cdc5a6e4e27a6c9a7fcd25bfacf786ea1afbde62e35e4f6c.

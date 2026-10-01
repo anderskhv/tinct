@@ -1,64 +1,65 @@
-# Sense and Sensibility — complete candidate, independent acceptance pending
+# Sense and Sensibility — READY, content accepted
 
 Repository: `anderskhv/tinct`.
 Branch: `content/sense-and-sensibility-codex`.
-Owned package: `books/wip/sense-and-sensibility/`.
-Owned source archive: `books/raw/sense-and-sensibility/`.
+Package: `books/wip/sense-and-sensibility/`.
+Source archive: `books/raw/sense-and-sensibility/`.
 Working checkout: `/tmp/tinct-sense-and-sensibility`; the pushed branch is the durable copy.
+Acceptance: complete content independently reviewed, all findings resolved, all gates passed. No remaining content work. Application integration and publication are separate assignments.
 
-## Revisions and scope
-
-Complete text and editorial candidate commit: `4ded9a527a9ced2cc2aa9c599f363568408b6901`. This handoff/manifest update follows that commit without changing edition text. Use the branch tip for the complete package. Exact artifact hashes are in SHA256SUMS.json; the manifest excludes itself.
+## Revisions and ownership
 
 Initial instruction/start-main revision: `ab3cc43f2687e6682833db6a66182d150788ffa4`.
-Instructions rechecked against fetched main: `6dd90ae199a4fff7fc4692c0776158d73cbe171c`. Read books/BOOK-TASK-WORKFLOW.md, books/README.md, STRATEGY.md, root/books AGENTS.md, books/CLAUDE.md and docs/workflow-boundaries.md. No main merge or other stream’s work was imported.
+Current instructions rechecked against fetched main: `13608e50e27096e5755e83c20861be22f0b9b9c7`; applicable policy files are unchanged from previously checked `6dd90ae199a4fff7fc4692c0776158d73cbe171c`. Read books/BOOK-TASK-WORKFLOW.md, books/README.md, STRATEGY.md, root/books AGENTS.md, books/CLAUDE.md and docs/workflow-boundaries.md. No main merge or other stream’s work was imported.
 
-The user explicitly assigned Codex content authorship. Writes are confined to the two owned paths. No application, registry, live edition/onboarding, shared tracker, script, configuration or runtime character file was changed. No deploy, publication, narration generation or Anthropic API calls. The ChatGPT project’s synced sources were not edited.
+Independent review began at `367e4849d6d3b26d365a98c302fa41f754b45b85`, with modern hash `c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512`. Nine paragraph corrections and two character-disclosure corrections were then independently rechecked. The accepted text is identified by the exact hashes below and in SHA256SUMS.json. Use the final pushed package commit supplied in the task handoff.
 
-## Candidate and provenance
+The user explicitly assigned Codex content authorship and authorized independent reviewer agents. Writes are confined to the two owned paths. No application, registry, live edition/onboarding, shared tracker, script, configuration or runtime character file changed. No deployment, publication, narration generation or Anthropic API calls. The ChatGPT project’s synced sources were not edited.
+
+## Accepted editions and provenance
 
 - Original-en: 50 numbered flat chapters; 1,806 paragraphs; 118,639 whitespace-delimited words. SHA-256 `26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0`.
-- Modern-en: all 50 chapters; 1,806 exactly aligned paragraphs; 106,042 words (89.38% of original). SHA-256 `c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512`.
-- Raw Gutenberg #161: verified Title Sense and Sensibility / Author Jane Austen. SHA-256 `22272ec4d4da2f50cda51edf34ab8486b325c4a99580120db565fb8917228a22`. SOURCE.md supplies the retrieval URL and Denmark/EU/US rights evidence. No other ebook text was mixed in.
-- Original prose matches all 50 raw chapter bodies after whitespace unwrapping and exclusion of headings/apparatus. Three end markers are excluded. The volume markers at chapters 22 and 36 were removed after initial source commit `f7a0bc38`; original prose coordinates are unchanged. Use the corrected source hash above.
-- English-original edition structure follows the existing Pride and Prejudice format: chapters with number/title/paragraphs, and sections empty.
+- Modern-en: all 50 chapters; 1,806 exactly aligned paragraphs; 106,057 words (89.39% of original). SHA-256 `1a90844c9fc047e9cdc5a6e4e27a6c9a7fcd25bfacf786ea1afbde62e35e4f6c`.
+- Raw Gutenberg #161: verified Title Sense and Sensibility / Author Jane Austen. SHA-256 `22272ec4d4da2f50cda51edf34ab8486b325c4a99580120db565fb8917228a22`. SOURCE.md supplies retrieval URL and Denmark/EU/US rights evidence. No other ebook text was mixed in.
+- Original prose matches all 50 raw chapter bodies after whitespace unwrapping and exclusion of headings/apparatus. Three end markers are excluded. Volume markers at chapters 22 and 36 were removed after initial source commit `f7a0bc38`; original reading-prose coordinates are unchanged. The source comparison and provenance were independently verified.
+- English-original edition structure follows the existing Pride and Prejudice format: chapters with number/title/paragraphs; sections empty.
 
-These are exact **candidate** hashes. They are not independently accepted hashes yet.
+## Independent acceptance and gates
 
-## Validation and content records
+Three read-only reviewers compared every paragraph: `/root/review_01_17` reviewed 474 pairs, `/root/review_18_34` reviewed 711, and `/root/review_35_50` reviewed 621. Total coverage: all 1,806 pairs. All three accepted the final modern hash after checking corrections and verifying every other paragraph unchanged. The first reviewer also accepted supporting content, all 24 character identities/source anchors/disclosure gates, and source/rights evidence. See `qa/independent-reviews.json` for scope, final verdicts and all resolved findings. No unresolved findings remain.
 
-Whole-book classifier PASS: similarity 0.475 <= 0.75; light/mechanical chapters 0%; identical long paragraphs 0%; wrapped scaffolding 0; flagged truncated quotations 0. Every paragraph independently meets the 75% word floor; minimum ratio is exactly 0.75. Existing truncation audit: zero flags. Complete alignment and JSON checks pass.
+Corrections from review: 2:3 redundant phrase; 20:20 reciprocal dining etiquette; 31:26 and 31:28 period religious/moral judgments; 31:30 dangling modifier; 36:2 professed eagerness versus actual regard; 42:9 solitary walks during a stay; 42:15 Epicurean allusion; 46:34 speaking rather than deciphering words. Coordinates are one-based. Exact before/after paragraphs and hashes are in `qa/independent-review-corrections.json`.
 
-Batch gates 1–10, expanded 1–12, interim 13–16, 13–22, 23–32, 33–42 and final 41–50 all pass. Chapters 41–42 are intentionally repeated in the final batch to keep a ten-chapter slice. All slice files were refreshed against the final corrected candidate and gated again. Earlier checkpoints are preserved in Git history. The classifier’s displayed chapter indices are slice positions; stored numbers/titles preserve actual book chapter numbers.
+Whole-book classifier PASS after corrections: similarity 0.475 <= 0.75; light/mechanical chapters 0%; identical long paragraphs 0%; wrapped scaffolding 0; flagged truncated quotations 0. Every individual paragraph meets the 75% word floor, including brief speech; minimum ratio 0.75000. Existing truncation audit: zero flags. Complete alignment and JSON checks pass.
 
-`qa/REVIEW.md` is the current author editorial review. It records spot-reads of the first three paragraphs of chapters 1, 25 and 50, name/reference corrections, short-paragraph checks, supporting-content checks, and limitations. `qa/review-01-10.md` and `qa/truncation-01-16.txt` are historical partial-checkpoint records, superseded for whole-book status by REVIEW.md and truncation-whole-book.txt.
+All batch gates pass: 1–10, expanded 1–12, interim 13–16, 13–22, 23–32, 33–42 and final 41–50. The final batch intentionally overlaps chapters 41–42 to keep ten chapters. Slice files match the final accepted candidate; every slice and the whole book were gated again after review corrections. The classifier’s displayed chapter indices are slice positions; stored numbers/titles preserve actual chapter numbers.
 
-`qa/changed-paragraphs.tsv` lists all 1,806 source/modern coordinate pairs with hashes; coordinates are one-based, including unchanged short utterances. `qa/alignment-and-length.json` records per-paragraph lengths and hashes. Source and modern boundary reports provide all chapter openings/endings. No structural remapping is needed: each modern paragraph maps to the same original chapter/paragraph.
+`qa/REVIEW.md` separates author checks from independent acceptance. Author spot-reads include the first three paragraphs of chapters 1, 25 and 50; independent reviewers subsequently read the whole book. The 18 paragraphs under 20 characters are complete short utterances, letter signatures/closing or transitions. `qa/review-01-10.md` and `qa/truncation-01-16.txt` are historical checkpoints, superseded for current status by the complete reports.
 
-Onboarding includes About, three whyItMatters entries with one contemporary line each, four reading angles and eleven cast members. Acclaim is omitted. The opening excerpt is the original opening; reading time is an estimate.
+`qa/changed-paragraphs.tsv` lists all 1,806 source/modern coordinate pairs with hashes, including unchanged short utterances. `qa/alignment-and-length.json` records every paragraph length/hash. The source and modern boundary reports provide all openings/endings. Mapping is one-to-one by chapter and paragraph.
 
-Characters: 24 identities with literal source evidence, aliases and introductory copy, all proposals. Fanny’s family disclosure waits through chapter 3; Anne/Nancy is one identity; the two Elizas are separate. Miss Williams is the early display name, with Eliza Williams/history held until chapter 31. Mrs. Jennings’s chapter 13 paternity gossip is not fact. Mrs. Brandon is the elder Eliza in the retrospective story and Marianne at the ending. Bare Dashwood/Ferrars titles require local scene/time disambiguation. Proposed card gates require completed chapters; any earlier runtime reveal needs paragraph-level verification. No mention offsets were generated.
+## Supporting content
 
-Taxonomy and metadata are proposals only: house novel, shelf english-novels, form novel, era modern (19th Century). No unverified acclaim, featured status or canon/list membership. No Danish/audio content is in scope.
+Onboarding: About, exactly three whyItMatters entries with one brief contemporary line each, four reading angles and eleven cast members. Acclaim is omitted. Opening excerpt is original-en; reading time is an estimate. Independently accepted.
 
-## Remaining work — no unwritten chapters
+Characters: 24 proposed identities with literal source evidence, aliases and introductory copy. Final proposal SHA-256 `10e08abc048a966621a0639a716689366d2e9a88ad657480598c88514d2a3ac6`. The reviewer accepted the corrected copy at hash `db838e34ac0f5fe9f8c489c8e3f462c7c36a8591e07185e45d1d4786762308ad`; only reviewStatus metadata changed afterwards, expressly covered by that acceptance.
 
-**NOT READY for accepted-content handoff solely because independent review is outstanding.** Author review and automated checks are complete. The mandatory workflow says: “Complete the authorized content work and independent reviews.” No independent semantic/accessibility or character/spoiler reviewer has approved this candidate.
+Marianne’s chapter-1 copy describes intelligence and temperament. Fanny’s Ferrars disclosure waits through chapter 3. Anne/Nancy is one identity; the two Elizas are distinct. Miss Williams is the early display name, with Eliza Williams/history held until chapter 31. Mrs. Jennings’s chapter-13 paternity gossip is not fact. Mr. Willoughby is the early display name; John Willoughby is held until after chapter 30 (disclosure 30:37). Mrs. Brandon is the elder Eliza in the retrospective story and Marianne at the ending. Bare Dashwood/Ferrars titles need local scene/time disambiguation. Proposed card gates require completed chapters; earlier runtime reveal needs paragraph-level verification. No mention offsets were generated.
 
-The session’s agent policy requires an explicit instruction before spawning reviewers. A parallel-agent question was presented and has not been answered; no agents were spawned. Do not treat elapsed time or automated PASS as reviewer approval.
+Taxonomy and metadata remain proposals: house novel, shelf english-novels, form novel, era modern (19th Century). No unsupported acclaim, featured status or canon/list membership. No Danish/audio content is in scope.
 
-Resume at independent review of the exact candidate hashes above. Review all 50 source/modern chapter pairs for meaning, sequence, names/allusions, complete quoted content, historical attitudes, tone and accessibility. Separately review onboarding claims, character identities, source anchors and spoiler gates. Record findings with one-based coordinates and reviewer identity; correct only owned content, rerun affected batch and whole-book gates, regenerate hashes and record acceptance. If review finds no changes necessary, record that against these exact hashes. No chapter drafting remains.
+## Reproduce content checks
 
-Gate command (use absolute staged prefix):
+Use an absolute prefix into this package, never a live edition:
 
 `python3 books/classify-modern-en.py /tmp/tinct-sense-and-sensibility/books/wip/sense-and-sensibility/editions/sense-and-sensibility --gate --per-chapter`
 
-Truncation command:
-
 `python3 books/audit-truncation.py /tmp/tinct-sense-and-sensibility/books/wip/sense-and-sensibility/editions/sense-and-sensibility en`
+
+Gate outputs may show `/private/tmp/`, the resolved macOS path of the same checkout. No validation tool was modified.
 
 ## Later integration — separate assignment
 
-After independent acceptance, proposed primary edition is modern-en, Compare is original-en. The integration owner must verify accepted hashes against the current branch/main, integrate only approved onboarding/metadata/taxonomy, generate edition-specific character mentions, enforce exact disclosure gates and run applicable app checks. Do not reuse original-en offsets in modern-en.
+Proposed primary edition: modern-en. Compare: original-en. Verify the accepted hashes against the package revision and current main; integrate approved onboarding/metadata/taxonomy; generate edition-specific character mentions; enforce exact disclosure gates; run applicable app checks. Original-en offsets cannot be reused in modern-en.
 
-Verify runtime narration eligibility and exact text/language/provider/model/voice/settings cache identity during integration. No audio was generated and no availability is claimed. Changed text must not use stale speech chunks. App integration, main merge, release, deployment and publication remain outside this assignment.
+Verify runtime narration eligibility and exact text/language/provider/model/voice/settings cache identity during integration. No audio was generated or claimed available. Changed text must not use stale speech chunks. App integration, main merge, release, deployment and publication remain outside this assignment.

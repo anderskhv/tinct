@@ -1,11 +1,12 @@
-# NOT READY — independent editorial acceptance pending
+# READY — content accepted
 
-All content is written. Original-en and modern-en each contain 50 flat chapters and 1,806 exactly aligned paragraphs. Modern-en has 106,042 words, 89.38% of the source’s 118,639 words; every paragraph is at least 75% of its source word count. No unwritten or placeholder chapters remain.
+Original-en and modern-en are complete: 50 flat numbered chapters and 1,806 exactly aligned paragraphs each. Original-en: 118,639 words. Modern-en: 106,057 words (89.39%); every paragraph meets the 75% source-word floor. No unwritten or placeholder chapters.
 
-All batch gates and the whole-book gate PASS. Whole-book weighted similarity: 0.475; light/mechanical chapters: 0%; identical long paragraphs: 0%; wrapped scaffolding: 0; flagged truncated quotations: 0. Existing truncation audit: zero flags. Full source-body equivalence to the archived raw text reverified.
+Independent reviewers compared all 1,806 source/modern paragraph pairs, rechecked nine text corrections and verified all other paragraphs unchanged. Onboarding, provenance, metadata/taxonomy proposals and all 24 character identities/disclosure gates are independently accepted after two character-copy corrections. No unresolved findings. See qa/independent-reviews.json.
 
-Onboarding, 24 character identities, taxonomy/metadata proposals, provenance, paragraph mappings, complete QA records and candidate hashes are supplied. Author editorial QA is complete. Independent semantic/accessibility and character/spoiler review has not occurred; automated gates and author review do not substitute for it.
+All batch gates and the whole-book gate PASS after corrections. Whole-book similarity 0.475; light/mechanical chapters 0%; identical long paragraphs 0%; wrapped scaffolding 0; flagged truncated quotations 0. Existing truncation audit: zero flags. JSON, source-body equivalence, full alignment, paragraph lengths and literal character evidence pass.
 
-Resume: independent review of the complete hashed candidate, resolve any findings, rerun affected gates, update acceptance and hashes, commit and push. No chapter drafting remains. Reviewer-agent authorization was requested in the task and has not been received; no agents were spawned.
+Accepted modern SHA-256: 1a90844c9fc047e9cdc5a6e4e27a6c9a7fcd25bfacf786ea1afbde62e35e4f6c.
+Accepted original SHA-256: 26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0.
 
-Scope remains content-only. No app, registry, live editions, scripts or configuration changed. No publication, deployment, narration or Anthropic API calls.
+Content package ready for handoff. No content work remains. App integration, runtime character mentions, narration/cache verification and publication are separate assignments. No app, registry, live editions, scripts or configuration changed; no deployment, publication, narration generation or Anthropic API calls.
