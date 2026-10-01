@@ -17,7 +17,7 @@ HTML transcription is the extraction baseline. Removed web interface, page/line-
 
 Opening is Way's "I to this land of Thebes have come, Zeus' Son"; source attribution and title page independently establish that it is Way. Existing protected edition wording was never displayed or used. The sole supplied comparison phrase in the assignment was not used as source material.
 
-Scan API page labels are offset: n6 is the actual title, n464 printed p.437, n465 printed p.438; n466 is the excluded appendix. Visual comparison confirms the final Agave speech continues onto p.438, followed by the full final Chorus and exit. The play contains a known ancient lacuna after Agave's recognition; no missing dialogue is invented. The explanatory lacuna note is excluded and the broken boundary is documented here. Terminal dashes on dramatic fragments are regularized to periods; stage exit brackets are rendered as balanced parentheses. The source's straight quote/apostrophe style is retained. Two apparent transcription errors are corrected: "Flow sullen-eyed" → "How sullen-eyed" and "house earnest thou" → "house camest thou"; further scan verification pending.
+Scan API page labels are offset: n6 is the actual title, n464 printed p.437, n465 printed p.438; n466 is the excluded appendix. Visual comparison confirms the final Agave speech continues onto p.438, followed by the full final Chorus and exit. The play contains a known ancient lacuna after Agave's recognition; no missing dialogue is invented. The explanatory lacuna note is excluded and the broken boundary is documented here. Terminal dashes on dramatic fragments are regularized to periods; stage exit brackets are rendered as balanced parentheses. The source's straight quote/apostrophe style is retained. Two apparent transcription errors are corrected: "Flow sullen-eyed" → "How sullen-eyed" and "house earnest thou" → "house camest thou"; Both corrections were visually confirmed against printed pp. 429–430. The stray full stop in "he. high-seated" is corrected to a comma. The opening entrance is retained in 1:1. Initial accidental punctuation pairs introduced while closing fragments were removed before final QA.
 
 ## Download manifest
 
@@ -43,3 +43,11 @@ Scan API page labels are offset: n6 is the actual title, n464 printed p.437, n46
   SHA-256 `ac149a4772d33f659557cfeedee4a3f026ff939a5960aac98d32ec10d8ee3f6a`
 - `ending-n465.jpg` — https://archive.org/download/tragediesofeurip03euriuoft/page/n465.jpg
   SHA-256 `89cff8b4442350e86a25dc5774b8cfe75fdbf68112f1f56b75e2711c71ea5adc`
+- `exodos-429.jpg` — https://archive.org/download/tragediesofeurip03euriuoft/page/n456.jpg
+  SHA-256 `3cba7ea2c459a332c7e302c04c3ea2e12d42c286fc453022491587f0f5b58616`
+- `exodos-430.jpg` — https://archive.org/download/tragediesofeurip03euriuoft/page/n457.jpg
+  SHA-256 `6319e1e26dca4a23b4e8d17d53eeb8ce0a1dffc46a868d1f5ea3e8a1b9b602cf`
+- `exodos-431.jpg` — https://archive.org/download/tragediesofeurip03euriuoft/page/n458.jpg
+  SHA-256 `cc9b9e45dffbbe12c10d098243ad20e494654868dab344a5343126d9da5e5a24`
+- `opening-369.jpg` — https://archive.org/download/tragediesofeurip03euriuoft/page/n396.jpg
+  SHA-256 `7d9978ca9dc3a7531c101241877f4a66b82bb0f32a8d236e96dc99812201241f`

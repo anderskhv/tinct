@@ -1,0 +1,45 @@
+JSON/structure/alignment: PASS
+
+Chapters: 11; paragraph counts: [1, 7, 21, 4, 51, 11, 75, 3, 33, 3, 115]; total: 324
+
+No empty paragraphs: PASS
+
+Word-count minimum: PASS (minimum ratio 0.8095)
+
+Per-paragraph exclamations: PASS (158 original; none reduced)
+
+Apparatus, terminal punctuation, control/odd-character check, straight typography: PASS
+
+Original brackets: only source-authorized 7:14 and 11:87. Modern: none.
+
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-bacchae/books/wip/replace-bacchae/editions/bacchae original-en -> modern-en  (11 chapters)
+  weighted similarity : 0.256   (gate: <= 0.75)
+  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/123 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 11  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-bacchae/books/wip/replace-bacchae/scratch/folded/bacchae original-en -> modern-en  (11 chapters)
+  weighted similarity : 0.256   (gate: <= 0.75)
+  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/123 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 11  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+original N=10: 0/324 paragraphs share a run of >= 10 words with the reference
+
+original N=8: 2/324 paragraphs share a run of >= 8 words with the reference
+  chapter 11 paragraph 11: 9 words inside shared runs
+  chapter 11 paragraph 93: 8 words inside shared runs
+
+modern N=10: 0/324 paragraphs share a run of >= 10 words with the reference
+
+modern N=8: 0/324 paragraphs share a run of >= 8 words with the reference
+
+N=8 original: 2/324 = 0.617284%; short inherited formulas reviewed against Way only. N=10: zero. Modern N=8 and N=10: zero. PASS.
+
+Tracked change scope: PASS (owned package only).
