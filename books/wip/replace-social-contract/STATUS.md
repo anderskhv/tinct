@@ -1,6 +1,6 @@
-RESUME: Independence repairs: re-render source-based original entry 2 paragraph 3, then the remaining 186 original N=8 flags; modern entry 15 paragraph 1, then 65 modern N=8 flags; rerun all gates and finish source checks.
+RESUME: Re-render remaining original N=8 coordinates beginning 8.11, 11.4, 12.3; modern N=8 begins 15.1. Then meet zero N=10 and <=4 N=8 in both editions, repair 10 short modern paragraphs, and run source/artifact checks.
 STATUS: IN PROGRESS — NOT ACCEPTED
-Initial manual modern rendering now covers all 50 entries and 470 paragraphs. Structure, JSON, paragraph alignment, length, exclamation and terminal-punctuation checks pass.
-Normal and typography-folded classifier gates PASS (50 chapters; weighted similarity 0.338; zero light/mechanical paragraphs; zero truncated quotations).
-Protected-text overlap remains FAIL: original has 85/470 N=10 and 187/470 N=8 flags; modern has 17/470 N=10 and 66/470 N=8 flags. Coordinate-only reports are in gates/overlap-*.txt. The original has entry 8 paragraph 3 ending in a colon; repair and source punctuation verification remain open.
-No model/provider generation API, no PR, merge, app/live-path edit or deployment.
+Overlap repair batch: original N=8 reduced from 187 to 166/470; twelve flagged paragraphs re-rendered from the staged 1764 witness and logged. Modern remains 66/470 N=8. Current coordinate-only reports are in gates/overlap-*.txt.
+Normal and typography-folded full classifiers were previously PASS; rerun after repairs. Paragraph-level check finds 10 modern paragraphs below the 75% minimum after source edits; repair these.
+Open source checks: verify openings/endings/completeness, source punctuation at entry 8 paragraph 3, scan repairs, apparatus/OCR characters, final hashes/counts.
+No protected text was read. No API generation, PR, merge, app/live-path edit or deployment.
