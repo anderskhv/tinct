@@ -1,6 +1,6 @@
-RESUME: Book IV chapter II (edition entry 43), paragraph 1: render entries 43–50; re-render source paragraphs flagged by overlap at N=10/N=8; finish source verification and rerun all gates.
+RESUME: Book IV chapter IV (edition entry 45), paragraph 1: render entries 45–50; re-render source paragraphs flagged by overlap at N=10/N=8; finish source verification and rerun all gates.
 STATUS: IN PROGRESS — NOT ACCEPTED
-Modern completed subset: entries 1–42, 338/470 source paragraphs.
-Entries 15–42 were rendered manually sentence-by-sentence. Their paragraphs meet minimum length, preserve required exclamation marks and have terminal punctuation. Whole-book classifier remains FAIL: 50 source chapters versus 42 modern chapters. Typography-folded classifier not run.
-Coordinate-only scan flags 85/470 original paragraphs at N=10; original independence remains FAIL. Modern overlap scan has not been rerun after entries 15–42. Source scan verification and punctuation repairs remain unfinished.
+Modern completed subset: entries 1–44, 358/470 source paragraphs.
+Entries 15–44 were rendered manually sentence-by-sentence. Their paragraphs meet minimum length, preserve required exclamation marks and have terminal punctuation. Whole-book classifier remains FAIL: 50 source chapters versus 44 modern chapters. Typography-folded classifier not run.
+Coordinate-only scan flags 85/470 original paragraphs at N=10; original independence remains FAIL. Modern overlap scan has not been rerun after entries 15–44. Source scan verification and punctuation repairs remain unfinished.
 No model/provider generation API, no PR, merge, app/live-path edit or deployment.
