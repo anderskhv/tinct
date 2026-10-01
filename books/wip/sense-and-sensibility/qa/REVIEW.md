@@ -1,26 +1,39 @@
-# Editorial QA — partial checkpoint
+# Full-book editorial QA
 
-Status: NOT READY. Source verification and authored modern-en chapters 1–16 only; no complete-book acceptance.
+Candidate complete; independent acceptance pending. This is an author review record, not an independent reviewer’s approval.
 
-- Original: 50 sequential flat chapters; 1,806 paragraphs; 118,639 words; sections empty. Full body equals the raw source ignoring whitespace after excluding headings and three end markers. All chapter openings/endings recorded in source-boundaries.json.
-- Final source correction: removed non-reading END OF THE FIRST VOLUME / END OF THE SECOND VOLUME from chapters 22 and 36. No reading prose coordinates changed. Initial source commit f7a0bc38 is superseded by the corrected hash below. Source-cleanup.json records the mapping.
-- Modern: 16 chapters, 424 exact paragraph pairs; 24,485 words / 26,921 source words in those chapters (90.95%). Minimum individual paragraph ratio 0.76087. No paragraph below 75%, including short dialogue.
-- JSON and edition shape checks: PASS. No empty paragraphs, original-text filler chapters, list scaffolding, or Gutenberg apparatus.
-- Gates 1–10 and expanded 1–12: PASS, similarity 0.454. Interim 13–16: PASS, similarity 0.495. All have zero LIGHT/MECHANICAL chapters, byte-identical long paragraphs, and flagged truncated quotations.
-- The classifier labels ordinal ch 1–4 in the 13–16 slice; stored chapter numbers and titles remain 13–16. This is a four-chapter checkpoint, not a complete second batch. Finish 13–22, then gate that full batch.
-- Whole-book gate: FAIL (structure), 50 vs 16 chapters. Expected and blocking.
-- Existing audit-truncation.py with absolute staged prefix: zero flags in available pairs. That tool uses the shorter chapter count, so it cannot establish completeness; the separate structure check detects the missing 34 chapters.
-- Short paragraphs reviewed as complete dialogue/transitions; see short-paragraph-review.json.
+## Structural and automated checks
 
-## Author review
+Both editions: 50 sequential flat chapters, empty sections, 1,806 nonempty paragraphs. Chapter numbers, titles, order and paragraph counts agree. The source has 118,639 whitespace-delimited words; modern-en has 106,042 (89.38%). Every individual paragraph meets the 75% floor, including short dialogue; minimum ratio 0.75000. See alignment-and-length.json for every pair and hash.
 
-Each drafted paragraph was compared with the source during sentence-by-sentence rendering. No replacement pass or generation API. Source parser and QA tools unchanged.
+The original body was compared chapter by chapter with all 50 raw body sections, ignoring whitespace and excluding headings and the three documented end markers. No source prose was removed or corrected. Original SHA-256: 26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0.
 
-Checks covered the inheritance restrictions and legacies; the complete shrinking-gift argument; Edward’s dependence and Cowper; Elinor’s uncertainty; the entire Norland farewell; house dimensions and the savings joke; musical attention, ages, annuity and rheumatism; the rescue, pointers and “catching”; Cowper/Scott/Pope, East Indies, nabobs/gold mohrs/palanquins and Willoughby’s three reasons; Brandon’s interrupted recollection; Queen Mab and the lock of hair; the cancelled trip, paternity gossip and Allenham room details; the Combe conversation; the full debate over engagement evidence; and grief, Hamlet, Edward’s fortnight, dead leaves and muddy lane.
+All JSON parses. Edition objects match the English-original novel shape: chapters with number/title/paragraphs and sections: []. No empty paragraphs, missing chapters, filler chapters or Gutenberg apparatus. All 18 paragraphs shorter than 20 characters were manually checked: complete dialogue, letter signatures/closing, or narrative transitions. See short-paragraph-review.json.
 
-Chapter 16 paragraph 12 retains the source’s interrupted sentence; its ellipsis does not omit quotation content. Speculations remain attributed to the speakers. Mrs. Jennings’s paternity assertion is not adopted as narrative fact. Historical kinship terms are clarified as stepmother/stepson where appropriate. Names, period money, social conventions and judgments remain.
+Final classifier gates: 1–10 PASS (0.454), expanded 1–12 PASS (0.454), interim 13–16 PASS (0.495), 13–22 PASS (0.485), 23–32 PASS (0.487), 33–42 PASS (0.491), 41–50 PASS (0.458). The final ten-chapter batch deliberately overlaps chapters 41–42. All paired slices were refreshed against the final candidate after editorial corrections and gated again. The original checkpoint history remains in Git.
 
-Independent accessibility, character/spoiler review, and complete-book semantic review have NOT occurred. Automated gate results are not semantic acceptance. Remaining work is recorded in HANDOFF.md.
+Whole-book gate PASS: weighted similarity 0.475; 0/50 LIGHT/MECHANICAL chapters; 0/1,478 identical long paragraphs; zero wrapped scaffolding or flagged truncated quotations. Existing audit-truncation.py reports zero flags across all 50 chapters. The additional strict check covers even the under-20-word paragraphs omitted by that script. No tool was modified; absolute staged prefixes were used.
 
-Corrected original SHA-256: `26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0`.
-Partial modern SHA-256: `facc3508dc13c2d3c96d4f7811feba4945b4dfc654176a96f7e85c492b37efe0`.
+## Author editorial review
+
+Every paragraph was read against its source during fresh sentence-by-sentence authorship. No dictionary/regex modernization, source-copy filler, or generation API was used. Parsing and diagnostic checks did not generate the modern prose.
+
+A separate final author spot-read checked the first three paragraphs of chapters 1, 25 and 50: inheritance restrictions and legal interests, the London invitation and travel arrangements, and Mrs. Ferrars’s figurative extinction/resurrection of her sons. The first and last paragraphs of every chapter are paired in modern-boundaries.json for review; source-boundaries.json retains the original boundary evidence.
+
+Proper-name diagnostics were manually inspected. Many lexical flags were identity-preserving forms (Elinor for Miss Dashwood, Edward for Mr. Ferrars), capitalization, expanded honorifics, or singular/plural forms. Final corrections restored explicit Brandon/Marianne/Lucy Steele names and locations at Barton Park, Berkeley Street, Cleveland and the cottage; retained the source’s Cassino and Holburn spellings; and restored the emphasis on “her” in 8:9. The 13 changed paragraphs in this final editorial pass are 8:9, 12:10, 16:14, 21:5, 28:2, 32:19, 35:20, 40:31, 42:11, 43:17, 49:31, 49:34 and 50:7 (one-based). All affected batches and the whole book passed again.
+
+Period money, manners, courtship restrictions, literary and colonial references, named places, letters, and the narrative’s irony remain. Earlier checks covered Cowper/Scott/Pope, Hamlet, East Indies/nabobs/gold mohrs/palanquins, Queen Mab, the cancelled outing, Allenham, and the full diminishing-gift argument. Later authorship checks covered Lucy’s secrecy and manipulation, the rejection correspondence, the two Elizas and Brandon’s attributed account, the duel, the offered living and proposal misunderstanding, the illness and recovery, Willoughby’s self-serving defence, the Ferrars marriage confusion, and the closing satire. Speculation remains attributed: Mrs. Jennings’s paternity claim is not a narrative fact, nor is Willoughby’s account endorsed. Historical step-family terms are clarified in their actual context. Interrupted speech remains interrupted; no intentional abridgment of quoted content.
+
+## Supporting content
+
+Onboarding has About, exactly three whyItMatters entries (each with one brief “Today:” line), four reading angles, and eleven cast entries. No acclaim field. The opening excerpt exactly matches original-en chapter 1 paragraph 1. Reading time is an estimate.
+
+All 24 character evidence quotations match their original-en coordinates. Identity review distinguishes the Dashwoods, Edward/Robert, Anne/Nancy/Lucy, and the two Elizas. Fanny’s Ferrars disclosure is gated after chapter 3. Miss Williams keeps that initial display name through chapter 13; her full name/history wait until chapter 31. Mrs. Brandon is context-sensitive across the elder Eliza’s retrospective history and Marianne’s marriage. Proposed cards use conservative completed-chapter gates; runtime offsets and exact in-chapter display remain future integration work.
+
+Taxonomy and metadata remain proposals. No unsupported acclaim or named canon membership is asserted.
+
+## Remaining acceptance requirement
+
+The mandatory book workflow requires independent reviews. No independent semantic/accessibility or character/spoiler review has occurred. The session prohibits spawning reviewer agents without explicit authorization; a request was presented and remains unanswered. These author checks and automated results must not be represented as independent acceptance. The complete candidate is ready for that review; acceptance status remains NOT READY until it is completed and findings resolved.
+
+Modern candidate SHA-256: c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512.
