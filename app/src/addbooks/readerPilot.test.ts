@@ -38,6 +38,8 @@ describe('unlisted reader pilot', () => {
     expect(createOpenReaderIntent({ ...selection, savedPlace: { bookId: 'bible', chapterNumber: 1 } })).toBeNull()
     expect(createOpenReaderIntent({ ...selection, savedPlace: { bookId: 'pd-35', chapterNumber: -1 } })).toBeNull()
     const intent = readerHandoffFromUrlParams(new URLSearchParams('book=pd-35&chapter=2'))!
+    expect(intent).not.toHaveProperty('startAtSavedPlace')
+    expect(createOpenReaderIntent({ ...selection, startAtSavedPlace: true, savedPlace: { bookId: 'pd-35', chapterNumber: 1 } })).not.toHaveProperty('startAtSavedPlace')
     expect(pendingLabSourceForHandoff(intent)).toMatchObject({ bookId: 'pd-35', chapterNumber: 2, bookTitle: 'The Time Machine', paragraphs: [] })
   })
 

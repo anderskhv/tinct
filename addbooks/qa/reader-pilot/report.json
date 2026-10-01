@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-01T08:32:59.854Z",
+  "testedAt": "2026-10-01T10:38:56.468Z",
   "target": "local production build",
   "externalAPIs": "blocked",
   "results": [
@@ -12,6 +12,9 @@
       "resume": true,
       "repeatAdd": true,
       "epilogue": true,
+      "proseFillsPages": true,
+      "consecutiveWordBoundaries": true,
+      "explanationUI": "mocked provider response",
       "horizontalOverflow": false,
       "pageErrors": []
     },
@@ -24,6 +27,9 @@
       "resume": true,
       "repeatAdd": true,
       "epilogue": true,
+      "proseFillsPages": true,
+      "consecutiveWordBoundaries": true,
+      "explanationUI": "mocked provider response",
       "horizontalOverflow": false,
       "pageErrors": []
     }

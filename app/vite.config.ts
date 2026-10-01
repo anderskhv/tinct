@@ -29,6 +29,7 @@ export default defineConfig(({ mode, command }) => {
   }
   const env = loadEnv(mode, process.cwd(), '')
   const isCapacitor = process.env.CAPACITOR === 'true'
+  const readerPilot = mode === 'reader-pilot'
 
   // Cloudflare Workers Builds has no app/.env. These are public client values
   // already required by verify-bundle and present in the live browser bundle.
@@ -289,7 +290,9 @@ export default defineConfig(({ mode, command }) => {
           }
         })
 
-        server.middlewares.use('/api/chat', async (req: IncomingMessage, res: ServerResponse) => {
+        server.middlewares.use('/api/chat', async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          // The reader pilot uses the production structured companion route.
+          if (readerPilot) { next(); return }
           if (req.method !== 'POST') {
             res.writeHead(405)
             res.end('Method not allowed')
@@ -393,6 +396,12 @@ export default defineConfig(({ mode, command }) => {
     },
   ],
   server: {
+    // Opt-in local preview: only the two companion routes are forwarded.
+    // No keys in the browser, no production deployment, no unrelated
+    // account or checkout routes proxied. Responses stream through the existing production API.
+    proxy: readerPilot ? {
+      '^/api/(chat|lab-chat)(?:\\?|$)': { target: 'https://tinct.app', changeOrigin: true },
+    } : undefined,
     port: 3001,
     // host: true binds to 0.0.0.0 so phones on the same WiFi can reach the
     // dev server (e.g. http://<mac-lan-ip>:3001). Safe in dev. If you ever

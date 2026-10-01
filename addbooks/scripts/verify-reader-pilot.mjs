@@ -33,9 +33,15 @@ try {
     const context = await browser.newContext({ viewport, isMobile: name === 'phone', hasTouch: name === 'phone', serviceWorkers: 'block' });
     const page = await context.newPage();
     const errors = [];
+    const companionRequests = [];
+    const explanation = "Browser test response: the selected passage describes the room around the Time Traveller.";
     page.on('pageerror', error => errors.push(error.message));
     await context.route('**/*', async route => {
       const url = new URL(route.request().url());
+      if (url.origin === origin && /^\/api\/(lab-chat|chat)$/.test(url.pathname)) {
+        companionRequests.push(route.request().postDataJSON());
+        return route.fulfill({contentType:'text/event-stream', body:'data: '+JSON.stringify({type:'content_block_delta',delta:{type:'text_delta',text:explanation}})+'\n\ndata: {"type":"message_stop"}\n\n'});
+      }
       if (url.origin !== origin || url.pathname.startsWith('/api/')) {
         return route.fulfill({ status: 404, contentType: 'application/json', body: '{}' });
       }
@@ -65,7 +71,38 @@ try {
     await ready();
     await expect(page.getByTestId('lab-header-chapter')).toContainText('I. Introduction');
     await expect(page.locator('body')).toContainText('The Time Traveller');
+    await expect(page.getByTestId('lab-root')).toHaveAttribute('data-lab-layout', name);
     await page.screenshot({ path:path.join(out, `${name}-reader.png`), fullPage:true });
+    // Measured pages must pack prose across paragraph boundaries. The old
+    // Add handoff incorrectly replaced them with one-paragraph estimates.
+    const words = () => page.getByTestId('lab-word').evaluateAll(nodes => nodes.map(n => [Number(n.dataset.paragraphIndex), Number(n.dataset.wordIndex)]));
+    let previous = await words();
+    let maxParagraphs = new Set(previous.map(w => w[0])).size;
+    for (let turn = 0; turn < 3; turn++) {
+      await page.keyboard.press('ArrowRight');
+      await page.waitForTimeout(500);
+      const current = await words();
+      const last = previous.at(-1), first = current[0];
+      assert(first && last && ((first[0] === last[0] && first[1] === last[1] + 1) || (first[0] === last[0] + 1 && first[1] === 0)), 'page turn must continue at the next source word');
+      maxParagraphs = Math.max(maxParagraphs, new Set(current.map(w => w[0])).size);
+      previous = current;
+    }
+    assert(maxParagraphs >= 3, 'short paragraphs must share a page');
+    await page.screenshot({ path:path.join(out, `${name}-flowing-prose.png`), fullPage:true });
+    // Use the real selection/Explain UI, with a labelled test response.
+    const selectable = page.getByTestId('lab-word');
+    const first = await selectable.nth(0).boundingBox();
+    const last = await selectable.nth(18).boundingBox();
+    await page.mouse.move(first.x+first.width/2, first.y+first.height/2);
+    await page.mouse.down();
+    await page.mouse.move(last.x+last.width/2, last.y+last.height/2, {steps:12});
+    await page.mouse.up();
+    await page.getByRole('button', {name:'Explain', exact:true}).click();
+    await expect(page.getByText(explanation, {exact:true})).toBeVisible();
+    assert(companionRequests.some(request => request.companion.intent === 'explain'
+      && request.companion.context.bookId === 'pd-35' && request.companion.selection.length > 0));
+    await page.screenshot({ path:path.join(out, `${name}-explanation-mocked.png`), fullPage:true });
+    await page.getByRole('button', {name:'Close explanation',exact:true}).click();
     await page.getByTestId('lab-header-chapter').click();
     await expect(page.getByTestId('lab-toc')).toBeVisible();
     await expect(page.locator('[data-testid^="lab-tree-chapter-"]')).toHaveCount(17);
@@ -97,7 +134,7 @@ try {
     await expect(page.getByTestId('lab-header-chapter')).toContainText('Epilogue');
     await page.screenshot({ path:path.join(out, `${name}-epilogue.png`), fullPage:true });
     assert.deepEqual(errors, []);
-    results.push({ viewport:name, add:true, retry:true, chapters:17, navigation:true, resume:true, repeatAdd:true, epilogue:true, horizontalOverflow:false, pageErrors:errors });
+    results.push({ viewport:name, add:true, retry:true, chapters:17, navigation:true, resume:true, repeatAdd:true, epilogue:true, proseFillsPages:true, consecutiveWordBoundaries:true, explanationUI:"mocked provider response", horizontalOverflow:false, pageErrors:errors });
     await context.close();
   }
   await writeFile(path.join(out,'report.json'), JSON.stringify({ testedAt:new Date().toISOString(), target:'local production build', externalAPIs:'blocked', results }, null, 2)+'\n');

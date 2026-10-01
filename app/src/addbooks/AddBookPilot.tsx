@@ -26,7 +26,6 @@ export function AddBookPilot() {
         savedPlace: { bookId: book.id, chapterNumber,
           paragraphIndex: saved?.sequentialChapter === chapterNumber ? saved.paragraphIndex : 0,
           wordIndex: saved?.sequentialChapter === chapterNumber ? saved.wordIndex : 0 },
-        startAtSavedPlace: true,
       })
       if (!handoff) throw new Error('Cannot open this edition')
       // A one-use handoff opens the real reader. Nothing enters the library.

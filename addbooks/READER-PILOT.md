@@ -39,7 +39,7 @@ npm test
 CI=true npm run build
 npm run verify-bundle
 node ../addbooks/scripts/verify-reader-pilot.mjs
-npm run dev -- --host 127.0.0.1 --port 4174 --strictPort
+npm run dev -- --mode reader-pilot --host 127.0.0.1 --port 4174 --strictPort
 ```
 
 `CI=true` uses the repository's existing public client configuration for the production build. Local preview: http://127.0.0.1:4174/reader?add=1
@@ -50,14 +50,20 @@ The browser test starts an ephemeral localhost server for `app/dist`, launches i
 
 - Baseline: 2,929 tests passed, one skipped.
 - Final: 2,933 tests passed, one skipped; production build and `verify-bundle` passed.
-- Verified bundle: `index-C16r94Pg.js`.
-- Desktop 1365×900 and phone 390×844: Add, failed-download retry, complete contents, chapter selection, page turn, reload/resume, repeated Add and epilogue. No horizontal overflow or page errors.
-- Screenshots capture the actual reader from the locally served production build. No production API or LLM requests were made.
+- Verified bundle: `index-DXjuGmzJ.js`.
+- Desktop 1365×900 and phone 390×844: Add, failed-download retry, complete contents, chapter selection, page turns with consecutive source-word boundaries, short paragraphs sharing a page, reload/resume, repeated Add and epilogue. Explain selection was exercised with a labelled mock streaming response. No horizontal overflow or page errors.
+- Screenshots capture the actual reader from the locally served production build. No LLM requests were made. The production companion routes were checked with GET requests (405 Method not allowed), which return before provider invocation.
+
+## Local companion service and corrected pagination
+
+Use the `reader-pilot` Vite mode in the command above. It forwards only `/api/chat` and `/api/lab-chat` to the existing service at `https://tinct.app`, preserving streaming. Plain Vite mode has a legacy chat handler and no guest companion endpoint, which caused Explain to fail in the initial preview. No API keys are placed in browser code; production retains its usual authentication, rate limits and usage charging. User-triggered companion requests use that service and its normal allowance. Automated QA substitutes labelled responses and does not invoke an LLM. This mode does not enable narration, voice sessions or unavailable editions.
+
+The initial Add handoff incorrectly set `startAtSavedPlace`, a legacy exact-passage mode that replaced measured pages with rough budget estimates. At startup those estimates could be one paragraph per page. Unlisted handoffs now keep the normal measured page map and restore by saved source word. This also normalizes old handoffs and unlisted chapter links. Existing published-book passage behavior remains unchanged.
 
 ## Boundaries and follow-up
 
 This proves a single book can pass through conversion and into the real reader without public-library publication. Runtime Add loads the already converted edition; it does not convert a new catalogue selection on demand. The large standalone search prototype remains on `codex/addbooks-search-prototype` and is not wired into this first import pilot.
 
-Unlisted assets are accessible to anyone who knows their URL. This is not private file storage or an authenticated private library. Existing reading-position storage is reused; no Supabase schema, Worker, API, CI, dependency, taxonomy or registry changes were required. Browser QA verifies guest/local position persistence. Signed-in cross-device sync, offline installation, native Android and AI companion behavior were not tested. Narration is explicitly unavailable for the unlisted book, and its contents menu does not link to a nonexistent library introduction.
+Unlisted assets are accessible to anyone who knows their URL. This is not private file storage or an authenticated private library. Existing reading-position storage is reused; no Supabase schema, Worker, API, CI, dependency, taxonomy or registry changes were required. Browser QA verifies guest/local position persistence. Signed-in cross-device sync, offline installation, native Android and live AI generation were not tested. Explain UI and structured request context were checked with mocked provider responses. Narration is explicitly unavailable for the unlisted book, and its contents menu does not link to a nonexistent library introduction.
 
 Next: approve and verify the unlisted live release; connect one search result to this flow; generalize the converter with source-specific structural checks and immutable source/edition IDs. Only then add durable import jobs, private ownership where needed, source-rights gating and broader book formats. Public-library publication remains a separate decision.
