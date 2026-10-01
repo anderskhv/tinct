@@ -1,6 +1,6 @@
-# Source verification — replacement blocked
+# Source verification — Muss-Arnolt approved base
 
-Retrieval date: 2026-10-01. No source is accepted as a complete deliverable under all current requirements.
+Retrieval date: 2026-10-01. User approved William Muss-Arnolt (1901) as the base on 2026-10-01. Thompson remains rejected because the full edition credits Johannes Friedrich (d. 1972).
 
 ## Primary: rejected as a complete base
 
@@ -60,11 +60,11 @@ Raw URLs:
 - https://archive.org/download/assyrianbabylon00harp/assyrianbabylon00harp_djvu.txt
 - https://archive.org/download/assyrianbabylon00harp/assyrianbabylon00harp.pdf
 
-### Extraction and blocking independence result
+### Extraction and independence rule
 
 `fallback-verified-passage.json` contains one continuous, complete narrative passage from printed p.330, PDF page 446. It was checked visually against the scan. Only line breaks were removed; spelling, names, words and punctuation were retained. No protected live wording was read. The unchanged coordinate-only checker reports N=10: 1/1 flagged, 21 words in shared runs; N=8: 1/1 flagged, 30 words in shared runs.
 
-This demonstrates a requirement conflict: the fallback’s authentic public-domain original text cannot both retain its source wording and pass a zero N=10 overlap rule against the specified live references. Shared runs do not establish infringement or dependence; a later adaptation can retain public-domain source language. Rewriting the diagnostic paragraph would produce an adaptation, not a clean transcription of this original. Splitting it into artificial fragments to evade the gate would violate the coherent-passage requirement. No such evasion was attempted.
+That earlier test applied the former, incorrect gate to original-en and is superseded. The current prompt on origin/claude/busy-fermi-111knc (books/wip/replacement-prompts/06-gilgamesh.md) exempts the authentic free original entirely. The overlap check applies to modern-en, using --allow <your original-en.json>.
 
 The broader `fallback-probe.json` is an OCR diagnostic across Tablets I–VI, including some apparatus; it is NOT a parsed edition. Its 40/315 N=10 flags are superseded as evidence by the single scan-verified passage.
 

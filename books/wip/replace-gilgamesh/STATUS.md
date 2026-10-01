@@ -1,3 +1,3 @@
-BLOCKED: Thompson’s complete base fails the contributor death cutoff (Friedrich, 1972); the approved Muss-Arnolt fallback fails the mandatory original-en overlap gate on a scan-verified unchanged passage. Source fidelity and zero N=10 overlap cannot both be met.
-STATUS: BLOCKED
-No accepted replacement editions. Evidence and rejected partial drafts are preserved; no production files changed.
+STATUS: IN PROGRESS
+Approved base: Muss-Arnolt (1901); Thompson rejected because the edition credits Johannes Friedrich (d.1972).
+Current batch: Tablets I–III parsed from Muss-Arnolt; full 12-tablet transcription, rendering, and final gates remain.
