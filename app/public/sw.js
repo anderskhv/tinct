@@ -2,7 +2,7 @@
 //
 // Strategy:
 //   - App shell:
-//       Network-first for /reader navigations; the cached /app.html is used
+//       Network-first for /reader navigations; the cached /reader page is used
 //       only when the network request itself fails (offline). Redirects,
 //       404s and 5xx responses always pass through. The
 //       deployed dist/sw.js is stamped after build with the exact current
@@ -28,6 +28,11 @@ const APP_SHELL_CACHE_NAME = 'tinct-app-shell-dev'
 const APP_SHELL_PRECACHE_URLS = []
 
 const APP_SHELL_PRECACHE_SET = new Set(APP_SHELL_PRECACHE_URLS)
+// The page an offline /reader load is answered with. It is the reader page
+// itself, cached at install: /app.html is redirected by the Worker (to /app,
+// then the library), so a copy cached under that name was the library page and
+// carried redirected=true, which browsers refuse as a navigation response.
+const READER_SHELL_URL = '/reader'
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
@@ -39,7 +44,7 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  if (isSameOrigin && APP_SHELL_PRECACHE_SET.has(url.pathname)) {
+  if (isSameOrigin && APP_SHELL_PRECACHE_SET.has(url.pathname) && url.pathname !== READER_SHELL_URL) {
     event.respondWith(handlePrecachedAppAsset(event.request))
     return
   }
@@ -118,8 +123,8 @@ async function handleAppShellNavigation(request) {
   }
 
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
-  const cached = await cache.match('/app.html')
-  if (cached) return cached
+  const cached = await cache.match(READER_SHELL_URL)
+  if (cached) return unredirected(cached)
   return new Response('Offline', {
     status: 503,
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
@@ -281,8 +286,15 @@ async function precacheAppShell() {
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
   await Promise.allSettled(APP_SHELL_PRECACHE_URLS.map(async (url) => {
     const response = await fetch(url, { cache: 'no-store' })
-    if (response.ok) await cache.put(url, response)
+    if (response.ok) await cache.put(url, await unredirected(response))
   }))
+}
+
+// A response that arrived through a redirect cannot answer a navigation
+// (browsers fail the load with ERR_FAILED). Same body and headers, no flag.
+async function unredirected(response) {
+  if (!response.redirected) return response
+  return new Response(await response.blob(), { status: response.status, statusText: response.statusText, headers: response.headers })
 }
 
 // Listen for download requests from the main thread

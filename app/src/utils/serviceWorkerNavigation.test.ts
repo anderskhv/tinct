@@ -5,7 +5,7 @@ import { expect, it, vi } from 'vitest'
 function harness(networkDown: boolean, answer?: () => Response) {
   const listeners: Record<string, Function> = {}
   const shell = new Response('cached legacy shell')
-  const cache = { match: vi.fn(async (key: string) => (key === '/app.html' ? shell.clone() : undefined)), put: vi.fn() }
+  const cache = { match: vi.fn(async (key: string) => (key === '/reader' ? shell.clone() : undefined)), put: vi.fn() }
   const fetch = vi.fn(async () => {
     if (networkDown) throw new TypeError('offline')
     return answer!()
