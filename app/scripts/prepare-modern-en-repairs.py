@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Publish accepted text-only modern-en repairs with character-card compatibility.
 
-usage: prepare-modern-en-repairs.py <staged-dir> <revision> <before-dir> <book> [<book> ...]
+usage: prepare-modern-en-repairs.py [--mappings <file.json>] <staged-dir> <revision> <before-dir> <book> [<book> ...]
+
+--mappings is a JSON object {book: [approved mention mapping, ...]} in the shape
+prepare-reviewed-editions.approved_mapping_span accepts (characterId, from, to,
+optional occurrenceOverrides). Only reviewed, clearly equivalent same-paragraph
+spans belong there; every other dropped mention stays dropped.
 
 <staged-dir> holds <book>-modern-en.json (the accepted candidates). Each book is
 checked against the live edition (same metadata, chapters and paragraph counts),
@@ -25,7 +30,12 @@ spec.loader.exec_module(pre)
 
 
 def main():
-    staged, revision, before_dir, *books = sys.argv[1:]
+    args = sys.argv[1:]
+    mappings = {}
+    if args and args[0] == "--mappings":
+        mappings = {k: v for k, v in json.loads(Path(args[1]).read_text()).items() if not k.startswith("_")}
+        args = args[2:]
+    staged, revision, before_dir, *books = args
     staged, before_dir = Path(staged), Path(before_dir)
     before_dir.mkdir(parents=True, exist_ok=True)
     service = ROOT / "app/src/services/characters/characterCards.ts"
@@ -47,7 +57,7 @@ def main():
             changed += sum(a != b for a, b in zip(old_ch["paragraphs"], new_ch["paragraphs"]))
         asset_path = ROOT / f"app/public/data/characters/{book}.v1.json"
         asset_raw = asset_path.read_text()
-        asset, report = pre.reanchor(json.loads(asset_raw), before_raw, accepted_raw, revision)
+        asset, report = pre.reanchor(json.loads(asset_raw), before_raw, accepted_raw, revision, True, mappings.get(book, []))
         compact = asset_raw.startswith('{"')
         text = json.dumps(asset, ensure_ascii=False, separators=(",", ":")) if compact else json.dumps(asset, ensure_ascii=False, indent=2)
         pattern = r"((?:'" + re.escape(book) + r"'|" + re.escape(book) + r"):\s*\{\s*editions:\s*EN,\s*revision:\s*)'[^']+'"

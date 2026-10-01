@@ -41,6 +41,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'magna-carta': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'cf7d388da295fff52af25f55d6dd692644b4ca96b521db4e9dc2525deaa5f586',
+        after: '9fc3a296b172b3d144fb95c673b6627407520b9036b7cd00d9cd894ff65e198c',
+      },
+    },
+  },
   symposium: {
   "revision": "symposium-completeness-2026-09-25.1",
   "releasedAt": 1790362800000,
@@ -185,8 +195,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'communist-manifesto': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62',
@@ -195,8 +205,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'kant-groundwork': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d',
@@ -205,8 +215,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'notes-from-underground': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '8df3e74890b26ce3febb108540f3a7a32fd3afdc93b1d047cbe6b053793a0449',
@@ -215,8 +225,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'heart-of-darkness': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '169c288c26f0c8c07be6d181855123cd982023a0b780262576944f5833afa435',
@@ -225,8 +235,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'jungle-book': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640',
@@ -235,8 +245,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'hume-enquiry': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
@@ -245,8 +255,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'around-the-world-80-days': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
@@ -255,8 +265,8 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'a-little-princess': {
-    revision: 'text-2026-09-30.3',
-    releasedAt: Date.parse('2026-09-30T21:30:00Z'),
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
       'modern-en': {
         before: '5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020',
