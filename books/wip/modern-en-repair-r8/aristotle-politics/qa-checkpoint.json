@@ -1,8 +1,8 @@
 {
-  "chapter_counts": [
-    8,
-    8
-  ],
+  "status": "PASS",
+  "scope": "staged content only",
+  "chapters": 8,
+  "paragraphs": 478,
   "paragraph_counts": [
     46,
     75,
@@ -13,48 +13,30 @@
     75,
     26
   ],
-  "total_paragraphs": 478,
-  "unchanged_chapters": [
-    4,
-    5,
-    7
-  ],
-  "identical_over_40_words_remaining": [
-    {
-      "chapter": 7,
-      "paragraph": 33
-    }
-  ],
-  "empty_changed_paragraphs": [],
-  "characters_directory_exists": false,
+  "changed_paragraphs": 433,
+  "minimum_changed_paragraph_word_ratio": 0.75,
+  "paragraphs_below_75_percent": [],
+  "identical_source_paragraphs_over_40_words": [],
   "metadata_preserved": true,
-  "unchanged_pending_paragraphs_below_75_percent": [
-    {
-      "chapter": 4,
-      "paragraph": 64
-    },
-    {
-      "chapter": 5,
-      "paragraph": 54
-    },
-    {
-      "chapter": 5,
-      "paragraph": 80
-    },
-    {
-      "chapter": 7,
-      "paragraph": 21
-    },
-    {
-      "chapter": 7,
-      "paragraph": 25
-    }
-  ],
-  "completed_rewritten_chapters": [
-    2,
-    3,
-    6,
-    8
-  ],
-  "total_changed_paragraphs": 207
+  "real_book_1_unchanged_except_paragraph_24": true,
+  "live_original_matches_pinned_original": true,
+  "live_modern_matches_initial_baseline": true,
+  "characters_directory_exists": false,
+  "candidate_words": 74044,
+  "source_words": 90701,
+  "gate": {
+    "weighted_similarity": 0.369,
+    "light_mechanical_chapters": 0,
+    "total_chapters": 8,
+    "identical_long": 0,
+    "long_paragraphs": 473,
+    "wrapped_scaffolding": 0,
+    "truncated_quotations": 0
+  },
+  "sha256": {
+    "aristotle-politics-original-en.json": "0bf42e46f4c5c3738c11c437513f104b0e92847432128873d10a49f9fc16c2fc",
+    "aristotle-politics-modern-en.before.json": "8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224",
+    "aristotle-politics-modern-en.json": "4bb0655f382563834a38ae6dc527fc577a577b02461fd8c1e04a7285fe7a0c97"
+  },
+  "semantic_validation": "Source displayed and manually rewritten paragraph by paragraph; selected passages reread. No independent semantic reviewer. See HANDOFF for source defects and specific restorations."
 }
