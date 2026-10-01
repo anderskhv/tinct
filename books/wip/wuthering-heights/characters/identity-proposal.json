@@ -1,0 +1,420 @@
+{
+  "bookId": "wuthering-heights",
+  "status": "proposal-only; not registered",
+  "scope": "Whole-book identity proposal; modern rendering owned here is Chapters 1–11 only. Later original source evidence was read only for identity facts, not edited or rendered.",
+  "coordinateBasis": "1-based chapter and paragraph positions in the pinned 34-chapter original-en; decorative scene-break blocks excluded as recorded in SOURCE.md.",
+  "automaticGlobalAliasMatching": false,
+  "characters": [
+    {
+      "id": "lockwood",
+      "name": "Mr. Lockwood",
+      "aliases": [
+        "Lockwood",
+        "Mr. Lockwood"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 1,
+        "paragraph": 4,
+        "anchor": "Lockwood"
+      },
+      "role": "Tenant at Thrushcross Grange and the outer narrator.",
+      "identityRule": "No first name is supplied. His report of another person is not that person’s independent testimony."
+    },
+    {
+      "id": "ellen-dean",
+      "name": "Ellen “Nelly” Dean",
+      "aliases": [
+        "Ellen Dean",
+        "Nelly Dean",
+        "Mrs. Dean",
+        "Nelly",
+        "Ellen",
+        "Nell"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 4,
+        "paragraph": 1,
+        "anchor": "Mrs. Dean"
+      },
+      "role": "Housekeeper, former nurse and principal retrospective narrator.",
+      "identityRule": "All these names denote one woman. Do not merge her with Zillah. Treat “my mistress” and “my master” as contextual references, never her aliases."
+    },
+    {
+      "id": "heathcliff",
+      "name": "Heathcliff",
+      "aliases": [
+        "Heathcliff",
+        "Mr. Heathcliff"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 1,
+        "paragraph": 1,
+        "anchor": "Heathcliff"
+      },
+      "role": "The child brought into the Earnshaw household, later Lockwood’s landlord.",
+      "identityRule": "Heathcliff is both given name and surname (4:38). Do not invent an Earnshaw surname or confirmed ancestry. Distinguish the deceased Earnshaw child whose name he receives and his own son Linton Heathcliff."
+    },
+    {
+      "id": "catherine-earnshaw",
+      "name": "Catherine Earnshaw — elder Catherine",
+      "aliases": [
+        "Catherine Earnshaw",
+        "Catherine Linton",
+        "Catherine",
+        "Cathy",
+        "Miss Cathy",
+        "Mrs. Linton"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 3,
+        "paragraph": 4,
+        "anchor": "Catherine Earnshaw"
+      },
+      "role": "Hindley’s sister; the elder Catherine in Nelly’s history.",
+      "identityRule": "Catherine Linton is her married name and is also her daughter’s birth name. Bare Cathy/Catherine requires time and speaker context. “Catherine Heathcliff” scratched at 3:4 is a name she imagines, not evidence that she marries Heathcliff. The child at the window in Lockwood’s dream is associated with her without confirming a supernatural event."
+    },
+    {
+      "id": "catherine-linton-younger",
+      "name": "Catherine “Cathy” Linton — younger Catherine",
+      "aliases": [
+        "Catherine Linton",
+        "Cathy",
+        "Catherine",
+        "Miss Cathy",
+        "Mrs. Heathcliff",
+        "Catherine Heathcliff"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 4,
+        "paragraph": 15,
+        "anchor": "Catherine Linton"
+      },
+      "role": "Edgar and the elder Catherine’s daughter; the young Mrs. Heathcliff in the opening frame.",
+      "identityRule": "Separate identity from her mother. First appears unnamed in 2:9; identification is explained in 4:15. Mrs. Heathcliff can instead mean Isabella in earlier events. Later name/relationship reveals must be unlocked in reading order, not inferred from chapter number alone across frame and flashback."
+    },
+    {
+      "id": "hindley-earnshaw",
+      "name": "Hindley Earnshaw",
+      "aliases": [
+        "Hindley",
+        "Hindley Earnshaw",
+        "Mr. Hindley",
+        "Mr. Earnshaw"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 3,
+        "paragraph": 8,
+        "anchor": "Hindley"
+      },
+      "role": "The elder Catherine’s brother and Hareton’s father.",
+      "identityRule": "Mr. Earnshaw means his father in the early childhood history and usually Hindley after Chapter V. Never attach every Earnshaw or “master” mention to Hindley."
+    },
+    {
+      "id": "hareton-earnshaw",
+      "name": "Hareton Earnshaw",
+      "aliases": [
+        "Hareton",
+        "Hareton Earnshaw",
+        "Earnshaw",
+        "Mr. Earnshaw"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 2,
+        "paragraph": 52,
+        "anchor": "Hareton Earnshaw"
+      },
+      "role": "Hindley and Frances’s son; Nelly’s childhood charge.",
+      "identityRule": "The living man at 2:52 is not the person named in the 1500 carving at 1:11. Childhood and adult appearances are one identity. Bare Earnshaw and Mr. Earnshaw require context."
+    },
+    {
+      "id": "edgar-linton",
+      "name": "Edgar Linton",
+      "aliases": [
+        "Edgar",
+        "Edgar Linton",
+        "Mr. Edgar",
+        "Mr. Linton",
+        "Master Linton",
+        "Linton"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 6,
+        "paragraph": 6,
+        "anchor": "Edgar"
+      },
+      "role": "Isabella’s brother, raised at Thrushcross Grange.",
+      "identityRule": "Do not merge with his father, also Mr. Linton, or his nephew Linton Heathcliff. “Master Linton” in the early scenes can mean young Edgar; it is not a safe global alias for the later boy."
+    },
+    {
+      "id": "isabella-linton",
+      "name": "Isabella Linton",
+      "aliases": [
+        "Isabella",
+        "Isabella Linton",
+        "Miss Linton",
+        "Isabel",
+        "Mrs. Heathcliff"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 6,
+        "paragraph": 6,
+        "anchor": "Isabella"
+      },
+      "role": "Edgar’s sister.",
+      "identityRule": "Mrs. Heathcliff denotes Isabella in one part of the past and the younger Catherine in the opening frame. “Isabel” at 11:38 is a variant, not a new person. Gate marriage and parentage details to their narrative revelation."
+    },
+    {
+      "id": "linton-heathcliff",
+      "name": "Linton Heathcliff",
+      "aliases": [
+        "Linton Heathcliff",
+        "Linton",
+        "Master Heathcliff",
+        "young Heathcliff"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 17,
+        "paragraph": 66,
+        "anchor": "christened Linton"
+      },
+      "role": "Heathcliff and Isabella’s son.",
+      "identityRule": "Linton is his given name, not Edgar’s surname used for the same man. His naming and birth are disclosed at 17:66. Keep this identity distinct from his father; do not expose later relationships at the book’s opening."
+    },
+    {
+      "id": "joseph",
+      "name": "Joseph",
+      "aliases": [
+        "Joseph"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 1,
+        "paragraph": 7,
+        "anchor": "Joseph"
+      },
+      "role": "Long-serving worker at Wuthering Heights.",
+      "identityRule": "Keep readable Yorkshire grammar and vocabulary in his dialogue. Do not invent a surname or identify the servant with biblical names used in his speech."
+    },
+    {
+      "id": "frances-earnshaw",
+      "name": "Frances Earnshaw",
+      "aliases": [
+        "Frances",
+        "Mrs. Earnshaw"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 3,
+        "paragraph": 10,
+        "anchor": "Frances"
+      },
+      "role": "Hindley’s wife and Hareton’s mother.",
+      "identityRule": "Mrs. Earnshaw can instead denote Hindley’s mother in the earlier history. No birth surname or detailed background is supplied."
+    },
+    {
+      "id": "mr-earnshaw-elder",
+      "name": "Mr. Earnshaw — elder",
+      "aliases": [
+        "Mr. Earnshaw",
+        "old Earnshaw",
+        "the old master"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 4,
+        "paragraph": 33,
+        "anchor": "Mr. Earnshaw"
+      },
+      "role": "Father of Hindley and the elder Catherine; brings Heathcliff home from Liverpool.",
+      "identityRule": "No first name supplied. Do not confuse with Hindley or Hareton. His care for Heathcliff does not establish biological paternity."
+    },
+    {
+      "id": "mrs-earnshaw-elder",
+      "name": "Mrs. Earnshaw — elder",
+      "aliases": [
+        "Mrs. Earnshaw"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 4,
+        "paragraph": 34,
+        "anchor": "Mrs. Earnshaw"
+      },
+      "role": "Mother of Hindley and the elder Catherine.",
+      "identityRule": "Separate from Frances. No first name supplied; a shared married title is not sufficient for identity resolution."
+    },
+    {
+      "id": "mr-linton-elder",
+      "name": "Mr. Linton — elder",
+      "aliases": [
+        "Mr. Linton",
+        "old Mr. Linton"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 6,
+        "paragraph": 6,
+        "anchor": "Mr. and Mrs. Linton"
+      },
+      "role": "Father of Edgar and Isabella.",
+      "identityRule": "Distinct from Edgar. Do not infer a first name. His later absence does not make every earlier Mr. Linton reference Edgar."
+    },
+    {
+      "id": "mrs-linton-elder",
+      "name": "Mrs. Linton — elder",
+      "aliases": [
+        "Mrs. Linton",
+        "old Mrs. Linton",
+        "Mary"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 6,
+        "paragraph": 6,
+        "anchor": "Mr. and Mrs. Linton"
+      },
+      "role": "Mother of Edgar and Isabella; addressed as Mary in 6:8.",
+      "identityRule": "Distinct from Catherine Earnshaw after her marriage. Use Mary only in that supported address, not as a general bare-word automatic trigger."
+    },
+    {
+      "id": "kenneth",
+      "name": "Mr. Kenneth",
+      "aliases": [
+        "Kenneth",
+        "Mr. Kenneth",
+        "the doctor"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 8,
+        "paragraph": 4,
+        "anchor": "Kenneth"
+      },
+      "role": "The local medical practitioner.",
+      "identityRule": "The generic “doctor” is context-dependent. No first name supplied. His period medical claims remain character speech, not editorial guidance."
+    },
+    {
+      "id": "zillah",
+      "name": "Zillah",
+      "aliases": [
+        "Zillah"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 2,
+        "paragraph": 70,
+        "anchor": "Zillah"
+      },
+      "role": "Housekeeper at Wuthering Heights in Lockwood’s opening visits.",
+      "identityRule": "Separate from Nelly Dean, the Grange housekeeper. Lockwood initially identifies her by appearance rather than name."
+    },
+    {
+      "id": "shielders",
+      "name": "Mr. Shielders",
+      "aliases": [
+        "Shielders",
+        "the curate"
+      ],
+      "firstNamedEvidence": {
+        "chapter": 6,
+        "paragraph": 11,
+        "anchor": "Shielders"
+      },
+      "role": "The curate named in Mr. Linton’s account of the children’s upbringing.",
+      "identityRule": "Do not automatically assign every curate or parson across all periods to Shielders. Distinguish him from the dream preacher Jabez Branderham."
+    }
+  ],
+  "ambiguousNames": [
+    {
+      "surface": "Catherine / Cathy / Catherine Linton",
+      "candidates": [
+        "catherine-earnshaw",
+        "catherine-linton-younger"
+      ],
+      "decision": "Resolve through generation, narrator and story time; never merge the mother and daughter."
+    },
+    {
+      "surface": "Mrs. Heathcliff",
+      "candidates": [
+        "isabella-linton",
+        "catherine-linton-younger"
+      ],
+      "decision": "The opening young widow is the younger Catherine. Nelly’s past account also uses this married title for Isabella."
+    },
+    {
+      "surface": "Linton / Master Linton",
+      "candidates": [
+        "edgar-linton",
+        "linton-heathcliff"
+      ],
+      "decision": "Resolve given name versus family surname and the generation being narrated."
+    },
+    {
+      "surface": "Mr. Earnshaw / Earnshaw",
+      "candidates": [
+        "mr-earnshaw-elder",
+        "hindley-earnshaw",
+        "hareton-earnshaw"
+      ],
+      "decision": "Resolve the person, period and household position rather than applying one global replacement."
+    },
+    {
+      "surface": "Mrs. Earnshaw",
+      "candidates": [
+        "mrs-earnshaw-elder",
+        "frances-earnshaw"
+      ],
+      "decision": "Use family relationships and period to distinguish the two women."
+    },
+    {
+      "surface": "Mr. Linton / Mrs. Linton",
+      "candidates": [
+        "mr-linton-elder",
+        "edgar-linton",
+        "mrs-linton-elder",
+        "catherine-earnshaw"
+      ],
+      "decision": "These titles span generations and must not be assigned without local context."
+    }
+  ],
+  "nonHouseholdOrInsetReferences": [
+    {
+      "name": "Hareton Earnshaw in the 1500 carving",
+      "reference": {
+        "chapter": 1,
+        "paragraph": 11
+      },
+      "decision": "An inscribed historical name; not the living Hareton. No inferred biography or exact family relationship."
+    },
+    {
+      "name": "The deceased Earnshaw child called Heathcliff",
+      "reference": {
+        "chapter": 4,
+        "paragraph": 38
+      },
+      "decision": "A separate child recalled when the foundling receives his name; do not merge with the main character."
+    },
+    {
+      "name": "Reverend Jabez Branderham",
+      "reference": {
+        "chapter": 3,
+        "paragraph": 17
+      },
+      "decision": "The sermon title and Lockwood’s dream preacher; not the parish curate Shielders."
+    },
+    {
+      "name": "Catherine at the window",
+      "reference": {
+        "chapter": 3,
+        "paragraph": 28
+      },
+      "decision": "Keep within Lockwood’s dream account. Do not label the narrator’s supernatural interpretation as established fact or create a third Catherine."
+    }
+  ],
+  "nonHumanNameExclusions": [
+    "Juno",
+    "Gnasher",
+    "Wolf",
+    "Skulker",
+    "Grimalkin"
+  ],
+  "spoilerPolicy": "Opening cast states only early identifying relationships and positions. Runtime cards must unlock later biography in reading order, accounting for the 1801 frame and flashbacks. No imported full-plot biographies.",
+  "integrationRequirements": [
+    "Treat IDs as proposed book-scoped identities, not registered global IDs.",
+    "Review ambiguous aliases manually before generating runtime cards.",
+    "Reconcile wh1 dialect and naming policy with the other rendering sessions.",
+    "Do not turn characters/ into narration roles or initiate audio generation."
+  ]
+}

@@ -33,12 +33,16 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "leviathan-modern-da",
   "leviathan-modern-en",
   "leviathan-original-en",
+  "middlemarch-modern-en",
+  "middlemarch-original-en",
   "moby-dick-modern-da",
   "moby-dick-modern-en",
   "moby-dick-original-en",
   "peloponnesian-war-modern-da",
   "peloponnesian-war-modern-en",
   "peloponnesian-war-original-en",
+  "sense-and-sensibility-modern-en",
+  "sense-and-sensibility-original-en",
   "symposium-modern-en",
   "symposium-original-en",
   "the-histories-modern-da",
@@ -53,5 +57,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "war-and-peace-modern-en",
   "war-and-peace-original-en",
   "wealth-of-nations-modern-en",
-  "wealth-of-nations-original-en"
+  "wealth-of-nations-original-en",
+  "wuthering-heights-modern-en",
+  "wuthering-heights-original-en"
 ] as const

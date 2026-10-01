@@ -1,0 +1,392 @@
+{
+  "bookId": "sense-and-sensibility",
+  "status": "PROPOSAL — NOT RUNTIME DATA",
+  "coordinateConvention": "chapter and paragraph are one-based; evidence is from pinned original-en",
+  "sourceSha256": "26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0",
+  "characters": [
+    {
+      "id": "elinor-dashwood",
+      "name": "Elinor Dashwood",
+      "candidateAliases": [
+        "Elinor",
+        "Miss Dashwood"
+      ],
+      "introductoryDescription": "Eldest daughter of Henry Dashwood and his second wife.",
+      "suggestedEarliestCardChapter": 1,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 11,
+        "text": "Elinor, this eldest daughter, whose advice was so effectual, possessed a strength of understanding, and coolness of judgment, which qualified her, though only nineteen, to be the counsellor of her mother, and enabled her frequently to counteract, to the advantage of them all, that eagerness of mind in Mrs. Dashwood which must generally have led to imprudence. She had an excellent heart;—her disposition was affectionate, and her feelings were strong; but she knew how to govern them: it was a knowledge which her mother had yet to learn; and which one of her sisters had resolved never to be taught."
+      },
+      "identityReviewNote": "Bare “Miss Dashwood” normally means Elinor, but verify each local context; it is used loosely when Willoughby asks after injured Marianne."
+    },
+    {
+      "id": "marianne-dashwood",
+      "name": "Marianne Dashwood",
+      "candidateAliases": [
+        "Marianne",
+        "Miss Marianne"
+      ],
+      "introductoryDescription": "Middle Dashwood sister, musical and emotionally outspoken.",
+      "suggestedEarliestCardChapter": 1,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 12,
+        "text": "Marianne’s abilities were, in many respects, quite equal to Elinor’s. She was sensible and clever; but eager in everything: her sorrows, her joys, could have no moderation. She was generous, amiable, interesting: she was everything but prudent. The resemblance between her and her mother was strikingly great."
+      },
+      "identityReviewNote": "Do not mechanically assign every “Miss Dashwood” to Elinor."
+    },
+    {
+      "id": "margaret-dashwood",
+      "name": "Margaret Dashwood",
+      "candidateAliases": [
+        "Margaret",
+        "Miss Margaret"
+      ],
+      "introductoryDescription": "Youngest Dashwood sister, thirteen at the opening.",
+      "suggestedEarliestCardChapter": 1,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 14,
+        "text": "Margaret, the other sister, was a good-humored, well-disposed girl; but as she had already imbibed a good deal of Marianne’s romance, without having much of her sense, she did not, at thirteen, bid fair to equal her sisters at a more advanced period of life."
+      },
+      "identityReviewNote": "Distinct from her elder sisters and all collective “Miss Dashwoods” mentions."
+    },
+    {
+      "id": "mrs-henry-dashwood",
+      "name": "Mrs. Dashwood",
+      "candidateAliases": [
+        "Mrs. Dashwood",
+        "Mrs. Henry Dashwood"
+      ],
+      "introductoryDescription": "Henry’s widow and mother of Elinor, Marianne, and Margaret.",
+      "suggestedEarliestCardChapter": 1,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 1,
+        "text": "The family of Dashwood had long been settled in Sussex. Their estate was large, and their residence was at Norland Park, in the centre of their property, where, for many generations, they had lived in so respectable a manner as to engage the general good opinion of their surrounding acquaintance. The late owner of this estate was a single man, who lived to a very advanced age, and who for many years of his life, had a constant companion and housekeeper in his sister. But her death, which happened ten years before his own, produced a great alteration in his home; for to supply her loss, he invited and received into his house the family of his nephew Mr. Henry Dashwood, the legal inheritor of the Norland estate, and the person to whom he intended to bequeath it. In the society of his nephew and niece, and their children, the old Gentleman’s days were comfortably spent. His attachment to them all increased. The constant attention of Mr. and Mrs. Henry Dashwood to his wishes, which proceeded not merely from interest, but from goodness of heart, gave him every degree of solid comfort which his age could receive; and the cheerfulness of the children added a relish to his existence."
+      },
+      "identityReviewNote": "Do not merge with Fanny; “mother” and historical “mother-in-law” require the speaker’s family context."
+    },
+    {
+      "id": "henry-dashwood",
+      "name": "Henry Dashwood",
+      "candidateAliases": [
+        "Mr. Henry Dashwood",
+        "Henry Dashwood"
+      ],
+      "introductoryDescription": "Father of John by his first marriage and of three daughters by his second.",
+      "suggestedEarliestCardChapter": 1,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 1,
+        "text": "The family of Dashwood had long been settled in Sussex. Their estate was large, and their residence was at Norland Park, in the centre of their property, where, for many generations, they had lived in so respectable a manner as to engage the general good opinion of their surrounding acquaintance. The late owner of this estate was a single man, who lived to a very advanced age, and who for many years of his life, had a constant companion and housekeeper in his sister. But her death, which happened ten years before his own, produced a great alteration in his home; for to supply her loss, he invited and received into his house the family of his nephew Mr. Henry Dashwood, the legal inheritor of the Norland estate, and the person to whom he intended to bequeath it. In the society of his nephew and niece, and their children, the old Gentleman’s days were comfortably spent. His attachment to them all increased. The constant attention of Mr. and Mrs. Henry Dashwood to his wishes, which proceeded not merely from interest, but from goodness of heart, gave him every degree of solid comfort which his age could receive; and the cheerfulness of the children added a relish to his existence."
+      },
+      "identityReviewNote": "“Mr. Dashwood” in the opening may mean Henry; later it often means John."
+    },
+    {
+      "id": "john-dashwood",
+      "name": "John Dashwood",
+      "candidateAliases": [
+        "Mr. John Dashwood",
+        "John Dashwood"
+      ],
+      "introductoryDescription": "The sisters’ half-brother and heir to Norland after Henry’s death.",
+      "suggestedEarliestCardChapter": 1,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 6,
+        "text": "Mr. John Dashwood had not the strong feelings of the rest of the family; but he was affected by a recommendation of such a nature at such a time, and he promised to do every thing in his power to make them comfortable. His father was rendered easy by such an assurance, and Mr. John Dashwood had then leisure to consider how much there might prudently be in his power to do for them."
+      },
+      "identityReviewNote": "Never merge bare John with Sir John Middleton."
+    },
+    {
+      "id": "fanny-dashwood",
+      "name": "Fanny Dashwood",
+      "candidateAliases": [
+        "Mrs. John Dashwood",
+        "Fanny"
+      ],
+      "introductoryDescription": "John’s wife and a member of the Ferrars family.",
+      "suggestedEarliestCardChapter": 3,
+      "nameEvidence": {
+        "chapter": 1,
+        "paragraphOneBased": 7,
+        "text": "He was not an ill-disposed young man, unless to be rather cold hearted and rather selfish is to be ill-disposed: but he was, in general, well respected; for he conducted himself with propriety in the discharge of his ordinary duties. Had he married a more amiable woman, he might have been made still more respectable than he was:—he might even have been made amiable himself; for he was very young when he married, and very fond of his wife. But Mrs. John Dashwood was a strong caricature of himself;—more narrow-minded and selfish."
+      },
+      "identityReviewNote": "Bare Mrs. Dashwood usually means Henry’s widow; disambiguate by scene. The proposed description names the Ferrars connection disclosed in chapter 3; withhold that complete card until chapter 3 is finished."
+    },
+    {
+      "id": "harry-dashwood",
+      "name": "Harry Dashwood",
+      "candidateAliases": [
+        "Harry",
+        "little Harry"
+      ],
+      "introductoryDescription": "John and Fanny’s young son.",
+      "suggestedEarliestCardChapter": 2,
+      "nameEvidence": {
+        "chapter": 2,
+        "paragraphOneBased": 3,
+        "text": "Mrs. John Dashwood did not at all approve of what her husband intended to do for his sisters. To take three thousand pounds from the fortune of their dear little boy would be impoverishing him to the most dreadful degree. She begged him to think again on the subject. How could he answer it to himself to rob his child, and his only child too, of so large a sum? And what possible claim could the Miss Dashwoods, who were related to him only by half blood, which she considered as no relationship at all, have on his generosity to so large an amount. It was very well known that no affection was ever supposed to exist between the children of any man by different marriages; and why was he to ruin himself, and their poor little Harry, by giving away all his money to his half sisters?"
+      },
+      "identityReviewNote": "Distinguish from Henry Dashwood; first appears unnamed in chapter 1."
+    },
+    {
+      "id": "edward-ferrars",
+      "name": "Edward Ferrars",
+      "candidateAliases": [
+        "Edward",
+        "Mr. Edward Ferrars"
+      ],
+      "introductoryDescription": "Fanny’s elder brother, shy and drawn to domestic life.",
+      "suggestedEarliestCardChapter": 3,
+      "nameEvidence": {
+        "chapter": 3,
+        "paragraphOneBased": 5,
+        "text": "Some mothers might have encouraged the intimacy from motives of interest, for Edward Ferrars was the eldest son of a man who had died very rich; and some might have repressed it from motives of prudence, for, except a trifling sum, the whole of his fortune depended on the will of his mother. But Mrs. Dashwood was alike uninfluenced by either consideration. It was enough for her that he appeared to be amiable, that he loved her daughter, and that Elinor returned the partiality. It was contrary to every doctrine of hers that difference of fortune should keep any couple asunder who were attracted by resemblance of disposition; and that Elinor’s merit should not be acknowledged by every one who knew her, was to her comprehension impossible."
+      },
+      "identityReviewNote": "Do not globally assign “Mr. Ferrars” or “my brother”; later references depend on Edward/Robert context."
+    },
+    {
+      "id": "robert-ferrars",
+      "name": "Robert Ferrars",
+      "candidateAliases": [
+        "Robert",
+        "Mr. Robert Ferrars"
+      ],
+      "introductoryDescription": "Edward’s younger brother.",
+      "suggestedEarliestCardChapter": 22,
+      "nameEvidence": {
+        "chapter": 22,
+        "paragraphOneBased": 13,
+        "text": "“Good heavens!” cried Elinor, “what do you mean? Are you acquainted with Mr. Robert Ferrars? Can you be?” And she did not feel much delighted with the idea of such a sister-in-law."
+      },
+      "identityReviewNote": "Keep Edward and Robert distinct. Chapter 3 mentions the younger brother before naming him."
+    },
+    {
+      "id": "mrs-ferrars",
+      "name": "Mrs. Ferrars",
+      "candidateAliases": [
+        "Mrs. Ferrars"
+      ],
+      "introductoryDescription": "Edward’s mother, whose wishes have great influence over his prospects.",
+      "suggestedEarliestCardChapter": 4,
+      "nameEvidence": {
+        "chapter": 4,
+        "paragraphOneBased": 19,
+        "text": "But, whatever might really be its limits, it was enough, when perceived by his sister, to make her uneasy, and at the same time, (which was still more common,) to make her uncivil. She took the first opportunity of affronting her mother-in-law on the occasion, talking to her so expressively of her brother’s great expectations, of Mrs. Ferrars’s resolution that both her sons should marry well, and of the danger attending any young woman who attempted to _draw him in;_ that Mrs. Dashwood could neither pretend to be unconscious, nor endeavor to be calm. She gave her an answer which marked her contempt, and instantly left the room, resolving that, whatever might be the inconvenience or expense of so sudden a removal, her beloved Elinor should not be exposed another week to such insinuations."
+      },
+      "identityReviewNote": "In later chapters distinguish the mother from married daughters-in-law by narrative time; no global alias assignment."
+    },
+    {
+      "id": "sir-john-middleton",
+      "name": "Sir John Middleton",
+      "candidateAliases": [
+        "Sir John",
+        "Sir John Middleton"
+      ],
+      "introductoryDescription": "Mrs. Dashwood’s relative and the landlord of Barton Cottage.",
+      "suggestedEarliestCardChapter": 4,
+      "nameEvidence": {
+        "chapter": 4,
+        "paragraphOneBased": 20,
+        "text": "In this state of her spirits, a letter was delivered to her from the post, which contained a proposal particularly well timed. It was the offer of a small house, on very easy terms, belonging to a relation of her own, a gentleman of consequence and property in Devonshire. The letter was from this gentleman himself, and written in the true spirit of friendly accommodation. He understood that she was in need of a dwelling; and though the house he now offered her was merely a cottage, he assured her that everything should be done to it which she might think necessary, if the situation pleased her. He earnestly pressed her, after giving the particulars of the house and garden, to come with her daughters to Barton Park, the place of his own residence, from whence she might judge, herself, whether Barton Cottage, for the houses were in the same parish, could, by any alteration, be made comfortable to her. He seemed really anxious to accommodate them and the whole of his letter was written in so friendly a style as could not fail of giving pleasure to his cousin; more especially at a moment when she was suffering under the cold and unfeeling behaviour of her nearer connections. She needed no time for deliberation or inquiry. Her resolution was formed as she read. The situation of Barton, in a county so far distant from Sussex as Devonshire, which, but a few hours before, would have been a sufficient objection to outweigh every possible advantage belonging to the place, was now its first recommendation. To quit the neighbourhood of Norland was no longer an evil; it was an object of desire; it was a blessing, in comparison of the misery of continuing her daughter-in-law’s guest; and to remove for ever from that beloved place would be less painful than to inhabit or visit it while such a woman was its mistress. She instantly wrote Sir John Middleton her acknowledgment of his kindness, and her acceptance of his proposal; and then hastened to show both letters to her daughters, that she might be secure of their approbation before her answer were sent."
+      },
+      "identityReviewNote": "Different John from John Dashwood and John Willoughby."
+    },
+    {
+      "id": "lady-middleton",
+      "name": "Lady Middleton",
+      "candidateAliases": [
+        "Lady Middleton"
+      ],
+      "introductoryDescription": "Sir John’s wife, graceful in manners and devoted to her children.",
+      "suggestedEarliestCardChapter": 6,
+      "nameEvidence": {
+        "chapter": 5,
+        "paragraphOneBased": 6,
+        "text": "The man and one of the maids were sent off immediately into Devonshire, to prepare the house for their mistress’s arrival; for as Lady Middleton was entirely unknown to Mrs. Dashwood, she preferred going directly to the cottage to being a visitor at Barton Park; and she relied so undoubtingly on Sir John’s description of the house, as to feel no curiosity to examine it herself till she entered it as her own. Her eagerness to be gone from Norland was preserved from diminution by the evident satisfaction of her daughter-in-law in the prospect of her removal; a satisfaction which was but feebly attempted to be concealed under a cold invitation to her to defer her departure. Now was the time when her son-in-law’s promise to his father might with particular propriety be fulfilled. Since he had neglected to do it on first coming to the estate, their quitting his house might be looked on as the most suitable period for its accomplishment. But Mrs. Dashwood began shortly to give over every hope of the kind, and to be convinced, from the general drift of his discourse, that his assistance extended no farther than their maintenance for six months at Norland. He so frequently talked of the increasing expenses of housekeeping, and of the perpetual demands upon his purse, which a man of any consequence in the world was beyond calculation exposed to, that he seemed rather to stand in need of more money himself than to have any design of giving money away."
+      },
+      "identityReviewNote": "Keep separate from her sister Charlotte Palmer."
+    },
+    {
+      "id": "mrs-jennings",
+      "name": "Mrs. Jennings",
+      "candidateAliases": [
+        "Mrs. Jennings"
+      ],
+      "introductoryDescription": "A sociable widow and the mother of Lady Middleton.",
+      "suggestedEarliestCardChapter": 7,
+      "nameEvidence": {
+        "chapter": 7,
+        "paragraphOneBased": 5,
+        "text": "Mrs. Jennings, Lady Middleton’s mother, was a good-humoured, merry, fat, elderly woman, who talked a great deal, seemed very happy, and rather vulgar. She was full of jokes and laughter, and before dinner was over had said many witty things on the subject of lovers and husbands; hoped they had not left their hearts behind them in Sussex, and pretended to see them blush whether they did or not. Marianne was vexed at it for her sister’s sake, and turned her eyes towards Elinor to see how she bore these attacks, with an earnestness which gave Elinor far more pain than could arise from such common-place raillery as Mrs. Jennings’s."
+      },
+      "identityReviewNote": "Match family relations locally; no unspecific “mother” alias."
+    },
+    {
+      "id": "colonel-brandon",
+      "name": "Colonel Brandon",
+      "candidateAliases": [
+        "Brandon",
+        "the colonel"
+      ],
+      "introductoryDescription": "Sir John’s quiet and gentlemanly friend.",
+      "suggestedEarliestCardChapter": 7,
+      "nameEvidence": {
+        "chapter": 7,
+        "paragraphOneBased": 6,
+        "text": "Colonel Brandon, the friend of Sir John, seemed no more adapted by resemblance of manner to be his friend, than Lady Middleton was to be his wife, or Mrs. Jennings to be Lady Middleton’s mother. He was silent and grave. His appearance however was not unpleasing, in spite of his being in the opinion of Marianne and Margaret an absolute old bachelor, for he was on the wrong side of five and thirty; but though his face was not handsome, his countenance was sensible, and his address was particularly gentlemanlike."
+      },
+      "identityReviewNote": "His history belongs to later chapter-gated cards; do not reveal it in opening copy."
+    },
+    {
+      "id": "john-willoughby",
+      "name": "John Willoughby",
+      "candidateAliases": [
+        "Willoughby",
+        "Mr. Willoughby"
+      ],
+      "introductoryDescription": "A young visitor at Allenham who helps Marianne after her fall.",
+      "suggestedEarliestCardChapter": 9,
+      "nameEvidence": {
+        "chapter": 9,
+        "paragraphOneBased": 10,
+        "text": "She thanked him again and again; and, with a sweetness of address which always attended her, invited him to be seated. But this he declined, as he was dirty and wet. Mrs. Dashwood then begged to know to whom she was obliged. His name, he replied, was Willoughby, and his present home was at Allenham, from whence he hoped she would allow him the honour of calling tomorrow to enquire after Miss Dashwood. The honour was readily granted, and he then departed, to make himself still more interesting, in the midst of a heavy rain."
+      },
+      "identityReviewNote": "No “John” alias without scene review. Do not expose later conduct or relationship outcomes early."
+    },
+    {
+      "id": "charlotte-palmer",
+      "name": "Charlotte Palmer",
+      "candidateAliases": [
+        "Mrs. Palmer",
+        "Charlotte"
+      ],
+      "introductoryDescription": "Lady Middleton’s younger sister.",
+      "suggestedEarliestCardChapter": 19,
+      "nameEvidence": {
+        "chapter": 19,
+        "paragraphOneBased": 22,
+        "text": "Mrs. Palmer was several years younger than Lady Middleton, and totally unlike her in every respect. She was short and plump, had a very pretty face, and the finest expression of good humour in it that could possibly be. Her manners were by no means so elegant as her sister’s, but they were much more prepossessing. She came in with a smile, smiled all the time of her visit, except when she laughed, and smiled when she went away. Her husband was a grave looking young man of five or six and twenty, with an air of more fashion and sense than his wife, but of less willingness to please or be pleased. He entered the room with a look of self-consequence, slightly bowed to the ladies, without speaking a word, and, after briefly surveying them and their apartments, took up a newspaper from the table, and continued to read it as long as he staid."
+      },
+      "identityReviewNote": "Keep separate from Mr. Palmer."
+    },
+    {
+      "id": "mr-palmer",
+      "name": "Mr. Palmer",
+      "candidateAliases": [
+        "Mr. Palmer"
+      ],
+      "introductoryDescription": "Charlotte Palmer’s husband.",
+      "suggestedEarliestCardChapter": 19,
+      "nameEvidence": {
+        "chapter": 19,
+        "paragraphOneBased": 24,
+        "text": "“Well! what a delightful room this is! I never saw anything so charming! Only think, Mama, how it is improved since I was here last! I always thought it such a sweet place, ma’am! (turning to Mrs. Dashwood) but you have made it so charming! Only look, sister, how delightful every thing is! How I should like such a house for myself! Should not you, Mr. Palmer?”"
+      },
+      "identityReviewNote": "Do not match collective Palmers as an individual."
+    },
+    {
+      "id": "lucy-steele",
+      "name": "Lucy Steele",
+      "candidateAliases": [
+        "Lucy",
+        "Miss Lucy"
+      ],
+      "introductoryDescription": "One of the Steele sisters, introduced through the Barton circle.",
+      "suggestedEarliestCardChapter": 21,
+      "nameEvidence": {
+        "chapter": 21,
+        "paragraphOneBased": 4,
+        "text": "“Do come now,” said he—“pray come—you must come—I declare you shall come—You can’t think how you will like them. Lucy is monstrous pretty, and so good humoured and agreeable! The children are all hanging about her already, as if she was an old acquaintance. And they both long to see you of all things, for they have heard at Exeter that you are the most beautiful creatures in the world; and I have told them it is all very true, and a great deal more. You will be delighted with them I am sure. They have brought the whole coach full of playthings for the children. How can you be so cross as not to come? Why they are your cousins, you know, after a fashion. _You_ are my cousins, and they are my wife’s, so you must be related.”"
+      },
+      "identityReviewNote": "Later confidences require their disclosure chapter; do not put them in an opening description."
+    },
+    {
+      "id": "anne-steele",
+      "name": "Anne Steele",
+      "candidateAliases": [
+        "Nancy",
+        "Miss Steele",
+        "Anne Steele"
+      ],
+      "introductoryDescription": "Lucy’s elder sister.",
+      "suggestedEarliestCardChapter": 21,
+      "nameEvidence": {
+        "chapter": 21,
+        "paragraphOneBased": 31,
+        "text": "“Lord! Anne,” cried her sister, “you can talk of nothing but beaux;—you will make Miss Dashwood believe you think of nothing else.” And then to turn the discourse, she began admiring the house and the furniture."
+      },
+      "identityReviewNote": "“Miss Steele” commonly means the elder sister but requires scene-specific review; Nancy is Anne, not Lucy. Her given name is disclosed at 21:31; Nancy first appears at 32:26."
+    },
+    {
+      "id": "mrs-smith",
+      "name": "Mrs. Smith",
+      "candidateAliases": [
+        "Mrs. Smith"
+      ],
+      "introductoryDescription": "The elderly owner of Allenham and a relative of Willoughby.",
+      "suggestedEarliestCardChapter": 13,
+      "nameEvidence": {
+        "chapter": 13,
+        "paragraphOneBased": 66,
+        "text": "Elinor could hardly believe this to be true, as it seemed very unlikely that Willoughby should propose, or Marianne consent, to enter the house while Mrs. Smith was in it, with whom Marianne had not the smallest acquaintance."
+      },
+      "identityReviewNote": "Mentioned unnamed in chapter 9; not a Dashwood or Ferrars relation."
+    },
+    {
+      "id": "eliza-elder",
+      "name": "Eliza (the elder)",
+      "candidateAliases": [
+        "Eliza",
+        "Mrs. Brandon"
+      ],
+      "introductoryDescription": "Colonel Brandon’s early love and relation, later married to his brother.",
+      "suggestedEarliestCardChapter": 31,
+      "nameEvidence": {
+        "chapter": 31,
+        "paragraphOneBased": 24,
+        "text": "“If I am not deceived by the uncertainty, the partiality of tender recollection, there is a very strong resemblance between them, as well in mind as person. The same warmth of heart, the same eagerness of fancy and spirits. This lady was one of my nearest relations, an orphan from her infancy, and under the guardianship of my father. Our ages were nearly the same, and from our earliest years we were playfellows and friends. I cannot remember the time when I did not love Eliza; and my affection for her, as we grew up, was such, as perhaps, judging from my present forlorn and cheerless gravity, you might think me incapable of having ever felt. Hers, for me, was, I believe, fervent as the attachment of your sister to Mr. Willoughby and it was, though from a different cause, no less unfortunate. At seventeen she was lost to me for ever. She was married—married against her inclination to my brother. Her fortune was large, and our family estate much encumbered. And this, I fear, is all that can be said for the conduct of one, who was at once her uncle and guardian. My brother did not deserve her; he did not even love her. I had hoped that her regard for me would support her under any difficulty, and for some time it did; but at last the misery of her situation, for she experienced great unkindness, overcame all her resolution, and though she had promised me that nothing—but how blindly I relate! I have never told you how this was brought on. We were within a few hours of eloping together for Scotland. The treachery, or the folly, of my cousin’s maid betrayed us. I was banished to the house of a relation far distant, and she was allowed no liberty, no society, no amusement, till my father’s point was gained. I had depended on her fortitude too far, and the blow was a severe one—but had her marriage been happy, so young as I then was, a few months must have reconciled me to it, or at least I should not have now to lament it. This however was not the case. My brother had no regard for her; his pleasures were not what they ought to have been, and from the first he treated her unkindly. The consequence of this, upon a mind so young, so lively, so inexperienced as Mrs. Brandon’s, was but too natural. She resigned herself at first to all the misery of her situation; and happy had it been if she had not lived to overcome those regrets which the remembrance of me occasioned. But can we wonder that, with such a husband to provoke inconstancy, and without a friend to advise or restrain her (for my father lived only a few months after their marriage, and I was with my regiment in the East Indies) she should fall? Had I remained in England, perhaps—but I meant to promote the happiness of both by removing from her for years, and for that purpose had procured my exchange. The shock which her marriage had given me,” he continued, in a voice of great agitation, “was of trifling weight—was nothing to what I felt when I heard, about two years afterwards, of her divorce. It was _that_ which threw this gloom,—even now the recollection of what I suffered—”"
+      },
+      "identityReviewNote": "Chapter 31 retrospective story; not Eliza Williams. His “sister” means sister-in-law in this account. Mrs. Brandon at the end of the novel is Marianne; this alias identifies the elder Eliza only inside the retrospective account."
+    },
+    {
+      "id": "eliza-younger",
+      "name": "Eliza Williams",
+      "candidateAliases": [
+        "Miss Williams",
+        "Eliza Williams"
+      ],
+      "introductoryDescription": "Miss Williams, a woman mentioned in connection with Colonel Brandon.",
+      "suggestedEarliestCardChapter": 13,
+      "nameEvidence": {
+        "chapter": 13,
+        "paragraphOneBased": 55,
+        "text": "“Yes; it is about Miss Williams, I am sure.”"
+      },
+      "identityReviewNote": "Mrs. Jennings’s claim of paternity in chapter 13 is gossip, not narrative fact. Chapter 31 paragraph 28 identifies her as the elder Eliza’s daughter entrusted to Brandon. Do not expose that disclosure in a chapter 13 card. Keep the canonical Eliza Williams identity internal until chapter 31; initial display is Miss Williams.",
+      "initialDisplayName": "Miss Williams",
+      "fullNameDisplayAfterChapter": 31
+    },
+    {
+      "id": "miss-grey",
+      "name": "Miss Grey",
+      "candidateAliases": [
+        "Miss Grey"
+      ],
+      "introductoryDescription": "A woman discussed by Mrs. Jennings in connection with Willoughby.",
+      "suggestedEarliestCardChapter": 30,
+      "nameEvidence": {
+        "chapter": 30,
+        "paragraphOneBased": 3,
+        "text": "“How is she, Miss Dashwood? Poor thing! she looks very bad. No wonder. Ay, it is but too true. He is to be married very soon—a good-for-nothing fellow! I have no patience with him. Mrs. Taylor told me of it half an hour ago, and she was told it by a particular friend of Miss Grey herself, else I am sure I should not have believed it; and I was almost ready to sink as it was. Well, said I, all I can say is, that if this be true, he has used a young lady of my acquaintance abominably ill, and I wish with all my soul his wife may plague his heart out. And so I shall always say, my dear, you may depend on it. I have no notion of men’s going on in this way; and if ever I meet him again, I will give him such a dressing as he has not had this many a day. But there is one comfort, my dear Miss Marianne; he is not the only young man in the world worth having; and with your pretty face you will never want admirers. Well, poor thing! I won’t disturb her any longer, for she had better have her cry out at once and have done with. The Parrys and Sandersons luckily are coming tonight you know, and that will amuse her.”"
+      },
+      "identityReviewNote": "Gate at the disclosure paragraph in chapter 30; do not expose marriage information earlier."
+    }
+  ],
+  "runtimeMentionsGenerated": false,
+  "reviewStatus": "Full-book author identity and disclosure check complete; independent character/spoiler acceptance pending.",
+  "revealPolicy": "Proposed cards become eligible only after the specified chapter is completed; integration must verify paragraph-level disclosure before choosing earlier gates. Canonical identity names are internal until their display name is disclosed."
+}
