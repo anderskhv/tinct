@@ -38,3 +38,21 @@ Every item gets `spoiler`: `free` (safe before reading), `anchored` (hidden unti
 - **Second Deutsch tweet (2017-08-04, "If only Shelley had understood Godwin's rationality...")**: from the same Grok summary, no URL. Unconfirmed; Grok itself said it is not directly about the novel's meaning.
 - **Reddit**: reddit.com is blocked to our fetcher and search returned only Goodreads. Anders needs to pick threads by hand.
 - Unwatched videos: spoiler levels are guesses until someone watches them.
+
+## TikTok spoken-word pull quotes (2026-10-01)
+Source: the caption tracks TikTok serves with each video page (WebVTT). Chris's track is machine speech-to-text ("MT"), jeyessays's is auto speech recognition ("ASR"), so wording can be off. Full transcripts are not stored here; check against the video before using any line publicly, and get the creator's OK.
+
+**@chris.kinda.reads** (https://www.tiktok.com/@chris.kinda.reads/video/7572341080457334046)
+- "Have you ever read something so good that you had to stop reading it?"
+- "I had to go walk the chapter off. Seriously."
+- "Mary Shelley wrote this at 18 years old." (caption spells it "Shelly")
+- "There's so many quotable lines... I got a notes full of just quotes from this book."
+- "I grew up on Frankenstein. I always loved Frankenstein, but I never knew it was this deep."
+- "If I read this in high school, I would have... became a reader years ago." (caption garbled; verify by ear)
+- No plot spoilers beyond "Everything came full circle in the end."
+
+**@jeyessays** (https://www.tiktok.com/@jeyessays/video/7680951116149853458)
+- "Victor Frankenstein's real mistake is that he spends years asking whether he can create life but almost no time asking if he should."
+- "Victor has spent years preparing to create the creature and he has spent almost no time preparing for the creature to actually exist."
+- "So I don't think the Frankenstein warning is don't create the monster. It's something more uncomfortable. Don't let your ability to create something outrun your responsibility for when that creation comes to life."
+- Spoiler level: discusses the creature being abandoned (early plot), no ending.
