@@ -4,7 +4,7 @@
 - Title: The Adventures of Sherlock Holmes
 - Author: Arthur Conan Doyle
 - Collection year / ySort: 1892
-- Language: English; original-en and eventual accepted modern-en.
+- Language: English; original-en and accepted modern-en.
 - Form: short-story collection (detective fiction); twelve independent stories, not a novel.
 - Historical period: late Victorian. Existing broad era key: modern (19th Century).
 - Themes: observation, inference, deception, reputation, class, gender, justice, friendship.
@@ -18,4 +18,4 @@ Alternative requiring no House relabelling: an explicitly approved “Short Fict
 
 ## Edition defaults after acceptance
 
-Primary: accepted Tinct Modern E. Compare: original-en, the author's own English. Do not mark the full pair aligned until all twelve modern stories and their reviews/gates are complete. No language, narration, or publication work is implied by this proposal.
+Primary: accepted Tinct Modern E. Compare: original-en, the author's own English. The full pair is now content-aligned: all twelve modern stories and their reviews/gates are complete. Integration must preserve that one-to-one structure. No language, narration, or publication work is implied by this proposal.

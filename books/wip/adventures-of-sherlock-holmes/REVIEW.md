@@ -69,6 +69,33 @@ Restored bile-shot eyes as deep-set eyes with yellowed whites (95), and an under
 
 Restored the thumb-over-shoulder gesture (4), a carriage with an open door rather than an open carriage (88), payment due rather than already earned (104), and a forfeited fifty-guinea fee (175). Independent reader verified these four repairs and >=75% floor. The independent final recheck read all 58 expanded passages against the source and accepted story 9 with no further defects. Preserved hydraulic operation, horse/circular-drive inference, names, figures, uncertainty and the unresolved escape.
 
-### Current acceptance boundary
+### Historical nine-story checkpoint
 
 Stories 10–12 have not been rendered or reviewed. The original is complete, but the book package remains NOT READY. The cumulative 1–9 gate passes; the actual whole-book gate fails on 12 versus 9 stories. No full-book acceptance is implied. Resume at story 10 paragraph 1.
+
+
+## Final continuation review — 2026-10-01
+
+This final acceptance supersedes the incomplete checkpoint scopes above. Reviewer: source_review, an independent read-only reader. All original/modern paragraph pairs in the final three stories, all word-floor expansions and all repairs were read against the source.
+
+### Story 10 — The Noble Bachelor (226 pairs)
+
+Preserved Holmes's “right” wordplay, plural hotel rooms, the bride's refusal to claim the attention was upon her, news from New Mexico without inventing a letter, and the initial inference of someone from America without prematurely asserting nationality. Restored the class judgement in “common-looking”. Final reread repaired grammar at paragraphs 39, 102 and 210. Reviewer accepted all 226 pairs and expansions. Source age/date and Scandinavian royal reference remain as written.
+
+### Story 11 — The Beryl Coronet (222 pairs)
+
+Restored “only in one matter” rather than one occasion, Mary's certainty about Lucy, the other side of the West End, Holmes's tentative reconstruction, and poor sleep rather than complete sleeplessness. Preserved the source's unusual “small wooden thicket” wording. Final review restored “in England” at 19, repaired the overloaded sentence at 40, and clarified following the tracks at 214. The independent reader rechecked all repairs and accepted the story.
+
+### Story 12 — The Copper Beeches (212 pairs)
+
+All pairs reviewed, including every expansion of a paragraph initially below the word floor. At 98, restored Holmes's explicitly stated belief founded on experience rather than converting it into established knowledge. Preserved the window/chair/mirror sequence, blue dress and beige fabric, hair evidence, locked-wing layout, dog precautions, failed initial rescue theory, inheritance motive and Mrs. Toller's agency. All repairs and 212 paragraph floors independently verified; accepted.
+
+The character proposal's former assertion that this source supplied no given name for Rucastle was incorrect. Jephro is explicitly present at 12:64 and 12:122. The proposal now records that evidence while retaining Mr. Rucastle as its proposed display name.
+
+### Final acceptance
+
+READY — content package. Original and modern editions each contain 12 flat stories and 2,527 aligned paragraphs. All 2,527 modern paragraphs retain at least 75% of their source word counts; modern total 88,823 words versus original 104,347. Every authored chunk exactly mirrors its authoritative edition segment. No unresolved editorial review findings.
+
+Final batch 10–12 gate PASS: similarity 0.512, no LIGHT/MECHANICAL stories, no identical long paragraphs, scaffolding or truncated quotations. Authoritative whole-book gate PASS: similarity 0.484, zero LIGHT/MECHANICAL stories, 1/1,484 identical long paragraphs, no scaffolding or truncated quotations. The one unchanged long paragraph is 1:22, the royal letter whose word order Holmes analyses. Similarity is supporting evidence, not a substitute for the completed independent reading.
+
+Onboarding and selected character/taxonomy proposals accepted within their stated content scope. This is not runtime character generation, taxonomy approval, registration, publication or deployment. Exact accepted hashes and coordinates are pinned in MANIFEST.json and qa/alignment-and-length.json.
