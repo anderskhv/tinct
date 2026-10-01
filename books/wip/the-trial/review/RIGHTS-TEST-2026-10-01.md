@@ -1,0 +1,9 @@
+# The Trial — rights test (Claude, 2026-10-01)
+
+**Result: NOT cleared. Do not publish `the-trial` modern-en as it stands.**
+
+1. Kafka's own text — PASS. Kafka d.1924; public domain in Denmark/EU (life+70) and the US. The 1925 first edition is the source.
+2. Brod's editorial contribution — OPEN (low practical risk). Brod d.1968. The "scientific edition" neighbouring right is long expired (1925 + max 30 years). What remains is the originality of Brod's selection and ordering of the ten chapters from manuscript bundles, and the four lines he rearranged in chapter 8. Chapter labels are neutral labels of our own, not Brod's headings. Needs a short Danish IP-lawyer opinion before publication.
+3. Independence from copyrighted English translations — **FAIL** (found by this test). Measured against David Wyllie's copyrighted translation (Gutenberg #7849): 116 of 140 paragraphs share a run of 8+ identical words; 60 paragraphs share a run of 12+ words; 9 paragraphs share a run of 20+ words, the longest 30 words in narrative prose. Words inside 8+ runs: about 6,800 of 74,000 (9%); inside 12+ runs: about 1,900 (2.5%). Independent renderings of the same German share short formulas but not 20–30 word narrative runs; this indicates the rendering reproduced remembered wording of that translation. Codex disclosed it saw a translator's name in a search snippet but did not consult a translation; the overlap suggests memory, not consultation.
+
+Remediation: re-render every paragraph flagged by `overlap-check.py` (N=10) directly from the German, in deliberately different phrasing, then re-run `python3 books/wip/the-trial/review/overlap-check.py <modern-en.json> --n 10` until zero paragraphs are flagged. Re-run at N=8 and inspect any remainder (short dialogue formulas only). The script prints only coordinates, never reference wording.
