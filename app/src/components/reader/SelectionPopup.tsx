@@ -164,6 +164,7 @@ export function SelectionPopup({
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
   useReaderSelectionCopy(lab ? selection.text : null)
   const compactAnchor = useRef<{ x: number; y: number; selectionX: number; selectionY: number } | null>(null)
+  const explainAnchor = useRef<{ x: number; y: number; height: number; edge: 'below' | 'above' } | null>(null)
   const contextualExplain = lab && !!onRequestExplanation
   const [explainPlacement, setExplainPlacement] = useState({ edge: 'bottom', available: 520 })
   const openContextualExplanation = () => {
@@ -182,8 +183,25 @@ export function SelectionPopup({
     if (!lab || !popupRef.current) return
     const el = popupRef.current
     const place = () => {
-      // Preserve the compact anchor while CSS expands the card to the reader.
-      if (el.querySelector('.lab-contextual-explain.is-expanded')) return
+      // An expanding explanation grows in place: the edge that faces the
+      // selection stays put, it widens to one leaf, and it moves only as far
+      // as the window edge requires (it used to jump to a fixed leaf box).
+      if (el.querySelector('.lab-contextual-explain.is-expanded')) {
+        const anchor = explainAnchor.current
+        if (!anchor) return
+        const low = window.innerHeight - 32
+        // Room on the card's own side of the selection: use it and scroll
+        // inside, so the card never slides over the passage it explains.
+        const room = anchor.edge === 'below' ? low - anchor.y : anchor.y + anchor.height - 76
+        if (room >= 280) el.style.setProperty('max-height', `${room}px`, 'important')
+        else el.style.removeProperty('max-height')
+        const height = el.offsetHeight
+        const y = Math.max(76, Math.min(low - height, anchor.edge === 'below' ? anchor.y : anchor.y + anchor.height - height))
+        const x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, anchor.x))
+        el.style.setProperty('--anchored-popup-x', `${x}px`)
+        el.style.setProperty('--anchored-popup-y', `${y}px`)
+        return
+      }
       const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
         .flatMap(node => Array.from(node.getClientRects()))
         .filter(box => box.width && box.height && box.bottom > 76 && box.top < window.innerHeight - 32)
@@ -204,6 +222,15 @@ export function SelectionPopup({
       if (popupMode === 'main' || popupMode === 'define') {
         compactAnchor.current = { x, y, selectionX: selection.x, selectionY: selection.y }
       }
+      if (popupMode === 'explain') {
+        const edge = y >= bottom ? 'below' : 'above'
+        explainAnchor.current = { x, y, height, edge }
+        // Cap the card to its side of the selection from the start, so growing
+        // (more text, or More) never pushes it past the window edge.
+        const room = edge === 'below' ? low - y : y + height - 76
+        if (room >= 280) el.style.setProperty('max-height', `${room}px`, 'important')
+        else el.style.removeProperty('max-height')
+      } else el.style.removeProperty('max-height')
       el.style.setProperty('--anchored-popup-x', `${x}px`)
       el.style.setProperty('--anchored-popup-y', `${y}px`)
     }

@@ -892,6 +892,39 @@ async function revealKeepsPage(engine,name,phone) {
   } finally {await browser.close();results.push(result)}
 }
 
+// Desktop panels open beside what opened them and grow in place (Anders 2026-10-01).
+async function panelsOpenNearSource(engine,name) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'desktop-panels-near-source',live}
+  try {
+    state=await boot(browser,false,'odyssey','original-en',2)
+    const {page}=state
+    const menu=await page.getByTestId('lab-super').boundingBox()
+    for(const id of ['settings','editions','catchup']){
+      await clickMenu(page,id);await page.waitForTimeout(700)
+      const sheet=await page.locator('section.lab-v2-sheet').first().boundingBox()
+      assert(Math.abs(sheet.x+sheet.width-(menu.x+menu.width))<=40,`${id} opens right-aligned under the Menu button: ${JSON.stringify(sheet)}`)
+      assert(sheet.y>=menu.y+menu.height&&sheet.y<=menu.y+menu.height+60,`${id} opens just below the Menu button: ${JSON.stringify(sheet)}`)
+      await page.keyboard.press('Escape');await page.waitForTimeout(300)
+    }
+    const words=page.getByTestId('lab-word');const a=await words.nth(40).boundingBox(),z=await words.nth(52).boundingBox()
+    await page.mouse.move(a.x+3,a.y+a.height/2);await page.mouse.down();await page.mouse.move(z.x+z.width-3,z.y+z.height/2,{steps:10});await page.mouse.up()
+    await page.getByRole('button',{name:'Explain',exact:true}).click()
+    await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
+    await page.waitForTimeout(400)
+    const before=await page.locator('.selection-popup').boundingBox()
+    await page.getByRole('button',{name:'Expand explanation',exact:true}).click();await page.waitForTimeout(600)
+    const after=await page.locator('.selection-popup').boundingBox()
+    assert(Math.abs(after.x-before.x)<=4&&Math.abs(after.y-before.y)<=4,`Explain grows in place: ${JSON.stringify({before,after})}`)
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
 // Library -> Continue reopens the exact page, every time (guest; QA 2026-10-01 found one page of drift per round trip).
 async function libraryContinueKeepsPage(engine,name,phone) {
   const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
@@ -927,6 +960,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
   for(const phone of [false,true])await revealKeepsPage(engine,name,phone)
   for(const phone of [false,true])await libraryContinueKeepsPage(engine,name,phone)
+  await panelsOpenNearSource(engine,name)
   if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)

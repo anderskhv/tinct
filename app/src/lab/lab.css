@@ -6634,8 +6634,8 @@
 .lab[data-chrome-version="v2"] .lab-ask-thread { scrollbar-gutter: stable; padding-right: 20px; }
 .lab[data-chrome-version="v2"] .lab-contextual-explain { position: relative; }
 @media (min-width: 769px) {
-  .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain:has(.is-expanded) { left: calc(50vw + 12px) !important; right: 12px !important; }
-  .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain[data-explain-origin="left"]:has(.is-expanded) { left: 12px !important; right: calc(50vw + 12px) !important; }
+  /* Expanded: one leaf wide, positioned in place by SelectionPopup (grow, don't jump). */
+  .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain:has(.is-expanded) { width: calc(50vw - 24px) !important; }
 }
 
 .lab[data-chrome-version="v2"] .lab-selection-hint {
@@ -6770,14 +6770,15 @@
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-head { display:flex; justify-content:space-between; align-items:center; }
 .lab.is-desktop[data-chrome-version="v2"] [data-window-minimized="true"] > :not([data-reader-window-handle]) { display:none!important; }
 .lab.is-desktop[data-chrome-version="v2"] [data-window-minimized="true"] [data-reader-window-handle] { margin:0; padding:0; width:100%; height:100%; }
-.lab.is-desktop[data-chrome-version="v2"] .lab-v2-sheet[data-reader-window] { top:80px; bottom:auto; height:min(620px,calc(100dvh - 112px)); border-radius:18px; }
+/* Menu panels drop from the Menu button, where the menu itself was, and grow
+   downward with their content; a dragged panel keeps its own place (inline). */
+.lab.is-desktop[data-chrome-version="v2"] .lab-v2-sheet[data-reader-window] { top:calc(4.6rem + env(safe-area-inset-top, 0px)); right:24px; left:auto; transform:none; bottom:auto; height:auto; max-height:min(620px,calc(100dvh - 4.6rem - 32px)); border-radius:18px; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-v2-sheet-body { min-height:0; overflow-y:auto; overscroll-behavior:contain; }
 .lab.is-desktop[data-chrome-version="v2"] .selection-popup[data-reader-window] { min-width:260px; max-width:calc(50vw - 36px); }
-.lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-contextual-explain:has(.is-expanded) {
-  top:90px!important; width:calc(50vw - 88px); max-width:calc(50vw - 88px); right:auto!important;
-  left:calc(50vw + 24px)!important; max-height:calc(100dvh - 122px);
+.lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-lab.is-contextual-explain:has(.is-expanded) {
+  top:var(--anchored-popup-y, 88px)!important; left:var(--anchored-popup-x, 12px)!important; right:auto!important;
+  width:calc(50vw - 88px)!important; max-width:calc(50vw - 88px); max-height:calc(100dvh - 122px);
 }
-.lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-contextual-explain[data-explain-origin="left"]:has(.is-expanded) { left:64px!important; right:auto!important; }
 
 /* Definitions use the headword itself as the draggable title. */
 .lab[data-chrome-version="v2"] .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
