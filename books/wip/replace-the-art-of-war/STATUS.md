@@ -1,2 +1,2 @@
 STATUS: IN PROGRESS
-Modern chapters 1–9 drafted. Chapters 10–13, source comparison and final QA remain. Original N=8 clarification pending.
+All 13 modern chapters drafted; classifier PASS. Final source comparison and QA in progress. Original N=8 threshold clarification pending.
