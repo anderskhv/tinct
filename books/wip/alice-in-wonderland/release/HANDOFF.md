@@ -36,3 +36,10 @@ shutil.copyfile(p, 'app/public/data/characters/alice-in-wonderland.v1.json')
 - Paragraph-end gates are conservative: clicking the reveal name before its paragraph ends can retain the previous safe card until the next mention.
 - Apply characterReleases-entry.txt only in the separately owned integration lane. Keep the book out of BOOKS.
 - Carry forward INTEGRATION.md: original is Gutenberg Millennium Fulcrum Edition 3.0; no first-impression claim. Missing picture/frontispiece references at 9:43 / 11:3; verse/underscore reader visual QA remains. Prior extra verse-review coordinates: 10:25, 10:26, 10:59, 10:70, 12:45, 12:46; not re-approved by this asset task.
+
+## Introduction
+
+- Library preface reproduces the existing onboarding `about` verbatim, plus a final newline.
+- `manifest-entry.json`: 213 whitespace-delimited words; SHA-256 `c262a37489ac584fbc8a69de39114642ccbbc8b097e57c597baa1b453bdc6242`. Hash covers exact UTF-8 text bytes including the final newline.
+- Intro JSON matches the existing to-the-lighthouse shape: author biography, hook, four preface paragraphs and orientation. Hook matches `reviewedHooks-entry.txt`. New introduction copy is authoring-agent reviewed, not independently approved.
+- Integrator: append manifest entry to `docs/design/library-prefaces/manifest.json` and hook property to `reviewedHooks` in `app/public/lab/library_2/reviewed-introductions.js`. Neither shared file was edited.
