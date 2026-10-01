@@ -237,13 +237,17 @@ function updateLibrarianContext(){$('librarian-question').textContent=activeBook
 let panelLastRect={x:20,y:80};
 function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;if(next!=='minimized')$('librarian').classList.add('expanded');$('librarian').dataset.edge='none';if(next!=='minimized'){$('librarian').dataset.magnet='none';$('librarian').style.borderRadius='50%';}syncLock();if(next==='minimized'){$('librarian').classList.add('returning');const finish=()=>{$('librarian').classList.remove('expanded','returning');$('librarian').dataset.edge=dock.edge;};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(dock,finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrb(orbTarget()));}updateLibrarianContext();}
 let assistant=null,assistantLoading=null;
+const ASSISTANT_MODULE='/lab/library-2-assistant.js?v=20261001shelf';
+// Fetch the librarian's code while the page is idle, so Chat and Talk open without that wait.
+setTimeout(()=>(window.requestIdleCallback||setTimeout)(()=>import(ASSISTANT_MODULE).catch(()=>{}),{timeout:3000}),3000);
 async function loadAssistant(){
  if(assistant)return assistant;
  if(assistantLoading)return assistantLoading;
  $('talk').disabled=$('chat').disabled=true;$('librarian-loading').textContent='Connecting to your librarian…';
- assistantLoading=import('/lab/library-2-assistant.js?v=20260930-token').then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
+ assistantLoading=import(ASSISTANT_MODULE).then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
+  getShelf:()=>{const t=window.__library2Reading;const reading=(t?.reading||[]).map(b=>b.bookId),finished=(t?.finished||[]).map(b=>b.bookId);return{reading,finished,saved:[...savedBooks].filter(id=>!reading.includes(id)&&!finished.includes(id))};},
   returnTo:location.pathname+location.search,
   openBook:async id=>{
    const book=books.find(b=>b.id===id);if(!book)return;

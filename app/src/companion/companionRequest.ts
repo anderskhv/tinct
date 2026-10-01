@@ -7,7 +7,7 @@
  */
 import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
 import { COMPANION_EFFORT_TYPED, COMPANION_EFFORT_VOICE, type CompanionEffort } from '../companionModel'
-import { libraryAssistantSystem, type LibraryCatalogue } from '../lab/libraryLibrarian'
+import { libraryAssistantSystem, type LibraryCatalogue, type LibraryShelf } from '../lab/libraryLibrarian'
 import type { ChapterChatAction } from '../types'
 import { buildChapterChatInstructions, parseChapterChatAction } from './chapterChatPrompt'
 import { buildLabAskInstructions, type LabAskContext } from './labAskPrompt'
@@ -27,7 +27,7 @@ export interface CompanionRequest {
     activity?: { questions: string[]; highlights: string[] }
   }
   /** Library librarian: the book whose preparation pages are open, if any. */
-  library?: { contextBookId?: string | null }
+  library?: { contextBookId?: string | null; shelf?: LibraryShelf | null }
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -54,7 +54,8 @@ export const COMPANION_INTENT_EFFORT: Readonly<Record<CompanionIntent, Companion
   explain: COMPANION_EFFORT_VOICE,
   define: COMPANION_EFFORT_VOICE,
   chapter: COMPANION_EFFORT_TYPED,
-  library: COMPANION_EFFORT_TYPED,
+  // Short recommendations from a supplied list: start answering sooner.
+  library: COMPANION_EFFORT_VOICE,
 })
 
 const INTENTS = new Set<CompanionIntent>(['ask', 'explain', 'define', 'chapter', 'library'])
@@ -137,6 +138,17 @@ function stringItems(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string').slice(-ACTIVITY_ITEMS) : []
 }
 
+/** Shelf ids from the library, bounded; anything malformed is dropped, never an error. */
+export const SHELF_MAX_PER_GROUP = 30
+function parseShelf(raw: unknown): LibraryShelf | null {
+  if (!raw || typeof raw !== 'object') return null
+  const r = raw as Record<string, unknown>
+  const ids = (value: unknown) => Array.isArray(value)
+    ? [...new Set(value.filter((id): id is string => typeof id === 'string' && ID_RE.test(id)))].slice(0, SHELF_MAX_PER_GROUP)
+    : []
+  return { reading: ids(r.reading), saved: ids(r.saved), finished: ids(r.finished) }
+}
+
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
 export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (!raw || typeof raw !== 'object') return null
@@ -146,7 +158,7 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (intent === 'library') {
     const lib = r.library && typeof r.library === 'object' ? r.library as Record<string, unknown> : {}
     const contextBookId = typeof lib.contextBookId === 'string' && ID_RE.test(lib.contextBookId) ? lib.contextBookId : null
-    return { intent, library: { contextBookId } }
+    return { intent, library: { contextBookId, shelf: parseShelf(lib.shelf) } }
   }
   const context = parseContext(r.context)
   if (!context) return null
@@ -177,7 +189,7 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
 export function buildCompanionSystem(request: CompanionRequest, extras: { catalogue?: LibraryCatalogue | null } = {}): string {
   switch (request.intent) {
     case 'library':
-      return libraryAssistantSystem(extras.catalogue ?? null, request.library?.contextBookId ?? null)
+      return libraryAssistantSystem(extras.catalogue ?? null, request.library?.contextBookId ?? null, request.library?.shelf ?? null)
     case 'chapter': {
       const chapter = request.chapter!
       const context = request.context!
