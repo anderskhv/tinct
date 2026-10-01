@@ -1,10 +1,9 @@
-# NOT READY
+# Full draft complete — final review pending
 
 Original-en: complete, 50 chapters, 1,806 paragraphs, 118,639 whitespace-delimited words.
-Modern-en: chapters 1–42 drafted, 1,490 aligned paragraphs, 85,292 words. Chapters 43–50 not rendered. No placeholder chapters.
-Resume: chapter 43, paragraph 1. Final batch: chapters 43–50.
-Gates: 1–10 PASS; expanded 1–12 PASS; interim 13–16 PASS; complete 13–22 PASS (similarity 0.485; no light/mechanical chapters, identical long paragraphs, or truncated quotations). Whole-book gate blocked by incomplete chapter count. No complete-book acceptance. Complete 23–32 PASS (similarity 0.487; no light/mechanical chapters, identical long paragraphs, or truncated quotations). Complete 33–42 PASS (similarity 0.490; no light/mechanical chapters, identical long paragraphs, or truncated quotations).
-Onboarding: staged, exactly three whyItMatters entries, four reading angles, cast; acclaim omitted.
-Characters: identity/copy proposal only; taxonomy and metadata proposals staged.
-Pending: remaining rendering, complete-batch/whole-book gates, independent accessibility and semantic review, final handoff acceptance.
+Modern-en: complete, 50 chapters, 1,806 aligned paragraphs, 106,023 words. No placeholder chapters. All source paragraphs rendered.
+Gates: 1–10, expanded 1–12, interim 13–16, 13–22, 23–32, 33–42, and final 41–50 PASS. The final batch overlaps chapters 41–42 to keep a ten-chapter gate. Whole-book gate PASS: weighted similarity 0.475; light/mechanical chapters 0%; identical long paragraphs 0%; wrapped scaffolding 0; truncated quotations 0.
+Resume: final editorial QA and handoff; no unwritten chapters.
+Onboarding, characters, taxonomy and metadata proposals staged.
+Pending: final semantic/accessibility review, refreshed QA records and hashes, final handoff acceptance.
 No app/registry/live-edition writes, no publication, no narration, no Anthropic API calls.
