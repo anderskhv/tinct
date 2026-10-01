@@ -274,6 +274,16 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  'niels-lyhne': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '88dc925851aae72fa3602b26917ec696e13a8499117c98298e71c6909f87521a',
+        after: '93d2ee548c93d558a7c858e31836ddf1c6f4087ffb8776ea28f37ea7eeb352f9',
+      },
+    },
+  },
   'pride-and-prejudice': {
     revision: 'structure-2026-09-24.1',
     releasedAt: Date.parse('2026-09-25T12:00:00Z'),

@@ -99,7 +99,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'don-quixote': { editions: EN, revision: '2026-09-12.1' },
   'war-and-peace': { editions: EN, revision: '2026-09-12.1' },
   ulysses: { editions: EN, revision: '2026-09-12.1' },
-  'niels-lyhne': { editions: EN, revision: '2026-09-12.1' },
+  'niels-lyhne': { editions: EN, revision: '2026-10-01.1' },
   walden: { editions: EN, revision: '2026-09-12.1' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
   iliad: { editions: EN, revision: '2026-09-12.1' },
