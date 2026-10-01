@@ -302,18 +302,21 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   const justRead = justLeftReader(auth.userId)
   const needsCatalogue = !!justRead && !cached?.reading.some(book => book.bookId === justRead.bookId)
   if (cached && !needsCatalogue) options.onCached?.(withJustRead(cached, justRead, null))
-  const books = await catalogueReady
-  if (needsCatalogue) options.onCached?.(withJustRead(cached ?? { mode: 'returning', reading: [], finished: [] } as ReadingTable, justRead, books.get(justRead!.bookId) ?? null))
+  // Account reads do not need the catalogue: start them now, alongside its
+  // download (1.6 MB), instead of after it. Same reads, same merge below.
+  let catalogueBooks: Awaited<typeof catalogueReady> | null = null
   const warmArtwork = (positions: LabPositionState | null) => {
     if (!options.onArtwork || !positions) return
-    const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
-    const artwork = [...ids].flatMap(id => {
-      const book = id ? books.get(id) : null
-      return book ? [{ bookId: book.id, cover: book.art?.src ?? null, tone: book.cover?.background ?? null }] : []
-    })
-    // Warming is optional presentation work. It must not block or fail data
-    // reconciliation, and never returns reading progress or recap text early.
-    try { options.onArtwork(artwork) } catch { /* Artwork can still load on render. */ }
+    catalogueReady.then(books => {
+      const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
+      const artwork = [...ids].flatMap(id => {
+        const book = id ? books.get(id) : null
+        return book ? [{ bookId: book.id, cover: book.art?.src ?? null, tone: book.cover?.background ?? null }] : []
+      })
+      // Warming is optional presentation work. It must not block or fail data
+      // reconciliation, and never returns reading progress or recap text early.
+      try { options.onArtwork?.(artwork) } catch { /* Artwork can still load on render. */ }
+    }, () => {})
   }
   // Independent account reads start together; reconcile every mirror before
   // deriving the shelf, so slower memory/completion reads cannot paint stale data.
@@ -325,7 +328,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     // This view uses the merged sessions, not loadRecap's discarded excerpt
     // card. A chapter download and generation cannot improve the table here.
     loadChapter: async () => null,
-    bookTitle: bookId => books.get(bookId)?.title,
+    bookTitle: bookId => catalogueBooks?.get(bookId)?.title,
     online: isOnline,
     allowSummary: false,
   }).catch(() => null)
@@ -337,6 +340,11 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       else localStorage.removeItem(`tinct:${row.key}`)
     }
   }, () => {}) : Promise.resolve()
+  // Keep the reads' rejections handled while the catalogue is awaited.
+  void Promise.allSettled([membershipReady, positionsReady, memoryReady, completionsReady])
+  const books = await catalogueReady
+  catalogueBooks = books
+  if (needsCatalogue) options.onCached?.(withJustRead(cached ?? { mode: 'returning', reading: [], finished: [] } as ReadingTable, justRead, books.get(justRead!.bookId) ?? null))
   const [positions, membership] = await Promise.all([positionsReady, membershipReady, memoryReady, completionsReady])
   lastPositions = positionsWithProduction(positions, books)
   const list = readingList({
