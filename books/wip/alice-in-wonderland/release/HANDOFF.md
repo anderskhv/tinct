@@ -43,3 +43,19 @@ shutil.copyfile(p, 'app/public/data/characters/alice-in-wonderland.v1.json')
 - `manifest-entry.json`: 213 whitespace-delimited words; SHA-256 `c262a37489ac584fbc8a69de39114642ccbbc8b097e57c597baa1b453bdc6242`. Hash covers exact UTF-8 text bytes including the final newline.
 - Intro JSON matches the existing to-the-lighthouse shape: author biography, hook, four preface paragraphs and orientation. Hook matches `reviewedHooks-entry.txt`. New introduction copy is authoring-agent reviewed, not independently approved.
 - Integrator: append manifest entry to `docs/design/library-prefaces/manifest.json` and hook property to `reviewedHooks` in `app/public/lab/library_2/reviewed-introductions.js`. Neither shared file was edited.
+
+## Threads and audio snippet
+
+- 31 thread entries, 83 English chapter summaries; chapter keys cover live 1–12 exactly. Same 31 IDs as cards/proposal. Shape follows existing convention (`bookId`, `characters`, localized name/epithet, `role`, `searchNames`, `chapters` with `modern-en` summaries).
+- Summaries describe only their named chapter, including that chapter's events; they are not paragraph-gated cards. Static names/epithets stay at the safe initial identity. Ambiguous numeric names and baby/sister generic descriptions have empty thread search lists; other searches use narrow names. No external character links needed.
+- Review the receiving thread consumer's chapter cutoff before integration: whole-chapter summaries contain within-chapter spoilers. Paragraph-safe recognition must use the reviewed character sidecar.
+- `audioAvailability-entries.txt` supplies proposed English eligible_editions entries only. Existing manifest basis describes a historical recording audit; these proposals mean streaming eligibility under the current Grok policy, not verified recordings. No audio has been generated, played or prewarmed; provider/cache acceptance remains with the separate integration/audio owner.
+
+## Final validation and scope
+
+- Existing character suite: 497/497 PASS after final character assembly. Direct runtime checks: both editions PASS; all 31 proposal first mentions per edition, 13 delayed reveals per edition, exact text offsets/hashes and fail-closed source drift checked.
+- Threads: 31 unique IDs, 83 nonempty summaries, keys 1–12, safe search-name exclusions PASS. Original/modern live numbering and paragraph counts align at 12/789.
+- All authored JSON parses; intro shape matches the existing reference; preface verbatim equality, SHA-256 and word count PASS. Reviewed character rebuild is byte-identical to both committed copies.
+- No app build or browser acceptance in this content-only lane; no shared build-generated files written. No test files, registry, characterReleases registry, audioAvailability manifest, prefaces manifest, reviewedHooks shared file, BOOKS array, live texts, cover/brand/author-image assets changed. No deploy, merge, PR or Anthropic calls.
+- Owned paths: `books/characters/entities/alice-in-wonderland.py`, `books/characters/alice-in-wonderland/` (reviewed inputs/generated outputs), `app/public/data/characters/alice-in-wonderland.v1.json`, `app/src/data/prefaces/alice-in-wonderland.txt`, `app/public/lab/library_2/intro-data/alice-in-wonderland.json`, `app/public/data/editions/alice-in-wonderland-threads.json`, `books/wip/alice-in-wonderland/release/`.
+- Remains STAGED. New copy has authoring-agent review, not independent editorial approval. Retain the carried-forward text/visual review notes above; no claim that this task clears them.
