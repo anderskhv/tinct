@@ -1,3 +1,3 @@
-STATUS: IN PROGRESS
-Approved base: Muss-Arnolt (1901); Thompson rejected because the edition credits Johannes Friedrich (d.1972).
-Current batch: Tablets I–III parsed from Muss-Arnolt; full 12-tablet transcription, rendering, and final gates remain.
+STATUS: COMPLETE
+Approved source: William Muss-Arnolt, 1901; all twelve tablet chapters are present.
+Final raw and typography-folded classifier gates pass. Modern-only overlap passes at N=10 (0/75) and N=8 (0/75). Structure, alignment, 75% word floor and exclamation checks pass.

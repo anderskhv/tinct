@@ -1,0 +1,28 @@
+[structure] PASS
+12 chapters; 75 aligned paragraph pairs; nonempty; 75% word floor; exclamation and terminal-mark checks pass.
+
+[raw classifier] exit=0
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-gilgamesh/books/wip/replace-gilgamesh/editions/gilgamesh original-en -> modern-en  (12 chapters)
+  weighted similarity : 0.365   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/71 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 10  REAL 2  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+[typography-folded classifier] exit=0
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-gilgamesh/books/wip/replace-gilgamesh/scratch/folded/gilgamesh original-en -> modern-en  (12 chapters)
+  weighted similarity : 0.365   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/71 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 10  REAL 2  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+[modern-only N=10] exit=0
+N=10: 0/75 paragraphs share a run of >= 10 words with the reference
+
+[modern-only N=8] exit=0
+N=8: 0/75 paragraphs share a run of >= 8 words with the reference
