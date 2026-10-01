@@ -20,10 +20,16 @@ Preamble: HTML paragraph `McKechnie_0032_631`. Clauses 1–63: second paragraph 
 
 `source/clean-charter.json` preserves the cleaned translation, with 65 paragraphs: preamble, 63 consecutive clauses, concluding formula. Opening and ending verified against those source elements.
 
-The assignment also requires rewording any paragraph flagged by its overlap checker, including original-en. Because verified 1914 wording itself triggers that gate, the edition candidate will be a transparently labelled McKechnie-derived adaptation at flagged coordinates, rather than a verbatim McKechnie edition. The unadapted extraction remains available separately for provenance. No protected wording is displayed or consulted.
+The assignment also requires rewording any paragraph flagged by its overlap checker, including original-en. Because verified 1914 wording itself triggers that gate, the edition candidate is a transparently labelled McKechnie-derived adaptation at flagged coordinates, rather than a verbatim McKechnie edition. The unadapted extraction remains available separately for provenance. No protected wording is displayed or consulted.
 
 ## Raw download SHA-256
 
 - `mckechnie-1914.html`: `75f5e61085f08a97c241bb74811738a6bec6089ba103bc88c795cdc65ea243b7`
 - `wikipedia-author.html`: `d7ad3d126682508ba5654847e533d64132b14564b4ab73ebdc1cd817b2d6824b`
 - `wikisource-author.html`: `d5d65491fca3c85b2d91ee039bb135badb35cc927c6aaef6f5414993a233bd4d`
+
+## Accepted text hashes
+
+- `source/clean-charter.json`: `fa73abf6f753a48a0c224c65bde46f8f2b8c56f25445224e78819e3c68abd6c4`
+- `editions/magna-carta-original-en.json`: `277f965a7682c62c45fa777575b44aa68a0b622d122866bee364d98e0fadfa21`
+- `editions/magna-carta-modern-en.json`: `471e84b34d530f11429a2a91910996b229fa681e879fdf90ffe414def743c12f`

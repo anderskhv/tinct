@@ -1,0 +1,38 @@
+FINAL GATE RUN: 2026-10-01T10:32:16.855686+00:00
+a) PASS: valid JSON; 1 chapter and 65 nonempty paragraphs in each edition.
+length) PASS: every modern paragraph >=75% of original; minimum ratio 0.7629
+c) PASS: exclamation counts preserved per paragraph; total original=0, modern=0.
+e) PASS: terminal punctuation, bracket provenance/balance, quotation balance, no apparatus/markup/page numbers/odd characters.
+$ python3 books/classify-modern-en.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/editions/magna-carta --gate
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/editions/magna-carta original-en -> modern-en  (1 chapters)
+  weighted similarity : 0.294   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/65 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 1  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit=0
+$ python3 books/classify-modern-en.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/qa/typography-folded/magna-carta --gate
+/Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/qa/typography-folded/magna-carta original-en -> modern-en  (1 chapters)
+  weighted similarity : 0.294   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/65 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 1  REAL 0  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit=0
+$ python3 books/wip/replace-magna-carta/overlap-check.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/editions/magna-carta-original-en.json app/public/data/editions/magna-carta-original-en.json app/public/data/editions/magna-carta-modern-en.json --n 10
+N=10: 0/65 paragraphs share a run of >= 10 words with the reference
+exit=0
+$ python3 books/wip/replace-magna-carta/overlap-check.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/editions/magna-carta-original-en.json app/public/data/editions/magna-carta-original-en.json app/public/data/editions/magna-carta-modern-en.json --n 8
+N=8: 0/65 paragraphs share a run of >= 8 words with the reference
+exit=0
+$ python3 books/wip/replace-magna-carta/overlap-check.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/editions/magna-carta-modern-en.json app/public/data/editions/magna-carta-original-en.json app/public/data/editions/magna-carta-modern-en.json --n 10
+N=10: 0/65 paragraphs share a run of >= 10 words with the reference
+exit=0
+$ python3 books/wip/replace-magna-carta/overlap-check.py /Users/andershvelplund/.codex/.chatgpt-projects/g-p-6aaba3f019a08191b14bfbdbdbb6d692/work/replace-magna-carta/books/wip/replace-magna-carta/editions/magna-carta-modern-en.json app/public/data/editions/magna-carta-original-en.json app/public/data/editions/magna-carta-modern-en.json --n 8
+N=8: 0/65 paragraphs share a run of >= 8 words with the reference
+exit=0
+ALL GATES PASS

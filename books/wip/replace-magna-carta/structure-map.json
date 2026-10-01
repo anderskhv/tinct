@@ -1,0 +1,859 @@
+{
+  "book_id": "magna-carta",
+  "baseline_commit": "95837141bd77d34dd2fdd854e9f82ab44695c0c3",
+  "coordinate_basis": "chapter numbers as stored; paragraph indexes one-based",
+  "protected_access": "Only chapter numbers and paragraph counts examined. No text or titles inspected.",
+  "old_structure": {
+    "original-en": [
+      {
+        "number": 1,
+        "paragraph_count": 74
+      }
+    ],
+    "modern-en": [
+      {
+        "number": 1,
+        "paragraph_count": 74
+      }
+    ],
+    "original-da": null,
+    "modern-da": [
+      {
+        "number": 1,
+        "paragraph_count": 74
+      }
+    ]
+  },
+  "new_structure": [
+    {
+      "number": 1,
+      "paragraph_count": 65,
+      "preamble": 1,
+      "clauses": {
+        "first": 2,
+        "last": 64,
+        "clause_number": "paragraph_index - 1"
+      },
+      "concluding_formula": 65
+    }
+  ],
+  "method": "Proportional ordinal fallback: new paragraph = 1 + floor((old paragraph - 1) * 64 / 73). No semantic alignment can be established from counts alone.",
+  "confidence": "low, heuristic only; not a verified clause map",
+  "migration_note": "Retain old coordinate and baseline edition identity. These estimates are for approximate progress recovery only; do not automatically remap quotations or highlights. No candidate Danish edition is provided.",
+  "map": [
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 1
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 1
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 2
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 1
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 3
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 2
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 4
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 3
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 5
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 4
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 6
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 5
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 7
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 6
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 8
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 7
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 9
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 8
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 10
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 8
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 11
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 9
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 12
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 10
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 13
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 11
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 14
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 12
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 15
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 13
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 16
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 14
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 17
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 15
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 18
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 15
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 19
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 16
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 20
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 17
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 21
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 18
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 22
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 19
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 23
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 20
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 24
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 21
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 25
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 22
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 26
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 22
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 27
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 23
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 28
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 24
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 29
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 25
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 30
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 26
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 31
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 27
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 32
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 28
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 33
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 29
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 34
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 29
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 35
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 30
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 36
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 31
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 37
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 32
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 38
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 33
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 39
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 34
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 40
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 35
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 41
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 36
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 42
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 36
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 43
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 37
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 44
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 38
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 45
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 39
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 46
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 40
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 47
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 41
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 48
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 42
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 49
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 43
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 50
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 43
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 51
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 44
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 52
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 45
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 53
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 46
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 54
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 47
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 55
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 48
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 56
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 49
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 57
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 50
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 58
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 50
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 59
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 51
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 60
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 52
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 61
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 53
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 62
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 54
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 63
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 55
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 64
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 56
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 65
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 57
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 66
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 57
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 67
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 58
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 68
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 59
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 69
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 60
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 70
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 61
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 71
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 62
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 72
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 63
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 73
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 64
+      },
+      "confidence": "low"
+    },
+    {
+      "old": {
+        "chapter": 1,
+        "paragraph": 74
+      },
+      "new": {
+        "chapter": 1,
+        "paragraph": 65
+      },
+      "confidence": "low"
+    }
+  ]
+}
