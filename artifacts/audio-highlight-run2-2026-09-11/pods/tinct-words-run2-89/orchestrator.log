@@ -1,9 +1,0 @@
-[2026-09-12T07:59:28Z] created yathv4wp2snid9 tinct-words-run2-89 gpu=None $0.74/hr
-[2026-09-12T07:59:29Z] waiting: pod RUNNING agent HTTP 404
-[2026-09-12T07:59:45Z] waiting: pod RUNNING agent HTTP 404
-[2026-09-12T08:00:03Z] phase failed at 0.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e"}
-[2026-09-12T08:00:03Z] 0.6 min: failed {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
-[2026-09-12T08:00:07Z] results fetch failed: HTTP 500
-[2026-09-12T08:00:08Z] stop yathv4wp2snid9: HTTP 200
-[2026-09-12T08:00:10Z] terminate yathv4wp2snid9: HTTP 204
-[2026-09-12T08:00:10Z] pod yathv4wp2snid9 done: outcome=failed uptime=0.7m est $0.01

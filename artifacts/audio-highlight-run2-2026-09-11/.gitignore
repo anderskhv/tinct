@@ -1,7 +1,0 @@
-# Per-paragraph recognition diagnostics and per-arm candidate sidecars are kept
-# on the executing machine but are too bulky to version for every chapter.
-# Diagnostics for rejected chapters are copied to pods/*/rejected/ and kept.
-pods/*/out/**/p*.diagnostic.json
-pods/*/out/**/words.candidate.json
-pods/*/*.tar.gz
-pods/*/cohort/

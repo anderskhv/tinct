@@ -1,9 +1,0 @@
-# Meditations on First Philosophy: philosophical reference cards
-
-All nine units in both English editions: dedication, preface, synopsis and six meditations. Six entries per edition. The historical and religious references are categorized Reference, as is the explicitly hypothetical demon. The demon is identified as a thought experiment, not presented as an actual being or conflated with God. No end-of-argument conclusions are inserted into earlier God cards.
-
-Archimedes, Apollonius and Pappus are mathematical references, retained from the dedication as well as Archimedes’s later appearance. Their context is corroborated by the [Cambridge Descartes Lexicon’s geometry entry](https://www.cambridge.org/core/books/abs/cambridge-descartes-lexicon/geometry/FF70F3CCAB64470B190DD04CE841B095). Leo X is the pope in the source’s Lateran Council reference, not a later pope named Leo; see the [Vatican’s Leo X record](https://www.vatican.va/content/vatican/de/holy-father/leone-x.html).
-
-The deceiver is bound only at 4:11, 5:2 and 5:5, with two mentions in 4:11. Descartes becoming his own deceiver at 4:10 and the later question of whether God deceives are not aliases for the demon. “Lord” in the Wisdom quotation at 1:2 refers to God. Unnamed objectors are not assigned conjectured historical identities; generic dreamers, painters and other examples are not turned into a fictional cast.
-
-Authoring-agent review, not independent editorial approval. Source text unchanged. Regenerate author_content.py then build_descartes_meditations.py; --check verifies freshness. Requires build_reviewed.py and reviewed_aliases.py. Tests cover exact spans/source hashes, separate mathematical references and scoped deceiver bindings. Before release, compare source bytes, explicitly register both edition pairs, version the URL, and verify the dedication and demon boundary in production. No runtime or deployment changes are in this package.
