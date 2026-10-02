@@ -27,7 +27,7 @@ async function state(p){return p.evaluate(()=>{
 for(const config of configs){
  const browser=await(config.width<900?webkit:chromium).launch()
  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:config.width,height:config.height},isMobile:config.width<900,hasTouch:config.width<900})
- const p=await context.newPage(),calls=[]
+ const p=await context.newPage(),calls=[],notes=[]
  const source=edition.chapters.find(c=>c.number===config.chapter)
  const highlight={id:'preview-preserve',bookId:'bible',editionKey:'kjv-en',chapterNumber:config.chapter,paragraphIndex:0,fromWord:1,endParagraphIndex:0,toWord:3,color:'blue',note:'Keep this exact note.',text:(source.paragraphs[0].match(/\S+/g)||[]).slice(1,3).join(' ')}
  p.setDefaultTimeout(15000)
@@ -53,6 +53,11 @@ for(const config of configs){
   })
   await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
   await p.route('**/*supabase.co/**',r=>r.abort())
+  // Primer opens the chapter-notes card (#298), not a chat answer.
+  await p.route('**/api/lab-chapter-notes',async r=>{
+   const body=r.request().postDataJSON();notes.push(body)
+   await r.fulfill({status:200,contentType:'application/json',body:JSON.stringify({beats:[{title:'Mocked beat',text:'A mocked chapter-notes beat for browser acceptance.'}],kind:body.kind,chapterNumber:body.chapterNumber,through:null,source:'model'})})
+  })
   await p.route('**/api/{chat,lab-chat}',async r=>{
    calls.push(r.request().postDataJSON())
    await r.fulfill({status:200,contentType:'application/json',body:JSON.stringify({content:[{text:'Notice who speaks and how the opening frames the chapter.'}]})})
@@ -86,15 +91,14 @@ for(const config of configs){
   const bounds=await preview.boundingBox();assert.ok(bounds.height>=44&&bounds.x>=0&&bounds.x+bounds.width<=config.width,'Preview has an unclipped comfortable target')
   await p.screenshot({path:path.join(dir,config.name+'-opening.png')})
   await preview.click()
-  await p.getByTestId('lab-ask-turn-assistant').waitFor()
-  assert.equal(calls.length,1)
-  assert.equal(calls[0].messages.at(-1).content,'Give me a primer on this chapter.')
-  assert.equal(calls[0].book.chapterNumber,config.chapter)
-  assert.equal(calls[0].book.editionKey,'kjv-en')
-  assert.match(calls[0].system,new RegExp('"targetChapterNumber":'+config.chapter+'[,}]'))
-  assert.ok(!calls[0].system.includes('<next_chapter_source_data>'))
-  assert.ok(calls[0].system.includes(source.paragraphs[0].replace(/\s+/g,' ').trim().slice(0,80)),'Preview grounded in actual current text')
-  await(config.width<900?p.getByTestId('lab-ask-done'):p.getByTestId('lab-desktop-companion-close')).click()
+  await p.getByTestId('lab-chapter-notes-beat').first().waitFor()
+  assert.equal(await p.getByTestId('lab-chapter-notes').getAttribute('data-kind'),'primer')
+  assert.equal(notes.length,1)
+  assert.equal(notes[0].kind,'primer')
+  assert.equal(notes[0].chapterNumber,config.chapter,'Primer is for the chapter whose heading was tapped')
+  assert.equal(notes[0].editionKey,'kjv-en')
+  assert.equal(calls.length,0,'Primer never calls Chat')
+  await p.getByTestId('lab-chapter-notes-close').click()
   await pause(300)
   assert.deepEqual(await state(p),before,'Preview returns to the same logical place and painted words')
   const seen=[],pages=[]
@@ -114,7 +118,7 @@ for(const config of configs){
   }
   const expected=source.paragraphs.flatMap((text,pi)=>(text.match(/\S+/g)||[]).map((_,wi)=>pi+':'+wi))
   assert.deepEqual(seen,expected,'Exactly once coverage of all source words, unchanged order')
-  assert.equal(calls.length,1,'Paging never triggers chapter chat')
+  assert.equal(calls.length+notes.length,1,'Paging never triggers chapter chat or notes')
   await p.screenshot({path:path.join(dir,config.name+'-ending.png')})
   const endState=await state(p)
   if(pages.length>1){
@@ -128,16 +132,17 @@ for(const config of configs){
   assert.equal(await p.getByRole('button',{name:'Prep for next',exact:true}).count(),0)
   await p.evaluate(()=>localStorage.removeItem('tinct:lab-ai-actions'))
   await p.locator('.lab-page-wrap').getByRole('button',{name:'Recap this chapter',exact:true}).click()
-  await p.waitForFunction(()=>document.querySelectorAll('[data-testid="lab-ask-turn-assistant"]').length===2)
-  assert.equal(calls.length,2);assert.equal(calls[1].messages.at(-1).content,'Recap this chapter.')
-  assert.equal(calls[1].book.chapterNumber,config.chapter)
-  await(config.width<900?p.getByTestId('lab-ask-done'):p.getByTestId('lab-desktop-companion-close')).click();await pause(250)
+  await p.waitForFunction(()=>document.querySelector('[data-testid="lab-chapter-notes"]')?.dataset.kind==='end'&&document.querySelector('[data-testid="lab-chapter-notes-beat"]'))
+  assert.equal(notes.length,2);assert.equal(notes[1].kind,'end')
+  assert.equal(notes[1].chapterNumber,config.chapter)
+  assert.equal(calls.length,0,'Recap never calls Chat')
+  await p.getByTestId('lab-chapter-notes-close').click();await pause(250)
   assert.deepEqual(await state(p),endState)
   await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await pause(800)
   const restored=await state(p)
   assert.equal(restored.place,endState.place,'Reload keeps logical word position')
   assert.ok(restored.keys.includes(endState.place),'The restored visible page contains the saved source word, not only the stored label')
-  assert.equal(calls.length,2,'Reload does not run an action')
+  assert.equal(calls.length+notes.length,2,'Reload does not run an action')
   assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights'))),[highlight],'Source highlight and note survive layout, chat, navigation and reload')
   const next=p.locator('.lab-page-wrap').getByRole('button',{name:'Next chapter',exact:true})
   if(config.chapter===1189)assert.equal(await next.count(),0,'No next action after final chapter')
