@@ -5,7 +5,7 @@
 - Package: `books/wip/alice-in-wonderland/`; pinned sources: `books/raw/alice-in-wonderland/`.
 - Instruction revision: `37876e623fd7bb69cce705a5fe14dfde9e8500d3`.
 - This document is a subsequent report-only commit pointing to the immutable payload above; its own containing commit can be obtained from Git history. No self-referential commit hash is claimed.
-- Content accepted: **PENDING independent editorial acceptance by Claude**. Complete candidate; author QA and required automated gates pass.
+- Content accepted: **ACCEPTED (independent editorial review, 2026-10-02)** — all review findings resolved; see “Independent acceptance” below. Hashes in “Pinned hashes” are the historical candidate; accepted hashes are below.
 - Published: **NO**. No app, registry, live assets, production characters, audio, shared tracker, tool, test or config edits.
 
 ## What is complete
@@ -78,7 +78,7 @@ Known issues/choices:
 - This is Gutenberg’s Millennium Fulcrum Edition 3.0, including its two later-edition verse continuations. It is not a diplomatic transcription of the 1865 first impression.
 - Two inline apparatus labels were removed while keeping their complete verse; chapter 10’s hard wrap within “pennyworth” was repaired. Source corrections did not alter paragraph counts.
 - Authorial references to a picture at 9:43 and a frontispiece at 11:3 remain. No illustrations are included. Decide display treatment during integration without silently deleting authorial text.
-- Source “Shy” at 4:25 is preserved as an unusual reading; no conjectural “Why” substitution was made.
+- ~~Source “Shy” at 4:25 is preserved~~ Superseded 2026-10-02: emended to “Why” per the 1866 Macmillan text / *Annotated Alice* (documented in `SOURCE.md`).
 - Original text retains source hard wraps and underscore emphasis. Verify stanza/line-break and emphasis display in the reader.
 - The raw sources intentionally retain original CRLF/trailing whitespace to preserve download hashes.
 
@@ -92,3 +92,24 @@ Known issues/choices:
 6. Run the integration/release checks under Claude’s separately assigned scope. Nothing on this content branch has been merged or published.
 
 The other two books remain separate queued assignments at this handoff checkpoint; this branch contains Alice content only.
+
+## Independent acceptance — 2026-10-02
+
+Status: **ACCEPTED** — independent editorial review complete; every finding resolved (list with coordinates in `EDITORIAL-FIXES.md`, “Independent editorial review fixes — 2026-10-02”). Published: still **NO**.
+
+- Verse: all 31 verse paragraphs in modern-en are verbatim (10:25, 10:26, 10:59, 10:70, 12:45, 12:46 restored). The six earlier gate-driven verse renderings are withdrawn.
+- 4:25 source variant “Shy” → “Why” in original-en; modern matches.
+- Modern 12:20, 12:71, 5:18, 4:20 corrected; onboarding `whyItMatters[0]` misattribution (Gryphon 9:88; Hatter 7:17) fixed; `about`/preface “nursery rhyme becomes an accusation” (11:12); intro ¶1 and three thread summaries corrected.
+
+Accepted hashes (SHA-256):
+- `app/public/data/editions/alice-in-wonderland-original-en.json`: `eb5d6211341148faa3ccc5784d4416ee498dabbb0b23aae052530958f3e6c6a8`
+- `app/public/data/editions/alice-in-wonderland-modern-en.json`: `ce04a1b4bae3fdaeb2fd8ca8881ccc2815dba76fc1dbf24b92757e88682a6ff7`
+- `app/public/data/editions/alice-in-wonderland-threads.json`: `63d1d51a867c027833fdb70aa80941fd76d986daba8b60d01f959d08656ae600`
+- `app/public/data/onboarding/alice-in-wonderland.json`: `cfc6a467f83a70a3f021fdfa9f0e8c647cd19466956494be4767972265b73e8e`
+- `app/src/data/prefaces/alice-in-wonderland.txt`: `552e803aa5b4fbb075f40698de2448b52c6097c000e798409e394a4bb6d1bd0f` (214 words)
+- `app/public/lab/library_2/intro-data/alice-in-wonderland.json`: `55ca1ba06e651288a2e3027e58785cb214e969a6c1e2277f9bf7070192e27529`
+- `app/public/data/characters/alice-in-wonderland.v1.json` (= `books/characters/alice-in-wonderland/characters.v1.json`): `6da66fa9d2b4744101e4058826b22b11d81b8e9e1eeab91cf34ef9bc32517436`, contentVersion `2026-10-02.1`
+
+Gates (2026-10-02, live paths, `python3 books/classify-modern-en.py alice-in-wonderland --gate`): weighted similarity 0.532, light/mechanical 0/12, wrapped 0, truncated 0; identical long paragraphs 31/546 = 5.7% → tool prints GATE FAIL (exit 1) solely on that measure; all 31 are verse, prose identical 0/515 = 0.0%, accepted under the documented verse exemption (`EDITORIAL-FIXES.md`). Batches 1–4 and 5–8 PASS; 9–12 fails only on identical verse (16/205). Structure 12/789 aligned; minimum paragraph word ratio 0.75. Character rebuild via `build_reviewed.compile_package`: 31 cards per edition, 1,090 original / 1,093 modern mentions, 13 delayed snapshots per edition, first mentions match the proposal, offsets/paragraph hashes verified; `books/characters` unittest 12/12; `npx vitest run src/services/characters src/reviewedIntroductions.test.ts src/lab/labSource.test.ts` 502/502.
+
+Remaining integration items unchanged: picture/frontispiece references at 9:43 / 11:3, verse line-break/indent and underscore emphasis visual QA in the reader, `spoilerSafeCast` whole-chapter thread exposure, and the classifier’s lack of a verse exemption (tool change for Codex).
