@@ -31,18 +31,20 @@ def fetch(fetcher, report):
         fell_back = False
         try:
             batch = fetcher.json(API.format(size=100, page=page), 'liberliber/pages-%d.json' % page, timeout=180)
-        except urllib.error.HTTPError as error:
-            if error.code == 400:  # WordPress answers 400 past the last page.
+        except (urllib.error.HTTPError, RuntimeError) as error:
+            if getattr(error, 'code', None) == 400:  # WordPress answers 400 past the last page.
                 break
-            # Some 100-page batches make the server fail; retry the same range in tens.
+            # Some 100-page batches make the server fail (or were cached in tens): use pages of ten.
             batch, fell_back = [], True
             for sub in range((page - 1) * 10 + 1, page * 10 + 1):
                 try:
                     batch += fetcher.json(API.format(size=10, page=sub), 'liberliber/pages10-%d.json' % sub, timeout=180)
-                except urllib.error.HTTPError as sub_error:
-                    if sub_error.code == 400:
+                except (urllib.error.HTTPError, RuntimeError) as sub_error:
+                    if getattr(sub_error, 'code', None) == 400:
                         break
                     failed += 1
+            if not batch:  # past the end, or a whole range unavailable
+                break
         if not batch and not fell_back:
             break
         batches.append(batch)

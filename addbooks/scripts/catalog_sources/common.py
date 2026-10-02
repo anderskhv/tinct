@@ -70,6 +70,9 @@ def natural_person(name, birth=None, death=None, aliases=None):
             'aliases': sorted(set(clean(a) for a in (aliases or []) if clean(a)) - {name})}
 
 
+LANGUAGE_ALIASES = {'nb': 'no', 'nn': 'no'}
+
+
 def edition(source, source_id, title, **fields):
     """Every adapter returns this shape. Unknown stays None/empty; nothing is guessed."""
     record = {'id': None, 'source': source, 'sourceId': str(source_id), 'sourceUrl': None,
@@ -84,7 +87,8 @@ def edition(source, source_id, title, **fields):
         if record[key] and not record[key].startswith('https://'):
             record[key] = None
     record['subjects'] = sorted({clean(s) for s in record['subjects'] if clean(s)})
-    record['language'] = sorted({l for l in record['language'] if l}) or ['und']
+    # One code per language: Norwegian Bokmål/Nynorsk share 'no' so the language filter finds both.
+    record['language'] = sorted({LANGUAGE_ALIASES.get(l, l) for l in record['language'] if l}) or ['und']
     if not record['rights'] or not record['licence']:
         raise ValueError(source + ' edition without an explicit rights statement: ' + str(source_id))
     return record

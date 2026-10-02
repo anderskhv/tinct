@@ -99,9 +99,12 @@ def fetch(fetcher, report):
                 seen.add(lang + ':' + qid)
                 published = integer((get('pubDate') or '')[:5].rstrip('-')) if get('pubDate') else None
                 authors, translators = _people(get('authors')), _people(get('translators'))
+                # Wikidata editions sometimes list their translator under P50 as well.
+                authors = [p for p in authors if p['name'] not in {t['name'] for t in translators}]
                 badge = get('badge')
                 editions.append(edition(
-                    NAME, lang + ':' + qid, re.sub(r'\s*\([^)]*\)\s*$', '', title),
+                    # Drop a disambiguating "(1862)" suffix and it.wikisource's "Opera:" namespace prefix.
+                    NAME, lang + ':' + qid, re.sub(r'^Opera:', '', re.sub(r'\s*\([^)]*\)\s*$', '', title)),
                     id='ws:' + lang + ':' + qid, sourceUrl=get('page'),
                     epubUrl='https://ws-export.wmcloud.org/?format=epub&lang=' + lang + '&page=' + urllib.parse.quote(title.replace(' ', '_')),
                     authors=authors, translators=translators,

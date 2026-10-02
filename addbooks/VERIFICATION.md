@@ -1,71 +1,115 @@
-# Verification — 30 September 2026
+# Verification — 2 October 2026
 
-Branch: `codex/addbooks-search-prototype`. Base: `claude/eager-edison-6csbv8` at `962c195e6`.
+Branch: `claude/gifted-brown-m0y7f4`, which carries the original prototype commit (`7313b7a8`, from `codex/addbooks-search-prototype`) on top of `main` at `addc01e99`. Scope is the same: catalogue search only. No app integration, deploy, book ingestion or LLM calls.
 
-## Final end-to-end build
+## What changed since the 30 September prototype
+
+- **More libraries:** 14 more libraries in 12+ languages alongside Gutenberg and Standard Ebooks. Sources, terms and exclusions are in [README.md](README.md#libraries-in-other-languages-scriptscatalog_sources).
+- **Copyright gate:** a **life+70 gate** now applies to every source, Gutenberg included. Only out-of-copyright texts are indexed.
+- **Search:**
+  - all languages are searched by default;
+  - there is a source-library filter;
+  - Nordic, German and Polish letters fold (ø→o, æ→ae, ß→ss, ł→l);
+  - leading articles are ignored in exact-title ranking;
+  - English work titles from Wikidata are search aliases, so "Odysseen" and "Odyssey" meet.
+- **Cards:** each card lists every library holding the work, the licence and a "View at …" source link.
+
+## Final end-to-end build (`--offline` from fresh downloads made the same day)
 
 | Measure | Result |
 |---|---:|
-| Gutenberg records read | 79,499 |
-| Public-domain text editions retained | 77,823 |
-| Gutenberg text records without EPUB (retained, null URL) | 248 |
-| Standard Ebooks feed entries / metadata packages | 15 |
-| Total editions | 77,838 |
-| Works | 76,988 |
-| Duplicate editions merged into works | 850 |
-| Works with both sources | 4 |
-| Live Tinct books inspected | 101 |
-| Live Tinct books matched | 68 |
-| Catalogue works marked On Tinct | 92 |
-| Raw index bytes | 107,191,845 |
-| Gzipped index bytes | 11,146,512 |
+| Works / editions indexed | **124,979 / 133,813** |
+| Languages | 76 |
+| Libraries | 16 |
+| Works found in more than one library | 4,837 |
+| Editions merged into works | 8,834 |
+| Editions excluded by the copyright gate | 58,061 |
+| Life dates borrowed by unambiguous name match | 14,106 |
+| Live Tinct books matched | 76 of 101 |
+| Raw / gzipped index | 132.8 MB / 13.0 MB (not committed) |
 
-66 language codes retained. Excluded 861 records without the required US public-domain statement and 815 non-text records. Tinct: 27 unmatched and 6 title/author ambiguities remain unbadged. Full rows are in [build-report.json](build-report.json).
+**Editions per library after the gate:**
 
-**Standard Ebooks coverage is partial:** 15 public recent releases. The full feed needs authorized access. Source author dates and translators are kept when known; original language remains unknown in this snapshot. The generated index is ignored because its gzip size exceeds 5 MB.
+| Library | Editions |
+|---|---:|
+| Gutenberg | 51,489 |
+| Wikisource | 48,534 |
+| DBNL | 7,429 |
+| Projekt Runeberg | 5,919 |
+| TextGrid | 4,482 |
+| Deutsches Textarchiv | 3,258 |
+| Kalliope | 2,636 |
+| Wolne Lektury | 2,355 |
+| Ebooks libres et gratuits | 2,222 |
+| Bibebook | 1,719 |
+| Liber Liber | 1,178 |
+| Bibliothèque numérique romande | 1,027 |
+| Litteraturbanken | 950 |
+| Bokselskap | 336 |
+| Arkiv for Dansk Litteratur | 269 |
+| Standard Ebooks | 10 |
 
-## Search acceptance
+**Works per language (top 16):**
 
-| Query | 1 | 2 | 3 |
-|---|---|---|---|
-| Odyssey | The Odyssey | A Martian Odyssey | The Authoress of the Odyssey |
-| dostoevsky | Crime and Punishment | The Brothers Karamazov | White nights, and other stories |
-| pride prejudice | Pride and Prejudice | Pride and Prejudice, a play founded on Jane Austen's novel | — |
-| meditations marcus | Meditations | — | — |
+| Language | Works | Language | Works |
+|---|---:|---|---:|
+| English | 44,284 | Spanish | 5,297 |
+| French | 17,802 | Portuguese | 3,656 |
+| German | 17,479 | Italian | 2,874 |
+| Polish | 10,432 | Finnish | 2,832 |
+| Dutch | 7,987 | **Danish** | **2,698** |
+| Swedish | 5,836 | Norwegian | 1,557 |
+| Latin | 956 | Hungarian | 611 |
+| Chinese | 179 | Greek | 175 |
 
-A dash means fewer than three matching works. Translations of the Odyssey and Meditations are grouped, not repeated to fill result slots. All meaningful query words must match. `oddysey`, `prdie prejudice` and translator search `Constance Garnett` also pass. Full results, IDs, counts and timings: [search-results.json](qa/search-results.json).
+**Copyright gate exclusions (life+70, cutoff: died before 1956):**
 
-## Browser acceptance
+| Reason | Editions |
+|---|---:|
+| Creator died 1956 or later | 10,462 |
+| Possibly alive | 1,723 |
+| Unverifiable (no dates and no public-domain statement from the library) | 45,876 |
 
-Isolated, headless Chromium with `--mute-audio`, new browser context per viewport. No personal browser session, microphone, audio playback, app integration or deploy.
+- **By library:** Wikisource 28,568, Gutenberg 26,356, Liber Liber 1,314, Ebooks libres et gratuits 964, BNR 440, DTA 166, Bokselskap 144, others under 70.
+- **Gutenberg examples now excluded:** Agatha Christie, E. M. Forster, P. G. Wodehouse, and Gilbert Murray's translations.
+- **Unverifiable Gutenberg records:** mostly anonymous, collective or undated records (including the King James Bible and periodicals). Gutenberg's metadata has no first-publication date to clear them.
 
-| Viewport | Initial local load | Offline reload | Horizontal overflow |
-|---|---:|---|---|
-| desktop (1440 × 1080) | 1,232 ms | Passed | None |
-| phone (390 × 844) | 1,208 ms | Passed | None |
+**Edition licences** (the library's own edition; the texts are all public domain):
 
-Measured search latency for the four examples: 26.3 ms, 17 ms, 28.8 ms, 21.8 ms. Timings are from local headless Chromium on this Mac, not a throttled low-end phone. No page exceptions. English default, combined subject/SE filters, French filtering, empty/no-results states, typo matching, disabled Add and offline reload all passed. Nine focused Python builder regressions and the full-index Node search/data assertions pass.
+| Licence | Editions |
+|---|---:|
+| PD | 70,984 |
+| CC BY-SA 4.0 | 48,846 (Wikisource) |
+| CC BY 3.0 DE | 4,482 |
+| Non-commercial: Free, non-commercial / CC BY-NC / CC BY-NC-SA | 6,956 |
+| Other CC BY / BY-SA | 2,545 |
 
-The browser check found and corrected a worker/controller timing bug: the search worker is now created after service-worker control, so catalogue fetches are cached before offline reload. Typographic covers remain visible while source images load.
+## Tests
+
+- `python3 -m unittest discover -s addbooks/scripts -p 'test_*.py'`: **18 passed**. These include licence parsing, letter folding, language-aware articles, cross-library grouping, the Runeberg life+70 rule, the copyright gate and date borrowing.
+- `node addbooks/scripts/test-search.mjs`: **passed**.
+  - The original English cases still pass.
+  - 10 multilingual cases pass, each with its language filter: Danish *Eventyr*, German *Faust*, Dutch *Max Havelaar*, Polish *Pan Tadeusz*, Swedish *Röda rummet*, Norwegian *Peer Gynt*, Spanish *Don Quijote*, Portuguese *Os Lusíadas*, Italian *La divina commedia*, French *Les Misérables*.
+  - Also checked: "kobenhavn" finds København; Norwegian codes are unified; every edition carries `rights`/`licence`/`copyright`.
+  - **No indexed author or translator died within the last 70 years.**
+- `verify-browser.mjs` (headless Chromium, Playwright from the environment): **passed** on desktop (1440 × 1080) and phone (390 × 844).
+  - Cold local load: 4.4 s / 4.9 s. Offline reload passed. No horizontal overflow, no page errors.
+  - Search latency for 10 queries: 61–106 ms.
+  - Remote covers were unreachable from this sandbox; typography covers are the designed fallback. The check waits for covers but no longer fails on them.
 
 ## Screenshots
 
 | State | Desktop | Phone |
 |---|---|---|
 | empty | [PNG](qa/desktop-empty.png) | [PNG](qa/phone-empty.png) |
-| results | [PNG](qa/desktop-results.png) | [PNG](qa/phone-results.png) |
+| results ("Odyssey") | [PNG](qa/desktop-results.png) | [PNG](qa/phone-results.png) |
 | no-results | [PNG](qa/desktop-no-results.png) | [PNG](qa/phone-no-results.png) |
-| filters | [PNG](qa/desktop-filters.png) | [PNG](qa/phone-filters.png) |
+| filters (Danish + Kalliope, "kobenhavn") | [PNG](qa/desktop-filters.png) | [PNG](qa/phone-filters.png) |
 
-All eight screenshots were inspected visually. They capture the actual viewport, not a scaled full-page thumbnail. Source covers are remote; typography is the intentional loading/offline fallback. Browser measurements: [browser-report.json](qa/browser-report.json).
+## Known limits
 
-## Scope verification
-
-`git diff --stat 962c195e6` is recorded in [qa/diff-stat.txt](qa/diff-stat.txt). Every changed path is under `addbooks/`, except the root `.gitignore` entries for the raw cache and oversized generated index. App/Worker/config/registry/taxonomy/Supabase/CI files are untouched. No new dependencies are installed in the app. No merge or deploy.
-
-## Remaining decisions
-
-- Authorized complete Standard Ebooks feed access.
-- Whether translations and cross-language titles should share a work ID and expose an edition selector; current matching is intentionally conservative.
-- Authority/title mappings for the 33 unmatched or ambiguous live Tinct books, complete original-language/first-publication metadata, and region/licence clearance before imports.
-- Index size/device memory strategy before production. See [README.md](README.md) for the Wikisource/open-access → scans → converter/import sequence.
+- **Search vs. book:** Wikisource "books" include some single long poems and plays catalogued as works on Wikidata. They are searchable, but not all are book-length.
+- **Grouping:** translations in different languages remain separate works, linked only by search aliases.
+- **Index size:** the index is 13 MB gzipped / 133 MB raw in the browser worker. Low-memory phones need profiling or language-sharded indexes before production.
+- **Spanish:** Spanish coverage relies on Wikisource and Gutenberg. Cervantes Virtual and the Biblioteca Nacional block bulk access.
+- **Life+70 scope:** life+70 is the EU term. Region-specific clearance is still required for imports.

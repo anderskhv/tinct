@@ -9,12 +9,26 @@ const cases = [
   ['oddysey', 'The Odyssey'], ['prdie prejudice', 'Pride and Prejudice'],
   ['Constance Garnett', 'Crime and Punishment'],
 ];
+// Multilingual: each language's own classic is found under that language's filter.
+const multilingual = [
+  ['Andersen eventyr', 'da', 'Eventyr'], ['Goethe Faust', 'de', 'Faust'], ['Max Havelaar', 'nl', 'Max Havelaar'],
+  ['Pan Tadeusz', 'pl', 'Pan Tadeusz'], ['Röda rummet', 'sv', 'Röda rummet'], ['Peer Gynt', 'no', 'Peer Gynt'],
+  ['Don Quijote', 'es', 'Don Quijote'], ['Os Lusíadas', 'pt', 'Os Lusíadas'], ['divina commedia', 'it', 'La divina commedia'],
+  ['Les Misérables', 'fr', 'Les Misérables'],
+];
 const results = {};
 for (const [q, expected] of cases) {
   const r = search(q, {language:'en'}, 3);
   assert.equal(r.results[0]?.title, expected, q);
   results[q] = {count:r.total, searchMs:r.elapsedMs, top3:r.results.map(w=>({id:w.id,title:w.title,authors:w.authors.map(a=>a.name),source:w.editions[0].source}))};
 }
+for (const [q, language, expected] of multilingual) {
+  const r = search(q, {language}, 3);
+  assert.ok(r.results.some(w => w.title.toLowerCase() === expected.toLowerCase()), q + ' in ' + language + ': ' + r.results.map(w=>w.title));
+  results[q + ' [' + language + ']'] = {count:r.total, searchMs:r.elapsedMs, top3:r.results.map(w=>({id:w.id,title:w.title,authors:w.authors.map(a=>a.name),sources:[...new Set(w.editions.map(e=>e.source))]}))};
+}
+assert.ok(search('kobenhavn', {language:'da'}).total > 0, 'Danish letter folding');
+assert.ok(search('', {language:'no'}).total > 0 && search('', {language:'nb'}).total === 0, 'Norwegian codes unified');
 assert.equal(search('zzzxqvnonexistent',{language:'en'}).total,0);
 assert.ok(near('prdie','pride'));
 assert.equal(near('pride','crime'),false);

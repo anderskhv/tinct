@@ -37,7 +37,8 @@ try {
     }
     await search('Odyssey');
     await page.locator('.cover img').first().waitFor({state:'attached'});
-    await page.waitForFunction(()=>[...document.querySelectorAll('.cover img')].slice(0,4).every(i=>i.complete),{timeout:15000});
+    // Remote covers may be unreachable (sandbox, offline); typography is the designed fallback.
+    await page.waitForFunction(()=>[...document.querySelectorAll('.cover img')].slice(0,4).every(i=>i.complete),null,{timeout:15000}).catch(()=>{});
     await checkLayout('results');
     assert.ok(await page.locator('.badge.tinct').count()>0);
     assert.equal(await page.locator('.add').first().isDisabled(),true);

@@ -8,6 +8,9 @@ export function normalize(value) {
     .replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 }
 const tokens = value => normalize(value).split(' ').filter(Boolean);
+// Exact-title ranking ignores a leading article in any catalogue language ("The Odyssey" = "Odyssey").
+const ARTICLE = /^(the|a|an|le|la|les|l|un|une|der|die|das|ein|eine|el|los|las|il|lo|gli|o|os|as|de|het|een|den|det|en|et|ett) /;
+const core = value => value.replace(ARTICLE, '');
 const personText = p => [p.name, ...(p.aliases || [])].join(' ');
 export function near(a, b, limit = 1) {
   if (Math.abs(a.length - b.length) > limit) return false;
@@ -30,10 +33,10 @@ export function hydrate(works) {
   for (const w of works) {
     w.authors = (w.authors || []).map(person); w.translators = (w.translators || []).map(person);
     w.subjects ||= []; w.bookshelves ||= []; w.altTitles ||= []; w.tinctIds ||= []; w.onTinct ||= false;
-    w.language ||= ['und']; w.subtitle ??= null; w.firstPublishedYear ??= null; w.originalLanguage ??= null;
+    w.title ??= ''; w.language ||= ['und']; w.subtitle ??= null; w.firstPublishedYear ??= null; w.originalLanguage ??= null;
     for (const e of w.editions) {
       e.authors = (e.authors || []).map(person); e.translators = (e.translators || []).map(person);
-      e.subjects ||= []; e.bookshelves ||= []; e.language ||= ['und'];
+      e.title ??= ''; e.subjects ||= []; e.bookshelves ||= []; e.language ||= ['und'];
       e.epubUrl ??= null; e.coverUrl ??= null; e.sourceUrl ??= null; e.subtitle ??= null; e.popularity ??= 0;
     }
   }
@@ -56,7 +59,7 @@ export function createSearch(works) {
       }
       inverted.get(token).push(id);
     }
-    return {weights, title: normalize(w.title), author: new Set(fields[1]), titleTerms: new Set(tokens(w.title).filter(t => !STOP.has(t)))};
+    return {weights, title: core(normalize(w.title)), author: new Set(fields[1]), titleTerms: new Set(tokens(w.title).filter(t => !STOP.has(t)))};
   });
   const expansionCache = new Map();
   function expand(term) {
@@ -83,7 +86,7 @@ export function createSearch(works) {
   }
   return function search(query, filters = {}, limit = 24) {
     const started = performance.now();
-    const normalized = normalize(query);
+    const normalized = core(normalize(query));
     const allTokens = [...new Set(tokens(query))];
     const meaningful = allTokens.filter(t => !STOP.has(t));
     const terms = meaningful.length ? meaningful : allTokens;

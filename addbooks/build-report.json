@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-09-30T13:42:43.074585+00:00",
+  "builtAt": "2026-10-02T15:38:59.527500+00:00",
   "gutenbergSource": "https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2",
   "standardEbooksCoverage": "partial: public feed, latest 15 releases",
   "skipped": {
@@ -14,23 +14,248 @@
     "SE translators and language tags are read from EPUB package metadata; PG missing translator fields remain unknown.",
     "US source rights only. EU and other region clearance is not implemented in this search-only prototype."
   ],
-  "gutenbergRecords": 79499,
-  "gutenbergEditions": 77823,
-  "gutenbergWithoutEpub": 248,
+  "gutenbergRecords": 79522,
+  "gutenbergEditions": 77846,
+  "gutenbergWithoutEpub": 260,
   "standardEbooksMetadataPackages": 15,
   "standardEbooksEditions": 15,
-  "ambiguousAuthorNames": 280,
-  "duplicatesMerged": 850,
-  "crossSourceWorks": 4,
+  "sources": {
+    "Wikisource": {
+      "languages": {
+        "da": {
+          "candidates": 231,
+          "books": 147
+        },
+        "sv": {
+          "candidates": 1752,
+          "books": 835
+        },
+        "no": {
+          "candidates": 511,
+          "books": 404
+        },
+        "nl": {
+          "candidates": 168,
+          "books": 82
+        },
+        "la": {
+          "candidates": 1143,
+          "books": 698
+        },
+        "pt": {
+          "candidates": 6366,
+          "books": 4619
+        },
+        "es": {
+          "candidates": 11363,
+          "books": 8248
+        },
+        "it": {
+          "candidates": 6945,
+          "books": 4125
+        },
+        "fr": {
+          "candidates": 34823,
+          "books": 14912
+        },
+        "pl": {
+          "candidates": 78473,
+          "books": 13282
+        },
+        "de": {
+          "candidates": 13294,
+          "books": 10912
+        },
+        "en": {
+          "candidates": 30682,
+          "books": 18842
+        }
+      },
+      "editions": 77106,
+      "licences": {
+        "CC BY-SA 4.0": 77106
+      }
+    },
+    "Kalliope": {
+      "skippedRecentOrUnknownDeath": 121,
+      "editions": 2636,
+      "licences": {
+        "PD": 2636
+      }
+    },
+    "Projekt Runeberg": {
+      "skippedInCopyrightOrUnknown": 1010,
+      "editions": 5942,
+      "licences": {
+        "PD": 5942
+      }
+    },
+    "Arkiv for Dansk Litteratur": {
+      "skippedProtected": 233,
+      "editions": 269,
+      "licences": {
+        "CC BY-NC-SA": 269
+      }
+    },
+    "Litteraturbanken": {
+      "skippedRestrictedLicence": 593,
+      "editions": 955,
+      "licences": {
+        "PD": 861,
+        "CC BY": 94
+      }
+    },
+    "Bokselskap": {
+      "editions": 480,
+      "licences": {
+        "Free, non-commercial": 480
+      }
+    },
+    "DBNL": {
+      "rows": 9100,
+      "editions": 7436,
+      "licences": {
+        "PD": 7436
+      }
+    },
+    "Deutsches Textarchiv": {
+      "skippedNewspapersOrUnlicensed": 2056,
+      "editions": 3424,
+      "licences": {
+        "CC BY-NC 3.0": 1973,
+        "CC BY 4.0": 214,
+        "CC BY-SA 3.0": 558,
+        "CC BY-SA 4.0": 319,
+        "PD": 303,
+        "CC BY-SA 2.0": 51,
+        "CC BY-NC-SA 4.0": 2,
+        "CC BY 3.0": 3,
+        "CC BY-NC 4.0": 1
+      }
+    },
+    "TextGrid": {
+      "collections": 693,
+      "editions": 4482,
+      "licences": {
+        "CC BY 3.0 DE": 4482
+      }
+    },
+    "Wolne Lektury": {
+      "skippedUnclearRights": 110,
+      "editions": 2421,
+      "licences": {
+        "PD": 2355,
+        "CC BY-SA 3.0": 64,
+        "CC BY-SA 4.0": 2
+      }
+    },
+    "Bibebook": {
+      "editions": 1722,
+      "licences": {
+        "CC BY-SA": 1722
+      }
+    },
+    "Ebooks libres et gratuits": {
+      "skippedContemporary": 62,
+      "editions": 3186,
+      "licences": {
+        "Free, non-commercial": 3186
+      }
+    },
+    "Bibliothèque numérique romande": {
+      "editions": 1467,
+      "licences": {
+        "Free, non-commercial": 1467
+      }
+    },
+    "Liber Liber": {
+      "skippedUnrecognisedLicence": 0,
+      "failedPagesOfTen": 11,
+      "editions": 2492,
+      "licences": {
+        "CC BY-NC-SA 4.0": 2492
+      }
+    }
+  },
+  "skippedUntitled": 5,
+  "lifeDatesBorrowedByName": 14106,
+  "copyright": {
+    "rule": "life+70: every author and translator died before 1956",
+    "kept": 133813,
+    "excludedBySource": {
+      "Bibebook": {
+        "creatorDiedTooRecently": 3
+      },
+      "Bibliothèque numérique romande": {
+        "unverified": 436,
+        "creatorDiedTooRecently": 4
+      },
+      "Bokselskap": {
+        "unverified": 143,
+        "creatorDiedTooRecently": 1
+      },
+      "DBNL": {
+        "creatorDiedTooRecently": 6,
+        "creatorPossiblyAlive": 1
+      },
+      "Deutsches Textarchiv": {
+        "unverified": 166
+      },
+      "Ebooks libres et gratuits": {
+        "unverified": 868,
+        "creatorDiedTooRecently": 96
+      },
+      "Gutenberg": {
+        "unverified": 16260,
+        "creatorDiedTooRecently": 8647,
+        "creatorPossiblyAlive": 1449
+      },
+      "Liber Liber": {
+        "unverified": 1310,
+        "creatorDiedTooRecently": 4
+      },
+      "Litteraturbanken": {
+        "creatorDiedTooRecently": 4,
+        "creatorPossiblyAlive": 1
+      },
+      "Projekt Runeberg": {
+        "unverified": 23
+      },
+      "Standard Ebooks": {
+        "creatorDiedTooRecently": 3,
+        "unverified": 2
+      },
+      "Wikisource": {
+        "unverified": 26618,
+        "creatorDiedTooRecently": 1678,
+        "creatorPossiblyAlive": 272
+      },
+      "Wolne Lektury": {
+        "unverified": 50,
+        "creatorDiedTooRecently": 16
+      }
+    }
+  },
+  "ambiguousAuthorNames": 1230,
+  "duplicatesMerged": 8834,
+  "crossSourceWorks": 4837,
   "tinctLiveBooks": 101,
-  "tinctBooksMatched": 68,
-  "worksOnTinct": 92,
+  "tinctBooksMatched": 76,
+  "worksOnTinct": 134,
   "tinctMatches": [
+    {
+      "id": "to-the-lighthouse",
+      "title": "To the Lighthouse",
+      "workIds": [
+        "ws:en:Q478016"
+      ]
+    },
     {
       "id": "odyssey",
       "title": "The Odyssey",
       "workIds": [
-        "pg:1727"
+        "pg:1727",
+        "ws:en:Q15628440"
       ]
     },
     {
@@ -44,7 +269,8 @@
       "id": "war-and-peace",
       "title": "War and Peace",
       "workIds": [
-        "pg:2600"
+        "pg:2600",
+        "ws:en:Q40896503"
       ]
     },
     {
@@ -55,7 +281,9 @@
         "pg:15032",
         "pg:15632",
         "pg:25667",
-        "pg:56454"
+        "pg:56454",
+        "wl:hamlet",
+        "ws:de:Q59257762"
       ]
     },
     {
@@ -65,7 +293,10 @@
         "pg:13868",
         "pg:1533",
         "pg:16893",
-        "pg:6975"
+        "pg:6975",
+        "rb:macbeth",
+        "ws:it:Q18746277",
+        "ws:pl:Q60147947"
       ]
     },
     {
@@ -93,7 +324,7 @@
       "id": "the-art-of-war",
       "title": "The Art of War",
       "workIds": [
-        "pg:132"
+        "ws:en:Q8251"
       ]
     },
     {
@@ -121,29 +352,37 @@
       "id": "meditations",
       "title": "Meditations",
       "workIds": [
-        "pg:2680"
+        "pg:2680",
+        "ws:en:Q1152283"
       ]
     },
     {
       "id": "divine-comedy",
       "title": "The Divine Comedy",
       "workIds": [
-        "pg:8800"
+        "pg:8800",
+        "ws:en:Q40185"
       ]
     },
     {
       "id": "jane-eyre",
       "title": "Jane Eyre",
       "workIds": [
+        "ll:2344679",
         "pg:1260",
-        "pg:79159"
+        "pg:79159",
+        "tg:ksbg.0",
+        "ws:fr:Q61959073",
+        "ws:sv:Q122190096"
       ]
     },
     {
       "id": "the-aeneid",
       "title": "The Aeneid",
       "workIds": [
-        "pg:228"
+        "pg:228",
+        "ws:en:Q19031184",
+        "ws:en:Q60220"
       ]
     },
     {
@@ -194,13 +433,23 @@
       "id": "phaedrus",
       "title": "Phaedrus",
       "workIds": [
-        "pg:1636"
+        "pg:1636",
+        "ws:la:Q555862"
+      ]
+    },
+    {
+      "id": "poetics",
+      "title": "Poetics",
+      "workIds": [
+        "ws:en:Q108374728"
       ]
     },
     {
       "id": "moby-dick",
       "title": "Moby Dick",
       "workIds": [
+        "elg:1568",
+        "ll:2406317",
         "pg:15"
       ]
     },
@@ -212,10 +461,18 @@
       ]
     },
     {
+      "id": "the-histories",
+      "title": "The Histories",
+      "workIds": [
+        "ws:en:Q746583"
+      ]
+    },
+    {
       "id": "niels-lyhne",
       "title": "Niels Lyhne",
       "workIds": [
-        "pg:55389"
+        "pg:55389",
+        "rb:nielslyhne"
       ]
     },
     {
@@ -229,7 +486,15 @@
       "id": "jerusalem",
       "title": "Jerusalem",
       "workIds": [
-        "pg:15837"
+        "pg:15837",
+        "ws:sv:Q122223293"
+      ]
+    },
+    {
+      "id": "the-awakening",
+      "title": "The Awakening",
+      "workIds": [
+        "ws:en:Q1567505"
       ]
     },
     {
@@ -243,28 +508,47 @@
       "id": "iliad",
       "title": "The Iliad",
       "workIds": [
-        "pg:2199"
+        "pg:2199",
+        "ws:en:Q16547641"
+      ]
+    },
+    {
+      "id": "nicomachean-ethics",
+      "title": "Nicomachean Ethics",
+      "workIds": [
+        "ws:en:Q19075531"
       ]
     },
     {
       "id": "the-prince",
       "title": "The Prince",
       "workIds": [
-        "pg:1232"
+        "pg:1232",
+        "ws:en:Q131719"
       ]
     },
     {
       "id": "beyond-good-and-evil",
       "title": "Beyond Good and Evil",
       "workIds": [
-        "pg:4363"
+        "pg:4363",
+        "ws:en:Q579794"
       ]
     },
     {
       "id": "candide",
       "title": "Candide",
       "workIds": [
-        "pg:19942"
+        "elg:637",
+        "pg:19942",
+        "ws:no:Q136468328"
+      ]
+    },
+    {
+      "id": "democracy-in-america",
+      "title": "Democracy in America",
+      "workIds": [
+        "ws:en:Q118120459"
       ]
     },
     {
@@ -272,7 +556,8 @@
       "title": "Antigone",
       "workIds": [
         "pg:54543",
-        "pg:64403"
+        "pg:64403",
+        "ws:no:Q138312612"
       ]
     },
     {
@@ -293,14 +578,16 @@
       "id": "peloponnesian-war",
       "title": "History of the Peloponnesian War",
       "workIds": [
-        "pg:7142"
+        "pg:7142",
+        "ws:en:Q50809813"
       ]
     },
     {
       "id": "aristotle-politics",
       "title": "Politics",
       "workIds": [
-        "pg:6762"
+        "pg:6762",
+        "ws:en:Q69539"
       ]
     },
     {
@@ -332,6 +619,20 @@
       ]
     },
     {
+      "id": "social-contract",
+      "title": "The Social Contract",
+      "workIds": [
+        "ws:en:Q190126"
+      ]
+    },
+    {
+      "id": "wealth-of-nations",
+      "title": "The Wealth of Nations",
+      "workIds": [
+        "ws:en:Q104556291"
+      ]
+    },
+    {
       "id": "werther",
       "title": "The Sorrows of Young Werther",
       "workIds": [
@@ -339,10 +640,12 @@
       ]
     },
     {
-      "id": "magna-carta",
-      "title": "Magna Carta",
+      "id": "medea",
+      "title": "Medea",
       "workIds": [
-        "pg:10000"
+        "tg:mvrs.0",
+        "ws:en:Q52165023",
+        "ws:no:Q134978029"
       ]
     },
     {
@@ -421,6 +724,7 @@
       "workIds": [
         "pg:1120",
         "pg:18512",
+        "pg:46768",
         "pg:9875"
       ]
     },
@@ -453,7 +757,6 @@
         "pg:1127",
         "pg:17529",
         "pg:18179",
-        "pg:28526",
         "pg:7185"
       ]
     },
@@ -498,7 +801,8 @@
       "workIds": [
         "pg:1131",
         "pg:20188",
-        "pg:6990"
+        "pg:6990",
+        "ws:nl:Q98915743"
       ]
     },
     {
@@ -507,7 +811,8 @@
       "workIds": [
         "pg:1133",
         "pg:19201",
-        "pg:22556"
+        "pg:22556",
+        "tg:vn3z.0"
       ]
     },
     {
@@ -516,25 +821,20 @@
       "workIds": [
         "pg:13214",
         "pg:1399",
-        "pg:49487"
+        "ws:en:Q123734886",
+        "ws:en:Q147787"
       ]
     },
     {
       "id": "don-quixote",
       "title": "Don Quixote",
       "workIds": [
-        "pg:996"
+        "pg:996",
+        "ws:en:Q49612156"
       ]
     }
   ],
   "tinctUnmatched": [
-    {
-      "id": "to-the-lighthouse",
-      "title": "To the Lighthouse",
-      "author": "Virginia Woolf",
-      "year": 1927,
-      "candidateIds": []
-    },
     {
       "id": "gilgamesh",
       "title": "The Epic of Gilgamesh",
@@ -550,38 +850,10 @@
       "candidateIds": []
     },
     {
-      "id": "poetics",
-      "title": "Poetics",
-      "author": "Aristotle",
-      "year": -335,
-      "candidateIds": []
-    },
-    {
-      "id": "the-histories",
-      "title": "The Histories",
-      "author": "Herodotus",
-      "year": -440,
-      "candidateIds": []
-    },
-    {
-      "id": "nicomachean-ethics",
-      "title": "Nicomachean Ethics",
-      "author": "Aristotle",
-      "year": -350,
-      "candidateIds": []
-    },
-    {
       "id": "kant-groundwork",
       "title": "Groundwork of the Metaphysics of Morals",
       "author": "Immanuel Kant",
       "year": 1785,
-      "candidateIds": []
-    },
-    {
-      "id": "democracy-in-america",
-      "title": "Democracy in America",
-      "author": "Alexis de Tocqueville",
-      "year": 1835,
       "candidateIds": []
     },
     {
@@ -620,20 +892,6 @@
       "candidateIds": []
     },
     {
-      "id": "social-contract",
-      "title": "The Social Contract",
-      "author": "Jean-Jacques Rousseau",
-      "year": 1762,
-      "candidateIds": []
-    },
-    {
-      "id": "wealth-of-nations",
-      "title": "The Wealth of Nations",
-      "author": "Adam Smith",
-      "year": 1776,
-      "candidateIds": []
-    },
-    {
       "id": "faust-part-1",
       "title": "Faust, Part One",
       "author": "Johann Wolfgang von Goethe",
@@ -652,13 +910,6 @@
       "title": "The Bacchae",
       "author": "Euripides",
       "year": -405,
-      "candidateIds": []
-    },
-    {
-      "id": "confessions",
-      "title": "Confessions",
-      "author": "Augustine",
-      "year": 397,
       "candidateIds": []
     },
     {
@@ -697,13 +948,6 @@
       "candidateIds": []
     },
     {
-      "id": "henry-v",
-      "title": "Henry V",
-      "author": "William Shakespeare",
-      "year": 1599,
-      "candidateIds": []
-    },
-    {
       "id": "henry-iv-part-2",
       "title": "Henry IV, Part 2",
       "author": "William Shakespeare",
@@ -726,20 +970,9 @@
       "year": -1400,
       "candidateIds": [
         "pg:36266",
-        "pg:46737"
-      ]
-    },
-    {
-      "id": "the-awakening",
-      "title": "The Awakening",
-      "author": "Kate Chopin",
-      "year": 1899,
-      "candidateIds": [
-        "pg:17352",
-        "pg:50834",
-        "pg:69210",
-        "pg:70440",
-        "pg:78836"
+        "pg:46737",
+        "ws:en:Q2316049",
+        "ws:en:Q75882422"
       ]
     },
     {
@@ -751,16 +984,28 @@
         "pg:16328",
         "pg:34117",
         "pg:50677",
-        "pg:981"
+        "pg:981",
+        "ws:en:Q19074835"
       ]
     },
     {
-      "id": "medea",
-      "title": "Medea",
-      "author": "Euripides",
-      "year": -431,
+      "id": "confessions",
+      "title": "Confessions",
+      "author": "Augustine",
+      "year": 397,
       "candidateIds": [
-        "pg:7945"
+        "ws:en:Q372941",
+        "ws:fr:Q19151176"
+      ]
+    },
+    {
+      "id": "magna-carta",
+      "title": "Magna Carta",
+      "author": "Anonymous (sealed by King John)",
+      "year": 1215,
+      "candidateIds": [
+        "pg:65363",
+        "ws:la:Q137375810"
       ]
     },
     {
@@ -773,6 +1018,15 @@
       ]
     },
     {
+      "id": "henry-v",
+      "title": "Henry V",
+      "author": "William Shakespeare",
+      "year": 1599,
+      "candidateIds": [
+        "ws:en:Q19034216"
+      ]
+    },
+    {
       "id": "essays-montaigne",
       "title": "Essays",
       "author": "Michel de Montaigne",
@@ -781,92 +1035,96 @@
         "pg:1434",
         "pg:35860",
         "pg:36120",
-        "pg:71838"
+        "pg:71838",
+        "ws:en:Q3944819"
       ]
     }
   ],
-  "works": 76988,
-  "editions": 77838,
+  "works": 124979,
+  "editions": 133813,
   "languages": {
-    "af": 17,
-    "ale": 1,
-    "ang": 4,
-    "ar": 1,
-    "arp": 2,
+    "af": 11,
+    "ang": 1,
+    "ar": 11,
+    "arp": 1,
+    "be": 1,
     "bg": 5,
-    "bgs": 1,
-    "bo": 1,
-    "br": 1,
+    "bn": 7,
+    "br": 15,
     "brx": 2,
-    "ca": 96,
-    "ceb": 3,
-    "cs": 7,
+    "ca": 75,
+    "co": 1,
+    "cs": 50,
     "csb": 1,
-    "cy": 15,
-    "da": 84,
-    "de": 2385,
-    "el": 220,
-    "en": 60929,
-    "enm": 6,
-    "eo": 137,
-    "es": 894,
-    "et": 1,
-    "fa": 1,
-    "fi": 3664,
-    "fr": 4172,
-    "fur": 1,
-    "fy": 22,
+    "cy": 13,
+    "da": 2698,
+    "de": 17479,
+    "el": 175,
+    "en": 44284,
+    "enm": 2,
+    "eo": 45,
+    "es": 5297,
+    "et": 3,
+    "fa": 7,
+    "fi": 2832,
+    "fo": 1,
+    "fr": 17802,
+    "fy": 20,
     "ga": 6,
-    "gl": 3,
-    "gla": 4,
-    "grc": 3,
-    "hai": 1,
-    "he": 4,
-    "hu": 645,
-    "ilo": 3,
-    "is": 7,
-    "it": 1102,
-    "iu": 1,
-    "ja": 21,
+    "gd": 3,
+    "gl": 6,
+    "gla": 3,
+    "grc": 1,
+    "gu": 1,
+    "he": 15,
+    "hi": 2,
+    "ht": 1,
+    "hu": 611,
+    "is": 29,
+    "it": 2874,
+    "ja": 9,
+    "ka": 1,
     "kha": 1,
     "kld": 1,
-    "la": 143,
+    "la": 956,
+    "lt": 36,
+    "lv": 1,
     "mi": 2,
-    "myn": 3,
-    "nah": 3,
-    "nai": 3,
-    "nap": 1,
-    "nav": 3,
-    "nl": 1083,
-    "no": 23,
-    "oc": 2,
+    "mk": 1,
+    "myn": 2,
+    "nah": 2,
+    "nai": 2,
+    "nl": 7987,
+    "no": 1557,
+    "oc": 10,
     "oji": 1,
-    "pl": 30,
-    "pt": 652,
+    "pl": 10432,
+    "pt": 3656,
     "rmq": 1,
-    "ro": 4,
-    "ru": 5,
-    "sa": 1,
+    "ro": 9,
+    "ru": 171,
+    "sa": 9,
     "sco": 1,
+    "se": 6,
+    "sk": 2,
     "sl": 5,
+    "smi": 1,
     "sr": 4,
-    "sv": 254,
-    "te": 6,
-    "tl": 60,
-    "zh": 416
+    "sv": 5836,
+    "ta": 1,
+    "te": 1,
+    "tl": 28,
+    "uk": 13,
+    "und": 37,
+    "wa": 3,
+    "yi": 1,
+    "zh": 179
   },
   "seUnmatched": [
     {
       "id": "se:arthur-conan-doyle/brigadier-gerard-stories",
       "title": "Brigadier Gerard Stories",
       "sourceGutenbergIds": []
-    },
-    {
-      "id": "se:dorothy-m-richardson/the-trap",
-      "title": "The Trap",
-      "sourceGutenbergIds": [
-        "64585"
-      ]
     },
     {
       "id": "se:edmund-burke/reflections-on-the-revolution-in-france",
@@ -883,21 +1141,8 @@
       ]
     },
     {
-      "id": "se:gustave-flaubert/sentimental-education/m-walter-dunne",
-      "title": "Sentimental Education",
-      "sourceGutenbergIds": [
-        "34828",
-        "27537"
-      ]
-    },
-    {
       "id": "se:h-c-mcneile/the-final-count",
       "title": "The Final Count",
-      "sourceGutenbergIds": []
-    },
-    {
-      "id": "se:heinrich-kramer/malleus-maleficarum/montague-summers",
-      "title": "Malleus Maleficarum",
       "sourceGutenbergIds": []
     },
     {
@@ -906,32 +1151,29 @@
       "sourceGutenbergIds": []
     },
     {
-      "id": "se:samuel-taylor-coleridge_robert-southey/the-fall-of-robespierre",
-      "title": "The Fall of Robespierre",
+      "id": "se:winnifred-eaton-reeve/his-royal-nibs",
+      "title": "His Royal Nibs",
       "sourceGutenbergIds": [
-        "29090"
-      ]
-    },
-    {
-      "id": "se:theodore-roosevelt/a-book-lovers-holidays-in-the-open",
-      "title": "A Book-Lover’s Holidays in the Open",
-      "sourceGutenbergIds": [
-        "34135"
-      ]
-    },
-    {
-      "id": "se:thomas-mann/short-fiction/various-translators",
-      "title": "Short Fiction",
-      "sourceGutenbergIds": [
-        "66073",
-        "61284"
+        "66184"
       ]
     }
   ],
-  "missingOriginalLanguage": 76988,
-  "missingFirstPublishedYear": 76896,
-  "sameTitleReviewGroups": 1353,
+  "missingOriginalLanguage": 124063,
+  "missingFirstPublishedYear": 88161,
+  "sameTitleReviewGroups": 4876,
   "groupingReviewSample": {
+    "": [
+      "tg:wgtc.0",
+      "ws:pl:Q134539928",
+      "ws:pl:Q134547157",
+      "ws:pl:Q98151148",
+      "ws:pt:Q19426159",
+      "ws:pt:Q19426190"
+    ],
+    "100 problemi di scacchi": [
+      "ws:it:Q131837472",
+      "ws:it:Q131861550"
+    ],
     "1812": [
       "pg:48216",
       "pg:51418",
@@ -939,62 +1181,88 @@
     ],
     "1914": [
       "pg:24538",
-      "pg:66846"
+      "pg:66846",
+      "ws:en:Q4559795"
+    ],
+    "1914 and other poems": [
+      "kal:brooke/1915",
+      "pg:33902",
+      "ws:en:Q19019291"
+    ],
+    "20 000 mil podmorskiej zeglugi": [
+      "wl:20-000-mil-podmorskiej-zeglugi",
+      "ws:pl:Q58364741"
+    ],
+    "20 hrs 40 min": [
+      "pg:73448",
+      "ws:en:Q124414235"
     ],
     "813": [
+      "elg:422",
       "pg:34758",
       "pg:55203"
+    ],
+    "a": [
+      "ws:es:Q19410479",
+      "ws:es:Q19410481",
+      "ws:es:Q19410488",
+      "ws:es:Q19410491",
+      "ws:es:Q19410492",
+      "ws:es:Q19410494",
+      "ws:pt:Q21075228"
     ],
     "aamukellot": [
       "pg:76270",
       "pg:78487"
     ],
-    "abraham lincoln": [
-      "pg:11172",
-      "pg:11728",
-      "pg:18379",
-      "pg:18540",
-      "pg:18573",
-      "pg:38374",
-      "pg:42526",
-      "pg:45449",
-      "pg:72505",
-      "pg:906"
+    "aan mynen geest": [
+      "dbnl:lann005aanm01",
+      "dbnl:wolf016aanm01"
     ],
-    "adolescence": [
-      "pg:65578",
-      "pg:67501"
-    ],
-    "adolphe": [
-      "pg:13861",
-      "pg:61743"
-    ],
-    "adopted son": [
-      "pg:39282",
-      "pg:71906"
-    ],
-    "adventure": [
-      "pg:1163",
-      "pg:64809"
-    ],
-    "adventures of a donkey": [
-      "pg:78917",
-      "pg:79114"
-    ],
-    "agricola": [
-      "pg:53265",
-      "pg:74220"
-    ],
-    "aili": [
-      "pg:17818",
-      "pg:56825"
+    "aarresaari": [
+      "pg:44339",
+      "rb:aarresaari"
     ]
   },
   "sourceSHA256": {
-    "rdf-files.tar.bz2": "52710d3d54ef1d31f60a02aeaa62763d9428bdb2c0e0e81d307dc2d40e8ee730",
-    "standardebooks-new-releases.xml": "9c7468fdf34fddacae3735ffddba1de4eda97faf4f760bfc6a86156fc321c8cd"
+    "rdf-files.tar.bz2": "1ff49f4460dab8485e84f2dddaa46fdab8169bea0107af7c78d81aae31372906",
+    "standardebooks-new-releases.xml": "5440f8b17d5dd90ff5a57d8855be9024f5e3199d359f2ed8dff2397d0a212eab"
   },
-  "indexBytes": 107191845,
-  "indexGzipBytes": 11146512,
+  "editionsBySource": {
+    "Gutenberg": 51489,
+    "Wikisource": 48534,
+    "DBNL": 7429,
+    "Projekt Runeberg": 5919,
+    "TextGrid": 4482,
+    "Deutsches Textarchiv": 3258,
+    "Kalliope": 2636,
+    "Wolne Lektury": 2355,
+    "Ebooks libres et gratuits": 2222,
+    "Bibebook": 1719,
+    "Liber Liber": 1178,
+    "Bibliothèque numérique romande": 1027,
+    "Litteraturbanken": 950,
+    "Bokselskap": 336,
+    "Arkiv for Dansk Litteratur": 269,
+    "Standard Ebooks": 10
+  },
+  "licences": {
+    "PD": 70984,
+    "CC BY-SA 4.0": 48846,
+    "CC BY 3.0 DE": 4482,
+    "Free, non-commercial": 3585,
+    "CC BY-NC 3.0": 1921,
+    "CC BY-SA": 1719,
+    "CC BY-NC-SA 4.0": 1180,
+    "CC BY-SA 3.0": 557,
+    "CC BY-NC-SA": 269,
+    "CC BY 4.0": 124,
+    "CC BY": 92,
+    "CC BY-SA 2.0": 50,
+    "CC BY 3.0": 3,
+    "CC BY-NC 4.0": 1
+  },
+  "indexBytes": 132775366,
+  "indexGzipBytes": 12957773,
   "commitIndex": false
 }

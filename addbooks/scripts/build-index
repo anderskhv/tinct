@@ -387,6 +387,9 @@ def main():
             report['warnings'].append(adapter.NAME + ' failed and is missing from this build: ' + source_report['error'])
             print(adapter.NAME + ' FAILED: ' + source_report['error'], flush=True)
         report['sources'][adapter.NAME] = source_report
+    untitled = sum(not e['title'] for e in editions)
+    editions = [e for e in editions if e['title']]
+    report['skippedUntitled'] = untitled
     enrich_dates(editions, report)
     editions = gate_copyright(editions, report)
     works = group_editions(editions, report)
