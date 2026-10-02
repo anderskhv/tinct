@@ -1,7 +1,7 @@
 import { proseJoins, proseRuns } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
-import { fitChapterEnd } from './labChapterEndPaging'
+import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
 import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
@@ -441,7 +441,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         }
         const lengths = sourceWords.map(words => words.length)
         const fitEnd = chapterActions
-          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true))
+          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords))
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
         const kept = keepPages?.length && keepWidth === pageWidth
