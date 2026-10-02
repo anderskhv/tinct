@@ -58,7 +58,7 @@ def person(name, birth=None, death=None, aliases=None):
     """Gutenberg-style "Surname, Firstname" (optionally followed by an honorific)."""
     name = clean(name)
     parts = name.split(', ', 1)
-    display = parts[1] + ' ' + parts[0] if len(parts) == 2 else name
+    display = clean(parts[1] + ' ' + parts[0]) if len(parts) == 2 else name
     return {'name': display, 'birthYear': birth, 'deathYear': death,
             'aliases': sorted(set(a for a in (aliases or []) if a) - {display})}
 
@@ -98,7 +98,7 @@ class Fetcher:
         self.cache.mkdir(parents=True, exist_ok=True)
         self.requests = 0
 
-    def path(self, url, path, headers=None, data=None, timeout=120, attempts=5):
+    def path(self, url, path, headers=None, data=None, timeout=120, attempts=5, retry=(429, 500, 502, 503, 504)):
         path = self.cache / path
         if path.exists() and not self.refresh:
             return path
@@ -117,8 +117,7 @@ class Fetcher:
                 tmp.replace(path)
                 return path
             except urllib.error.HTTPError as error:
-                retry = error.code in (429, 500, 502, 503, 504)
-                if not retry or attempt == attempts - 1:
+                if error.code not in retry or attempt == attempts - 1:
                     raise
                 wait = integer(error.headers.get('Retry-After')) or 2 ** (attempt + 1)
                 time.sleep(min(wait, 60))
@@ -134,3 +133,38 @@ class Fetcher:
 
     def json(self, url, path, **kwargs):
         return json.loads(self.bytes(url, path, **kwargs))
+
+
+def licence_from_text(value):
+    """Short licence code from a free-text rights statement; None when unrecognised."""
+    t = norm(value)
+    if not t:
+        return None
+    if re.search(r'\b(cc0|public domain|domaine public|dominio publico|pubblico dominio|gemeinfrei|allgemeinfrei|publiek domein|offentlig ejendom|fri tekst|allmän egendom|allman egendom)\b', t):
+        return 'PD'
+    if not re.search(r'creative commons|namensnennung|attribuzione|paternite|naamsvermelding|\bcc by\b|\bby\b', t):
+        return None
+    parts = ['BY']
+    if re.search(r'noncommercial|non commercial|non commerciale|nicht kommerziell|pas d utilisation commerciale|niet commercieel|\bnc\b', t):
+        parts.append('NC')
+    if re.search(r'sharealike|share alike|weitergabe unter gleichen|condividi allo stesso modo|partage dans les memes conditions|gelijk delen|\bsa\b', t):
+        parts.append('SA')
+    if re.search(r'noderivs|no derivatives|keine bearbeitung|\bnd\b', t):
+        parts.append('ND')
+    version = re.search(r'\b([1-4]) ?\.? ?0\b', t)
+    return 'CC ' + '-'.join(parts) + (' ' + version[1] + '.0' if version else '')
+
+
+def public_domain_cutoff():
+    """Life+70 (EU/Nordic) test: creators who died before this year are public domain worldwide-ish."""
+    from datetime import date
+    return date.today().year - 70
+
+
+def decode_lines(data):
+    """Decode a text listing line by line: UTF-8 where valid, otherwise Latin-1."""
+    for raw in data.splitlines():
+        try:
+            yield raw.decode('utf-8')
+        except UnicodeDecodeError:
+            yield raw.decode('latin-1')

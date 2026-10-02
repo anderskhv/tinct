@@ -24,6 +24,21 @@ export function near(a, b, limit = 1) {
   }
   return prev[b.length] <= limit;
 }
+// The catalogue omits empty fields to stay small; restore the shape every consumer expects.
+const person = p => ({birthYear: null, deathYear: null, aliases: [], ...p});
+export function hydrate(works) {
+  for (const w of works) {
+    w.authors = (w.authors || []).map(person); w.translators = (w.translators || []).map(person);
+    w.subjects ||= []; w.bookshelves ||= []; w.altTitles ||= []; w.tinctIds ||= []; w.onTinct ||= false;
+    w.language ||= ['und']; w.subtitle ??= null; w.firstPublishedYear ??= null; w.originalLanguage ??= null;
+    for (const e of w.editions) {
+      e.authors = (e.authors || []).map(person); e.translators = (e.translators || []).map(person);
+      e.subjects ||= []; e.bookshelves ||= []; e.language ||= ['und'];
+      e.epubUrl ??= null; e.coverUrl ??= null; e.sourceUrl ??= null; e.subtitle ??= null; e.popularity ??= 0;
+    }
+  }
+  return works;
+}
 export function createSearch(works) {
   const inverted = new Map(), vocabByLength = new Map();
   const docs = works.map((w, id) => {

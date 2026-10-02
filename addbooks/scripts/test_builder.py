@@ -111,5 +111,55 @@ export const BOOKS: Book[] = [LIVE, // STAGED
         self.assertEqual(entries[0]['epubUrl'],'https://standardebooks.org/recommended.epub')
         self.assertEqual(next_urls,['https://standardebooks.org/next'])
 
+class MultilingualTests(unittest.TestCase):
+    def edition(self, source, sid, title, author, lang, **kw):
+        from catalog_sources.common import edition
+        return edition(source, sid, title, id=source[:3].lower() + ':' + sid, authors=[author], language=[lang],
+                       rights='Public domain', licence='PD', **kw)
+
+    def test_licence_codes(self):
+        from catalog_sources.common import licence_from_text as l
+        self.assertEqual(l('Dieses Werk ist gemeinfrei.'), 'PD')
+        self.assertEqual(l('Creative Commons Attribution-NonCommercial 3.0 Unported License'), 'CC BY-NC 3.0')
+        self.assertEqual(l('https://creativecommons.org/licenses/by-nc-sa/4.0/'), 'CC BY-NC-SA 4.0')
+        self.assertEqual(l('Creative Commons "Attribuzione - Non commerciale - Condividi allo stesso modo 4.0"'), 'CC BY-NC-SA 4.0')
+        self.assertIsNone(l('Alle Rechte vorbehalten'))
+
+    def test_nordic_folding_and_language_articles(self):
+        self.assertEqual(b.norm('København Straße Łódź'), 'kobenhavn strasse lodz')
+        self.assertEqual(b.title_key('Den lille Havfrue', ['da']), 'lille havfrue')
+        self.assertEqual(b.title_key('Den lille Havfrue'), 'den lille havfrue')  # English rules by default
+        self.assertEqual(b.title_key('Les Misérables', ['fr']), 'miserables')
+
+    def test_rights_required(self):
+        from catalog_sources.common import edition
+        with self.assertRaises(ValueError):
+            edition('X', '1', 'Untitled', rights=None, licence=None)
+
+    def test_dated_authors_group_across_libraries_but_undated_namesakes_do_not(self):
+        from catalog_sources.common import natural_person
+        andersen = natural_person('H.C. Andersen', 1805, 1875)
+        one = self.edition('Runeberg', '1', 'Eventyr', andersen, 'da')
+        two = self.edition('Kalliope', '2', 'Eventyr', dict(andersen), 'da', quality='proofread')
+        works = b.group_editions([one, two], {})
+        self.assertEqual(len(works), 1)
+        self.assertEqual(works[0]['editions'][0]['source'], 'Kalliope')  # proofread preferred
+        undated = self.edition('Bibebook', '3', 'Contes', natural_person("Jean Dupont"), 'fr')
+        undated2 = self.edition('BNR', '4', 'Contes', natural_person("Jean Dupont"), 'fr')
+        self.assertEqual(len(b.group_editions([undated, undated2], {})), 2)
+
+    def test_runeberg_life_plus_seventy(self):
+        from catalog_sources import runeberg
+        from catalog_sources.common import Fetcher
+        class Stub(Fetcher):
+            def __init__(self): self.delay = 0
+            def bytes(self, url, path, **kw):
+                if url.endswith('a.lst'):
+                    return '# people\n1805|1875|Andersen|H.C.|dk|poet|andersen\n1930|2010|Nyere|Ny|dk|poet|nyere\n'.encode('latin-1')
+                return '# titles\nEventyr|eventyr|andersen|da|1835||||da\nNyt|nyt|nyere|da|1990||||da\n'.encode('latin-1')
+        editions = runeberg.fetch(Stub(), {})
+        self.assertEqual([e['id'] for e in editions], ['rb:eventyr'])
+
+
 if __name__ == '__main__':
     unittest.main()

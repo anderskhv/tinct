@@ -260,12 +260,25 @@ def match_tinct(works, registry, report):
                   worksOnTinct=sum(w['onTinct'] for w in works), tinctMatches=matched,
                   tinctUnmatched=unmatched, tinctAmbiguous=ambiguous)
 
+def compact(value):
+    if isinstance(value, dict):
+        return {k: compact(v) for k, v in value.items() if v not in (None, [], '', False) or k in ('popularity',)}
+    if isinstance(value, list):
+        return [compact(v) for v in value]
+    return value
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--offline', action='store_true', help='Use cached source downloads only')
     parser.add_argument('--refresh', action='store_true', help='Refresh source downloads')
     parser.add_argument('--se-feed', type=Path, action='append', help='Authorized local Atom/OPDS export; repeat for pages')
+    parser.add_argument('--sources', default='all', help='Comma-separated extra sources (' + ','.join(ADAPTERS) + ') or "all"/"none"')
+    parser.add_argument('--strict', action='store_true', help='Fail the build if any extra source fails')
     args = parser.parse_args()
+    selected = list(ADAPTERS) if args.sources == 'all' else [] if args.sources == 'none' else args.sources.split(',')
+    unknown = [s for s in selected if s not in ADAPTERS]
+    if unknown:
+        parser.error('Unknown sources: ' + ', '.join(unknown))
     if args.offline and args.refresh:
         parser.error('--offline and --refresh are mutually exclusive')
     CACHE.mkdir(parents=True, exist_ok=True)
@@ -300,6 +313,24 @@ def main():
     enrich_se(list(se.values()), editions, fetcher, report)
     editions.extend(se.values())
     report['standardEbooksEditions'] = len(se)
+    report['sources'] = {}
+    for key in selected:
+        adapter, source_report = ADAPTERS[key], {}
+        try:
+            extra = adapter.fetch(Fetcher(CACHE, args.offline, args.refresh), source_report)
+            ids = {e['id'] for e in editions}
+            extra = [e for e in extra if e['id'] not in ids and not ids.add(e['id'])]
+            editions.extend(extra)
+            source_report.update(editions=len(extra), licences=dict(collections.Counter(e['licence'] for e in extra)))
+            print(adapter.NAME + ': ' + str(len(extra)) + ' editions', flush=True)
+        except Exception as error:
+            if args.strict:
+                raise
+            source_report['error'] = type(error).__name__ + ': ' + str(error)
+            source_report['traceback'] = traceback.format_exc(limit=3)
+            report['warnings'].append(adapter.NAME + ' failed and is missing from this build: ' + source_report['error'])
+            print(adapter.NAME + ' FAILED: ' + source_report['error'], flush=True)
+        report['sources'][adapter.NAME] = source_report
     works = group_editions(editions, report)
     match_tinct(works, load_registry(ROOT / 'app/src/data/bookRegistry.ts'), report)
     report.update(works=len(works), editions=len(editions),
@@ -323,7 +354,11 @@ def main():
     report['sameTitleReviewGroups'] = len(review)
     report['groupingReviewSample'] = dict(list(sorted(review.items()))[:12])
     report['sourceSHA256'] = {str(p.name): hashlib.sha256(p.read_bytes()).hexdigest() for p in [pg] + feeds}
-    payload = {'version': 1, 'builtAt': report['builtAt'], 'coverage': report['standardEbooksCoverage'], 'works': works}
+    report['editionsBySource'] = dict(collections.Counter(e['source'] for w in works for e in w['editions']).most_common())
+    report['licences'] = dict(collections.Counter(e['licence'] for w in works for e in w['editions']).most_common())
+    # Empty/unknown fields are omitted; site/search.js hydrate() restores the defaults.
+    payload = {'version': 2, 'builtAt': report['builtAt'], 'coverage': report['standardEbooksCoverage'],
+               'sources': report['editionsBySource'], 'works': [compact(w) for w in works]}
     raw = json.dumps(payload, ensure_ascii=False, separators=(',', ':')).encode()
     compressed = gzip.compress(raw, compresslevel=9, mtime=0)
     out = BASE / 'site/data'

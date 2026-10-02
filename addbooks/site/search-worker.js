@@ -1,4 +1,4 @@
-import {createSearch} from './search.js';
+import {createSearch, hydrate} from './search.js';
 let search;
 self.onmessage = async ({data}) => {
   try {
@@ -13,6 +13,7 @@ self.onmessage = async ({data}) => {
         if (!raw.ok) throw new Error('This browser needs the uncompressed catalog.');
         catalog = await raw.json();
       }
+      hydrate(catalog.works);
       search = createSearch(catalog.works);
       const languages = new Map(), subjects = new Map(), sources = new Map();
       for (const w of catalog.works) {
