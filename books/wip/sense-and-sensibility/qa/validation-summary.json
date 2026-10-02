@@ -1,21 +1,21 @@
 {
-  "status": "NOT READY — independent editorial acceptance pending",
+  "status": "ACCEPTED — independent editorial review complete, findings resolved (2026-10-02)",
   "contentComplete": true,
   "jsonValidation": "PASS",
   "sourceStructure": "PASS: 50 sequential flat chapters; 1806 reading paragraphs",
   "modernStructure": "PASS: 50 chapters; 1806 aligned paragraphs",
   "sourceWords": 118639,
-  "modernWords": 106042,
+  "modernWords": 106113,
   "minimumParagraphWordRatio": 0.75,
   "sourceBodyEquality": "PASS all 50 chapters",
   "batchSlicesMatchCandidate": true,
   "wholeBookGate": "PASS",
-  "weightedSimilarity": 0.475,
+  "weightedSimilarity": 0.482,
   "lightMechanicalPercent": 0,
   "identicalLongParagraphPercent": 0,
   "flaggedTruncatedQuotations": 0,
   "truncationAuditFlags": 0,
-  "independentReviewsComplete": false,
+  "independentReviewsComplete": true,
   "onboarding": {
     "whyItMatters": 3,
     "angleCards": 4,
@@ -23,7 +23,11 @@
     "acclaimPresent": false
   },
   "characterEvidenceLiteralMatches": 24,
-  "remainingWork": "Independent semantic/accessibility and character/spoiler review; resolve findings and record acceptance. No unwritten chapters.",
+  "remainingWork": "None for content. Codex integration and serialized release only.",
   "originalSha256": "26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0",
-  "modernSha256": "c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512"
+  "modernSha256": "789a6dfb5025e0b96604b0cf7c258c3444792c175d1e18f62969cbbd52412928",
+  "onboardingSha256": "d2e5e7810b9dcc7b6d6284210d135cfa3378c7d3b746a72f31ad0a0a1194c251",
+  "threadsSha256": "212b6d4ef59e66d6aeb95089156dce373e552053994a5a37c217b213504d4305",
+  "charactersSha256": "c968fe82a9cb09e0e129ba7a62e9ed85091222488e518358844c2918842d0c20",
+  "independentReviewFixesApplied": "2026-10-02: 120 replacements in 107 modern-en paragraphs; threads, onboarding and character cards corrected; see EDITORIAL-FIXES.md"
 }
