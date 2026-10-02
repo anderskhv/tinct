@@ -144,6 +144,52 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
   const [accountsLoading, setAccountsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [accountsError, setAccountsError] = useState<string | null>(null)
+  const [accountAction, setAccountAction] = useState<string | null>(null)
+
+  async function adminAccountRequest(path: string, body: Record<string, string>) {
+    const res = await fetch(apiUrl(path), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token}` },
+      body: JSON.stringify(body),
+    })
+    const data = await res.json().catch(() => null)
+    return { res, data }
+  }
+
+  async function exportAccount(row: AccountMetricsRow) {
+    setAccountAction(`Exporting ${row.email}...`)
+    try {
+      const { res, data } = await adminAccountRequest('/api/admin/export-user', { userId: row.userId })
+      if (!res.ok) throw new Error(data?.error || `Export failed (${res.status})`)
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }))
+      link.download = `tinct-export-${row.userId}.json`
+      link.click()
+      URL.revokeObjectURL(link.href)
+      setAccountAction(data?.complete ? `Exported ${row.email}.` : `Exported ${row.email} with gaps: ${(data?.errors || []).join('; ') || 'truncated tables'}`)
+    } catch (err) {
+      setAccountAction(err instanceof Error ? err.message : 'Export failed')
+    }
+  }
+
+  async function deleteAccount(row: AccountMetricsRow) {
+    const typed = window.prompt(`Permanently delete ${row.email} and all its data? This cannot be undone.\n\nType the account email to confirm:`)
+    if (typed == null) return
+    if (typed.trim().toLowerCase() !== row.email.trim().toLowerCase()) {
+      setAccountAction('Email did not match; nothing was deleted.')
+      return
+    }
+    setAccountAction(`Deleting ${row.email}...`)
+    try {
+      const { res, data } = await adminAccountRequest('/api/admin/delete-user', { userId: row.userId, confirmEmail: typed })
+      const steps = (data?.steps || []) as { step: string; status: string; detail?: string }[]
+      const failed = steps.filter(step => step.status === 'failed').map(step => `${step.step}${step.detail ? ` (${step.detail})` : ''}`)
+      if (res.ok && data?.ok) setAccountAction(`Deleted ${row.email} (${steps.length} steps ok).`)
+      else setAccountAction(data?.error || `Deletion incomplete; re-run. Failed: ${failed.join('; ') || res.status}`)
+    } catch (err) {
+      setAccountAction(err instanceof Error ? err.message : 'Deletion failed')
+    }
+  }
 
   useEffect(() => {
     if (!session || !supabase) return
@@ -439,6 +485,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
           )}
         </div>
         {accountsError && <div style={styles.inlineError}>{accountsError}</div>}
+        {accountAction && <div style={styles.metricSub} role="status">{accountAction}</div>}
         <div style={styles.tableScroll}>
           <table style={styles.table}>
             <thead>
@@ -456,6 +503,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
                 <th>Cast</th>
                 <th>Checkout</th>
                 <th>Last seen</th>
+                <th>Data</th>
               </tr>
             </thead>
             <tbody>
@@ -474,10 +522,14 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
                   <td>{row.castInteractions}</td>
                   <td>{row.checkoutStarts}</td>
                   <td>{new Date(row.lastSeen).toLocaleDateString()}</td>
+                  <td style={styles.actionsCell}>
+                    <button type="button" style={styles.smallButton} onClick={() => exportAccount(row)}>Export</button>
+                    <button type="button" style={styles.smallButton} onClick={() => deleteAccount(row)}>Delete…</button>
+                  </td>
                 </tr>
               ))}
               {!accountsLoading && accountMetrics?.users.length === 0 && (
-                <tr><td colSpan={13} style={styles.emptyCell}>No signed-in account usage in this window.</td></tr>
+                <tr><td colSpan={14} style={styles.emptyCell}>No signed-in account usage in this window.</td></tr>
               )}
             </tbody>
           </table>
@@ -534,6 +586,8 @@ const styles: Record<string, CSSProperties> = {
   table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 },
   tableScroll: { overflowX: 'auto', width: '100%' },
   emailCell: { minWidth: 210, fontWeight: 600 },
+  actionsCell: { whiteSpace: 'nowrap' },
+  smallButton: { border: '1px solid rgba(11,11,11,0.3)', borderRadius: 4, background: 'transparent', color: 'inherit', padding: '3px 8px', marginRight: 4, cursor: 'pointer', fontSize: 12 },
   emptyCell: { padding: '14px 0', color: 'var(--dim, #6a6555)' },
   inlineError: { color: '#9b2c2c', margin: '10px 0', fontSize: 13 },
   button: { border: '1px solid var(--ink, #0b0b0b)', borderRadius: 4, background: 'var(--ink, #0b0b0b)', color: 'var(--paper, #ece7db)', padding: '10px 14px', marginTop: 16, cursor: 'pointer' },

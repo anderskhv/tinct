@@ -63,3 +63,30 @@ export async function supabaseInsert(env: SupabaseEnv, table: string, data: Reco
     body: JSON.stringify(data),
   })
 }
+
+/**
+ * Filtered DELETE. Refuses a path without an eq/in/is filter so a typo can
+ * never become a whole-table delete.
+ */
+export async function supabaseDelete(env: SupabaseEnv, pathWithFilter: string) {
+  if (!/[?&][^=&]+=(eq|in|is)\./.test(pathWithFilter)) throw new Error('supabaseDelete requires a filter')
+  return fetch(`${env.SUPABASE_URL}/rest/v1/${pathWithFilter}`, {
+    method: 'DELETE',
+    headers: {
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      'Prefer': 'return=minimal',
+    },
+  })
+}
+
+/** Supabase Auth admin API for one user (GET or DELETE). */
+export async function supabaseAuthAdminUser(env: SupabaseEnv, userId: string, method: 'GET' | 'DELETE') {
+  return fetch(`${env.SUPABASE_URL}/auth/v1/admin/users/${encodeURIComponent(userId)}`, {
+    method,
+    headers: {
+      'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
+      'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY!}`,
+    },
+  })
+}

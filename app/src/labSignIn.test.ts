@@ -97,7 +97,8 @@ describe('lab sign-in runtime', () => {
     expect(localStorage.getItem('tinct:chat-history:lab')).toBeNull()
     expect(localStorage.getItem('tinct-lab-highlights')).toBeNull()
     expect(localStorage.getItem('tinct-lab-prefs')).toBe('{"version":2}')
-    expect(localStorage.getItem('tinct-lab-device-id')).toBe('device-1')
+    // A fresh device id after sign-out: analytics are not linked across readers.
+    expect(localStorage.getItem('tinct-lab-device-id')).toBeNull()
   })
 })
 
@@ -315,6 +316,29 @@ describe('completed authentication', () => {
     expect(mode()).toBe('signin')
     expect(navigation).not.toHaveBeenCalled()
     expect(document.querySelector('[data-auth-status]')?.textContent).toBe('access_denied')
+  })
+
+  it('asks for email consent only when creating an account, unticked, and passes the choice to sign-up', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    history.replaceState(null, '', '/sign-in?mode=create')
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+    const box = document.querySelector<HTMLInputElement>('[name=emailOptIn]')!
+    const field = box.closest<HTMLElement>('[data-email-optin-field]')!
+    expect(field.hidden).toBe(false)
+    expect(box.checked).toBe(false)
+    auth.signUp.mockResolvedValue({ data: { session: null }, error: null })
+    document.querySelector('form')!.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+    await flush()
+    expect(auth.signUp.mock.calls[0][0].options.data).toEqual({ email_opt_in: false })
+    box.checked = true
+    document.querySelector('form')!.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
+    await flush()
+    expect(auth.signUp.mock.calls[1][0].options.data).toEqual({ email_opt_in: true })
+    document.querySelector<HTMLElement>('[data-set-mode="signin"]')!.click()
+    await flush()
+    expect(field.hidden).toBe(true)
   })
 
   it('welcomes immediate email signup and asks for confirmation when needed', async () => {

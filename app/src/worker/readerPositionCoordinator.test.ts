@@ -144,3 +144,20 @@ describe('account position coordinator',()=>{
     expect(f.storage.setAlarm).toHaveBeenLastCalledWith(now+133_500)
   })
 })
+
+describe('account position coordinator admin operations',()=>{
+  it('exports stored rows verbatim without importing, and purges alarm and storage',async()=>{
+    const calls:string[]=[]
+    const rows=[{id:1,value:JSON.stringify(state())},{id:3,value:'123'}]
+    const exec=vi.fn((query:string)=>{calls.push(query.split(' ')[0]);return {toArray:()=>query.startsWith('SELECT id, value')?rows:[]}})
+    const kv={get:vi.fn(),put:vi.fn()}
+    const storage={sql:{exec},deleteAlarm:vi.fn(async()=>{calls.push('deleteAlarm')}),deleteAll:vi.fn(async()=>{calls.push('deleteAll')})}
+    const c=new ReaderPositionCoordinator({storage} as any,{RATE_LIMIT:kv as unknown as KVNamespace})
+    expect(c.exportState()).toEqual({position:state(),mirrorCutoverAt:123})
+    expect(kv.get).not.toHaveBeenCalled()
+    calls.length=0
+    await c.purge()
+    await c.purge()
+    expect(calls).toEqual(['deleteAlarm','deleteAll','CREATE','deleteAlarm','deleteAll','CREATE'])
+  })
+})
