@@ -4237,7 +4237,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'summarize') { openChapterNotes(finishedChapters.has(book.chapterNumber) ? 'end' : 'sofar'); return }
+    // Summarize is the whole current chapter (Anders, 2026-10-02); the reading
+    // so far is Catch me up's job.
+    if (id === 'summarize') { openChapterNotes('end'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
     if (id === 'editions') { setSuperSheet('editions'); return }
     if (id === 'settings') { setSuperSheet('reading'); return }

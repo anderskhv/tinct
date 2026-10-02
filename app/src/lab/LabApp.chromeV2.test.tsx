@@ -332,6 +332,20 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent).toBe(before.header)
   })
 
+  it('summarizes the whole current chapter, not the reading so far (Catch me up does that)', async () => {
+    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => ({ ok: false, status: 502, json: async () => ({}) }))
+    vi.stubGlobal('fetch', fetchMock)
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
+    const card = await screen.findByTestId('lab-chapter-notes')
+    expect(card.textContent).toMatch(/in brief/)
+    await waitFor(() => expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-chapter-notes'))).toBe(true))
+    const bodies = fetchMock.mock.calls.filter(call => String(call[0]).includes('/api/lab-chapter-notes')).map(call => JSON.parse(String(call[1]?.body)))
+    expect(bodies.every(body => body.kind === 'end')).toBe(true)
+    expect(bodies.some(body => 'paragraphIndex' in body)).toBe(false)
+  })
+
   it('opens Account on the same sheet rather than leaving the book', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))

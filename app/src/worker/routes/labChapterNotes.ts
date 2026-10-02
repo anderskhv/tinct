@@ -63,7 +63,7 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
     ...SHARED_RULES,
   ].join('\n'),
   end: [
-    'You write a short card summing up a chapter the reader has just finished.',
+    'You write a short card summing up a whole chapter for a reader, who may be anywhere in it.',
     'Give three or four beats, in order, covering the whole chapter below. Nothing beyond this chapter and nothing you know about the book from elsewhere.',
     ...SHARED_RULES,
   ].join('\n'),
