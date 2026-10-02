@@ -1,7 +1,13 @@
 {
   "version": 1,
   "date": "2026-09-25",
-  "wholeBooks": [],
+  "wholeBooks": [
+    "discourse-on-inequality",
+    "gilgamesh",
+    "second-treatise",
+    "social-contract",
+    "symposium"
+  ],
   "editions": {
     "macbeth/modern-da": {
       "reason": "Important speeches are missing, including the dagger soliloquy.",
@@ -38,6 +44,57 @@
     "vindication-rights-of-woman/modern-da": {
       "reason": "Much of this edition is English text offered as Danish.",
       "sha256": "41ec7c251015ca8079dc88e5845757ac634fbf4c62f6ab03160ed5e686fc8880"
+    },
+    "discourse-on-inequality/original-fr": {
+      "reason": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+      "sha256": "6d62dac119c1f5cea89b175a3cc20ae2f1a9a7829c0475845360be4648f92cb8"
+    },
+    "discourse-on-inequality/original-en": {
+      "reason": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+      "sha256": "d3e7e7975ac634b98f685abcd7f6aae64b3621a74db31e1d229f2b6cfc4ba3bd"
+    },
+    "discourse-on-inequality/modern-en": {
+      "reason": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+      "sha256": "78356e4ffdf62ec28c056fe871521967da428d31fafe694cad8b064f7019c62f"
+    },
+    "gilgamesh/original-en": {
+      "reason": "Rights: the live English text is not cleared for Tinct; a public-domain replacement is being built.",
+      "sha256": "1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc"
+    },
+    "gilgamesh/modern-en": {
+      "reason": "Rights: the live English text is not cleared for Tinct; a public-domain replacement is being built.",
+      "sha256": "419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c"
+    },
+    "second-treatise/original-en": {
+      "reason": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
+      "sha256": "efbd7cabd14ed99f98aabae7a95f48e8102db75f0b7aaae0054d0ffe4675b0d0"
+    },
+    "second-treatise/modern-en": {
+      "reason": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
+      "sha256": "f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2"
+    },
+    "social-contract/original-en": {
+      "reason": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+      "sha256": "7bf5ababb7c4dfe1cec0230d44f64960d8b447c4802b6a716b52d770a5854157"
+    },
+    "social-contract/modern-en": {
+      "reason": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+      "sha256": "cf7facb77bfc5bafc99cb4d7a236fd4f59d5f9ffc4554c6f063ee8daae273843"
+    },
+    "symposium/original-en": {
+      "reason": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
+      "sha256": "3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6"
+    },
+    "symposium/modern-en": {
+      "reason": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
+      "sha256": "1e970b7beb3f098095ecf1a9fc7d78a8855d75e6ffc3bba14edc69db0e05374f"
     }
+  },
+  "wholeBookReasons": {
+    "discourse-on-inequality": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+    "gilgamesh": "Rights: the live English text is not cleared for Tinct; a public-domain replacement is being built.",
+    "second-treatise": "Held out of the library at Anders's instruction (2026-10-02 rights holds).",
+    "social-contract": "Rights: the live English text is G. D. H. Cole's 1913 translation (Cole d. 1959); a public-domain replacement is being built.",
+    "symposium": "Held out of the library at Anders's instruction (2026-10-02 rights holds)."
   }
 }

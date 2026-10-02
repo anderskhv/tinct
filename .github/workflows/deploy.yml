@@ -230,15 +230,15 @@ jobs:
         run: |
           node scripts/check-book-publication.cjs
           node scripts/check-lighthouse-characters.cjs
-      - name: Verify Symposium completeness
+      # Symposium is held out of the library (2026-10-02 rights holds), so its
+      # publication check is replaced by the held-books check: every whole-book
+      # hold is absent from the hub, sitemap and shelves, and every held edition
+      # keeps its exact asset and recovery link. Restore the Symposium step when
+      # the book returns.
+      - name: Verify held books stay out of discovery
         env:
-          TEST_BOOK: symposium
-          READER_LIVE: '1'
-          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
-          ARTIFACT_DIR: artifacts/symposium-publication-live
-        run: |
-          node scripts/check-book-publication.cjs
-          node scripts/check-symposium-characters.cjs
+          EXPECTED_BUILD_SHA: ${{ github.sha }}
+        run: node scripts/check-edition-holds-production.cjs
       - name: Save pre-promote acceptance artifacts
         uses: actions/upload-artifact@v4
         if: always()
@@ -248,7 +248,7 @@ jobs:
             app/artifacts/shakespeare-layout
             app/artifacts/hyphenation-hardening
             app/artifacts/lighthouse-publication-live
-            app/artifacts/symposium-publication-live
+            app/artifacts/edition-holds-production
 
       # ---- Stage 3: promote, then verify what only production can prove ----
 

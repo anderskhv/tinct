@@ -21,6 +21,26 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'aristotle-politics': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224',
+        after: 'eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511',
+      },
+    },
+  },
+  'beyond-good-and-evil': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5b14eaa83a4b695afc10e74b203001ac33490f732a1fb42c141749687859d08a',
+        after: 'e523d52b006da0963c0956cca1aa808145d62238db2686cf415a95ed7d849eb0',
+      },
+    },
+  },
   symposium: {
   "revision": "symposium-completeness-2026-09-25.1",
   "releasedAt": 1790362800000,
@@ -161,6 +181,176 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       'original-da': {
         before: 'c61144bbf51a930748799d4ff30ff48031ee12452ada5eb5391f684e8961d63a',
         after: '290fec6aa962cce75058c7c0286cc9a4c9aca00066be5cb535d528b7af2b8934',
+      },
+    },
+  },
+  'communist-manifesto': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62',
+        after: '5cccffe12e998383856f3d80ba64eddfb5371bbfe0b01cf04d0df503fe6760eb',
+      },
+    },
+  },
+  'kant-groundwork': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d',
+        after: '57c821d775792c3950f94a6d394e0d556310b21422e2c3bb2e6b63e77b249a9d',
+      },
+    },
+  },
+  'notes-from-underground': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8df3e74890b26ce3febb108540f3a7a32fd3afdc93b1d047cbe6b053793a0449',
+        after: '401a1e58e4ff88897bf83a999172e8072dc774ca209e5131ce2d31a1a2332530',
+      },
+    },
+  },
+  'heart-of-darkness': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '169c288c26f0c8c07be6d181855123cd982023a0b780262576944f5833afa435',
+        after: 'abcf3c20a7d0b42c15ad3196032cea5a14a113f8cecea35c70d5af8023d4aebf',
+      },
+    },
+  },
+  'jungle-book': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640',
+        after: '9eaf20289bbc99281feeae0310ffb4f434c6808c6943b986df07722dcd9debd0',
+      },
+    },
+  },
+  'hume-enquiry': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
+        after: 'cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633',
+      },
+    },
+  },
+  'around-the-world-80-days': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
+        after: 'a2d94a65fb3f0a3872f105b6300e8c3ab4c61ca0ac84614822a17ff91c05f426',
+      },
+    },
+  },
+  'a-little-princess': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020',
+        after: 'c47540c17dd567bafe0934392b31a8d236e15e809244e419080e8abf3c4fa1b6',
+      },
+    },
+  },
+  'niels-lyhne': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '88dc925851aae72fa3602b26917ec696e13a8499117c98298e71c6909f87521a',
+        after: '66fe341fd5d74b6d0fbdba1a27b5055ae80175d3615e30cff03a3a85ea1e6c38',
+      },
+    },
+  },
+  walden: {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'd2d20614cb168f7dac5413213f98d41a9d21bd90ac3126fa592e52b58571f8ec',
+        after: 'e6bfb94a075f25c959e1e97da77200aef84e40cec89dd9450f4a8f26c0a6ab01',
+      },
+    },
+  },
+  'on-liberty': {
+    revision: 'text-2026-10-01.1',
+    releasedAt: Date.parse('2026-10-01T09:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '12be1b0b5132554b0e19863654e4c0fa077e0cc267962106ed5e6e80eb6f1ff7',
+        after: 'cb1b3de53726abe48a58157067c78c72a7f8c99bc9708ad9a804f485a2d00ebb',
+      },
+    },
+  },
+  // Rights replacements: the whole English text of each book was replaced by an
+  // unrelated public-domain translation (paragraph structure and wording both new).
+  // The maps are proportional and low confidence: places land approximately,
+  // highlights stay recoverable and unresolved.
+  'the-art-of-war': {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: '60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61',
+        after: '9ff95e59dbabb51833515ba85ecf5eef4d38436afe7601591eeebf847eb4b327',
+      },
+      'modern-en': {
+        before: 'bf41e7a3a441202531c419e259f908a16b2e0f32fc2fd38beef00755e5267cf5',
+        after: 'a19820ebde2ad3a2d0b394cd7dd40e03148584335e46a7846816b352111ce5ce',
+      },
+    },
+  },
+  medea: {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: '6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731',
+        after: 'f988ee4537a1b824f9526c580d8cb1fb7bc11315e16b6aff9177f91c00b5f3bb',
+      },
+      'modern-en': {
+        before: '2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae',
+        after: '573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b',
+      },
+    },
+  },
+  bacchae: {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: 'fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539',
+        after: 'cea1d64ee2dcc2cb9c3dcc39b1e1f9f52c120a8c6f1ff33cfd22ecf623e5fdcc',
+      },
+      'modern-en': {
+        before: '9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3',
+        after: '7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8',
+      },
+    },
+  },
+  'magna-carta': {
+    revision: 'text-2026-10-01.2',
+    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
+    editions: {
+      'original-en': {
+        before: 'ca7447fb99a427bd9e12b00dcb4a0f5c7452f6da410b4111eb35d47bfacc560f',
+        after: 'fa73abf6f753a48a0c224c65bde46f8f2b8c56f25445224e78819e3c68abd6c4',
+      },
+      'modern-en': {
+        before: 'cf7d388da295fff52af25f55d6dd692644b4ca96b521db4e9dc2525deaa5f586',
+        after: 'cfa05de4109362a5889816ea4a06071944189da833907f3f916f9c323797cabb',
       },
     },
   },

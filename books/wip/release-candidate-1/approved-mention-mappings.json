@@ -1,0 +1,12 @@
+{
+  "_note": "Reviewed same-identity mention mappings for text repairs, used with app/scripts/prepare-modern-en-repairs.py --mappings. A mapping is listed only where the repaired paragraph (same chapter and paragraph index) contains a clearly equivalent span for the same figure or idea. Cards with no equivalent span stay un-anchored.",
+  "aristotle-politics": [
+    {"characterId": "socrates", "from": "Socrates rests", "to": "Socrates",
+     "occurrenceOverrides": [{"chapterNumber": 2, "paragraphIndex": 2, "oldOccurrence": 0, "newOccurrence": 0}]},
+    {"characterId": "hippodamus", "from": "The city of Hippodamus", "to": "Hippodamus' city"},
+    {"characterId": "the-best-constitution", "from": "the best form of government is, and what makes it the best",
+     "to": "which form of government is best and what gives it that superiority"},
+    {"characterId": "revolution-and-stasis", "from": "causes of revolution in states", "to": "revolutions in states"},
+    {"characterId": "the-middle-class", "from": "formed by citizens of the middle class", "to": "formed from citizens belonging to the middle class"}
+  ]
+}

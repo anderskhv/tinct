@@ -1,0 +1,12 @@
+{
+  "_note": "Reviewed same-identity mention mappings for the release-candidate-5 text repairs (walden, on-liberty), used with app/scripts/prepare-modern-en-repairs.py --mappings. A mapping is listed only where the repaired paragraph (same chapter and paragraph index) contains a clearly equivalent span for the same figure. Anything not listed stays un-anchored: walden brister-freeman 14:3 (the repair replaces 'which Brister planted' with the pronoun 'he'), on-liberty jesus 2:37 'the sayings of Christ' (repair: 'his sayings').",
+  "walden": [
+    {"characterId": "woodchopper", "from": "the woodchopper", "to": "woodcutter"}
+  ],
+  "on-liberty": [
+    {"characterId": "jesus", "from": "Christ", "to": "Christ",
+     "occurrenceOverrides": [{"chapterNumber": 2, "paragraphIndex": 37, "oldOccurrence": 0, "newOccurrence": 0}]},
+    {"characterId": "jesus", "from": "Founder of Christianity", "to": "Christianity's Founder"},
+    {"characterId": "god", "from": "God", "to": "God"}
+  ]
+}

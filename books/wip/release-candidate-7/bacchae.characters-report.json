@@ -1,0 +1,638 @@
+{
+  "book": "bacchae",
+  "editions": {
+    "original-en": {
+      "kept": [
+        {
+          "id": "dionysus",
+          "spellings": [
+            "DIONYSUS",
+            "Dionysus"
+          ],
+          "oldMentions": 154,
+          "newMentions": 118
+        },
+        {
+          "id": "pentheus",
+          "spellings": [
+            "PENTHEUS",
+            "Pentheus"
+          ],
+          "oldMentions": 125,
+          "newMentions": 119
+        },
+        {
+          "id": "agave",
+          "spellings": [
+            "AGAVE",
+            "Agave"
+          ],
+          "oldMentions": 64,
+          "newMentions": 51
+        },
+        {
+          "id": "teiresias",
+          "spellings": [
+            "TEIRESIAS",
+            "Teiresias"
+          ],
+          "oldMentions": 20,
+          "newMentions": 17
+        },
+        {
+          "id": "echion",
+          "spellings": [
+            "Echion"
+          ],
+          "oldMentions": 10,
+          "newMentions": 10
+        },
+        {
+          "id": "agenor",
+          "spellings": [
+            "Agenor"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "zeus",
+          "spellings": [
+            "Zeus"
+          ],
+          "oldMentions": 14,
+          "newMentions": 33
+        },
+        {
+          "id": "rhea",
+          "spellings": [
+            "Rhea"
+          ],
+          "oldMentions": 2,
+          "newMentions": 2
+        },
+        {
+          "id": "demeter",
+          "spellings": [
+            "Demeter"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "ares",
+          "spellings": [
+            "Ares"
+          ],
+          "oldMentions": 5,
+          "newMentions": 4
+        },
+        {
+          "id": "artemis",
+          "spellings": [
+            "Artemis"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "orpheus",
+          "spellings": [
+            "Orpheus"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "pan",
+          "spellings": [
+            "Pan"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        }
+      ],
+      "dropped": [
+        {
+          "id": "cadmus",
+          "kind": "person",
+          "name": "Cadmus",
+          "oldMentions": 54,
+          "reason": "reviewed spelling(s) ['CADMUS', 'Cadmus'] do not occur in the new translation"
+        },
+        {
+          "id": "chorus",
+          "kind": "group",
+          "name": "The chorus of Asian Bacchants",
+          "oldMentions": 43,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "chorus-leader",
+          "kind": "unnamed-role",
+          "name": "The chorus leader",
+          "oldMentions": 33,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "theban-women",
+          "kind": "group",
+          "name": "The Theban Bacchants",
+          "oldMentions": 4,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "autonoe",
+          "kind": "person",
+          "name": "Autonoe",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "ino",
+          "kind": "person",
+          "name": "Ino",
+          "oldMentions": 4,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "soldier",
+          "kind": "unnamed-role",
+          "name": "The soldier",
+          "oldMentions": 3,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "guards",
+          "kind": "group",
+          "name": "Pentheus’s guards",
+          "oldMentions": 10,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "first-messenger",
+          "kind": "unnamed-role",
+          "name": "The herdsman messenger",
+          "oldMentions": 4,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "second-messenger",
+          "kind": "unnamed-role",
+          "name": "Pentheus’s attendant",
+          "oldMentions": 9,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "townsman",
+          "kind": "unnamed-person",
+          "name": "The townsman among the herdsmen",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "semele",
+          "kind": "person",
+          "name": "Semele",
+          "oldMentions": 14,
+          "reason": "reviewed spelling(s) ['Semele'] do not occur in the new translation"
+        },
+        {
+          "id": "harmonia",
+          "kind": "person",
+          "name": "Harmonia",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "actaeon",
+          "kind": "person",
+          "name": "Actaeon",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "actaeon-father",
+          "kind": "unnamed-person",
+          "name": "Actaeon’s father",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "hera",
+          "kind": "deity",
+          "name": "Hera",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "cybele",
+          "kind": "deity",
+          "name": "Cybele",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "aphrodite",
+          "kind": "deity",
+          "name": "Aphrodite",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "apollo",
+          "kind": "deity",
+          "name": "Apollo",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "nymphs",
+          "kind": "group",
+          "name": "The nymphs",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "muses",
+          "kind": "group",
+          "name": "The Muses",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "satyrs",
+          "kind": "group",
+          "name": "The satyrs",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "corybant",
+          "kind": "mythical-being",
+          "name": "The Corybant",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "achelous",
+          "kind": "deity",
+          "name": "Achelous",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "dirce",
+          "kind": "deity",
+          "name": "Dirce",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "purity",
+          "kind": "personification",
+          "name": "Purity",
+          "oldMentions": 1,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "peace",
+          "kind": "personification",
+          "name": "Peace",
+          "oldMentions": 1,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "justice",
+          "kind": "personification",
+          "name": "Justice",
+          "oldMentions": 2,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "earthquake",
+          "kind": "personification",
+          "name": "The spirit of earthquake",
+          "oldMentions": 1,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        }
+      ]
+    },
+    "modern-en": {
+      "kept": [
+        {
+          "id": "dionysus",
+          "spellings": [
+            "DIONYSUS",
+            "Dionysus"
+          ],
+          "oldMentions": 154,
+          "newMentions": 119
+        },
+        {
+          "id": "pentheus",
+          "spellings": [
+            "PENTHEUS",
+            "Pentheus"
+          ],
+          "oldMentions": 125,
+          "newMentions": 119
+        },
+        {
+          "id": "agave",
+          "spellings": [
+            "AGAVE",
+            "Agave"
+          ],
+          "oldMentions": 64,
+          "newMentions": 51
+        },
+        {
+          "id": "echion",
+          "spellings": [
+            "Echion"
+          ],
+          "oldMentions": 10,
+          "newMentions": 10
+        },
+        {
+          "id": "agenor",
+          "spellings": [
+            "Agenor"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "zeus",
+          "spellings": [
+            "Zeus"
+          ],
+          "oldMentions": 15,
+          "newMentions": 32
+        },
+        {
+          "id": "rhea",
+          "spellings": [
+            "Rhea"
+          ],
+          "oldMentions": 2,
+          "newMentions": 2
+        },
+        {
+          "id": "demeter",
+          "spellings": [
+            "Demeter"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "ares",
+          "spellings": [
+            "Ares"
+          ],
+          "oldMentions": 5,
+          "newMentions": 4
+        },
+        {
+          "id": "artemis",
+          "spellings": [
+            "Artemis"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "orpheus",
+          "spellings": [
+            "Orpheus"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        },
+        {
+          "id": "pan",
+          "spellings": [
+            "Pan"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        }
+      ],
+      "dropped": [
+        {
+          "id": "cadmus",
+          "kind": "person",
+          "name": "Cadmus",
+          "oldMentions": 55,
+          "reason": "reviewed spelling(s) ['CADMUS', 'Cadmus'] do not occur in the new translation"
+        },
+        {
+          "id": "chorus",
+          "kind": "group",
+          "name": "The chorus of Asian Bacchants",
+          "oldMentions": 43,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "chorus-leader",
+          "kind": "unnamed-role",
+          "name": "The chorus leader",
+          "oldMentions": 33,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "theban-women",
+          "kind": "group",
+          "name": "The Theban Bacchants",
+          "oldMentions": 4,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "teiresias",
+          "kind": "person",
+          "name": "Teiresias",
+          "oldMentions": 20,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "autonoe",
+          "kind": "person",
+          "name": "Autonoe",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "ino",
+          "kind": "person",
+          "name": "Ino",
+          "oldMentions": 4,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "soldier",
+          "kind": "unnamed-role",
+          "name": "The soldier",
+          "oldMentions": 3,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "guards",
+          "kind": "group",
+          "name": "Pentheus’s guards",
+          "oldMentions": 10,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "first-messenger",
+          "kind": "unnamed-role",
+          "name": "The herdsman messenger",
+          "oldMentions": 4,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "second-messenger",
+          "kind": "unnamed-role",
+          "name": "Pentheus’s attendant",
+          "oldMentions": 9,
+          "reason": "kind 'unnamed-role' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "townsman",
+          "kind": "unnamed-person",
+          "name": "The townsman among the herdsmen",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "semele",
+          "kind": "person",
+          "name": "Semele",
+          "oldMentions": 14,
+          "reason": "reviewed spelling(s) ['Semele'] do not occur in the new translation"
+        },
+        {
+          "id": "harmonia",
+          "kind": "person",
+          "name": "Harmonia",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "actaeon",
+          "kind": "person",
+          "name": "Actaeon",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "actaeon-father",
+          "kind": "unnamed-person",
+          "name": "Actaeon’s father",
+          "oldMentions": 1,
+          "reason": "kind 'unnamed-person' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "hera",
+          "kind": "deity",
+          "name": "Hera",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "cybele",
+          "kind": "deity",
+          "name": "Cybele",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "aphrodite",
+          "kind": "deity",
+          "name": "Aphrodite",
+          "oldMentions": 3,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "apollo",
+          "kind": "deity",
+          "name": "Apollo",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "nymphs",
+          "kind": "group",
+          "name": "The nymphs",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "muses",
+          "kind": "group",
+          "name": "The Muses",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "satyrs",
+          "kind": "group",
+          "name": "The satyrs",
+          "oldMentions": 1,
+          "reason": "kind 'group' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "corybant",
+          "kind": "mythical-being",
+          "name": "The Corybant",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "achelous",
+          "kind": "deity",
+          "name": "Achelous",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "dirce",
+          "kind": "deity",
+          "name": "Dirce",
+          "oldMentions": 2,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "purity",
+          "kind": "personification",
+          "name": "Purity",
+          "oldMentions": 1,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "peace",
+          "kind": "personification",
+          "name": "Peace",
+          "oldMentions": 1,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "justice",
+          "kind": "personification",
+          "name": "Justice",
+          "oldMentions": 2,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        },
+        {
+          "id": "earthquake",
+          "kind": "personification",
+          "name": "The spirit of earthquake",
+          "oldMentions": 1,
+          "reason": "kind 'personification' is a role/group/concept, not an exact name"
+        }
+      ]
+    }
+  },
+  "revision": "2026-10-01.2"
+}
