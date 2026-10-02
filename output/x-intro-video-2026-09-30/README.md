@@ -1,18 +1,18 @@
-# Tinct films for X, 1 October 2026
+# Tinct films for X, 2 October 2026
 
-Three films share one look and one end card: *Tinct · The world's best reading experience · for the world's greatest books · [tinct.app →]*. They are designed for muted autoplay; every beat reads without sound. The main film and the cutdown have a quiet sound-effects track: rain on the window, distant thunder, the book opening, pages, clicks and the fire. There is no music. The characters clip is silent.
+Three films share one look and one end card: *Tinct · The world's best reading experience · for the greatest books ever made · [tinct.app →]*. They are designed for muted autoplay; every beat reads without sound. The main film and the cutdown have a quiet sound-effects track: rain on the window, distant thunder, the book opening, pages, clicks and the fire. There is no music. The characters clip is silent.
 
 All three are 1920×1080, 24 fps, H.264 High (BT.709) with AAC stereo audio, and within X's upload limits.
 
 | File | Length | Use |
 |---|---|---|
-| `tinct-x-intro-v4.mp4` | 42.6 s | Launch / pinned post |
+| `tinct-x-intro-v5.mp4` | 44.7 s | Launch / pinned post |
 | `tinct-x-15s.mp4` | 15.5 s | Cutdown for replies, reposts and any paid promotion |
 | `tinct-x-characters.mp4` | 15.0 s | Single-feature follow-up: character look-up |
 
 Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the main film and the cutdown; `poster-characters.jpg` (the names over the garret) is for the characters clip.
 
-## Main film: `tinct-x-intro-v4.mp4`
+## Main film: `tinct-x-intro-v5.mp4`
 
 | Time | Shot | On screen |
 |---|---|---|
@@ -23,20 +23,25 @@ Thumbnails: `poster.jpg` (the Frankenstein room and its question) is for the mai
 | 0:13 | The Introduction's words clear from the page, then Letter 1 inks in, top to bottom | |
 | 0:15 | Letter 1 in Tinct Modern English; the 1831 original lays in beside it | "Mary Shelley's original…" / "…beside modern English." |
 | 0:22 | Select "the seat of frost and desolation" on the 1831 page → Explain | "Stuck on a line? Tinct explains it." |
-| 0:28 | Chat: "Is this book really about AI?" | "Ask anything. It knows your page." |
-| 0:35 | Reading room by the fire | *Trade one scroll for one chapter.* |
-| 0:38 | End card | Tinct · The world's best reading experience · *for the world's greatest books* · tinct.app → |
+| 0:28 | Chat: "How is this book relevant for the AGI debate in 2026?"; the answer streams and holds | "Ask anything. It knows your page." |
+| 0:38 | Reading room by the fire | *Trade one scroll for one chapter.* |
+| 0:40 | End card | Tinct · The world's best reading experience · *for the greatest books ever made* · tinct.app → |
+
+The chat answer:
+> It's relevant because a new intelligence may need the same things we do, as the only other general intelligence we know: to be guided, seen and loved.
+>
+> Victor makes a mind that learns to speak, reads *Paradise Lost* and pleads for justice, then runs from it in disgust. What follows is the warning. You're about to read it.
 
 The bridge line is in Tinct's own words. Quoting a named person in the film would read as his endorsement, so that waits for permission.
 
 **Suggested post**
 > Nothing you scrolled past today will be read in 200 years. Frankenstein will.
 >
-> Tinct is the world's best reading experience for the world's greatest books: the original beside modern English, and a companion that explains any line.
+> Tinct is the world's best reading experience for the greatest books ever made: the original beside modern English, and a companion that explains any line.
 >
 > tinct.app
 
-**Alt text:** A 43-second film for Tinct. Text on black: "Nothing you scrolled past today will be read in 200 years." Then: "The most important question about AGI was raised 200 years ago…" A painted gothic library appears in a flash of lightning, with Frankenstein on the table and the question "What do we owe to the intelligence we create?" (Mary Shelley, 1818). The cover swings open and the book comes toward the viewer, into Letter 1 in modern English. Mary Shelley's original lays in beside it. A selected phrase gets an explanation, and a reader asks "Is this book really about AI?" Text: "Trade one scroll for one chapter." End card: Tinct, the world's best reading experience for the world's greatest books. tinct.app.
+**Alt text:** A 45-second film for Tinct. Text on black: "Nothing you scrolled past today will be read in 200 years." Then: "The most important question about AGI was raised 200 years ago…" A painted gothic library appears in a flash of lightning, with Frankenstein on the table and the question "What do we owe to the intelligence we create?" (Mary Shelley, 1818). The cover swings open and the book comes toward the viewer, into Letter 1 in modern English. Mary Shelley's original lays in beside it. A selected phrase gets an explanation. A reader asks "How is this book relevant for the AGI debate in 2026?" and the companion answers that a new intelligence may need the same things we do, as the only other general intelligence we know: to be guided, seen and loved. Text: "Trade one scroll for one chapter." End card: Tinct, the world's best reading experience for the greatest books ever made. tinct.app.
 
 ## 15 s cutdown: `tinct-x-15s.mp4`
 
@@ -63,18 +68,18 @@ The cards are Tinct's real character cards. They come from the reviewed characte
 >
 > tinct.app
 
-**Alt text:** A 15-second clip for Tinct. Over a painted St. Petersburg garret, three names appear: Raskolnikov, Rodya, Rodion Romanovitch, then "Same man." In the Tinct reader, his mother's letter begins "My dear Rodya". Selecting the name opens a card: Raskolnikov, a destitute former student in St. Petersburg. Selecting "Dounia" opens a card for Dunya, Raskolnikov's younger sister. End card: Tinct, the world's best reading experience for the world's greatest books. tinct.app.
+**Alt text:** A 15-second clip for Tinct. Over a painted St. Petersburg garret, three names appear: Raskolnikov, Rodya, Rodion Romanovitch, then "Same man." In the Tinct reader, his mother's letter begins "My dear Rodya". Selecting the name opens a card: Raskolnikov, a destitute former student in St. Petersburg. Selecting "Dounia" opens a card for Dunya, Raskolnikov's younger sister. End card: Tinct, the world's best reading experience for the greatest books ever made. tinct.app.
 
 ## What is real and what is staged
 
 - **Real product rendering.** Rooms, covers, the book-opening animation, the reader, Compare, menus, the Explain card, the Chat panel and the character cards were rendered by the current Tinct code in headless Chromium. The clock was frozen and frames were stepped one at a time at 24 fps, so the UI motion is the app's own. The slow-motion opening comes from stepping the app's own clock slower.
-- **The main film's AI answers were staged.** The Explain and Chat replies were hand-written and streamed into the real UI through a local mock of `/api/lab-chat`. No Anthropic API was called. The character cards are real content, not staged.
+- **The main film's AI answers were staged.** The Explain and Chat replies were hand-written and streamed into the real UI through a local mock of `/api/lab-chat`. No Anthropic API was called. The chat answer was written with the live companion's real answers as reference (its abandonment point), but it is our wording; a reader asking the same question will get a longer, more hedged answer. The character cards are real content, not staged.
 - **The clear-and-ink transition is composited.** It uses two real reader renders of Letter 1: the normal page and the same page with its text hidden (`source/cap-blank.mjs`). They are pixel-identical apart from the text.
 - **The lightning flash is added.** It's a grade on top of the Frankenstein room.
 - **The audio is synthesized.** It comes from `source/audio*.py`. The rain is built from shaped noise only (a wash, fine patter and a few heavier taps on the glass); there are no tuned drops.
 - **The build was local, not production.** The captures came from this branch's code, which can be slightly ahead of tinct.app.
 
-Earlier cuts are in git history: v1 `e494aab8`, v2 `19a26c8c`, v3 `dae66ac8`, v3.1 `6215c916`, v3.2 `15a61b21`, v3.3 `580967d0`, v3.4 (silent) `1bf16747`.
+Earlier cuts are in git history: v1 `e494aab8`, v2 `19a26c8c`, v3 `dae66ac8`, v3.1 `6215c916`, v3.2 `15a61b21`, v3.3 `580967d0`, v3.4 (silent) `1bf16747`, v4 ("Is this book really about AI?") `9f4f8b86`.
 
 ## Regenerating
 
@@ -85,6 +90,7 @@ The work directory (`FILM_WORK`, default is the current directory) holds `cap/`,
 3. Run the captures (set `PLAYWRIGHT_MODULE` if Playwright isn't resolvable):
    - Frankenstein opening: `SPEED_RAMP="122:134:0.6" COVER_AT=130 node cap-scene.mjs "Feature Frankenstein" room-wide-v2.webm 2.0 200 v3-open 0 cover`
    - Frankenstein reader: `node cap-interact.mjs` (into `cap/v2-read`), then `node cap-blank.mjs` for the text-free page `r1-blank.png`
+   - Frankenstein chat: `OUTDIR=v8-read QUESTION="…" CHAT_TEXT="…" node cap-interact.mjs` with the question and answer above
    - Crime and Punishment room: `node cap-scene.mjs "Feature Crime and Punishment" scene-crime-and-punishment-wide.webm 3.0 140 cp-room`
    - Crime and Punishment look-ups: `node cap-interact-characters.mjs` (into `cap/cp-read`)
 4. Extract the reading room: `ffmpeg -ss 1 -i table-evening-wide.mp4 -frames:v 180 -q:v 2 comp/end2/e%04d.jpg`. Fetch the fonts with `get.py`.
@@ -92,12 +98,12 @@ The work directory (`FILM_WORK`, default is the current directory) holds `cap/`,
 
    | `COMP` | Range |
    |---|---|
-   | `comp.html` | `0-1021` |
+   | `comp.html` | `0-1072` |
    | `comp-15s.html` | `0-371` |
    | `comp-characters.html` | `0-359` |
 
 6. Make and master the audio with the matching script:
-   - Main: `FOLEY_ONLY=1 python3 audio.py raw.wav`, then prepend 76 frames (3.167 s) of silence for the bridge before mastering. The music alternate is `audio.py` without `FOLEY_ONLY`.
+   - Main: `FOLEY_ONLY=1 python3 audio.py raw.wav`, then prepend 76 frames (3.167 s) of silence for the bridge and trim to 1,073 frames (44.708 s) before mastering. The music alternate is `audio.py` without `FOLEY_ONLY`.
    - Cutdown: `audio-15s.py`. Characters clip: `audio-characters.py`.
    - Master each with `python3 master.py raw.wav out.wav -18 0.55` (music mix: `-16`).
 7. Encode:

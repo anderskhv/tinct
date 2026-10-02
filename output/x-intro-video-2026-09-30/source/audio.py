@@ -7,7 +7,7 @@ from scipy import signal
 import wave, sys
 
 SR = 48000
-DUR = 946 / 24.0
+DUR = 997 / 24.0
 N = int(SR * DUR)
 rng = np.random.default_rng(1818)
 fr = lambda f: f / 24.0            # frame -> seconds
@@ -387,9 +387,9 @@ place(amb, r * fade, 1.9, gain=0.30 if not FOLEY_ONLY else 0.36)       # rain on
 th = thunder(4.4)
 th[:, :int(0.25 * SR)] *= 0.25
 place(amb, sos_filter(th, 'lowpass', 900), fr(62) + 0.12, gain=0.55)
-fe = fire(7.0, rate=9)
+fe = fire(7.2, rate=9)
 fef = np.ones(fe.shape[1]); fef[:int(1.0 * SR)] = np.linspace(0, 1, int(1.0 * SR))
-place(amb, fe * fef, 32.4, gain=0.2 if not FOLEY_ONLY else 0.26)       # the reading room's fire
+place(amb, fe * fef, 835 / 24 - 0.27, gain=0.2 if not FOLEY_ONLY else 0.26)       # the reading room's fire
 if FOLEY_ONLY:
     rt = fire(23.5, rate=5)                                  # quiet fireside room tone under the reading
     rtf = np.ones(rt.shape[1]); rtf[:int(2.0 * SR)] = np.linspace(0, 1, int(2.0 * SR)); rtf[-int(1.5 * SR):] = np.linspace(1, 0, int(1.5 * SR))
@@ -409,10 +409,10 @@ place(sfx, click(0.5), fr(518), gain=0.10, pan=0.3)                     # select
 place(sfx, click(0.9), fr(539), gain=0.18, pan=0.3)                     # Explain
 place(sfx, whoosh(0.45, 1500, 4200, 0.3), fr(548), gain=0.05, pan=0.3)  # the answer resolves
 place(sfx, click(0.7), fr(642), gain=0.14, pan=0.3)                     # focus the input
-for k in range(9):                                                      # typing (half speed)
-    place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(644) + k * 0.135 + rng.uniform(-0.015, 0.015), gain=0.07, pan=0.3)
-place(sfx, click(0.8), fr(678), gain=0.16, pan=0.3)                     # send
-place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(679), gain=0.06, pan=0.3)
+for k in range(12):                                                     # typing
+    place(sfx, click(1.3) * rng.uniform(0.5, 1.0), fr(644) + k * 0.14 + rng.uniform(-0.015, 0.015), gain=0.07, pan=0.3)
+place(sfx, click(0.8), fr(689), gain=0.16, pan=0.3)                     # send
+place(sfx, whoosh(0.4, 900, 3000, 0.25), fr(690), gain=0.06, pan=0.3)
 sfx = wet(sfx, reverb_ir(1.2, 0.25), 0.18)
 
 # ------------------------------------------------------------------ mix

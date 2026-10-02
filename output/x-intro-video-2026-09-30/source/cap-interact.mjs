@@ -1,10 +1,10 @@
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 import fs from 'fs';
 const S = process.env.FILM_WORK || process.cwd();
-const OUT = S + '/cap/v2-read'; fs.mkdirSync(OUT, { recursive: true });
+const OUT = S + '/cap/' + (process.env.OUTDIR || 'v2-read'); fs.mkdirSync(OUT, { recursive: true });
 const DT = 1000 / 24;
 const EXPLAIN = "“Seat” here means home. Walton knows the pole should be a frozen wasteland, yet he can’t stop picturing it as a paradise of endless light.";
-const CHAT = "Not literally. Shelley wrote it in 1818.\n\nBut she asks the question we’re asking now: what does a creator owe the mind it brings to life? Watch how Victor answers it.";
+const CHAT = process.env.CHAT_TEXT || "Not literally. Shelley wrote it in 1818.\n\nBut she asks the question we’re asking now: what does a creator owe the mind it brings to life? Watch how Victor answers it.";
 const browser = await chromium.launch({ args: ['--hide-scrollbars', '--mute-audio'] });
 const ctx = await browser.newContext({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 2 });
 await ctx.addInitScript({ path: S + '/vclock.js' });
@@ -87,7 +87,7 @@ meta.textarea = ta;
 await glide({ x: ta.x + 70, y: ta.y + ta.height / 2 }, 9, 'toInput');
 await page.mouse.down(); await page.mouse.up(); evt('click-input');
 await idle(2, 'focus');
-const q = 'Is this book really about AI?';
+const q = process.env.QUESTION || 'Is this book really about AI?';
 for (let i = 0; i < q.length; i += 2) { await page.keyboard.type(q.slice(i, i + 2)); await page.evaluate(() => new Promise(r => setTimeout(r, 20))); await shoot('type'); }
 await idle(4, 'typed');
 await page.keyboard.press('Enter'); evt('enter');

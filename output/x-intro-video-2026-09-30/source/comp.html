@@ -62,7 +62,7 @@
 
       <div id="word">Tinct</div>
       <div id="pos1">The world’s best reading experience</div>
-      <div id="pos2">for the world’s greatest books</div>
+      <div id="pos2">for the greatest books ever made</div>
       <div id="url">tinct.app<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></div>
     </div>
   </div>
@@ -99,7 +99,7 @@ const src = {
   r1: () => `${CAP}v2-read/r1.png`,
   blank: () => `${CAP}v2-read/r1-blank.png`,
   r2: () => `${CAP}v2-read/r2.png`,
-  ix: i => `${CAP}v2-read/i${pad(clamp(i, 0, 179))}.jpg`,
+  ix: i => `${CAP}v8-read/i${pad(clamp(i, 0, 205))}.jpg`,
   end: i => `end2/e${pad(clamp(i, 1, 180))}.jpg`,
 };
 
@@ -121,7 +121,7 @@ const toOut = (x, y, c) => ({ x: 960 + (x - c.cx) * 1.2 * c.z, y: 540 + (y - c.c
 
 // v3 timeline (24 fps): one continuous take from the room into the open book, then slower features
 const O = 12;   // the slow-motion opening lands 12 frames later; everything after it shifts
-const ROOM0 = 54, CLICK = 184, DIVE0 = 236, READ0 = 240 + O, CTA0 = 772 + O, END0 = 834 + O, TOTAL = 934 + O;
+const ROOM0 = 54, CLICK = 184, DIVE0 = 236, READ0 = 240 + O, HOLD = 51, CTA0 = 772 + O + HOLD, END0 = 834 + O + HOLD, TOTAL = 934 + O + HOLD;
 const WIPE = [304, 322], TO_RIGHT = [318 + O, 346 + O], TO_LEFT = [384 + O, 414 + O], EX0 = 452 + O, CH0 = 604 + O;
 
 // match-cut: the open book's spread and the reader's spread share the gutter (x≈800); at z 1.25 both fill the frame
@@ -155,9 +155,9 @@ function readerCam(f) {
   if (f < (542 + O)) return V.ex;
   if (f < CH0) return drift(V.ex, V.exIn, f, (542 + O), CH0);
   if (f < CH0 + 16) return mixCam(V.exIn, V.chatA, eio(prog(f, CH0, CH0 + 16)));
-  if (f < (668 + O)) return V.chatA;
-  if (f < (690 + O)) return mixCam(V.chatA, V.chatB, eio(prog(f, (668 + O), (690 + O))));
-  return drift(V.chatB, V.chatIn, f, (700 + O), CTA0);
+  if (f < 697) return V.chatA;
+  if (f < 719) return mixCam(V.chatA, V.chatB, eio(prog(f, 697, 719)));
+  return drift(V.chatB, V.chatIn, f, 719, CTA0);
 }
 // interaction capture (cap/v2-read): i4..59 select + Explain + loading; answer i69..91; chat i105..179
 function exFrame(f) {
@@ -166,12 +166,14 @@ function exFrame(f) {
   return clamp(69 + (f - (542 + O)), 69, 91);        // answer, then hold
 }
 function chatFrame(f) {
-  if (f < (620 + O)) return 105;
-  if (f < (632 + O)) return f - (515 + O);                 // i105..116 (click into the input at i115 -> f630)
-  if (f < (662 + O)) return 117 + Math.floor((f - (632 + O)) / 2);   // typing, half speed
-  if (f < (674 + O)) return Math.min(143, 132 + (f - (662 + O)));    // typed, sent, thinking
-  if (f < (706 + O)) return 144 + Math.floor((f - (674 + O)) / 2);   // streaming, half speed
-  return clamp(160 + (f - (706 + O)), 160, 179);
+  // chat capture (cap/v8-read): open i92..105, to input i106..116 (click i115), type i117..143,
+  // typed + thinking i144..155 (send at i148), stream i156..185, settle i186..205
+  if (f < 632) return 105;
+  if (f < 644) return f - 527;                                        // i105..116
+  if (f < 685) return Math.min(143, 117 + Math.floor((f - 644) / 1.5)); // typing, 2/3 speed
+  if (f < 697) return 144 + (f - 685);                                // typed, sent, thinking
+  if (f < 757) return 156 + Math.floor((f - 697) / 2);                // streaming, half speed
+  return clamp(186 + (f - 757), 186, 205);
 }
 
 const ROOMIDX = f => f - ROOM0;
@@ -302,7 +304,7 @@ const PILLS = [
   { a: 308, b: (382 + O), html: 'Mary Shelley’s original…' },
   { a: (388 + O), b: (450 + O), html: '…beside modern English.' },
   { a: (462 + O), b: (600 + O), html: 'Stuck on a line? Tinct explains it.' },
-  { a: (612 + O), b: (768 + O), html: 'Ask anything. It knows your page.' },
+  { a: (612 + O), b: (768 + O + HOLD), html: 'Ask anything. It knows your page.' },
 ];
 function drawPill(f) {
   const p = PILLS.find(p => f >= p.a - 1 && f <= p.b + 1), el = $('pill');
@@ -381,7 +383,7 @@ async function seek(F) {
 }
 
 async function init() {
-  RMETA = await (await fetch('../cap/v2-read/meta.json')).json();
+  RMETA = await (await fetch('../cap/v8-read/meta.json')).json();
   splitWords($('h1'));
   makeGrain();
   const addClick = (f, dark) => { const st = cursorState(f); clickFrames.push({ f, x: st.x, y: st.y, dark }); };
