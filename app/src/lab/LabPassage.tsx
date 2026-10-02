@@ -243,8 +243,11 @@ export function lineContinuesParagraph(
 /**
  * Only a reasonably full last line may be stretched to the margin. Below this
  * fill a justified tail reads as rivers, so it stays start-aligned instead.
+ * On a phone one word can be a fifth of the measure: a tail that stops short
+ * because the next word ("story", "cleansed") cannot be hyphenated measures
+ * 0.7-0.8 and must still be set like the interior lines above it.
  */
-export const LAB_CONTINUED_TAIL_MIN_FILL = 0.8
+export const LAB_CONTINUED_TAIL_MIN_FILL = 0.6
 
 interface TailRect { left: number; right: number; bottom: number; height: number }
 

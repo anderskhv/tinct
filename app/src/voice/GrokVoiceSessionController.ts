@@ -474,7 +474,7 @@ export class GrokVoiceSessionController {
         this.send({
           type: 'session.update',
           session: {
-            voice: grokVoiceFor(input.voicePersona ?? 'female'),
+            voice: grokVoiceFor(input.voicePersona ?? 'male'),
             instructions: this.instructions,
             turn_detection: { type: 'server_vad' },
             tools: this.sessionTools(input),

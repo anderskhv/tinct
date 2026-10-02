@@ -5,6 +5,8 @@ import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
 import { useDesktopCommands, useDesktopAppearance } from '../desktopCommands'
 import { lookupWordAtPoint } from './labLookupWord'
+import { registerLoadedChapter } from './labPoetry'
+import { useBackCloses } from './useBackCloses'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
@@ -85,6 +87,9 @@ import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { LabChapterNotesSheet } from './LabChapterNotesSheet'
+import { chapterNotesText, saveExplanation } from './labChapterNotes'
+import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
@@ -161,6 +166,7 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
+import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
 import './lab.css'
@@ -290,6 +296,14 @@ function PauseIcon({ size = 22 }: { size?: number }) {
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <rect x="6" y="5" width="4" height="14" rx="0.5" />
       <rect x="14" y="5" width="4" height="14" rx="0.5" />
+    </svg>
+  )
+}
+
+function LibraryBackIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -472,13 +486,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [appearanceProfile, book.bookId, allBookEditions])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
-      if (current.voicePersona === voicePersona) return current
-      const next = { ...current, voicePersona }
+      if (current.voicePersona === voicePersona && current.voicePersonaChosen) return current
+      const next = { ...current, voicePersona, voicePersonaChosen: true }
       writeLabPrefs(next, appearanceProfile)
       return next
     })
   }, [appearanceProfile])
-  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, onRemote: applyRemoteVoicePersona })
+  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.
@@ -531,6 +545,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
+  // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
+  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string } | null>(null)
   const [superFirstView, setSuperFirstView] = useState(false)
   const superFirstViewRef = useRef(false)
   const revealOnlyRef = useRef(false)
@@ -574,6 +590,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
   const [inTheBookOpen, setInTheBookOpen] = useState(false)
   const [peekBook, setPeekBook] = useState(false)
+  // Back (phone back gesture, browser Back) closes the panel in front instead
+  // of leaving the reader.
+  useBackCloses(tocOpen, () => setTocOpen(false))
+  useBackCloses(superMenuOpen, () => setSuperMenuOpen(false))
+  useBackCloses(superSheet !== null, () => setSuperSheet(null))
+  useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
+  useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
+  useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
@@ -2654,6 +2678,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       version: typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : undefined,
     }).then(chapter => {
       if (!live || !chapter?.paragraphs.length) return
+      registerLoadedChapter(readerEditionKey, chapter.paragraphs)
       // Use the same complete source as the destination paginator. A truncated
       // sample can mistake its last paragraph for the real chapter ending.
       setNextOpening({ key: nextOpeningKey, title: nextChapterTitle, paragraphs: chapter.paragraphs })
@@ -2699,6 +2724,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   })
   const chapterProgress = clampedChapterProgress(rawChapterProgress)
   askPageRef.current = { pageNumber: chapterProgress.currentPage, totalPages: chapterProgress.totalPages }
+  // Talk on the lock screen: the book's cover and title while a call is open,
+  // then back to the chapter details narration shows.
+  useEffect(() => {
+    if (!callOpen) return
+    const session = readerMediaSession()
+    if (!session) return
+    const title = book.bookTitle || 'Tinct'
+    const artwork = [{ src: new URL(`/covers/v2/${book.bookId || 'bible'}.webp`, window.location.href).href, sizes: '540x810', type: 'image/webp' }]
+    try {
+      session.metadata = readerMediaMetadata({ title: `Talking about ${title}`, artist: 'Tinct', album: title, artwork })
+      session.playbackState = 'playing'
+    } catch { /* unsupported */ }
+    return () => {
+      try {
+        session.metadata = readerMediaMetadata({ title: book.chapterTitle || title, artist: title, album: title, artwork })
+        session.playbackState = 'paused'
+      } catch { /* unsupported */ }
+    }
+  }, [callOpen, book.bookId, book.bookTitle, book.chapterTitle])
   // Durable reading memory: a read-only observer of the rendered tuple. It
   // records sessions for the library recap and never touches position logic.
   useLabReadingMemory({
@@ -3444,14 +3488,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!temporaryHold) markChapterFinished(book.chapterNumber)
     if (next == null) return false
     if (nextChapterOpening?.chapterNumber === next && readingPage) {
+      const endedChapter = book.chapterNumber
       setCarriedEnding({
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, targetChapter: next,
         layoutKey: `${readerLayoutKey}:${fullscreen}`, width: window.innerWidth, height: window.innerHeight,
         title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
-        folio: bookPageEstimate.page, onPrimer: () => handleChapterChat('preview'),
+        folio: bookPageEstimate.page, onPrimer: () => openChapterNotes('primer', endedChapter),
         chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext
-          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => handleChapterChat('discuss')} />,
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => openChapterNotes('end', endedChapter)} />,
       })
     } else setCarriedEnding(null)
     void goToChapter(next, 'start', true)
@@ -4163,11 +4208,36 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights])
 
+  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber) => {
+    if (initialResolving || book.chaptersProvisional) return
+    const chapter = book.chapters.find(item => item.number === chapterNumber)
+    const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
+    const title = kind === 'primer' ? `Before ${label}` : kind === 'end' ? `${label} in brief` : `${label} so far`
+    dictation.stop()
+    setSuperMenuOpen(false)
+    setChapterNotes({
+      title,
+      request: {
+        bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
+        ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
+      },
+    })
+  }, [book, dictation, initialResolving, readerEditionKey])
+
+  // Chat and Talk carry the card into the conversation the reader chose.
+  const continueChapterNotes = useCallback((mode: 'chat' | 'talk', title: string, beats: ChapterNotesBeat[] | null) => {
+    const notes = chapterNotes
+    setChapterNotes(null)
+    if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
+    if (mode === 'chat') handleChat()
+    else requestAnimationFrame(() => handleTalk())
+  }, [ask, chapterNotes, handleChat, handleTalk])
+
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'summarize') { handleChapterChat('discuss'); return }
+    if (id === 'summarize') { openChapterNotes(finishedChapters.has(book.chapterNumber) ? 'end' : 'sofar'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
     if (id === 'editions') { setSuperSheet('editions'); return }
     if (id === 'settings') { setSuperSheet('reading'); return }
@@ -4382,6 +4452,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           },
         } : {})}
       >
+        {/* Desktop: the way back to the library, icon only. The phone keeps
+            Library in the t menu and has its own Back. */}
+        {!showPhoneChrome && (
+          <button
+            type="button"
+            className="lab-v2-library-back"
+            data-testid="lab-library-back"
+            aria-label="Back to library"
+            title="Library"
+            onClick={() => handleSuperMenuSelect('library')}
+          >
+            <LibraryBackIcon size={LAB_V2_PLAY_PX} />
+          </button>
+        )}
         <div
           className="lab-header-brand"
           onClick={showPhoneChrome && !phoneReaderControlsVisible ? () => setReaderControlsVisible(true) : undefined}
@@ -4496,6 +4580,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
         />
       )}
+      {!frontispieceVisible && chapterNotes && (
+        <LabChapterNotesSheet
+          key={JSON.stringify(chapterNotes.request)}
+          request={chapterNotes.request}
+          title={chapterNotes.title}
+          onClose={() => setChapterNotes(null)}
+          onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
+          onTalk={(title, beats) => continueChapterNotes('talk', title, beats)}
+        />
+      )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
         <strong>Preserved edition · recovery view</strong>
         <p>{TEMPORARY_HOLD_NOTICE} Your reading place and history will not advance in this view. Use Contents to access your highlights and notes.</p>
@@ -4557,12 +4651,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           ) : <LabPassage
             pendingLayout={measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
-            onPreviewChapter={() => handleChapterChat('preview')}
+            onPreviewChapter={() => openChapterNotes('primer')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
-              busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')}
+              busy={false} onDiscuss={() => openChapterNotes('end')}
             /> : undefined}
             desktopSpread={desktopSpread}
             selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}
@@ -4575,7 +4669,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
-              onPrimer: () => handleChapterChat('prepare'),
+              onPrimer: () => openChapterNotes('primer', nextChapterOpening.chapterNumber),
             } : undefined}
             previousChapterEnding={openingOnRight && carriedEndingCurrent ? {
               ...carriedEndingCurrent, highlights: highlightsApi.highlights,
@@ -5174,7 +5268,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             }
             setPopupMode('note')
           }}
-          onExplanationReady={(answer) => ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })}
+          onExplanationReady={(answer) => saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: selectionPopup.paragraphIndex, passage: selectionPopup.text, answer })}
           onExplain={(answer) => {
             const text = selectionPopup.text
             if (answer) ask.keepExplanation(text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })

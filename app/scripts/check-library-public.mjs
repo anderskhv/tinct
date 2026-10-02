@@ -30,7 +30,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  else await checkSceneFilm(b,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
- await p.goto('https://tinct.app/');await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===6);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
+ await p.goto('https://tinct.app/');await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===5);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
  await p.locator('#menu-toggle').click();
  assert.equal(await p.locator('#library-menu details, #library-menu summary').count(),0,'main menu has top-level categories only');
  await p.locator('#menu-categories button').filter({hasText:/^Philosophy$/}).click();
@@ -39,6 +39,10 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  assert(await stoics.count()>0,'philosophy has a Stoic book row');
  assert((await stoics.innerText()).includes('Meditations'));
  assert.equal(await stoics.locator('.book-row').getAttribute('role'),'region');
+ // Browser Back closes a category instead of leaving Tinct (QA 2026-10-01).
+ await p.goBack();await p.waitForFunction(()=>document.getElementById('collection').hidden);
+ assert.equal(new URL(p.url()).host,'tinct.app','Back from a category stays in Tinct');
+ await p.locator('#menu-toggle').click();await p.locator('#menu-categories button').filter({hasText:/^Philosophy$/}).click();
  await p.locator('#collection-back').click();
  await p.locator('#menu-toggle').click();
  await p.locator('#menu-periods button').filter({hasText:/^Antiquity/}).click();

@@ -21,7 +21,7 @@ const report = { persona, expectedVoice, requestedVoice: null, sessionUpdated: f
 page.on('pageerror', error => report.errors.push(error.message))
 
 await page.addInitScript(({ persona }) => {
-  localStorage.setItem('tinct-lab-prefs', JSON.stringify({ voicePersona: persona }))
+  localStorage.setItem('tinct-lab-prefs', JSON.stringify({ voicePersona: persona, voicePersonaChosen: true }))
   sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({
     kind: 'open-reader', bookId: 'notes-from-underground', primaryEditionKey: 'original-en',
     savedPlace: { bookId: 'notes-from-underground', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 },

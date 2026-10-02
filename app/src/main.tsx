@@ -12,6 +12,8 @@ import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
 import './index.css'
 import { loadDesktopExperience } from './desktopCommands'
+import { installStaleChunkRecovery } from './utils/staleChunkRecovery'
+installStaleChunkRecovery()
 loadDesktopExperience()
 
 // Detect Capacitor (Android/iOS native app) and E-ink devices.

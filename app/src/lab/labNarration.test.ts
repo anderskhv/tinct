@@ -37,15 +37,18 @@ describe('narration pilot flag and prefs', () => {
     expect(narrationPilotApplies(on, 'odyssey', 'original-en', 2)).toBe(true)
     expect(narrationPilotApplies(on, 'bible', 'kjv-en', 1)).toBe(true)
     expect(narrationPilotApplies(on, 'ulysses', 'original-en', 1)).toBe(true)
-    expect(narrationPilotApplies(DEFAULT_LAB_PREFS, 'frankenstein', 'original-en', 1)).toBe(false)
-    expect(narrationPilotApplies({ ...DEFAULT_LAB_PREFS, voicePersona: 'male' }, 'frankenstein', 'original-en', 1)).toBe(true)
+    expect(narrationPilotApplies({ ...DEFAULT_LAB_PREFS, voicePersona: 'female', voicePersonaChosen: true }, 'frankenstein', 'original-en', 1)).toBe(false)
+    // Helios is the default: no retained female original is picked for a reader who never chose.
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS, 'frankenstein', 'original-en', 1)).toBe(true)
   })
 
   it('resolves the shared persona without provider details', () => {
     const voices = [{ key: 'f', label: 'Female', persona: 'female' as const }, { key: 'm', label: 'Male', persona: 'male' as const }]
-    expect(resolveNarrationVoice({ ...DEFAULT_LAB_PREFS, voicePersona: 'male' }, voices)).toBe('m')
-    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, voices)).toBe('f')
+    expect(resolveNarrationVoice({ ...DEFAULT_LAB_PREFS, voicePersona: 'female', voicePersonaChosen: true }, voices)).toBe('f')
+    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, voices)).toBe('m')
     expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, [])).toBeNull()
+    // Helios not offered: the first offered voice narrates, never "unavailable".
+    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, [{ key: 'f', label: 'Ara', persona: 'female' as const }])).toBe('f')
   })
 })
 

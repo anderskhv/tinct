@@ -65,7 +65,9 @@ export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOpt
   return voices.find(voice => voice.key === prefs.audiobookVoice)?.key
     ?? voices.find(voice => voice.persona === prefs.voicePersona)?.key
     ?? voices.find(voice => voice.key === (prefs.voicePersona === 'female' ? 'f' : 'm'))?.key
-    ?? null
+    // The preferred voice is not offered: narrate in the first one rather than
+    // reporting audio as unavailable.
+    ?? voices[0].key
 }
 
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {

@@ -23,7 +23,7 @@ import type { LabRecapRequest } from './recapSummary'
 import { contentsBooks } from './lab/labContents'
 
 export const CATCH_UP_ROUTE = '/api/lab-catch-up'
-export const CATCH_UP_PROMPT_VERSION = 'catch-up-v1'
+export const CATCH_UP_PROMPT_VERSION = 'catch-up-v2'
 export const CATCH_UP_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 /** Unit ids are slugs: `book-2-kings`, `part-book-two-1805`, `ch-12`. */
 export const CATCH_UP_UNIT_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,95}$/
@@ -183,6 +183,7 @@ export function catchUpPlan(input: {
       chapterNumber: input.chapterNumber,
       paragraphIndex: Math.max(0, Math.floor(input.paragraphIndex) || 0),
       completed: input.completed,
+      brief: true,
     },
   })
   return entries

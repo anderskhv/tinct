@@ -27,6 +27,7 @@ const HOLD_BACK_BOOK_IDS = new Set([])
 const GENERIC_TITLES = new Set([
   'Tinct — A New Way to Read',
   'Tinct - A New Way to Read',
+  'Tinct — Fall in love with the books that matter',
 ])
 
 let failures = 0

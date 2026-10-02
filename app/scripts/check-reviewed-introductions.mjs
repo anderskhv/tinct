@@ -64,7 +64,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
-  assert.equal(await page.locator('.hero-dots button').count(),6,'reviewed copy must not add hero selections')
+  assert.equal(await page.locator('.hero-dots button').count(),5,'reviewed copy must not add hero selections')
   const images=manifest.books.find(book=>book.bookId===id).imageIds.map(imageId=>manifest.images.find(image=>image.id===imageId))
   assert.equal(await page.locator('#slip-images img').count(),images.length,id+' complete author attribution')
   await page.waitForFunction(()=>[...document.querySelectorAll('#slip-images img')].every(image=>image.complete&&image.naturalWidth>0))

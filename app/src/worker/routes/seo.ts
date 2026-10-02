@@ -62,7 +62,7 @@ const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
   },
 }
 
-const BRAND_IMAGE = 'https://tinct.app/brand/20260921/share-tinct-1200x630.jpg'
+const BRAND_IMAGE = 'https://tinct.app/brand/20261001/share-tinct-1200x630.jpg'
 const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"/brand/20260921/favicon.ico\" sizes=\"any\">\n  <link rel=\"apple-touch-icon\" href=\"/brand/20260921/apple-touch-icon.png\" sizes=\"180x180\">\n  <link rel=\"manifest\" href=\"/brand/manifest.webmanifest\">\n"
 /** Filter navigation cards only; the preserved reading text is never rewritten. */
 export function filterHeldDiscoveryCards(html: string): string {
@@ -80,7 +80,7 @@ function brandedHtml(html: string, bookId?: string, bookPage = false): string {
   const image = meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
   const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — Fall in love with the books that matter.'
   let next = filterHeldDiscoveryCards(html).replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
-    .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?)["'][^>]*>\s*/gi, '')
+    .replace(/<meta\b[^>]*(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?|twitter:card)["'][^>]*>\s*/gi, '')
   const tags = `<meta property="og:image" content="${image}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${htmlEscape(alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${image}"><meta name="twitter:image:alt" content="${htmlEscape(alt)}">`
   if (meta && bookPage) next = next.replace(/<title>[^<]*<\/title>/, `<title>${htmlEscape(meta.title)}</title><meta property="og:title" content="${htmlEscape(meta.bookName)}"><meta property="og:description" content="${htmlEscape(meta.description)}">`)
   return next.replace('</head>', BRAND_INSTALL + tags + '</head>')
@@ -395,12 +395,12 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {
       const home = await serveLabPreReader(request.method, url, env, LIBRARY_ENTRY_PATH)
       if (home) {
-        const homeTitle = 'Tinct — A New Way to Read'
-        const homeDescription = 'Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.'
+        const homeTitle = 'Tinct — Fall in love with the books that matter'
+        const homeDescription = "Read, listen and talk with the world&#39;s great books. The original and a modern English edition side by side, narration, and a companion you can ask anything."
         const html = request.method === 'HEAD' ? null : (await home.text())
           .replace(/<meta\s+name="robots"[^>]*>/i, '')
           .replace(/<title>[^<]*<\/title>/i, `<title>${homeTitle}</title>`)
-          .replace('</head>', `<meta name="description" content="${homeDescription}"><link rel="canonical" href="https://tinct.app/"><meta property="og:title" content="${homeTitle}"><meta property="og:description" content="${homeDescription}"><meta property="og:url" content="https://tinct.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct"><meta property="og:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${homeTitle}"><meta name="twitter:description" content="${homeDescription}"><meta name="twitter:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg"></head>`)
+          .replace('</head>', `<meta name="description" content="${homeDescription}"><link rel="canonical" href="https://tinct.app/"><meta property="og:title" content="${homeTitle}"><meta property="og:description" content="${homeDescription}"><meta property="og:url" content="https://tinct.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct"><meta property="og:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${homeTitle}"><meta name="twitter:description" content="${homeDescription}"><meta name="twitter:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg"></head>`)
         const response = new Response(html == null ? null : brandedHtml(html, url.searchParams.get('book') || undefined, true), home)
         response.headers.delete('X-Robots-Tag')
         response.headers.delete('Content-Length')

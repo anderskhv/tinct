@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { COMPANION_MODEL } from './companionModel'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
 import { CATCH_UP_PROMPT_VERSION } from './catchUp'
 import { resetBookRetrievalCache, type ChapterText } from './worker/lib/bookRetrieval'
 import {
@@ -122,7 +122,7 @@ describe('POST /api/lab-catch-up', () => {
     expect(fetchAnthropic).not.toHaveBeenCalled()
   })
 
-  it('generates a completed unit from text the Worker fetched itself, with the companion model at low effort, then caches it', async () => {
+  it('generates a completed unit from text the Worker fetched itself, with the fast recap model, then caches it', async () => {
     const { ctx, pending } = makeContext()
     const cache = fakeCache()
     const fetchAnthropic = anthropicOk('Anna arrives in the snow. Levin mows.')
@@ -134,8 +134,9 @@ describe('POST /api/lab-catch-up', () => {
     })
     const [payload, apiKey] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>, string]
     expect(apiKey).toBe('k')
-    expect(payload).toMatchObject({ model: COMPANION_MODEL, max_tokens: CATCH_UP_MAX_TOKENS, output_config: { effort: 'low' } })
-    expect(String(payload.system)).toMatch(/two or three plain declarative sentences/)
+    expect(payload).toMatchObject({ model: RECAP_FAST_MODEL, max_tokens: CATCH_UP_MAX_TOKENS })
+    expect(payload).not.toHaveProperty('output_config')
+    expect(String(payload.system)).toMatch(/two short plain declarative sentences in the present tense, at most 40 words/)
     const content = (payload.messages as Array<{ content: string }>)[0].content
     expect(content).toContain('Anna Karenina, Part 1')
     expect(content).toContain('snow is falling')

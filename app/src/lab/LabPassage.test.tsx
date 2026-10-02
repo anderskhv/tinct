@@ -214,7 +214,8 @@ describe('continued page tails', () => {
     }) as unknown as DOMRectList
     const fullSpans = full.querySelectorAll('span')
     vi.spyOn(fullSpans[0], 'getClientRects').mockReturnValue(rects([[20, 320, 20]]))
-    vi.spyOn(fullSpans[1], 'getClientRects').mockReturnValue(rects([[20, 20 + 300 * LAB_CONTINUED_TAIL_MIN_FILL, 40]]))
+    // A phone tail before an unhyphenatable word: 73% of the measure, still justified.
+    vi.spyOn(fullSpans[1], 'getClientRects').mockReturnValue(rects([[20, 20 + 300 * 0.73, 40]]))
     const shortSpans = short.querySelectorAll('span')
     vi.spyOn(shortSpans[0], 'getClientRects').mockReturnValue(rects([[20, 320, 20]]))
     vi.spyOn(shortSpans[1], 'getClientRects').mockReturnValue(rects([[20, 120, 40]]))

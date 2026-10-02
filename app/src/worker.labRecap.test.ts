@@ -1,10 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { COMPANION_MODEL } from './companionModel'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
 import { RECAP_PROMPT_VERSION } from './recapSummary'
 import type { ChapterText } from './worker/lib/bookRetrieval'
 import {
   RECAP_MAX_PASSAGE_CHARS,
   RECAP_MAX_TOKENS,
+  RECAP_BRIEF_MAX_TOKENS,
   RECAP_RATE_LIMIT_PER_MINUTE,
   buildRecapPassage,
   elidePassage,
@@ -80,7 +81,8 @@ const spend = async () => true
 
 describe('parseRecapRequest', () => {
   it('accepts a well-formed place and normalises the optional fields', () => {
-    expect(parseRecapRequest(place)).toEqual({ ...place, completed: false, previousChapterNumber: null })
+    expect(parseRecapRequest(place)).toEqual({ ...place, completed: false, previousChapterNumber: null, brief: false })
+    expect(parseRecapRequest({ ...place, brief: true })).toMatchObject({ brief: true })
     expect(parseRecapRequest({ ...place, completed: true, previousChapterNumber: 644, bookTitle: '  The Bible  ' })).toMatchObject({ completed: true, previousChapterNumber: 644, bookTitle: 'The Bible' })
   })
 
@@ -182,6 +184,22 @@ describe('POST /api/lab-recap', () => {
     await Promise.all(pending)
     expect(cache.entries.size).toBe(1)
     expect([...cache.entries.keys()][0]).toBe(`https://tinct.app/__lab-recap/${RECAP_PROMPT_VERSION}/bible/kjv-en/645/645/3`)
+  })
+
+  it('a brief request (Catch me up) uses the fast model, a 40-word prompt and its own cache key', async () => {
+    const { ctx, pending } = makeContext()
+    const cache = fakeCache()
+    const fetchAnthropic = anthropicOk('The proverbs so far prize a quiet home over strife.')
+    const response = await handleLabRecap(recapRequest({ ...place, brief: true }), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+    expect(response.status).toBe(200)
+    const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>, string]
+    expect(payload.model).toBe(RECAP_FAST_MODEL)
+    expect(payload.max_tokens).toBe(RECAP_BRIEF_MAX_TOKENS)
+    expect(payload).not.toHaveProperty('output_config')
+    expect(String(payload.system)).toMatch(/at most 40 words/)
+    expect(String(payload.system)).toMatch(/Do not go beyond it/)
+    await Promise.all(pending)
+    expect([...cache.entries.keys()][0]).toBe(`https://tinct.app/__lab-recap/brief-v1/${RECAP_PROMPT_VERSION}/bible/kjv-en/645/645/3`)
   })
 
   it('serves a cached summary without calling the model', async () => {

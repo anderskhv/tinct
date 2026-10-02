@@ -48,7 +48,7 @@ it('asks again on every Play after Keep reading, closing on a single tap and nev
  let ensures=0
  vi.stubGlobal('fetch',vi.fn(async(input:RequestInfo|URL)=>{
   const url=String(input)
-  if(url.includes('/api/narration/voices'))return new Response(JSON.stringify({enabled:true,provider:'grok',voices:[{key:'f',label:'Female',persona:'female',cacheIdentity:'x'}]}),{status:200})
+  if(url.includes('/api/narration/voices'))return new Response(JSON.stringify({enabled:true,provider:'grok',voices:[{key:'f',label:'Ara',persona:'female',cacheIdentity:'x'},{key:'m',label:'Helios',persona:'male',cacheIdentity:'y'}]}),{status:200})
   if(url.includes('/api/narration/ensure')){ensures+=1;return new Response('',{status:401})}
   return new Response('',{status:404})
  }))

@@ -109,6 +109,12 @@ export interface LabSharedPrefs {
   audiobookVoice?: 'orion' | 'eve' | null
   /** Account-synced persona shared by audiobook narration and voice assistant. */
   voicePersona: 'female' | 'male'
+  /**
+   * True once the reader picked a voice themselves. Before 2026-10-01 the
+   * default (Ara) was stored as if chosen; without this flag a stored voice is
+   * the old default and reads as Helios, the default since then.
+   */
+  voicePersonaChosen?: boolean
 }
 
 export interface LabStoredPrefs {
@@ -183,7 +189,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   paragraphSpacing: 'standard',
   progressDisplay: { metric: 'page', scope: 'chapter' },
   compareOpen: false,
-  voicePersona: 'female',
+  voicePersona: 'male',
 }
 
 /**
@@ -351,9 +357,10 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
     audioSpeed: parsedSpeed,
     ...(src.audiobookVoice === 'orion' || src.audiobookVoice === 'eve' ? { audiobookVoice: src.audiobookVoice } : {}),
     compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
-    voicePersona: src.voicePersona === 'male' || src.voicePersona === 'female'
+    voicePersona: src.voicePersonaChosen === true && (src.voicePersona === 'male' || src.voicePersona === 'female')
       ? src.voicePersona
-      : src.narrationVoice === 'a' ? 'male' : fallback.voicePersona,
+      : fallback.voicePersona,
+    ...(src.voicePersonaChosen === true && (src.voicePersona === 'male' || src.voicePersona === 'female') ? { voicePersonaChosen: true } : {}),
     // Narration pilot keys are stored only once a reader opted in, so the
     // stored shape of every other reader's prefs is unchanged.
     ...(src.narrationProvider === 'fish' ? { narrationProvider: 'fish' as const } : {}),

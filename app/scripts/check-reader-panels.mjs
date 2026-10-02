@@ -44,11 +44,15 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname==='/api/narration/voices' && fixture.narrationEnabled!==undefined) {
-      return route.fulfill({json:{enabled:fixture.narrationEnabled,voices:fixture.narrationEnabled?[{key:'f',label:'Female',persona:'female'}]:[]}})
+      return route.fulfill({json:{enabled:fixture.narrationEnabled,voices:fixture.narrationEnabled?[{key:'f',label:'Ara',persona:'female'},{key:'m',label:'Helios',persona:'male'}]:[]}})
     }
     if (url.pathname==='/api/narration/ensure' && fixture.narrationEnabled) {
       requests.push({narration:req.postDataJSON()})
       return route.fulfill({status:401,json:{error:'unauthenticated'}})
+    }
+    if (url.pathname==='/api/lab-chapter-notes') {
+      const body=req.postDataJSON(); requests.push({chapterNotes:body})
+      return route.fulfill({json:{beats:[{title:'Where it begins',text:'A compact opening grounded in the chapter.'},{title:'Then',text:'A second beat follows it.'}],kind:body.kind,chapterNumber:body.chapterNumber,through:null,source:'model'}})
     }
     if (/\/api\/(lab-chat|chat)$/.test(url.pathname)) {
       const body = req.postDataJSON(); requests.push(body)
@@ -58,7 +62,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
     if (req.method() !== 'GET') return route.abort()
     if (!live && url.origin === origin) {
-      const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname
+      const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname
       const filename = path.resolve('dist', '.' + pathname)
       if (filename.startsWith(path.resolve('dist') + '/')) {
         try { if ((await fs.stat(filename)).isFile()) return route.fulfill({path:filename}) } catch {}
@@ -67,7 +71,9 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     return route.continue()
   })
   await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
-    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
+    // handoffOnce: later navigations (library -> Continue) keep the hand-off the app writes.
+    if (!fixture.handoffOnce || !sessionStorage.getItem('qa:handoff-set')) sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
+    if (fixture.handoffOnce) sessionStorage.setItem('qa:handoff-set', '1')
     if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
@@ -826,7 +832,10 @@ async function menuRedesign(engine,name,phone) {
     const {page,requests}=state
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),['Chat','Talk','Summarize','Catch me up','Book editions','Settings','Library','Account'])
+    // Desktop: Library lives in the icon-only back arrow at the top left.
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Catch me up','Book editions','Settings','Library','Account']:['Chat','Talk','Summarize','Catch me up','Book editions','Settings','Account'])
+    assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
+    if(!phone)assert.equal((await page.getByTestId('lab-library-back').innerText()).trim(),'')
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
     assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
@@ -852,10 +861,103 @@ async function menuRedesign(engine,name,phone) {
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
-    await page.getByText('A compact opening grounded in the selected passage.').waitFor()
-    assert(requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'||JSON.stringify(body.messages??[]).includes('Recap this chapter.')),'summary uses existing chapter chat')
+    // Summarize is a card of beats in its own sheet, not a chat answer.
+    await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()
+    assert(requests.some(body=>body.chapterNotes?.kind==='sofar'||body.chapterNotes?.kind==='end'),'summary asks for chapter notes')
+    assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
+    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
+    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)
+    await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
+// Revealing the reader controls or opening Chat mid-chapter never moves the page.
+async function revealKeepsPage(engine,name,phone) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:phone?'phone-reveal-keeps-page':'desktop-reveal-keeps-page',live}
+  try {
+    state=await boot(browser,phone,'frankenstein','original-en',6)
+    const {page}=state
+    for(let i=0;i<2;i++){if(phone)await page.mouse.click(370,420);else await page.keyboard.press('ArrowRight');await page.waitForTimeout(600)}
+    const snap=()=>page.getByTestId('lab-root').evaluate(n=>({chapter:n.dataset.chapter,place:n.dataset.place,pageHeight:n.dataset.pageHeight,top:Math.round(document.querySelector('[data-testid="lab-word"]')?.getBoundingClientRect().top??-1)}))
+    const before=await snap()
+    if(phone){assert.equal(await page.getByTestId('lab-root').getAttribute('data-reader-controls'),'hidden');await page.locator('.lab-header-brand').first().click()}
+    else await page.mouse.move(720,30)
+    await page.waitForTimeout(600)
+    assert.deepEqual(await snap(),before,'revealing the controls keeps the page still')
+    await clickMenu(page,'chat')
+    await page.waitForTimeout(1500)
+    const after=await snap()
+    assert.equal(after.chapter,before.chapter,'opening Chat keeps the chapter');assert.equal(after.place,before.place,'opening Chat keeps the place')
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
+// Desktop panels open beside what opened them and grow in place (Anders 2026-10-01).
+async function panelsOpenNearSource(engine,name) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'desktop-panels-near-source',live}
+  try {
+    state=await boot(browser,false,'odyssey','original-en',2)
+    const {page}=state
+    const menu=await page.getByTestId('lab-super').boundingBox()
+    for(const id of ['settings','editions','catchup']){
+      await clickMenu(page,id);await page.waitForTimeout(700)
+      const sheet=await page.locator('section.lab-v2-sheet').first().boundingBox()
+      assert(Math.abs(sheet.x+sheet.width-(menu.x+menu.width))<=40,`${id} opens right-aligned under the Menu button: ${JSON.stringify(sheet)}`)
+      assert(sheet.y>=menu.y+menu.height&&sheet.y<=menu.y+menu.height+60,`${id} opens just below the Menu button: ${JSON.stringify(sheet)}`)
+      await page.keyboard.press('Escape');await page.waitForTimeout(300)
+    }
+    const words=page.getByTestId('lab-word');const a=await words.nth(40).boundingBox(),z=await words.nth(52).boundingBox()
+    await page.mouse.move(a.x+3,a.y+a.height/2);await page.mouse.down();await page.mouse.move(z.x+z.width-3,z.y+z.height/2,{steps:10});await page.mouse.up()
+    await page.getByRole('button',{name:'Explain',exact:true}).click()
+    await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
+    await page.waitForTimeout(400)
+    const before=await page.locator('.selection-popup').boundingBox()
+    await page.getByRole('button',{name:'Expand explanation',exact:true}).click();await page.waitForTimeout(600)
+    const after=await page.locator('.selection-popup').boundingBox()
+    assert(Math.abs(after.x-before.x)<=4&&Math.abs(after.y-before.y)<=4,`Explain grows in place: ${JSON.stringify({before,after})}`)
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  } catch(error) {
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+  } finally {await browser.close();results.push(result)}
+}
+
+// Library -> Continue reopens the exact page, every time (guest; QA 2026-10-01 found one page of drift per round trip).
+async function libraryContinueKeepsPage(engine,name,phone) {
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:phone?'phone-library-continue':'desktop-library-continue',live}
+  try {
+    state=await boot(browser,phone,'frankenstein','original-en',7,{handoffOnce:true})
+    const {page}=state
+    for(let i=0;i<3;i++){if(phone)await page.mouse.click(370,420);else await page.keyboard.press('ArrowRight');await page.waitForTimeout(500)}
+    await page.waitForTimeout(1500)
+    const where=()=>page.getByTestId('lab-root').evaluate(n=>n.dataset.chapter+'@'+n.dataset.place)
+    const start=await where()
+    for(let round=1;round<=2;round++){
+      await page.goto(origin+'/library',{waitUntil:'domcontentloaded'})
+      await page.locator('#rt-continue').waitFor({state:'visible',timeout:30000})
+      await page.waitForTimeout(1000)
+      await page.locator('#rt-continue').click()
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:30000})
+      await page.waitForTimeout(1200)
+      assert.equal(await where(),start,`library Continue round ${round} reopens the same place`)
+    }
     result.passed=true
   } catch(error) {
     result.passed=false;result.error=error.stack
@@ -868,6 +970,9 @@ if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
+  for(const phone of [false,true])await revealKeepsPage(engine,name,phone)
+  for(const phone of [false,true])await libraryContinueKeepsPage(engine,name,phone)
+  await panelsOpenNearSource(engine,name)
   if(process.env.READER_MENU_ONLY==='1')continue
   for(const phone of [false,true])await run(engine,name,phone)
   for(const phone of [false,true])await feedbackRegression(engine,name,phone)

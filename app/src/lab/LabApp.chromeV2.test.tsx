@@ -399,6 +399,20 @@ describe('the desktop', () => {
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
   })
 
+  it('goes back to the library from an icon-only arrow; the menu has no Library row', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const back = screen.getByTestId('lab-library-back')
+    expect(back.getAttribute('aria-label')).toBe('Back to library')
+    expect(back.textContent).toBe('')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.queryByTestId('lab-super-row-library')).toBeNull()
+  })
+
+  it('keeps Library in the phone menu and draws no arrow there', () => {
+    renderPhone()
+    expect(screen.queryByTestId('lab-library-back')).toBeNull()
+  })
+
   it('closes the Chat panel on Escape, like the menu and the sheet', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))

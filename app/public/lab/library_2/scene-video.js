@@ -11,7 +11,7 @@ const FILMED = new Set(['frankenstein', 'meditations', 'the-prince', 'crime-and-
 export function sceneVideoSrc(id) {
   if (!FILMED.has(id)) return null;
   const poster = id === 'frankenstein' ? 'room-wide-v2' : id.startsWith('table-') ? `${id}-wide` : `scene-${id}-wide`;
-  return `assets/scenes/${poster}.mp4`;
+  return `assets/scenes/${poster}.mp4?v=20261001v4`;
 }
 
 // `wide` is the same test the canvas and scene-life use (hero w/h > 1.2 with

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Section } from '../types'
 import { catchUpPlan, catchUpUnits, type CatchUpEntry } from '../catchUp'
 import type { LabChapter } from './labSource'
@@ -59,7 +59,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     }
     return initial
   })
-  const [wanted, setWanted] = useState<Set<string>>(() => new Set(keys.slice(-CATCH_UP_INITIAL_WANTED)))
+  const [wanted, setWanted] = useState<Set<string>>(() => new Set(keys.slice(0, CATCH_UP_INITIAL_WANTED)))
   const [coolUntil, setCoolUntil] = useState(0)
   const bodyRef = useRef<HTMLDivElement>(null)
   const windowRef = useReaderWindow<HTMLElement>('catchup', true)
@@ -79,18 +79,6 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
-
-  // Open at the "You are here" end, and stay there while recaps arrive until
-  // the reader scrolls up themselves.
-  const pinnedToEnd = useRef(true)
-  useLayoutEffect(() => {
-    const body = bodyRef.current
-    if (body && pinnedToEnd.current) body.scrollTop = body.scrollHeight
-  }, [states])
-  const onScroll = useCallback(() => {
-    const body = bodyRef.current
-    if (body) pinnedToEnd.current = body.scrollHeight - body.scrollTop - body.clientHeight < 8
-  }, [])
 
   // Entries near the visible part of the timeline are the ones worth asking for.
   useEffect(() => {
@@ -125,7 +113,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     })()
   }, [readToken])
 
-  // Start what is wanted, newest first, a couple at a time.
+  // Start what is wanted, in reading order, a few at a time.
   useEffect(() => {
     const wait = coolUntil - Date.now()
     if (wait > 0) {
@@ -148,7 +136,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
           <h2 className="lab-v2-title">{CATCH_UP_TITLE}</h2>
           <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
         </div>
-        <div ref={bodyRef} className="lab-v2-sheet-body lab-catch-up-body" data-testid="lab-catch-up-body" onScroll={onScroll}>
+        <div ref={bodyRef} className="lab-v2-sheet-body lab-catch-up-body" data-testid="lab-catch-up-body">
           <ol className="lab-catch-up-timeline">
             {entries.map(entry => {
               const status = states[entry.key]

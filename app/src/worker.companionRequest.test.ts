@@ -116,11 +116,33 @@ describe('signed-out companion route', () => {
     const response = await handleLabChat(post({ companion: { intent: 'library', library: { contextBookId: 'odyssey' } }, messages: [{ role: 'user', content: 'What should I read?' }] }),
       { ANTHROPIC_API_KEY: 'k', ASSETS: assets }, ctx().ctx, async () => true, async () => true)
     expect(response.status).toBe(200)
-    expect(String(bodies[0].system)).toContain("You are Tinct's librarian")
-    expect(String(bodies[0].system)).toContain('- odyssey | The Odyssey | Homer')
-    expect(String(bodies[0].system)).toContain('preparation pages')
+    const blocks = bodies[0].system as Array<{ type: string; text: string; cache_control?: unknown }>
+    // The catalogue is the same for every reader and cached; the open book follows uncached.
+    expect(blocks[0].text).toContain("You are Tinct's librarian")
+    expect(blocks[0].text).toContain('- odyssey | The Odyssey | Homer')
+    expect(blocks[0].cache_control).toEqual({ type: 'ephemeral' })
+    expect(blocks[1].text).toContain('preparation pages')
+    expect(blocks[1].cache_control).toBeUndefined()
     expect(bodies[0].max_tokens).toBe(COMPANION_MAX_TOKENS.library)
     expect(bodies[0].tools).toBeUndefined()
+  })
+
+  it("gives the librarian the reader's shelf, keeping the cached catalogue block unchanged", async () => {
+    const { bodies } = captureAnthropic()
+    const assets = { fetch: vi.fn(async () => Response.json({ books: [
+      { id: 'odyssey', title: 'The Odyssey', author: 'Homer', summary: 'A homecoming.' },
+      { id: 'frankenstein', title: 'Frankenstein', author: 'Mary Shelley', summary: 'A creation.' },
+    ] })) }
+    const shelf = { reading: ['odyssey'], saved: ['frankenstein', '../bad'], finished: [] }
+    const response = await handleLabChat(post({ companion: { intent: 'library', library: { contextBookId: null, shelf } }, messages: [{ role: 'user', content: 'What next?' }] }),
+      { ANTHROPIC_API_KEY: 'k', ASSETS: assets }, ctx().ctx, async () => true, async () => true)
+    expect(response.status).toBe(200)
+    const blocks = bodies[0].system as Array<{ text: string }>
+    expect(blocks[0].text).not.toContain('Currently reading:')
+    expect(blocks[1].text).toContain('Currently reading: The Odyssey (Homer) [odyssey]')
+    expect(blocks[1].text).toContain('Saved to read: Frankenstein (Mary Shelley) [frankenstein]')
+    expect(blocks[1].text).toContain('Finished: none')
+    expect(blocks[1].text).not.toContain('../bad')
   })
 
   it('builds chapter actions server-side with the supplied next chapter', async () => {

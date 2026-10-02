@@ -16,7 +16,7 @@
  *   3. generation, which alone is rate-limited per IP and reserved against
  *      the signed-out daily AI ceiling, exactly as `/api/lab-recap`.
  */
-import { COMPANION_MODEL } from '../../companionModel'
+import { RECAP_FAST_MODEL } from '../../companionModel'
 import {
   CATCH_UP_CACHE_TTL_SECONDS,
   CATCH_UP_PROMPT_VERSION,
@@ -55,7 +55,7 @@ export interface LabCatchUpDeps {
   resolveUser?: (request: Request) => Promise<string | null>
 }
 
-export const CATCH_UP_MAX_TOKENS = 220
+export const CATCH_UP_MAX_TOKENS = 120
 /** About 8K tokens of source per entry; long units are sampled evenly across their chapters. */
 export const CATCH_UP_MAX_PASSAGE_CHARS = 32_000
 /** Every request, cached or not: a long timeline is many cheap lookups. */
@@ -68,7 +68,7 @@ const MAX_CHAPTER_NUMBER = 10_000
 
 export const CATCH_UP_SYSTEM_PROMPT = [
   'You write one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book.',
-  'Summarise the passage below in two or three plain declarative sentences in the present tense, at most 70 words in all.',
+  'Summarise the passage below in two short plain declarative sentences in the present tense, at most 40 words in all.',
   'Use only the passage. Do not go beyond it: no later events, no outcomes, no foreshadowing, and nothing you know about this book from elsewhere. The passage ends where the reader has read to.',
   'A long passage is sampled: parts of each chapter are left out. Cover the whole span evenly, not only its opening.',
   'For non-narrative text (proverbs, letters, essays, laws, poems) state the main points instead of events.',
@@ -255,14 +255,13 @@ export async function handleLabCatchUp(
   const meter = createAiMeter(env, ctx, {
     guest: requestGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
-  }, { feature: 'recap', bookId: parsed.bookId, model: COMPANION_MODEL })
+  }, { feature: 'recap', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
-      model: COMPANION_MODEL,
+      model: RECAP_FAST_MODEL,
       max_tokens: CATCH_UP_MAX_TOKENS,
       system: CATCH_UP_SYSTEM_PROMPT,
       messages: [{ role: 'user', content }],
-      output_config: { effort: 'low' },
     }, apiKey)
     if (!response.ok) {
       if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)

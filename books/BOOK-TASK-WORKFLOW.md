@@ -35,6 +35,8 @@ These restrictions override broader path lists, auto-documentation rules, “pus
 
 Complete the authorized content work and independent reviews. Supply source provenance, pinned baselines, accepted candidate hashes, changed paragraph lists, character identity decisions and structural mappings where relevant. Record remaining issues honestly.
 
+For third-party evidence (dealer listings, articles, reviews), record the URL, retrieval date and the exact passage you rely on. Never save whole third-party web pages into the repository: they are public once pushed and can carry tracking links and signed URLs that secret scanners flag.
+
 Before committing, inspect the diff: every changed file must be a content artifact in the owned staging folder, with no code or shared/runtime files. If unexpected changes exist, preserve them and exclude them from your commit; do not revert someone else's work.
 
 Push the package and give Codex the branch, exact commit, package path, acceptance status and integration requirements. “Content accepted / handed off” and “published” are distinct statuses. Codex performs integration, required app verification and serialized release.

@@ -158,7 +158,7 @@ it('introduces the same shared pill once per visit, with exactly three laps', as
 })
 
 function embeddedHost() {
-  return { controls: { current: null as import('../labLibraryAssistant').LibraryAssistantControls | null }, ready: vi.fn(), onClose: vi.fn(), openBook: vi.fn(), returnTo: '/lab/library_2/', getBookId: () => 'republic' }
+  return { controls: { current: null as import('../labLibraryAssistant').LibraryAssistantControls | null }, ready: vi.fn(), onClose: vi.fn(), openBook: vi.fn(), returnTo: '/lab/library_2/', getBookId: () => 'republic', getShelf: () => ({ reading: ['odyssey'], saved: [], finished: ['republic'] }) }
 }
 
 it('embeds without the old dock, sends current-book context, and opens recommendations through its host', async () => {
@@ -179,7 +179,7 @@ it('embeds without the old dock, sends current-book context, and opens recommend
   fireEvent.change(field, { target: { value: 'Help me prepare' } })
   fireEvent.submit(field.closest('form')!)
   // Structured only: the Worker builds the librarian prompt from the catalogue.
-  await waitFor(() => expect(request?.companion).toEqual({ intent: 'library', library: { contextBookId: 'republic' } }))
+  await waitFor(() => expect(request?.companion).toEqual({ intent: 'library', library: { contextBookId: 'republic', shelf: { reading: ['odyssey'], saved: [], finished: ['republic'] } } }))
   expect(request?.system).toBeUndefined()
   fireEvent.click(await screen.findByRole('button', { name: /The Republic/ }))
   expect(host.openBook).toHaveBeenCalledWith('republic')

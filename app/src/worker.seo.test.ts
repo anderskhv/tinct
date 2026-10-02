@@ -336,9 +336,11 @@ describe('worker SEO routing', () => {
       expect(body).toContain('approved cinematic library')
       expect(body).not.toContain('noindex')
       expect(body).toContain('href="https://tinct.app/"')
-      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg">')
-      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg">')
-      expect(body).toContain('<meta property="og:description" content="Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.">')
+      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta property="og:description" content="Read, listen and talk with the world&#39;s great books. The original and a modern English edition side by side, narration, and a companion you can ask anything.">')
+      expect(body).toContain('<title>Tinct — Fall in love with the books that matter</title>')
+      for (const tag of ['twitter:card', 'og:image"', 'twitter:image"']) expect(body.split(tag).length - 1, tag).toBe(1)
     }
   })
 

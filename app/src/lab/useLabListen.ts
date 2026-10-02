@@ -189,6 +189,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const [followParagraphs, setFollowParagraphs] = useState<FollowParagraph[]>(options.followParagraphs)
   const [clips, setClips] = useState<LabAudioClip[]>([])
   const publishPositionRef = useRef<() => void>(() => {})
+  const applyMetadataRef = useRef<() => void>(() => {})
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const clipsRef = useRef<LabAudioClip[]>([])
   const paragraphsRef = useRef<FollowParagraph[]>(options.followParagraphs)
@@ -767,6 +768,8 @@ export function useLabListen(options: UseLabListenOptions) {
         return
       }
       if (!waitingForNarration(clipsRef.current[clipIndexRef.current], audio)) setPending(false)
+      // iOS can drop Now Playing details set before audio first played; restate them once it does.
+      applyMetadataRef.current()
     }
     const publishPosition = () => publishPositionRef.current()
     const nowPlayingEvents = ['playing', 'timeupdate', 'seeked', 'ratechange', 'loadedmetadata'] as const
@@ -1416,7 +1419,7 @@ export function useLabListen(options: UseLabListenOptions) {
     }
   }, [estimatedClipDuration, playClip, playPlace, playing])
 
-  useEffect(() => {
+  applyMetadataRef.current = () => {
     const session = readerMediaSession()
     if (!session) return
     try {
@@ -1426,8 +1429,15 @@ export function useLabListen(options: UseLabListenOptions) {
         title: options.chapterTitle || `Chapter ${options.chapterNumber ?? 1}`,
         artist: book,
         album: book,
-        ...(options.coverSrc ? { artwork: [{ src: new URL(options.coverSrc, window.location.href).href, type: 'image/webp' }] } : {}),
+        ...(options.coverSrc ? { artwork: [{ src: new URL(options.coverSrc, window.location.href).href, sizes: '540x810', type: 'image/webp' }] } : {}),
       })
+    } catch { /* incomplete metadata */ }
+  }
+  useEffect(() => {
+    const session = readerMediaSession()
+    if (!session) return
+    applyMetadataRef.current()
+    try {
       session.setActionHandler('play', () => resume())
       session.setActionHandler('pause', pause)
       session.setActionHandler('seekbackward', details => seek(-(details.seekOffset || 15)))

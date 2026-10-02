@@ -199,9 +199,16 @@ describe('library recap helpers', () => {
     expect(heroHeadline(list.readingNow[0])).toBe('You’re in the middle of James 1')
   })
 
-  it('resolves Continue to the memory anchor when it is newer, keeping the recap', () => {
+  it('resumes at the position record when both stores are in the same chapter, even if memory is newer', () => {
+    // The memory anchor is the last word of the page read; resuming from it opened a page further on.
     const memory = sessionFor(genesisOneFixture(), { id: 'g1', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 90_000, page: 2 })
-    const older = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 0, pageIndex: 0, updatedAt: T0 + 1_000 })
+    const same = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1, paragraphIndex: 3, wordIndex: 5, pageIndex: 1, updatedAt: T0 + 1_000 })
+    expect(continueTargetFor({ book: books.get('bible'), session: memory, place: same })).toMatchObject({ chapterNumber: 1, pageIndex: 1, paragraphIndex: 3, wordIndex: 5, source: 'position' })
+  })
+
+  it('resolves Continue to the memory anchor when it is newer and in another chapter, keeping the recap', () => {
+    const memory = sessionFor(genesisOneFixture(), { id: 'g1', state: 'progressed', startedAt: T0, lastActiveAt: T0 + 90_000, page: 2 })
+    const older = place({ bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 2, sequentialChapter: 2, paragraphIndex: 0, pageIndex: 0, updatedAt: T0 + 1_000 })
     const target = continueTargetFor({ book: books.get('bible'), session: memory, place: older })
     expect(target).toMatchObject({ bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, chapterLabel: 'Genesis 1', pageIndex: 1, source: 'memory', at: T0 + 90_000 })
     const list = readingList({ memory: memoryOf(memory), viewer: null, positions: positions([older], 'genesis'), books })
