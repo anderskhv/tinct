@@ -73,3 +73,20 @@ describe('durable recap alarm execution', () => {
     expect(f.deleteAlarm).toHaveBeenCalled()
   })
 })
+
+describe('recap coordinator admin operations', () => {
+  it('exports the queue and owner, and purges alarm and storage', async () => {
+    const f=fixture(), coordinator=f.create()
+    await coordinator.update({kind:'presence',clientId:'tab',sequence:1,active:false,request},'owner')
+    const calls:string[]=[]
+    const exec=vi.fn((query:string)=>{calls.push(query.split(' ')[0]);return {toArray:()=>query.startsWith('SELECT id, value')?[...f.rows].map(([id,value])=>({id,value})):[]}})
+    const storage={sql:{exec},deleteAlarm:vi.fn(async()=>{calls.push('deleteAlarm')}),deleteAll:vi.fn(async()=>{calls.push('deleteAll')})}
+    const admin=new RecapPreparationCoordinator({storage} as any,{})
+    const exported=admin.exportState()
+    expect(exported.owner).toBe('owner')
+    expect(exported.queue?.entries.hamlet.request).toEqual(request)
+    calls.length=0
+    await admin.purge()
+    expect(calls).toEqual(['deleteAlarm','deleteAll','CREATE'])
+  })
+})
