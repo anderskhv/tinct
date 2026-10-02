@@ -52,6 +52,7 @@ def fetch(fetcher, report):
             subjects=(r.get('keyword') or []) + ([r['texttype']] if r.get('texttype') else []),
             editionYear=integer((r.get('sort_date') or {}).get('plain')),
             popularity=0, notability=integer(r.get('popularity')) or 0,
-            quality='proofread' if r.get('proofread') else 'standard', rights=rights, licence=licence))
+            quality='proofread' if r.get('proofread') else 'standard', rights=rights, licence=licence,
+            pdAsserted=r['license'] == 'cc-0'))
     report['skippedRestrictedLicence'] = skipped
     return editions

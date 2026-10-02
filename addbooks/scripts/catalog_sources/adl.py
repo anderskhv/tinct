@@ -35,6 +35,7 @@ def fetch(fetcher, report):
             sourceUrl='https://tekster.kb.dk' + href[1] if href[1].startswith('/') else href[1],
             authors=[person(cells[1].rstrip('.'), integer(cells[2]), integer(cells[3]))] if cells[1] else [],
             language=['da'], editionYear=int(imprint[1]) if imprint else None, quality='proofread',
-            rights='Public-domain text (FRI); Royal Danish Library digital edition CC BY-NC-SA', licence='CC BY-NC-SA'))
+            rights='Public-domain text (FRI); Royal Danish Library digital edition CC BY-NC-SA', licence='CC BY-NC-SA',
+            pdAsserted=True))
     report['skippedProtected'] = skipped
     return editions

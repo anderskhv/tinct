@@ -46,6 +46,7 @@ def fetch(fetcher, report):
             language=[{'nb': 'no', 'nn': 'no'}.get(l, l) for l in languages] or ['und'],
             originalLanguage=row[8].split()[0] if row[8].split() and row[8].split() != languages else None,
             firstPublishedYear=first, quality='standard',
-            rights='Public domain (life+70 computed from Runeberg author data)', licence='PD'))
+            rights='Public domain (life+70 computed from Runeberg author data)', licence='PD',
+            pdAsserted=not creators))
     report['skippedInCopyrightOrUnknown'] = skipped
     return editions

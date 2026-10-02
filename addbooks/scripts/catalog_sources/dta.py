@@ -44,6 +44,8 @@ def fetch(fetcher, report):
                 editionYear=year,
                 subjects=subjects, quality='proofread',
                 coverUrl='https://www.deutschestextarchiv.de/media/images/{0}/{0}_0001_400px.jpg'.format(dirname),
-                rights=rights or 'Public domain text (Deutsches Textarchiv)', licence=licence))
+                # DTA's terms declare the plain text free of restrictions (gemeinfrei); prints are pre-1930.
+                rights=rights or 'Public domain text (Deutsches Textarchiv)', licence=licence,
+                pdAsserted=year is not None and year < 1900))
     report['skippedNewspapersOrUnlicensed'] = skipped
     return editions

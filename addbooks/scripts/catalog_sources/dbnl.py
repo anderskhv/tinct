@@ -39,6 +39,6 @@ def fetch(fetcher, report):
             authors=list(people.values()), language=['nl'],
             firstPublishedYear=integer(first['_jaar']) if (first['druk'] or '').startswith('1ste') else None,
             subjects=sorted(genres), quality='proofread',
-            rights='Public domain (DBNL Collectie publiek domein)', licence='PD'))
+            rights='Public domain (DBNL Collectie publiek domein)', licence='PD', pdAsserted=True))
     report['rows'] = sum(len(g) for g in rows.values())
     return editions

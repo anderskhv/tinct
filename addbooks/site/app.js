@@ -58,7 +58,8 @@ function renderCard(work) {
   const year = work.firstPublishedYear ? (work.firstPublishedYear < 0 ? Math.abs(work.firstPublishedYear) + ' BCE' : work.firstPublishedYear) : 'Year unknown';
   content.append(element('p','metadata', [year, ...work.language.map(languageLabel)].join(' · ')));
   if (edition.translators.length) content.append(element('p','metadata','Translated by ' + edition.translators.map(t=>t.name).join(' · ')));
-  content.append(element('p','metadata licence', edition.licence === 'PD' ? 'Public domain' : edition.licence));
+  // Every indexed text is out of copyright (life+70); some libraries license their own edition.
+  content.append(element('p','metadata licence', edition.licence === 'PD' ? 'Public domain' : 'Public-domain text · edition ' + edition.licence));
   const bottom = element('div','card-bottom');
   const count = element('span','edition-count',work.editions.length + (work.editions.length === 1 ? ' edition' : ' editions'));
   if (/^https:\/\//.test(edition.sourceUrl || '')) {

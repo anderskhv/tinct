@@ -161,5 +161,34 @@ class MultilingualTests(unittest.TestCase):
         self.assertEqual([e['id'] for e in editions], ['rb:eventyr'])
 
 
+    def test_copyright_gate_life_plus_seventy(self):
+        from catalog_sources.common import natural_person as np, public_domain_cutoff
+        cutoff = public_domain_cutoff()
+        old = self.edition('Gutenberg', '1', 'Old', np('Old Author', 1800, 1870), 'en')
+        recent = self.edition('Gutenberg', '2', 'Recent', np('Recent Author', 1900, cutoff + 1), 'en')
+        alive = self.edition('DBNL', '3', 'Alive', np('Young Author', cutoff - 50), 'nl', pdAsserted=True)
+        undated = self.edition('Gutenberg', '4', 'Undated', np('Nobody Known'), 'en')
+        asserted = self.edition('DBNL', '5', 'Asserted', np('Nobody Dated'), 'nl', pdAsserted=True)
+        old_translator = self.edition('Gutenberg', '6', 'Translated', np('Old Author', 1800, 1870), 'en',
+                                      translators=[np('Modern Translator', 1920, cutoff + 5)])
+        report = {}
+        kept = b.gate_copyright([old, recent, alive, undated, asserted, old_translator], report)
+        self.assertEqual([e['title'] for e in kept], ['Old', 'Asserted'])
+        self.assertEqual(report['copyright']['excludedBySource']['Gutenberg'],
+                         {'creatorDiedTooRecently': 2, 'unverified': 1})
+
+    def test_life_dates_borrowed_only_when_unambiguous(self):
+        from catalog_sources.common import natural_person as np, person
+        dated = self.edition('Gutenberg', '1', 'A', person('Verga, Giovanni', 1840, 1922), 'it')
+        undated = self.edition('Liber Liber', '2', 'B', np('Giovanni Verga'), 'it')
+        b.enrich_dates([dated, undated], {})
+        self.assertEqual(undated['authors'][0]['deathYear'], 1922)
+        smith1 = self.edition('Gutenberg', '3', 'C', np('John Smith', 1800, 1860), 'en')
+        smith2 = self.edition('Gutenberg', '4', 'D', np('John Smith', 1900, 1990), 'en')
+        smith = self.edition('Bibebook', '5', 'E', np('John Smith'), 'en')
+        b.enrich_dates([smith1, smith2, smith], {})
+        self.assertIsNone(smith['authors'][0]['deathYear'])
+
+
 if __name__ == '__main__':
     unittest.main()

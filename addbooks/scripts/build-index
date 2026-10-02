@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from catalog_sources.common import (Fetcher, clean, integer, name_key, norm, person,  # noqa: E402
-                                    title_key)
+                                    public_domain_cutoff, title_key)
 from catalog_sources import ADAPTERS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -149,6 +149,62 @@ def enrich_se(editions, pg_editions, fetcher, report):
                 enriched.append(p)
             e[field] = enriched
     report['standardEbooksMetadataPackages'] = len(editions)
+
+COLLECTIVE = {'various', 'anonymous', 'unknown', 'anonym', 'anonyme', 'anonimo', 'anonimowy', 'ukendt', 'okand'}
+
+def enrich_dates(editions, report):
+    """Borrow life dates for an undated name from any library, when the name has exactly one dated identity."""
+    known = collections.defaultdict(set)
+    for e in editions:
+        for p in e['authors'] + e['translators']:
+            if p['deathYear'] is not None:
+                for n in [p['name']] + p['aliases']:
+                    known[name_key(n)].add((p['birthYear'], p['deathYear']))
+    borrowed = 0
+    for e in editions:
+        for field in ('authors', 'translators'):
+            people = []
+            for p in e[field]:
+                options = known.get(name_key(p['name']), set())
+                if p['deathYear'] is None and len(options) == 1:
+                    birth, death = next(iter(options))
+                    if p['birthYear'] in (None, birth):
+                        p = {**p, 'birthYear': birth, 'deathYear': death, 'datesFrom': 'name match'}
+                        borrowed += 1
+                people.append(p)
+            e[field] = people
+    report['lifeDatesBorrowedByName'] = borrowed
+
+def copyright_status(e, cutoff):
+    """'verified' (every creator died before cutoff), 'source' (library states the text is public
+    domain under life+70 rules and nothing contradicts it), or a reason for exclusion."""
+    creators = [p for p in e['authors'] + e['translators'] if name_key(p['name']) not in COLLECTIVE]
+    for p in creators:
+        if p['deathYear'] is not None and p['deathYear'] >= cutoff:
+            return 'creatorDiedTooRecently'
+        if p['deathYear'] is None and p['birthYear'] is not None and p['birthYear'] >= cutoff - 100:
+            return 'creatorPossiblyAlive'
+    if creators and all(p['deathYear'] is not None for p in creators):
+        return 'verified'
+    if e.get('pdAsserted'):
+        return 'source'
+    return 'unverified'
+
+def gate_copyright(editions, report):
+    # Life+70 (EU, incl. Denmark) for every source, Gutenberg included: "public domain in the USA"
+    # alone is not enough for a work whose author died after the cutoff.
+    cutoff = public_domain_cutoff()
+    kept, excluded = [], collections.defaultdict(collections.Counter)
+    for e in editions:
+        status = copyright_status(e, cutoff)
+        if status in ('verified', 'source'):
+            e['copyright'] = 'Public domain: ' + ('all creators died before ' + str(cutoff) if status == 'verified' else 'stated by ' + e['source'])
+            kept.append(e)
+        else:
+            excluded[e['source']][status] += 1
+    report['copyright'] = {'rule': 'life+70: every author and translator died before ' + str(cutoff),
+                           'kept': len(kept), 'excludedBySource': {k: dict(v) for k, v in sorted(excluded.items())}}
+    return kept
 
 def load_registry(path):
     # Fail closed if the source layout changes. Parse metadata only; never execute TS.
@@ -331,6 +387,8 @@ def main():
             report['warnings'].append(adapter.NAME + ' failed and is missing from this build: ' + source_report['error'])
             print(adapter.NAME + ' FAILED: ' + source_report['error'], flush=True)
         report['sources'][adapter.NAME] = source_report
+    enrich_dates(editions, report)
+    editions = gate_copyright(editions, report)
     works = group_editions(editions, report)
     match_tinct(works, load_registry(ROOT / 'app/src/data/bookRegistry.ts'), report)
     report.update(works=len(works), editions=len(editions),

@@ -109,6 +109,6 @@ def fetch(fetcher, report):
                 authors=[person(name)] if name else [], translators=_translator(notes),
                 language=['de'], firstPublishedYear=_year(notes),
                 subjects=[item['genre']] if item['genre'] else [], quality='proofread',
-                rights=RIGHTS, licence='CC BY 3.0 DE'))
+                rights=RIGHTS, licence='CC BY 3.0 DE', pdAsserted=True))
     report['collections'] = len(authors_by_collection)
     return editions

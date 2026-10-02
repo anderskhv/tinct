@@ -17,5 +17,5 @@ def fetch(fetcher, report):
             NAME, slug, item['title'], id='bb:' + slug, sourceUrl=BASE + '/' + slug + '/index.html',
             epubUrl=BASE + item['epub'] if item.get('epub') else None, coverUrl=BASE + '/' + slug + '/cover.jpg',
             authors=[natural_person(item['author'])] if item.get('author') else [], language=['fr'],
-            quality='proofread', rights='Public-domain text; Bibebook edition CC BY-SA', licence='CC BY-SA'))
+            quality='proofread', rights='Public-domain text; Bibebook edition CC BY-SA', licence='CC BY-SA', pdAsserted=True))
     return editions

@@ -31,6 +31,10 @@ for (const w of works) {
   assert.equal(w.onTinct,w.tinctIds.length>0);
   // Every edition states its rights; Gutenberg/SE remain US public domain.
   assert.ok(w.editions.every(e=>e.rights && e.licence));
+  assert.ok(w.editions.every(e=>e.copyright && e.copyright.startsWith('Public domain')));
+  // Life+70: no indexed creator died in the last 70 years.
+  const cutoff = new Date().getFullYear() - 70;
+  assert.ok(w.editions.every(e=>[...e.authors,...e.translators].every(p=>p.deathYear === null || p.deathYear < cutoff)));
   assert.ok(w.editions.filter(e=>['Gutenberg','Standard Ebooks'].includes(e.source)).every(e=>e.rights.startsWith('Public domain in the USA')));
   assert.ok(w.editions.every(e=>e.epubUrl === null || e.epubUrl.startsWith('https://')));
   if(w.editions.some(e=>e.source==='Standard Ebooks')) assert.equal(w.quality,'clean');

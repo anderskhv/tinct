@@ -49,6 +49,7 @@ def fetch(fetcher, report):
             coverUrl=item.get('simple_thumb') or None,
             authors=[natural_person(a['name']) for a in detail.get('authors', []) if a.get('name')],
             translators=translators, language=[LANG.get(detail.get('language'), detail.get('language') or 'pl')],
-            subjects=kinds + genres + epochs, quality='proofread', rights=rights, licence=licence))
+            subjects=kinds + genres + epochs, quality='proofread', rights=rights, licence=licence,
+            pdAsserted=licence == 'PD'))
     report['skippedUnclearRights'] = skipped
     return editions
