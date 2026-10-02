@@ -32,6 +32,19 @@ export class RecapPreparationCoordinator extends DurableObject<LabRecapEnv & { R
   lookup(request: LabRecapRequest): LabRecapResponse | null {
     return preparedRecap(this.read(), request, Date.now())
   }
+  /** Admin export: the queue (including prepared summaries) and owner tag. */
+  exportState(): { queue: RecapQueueState | null; owner: string | null } {
+    const rows = this.ctx.storage.sql.exec<{ id: number; value: string }>('SELECT id, value FROM recap_state ORDER BY id').toArray()
+    const queue = rows.find((row: { id: number }) => row.id === 1)
+    return { queue: queue ? JSON.parse(queue.value) : null, owner: rows.find((row: { id: number }) => row.id === 2)?.value ?? null }
+  }
+  /** Admin account deletion: drop the alarm and all storage. Safe to repeat. */
+  async purge(): Promise<void> {
+    await this.ctx.storage.deleteAlarm()
+    await this.ctx.storage.deleteAll()
+    // An in-flight alarm may still query the table; leave it empty, not missing.
+    this.ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS recap_state (id INTEGER PRIMARY KEY, value TEXT NOT NULL)')
+  }
   async alarm(): Promise<void> {
     const owner = this.ctx.storage.sql.exec<{value:string}>('SELECT value FROM recap_state WHERE id=2').toArray()[0]?.value
     let state = this.read(), now = Date.now(), next = recapQueueNext(state, now)

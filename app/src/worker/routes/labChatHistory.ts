@@ -17,7 +17,7 @@ type VerifyUser = (env: LabChatHistoryEnv, request: Request) => Promise<Verified
 const KV_PREFIX = 'lab-chat-history:'
 const MAX_BODY_BYTES = 262_144
 
-function kvKey(userId: string): string {
+export function kvKey(userId: string): string {
   return `${KV_PREFIX}${userId}`
 }
 
