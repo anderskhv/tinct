@@ -12,37 +12,26 @@ Open placeholders are marked `[[…]]`.
 
 # The world's best reading experience.
 
-Tinct's mission is simple: to give the world the best reading experience there is.
-
-Great books have always asked a lot of their readers. The language is old, the references are far away, and the questions they raise don't fit in a summary. Most tools try to make the book shorter. Tinct helps you meet it as it is.
-
-- **The text, done properly.** Authoritative originals next to clear modern editions, lined up paragraph by paragraph, so you can switch between them without losing your place.
-- **A companion who has read it too.** Ask about a line, a character or an argument, and get an answer grounded in the passage in front of you. You can type or talk.
-- **Listen when your eyes are tired.** Narrated chapters that pick up where you stopped reading.
-- **Your reading, kept.** Highlights, notes, a reading journal and your place in every book, synced across your devices.
-
-We don't run ads, we don't sell your data, and we won't fill your library with summaries. Tinct is for reading books, not skimming them.
-
 ---
 
 ## 2. Pricing
 
 **Eyebrow:** Pricing
 
-# One plan. Every book.
+# Read free. Go deeper with Premium.
 
-| | Monthly | Yearly |
-|---|---|---|
-| Price | **$5 / month** | **$50 / year** (2 months free) |
-| Every book in the library | ✓ | ✓ |
-| Original + modern editions, side by side | ✓ | ✓ |
-| Narrated audio | ✓ | ✓ |
-| Highlights, notes, journal, sync across devices | ✓ | ✓ |
-| AI credit included | **$5 every month** | **$5 every month** |
+| | Free | Premium monthly | Premium yearly |
+|---|---|---|---|
+| Price | **$0** | **$5 / month** | **$50 / year** (2 months free) |
+| Every book in Tinct's public library | ✓ | ✓ | ✓ |
+| Original + modern editions, side by side | ✓ | ✓ | ✓ |
+| Narrated audio | – | ✓ | ✓ |
+| Highlights, notes, journal, sync across devices | – | ✓ | ✓ |
+| AI credit included | – | **$5 every month** | **$5 every month** |
 
 ### What your AI credit covers
 
-Every plan includes $5 of AI use each month, for the reading companion (chat) and Talk (voice conversation). As a rough guide, $5 covers about:
+Both Premium plans include $5 of AI use each month, for the reading companion (chat) and Talk (voice conversation). As a rough guide, $5 covers about:
 
 - **[[xxx]] chat messages**, or
 - **[[yy]] hours of Talk**,
@@ -69,7 +58,8 @@ Top-ups do not expire while your subscription is active, and they are only used 
 > - Should "$5 of value" mean $5 at our cost or at a marked-up price? This draft says "$5 of AI use," which reads as at-cost. If you add a margin, describe credit in messages and minutes instead of dollars, so readers don't compare it with API list prices.
 > - Free trial: the current strategy has a 30-day free trial and STRATEGY.md says $3/mo. Decide whether the trial stays and update STRATEGY.md and DECISIONS.md along with this page.
 > - Yearly credit is $5 a month (not $60 up front), so a heavy month can't drain a whole year's credit.
-> - Is there still a free tier (signed-out reading of some books)? If so, add a "Free" column.
+> - Free tier: as drawn, Free has no highlights, notes or sync. If free accounts can use any of these today, removing them takes features away from current readers. Check, and consider moving "Highlights, notes, journal, sync" into Free.
+> - Does Free need an account, or can signed-out readers use it too?
 
 ---
 
@@ -125,9 +115,15 @@ Tinct's reading companion and Talk generate answers with third-party AI models (
 - **Academic integrity.** You are responsible for following the rules of your school or institution about using AI.
 - AI features depend on outside providers and may sometimes be slow, limited or unavailable. Reading itself never depends on them.
 
-### 6. Texts and Tinct's materials
+### 6. The public library, your private library, and Tinct's materials
 
-The original texts in the library are, to the best of our knowledge, in the public domain. Tinct's modern editions, translations, introductions, summaries, audio narration, design and software are owned by Tinct or used under licence. You may use them for your own personal reading. You may not copy, scrape, redistribute or resell them, or use them to train AI models, without our written permission.
+**The public library** is the collection of texts that Tinct provides to every reader. **Your private library** is anything you upload or import yourself. It is visible only to you and is covered by section 4.
+
+**Copyright status of the public library.** Tinct only adds a text to the public library after checking that it is in the public domain in the United States and in the European Union, including Denmark. In practice, that usually means the author died more than 70 years ago and the work was published before the current US cut-off year. When a text is a translation, the translation we use must also be in the public domain. We check carefully, but copyright rules are complex and differ between countries, and we can't guarantee that every text is free of rights everywhere in the world. If you are reading from another country, you are responsible for checking that the text is in the public domain where you are.
+
+**Tell us about exceptions.** If you believe a text in the public library is still protected by copyright anywhere, or that you hold rights in it, please write to contact@tinct.app. Include the title, where the text appears and the basis for your claim. We'll review every notice promptly and remove or restrict the text while we look into it.
+
+**Tinct's own materials.** Tinct's modern editions, translations, introductions, summaries, audio narration, design and software are owned by Tinct or used under licence. You may use them for your own personal reading. You may not copy, scrape, redistribute or resell them, or use them to train AI models, without our written permission.
 
 Modern editions and narration are prepared with the help of AI and editorial review. They aim to be faithful, but they may contain errors. Please report any you find with the in-app report tool.
 
