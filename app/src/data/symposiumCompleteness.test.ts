@@ -1,7 +1,12 @@
 // @vitest-environment jsdom
 import {preserveUnresolvedSymposiumPositions,SYMPOSIUM_POSITION_RECOVERY_KEY} from '../lab/labPositionStore'
 import {readFileSync} from 'node:fs'
-import {describe,it,expect} from 'vitest'
+import {describe,it,expect,vi} from 'vitest'
+// The Symposium is held (2026-10-02); these tests cover the migration that runs once the hold lifts.
+vi.mock('./editionAvailability',async importOriginal=>{
+ const actual=await importOriginal<typeof import('./editionAvailability')>()
+ return {...actual,editionHold:(bookId:string,editionKey:string|undefined)=>bookId==='symposium'?undefined:actual.editionHold(bookId,editionKey)}
+})
 import mapData from './symposiumCoordinateMap.json'
 import {projectEditionCoordinate,projectExactEditionRange,type CoordinateMigration} from './editionCoordinateMigration'
 import {loadedCoordinateMigration,writtenBeforeRelease} from './editionContentRevisions'

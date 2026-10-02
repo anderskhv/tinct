@@ -40,12 +40,6 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Bible',
     author: 'Various',
   },
-  'gilgamesh': {
-    title: 'Read The Epic of Gilgamesh Free Online | Tinct',
-    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Epic of Gilgamesh.',
-    bookName: 'The Epic of Gilgamesh',
-    author: 'Anonymous',
-  },
   'hamlet': {
     title: 'Read Hamlet Free Online | Tinct',
     description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Hamlet.',
@@ -146,12 +140,6 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     title: 'Read Apology Free Online | Tinct',
     description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Apology.',
     bookName: 'Apology',
-    author: 'Plato',
-  },
-  'symposium': {
-    title: 'Read Symposium Free Online | Tinct',
-    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Symposium.',
-    bookName: 'Symposium',
     author: 'Plato',
   },
   'phaedo': {
@@ -346,23 +334,11 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Communist Manifesto',
     author: 'Karl Marx & Friedrich Engels',
   },
-  'second-treatise': {
-    title: 'Read Second Treatise of Government Free Online | Tinct',
-    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Second Treatise of Government.',
-    bookName: 'Second Treatise of Government',
-    author: 'John Locke',
-  },
   'hume-enquiry': {
     title: 'Free Classic Reader: An Enquiry Concerning Human... | Tinct',
     description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for An Enquiry Concerning Human Understanding.',
     bookName: 'An Enquiry Concerning Human Understanding',
     author: 'David Hume',
-  },
-  'social-contract': {
-    title: 'Read The Social Contract Free Online | Tinct',
-    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Social Contract.',
-    bookName: 'The Social Contract',
-    author: 'Jean-Jacques Rousseau',
   },
   'wealth-of-nations': {
     title: 'Read The Wealth of Nations Free Online | Tinct',
@@ -459,12 +435,6 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Heart of Darkness.',
     bookName: 'Heart of Darkness',
     author: 'Joseph Conrad',
-  },
-  'discourse-on-inequality': {
-    title: 'Free Classic Reader: Discourse on the Origin of... | Tinct',
-    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Discourse on the Origin of Inequality.',
-    bookName: 'Discourse on the Origin of Inequality',
-    author: 'Jean-Jacques Rousseau',
   },
   'jekyll-and-hyde': {
     title: 'Free Classic Reader: Strange Case of Dr Jekyll... | Tinct',

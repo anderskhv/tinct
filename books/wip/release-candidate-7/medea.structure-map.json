@@ -1,0 +1,1077 @@
+{
+  "bookId": "medea",
+  "coordinateBase": 1,
+  "oldRevision": "95837141b",
+  "newSource": "Arthur S. Way, 1894",
+  "method": "chapter-index-preserving proportional paragraph position; round-half-up(p-1)*(newCount-1)/(oldCount-1)",
+  "confidence": "low: counts-only estimate, not semantic alignment",
+  "limitations": [
+    "Protected wording was not read. Chapter boundaries cannot be confirmed semantically.",
+    "Do not treat these coordinates as equivalent quotations or highlight anchors.",
+    "Inspect migration behaviour separately before applying to saved places. All edition text changes."
+  ],
+  "oldStructure": {
+    "original-en": {
+      "counts": [
+        20,
+        8,
+        25,
+        79,
+        10,
+        32,
+        67
+      ],
+      "paragraphs_with_newlines": 0
+    },
+    "modern-en": {
+      "counts": [
+        20,
+        8,
+        25,
+        79,
+        10,
+        32,
+        67
+      ],
+      "paragraphs_with_newlines": 0
+    }
+  },
+  "newParagraphCounts": [
+    21,
+    9,
+    28,
+    21,
+    65,
+    31,
+    63
+  ],
+  "chapters": [
+    {
+      "oldChapter": 1,
+      "newChapter": 1,
+      "newTitle": "Prologue",
+      "oldParagraphCount": 20,
+      "newParagraphCount": 21,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 9,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 10,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 11,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 12,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 13,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 14,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 15,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 16,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 17,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 18,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 19,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 20,
+          "newParagraph": 21
+        }
+      ]
+    },
+    {
+      "oldChapter": 2,
+      "newChapter": 2,
+      "newTitle": "Parodos",
+      "oldParagraphCount": 8,
+      "newParagraphCount": 9,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 9
+        }
+      ]
+    },
+    {
+      "oldChapter": 3,
+      "newChapter": 3,
+      "newTitle": "First Episode",
+      "oldParagraphCount": 25,
+      "newParagraphCount": 28,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 9,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 10,
+          "newParagraph": 11
+        },
+        {
+          "oldParagraph": 11,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 12,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 13,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 14,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 15,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 16,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 17,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 18,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 19,
+          "newParagraph": 21
+        },
+        {
+          "oldParagraph": 20,
+          "newParagraph": 22
+        },
+        {
+          "oldParagraph": 21,
+          "newParagraph": 24
+        },
+        {
+          "oldParagraph": 22,
+          "newParagraph": 25
+        },
+        {
+          "oldParagraph": 23,
+          "newParagraph": 26
+        },
+        {
+          "oldParagraph": 24,
+          "newParagraph": 27
+        },
+        {
+          "oldParagraph": 25,
+          "newParagraph": 28
+        }
+      ]
+    },
+    {
+      "oldChapter": 4,
+      "newChapter": 4,
+      "newTitle": "Second Episode",
+      "oldParagraphCount": 79,
+      "newParagraphCount": 21,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 9,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 10,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 11,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 12,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 13,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 14,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 15,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 16,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 17,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 18,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 19,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 20,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 21,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 22,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 23,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 24,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 25,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 26,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 27,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 28,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 29,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 30,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 31,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 32,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 33,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 34,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 35,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 36,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 37,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 38,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 39,
+          "newParagraph": 11
+        },
+        {
+          "oldParagraph": 40,
+          "newParagraph": 11
+        },
+        {
+          "oldParagraph": 41,
+          "newParagraph": 11
+        },
+        {
+          "oldParagraph": 42,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 43,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 44,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 45,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 46,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 47,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 48,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 49,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 50,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 51,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 52,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 53,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 54,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 55,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 56,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 57,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 58,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 59,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 60,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 61,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 62,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 63,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 64,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 65,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 66,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 67,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 68,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 69,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 70,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 71,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 72,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 73,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 74,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 75,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 76,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 77,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 78,
+          "newParagraph": 21
+        },
+        {
+          "oldParagraph": 79,
+          "newParagraph": 21
+        }
+      ]
+    },
+    {
+      "oldChapter": 5,
+      "newChapter": 5,
+      "newTitle": "Third Episode",
+      "oldParagraphCount": 10,
+      "newParagraphCount": 65,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 22
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 29
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 37
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 44
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 51
+        },
+        {
+          "oldParagraph": 9,
+          "newParagraph": 58
+        },
+        {
+          "oldParagraph": 10,
+          "newParagraph": 65
+        }
+      ]
+    },
+    {
+      "oldChapter": 6,
+      "newChapter": 6,
+      "newTitle": "Fourth Episode",
+      "oldParagraphCount": 32,
+      "newParagraphCount": 31,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 9,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 10,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 11,
+          "newParagraph": 11
+        },
+        {
+          "oldParagraph": 12,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 13,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 14,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 15,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 16,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 17,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 18,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 19,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 20,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 21,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 22,
+          "newParagraph": 21
+        },
+        {
+          "oldParagraph": 23,
+          "newParagraph": 22
+        },
+        {
+          "oldParagraph": 24,
+          "newParagraph": 23
+        },
+        {
+          "oldParagraph": 25,
+          "newParagraph": 24
+        },
+        {
+          "oldParagraph": 26,
+          "newParagraph": 25
+        },
+        {
+          "oldParagraph": 27,
+          "newParagraph": 26
+        },
+        {
+          "oldParagraph": 28,
+          "newParagraph": 27
+        },
+        {
+          "oldParagraph": 29,
+          "newParagraph": 28
+        },
+        {
+          "oldParagraph": 30,
+          "newParagraph": 29
+        },
+        {
+          "oldParagraph": 31,
+          "newParagraph": 30
+        },
+        {
+          "oldParagraph": 32,
+          "newParagraph": 31
+        }
+      ]
+    },
+    {
+      "oldChapter": 7,
+      "newChapter": 7,
+      "newTitle": "Exodos",
+      "oldParagraphCount": 67,
+      "newParagraphCount": 63,
+      "paragraphMap": [
+        {
+          "oldParagraph": 1,
+          "newParagraph": 1
+        },
+        {
+          "oldParagraph": 2,
+          "newParagraph": 2
+        },
+        {
+          "oldParagraph": 3,
+          "newParagraph": 3
+        },
+        {
+          "oldParagraph": 4,
+          "newParagraph": 4
+        },
+        {
+          "oldParagraph": 5,
+          "newParagraph": 5
+        },
+        {
+          "oldParagraph": 6,
+          "newParagraph": 6
+        },
+        {
+          "oldParagraph": 7,
+          "newParagraph": 7
+        },
+        {
+          "oldParagraph": 8,
+          "newParagraph": 8
+        },
+        {
+          "oldParagraph": 9,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 10,
+          "newParagraph": 9
+        },
+        {
+          "oldParagraph": 11,
+          "newParagraph": 10
+        },
+        {
+          "oldParagraph": 12,
+          "newParagraph": 11
+        },
+        {
+          "oldParagraph": 13,
+          "newParagraph": 12
+        },
+        {
+          "oldParagraph": 14,
+          "newParagraph": 13
+        },
+        {
+          "oldParagraph": 15,
+          "newParagraph": 14
+        },
+        {
+          "oldParagraph": 16,
+          "newParagraph": 15
+        },
+        {
+          "oldParagraph": 17,
+          "newParagraph": 16
+        },
+        {
+          "oldParagraph": 18,
+          "newParagraph": 17
+        },
+        {
+          "oldParagraph": 19,
+          "newParagraph": 18
+        },
+        {
+          "oldParagraph": 20,
+          "newParagraph": 19
+        },
+        {
+          "oldParagraph": 21,
+          "newParagraph": 20
+        },
+        {
+          "oldParagraph": 22,
+          "newParagraph": 21
+        },
+        {
+          "oldParagraph": 23,
+          "newParagraph": 22
+        },
+        {
+          "oldParagraph": 24,
+          "newParagraph": 23
+        },
+        {
+          "oldParagraph": 25,
+          "newParagraph": 24
+        },
+        {
+          "oldParagraph": 26,
+          "newParagraph": 24
+        },
+        {
+          "oldParagraph": 27,
+          "newParagraph": 25
+        },
+        {
+          "oldParagraph": 28,
+          "newParagraph": 26
+        },
+        {
+          "oldParagraph": 29,
+          "newParagraph": 27
+        },
+        {
+          "oldParagraph": 30,
+          "newParagraph": 28
+        },
+        {
+          "oldParagraph": 31,
+          "newParagraph": 29
+        },
+        {
+          "oldParagraph": 32,
+          "newParagraph": 30
+        },
+        {
+          "oldParagraph": 33,
+          "newParagraph": 31
+        },
+        {
+          "oldParagraph": 34,
+          "newParagraph": 32
+        },
+        {
+          "oldParagraph": 35,
+          "newParagraph": 33
+        },
+        {
+          "oldParagraph": 36,
+          "newParagraph": 34
+        },
+        {
+          "oldParagraph": 37,
+          "newParagraph": 35
+        },
+        {
+          "oldParagraph": 38,
+          "newParagraph": 36
+        },
+        {
+          "oldParagraph": 39,
+          "newParagraph": 37
+        },
+        {
+          "oldParagraph": 40,
+          "newParagraph": 38
+        },
+        {
+          "oldParagraph": 41,
+          "newParagraph": 39
+        },
+        {
+          "oldParagraph": 42,
+          "newParagraph": 40
+        },
+        {
+          "oldParagraph": 43,
+          "newParagraph": 40
+        },
+        {
+          "oldParagraph": 44,
+          "newParagraph": 41
+        },
+        {
+          "oldParagraph": 45,
+          "newParagraph": 42
+        },
+        {
+          "oldParagraph": 46,
+          "newParagraph": 43
+        },
+        {
+          "oldParagraph": 47,
+          "newParagraph": 44
+        },
+        {
+          "oldParagraph": 48,
+          "newParagraph": 45
+        },
+        {
+          "oldParagraph": 49,
+          "newParagraph": 46
+        },
+        {
+          "oldParagraph": 50,
+          "newParagraph": 47
+        },
+        {
+          "oldParagraph": 51,
+          "newParagraph": 48
+        },
+        {
+          "oldParagraph": 52,
+          "newParagraph": 49
+        },
+        {
+          "oldParagraph": 53,
+          "newParagraph": 50
+        },
+        {
+          "oldParagraph": 54,
+          "newParagraph": 51
+        },
+        {
+          "oldParagraph": 55,
+          "newParagraph": 52
+        },
+        {
+          "oldParagraph": 56,
+          "newParagraph": 53
+        },
+        {
+          "oldParagraph": 57,
+          "newParagraph": 54
+        },
+        {
+          "oldParagraph": 58,
+          "newParagraph": 55
+        },
+        {
+          "oldParagraph": 59,
+          "newParagraph": 55
+        },
+        {
+          "oldParagraph": 60,
+          "newParagraph": 56
+        },
+        {
+          "oldParagraph": 61,
+          "newParagraph": 57
+        },
+        {
+          "oldParagraph": 62,
+          "newParagraph": 58
+        },
+        {
+          "oldParagraph": 63,
+          "newParagraph": 59
+        },
+        {
+          "oldParagraph": 64,
+          "newParagraph": 60
+        },
+        {
+          "oldParagraph": 65,
+          "newParagraph": 61
+        },
+        {
+          "oldParagraph": 66,
+          "newParagraph": 62
+        },
+        {
+          "oldParagraph": 67,
+          "newParagraph": 63
+        }
+      ]
+    }
+  ]
+}

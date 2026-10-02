@@ -30,7 +30,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   }
   if(u.pathname==='/api/lab-chat'){
    const b=r.request().postDataJSON();
-   assert(b.messages.some(m=>m.content.includes('<word>Jehohanan</word>')),'Lookup uses selected name');
+   assert(b.companion?.intent==='define'&&b.companion.selection==='Jehohanan','Lookup uses selected name');
    return r.fulfill({json:{content:[{type:'text',text:JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'Test role at this passage',body:'Mocked contextual card for browser acceptance.'})}]}});
   }
   if(u.pathname.startsWith('/api/'))return r.fulfill({status:404,body:'{}'});

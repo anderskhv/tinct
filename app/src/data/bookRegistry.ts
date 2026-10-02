@@ -761,9 +761,11 @@ export const THE_ART_OF_WAR: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Giles Translation (1910)',
-      translator: 'Lionel Giles',
-      year: 1910,
+      // Replaced 2026-10-01 (rights): Captain E. F. Calthrop, The Book of War (London: John Murray, 1908),
+      // Project Gutenberg #44024. Calthrop died 1915. Modern English is a Tinct rendering of this text.
+      label: 'Calthrop Translation (1908)',
+      translator: 'E. F. Calthrop',
+      year: 1908,
       aligned: true,
       hasAudio: true,
     },
@@ -772,14 +774,6 @@ export const THE_ART_OF_WAR: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
-      aligned: true,
-      hasAudio: true,
-    },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
       aligned: true,
       hasAudio: true,
     },
@@ -1886,9 +1880,12 @@ export const BACCHAE: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Murray (1906)',
-      translator: 'Gilbert Murray',
-      year: 1906,
+      // Replaced 2026-10-01 (rights): Arthur S. Way, The Tragedies of Euripides in English Verse, vol. 3
+      // (Macmillan, 1898), text from the Wikisource transcription (CC BY-SA 4.0, Wikisource contributors).
+      // Way died 1930. Modern English is a Tinct rendering of this text, shared under the same licence.
+      label: 'Way (1898)',
+      translator: 'Arthur S. Way',
+      year: 1898,
       aligned: true,
       hasAudio: true,
     },
@@ -1897,14 +1894,6 @@ export const BACCHAE: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
-      aligned: true,
-      hasAudio: true,
-    },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
       aligned: true,
       hasAudio: true,
     },
@@ -1925,9 +1914,12 @@ export const MEDEA: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'Murray (1906)',
-      translator: 'Gilbert Murray',
-      year: 1906,
+      // Replaced 2026-10-01 (rights): Arthur S. Way, The Tragedies of Euripides in English Verse, vol. 1
+      // (Macmillan, 1894), text from the Wikisource transcription (CC BY-SA 4.0, Wikisource contributors).
+      // Way died 1930. Modern English is a Tinct rendering of this text, shared under the same licence.
+      label: 'Way (1894)',
+      translator: 'Arthur S. Way',
+      year: 1894,
       aligned: true,
       hasAudio: true,
     },
@@ -1936,14 +1928,6 @@ export const MEDEA: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
-      aligned: true,
-      hasAudio: true,
-    },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
       aligned: true,
       hasAudio: true,
     },
@@ -2709,7 +2693,7 @@ export const MAGNA_CARTA: Book = {
   id: 'magna-carta',
   title: 'Magna Carta',
   author: 'Anonymous (sealed by King John)',
-  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No free man shall be seized or imprisoned…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
+  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No freeman shall be taken…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
   year: 1215,
   wordCount: 5000,
   coverColor: '#3a2d1f',
@@ -2719,8 +2703,12 @@ export const MAGNA_CARTA: Book = {
       key: 'original-en',
       language: 'en',
       style: 'original',
-      label: 'English Translation',
-      year: 1215,
+      // Replaced 2026-10-01 (rights): W. S. McKechnie, Magna Carta: A Commentary on the Great Charter of
+      // King John, 2nd ed. (Glasgow: MacLehose, 1914), English charter text as published by Liberty Fund
+      // (Online Library of Liberty). McKechnie died 1930. Modern English is a Tinct rendering of this text.
+      label: 'McKechnie (1914)',
+      translator: 'William Sharp McKechnie',
+      year: 1914,
       aligned: true,
       hasAudio: true,
     },
@@ -2729,14 +2717,6 @@ export const MAGNA_CARTA: Book = {
       language: 'en',
       style: 'modern',
       label: 'Modern English',
-      aligned: true,
-      hasAudio: true,
-    },
-      {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
       aligned: true,
       hasAudio: true,
     },
@@ -3298,6 +3278,104 @@ export const TO_THE_LIGHTHOUSE: Book = {
   coverAccent: '#c9a45c',
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Woolf (1927)', year: 1927, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// STAGED (not in BOOKS): Alice's Adventures in Wonderland, Wuthering Heights and
+// Middlemarch. English-only packages, integrated 2026-09-30 on
+// integration/new-books-alice-wh-middlemarch. Text, onboarding and taxonomy are in
+// place; covers, character cards, SEO pages and Anders's approval are not.
+// Do not add these to BOOKS until the public-release checklist in the
+// integration handoff is complete.
+//
+// Alice: the original is Gutenberg's Millennium Fulcrum Edition 3.0, which keeps
+// two verse continuations from later editions; it is not a transcription of the
+// 1865 first impression.
+export const ALICE_IN_WONDERLAND: Book = {
+  id: 'alice-in-wonderland',
+  title: 'Alice\'s Adventures in Wonderland',
+  author: 'Lewis Carroll',
+  description: 'Alice follows a hurried rabbit down a hole into a world of shifting sizes, disputed meanings and impatient rulers. Carroll\'s twelve-chapter tale turns manners, lessons, arguments and courtroom procedure into nonsense that is stricter than it looks.',
+  year: 1865,
+  wordCount: 26000,
+  coverColor: '#1f3a2c',
+  coverAccent: '#d4b25a',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Carroll (Original)', year: 1865, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+export const WUTHERING_HEIGHTS: Book = {
+  id: 'wuthering-heights',
+  title: 'Wuthering Heights',
+  author: 'Emily Brontë',
+  description: 'Two Yorkshire households carry a childhood attachment, a family grievance and a struggle over property into another generation. A tenant\'s curiosity and a housekeeper\'s memory tell the story, and neither is a neutral witness.',
+  year: 1847,
+  wordCount: 116000,
+  coverColor: '#26262c',
+  coverAccent: '#9fb0bd',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1847)', year: 1847, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// Middlemarch has 88 reading units: Prelude, chapters I-LXXXVI and Finale. The
+// source package numbered the Prelude 0 (chapters 1-86, Finale 87), but the
+// reader, position store, chat history and worker routes all reject chapter
+// numbers below 1. Both editions, the shards and the notes therefore number the
+// units 1-88 in reading order: Prelude = 1, Eliot's chapter N = N + 1,
+// Finale = 88. Titles keep Eliot's own labels ("Book I: Miss Brooke — Chapter I").
+export const MIDDLEMARCH: Book = {
+  id: 'middlemarch',
+  title: 'Middlemarch',
+  author: 'George Eliot',
+  description: 'Interwoven lives in a provincial town test what ambition, marriage and sympathy can make possible. Eliot follows Dorothea Brooke, Tertius Lydgate and the households around them on the eve of reform.',
+  year: 1871,
+  wordCount: 316000,
+  coverColor: '#2b2618',
+  coverAccent: '#c5a45e',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Original (1871–72)', year: 1871, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// STAGED (not in BOOKS): Sense and Sensibility, integrated 2026-10-01 on
+// integration/new-book-sense-and-sensibility (stacked on the Alice, Wuthering
+// Heights and Middlemarch staging branch). Chapters are numbered 1-50 in both
+// editions. Covers, character cards, SEO pages and Anders's approval are not done.
+export const SENSE_AND_SENSIBILITY: Book = {
+  id: 'sense-and-sensibility',
+  title: 'Sense and Sensibility',
+  author: 'Jane Austen',
+  description: 'Two sisters confront love, money, and the limits of their own judgment after losing the security of their family home.',
+  year: 1811,
+  wordCount: 118639,
+  coverColor: '#263c38',
+  coverAccent: '#c6ad7b',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Austen (Original)', year: 1811, aligned: true, hasAudio: true },
+    { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+  ],
+}
+
+// STAGED (not in BOOKS): The Adventures of Sherlock Holmes, integrated 2026-10-01 on
+// integration/release-candidate-3. Twelve stories as flat chapters 1-12 in both
+// editions. Covers, character cards, SEO pages, audio and Anders's approval are not done.
+export const ADVENTURES_OF_SHERLOCK_HOLMES: Book = {
+  id: 'adventures-of-sherlock-holmes',
+  title: 'The Adventures of Sherlock Holmes',
+  author: 'Arthur Conan Doyle',
+  description: 'Twelve cases from Baker Street, told by Watson, in which an apparently trivial detail turns an entire explanation.',
+  year: 1892,
+  wordCount: 104347,
+  coverColor: '#2a2e38',
+  coverAccent: '#c9a45c',
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Doyle (Original)', year: 1892, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
   ],
 }

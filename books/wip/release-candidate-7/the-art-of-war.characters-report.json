@@ -1,0 +1,101 @@
+{
+  "book": "the-art-of-war",
+  "editions": {
+    "original-en": {
+      "kept": [
+        {
+          "id": "kuei",
+          "spellings": [
+            "Kuei"
+          ],
+          "oldMentions": 1,
+          "newMentions": 1
+        }
+      ],
+      "dropped": [
+        {
+          "id": "sun-tzu",
+          "kind": "person",
+          "name": "Sun Tzu",
+          "oldMentions": 13,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "yellow-emperor",
+          "kind": "person",
+          "name": "The Yellow Emperor",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "chu",
+          "kind": "person",
+          "name": "Chu",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "yi-zhi",
+          "kind": "person",
+          "name": "I Chih / Yi Zhi",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "lu-ya",
+          "kind": "person",
+          "name": "Lü Ya / Lu Ya",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "shuai-jan",
+          "kind": "creature-reference",
+          "name": "The shuai-jan",
+          "oldMentions": 3,
+          "reason": "kind 'creature-reference' is a role/group/concept, not an exact name"
+        }
+      ]
+    },
+    "modern-en": {
+      "dropped": [
+        {
+          "id": "sun-tzu",
+          "kind": "person",
+          "name": "Sun Tzu",
+          "oldMentions": 13,
+          "reason": "reviewed spelling(s) ['Sun Tzu'] do not occur in the new translation"
+        },
+        {
+          "id": "yellow-emperor",
+          "kind": "person",
+          "name": "The Yellow Emperor",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "yi-zhi",
+          "kind": "person",
+          "name": "I Chih / Yi Zhi",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "lu-ya",
+          "kind": "person",
+          "name": "Lü Ya / Lu Ya",
+          "oldMentions": 1,
+          "reason": "no reviewed spelling was an exact, unambiguous name in the old text"
+        },
+        {
+          "id": "shuai-jan",
+          "kind": "creature-reference",
+          "name": "The shuai-jan",
+          "oldMentions": 1,
+          "reason": "kind 'creature-reference' is a role/group/concept, not an exact name"
+        }
+      ]
+    }
+  },
+  "revision": "2026-10-01.2"
+}

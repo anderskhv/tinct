@@ -2484,6 +2484,118 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     ]
   },
   {
+    "id": "alice-in-wonderland",
+    "title": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "year": "1865",
+    "ySort": 1865,
+    "form": "novel",
+    "era": "modern",
+    "hue": 150,
+    "blurb": "Alice follows a hurried rabbit into a world of shifting sizes, disputed meanings and impatient rulers.",
+    "themes": [
+      "language",
+      "identity",
+      "authority"
+    ],
+    "shelves": [
+      "english-novels",
+      "satirical-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "wuthering-heights",
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "year": "1847",
+    "ySort": 1847,
+    "form": "novel",
+    "era": "modern",
+    "hue": 285,
+    "blurb": "Two Yorkshire households carry a childhood attachment, a family grievance and a struggle over property into another generation.",
+    "themes": [
+      "revenge",
+      "class",
+      "inheritance"
+    ],
+    "shelves": [
+      "english-novels",
+      "gothic-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "middlemarch",
+    "title": "Middlemarch",
+    "author": "George Eliot",
+    "year": "1871",
+    "ySort": 1871,
+    "form": "novel",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Interwoven lives in a provincial town test what ambition, marriage, and sympathy can make possible.",
+    "themes": [
+      "marriage",
+      "ambition",
+      "sympathy"
+    ],
+    "shelves": [
+      "english-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "sense-and-sensibility",
+    "title": "Sense and Sensibility",
+    "author": "Jane Austen",
+    "year": "1811",
+    "ySort": 1811,
+    "form": "novel",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Two sisters confront love, money, and the limits of their own judgment after losing the security of their family home.",
+    "themes": [
+      "marriage",
+      "money",
+      "judgment"
+    ],
+    "shelves": [
+      "english-novels"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "adventures-of-sherlock-holmes",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "year": "1892",
+    "ySort": 1892,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 265,
+    "blurb": "Twelve cases from Baker Street, told by Watson, in which an apparently trivial detail turns an entire explanation.",
+    "themes": [
+      "observation",
+      "inference",
+      "deception"
+    ],
+    "shelves": [
+      "detective-fiction"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
     "id": "hume-enquiry",
     "title": "An Enquiry Concerning Human Understanding",
     "author": "David Hume",
@@ -2855,6 +2967,11 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "Doubles, monsters, dark houses",
     "hue": 265
   },
+  "detective-fiction": {
+    "title": "Detective Fiction",
+    "sub": "Cases, clues and the logic of inference",
+    "hue": 265
+  },
   "satirical-novels": {
     "title": "Satire",
     "sub": "Voltaire and the philosophical tale",
@@ -2949,8 +3066,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
   },
   {
     "id": "novel",
-    "title": "Novels",
-    "sub": "Long-form prose, by tradition",
+    "title": "Fiction",
+    "sub": "Novels and stories, by tradition",
     "hue": 25,
     "shelves": [
       "russian-novels",
@@ -2959,7 +3076,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "modernist-novels",
       "nordic-novels",
       "gothic-novels",
-      "satirical-novels"
+      "satirical-novels",
+      "detective-fiction"
     ]
   },
   {
@@ -3025,6 +3143,10 @@ export const LIBRARY_FORMS = [
   {
     "id": "novel",
     "label": "Novels"
+  },
+  {
+    "id": "short-stories",
+    "label": "Short stories"
   },
   {
     "id": "epic",
