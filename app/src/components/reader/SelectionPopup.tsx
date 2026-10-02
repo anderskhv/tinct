@@ -395,7 +395,7 @@ export function SelectionPopup({
             </div>
           )}
           {!defineLoading && contextualLookup ? (
-            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineResult?.definitions} />
+            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
