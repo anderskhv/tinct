@@ -147,6 +147,7 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 - **Demand elegance** for non-trivial changes — pause and ask "is there a more elegant way?". Skip for simple fixes.
 - **Self-improvement:** after any user correction, append the pattern to the Decisions Log.
 - **Errors don't stop you.** Work around. Reading must degrade gracefully if Claude API fails.
+- **Keep the privacy notice true.** Changes to what personal data is collected, where it goes, how long it is kept or who sees it follow the Privacy section of `AGENTS.md` (update `app/public/privacy.html` in the same PR; new data categories or providers go to Anders). Everything else — books, reader, layout — needs no privacy check.
 
 ---
 
@@ -261,5 +262,7 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Book Onboarding flow rewrite + manifesto retired 2026-04-29]** — The unbuilt 6-step "Account Onboarding" manifesto (HTML at `Design refs/Account Onboarding.html`) is formally **dropped**. What we now mean by "post-signup onboarding" is the Feature Tour. The Account Onboarding component referenced in earlier decisions (User Journeys v1, Account Onboarding Rewrite 2026-04-21) was design-only and never built; we're not building it. Feature Tour fills that role.
 
 - **[Email confirmation dropped from signup 2026-05-09]** — Supabase "Confirm email" toggled off; signups land in the reader on submit, no email click required. Triggered by first-customer (astupple) being stranded with an unconfirmed account after a premium-grant script. Tradeoffs accepted: typo'd emails become orphan accounts (no password recovery), slightly higher spam-signup risk. Mitigations: Google OAuth remains the friction-free path; email is still required for password reset and Stripe receipts. `AuthModal.tsx` no longer renders a "Check your email" success state — it closes on signup success and the auth listener takes over.
+
+- **[Privacy commitments 2026-10-02]** — The public notice (`app/public/privacy.html`) is binding on code. Standing commitments and the when-it-applies trigger live in the Privacy section of `AGENTS.md`; scoped so book, reader and layout work is unaffected.
 
 - **[Sign-out wipes local data 2026-05-06]** — Privacy/data-leak fix. SupabaseStorageProvider mirrors every cloud write to localStorage as a fast cache. Before this fix, sign-out only cleared the auth token; the cache survived, so (a) "Read"/"Library" on the landing page jumped into the previous account's state, and (b) the sign-in migration in `App.tsx` copied that cache into the next account's Supabase row, polluting fresh accounts. Fix: `clearLocalUserData()` in `services/storage.ts` wipes all `tinct:*` and `tinct-*` keys except an allowlist (`tinct:device-preferences`, `tinct-home-role-dismissed`, `tinct-banner-dismissed`, `tinct:last-user-id`). Called on `signOut()` (which then hard-redirects to `/` so React in-memory state can't re-persist) and via the user-switch guard (`tinct:last-user-id`) in App.tsx — if the signing-in user differs from the last one, wipe before migration runs.
