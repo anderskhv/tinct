@@ -104,6 +104,9 @@ import {
   labBookPageEstimate,
   labPageFolio,
   labReaderProgressLabel,
+  defaultReaderProgressMode,
+  readStoredReaderProgressMode,
+  storeReaderProgressMode,
   LAB_PROGRESS_HOLD_MS,
   editionLabelFor,
   readLabPrefs,
@@ -422,6 +425,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [recoveredHold, setRecoveredHold] = useState<string | null>(null)
   const holdRecovery = recoveredHold === holdIdentity
   const isShakespeare = getBook(book.bookId || 'bible')?.author === 'William Shakespeare'
+  // Long books read by chapter; a reader's own tap is remembered per book.
+  const progressBookId = book.bookId || 'bible'
+  const progressModeFor = (bookId: string) => readStoredReaderProgressMode(bookId) ?? defaultReaderProgressMode(getBook(bookId)?.wordCount)
+  const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>(() => progressModeFor(progressBookId))
+  useEffect(() => { setReaderProgressMode(progressModeFor(progressBookId)) }, [progressBookId])
+  const toggleReaderProgressMode = useCallback(() => setReaderProgressMode(mode => {
+    const next = mode === 'book' ? 'chapter' : 'book'
+    storeReaderProgressMode(progressBookId, next)
+    return next
+  }), [progressBookId])
   // Tablet reader chrome can look like a phone. Flowing verse is a physical
   // phone preference, independent of that responsive chrome breakpoint.
   const phoneShakespeare = isPhone && isShakespeare && isShakespearePhone()
@@ -586,7 +599,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }, 220)
     return () => window.clearTimeout(timer)
   }, [pageTurn])
-  const [readerProgressMode, setReaderProgressMode] = useState<LabReaderProgressMode>('book')
   const [voiceLabView, setVoiceLabView] = useState<VoiceTinctView>('read')
   const [voiceHistoryFixture, setVoiceHistoryFixture] = useState(false)
   const [voiceActions, setVoiceActions] = useState<LabVoiceActionEntry[]>([])
@@ -4935,7 +4947,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               data-testid="lab-chapter-progress"
               title={readerProgressMode === 'book' ? 'Show chapter progress' : 'Show book progress'}
               aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
-              onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
+              onClick={toggleReaderProgressMode}
             >
               {mobileCompareActive ? (
                 <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
@@ -4948,7 +4960,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               className="lab-chapter-progress is-interactive"
               data-testid="lab-chapter-progress"
               aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
-              onClick={() => setReaderProgressMode(mode => mode === 'book' ? 'chapter' : 'book')}
+              onClick={toggleReaderProgressMode}
             >
               <span className="lab-chapter-progress-info">{footProgressLabel}</span>
             </button>

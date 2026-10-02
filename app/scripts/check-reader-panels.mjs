@@ -215,9 +215,10 @@ async function run(engine,name,phone) {
     await page.getByRole('button',{name:'Close book switcher'}).click()
     if(!phone){
       const progress=page.getByTestId('lab-chapter-progress')
-      assert.match(await progress.textContent(),/% of book/)
-      await progress.click(); assert.match(await progress.textContent(),/% of chapter/)
+      // The Bible opens on chapter progress; a tap switches to the whole book.
+      assert.match(await progress.textContent(),/% of chapter/)
       await progress.click(); assert.match(await progress.textContent(),/% of book/)
+      await progress.click(); assert.match(await progress.textContent(),/% of chapter/)
       await clickMenu(page,'chat')
       const chat=page.getByTestId('lab-ask-pane'), original=await chat.boundingBox()
       await drag(page,chat.locator('[data-reader-window-handle]'),-130,40)

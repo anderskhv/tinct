@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { fitChapterEnd } from './labChapterEndPaging'
+import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
 import { chapterPageSegments } from './labHearing'
 const page = (from: number, to: number) => ({ paragraphIndex: 0, from, to })
 const words = (pages: ReturnType<typeof fitChapterEnd>) => pages.flatMap(p => chapterPageSegments(p).flatMap(s => Array.from({ length: s.to - s.from }, (_, i) => `${s.paragraphIndex}:${s.from + i}`)))
@@ -42,5 +42,25 @@ describe('chapter actions share a leaf with actual prose', () => {
   it('never produces an empty prose leaf even when the viewport cannot fit one word', () => {
     const pages = [page(0,1)]
     expect(fitChapterEnd(pages, () => false)).toBe(pages)
+  })
+  it('moves the break back to a sentence start instead of cutting mid-sentence', () => {
+    // 300 words; a sentence ends at word 259, so 260 starts the next one.
+    const text = Array.from({ length: 300 }, (_, i) => ({ text: i === 259 ? 'end.' : 'word' }))
+    const pages = [page(0, 300)]
+    const fitsTail = (segments: ReturnType<typeof chapterPageSegments>) => segments.reduce((n,s) => n+s.to-s.from,0) <= 290
+    expect(fitChapterEnd(pages, fitsTail).map(p => [p.from,p.to])).toEqual([[0,270],[270,300]])
+    const result = fitChapterEnd(pages, fitsTail, cleanPageStarts([text]))
+    expect(result.map(p => [p.from,p.to])).toEqual([[0,260],[260,300]])
+    expect(words(result)).toEqual(words(pages))
+  })
+  it('prefers a paragraph start, and keeps the plain cut when no clean break is near', () => {
+    const pages = [{ paragraphIndex: 0, from: 0, to: 250, segments: [{ paragraphIndex: 0, from: 0, to: 250 }, { paragraphIndex: 1, from: 0, to: 50 }] }]
+    const plain = [Array.from({ length: 250 }, () => ({ text: 'word' })), Array.from({ length: 50 }, () => ({ text: 'word' }))]
+    const fitsTail = (segments: ReturnType<typeof chapterPageSegments>) => segments.reduce((n,s) => n+s.to-s.from,0) <= 290
+    const result = fitChapterEnd(pages, fitsTail, cleanPageStarts(plain))
+    expect(chapterPageSegments(result[1])[0]).toEqual({ paragraphIndex: 1, from: 0, to: 50 })
+    // One long paragraph with no sentence end: the old cut stands.
+    const long = [page(0, 300)]
+    expect(fitChapterEnd(long, fitsTail, cleanPageStarts([Array.from({ length: 300 }, () => ({ text: 'word' }))])).map(p => [p.from,p.to])).toEqual([[0,270],[270,300]])
   })
 })

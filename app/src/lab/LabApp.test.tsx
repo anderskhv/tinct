@@ -29,6 +29,7 @@ vi.mock('./labNarration', async importOriginal => ({
 // chose KJV. New readers default to BSB (labPrefs.test.ts).
 beforeEach(() => {
   try { localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en' })) } catch { /* jsdom */ }
+  try { localStorage.removeItem('tinct:reader-progress-mode') } catch { /* jsdom */ }
 })
 
 afterEach(() => {
@@ -261,9 +262,9 @@ describe('lab bible book', () => {
       ],
     }} />)
     const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
-    fireEvent.click(screen.getByTestId('lab-chapter-progress'))
+    // The Bible shows chapter progress by default.
     const line = () => (document.querySelector('.lab-hearing-line')?.textContent || '')
-    expect(progress()).toMatch(/1 \/ \d+/)
+    expect(progress()).toMatch(/1 \/ \d+ of chapter/)
     expect(line()).toContain('In the beginning')
     for (let i = 0; i < 8; i++) {
       if (screen.getByTestId('lab-root').getAttribute('data-chapter') === '2') break
@@ -298,6 +299,8 @@ describe('lab bible book', () => {
   })
 
   it('labels Proverbs 16 with the biblical name, never the linear index', () => {
+    // Book-wide numbering is what this checks; the Bible opens on chapter progress.
+    localStorage.setItem('tinct:reader-progress-mode', JSON.stringify({ bible: 'book' }))
     render(<LabApp pathname="/lab/phone" source={{
       ...bibleFallbackSource(),
       chapterNumber: 644,
@@ -322,6 +325,8 @@ describe('lab bible book', () => {
   })
 
   it('page-next from Proverbs 16 last goes to Proverbs 17 p1, and prev returns to 16 last', async () => {
+    // Book-wide numbering is what this checks; the Bible opens on chapter progress.
+    localStorage.setItem('tinct:reader-progress-mode', JSON.stringify({ bible: 'book' }))
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
       if (url.includes('manifest.json') && !url.includes('audio-manifest')) {
@@ -1097,7 +1102,7 @@ describe('lab page turn identity', () => {
         { number: 2, title: 'Genesis 2' },
       ],
     }} />)
-    fireEvent.click(screen.getByTestId('lab-chapter-progress'))
+    // The Bible opens on chapter progress already.
     const nm = () => {
       const text = screen.getByTestId('lab-chapter-progress').textContent || ''
       const match = text.match(/(\d+)\s*\/\s*(\d+)/)
@@ -1456,15 +1461,25 @@ describe('lab chrome pass', () => {
     expect(css).toMatch(/Dark uses the warmer Tint treatment locked in the V1 design/)
   })
 
-  it('toggles the printed mobile progress between book and chapter without opening settings', () => {
+  it('toggles the printed mobile progress between chapter and book without opening settings', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
     const progress = screen.getByTestId('lab-chapter-progress')
-    expect(progress.textContent).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
-    fireEvent.click(progress)
+    // The Bible is long enough to open on chapter progress.
     expect(progress.textContent).toMatch(/^\d+ \/ \d+ of chapter · \d+%$/)
     fireEvent.click(progress)
     expect(progress.textContent).toMatch(/^[\d,]+ \/ [\d,]+ of book · \d+%$/)
+    fireEvent.click(progress)
+    expect(progress.textContent).toMatch(/^\d+ \/ \d+ of chapter · \d+%$/)
     expect(screen.queryByTestId('lab-settings')).toBeNull()
+  })
+
+  it('remembers the progress choice for the book', () => {
+    const first = render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    fireEvent.click(screen.getByTestId('lab-chapter-progress'))
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/of book/)
+    first.unmount()
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/of book/)
   })
 
   it('keeps a long chapter title ellipsized beside a fixed Tune slot', () => {

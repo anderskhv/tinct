@@ -17,3 +17,24 @@ describe('measured desktop leaves', () => {
     ])
   })
 })
+
+describe('stray last lines', () => {
+  it('never opens a page with only the last word or two of a paragraph', () => {
+    const text = Array.from({ length: 30 }, (_, i) => `w${i}`).join(' ')
+    const fits = (segments: { from: number; to: number }[]) => segments.reduce((n, s) => n + s.to - s.from, 0) <= 28
+    const pages = measuredDesktopPages([30], fits, undefined, Infinity, [text])
+    expect(pages.map(p => chapterPageSegments(p).map(s => [s.from, s.to]))).toEqual([[[0, 26]], [[26, 30]]])
+  })
+})
+
+describe('stray last lines carry their sentence', () => {
+  it('moves the break back to the start of the closing sentence when it is near', () => {
+    // "... him. And Tobiah sent letters to intimidate me." — 30 words, the last sentence 7.
+    const words = Array.from({ length: 23 }, (_, i) => `w${i}`)
+    words[22] = 'him.'
+    const text = [...words, 'And', 'Tobiah', 'sent', 'letters', 'to', 'intimidate', 'me.'].join(' ')
+    const fits = (segments: { from: number; to: number }[]) => segments.reduce((n, s) => n + s.to - s.from, 0) <= 27
+    const pages = measuredDesktopPages([30], fits, undefined, Infinity, [text])
+    expect(pages.map(p => chapterPageSegments(p).map(s => [s.from, s.to]))).toEqual([[[0, 23]], [[23, 30]]])
+  })
+})
