@@ -100,3 +100,6 @@ File paths below are relative to source/. Exact retrieval URLs and byte sizes ar
 | scan-leaf-9.jpg | `684cd0ad59f7ba12192c6b0614f32c06c868cd3d249793a1b6dded01180c7ad6` |
 | treatiseonsociala00rous_djvu.txt | `12352df30bad478cbdb65a93d78560f137ee5a48e1ddae52ca7c9596fb79397e` |
 | treatiseonsociala00rous_djvu.xml | `3d81ee02dd258044618cfbc09fe532e43fb5c11405d96d06c749b3ab805fb11f` |
+
+## v2 verification note (2026-10-02, Sonnet)
+Rights evidence re-read: translator William Kenrick d. 10 June 1779 (DNB 1885-1900 citing contemporary burial record; ODNB heading 1729/30-1779); author Rousseau d. 1778; attribution from two independent bibliographies (Encyclopedic Liberty p.727; TTR XXXIV 1 p.106). All named contributors died before 1955, so life+70 has expired in Denmark; no later editor/adapter appears in the 1764 edition and the TCP transcription is CC0. I did not re-fetch the third-party pages (cited passages recorded above); archive.org metadata and scans are retained locally. Page-scan check of 20.4 (printed p.76, leaf n93) done this session. v2 original-en is the 1764 text verbatim apart from the corrections in scratch/transcription-corrections.json; the Codex overlap re-renders were reverted.

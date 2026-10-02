@@ -1,127 +1,29 @@
-# Handoff — not accepted
+# Handoff - social-contract replacement (v2, Sonnet)
 
-Branch: content/replace-social-contract-codex, cut from origin/integration/release-candidate-6 after git fetch origin.
-Base: 95837141b. Owned path: books/wip/replace-social-contract/ only.
-Read root/book AGENTS, book workflow, README, STRATEGY, books/CLAUDE and workflow-boundaries. Applicable policy files match fetched origin/main (git diff returned no changes). Explicit user assignment overrides the general division of writing responsibilities; it also expressly authorizes the supplied overlap tool within this folder.
+Branch: content/replace-social-contract-sonnet. Owned path: books/wip/replace-social-contract-v2/ only. Continued from the Codex package on origin/content/replace-social-contract-codex (not merged). Status: content COMPLETE, awaiting integration by Claude/Codex in a separate step. No API calls, no generation scripts, no code/app/registry edits.
 
-## Source and work
+## What changed from the Codex checkpoint
+- original-en: Codex had re-rendered 72 paragraphs of the 1764 text to dodge the overlap gate. Per Anders's clarification original-en is exempt and must be verbatim, so all 72 were restored from scratch/original-draft.json (the 1764 TCP transcription) with only the genuine corrections applied (scratch/transcription-corrections.json, 32 entries: 31 scan/OCR repairs of damaged print plus the Crusoe fix, and the restored four-paragraph note in Book III ch. X). Entry 8 para 3 again ends with its source colon.
+- modern-en: 59 paragraphs were below 75 percent of the (now restored) original; ~70 paragraphs were re-rendered by hand, sentence by sentence, in my own words from the 1764 text. Overlap-flagged paragraphs were then re-phrased. No protected live text was read; only the coordinate/count output of overlap-check.py was used, plus sentence-level flags on my own text.
 
-See SOURCE.md. Raw 1764 BPL OCR, positional OCR XML, metadata, selected scan images and a CC0 keyboarded transcription of the same edition are retained. No alternative translation was used. The source draft is scratch/original-draft.json and is not a finished deliverable. Remaining transcription gaps require scan verification. No complete modern edition exists.
+## Counts
+50 chapters (Advertisement, Book I Introduction, 48 book-chapters), 470 paragraphs, sections []. original-en 48,072 words; modern-en 39,652 words (82.5 percent).
 
-## Accidental exposure disclosure
+## Gates (all PASS)
+- modern-en overlap vs old live original + old live modern, --allow new original-en: N=10 0/470, N=8 0/470 (gates/overlap-modern-n10.txt, -n8.txt). original-en is exempt by rule.
+- classify-modern-en.py --gate: PASS native (weighted similarity 0.338, 0 light/mechanical, 0 identical long, 0 truncated quotes) and PASS on typography-folded copy (0.339). gates/classifier-*.txt.
+- Alignment: same chapter and paragraph counts and titles; every modern paragraph >= 75 percent of source words; '!' counts equal per paragraph; no brackets, no embedded newlines, no empty paragraphs (gates/paragraph-audit.txt: bad 0).
+- JSON shape valid.
 
-A broad bibliographic search returned a Wikipedia overview containing a translated quotation of uncertain provenance, plus snippets from the unverified Tozer edition's prefatory matter and a possibly Cole-derived PDF search result. These results were not intentionally opened as reading sources, copied into the editions, or used for rendering. No protected live edition file has been displayed. Subsequent research was restricted to specific catalogue/biographical records and the verified 1764 witnesses. Retain this disclosure through final handoff.
+## SHA-256
+- editions/social-contract-original-en.json 57653ba8e01bd63352a12f89541258c612d4a45da04153ff3e4f7dc924487546 (see final hashes in git; recompute if edited)
+- editions/social-contract-modern-en.json 144326b19a7da452cc851a71a5b2d505103b6c88b69838e2b78cc228aff28680
+- structure-map.json 132ac0385411d720a0a26d47ccf47b44f649c8cbf437e7764e7a55dca4cf11aa
 
-## Preliminary gate
-
-Coordinate-only overlap tool copied unchanged from origin/claude/busy-fermi-111knc as requested. First run against scratch/original-draft.json: N=10, FAIL, 83/467 paragraphs flagged. This detects phrasing already present in the 1764 source; it is not evidence of derivation from a later translation. The user nevertheless requires zero flags, including the original candidate. This remains unresolved and must not be represented as passing. Do not silently alter the historical witness or call a rewritten paragraph an exact transcription; record every editorial alteration if applying the user's requested re-rendering rule.
-
-Other gates have not passed and completion is not claimed. No Anthropic calls, generation scripts, deployment, PR, merge or edits outside the owned content folder.
-
-## Batch 1 checkpoint
-
-Source gap restorations checked against printed pp. 44, 62, 113, 143–145, 150, 162, 179, 194, 197, 200, 204, 209, 229, 231; title page, Advertisement and final p.249 visually inspected. Scan URL n-indices differ from scandata leafNum because excluded leaves are skipped; use printed page numbers. Corrections, including transparent editorial repairs of damaged print, are listed in scratch/transcription-corrections.json. Four uncertain punctuation repairs still need scan confirmation. The original has one colon-ended source paragraph (entry 8 paragraph 3), which still conflicts with the requested terminal-ending gate.
-
-Modern entries 1–11: 71 paragraphs. Manual sentence-by-sentence rendering; no mechanical modernization or provider API. All 71 preserve required length and exclamations. Both classifier variants pass; modern overlap at N=10 and N=8: zero. Exact outputs in gates/. Whole book remains incomplete, and original overlap remains failing. Modern entries 12–50 do not yet exist. No placeholder text was inserted.
-
-structure-map.json is a provisional ordinal/proportional mapping of old chapter/paragraph counts to new coordinates. No old titles or wording were inspected. It is unsuitable for exact highlight migration.
-
-## Latest checkpoint: entries 1–14
-
-87 modern paragraphs are complete through Book II Chapter III. Entry 15 paragraph 1 is the exact continuation point. A four-paragraph note in Book III Chapter X (entry 33) had been combined during extraction; its four TEI paragraphs are now restored separately, increasing the source total to 470. This did not affect completed modern coordinates. Proportional structure-map counts were refreshed.
-
-Latest results are in gates/latest-summary.json. The subset passes both classifiers, minimum length, exclamation and modern paragraph endings; the modern candidate has zero N=10 and N=8 overlap flags. Original overlap and full-book alignment remain FAIL. Both full-book classifiers reject the 50-vs-14 chapter mismatch. The source has one colon-ended paragraph at entry 8 paragraph 3. Four source punctuation restorations still require scan confirmation. Full-book opening/ending and transcription review is not claimed complete.
-
-The original-source overlap requirement remains in tension with preserving the 1764 translator's wording. The supplied gate flags genuinely historical phrases. Raw witnesses and the faithful candidate have been preserved, and no historical text has been silently paraphrased to manufacture a PASS. No rights restriction on protected later wording has been waived.
-
-This is a bounded-session checkpoint, not a final content handoff. STATUS begins with the exact continuation point as required.
-
-Candidate SHA-256 at checkpoint:
-- editions/social-contract-original-en.json: `97ab56ab2398f7afdf43c62b95311d7ebce26d4781032137eb4d002953af41b3`
-- editions/social-contract-modern-en.json: `ff72f928207987a73f5f4277afd04206b0d2f4ff76122bccbb4bbcc231e44b01`
-
-## Batch checkpoint: modern entries 1–15
-Added a manual modern rendering for Book II Chapter IV (entry 15), bringing the complete modern subset to 99/470 paragraphs. The per-paragraph minimum length and exclamation requirements pass for this entry. The full classifier correctly remains blocked by chapter-count mismatch. A current coordinate-only N=10 scan of the original candidate flags 85/470 paragraphs; these are phrases in the 1764-based transcription and must be assessed/re-rendered under the explicit assignment rule. No protected text was opened; the overlap tool reported coordinates only. The modern N=10/N=8 scan and folded classifier still need to be run after all chapters exist. Source scan checks and the entry 8 paragraph 3 ending repair remain open.
-
-## Batch checkpoint: modern entries 15–17
-Manual modern renderings now extend through Book II Chapter VI, with 116/470 paragraphs complete. Entries 15–17 meet the minimum length, exclamation and terminal punctuation checks. Whole-book classifier and typography-folded classifier still require all 50 chapters. Original N=10 overlap remains 85/470; modern N=10/N=8 scans and full-source verification remain open. No protected text was opened.
-
-## Batch checkpoint: modern entries 18–19
-Manual renderings now extend through Book II Chapter VIII, for 131/470 paragraphs. Per-paragraph length and exclamation requirements pass for these entries. The chapter count remains 19 of 50, so the full classifier and folded classifier are incomplete. Original N=10 overlap remains 85/470; modern overlap scans, scan verification and source-ending repair remain outstanding.
-
-## Batch checkpoint: modern entries 20–22
-Manual renderings now extend through Book II Chapter XI, for 150/470 paragraphs. Entries 15–22 pass the checked paragraph length, exclamation and ending requirements. The classifier still reports the expected chapter-count mismatch (50 source chapters versus 22 modern chapters). Original N=10 overlap remains 85/470; modern overlap scans and full source checks remain outstanding.
-
-## Batch checkpoint: modern entries 23–24
-The manual modern edition now extends through Book III Chapter I, totaling 180/470 paragraphs. Paragraph length, exclamation and ending checks pass for entries 15–24. The classifier remains blocked by the 50-to-24 chapter mismatch. Original N=10 overlap remains 85/470; modern overlap scans, typography-folded full classifier and source checks remain outstanding.
-
-## Batch checkpoint: modern entries 25–26
-Manual renderings extend through Book III Chapter III, totaling 200/470 paragraphs. Entries 15–26 pass checked paragraph length, exclamation, and ending requirements. The whole-book classifier remains blocked by 50 source chapters versus 26 modern chapters. Original N=10 overlap remains 85/470; modern overlap scans, folded classifier, and full source checks remain outstanding.
-
-## Batch checkpoint: modern entries 27–28
-Manual renderings now extend through Book III Chapter V, totaling 220/470 paragraphs. Entries 15–28 pass checked paragraph length, exclamation and ending requirements. Whole-book classifiers remain blocked by the chapter-count mismatch (50 source, 28 modern). Original N=10 overlap remains 85/470; modern overlap scans and full source checks remain outstanding.
-
-## Batch checkpoint: modern entry 29
-Manual rendering now extends through Book III Chapter VI, totaling 232/470 paragraphs. Entries 15–29 pass checked paragraph length, exclamation and ending requirements. Whole-book classifiers remain incomplete at 29 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and full source checks remain outstanding.
-
-## Batch checkpoint: modern entries 30–31
-Manual renderings now extend through Book III Chapter VIII, totaling 254/470 paragraphs. Paragraph length, exclamation, and ending checks pass across entries 15–31 after restoring the source exclamation in entry 31 paragraph 10. Full classifier remains incomplete at 31 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Batch checkpoint: modern entries 32–36
-Manual renderings now extend through Book III Chapter XIII, totaling 290/470 paragraphs. Entries 15–36 pass paragraph length, exclamation, and ending checks. Full classifier remains incomplete at 36 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Batch checkpoint: modern entries 37–40
-Manual renderings now extend through Book III Chapter XVII, totaling 321/470 paragraphs. Entries 15–40 pass paragraph length, exclamation, and ending checks. Whole-book classifiers remain incomplete at 40 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Batch checkpoint: modern entries 41–42
-Manual renderings now extend into Book IV, totaling 338/470 paragraphs. Entries 15–42 pass paragraph length, exclamation, and ending checks. Whole-book classifiers remain incomplete at 42 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Batch checkpoint: modern entries 43–44
-Manual renderings now extend through Book IV Chapter III, totaling 358/470 paragraphs. Entries 15–44 pass paragraph length, exclamation, and ending checks. Whole-book classifiers remain incomplete at 44 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Batch checkpoint: modern entry 45
-Manual rendering now extends through the long Roman Comitia chapter, totaling 398/470 paragraphs. Paragraph length, exclamation and ending checks pass across the completed subset after correcting entry 39 paragraph 3. The classifier remains incomplete at 45 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Batch checkpoint: modern entries 46–48
-Manual renderings now extend through Book IV Chapter VII, totaling 427/470 paragraphs. Paragraph length, exclamation and ending checks pass across the completed subset. Whole-book classifiers remain incomplete at 48 of 50 chapters. Original N=10 overlap remains 85/470; modern overlap scans and source verification remain outstanding.
-
-## Full initial render checkpoint
-Manual modern text now contains all 50 source entries and 470 paragraphs. JSON, one-to-one chapter/paragraph alignment, nonempty paragraphs, minimum word length, exclamation counts, and terminal endings pass. The normal and typography-folded classifiers both pass: weighted similarity 0.338, no light/mechanical chapters, no long identical paragraphs, and no truncated quotations.
-
-The overlap gate does not pass. Coordinate-only reports show 85/470 original paragraphs at N=10 and 187/470 at N=8; modern reports show 17/470 at N=10 and 66/470 at N=8. The full outputs are saved in gates/overlap-*.txt and contain coordinates only. The overlap tool was run as instructed and no protected text was opened or displayed. The 1764 witness shares wording with the protected translation, so the assigned repair rule now requires source-based re-rendering of flagged paragraphs, including the original candidate. This means the affected “original-en” paragraphs will become documented source-based renderings rather than verbatim transcription; raw 1764 witnesses remain unchanged. Keep a coordinate/change ledger in scratch/transcription-corrections.json.
-
-The original candidate also has one colon-ended paragraph (entry 8 paragraph 3). Correct it only after checking the 1764 witness, then record the repair. Full scan verification and apparatus/OCR checks remain open.
-
-## Independence repair checkpoint
-
-After initial overlap scans, nine original paragraphs were re-rendered from the staged 1764 witness and documented in scratch/transcription-corrections.json. Additional re-renders cover entries 8.10, 11.6 and 11.7. Current original overlap is N=8 166/470; modern remains 66/470. Both fail the acceptance threshold. Raw witnesses remain unchanged. A fresh paragraph-length audit identifies ten modern paragraphs below 75% of the now-edited source; repair those alongside the remaining overlap flags. Exact next coordinates are in STATUS.md. The corrected editions have not yet passed their final gate run.
-
-Further overlap repair checkpoint: entries 15.1, 15.2, 15.6, 15.7, 15.9 and 15.10 were re-rendered from the staged 1764 witness in both editions. Latest counts are original N=8 161/470 and modern N=8 61/470. Both still fail; continue from STATUS.md. No protected wording was consulted.
-
-
-Latest gate checkpoint: original overlap N=10 67/470, N=8 158/470; modern N=10 16/470, N=8 58/470. Coordinate-only outputs were refreshed in gates/overlap-*.txt. The classifier passes the current un-folded editions (weighted 0.357; zero light/mechanical, identical-long, or truncated quote cases); paragraph length, exclamation, and terminal-ending checks pass. These results do not meet overlap acceptance. Continue repair work; do not mark COMPLETE.
-
-
-## Latest continuation checkpoint
-
-Entries 13.1, 13.4, 13.6 and 14.1, 14.4, 14.5 were manually re-rendered from the 1764 source in both editions; all changes are recorded in scratch/transcription-corrections.json. Current overlap counts: original N=10 66/470 and N=8 154/470; modern N=10 16/470 and N=8 59/470. Classifier passes both normal and typography-folded copies at weighted similarity 0.362; structure, paragraph length, exclamation and ending checks pass. STATUS.md gives the precise next work. Acceptance is not claimed.
-
-
-## Continued overlap checkpoint
-
-Entries 18.6, 18.11, 18.12, 19.1, 21.1, 21.4, 23.1, and 24.4, 24.7, 24.10, 24.20 were re-rendered from the staged witness in both editions and entered in the edit ledger. Modern entry 13.1 was independently revised. Current overlap: original N=10 56/470, N=8 139/470; modern N=10 12/470, N=8 44/470. Normal and typography-folded classifiers pass at 0.371. Structure, length, exclamation, and ending checks pass. Work remains; see STATUS.md.
-
-
-Latest checkpoint: entries 25.4, 25.8, 25.12, 26.5, 28.1, and 28.4 re-rendered and logged. Current original overlap is N=10 53/470, N=8 136/470; modern is N=10 11/470, N=8 38/470. Paragraph audit and both classifier variants pass at 0.371. Work remains; STATUS.md holds the next gate state.
-
-
-Additional checkpoint: entries 29.1, 29.5, 29.7, and 29.12 were re-rendered and logged. Current overlap counts are original N=10 53/470, N=8 134/470; modern N=10 9/470, N=8 35/470. Classifier variants and paragraph audit pass. See STATUS.md; work remains.
-
-
-Checkpoint: entries 32.5 and 33.1, 33.10 were re-rendered in both editions, documented in the ledger. Latest overlap: original N=10 53/470, N=8 133/470; modern N=10 8/470, N=8 33/470. Classifier variants and paragraph audits pass (weighted 0.372). Acceptance remains open.
-
-
-Checkpoint: entries 35.1, 36.3, 38.1 and 38.9 re-rendered in both editions. The required exclamation count at 35.1 was restored. Latest overlap counts: original N=10 52/470, N=8 130/470; modern N=10 8/470, N=8 29/470. Classifier variants and paragraph audit pass. See STATUS.md; package remains in progress.
-
-
-Checkpoint: entries 33.2, 39.4, and 39.6 were re-rendered in both editions and logged. Latest overlap results: original N=10 52/470, N=8 129/470; modern N=10 8/470, N=8 26/470. Paragraph audit was repaired and now passes. STATUS.md records the remaining work.
+## Remaining gaps / honest notes
+- structure-map.json is count-based, confidence low, no text comparison (old live: 48 chapters/491 paragraphs; new 50/470). Not suitable for exact highlight migration; integration must decide migration behaviour.
+- Transcription: damaged-print repairs checked against scan pages (see ledger). Two punctuation normalizations (31.15 comma to period, 36.8 comma removed) and the TCP-derived punctuation elsewhere were not scan-confirmed; 20.4 (period) and 49.34 confirmed on the scan. Original-en is a transcription of the 1764 printing with long s as s, no other modernisation.
+- Original-en shares some wording with the later Cole translation (inherited from the 1764 text); exempt by Anders's rule.
+- Modern-en re-renders stay close to the 1764 sentence order, because the free source is the only permitted base; overlap checks cover only protected files named above.
+- Accidental-exposure disclosure from Codex HANDOFF retained: an overview search surfaced a quoted translation snippet and prefatory matter from other editions; not used. Separately, I as a model recall other English translations; the first re-render draft of ~30 paragraphs inadvertently echoed such wording (overlap tool flagged it) and was rewritten until zero flags. Reviewer may want a human spot-check of Book III-IV renderings.
+- Character-card/onboarding impact not assessed (text-only package).
