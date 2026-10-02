@@ -29,7 +29,7 @@ try {
       await page.waitForFunction(()=>document.querySelector('.results-panel').getAttribute('aria-busy')==='false');
     }
     await checkLayout('empty');
-    for(const q of ['Odyssey','dostoevsky','pride prejudice','meditations marcus']) {
+    for(const q of ['Odyssey','dostoevsky','pride prejudice','meditations marcus','H.C. Andersen','Goethe Faust','Les Misérables','Don Quijote','Pan Tadeusz','Max Havelaar']) {
       await search(q);
       const titles=await page.locator('.card h2').allTextContents();
       assert.ok(titles.length>0);
@@ -45,11 +45,14 @@ try {
     assert.equal(await page.locator('#no-results').isVisible(),true);
     await checkLayout('no-results');
     await page.locator('#clear-search').click();
-    await page.locator('#standard-only').check();
-    await page.locator('#subject').selectOption({label:'Fiction'});
+    await page.locator('#language').selectOption('da');
+    await page.locator('#source').selectOption({value:'Kalliope'});
     await page.waitForFunction(()=>document.querySelector('.results-panel').getAttribute('aria-busy')==='false');
     assert.ok(await page.locator('.card').count()>0);
-    assert.ok((await page.locator('.badges .badge:first-child').allTextContents()).every(t=>t==='Standard Ebooks'));
+    assert.ok((await page.locator('.card .badges').allTextContents()).every(t=>t.includes('Kalliope')));
+    // Danish letters fold: "Kobenhavn" must find titles spelled "København".
+    await search('kobenhavn');
+    assert.ok(await page.locator('.card').count()>0);
     await checkLayout('filters');
     await page.locator('#reset').click();
     await page.locator('#language').selectOption('fr');
