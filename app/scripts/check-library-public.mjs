@@ -4,6 +4,9 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 const root=path.resolve('dist'),out='artifacts/library-public';fs.mkdirSync(out,{recursive:true});
 (async()=>{const live=process.env.LIBRARY_LIVE==='1';
+// Navigations wait for DOMContentLoaded, then for the element under test: the
+// library's full load event waits on every image (portraits in the hidden author
+// flap included) and has stalled past 30s in CI without any visible fault.
 // Desktop film loops: the visible wide painting's loop loads only after idle, and
 // never on phones or with reduced motion. Playwright's Chromium lacks H.264, so
 // report support to exercise the real gate; the request itself proves the src.
@@ -12,7 +15,7 @@ async function checkSceneFilm(b,engine,label,options,expected){
  await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};});
  const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
- await p.goto('https://tinct.app/library');await p.locator('#read-featured').waitFor();
+ await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();
  assert.equal(films.length,0,label+': no film before the page is idle');
  if(expected){
   await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
@@ -30,7 +33,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  else await checkSceneFilm(b,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
- await p.goto('https://tinct.app/');await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===5);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
+ await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===5);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
  await p.locator('#menu-toggle').click();
  assert.equal(await p.locator('#library-menu details, #library-menu summary').count(),0,'main menu has top-level categories only');
  await p.locator('#menu-categories button').filter({hasText:/^Philosophy$/}).click();
@@ -88,7 +91,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  await p.locator('.reading-table.is-ready').waitFor({timeout:15000}).catch(async e=>{console.log({url:p.url(),errors,html:await p.locator('html').getAttribute('class'),tables:await p.locator('.reading-table').count(),content:(await p.locator('body').innerText()).slice(0,900),boot:await p.evaluate(()=>window.__library2Boot)});await p.screenshot({path:out+'/debug.png'});throw e;});await p.waitForTimeout(700);assert.equal(await p.locator('#scene').evaluate(n=>getComputedStyle(n).opacity),'1','composed room revealed');assert(!(await p.locator('html').evaluate(n=>n.classList.contains('returning-scene-pending'))));assert.match(await p.locator('html').getAttribute('data-scene'),/^table-/);const cta=await p.locator('#rt-continue').boundingBox();assert(cta.y+cta.height<=h,JSON.stringify(cta));assert.equal(await p.locator('#rt-book-metadata .metadata-category').innerText(),'FICTION');assert.equal(await p.locator('#rt-book-metadata .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('#rt-book-metadata .metadata-details span').nth(1).innerText(),/ left$/);const remove=await p.locator('#rt-remove').boundingBox();assert(remove.x>=0&&remove.x+remove.width<=w&&remove.y>=0&&remove.y+remove.height<h,JSON.stringify(remove));const face=await p.locator('.rt-b.is-current .rt-front').boundingBox();assert(Math.abs(remove.y+remove.height/2-face.y)<3,JSON.stringify({remove,face}));await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-returning.png`});
  await p.route('**/reader',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><title>Handoff</title>'}));await p.locator('#rt-continue').click();await p.waitForURL('**/reader');const handoff=await p.evaluate(()=>JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')));assert.deepEqual(handoff.savedPlace,{bookId:'frankenstein',chapterNumber:7,page:4,paragraphIndex:11,wordIndex:23});
  // Removing the last book hides only its shelf entry, never its saved place.
- await p.goto('https://tinct.app/library');await p.locator('.reading-table.is-ready').waitFor();
+ await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await p.locator('.reading-table.is-ready').waitFor();
  await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
  assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'reading');
  await p.locator('#collection-back').click();
@@ -130,6 +133,6 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  await p.locator('#collection-back').click();
  // The bare-home shortcut uses a same-account fixture; the existing reader remains the position resolver.
  await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('tinct-lab-position'));s.owner='public-check';localStorage.setItem('tinct-lab-position',JSON.stringify(s));localStorage.setItem('sb-public-check-auth-token',JSON.stringify({user:{id:'public-check'}}));});
- await p.goto('https://tinct.app/');await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();
+ await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();
 }})().catch(e=>{console.error(e);process.exit(1)});
 
