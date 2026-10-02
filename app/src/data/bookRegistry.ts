@@ -2693,7 +2693,7 @@ export const MAGNA_CARTA: Book = {
   id: 'magna-carta',
   title: 'Magna Carta',
   author: 'Anonymous (sealed by King John)',
-  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No free man shall be seized or imprisoned…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
+  description: 'The Great Charter of 1215 — the document that bound a king to law, sealed at Runnymede after the barons rose against royal absolutism. Its iconic Clause 39 ("No freeman shall be taken…") is the seed of due process, habeas corpus, and the rule of law in the English-speaking world.',
   year: 1215,
   wordCount: 5000,
   coverColor: '#3a2d1f',

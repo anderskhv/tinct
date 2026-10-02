@@ -378,7 +378,7 @@ module.exports = {
       n: 12,
       title: 'Assault by Fire',
       tourTitle: 'Assault by Fire',
-      hook: 'Five ways to attack with fire, and one rule over them all: do not make war in anger. Anger passes. A country once overturned cannot be restored.',
+      hook: 'Fire used in five ways, and one rule over them all: do not make war in anger. Anger passes. A country once overturned cannot be restored.',
       tour: `Chapter 12 treats attack by fire as a powerful weapon and uses it to reach one of the book's most serious conclusions. There are five kinds of fire attack: burning barracks, the commissariat, equipment, stores and the company. The timing must be right — dry weather and days of wind — and the means must be at hand. The chapter describes how to respond as the fire develops: attack at once from outside when the enemy's camp catches fire within, but wait if his soldiers stay quiet. Water can cut an enemy off, and fire can burn his camp, but unless victory follows the war drags on and money is wasted. The chapter ends not on tactics but on restraint. Do not move unless there is advantage to gain. Do not go to war because the lord is in a passion or fight because the general is angry. Anger passes, but "a country, once overturned, cannot be restored; the dead cannot be brought to life."`,
       blurb: `Five kinds of fire attack and the conditions for each. Then the closing rule: do not make war in passion. Anger passes. A country once overturned cannot be restored. The dead cannot be brought to life.`,
       summary: [
