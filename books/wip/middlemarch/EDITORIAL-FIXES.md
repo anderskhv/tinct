@@ -57,3 +57,34 @@ Not changed (not requested, noted for Anders): live 20:25 still renders the Germ
 - `!` check: 0 paragraphs with fewer; epigraph check: 100/100 identical to original-en.
 - `python3 books/classify-modern-en.py middlemarch --gate`: GATE PASS, weighted similarity 0.489 (<= 0.75), light+mechanical 0/88 = 0.0%, identical long paragraphs 88/4078 = 2.2% (<= 5%), buckets REAL-HEAVY 49, REAL 39, LIGHT 0, MECHANICAL 0, no wrapped scaffolding, no truncated quotations.
 - From app/: `npm test` 249 files passed, 2,920 tests passed, 1 skipped; `CI=1 npm run build` exit 0, no errors; `npm run verify-bundle` passed. The build was run with `app/public/read` moved aside temporarily because the shared disk was nearly full; it was restored afterwards and `sitemap.xml` reverted.
+
+## Pass F: independent editorial review findings (2026-10-02)
+
+Source: independent editorial review of the modern-en candidate. Coordinates LIVE unit : 0-based paragraph (the review's coordinates matched 0-based indexes; each was verified against the text). Script `editorial-fixes/pass_f_independent_review.py` (59 asserted substring edits, 55 paragraphs, one-shot). Shards regenerated with `node scripts/split-edition-chapters.cjs middlemarch-modern-en` (no `--write-registry`; the shared registry was not touched; manifest unchanged).
+
+Blocking
+- Caleb Garth's "deuce" restored (the narrator says it was his whole store of maledictory expression): 25:51 "the deuce take it!", 25:67 "Deuce take the bill!", 41:90 "Deuce knows … than the deuce.", 57:32 "deuce take it", 57:98 "The deuce!".
+- 25:2 "The large Mrs. Garth family" → "The large Garth family" (also removes the false `susan-garth` mention there).
+
+Should-fix
+- Mild oaths restored from the original where modern had hardened them to "damn": 9:12 Confound, 15:43 Confound, 17:9 Hang, 19:3 Confound, 19:22 "a devilish deal better", 20:13 "Confound you, Naumann!", 23:39 cursed, 38:6 cursed, 44:16 Confound, 47:19 devilish, 52:32 and 52:33 Blast, 54:44 confoundedly, 54:54 "hang it" + "confounded tax form", 57:24 confounded, 57:114 "Board be hanged!", 61:14 blasted, 64:9 "Hang it", 72:19 cursed.
+- 88:24 closing line: "…the many who lived faithfully a hidden life, and rest in unvisited tombs."
+- 41:93 "and no eye can see whence came the seed thereof."
+- 33:44 Scott's opening sentence verbatim: "The course of four centuries has well-nigh elapsed since the series of events which are related in the following chapters took place on the Continent."
+- ALL-CAPS emphasis → `_italic_`: 15:3, 15:29 (×2), 15:47 (`_Rosy!_`), 15:67, 17:8 (`he had _his_ way`, following the original's stress), 18:7, 19:42, 20:15, 21:13, 21:31, 23:82, 25:16, 25:63, 26:27. Remaining capitals in the edition are the original's own (epigraph attributions, letter salutations/signatures, "AYES" in a verse epigraph).
+- 57:58 "No forever saying" → "Don’t be forever saying".
+
+Nits
+- 9:12 "They don’t admire you half as much" (modern had inverted the sense); 2:4 "feeble opinions"; 2:7 "very childlike"; 4:41 "notions" (×2); 49:53 "the ideal and not the real yoke of marriage"; 41:51 "Mr. Farebrother used to call her “Mary” rather than “Miss Garth,” but his tact led him…"; US spellings marvelous (2:13, 5:31, 41:75, 46:36), willful (4:45), travelers’ (42:6); 57:41 "“Aw!”".
+
+Not changed (outside the review list, noted): 24:16 "roundest word for damnation" (original "perdition"), 40:52 "I’ll be damned" (original dialect "I’ll be dee’d"), 72:6 "Damned if I think" (original "Damme if I think"). These are reasonable renderings of the original's own oaths.
+
+Onboarding: `acclaim` added (Virginia Woolf, "George Eliot", The Common Reader, 1925; first published TLS, 20 November 1919). Quote verified verbatim on 2026-10-02 against https://gutenberg.net.au/ebooks03/0300031h.html ("…it is at its highest in the mature Middlemarch, the magnificent book which with all its imperfections is one of the few English novels written for grown-up people."); TLS date per Wikipedia "Middlemarch" bibliography. `estimatedTime` now "~23 hours at 200 words per minute" from the modern edition (275,276 whitespace words; was ~26 h, the original's 315,923).
+
+Characters: rebuilt with `build_reviewed.compile_package` + `entities.middlemarch.bind`; `editorial.json` contentVersion and the staged `characterReleases` revision bumped to `2026-10-02.1`. original-en mentions unchanged (6,470). modern-en still 6,100: removed false `Mrs. Garth`→susan-garth at 25:2, added `Miss Garth`→mary-garth at 41:51; other changed paragraphs only shift offsets. Cards and all 8 gates per edition unchanged.
+
+Verification (Pass F)
+- `verify.py`: 88 units, 4,674 paragraphs aligned; 35 short paragraphs (all pre-existing, none new); epigraph mismatches 0; paragraphs with fewer "!" 0.
+- `shard_check.py`: 88 shards, 0 mismatched.
+- `python3 books/classify-modern-en.py middlemarch --gate`: GATE PASS, weighted similarity 0.490, light+mechanical 0/88, identical long paragraphs 88/4078 = 2.2%, REAL-HEAVY 49 / REAL 39, scaffolding 0, truncated quotations 0.
+- Character asset: deterministic across two builds; source/paragraph hashes, every UTF-16 mention slice and all 8 gate boundaries per edition PASS. `npx vitest run src/services/characters`: 6 files, 487 tests PASS.
