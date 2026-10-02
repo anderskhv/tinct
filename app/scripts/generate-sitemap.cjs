@@ -428,7 +428,9 @@ function buildBookIndexPage(book, edition) {
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
   const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
-  const readerHref = readerChapterHref(book.id, 1)
+  // Start reading opens the book the way the library does: the flap, the
+  // introduction and the edition choice, then the reader.
+  const readerHref = `/library?book=${book.id}`
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
