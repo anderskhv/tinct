@@ -513,6 +513,31 @@ export function labCompactFootProgress(progress: string): string {
 
 export type LabReaderProgressMode = 'book' | 'chapter'
 
+/** Books this long read chapter by chapter: a book-wide percent barely moves. */
+export const CHAPTER_PROGRESS_FROM_WORDS = 200_000
+const READER_PROGRESS_MODE_KEY = 'tinct:reader-progress-mode'
+
+export function defaultReaderProgressMode(wordCount: number | undefined): LabReaderProgressMode {
+  return (wordCount ?? 0) >= CHAPTER_PROGRESS_FROM_WORDS ? 'chapter' : 'book'
+}
+
+/** The progress mode the reader last chose for this book on this device, if any. */
+export function readStoredReaderProgressMode(bookId: string): LabReaderProgressMode | null {
+  try {
+    const mode = JSON.parse(localStorage.getItem(READER_PROGRESS_MODE_KEY) || '{}')?.[bookId]
+    return mode === 'book' || mode === 'chapter' ? mode : null
+  } catch {
+    return null
+  }
+}
+
+export function storeReaderProgressMode(bookId: string, mode: LabReaderProgressMode): void {
+  try {
+    const modes = JSON.parse(localStorage.getItem(READER_PROGRESS_MODE_KEY) || '{}')
+    localStorage.setItem(READER_PROGRESS_MODE_KEY, JSON.stringify({ ...(modes && typeof modes === 'object' ? modes : {}), [bookId]: mode }))
+  } catch { /* a device preference only */ }
+}
+
 function labPageNumber(value: number): string {
   return Math.max(0, Math.round(value)).toLocaleString('en-US')
 }
