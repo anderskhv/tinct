@@ -1,6 +1,6 @@
 """Wuthering Heights cards. Generic build is a baseline; run this module for reviewed gates."""
 BOOK_ID = 'wuthering-heights'
-CONTENT_VERSION = '2026-10-01.1'
+CONTENT_VERSION = '2026-10-02.1'
 EDITIONS = ['original-en', 'modern-en']
 
 ENTITIES = [{'id': 'lockwood',
@@ -142,8 +142,7 @@ ENTITIES = [{'id': 'lockwood',
   'displayName': 'Zillah',
   'aliases': ['Zillah'],
   'subtitle': 'A servant at the Heights',
-  'body': 'She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering '
-          'Heights, a different household from Mrs. Dean’s at the Grange.'},
+  'body': 'Mrs. Heathcliff names her among the household at the Heights.'},
  {'id': 'shielders',
   'kind': 'person',
   'storyRole': 'reference',
@@ -161,15 +160,18 @@ def bind(edition, ch, pi, text, entities):
     for e in entities:
         cid = e['id']
         aliases = list(e['aliases']) + e['contexts'].get(f'{ch}:{pi}', [])
-        if cid == 'catherine-linton-younger' and (ch in [2, 3, 4] or ch >= 18):
+        # 18:12 (zero-based) is Nelly's summary of Isabella's later life, not the younger Catherine.
+        if cid == 'catherine-linton-younger' and (ch in [2, 3, 4] or ch >= 18) and (ch, pi) != (18, 12):
             aliases += ['Mrs. Heathcliff']
-        if cid == 'isabella-linton' and 13 <= ch <= 17:
+        if cid == 'isabella-linton' and (13 <= ch <= 17 or (ch, pi) == (18, 12)):
             aliases += ['Mrs. Heathcliff']
         if cid == 'linton-heathcliff' and ch >= 18:
             aliases += ['Master Heathcliff', 'young Heathcliff', 'Master Linton', 'young Linton']
         for alias in aliases:
             for m in re.finditer(r'(?<![\w])' + re.escape(alias) + r'(?![\w])', text):
                 prefix = text[:m.start()]
+                if cid == 'mr-earnshaw-elder' and re.match(r'\s+line\b', text[m.end():]):
+                    continue  # 'the old Earnshaw line' is the family, not the elder Mr. Earnshaw.
                 if cid == 'hareton-earnshaw' and ch == 1:
                     continue  # 1500 carving, not the living Hareton.
                 if cid == 'heathcliff':

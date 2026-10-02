@@ -148,3 +148,49 @@ All 3,672 straight `'` in the modern edition became curly `’` (the original us
 - Per-paragraph `!` check: 0 paragraphs with fewer than the source.
 - `python3 books/classify-modern-en.py wuthering-heights --gate`: GATE PASS.
 - Shards regenerated with `node scripts/split-edition-chapters.cjs wuthering-heights-modern-en --write-registry`; all 34 shards equal the whole-file chapters; `editionShardRegistry.ts` unchanged.
+
+## Independent review fixes — 2026-10-02
+
+**Independent editorial acceptance: ACCEPTED, all findings resolved.** Content accepted is distinct from integrated/published: the book remains STAGED, unregistered and unpublished. Coordinates `chapter:paragraph`, 1-based unless marked zero-based.
+
+### Blocking
+- **B1 — 18:13 (zero-based 18:12) “Mrs. Heathcliff lived more than twelve years after leaving her husband”** was bound to `catherine-linton-younger`; it means Isabella. `bind()` in `books/characters/entities/wuthering-heights.py` now excludes (18, 12) from the younger Catherine’s `Mrs. Heathcliff` alias and adds it to `isabella-linton`. Both editions rebound. Audit of every `Mrs. Heathcliff` from ch18 on (both editions): 18:12 → Isabella; 30:10, 30:15, 30:34, 31:7, 31:17, 32:30, 32:85 (zero-based) → younger Catherine, all correct. 18:12 was the only mis-binding.
+
+### Should-fix (modern-en text unless stated)
+1. 9:83 → “It would degrade me to marry Heathcliff now, so he must never know…”; “as different as a moonbeam from lightning”.
+2. 16:16 → “May she wake in torment!”; “Be with me always—take any form—drive me mad! Only _don’t_ leave me in this abyss, where I cannot find you!”
+3. 3:28 → “I had read _Earnshaw_ twenty times as often as Linton” (emphasis markup kept).
+4. 22:23 → “Unless you restore him, he’ll be in his grave before summer!”
+5. 25:12 → “Heathcliff knew, then, that he could plead eloquently for Catherine’s company.”
+6. 34:19 → “go back to you”; 30:30 → “Ask of yerself.”
+7. Threads, Joseph ch2 → “Joseph refuses to let Lockwood in and later raises the alarm when he takes the lantern. His shouts bring the dogs upon the departing visitor.”
+8. Threads, Joseph ch3 → quarrel sentence replaced: “Early next morning he comes down to the kitchen hearth and smokes his pipe in silence, ignoring Lockwood.” (source 3:56).
+9. Onboarding cast “Catherine “Cathy” Linton” → “The young widow Lockwood meets as Mrs. Heathcliff; Nelly knew her as Catherine Linton. She is a separate person from the Catherine whose childhood Nelly describes.” `angleObjective` (no code consumer found, softened anyway) → “Track the two Catherines and the different people called Linton, …” (no longer names Linton Heathcliff).
+10. Zillah card: identity body at first mention (2:70; zero-based 2:69) is now “Mrs. Heathcliff names her among the household at the Heights.” The former aid text is a snapshot released at the end of 2:88 (zero-based 2:87). Mirrored in `editorial.json` and the module’s ENTITIES list.
+
+### Nits
+- “black” restored: 34:20 “black brows”, 34:30 “Those deep black eyes!”, 33:39 “Heathcliff’s black eyes blazed”, 27:38 “her black eyes flashing”.
+- 29:16 “dissolved into earth”; 29:17 “Of dissolving with her”.
+- 30:1 “thrang”—busy—and (replaces “thrang” (busy)).
+- 30:25 “I’ve been starved a month and more” (source sense kept).
+- 15:2 “the evening of my visit to the Heights”.
+- 3:58 “or now and then to push away a dog that thrust its nose too boldly into her face.”
+- 34:71 “an’ I daren’t pass ’em” (supersedes the earlier “darnut” fix above).
+- Sidecar 8:1 (zero-based 8:0) modern “the last of the old Earnshaw line”: `bind()` skips `old Earnshaw` when followed by “line”; no longer bound to `mr-earnshaw-elder`. Other `old Earnshaw` bindings (4:38, 7:14 zero-based, both editions) unchanged.
+- Threads, Heathcliff ch30 → “Nelly thinks of taking a cottage and having Cathy live with her, but judges that Heathcliff would refuse to permit it.” (source 30:39).
+
+### Regeneration and gates (2026-10-02)
+- Shards: `node scripts/split-edition-chapters.cjs wuthering-heights-modern-en` (no `--write-registry`; registry untouched); 34 shards equal the whole-file chapters.
+- Characters: `python3 books/characters/entities/wuthering-heights.py`, then `--check` pass; public sidecar byte-identical to the package output. contentVersion `2026-10-02.1`. Mention diff vs previous sidecar: only the 18:12 rebinding (both editions), the removed 8:0 `old Earnshaw` (modern) and offset shifts in edited paragraphs. Mentions: original 1,397, modern 1,458; 19 identities per edition. Direct validation: source and paragraph hashes, every UTF-16 span and every snapshot gate offset pass.
+- `npx vitest run src/services/characters`: 6 files, 487 tests passed.
+- `python3 books/classify-modern-en.py wuthering-heights --gate`: GATE PASS (exit 0; weighted similarity 0.509; light+mechanical 0/34; identical long 1/1586; scaffolding 0; truncated quotations 0).
+- JSON valid (editions, shards, threads, onboarding, sidecar, editorial); 34 chapters / 1,931 paragraphs aligned; no paragraph under 0.75 of source words (>30 words); 0 paragraphs with fewer `!` than source; 0 straight apostrophes.
+- Original edition, preface and intro unchanged.
+
+### Hashes (SHA-256)
+- `app/public/data/editions/wuthering-heights-modern-en.json`: `2ffc01f3d29a6f2087ea0bff09ed69d26e32e5ffb748bf9e4e29d22755dc75c8`
+- `app/public/data/editions/wuthering-heights-original-en.json` (unchanged): `cd6c024bd4b0f1fc773ac0b4129b0ff50635099a372a4bf5f1501c06dd293d96`
+- `app/public/data/characters/wuthering-heights.v1.json`: `fffec902d9b49124beb018c046ed1cd1397882f749ecb2eec42657f4ae715872`
+- `app/public/data/editions/wuthering-heights-threads.json`: `5fbdb45800d8b4cfd11ed2c71fe238037d31879d1ccb8b7caf4e1530cd945e20`
+- `app/public/data/onboarding/wuthering-heights.json`: `49aa92b5facc96b97a9c3b05f6a6ae997033016f185e99fac769d461995003c3`
+- modern-en shards concatenated ch0001–ch0034: `d2dc7051cae90307864daf6ca22bdd259fbd5c4a6602506aa6327034163c664d`

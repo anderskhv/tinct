@@ -1,5 +1,5 @@
 {
-  "contentVersion": "2026-10-01.1",
+  "contentVersion": "2026-10-02.1",
   "coverage": "19 proposed identities; conservative named bindings, contextual family titles, paragraph-end relationship gates. Bare ambiguous names, pronouns and generic titles are not exhaustive.",
   "entities": [
     {
@@ -516,8 +516,17 @@
         "Zillah"
       ],
       "subtitle": "A servant at the Heights",
-      "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.",
-      "snapshots": [],
+      "body": "Mrs. Heathcliff names her among the household at the Heights.",
+      "snapshots": [
+        {
+          "after": [
+            2,
+            87
+          ],
+          "name": "Zillah",
+          "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange."
+        }
+      ],
       "contexts": {}
     },
     {
