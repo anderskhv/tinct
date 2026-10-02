@@ -428,7 +428,11 @@ function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftR
   const existing = table.reading.find(row => row.bookId === justRead.bookId)
   if (!existing && !book) return table
   const lead: ReadingTableBook = existing
-    ? { ...existing, chapterLabel: justRead.chapterLabel || existing.chapterLabel }
+    ? !justRead.chapterLabel || justRead.chapterLabel === existing.chapterLabel
+      ? existing
+      // The cached row describes an older place: its percent, headline and
+      // recap belong there, not where the reader just stopped.
+      : { ...existing, chapterLabel: justRead.chapterLabel, headline: justRead.headline, percent: null, recap: null }
     : {
         bookId: justRead.bookId,
         title: book?.title ?? justRead.title,

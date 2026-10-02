@@ -863,7 +863,9 @@ async function menuRedesign(engine,name,phone) {
     await clickMenu(page,'summarize')
     // Summarize is a card of beats in its own sheet, not a chat answer.
     await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()
-    assert(requests.some(body=>body.chapterNotes?.kind==='sofar'||body.chapterNotes?.kind==='end'),'summary asks for chapter notes')
+    // Summarize is the whole current chapter; the reading so far is Catch me up.
+    assert(requests.some(body=>body.chapterNotes?.kind==='end'),'summary asks for the whole chapter')
+    assert(!requests.some(body=>body.chapterNotes?.kind==='sofar'),'summary never asks for a so-far card')
     assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
     assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
     assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)

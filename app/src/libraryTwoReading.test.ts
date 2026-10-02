@@ -354,6 +354,21 @@ it('leads the first paint with the book the reader just left, before the account
  completed.resolve({data:[],error:null});await result;
 })
 
+it('a book read on to another chapter does not keep the cached percent of its old place', async () => {
+ const completed=gate<{data:[];error:null}>();
+ calls.auth.mockResolvedValue({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});calls.memory.mockResolvedValue(null);
+ calls.localPositions.mockResolvedValue(emptyLabPositionState('device-b','viewer-b'));
+ calls.cloudPositions.mockResolvedValue(emptyLabPositionState('cloud','viewer-b'));
+ calls.completions.mockReturnValue(completed.promise);calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0});calls.readingList.mockReturnValue({readingNow:[],finished:[]});
+ localStorage.setItem('tinct:library-2-table:viewer-b',JSON.stringify({mode:'returning',reading:[{bookId:'the-manual',title:'The Manual',chapterLabel:'Section 1',headline:'You\u2019re at the start of Section 1',percent:0,recap:'An old recap'}],finished:[]}));
+ localStorage.setItem('tinct:lab-library-boot',JSON.stringify({v:1,at:Date.now(),userId:'viewer-b',readingNow:1,finished:0,row:[],hero:{bookId:'the-manual',title:'The Manual',chapterLabel:'Section 52',headline:'You stopped in Section 52',lastReadAt:Date.now(),coverSrc:null,coverSrcSet:null,note:null}}));
+ const onCached=vi.fn(),{loadReadingTable}=await import('./libraryTwoReading');
+ const result=loadReadingTable({catalogue:Promise.resolve({books:[]}),onCached});
+ await vi.waitFor(()=>expect(onCached).toHaveBeenCalled());
+ expect(onCached.mock.calls[0][0].reading[0]).toMatchObject({bookId:'the-manual',chapterLabel:'Section 52',headline:'You stopped in Section 52',percent:null,recap:null});
+ completed.resolve({data:[],error:null});await result;
+})
+
 it('an edition picked in the introduction wins over the saved one, keeps the place, and carries the compare edition', async () => {
   calls.auth.mockResolvedValue({data:{session:null}})
   calls.memory.mockResolvedValue(null)

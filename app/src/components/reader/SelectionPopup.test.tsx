@@ -128,6 +128,16 @@ describe('compact selection popup', () => {
     expect(input.setPopupMode).toHaveBeenCalledWith('character')
   })
 
+  it('labels a small part "Minor figure" and drops the "At this passage" label (Anders, 2026-10-02)', () => {
+    const card = { id: 'zerubbabel', kind: 'person', role: 'reference', name: 'Zerubbabel', subtitle: 'Governor who rebuilds the Temple', body: 'A descendant of David.' }
+    const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
+    render(<SelectionPopup {...props({ popupMode: 'character', selection: selection({ character }) })} />)
+    expect(screen.getByText('Minor figure')).toBeTruthy()
+    expect(screen.queryByText('Mentioned in passing')).toBeNull()
+    expect(screen.queryByText('At this passage')).toBeNull()
+    expect(screen.getAllByText('Zerubbabel')).toHaveLength(1)
+  })
+
   it('uses the locked contextual menu and saves a last-colour highlight before editing', () => {
     localStorage.setItem('tinct-highlight-color', 'sage')
     const input = props({
@@ -243,8 +253,10 @@ it('keeps the palette at the action menu anchor when its shorter height would fi
 it('shows a contextual person card for a name missing from the released cards', async () => {
   const request = vi.fn().mockResolvedValue(JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'A person identified in the selected passage',body:'Contextual test answer.'}))
   render(<SelectionPopup {...props({lab:true,defineQuery:'Jehohanan',defineLoading:false,defineNotFound:true,onRequestExplanation:request})} />)
-  expect(await screen.findByRole('heading', {name:'Jehohanan'})).toBeTruthy()
-  expect(screen.getByText('Minor character')).toBeTruthy()
+  expect(await screen.findByText('Minor character')).toBeTruthy()
+  // Named once, in the panel head; the card does not repeat it.
+  expect(screen.getAllByText('Jehohanan')).toHaveLength(1)
+  expect(screen.queryByText('At this passage')).toBeNull()
   expect(screen.getByText('Contextual test answer.')).toBeTruthy()
 })
 

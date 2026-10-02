@@ -253,9 +253,9 @@ export function SelectionPopup({
   }, [selection.character, popupMode, popupRef])
   const character = selection.character
   const card = galleryId ? character?.gallery.find(entry => entry.card.id === galleryId)?.card : character?.card
-  const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Mentioned in passing' }
+  const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Minor figure' }
   // Cards can be places, objects, peoples or personifications; "figure" only fits a being.
-  const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Mentioned in passing' }
+  const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Minor' }
   const roleLabel = card?.role ? (['person', 'spirit', 'deity'].includes(card.kind) ? roles : nonFigureRoles)[card.role] : null
 
   const showDefinePanel = popupMode === 'define'
@@ -340,7 +340,7 @@ export function SelectionPopup({
       {lab && (popupMode === 'define' || popupMode === 'explain') && <button type="button" data-reader-window-resize aria-label="Resize panel" />}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
-          <div className="popup-character-heading"><small>At this passage</small><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
+          <div className="popup-character-heading"><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
           {popupMode === 'character' && card && <>
             <h2>{card.name}</h2>
             {roleLabel && <small>{roleLabel}</small>}
@@ -395,7 +395,7 @@ export function SelectionPopup({
             </div>
           )}
           {!defineLoading && contextualLookup ? (
-            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineResult?.definitions} />
+            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.

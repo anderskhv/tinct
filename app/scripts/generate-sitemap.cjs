@@ -121,6 +121,8 @@ function preferredEditionPath(bookId) {
     path.join(EDITIONS_DIR, `${bookId}-original-en.json`),
     path.join(EDITIONS_DIR, `${bookId}-modern-en.json`),
     path.join(EDITIONS_DIR, `${bookId}-original-de.json`),
+    // The Bible's reading edition.
+    path.join(EDITIONS_DIR, `${bookId}-bsb-en.json`),
   ]
   const holds = require('../src/data/editionAvailability.json').editions
   const key = file => bookId + '/' + path.basename(file).slice(bookId.length + 1, -5)
@@ -278,7 +280,7 @@ function seoStyles() {
   </style>`
 }
 
-function pageShell({ title, description, canonical, body, jsonLd, image = DEFAULT_OG_IMAGE }) {
+function pageShell({ title, description, canonical, body, jsonLd, image = DEFAULT_OG_IMAGE, styles = seoStyles(), preload = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -302,8 +304,9 @@ function pageShell({ title, description, canonical, body, jsonLd, image = DEFAUL
   <meta name="twitter:image" content="${escapeHtml(image)}">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
+  ${preload}
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
-  ${seoStyles()}
+  ${styles}
 </head>
 <body>
 ${body}
@@ -312,12 +315,112 @@ ${body}
 `
 }
 
+const LIBRARY_ASSETS = '/lab/library_2/assets'
+// Books the library paints in their own room; everyone else sits on the
+// evening reading table, so a shared link looks the same at any hour.
+const BOOK_SCENES = {
+  frankenstein: ['room-wide-v2.jpg', 'room-sharp.jpg'],
+  meditations: ['scene-meditations-wide.jpg', 'scene-meditations-phone.jpg'],
+  'the-prince': ['scene-the-prince-wide.jpg', 'scene-the-prince-phone.jpg'],
+  'crime-and-punishment': ['scene-crime-and-punishment-wide.jpg', 'scene-crime-and-punishment-phone.jpg'],
+  odyssey: ['scene-odyssey-wide.jpg', 'scene-odyssey-phone.jpg'],
+  'pride-and-prejudice': ['scene-pride-and-prejudice-wide.jpg', 'scene-pride-and-prejudice-phone.jpg'],
+}
+const EVENING_TABLE = ['table-evening-wide.jpg', 'table-evening-phone.jpg']
+
+let libraryBlurbs = null
+/** The library's one-line blurb per book (src/data/libraryTaxonomy.ts). */
+function libraryBlurb(bookId) {
+  if (!libraryBlurbs) {
+    libraryBlurbs = new Map()
+    try {
+      const src = fs.readFileSync(path.join(APP_DIR, 'src/data/libraryTaxonomy.ts'), 'utf8')
+      const marker = 'LIBRARY_BOOK_META: LibraryBookMeta[] = '
+      const start = src.indexOf(marker) + marker.length
+      const end = src.indexOf('\n]\n', start) + 2
+      for (const meta of JSON.parse(src.slice(start, end))) libraryBlurbs.set(meta.id, meta.blurb)
+    } catch (err) {
+      console.warn('[sitemap] library blurbs unavailable:', err.message)
+    }
+  }
+  return libraryBlurbs.get(bookId) || ''
+}
+
+function bookCoverSrc(bookId) {
+  return fs.existsSync(path.join(APP_DIR, 'public/covers/v2', `${bookId}.webp`)) ? `/covers/v2/${bookId}.webp` : null
+}
+
+function bookSceneSrc(bookId) {
+  const [wide, phone] = BOOK_SCENES[bookId] || EVENING_TABLE
+  return { wide: `${LIBRARY_ASSETS}/${wide}`, phone: `${LIBRARY_ASSETS}/${phone}` }
+}
+
+/** The book page: the library's reading-room scene, then the crawlable book. */
+function bookPageStyles() {
+  return `<style>
+    :root { --bg: #111610; --cream: #eee7d0; --muted: #b8bea9; --line: rgba(238, 231, 208, 0.2); color-scheme: dark; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--cream); font-family: 'EB Garamond', Georgia, serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; }
+    nav.top { position: absolute; z-index: 3; top: 0; left: 0; right: 0; height: 76px; padding: 0 max(28px, 2.5vw); display: flex; align-items: center; justify-content: space-between; background: linear-gradient(#090e0b66, transparent); }
+    .logo { font-family: Georgia, 'Times New Roman', serif; font-size: 34px; letter-spacing: -1.8px; color: var(--cream); text-decoration: none; }
+    .top-link { font: 15px system-ui, sans-serif; color: var(--cream); text-decoration: none; opacity: 0.85; }
+    .hero { position: relative; height: 92svh; min-height: 560px; overflow: hidden; isolation: isolate; }
+    .scene, .scene img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .shade { position: absolute; inset: 0; background: linear-gradient(0deg, var(--bg), transparent 26%), linear-gradient(90deg, #080d0b83, transparent 65%); }
+    .hero-book { position: absolute; right: 18%; bottom: 20%; height: 43%; aspect-ratio: 2 / 3; filter: drop-shadow(3px 3px 3px #0006); }
+    .hero-book img { display: block; width: 100%; height: 100%; border-radius: 2px; }
+    .hero-copy { position: absolute; left: max(28px, 2.5vw); bottom: 19%; width: 47%; z-index: 2; }
+    .eyebrow { font: 12px system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 0 0 14px; }
+    h1.title { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(44px, 4.6vw, 80px); font-weight: 400; line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 12px; }
+    .byline { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(21px, 2vw, 30px); margin: 0; color: var(--muted); }
+    .blurb { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(19px, 1.5vw, 25px); line-height: 1.4; max-width: 440px; margin: 25px 0 22px; }
+    .primary-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--cream); color: #222b20; min-height: 48px; padding: 0 25px; border-radius: 5px; font: 600 17px/1 system-ui, sans-serif; text-decoration: none; }
+    main { max-width: 880px; margin: 0 auto; padding: 16px max(28px, 2.5vw) 80px; }
+    .breadcrumb { font: 12px system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb span { color: var(--cream); }
+    .hook { font-size: 22px; font-style: italic; line-height: 1.6; margin: 0 0 40px; }
+    .glance-section { margin: 0 0 48px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .glance-label { font: 12px system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .glance { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 40px; }
+    .glance li { break-inside: avoid; }
+    .glance li a { font-size: 17px; text-decoration: none; display: flex; gap: 14px; align-items: baseline; padding: 4px 0; }
+    .glance li a:hover { color: #fff; }
+    .glance-num { font: 12px system-ui, sans-serif; color: var(--muted); min-width: 76px; }
+    .glance-text { flex: 1; }
+    h2.section { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 400; line-height: 1.1; margin: 0 0 16px; }
+    .body p { font-size: 20px; line-height: 1.6; margin: 0 0 16px; }
+    footer.site { padding: 24px max(28px, 2.5vw); border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font: 13px system-ui, sans-serif; color: var(--muted); }
+    footer.site a { text-decoration: none; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 699px) {
+      nav.top { height: 64px; padding: 0 20px; }
+      .logo { font-size: 32px; }
+      .hero { height: 84svh; min-height: 530px; max-height: 850px; }
+      .hero-book { height: 35%; right: 50%; bottom: 46%; transform: translateX(50%); }
+      .hero-copy { left: 20px; bottom: 7%; width: calc(100% - 40px); }
+      h1.title { font-size: clamp(32px, 8.6vw, 40px); }
+      .byline { font-size: 17px; }
+      .blurb { font-size: 16px; line-height: 1.35; margin: 13px 0 15px; max-width: 310px; }
+      .primary-cta { font-size: 14px; min-height: 42px; padding: 0 19px; }
+      .shade { background: linear-gradient(0deg, var(--bg) 0%, #111610d9 13%, #1116109c 33%, transparent 67%); }
+      .hook { font-size: 19px; }
+      .glance { columns: 1; }
+      .glance li a { display: block; }
+      .glance-num { display: block; min-width: 0; margin-bottom: 2px; }
+      footer.site { flex-direction: column; }
+    }
+  </style>`
+}
+
 /**
  * Live-reader deep link for a chapter and edition. The reader validates the
  * book and edition and opens exactly this chapter (see readerHandoffFromUrlParams).
  */
-function readerChapterHref(bookId, chapter, editionKey) {
-  return `/reader?book=${bookId}&amp;edition=${editionKey}&amp;chapter=${chapter}`
+function readerChapterHref(bookId, chapter) {
+  // No edition: the reader opens its new-reader default pair.
+  return `/reader?book=${bookId}&amp;chapter=${chapter}`
 }
 
 function buildBookIndexPage(book, edition) {
@@ -325,7 +428,7 @@ function buildBookIndexPage(book, edition) {
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
   const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
-  const readerHref = readerChapterHref(book.id, 1, editionKey)
+  const readerHref = readerChapterHref(book.id, 1)
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
@@ -334,27 +437,37 @@ function buildBookIndexPage(book, edition) {
   const chapterLinks = chapters
     .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}${book.id === "faust-part-1" ? "?edition=original-de" : ""}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
+  const scene = bookSceneSrc(book.id)
+  const cover = bookCoverSrc(book.id)
+  const blurb = libraryBlurb(book.id)
   const body = `<nav class="top">
-  <a href="/" class="logo">Tinct<span>.</span></a>
-  <a href="${readerHref}" class="top-cta">Read this book free →</a>
+  <a href="/" class="logo">tinct</a>
+  <a href="/read/" class="top-link">Library</a>
 </nav>
+<header class="hero">
+  <picture class="scene"><source media="(max-width: 699px)" srcset="${scene.phone}"><img src="${scene.wide}" alt="" fetchpriority="high"></picture>
+  <div class="shade"></div>
+  ${cover ? `<div class="hero-book"><img src="${cover}" alt="${escapeHtml(book.title)} cover"></div>` : ''}
+  <div class="hero-copy">
+    <p class="eyebrow">Free online book</p>
+    <h1 class="title">${escapeHtml(book.title)}</h1>
+    <p class="byline">${escapeHtml(book.author)}</p>${book.id === "faust-part-1" || book.id === "jerusalem" ? `\n    <p class="eyebrow">${languageLabel} · other editions temporarily unavailable</p>` : ""}
+    ${blurb ? `<p class="blurb">${escapeHtml(blurb)}</p>` : '<p class="blurb"></p>'}
+    <a class="primary-cta" href="${readerHref}">Start reading →</a>
+  </div>
+</header>
 <main>
   <div class="breadcrumb">
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
   </div>
-
-  <div class="booknum">Free online book</div>
-  <h1 class="title">${escapeHtml(book.title)}</h1>
-  <p class="byline">by ${escapeHtml(book.author)}</p>${book.id === "faust-part-1" || book.id === "jerusalem" ? `\n  <p>${languageLabel} · other editions temporarily unavailable</p>` : ""}
   <p class="hook">${escapeHtml(hook)}</p>
-  <a class="primary-cta" href="${readerHref}">Start reading in Tinct →</a>
 
-  <section class="glance-section" aria-label="Chapters">
+  ${book.id === 'bible' ? '' : `<section class="glance-section" aria-label="Chapters">
     <div class="glance-label">Chapters</div>
     <ol class="glance">
 ${chapterLinks}
     </ol>
-  </section>
+  </section>`}
 
   <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
   <div class="body"${editionKey.endsWith("-de") ? ' lang="de"' : ''}>
@@ -370,6 +483,7 @@ ${chapterLinks}
     description,
     canonical: `${ORIGIN}/read/${book.id}`,
     body,
+    styles: bookPageStyles(),
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Book',

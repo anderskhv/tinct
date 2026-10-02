@@ -1164,6 +1164,12 @@
 .lab-contextual-explain footer .lab-contextual-explain-tool svg { width: 17px; height: 17px; }
 .lab-contextual-explain footer .lab-contextual-explain-tool:disabled { opacity: .35; cursor: default; }
 .lab.is-night .lab-contextual-explain footer .lab-contextual-explain-tool { border-color: rgba(255,245,226,.28); background: linear-gradient(155deg, rgba(255,245,226,.10), rgba(255,245,226,.025)); box-shadow: inset 0 1px 0 rgba(255,245,226,.12), 0 1px 3px rgba(0,0,0,.18); }
+/* Person card (word lookup): the same Chat / Talk footer as Explain. */
+.lab-person-actions { display: flex; flex-shrink: 0; justify-content: center; gap: 12px; padding: 6px 12px 12px; }
+.lab-person-actions .lab-contextual-explain-tool { display: grid; place-items: center; width: 34px; min-height: 34px; height: 34px; padding: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .65); background: linear-gradient(155deg, rgba(255,255,255,.26), rgba(255,255,255,.06)); box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 1px 3px rgba(30,25,18,.14); }
+.lab-person-actions .lab-contextual-explain-tool svg { width: 17px; height: 17px; }
+.lab-person-actions .lab-contextual-explain-tool:disabled { opacity: .35; cursor: default; }
+.lab.is-night .lab-person-actions .lab-contextual-explain-tool { border-color: rgba(255,245,226,.28); background: linear-gradient(155deg, rgba(255,245,226,.10), rgba(255,245,226,.025)); box-shadow: inset 0 1px 0 rgba(255,245,226,.12), 0 1px 3px rgba(0,0,0,.18); }
 
 .selection-popup.is-compact .popup-highlight-note { width: 100%; padding: 0 4px 4px; box-sizing: border-box; }
 .selection-popup.is-compact .popup-highlight-note .popup-textarea { box-sizing: border-box; width: 100%; min-height: 72px; margin-top: 4px; padding: 10px 12px; border: 1px solid var(--lab-border, #d8d0c2); border-radius: 8px; background: transparent; color: inherit; font: 18px/1.4 'EB Garamond', Georgia, serif; resize: none; }

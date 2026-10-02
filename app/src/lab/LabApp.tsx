@@ -572,6 +572,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     for (const query of queries) query?.addEventListener?.('change', onChange)
     return () => { for (const query of queries) query?.removeEventListener?.('change', onChange) }
   }, [layoutOverride])
+  // The chapter the reader last entered by reading on from the one before it.
+  const enteredForwardRef = useRef<number | null>(null)
   const [pageTurn, setPageTurn] = useState<{
     direction: 'next' | 'previous'
     nonce: number
@@ -710,9 +712,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }
   // Only a Bible book opening (Genesis, Exodus, ...) shows a cover page.
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
+  // Only a place inside the chapter needs its own page break. A link to the
+  // chapter's start already begins page one, and rebuilding the map from a
+  // word budget split short chapters (Werther's Preface) across two leaves.
   const explicitStartAnchor = useMemo(() => (
     readerHandoff?.startAtSavedPlace
       && readerHandoff.savedPlace?.chapterNumber === book.chapterNumber
+      && ((readerHandoff.savedPlace.paragraphIndex ?? 0) > 0 || (readerHandoff.savedPlace.wordIndex ?? 0) > 0)
       ? {
           paragraphIndex: readerHandoff.savedPlace.paragraphIndex ?? 0,
           wordIndex: readerHandoff.savedPlace.wordIndex ?? 0,
@@ -3626,6 +3632,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const afterOpening = opening && !continuation ? nextLabChapter(book.chapters, next) : null
       if (afterOpening != null && !temporaryHold) markChapterFinished(next)
       const target = afterOpening ?? next
+      enteredForwardRef.current = target
       if (listen.playing) void browseToChapter(target, 'start', continuation)
       else void goToChapter(target, 'start', false, continuation)
     }
@@ -4237,7 +4244,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
     if (id === 'talk') { handleTalk(); return }
-    if (id === 'summarize') { openChapterNotes(finishedChapters.has(book.chapterNumber) ? 'end' : 'sofar'); return }
+    // Summarize is the whole current chapter (Anders, 2026-10-02); the reading
+    // so far is Catch me up's job.
+    if (id === 'summarize') { openChapterNotes('end'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
     if (id === 'editions') { setSuperSheet('editions'); return }
     if (id === 'settings') { setSuperSheet('reading'); return }
@@ -4268,6 +4277,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const showChapterEnd = !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
     && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
+
+  // Reading on to the book's last page finishes it: there is no page to turn
+  // past, and readers stop here. Browsing to the end (Contents, a search) does not.
+  const finalPageReached = showChapterEnd && nextLabChapter(book.chapters, book.chapterNumber) == null
+    && (pageTurn?.direction === 'next' || enteredForwardRef.current === book.chapterNumber)
+  useEffect(() => {
+    if (finalPageReached && !temporaryHold && !finishedChapters.has(book.chapterNumber)) markChapterFinished(book.chapterNumber)
+  }, [finalPageReached, temporaryHold, finishedChapters, book.chapterNumber, markChapterFinished])
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`

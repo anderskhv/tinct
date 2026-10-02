@@ -57,7 +57,7 @@ function updateSelection(){
  root.querySelectorAll('.shelf-nav [data-shelf]').forEach(el=>el.setAttribute('aria-pressed',el.dataset.shelf===shelf));
  root.querySelectorAll('[data-book]').forEach(el=>el.setAttribute('aria-pressed',chosen[el.dataset.onShelf]===el.dataset.book));
  $('selected-author').textContent=b?.author||'';$('selected-title').textContent=b?.title||'Your shelf is waiting';
- $('selected-progress').textContent=!b?'Add a book to make it yours.':shelf==='reading'?[b.place,b.progress==null?'':`${Math.round(b.progress)}% read`].filter(Boolean).join(' · '):shelf==='finished'?'Finished · a book to return to':'Waiting on your shelf';
+ $('selected-progress').textContent=!b?'Add a book to make it yours.':shelf==='reading'?[b.place,b.progress==null?'':b.progress>0&&b.progress<1?'<1% read':`${Math.round(b.progress)}% read`].filter(Boolean).join(' · '):shelf==='finished'?'Finished · a book to return to':'Waiting on your shelf';
  $('book-action').hidden=!b;
  $('book-action').innerHTML=(shelf==='reading'?'Continue reading':shelf==='finished'?'Open book':'About this book')+' <span aria-hidden="true">→</span>';
  $('recap').hidden=shelf!=='reading'||!b;
