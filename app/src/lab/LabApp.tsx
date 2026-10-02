@@ -572,6 +572,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     for (const query of queries) query?.addEventListener?.('change', onChange)
     return () => { for (const query of queries) query?.removeEventListener?.('change', onChange) }
   }, [layoutOverride])
+  // The chapter the reader last entered by reading on from the one before it.
+  const enteredForwardRef = useRef<number | null>(null)
   const [pageTurn, setPageTurn] = useState<{
     direction: 'next' | 'previous'
     nonce: number
@@ -3626,6 +3628,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       const afterOpening = opening && !continuation ? nextLabChapter(book.chapters, next) : null
       if (afterOpening != null && !temporaryHold) markChapterFinished(next)
       const target = afterOpening ?? next
+      enteredForwardRef.current = target
       if (listen.playing) void browseToChapter(target, 'start', continuation)
       else void goToChapter(target, 'start', false, continuation)
     }
@@ -4270,6 +4273,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const showChapterEnd = !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
     && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
+
+  // Reading on to the book's last page finishes it: there is no page to turn
+  // past, and readers stop here. Browsing to the end (Contents, a search) does not.
+  const finalPageReached = showChapterEnd && nextLabChapter(book.chapters, book.chapterNumber) == null
+    && (pageTurn?.direction === 'next' || enteredForwardRef.current === book.chapterNumber)
+  useEffect(() => {
+    if (finalPageReached && !temporaryHold && !finishedChapters.has(book.chapterNumber)) markChapterFinished(book.chapterNumber)
+  }, [finalPageReached, temporaryHold, finishedChapters, book.chapterNumber, markChapterFinished])
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
