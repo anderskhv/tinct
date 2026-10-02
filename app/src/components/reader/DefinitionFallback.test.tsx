@@ -13,3 +13,12 @@ it('ignores a late lookup after selecting another word', async () => {
   expect(screen.queryByText('Old selection.')).toBeNull()
   expect(screen.getByText('noun. New selection.')).toBeTruthy()
 })
+
+it('names a looked-up person once: the panel head carries the name, the card does not repeat it', async () => {
+  const request = vi.fn().mockResolvedValue(JSON.stringify({ kind: 'person', name: 'Sanballat', importance: 'minor', subtitle: 'An opponent of the rebuilding', body: 'He mocks the work on the wall.' }))
+  render(<DefinitionFallback word="Sanballat" request={request} />)
+  const card = await screen.findByTestId('popup-contextual-character')
+  expect(card.textContent).not.toContain('Sanballat')
+  expect(card.textContent).not.toContain('At this passage')
+  expect(card.textContent).toContain('An opponent of the rebuilding')
+})

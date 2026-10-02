@@ -13167,6 +13167,7 @@ body {
 .selection-popup:has(.popup-character) { flex-direction: column; align-items: stretch; outline: none; width: min(340px, calc(100vw - 24px)); max-height: calc(100dvh - 100px); overflow-y: auto; }
 .popup-character { padding: 16px; white-space: normal; text-align: left; }
 .popup-character-heading, .popup-character-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.popup-character-heading { justify-content: flex-end; }
 .popup-character h2 { font-family: Georgia, serif; font-size: 22px; line-height: 1.2; margin: 10px 0 6px; }
 .popup-character h3 { font-size: 12px; font-weight: 500; margin: 16px 0 8px; opacity: .7; }
 .popup-character p { font-size: 14px; line-height: 1.5; margin: 10px 0; }

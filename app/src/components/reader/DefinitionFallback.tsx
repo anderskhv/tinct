@@ -28,9 +28,8 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions }: {
   if (status === 'loading') return <div className="popup-define-status" role="status">Looking up…</div>
   if (status === 'resting') return <div className="popup-define-status">{LAB_COPY.aiResting}</div>
   if (status === 'error') return <div className="popup-define-status">Lookup unavailable. <button type="button" onClick={() => setAttempt(value => value + 1)}>Try again</button></div>
+  // The panel head already names the person; say it once (Anders, 2026-10-02).
   if (answer?.kind === 'person') return <div className="popup-character" data-testid="popup-contextual-character">
-    <small>At this passage</small>
-    <h2>{answer.name}</h2>
     <small>{answer.importance === 'major' ? 'Major character' : answer.importance === 'minor' ? 'Minor character' : 'Person in this passage'}</small>
     <p className="popup-character-subtitle">{answer.subtitle}</p>
     <p>{answer.body}</p>

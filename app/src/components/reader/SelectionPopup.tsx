@@ -340,7 +340,7 @@ export function SelectionPopup({
       {lab && (popupMode === 'define' || popupMode === 'explain') && <button type="button" data-reader-window-resize aria-label="Resize panel" />}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
-          <div className="popup-character-heading"><small>At this passage</small><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
+          <div className="popup-character-heading"><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
           {popupMode === 'character' && card && <>
             <h2>{card.name}</h2>
             {roleLabel && <small>{roleLabel}</small>}

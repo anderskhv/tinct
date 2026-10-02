@@ -243,8 +243,10 @@ it('keeps the palette at the action menu anchor when its shorter height would fi
 it('shows a contextual person card for a name missing from the released cards', async () => {
   const request = vi.fn().mockResolvedValue(JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'A person identified in the selected passage',body:'Contextual test answer.'}))
   render(<SelectionPopup {...props({lab:true,defineQuery:'Jehohanan',defineLoading:false,defineNotFound:true,onRequestExplanation:request})} />)
-  expect(await screen.findByRole('heading', {name:'Jehohanan'})).toBeTruthy()
-  expect(screen.getByText('Minor character')).toBeTruthy()
+  expect(await screen.findByText('Minor character')).toBeTruthy()
+  // Named once, in the panel head; the card does not repeat it.
+  expect(screen.getAllByText('Jehohanan')).toHaveLength(1)
+  expect(screen.queryByText('At this passage')).toBeNull()
   expect(screen.getByText('Contextual test answer.')).toBeTruthy()
 })
 
