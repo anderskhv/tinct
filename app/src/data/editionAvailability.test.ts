@@ -12,7 +12,9 @@ import { createReaderHandoffIntent, getEditionSelectionViewModel, searchPreReade
 
 describe('temporary edition holds preserve identities and recovery', () => {
   it('pins every held asset to the bytes independently fetched from production', () => {
-    expect(Object.keys(manifest.editions)).toHaveLength(9)
+    // 9 edition holds, plus the 11 English/French editions of the five books
+    // held whole on 2026-10-02 (rights holds).
+    expect(Object.keys(manifest.editions)).toHaveLength(20)
     for (const [key, evidence] of Object.entries(manifest.editions)) {
       const [bookId, editionKey] = key.split('/')
       expect(getBook(bookId)?.editions.some(e => e.key === editionKey), key).toBe(true)
