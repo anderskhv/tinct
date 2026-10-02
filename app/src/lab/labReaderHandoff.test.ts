@@ -126,8 +126,10 @@ describe('Reader URL deep link (/reader?book=&edition=&chapter=)', () => {
     })
   })
 
-  it('defaults the edition to original-en', () => {
-    expect(link('book=odyssey&chapter=1')).toMatchObject({ primaryEditionKey: 'original-en' })
+  it('without an edition opens the new-reader default: Modern English with the original in Compare', () => {
+    const handoff = link('book=werther&chapter=1')
+    expect(handoff).toMatchObject({ primaryEditionKey: 'modern-en', compareEditionKey: 'original-en' })
+    expect(prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, compareOpen: false }, handoff)).toMatchObject({ primaryEdition: 'modern-en', compareEdition: 'original-en', compareOpen: true })
   })
 
   it('is not a handoff without a chapter, so saved positions are never overridden', () => {

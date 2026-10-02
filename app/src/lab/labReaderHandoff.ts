@@ -1,6 +1,6 @@
 import { editionHold, isBookTemporarilyHeld } from '../data/editionAvailability'
 import { getBook } from '../data/bookRegistry'
-import { defaultCompareEditionKey } from '../data/editionDefaults'
+import { defaultCompareEditionKey, defaultPrimaryEditionKey } from '../data/editionDefaults'
 import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
@@ -49,6 +49,8 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
  * not a handoff at all, so the reader's own saved position is never
  * overridden. Book and edition are validated against the registry, and an
  * unknown book yields null (the normal reader entry); an unavailable edition falls back to original-en.
+ * A link without an edition opens the new-reader default: the default edition
+ * with its default Compare edition beside it.
  */
 export function readerHandoffFromUrlParams(params: URLSearchParams | null): ReaderHandoffIntent | null {
   const bookId = params?.get('book')
@@ -58,9 +60,18 @@ export function readerHandoffFromUrlParams(params: URLSearchParams | null): Read
   if (chapterNumber < 1 || !getBook(bookId)) return null
   const savedPlace = { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 }
   const open = (primaryEditionKey: string) => createReaderHandoffIntent({ bookId, primaryEditionKey, savedPlace, startAtSavedPlace: true })
-  const edition = params.get('edition') || 'original-en'
+  const named = params.get('edition')
+  if (!named) {
+    const book = getBook(bookId)!
+    const primary = defaultPrimaryEditionKey(bookId, book.editions)
+    const compare = primary ? defaultCompareEditionKey(bookId, book.editions, primary, book.year) : undefined
+    const paired = primary && compare
+      ? createReaderHandoffIntent({ bookId, primaryEditionKey: primary, compareEditionKey: compare, savedPlace, startAtSavedPlace: true })
+      : null
+    return paired ?? (primary ? open(primary) : null) ?? open('original-en')
+  }
   // An edition the book lacks or withholds keeps the chapter in the default edition.
-  return open(edition) ?? (edition === 'original-en' ? null : open('original-en'))
+  return open(named) ?? (named === 'original-en' ? null : open('original-en'))
 }
 
 /** React StrictMode may evaluate component initializers twice; consume storage once per document. */

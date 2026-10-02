@@ -316,8 +316,9 @@ ${body}
  * Live-reader deep link for a chapter and edition. The reader validates the
  * book and edition and opens exactly this chapter (see readerHandoffFromUrlParams).
  */
-function readerChapterHref(bookId, chapter, editionKey) {
-  return `/reader?book=${bookId}&amp;edition=${editionKey}&amp;chapter=${chapter}`
+function readerChapterHref(bookId, chapter) {
+  // No edition: the reader opens its new-reader default pair.
+  return `/reader?book=${bookId}&amp;chapter=${chapter}`
 }
 
 function buildBookIndexPage(book, edition) {
@@ -325,7 +326,7 @@ function buildBookIndexPage(book, edition) {
   const firstChapter = chapters[0] || {}
   const firstParagraphs = paragraphExcerpt(firstChapter.paragraphs || [], 650)
   const editionKey = path.basename(edition.file).slice(book.id.length + 1, -5)
-  const readerHref = readerChapterHref(book.id, 1, editionKey)
+  const readerHref = readerChapterHref(book.id, 1)
   const hook = (book.description && book.description.length >= 60)
     ? book.description
     : `Read ${book.title} by ${book.author} free online on Tinct.`
