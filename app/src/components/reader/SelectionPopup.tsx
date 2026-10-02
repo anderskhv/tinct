@@ -253,9 +253,9 @@ export function SelectionPopup({
   }, [selection.character, popupMode, popupRef])
   const character = selection.character
   const card = galleryId ? character?.gallery.find(entry => entry.card.id === galleryId)?.card : character?.card
-  const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Mentioned in passing' }
+  const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Minor figure' }
   // Cards can be places, objects, peoples or personifications; "figure" only fits a being.
-  const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Mentioned in passing' }
+  const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Minor' }
   const roleLabel = card?.role ? (['person', 'spirit', 'deity'].includes(card.kind) ? roles : nonFigureRoles)[card.role] : null
 
   const showDefinePanel = popupMode === 'define'

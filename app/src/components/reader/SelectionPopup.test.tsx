@@ -128,6 +128,16 @@ describe('compact selection popup', () => {
     expect(input.setPopupMode).toHaveBeenCalledWith('character')
   })
 
+  it('labels a small part "Minor figure" and drops the "At this passage" label (Anders, 2026-10-02)', () => {
+    const card = { id: 'zerubbabel', kind: 'person', role: 'reference', name: 'Zerubbabel', subtitle: 'Governor who rebuilds the Temple', body: 'A descendant of David.' }
+    const character = { card, cutoff: { chapterNumber: 1, paragraphIndex: 2, offset: 14 }, gallery: [{ card, inPassage: true }] }
+    render(<SelectionPopup {...props({ popupMode: 'character', selection: selection({ character }) })} />)
+    expect(screen.getByText('Minor figure')).toBeTruthy()
+    expect(screen.queryByText('Mentioned in passing')).toBeNull()
+    expect(screen.queryByText('At this passage')).toBeNull()
+    expect(screen.getAllByText('Zerubbabel')).toHaveLength(1)
+  })
+
   it('uses the locked contextual menu and saves a last-colour highlight before editing', () => {
     localStorage.setItem('tinct-highlight-color', 'sage')
     const input = props({
