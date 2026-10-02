@@ -40,6 +40,17 @@ const SUCCESSORS: Record<string, string> = {
   'bible/modern-en': 'web-en',
   'bible/modern-da': 'web-en',
   'meditations/modern-da': 'modern-en',
+  // 2026-10-02 rights release: the English text of these four books was
+  // replaced (Giles, Murray, Davis -> Calthrop, Way, McKechnie) and their
+  // modern-da renders the replaced text. Withdrawn at Anders's request; the
+  // files are kept, unserved, in books/withheld-assets/2026-10-02-rights/.
+  // Danish has been held since 2026-09-21, so only older saved places exist;
+  // they follow the old paragraphing, so at the same paragraph of modern-en
+  // the place is approximate (same chapter).
+  'the-art-of-war/modern-da': 'modern-en',
+  'medea/modern-da': 'modern-en',
+  'bacchae/modern-da': 'modern-en',
+  'magna-carta/modern-da': 'modern-en',
 }
 
 export function isEditionWithheld(bookId: string, editionKey: string): boolean {

@@ -777,8 +777,6 @@ export const THE_ART_OF_WAR: Book = {
       aligned: true,
       hasAudio: true,
     },
-    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -1899,8 +1897,6 @@ export const BACCHAE: Book = {
       aligned: true,
       hasAudio: true,
     },
-    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -1935,8 +1931,6 @@ export const MEDEA: Book = {
       aligned: true,
       hasAudio: true,
     },
-    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 
@@ -2726,8 +2720,6 @@ export const MAGNA_CARTA: Book = {
       aligned: true,
       hasAudio: true,
     },
-    // Rendered from the replaced English text; paragraphing no longer matches the English editions.
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
 ],
 }
 
