@@ -14,8 +14,14 @@ async function checkSceneFilm(b,engine,label,options,expected){
  const c=await b.newContext({serviceWorkers:'block',...options});
  await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};});
  const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
+ const pending=new Set(),errors=[];p.on('request',r=>pending.add(r));p.on('requestfinished',r=>pending.delete(r));p.on('requestfailed',r=>pending.delete(r));p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
- await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();
+ await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});
+ // On a stall, log what the page was doing; CI artifacts are not readable from every agent.
+ await p.locator('#read-featured').waitFor().catch(async error=>{
+  const state=await p.evaluate(()=>{const chain=[];for(let n=document.getElementById('read-featured');n&&n!==document;n=n.parentElement){const s=getComputedStyle(n);chain.push(`${n.tagName.toLowerCase()}#${n.id}.${String(n.className).replace(/ /g,'.')} display=${s.display} visibility=${s.visibility} height=${Math.round(n.getBoundingClientRect().height)}`);}return {readyState:document.readyState,url:location.href,html:document.documentElement.className,style:document.documentElement.getAttribute('style'),chain};}).catch(e=>String(e));
+  await p.screenshot({path:`${out}/stall-${label}.png`}).catch(()=>{});
+  console.log('LIBRARY_STALL '+JSON.stringify({label,state,pending:[...pending].map(r=>r.url()),errors}));throw error;});
  assert.equal(films.length,0,label+': no film before the page is idle');
  if(expected){
   await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
