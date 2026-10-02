@@ -135,7 +135,8 @@ async function usersAgedDays(env: EmailEnv, daysAgo: number): Promise<Array<{ id
   const now = Date.now()
   const start = new Date(now - (daysAgo + 0.5) * 24 * 60 * 60 * 1000).toISOString()
   const end = new Date(now - (daysAgo - 0.5) * 24 * 60 * 60 * 1000).toISOString()
-  const query = `profiles?select=id,email&subscription_status=is.null&created_at=gte.${start}&created_at=lt.${end}`
+  // Only readers who ticked the email opt-in at sign-up (profiles.email_opt_in).
+  const query = `profiles?select=id,email&subscription_status=is.null&email_opt_in=is.true&created_at=gte.${start}&created_at=lt.${end}`
   try {
     const res = await fetch(`${env.SUPABASE_URL}/rest/v1/${query}`, {
       headers: {

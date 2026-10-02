@@ -29,6 +29,7 @@ const submit = root?.querySelector<HTMLButtonElement>('[data-auth-submit]')
 const email = root?.querySelector<HTMLInputElement>('[name=email]')
 const password = root?.querySelector<HTMLInputElement>('[name=password]')
 const confirmPassword = root?.querySelector<HTMLInputElement>('[name=confirmPassword]')
+const emailOptIn = root?.querySelector<HTMLInputElement>('[name=emailOptIn]')
 const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'account', 'welcome'])
 const initialParams = new URLSearchParams(location.search)
 let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
@@ -66,6 +67,8 @@ function setMode(next: Mode) {
   email?.closest<HTMLElement>('[data-email-field]')?.toggleAttribute('hidden', mode === 'reset' || mode === 'account' || mode === 'welcome')
   password?.closest<HTMLElement>('[data-password-field]')?.toggleAttribute('hidden', mode === 'forgot' || mode === 'account' || mode === 'welcome')
   confirmPassword?.closest<HTMLElement>('[data-confirm-field]')?.toggleAttribute('hidden', mode !== 'reset')
+  // Consent to occasional email is asked only when creating an account, never pre-ticked.
+  emailOptIn?.closest<HTMLElement>('[data-email-optin-field]')?.toggleAttribute('hidden', mode !== 'create')
   if (submit) submit.hidden = mode === 'account' || mode === 'welcome'
   setStatus()
   const url = new URL(location.href)
@@ -132,7 +135,11 @@ async function submitAuth(event: SubmitEvent) {
       trackFunnel('signup_started', { method: 'email' })
       const { data, error } = await supabase.auth.signUp({
         ...values,
-        options: { emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}${LAB_AUTH_CALLBACK_PATH}?callback=signup&returnTo=${encodeURIComponent(returnTo)}`) },
+        options: {
+          emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}${LAB_AUTH_CALLBACK_PATH}?callback=signup&returnTo=${encodeURIComponent(returnTo)}`),
+          // Recorded on the profile by the email-consent trigger (supabase/migrations/20261002_privacy_consent.sql).
+          data: { email_opt_in: emailOptIn?.checked === true },
+        },
       })
       if (error) throw error
       if (data.session) {
