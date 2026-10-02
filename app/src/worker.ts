@@ -27,6 +27,7 @@ import {
 import { handleAdminIssues } from './worker/routes/adminIssues'
 import { handleEvents } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
+import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleLabVoiceSession, handleVoiceSession, handleVoiceUsage } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
@@ -204,6 +205,8 @@ export default {
       })
       case '/api/admin/issues': return handleAdminIssues(request, env, verifySiteAdmin)
       case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env, verifySiteAdmin)
+      case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
+      case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
       case '/api/fixes-count': return handleFixesCount(request, env, verifyUser)
       case '/api/edition-patches': return handleEditionPatches(request, env, checkRateLimit)
       case '/api/audio-manifest': return handleAudioManifest(request, env)

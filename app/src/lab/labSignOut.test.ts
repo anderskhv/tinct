@@ -23,10 +23,12 @@ const USER_KEYS: Record<string, string> = {
   [LAB_SECOND_BOOK_NUDGE_KEY]: '1',
   'tinct:library': '["odyssey"]',
   'tinct:lab-library-boot': '{"v":1,"at":1,"userId":"user-a","readingNow":1,"finished":0,"hero":null}',
+  // The device id also identifies analytics events: the next reader on this
+  // device must not be linked to this one (privacy review 2026-10-02).
+  [LAB_POSITION_DEVICE_KEY]: 'device-1234',
 }
 const DEVICE_KEYS: Record<string, string> = {
   [LAB_PREFS_KEY]: '{"version":2,"shared":{"audioSpeed":1.5},"phone":{},"desktop":{}}',
-  [LAB_POSITION_DEVICE_KEY]: 'device-1234',
   'tinct:device-preferences': '{"theme":"dark"}',
   'tinct:last-user-id': 'user-a',
   'tinct:tinct-tour-seen': 'true',
@@ -49,7 +51,7 @@ beforeEach(() => { localStorage.clear() })
 afterEach(() => { localStorage.clear(); vi.unstubAllGlobals(); vi.restoreAllMocks() })
 
 describe('lab sign-out wipe', () => {
-  it('clears every lab and reading-memory key while keeping device preferences and the device id', () => {
+  it('clears every lab and reading-memory key and the device id, keeping device preferences', () => {
     seed()
     wipeLabDeviceUserData()
     expectWiped()
