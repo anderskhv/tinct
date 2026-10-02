@@ -8,7 +8,8 @@ import type { CoordinateMigration } from '../data/editionCoordinateMigration'
 import { emptyLabPositionState, LAB_POSITION_STORAGE_KEY, type LabBookPlace } from './labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal, writeLabPositionLocal } from './labPositionStore'
 import { placeFromLabBook } from './useLabPositionSync'
-import { highlightOffCurrentText, migrateStoredLabHighlights } from './labHighlightContentMigration'
+import { highlightNeedsMigration, highlightOffCurrentText, migrateStoredLabHighlights } from './labHighlightContentMigration'
+import { placeNeedsMigration } from './labContentMigration'
 import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
 import type { MigratableHighlight } from './labHighlightMigration'
 import { storedContentMigrations } from './labStoredContentMigrations'
@@ -150,5 +151,15 @@ describe('accepted structural releases (Jane Eyre, Pride and Prejudice 2026-09-2
   it('has nothing to wait for on a device without such data', () => {
     store({ emma: { ...place(), bookId: 'emma' } })
     expect(storedContentMigrations()).toBeNull()
+  })
+
+  it('leaves a held edition\'s places and highlights alone until the hold lifts', () => {
+    const old = CONTENT_RELEASES['second-treatise'].editions['modern-en'].before
+    const held = place({ bookId: 'second-treatise', headerBook: 'second-treatise', primaryEditionKey: 'modern-en', contentRevision: old })
+    expect(placeNeedsMigration(held)).toBe(false)
+    const mark = { id: 'hold-note', bookId: 'second-treatise', editionKey: 'modern-en', chapterNumber: 1, paragraphIndex: 2, fromWord: 0, endParagraphIndex: 2, toWord: 2, color: 'yellow', contentRevision: old } as MigratableHighlight
+    expect(highlightNeedsMigration(mark)).toBe(false)
+    // Still kept off the current text, as it was written against the old one.
+    expect(highlightOffCurrentText(mark)).toBe(true)
   })
 })

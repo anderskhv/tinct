@@ -1,3 +1,4 @@
+import { editionHold } from '../data/editionAvailability'
 import { currentContentRevision, loadCoordinateMigration, writtenBeforeRelease } from '../data/editionContentRevisions'
 import { loadChapterText } from '../readingMemory'
 import { migrateLabHighlight, type MigratableHighlight } from './labHighlightMigration'
@@ -19,12 +20,15 @@ export function highlightWrittenAt(highlight: Pick<LabHighlight, 'id'>): number 
 
 export function highlightNeedsMigration(highlight: MigratableHighlight): boolean {
   if (highlight.contentMigrationStatus === 'unresolved' && highlight.contentRecovery) return false
+  // A held edition keeps every saved byte; its highlights move when the hold lifts.
+  if (editionHold(highlight.bookId, highlight.editionKey)) return false
   return writtenBeforeRelease(highlight.bookId, highlight.editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
 }
 
 /** Not to be painted against the current text: awaiting its move, or unresolved. */
 export function highlightOffCurrentText(highlight: MigratableHighlight): boolean {
-  return highlight.contentMigrationStatus === 'unresolved' || highlightNeedsMigration(highlight)
+  return highlight.contentMigrationStatus === 'unresolved'
+    || writtenBeforeRelease(highlight.bookId, highlight.editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
 }
 
 type ChapterLoader = (request: { bookId: string; editionKey: string; chapterNumber: number; version?: string }) => Promise<{ paragraphs: string[] } | null>
