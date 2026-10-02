@@ -5,250 +5,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tinct About Page</title>
 <style>
-/* Layout: tinct.app library look — dark forest ground, cream Georgia headlines, system-ui chrome; one left-aligned column with a pricing table. */
+/* Layout: a plain document on tinct.app's dark ground — one narrow column, bold labels, simple ruled tables. */
 :root {
-  --bg: #111610; --bg-raised: #171d15; --cream: #eee7d0; --muted: #b8bea9; --dim: #929d8d;
-  --ink: #222b20; --line: rgba(238, 231, 208, 0.16); --line-strong: rgba(238, 231, 208, 0.32);
-  --todo: rgba(219, 196, 120, 0.22);
+  --bg: #111610; --cream: #eee7d0; --muted: #b8bea9; --line: rgba(238, 231, 208, 0.18);
+  --todo: rgba(219, 196, 120, 0.25);
   --serif: Georgia, 'Times New Roman', serif;
-  --ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --gutter: max(20px, 2.5vw);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { background: var(--bg); }
-body { margin: 0; background: var(--bg); color: var(--cream); font-family: var(--serif); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-a { color: var(--cream); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+body { margin: 0; background: var(--bg); color: var(--cream); font-family: var(--serif); font-size: 15px; line-height: 1.6; padding-inline: 20px; }
+.page { max-width: 720px; margin: 0 auto; padding-block: 28px 64px; }
+a { color: var(--cream); text-underline-offset: 2px; text-decoration-color: var(--line); }
 a:hover { text-decoration-color: var(--cream); }
-a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #dbd3ae; outline-offset: 4px; }
-.todo { background: var(--todo); border-radius: 3px; padding: 0 4px; }
-
-/* Header, as on tinct.app */
-.header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; height: 68px; padding-inline: var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 16px; background: rgba(17, 22, 16, 0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-.logo { font-family: var(--serif); font-size: 32px; letter-spacing: -1.6px; color: var(--cream); text-decoration: none; }
-.header nav { display: flex; align-items: center; gap: 22px; font-size: 17px; }
-.header nav a { text-decoration: none; }
-.draft { font: 12px var(--ui); text-transform: uppercase; letter-spacing: 0.12em; color: var(--dim); }
-
-.wrap { padding-inline: var(--gutter); max-width: 1180px; }
-
-/* Mission */
-.mission { padding-block: clamp(72px, 14vw, 160px) clamp(56px, 9vw, 110px); }
-.eyebrow { font: 12px var(--ui); text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 0 0 14px; }
-.mission h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 7.4vw, 104px); line-height: 1.02; letter-spacing: -0.035em; margin: 0; max-width: 12ch; text-wrap: balance; }
-
-/* On this page */
-.index { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 8px; }
-.pill { font: 13px var(--ui); color: var(--cream); text-decoration: none; padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 999px; }
-.pill:hover { background: rgba(238, 231, 208, 0.08); }
-
-section { padding-block: 72px 8px; scroll-margin-top: 80px; }
-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.025em; margin: 0 0 24px; text-wrap: balance; }
-h3 { font: 650 19px/1.3 var(--ui); margin: 0 0 8px; }
-p { margin: 0 0 14px; }
-.prose { max-width: 66ch; }
-.prose li { margin-bottom: 8px; }
+.logo { font-size: 26px; letter-spacing: -1.2px; text-decoration: none; display: inline-block; margin-bottom: 40px; }
+.draft { float: right; font-size: 12px; color: var(--muted); margin-top: 10px; }
+h2 { font-size: 15px; font-weight: 700; margin: 36px 0 6px; }
+h3 { font-size: 15px; font-weight: 700; margin: 18px 0 4px; }
+p { margin: 0 0 10px; }
+ul { margin: 0 0 10px; padding-left: 1.2em; }
+li { margin-bottom: 4px; }
 .muted { color: var(--muted); }
-
-/* Pricing table */
-.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-raised); }
-table.pricing { width: 100%; table-layout: fixed; border-collapse: collapse; font-family: var(--ui); font-size: 15px; }
-.pricing col.feature { width: 40%; }
-.short { display: none; }
-.pricing th, .pricing td { padding: 15px 18px; text-align: center; border-bottom: 1px solid var(--line); }
-.pricing tbody th { text-align: left; font-weight: 400; color: var(--cream); }
-.pricing thead th { vertical-align: bottom; padding-block: 22px 18px; }
-.pricing thead th:first-child { text-align: left; }
-.plan-name { display: block; font: 12px var(--ui); text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 8px; }
-.plan-price { display: block; font-family: var(--serif); font-weight: 400; font-size: 34px; letter-spacing: -0.02em; line-height: 1; color: var(--cream); font-variant-numeric: tabular-nums; }
-.plan-price small { font: 14px var(--ui); color: var(--muted); letter-spacing: 0; }
-.plan-note { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; min-height: 1.3em; }
-.pricing .yes { color: var(--cream); font-size: 18px; }
-.pricing .no { color: var(--dim); }
-.pricing .featured { background: rgba(238, 231, 208, 0.05); }
-.pricing tfoot td { border-bottom: 0; padding-block: 20px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 600 15px/1 var(--ui); text-decoration: none; white-space: nowrap; }
-.btn-solid { background: var(--cream); color: var(--ink); }
-.btn-line { border: 1px solid var(--line-strong); color: var(--cream); }
-
-.notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 36px; font-size: 16px; }
-.notes p { color: var(--muted); }
-
-/* Cards and terms */
-.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.card { border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; background: var(--bg-raised); font-size: 17px; }
-.card p { color: var(--muted); }
-.card p:last-child { margin-bottom: 0; }
-.summary-box { font-size: 19px; max-width: 62ch; margin-bottom: 28px; padding-left: 18px; border-left: 2px solid var(--line-strong); }
-details { border-top: 1px solid var(--line); }
-details:last-of-type { border-bottom: 1px solid var(--line); }
-summary { list-style: none; cursor: pointer; padding: 17px 0; display: flex; justify-content: space-between; gap: 16px; font: 600 17px/1.35 var(--ui); }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: '+'; color: var(--muted); font-weight: 400; font-size: 20px; line-height: 1; }
-details[open] summary::after { content: '−'; }
-details > div { padding: 0 0 20px; max-width: 66ch; font-size: 17px; }
-details ul { padding-left: 1.1em; margin: 0; }
-details li { margin-bottom: 8px; }
-
-/* Credits */
-.credits { columns: 2; column-gap: 40px; font-family: var(--ui); font-size: 14px; line-height: 1.45; }
-.credit { break-inside: avoid; padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
-.credit strong { color: var(--cream); font-weight: 600; }
-.credit .lic { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
-.more summary { font: 13px var(--ui); text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); border: 0; }
-.more { border: 0; }
-
-.footer { margin-top: 88px; border-top: 1px solid var(--line); padding: 28px var(--gutter) 40px; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; font: 14px var(--ui); color: var(--muted); }
-.footer .logo { font-size: 24px; letter-spacing: -1px; }
-.footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-left: auto; }
-.footer nav a { color: var(--muted); text-decoration: none; }
-.footer nav a:hover { color: var(--cream); }
-
-@media (max-width: 820px) {
-  .notes, .two { grid-template-columns: 1fr; gap: 16px; }
-  .credits { columns: 1; }
-}
-@media (max-width: 600px) {
-  .header { height: 60px; }
-  .logo { font-size: 28px; }
-  .draft { display: none; }
-  section { padding-block: 56px 4px; }
-  .pricing { font-size: 14px; }
-  .pricing col.feature { width: 37%; }
-  .pricing th, .pricing td { padding: 12px 4px; }
-  .pricing tbody th, .pricing thead th:first-child { padding-left: 12px; }
-  .plan-name { font-size: 10px; letter-spacing: 0.08em; }
-  .plan-price { font-size: 22px; }
-  .plan-price small { display: block; font-size: 11px; margin-top: 3px; }
-  .plan-note { font-size: 11px; }
-  .long { display: none; }
-  .short { display: inline; }
-  .btn { width: 100%; padding: 0 4px; min-height: 36px; font-size: 12px; }
-  .pricing tfoot td { padding-inline: 3px; }
-  .footer nav { margin-left: 0; }
+.todo { background: var(--todo); padding: 0 3px; }
+.table-scroll { overflow-x: auto; margin: 8px 0 12px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); }
+thead th { font-weight: 700; border-bottom-color: var(--muted); }
+td.c, th.c { text-align: center; padding-inline: 6px; }
+.credits td { font-size: 13px; }
+.credits td:first-child { white-space: nowrap; }
+details summary { cursor: pointer; color: var(--muted); font-size: 14px; margin: 6px 0; }
+.footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+@media (max-width: 520px) {
+  table { font-size: 13px; }
+  .credits td:first-child { white-space: normal; }
 }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <a class="logo" href="#top">tinct</a>
-  <nav><span class="draft">Mockup · not live</span><a href="#pricing">Pricing</a><a href="#">Sign in</a></nav>
-</header>
+<div class="page">
+<span class="draft">Mockup · not live · <span class="todo">highlight</span> = to be decided</span>
+<a class="logo" href="#">tinct</a>
 
-<main id="top">
-  <div class="wrap mission">
-    <p class="eyebrow">Our mission</p>
-    <h1>The world's best reading experience.</h1>
-  </div>
+<h2>Our mission</h2>
+<p>Deliver the world's best reading experience.</p>
 
-  <div class="wrap">
-    <nav class="index" aria-label="On this page">
-      <a class="pill" href="#pricing">Pricing</a>
-      <a class="pill" href="#library">The library</a>
-      <a class="pill" href="#terms">Terms</a>
-      <a class="pill" href="#privacy">Privacy</a>
-      <a class="pill" href="#credits">Credits</a>
-      <a class="pill" href="#legal">Legal &amp; contact</a>
-    </nav>
-  </div>
+<h2>Pricing</h2>
+<div class="table-scroll">
+<table>
+  <thead><tr><th></th><th class="c">Free</th><th class="c">Monthly</th><th class="c">Yearly</th></tr></thead>
+  <tbody>
+    <tr><th>Price</th><td class="c">$0</td><td class="c">$5 / month</td><td class="c">$50 / year</td></tr>
+    <tr><td>Every book in Tinct's public library</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr>
+    <tr><td>Original and modern editions, side by side</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr>
+    <tr><td>Narrated audio</td><td class="c">–</td><td class="c">✓</td><td class="c">✓</td></tr>
+    <tr><td>Highlights, notes, journal and sync</td><td class="c">–</td><td class="c">✓</td><td class="c">✓</td></tr>
+    <tr><td>AI credit for chat and Talk</td><td class="c">–</td><td class="c">$5 / month</td><td class="c">$5 / month</td></tr>
+    <tr><td>Extra AI credit</td><td class="c">–</td><td class="c"><span class="todo">$5</span> top-ups</td><td class="c"><span class="todo">$5</span> top-ups</td></tr>
+  </tbody>
+</table>
+</div>
+<p>$5 of AI credit covers about <span class="todo">xxx</span> chat messages or <span class="todo">yy</span> hours of Talk, or any mix of the two. If you run out, reading carries on as normal; you can buy a top-up to keep chatting before your credit resets. Monthly credit resets on your billing date and doesn't roll over. Top-up credit carries over. Yearly is two months cheaper than monthly. Prices are in US dollars, and local taxes may apply. You can cancel any time and keep access until the end of the period you've paid for.</p>
 
-  <section id="pricing" class="wrap">
-    <p class="eyebrow">Pricing</p>
-    <h2>Read free. Go deeper with Premium.</h2>
-    <div class="table-scroll">
-      <table class="pricing">
-        <colgroup><col class="feature"><col><col><col></colgroup>
-        <thead>
-          <tr>
-            <th scope="col"><span class="plan-name">Plans</span></th>
-            <th scope="col"><span class="plan-name">Free</span><span class="plan-price">$0</span><span class="plan-note">&nbsp;</span></th>
-            <th scope="col"><span class="plan-name">Monthly</span><span class="plan-price">$5 <small>/ month</small></span><span class="plan-note">&nbsp;</span></th>
-            <th scope="col" class="featured"><span class="plan-name">Yearly</span><span class="plan-price">$50 <small>/ year</small></span><span class="plan-note"><span class="long">Two months free</span><span class="short">2 months free</span></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Every book in Tinct's public library</th><td class="yes">✓</td><td class="yes">✓</td><td class="yes featured">✓</td></tr>
-          <tr><th scope="row">Original and modern editions, side by side</th><td class="yes">✓</td><td class="yes">✓</td><td class="yes featured">✓</td></tr>
-          <tr><th scope="row">Narrated audio</th><td class="no">—</td><td class="yes">✓</td><td class="yes featured">✓</td></tr>
-          <tr><th scope="row">Highlights, notes, journal and sync</th><td class="no">—</td><td class="yes">✓</td><td class="yes featured">✓</td></tr>
-          <tr><th scope="row">AI companion and Talk</th><td class="no">—</td><td><span class="long">$5 credit / month</span><span class="short">$5/mo</span></td><td class="featured"><span class="long">$5 credit / month</span><span class="short">$5/mo</span></td></tr>
-          <tr><th scope="row">Extra AI credit</th><td class="no">—</td><td><span class="todo">$5</span><span class="long"> top-ups</span></td><td class="featured"><span class="todo">$5</span><span class="long"> top-ups</span></td></tr>
-        </tbody>
-        <tfoot>
-          <tr><td></td><td><a class="btn btn-line" href="#"><span class="long">Start reading</span><span class="short">Read</span></a></td><td><a class="btn btn-line" href="#"><span class="long">Choose monthly</span><span class="short">Choose</span></a></td><td class="featured"><a class="btn btn-solid" href="#"><span class="long">Choose yearly</span><span class="short">Choose</span></a></td></tr>
-        </tfoot>
-      </table>
-    </div>
-    <div class="notes">
-      <div><h3>What $5 of AI covers</h3><p>About <span class="todo">xxx</span> chat messages, or <span class="todo">yy</span> hours of Talk, or any mix of the two. You can see your remaining credit in Settings.</p></div>
-      <div><h3>If you run out</h3><p>Reading never stops. Your books, audio and notes stay available. Add a top-up to keep chatting before your credit resets. Top-up credit carries over.</p></div>
-      <div><h3>Small print</h3><p>Prices in US dollars; local taxes may apply. Monthly credit resets on your billing date. Cancel any time and keep access until the end of the period you've paid for.</p></div>
-    </div>
-  </section>
+<h2>The library</h2>
+<p><b>Public library.</b> The books Tinct provides to every reader. We only add a text after checking that it's in the public domain in the United States and in the European Union, including Denmark. For a translation, the translation itself must also be in the public domain. Tinct's modern editions, introductions and narration are our own work.</p>
+<p><b>Private library.</b> Anything you upload or import yourself. It's visible only to you, it stays yours, and you're responsible for having the right to use it (see Terms, section 4).</p>
+<p><b>Copyright exceptions.</b> Copyright rules differ between countries and we can't rule out every exception. If you believe a text in the public library is still protected anywhere, or that you hold rights in it, write to contact@tinct.app with the title and the reason. We'll restrict the text while we look into it.</p>
 
-  <section id="library" class="wrap">
-    <p class="eyebrow">The library</p>
-    <h2>Public and private.</h2>
-    <div class="two">
-      <div class="card"><h3>The public library</h3><p>The books Tinct provides to every reader. We only add a text after checking that it's in the public domain in the United States and in the European Union, including Denmark. For a translation, the translation itself must also be in the public domain.</p><p>Tinct's modern editions, introductions and narration are our own work.</p></div>
-      <div class="card"><h3>Your private library</h3><p>Anything you upload or import yourself. It's visible only to you, it stays yours, and you're responsible for having the right to use it. See section 4 of the Terms.</p></div>
-    </div>
-    <p class="prose" style="margin-top:24px"><strong>Found a text that's still under copyright?</strong> <span class="muted">Copyright rules differ between countries and we can't rule out every exception. If you believe a text in the public library is still protected anywhere, or that you hold rights in it, write to contact@tinct.app with the title and the reason. We'll restrict the text while we look into it.</span></p>
-  </section>
+<h2>Terms of Service</h2>
+<p class="muted">Last updated <span class="todo">date</span></p>
 
-  <section id="terms" class="wrap">
-    <p class="eyebrow">Terms of Service · Last updated <span class="todo">date</span></p>
-    <h2>Terms of Service</h2>
-    <p class="summary-box">In short: you're responsible for anything you upload or write in Tinct. AI answers can be wrong, and Tinct isn't responsible for their accuracy, so check anything that matters. You can cancel any time.</p>
-    <details><summary>1. The service</summary><div><p>Tinct is a reading platform for classic and public-domain literature, operated by <span class="todo">legal entity, CVR</span>, Copenhagen, Denmark. It offers editions of texts, audio narration, reading tools and AI features: a reading companion you can chat with, and Talk, a voice conversation. We may change features over time. If a change materially reduces what you've paid for, we'll tell you in advance and you may cancel.</p></div></details>
-    <details><summary>2. Your account</summary><div><p>You need to be at least 16 years old, or have a parent's or guardian's permission. You're responsible for keeping your login details safe and for everything that happens under your account.</p></div></details>
-    <details><summary>3. Subscriptions, credit and payment</summary><div><ul><li>Subscriptions are billed in advance through Stripe and renew automatically until you cancel.</li><li>Monthly AI credit expires at the end of each period. Top-up credit stays in your account while your subscription is active.</li><li>AI credit has no cash value and can't be transferred or refunded, except where the law requires it.</li><li>We'll give at least 30 days' notice by email before a price change.</li><li><strong>EU right of withdrawal:</strong> you normally have 14 days to withdraw. When you start using Premium or AI credit, you ask us to begin providing it straight away. You lose the right of withdrawal for content that has been fully delivered, and a withdrawal from a service already in progress may be reduced in proportion to what you've used.</li></ul></div></details>
-    <details open><summary>4. Your content and your responsibility for it</summary><div><p>"Your content" means anything you put into Tinct: notes, highlights, journal entries, messages and voice input to the AI features, and any text or file you upload or import.</p><ul><li><strong>You own your content.</strong> You give Tinct a limited licence to store and process it only so we can run the service for you. We don't use it to train AI models.</li><li><strong>You are solely responsible for your content.</strong> You confirm that you have every right needed to upload or submit it, including copyright and privacy rights, and that doing so doesn't break any law.</li><li>Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.</li><li>You agree to compensate Tinct for claims and reasonable costs that arise from your content or from your breach of these terms, as far as the law allows.</li></ul></div></details>
-    <details open><summary>5. AI features: no guarantee of accuracy</summary><div><ul><li><strong>AI answers can be wrong.</strong> They may be inaccurate, incomplete or invented while sounding confident. This includes quotations, dates, translations and interpretations.</li><li><strong>Tinct is not responsible for the content or accuracy of AI answers.</strong> They come from third-party AI models, and they aren't Tinct's statements or views.</li><li>They aren't medical, legal, financial, psychological, religious or any other professional advice.</li><li>Check anything that matters against the text and reliable sources. You are responsible for how you use AI answers, including under your school's rules on AI.</li></ul></div></details>
-    <details><summary>6. The public library and Tinct's materials</summary><div><p>The public library is described <a href="#library">above</a>. If you're reading from outside the US and EU, you're responsible for checking that a text is in the public domain where you are. Tinct's modern editions, introductions, narration, design and software belong to Tinct. You may use them for your own reading, but you may not copy, scrape, redistribute or resell them, or use them to train AI models. Modern editions and narration are prepared with AI and editorial review, so they may contain errors. Please report any you find.</p></div></details>
-    <details><summary>7. Acceptable use</summary><div><p>Don't share or resell your account, use bots or scrapers, get around usage limits or payment, or use the AI features to produce unlawful or harmful content.</p></div></details>
-    <details><summary>8. Suspension and termination</summary><div><p>You can delete your account at any time. We may suspend or close an account that seriously or repeatedly breaks these terms, with a warning first where that's reasonable.</p></div></details>
-    <details><summary>9. Disclaimers and limitation of liability</summary><div><p>The service is provided "as is". As far as the law allows, Tinct isn't liable for indirect losses or for losses that result from relying on AI answers or on your own content, and our total liability is limited to what you paid us in the past 12 months. Nothing here limits liability that the law doesn't allow us to limit, or your mandatory rights as a consumer.</p></div></details>
-    <details><summary>10. Changes, law and disputes</summary><div><p>We'll email you at least 30 days before material changes to these terms. Danish law applies. EU consumers keep the protection of their own country's mandatory laws, and can complain to Nævnenes Hus or through the EU's online dispute resolution platform.</p></div></details>
-  </section>
+<h3>1. The service</h3>
+<p>Tinct is a reading platform for classic and public-domain literature, operated by <span class="todo">legal entity, CVR</span>, Copenhagen, Denmark. It offers editions of texts, audio narration, reading tools and AI features: a reading companion you can chat with, and Talk, a voice conversation. We may change features over time. If a change materially reduces what you've paid for, we'll tell you in advance and you may cancel.</p>
 
-  <section id="privacy" class="wrap">
-    <p class="eyebrow">Privacy</p>
-    <h2>Your reading is yours.</h2>
-    <div class="two">
-      <div class="card"><h3>What we don't do</h3><p>No ads, no tracking cookies, no selling of data, and no training AI on your notes or messages.</p></div>
-      <div class="card"><h3>Who helps us run Tinct</h3><p>Supabase (accounts and data, EU), Cloudflare (hosting), Stripe (payments), Brevo (email), and Anthropic, OpenAI and xAI (AI features and narration).</p></div>
-    </div>
-    <p style="margin-top:22px"><a href="#">Read the full Privacy Policy →</a></p>
-  </section>
+<h3>2. Your account</h3>
+<p>You need to be at least 16 years old, or have a parent's or guardian's permission. You're responsible for keeping your login details safe and for everything that happens under your account.</p>
 
-  <section id="credits" class="wrap">
-    <p class="eyebrow">Credits</p>
-    <h2>Image credits and acknowledgements</h2>
-    <div class="two" style="margin-bottom:32px">
-      <div class="card"><h3>Texts</h3><p>Original texts come from Project Gutenberg, the Internet Archive and other public-domain archives. We're grateful to the volunteers who transcribed and checked them.</p></div>
-      <div class="card"><h3>Author portraits</h3><p>Most portraits are in the public domain. Images under Creative Commons licences are credited below, as those licences require.</p></div>
-    </div>
-    <div class="credits"><div class="credit"><strong>Aeschylus</strong> · Zde<br><a class="lic" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Herma_of_Aeschylus,_Klas08.jpg">Source</a></div><div class="credit"><strong>Bible</strong> · NYC Wanderer (Kevin Eng)<br><a class="lic" href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Gutenberg_Bible,_Lenox_Copy,_New_York_Public_Library,_2009._Pic_01.jpg">Source</a></div><div class="credit"><strong>Dante Alighieri</strong> · Wolfgang Sauber<br><a class="lic" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Bargello_-_Kapelle_Fresko_2a.jpg">Source</a></div><div class="credit"><strong>Euripides</strong> · NikonZ7II<br><a class="lic" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Euripide_(cropped).jpg">Source</a></div><div class="credit"><strong>Sophocles</strong> · user:shakko<br><a class="lic" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Sophocles_pushkin.jpg">Source</a></div><div class="credit"><strong>Thucydides</strong> · user:shakko<br><a class="lic" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Thucydides_pushkin01.jpg">Source</a></div><div class="credit"><strong>Adam Smith</strong> · Unknown artist<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg">Source</a></div><div class="credit"><strong>Alexander Hamilton</strong> · John Trumbull / Giuseppe Ceracchi<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Alexander_Hamilton_(NPG).jpg">Source</a></div><div class="credit"><strong>Alexis de Tocqueville</strong> · Théodore Chassériau<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Alexis_de_Tocqueville.jpg">Source</a></div><div class="credit"><strong>Aristotle</strong> · After Lysippos<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg">Source</a></div><div class="credit"><strong>Augustine</strong> · Philippe de Champaigne<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Saint_Augustine_by_Philippe_de_Champaigne.jpg">Source</a></div><div class="credit"><strong>Beowulf</strong> · anonymous Anglo-Saxon poet<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Beowulf_Cotton_MS_Vitellius_A_XV_f._132r.jpg">Source</a></div></div><details class="more"><summary>Show all 63 portraits</summary><div class="credits"><div class="credit"><strong>Charles Dickens</strong> · Jeremiah Gurney<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Dickens_Gurney_head.jpg">Source</a></div><div class="credit"><strong>Charlotte Brontë</strong> · Branwell Brontë<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Charlotte_Bront%C3%AB_by_Patrick_Branwell_Bront%C3%AB_restored.jpg">Source</a></div><div class="credit"><strong>David Hume</strong> · Allan Ramsay<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:David_Hume_Ramsay.jpg">Source</a></div><div class="credit"><strong>Epic of Gilgamesh</strong> · BabelStone (photograph); ancient scribe unknown<br><a class="lic" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a> · <a href="https://commons.wikimedia.org/wiki/File:British_Museum_Flood_Tablet.jpg">Source</a></div><div class="credit"><strong>Epictetus</strong> · William Sonmans / Michael Burghers<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Epicteti_Enchiridion_Latinis_versibus_adumbratum_(Oxford_1715)_frontispiece_(cropped).jpg">Source</a></div><div class="credit"><strong>Frances Hodgson Burnett</strong> · Herbert Rose Barraud (1845-1896)<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Frances_Burnett.jpg">Source</a></div><div class="credit"><strong>Frederick Douglass</strong> · George Kendall Warren<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Frederick_Douglass_(circa_1879)_(cropped).jpg">Source</a></div><div class="credit"><strong>Friedrich Engels</strong> · William Hall (1826–ca. 1898) (cropped and sepia tone removed)<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Friedrich_Engels_portrait_(cropped).jpg">Source</a></div><div class="credit"><strong>Friedrich Nietzsche</strong> · Friedrich Hermann Hartmann<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Nietzsche187a.jpg">Source</a></div><div class="credit"><strong>Fyodor Dostoevsky</strong> · Vasily Perov<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Dostoevsky_1872.jpg">Source</a></div><div class="credit"><strong>Henry David Thoreau</strong> · Benjamin D. Maxham active 1848 - 1858<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg">Source</a></div><div class="credit"><strong>Herman Melville</strong> · Joseph Oriel Eaton<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Herman_Melville_by_Joseph_O_Eaton.jpg">Source</a></div><div class="credit"><strong>Herodotus</strong> · Ancient Roman sculptor unknown; Metropolitan Museum of Art digital image<br><a class="lic" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a> · <a href="https://commons.wikimedia.org/wiki/File:Marble_bust_of_Herodotos_MET_DT11742_(cropped).jpg">Source</a></div><div class="credit"><strong>Homer</strong> · JW1805 (photograph); ancient sculptor unknown<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Homer_British_Museum.jpg">Source</a></div><div class="credit"><strong>Immanuel Kant</strong> · Johann Gottlieb Becker (1720-1782)<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Immanuel_Kant_-_Gemaelde_1.jpg">Source</a></div><div class="credit"><strong>J.P. Jacobsen</strong> · C. Corneliussen foto http://www.jpjacobsen-selskabet.dk/<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:JP_Jacobsen.jpg">Source</a></div><div class="credit"><strong>James Joyce</strong> · Camille Ruf (photograph); contrast adjustment by Commons contributor Modra<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Revolutionary_Joyce_Better_Contrast.jpg">Source</a></div><div class="credit"><strong>James Madison</strong> · John Vanderlyn<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:James_Madison.jpg">Source</a></div><div class="credit"><strong>Jane Austen</strong> · Cassandra Austen<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten(c.1810)_hires.jpg">Source</a></div><div class="credit"><strong>Jean-Jacques Rousseau</strong> · Maurice Quentin de La Tour
+<h3>3. Subscriptions, credit and payment</h3>
+<ul>
+  <li>Subscriptions are billed in advance through Stripe and renew automatically until you cancel.</li>
+  <li>Monthly AI credit expires at the end of each period. Top-up credit stays in your account while your subscription is active.</li>
+  <li>AI credit has no cash value and can't be transferred or refunded, except where the law requires it.</li>
+  <li>We'll give at least 30 days' notice by email before a price change.</li>
+  <li>EU right of withdrawal: you normally have 14 days to withdraw. When you start using Premium or AI credit, you ask us to begin providing it straight away. You lose the right of withdrawal for content that has been fully delivered, and a withdrawal from a service already in progress may be reduced in proportion to what you've used.</li>
+</ul>
 
-(Life time: 1788)<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg">Source</a></div><div class="credit"><strong>Johann Wolfgang von Goethe</strong> · Joseph Karl Stieler<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Goethe_(Stieler_1828).jpg">Source</a></div><div class="credit"><strong>John Jay</strong> · Gilbert Stuart<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:John_Jay_(Gilbert_Stuart_portrait).jpg">Source</a></div><div class="credit"><strong>John Locke</strong> · Godfrey Kneller<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg">Source</a></div><div class="credit"><strong>John Milton</strong> · anonymous<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:John-milton.jpg">Source</a></div><div class="credit"><strong>John Stuart Mill</strong> · London Stereoscopic Company<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:John_Stuart_Mill_by_London_Stereoscopic_Company,_c1870.jpg">Source</a></div><div class="credit"><strong>Joseph Conrad</strong> · George Charles Beresford<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Joseph_Conrad-remastered_to_black_and_white.png">Source</a></div><div class="credit"><strong>Jules Verne</strong> · Étienne Carjat / Adam Cuerden<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Jules_Verne_by_%C3%89tienne_Carjat.jpg">Source</a></div><div class="credit"><strong>Karl Marx</strong> · John Jabez Edwin Mayall<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png">Source</a></div><div class="credit"><strong>Kate Chopin</strong> · Photographer unidentified in source record<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Kate_Chopin.jpg">Source</a></div><div class="credit"><strong>Leo Tolstoy</strong> · Sergei Prokudin-Gorskii<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Leo_Tolstoy_1908_Portrait_(3x4_cropped).jpg">Source</a></div><div class="credit"><strong>Magna Carta</strong> · Original authors were the barons and King John of England. Uploaded by Earthsound.<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Magna_Carta_(British_Library_Cotton_MS_Augustus_II.106).jpg">Source</a></div><div class="credit"><strong>Marcus Aurelius</strong> · Wilfredor<br><a class="lic" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a> · <a href="https://commons.wikimedia.org/wiki/File:Ancient_statue_of_emperor_Marcus_Aurelius.jpg">Source</a></div><div class="credit"><strong>Mary Shelley</strong> · Richard Rothwell<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:RothwellMaryShelley.jpg">Source</a></div><div class="credit"><strong>Mary Wollstonecraft</strong> · John Opie<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_Portrait.jpg">Source</a></div><div class="credit"><strong>Michel de Montaigne</strong> · Unknown artist<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Michel_de_Montaigne,_circa_unknown.jpg">Source</a></div><div class="credit"><strong>Miguel de Cervantes</strong> · Attributed to Juan de Jáuregui<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Cervantes_J%C3%A1uregui.jpg">Source</a></div><div class="credit"><strong>Niccolò Machiavelli</strong> · Santi di Tito<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg">Source</a></div><div class="credit"><strong>Plato</strong> · Marie-Lan Nguyen<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Plato_Silanion_Musei_Capitolini_MC1377.png">Source</a></div><div class="credit"><strong>René Descartes</strong> · After Frans Hals<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg">Source</a></div><div class="credit"><strong>Robert Louis Stevenson</strong> · Henry Walter Barnett<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Robert_Louis_Stevenson_by_Henry_Walter_Barnett_bw.jpg">Source</a></div><div class="credit"><strong>Rudyard Kipling</strong> · Elliott &amp; Fry<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Rudyard_Kipling_(portrait).jpg">Source</a></div><div class="credit"><strong>Selma Lagerlöf</strong> · Photographer unidentified in source record; Nobel Foundation source<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Selma_Lagerl%C3%B6f.jpg">Source</a></div><div class="credit"><strong>Sun Tzu</strong> · Unknown artist<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:%E5%90%B4%E5%8F%B8%E9%A9%AC%E5%AD%99%E6%AD%A6.jpg">Source</a></div><div class="credit"><strong>Søren Kierkegaard</strong> · Niels Christian Kierkegaard; digital source: Royal Danish Library<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:S%C3%B8ren_Kierkegaard_(1813-1855)_-_(cropped).jpg">Source</a></div><div class="credit"><strong>Thomas Hobbes</strong> · John Michael Wright<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Thomas_Hobbes_by_John_Michael_Wright_(colour)_(3x4_cropped).jpg">Source</a></div><div class="credit"><strong>Thomas à Kempis</strong> · Unidentified historical painter<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Thomas_von_Kempen_JS.JPG">Source</a></div><div class="credit"><strong>United States Declaration of Independence</strong> · original: w:Second Continental Congress; reproduction: William Stone<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:United_States_Declaration_of_Independence.jpg">Source</a></div><div class="credit"><strong>Virgil</strong> · Boyd Dwyer<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Virgil_mosaic_in_the_Bardo_National_Museum_(Tunis)_(12241228546).jpg">Source</a></div><div class="credit"><strong>Virginia Woolf</strong> · George Charles Beresford / Adam Cuerden<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg">Source</a></div><div class="credit"><strong>Voltaire</strong> · Nicolas de Largillière<br><a class="lic" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a> · <a href="https://commons.wikimedia.org/wiki/File:Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_(1694-1778)_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_(cropped).jpg">Source</a></div><div class="credit"><strong>William Shakespeare</strong> · Attributed to John Taylor<br><a class="lic" href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor,_edited.jpg">Source</a></div></div></details>
-  </section>
+<h3>4. Your content and your responsibility for it</h3>
+<p>"Your content" means anything you put into Tinct: notes, highlights, journal entries, messages and voice input to the AI features, and any text or file you upload or import.</p>
+<ul>
+  <li><b>You own your content.</b> You give Tinct a limited licence to store and process it only so we can run the service for you. We don't use it to train AI models.</li>
+  <li><b>You are solely responsible for your content.</b> You confirm that you have every right needed to upload or submit it, including copyright and privacy rights, and that doing so doesn't break any law.</li>
+  <li>Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.</li>
+  <li>You agree to compensate Tinct for claims and reasonable costs that arise from your content or from your breach of these terms, as far as the law allows.</li>
+</ul>
 
-  <section id="legal" class="wrap">
-    <p class="eyebrow">Legal and contact</p>
-    <h2>Who we are.</h2>
-    <div class="two">
-      <div class="card"><h3>Operator</h3><p>Tinct is operated by <span class="todo">legal entity</span>, CVR <span class="todo">number</span>, <span class="todo">address</span>, Copenhagen, Denmark.</p></div>
-      <div class="card"><h3>Contact</h3><p>Questions, copyright notices, data requests and anything else: contact@tinct.app. To report an error in a text, use the report tool in the reader.</p></div>
-    </div>
-  </section>
-</main>
+<h3>5. AI features: no guarantee of accuracy</h3>
+<ul>
+  <li><b>AI answers can be wrong.</b> They may be inaccurate, incomplete or invented while sounding confident. This includes quotations, dates, translations and interpretations.</li>
+  <li><b>Tinct is not responsible for the content or accuracy of AI answers.</b> They come from third-party AI models, and they aren't Tinct's statements or views.</li>
+  <li>They aren't medical, legal, financial, psychological, religious or any other professional advice.</li>
+  <li>Check anything that matters against the text and reliable sources. You are responsible for how you use AI answers, including under your school's rules on AI.</li>
+</ul>
 
-<footer class="footer">
-  <span class="logo">tinct</span>
-  <span>© 2026 Tinct</span>
-  <nav><a href="#">Library</a><a href="#pricing">Pricing</a><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#credits">Credits</a><a href="#legal">Contact</a></nav>
-</footer>
+<h3>6. The public library and Tinct's materials</h3>
+<p>If you're reading from outside the US and EU, you're responsible for checking that a text is in the public domain where you are. Tinct's modern editions, introductions, narration, design and software belong to Tinct. You may use them for your own reading, but you may not copy, scrape, redistribute or resell them, or use them to train AI models. Modern editions and narration are prepared with AI and editorial review, so they may contain errors. Please report any you find.</p>
+
+<h3>7. Acceptable use</h3>
+<p>Don't share or resell your account, use bots or scrapers, get around usage limits or payment, or use the AI features to produce unlawful or harmful content.</p>
+
+<h3>8. Suspension and termination</h3>
+<p>You can delete your account at any time. We may suspend or close an account that seriously or repeatedly breaks these terms, with a warning first where that's reasonable.</p>
+
+<h3>9. Disclaimers and limitation of liability</h3>
+<p>The service is provided "as is". As far as the law allows, Tinct isn't liable for indirect losses or for losses that result from relying on AI answers or on your own content, and our total liability is limited to what you paid us in the past 12 months. Nothing here limits liability that the law doesn't allow us to limit, or your mandatory rights as a consumer.</p>
+
+<h3>10. Changes, law and disputes</h3>
+<p>We'll email you at least 30 days before material changes to these terms. Danish law applies. EU consumers keep the protection of their own country's mandatory laws, and can complain to Nævnenes Hus or through the EU's online dispute resolution platform.</p>
+
+<h2>Privacy</h2>
+<p>No ads, no tracking cookies, no selling of data, and no training AI on your notes or messages. The full policy is at <a href="#">tinct.app/privacy</a>.</p>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Service</th><th>What it does for Tinct</th></tr></thead>
+  <tbody>
+    <tr><td>Supabase</td><td>Accounts and reading data, hosted in the EU</td></tr>
+    <tr><td>Cloudflare</td><td>Hosting and audio storage</td></tr>
+    <tr><td>Stripe</td><td>Payments</td></tr>
+    <tr><td>Brevo</td><td>Email</td></tr>
+    <tr><td>Anthropic, OpenAI, xAI</td><td>AI chat, Talk and narration</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Credits</h2>
+<p>Original texts come from Project Gutenberg, the Internet Archive and other public-domain archives. We're grateful to the volunteers who transcribed and checked them.</p>
+<p>Author portraits:</p>
+<div class="table-scroll"><table class="credits"><thead><tr><th>Portrait</th><th>Creator</th><th>Licence</th><th></th></tr></thead><tbody><tr><td>Aeschylus</td><td>Zde</td><td><a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Herma_of_Aeschylus,_Klas08.jpg">Source</a></td></tr><tr><td>Bible</td><td>NYC Wanderer (Kevin Eng)</td><td><a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Gutenberg_Bible,_Lenox_Copy,_New_York_Public_Library,_2009._Pic_01.jpg">Source</a></td></tr><tr><td>Dante Alighieri</td><td>Wolfgang Sauber</td><td><a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Bargello_-_Kapelle_Fresko_2a.jpg">Source</a></td></tr><tr><td>Euripides</td><td>NikonZ7II</td><td><a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Euripide_(cropped).jpg">Source</a></td></tr><tr><td>Sophocles</td><td>user:shakko</td><td><a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Sophocles_pushkin.jpg">Source</a></td></tr><tr><td>Thucydides</td><td>user:shakko</td><td><a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Thucydides_pushkin01.jpg">Source</a></td></tr></tbody></table></div><details><summary>Show all 63 portraits</summary><div class="table-scroll"><table class="credits"><thead><tr><th>Portrait</th><th>Creator</th><th>Licence</th><th></th></tr></thead><tbody><tr><td>Adam Smith</td><td>Unknown artist</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg">Source</a></td></tr><tr><td>Alexander Hamilton</td><td>John Trumbull / Giuseppe Ceracchi</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Alexander_Hamilton_(NPG).jpg">Source</a></td></tr><tr><td>Alexis de Tocqueville</td><td>Théodore Chassériau</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Alexis_de_Tocqueville.jpg">Source</a></td></tr><tr><td>Aristotle</td><td>After Lysippos</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg">Source</a></td></tr><tr><td>Augustine</td><td>Philippe de Champaigne</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Saint_Augustine_by_Philippe_de_Champaigne.jpg">Source</a></td></tr><tr><td>Beowulf</td><td>anonymous Anglo-Saxon poet</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Beowulf_Cotton_MS_Vitellius_A_XV_f._132r.jpg">Source</a></td></tr><tr><td>Charles Dickens</td><td>Jeremiah Gurney</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Dickens_Gurney_head.jpg">Source</a></td></tr><tr><td>Charlotte Brontë</td><td>Branwell Brontë</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Charlotte_Bront%C3%AB_by_Patrick_Branwell_Bront%C3%AB_restored.jpg">Source</a></td></tr><tr><td>David Hume</td><td>Allan Ramsay</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:David_Hume_Ramsay.jpg">Source</a></td></tr><tr><td>Epic of Gilgamesh</td><td>BabelStone (photograph); ancient scribe unknown</td><td><a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:British_Museum_Flood_Tablet.jpg">Source</a></td></tr><tr><td>Epictetus</td><td>William Sonmans / Michael Burghers</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Epicteti_Enchiridion_Latinis_versibus_adumbratum_(Oxford_1715)_frontispiece_(cropped).jpg">Source</a></td></tr><tr><td>Frances Hodgson Burnett</td><td>Herbert Rose Barraud (1845-1896)</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Frances_Burnett.jpg">Source</a></td></tr><tr><td>Frederick Douglass</td><td>George Kendall Warren</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Frederick_Douglass_(circa_1879)_(cropped).jpg">Source</a></td></tr><tr><td>Friedrich Engels</td><td>William Hall (1826–ca. 1898) (cropped and sepia tone removed)</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Friedrich_Engels_portrait_(cropped).jpg">Source</a></td></tr><tr><td>Friedrich Nietzsche</td><td>Friedrich Hermann Hartmann</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Nietzsche187a.jpg">Source</a></td></tr><tr><td>Fyodor Dostoevsky</td><td>Vasily Perov</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Dostoevsky_1872.jpg">Source</a></td></tr><tr><td>Henry David Thoreau</td><td>Benjamin D. Maxham active 1848 - 1858</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg">Source</a></td></tr><tr><td>Herman Melville</td><td>Joseph Oriel Eaton</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Herman_Melville_by_Joseph_O_Eaton.jpg">Source</a></td></tr><tr><td>Herodotus</td><td>Ancient Roman sculptor unknown; Metropolitan Museum of Art digital image</td><td><a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Marble_bust_of_Herodotos_MET_DT11742_(cropped).jpg">Source</a></td></tr><tr><td>Homer</td><td>JW1805 (photograph); ancient sculptor unknown</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Homer_British_Museum.jpg">Source</a></td></tr><tr><td>Immanuel Kant</td><td>Johann Gottlieb Becker (1720-1782)</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Immanuel_Kant_-_Gemaelde_1.jpg">Source</a></td></tr><tr><td>J.P. Jacobsen</td><td>C. Corneliussen foto http://www.jpjacobsen-selskabet.dk/</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:JP_Jacobsen.jpg">Source</a></td></tr><tr><td>James Joyce</td><td>Camille Ruf (photograph); contrast adjustment by Commons contributor Modra</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Revolutionary_Joyce_Better_Contrast.jpg">Source</a></td></tr><tr><td>James Madison</td><td>John Vanderlyn</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:James_Madison.jpg">Source</a></td></tr><tr><td>Jane Austen</td><td>Cassandra Austen</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten(c.1810)_hires.jpg">Source</a></td></tr><tr><td>Jean-Jacques Rousseau</td><td>Maurice Quentin de La Tour
+
+(Life time: 1788)</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg">Source</a></td></tr><tr><td>Johann Wolfgang von Goethe</td><td>Joseph Karl Stieler</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Goethe_(Stieler_1828).jpg">Source</a></td></tr><tr><td>John Jay</td><td>Gilbert Stuart</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:John_Jay_(Gilbert_Stuart_portrait).jpg">Source</a></td></tr><tr><td>John Locke</td><td>Godfrey Kneller</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg">Source</a></td></tr><tr><td>John Milton</td><td>anonymous</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:John-milton.jpg">Source</a></td></tr><tr><td>John Stuart Mill</td><td>London Stereoscopic Company</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:John_Stuart_Mill_by_London_Stereoscopic_Company,_c1870.jpg">Source</a></td></tr><tr><td>Joseph Conrad</td><td>George Charles Beresford</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Joseph_Conrad-remastered_to_black_and_white.png">Source</a></td></tr><tr><td>Jules Verne</td><td>Étienne Carjat / Adam Cuerden</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Jules_Verne_by_%C3%89tienne_Carjat.jpg">Source</a></td></tr><tr><td>Karl Marx</td><td>John Jabez Edwin Mayall</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored.png">Source</a></td></tr><tr><td>Kate Chopin</td><td>Photographer unidentified in source record</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Kate_Chopin.jpg">Source</a></td></tr><tr><td>Leo Tolstoy</td><td>Sergei Prokudin-Gorskii</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Leo_Tolstoy_1908_Portrait_(3x4_cropped).jpg">Source</a></td></tr><tr><td>Magna Carta</td><td>Original authors were the barons and King John of England. Uploaded by Earthsound.</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Magna_Carta_(British_Library_Cotton_MS_Augustus_II.106).jpg">Source</a></td></tr><tr><td>Marcus Aurelius</td><td>Wilfredor</td><td><a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Ancient_statue_of_emperor_Marcus_Aurelius.jpg">Source</a></td></tr><tr><td>Mary Shelley</td><td>Richard Rothwell</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:RothwellMaryShelley.jpg">Source</a></td></tr><tr><td>Mary Wollstonecraft</td><td>John Opie</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_Portrait.jpg">Source</a></td></tr><tr><td>Michel de Montaigne</td><td>Unknown artist</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Michel_de_Montaigne,_circa_unknown.jpg">Source</a></td></tr><tr><td>Miguel de Cervantes</td><td>Attributed to Juan de Jáuregui</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Cervantes_J%C3%A1uregui.jpg">Source</a></td></tr><tr><td>Niccolò Machiavelli</td><td>Santi di Tito</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg">Source</a></td></tr><tr><td>Plato</td><td>Marie-Lan Nguyen</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Plato_Silanion_Musei_Capitolini_MC1377.png">Source</a></td></tr><tr><td>René Descartes</td><td>After Frans Hals</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg">Source</a></td></tr><tr><td>Robert Louis Stevenson</td><td>Henry Walter Barnett</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Robert_Louis_Stevenson_by_Henry_Walter_Barnett_bw.jpg">Source</a></td></tr><tr><td>Rudyard Kipling</td><td>Elliott &amp; Fry</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Rudyard_Kipling_(portrait).jpg">Source</a></td></tr><tr><td>Selma Lagerlöf</td><td>Photographer unidentified in source record; Nobel Foundation source</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Selma_Lagerl%C3%B6f.jpg">Source</a></td></tr><tr><td>Sun Tzu</td><td>Unknown artist</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:%E5%90%B4%E5%8F%B8%E9%A9%AC%E5%AD%99%E6%AD%A6.jpg">Source</a></td></tr><tr><td>Søren Kierkegaard</td><td>Niels Christian Kierkegaard; digital source: Royal Danish Library</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:S%C3%B8ren_Kierkegaard_(1813-1855)_-_(cropped).jpg">Source</a></td></tr><tr><td>Thomas Hobbes</td><td>John Michael Wright</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Thomas_Hobbes_by_John_Michael_Wright_(colour)_(3x4_cropped).jpg">Source</a></td></tr><tr><td>Thomas à Kempis</td><td>Unidentified historical painter</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Thomas_von_Kempen_JS.JPG">Source</a></td></tr><tr><td>United States Declaration of Independence</td><td>original: w:Second Continental Congress; reproduction: William Stone</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:United_States_Declaration_of_Independence.jpg">Source</a></td></tr><tr><td>Virgil</td><td>Boyd Dwyer</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Virgil_mosaic_in_the_Bardo_National_Museum_(Tunis)_(12241228546).jpg">Source</a></td></tr><tr><td>Virginia Woolf</td><td>George Charles Beresford / Adam Cuerden</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg">Source</a></td></tr><tr><td>Voltaire</td><td>Nicolas de Largillière</td><td><a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_(1694-1778)_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_(cropped).jpg">Source</a></td></tr><tr><td>William Shakespeare</td><td>Attributed to John Taylor</td><td><a href="https://creativecommons.org/publicdomain/mark/1.0/">Public domain</a></td><td><a href="https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor,_edited.jpg">Source</a></td></tr></tbody></table></div></details>
+
+<h2>Legal and contact</h2>
+<p>Tinct is operated by <span class="todo">legal entity</span>, CVR <span class="todo">number</span>, <span class="todo">address</span>, Copenhagen, Denmark.</p>
+<p>Questions, copyright notices and data requests: contact@tinct.app. To report an error in a text, use the report tool in the reader.</p>
+
+<p class="footer">© 2026 Tinct</p>
+</div>
 </body>
 </html>
