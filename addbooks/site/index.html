@@ -26,9 +26,9 @@
           <kbd aria-hidden="true">/</kbd>
         </label>
         <div class="filters">
-          <label class="select-label chrome" for="language">Language<select id="language" disabled><option value="en">English</option></select></label>
+          <label class="select-label chrome" for="language">Language<select id="language" disabled><option value="">All languages</option></select></label>
           <label class="select-label chrome" for="subject">Subject<select id="subject" disabled><option value="">All subjects</option></select></label>
-          <label class="check-label chrome"><input id="standard-only" type="checkbox" disabled><span>Standard Ebooks only</span></label>
+          <label class="select-label chrome" for="source">Source<select id="source" disabled><option value="">All sources</option></select></label>
           <button type="button" id="reset" class="reset chrome" hidden>Reset filters</button>
         </div>
       </form>
@@ -37,8 +37,8 @@
       <div class="results-heading"><p id="status" class="chrome" role="status" aria-live="polite">Loading catalogue…</p><span class="chrome" id="sort-label" hidden>Best match</span></div>
       <div id="empty" class="empty-state">
         <div class="book-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-        <h2>Find a book</h2><p>Search by title, author, translator or subject.</p>
-        <div class="suggestions" aria-label="Example searches"><button data-query="Odyssey" disabled>Odyssey <span>↗</span></button><button data-query="dostoevsky" disabled>Dostoevsky <span>↗</span></button><button data-query="pride prejudice" disabled>Pride and Prejudice <span>↗</span></button><button data-query="meditations marcus" disabled>Meditations <span>↗</span></button></div>
+        <h2>Find a book</h2><p>Search free books in every language by title, author, translator or subject.</p>
+        <div class="suggestions" aria-label="Example searches"><button data-query="Odyssey" disabled>Odyssey <span>↗</span></button><button data-query="dostoevsky" disabled>Dostoevsky <span>↗</span></button><button data-query="pride prejudice" disabled>Pride and Prejudice <span>↗</span></button><button data-query="meditations marcus" disabled>Meditations <span>↗</span></button><button data-query="H.C. Andersen" disabled>H.C. Andersen <span>↗</span></button><button data-query="Goethe Faust" disabled>Goethe, Faust <span>↗</span></button><button data-query="Les Misérables" disabled>Les Misérables <span>↗</span></button><button data-query="Don Quijote" disabled>Don Quijote <span>↗</span></button></div>
       </div>
       <div id="no-results" class="empty-state" hidden><div class="no-symbol" aria-hidden="true">∅</div><h2>No books found</h2><p>Try fewer words or change the filters.</p><button id="clear-search" class="text-button">Clear search and filters</button></div>
       <div id="error" class="empty-state" hidden><h2>Catalogue unavailable</h2><p id="error-message"></p><button class="text-button" id="reload">Try again</button></div>
@@ -46,7 +46,7 @@
       <button id="show-more" class="more chrome" hidden>Show more books</button>
     </section>
   </main>
-  <footer class="chrome"><span>Gutenberg · Standard Ebooks</span><span id="coverage">US public-domain catalogue</span><span id="offline-status">Loading…</span></footer>
+  <footer class="chrome"><span id="source-list">Free and public-domain libraries</span><span id="coverage">Public-domain and openly licensed books</span><span id="offline-status">Loading…</span></footer>
   <noscript>This search needs JavaScript enabled.</noscript>
 </body>
 </html>

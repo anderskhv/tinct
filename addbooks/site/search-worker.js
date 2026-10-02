@@ -14,13 +14,15 @@ self.onmessage = async ({data}) => {
         catalog = await raw.json();
       }
       search = createSearch(catalog.works);
-      const languages = new Map(), subjects = new Map();
+      const languages = new Map(), subjects = new Map(), sources = new Map();
       for (const w of catalog.works) {
         for (const lang of w.language) languages.set(lang, (languages.get(lang) || 0) + 1);
+        for (const source of new Set(w.editions.map(e => e.source))) sources.set(source, (sources.get(source) || 0) + 1);
         for (const subject of new Set([...w.bookshelves, ...w.subjects])) subjects.set(subject, (subjects.get(subject) || 0) + 1);
       }
       self.postMessage({type: 'ready', total: catalog.works.length, coverage: catalog.coverage,
-        languages: [...languages].sort((a,b) => b[1] - a[1]),
+        languages: [...languages].filter(([code]) => code !== 'und').sort((a,b) => b[1] - a[1]),
+        sources: [...sources].sort((a,b) => b[1] - a[1]),
         // Bookshelves provide concise browse categories; all LCSH terms remain searchable.
         subjects: [...subjects].filter(([s,n]) => s.startsWith('Category: ') || n >= 150).sort((a,b) => a[0].localeCompare(b[0]))});
     } else if (search && data.type === 'search') {

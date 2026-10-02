@@ -1,7 +1,9 @@
 // Shared by the worker and the standalone Node verification. No app dependencies.
 const STOP = new Set(['a', 'an', 'the', 'of', 'and', 'in', 'to', 'by', 'for']);
+// Letters NFKD does not decompose, so "Kobenhavn" finds "København" and "strasse" finds "Straße".
+const FOLD = {'ø':'o','æ':'ae','œ':'oe','ß':'ss','ł':'l','đ':'d','ð':'d','þ':'th','ı':'i'};
 export function normalize(value) {
-  return value.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase()
+  return value.toLowerCase().replace(/[øæœßłđðþı]/g, c => FOLD[c]).normalize('NFKD').replace(/\p{M}/gu, '')
     .replace(/dostoyevsky|dostoievski|dostoievsky|dostoevskii|dostoyevski/g, 'dostoevsky')
     .replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 }
@@ -25,7 +27,7 @@ export function near(a, b, limit = 1) {
 export function createSearch(works) {
   const inverted = new Map(), vocabByLength = new Map();
   const docs = works.map((w, id) => {
-    const fields = [w.editions.map(e => e.title).join(' '),
+    const fields = [[...w.editions.map(e => e.title), ...(w.altTitles || [])].join(' '),
       w.editions.flatMap(e => e.authors).map(personText).join(' '),
       w.editions.flatMap(e => e.translators).map(personText).join(' '),
       [w.subtitle || '', ...w.subjects, ...w.bookshelves].join(' ')].map(tokens);
@@ -85,6 +87,7 @@ export function createSearch(works) {
       const w = works[id];
       if (filters.language && !w.language.includes(filters.language)) continue;
       if (filters.standardOnly && w.quality !== 'clean') continue;
+      if (filters.source && !w.editions.some(e => e.source === filters.source)) continue;
       if (filters.subject && ![...w.subjects, ...w.bookshelves].includes(filters.subject)) continue;
       let score = 0;
       const doc = docs[id];

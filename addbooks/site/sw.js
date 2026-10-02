@@ -1,4 +1,4 @@
-const CACHE = 'tinct-addbooks-v1';
+const CACHE = 'tinct-addbooks-v2';
 const SHELL = ['./','./index.html','./style.css','./app.js','./search.js','./search-worker.js'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()));
@@ -10,7 +10,8 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   const local = url.origin === location.origin;
-  const allowed = local || ['fonts.googleapis.com','fonts.gstatic.com','www.gutenberg.org','standardebooks.org'].includes(url.hostname);
+  // Covers come from many libraries; cache any HTTPS image, but no other third-party request.
+  const allowed = local || ['fonts.googleapis.com','fonts.gstatic.com'].includes(url.hostname) || (url.protocol === 'https:' && event.request.destination === 'image');
   if (!allowed) return;
   // Fresh local assets/catalogue online, cached fallback offline. Covers/fonts cache first.
   event.respondWith((async()=>{

@@ -3,13 +3,13 @@ let worker;
 let ready = false, request = 0, limit = 24, timer;
 const languageNames = new Intl.DisplayNames(['en'], {type:'language'});
 const languageLabel = code => { try { return languageNames.of(code); } catch { return code; } };
-const filters = () => ({language:$('language').value, subject:$('subject').value, standardOnly:$('standard-only').checked});
+const filters = () => ({language:$('language').value, subject:$('subject').value, source:$('source').value});
 function query({more = false} = {}) {
   if (!ready) return;
   if (!more) limit = 24;
   const f = filters(), q = $('query').value.trim();
-  $('reset').hidden = f.language === 'en' && !f.subject && !f.standardOnly;
-  const empty = !q && !f.subject && !f.standardOnly && f.language === 'en';
+  $('reset').hidden = !f.language && !f.subject && !f.source;
+  const empty = !q && !f.subject && !f.source && !f.language;
   $('empty').hidden = !empty;
   $('no-results').hidden = true;
   $('show-more').hidden = true;
@@ -49,14 +49,24 @@ function renderCard(work) {
     img.src = edition.coverUrl; cover.append(img);
   }
   const content = element('div','card-content'), badges = element('div','badges');
-  badges.append(element('span', 'badge' + (work.quality === 'clean' ? ' clean' : ''), edition.source));
+  // Preferred edition's source first; other libraries holding the same work follow.
+  for (const source of new Set(work.editions.map(e => e.source))) {
+    badges.append(element('span', 'badge' + (source === edition.source && work.quality === 'clean' ? ' clean' : ''), source));
+  }
   if (work.onTinct) badges.append(element('span','badge tinct','On Tinct'));
   content.append(badges, element('h2','',work.title), element('p','author',work.authors.map(a=>a.name).join(' · ') || 'Author unknown'));
   const year = work.firstPublishedYear ? (work.firstPublishedYear < 0 ? Math.abs(work.firstPublishedYear) + ' BCE' : work.firstPublishedYear) : 'Year unknown';
   content.append(element('p','metadata', [year, ...work.language.map(languageLabel)].join(' · ')));
   if (edition.translators.length) content.append(element('p','metadata','Translated by ' + edition.translators.map(t=>t.name).join(' · ')));
+  content.append(element('p','metadata licence', edition.licence === 'PD' ? 'Public domain' : edition.licence));
   const bottom = element('div','card-bottom');
-  bottom.append(element('span','edition-count',work.editions.length + (work.editions.length === 1 ? ' edition' : ' editions')));
+  const count = element('span','edition-count',work.editions.length + (work.editions.length === 1 ? ' edition' : ' editions'));
+  if (/^https:\/\//.test(edition.sourceUrl || '')) {
+    const link = element('a','source-link','View at ' + edition.source + ' ↗');
+    link.href = edition.sourceUrl; link.target = '_blank'; link.rel = 'noopener noreferrer';
+    count.append(document.createTextNode(' · '), link);
+  }
+  bottom.append(count);
   const add = element('button','add'); add.type = 'button'; add.disabled = true; add.title = 'Coming soon'; add.setAttribute('aria-label','Add ' + work.title + ' — Coming soon');
   add.append(element('span','','Add +'),element('small','','Coming soon')); bottom.append(add); content.append(bottom);
   card.append(cover,content); return card;
@@ -65,11 +75,11 @@ function onWorkerMessage({data}) {
   if (data.type === 'ready') {
     ready = true;
     $('catalog-count').textContent = data.total.toLocaleString() + ' works';
-    $('language').replaceChildren(new Option('All languages',''), ...data.languages.map(([code]) => new Option(languageLabel(code), code)));
-    $('language').value = 'en';
+    $('language').replaceChildren(new Option('All languages',''), ...data.languages.map(([code, n]) => new Option(languageLabel(code) + ' (' + n.toLocaleString() + ')', code)));
+    $('source').replaceChildren(new Option('All sources',''), ...data.sources.map(([name, n]) => new Option(name + ' (' + n.toLocaleString() + ')', name)));
+    $('source-list').textContent = data.sources.length + ' libraries · ' + data.languages.length + ' languages';
     for (const [subject] of data.subjects) $('subject').add(new Option(subject.replace(/^Category: /,''),subject));
     document.querySelectorAll('input,select,.suggestions button').forEach(el=>el.disabled=false);
-    $('coverage').textContent = data.coverage.startsWith('partial') ? 'US public domain · SE: 15 recent releases' : 'US public-domain catalogue';
     $('offline-status').textContent = 'Ready';
     if ('caches' in window) caches.match('./data/index.json.gz').then(cached => {
       $('offline-status').textContent = cached ? 'Available offline' : 'Ready · session only';
@@ -92,8 +102,8 @@ function onWorkerMessage({data}) {
 };
 $('search-form').addEventListener('submit', e=>{e.preventDefault();clearTimeout(timer);query();});
 $('query').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(query,80);});
-for (const id of ['language','subject','standard-only']) $(id).addEventListener('change',()=>query());
-function reset() { $('language').value='en';$('subject').value='';$('standard-only').checked=false; }
+for (const id of ['language','subject','source']) $(id).addEventListener('change',()=>query());
+function reset() { $('language').value='';$('subject').value='';$('source').value=''; }
 $('reset').addEventListener('click',()=>{reset();query();});
 $('clear-search').addEventListener('click',()=>{reset();$('query').value='';query();$('query').focus();});
 $('reload').addEventListener('click',()=>location.reload());

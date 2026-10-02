@@ -400,6 +400,17 @@ select {
   font:10px/1.4 var(--mono);
   color:var(--muted)
 }
+.source-link {
+  color:var(--accent);
+  text-decoration:underline;
+  text-underline-offset:2px;
+  overflow-wrap:anywhere
+}
+.metadata.licence {
+  font:10px/1.4 var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.02em
+}
 .add {
   background:transparent;
   border:1px solid var(--line);
