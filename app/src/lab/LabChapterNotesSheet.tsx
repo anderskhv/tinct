@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
 import { fetchChapterNotes, storedChapterNotes } from './labChapterNotes'
-import { RowIcon } from './LabSuperMenu'
+import { RowIcon } from './LabSuperMenu.tsx'
 import { useReaderWindow } from './useReaderWindow'
 import './labCatchUp.css'
 
