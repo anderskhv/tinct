@@ -712,9 +712,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }
   // Only a Bible book opening (Genesis, Exodus, ...) shows a cover page.
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
+  // Only a place inside the chapter needs its own page break. A link to the
+  // chapter's start already begins page one, and rebuilding the map from a
+  // word budget split short chapters (Werther's Preface) across two leaves.
   const explicitStartAnchor = useMemo(() => (
     readerHandoff?.startAtSavedPlace
       && readerHandoff.savedPlace?.chapterNumber === book.chapterNumber
+      && ((readerHandoff.savedPlace.paragraphIndex ?? 0) > 0 || (readerHandoff.savedPlace.wordIndex ?? 0) > 0)
       ? {
           paragraphIndex: readerHandoff.savedPlace.paragraphIndex ?? 0,
           wordIndex: readerHandoff.savedPlace.wordIndex ?? 0,
