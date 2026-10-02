@@ -171,9 +171,9 @@ contact@tinct.app
 
 The existing **`app/public/privacy.html`** (last updated 11 September 2026) is solid. The /about page should link to it rather than repeat it. It does need these corrections before the new pricing ships:
 
-1. **Third-party services → AI providers.** It currently names only Anthropic. The Worker also calls **OpenAI** (typed chat and research), **xAI** (Talk voice and Grok narration) and **Fish Audio** (narration), and **Brevo** (email) is missing too. Proposed replacement for the Anthropic bullet:
+1. **Third-party services → AI providers.** It currently names only Anthropic. The Worker also calls **OpenAI** (typed chat and research) and **xAI** (Talk voice and Grok narration), and **Brevo** (email) is missing too. Proposed replacement for the Anthropic bullet:
 
-   > **AI providers** — Tinct's AI features use models from Anthropic (Claude), OpenAI and xAI (Grok), and narration is generated with xAI and Fish Audio. When you use chat or Talk, your messages or voice audio, and the relevant passage, are sent to the provider handling that request so it can generate a response. Each provider processes this data under its API terms, does not use it to train its models, and may keep it for a limited period for abuse monitoring. See each provider's privacy policy for details.
+   > **AI providers** — Tinct's AI features use models from Anthropic (Claude), OpenAI and xAI (Grok), and narration is generated with xAI. When you use chat or Talk, your messages or voice audio, and the relevant passage, are sent to the provider handling that request so it can generate a response. Each provider processes this data under its API terms, does not use it to train its models, and may keep it for a limited period for abuse monitoring. See each provider's privacy policy for details.
    >
    > **Brevo** — sends account and service emails.
 
