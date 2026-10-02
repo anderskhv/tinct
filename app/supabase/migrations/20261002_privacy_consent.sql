@@ -32,6 +32,15 @@ create trigger on_auth_user_created_consent
   after insert on auth.users
   for each row execute function public.record_email_consent();
 
+-- Choices made before this migration ran (the app ships first) are already in
+-- the sign-up metadata; carry them onto the profile.
+update public.profiles p
+   set email_opt_in = true, email_opt_in_at = coalesce(p.email_opt_in_at, u.created_at)
+  from auth.users u
+ where u.id = p.id
+   and coalesce((u.raw_user_meta_data ->> 'email_opt_in')::boolean, false)
+   and not p.email_opt_in;
+
 -- 2. Analytics inserts carry no one else's user id -------------------------
 drop policy if exists analytics_insert_any on public.analytics_events;
 drop policy if exists analytics_insert_own on public.analytics_events;
