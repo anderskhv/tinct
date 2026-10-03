@@ -2655,6 +2655,25 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on the foot changing only; tracks the shown page every commit
   })
+  // Phone Chat takes the page surface's place: the page and its paginator are
+  // unmounted while Chat is open and lay the chapter out again on the way
+  // back. A fresh layout is not the map the reader turned through (the visible
+  // page check may have peeled those pages), so the saved page start can fall
+  // inside an earlier page of it. Keep the page the reader left, and every
+  // page before it, exactly as it was on screen; only what follows is laid
+  // out afresh. Declared after the foot freeze so that it wins in the commit
+  // Chat opens in.
+  const phoneAskShownRef = useRef(phoneAsk)
+  useLayoutEffect(() => {
+    const wasOpen = phoneAskShownRef.current
+    phoneAskShownRef.current = phoneAsk
+    if (!phoneAsk || wasOpen) return
+    const pages = readingPagesRef.current
+    if (!measuredPaging || desktopPaging || nativeMeasuredContent !== readerParagraphs || pages.length === 0 || explicitStartAnchor) return
+    const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1) })
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on Chat opening only; reads the page map as it is then
+  }, [phoneAsk])
   // A new chapter, edition or typography lays the whole chapter out afresh.
   const nativeLayoutKey = layoutKeyFor(readerEditionKey)
   useEffect(() => { setPageFreeze(null) }, [readerParagraphs, nativeLayoutKey])
