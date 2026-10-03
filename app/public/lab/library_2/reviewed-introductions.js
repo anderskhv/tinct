@@ -101,7 +101,12 @@ export const reviewedHooks = {
   "hume-enquiry": "What makes you so sure tomorrow will resemble today?",
   "kant-groundwork": "Would your reasons still make sense if everyone acted on them?",
   "wealth-of-nations": "How much do you owe the strangers whose work keeps you alive?",
-  "frederick-douglass": "What does it take to reclaim a life someone else claims to own?"
+  "frederick-douglass": "What does it take to reclaim a life someone else claims to own?",
+  // Release packages accepted 2026-10-02 (books/wip/<id>/release/reviewedHooks-entry.txt).
+  "alice-in-wonderland": "How do you make sense of a world that keeps changing the rules?",
+  "wuthering-heights": "What does a family pass on besides its name?",
+  "middlemarch": "What happens when a good intention meets another person’s life?",
+  "sense-and-sensibility": "How much can you know about a feeling someone chooses not to show?"
 };
 const pending = new Map();
 export async function loadReviewedIntroduction(book) {
