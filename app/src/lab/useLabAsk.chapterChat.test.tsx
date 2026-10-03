@@ -118,3 +118,20 @@ it('anchors a fresh Bible question in Zechariah after an Ezra conversation', asy
   expect(payload.messages[0].content).toContain('Historical message location')
   expect(readLabBookChat('bible').flatMap(c => c.messages).filter(m => m.role === 'user').at(-1)?.content).toBe('Summarize this book so far.')
 })
+
+it('moves the reader from a typed reply only when the reader asked to move', async () => {
+  // Anders, 3 Oct: typing "Hi" in Chat on The Window 4 was answered with
+  // [[next_chapter]] and the reader landed on the first page of The Window 5.
+  const answer = (text: string) => new Response(JSON.stringify({ content: [{ text }] }), { headers: { 'Content-Type': 'application/json' } })
+  const fetcher = vi.fn()
+    .mockResolvedValueOnce(answer('Hello! [[next_chapter]]'))
+    .mockResolvedValueOnce(answer('On to the next chapter. [[next_chapter]]'))
+  vi.stubGlobal('fetch', fetcher)
+  const onPlaybackSkip = vi.fn()
+  const { result } = renderHook(() => useLabAsk({ ...options, onPlaybackSkip }))
+  await act(async () => { await result.current.sendTyped('Hi') })
+  expect(onPlaybackSkip).not.toHaveBeenCalled()
+  expect(result.current.turns.at(-1)?.content).toBe('Hello!')
+  await act(async () => { await result.current.sendTyped('Take me to the next chapter') })
+  expect(onPlaybackSkip).toHaveBeenCalledWith('next_chapter')
+})

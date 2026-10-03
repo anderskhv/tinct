@@ -395,6 +395,15 @@ export function labTypedPace(text: string): { text: string; pace: AssistantPace 
   return { text: text.replace(LAB_PACE_TAG, '').trim(), pace }
 }
 
+/** Whether a typed message asks to move through the book. A typed reply may
+ * carry a chapter or paragraph move only then: answering "Hi" with
+ * [[next_chapter]] sent a reader from The Window 4 to the start of 5. */
+const LAB_TYPED_MOVE_REQUEST = /\b(chapters?|paragraphs?|skip|restart|replay|rewind|start (it )?over|from the (beginning|start|top)|go (back|on|forward)|move on|next( one)?|previous( one)?|last one|jump)\b/i
+
+export function typedTextAsksToMove(text: string): boolean {
+  return LAB_TYPED_MOVE_REQUEST.test(text)
+}
+
 export function labTypedSkip(text: string): { text: string; skip: LabPlaybackSkip | null } {
   const match = text.match(LAB_SKIP_TAG)
   const raw = match?.[1]?.toLowerCase() || ''

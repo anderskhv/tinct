@@ -28,8 +28,7 @@ import {
   numberedLabChapter,
   parseAssistantPace,
   parseSetPlaybackSpeedArguments,
-  resolveLabPlaybackSkip,
-} from './labAsk'
+  resolveLabPlaybackSkip, typedTextAsksToMove } from './labAsk'
 
 describe('lab conversation state', () => {
   it('stays idle when the session failed', () => {
@@ -492,3 +491,11 @@ it('welcomes relevant outside commentary while requiring honest attribution', ()
   expect(LAB_ASK_POLICY).toContain('Redirect only requests clearly unrelated to reading or the text')
   expect(LAB_ASK_POLICY).not.toContain('anything that is not the open book')
 })
+
+describe('typedTextAsksToMove', () => {
+  it('lets only explicit move requests carry a chapter or paragraph move', () => {
+    for (const text of ['Hi', 'What does Mrs. Ramsay mean here?', 'Why is Lily so anxious?']) expect(typedTextAsksToMove(text)).toBe(false)
+    for (const text of ['next chapter please', 'Take me back to the previous paragraph', 'Restart this chapter', 'skip ahead', 'start over from the beginning', 'Next']) expect(typedTextAsksToMove(text)).toBe(true)
+  })
+})
+
