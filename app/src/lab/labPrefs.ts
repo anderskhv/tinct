@@ -531,6 +531,26 @@ export function readStoredReaderProgressMode(bookId: string): LabReaderProgressM
   }
 }
 
+const READER_WORDS_PER_PAGE_KEY = 'tinct:reader-words-per-page'
+
+/** Words per full page last measured on this device for one layout and window
+ * size, so a reader who opens straight onto a one-page chapter still gets a
+ * book page count that a full page produced. */
+export function readStoredWordsPerPage(layout: string): number | null {
+  try {
+    const stored = JSON.parse(localStorage.getItem(READER_WORDS_PER_PAGE_KEY) || 'null')
+    return stored?.layout === layout && Number.isFinite(stored.wordsPerPage) && stored.wordsPerPage > 0 ? stored.wordsPerPage : null
+  } catch {
+    return null
+  }
+}
+
+export function storeWordsPerPage(layout: string, wordsPerPage: number): void {
+  try {
+    localStorage.setItem(READER_WORDS_PER_PAGE_KEY, JSON.stringify({ layout, wordsPerPage }))
+  } catch { /* a device convenience only */ }
+}
+
 export function storeReaderProgressMode(bookId: string, mode: LabReaderProgressMode): void {
   try {
     const modes = JSON.parse(localStorage.getItem(READER_PROGRESS_MODE_KEY) || '{}')
@@ -676,13 +696,26 @@ export function labReaderProgressLabel(input: {
   chapterPercent: number
   chapterNumber: number
   chapterWordCounts: LabBookPageWeight[]
-  wordsPerPage: number
+  /** Null until a full page has been measured in this layout. */
+  wordsPerPage: number | null
   bookWordCount?: number
   /** Retained for callers that still pass it; the book page is measured, not word-summed. */
   chapterWordsRead?: number
 }): string {
   if (input.mode === 'chapter') {
     return `${labPageNumber(input.currentPage)} / ${labPageNumber(input.totalPages)} of chapter \u00b7 ${input.chapterPercent}%`
+  }
+  if (input.wordsPerPage == null) {
+    // No full page to measure (a one-page chapter opened first): a page count
+    // from a short page would inflate the book, so give the share of words.
+    const weights = labChapterWordWeights(input.chapterWordCounts, input.bookWordCount)
+    const totalWords = weights.reduce((total, chapter) => total + chapter.wordCount, 0)
+    const at = weights.findIndex(chapter => chapter.number === input.chapterNumber)
+    const before = (at >= 0 ? weights.slice(0, at) : weights.filter(chapter => chapter.number < input.chapterNumber))
+      .reduce((total, chapter) => total + chapter.wordCount, 0)
+    const chapterWords = at >= 0 ? weights[at].wordCount : 0
+    const read = before + chapterWords * Math.max(1, input.currentPage) / Math.max(1, input.totalPages)
+    return `${clampPercent(read, totalWords)}% of book`
   }
   const estimate = labBookPageEstimate({
     currentPage: input.currentPage,
