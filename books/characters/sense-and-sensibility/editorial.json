@@ -1,6 +1,6 @@
 {
   "bookId": "sense-and-sensibility",
-  "contentVersion": "2026-10-01.1",
+  "contentVersion": "2026-10-02.1",
   "coverage": "All 24 proposed identities; conservative chapter-end disclosures. Named mentions and reviewed ambiguous titles; no pronoun or exhaustive title coverage.",
   "entities": [
     {
@@ -237,7 +237,7 @@
         "Edward Ferrars"
       ],
       "subtitle": "The Ferrars family",
-      "body": "The elder brother of Mrs. John Dashwood.",
+      "body": "Mrs. John Dashwood’s brother.",
       "roleAfter": [
         3,
         20
@@ -249,21 +249,21 @@
             20
           ],
           "name": "Edward Ferrars",
-          "body": "Fanny’s elder brother, shy and drawn to domestic life."
+          "body": "Mrs. Ferrars’s elder son, shy and drawn to domestic life."
         },
         {
           "after": [
             22,
             54
           ],
-          "body": "Fanny Dashwood’s elder brother. Lucy has told Elinor that she and Edward have been secretly engaged for four years."
+          "body": "Mrs. Ferrars’s elder son. Lucy has told Elinor that she and Edward have been secretly engaged for four years."
         },
         {
           "after": [
             49,
             46
           ],
-          "body": "Fanny Dashwood’s elder brother. Released from his engagement when Lucy marries Robert, he has proposed to Elinor and been accepted."
+          "body": "Mrs. Ferrars’s elder son. Released from his engagement when Lucy marries Robert, he has proposed to Elinor and been accepted."
         }
       ]
     },
@@ -291,6 +291,14 @@
           ],
           "name": "Robert Ferrars",
           "body": "Edward’s younger brother."
+        },
+        {
+          "after": [
+            48,
+            25
+          ],
+          "name": "Robert Ferrars",
+          "body": "Edward’s younger brother. He has recently married Lucy Steele."
         }
       ]
     },
@@ -416,6 +424,22 @@
           ],
           "name": "Colonel Brandon",
           "body": "Sir John’s quiet and gentlemanly friend."
+        },
+        {
+          "after": [
+            39,
+            23
+          ],
+          "name": "Colonel Brandon",
+          "body": "The owner of Delaford and Sir John’s friend. He has told Elinor of his early love, Eliza, and of his ward, Eliza Williams. Hearing that Edward has been disinherited, he asks Elinor to offer Edward the living at Delaford."
+        },
+        {
+          "after": [
+            50,
+            20
+          ],
+          "name": "Colonel Brandon",
+          "body": "The owner of Delaford. He marries Marianne, who in time gives him her whole heart."
         }
       ]
     },
@@ -442,6 +466,30 @@
           ],
           "name": "Willoughby",
           "body": "A young visitor at Allenham who helps Marianne after her fall."
+        },
+        {
+          "after": [
+            30,
+            42
+          ],
+          "name": "John Willoughby",
+          "body": "Marianne’s admirer at Barton. In London he treats her coldly, returns her letters, and is soon to marry the wealthy Miss Grey."
+        },
+        {
+          "after": [
+            31,
+            42
+          ],
+          "name": "John Willoughby",
+          "body": "Marianne’s admirer at Barton, soon to marry the wealthy Miss Grey. Colonel Brandon tells Elinor that Willoughby seduced and abandoned his ward, Eliza Williams, and that the two men have met in a duel."
+        },
+        {
+          "after": [
+            44,
+            83
+          ],
+          "name": "John Willoughby",
+          "body": "Married for money to the former Miss Grey. During Marianne’s illness he comes to Cleveland and tells Elinor that he truly loved Marianne, and that the cruel letter returning hers was copied from his wife’s dictation."
         }
       ]
     },
@@ -637,7 +685,7 @@
             76
           ],
           "name": "Miss Williams",
-          "body": "Miss Williams, a woman mentioned in connection with Colonel Brandon."
+          "body": "A young woman whom Mrs. Jennings calls a near relation of Colonel Brandon."
         },
         {
           "after": [
@@ -671,6 +719,14 @@
           ],
           "name": "Miss Grey",
           "body": "A woman discussed by Mrs. Jennings in connection with Willoughby."
+        },
+        {
+          "after": [
+            44,
+            54
+          ],
+          "name": "Sophia Willoughby",
+          "body": "Willoughby’s wife, formerly Miss Grey, an heiress with fifty thousand pounds."
         }
       ]
     }

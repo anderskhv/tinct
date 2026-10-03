@@ -5,10 +5,11 @@ Policy read at `origin/main` `c268646674fed34ef73cf8ecf32d7c54ebabce40`; task's 
 
 ## Characters
 
-- 31 proposed identities, all present in both editions; 1,090 original and 1,091 modern mentions.
+- 31 proposed identities, all present in both editions; 1,090 original and 1,093 modern mentions (rebuilt 2026-10-02 after independent-review fixes; +2 `alice` at 12:71).
 - 12 chapters / 789 paragraphs per edition. First mentions match all 31 proposal coordinates in both editions.
-- Original SHA-256: `aec5399bf14ddb6c6e84aadda4ada12a36201f48fc1f12f992e1f60b4e88f226`.
-- Modern SHA-256: `a984c60b3a2a81e5b64fa539230efca79fd77929fc5fffe0aea4d3d3605bcd4d`.
+- Original SHA-256: `eb5d6211341148faa3ccc5784d4416ee498dabbb0b23aae052530958f3e6c6a8` (2026-10-02; was `aec5399b…`).
+- Modern SHA-256: `ce04a1b4bae3fdaeb2fd8ca8881ccc2815dba76fc1dbf24b92757e88682a6ff7` (2026-10-02; was `a984c60b…`).
+- Character asset SHA-256: `6da66fa9d2b4744101e4058826b22b11d81b8e9e1eeab91cf34ef9bc32517436`; contentVersion/revision `2026-10-02.1`.
 - Baseline generated with `python3 books/characters/build_generic.py alice-in-wonderland`; final package assembled through unchanged `build_reviewed.compile_package` using `entities/alice-in-wonderland.py:bind` and per-book `editorial.json`. Generic output alone is not the release asset: it cannot restrict contextual matches or delay reveals.
 - 13 delayed snapshots per edition: Dinah's identity, Bill's species and juror role, Duchess appearance, baby/pig continuity, Cheshire name, Hatter and March Hare appearances, Queen's full name/appearance, King's judicial role, Knave's crown-bearing and accusation, Mock Turtle appearance. Gates are paragraph ends, with zero-based `after` paragraph indices.
 - Rabbit/Cat/Queen/King aliases are case-sensitive phrases, not bare global words. Two/Five/Seven match only in chapter 8. Pig only at 6:49 and 6:73, after 6:48. Judge/prisoner aliases start after identifying paragraphs. Mary Ann/Ada/Mabel/Serpent are never Alice aliases. The royal cook at 8:7 is not merged with the Duchess's cook. The sister imagining Alice at 12:71 does not generate a false sister binding.
@@ -40,7 +41,7 @@ shutil.copyfile(p, 'app/public/data/characters/alice-in-wonderland.v1.json')
 ## Introduction
 
 - Library preface reproduces the existing onboarding `about` verbatim, plus a final newline.
-- `manifest-entry.json`: 213 whitespace-delimited words; SHA-256 `c262a37489ac584fbc8a69de39114642ccbbc8b097e57c597baa1b453bdc6242`. Hash covers exact UTF-8 text bytes including the final newline.
+- `manifest-entry.json`: 214 whitespace-delimited words; SHA-256 `552e803aa5b4fbb075f40698de2448b52c6097c000e798409e394a4bb6d1bd0f` (2026-10-02, “nursery rhyme becomes an accusation”). Hash covers exact UTF-8 text bytes including the final newline.
 - Intro JSON matches the existing to-the-lighthouse shape: author biography, hook, four preface paragraphs and orientation. Hook matches `reviewedHooks-entry.txt`. New introduction copy is authoring-agent reviewed, not independently approved.
 - Integrator: append manifest entry to `docs/design/library-prefaces/manifest.json` and hook property to `reviewedHooks` in `app/public/lab/library_2/reviewed-introductions.js`. Neither shared file was edited.
 
@@ -59,3 +60,7 @@ shutil.copyfile(p, 'app/public/data/characters/alice-in-wonderland.v1.json')
 - No app build or browser acceptance in this content-only lane; no shared build-generated files written. No test files, registry, characterReleases registry, audioAvailability manifest, prefaces manifest, reviewedHooks shared file, BOOKS array, live texts, cover/brand/author-image assets changed. No deploy, merge, PR or Anthropic calls.
 - Owned paths: `books/characters/entities/alice-in-wonderland.py`, `books/characters/alice-in-wonderland/` (reviewed inputs/generated outputs), `app/public/data/characters/alice-in-wonderland.v1.json`, `app/src/data/prefaces/alice-in-wonderland.txt`, `app/public/lab/library_2/intro-data/alice-in-wonderland.json`, `app/public/data/editions/alice-in-wonderland-threads.json`, `books/wip/alice-in-wonderland/release/`.
 - Remains STAGED. New copy has authoring-agent review, not independent editorial approval. Retain the carried-forward text/visual review notes above; no claim that this task clears them.
+
+## Independent acceptance — 2026-10-02
+
+ACCEPTED. Independent editorial review findings (verse restorations, 4:25 variant, 12:20, 12:71, 5:18, 4:20, onboarding/preface/intro/thread corrections) are resolved; the carried-forward verse-review coordinates 10:25, 10:26, 10:59, 10:70, 12:45, 12:46 are now verbatim verse. Details, gates and hashes: `../HANDOFF.md` “Independent acceptance” and `../EDITORIAL-FIXES.md`. Remaining items are integration/visual QA only.

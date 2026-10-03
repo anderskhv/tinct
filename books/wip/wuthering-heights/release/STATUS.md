@@ -10,4 +10,6 @@ Branch: content/release-assets-wh-codex.
 4. All four integration snippets and HANDOFF.md complete. Hashes and conservative alias coverage limits recorded.
 
 No publication, deploy, main merge, PR, API calls, narration generation or image changes.
-Resume: none; assigned release-assets package complete. Book remains STAGED.
+5. 2026-10-02 independent editorial review: ACCEPTED, all findings resolved (blocking B1, should-fix 1–10, nits). Modern text, Threads, onboarding cast and character sidecar updated; shards and sidecar regenerated; gates rerun and passing. Character revision 2026-10-02.1. Details and hashes: ../EDITORIAL-FIXES.md and HANDOFF.md.
+
+Resume: none; assigned release-assets package complete. Content ACCEPTED; book remains STAGED (not integrated or published).

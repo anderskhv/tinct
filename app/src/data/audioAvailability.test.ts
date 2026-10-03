@@ -13,17 +13,21 @@ describe('reversible edition discovery availability', () => {
     expect(reviewed).toEqual(actual)
     // 200 after Bible modern-en was withdrawn on 2026-09-11 (NIV-derived text);
     // 201 with the Berean Standard Bible (streamed narration) on 2026-09-25;
-    // 202 with the WEB Catholic Edition; 204 with both Lighthouse editions.
-    expect(new Set(reviewed).size).toBe(204)
-    expect(manifest.eligible_editions).toHaveLength(158)
+    // 202 with the WEB Catholic Edition; 204 with both Lighthouse editions;
+    // 212 with Alice, Wuthering Heights, Middlemarch and Sense and Sensibility
+    // (streamed narration, 2026-10-03).
+    expect(new Set(reviewed).size).toBe(212)
+    expect(manifest.eligible_editions).toHaveLength(166)
     expect(manifest.held_editions).toHaveLength(46)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
-    expect(PRE_READER_CATALOGUE.books).toHaveLength(101)
+    // 105 with the four books published 2026-10-03.
+    expect(PRE_READER_CATALOGUE.books).toHaveLength(105)
     // 2026-10-02 rights holds: gilgamesh, social-contract, discourse-on-inequality,
-    // symposium and second-treatise leave discovery (94 -> 89).
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(89)
+    // symposium and second-treatise leave discovery (94 -> 89); 93 with the
+    // four books published 2026-10-03.
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(93)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!

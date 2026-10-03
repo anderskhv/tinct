@@ -17,3 +17,8 @@
 - Item 3 COMPLETE: threads for 22 figures, 181 character/unit entries, both editions, all live units 1–88. Schema and numbering checks PASS. Chapter placement reviewed against accepted edition text.
 - Final character refinement: exclude Captain and Sir Godwin Lydgate from Tertius; distinguish Farebrother’s mother/sister; eight gates now include Raffles’s connection with Bulstrode. Character-service suite remains 497/497 PASS; every Middlemarch mention resolves and preserves highlights; all final gate boundaries PASS.
 - Item 4 COMPLETE: all five Claude handoff files under `release/`; exact asset/source hashes and regeneration instructions included. Final determinism, JSON, preface provenance and owned-path checks PASS. Items 1–4 complete; no resume work outstanding within this assignment. Shared integration remains deferred; Middlemarch stays STAGED.
+
+## Independent editorial review — 2026-10-02
+
+- Acceptance: **ACCEPTED with findings resolved** (independent review). Pass F applied 59 edits in 55 modern-en paragraphs (Caleb's "deuce", original mild oaths, 88:24 closing line, 41:93, 33:44, ALL-CAPS → italics, nits), onboarding `acclaim` (Woolf, verified) and `estimatedTime` (~23 h from modern-en). Record: `EDITORIAL-FIXES.md` Pass F; hashes in `release/HANDOFF.md`.
+- Shards and character asset regenerated (contentVersion `2026-10-02.1`). All gates PASS. Published: NO.

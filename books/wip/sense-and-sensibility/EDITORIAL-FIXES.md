@@ -455,3 +455,431 @@ All straight apostrophes (`'`) in the modern edition (638 paragraphs) were conve
 ## Verification
 
 See the commit message and handoff report for the commands run.
+
+# Independent editorial review fixes — 2026-10-02
+
+Second pass, applied from the independent editorial review (SHOULD-FIX 1–8 and all nits). Modern-en text: 120 exact, once-only replacements in 107 paragraphs (listed below); 50 chapters and 1,806 aligned paragraphs unchanged; original-en untouched. Coordinates are `chapter:paragraph`, 1-based, unless marked zero-based. Supporting content (threads, onboarding, character cards) is listed after the text changes.
+
+Notes on choices:
+- 44:55 keeps the source’s emphasis on _not_ inside the reviewer’s sentence.
+- 37:5 (Donavan quoted) and 37:7 (Mrs. Jennings quoting her own question to Donavan) use “Mrs. John Dashwood”, since “your sister-in-law” cannot be said to Donavan; 37:7’s narration-in-speech “Mrs. Dashwood declared” became “Your sister-in-law declared”.
+- 37:37: the two exclamatory fragments were joined into one sentence.
+- 20:44: “he supports the opposition” was ambiguous between Mr. Palmer and Willoughby; it now names Mr. Willoughby.
+- Italics: every paragraph with fewer `_emphasis_` spans than the source (89) was checked; emphasis was restored where it carries meaning (contrast, insistence, irony). Left unrestored where the modern wording already carries the stress or the term was deliberately modernised: 36:12 _gaucherie_ (“social awkwardness”), 39:15 _sang-froid_ (“complete composure”), 41:2 _would_ (“insisted on”), 42:16, 45:4 and 45:5 (_she_/_would_ conveyed by sentence structure).
+- Every changed paragraph still meets the 75% word floor (2:3 is exactly 0.750).
+
+### SHOULD-FIX 1: 2:3 duplicated phrase
+
+- `2:3`
+  - before: And what possible claim on his generosity could the Miss Dashwoods possibly have on so much generosity?
+  - after: And what possible claim could the Miss Dashwoods have on so much generosity?
+
+### SHOULD-FIX 2: Steele sisters’ ungrammatical speech restored (35:4, 35:17 Lucy; 38:22 Anne; 49:14 Lucy’s letter; 49:18 Edward’s “defects of its style” now refers to it)
+
+- `35:4`
+  - before: it really seemed to say she had quite taken a liking to me. Didn’t it? You saw everything. Weren’t you struck by it too?
+  - after: it really seemed to say she had quite took a fancy to me. Didn’t it? You saw everything. Wasn’t you quite struck with it?
+- `35:17`
+  - before: if Mrs. Ferrars had disliked me.
+  - after: if Mrs. Ferrars had took a dislike to me.
+- `35:17`
+  - before: I should have given up everything in despair.
+  - after: I should have gave it all up in despair.
+- `38:22`
+  - before: the sewing cases back that she had given us a day or two earlier
+  - after: the sewing cases back that she had gave us a day or two earlier
+- `38:22`
+  - before: Edward says he has business at Oxford, so he must go there for a while.
+  - after: Edward have got some business at Oxford, he says, so he must go there for a while.
+- `49:14`
+  - before: but I refuse to accept a hand when the heart belongs to another. I sincerely wish you happiness in your choice.
+  - after: but I scorn to accept a hand while the heart was another’s. Sincerely wish you happy in your choice.
+- `49:14`
+  - before: are on our way to Dawlish for a few weeks. Your dear brother is very curious to see it. I thought I would first trouble you
+  - after: are on our way to Dawlish for a few weeks, which place your dear brother has great curiosity to see, but thought I would first trouble you
+- `49:18`
+  - before: whose contents have compensated me for its style.
+  - after: whose contents have made up for the defects of its style.
+
+### SHOULD-FIX 3: “Mrs. Dashwood” meaning Fanny
+
+- `34:2`
+  - before: equally pleased with Mrs. Dashwood.
+  - after: equally pleased with Mrs. John Dashwood.
+- `34:4`
+  - before: to London with Mr. and Mrs. Dashwood.
+  - after: to London with Mr. and Mrs. John Dashwood.
+- `35:9`
+  - before: how agreeable Mrs. Dashwood was!
+  - after: how agreeable your sister-in-law was!
+- `35:15`
+  - before: Lady Middleton is delighted with Mrs. Dashwood,
+  - after: Lady Middleton is delighted with your sister-in-law,
+- `36:26`
+  - before: Mrs. Dashwood seemed actually to be working for her, herself, encouraging
+  - after: Fanny herself seemed actually to be working on her behalf, encouraging
+- `36:28`
+  - before: Mrs. Dashwood had never liked
+  - after: Mrs. John Dashwood had never liked
+- `37:5`
+  - before: I hope Mrs. Dashwood will recover very well.
+  - after: I hope Mrs. John Dashwood will recover very well.
+- `37:7`
+  - before: ‘is Mrs. Dashwood ill?’
+  - after: ‘is Mrs. John Dashwood ill?’
+- `37:7`
+  - before: Mrs. Dashwood declared they should not stay in the house another minute. Your brother had to kneel as well to persuade her
+  - after: Your sister-in-law declared they should not stay in the house another minute. Your brother had to go down on _his_ knees too, to persuade her
+- `41:4`
+  - before: She was told Mrs. Dashwood was not receiving visitors.
+  - after: She was told Mrs. John Dashwood was not receiving visitors.
+
+### SHOULD-FIX 4: meaning/fluency
+
+- `44:55`
+  - before: Had he _not_ told me, as an inducement, that you and your sister would be there, I should have felt it too certain a thing to trust myself near him.
+  - after: Even if he had _not_ told me, to tempt me, that you and your sister would be there, I would have been too sure of it to trust myself near him.
+- `37:37`
+  - before: Who could wonder, after such deception! Such ingratitude, where so much kindness and trust had been shown!
+  - after: And who could wonder at it, after being so deceived and meeting with such ingratitude, where so much kindness and trust had been shown!
+
+### Nits
+
+- `20:22`
+  - before: Then you would both be very ill bred,
+  - after: Then you would be very ill bred,
+- `20:44`
+  - before: I do not think Mr. Palmer would visit. You know, he supports the opposition,
+  - after: I do not think Mr. Palmer would visit him. Mr. Willoughby supports the opposition, you know,
+- `30:22`
+  - before: How Charlotte and I ate the only time we visited!
+  - after: How Charlotte and I stuffed ourselves the only time we visited!
+- `30:40`
+  - before: He has been very dishonest!
+  - after: He has been very deceitful!
+- `35:21`
+  - before: and his conscience could not share Elinor’s complete ease.
+  - after: and his conscience could not be quite as much at ease as Elinor’s.
+- `44:40`
+  - before: At the height of her morality, good woman! She offered
+  - after: At the height of her morality—good woman!—she offered
+- `29:15`
+  - before: “I remain, dear Madam, “Your most obedient “and humble servant,
+  - after: “I am, dear Madam, “Your most obedient “humble servant,
+- `50:18`
+  - before: supplied him with a considerable measure of domestic happiness.
+  - after: supplied him with no inconsiderable degree of domestic happiness.
+- `1:9`
+  - before: Her own sense of honour was so acute, and her generosity so romantic,
+  - after: But in _her_ mind the sense of honour was so acute, and the generosity so romantic,
+
+### Meaningful italics restored
+
+- `2:7`
+  - before: Very well, then, do something for them. But that something
+  - after: Very well, then, _let_ something be done for them. But _that_ something
+- `2:11`
+  - before: even for sisters who were really his sisters!
+  - after: even for sisters who were _really_ his sisters!
+- `2:13`
+  - before: Who knows what they may expect?
+  - after: Who knows what _they_ may expect?
+- `2:21`
+  - before: one’s fortune is no longer one’s own.
+  - after: one’s fortune is _not_ one’s own.
+- `2:24`
+  - before: to give something to you.
+  - after: to give something to _you_.
+- `2:26`
+  - before: Still, there is one thing to remember.
+  - after: Still, there is _one_ thing to remember.
+- `2:28`
+  - before: any place they will ever
+  - after: any place _they_ will ever
+- `2:28`
+  - before: thought of nobody but them.
+  - after: thought of nobody but _them_.
+- `2:28`
+  - before: he would have left them almost
+  - after: he would have left _them_ almost
+- `3:15`
+  - before: but she will be happy.
+  - after: but _she_ will be happy.
+- `3:19`
+  - before: But you insisted on giving him Cowper.
+  - after: But you _would_ give him Cowper.
+- `3:20`
+  - before: would have broken my heart.
+  - after: would have broken _my_ heart.
+- `4:4`
+  - before: and if you held that opinion,
+  - after: and if _that_ were your opinion,
+- `4:15`
+  - before: But you must not believe anything beyond that.
+  - after: But you must _not_ believe anything beyond that.
+- `4:17`
+  - before: I shall not lose you quite so quickly,
+  - after: _I_ shall not lose you quite so quickly,
+- `4:19`
+  - before: tried to entrap him,
+  - after: tried to _draw him in_,
+- `4:21`
+  - before: On that point, therefore,
+  - after: On _that_ point, therefore,
+- `5:5`
+  - before: It was also Elinor’s good sense that
+  - after: It was _her_ good sense, too, that
+- `8:1`
+  - before: he was rich, and she was beautiful.
+  - after: _he_ was rich, and _she_ was beautiful.
+- `8:4`
+  - before: old enough to be my father.
+  - after: old enough to be _my_ father.
+- `8:7`
+  - before: constant fear of my decline.
+  - after: constant fear of _my_ decline.
+- `8:15`
+  - before: “I did not.
+  - after: “_I_ did not.
+- `9:13`
+  - before: Is he here in the neighbourhood?
+  - after: Is _he_ here in the neighbourhood?
+- `9:18`
+  - before: “Is that all you can tell us
+  - after: “Is _that_ all you can tell us
+- `9:20`
+  - before: much about all that.
+  - after: much about all _that_.
+- `9:24`
+  - before: either of my daughters trying to do what you call catching him.
+  - after: either of _my_ daughters trying to do what you call _catching him_.
+- `10:4`
+  - before: quite well for a single morning.
+  - after: quite well for _one_ morning.
+- `10:17`
+  - before: “Your taking him under your protection,”
+  - after: “That _you_ take him under your protection,”
+- `10:19`
+  - before: your protégé.
+  - after: your _protégé_.
+- `10:20`
+  - before: “My protégé,
+  - after: “My _protégé_,
+- `10:22`
+  - before: he would have told me so
+  - after: he _would_ have told me so
+- `10:24`
+  - before: his observations have gone much further than your willingness
+  - after: _his_ observations have gone much further than _your_ willingness
+- `10:27`
+  - before: any praise I can offer
+  - after: any praise _I_ can offer
+- `12:3`
+  - before: Any horse would do for him;
+  - after: Any horse would do for _him_;
+- `12:12`
+  - before: great-uncle of his.
+  - after: great-uncle of _his_.
+- `12:24`
+  - before: “No, he certainly is not.
+  - after: “No, _that_ he certainly is not.
+- `13:29`
+  - before: spare even a single hour.
+  - after: spare even _one_ hour.
+- `13:64`
+  - before: discover where you had gone.
+  - after: discover _where_ you had gone.
+- `13:76`
+  - before: going to Allenham was rather unwise of me.
+  - after: going to Allenham _was_ rather unwise of me.
+- `14:2`
+  - before: He is hardly likely to have financial difficulties now,
+  - after: He is hardly likely to have financial difficulties _now_,
+- `14:7`
+  - before: No, I shall never agree to that.
+  - after: No, _that_ I shall never agree to.
+- `15:14`
+  - before: how far that would please
+  - after: how far _that_ would please
+- `15:23`
+  - before: You must have noticed
+  - after: _You_ must have noticed
+- `15:24`
+  - before: I could see that plainly.
+  - after: I could see _that_ plainly.
+- `15:26`
+  - before: I know it will not satisfy you; still, you will not persuade me
+  - after: I know it will not satisfy _you_; still, you will not persuade _me_
+- `15:26`
+  - before: He also knows that she disapproves of the connection,
+  - after: He also knows that she _does_ disapprove of the connection,
+- `15:26`
+  - before: may or may not be what happened.
+  - after: may or may _not_ be what happened.
+- `15:31`
+  - before: if they are engaged
+  - after: if they _are_ engaged
+- `15:37`
+  - before: everything except one circumstance
+  - after: everything except _one_ circumstance
+- `15:37`
+  - before: But that one circumstance
+  - after: But that _one_ circumstance
+- `15:42`
+  - before: I need no such proof.
+  - after: _I_ need no such proof.
+- `15:44`
+  - before: We have not known him long,
+  - after: _We_ have not known him long,
+- `16:12`
+  - before: Though perhaps that may not happen
+  - after: Though perhaps _that_ may not happen
+- `16:15`
+  - before: Marianne’s thoughts could not be controlled,
+  - after: Marianne’s _thoughts_ could not be controlled,
+- `16:21`
+  - before: to smile at him,
+  - after: to smile at _him_,
+- `16:33`
+  - before: But sometimes they are.
+  - after: But _sometimes_ they are.
+- `17:11`
+  - before: What you call enough and what I call wealth
+  - after: What _you_ call enough and what _I_ call wealth
+- `17:12`
+  - before: no more than that.
+  - after: no more than _that_.
+- `17:13`
+  - before: “Two thousand a year! One thousand
+  - after: “_Two_ thousand a year! _One_ thousand
+- `17:33`
+  - before: “you need not reproach me
+  - after: “_you_ need not reproach me
+- `17:34`
+  - before: part of my character.
+  - after: part of _my_ character.
+- `18:17`
+  - before: “You must come for tea tonight,”
+  - after: “You _must_ come for tea tonight,”
+- `18:18`
+  - before: That will tempt you, Miss Marianne.
+  - after: That will tempt _you_, Miss Marianne.
+- `19:11`
+  - before: her sister’s feelings were quiet,
+  - after: her sister’s feelings _were_ quiet,
+- `19:20`
+  - before: before beginning her own story.
+  - after: before beginning _her_ story.
+- `20:56`
+  - before: Mama says he was in love
+  - after: Mama says _he_ was in love
+- `21:4`
+  - before: You are my cousins and they are my wife’s,
+  - after: _You_ are my cousins and they are my wife’s,
+- `21:25`
+  - before: anyone who has seen it must admire it,
+  - after: anyone who has seen it _must_ admire it,
+- `22:4`
+  - before: Elinor did think it very odd.
+  - after: Elinor _did_ think it very odd.
+- `22:9`
+  - before: I could trust you without
+  - after: I could trust _you_ without
+- `22:9`
+  - before: no need to trouble you.
+  - after: no need to trouble _you_.
+- `22:10`
+  - before: “I am sorry too,” Elinor said in great astonishment, “if knowing my opinion of her could be useful to you.
+  - after: “I am sorry I do _not_,” Elinor said in great astonishment, “if knowing my opinion of her could be useful to _you_.
+- `22:11`
+  - before: But the time may come
+  - after: But the time _may_ come
+- `22:14`
+  - before: not Mr. Robert Ferrars.
+  - after: not Mr. _Robert_ Ferrars.
+- `22:31`
+  - before: never any occasion to mention
+  - after: never any _occasion_ to mention
+- `22:31`
+  - before: That alone was reason
+  - after: _That_ alone was reason
+- `22:52`
+  - before: Elinor recognised his handwriting
+  - after: Elinor saw that it _was_ his handwriting
+- `22:53`
+  - before: “Yes, I have one other comfort
+  - after: “Yes, _I_ have one other comfort
+- `22:53`
+  - before: does not even have that.
+  - after: does not even have _that_.
+- `31:17`
+  - before: She saw it in his troubled,
+  - after: She saw _that_ concern in his troubled,
+- `31:30`
+  - before: He had already done what no man capable of feeling for another could do.
+  - after: He had already done what no man who _can_ feel for another would do.
+- `33:9`
+  - before: And you must introduce me to the Middletons too.
+  - after: And the Middletons too—you must introduce me to _them_.
+- `35:23`
+  - before: and in the most generous way:
+  - after: and _that_ in the most generous way:
+- `37:7`
+  - before: That _is_ strange!
+  - after: _That_ is strange!
+- `38:12`
+  - before: I would never have known he preferred it
+  - after: I would never have known he _did_ prefer it
+- `40:35`
+  - before: Because you are my friend and my family’s, perhaps—indeed, I know—he takes still greater pleasure in giving it to you.
+  - after: Because you are my friend and my family’s, he may perhaps—indeed, I know he _does_—take still greater pleasure in giving it to you.
+- `40:43`
+  - before: They parted with her earnest assurance that
+  - after: They parted with an earnest assurance on _her_ side that
+- `41:33`
+  - before: Their effect, though quite different, was no less striking.
+  - after: Their effect on Robert, though quite different, was no less striking than it had been on _him_.
+- `45:24`
+  - before: there must surely be
+  - after: there _must_ surely be
+- `47:9`
+  - before: Your own honour and honesty
+  - after: _Your_ own honour and honesty
+
+### Threads (`app/public/data/editions/sense-and-sensibility-threads.json`, both editions’ summaries)
+
+- Elinor ch20: contradictions now concern Willoughby (Mrs. Palmer “knows him extremely well” but has never spoken to him), not Colonel Brandon.
+- Elinor ch30 and Brandon ch30: Brandon tells Elinor what he overheard in a Pall Mall shop about Willoughby’s settled marriage to Miss Grey; he still believes Marianne was engaged. (Previously said Brandon learned there was no engagement.)
+- Lucy ch47: “A servant reports meeting Lucy, newly married as Mrs. Ferrars; the family understand that she has married Edward.”
+- Anne ch32: “Anne repeats her cousins’ teasing about ‘the Doctor’; they call her Nancy.”
+- Fanny ch36: she invites the Steeles to avoid having John’s sisters to stay while Mrs. Jennings is away.
+- Fanny ch3: “Fanny’s elder brother” → “Mrs. Ferrars’s elder son” (the source says Edward was “the eldest son”; it never says he is older than Fanny).
+
+### Onboarding (`app/public/data/onboarding/sense-and-sensibility.json`)
+
+- Edward role: “Fanny’s elder brother” → “Mrs. Ferrars’s elder son”.
+- Fanny: “Born a Ferrars, she guards…” → “She guards her household’s money and her son’s prospects closely.” (avoids the chapter 3 family reveal). `about` unchanged, so the library preface and intro data are unaffected.
+
+### Character cards (`books/characters/sense-and-sensibility/editorial.json`, entity module, rebuilt asset)
+
+- Edward: base body “The elder brother of Mrs. John Dashwood.” → “Mrs. John Dashwood’s brother.”; snapshots after zero-based 3:20, 22:54 and 49:46 now begin “Mrs. Ferrars’s elder son”.
+- Miss Williams (chapter-13 card): “Miss Williams, a woman mentioned…” → “A young woman whom Mrs. Jennings calls a near relation of Colonel Brandon.” (attributed; no paternity claim).
+- New snapshots (gates zero-based, released at the end of the paragraph):
+  - Willoughby after 30:42 (end ch30): admirer at Barton; in London treats Marianne coldly, returns her letters, soon to marry the wealthy Miss Grey.
+  - Willoughby after 31:42 (end ch31): adds Brandon’s account — seduced and abandoned his ward Eliza Williams; the two men met in a duel.
+  - Willoughby after 44:83 (end ch44): married for money to the former Miss Grey; at Cleveland tells Elinor he truly loved Marianne and that the cruel letter was copied from his wife’s dictation.
+  - Brandon after 39:23 (end ch39): owner of Delaford; has told Elinor about the two Elizas; asks Elinor to offer the disinherited Edward the Delaford living.
+  - Brandon after 50:20 (end ch50): marries Marianne, who in time gives him her whole heart.
+  - Miss Grey after 44:54: “Sophia Willoughby — Willoughby’s wife, formerly Miss Grey, an heiress with fifty thousand pounds.” Released inside chapter 44 at the first “Sophia” (the marriage itself was reported in chapter 32; 44:51 “Remember that you are married”).
+  - Robert after 48:25 (end ch48): Edward’s younger brother, recently married to Lucy Steele.
+- `contentVersion` 2026-10-01.1 → 2026-10-02.1 (the `characterReleases` snippet revision follows).
+- Modern-en mentions 3,317 → 3,314: three “Mrs. Dashwood” (Fanny) mentions became “your sister-in-law” in Lucy’s/Mrs. Jennings’s speech (35:9, 35:15, 37:7). Original-en unchanged at 3,106.
+
+## Verification (2026-10-02)
+
+- Whole-book gate PASS: weighted similarity 0.482; 0/50 light/mechanical; 0/1,478 identical long paragraphs; 0 wrapped scaffolding; 0 truncated quotations (`qa/gate-whole-book.txt`). Batch gates 1–10 (0.461), 1–12 (0.460), 13–16 (0.501), 13–22 (0.491), 23–32 (0.493), 33–42 (0.499), 41–50 (0.466) all PASS.
+- Truncation audit: TOTAL 0 (`qa/truncation-whole-book.txt`).
+- Structure: 50/50 chapters, numbers/titles/paragraph counts aligned, 1,806 nonempty paragraphs; modern 106,113 words (89.44%); minimum paragraph ratio 0.750.
+- Shards regenerated with `node scripts/split-edition-chapters.cjs sense-and-sensibility-modern-en` (no `--write-registry`): 35 chapter files changed, manifest unchanged; all 50 shards in both editions equal the edition files.
+- Characters rebuilt with `python3 books/characters/build_generic.py sense-and-sensibility` then `python3 books/characters/entities/sense-and-sensibility.py`, copied to `app/public/data/characters/`. `npx vitest run src/services/characters`: 487/487. Out-of-tree in-memory check (registration injected only in the test process): `verifyCharacters` passes for both editions, every mention resolves, and each new snapshot is hidden before and shown after its gate; no “elder brother” claim remains.
+- Threads: 24 identities, 209 entries, chapters 1–50, both editions’ summaries present. Onboarding: opening excerpt still matches original 1:1; 3 whyItMatters, 4 angle cards, 11 cast; no acclaim.

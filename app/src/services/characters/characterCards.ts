@@ -21,6 +21,11 @@ const EN = ['original-en', 'modern-en']
  */
 export const characterReleases: Record<string, { editions: string[]; revision: string; perEdition?: boolean }> = {
   'to-the-lighthouse': { editions: EN, revision: '2026-09-25.1' },
+  // 2026-10-02.1 — independently accepted packages, published 2026-10-03
+  'alice-in-wonderland': { editions: EN, revision: '2026-10-02.1' },
+  'wuthering-heights': { editions: EN, revision: '2026-10-02.1' },
+  middlemarch: { editions: EN, revision: '2026-10-02.1' },
+  'sense-and-sensibility': { editions: EN, revision: '2026-10-02.1' },
   // 2026-09-09.2 — pilots
   'the-awakening': { editions: EN, revision: '2026-09-09.2' },
   // 2026-09-30.1 — every appearance linked in four editions. The 16.5 MB package

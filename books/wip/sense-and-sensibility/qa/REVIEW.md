@@ -1,6 +1,6 @@
 # Full-book editorial QA
 
-Candidate complete; independent acceptance pending. This is an author review record, not an independent reviewer’s approval.
+**ACCEPTED (2026-10-02) — independent editorial review complete, all findings resolved.** The sections below are the original author review record; the independent review and its resolution follow at the end. Figures in the author sections describe the pre-review candidate; current figures are in “Independent review and acceptance”.
 
 ## Structural and automated checks
 
@@ -32,8 +32,27 @@ All 24 character evidence quotations match their original-en coordinates. Identi
 
 Taxonomy and metadata remain proposals. No unsupported acclaim or named canon membership is asserted.
 
-## Remaining acceptance requirement
+## Independent review and acceptance
 
-The mandatory book workflow requires independent reviews. No independent semantic/accessibility or character/spoiler review has occurred. The session prohibits spawning reviewer agents without explicit authorization; a request was presented and remains unanswered. These author checks and automated results must not be represented as independent acceptance. The complete candidate is ready for that review; acceptance status remains NOT READY until it is completed and findings resolved.
+An independent editorial review (separate reviewer, not the authoring agent) read the release-candidate modern-en (`4b8753a6…378f`) against the source, together with onboarding, threads and character cards, for meaning, accessibility, voice, character identity and spoiler gating. Its findings, all resolved on 2026-10-02 (details with before/after text in EDITORIAL-FIXES.md):
 
-Modern candidate SHA-256: c86c2708f95b94c9bd8eecb54873cfe988f00ede3853a10c42c04a28316df512.
+1. 2:3 duplicated “generosity” clause — fixed.
+2. Lucy’s and Anne Steele’s ungrammatical speech had been normalised — restored, readably, at 35:4, 35:17, 38:22 and in Lucy’s letter 49:14, so Edward’s complaint about its style (49:18) makes sense.
+3. Modern “Mrs. Dashwood” meaning Fanny in London (34:2, 34:4, 35:9, 35:15, 36:26, 36:28, 37:5, 37:7 ×2, 41:4) — now “Fanny”/“Mrs. John Dashwood” in narration and quoted naming, “your sister-in-law” in Lucy’s/Mrs. Jennings’s speech.
+4. 44:55 conditional meaning, 36:26 awkward “herself”, 37:37 fragment — rewritten.
+5. Threads: Elinor/Brandon ch30 (Brandon still believes Marianne was engaged), Lucy ch47, Anne ch32, Fanny ch36, Elinor ch20 (Willoughby, not Brandon) — corrected.
+6. Unsupported “Fanny’s elder brother” — now “Mrs. Ferrars’s elder son” (onboarding cast, Edward card body and snapshots, threads Fanny ch3).
+7. Missing progressive cards — added Willoughby (after ch30/31/44), Brandon (after ch39/50), Miss Grey as Willoughby’s wife (from 44:54 zero-based), Robert (after ch48), written strictly from the text and verified hidden before their gates.
+8. Package records reconciled (this file, STATUS.md, EDITORIAL-FIXES.md, HANDOFF.md, release/HANDOFF.md, release/STATUS.md, validation-summary.json).
+Nits: 20:22, 20:44, 30:22, 30:40, 35:21, 44:40, 29:15 (letter close restored verbatim), 50:18, meaningful italics restored across 80+ paragraphs (deliberately modernised foreign terms and stress already carried by syntax left as documented), Miss Williams card body, onboarding Fanny “Born a Ferrars” removed.
+
+Gates rerun on the final text: whole-book PASS (0.482; 0/50 light/mechanical; 0/1,478 identical long; 0 scaffolding; 0 truncated quotations); batch gates 1–10, 1–12, 13–16, 13–22, 23–32, 33–42, 41–50 PASS; truncation audit 0; structure/alignment PASS (1,806 paragraphs, minimum word ratio 0.750, 106,113 words = 89.44%); shard equality PASS; character asset verifies in both editions (487/487 character-service tests plus in-memory gate checks).
+
+Acceptance: **ACCEPTED, findings resolved**, against these exact hashes:
+- original-en `26ccda9547c41d41a808e57c43834c4d9199f9164f7872e297cca4b73820d4c0`
+- modern-en `789a6dfb5025e0b96604b0cf7c258c3444792c175d1e18f62969cbbd52412928`
+- onboarding `d2e5e7810b9dcc7b6d6284210d135cfa3378c7d3b746a72f31ad0a0a1194c251`
+- threads `212b6d4ef59e66d6aeb95089156dce373e552053994a5a37c217b213504d4305`
+- characters `c968fe82a9cb09e0e129ba7a62e9ed85091222488e518358844c2918842d0c20`
+
+Text acceptance is not publication; integration and release remain with Codex.

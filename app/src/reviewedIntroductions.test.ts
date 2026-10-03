@@ -8,6 +8,12 @@ import { applyReviewedIntroduction, reviewedCast, reviewedHooks } from '../publi
 const json = (path: string) => JSON.parse(readFileSync(resolve(__dirname, path), 'utf8'))
 const source = json('../../books/wip/featured-content-20260929/featured-copy.json')
 const gallery = json('../../books/wip/featured-content-20260929/character-galleries.json')
+// Books published 2026-10-03 from their own accepted release packages
+// (books/wip/<id>/release), outside the two 29 September copy batches.
+const RELEASE_BOOKS = ['alice-in-wonderland', 'wuthering-heights', 'middlemarch', 'sense-and-sensibility']
+// Only Jane Austen has an existing reviewed portrait; Carroll, Emily Brontë and
+// Eliot have none, so their flaps show no image (no manifest entry).
+const RELEASE_IMAGES: Record<string, string[]> = { 'sense-and-sensibility': ['jane-austen'] }
 
 describe('reviewed library introductions', () => {
   it('preserves all supplied prose exactly and retains the ten existing book identities', () => {
@@ -61,9 +67,11 @@ describe('reviewed library introductions', () => {
 
 describe('reviewed author image coverage and credits', () => {
   const manifest=json('../public/lab/library_2/author-images.json')
-  it('maps each of the 101 supplied books to reviewed local images', () => {
-    expect(manifest.books).toHaveLength(101)
-    expect(new Set(manifest.books.map(book=>book.bookId)).size).toBe(101)
+  it('maps each of the 101 supplied books (plus release-package books with a portrait) to reviewed local images', () => {
+    const total = 101 + Object.keys(RELEASE_IMAGES).length
+    expect(manifest.books).toHaveLength(total)
+    expect(new Set(manifest.books.map(book=>book.bookId)).size).toBe(total)
+    for (const [id, imageIds] of Object.entries(RELEASE_IMAGES)) expect(manifest.books.find(book=>book.bookId===id).imageIds).toEqual(imageIds)
     expect(manifest.images).toHaveLength(63)
     for(const book of manifest.books) {
       expect(book.imageIds.length,book.bookId).toBeGreaterThan(0)
@@ -103,8 +111,8 @@ describe('remaining ninety reviewed introductions', () => {
     expect(batch.books).toHaveLength(90)
     const allIds=[...source.books,...batch.books].map(book=>book.id)
     expect(new Set(allIds).size).toBe(101)
-    expect([...allIds].sort()).toEqual(images.books.map(book=>book.bookId).sort())
-    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds].sort())
+    expect([...allIds].sort()).toEqual(images.books.map(book=>book.bookId).filter(id=>!RELEASE_BOOKS.includes(id)).sort())
+    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds, ...RELEASE_BOOKS].sort())
     for(const accepted of batch.books){
       const copy=json('../public/lab/library_2/intro-data/'+accepted.id+'.json')
       expect(copy.id).toBe(accepted.id)
@@ -134,5 +142,21 @@ describe('remaining ninety reviewed introductions', () => {
       expect(book.orientation).toBe(accepted.orientation.text)
       expect(reviewedCast(book)).toBeNull()
     }
+  })
+})
+
+describe('release-package introductions (published 2026-10-03)', () => {
+  it.each(RELEASE_BOOKS)('%s uses the accepted hook, introduction and preface verbatim', id => {
+    const snippet = readFileSync(resolve(__dirname, '../../books/wip/' + id + '/release/reviewedHooks-entry.txt'), 'utf8').trim().replace(/,$/, '')
+    const hook = JSON.parse('{' + snippet + '}')[id]
+    const copy = json('../public/lab/library_2/intro-data/' + id + '.json')
+    expect(copy.id).toBe(id)
+    expect(reviewedHooks[id]).toBe(hook)
+    expect(copy.hook.text).toBe(hook)
+    const preface = readFileSync(resolve(__dirname, 'data/prefaces/' + id + '.txt'), 'utf8')
+    expect(preface).toBe(json('../public/data/onboarding/' + id + '.json').about + '\n')
+    const book = { id, characters: [] as unknown[] }
+    applyReviewedIntroduction(book, copy)
+    expect(book).toMatchObject({ reviewedIntroduction: true, hook })
   })
 })

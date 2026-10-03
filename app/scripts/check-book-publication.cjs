@@ -1,7 +1,9 @@
 // Silent, isolated built/live acceptance. No synthesis, microphone or account writes.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
-assert(['to-the-lighthouse','symposium'].includes(book));fs.mkdirSync(out,{recursive:true})
+// Books published through a reviewed release package (books/wip/<id>/release).
+const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility']
+assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
 const results={book,live,assets:[],cases:[]}
@@ -64,7 +66,8 @@ async function main(){
   if(book==='symposium')files.push('brand/20260921/books/to-the-lighthouse.jpg')
   for(const ed of ['original-en','modern-en']){
    const dir='data/editions-chapters/'+book+'-'+ed
-   files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
+   // Small editions (Alice's original) are served whole and have no shards.
+   if(fs.existsSync('public/'+dir))files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
   }
   if(book==='symposium')files.push('data/edition-migrations/symposium.positions.json','data/edition-migrations/symposium.highlights.json','data/editions/symposium-modern-da.json')
   for(const file of files){
@@ -94,8 +97,12 @@ async function main(){
   const info=await(await fetch(origin+'/api/narration/voices')).json()
   assert.equal(info.provider,'grok');assert.equal(info.enabled,true);results.provider=info.provider
  }
- for(const [device,engine,phone] of [['phone',webkit,true],['desktop',chromium,false]]){
-  const browser=await engine.launch({headless:true,...(!phone?{args:['--mute-audio']}:{})})
+ // Local fallback for sandboxes without WebKit: PUBLICATION_PHONE_ENGINE=chromium
+ // runs the phone layout in Chromium; PLAYWRIGHT_CHROMIUM_PATH pins a Chromium binary.
+ const phoneEngine=process.env.PUBLICATION_PHONE_ENGINE==='chromium'?chromium:webkit
+ const executablePath=process.env.PLAYWRIGHT_CHROMIUM_PATH
+ for(const [device,engine,phone] of [['phone',phoneEngine,true],['desktop',chromium,false]]){
+  const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(executablePath?{executablePath}:{})}:{})})
   try{
    for(const ed of ['modern-en','original-en']){
     const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "bookId": "wuthering-heights",
   "language": "en",
-  "contentVersion": "2026-10-01.1",
+  "contentVersion": "2026-10-02.1",
   "normalization": "prose-reader-v1",
   "offsetUnit": "utf16",
   "reviewStatus": "authoring-agent-reviewed",
@@ -3068,13 +3068,32 @@
               },
               "name": "Zillah",
               "subtitle": "A servant at the Heights",
-              "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.",
+              "body": "Mrs. Heathcliff names her among the household at the Heights.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
                   "chapterNumber": 2,
                   "paragraphIndex": 69,
                   "throughOffset": 40
+                }
+              ]
+            },
+            {
+              "id": "zillah-1",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 87,
+                "offset": 560
+              },
+              "name": "Zillah",
+              "subtitle": "A servant at the Heights",
+              "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.",
+              "editorialBasis": "Identity clarification released at the end of the reviewed source paragraph.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 87,
+                  "throughOffset": 560
                 }
               ]
             }
@@ -10598,7 +10617,7 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "catherine-linton-younger",
+          "characterId": "isabella-linton",
           "chapterNumber": 18,
           "paragraphIndex": 12,
           "startOffset": 7,
@@ -15696,7 +15715,7 @@
     },
     "modern-en": {
       "sourcePath": "app/public/data/editions/wuthering-heights-modern-en.json",
-      "sourceSha256": "4f53fd00781213c8f1c7e44f15f2b0488cfc4a2e684f8d54d5968d4e4a5d882e",
+      "sourceSha256": "2ffc01f3d29a6f2087ea0bff09ed69d26e32e5ffb748bf9e4e29d22755dc75c8",
       "chapterCount": 34,
       "paragraphCount": 1931,
       "paragraphHashes": {
@@ -15850,7 +15869,7 @@
           "f6f0353810ac2b86038894638fa84394c37033d4369148bf675b2cfa5e79c8fd",
           "996e80dec5e70d2c9fe5c3530bb3d1d811bd4daa9b6f0f86fbea830e41e1f2df",
           "25e89fa0e09c6a353aeca88e47194bf42607730c012abbdc5ea93cabbd6a41ee",
-          "df148f01385778c47864b38db4e6bce791c2658b66cc7c8ce9c59705825321f7",
+          "03057e399c4717cd059ec351c70a0bbb782934c6b7c4eaba9d76af3125b82627",
           "cd3fa0ca1cd1fa679a402602d4a8901dbe287e0d7470cb65bc1a337cdde1c0e8",
           "df44da06812bede4cb406696e2f71cd1cf0591d7f1692ff622c7c2cdf13c51dd",
           "cf2cf58d232136e2aeb5668714b55020f6ddaa84c973684dd0dc9ec2d497abae",
@@ -15880,7 +15899,7 @@
           "200a913e849ab4faab03c32bad7b59072096447b42a054225735511d8325337a",
           "23df060a3a06ddb02e6c87850c841d79f7d12fcae090f0958039ff6f79d8af00",
           "04f86acb6ec39589dd6da9a93bcbab0331cf5f4e8656aca8556e26443d10d110",
-          "f2322e83662b651cc2d37cda2509807f4b238e12d676a9c6956e20cd596070dc",
+          "3165c99710ea30790ee43d61dd4560b59ee43a7e2b0ab3ffad8d74d46820f6b3",
           "0b495828a27e82fbe89e368f7d2ee5bf2beaa6dddc3268dfff6fe1acc8ad791e",
           "087f0d410677662bc7bae175d9168e333f6483b2b199b9adcf103d801650be59",
           "a37fe55cd2e4e2ad992e6802d9ecab9f8611c658aa8b66cf88725b89c7b1853d",
@@ -16174,7 +16193,7 @@
           "7244945e8fbdadfef85c66ca876dc114471764b261a3dc80e32ac1575e4268a0",
           "f1e771acbbe9dd27daa0b8511635194ecac8e1d64647bff36b3dcc3e1397a131",
           "e1ab031b396acfd9b6a6908286ece215cdeb9300541364f2c13bdd8eed079e47",
-          "1c9c5cfeced4c22f9e3a0152448cec0ac6ac2ea081bae894bd2abc0b53259dec",
+          "4b5d60bc54a5f5b34e5477d504e17d604e14d4b6a2f2038897c45eea2f674fa1",
           "8ff96150bcdf2ab511cee25d4478cafee6a6636bfa9867e888e1a522522dc275",
           "ae45445b16da7b4807eba7870585be438ff0f15a148f0e6bf91cb87033ba80c8",
           "0a68c319f997ebffd0b55444d849014675331c07c73e7488aa75e20b4053fb62",
@@ -16589,7 +16608,7 @@
         ],
         "15": [
           "497e52afbf0ce1dd602998d885e6afd6952f0fa95e64fe45b226255b57dc6b1b",
-          "6d33753d74640ca980cef9324109f18236bf9d95da3ad6ff4b4dd58f7a8104e1",
+          "94aaa1e0fa2935278e815971aaaca76f6fc6ea21066658659bed3001934321b7",
           "0d2ed2445475fc2fcd12e101b97c033bdd7f403d8fb5b08d8d5c0cca487c138c",
           "6c9cf901dc4d1896ae51a3452533e41c0c568184059e5d876e3e0fc0f74ccfd9",
           "fcbf3192ba0e1fb9f5d744b34b8967794757c6e9ee06b4c8a17ee6bc2a3bce89",
@@ -16654,7 +16673,7 @@
           "e74603c76fa79c3c75c7ff7f33a41c8a1ac793344b261090a9ade7b04a603b29",
           "8ccb57c9c5dadf1f09d2ad07841fb42cd4d9ec26436a4f6d5262a116127ed9d9",
           "150c44de903d2732b7cef4dc3ddd264ca156bded54e9283c1358d234c95b360c",
-          "b655a6b7966a81d2c93a75b0f6c4e8c3007db08f2124d473d5a7c712251311cd",
+          "9e6b42a5b73ed550899599b724790b2a9c723bcf65a0143f62fca0ff815fc9c0",
           "910a1a930ecc90527ebc24e4d5b3085b2f72dbbad7d68be421d45bf0071d2b91",
           "698f016eaaddd0278abc814ed1b939e6bd454b22c9a30246033a2072203c5864",
           "f4a3da39215e64fd8b78f74028b1651bc734a8089582001661616e87ecd7b6b0",
@@ -17039,7 +17058,7 @@
           "0f10881c024ca96c50fca320e191aa1e8abe08477805ea1b0f4ed5a01497eedc",
           "dbbccc5d287c37e782a2bf91b986347fb2a7b5f6a7ae5cb3209b1b5cd5a31a17",
           "ce042a97f03c17e925eec3ef95efd09a9e7ad1403b3801af7a09addff40c707b",
-          "e177f80f830e81a373bdfadb4a7d062295d8be0d21af7f2c85fba6619bcfdf61",
+          "69ec1978a7491a46ba75e9adab1d8e7922b01b2fff532a2b12df7b6cd1fd62e0",
           "9c867af5fe0b0e3b434d29ac667931c0d0756e8dba4e5856ae7122fb68bec569",
           "da200f5921939a1d3ef1cccf3a44899323559765cd826c8609de5b7183e683e3",
           "414d5af8cac764adbfc0823c00b7ea2f0bc69791b392b7e46d64aadf16b99988",
@@ -17197,7 +17216,7 @@
           "e449264d75dedcfebb4da80d110e42697d2e43695383e4d7fbb558bbfe58fd07",
           "ad86e1d841bf0a2b55d0fba65185a9fea66236b289ed2d6284fd90cdff4b5f89",
           "349c7b2dd39612ce189f4fc5bd4ad08b8c8ddd8339d4eff2d00b549b37fbf758",
-          "8bbd2544c05c898d21fe4e9edf57417fb8d50bac76778693084a074c8b431c0e",
+          "e13f1a99addd17acc4b8e5e43d2a4c1cd5abd5111a84c051d8bd7dadd50a51e2",
           "7358bd006cfb31cd95937ed1a77a501b3194b1dcf0d0e711c2c2a8b09697efd5",
           "f61db3fe5e49c595e3bc60e293c790d88a955618bd0feb9446c608cff846db50",
           "dbbed4cd0b6e7b832a8f27f00888385ff4fa0177f45e8fa78a125135eb368862"
@@ -17277,7 +17296,7 @@
           "c42998530f74be0c85aa4359b5420aa20f16cd19e605f0b06980112432d00a8c",
           "a5d701acbb85ac02fcf2b8a0fd86c2e08c37d8da8b390337d3f47e45e9547119",
           "f9afe1fa11e772b3b748e8c257013d5c23822d5024f4fda7315980b66d1856ab",
-          "8b7a43b3fdd29e75380574fac53809f0849036e4770d5d0420b7c3fc0a826757",
+          "d585fca1d0190acfb0bc33c6ae71ceb31c861c4b2b60a02558bd8009a98ea4e9",
           "a5d77679b3b48ef537c8e1e281842a25500387a7c77577fa6632b665b175095b",
           "94f85bf0820ab424a6c4ed0e27e1a0ecd0508c28621c73b0bcd8e3e2af9df876",
           "f5baa37f94c1cd292ba731f261a76e99b3da2e30ea998b93929b25928826d2a2",
@@ -17377,8 +17396,8 @@
           "0ac96183850db7b6f3615f7745395ce2dd22849709db51778913e9c8ef7d1615",
           "f82b4f126ed21061d1ef65f12c67edac60670f4a8474e195e0de7341d9fce156",
           "7fe5f50b56508caa7a38f367f164950a92a2404471c8e32997048c6478e4226b",
-          "da81313f5f6d8ecd6bc65ba580c2426063f6c86e7f333a9048081a23eb756a7b",
-          "3300a48da6d087d66fb92ca407a7a7968d365ac939a82bb0a1f07b5f6491e354",
+          "5a60c6e4a1dd475fb7906595239f9a41671ddee0b623fd69900184641062b2af",
+          "aecb0bdff67557dec713963ba8b662994c937c0b9cdc7766decd926fa2c86f8f",
           "d46a379cf15a39e9d1336f2f1c51bae67335c970d86bb0b276433b787dc81e7d",
           "b7b78d417a0c06b2f28f3f3cea5bba89162045c92e5bd8d638d9c9ca64643712",
           "60f89489ff4557b47b4b36bea99f41f8ae3f5aa07a8734c72d361edbfd48227f",
@@ -17386,7 +17405,7 @@
           "7f1f99d87f51a8cf9977a5382341f6cca345b209ae0c5ef3d72198bbb0c4b167"
         ],
         "30": [
-          "ef98b13079ac144ed1ebcb0a4332e80d321812825ad7c1fa6843a9e0f1f086e4",
+          "e71a32386ee3e1506f18a0894381726f22fc6bd0d9c443527342888f05ce1207",
           "70545b951bca82539c17cb21e65ea8dfaf0736530c76793f59e225895962127d",
           "838c481e5c5183d7faf9e2fe52e71c74eb88dc899a319b70e75e78aa6b2dcd6d",
           "c72084465ed4ecc01ea16faaffc03ac9292b4ff79766d00e574cf0c1abfc9a0e",
@@ -17410,12 +17429,12 @@
           "1bb991a8f7f7827ae31e09e74c92836946f0232ae45fa59e000047926ed6852e",
           "0297cec6391f0216f20e764027227badaa7b31e3c87b43bb145ea9bffaddcad8",
           "027223783c0053fc0306cbd9a124243217a31d5c95cef25b862fdfafc9957b12",
-          "22a9cab577f1e1efa1c52989b0f7dc78638999ebeb9b4609462d6ef323b4eebb",
+          "fc33f905f65ad1dbaf56d509cc2e73d298f68a25337dd06c1b1ca6d90825b495",
           "38f106d37ffbab1e3a29fcb069b2d7d86cb4e7fe10d22752b40f61c55a4186f4",
           "9a380fc8e4595b106df1ff96f4724d630c4d3050b14d214a81d2e8ee7f054042",
           "9abd0300a0dde9f5f94a5b1eaeb93aa478d5930317318c99b337bb6d46a5dbe4",
           "cfc09c756b66456bc3bf32a7182526d31d20b8f9418503965df9340e6de2a2d2",
-          "24d59348423b2d9859939dab0b328d2c31f1015e11a102e5c87d7c92e6d43547",
+          "05842afef66ce22504c5a0883403b929db8741e88f87def4fadea9d87d85e571",
           "21c87c7308db1ede48d9da408fb25ee5a2137e10d32f4f1d01ec5867db390167",
           "0d08af71621d43ac1b4ed6c2ce02663450e39073a3478a59c5e0aa18ae7af229",
           "0169e11ef045a7b71cdad67e1deeeab814b9cebac22cde5a2c849ae8219480b4",
@@ -17596,7 +17615,7 @@
           "e46bbad9ad147f8ae14ea3d6a7a040f734e27b2ec3c75a9b1018b4b6355ac82a",
           "15ffe2e368823e6fae90083aac6f5fc1a363af771b2f9a56315d88f102d19e21",
           "7f7bbab84d6d059185127d4961df4b0b368368254113f913066346f174840476",
-          "e11a8d3c4519e283bdef9267ffaeb2c0d9952f250e36625f285c8935c86817bb",
+          "18faad9d57b80e72c3de187971ab8a39c08429e517089da664bc5f9fb8125c35",
           "cb47f27a3d0831a86dc433d9fedfe5fea2d3dc75626dbbc5c80f4de6d3828432",
           "d61b47b294e4964bcc26aecb7201d0e9506faab992d55d83fd831fe7aeba1a91",
           "4b92284e3f2798923dd0f6ccf0ce17c1807214059e73886a57457a286362c3b4",
@@ -17632,8 +17651,8 @@
           "f6034ff2878973a151a2464e9693b60218593d2e760f6248d5daa96f7d2ea5f6",
           "91123daead1f26407fb26b679f1b34598c21a80bcf3503bc87e86565cc24c254",
           "908dcc4a265e4ac6e1a9006f4125e76e11b63e34170d1cfef9df1b95fa02ddfa",
-          "0b16daa7a60053606ea7fb2ac793d93e73dc5b6e6f1b71fb83b9961c66234636",
-          "46047bf176a4d2a263611ca94b3f2be6ff6c1c5ebd0c8bd2055a4950f84087e1",
+          "03b94b7dfc2c73171278904650d81652e2e5141a53992607f97d233ee8ef5885",
+          "7ef644afcebb8ae1489f6ee618a4f67ec1a058a795f0c26135d4026cb3da966e",
           "d2b1b1d77da05023c7c001de4401cbbb5f2b2833630defc5ab5b9440151013af",
           "b9d147ecc565f2888ac4a1395036f8f663f1b3a574354ba8620b7d99f77bbdd1",
           "7afa8a560647292c2410604dbaba7831b470695741c4473c176467e220762c0c",
@@ -17643,7 +17662,7 @@
           "cf1e31a8a549563b84cb25b0a1f96d4d840bfa86e4c5cfdffaea0343453e9277",
           "0abecff7f9d7b2492895d9c1e7f79704723391ff043a1278fd8a084c263b2bd5",
           "60681a8c9746c2d55e8d6ff4b6a8a6bf029b32679ab0e2cc8c9f94d1b2f87be1",
-          "73b29b31265009992b25729d953e0228744eb4771d29d2b6aa7717f39566a288",
+          "299a3c5857081106b32e284106b63b228853e99b1bed7a07974a85bc71277e4c",
           "aa91fe3f64eb5201817051cfc3352ace31a98270a14b6eafd181def5d4b9f238",
           "9d6abc0ec3c279ce94f11df5f0f9d2cf200b82c1e00ac0b528f018a021d796d7",
           "e69818e0330f9a5246a9a64972685aebc07087779e82c6d46b22001485956656",
@@ -17684,7 +17703,7 @@
           "9f3b091bc451a2aa08d7b1d45857cd021f062394f69474eaee8edaab9994a722",
           "59d7a24bfb2c6b0fc19f21560013d60869024ed00a842ff70ff33ccdfbfb76db",
           "42f712d41c1f949f2fd83a7eae8d5c3615345aa0b1f360bd168018948a50108c",
-          "a97827fa9794175ea56019d373bbdd9564802e638075f82226d2bd598879df5e",
+          "8449ae9e29154c20dda118d1187d231d683f47364c92e8629e99554037ad7910",
           "c198a7ed66877952e71390944e3e201a1ba595b9d51beac936e295952d083ea1",
           "2c093dc9de9edd8f65ac755bf5cea198ab31e08636b9f59b9a4d177dcb811a31",
           "44a1c0f5c67a77a2b6ac349da81d12fc968f5ef06c70fbb669170a51cd531261",
@@ -18755,13 +18774,32 @@
               },
               "name": "Zillah",
               "subtitle": "A servant at the Heights",
-              "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.",
+              "body": "Mrs. Heathcliff names her among the household at the Heights.",
               "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
               "evidence": [
                 {
                   "chapterNumber": 2,
                   "paragraphIndex": 69,
                   "throughOffset": 35
+                }
+              ]
+            },
+            {
+              "id": "zillah-1",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 87,
+                "offset": 477
+              },
+              "name": "Zillah",
+              "subtitle": "A servant at the Heights",
+              "body": "She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.",
+              "editorialBasis": "Identity clarification released at the end of the reviewed source paragraph.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 87,
+                  "throughOffset": 477
                 }
               ]
             }
@@ -19691,8 +19729,8 @@
           "characterId": "heathcliff",
           "chapterNumber": 3,
           "paragraphIndex": 57,
-          "startOffset": 501,
-          "endOffset": 511,
+          "startOffset": 494,
+          "endOffset": 504,
           "text": "Heathcliff",
           "resolution": "reviewed-name"
         },
@@ -19700,8 +19738,8 @@
           "characterId": "zillah",
           "chapterNumber": 3,
           "paragraphIndex": 57,
-          "startOffset": 606,
-          "endOffset": 612,
+          "startOffset": 599,
+          "endOffset": 605,
           "text": "Zillah",
           "resolution": "reviewed-name"
         },
@@ -21209,15 +21247,6 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "mr-earnshaw-elder",
-          "chapterNumber": 8,
-          "paragraphIndex": 0,
-          "startOffset": 79,
-          "endOffset": 91,
-          "text": "old Earnshaw",
-          "resolution": "reviewed-name"
-        },
-        {
           "characterId": "hindley-earnshaw",
           "chapterNumber": 8,
           "paragraphIndex": 1,
@@ -22103,8 +22132,8 @@
           "characterId": "heathcliff",
           "chapterNumber": 9,
           "paragraphIndex": 82,
-          "startOffset": 475,
-          "endOffset": 485,
+          "startOffset": 495,
+          "endOffset": 505,
           "text": "Heathcliff",
           "resolution": "reviewed-name"
         },
@@ -22112,8 +22141,8 @@
           "characterId": "ellen-dean",
           "chapterNumber": 9,
           "paragraphIndex": 82,
-          "startOffset": 571,
-          "endOffset": 576,
+          "startOffset": 576,
+          "endOffset": 581,
           "text": "Nelly",
           "resolution": "reviewed-name"
         },
@@ -25379,8 +25408,8 @@
           "characterId": "heathcliff",
           "chapterNumber": 15,
           "paragraphIndex": 1,
-          "startOffset": 111,
-          "endOffset": 125,
+          "startOffset": 108,
+          "endOffset": 122,
           "text": "Mr. Heathcliff",
           "resolution": "reviewed-name"
         },
@@ -25667,8 +25696,8 @@
           "characterId": "catherine-earnshaw",
           "chapterNumber": 16,
           "paragraphIndex": 15,
-          "startOffset": 367,
-          "endOffset": 385,
+          "startOffset": 369,
+          "endOffset": 387,
           "text": "Catherine Earnshaw",
           "resolution": "reviewed-name"
         },
@@ -26600,7 +26629,7 @@
           "resolution": "reviewed-name"
         },
         {
-          "characterId": "catherine-linton-younger",
+          "characterId": "isabella-linton",
           "chapterNumber": 18,
           "paragraphIndex": 12,
           "startOffset": 11,
@@ -29780,8 +29809,8 @@
           "characterId": "hareton-earnshaw",
           "chapterNumber": 29,
           "paragraphIndex": 16,
-          "startOffset": 2929,
-          "endOffset": 2936,
+          "startOffset": 2930,
+          "endOffset": 2937,
           "text": "Hareton",
           "resolution": "reviewed-name"
         },
@@ -29789,8 +29818,8 @@
           "characterId": "joseph",
           "chapterNumber": 29,
           "paragraphIndex": 16,
-          "startOffset": 3583,
-          "endOffset": 3589,
+          "startOffset": 3584,
+          "endOffset": 3590,
           "text": "Joseph",
           "resolution": "reviewed-name"
         },
@@ -29861,8 +29890,8 @@
           "characterId": "zillah",
           "chapterNumber": 30,
           "paragraphIndex": 0,
-          "startOffset": 210,
-          "endOffset": 216,
+          "startOffset": 208,
+          "endOffset": 214,
           "text": "Zillah",
           "resolution": "reviewed-name"
         },
@@ -29870,8 +29899,8 @@
           "characterId": "zillah",
           "chapterNumber": 30,
           "paragraphIndex": 0,
-          "startOffset": 455,
-          "endOffset": 461,
+          "startOffset": 453,
+          "endOffset": 459,
           "text": "Zillah",
           "resolution": "reviewed-name"
         },
@@ -29879,8 +29908,8 @@
           "characterId": "heathcliff",
           "chapterNumber": 30,
           "paragraphIndex": 0,
-          "startOffset": 476,
-          "endOffset": 490,
+          "startOffset": 474,
+          "endOffset": 488,
           "text": "Mr. Heathcliff",
           "resolution": "reviewed-name"
         },
@@ -29888,8 +29917,8 @@
           "characterId": "zillah",
           "chapterNumber": 30,
           "paragraphIndex": 0,
-          "startOffset": 579,
-          "endOffset": 585,
+          "startOffset": 577,
+          "endOffset": 583,
           "text": "Zillah",
           "resolution": "reviewed-name"
         },
@@ -29897,8 +29926,8 @@
           "characterId": "zillah",
           "chapterNumber": 30,
           "paragraphIndex": 0,
-          "startOffset": 862,
-          "endOffset": 868,
+          "startOffset": 860,
+          "endOffset": 866,
           "text": "Zillah",
           "resolution": "reviewed-name"
         },
@@ -31301,8 +31330,8 @@
           "characterId": "ellen-dean",
           "chapterNumber": 33,
           "paragraphIndex": 38,
-          "startOffset": 576,
-          "endOffset": 585,
+          "startOffset": 577,
+          "endOffset": 586,
           "text": "Mrs. Dean",
           "resolution": "reviewed-name"
         },
@@ -31310,8 +31339,8 @@
           "characterId": "hareton-earnshaw",
           "chapterNumber": 33,
           "paragraphIndex": 38,
-          "startOffset": 662,
-          "endOffset": 678,
+          "startOffset": 663,
+          "endOffset": 679,
           "text": "Hareton Earnshaw",
           "resolution": "reviewed-name"
         },
@@ -31319,8 +31348,8 @@
           "characterId": "ellen-dean",
           "chapterNumber": 33,
           "paragraphIndex": 38,
-          "startOffset": 817,
-          "endOffset": 822,
+          "startOffset": 818,
+          "endOffset": 823,
           "text": "Nelly",
           "resolution": "reviewed-name"
         },

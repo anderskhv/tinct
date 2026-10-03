@@ -116,7 +116,9 @@ Kenneth is the medical practitioner consulted by the household. His opinions rea
 
 ## Zillah · supporting
 
-She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.
+Mrs. Heathcliff names her among the household at the Heights.
+
+After source chapter 2, paragraph 88: She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.
 
 ## Mr. Shielders · reference
 

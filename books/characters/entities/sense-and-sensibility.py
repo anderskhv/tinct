@@ -1,7 +1,7 @@
 """Offline baseline; ambiguous names are bound only in the reviewed build."""
 BOOK_ID = "sense-and-sensibility"
 LANGUAGE = "en"
-CONTENT_VERSION = "2026-10-01.1"
+CONTENT_VERSION = "2026-10-02.1"
 EDITIONS = ["original-en", "modern-en"]
 
 ENTITIES = [{'id': 'elinor-dashwood',
@@ -66,7 +66,7 @@ ENTITIES = [{'id': 'elinor-dashwood',
   'aliases': ['Edward', 'Mr. Edward Ferrars', 'Edward Ferrars'],
   'displayName': 'Edward Ferrars',
   'subtitle': 'The Ferrars family',
-  'body': 'The elder brother of Mrs. John Dashwood.'},
+  'body': 'Mrs. John Dashwood’s brother.'},
  {'id': 'robert-ferrars',
   'kind': 'person',
   'storyRole': 'supporting',
