@@ -20,6 +20,7 @@ import {
   affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
   isResumeListenCommand,
+  typedTextAsksToMove,
   LAB_VOICE_TOOLS,
   labConversationState,
   labReadingAngle,
@@ -767,7 +768,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         setAssistantPace(paced.pace)
         voice.setAssistantPace(paced.pace)
       }
-      const skip = (lookupConsent || chapterRequest) ? null : skipped.skip
+      const skip = (lookupConsent || chapterRequest || !typedTextAsksToMove(text)) ? null : skipped.skip
       const resume = (lookupConsent || chapterRequest) ? false : resumed.resume
       let resumeAfterNavigation = false
       if (skip) {
