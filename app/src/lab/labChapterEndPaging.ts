@@ -6,9 +6,19 @@ function pageOf(segments: ChapterPageSegment[]): ChapterHearingPage {
 
 /** Reserve the measured chapter actions on the final leaf without creating
  * an actions-only page. Earlier pages and logical source coordinates stay intact. */
+/** A page may begin cleanly at a paragraph's start or after a sentence ends. */
+export function cleanPageStarts(words: ReadonlyArray<ReadonlyArray<{ text: string }>>): (paragraphIndex: number, wordIndex: number) => boolean {
+  return (paragraphIndex, wordIndex) => wordIndex === 0
+    || /[.!?;:]["'”’)\]]*$/.test(words[paragraphIndex]?.[wordIndex - 1]?.text ?? '')
+}
+
+/** The carried tail may grow to this share of the page to reach a clean break. */
+const CLEAN_BREAK_REACH = 1 / 3
+
 export function fitChapterEnd(
   pages: ChapterHearingPage[],
   fits: (segments: ChapterPageSegment[], first: boolean) => boolean,
+  cleanStart?: (paragraphIndex: number, wordIndex: number) => boolean,
 ): ChapterHearingPage[] {
   if (!pages.length) return pages
   const last = chapterPageSegments(pages[pages.length - 1])
@@ -47,6 +57,27 @@ export function fitChapterEnd(
     if (fits(split(mid)[1], false)) high = mid
     else low = mid + 1
   }
-  const [before, after] = split(low)
+  // Prefer to start the actions' leaf at a sentence or paragraph rather than
+  // mid-sentence ("…my words to" | "him."), carrying a little more if needed.
+  let cut = low
+  if (cleanStart) {
+    const at = (index: number) => {
+      let remaining = index
+      for (const segment of last) {
+        const length = segment.to - segment.from
+        if (remaining < length) return { paragraphIndex: segment.paragraphIndex, wordIndex: segment.from + remaining }
+        remaining -= length
+      }
+      return null
+    }
+    const floor = Math.max(1, Math.floor(count * (1 - CLEAN_BREAK_REACH)))
+    for (let candidate = low; candidate >= floor; candidate -= 1) {
+      const place = at(candidate)
+      if (!place || !cleanStart(place.paragraphIndex, place.wordIndex)) continue
+      if (fits(split(candidate)[1], false)) cut = candidate
+      break
+    }
+  }
+  const [before, after] = split(cut)
   return [...pages.slice(0, -1), pageOf(before), pageOf(after)]
 }

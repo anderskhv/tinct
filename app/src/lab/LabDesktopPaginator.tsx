@@ -1,7 +1,7 @@
 import { proseRuns, sliceJoinsPrevious } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
-import { fitChapterEnd } from './labChapterEndPaging'
+import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
@@ -44,6 +44,11 @@ export interface LabPaginationStart {
   headBreak?: number
 }
 
+/** Fewer words than this left of a paragraph would open the next page as a stray line. */
+const WIDOW_WORDS = 4
+/** How far back a stray line may reach for the start of its sentence. */
+const WIDOW_SENTENCE_REACH = 14
+
 export function measuredDesktopPages(
   lengths: number[],
   fits: (segments: ChapterPageSegment[], first: boolean) => boolean,
@@ -80,6 +85,16 @@ export function measuredDesktopPages(
       }
       if (low === from && segments.length) { commit(); continue }
       let to = Math.max(from + 1, low)
+      // A paragraph's last word or two never open a page alone ("God."):
+      // carry their whole sentence when it starts close by, else a few words.
+      if (paragraphs && to < length && length - to < WIDOW_WORDS && length - WIDOW_WORDS > from) {
+        const words = tokenizeHearingWords(paragraphs[paragraphIndex])
+        let cut = length - WIDOW_WORDS
+        for (let start = to; start > Math.max(from, length - WIDOW_SENTENCE_REACH); start--) {
+          if (/[.!?;:][”’"')]*$/.test(words[start - 1]?.text || '')) { cut = Math.min(cut, start); break }
+        }
+        to = cut
+      }
       if (paragraphs && to < length) {
         const words = tokenizeHearingWords(paragraphs[paragraphIndex])
         // Avoid a page ending with just the first word or two of a new
@@ -280,7 +295,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             // it if the complete action row fits; the matching folio is hidden.
             const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 16
             endInFooter = !comparison && !lastFits && !!end && end.getBoundingClientRect().height <= footerSpace
-            if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true))
+            if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true), cleanPageStarts(source))
           }
           if (end) end.hidden = true
           header.hidden = true

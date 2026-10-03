@@ -91,6 +91,57 @@ Interpretation rules:
 - If a change touches position, pagination, sync, or chapter navigation, trace the actual data flow before patching.
 - Automated browser checks must use an isolated headless context with audio muted or disabled. Do not take focus, navigate shared personal browser tabs, request microphone access, or produce audible playback. Physical or audible UI testing requires an explicitly agreed testing window.
 
+## Privacy
+
+The notice at `app/public/privacy.html` (tinct.app/privacy) is a promise to
+readers; code must keep it true. Most work never touches it: books, editions,
+narration text, reader layout, styling and navigation need no privacy check.
+This section applies only when a change alters **what personal data is
+collected, where it is sent, how long it is kept, or who can see it**.
+
+When a change does that, keep the notice true in the same PR: if
+`privacy.html` no longer describes what the code does (a new analytics field,
+storage key holding reader data, email type or provider), update it and say so
+in the PR body. Routine accuracy edits need no approval; a new category of
+personal data, a new third party, or anything the notice calls significant goes
+to Anders first (the notice promises readers an email about significant
+changes).
+
+Standing commitments (changing any of these is Anders's decision):
+
+- No selling or sharing reader data for advertising, no ads, no tracking
+  cookies, no third-party analytics or advertising scripts. Analytics are
+  first-party only.
+- Reader data goes only to the providers the notice names: Supabase, Cloudflare,
+  Anthropic, xAI, OpenAI (source checks only), Stripe, Brevo and Google
+  sign-in. AI calls send only what the feature needs (passage, messages,
+  recent reading history), never opt into provider training, and OpenAI
+  requests ask not to store. Narration requests carry book text only.
+- Talk uses the microphone only while a conversation is open; Tinct stores no
+  audio, only the transcript in chat history. No new Android permissions; no
+  location, contacts, photos or camera.
+- Usage records hold counts and cost, never message content. Anonymous usage is
+  keyed by an IP-derived code, never the raw IP (short-lived rate-limit keys
+  may use it).
+- Optional email goes only to `profiles.email_opt_in = true`; the sign-up
+  checkbox stays unticked by default. Service emails (password reset,
+  issue-report replies) are exempt.
+- Sign-out clears reader data and the device id from the browser
+  (`clearLocalUserData`).
+- Every per-user store is covered by account export and deletion
+  (`app/src/worker/routes/adminAccounts.ts`, `docs/account-deletion.md`). A new
+  table, Durable Object field, KV/R2 key or Stripe object holding per-user data
+  must be added to both in the same PR. New Supabase tables holding user data
+  get row-level security limited to the owner.
+- Retention follows the notice; do not keep data longer or add storage that
+  bypasses the cleanup.
+
+Agents and real reader data: do not read production user rows, analytics,
+chats or exports without Anders's approval for that task; test with synthetic
+or own test accounts. Never commit reader data, emails or exports to this
+public repo, and never paste them into outside services. Aggregate numbers
+Anders asks for are fine.
+
 ## Verification
 
 For app changes, use:

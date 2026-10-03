@@ -473,3 +473,23 @@ describe('whole-book progress with only nearby chapters loaded', () => {
     expect(readLabPrefs('desktop')).toMatchObject({ voicePersona: 'female', voicePersonaChosen: true })
   })
 })
+
+describe('reader progress mode', () => {
+  it('long books default to chapter progress, everything else to book progress', async () => {
+    const { defaultReaderProgressMode } = await import('./labPrefs')
+    expect(defaultReaderProgressMode(783000)).toBe('chapter')
+    expect(defaultReaderProgressMode(210000)).toBe('chapter')
+    expect(defaultReaderProgressMode(10000)).toBe('book')
+    expect(defaultReaderProgressMode(undefined)).toBe('book')
+  })
+
+  it('remembers the reader\'s choice per book', async () => {
+    const { readStoredReaderProgressMode, storeReaderProgressMode } = await import('./labPrefs')
+    localStorage.clear()
+    expect(readStoredReaderProgressMode('bible')).toBeNull()
+    storeReaderProgressMode('bible', 'book')
+    storeReaderProgressMode('the-manual', 'chapter')
+    expect(readStoredReaderProgressMode('bible')).toBe('book')
+    expect(readStoredReaderProgressMode('the-manual')).toBe('chapter')
+  })
+})
