@@ -1841,7 +1841,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "symbol"
     ],
     "shelves": [
-      "american-novels"
+      "american-novels",
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2020,7 +2021,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Jules Verne",
     "year": "1873",
     "ySort": 1873,
-    "form": "children",
+    "form": "novel",
     "era": "modern",
     "hue": 60,
     "blurb": "Phileas Fogg bets the club; the clock starts.",
@@ -2030,7 +2031,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "travel"
     ],
     "shelves": [
-      "childrens-classics"
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2185,7 +2186,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Rudyard Kipling",
     "year": "1894",
     "ySort": 1894,
-    "form": "children",
+    "form": "novel",
     "era": "modern",
     "hue": 90,
     "blurb": "A boy raised by wolves; assorted other tales.",
@@ -2195,7 +2196,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "law"
     ],
     "shelves": [
-      "childrens-classics"
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2241,7 +2242,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "journey"
     ],
     "shelves": [
-      "english-novels"
+      "english-novels",
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -2277,7 +2279,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "author": "Frances Hodgson Burnett",
     "year": "1905",
     "ySort": 1905,
-    "form": "children",
+    "form": "novel",
     "era": "contemporary",
     "hue": 310,
     "blurb": "A girl loses everything; her imagination keeps her warm.",
@@ -2287,7 +2289,7 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "school"
     ],
     "shelves": [
-      "childrens-classics"
+      "english-novels"
     ],
     "langs": [
       "EN",
@@ -2333,7 +2335,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "madness"
     ],
     "shelves": [
-      "satirical-novels"
+      "satirical-novels",
+      "adventure"
     ],
     "langs": [
       "EN",
@@ -3017,10 +3020,10 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "The art of conflict",
     "hue": 35
   },
-  "childrens-classics": {
-    "title": "Children's Classics",
-    "sub": "Books that grew up readers",
-    "hue": 310
+  "adventure": {
+    "title": "Adventure",
+    "sub": "Journeys, wagers and the open sea",
+    "hue": 60
   }
 }
 
@@ -3077,6 +3080,7 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "nordic-novels",
       "gothic-novels",
       "satirical-novels",
+      "adventure",
       "detective-fiction"
     ]
   },
@@ -3119,15 +3123,6 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "on-war",
       "strategy"
     ]
-  },
-  {
-    "id": "young",
-    "title": "For Younger Readers",
-    "sub": "Classics that grew up readers",
-    "hue": 310,
-    "shelves": [
-      "childrens-classics"
-    ]
   }
 ]
 
@@ -3167,10 +3162,6 @@ export const LIBRARY_FORMS = [
   {
     "id": "scripture",
     "label": "Scripture"
-  },
-  {
-    "id": "children",
-    "label": "Children"
   },
   {
     "id": "strategy",

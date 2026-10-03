@@ -20,7 +20,7 @@ export function inPeriod(book, period) {
   return Number.isFinite(year) && year>=period.from && year<period.to;
 }
 export function populatedShelves(category, houses, books) {
-  const houseId=({political:'politics',children:'young'})[category]||category;
+  const houseId=({political:'politics'})[category]||category;
   const ids=new Set(books.map(book=>book.id));
   return (houses.find(h=>h.id===houseId)?.shelves||[])
     .map(s=>({...s,bookIds:s.bookIds.filter(id=>ids.has(id))})).filter(s=>s.bookIds.length);
