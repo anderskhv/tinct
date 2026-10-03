@@ -1,5 +1,7 @@
 # Sense and Sensibility — complete candidate, independent acceptance pending
 
+> **Superseded status (2026-10-02): ACCEPTED.** Independent editorial review complete and all findings resolved. Current accepted hashes: modern-en `789a6dfb5025e0b96604b0cf7c258c3444792c175d1e18f62969cbbd52412928`, original-en `26ccda95…d4c0` (unchanged), onboarding `d2e5e7810b9dcc7b6d6284210d135cfa3378c7d3b746a72f31ad0a0a1194c251`, threads `212b6d4e…4305`, characters `c968fe82…0c20`. See STATUS.md, qa/REVIEW.md, EDITORIAL-FIXES.md and release/HANDOFF.md. The “NOT READY” text below is the historical record of the earlier candidate.
+
 Repository: `anderskhv/tinct`.
 Branch: `content/sense-and-sensibility-codex`.
 Owned package: `books/wip/sense-and-sensibility/`.

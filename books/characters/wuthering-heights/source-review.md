@@ -108,7 +108,7 @@ Kenneth is the medical practitioner consulted by the household. His opinions rea
 
 “Who? There is himself, Earnshaw, Zillah, Joseph and I. Which would you have?”
 
-She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.
+Mrs. Heathcliff names her among the household at the Heights.
 
 ## original-en · shielders · 6:10
 
@@ -222,7 +222,7 @@ Kenneth is the medical practitioner consulted by the household. His opinions rea
 
 “Who? There’s him, Earnshaw, Zillah, Joseph and me. Which one do you want?”
 
-She comes to Lockwood’s aid after his encounter with the dogs. She serves at Wuthering Heights, a different household from Mrs. Dean’s at the Grange.
+Mrs. Heathcliff names her among the household at the Heights.
 
 ## modern-en · shielders · 6:10
 

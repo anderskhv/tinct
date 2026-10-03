@@ -13,7 +13,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        book: [to-the-lighthouse, symposium]
+        # Symposium is held (rights replacement, rc7) and is not served, so it
+        # cannot open in production; add books here only once they are live.
+        book: [to-the-lighthouse]
     defaults:
       run:
         working-directory: app

@@ -47,7 +47,7 @@ Coverage limit: bare Catherine/Cathy/Linton/Earnshaw, many shared married titles
 ## Verification
 
 - Character services: **6 files, 497 tests passed**, including a final run with the reviewed sidecar present.
-- Direct runtime verification: both source SHA-256 values, paragraph hashes, 19 identities per edition, every one of 1,397 original and 1,459 modern spans, all snapshot boundaries and selected alias exclusions passed. The release entry was supplied in memory only; no shared registry/test edits.
+- Direct runtime verification: both source SHA-256 values, paragraph hashes, 19 identities per edition, every one of 1,397 original and 1,458 modern spans, all snapshot boundaries and selected alias exclusions passed. The release entry was supplied in memory only; no shared registry/test edits.
 - Reviewed deterministic rebuild `--check` passed; generated package and public sidecar are byte-identical.
 - Threads: 19 identities, 172 chapter-local English entries; unique IDs, valid schema fields and complete union of chapters 1–34. Original/live-modern source passages spot-checked; no later events imported into earlier chapter summaries.
 - Preface/intro/snippet JSON validated; hook matches; preface matches LIVE onboarding and its manifest hash/count.
@@ -59,11 +59,17 @@ Coverage limit: bare Catherine/Cathy/Linton/Earnshaw, many shared married titles
 | Path | SHA-256 |
 |---|---|
 | `app/public/data/editions/wuthering-heights-original-en.json` | `cd6c024bd4b0f1fc773ac0b4129b0ff50635099a372a4bf5f1501c06dd293d96` |
-| `app/public/data/editions/wuthering-heights-modern-en.json` | `4f53fd00781213c8f1c7e44f15f2b0488cfc4a2e684f8d54d5968d4e4a5d882e` |
-| `app/public/data/characters/wuthering-heights.v1.json` | `36b9e34505e53fbc55676c4e33892828a3d41e7123928dbe93c3f4dfa2a106e7` |
+| `app/public/data/editions/wuthering-heights-modern-en.json` | `2ffc01f3d29a6f2087ea0bff09ed69d26e32e5ffb748bf9e4e29d22755dc75c8` |
+| `app/public/data/characters/wuthering-heights.v1.json` | `fffec902d9b49124beb018c046ed1cd1397882f749ecb2eec42657f4ae715872` |
 | `app/src/data/prefaces/wuthering-heights.txt` | `d8dc4efc27101e12c6df65337dfc51e77f57e677109e045de4cbd8bb485da0c6` |
 | `app/public/lab/library_2/intro-data/wuthering-heights.json` | `f30948ba4580ab31ff4e1e88670f9983443549637df7064449e1159136c7d907` |
-| `app/public/data/editions/wuthering-heights-threads.json` | `815bb57d9f59944982aab62412934328cdea11a47d5fa420899224be081b408b` |
+| `app/public/data/editions/wuthering-heights-threads.json` | `5fbdb45800d8b4cfd11ed2c71fe238037d31879d1ccb8b7caf4e1530cd945e20` |
+| `app/public/data/onboarding/wuthering-heights.json` | `49aa92b5facc96b97a9c3b05f6a6ae997033016f185e99fac769d461995003c3` |
+| `books/characters/wuthering-heights/editorial.json` | `927696c14c6706bbcd642f112c3ff5dd0f9d74ade8225c9b00b94d97c822c702` |
+| `books/characters/entities/wuthering-heights.py` | `3492ad1afe396d326e94e90e997712e090881a5ad3c3e5f47f44310c32919219` |
+| modern-en shards `ch0001..ch0034.json`, concatenated in order | `d2dc7051cae90307864daf6ca22bdd259fbd5c4a6602506aa6327034163c664d` |
+
+Hashes above updated 2026-10-02 after the independent editorial review fixes (see `../EDITORIAL-FIXES.md`, “Independent review fixes — 2026-10-02”). Character revision is now `2026-10-02.1` (`characterReleases-entry.txt` updated).
 
 ## Owned paths
 

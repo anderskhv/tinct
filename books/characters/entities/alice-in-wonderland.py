@@ -1,6 +1,6 @@
 """Alice recognition copy and reviewed bindings; no network or model calls."""
 BOOK_ID = 'alice-in-wonderland'
-CONTENT_VERSION = "2026-10-01.1"
+CONTENT_VERSION = "2026-10-02.1"
 EDITIONS = ["original-en", "modern-en"]
 
 ENTITIES = [{'id': 'alice',

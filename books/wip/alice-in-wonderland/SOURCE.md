@@ -39,3 +39,9 @@ Langford Reed, Foreword to Lewis Carroll, *Further Nonsense Verse and Prose* (Ne
 - Raw file: `books/raw/alice-in-wonderland/acclaim-pg77627.txt`
 - SHA-256: `39f0502400e1191c4ca7aae93f9bac3bb02a14b619133fff4d9be0c4864562fa`
 - Exact excerpt verified after whitespace unwrapping: “Few books have met with such unequivocal praise from the critics and such instantaneous favour from the public”. The excerpt ends at a clause boundary; the source continues with Reed’s opinion about the book’s popularity.
+
+## Source variant emendation — 4:25 (2026-10-02)
+
+The Gutenberg Millennium Fulcrum 3.0 text reads “Shy, they seem to put everything upon Bill!” at 4:25 (raw file unchanged; its hash above still describes the download). The 1866 Macmillan text, as reproduced and annotated in Martin Gardner’s *The Annotated Alice*, reads “Why, they seem to put everything upon Bill!”; “Shy” is a transmission error in the electronic text. Following the independent editorial review, `original-en` 4:25 is emended “Shy” → “Why”. This is the only intentional textual difference between `original-en` and the pinned raw source beyond the apparatus exclusions documented above. Citation supplied by the independent review; the 1866 printing was not re-fetched in this session.
+
+New `original-en` SHA-256 after the emendation: `eb5d6211341148faa3ccc5784d4416ee498dabbb0b23aae052530958f3e6c6a8`.
