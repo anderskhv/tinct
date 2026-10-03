@@ -1,8 +1,8 @@
 """Litteraturbanken (Swedish): proofread e-texts with EPUBs and per-work licences.
 
 Licences: https://litteraturbanken.se/red/etc/license/license.json. Only `cc-0` (CC0 edition of a
-public-domain text) and `lb-svs`/`lb-assv` (CC BY on the literary text) are indexed; copyrighted
-`lb-2-*` and no-derivatives/non-commercial titles are excluded.
+public-domain text) is indexed; copyrighted `lb-2-*` and editions with non-commercial or
+no-derivatives terms (`lb-svs`, `lb-assv`, `lb-sa`, ...) are excluded.
 """
 import urllib.parse
 
@@ -12,9 +12,8 @@ NAME = 'Litteraturbanken'
 API = 'https://litteraturbanken.se/api/list_all/etext?from={start}&to={end}&include=' + ','.join([
     'lbworkid', 'title', 'shorttitle', 'titleid', 'language', 'sort_date', 'imprintyear', 'keyword', 'texttype',
     'popularity', 'epub_popularity', 'license', 'has_epub', 'url', 'main_author', 'authors', 'proofread'])
-LICENCES = {'cc-0': ('PD', 'Public-domain text; Litteraturbanken edition CC0'),
-            'lb-svs': ('CC BY', 'Literary text CC BY; editorial matter non-commercial (Svenska Vitterhetssamfundet)'),
-            'lb-assv': ('CC BY', 'Literary text CC BY; editorial matter non-commercial (ASSV)')}
+# lb-svs/lb-assv editions carry non-commercial editorial matter, so only CC0 editions are used.
+LICENCES = {'cc-0': ('PD', 'Public-domain text; Litteraturbanken edition CC0')}
 LANG = {'swe': 'sv', 'fra': 'fr', 'eng': 'en', 'deu': 'de', 'ger': 'de', 'smi': 'smi', 'fin': 'fi', 'lat': 'la', 'dan': 'da', 'nor': 'no'}
 
 

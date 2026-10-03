@@ -1,43 +1,37 @@
  .gitignore                                         |    5 +
- addbooks/README.md                                 |  138 +++
- addbooks/VERIFICATION.md                           |  115 ++
- addbooks/build-report.json                         | 1268 ++++++++++++++++++++
+ addbooks/README.md                                 |  139 +++
+ addbooks/VERIFICATION.md                           |  110 ++
+ addbooks/build-report.json                         | 1206 ++++++++++++++++++++
  addbooks/package.json                              |    1 +
  addbooks/qa/browser-report.json                    |  107 ++
- addbooks/qa/desktop-empty.png                      |  Bin 0 -> 63691 bytes
- addbooks/qa/desktop-filters.png                    |  Bin 0 -> 104661 bytes
- addbooks/qa/desktop-no-results.png                 |  Bin 0 -> 53613 bytes
- addbooks/qa/desktop-results.png                    |  Bin 0 -> 102165 bytes
- addbooks/qa/phone-empty.png                        |  Bin 0 -> 40269 bytes
- addbooks/qa/phone-filters.png                      |  Bin 0 -> 46067 bytes
- addbooks/qa/phone-no-results.png                   |  Bin 0 -> 34752 bytes
- addbooks/qa/phone-results.png                      |  Bin 0 -> 42666 bytes
- addbooks/qa/search-results.json                    |  542 +++++++++
- addbooks/scripts/build-index                       |  434 +++++++
- addbooks/scripts/catalog_sources/__init__.py       |   14 +
- addbooks/scripts/catalog_sources/adl.py            |   41 +
+ addbooks/qa/desktop-empty.png                      |  Bin 0 -> 63500 bytes
+ addbooks/qa/desktop-filters.png                    |  Bin 0 -> 104379 bytes
+ addbooks/qa/desktop-no-results.png                 |  Bin 0 -> 53409 bytes
+ addbooks/qa/desktop-results.png                    |  Bin 0 -> 102208 bytes
+ addbooks/qa/phone-empty.png                        |  Bin 0 -> 40250 bytes
+ addbooks/qa/phone-filters.png                      |  Bin 0 -> 45937 bytes
+ addbooks/qa/phone-no-results.png                   |  Bin 0 -> 34730 bytes
+ addbooks/qa/phone-results.png                      |  Bin 0 -> 42713 bytes
+ addbooks/qa/search-results.json                    |  540 +++++++++
+ addbooks/scripts/build-index                       |  465 ++++++++
+ addbooks/scripts/catalog_sources/__init__.py       |   16 +
  addbooks/scripts/catalog_sources/bibebook.py       |   21 +
- addbooks/scripts/catalog_sources/bnr.py            |   32 +
- addbooks/scripts/catalog_sources/bokselskap.py     |   40 +
  addbooks/scripts/catalog_sources/common.py         |  174 +++
  addbooks/scripts/catalog_sources/dbnl.py           |   44 +
  addbooks/scripts/catalog_sources/dta.py            |   51 +
- addbooks/scripts/catalog_sources/ebooksgratuits.py |   44 +
  addbooks/scripts/catalog_sources/kalliope.py       |   43 +
- addbooks/scripts/catalog_sources/liberliber.py     |   74 ++
- .../scripts/catalog_sources/litteraturbanken.py    |   58 +
- addbooks/scripts/catalog_sources/opds.py           |   26 +
+ .../scripts/catalog_sources/litteraturbanken.py    |   57 +
  addbooks/scripts/catalog_sources/runeberg.py       |   52 +
  addbooks/scripts/catalog_sources/textgrid.py       |  114 ++
  addbooks/scripts/catalog_sources/wikisource.py     |  124 ++
  addbooks/scripts/catalog_sources/wolnelektury.py   |   55 +
- addbooks/scripts/test-search.mjs                   |   58 +
- addbooks/scripts/test_builder.py                   |  194 +++
+ addbooks/scripts/test-search.mjs                   |   61 +
+ addbooks/scripts/test_builder.py                   |  226 ++++
  addbooks/scripts/verify-browser.mjs                |   87 ++
- addbooks/site/app.js                               |  133 ++
+ addbooks/site/app.js                               |  133 +++
  addbooks/site/index.html                           |   52 +
  addbooks/site/search-worker.js                     |   35 +
- addbooks/site/search.js                            |  129 ++
- addbooks/site/style.css                            |  660 ++++++++++
+ addbooks/site/search.js                            |  129 +++
+ addbooks/site/style.css                            |  660 +++++++++++
  addbooks/site/sw.js                                |   33 +
- 42 files changed, 4998 insertions(+)
+ 36 files changed, 4740 insertions(+)

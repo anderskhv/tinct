@@ -4,7 +4,7 @@ Branch: `claude/gifted-brown-m0y7f4`, which carries the original prototype commi
 
 ## What changed since the 30 September prototype
 
-- **More libraries:** 14 more libraries in 12+ languages alongside Gutenberg and Standard Ebooks. Sources, terms and exclusions are in [README.md](README.md#libraries-in-other-languages-scriptscatalog_sources).
+- **More libraries:** 9 more libraries in 12+ languages alongside Gutenberg and Standard Ebooks, all with editions usable commercially. Sources, terms and exclusions are in [README.md](README.md#libraries-in-other-languages-scriptscatalog_sources).
 - **Copyright gate:** a **life+70 gate** now applies to every source, Gutenberg included. Only out-of-copyright texts are indexed.
 - **Search:**
   - all languages are searched by default;
@@ -14,87 +14,82 @@ Branch: `claude/gifted-brown-m0y7f4`, which carries the original prototype commi
   - English work titles from Wikidata are search aliases, so "Odysseen" and "Odyssey" meet.
 - **Cards:** each card lists every library holding the work, the licence and a "View at …" source link.
 
-## Final end-to-end build (`--offline` from fresh downloads made the same day)
+## Final end-to-end build (`--offline` from downloads made 2 October)
 
 | Measure | Result |
 |---|---:|
-| Works / editions indexed | **124,979 / 133,813** |
+| Works / editions indexed | **122,753 / 129,186** |
 | Languages | 76 |
-| Libraries | 16 |
-| Works found in more than one library | 4,837 |
-| Editions merged into works | 8,834 |
-| Editions excluded by the copyright gate | 58,061 |
-| Life dates borrowed by unambiguous name match | 14,106 |
+| Libraries | 11 |
+| Works found in more than one library | 3,604 |
+| Editions merged into works | 6,433 |
+| Editions excluded by the copyright gate | 52,724 |
+| Clearly old anonymous texts kept (scripture, early works, dated issues) | 2,421 |
+| Editions excluded for a non-commercial licence | 1,976 (Deutsches Textarchiv) |
+| Life dates borrowed by unambiguous name match | 8,033 |
 | Live Tinct books matched | 76 of 101 |
-| Raw / gzipped index | 132.8 MB / 13.0 MB (not committed) |
+| Raw / gzipped index | 129.1 MB / 12.6 MB (not committed) |
 
-**Editions per library after the gate:**
+**Editions per library after the gates:**
 
 | Library | Editions |
 |---|---:|
-| Gutenberg | 51,489 |
-| Wikisource | 48,534 |
+| Gutenberg | 53,211 |
+| Wikisource | 49,233 |
 | DBNL | 7,429 |
 | Projekt Runeberg | 5,919 |
 | TextGrid | 4,482 |
-| Deutsches Textarchiv | 3,258 |
 | Kalliope | 2,636 |
 | Wolne Lektury | 2,355 |
-| Ebooks libres et gratuits | 2,222 |
 | Bibebook | 1,719 |
-| Liber Liber | 1,178 |
-| Bibliothèque numérique romande | 1,027 |
-| Litteraturbanken | 950 |
-| Bokselskap | 336 |
-| Arkiv for Dansk Litteratur | 269 |
+| Deutsches Textarchiv | 1,334 |
+| Litteraturbanken | 858 |
 | Standard Ebooks | 10 |
 
-**Works per language (top 16):**
+**Works per language (top 13):**
 
 | Language | Works | Language | Works |
 |---|---:|---|---:|
-| English | 44,284 | Spanish | 5,297 |
-| French | 17,802 | Portuguese | 3,656 |
-| German | 17,479 | Italian | 2,874 |
-| Polish | 10,432 | Finnish | 2,832 |
-| Dutch | 7,987 | **Danish** | **2,698** |
-| Swedish | 5,836 | Norwegian | 1,557 |
-| Latin | 956 | Hungarian | 611 |
-| Chinese | 179 | Greek | 175 |
+| English | 46,251 | Portuguese | 3,659 |
+| French | 16,082 | Finnish | 2,837 |
+| German | 16,010 | **Danish** | **2,518** |
+| Polish | 10,531 | Italian | 2,232 |
+| Dutch | 8,014 | Norwegian | 1,292 |
+| Swedish | 5,754 | Latin | 962 |
+| Spanish | 5,323 | | |
 
 **Copyright gate exclusions (life+70, cutoff: died before 1956):**
 
 | Reason | Editions |
 |---|---:|
-| Creator died 1956 or later | 10,462 |
-| Possibly alive | 1,723 |
-| Unverifiable (no dates and no public-domain statement from the library) | 45,876 |
+| Creator died 1956 or later | 10,356 |
+| Possibly alive | 1,722 |
+| Unverifiable (no dates, no public-domain statement, no old-anonymous evidence) | 40,646 |
 
-- **By library:** Wikisource 28,568, Gutenberg 26,356, Liber Liber 1,314, Ebooks libres et gratuits 964, BNR 440, DTA 166, Bokselskap 144, others under 70.
+- **By library:** Wikisource 27,869, Gutenberg 24,634, Deutsches Textarchiv 114, Wolne Lektury 66, Runeberg 23, others under 10.
 - **Gutenberg examples now excluded:** Agatha Christie, E. M. Forster, P. G. Wodehouse, and Gilbert Murray's translations.
-- **Unverifiable Gutenberg records:** mostly anonymous, collective or undated records (including the King James Bible and periodicals). Gutenberg's metadata has no first-publication date to clear them.
+- **Gutenberg examples now kept by the old-anonymous rule:** the King James and Douay-Rheims Bibles, and dated Victorian magazine issues.
 
-**Edition licences** (the library's own edition; the texts are all public domain):
+**Edition licences** (the library's own edition; every text is public domain; no non-commercial licences remain):
 
 | Licence | Editions |
 |---|---:|
-| PD | 70,984 |
-| CC BY-SA 4.0 | 48,846 (Wikisource) |
-| CC BY 3.0 DE | 4,482 |
-| Non-commercial: Free, non-commercial / CC BY-NC / CC BY-NC-SA | 6,956 |
-| Other CC BY / BY-SA | 2,545 |
+| PD | 72,706 |
+| CC BY-SA 4.0 (Wikisource) | 49,545 |
+| CC BY 3.0 DE (TextGrid) | 4,482 |
+| Other CC BY / BY-SA | 2,453 |
 
 ## Tests
 
-- `python3 -m unittest discover -s addbooks/scripts -p 'test_*.py'`: **18 passed**. These include licence parsing, letter folding, language-aware articles, cross-library grouping, the Runeberg life+70 rule, the copyright gate and date borrowing.
+- `python3 -m unittest discover -s addbooks/scripts -p 'test_*.py'`: **18 passed**. These include licence parsing, letter folding, language-aware articles, cross-library grouping, the Runeberg life+70 rule, the copyright gate, date borrowing, non-commercial detection and the old-anonymous evidence rules.
 - `node addbooks/scripts/test-search.mjs`: **passed**.
   - The original English cases still pass.
   - 10 multilingual cases pass, each with its language filter: Danish *Eventyr*, German *Faust*, Dutch *Max Havelaar*, Polish *Pan Tadeusz*, Swedish *Röda rummet*, Norwegian *Peer Gynt*, Spanish *Don Quijote*, Portuguese *Os Lusíadas*, Italian *La divina commedia*, French *Les Misérables*.
-  - Also checked: "kobenhavn" finds København; Norwegian codes are unified; every edition carries `rights`/`licence`/`copyright`.
-  - **No indexed author or translator died within the last 70 years.**
+  - Also checked: "kobenhavn" finds København; Norwegian codes are unified; the King James Bible is found; every edition carries `rights`/`licence`/`copyright`.
+  - **No indexed author or translator died within the last 70 years, and no edition has a non-commercial licence.**
 - `verify-browser.mjs` (headless Chromium, Playwright from the environment): **passed** on desktop (1440 × 1080) and phone (390 × 844).
-  - Cold local load: 4.4 s / 4.9 s. Offline reload passed. No horizontal overflow, no page errors.
-  - Search latency for 10 queries: 61–106 ms.
+  - Cold local load: 6.7 s / 5.1 s. Offline reload passed. No horizontal overflow, no page errors.
+  - Search latency for 10 queries: 61–102 ms.
   - Remote covers were unreachable from this sandbox; typography covers are the designed fallback. The check waits for covers but no longer fails on them.
 
 ## Screenshots
@@ -111,5 +106,5 @@ Branch: `claude/gifted-brown-m0y7f4`, which carries the original prototype commi
 - **Search vs. book:** Wikisource "books" include some single long poems and plays catalogued as works on Wikidata. They are searchable, but not all are book-length.
 - **Grouping:** translations in different languages remain separate works, linked only by search aliases.
 - **Index size:** the index is 13 MB gzipped / 133 MB raw in the browser worker. Low-memory phones need profiling or language-sharded indexes before production.
-- **Spanish:** Spanish coverage relies on Wikisource and Gutenberg. Cervantes Virtual and the Biblioteca Nacional block bulk access.
+- **Spanish and Italian:** Spanish relies on Wikisource and Gutenberg; Cervantes Virtual and the Biblioteca Nacional block bulk access. Italian relies on Wikisource and Gutenberg since Liber Liber (non-commercial editions) was removed.
 - **Life+70 scope:** life+70 is the EU term. Region-specific clearance is still required for imports.

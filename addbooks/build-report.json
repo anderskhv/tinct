@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-10-02T15:38:59.527500+00:00",
+  "builtAt": "2026-10-03T08:26:15.890745+00:00",
   "gutenbergSource": "https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2",
   "standardEbooksCoverage": "partial: public feed, latest 15 releases",
   "skipped": {
@@ -90,25 +90,11 @@
         "PD": 5942
       }
     },
-    "Arkiv for Dansk Litteratur": {
-      "skippedProtected": 233,
-      "editions": 269,
-      "licences": {
-        "CC BY-NC-SA": 269
-      }
-    },
     "Litteraturbanken": {
-      "skippedRestrictedLicence": 593,
-      "editions": 955,
+      "skippedRestrictedLicence": 780,
+      "editions": 861,
       "licences": {
-        "PD": 861,
-        "CC BY": 94
-      }
-    },
-    "Bokselskap": {
-      "editions": 480,
-      "licences": {
-        "Free, non-commercial": 480
+        "PD": 861
       }
     },
     "DBNL": {
@@ -154,69 +140,35 @@
       "licences": {
         "CC BY-SA": 1722
       }
-    },
-    "Ebooks libres et gratuits": {
-      "skippedContemporary": 62,
-      "editions": 3186,
-      "licences": {
-        "Free, non-commercial": 3186
-      }
-    },
-    "Bibliothèque numérique romande": {
-      "editions": 1467,
-      "licences": {
-        "Free, non-commercial": 1467
-      }
-    },
-    "Liber Liber": {
-      "skippedUnrecognisedLicence": 0,
-      "failedPagesOfTen": 11,
-      "editions": 2492,
-      "licences": {
-        "CC BY-NC-SA 4.0": 2492
-      }
     }
   },
+  "excludedNonCommercialLicence": {
+    "Deutsches Textarchiv": 1976
+  },
   "skippedUntitled": 5,
-  "lifeDatesBorrowedByName": 14106,
+  "lifeDatesBorrowedByName": 8033,
   "copyright": {
     "rule": "life+70: every author and translator died before 1956",
-    "kept": 133813,
+    "kept": 129186,
+    "keptAsOldAnonymous": 2421,
     "excludedBySource": {
       "Bibebook": {
         "creatorDiedTooRecently": 3
-      },
-      "Bibliothèque numérique romande": {
-        "unverified": 436,
-        "creatorDiedTooRecently": 4
-      },
-      "Bokselskap": {
-        "unverified": 143,
-        "creatorDiedTooRecently": 1
       },
       "DBNL": {
         "creatorDiedTooRecently": 6,
         "creatorPossiblyAlive": 1
       },
       "Deutsches Textarchiv": {
-        "unverified": 166
-      },
-      "Ebooks libres et gratuits": {
-        "unverified": 868,
-        "creatorDiedTooRecently": 96
+        "unverified": 114
       },
       "Gutenberg": {
-        "unverified": 16260,
+        "unverified": 14538,
         "creatorDiedTooRecently": 8647,
         "creatorPossiblyAlive": 1449
       },
-      "Liber Liber": {
-        "unverified": 1310,
-        "creatorDiedTooRecently": 4
-      },
       "Litteraturbanken": {
-        "creatorDiedTooRecently": 4,
-        "creatorPossiblyAlive": 1
+        "creatorDiedTooRecently": 3
       },
       "Projekt Runeberg": {
         "unverified": 23
@@ -226,7 +178,7 @@
         "unverified": 2
       },
       "Wikisource": {
-        "unverified": 26618,
+        "unverified": 25919,
         "creatorDiedTooRecently": 1678,
         "creatorPossiblyAlive": 272
       },
@@ -236,12 +188,12 @@
       }
     }
   },
-  "ambiguousAuthorNames": 1230,
-  "duplicatesMerged": 8834,
-  "crossSourceWorks": 4837,
+  "ambiguousAuthorNames": 1185,
+  "duplicatesMerged": 6433,
+  "crossSourceWorks": 3604,
   "tinctLiveBooks": 101,
   "tinctBooksMatched": 76,
-  "worksOnTinct": 134,
+  "worksOnTinct": 131,
   "tinctMatches": [
     {
       "id": "to-the-lighthouse",
@@ -368,7 +320,6 @@
       "id": "jane-eyre",
       "title": "Jane Eyre",
       "workIds": [
-        "ll:2344679",
         "pg:1260",
         "pg:79159",
         "tg:ksbg.0",
@@ -448,9 +399,8 @@
       "id": "moby-dick",
       "title": "Moby Dick",
       "workIds": [
-        "elg:1568",
-        "ll:2406317",
-        "pg:15"
+        "pg:15",
+        "ws:fr:Q19219307"
       ]
     },
     {
@@ -539,7 +489,6 @@
       "id": "candide",
       "title": "Candide",
       "workIds": [
-        "elg:637",
         "pg:19942",
         "ws:no:Q136468328"
       ]
@@ -1040,8 +989,8 @@
       ]
     }
   ],
-  "works": 124979,
-  "editions": 133813,
+  "works": 122753,
+  "editions": 129186,
   "languages": {
     "af": 11,
     "ang": 1,
@@ -1057,18 +1006,18 @@
     "cs": 50,
     "csb": 1,
     "cy": 13,
-    "da": 2698,
-    "de": 17479,
+    "da": 2518,
+    "de": 16010,
     "el": 175,
-    "en": 44284,
-    "enm": 2,
+    "en": 46251,
+    "enm": 3,
     "eo": 45,
-    "es": 5297,
+    "es": 5323,
     "et": 3,
     "fa": 7,
-    "fi": 2832,
+    "fi": 2837,
     "fo": 1,
-    "fr": 17802,
+    "fr": 16082,
     "fy": 20,
     "ga": 6,
     "gd": 3,
@@ -1081,12 +1030,12 @@
     "ht": 1,
     "hu": 611,
     "is": 29,
-    "it": 2874,
+    "it": 2232,
     "ja": 9,
     "ka": 1,
     "kha": 1,
     "kld": 1,
-    "la": 956,
+    "la": 962,
     "lt": 36,
     "lv": 1,
     "mi": 2,
@@ -1094,12 +1043,12 @@
     "myn": 2,
     "nah": 2,
     "nai": 2,
-    "nl": 7987,
-    "no": 1557,
+    "nl": 8014,
+    "no": 1292,
     "oc": 10,
     "oji": 1,
-    "pl": 10432,
-    "pt": 3656,
+    "pl": 10531,
+    "pt": 3659,
     "rmq": 1,
     "ro": 9,
     "ru": 171,
@@ -1107,18 +1056,18 @@
     "sco": 1,
     "se": 6,
     "sk": 2,
-    "sl": 5,
+    "sl": 6,
     "smi": 1,
     "sr": 4,
-    "sv": 5836,
+    "sv": 5754,
     "ta": 1,
     "te": 1,
-    "tl": 28,
+    "tl": 29,
     "uk": 13,
     "und": 37,
     "wa": 3,
     "yi": 1,
-    "zh": 179
+    "zh": 180
   },
   "seUnmatched": [
     {
@@ -1158,9 +1107,9 @@
       ]
     }
   ],
-  "missingOriginalLanguage": 124063,
-  "missingFirstPublishedYear": 88161,
-  "sameTitleReviewGroups": 4876,
+  "missingOriginalLanguage": 121837,
+  "missingFirstPublishedYear": 86201,
+  "sameTitleReviewGroups": 4546,
   "groupingReviewSample": {
     "": [
       "tg:wgtc.0",
@@ -1198,7 +1147,7 @@
       "ws:en:Q124414235"
     ],
     "813": [
-      "elg:422",
+      "bb:leblanc_maurice_-_813",
       "pg:34758",
       "pg:55203"
     ],
@@ -1229,40 +1178,29 @@
     "standardebooks-new-releases.xml": "5440f8b17d5dd90ff5a57d8855be9024f5e3199d359f2ed8dff2397d0a212eab"
   },
   "editionsBySource": {
-    "Gutenberg": 51489,
-    "Wikisource": 48534,
+    "Gutenberg": 53211,
+    "Wikisource": 49233,
     "DBNL": 7429,
     "Projekt Runeberg": 5919,
     "TextGrid": 4482,
-    "Deutsches Textarchiv": 3258,
     "Kalliope": 2636,
     "Wolne Lektury": 2355,
-    "Ebooks libres et gratuits": 2222,
     "Bibebook": 1719,
-    "Liber Liber": 1178,
-    "Bibliothèque numérique romande": 1027,
-    "Litteraturbanken": 950,
-    "Bokselskap": 336,
-    "Arkiv for Dansk Litteratur": 269,
+    "Deutsches Textarchiv": 1334,
+    "Litteraturbanken": 858,
     "Standard Ebooks": 10
   },
   "licences": {
-    "PD": 70984,
-    "CC BY-SA 4.0": 48846,
+    "PD": 72706,
+    "CC BY-SA 4.0": 49545,
     "CC BY 3.0 DE": 4482,
-    "Free, non-commercial": 3585,
-    "CC BY-NC 3.0": 1921,
     "CC BY-SA": 1719,
-    "CC BY-NC-SA 4.0": 1180,
     "CC BY-SA 3.0": 557,
-    "CC BY-NC-SA": 269,
     "CC BY 4.0": 124,
-    "CC BY": 92,
     "CC BY-SA 2.0": 50,
-    "CC BY 3.0": 3,
-    "CC BY-NC 4.0": 1
+    "CC BY 3.0": 3
   },
-  "indexBytes": 132775366,
-  "indexGzipBytes": 12957773,
+  "indexBytes": 129131433,
+  "indexGzipBytes": 12639016,
   "commitIndex": false
 }

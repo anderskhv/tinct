@@ -28,6 +28,7 @@ for (const [q, language, expected] of multilingual) {
   results[q + ' [' + language + ']'] = {count:r.total, searchMs:r.elapsedMs, top3:r.results.map(w=>({id:w.id,title:w.title,authors:w.authors.map(a=>a.name),sources:[...new Set(w.editions.map(e=>e.source))]}))};
 }
 assert.ok(search('kobenhavn', {language:'da'}).total > 0, 'Danish letter folding');
+assert.ok(search('King James Bible', {language:'en'}).results.some(w => /King James/.test(w.title)), 'old anonymous scripture kept');
 assert.ok(search('', {language:'no'}).total > 0 && search('', {language:'nb'}).total === 0, 'Norwegian codes unified');
 assert.equal(search('zzzxqvnonexistent',{language:'en'}).total,0);
 assert.ok(near('prdie','pride'));
@@ -46,6 +47,8 @@ for (const w of works) {
   // Every edition states its rights; Gutenberg/SE remain US public domain.
   assert.ok(w.editions.every(e=>e.rights && e.licence));
   assert.ok(w.editions.every(e=>e.copyright && e.copyright.startsWith('Public domain')));
+  // Tinct is commercial (paid AI features): no non-commercial edition licences.
+  assert.ok(w.editions.every(e=>!/\bNC\b|non-?commercial/i.test(e.licence)));
   // Life+70: no indexed creator died in the last 70 years.
   const cutoff = new Date().getFullYear() - 70;
   assert.ok(w.editions.every(e=>[...e.authors,...e.translators].every(p=>p.deathYear === null || p.deathYear < cutoff)));

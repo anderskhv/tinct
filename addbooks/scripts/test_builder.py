@@ -190,5 +190,37 @@ class MultilingualTests(unittest.TestCase):
         self.assertIsNone(smith['authors'][0]['deathYear'])
 
 
+    def test_non_commercial_licences_are_detected(self):
+        for code in ('CC BY-NC 3.0', 'CC BY-NC-SA 4.0', 'Free, non-commercial'):
+            self.assertTrue(b.non_commercial(code), code)
+        for code in ('PD', 'CC BY-SA 4.0', 'CC BY 3.0 DE', None):
+            self.assertFalse(b.non_commercial(code), code)
+
+    def test_clearly_old_anonymous_texts(self):
+        from catalog_sources.common import natural_person as np
+        def anon(title, subjects, authors=()):
+            return self.edition('Gutenberg', title[:8], title, np('Anonymous'), 'en', subjects=list(subjects))
+        cutoff = b.public_domain_cutoff()
+        cases = {
+            ('The King James Version of the Bible', ('Bible',)): 'anonymousOld',
+            ('Deuterocanonical Books', ('Bible. Apocrypha',)): 'anonymousOld',
+            ('A Commentary', ('Bible -- Commentaries',)): 'unverified',
+            ('Voyages round the world', ('Voyages -- Early works to 1800',)): 'anonymousOld',
+            ('Household words, No. 2, April 6, 1850', ()): 'anonymousOld',
+            ('The Philippine Islands, 1493-1898', ()): 'unverified',
+            ('Field Artillery Training. 1914', ()): 'unverified',
+            ('Twenty-Five Ghost Stories', ('Ghost stories',)): 'unverified',
+        }
+        for (title, subjects), expected in cases.items():
+            self.assertEqual(b.copyright_status(anon(title, subjects), cutoff), expected, title)
+        various = self.edition('Gutenberg', 'v', 'Blackwood\'s magazine, October 1885', np('Various'), 'en')
+        self.assertEqual(b.copyright_status(various, cutoff), 'unverified')  # collective issues need pre-1870
+        various['title'] = 'Blackwood\'s magazine, October 1853'
+        self.assertEqual(b.copyright_status(various, cutoff), 'anonymousOld')
+        translated = anon('Old Saga, 1300', ())
+        translated['translators'] = [np('Unknown Dates')]
+        self.assertEqual(b.copyright_status(translated, cutoff), 'unverified')  # translator still needs clearing
+
+
 if __name__ == '__main__':
     unittest.main()

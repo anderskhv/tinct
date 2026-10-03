@@ -188,22 +188,49 @@ def copyright_status(e, cutoff):
         return 'verified'
     if e.get('pdAsserted'):
         return 'source'
+    if not creators and old_anonymous(e):
+        return 'anonymousOld'
     return 'unverified'
+
+def non_commercial(licence):
+    return bool(re.search(r'\bNC\b|non-?commercial', licence or '', re.I))
+
+# The scripture itself (LCSH uniform title "Bible", "Bible. Apocrypha"), not commentary ("Bible -- ...").
+SCRIPTURE = re.compile(r'^(Bible|Koran|Qur.an|Talmud|Book of Mormon|Vedas|Upanishads|Avesta|Tripitaka)(\.[^-]*)?$')
+
+def old_anonymous(e):
+    """Evidence that a text with no named author or translator is clearly old: scripture, the LCSH
+    form "Early works to 1800" (the text itself predates 1800), or a single pre-1900 year in the
+    title such as a dated magazine issue. Ranges ("1493-1898") describe a period, not publication.
+    Collective "Various" issues need pre-1870, so every contributor has long been dead."""
+    if any(SCRIPTURE.match(s) for s in e['subjects']):
+        return True
+    if any('Early works to 1800' in s for s in e['subjects']):
+        return True
+    title = e['title'] + ' ' + (e['subtitle'] or '')
+    if re.search(r'\b1\d\d\d\s*[-–]\s*\d', title):
+        return False
+    years = [int(y) for y in re.findall(r'\b(1[0-9]\d\d)\b', title)]
+    various = any(name_key(p['name']) == 'various' for p in e['authors'])
+    return bool(years) and max(years) < (1870 if various else 1900)
 
 def gate_copyright(editions, report):
     # Life+70 (EU, incl. Denmark) for every source, Gutenberg included: "public domain in the USA"
     # alone is not enough for a work whose author died after the cutoff.
     cutoff = public_domain_cutoff()
-    kept, excluded = [], collections.defaultdict(collections.Counter)
+    kept, excluded, anonymous = [], collections.defaultdict(collections.Counter), 0
     for e in editions:
         status = copyright_status(e, cutoff)
-        if status in ('verified', 'source'):
-            e['copyright'] = 'Public domain: ' + ('all creators died before ' + str(cutoff) if status == 'verified' else 'stated by ' + e['source'])
+        if status in ('verified', 'source', 'anonymousOld'):
+            e['copyright'] = 'Public domain: ' + {'verified': 'all creators died before ' + str(cutoff),
+                                                  'source': 'stated by ' + e['source'],
+                                                  'anonymousOld': 'anonymous text, clearly pre-1900'}[status]
             kept.append(e)
+            anonymous += status == 'anonymousOld'
         else:
             excluded[e['source']][status] += 1
     report['copyright'] = {'rule': 'life+70: every author and translator died before ' + str(cutoff),
-                           'kept': len(kept), 'excludedBySource': {k: dict(v) for k, v in sorted(excluded.items())}}
+                           'kept': len(kept), 'keptAsOldAnonymous': anonymous, 'excludedBySource': {k: dict(v) for k, v in sorted(excluded.items())}}
     return kept
 
 def load_registry(path):
@@ -387,6 +414,10 @@ def main():
             report['warnings'].append(adapter.NAME + ' failed and is missing from this build: ' + source_report['error'])
             print(adapter.NAME + ' FAILED: ' + source_report['error'], flush=True)
         report['sources'][adapter.NAME] = source_report
+    # Tinct is a commercial service (free reading, paid AI features): no non-commercial editions.
+    noncommercial = collections.Counter(e['source'] for e in editions if non_commercial(e['licence']))
+    editions = [e for e in editions if not non_commercial(e['licence'])]
+    report['excludedNonCommercialLicence'] = dict(noncommercial)
     untitled = sum(not e['title'] for e in editions)
     editions = [e for e in editions if e['title']]
     report['skippedUntitled'] = untitled
