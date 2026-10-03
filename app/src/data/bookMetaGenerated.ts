@@ -586,4 +586,28 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Death of Ivan Ilyich',
     author: 'Leo Tolstoy',
   },
+  'alice-in-wonderland': {
+    title: 'Read Alice\'s Adventures in Wonderland Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Alice\'s Adventures in Wonderland.',
+    bookName: 'Alice\'s Adventures in Wonderland',
+    author: 'Lewis Carroll',
+  },
+  'wuthering-heights': {
+    title: 'Read Wuthering Heights Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Wuthering Heights.',
+    bookName: 'Wuthering Heights',
+    author: 'Emily Brontë',
+  },
+  'middlemarch': {
+    title: 'Read Middlemarch Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Middlemarch.',
+    bookName: 'Middlemarch',
+    author: 'George Eliot',
+  },
+  'sense-and-sensibility': {
+    title: 'Read Sense and Sensibility Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Sense and Sensibility.',
+    bookName: 'Sense and Sensibility',
+    author: 'Jane Austen',
+  },
 }
