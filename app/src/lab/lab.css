@@ -313,7 +313,9 @@
 
 /* On a narrow phone measure, long indivisible words create a coarse,
    stair-step rag. Let the browser use the edition language's dictionary on
-   the painted page, while avoiding arbitrary mid-letter emergency breaks. */
+   the painted page, while avoiding arbitrary mid-letter emergency breaks.
+   Two letters may precede the hyphen ("un-sound"), matching labHyphenate's
+   HYPHEN_MIN_HEAD, so short prefixes can rescue an otherwise gappy line. */
 .lab.is-phone .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word,
 .lab.has-phone-chrome .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word {
   white-space: normal;
@@ -321,10 +323,10 @@
   word-break: normal;
   -webkit-hyphens: auto;
   hyphens: auto;
-  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-before: 2;
   -webkit-hyphenate-limit-after: 3;
   -webkit-hyphenate-limit-lines: 2;
-  hyphenate-limit-chars: 7 3 3;
+  hyphenate-limit-chars: 7 2 3;
   hyphenate-limit-lines: 2;
 }
 
@@ -6334,8 +6336,8 @@
   line-height: var(--lab-line-height, 1.48);
   hyphens: auto;
   -webkit-hyphens: auto;
-  hyphenate-limit-chars: 7 3 3;
-  -webkit-hyphenate-limit-before: 3;
+  hyphenate-limit-chars: 7 2 3;
+  -webkit-hyphenate-limit-before: 2;
   -webkit-hyphenate-limit-after: 3;
   text-wrap: wrap;
   margin: 0 0 var(--lab-paragraph-gap, .28em);

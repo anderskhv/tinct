@@ -4,6 +4,8 @@ import { afterEach, describe, expect, it } from 'vitest'
 import {
   labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   labCompactFootProgress,
+  readStoredWordsPerPage,
+  storeWordsPerPage,
   DEFAULT_LAB_PREFS,
   LAB_ACCOUNT_URL,
   LAB_LIBRARY_URL,
@@ -72,6 +74,34 @@ describe('lab prefs', () => {
     // Ten pages of chapter one lie behind page four of chapter two.
     expect(labReaderProgressLabel({ ...shared, mode: 'book' })).toBe('14 / 20 of book · 70%')
     expect(labReaderProgressLabel({ ...shared, mode: 'chapter' })).toBe('4 / 10 of chapter · 18%')
+  })
+
+  it('gives a word share, not a page count, when no full page has been measured', () => {
+    // To the Lighthouse opened straight onto The Window 2 (two paragraphs):
+    // its 45 words are not a page's capacity.
+    expect(labReaderProgressLabel({
+      mode: 'book',
+      currentPage: 1,
+      totalPages: 1,
+      chapterPercent: 100,
+      chapterNumber: 2,
+      chapterWordCounts: [
+        { number: 1, wordCount: 3_933 },
+        { number: 2, wordCount: 45 },
+        { number: 3, wordCount: 66_022 },
+      ],
+      wordsPerPage: null,
+    })).toBe('6% of book')
+  })
+
+  it('remembers words per page for one layout and window only', () => {
+    localStorage.clear()
+    expect(readStoredWordsPerPage('a|390x844')).toBeNull()
+    storeWordsPerPage('a|390x844', 72)
+    expect(readStoredWordsPerPage('a|390x844')).toBe(72)
+    expect(readStoredWordsPerPage('a|844x390')).toBeNull()
+    localStorage.setItem('tinct:reader-words-per-page', '{broken')
+    expect(readStoredWordsPerPage('a|390x844')).toBeNull()
   })
 
   it('adds thousands separators to reader page totals', () => {

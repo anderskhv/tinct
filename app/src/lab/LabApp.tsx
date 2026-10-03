@@ -104,6 +104,8 @@ import {
   labBookPageEstimate,
   labPageFolio,
   labReaderProgressLabel,
+  readStoredWordsPerPage,
+  storeWordsPerPage,
   defaultReaderProgressMode,
   readStoredReaderProgressMode,
   storeReaderProgressMode,
@@ -2820,8 +2822,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? (returnTo === 'hearing' ? LAB_COPY.play : LAB_COPY.read)
       : (listen.playing ? LAB_COPY.pause : LAB_COPY.play)
   lockPaginationRef.current = showHearing && listen.playing && !browseWhileListening
+  // Only pages before the last two are full: the last is short by nature, and
+  // reserving the chapter actions can split it, leaving a short page before it
+  // too. To the Lighthouse opened on The Window 2 (two paragraphs) measured
+  // that 34-word page and read 2,029 pages instead of about 960.
   const fullPageWordCounts = readingPages
-    .slice(0, Math.max(1, readingPages.length - 1))
+    .slice(0, Math.max(0, readingPages.length - 2))
     .map(page => chapterPageSegments(page).reduce((total, segment) => total + Math.max(0, segment.to - segment.from), 0))
     .filter(count => count > 0)
     .sort((a, b) => a - b)
@@ -2838,11 +2844,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? { wordsPerPage: fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)], leafHeight: 0 }
       : null
   const held = wordsPerPageRef.current
+  const capacityKey = `${readerLayoutKey}|${typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : ''}`
   if (freshCapacity !== null && (held === null || held.leafHeight !== freshCapacity.leafHeight)) {
     wordsPerPageRef.current = freshCapacity
+    if (!desktopPaging) storeWordsPerPage(capacityKey, freshCapacity.wordsPerPage)
   }
-  const measuredWordsPerPage = wordsPerPageRef.current?.wordsPerPage
+  const phoneWordsPerPage = wordsPerPageRef.current?.wordsPerPage
     ?? freshCapacity?.wordsPerPage
+    ?? (desktopPaging ? null : readStoredWordsPerPage(capacityKey))
+  const measuredWordsPerPage = phoneWordsPerPage
     ?? Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
   const bookWordCount = getBook(book.bookId || 'bible')?.wordCount
   const progressInput = {
@@ -2853,7 +2863,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterNumber: book.chapterNumber,
     chapterWordsRead: chapterProgress.wordsRead,
     chapterWordCounts: book.chapters,
-    wordsPerPage: measuredWordsPerPage,
+    wordsPerPage: desktopPaging ? measuredWordsPerPage : phoneWordsPerPage,
     bookWordCount,
   }
   // Printed books, Bibles included, number continuously through the volume.
