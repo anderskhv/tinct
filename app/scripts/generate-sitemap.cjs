@@ -286,6 +286,7 @@ function pageShell({ title, description, canonical, body, jsonLd, image = DEFAUL
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--tinct:seo-->
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${escapeHtml(canonical)}">
@@ -302,10 +303,11 @@ function pageShell({ title, description, canonical, body, jsonLd, image = DEFAUL
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${escapeHtml(image)}">
+  ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
+  <!--/tinct:seo-->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   ${preload}
-  ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
   ${styles}
 </head>
 <body>
@@ -327,6 +329,41 @@ const BOOK_SCENES = {
   'pride-and-prejudice': ['scene-pride-and-prejudice-wide.jpg', 'scene-pride-and-prejudice-phone.jpg'],
 }
 const EVENING_TABLE = ['table-evening-wide.jpg', 'table-evening-phone.jpg']
+
+let reviewedHooks = null
+/** The library's reviewed hero question per book (public/lab/library_2/reviewed-introductions.js). */
+function reviewedHook(bookId) {
+  if (!reviewedHooks) {
+    reviewedHooks = {}
+    try {
+      const src = fs.readFileSync(path.join(APP_DIR, 'public/lab/library_2/reviewed-introductions.js'), 'utf8')
+      const marker = 'export const reviewedHooks = '
+      const start = src.indexOf(marker) + marker.length
+      const end = src.indexOf('\n};', start) + 2
+      // A plain object literal with line comments; evaluate it in isolation.
+      reviewedHooks = require('vm').runInNewContext(`(${src.slice(start, end)})`)
+    } catch (err) {
+      console.warn('[sitemap] reviewed hooks unavailable:', err.message)
+    }
+  }
+  return reviewedHooks[bookId] || ''
+}
+
+/**
+ * What the library hero shows for a linked book, the same fields app.js
+ * paints: the Worker prefills the hero from this so the book is on the table
+ * from the first paint (src/worker/lib/bookLibraryPage.ts).
+ */
+function libraryHero(book) {
+  const data = {
+    id: book.id,
+    title: book.title,
+    author: book.author,
+    question: reviewedHook(book.id) || libraryBlurb(book.id) || book.description || '',
+    cover: bookCoverSrc(book.id),
+  }
+  return `<script type="application/json" id="tinct-book-hero">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
+}
 
 let libraryBlurbs = null
 /** The library's one-line blurb per book (src/data/libraryTaxonomy.ts). */
@@ -423,6 +460,16 @@ function readerChapterHref(bookId, chapter) {
   return `/reader?book=${bookId}&amp;chapter=${chapter}`
 }
 
+/**
+ * A chapter link on the book page: the crawlable chapter page where one is
+ * published (it links on into the reader), otherwise straight into the reader.
+ */
+function bookChapterHref(bookId, chapter) {
+  const german = bookId === 'faust-part-1'
+  if (fs.existsSync(path.join(READ_DIR, bookId, `chapter-${chapter}.html`))) return `/read/${bookId}/chapter-${chapter}${german ? '?edition=original-de' : ''}`
+  return `${readerChapterHref(bookId, chapter)}${german ? '&amp;edition=original-de' : ''}`
+}
+
 function buildBookIndexPage(book, edition) {
   const chapters = edition.data.chapters || []
   const firstChapter = chapters[0] || {}
@@ -437,7 +484,7 @@ function buildBookIndexPage(book, edition) {
   const description = seoBookDescription(book)
   const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
   const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="/read/${book.id}/chapter-${index + 1}${book.id === "faust-part-1" ? "?edition=original-de" : ""}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+    .map((chapter, index) => `<li><a href="${bookChapterHref(book.id, index + 1)}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
     .join('\n')
   const scene = bookSceneSrc(book.id)
   const cover = bookCoverSrc(book.id)
@@ -458,6 +505,7 @@ function buildBookIndexPage(book, edition) {
     <a class="primary-cta" href="${readerHref}">Start reading →</a>
   </div>
 </header>
+<!--tinct:about-->
 <main>
   <div class="breadcrumb">
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
@@ -476,6 +524,8 @@ ${chapterLinks}
     ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
   </div>
 </main>
+<!--/tinct:about-->
+${libraryHero(book)}
 <footer class="site">
   <span>Read ${escapeHtml(book.title)} free online on Tinct.</span>
   <span class="footer-links"><a href="/read/">Library</a><a href="${readerHref}">Open reader</a></span>

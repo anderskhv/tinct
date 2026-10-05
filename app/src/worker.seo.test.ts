@@ -201,7 +201,8 @@ describe('worker SEO routing', () => {
   it.each(['/odyssey', '/odyssey/'])('sends bare book URL %s to that book in the current library', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(302)
-    expect(resp.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
+    // A shared link puts the book in the hero; it does not open the introduction.
+    expect(resp.headers.get('Location')).toBe('/library?book=odyssey')
   })
 
   it.each(['/notes', '/notes/'])('opens the normal Notes cover with the explicit post-author-note start from %s', async (pathname) => {
@@ -293,7 +294,83 @@ describe('worker SEO routing', () => {
       headers: { Cookie: 'tinct_auth=1' },
     }), env as never, ctx)
     expect(signedIn.status).toBe(302)
-    expect(signedIn.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
+    expect(signedIn.headers.get('Location')).toBe('/library?book=odyssey')
+  })
+
+  describe('shared book links', () => {
+    const library = readFileSync('public/lab/library_2/index.html', 'utf8')
+    const bookPage = readFileSync('public/read/wuthering-heights/book.html', 'utf8')
+    const env = {
+      ASSETS: {
+        fetch: async (request: Request) => {
+          const url = new URL(request.url)
+          if (url.pathname === '/lab/library_2/') return new Response(library, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+          if (url.pathname === '/read/wuthering-heights/book') return new Response(bookPage, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+          return new Response('Not found', { status: 404 })
+        },
+      },
+    }
+
+    it.each(['/read/wuthering-heights', '/read/wuthering-heights/', '/read/wuthering-heights?fbclid=abc', '/read/wuthering-heights/?utm_source=x'])('serves %s as the library with the book in the hero and its search tags', async pathname => {
+      const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), env as never, ctx)
+      expect(resp.status).toBe(200)
+      expect(resp.headers.get('X-Robots-Tag')).toBeNull()
+      const html = await resp.text()
+      expect(html).not.toMatch(/name="robots"/)
+      expect(html).toContain('<title>Read Wuthering Heights Free Online | Tinct</title>')
+      expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/wuthering-heights">')
+      expect(html).toContain('<meta property="og:title" content="Read Wuthering Heights Free Online | Tinct">')
+      expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
+      expect(html).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
+      expect(html).not.toContain('og-image-v2.jpg')
+      expect(html.match(/<title>/g)).toHaveLength(1)
+      expect(html).toContain('"@type":"Book"')
+      // The library experience, with this book from the first paint.
+      expect(html).toContain('data-linked-book="wuthering-heights"')
+      expect(html).toContain('<h1 id="hero-title">Wuthering Heights</h1>')
+      expect(html).toContain('<p class="author" id="hero-author">Emily Brontë’s</p>')
+      expect(html).toContain('src="/covers/v2/wuthering-heights.webp"')
+      expect(html).not.toContain('Frankenstein</h1>')
+      expect(html).toContain('<script src="boot.js')
+      // Its crawlable text: the hook, and chapter links straight into the reader.
+      expect(html).toContain('id="book-about"')
+      expect(html).toContain('A tenant&#39;s curiosity and a housekeeper&#39;s memory tell the story')
+      expect(html).toContain('href="/reader?book=wuthering-heights&amp;chapter=3"')
+      expect(html.match(/<main\b/g)).toHaveLength(1)
+    })
+
+    it('answers HEAD without a body', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/read/wuthering-heights', { method: 'HEAD' }), env as never, ctx)
+      expect(resp.status).toBe(200)
+      expect(await resp.text()).toBe('')
+    })
+
+    it('puts the linked book in the /library hero, which stays noindex', async () => {
+      for (const search of ['?book=wuthering-heights', '?book=wuthering-heights&view=book-detail']) {
+        const resp = await worker.fetch(new Request(`https://tinct.app/library${search}`), env as never, ctx)
+        expect(resp.status).toBe(200)
+        expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
+        const html = await resp.text()
+        expect(html).toContain('data-linked-book="wuthering-heights"')
+        expect(html).toContain('<h1 id="hero-title">Wuthering Heights</h1>')
+        expect(html).not.toContain('id="book-about"')
+      }
+      const plain = await (await worker.fetch(new Request('https://tinct.app/library?book=not-a-book'), env as never, ctx)).text()
+      expect(plain).not.toContain('data-linked-book')
+      expect(plain).toContain('<h1 id="hero-title">Frankenstein</h1>')
+    })
+
+    it('keeps signed-in readers on their library with the book in focus', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/read/wuthering-heights?utm_source=x', { headers: { Cookie: 'tinct_auth=1' } }), env as never, ctx)
+      expect(resp.status).toBe(302)
+      expect(resp.headers.get('Location')).toBe('/library?book=wuthering-heights')
+    })
+
+    it('opens the reader at the chapter for an old /read/{book}/chapter-N link', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/read/wuthering-heights/chapter-3'), env as never, ctx)
+      expect(resp.status).toBe(302)
+      expect(resp.headers.get('Location')).toBe('/reader?book=wuthering-heights&chapter=3')
+    })
   })
 
   it('opens the live reader on the named chapter and edition from a legacy /read/{book}?chapter= link', async () => {
