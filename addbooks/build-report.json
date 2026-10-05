@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-10-03T08:26:15.890745+00:00",
+  "builtAt": "2026-10-05T20:20:44.860413+00:00",
   "gutenbergSource": "https://www.gutenberg.org/cache/epub/feeds/rdf-files.tar.bz2",
   "standardEbooksCoverage": "partial: public feed, latest 15 releases",
   "skipped": {
@@ -14,9 +14,9 @@
     "SE translators and language tags are read from EPUB package metadata; PG missing translator fields remain unknown.",
     "US source rights only. EU and other region clearance is not implemented in this search-only prototype."
   ],
-  "gutenbergRecords": 79522,
-  "gutenbergEditions": 77846,
-  "gutenbergWithoutEpub": 260,
+  "gutenbergRecords": 79547,
+  "gutenbergEditions": 77871,
+  "gutenbergWithoutEpub": 268,
   "standardEbooksMetadataPackages": 15,
   "standardEbooksEditions": 15,
   "sources": {
@@ -35,7 +35,7 @@
           "books": 404
         },
         "nl": {
-          "candidates": 168,
+          "candidates": 169,
           "books": 82
         },
         "la": {
@@ -55,8 +55,8 @@
           "books": 4125
         },
         "fr": {
-          "candidates": 34823,
-          "books": 14912
+          "candidates": 34825,
+          "books": 14914
         },
         "pl": {
           "candidates": 78473,
@@ -67,20 +67,20 @@
           "books": 10912
         },
         "en": {
-          "candidates": 30682,
-          "books": 18842
+          "candidates": 30687,
+          "books": 18846
         }
       },
-      "editions": 77106,
+      "editions": 77112,
       "licences": {
-        "CC BY-SA 4.0": 77106
+        "CC BY-SA 4.0": 77112
       }
     },
     "Kalliope": {
-      "skippedRecentOrUnknownDeath": 121,
-      "editions": 2636,
+      "skippedRecentOrUnknownDeath": 124,
+      "editions": 2645,
       "licences": {
-        "PD": 2636
+        "PD": 2645
       }
     },
     "Projekt Runeberg": {
@@ -146,10 +146,10 @@
     "Deutsches Textarchiv": 1976
   },
   "skippedUntitled": 5,
-  "lifeDatesBorrowedByName": 8033,
+  "lifeDatesBorrowedByName": 8032,
   "copyright": {
     "rule": "life+70: every author and translator died before 1956",
-    "kept": 129186,
+    "kept": 129221,
     "keptAsOldAnonymous": 2421,
     "excludedBySource": {
       "Bibebook": {
@@ -163,8 +163,8 @@
         "unverified": 114
       },
       "Gutenberg": {
-        "unverified": 14538,
-        "creatorDiedTooRecently": 8647,
+        "unverified": 14533,
+        "creatorDiedTooRecently": 8657,
         "creatorPossiblyAlive": 1449
       },
       "Litteraturbanken": {
@@ -178,9 +178,9 @@
         "unverified": 2
       },
       "Wikisource": {
-        "unverified": 25919,
-        "creatorDiedTooRecently": 1678,
-        "creatorPossiblyAlive": 272
+        "unverified": 25918,
+        "creatorDiedTooRecently": 1677,
+        "creatorPossiblyAlive": 274
       },
       "Wolne Lektury": {
         "unverified": 50,
@@ -188,12 +188,12 @@
       }
     }
   },
-  "ambiguousAuthorNames": 1185,
-  "duplicatesMerged": 6433,
-  "crossSourceWorks": 3604,
-  "tinctLiveBooks": 101,
-  "tinctBooksMatched": 76,
-  "worksOnTinct": 131,
+  "ambiguousAuthorNames": 1204,
+  "duplicatesMerged": 6435,
+  "crossSourceWorks": 3605,
+  "tinctLiveBooks": 105,
+  "tinctBooksMatched": 80,
+  "worksOnTinct": 136,
   "tinctMatches": [
     {
       "id": "to-the-lighthouse",
@@ -781,6 +781,35 @@
         "pg:996",
         "ws:en:Q49612156"
       ]
+    },
+    {
+      "id": "alice-in-wonderland",
+      "title": "Alice's Adventures in Wonderland",
+      "workIds": [
+        "pg:11"
+      ]
+    },
+    {
+      "id": "wuthering-heights",
+      "title": "Wuthering Heights",
+      "workIds": [
+        "pg:768"
+      ]
+    },
+    {
+      "id": "middlemarch",
+      "title": "Middlemarch",
+      "workIds": [
+        "pg:145",
+        "ws:fr:Q111821061"
+      ]
+    },
+    {
+      "id": "sense-and-sensibility",
+      "title": "Sense and Sensibility",
+      "workIds": [
+        "pg:161"
+      ]
     }
   ],
   "tinctUnmatched": [
@@ -989,8 +1018,8 @@
       ]
     }
   ],
-  "works": 122753,
-  "editions": 129186,
+  "works": 122786,
+  "editions": 129221,
   "languages": {
     "af": 11,
     "ang": 1,
@@ -1006,18 +1035,18 @@
     "cs": 50,
     "csb": 1,
     "cy": 13,
-    "da": 2518,
-    "de": 16010,
+    "da": 2520,
+    "de": 16012,
     "el": 175,
-    "en": 46251,
+    "en": 46274,
     "enm": 3,
     "eo": 45,
     "es": 5323,
     "et": 3,
     "fa": 7,
-    "fi": 2837,
+    "fi": 2838,
     "fo": 1,
-    "fr": 16082,
+    "fr": 16086,
     "fy": 20,
     "ga": 6,
     "gd": 3,
@@ -1035,7 +1064,7 @@
     "ka": 1,
     "kha": 1,
     "kld": 1,
-    "la": 962,
+    "la": 961,
     "lt": 36,
     "lv": 1,
     "mi": 2,
@@ -1043,11 +1072,11 @@
     "myn": 2,
     "nah": 2,
     "nai": 2,
-    "nl": 8014,
-    "no": 1292,
+    "nl": 8015,
+    "no": 1291,
     "oc": 10,
     "oji": 1,
-    "pl": 10531,
+    "pl": 10532,
     "pt": 3659,
     "rmq": 1,
     "ro": 9,
@@ -1059,7 +1088,7 @@
     "sl": 6,
     "smi": 1,
     "sr": 4,
-    "sv": 5754,
+    "sv": 5755,
     "ta": 1,
     "te": 1,
     "tl": 29,
@@ -1107,9 +1136,9 @@
       ]
     }
   ],
-  "missingOriginalLanguage": 121837,
-  "missingFirstPublishedYear": 86201,
-  "sameTitleReviewGroups": 4546,
+  "missingOriginalLanguage": 121870,
+  "missingFirstPublishedYear": 86222,
+  "sameTitleReviewGroups": 4549,
   "groupingReviewSample": {
     "": [
       "tg:wgtc.0",
@@ -1174,16 +1203,16 @@
     ]
   },
   "sourceSHA256": {
-    "rdf-files.tar.bz2": "1ff49f4460dab8485e84f2dddaa46fdab8169bea0107af7c78d81aae31372906",
+    "rdf-files.tar.bz2": "66d791c6b98353f80575e9e205fbda1b888e3cd56d51e539994f409754684a8e",
     "standardebooks-new-releases.xml": "5440f8b17d5dd90ff5a57d8855be9024f5e3199d359f2ed8dff2397d0a212eab"
   },
   "editionsBySource": {
-    "Gutenberg": 53211,
-    "Wikisource": 49233,
+    "Gutenberg": 53231,
+    "Wikisource": 49239,
     "DBNL": 7429,
     "Projekt Runeberg": 5919,
     "TextGrid": 4482,
-    "Kalliope": 2636,
+    "Kalliope": 2645,
     "Wolne Lektury": 2355,
     "Bibebook": 1719,
     "Deutsches Textarchiv": 1334,
@@ -1191,8 +1220,8 @@
     "Standard Ebooks": 10
   },
   "licences": {
-    "PD": 72706,
-    "CC BY-SA 4.0": 49545,
+    "PD": 72735,
+    "CC BY-SA 4.0": 49551,
     "CC BY 3.0 DE": 4482,
     "CC BY-SA": 1719,
     "CC BY-SA 3.0": 557,
@@ -1200,7 +1229,7 @@
     "CC BY-SA 2.0": 50,
     "CC BY 3.0": 3
   },
-  "indexBytes": 129131433,
-  "indexGzipBytes": 12639016,
+  "indexBytes": 129175690,
+  "indexGzipBytes": 12643919,
   "commitIndex": false
 }
