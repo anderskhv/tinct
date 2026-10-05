@@ -78,3 +78,7 @@ output/narration-pilot/*.mp3
 
 # Voice smoke artifacts
 app/artifacts/grok-voice-smoke*/
+
+# Add a book: catalogue sources and built index (rebuilt by addbooks/scripts/build-index)
+addbooks/.cache/
+addbooks/site/data/
