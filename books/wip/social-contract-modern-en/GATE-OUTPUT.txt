@@ -1,0 +1,142 @@
+$ python3 books/classify-modern-en.py social-contract --gate   # LIVE FILES (main 791d2802), before this repair
+social-contract original-en -> modern-en  (48 chapters)
+  weighted similarity : 0.843   (gate: <= 0.75)
+  light+mechanical    : 19/48 = 39.6%   (gate: <= 5%)
+  identical long paras: 5/483 = 1.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 29  LIGHT 19  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+exit 1
+
+# Scratch mirror: byte-identical copy of books/classify-modern-en.py (sha256 950700285d86e213...) next to a scratch editions dir holding the served original-en and candidate.json as modern-en (live files untouched).
+# candidate.json sha256 0dc94d4f767fb769ffd6ecafb1434b05e3631c96953b2ffb453aafa520f1fd11
+
+$ ... --gate --per-chapter   # whole book
+  ch    1  sim 0.640  REAL        Book 1, Chapter 1 — Subject of the First Book
+  ch    2  sim 0.623  REAL        Book 1, Chapter 2 — The First Societies
+  ch    3  sim 0.671  REAL        Book 1, Chapter 3 — The Right of the Strongest
+  ch    4  sim 0.664  REAL        Book 1, Chapter 4 — Slavery
+  ch    5  sim 0.578  REAL        Book 1, Chapter 5 — That We Must Always Go Back to
+  ch    6  sim 0.640  REAL        Book 1, Chapter 6 — The Social Compact
+  ch    7  sim 0.660  REAL        Book 1, Chapter 7 — The Sovereign
+  ch    8  sim 0.604  REAL        Book 1, Chapter 8 — The Civil State
+  ch    9  sim 0.623  REAL        Book 1, Chapter 9 — Real Property
+  ch   10  sim 0.631  REAL        Book 2, Chapter 1 — That Sovereignty Is Inalienabl
+  ch   11  sim 0.618  REAL        Book 2, Chapter 2 — That Sovereignty Is Indivisibl
+  ch   12  sim 0.670  REAL        Book 2, Chapter 3 — Whether the General Will Is Fa
+  ch   13  sim 0.648  REAL        Book 2, Chapter 4 — The Limits of the Sovereign Po
+  ch   14  sim 0.635  REAL        Book 2, Chapter 5 — The Right of Life and Death
+  ch   15  sim 0.634  REAL        Book 2, Chapter 6 — Law
+  ch   16  sim 0.619  REAL        Book 2, Chapter 7 — The Legislator
+  ch   17  sim 0.642  REAL        Book 2, Chapter 8 — The People
+  ch   18  sim 0.563  REAL        Book 2, Chapter 9 — The People (continued)
+  ch   19  sim 0.579  REAL        Book 2, Chapter 10 — The People (continued)
+  ch   20  sim 0.693  REAL        Book 2, Chapter 11 — The Various Systems of Legisl
+  ch   21  sim 0.664  REAL        Book 2, Chapter 12 — The Division of the Laws
+  ch   22  sim 0.653  REAL        Book 3, Chapter 1 — Government in General
+  ch   23  sim 0.674  REAL        Book 3, Chapter 2 — The Constituent Principle in t
+  ch   24  sim 0.638  REAL        Book 3, Chapter 3 — The Division of Governments
+  ch   25  sim 0.588  REAL        Book 3, Chapter 4 — Democracy
+  ch   26  sim 0.586  REAL        Book 3, Chapter 5 — Aristocracy
+  ch   27  sim 0.614  REAL        Book 3, Chapter 6 — Monarchy
+  ch   28  sim 0.635  REAL        Book 3, Chapter 7 — Mixed Governments
+  ch   29  sim 0.631  REAL        Book 3, Chapter 8 — That All Forms of Government D
+  ch   30  sim 0.680  REAL        Book 3, Chapter 9 — The Marks of a Good Government
+  ch   31  sim 0.706  REAL        Book 3, Chapter 10 — The Abuse of Government and I
+  ch   32  sim 0.618  REAL        Book 3, Chapter 11 — The Death of the Body Politic
+  ch   33  sim 0.688  REAL        Book 3, Chapter 12 — How the Sovereign Authority M
+  ch   34  sim 0.583  REAL        Book 3, Chapter 13 — The Same (continued)
+  ch   35  sim 0.595  REAL        Book 3, Chapter 14 — The Same (continued)
+  ch   36  sim 0.662  REAL        Book 3, Chapter 15 — Deputies or Representatives
+  ch   37  sim 0.642  REAL        Book 3, Chapter 16 — That the Institution of Gover
+  ch   38  sim 0.497  REAL-HEAVY  Book 3, Chapter 17 — The Institution of Government
+  ch   39  sim 0.578  REAL        Book 3, Chapter 18 — How to Check the Usurpations 
+  ch   40  sim 0.666  REAL        Book 4, Chapter 1 — That the General Will Is Indes
+  ch   41  sim 0.679  REAL        Book 4, Chapter 2 — Voting
+  ch   42  sim 0.682  REAL        Book 4, Chapter 3 — Elections
+  ch   43  sim 0.631  REAL        Book 4, Chapter 4 — The Roman Comitia
+  ch   44  sim 0.550  REAL        Book 4, Chapter 5 — The Tribunate
+  ch   45  sim 0.566  REAL        Book 4, Chapter 6 — The Dictatorship
+  ch   46  sim 0.599  REAL        Book 4, Chapter 7 — The Censorship
+  ch   47  sim 0.641  REAL        Book 4, Chapter 8 — Civil Religion
+  ch   48  sim 0.658  REAL        Book 4, Chapter 9 — Conclusion
+social-contract original-en -> modern-en  (48 chapters)
+  weighted similarity : 0.633   (gate: <= 0.75)
+  light+mechanical    : 0/48 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/483 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 1  REAL 47  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ ... --gate --chapters 1-9
+social-contract original-en -> modern-en  (9 chapters)
+  weighted similarity : 0.641   (gate: <= 0.75)
+  light+mechanical    : 0/9 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/67 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 9  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ ... --gate --chapters 10-21
+social-contract original-en -> modern-en  (12 chapters)
+  weighted similarity : 0.629   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/91 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 12  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ ... --gate --chapters 22-39
+social-contract original-en -> modern-en  (18 chapters)
+  weighted similarity : 0.634   (gate: <= 0.75)
+  light+mechanical    : 0/18 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/185 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 1  REAL 17  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ ... --gate --chapters 40-48
+social-contract original-en -> modern-en  (9 chapters)
+  weighted similarity : 0.632   (gate: <= 0.75)
+  light+mechanical    : 0/9 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/140 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 9  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ ... --gate --chapters 1-24
+social-contract original-en -> modern-en  (24 chapters)
+  weighted similarity : 0.638   (gate: <= 0.75)
+  light+mechanical    : 0/24 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/202 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 24  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ ... --gate --chapters 25-48
+social-contract original-en -> modern-en  (24 chapters)
+  weighted similarity : 0.630   (gate: <= 0.75)
+  light+mechanical    : 0/24 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/281 = 0.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 1  REAL 23  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit 0
+
+$ python3 books/audit-truncation.py social-contract en   # scratch copy, path changed to the scratch mirror (tool sha256 c3f2d55e...)
+== social-contract: modern-en vs original-en ==
+  TOTAL: 0
