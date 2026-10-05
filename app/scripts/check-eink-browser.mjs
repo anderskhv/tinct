@@ -26,8 +26,15 @@ try{
    window.requestAnimationFrame=cb=>raf(t=>{window.__frames++;cb(t)})
    HTMLMediaElement.prototype.play=async function(){this.muted=true}
   })
+  const failed=[],logs=[]
+  page.on('requestfailed',r=>failed.push(r.url()))
+  page.on('console',m=>{if(m.type()==='error'||m.type()==='warning')logs.push(m.text())})
   await page.goto(origin+'/library?eink=1',{waitUntil:'domcontentloaded'})
-  await page.locator('#hero-book').waitFor()
+  try{await page.locator('#hero-book').waitFor()}catch(error){
+   console.error('EINK_LIBRARY_DIAGNOSTIC',JSON.stringify({width,live,errors,logs,failed:[...new Set(failed)].slice(0,40),...await page.evaluate(()=>({hour:new Date().getHours(),classes:document.documentElement.className,bodyClasses:document.body?.className,hero:(()=>{const n=document.getElementById('hero-book');if(!n)return null;const r=n.getBoundingClientRect(),c=getComputedStyle(n);return{w:r.width,h:r.height,display:c.display,visibility:c.visibility,opacity:c.opacity,hidden:n.hidden}})()}))}))
+   await page.screenshot({path:output+'/eink-library-failure-'+width+'.png'})
+   throw error
+  }
   await page.waitForTimeout(2000)
   const frames=await page.evaluate(()=>window.__frames)
   await page.waitForTimeout(600)
