@@ -15,13 +15,13 @@ There are no other options. The image always uses **the edition and the look (Pa
 It is rendered from the live reader's layout, not a separate design:
 - **Header:** a passive version of the reader's bar. It has the book title, a dot, and the chapter, all in the same muted italic EB Garamond as the footer tagline, as plain text: no pill background, no chevron, no buttons or icons. It must not look tappable.
 - **Body:** the reader's justified EB Garamond page, with the highlight in the reader's gold highlight colour.
-- **Surrounding text, always:** the page starts a sentence or two before the highlight (with "…" if it begins mid-paragraph) and simply runs on until the page ends. If there isn't room for much context, that's fine; text is never shrunk to make more fit.
+- **Surrounding text, always, but greyed:** every word that isn't part of the highlight is shown in a light grey, and the highlight is in full ink on the gold highlight colour. **The quote always sits near the top:** the page opens one sentence before the highlight (with "…" if that is mid-paragraph), on phone and desktop alike, so nobody has to scan for it. The page then runs on until it ends; text is never shrunk to fit more.
 - **Footer:** where the reader shows page progress, the image shows "Read free at tinct.app" in the page's own serif (EB Garamond italic, muted), not the mono UI font. It shows nothing if the toggle is off. Remember each reader's last toggle choice, so readers who post on Reddit don't have to switch it off every time.
 
 | | Phone | Desktop, short highlight | Desktop, long highlight |
 |---|---|---|---|
 | Shape | 4:5, 1080 × 1350 | 16:10, 1600 × 1000 | 16:10, 1600 × 1000 |
-| Layout | The phone reader page | One reader page, centred | **Both pages of the spread**, with the fold, the text flowing across exactly as in the reader, and page numbers |
+| Layout | The phone reader page | One reader page, centred | **Both pages of the spread**: the left page opens one sentence before the highlight, and the text flows across the fold as in the reader, with page numbers |
 
 The desktop image switches to the two-page spread when the highlight doesn't fit on one page.
 
