@@ -126,3 +126,19 @@ Peoples: keep Butler's three names for the Greeks, **Achaeans**, **Argives**, **
 ## Review checklist (for reviewers)
 
 For each paragraph: omission of any clause, name, patronymic, number or object; reversal of meaning (who struck whom, who spoke to whom, who died); mistaken names or genealogies; flattened or shortened similes; softened violence; added facts; wrong Roman→Greek mapping; inconsistent epithet rendering; leftover archaism; truncation (target under 75% of source words without a stated reason); paragraph misalignment.
+
+## Decisions recorded during the work (added after rendering)
+
+These are rulings made while rendering and reviewing. They are applied in `candidate.json`.
+
+- **Closeness.** The first pilot batches scored 0.80–0.88 against Butler and were re-rendered. The accepted target was a word-level similarity of about 0.62–0.72 per batch (gate limit 0.75), reached by recasting sentence structure, not by swapping words.
+- **Simile frames.** Reviewers restored "As when … so …" wherever a renderer had turned a simile into free-standing statements; both halves of every simile are kept.
+- **"peer of"** in "peer of Ares / peer of Zeus in counsel" is kept as "peer of", not "equal of".
+- **"fleet"** (adjective) is **swift**; "fleet of foot" is **swift-footed**; "fleet" as a noun for ships stays "fleet".
+- **Alexandrus → Paris** everywhere, including where Butler writes "Alexandrus, also called Paris" (Book 3 argument), which becomes "Paris".
+- **Pandarus.** Butler's argument to Book 4 prints "Fandarus", an obvious typo for the "Pandarus" of the body; the candidate prints Pandarus.
+- **Ilus.** "Tomb of Ilius" (the founder) becomes "tomb of Ilus"; the city *Ilius* becomes *Ilium*.
+- **Butler's own slips are kept in sense, not corrected.** The argument to Book 8 says Hera and Athena "set out to help the Trojans" (they set out to help the Achaeans; see `ACCEPTANCE-RECORD.md`, open issues). Garbled or defective sentences in Butler (for example Book 15 ¶42 "sprang upon Lampus was son of Laomedon", Book 14 ¶32, Book 9 ¶8) are rendered by the evident sense and logged by the reviewers as notes.
+- **Possessives.** Plural possessives ("the horses’ hoofs") are regular. Singular names ending in -s take "’s" (Achilles’s, Patroclus’s). Butler’s "Meriones’" in Book 23 ¶63 may remain in the older form; it is cosmetic.
+- **Unclosed speeches** at a paragraph end (a speech that continues in the next paragraph) follow Butler: no closing mark, and the next paragraph opens with “.
+- **"hecatomb"** is "a great sacrifice" (or "great sacrifices"), never a number; "holy hecatomb" is "holy great sacrifice" or "holy offering" depending on the sentence.
