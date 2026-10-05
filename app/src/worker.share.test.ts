@@ -139,7 +139,7 @@ describe('/q/{id}', () => {
     const html = await response!.text()
     expect(html).toContain(`<meta property="og:image" content="https://tinct.app/q/${id}/og.png">`)
     expect(html).toContain('<meta name="twitter:card" content="summary_large_image">')
-    expect(html).toContain('<meta property="og:title" content="“…The different accidents of life are not so changeable as the feelings of human nature. I…”">')
+    expect(html).toContain('<meta property="og:title" content="“The different accidents of life are not so changeable as the feelings of human nature. I…”">')
     expect(html).toContain('<meta property="og:description" content="Frankenstein, Mary Shelley · Chapter 5">')
     expect(html).toContain(`data-reader="/reader?book=frankenstein&amp;edition=original-en&amp;chapter=9&amp;paragraph=1&amp;word=0&amp;share=${id}"`)
     expect(html).not.toContain('user-3')

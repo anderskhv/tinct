@@ -25,9 +25,12 @@ export function guestAiDailyMicros(env: GuestAiSpendEnv): number {
   return value * 10_000
 }
 
-/** Characters are counted at four per token, rounded up. */
-export function estimateAiCostMicros(input: { inputChars: number; maxTokens: number; tools?: boolean }): number {
-  const inputTokens = Math.ceil(Math.max(0, input.inputChars) / 4)
+/**
+ * Characters are counted at four per token, rounded up. Pictures add their own
+ * input tokens (`imageTokens`, see chatImages.imageTokenEstimate).
+ */
+export function estimateAiCostMicros(input: { inputChars: number; maxTokens: number; tools?: boolean; imageTokens?: number }): number {
+  const inputTokens = Math.ceil(Math.max(0, input.inputChars) / 4) + Math.max(0, Math.ceil(input.imageTokens ?? 0))
   const inputCost = inputTokens * INPUT_MICROS_PER_TOKEN * (input.tools ? TOOL_ROUND_FACTOR : 1)
   return Math.max(1, Math.ceil(inputCost + Math.max(0, input.maxTokens) * OUTPUT_MICROS_PER_TOKEN))
 }

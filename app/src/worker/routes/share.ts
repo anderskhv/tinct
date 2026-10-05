@@ -17,7 +17,7 @@
 import { getBook } from '../../data/bookRegistry'
 import { editionHold, isBookTemporarilyHeld } from '../../data/editionAvailability'
 import { isEditionWithheld } from '../../data/withheldEditions'
-import { isValidShareRange, shareRangeText, type ShareContent, type ShareFormat, type ShareLook, type ShareOptions, type ShareRange } from '../../share/shareLayout'
+import { buildPassage, isValidShareRange, type ShareContent, type ShareFormat, type ShareLook, type ShareOptions, type ShareRange } from '../../share/shareLayout'
 import type { Book } from '../../types'
 import { createBookRetrieval, type AssetsBinding } from '../lib/bookRetrieval'
 import { htmlEscape } from '../lib/html'
@@ -140,13 +140,14 @@ function excerpt(text: string, max = 110): string {
   if (text.length <= max) return text
   const cut = text.slice(0, max)
   const space = cut.lastIndexOf(' ')
-  return (space > 60 ? cut.slice(0, space) : cut).replace(/[,;:.!?—-]+$/, '')
+  return `${(space > 60 ? cut.slice(0, space) : cut).replace(/[,;:.!?\u2014-]+$/, '')}\u2026`
 }
 
 export function shareLinkPage(input: { origin: string; record: ShareRecord; text: string; bookTitle: string; author: string; chapterLabel: string }): string {
   const { origin, record } = input
   const url = `${origin}/q/${record.id}`
-  const title = `“…${excerpt(input.text)}…”`
+  // "…" only where the quote starts or stops mid-sentence, as on the image.
+  const title = `“${excerpt(input.text)}”`
   const description = `${input.bookTitle}, ${input.author} · ${input.chapterLabel}`
   const og = `${url}/og.png`
   const href = readerHref(record)
@@ -232,7 +233,8 @@ export async function handleSharePage(request: Request, env: ShareEnv, ctx: Exec
   const loaded = await loadShareContent(env, url.origin, record)
   if (!loaded) return notFound()
   const html = shareLinkPage({
-    origin: url.origin, record, text: shareRangeText(loaded.content.paragraphs, loaded.content.range),
+    origin: url.origin, record,
+    text: buildPassage(loaded.content.paragraphs, loaded.content.range, false).flatMap(paragraph => paragraph.tokens.map(token => token.text)).join(' '),
     bookTitle: loaded.content.bookTitle, author: loaded.author, chapterLabel: loaded.content.chapterLabel,
   })
   return new Response(request.method === 'HEAD' ? null : html, {

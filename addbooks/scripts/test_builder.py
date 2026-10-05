@@ -1,0 +1,226 @@
+"""Focused catalogue regressions; no network or app writes."""
+import importlib.machinery
+import importlib.util
+import tempfile
+import unittest
+from pathlib import Path
+
+loader = importlib.machinery.SourceFileLoader('builder', str(Path(__file__).with_name('build-index')))
+spec = importlib.util.spec_from_loader(loader.name, loader)
+b = importlib.util.module_from_spec(spec)
+loader.exec_module(b)
+
+RDF = '''<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:pg="http://www.gutenberg.org/2009/pgterms/" xmlns:dc="http://purl.org/dc/terms/" xmlns:rel="http://id.loc.gov/vocabulary/relators/">
+<pg:ebook rdf:about="ebooks/123"><dc:rights>Public domain in the USA.</dc:rights>
+<dc:type><rdf:Description><rdf:value>Text</rdf:value></rdf:Description></dc:type>
+<dc:title>The Odyssey</dc:title><dc:creator><pg:agent><pg:name>Homer</pg:name><pg:birthdate>-750</pg:birthdate><pg:deathdate>-650</pg:deathdate></pg:agent></dc:creator>
+<rel:trl><pg:agent><pg:name>Butler, Samuel</pg:name></pg:agent></rel:trl>
+<dc:language><rdf:Description><rdf:value>en</rdf:value></rdf:Description></dc:language>
+<dc:subject><rdf:Description><rdf:value>Epic poetry</rdf:value></rdf:Description></dc:subject>
+<pg:downloads>500</pg:downloads><dc:issued>1999-01-01</dc:issued>
+<dc:hasFormat><pg:file rdf:about="https://www.gutenberg.org/ebooks/123.epub.images"><dc:format><rdf:Description><rdf:value>application/epub+zip</rdf:value></rdf:Description></dc:format></pg:file></dc:hasFormat>
+</pg:ebook></rdf:RDF>'''
+
+class BuilderTests(unittest.TestCase):
+    def edition(self, **updates):
+        e, reason = b.parse_pg(RDF)
+        self.assertIsNone(reason)
+        e.update(updates)
+        return e
+
+    def test_rights_type_and_unknown_dates(self):
+        e = self.edition()
+        self.assertEqual(e['authors'][0]['birthYear'], -750)
+        self.assertEqual(e['translators'][0]['name'], 'Samuel Butler')
+        self.assertEqual(e['subjects'], ['Epic poetry'])
+        self.assertEqual(e['popularity'], 500)
+        self.assertIsNone(e['firstPublishedYear'])  # never 1999, the ebook release
+        self.assertIsNone(e['originalLanguage'])  # English is an edition language
+        self.assertEqual(b.parse_pg(RDF.replace('Public domain in the USA.', 'Copyrighted.'))[1], 'notPublicDomainUS')
+        self.assertEqual(b.parse_pg(RDF.replace('>Text<', '>Sound<'))[1], 'notText')
+
+    def test_translations_group_without_losing_translator(self):
+        original = self.edition()
+        translated = self.edition(id='pg:456', sourceId='456', title='The Odyssey of Homer', translators=[b.person('Pope, Alexander')])
+        report = {}
+        works = b.group_editions([original,translated],report)
+        self.assertEqual(len(works),1)
+        self.assertEqual(report['duplicatesMerged'],1)
+        self.assertEqual({e['translators'][0]['name'] for e in works[0]['editions']},{'Samuel Butler','Alexander Pope'})
+
+    def test_se_preferred_but_cannot_borrow_translator(self):
+        se = self.edition(id='se:homer/odyssey',source='Standard Ebooks',sourceId='homer/odyssey',quality='clean',translators=[],popularity=0)
+        works = b.group_editions([self.edition(),se],{})
+        self.assertEqual(len(works),1)
+        self.assertEqual(works[0]['editions'][0]['source'],'Standard Ebooks')
+        self.assertEqual(works[0]['translators'],[])
+        self.assertEqual(works[0]['popularity'],500)
+
+    def test_distinct_author_language_volume_and_anthology_do_not_merge(self):
+        e = self.edition()
+        other_author = self.edition(id='pg:2',sourceId='2',authors=[b.person('Someone Else')])
+        french = self.edition(id='pg:3',sourceId='3',language=['fr'])
+        volume = self.edition(id='pg:4',sourceId='4',title='The Odyssey, Volume 1')
+        self.assertEqual(len(b.group_editions([e,other_author,french,volume],{})),4)
+        one = self.edition(title='Short Fiction')
+        two = self.edition(id='pg:2',sourceId='2',title='Short Fiction')
+        self.assertEqual(len(b.group_editions([one,two],{})),2)
+
+    def test_same_named_authors_with_different_dates_are_distinct(self):
+        a = self.edition(authors=[b.person('Smith, John',1800,1860)])
+        c = self.edition(id='pg:2',sourceId='2',authors=[b.person('Smith, John',1900,1960)])
+        self.assertEqual(len(b.group_editions([a,c],{})),2)
+        a['authors'] = [b.person('Various')]
+        c['authors'] = [b.person('Various')]
+        self.assertEqual(len(b.group_editions([a,c],{})),2)
+
+    def test_text_without_epub_is_preserved(self):
+        e, reason = b.parse_pg(RDF.replace('application/epub+zip','text/plain'))
+        self.assertIsNone(reason)
+        self.assertIsNone(e['epubUrl'])
+
+    def test_registry_ignores_staged_books_and_comments(self):
+        source = """export const LIVE: Book = {
+  id: 'live', title: 'The Odyssey', author: 'Homer', year: -800,
+}
+export const STAGED: Book = {
+  id: 'staged', title: 'Other', author: 'Homer', year: 10,
+}
+export const BOOKS: Book[] = [LIVE, // STAGED
+]
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'registry.ts';path.write_text(source)
+            books=b.load_registry(path)
+            self.assertEqual([x['id'] for x in books],['live'])
+            report={};works=b.group_editions([self.edition()],{})
+            b.match_tinct(works,books,report)
+            self.assertTrue(works[0]['onTinct'])
+            self.assertEqual(works[0]['firstPublishedYear'],-800)
+
+    def test_title_only_match_does_not_claim_on_tinct(self):
+        works=b.group_editions([self.edition()],{})
+        report={}
+        b.match_tinct(works,[{'id':'fake','title':'The Odyssey','author':'Another Person','year':1}],report)
+        self.assertFalse(works[0]['onTinct'])
+        self.assertEqual(len(report['tinctAmbiguous']),1)
+
+    def test_parse_atom_recommended_epub_and_next_page(self):
+        xml='''<feed xmlns="http://www.w3.org/2005/Atom"><link rel="next" href="https://standardebooks.org/next"/><entry><id>https://standardebooks.org/ebooks/homer/odyssey</id><title>The Odyssey</title><author><name>Homer</name></author><rights>Public domain in the United States.</rights><link type="application/epub+zip" href="https://standardebooks.org/advanced_advanced.epub"/><link type="application/epub+zip" href="https://standardebooks.org/recommended.epub"/></entry></feed>'''
+        entries, next_urls=b.parse_se(xml)
+        self.assertEqual(entries[0]['epubUrl'],'https://standardebooks.org/recommended.epub')
+        self.assertEqual(next_urls,['https://standardebooks.org/next'])
+
+class MultilingualTests(unittest.TestCase):
+    def edition(self, source, sid, title, author, lang, **kw):
+        from catalog_sources.common import edition
+        return edition(source, sid, title, id=source[:3].lower() + ':' + sid, authors=[author], language=[lang],
+                       rights='Public domain', licence='PD', **kw)
+
+    def test_licence_codes(self):
+        from catalog_sources.common import licence_from_text as l
+        self.assertEqual(l('Dieses Werk ist gemeinfrei.'), 'PD')
+        self.assertEqual(l('Creative Commons Attribution-NonCommercial 3.0 Unported License'), 'CC BY-NC 3.0')
+        self.assertEqual(l('https://creativecommons.org/licenses/by-nc-sa/4.0/'), 'CC BY-NC-SA 4.0')
+        self.assertEqual(l('Creative Commons "Attribuzione - Non commerciale - Condividi allo stesso modo 4.0"'), 'CC BY-NC-SA 4.0')
+        self.assertIsNone(l('Alle Rechte vorbehalten'))
+
+    def test_nordic_folding_and_language_articles(self):
+        self.assertEqual(b.norm('København Straße Łódź'), 'kobenhavn strasse lodz')
+        self.assertEqual(b.title_key('Den lille Havfrue', ['da']), 'lille havfrue')
+        self.assertEqual(b.title_key('Den lille Havfrue'), 'den lille havfrue')  # English rules by default
+        self.assertEqual(b.title_key('Les Misérables', ['fr']), 'miserables')
+
+    def test_rights_required(self):
+        from catalog_sources.common import edition
+        with self.assertRaises(ValueError):
+            edition('X', '1', 'Untitled', rights=None, licence=None)
+
+    def test_dated_authors_group_across_libraries_but_undated_namesakes_do_not(self):
+        from catalog_sources.common import natural_person
+        andersen = natural_person('H.C. Andersen', 1805, 1875)
+        one = self.edition('Runeberg', '1', 'Eventyr', andersen, 'da')
+        two = self.edition('Kalliope', '2', 'Eventyr', dict(andersen), 'da', quality='proofread')
+        works = b.group_editions([one, two], {})
+        self.assertEqual(len(works), 1)
+        self.assertEqual(works[0]['editions'][0]['source'], 'Kalliope')  # proofread preferred
+        undated = self.edition('Bibebook', '3', 'Contes', natural_person("Jean Dupont"), 'fr')
+        undated2 = self.edition('BNR', '4', 'Contes', natural_person("Jean Dupont"), 'fr')
+        self.assertEqual(len(b.group_editions([undated, undated2], {})), 2)
+
+    def test_runeberg_life_plus_seventy(self):
+        from catalog_sources import runeberg
+        from catalog_sources.common import Fetcher
+        class Stub(Fetcher):
+            def __init__(self): self.delay = 0
+            def bytes(self, url, path, **kw):
+                if url.endswith('a.lst'):
+                    return '# people\n1805|1875|Andersen|H.C.|dk|poet|andersen\n1930|2010|Nyere|Ny|dk|poet|nyere\n'.encode('latin-1')
+                return '# titles\nEventyr|eventyr|andersen|da|1835||||da\nNyt|nyt|nyere|da|1990||||da\n'.encode('latin-1')
+        editions = runeberg.fetch(Stub(), {})
+        self.assertEqual([e['id'] for e in editions], ['rb:eventyr'])
+
+
+    def test_copyright_gate_life_plus_seventy(self):
+        from catalog_sources.common import natural_person as np, public_domain_cutoff
+        cutoff = public_domain_cutoff()
+        old = self.edition('Gutenberg', '1', 'Old', np('Old Author', 1800, 1870), 'en')
+        recent = self.edition('Gutenberg', '2', 'Recent', np('Recent Author', 1900, cutoff + 1), 'en')
+        alive = self.edition('DBNL', '3', 'Alive', np('Young Author', cutoff - 50), 'nl', pdAsserted=True)
+        undated = self.edition('Gutenberg', '4', 'Undated', np('Nobody Known'), 'en')
+        asserted = self.edition('DBNL', '5', 'Asserted', np('Nobody Dated'), 'nl', pdAsserted=True)
+        old_translator = self.edition('Gutenberg', '6', 'Translated', np('Old Author', 1800, 1870), 'en',
+                                      translators=[np('Modern Translator', 1920, cutoff + 5)])
+        report = {}
+        kept = b.gate_copyright([old, recent, alive, undated, asserted, old_translator], report)
+        self.assertEqual([e['title'] for e in kept], ['Old', 'Asserted'])
+        self.assertEqual(report['copyright']['excludedBySource']['Gutenberg'],
+                         {'creatorDiedTooRecently': 2, 'unverified': 1})
+
+    def test_life_dates_borrowed_only_when_unambiguous(self):
+        from catalog_sources.common import natural_person as np, person
+        dated = self.edition('Gutenberg', '1', 'A', person('Verga, Giovanni', 1840, 1922), 'it')
+        undated = self.edition('Liber Liber', '2', 'B', np('Giovanni Verga'), 'it')
+        b.enrich_dates([dated, undated], {})
+        self.assertEqual(undated['authors'][0]['deathYear'], 1922)
+        smith1 = self.edition('Gutenberg', '3', 'C', np('John Smith', 1800, 1860), 'en')
+        smith2 = self.edition('Gutenberg', '4', 'D', np('John Smith', 1900, 1990), 'en')
+        smith = self.edition('Bibebook', '5', 'E', np('John Smith'), 'en')
+        b.enrich_dates([smith1, smith2, smith], {})
+        self.assertIsNone(smith['authors'][0]['deathYear'])
+
+
+    def test_non_commercial_licences_are_detected(self):
+        for code in ('CC BY-NC 3.0', 'CC BY-NC-SA 4.0', 'Free, non-commercial'):
+            self.assertTrue(b.non_commercial(code), code)
+        for code in ('PD', 'CC BY-SA 4.0', 'CC BY 3.0 DE', None):
+            self.assertFalse(b.non_commercial(code), code)
+
+    def test_clearly_old_anonymous_texts(self):
+        from catalog_sources.common import natural_person as np
+        def anon(title, subjects, authors=()):
+            return self.edition('Gutenberg', title[:8], title, np('Anonymous'), 'en', subjects=list(subjects))
+        cutoff = b.public_domain_cutoff()
+        cases = {
+            ('The King James Version of the Bible', ('Bible',)): 'anonymousOld',
+            ('Deuterocanonical Books', ('Bible. Apocrypha',)): 'anonymousOld',
+            ('A Commentary', ('Bible -- Commentaries',)): 'unverified',
+            ('Voyages round the world', ('Voyages -- Early works to 1800',)): 'anonymousOld',
+            ('Household words, No. 2, April 6, 1850', ()): 'anonymousOld',
+            ('The Philippine Islands, 1493-1898', ()): 'unverified',
+            ('Field Artillery Training. 1914', ()): 'unverified',
+            ('Twenty-Five Ghost Stories', ('Ghost stories',)): 'unverified',
+        }
+        for (title, subjects), expected in cases.items():
+            self.assertEqual(b.copyright_status(anon(title, subjects), cutoff), expected, title)
+        various = self.edition('Gutenberg', 'v', 'Blackwood\'s magazine, October 1885', np('Various'), 'en')
+        self.assertEqual(b.copyright_status(various, cutoff), 'unverified')  # collective issues need pre-1870
+        various['title'] = 'Blackwood\'s magazine, October 1853'
+        self.assertEqual(b.copyright_status(various, cutoff), 'anonymousOld')
+        translated = anon('Old Saga, 1300', ())
+        translated['translators'] = [np('Unknown Dates')]
+        self.assertEqual(b.copyright_status(translated, cutoff), 'unverified')  # translator still needs clearing
+
+
+if __name__ == '__main__':
+    unittest.main()

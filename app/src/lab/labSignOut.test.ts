@@ -66,6 +66,17 @@ describe('lab sign-out wipe', () => {
     expectWiped()
   })
 
+  it('removes the books opened from the reader\'s own files (Add a book)', () => {
+    const deleteDatabase = vi.fn()
+    vi.stubGlobal('indexedDB', { deleteDatabase })
+    localStorage.setItem('tinct-addbook:rights:user-a', '{"at":"2026-10-05"}')
+    localStorage.setItem('tinct-addbook:chat:pdf:abc', '[]')
+    wipeLabDeviceUserData()
+    expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook')
+    expect(localStorage.getItem('tinct-addbook:rights:user-a')).toBeNull()
+    expect(localStorage.getItem('tinct-addbook:chat:pdf:abc')).toBeNull()
+  })
+
   it('still wipes localStorage when IndexedDB is unavailable or throws', () => {
     vi.stubGlobal('indexedDB', { deleteDatabase: () => { throw new Error('blocked') } })
     seed()
@@ -79,5 +90,12 @@ describe('classic sign-out wipe (clearLocalUserData) and the lab keys', () => {
     seed()
     clearLocalUserData()
     expectWiped()
+  })
+
+  it('drops the Add-a-book files on every sign-out path', () => {
+    const deleteDatabase = vi.fn()
+    vi.stubGlobal('indexedDB', { deleteDatabase })
+    clearLocalUserData()
+    expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook')
   })
 })
