@@ -50,6 +50,7 @@ Use the Greek forms already used in the served modern text and in the Cast (char
 | Hercules | **Heracles** | |
 | Aesculapius | **Asclepius** | |
 | Ilius | **Ilium** | the city; Cast uses Ilium. "Troy" stays "Troy" |
+| Ilius (the man: "the tomb of Ilius", Book 11 and 24) | **Ilus** | Founder of the city, not the city. The city *Ilius* becomes *Ilium*. |
 | Alexandrus | **Paris** | Same man, two names in Butler; the Cast display name wins. Where Butler writes *Alexandrus* write *Paris*. (Recorded in `ACCEPTANCE-RECORD.md`.) |
 
 Unchanged (already Greek or common English): Achilles, Agamemnon, Menelaus, Hector, Priam, Hecuba, Andromache, Helen, Patroclus, Ajax (both Ajaxes; keep "Ajax son of Telamon" / "Ajax son of Oileus" / "the two Ajaxes"), Nestor, Idomeneus, Aeneas, Sarpedon, Glaucus, Phoenix, Thetis, Apollo, **Phoebus Apollo** (keep "Phoebus" as Butler has it), Iris, Hebe, Dione, Hades, Tartarus, Oceanus, Olympus, Ida, Scamander, Xanthus, Simois, Hellespont, Scaean gates, Titans, Erinyes, Briareus, Rhea, Panic, Strife. Any other name is kept in Butler's spelling. Do not "correct" other spellings.
@@ -66,6 +67,7 @@ Peoples: keep Butler's three names for the Greeks, **Achaeans**, **Argives**, **
 
 | Butler | Modern edition |
 |---|---|
+| fleet (fleet messengers, fleet horses, fleet Iris) | **swift** | |
 | fleet of foot (of a person) | **swift-footed** ("Prothous, swift-footed" → "swift-footed Prothous" or "Prothous, who was swift-footed" by sentence) |
 | king of men | **king of men** |
 | shepherd of his people | **shepherd of his people** |
