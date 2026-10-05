@@ -17,6 +17,10 @@ import { createRequire } from 'node:module'
 import esbuild from 'esbuild'
 
 const origin = 'https://tinct.app'
+// Pages are served with production's media and script policy: it refuses the
+// data: audio unlock clip, and that refusal is what once moved the reader to
+// the next chapter on opening Chat (reproduce with TEST_REAL_PLAY=1).
+const PRODUCTION_CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data:; media-src 'self' blob: mediastream:"
 const dist = path.resolve('dist')
 const book = process.env.TEST_BOOK || 'to-the-lighthouse'
 const chapter = Number(process.env.TEST_CHAPTER || 1)
@@ -73,7 +77,7 @@ async function boot(browser) {
     if (url.origin === origin) {
       const name = url.pathname === '/reader' ? '/app.html' : url.pathname
       const file = path.resolve(dist, '.' + name)
-      if (file.startsWith(dist + '/') && fs.existsSync(file) && fs.statSync(file).isFile()) return route.fulfill({ path: file })
+      if (file.startsWith(dist + '/') && fs.existsSync(file) && fs.statSync(file).isFile()) return route.fulfill(file.endsWith('.html') ? { path: file, headers: { 'content-type': 'text/html', 'content-security-policy': PRODUCTION_CSP } } : { path: file })
       return route.abort()
     }
     return route.abort()

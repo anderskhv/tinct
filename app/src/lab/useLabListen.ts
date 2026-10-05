@@ -740,6 +740,11 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleError = () => {
       if (switchingRef.current || primingRef.current || isUnlockSource(audio)) return
+      // An element that is neither playing nor asked to play has nothing to
+      // advance. Clearing the unlock clip's src (or a page refusing it) makes
+      // the element report an error; read as a failed last clip, that moved
+      // the reader to the next chapter on the first Chat open after a load.
+      if (!playingRef.current && !pendingRef.current) return
       const current = clipsRef.current[clipIndexRef.current]
       if (current?.kind === 'paragraph' && current.narration) {
         if (!playingRef.current) return
