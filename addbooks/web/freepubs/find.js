@@ -1,4 +1,4 @@
-// freeepubs.fyi search: the Add-a-book catalogue worker and ranking, rendered as links to
+// freepubs.fyi search: the Add-a-book catalogue worker and ranking, rendered as links to
 // each book's page here (or to its library when the book has no page of its own).
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

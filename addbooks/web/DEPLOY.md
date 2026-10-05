@@ -1,4 +1,4 @@
-# Add a book + freeepubs.fyi — deploy guide
+# Add a book + freepubs.fyi — deploy guide
 
 This package builds two static outputs from one catalogue and one search engine
 (`addbooks/site/search.js`, built by `addbooks/scripts/build-index`):
@@ -6,7 +6,7 @@ This package builds two static outputs from one catalogue and one search engine
 | Output | Where it goes | What it is |
 |---|---|---|
 | `dist/lab-addbook/` | `app/public/lab/addbook/` → **https://tinct.app/lab/addbook/** | The Add-a-book page: open your own PDF or EPUB, or search free public-domain books. Unlinked, `noindex`. |
-| `dist/freeepubs/` | Cloudflare Pages project → **https://freeepubs.fyi** | SEO site: a page per popular book, author, topic and language, plus search. Links back to Tinct. |
+| `dist/freepubs/` | Cloudflare Pages project → **https://freepubs.fyi** | SEO site: a page per popular book, author, topic and language, plus search. Links back to Tinct. |
 
 No npm dependencies. Node 22+ and Python 3.10+. Nothing here calls a paid API at build time.
 
@@ -49,7 +49,7 @@ How it fits the app:
   app's sign-out wipe already covers.
 - **Free books:** the page links to the source library's EPUB. The user downloads it,
   then opens it here (CSP blocks fetching other origins, by design). `?q=` and
-  `?work=<id>` deep-link into search; freeepubs.fyi uses `?work=`.
+  `?work=<id>` deep-link into search; freepubs.fyi uses `?work=`.
 
 ### Known limitation: images to the companion
 
@@ -60,14 +60,14 @@ accept content blocks of type `image` (base64 PNG/JPEG, ≤ 5 MB, ≤ 4 per requ
 pass them through to the provider. Then set `IMAGES_ENABLED = true`. This is a
 separate, reviewed Worker change and is not part of this package.
 
-## 3. freeepubs.fyi (separate Cloudflare Pages project)
+## 3. freepubs.fyi (separate Cloudflare Pages project)
 
 ```sh
-node addbooks/web/scripts/build-freeepubs.mjs   # -> addbooks/web/dist/freeepubs (~17,700 files, ~280 MB)
-node addbooks/web/test/freeepubs.mjs            # 16 browser checks: pages, JSON-LD, search, sitemaps, phone, CSP
+node addbooks/web/scripts/build-freepubs.mjs   # -> addbooks/web/dist/freepubs (~17,700 files, ~280 MB)
+node addbooks/web/test/freepubs.mjs            # 16 browser checks: pages, JSON-LD, search, sitemaps, phone, CSP
 ```
 
-Options: `--origin` (default `https://freeepubs.fyi`), `--tinct` (default
+Options: `--origin` (default `https://freepubs.fyi`), `--tinct` (default
 `https://tinct.app/lab/addbook/`), `--max-files` (default 19,000, below Cloudflare
 Pages' limit of 20,000 files per deployment), `--max-books` (default 12,000).
 
@@ -76,20 +76,20 @@ from the Tinct app, so the app's "never raw wrangler" rule does not apply here.
 The command is Pages, not the app Worker:
 
 ```sh
-npx wrangler pages project create freeepubs --production-branch main   # once
-npx wrangler pages deploy addbooks/web/dist/freeepubs --project-name freeepubs --branch main
+npx wrangler pages project create freepubs --production-branch main   # once
+npx wrangler pages deploy addbooks/web/dist/freepubs --project-name freepubs --branch main
 ```
 
-Then, in the Cloudflare dashboard: Pages → freeepubs → Custom domains → add
-`freeepubs.fyi` (plus `www.freeepubs.fyi` with a redirect to the apex). In
+Then, in the Cloudflare dashboard: Pages → freepubs → Custom domains → add
+`freepubs.fyi` (plus `www.freepubs.fyi` with a redirect to the apex). In
 Google Search Console, add the domain property and submit
-`https://freeepubs.fyi/sitemap.xml`.
+`https://freepubs.fyi/sitemap.xml`.
 
 What the site contains:
 - `/books/<title>-<id>/`: the most-read books. Each has a templated description, facts,
   schema.org `Book` and `BreadcrumbList` JSON-LD, a direct EPUB link to the library
   (`rel=nofollow`), a source link, more by the author and more in the topic, and a
-  "Read it with Tinct" link (`?work=<id>&utm_source=freeepubs`). Books on Tinct link
+  "Read it with Tinct" link (`?work=<id>&utm_source=freepubs`). Books on Tinct link
   to `/read/<tinctId>` instead.
 - `/authors/<name>/`, `/topics/<topic>/`, `/languages/<language>/` and index pages.
 - `/search/`: the same worker and ranking as the lab page, over every book (`noindex`).
@@ -97,17 +97,17 @@ What the site contains:
   strict CSP (no inline scripts or styles).
 - No hosting of books, no ads, no tracking.
 
-**Before announcing freeepubs.fyi:** its "Read it with Tinct" links point at
+**Before announcing freepubs.fyi:** its "Read it with Tinct" links point at
 `/lab/addbook/`. That makes the lab page public in practice, so install it on
-tinct.app first, or build freeepubs with `--tinct https://tinct.app/` until it is.
+tinct.app first, or build freepubs with `--tinct https://tinct.app/` until it is.
 
 ## Files
 
 ```
 addbooks/web/
   src/              lab page source (index.html, js/, css/, vendor/)
-  freeepubs/        freeepubs.fyi assets (site.css, find.js, favicon.svg)
-  scripts/          build.mjs, install.mjs, build-freeepubs.mjs, catalog.mjs
-  test/             e2e.mjs, freeepubs.mjs, serve.mjs (CSP + mocked chat), make-epub.mjs
+  freepubs/        freepubs.fyi assets (site.css, find.js, favicon.svg)
+  scripts/          build.mjs, install.mjs, build-freepubs.mjs, catalog.mjs
+  test/             e2e.mjs, freepubs.mjs, serve.mjs (CSP + mocked chat), make-epub.mjs
   dist/             build output (gitignored)
 ```

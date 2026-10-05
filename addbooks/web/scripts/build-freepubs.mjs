@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Builds freeepubs.fyi: a static site of free public-domain EPUBs for search engines and
+// Builds freepubs.fyi: a static site of free public-domain EPUBs for search engines and
 // readers, powered by the same catalogue and ranking as tinct.app/lab/addbook. Every page
-// is plain HTML; only the search box needs JavaScript. Output: addbooks/web/dist/freeepubs/
-//   node addbooks/web/scripts/build-freeepubs.mjs [--catalog <index.json[.gz]>]
-//        [--origin https://freeepubs.fyi] [--tinct https://tinct.app/lab/addbook/]
+// is plain HTML; only the search box needs JavaScript. Output: addbooks/web/dist/freepubs/
+//   node addbooks/web/scripts/build-freepubs.mjs [--catalog <index.json[.gz]>]
+//        [--origin https://freepubs.fyi] [--tinct https://tinct.app/lab/addbook/]
 //        [--max-files 19000] [--max-books 12000]
 // Cloudflare Pages serves at most 20,000 files per deployment, so the most-read books get
 // their own page within --max-files; every book stays findable through search.
@@ -15,13 +15,13 @@ import { REPO, loadFullIndex, slimWork, obtainable } from './catalog.mjs';
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : fallback };
-const ORIGIN = opt('--origin', 'https://freeepubs.fyi').replace(/\/$/, '');
+const ORIGIN = opt('--origin', 'https://freepubs.fyi').replace(/\/$/, '');
 const TINCT = opt('--tinct', 'https://tinct.app/lab/addbook/');
 const MAX_FILES = Number(opt('--max-files', 19000));
 const MAX_BOOKS = Number(opt('--max-books', 12000));
 const WEB = join(REPO, 'addbooks/web');
-const OUT = join(WEB, 'dist/freeepubs');
-const SITE = 'freeepubs.fyi';
+const OUT = join(WEB, 'dist/freepubs');
+const SITE = 'freepubs.fyi';
 
 /* ---------- Helpers ---------- */
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -79,10 +79,10 @@ const tinctUrl = (w, medium) => {
   const tid = w.onTinct && w.tinctIds?.[0];
   const base = tid ? new URL(`/read/${encodeURIComponent(tid)}`, TINCT) : new URL(TINCT);
   if (!tid) base.searchParams.set('work', w.id);
-  base.searchParams.set('utm_source', 'freeepubs'); base.searchParams.set('utm_medium', medium);
+  base.searchParams.set('utm_source', 'freepubs'); base.searchParams.set('utm_medium', medium);
   return base.href;
 };
-const tinctPlain = medium => { const u = new URL(TINCT); u.searchParams.set('utm_source', 'freeepubs'); u.searchParams.set('utm_medium', medium); return u.href };
+const tinctPlain = medium => { const u = new URL(TINCT); u.searchParams.set('utm_source', 'freepubs'); u.searchParams.set('utm_medium', medium); return u.href };
 function layout({ path, title, description, body, noindex, head = '', scripts = '' }) {
   return `<!doctype html>
 <html lang="en">
@@ -256,9 +256,9 @@ for (const [path, html] of files) { const file = join(OUT, path); mkdirSync(dirn
 mkdirSync(join(OUT, 'js'), { recursive: true }); mkdirSync(join(OUT, 'data'), { recursive: true });
 cpSync(join(REPO, 'addbooks/site/search.js'), join(OUT, 'js/search.js'));
 cpSync(join(WEB, 'src/js/search-worker.js'), join(OUT, 'js/search-worker.js'));
-cpSync(join(WEB, 'freeepubs/find.js'), join(OUT, 'js/find.js'));
-cpSync(join(WEB, 'freeepubs/site.css'), join(OUT, 'site.css'));
-cpSync(join(WEB, 'freeepubs/favicon.svg'), join(OUT, 'favicon.svg'));
+cpSync(join(WEB, 'freepubs/find.js'), join(OUT, 'js/find.js'));
+cpSync(join(WEB, 'freepubs/site.css'), join(OUT, 'site.css'));
+cpSync(join(WEB, 'freepubs/favicon.svg'), join(OUT, 'favicon.svg'));
 const slim = works.map(w => { const s = slimWork(w); const p = pageOf.get(w.id); if (p) s.page = p; return s });
 writeFileSync(join(OUT, 'data/catalog.json.gz'), gzipSync(Buffer.from(JSON.stringify({ version: 1, builtAt: full.builtAt, works: slim })), { level: 9 }));
 
