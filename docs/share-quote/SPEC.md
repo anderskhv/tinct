@@ -6,16 +6,19 @@
 ## What the reader gets (revised after Anders's review, 5 October 2026)
 From any highlight, **Share** opens a minimal sheet:
 - A **preview** of the image.
-- One toggle: **Add "Read free at tinct.app"**, default on.
+- Two toggles, each remembered per reader:
+  - **Show surrounding text**, default on.
+  - **Add "Read free at tinct.app"**, default on.
 - **Share…** (phone: the system share sheet with the image and the link) and **Copy link**. Desktop also gets **Copy image** and **Download**.
 
-There are no other options. The image always uses **the edition and the look (Paper, Night or e-ink) the reader is already using**.
+There are no other options. (Revised 5 October 2026: the quote is bold, and surrounding text became a toggle.) The image always uses **the edition and the look (Paper, Night or e-ink) the reader is already using**.
 
 ## The image is the reader's own page
 It is rendered from the live reader's layout, not a separate design:
 - **Header:** a passive version of the reader's bar. It has the book title, a dot, and the chapter, all in the same muted italic EB Garamond as the footer tagline, as plain text: no pill background, no chevron, no buttons or icons. It must not look tappable.
-- **Body:** the reader's justified EB Garamond page, with the highlight in the reader's gold highlight colour.
-- **Surrounding text, always, but greyed:** every word that isn't part of the highlight is shown in a light grey, and the highlight is in full ink on the gold highlight colour. **The quote always sits near the top:** the page opens one sentence before the highlight (with "…" if that is mid-paragraph), on phone and desktop alike, so nobody has to scan for it. The page then runs on until it ends; text is never shrunk to fit more.
+- **Body:** the reader's justified EB Garamond page, with the highlight **bold (EB Garamond 600)** on the reader's gold highlight colour.
+- **Surrounding text (toggle, default on), greyed:** every word that isn't part of the highlight is shown in a light grey, and the highlight is in full ink on the gold highlight colour. **The quote always sits near the top:** the page opens one sentence before the highlight (with "…" if that is mid-paragraph), on phone and desktop alike, so nobody has to scan for it. The page then runs on until it ends; Surrounding text never makes the type smaller; only the highlight decides the size (see Fitting).
+- **Surrounding text off:** the highlight stands alone, with "…" where it starts or ends mid-sentence, centred vertically on the page (phone and one-page desktop).
 - **Footer:** where the reader shows page progress, the image shows "Read free at tinct.app" in the page's own serif (EB Garamond italic, muted), not the mono UI font. It shows nothing if the toggle is off. Remember each reader's last toggle choice, so readers who post on Reddit don't have to switch it off every time.
 
 | | Phone | Desktop, short highlight | Desktop, long highlight |
@@ -23,9 +26,13 @@ It is rendered from the live reader's layout, not a separate design:
 | Shape | 4:5, 1080 × 1350 | 16:10, 1600 × 1000 | 16:10, 1600 × 1000 |
 | Layout | The phone reader page | One reader page, centred | **Both pages of the spread**: the left page opens one sentence before the highlight, and the text flows across the fold as in the reader, with page numbers |
 
-The desktop image switches to the two-page spread when the highlight doesn't fit on one page.
+## Fitting (in this order; stop at the first that shows the whole highlight)
+1. **Reader size, one page** (phone, or desktop single page).
+2. **Desktop only: reader size, two-page spread.**
+3. **Shrink the text** in small steps (1%) until the whole highlight fits: on desktop in the spread, on phone on the one page. The floor is **75% of the reader's size** (about 22 px body text in the 1600 px image; the floor exists so the image stays readable in a Reddit or X feed).
+4. **Still too long at 75%:** keep 75% and cut the highlight at a sentence boundary with "…". The text itself is never changed.
 
-A highlight longer than the space available (a full spread on desktop, one page on phone) is cut at a sentence boundary with "…". The text is never changed and never shrunk below the reader's own size.
+The whole image uses one size: header and footer stay at their normal size; only the body text scales.
 
 **Attribution:** the header carries the book and chapter. The edition credit (for example "tr. George Long" or "Tinct Modern E") goes in small type next to the footer tagline, and is always shown, even when the tagline is off.
 
@@ -63,7 +70,8 @@ Most book subreddits remove self-promotion; a branded quote image may be deleted
 
 ## Acceptance
 - Phone and desktop images look like the live reader page in the reader's current edition and look, with and without the tagline.
-- Desktop uses the two-page spread when the highlight doesn't fit one page; over-long highlights are cut at a sentence with an ellipsis, without changing or shrinking the text.
+- The quote is bold. Surrounding text can be switched off, and both toggles are remembered.
+- Fitting follows the order above: one page, then the spread, then smaller text down to 75%, then a cut at a sentence with an ellipsis. The text is never changed.
 - The edition credit is correct for all three edition types.
 - A shared link unfurls with the preview image on X, Reddit and iMessage, and opens the exact passage, signed out or in.
 - No user identity appears in the public link or image.
