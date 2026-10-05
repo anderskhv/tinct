@@ -90,7 +90,9 @@ export function composeBookLibraryPage(libraryHtml: string, book: GeneratedBookP
     .replace(/<title>[^<]*<\/title>/i, '')
     .replace('</head>', `${book.seoHead}</head>`)
   // The library already has its <main>; the generated page's own becomes a block.
+  // The hero carries the page's one <h1> (the book title); the text's own title is a section heading.
   const text = book.about.replace(/^<main>/, '<div class="book-about-text">').replace(/<\/main>$/, '</div>')
+    .replace(/<h1 class="title">([\s\S]*?)<\/h1>/, '<h2 class="title">$1</h2>')
   const about = `<section id="book-about" class="book-about" aria-label="${escape(book.hero.title)}">${text}</section>`
   return prefillLibraryHero(head, book.hero).replace('<div id="shelves"></div>', `<div id="shelves"></div>${about}`)
 }

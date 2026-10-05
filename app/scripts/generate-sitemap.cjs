@@ -8,12 +8,9 @@
  *   - app/public/read/{bookId}/    → which books have static SEO pages
  *   - app/public/data/editions/{bookId}-modern-en.json → chapter count
  *
- * Output rules per book:
- *   - Always emit /read/{bookId} (the SPA reader; the worker injects per-book
- *     meta tags via BOOK_META, so it's indexable on its own).
- *   - If app/public/read/{bookId}/summary.html exists, also emit:
- *       /summary, /themes, /chapters, /cast, and /chapter-N for every
- *       chapter present in the modern-en edition.
+ * The sitemap lists only real pages: /, /about, /privacy, /read/ and one
+ * /read/{bookId} per public book. Each <lastmod> changes only when that
+ * page's content does (see sitemap-lastmod.json).
  *
  * Why static rather than worker-generated: keeping the sitemap in
  * public/sitemap.xml means it ships unchanged through the existing build →
@@ -460,13 +457,9 @@ function readerChapterHref(bookId, chapter) {
   return `/reader?book=${bookId}&amp;chapter=${chapter}`
 }
 
-/**
- * A chapter link on the book page: the crawlable chapter page where one is
- * published (it links on into the reader), otherwise straight into the reader.
- */
+/** A chapter link on the book page: straight into the reader at that chapter. */
 function bookChapterHref(bookId, chapter) {
   const german = bookId === 'faust-part-1'
-  if (fs.existsSync(path.join(READ_DIR, bookId, `chapter-${chapter}.html`))) return `/read/${bookId}/chapter-${chapter}${german ? '?edition=original-de' : ''}`
   return `${readerChapterHref(bookId, chapter)}${german ? '&amp;edition=original-de' : ''}`
 }
 
@@ -550,37 +543,6 @@ ${libraryHero(book)}
   })
 }
 
-function buildGeneratedChapterPage(book, edition, chapter, index) {
-  const number = index + 1
-  const paragraphs = paragraphExcerpt(chapter.paragraphs || [], SEO_EXCERPT_WORDS)
-  const chapterTitle = chapter.title || `Chapter ${number}`
-  const description = metaDescription(book, chapter, paragraphs)
-  const body = `<main>
-  <nav><a href="/read/${book.id}">${escapeHtml(book.title)}</a> / <a href="/read/">Tinct library</a></nav>
-  <p class="kicker">Chapter ${number}</p>
-  <h1>${escapeHtml(chapterTitle)}</h1>
-  <p class="dek">${escapeHtml(book.title)} by ${escapeHtml(book.author)}</p>
-  <a class="cta" href="${readerChapterHref(book.id, number, path.basename(edition.file).slice(book.id.length + 1, -5))}">Open this chapter in Tinct</a>
-  <article>
-  ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n  ')}
-  </article>
-  <footer>This crawler-readable excerpt links into Tinct's full reader for synced editions, cast, notes, and chat.</footer>
-</main>`
-  return pageShell({
-    title: seoChapterTitle(book, chapterTitle),
-    description,
-    canonical: `${ORIGIN}/read/${book.id}/chapter-${number}`,
-    body,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Chapter',
-      name: chapterTitle,
-      position: number,
-      isPartOf: { '@type': 'Book', name: book.title, author: { '@type': 'Person', name: book.author } },
-      url: `${ORIGIN}/read/${book.id}/chapter-${number}`,
-    },
-  })
-}
 
 function generateReaderSeoPages(books) {
   let indexes = 0
@@ -593,39 +555,31 @@ function generateReaderSeoPages(books) {
     fs.writeFileSync(path.join(dir, 'book.html'), buildBookIndexPage(book, edition))
     indexes += 1
   }
-  return { indexes, chapters: 0 }
-}
-
-function hasSeoPages(bookId) {
-  return fs.existsSync(path.join(READ_DIR, bookId, 'summary.html'))
-}
-
-/**
- * Tier detection. Full tier has the full hub set + chapter-N pages; Stub
- * tier has only summary.html. (No Hub-only tier in production yet.)
- */
-function tierFor(bookId) {
-  const dir = path.join(READ_DIR, bookId)
-  if (!fs.existsSync(path.join(dir, 'summary.html'))) return 'none'
-  if (fs.existsSync(path.join(dir, 'chapter-1.html'))) return 'full'
-  return 'stub'
+  return { indexes }
 }
 
 // --- Build entries -------------------------------------------------------
 
 /**
- * <lastmod> for a URL: mtime of the source content file when one exists on
- * disk (static SEO pages, edition JSON for SPA routes), else the build date.
- * Format YYYY-MM-DD per the sitemap protocol.
+ * <lastmod> that changes only when a page's content does. The content hash and
+ * date of every sitemap URL are kept in sitemap-lastmod.json; a rebuild with
+ * unchanged content keeps the recorded date, a changed page gets today's.
  */
-function lastmodFor(...candidatePaths) {
-  for (const p of candidatePaths) {
-    if (!p) continue
-    try {
-      return fs.statSync(p).mtime.toISOString().slice(0, 10)
-    } catch (err) { /* try next candidate */ }
+const LASTMOD_STATE = path.join(__dirname, 'seo/sitemap-lastmod.json')
+
+function loadLastmodState() {
+  try { return JSON.parse(fs.readFileSync(LASTMOD_STATE, 'utf8')) } catch { return {} }
+}
+
+function contentLastmod(state, next, loc, ...files) {
+  const hash = require('crypto').createHash('sha256')
+  for (const file of files) {
+    try { hash.update(fs.readFileSync(file)) } catch { hash.update(`missing:${path.basename(file)}`) }
   }
-  return BUILD_DATE
+  const digest = hash.digest('hex').slice(0, 16)
+  const lastmod = state[loc]?.hash === digest ? state[loc].lastmod : BUILD_DATE
+  next[loc] = { hash: digest, lastmod }
+  return lastmod
 }
 
 function urlEntry(loc, opts = {}) {
@@ -633,69 +587,20 @@ function urlEntry(loc, opts = {}) {
   return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
 }
 
-function buildSitemap(books) {
+function buildSitemap(books, state = loadLastmodState(), next = {}) {
   const lines = []
+  const entry = (loc, opts, ...files) => lines.push(urlEntry(loc, { ...opts, lastmod: contentLastmod(state, next, loc, ...files) }))
   lines.push('<?xml version="1.0" encoding="UTF-8"?>')
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
-  lines.push('')
-  lines.push('  <!-- Marketing -->')
-  lines.push(urlEntry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0, lastmod: lastmodFor(path.join(APP_DIR, 'public/landing.html')) }))
-  lines.push(urlEntry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(path.join(APP_DIR, 'public/about.html')) }))
-  lines.push('')
-  lines.push('  <!-- Library -->')
-  lines.push(urlEntry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8, lastmod: lastmodFor(path.join(READ_DIR, 'index.html')) }))
-  lines.push('')
-
-  // Three buckets: Full-tier books (everything), Stub-tier books
-  // (just summary.html), and books with no SEO pages at all.
-  const fullBooks = []
-  const stubBooks = []
-  const noSeoBooks = []
+  entry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0 }, path.join(APP_DIR, 'public/landing.html'))
+  entry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8 }, path.join(APP_DIR, 'public/about.html'))
+  entry(`${ORIGIN}/privacy`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/privacy.html'))
+  entry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8 }, path.join(READ_DIR, 'index.html'))
   for (const b of books) {
-    const t = tierFor(b.id)
-    if (t === 'full') fullBooks.push(b)
-    else if (t === 'stub') stubBooks.push(b)
-    else noSeoBooks.push(b)
+    const page = path.join(READ_DIR, b.id, 'book.html')
+    if (!fs.existsSync(page)) continue
+    entry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9 }, page)
   }
-
-  const editionPath = bookId => path.join(EDITIONS_DIR, `${bookId}-modern-en.json`)
-  const pagePath = (bookId, file) => path.join(READ_DIR, bookId, file)
-
-  for (const b of fullBooks) {
-    if (b.id === 'faust-part-1') {
-      // The German book landing remains discoverable; existing chapter SEO pages contain held English text.
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html')) }))
-      continue
-    }
-    const chapters = chapterCount(b.id)
-    lines.push(`  <!-- ${b.id} — full SEO page set -->`)
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.9, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/themes`, { changefreq: 'monthly', priority: 0.8, lastmod: lastmodFor(pagePath(b.id, 'themes.html')) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapters`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'chapters.html')) }))
-    lines.push(urlEntry(`${ORIGIN}/read/${b.id}/cast`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'cast.html')) }))
-    for (let n = 1; n <= chapters; n++) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/chapter-${n}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, `chapter-${n}.html`)) }))
-    }
-    lines.push('')
-  }
-
-  if (stubBooks.length > 0) {
-    lines.push('  <!-- Stub-tier books — summary.html only -->')
-    for (const b of stubBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}/summary`, { changefreq: 'monthly', priority: 0.7, lastmod: lastmodFor(pagePath(b.id, 'summary.html')) }))
-    }
-    lines.push('')
-  }
-
-  if (noSeoBooks.length > 0) {
-    lines.push('  <!-- Book landing pages only; chapter pages are added when curated/generated pages exist. -->')
-    for (const b of noSeoBooks) {
-      lines.push(urlEntry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.6, lastmod: lastmodFor(pagePath(b.id, 'book.html'), editionPath(b.id)) }))
-    }
-  }
-
   lines.push('</urlset>')
   lines.push('')
   return lines.join('\n')
@@ -745,14 +650,14 @@ function buildBookMeta(books) {
 function main() {
   const books = loadPublicBooks()
   const generated = generateReaderSeoPages(books)
-  console.log(`[sitemap] Wrote ${generated.indexes} book landing pages and ${generated.chapters} generated chapter pages under public/read/`)
+  console.log(`[sitemap] Wrote ${generated.indexes} book pages under public/read/`)
 
-  const xml = buildSitemap(books)
+  const lastmods = {}
+  const xml = buildSitemap(books, loadLastmodState(), lastmods)
   fs.writeFileSync(OUT_SITEMAP, xml)
+  fs.writeFileSync(LASTMOD_STATE, JSON.stringify(lastmods, null, 1) + '\n')
   const total = (xml.match(/<url>/g) || []).length
-  const fullCount = books.filter(b => tierFor(b.id) === 'full').length
-  const stubCount = books.filter(b => tierFor(b.id) === 'stub').length
-  console.log(`[sitemap] Wrote ${total} URLs to ${path.relative(APP_DIR, OUT_SITEMAP)} (${books.length} books, ${fullCount} full + ${stubCount} stub)`)
+  console.log(`[sitemap] Wrote ${total} URLs to ${path.relative(APP_DIR, OUT_SITEMAP)} (${books.length} books)`)
 
   const meta = buildBookMeta(books)
   fs.writeFileSync(OUT_META, meta)
@@ -774,7 +679,6 @@ module.exports = {
   buildSitemap,
   buildBookMeta,
   chapterCount,
-  hasSeoPages,
   generateReaderSeoPages,
   seoBookTitle,
   seoBookDescription,

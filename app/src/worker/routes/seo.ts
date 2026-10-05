@@ -57,7 +57,7 @@ export function isBlockedBot(request: Request): boolean {
 const BOOK_META: Record<string, BookMetaEntry & { image?: string }> = {
   odyssey: {
     title: 'Read The Odyssey Online — Modern Translation, AI Companion, Audiobook | Tinct',
-    description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version, modern Danish also available. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
+    description: "Read Homer's Odyssey free online. Authoritative English translation paragraph-aligned with a modern English version. Includes a context-aware AI companion, spoiler-aware character tracker, and synced audiobook. No account needed to start.",
     bookName: 'The Odyssey',
     author: 'Homer',
   },
@@ -92,6 +92,10 @@ const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.
 // still pass the asset allowlist so existing readers can recover their data.
 const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_EDITION_HOLDS).map(identity => identity.split('/')[0])])
 
+/** Static public pages (book pages, the hub, About, Privacy): short public cache. Per-user pages stay no-store. */
+const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/privacy', '/privacy/'])
+
 async function serveStaticHtml(
   requestMethod: string,
   request: Request,
@@ -108,7 +112,8 @@ async function serveStaticHtml(
   const bookId = pathname.match(/^\/read\/([a-z0-9-]+)\//)?.[1]
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(await assetResp.text(), bookId), assetResp)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
-  newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
+  newResp.headers.set('Cache-Control', PUBLIC_PAGE_CACHE)
+  newResp.headers.set('Vary', 'Cookie')
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
     newResp.headers.set(key, value)
   }
@@ -237,9 +242,11 @@ async function serveBookLibraryPage(requestMethod: string, url: URL, env: SeoEnv
   const library = await env.ASSETS.fetch(new Request(libraryUrl.toString()))
   if (!library.ok) return null
   const html = brandedHtml(composeBookLibraryPage(await library.text(), book), bookId)
+  // Public page: a short cache. Signed-in readers are redirected instead (the
+  // tinct_auth cookie), so the cached copy varies by cookie.
   const resp = new Response(requestMethod === 'HEAD' ? null : html, {
     status: 200,
-    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': PUBLIC_PAGE_CACHE, Vary: 'Cookie' },
   })
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
   return resp
@@ -441,6 +448,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         const html = request.method === 'HEAD' ? null : (await home.text())
           .replace(/<meta\s+name="robots"[^>]*>/i, '')
           .replace(/<title>[^<]*<\/title>/i, `<title>${homeTitle}</title>`)
+          // One <h1>, about Tinct. The featured book's title is a section heading here.
+          .replace(/<h1 id="hero-title">([^<]*)<\/h1>/, '<h2 id="hero-title">$1</h2>')
+          .replace('<main id="library">', '<main id="library"><h1 class="sr-only">Tinct</h1>')
           .replace('</head>', `<meta name="description" content="${homeDescription}"><link rel="canonical" href="https://tinct.app/"><meta property="og:title" content="${homeTitle}"><meta property="og:description" content="${homeDescription}"><meta property="og:url" content="https://tinct.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tinct"><meta property="og:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${homeTitle}"><meta name="twitter:description" content="${homeDescription}"><meta name="twitter:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg"></head>`)
         const response = new Response(html == null ? null : brandedHtml(html, url.searchParams.get('book') || undefined, true), home)
         response.headers.delete('X-Robots-Tag')
@@ -544,26 +554,18 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
-    // SEO page clean-URL routing.
-    // Per-book pages live as static HTML at /read/{bookId}/(summary|chapters|cast|themes|chapter-N).html.
-    // We want clean URLs without .html for crawlers + sharing — but Cloudflare's
-    // static asset binding has not_found_handling: "none", so /read/odyssey/summary
-    // would 404 here and fall through to the SPA. Rewrite to the .html file before
-    // that happens. SEO_STRATEGY.md has the full routing table.
-    const seoMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(summary|chapters|cast|themes|chapter-\d+)\/?$/i)
-    if ((request.method === 'GET' || request.method === 'HEAD') && seoMatch) {
-      const seoResp = await serveStaticHtml(request.method, request, url, `/read/${seoMatch[1]}/${seoMatch[2]}.html`, env)
-      if (seoResp) return seoResp
-      // Chapter pages are no longer generated; older chapter links open the
-      // reader at that chapter, as the book page's chapter links do.
-      const chapterBook = seoMatch[1].toLowerCase(), chapterNumber = Number(seoMatch[2].match(/^chapter-(\d{1,5})$/i)?.[1] || 0)
-      if (chapterNumber > 0 && (BOOK_META[chapterBook] || GENERATED_BOOK_META[chapterBook])) {
-        const reader = new URL('/reader', url.origin)
-        reader.searchParams.set('book', chapterBook)
-        reader.searchParams.set('chapter', String(chapterNumber))
-        return new Response(null, { status: 302, headers: { Location: reader.pathname + reader.search, 'Cache-Control': 'no-store' } })
+    // Retired page types. The AI-written summary, themes, cast, chapters and
+    // chapter-N pages under /read/{bookId}/ were removed (2026-10-05); every
+    // such URL, with or without .html, answers with one permanent redirect to
+    // the book page. The bible-{book} summary folders point at the Bible.
+    const retiredMatch = url.pathname.match(/^\/read\/([a-z0-9-]+)\/(?:summary|chapters|cast|themes|chapter-\d{1,5})(?:\.html|\/)?$/i)
+    if ((request.method === 'GET' || request.method === 'HEAD') && retiredMatch) {
+      const retiredBook = retiredMatch[1].toLowerCase()
+      const bookId = /^bible-[a-z0-9-]+$/.test(retiredBook) ? 'bible' : retiredBook
+      if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+        return new Response(null, { status: 301, headers: { Location: `/read/${bookId}`, 'Cache-Control': 'public, max-age=86400' } })
       }
-      // SEO file not found — fall through to SPA fallback below
+      return serveNotFound(request.method, url, env)
     }
 
     // Library route is in the sitemap, so serve the committed crawlable hub
@@ -693,8 +695,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if (contentType.includes('text/html')) {
       const newResponse = new Response(request.method === 'HEAD' ? null : brandedHtml(await response.text(), url.searchParams.get('book') || undefined, true), response)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResponse.headers.delete(header)
-      // HTML must never be edge-cached — see the SPA fallback comment above.
-      newResponse.headers.set('Cache-Control', 'no-store')
+      // Static public pages get a short public cache; other HTML is never
+      // edge-cached — see the SPA fallback comment above.
+      newResponse.headers.set('Cache-Control', PUBLIC_STATIC_PAGES.has(url.pathname) ? PUBLIC_PAGE_CACHE : 'no-store')
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
         newResponse.headers.set(key, value)
       }

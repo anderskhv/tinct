@@ -32,7 +32,7 @@ let letters=stored(SHORTCUTS)!=='off';
 let palette=FALLBACK;
 try { palette=validPalette(JSON.parse(stored(CACHE))) || FALLBACK; } catch {}
 let status='', timer=0, request=null, generation=0;
-const style=document.createElement('link'); style.rel='stylesheet'; style.href='/omarchy/experience.css?v=20261005cmds'; document.head.append(style);
+const style=document.createElement('link'); style.rel='stylesheet'; style.href='/omarchy/experience.css?v=20261005h1'; document.head.append(style);
 
 function apply() {
   if (mode==='tinct' || root.dataset.eink==='true') {
