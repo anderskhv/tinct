@@ -1,5 +1,8 @@
 // @vitest-environment jsdom
 import { act, cleanup, renderHook } from '@testing-library/react'
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { afterEach, expect, it, vi } from 'vitest'
 import { LAB_SILENT_UNLOCK_SRC, useLabListen } from './useLabListen'
 
@@ -163,6 +166,35 @@ it('an idle element erroring after the unlock never ends the chapter', async () 
   expect(onChapterComplete).not.toHaveBeenCalled()
   expect(h.audio.play).toHaveBeenCalledTimes(1)
   expect(h.result.current.playing).toBe(false)
+})
+
+it('the unlock clip is a same-origin file the production CSP admits (media-src \'self\')', () => {
+  // A data: URI is refused by media-src 'self' blob: mediastream:, so the
+  // iPhone unlock never happened in production.
+  expect(LAB_SILENT_UNLOCK_SRC.startsWith('/')).toBe(true)
+  expect(LAB_SILENT_UNLOCK_SRC).not.toMatch(/^(data|blob|https?):/)
+  const bytes = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../public', LAB_SILENT_UNLOCK_SRC))
+  expect(bytes.subarray(0, 4).toString('latin1')).toBe('RIFF')
+  expect(bytes.subarray(8, 12).toString('latin1')).toBe('WAVE')
+})
+
+it('recognises the unlock clip after the browser resolves it to an absolute URL', async () => {
+  // Browsers report audio.src absolute; the clip must still read as the unlock
+  // source so its idle error never counts as the chapter's end.
+  const onChapterComplete = vi.fn(() => true)
+  const h = harness({ onChapterComplete })
+  Object.defineProperty(h.audio, 'src', {
+    configurable: true,
+    get() { return (this as { _src?: string })._src || '' },
+    set(value: string) { (this as { _src?: string })._src = value ? new URL(value, 'https://tinct.app/reader').href : '' },
+  })
+  act(() => h.result.current.unlockPlayback())
+  expect(h.audio.src).toBe(`https://tinct.app${LAB_SILENT_UNLOCK_SRC}`)
+  // Playing state is still "nothing"; an error while the clip is loaded is ignored.
+  act(() => { h.audio.dispatchEvent(new Event('error')) })
+  await act(async () => h.pending[0].resolve())
+  expect(h.audio.src).toBe('')
+  expect(onChapterComplete).not.toHaveBeenCalled()
 })
 
 it('an unlock refused by the page (blocked source) never ends the chapter', async () => {

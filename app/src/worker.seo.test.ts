@@ -52,6 +52,9 @@ function routerEnv() {
         if (url.pathname === '/lab/auth-status.js') {
           return new Response('window.__labAuthStatusLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
         }
+        if (url.pathname === '/lab/unlock-silence.wav') {
+          return new Response('RIFF-unlock-silence', { headers: { 'Content-Type': 'audio/wav' } })
+        }
         if (url.pathname === '/lab/sign-in-runtime.js') {
           return new Response('window.__labSignInLoaded = true', { headers: { 'Content-Type': 'text/javascript' } })
         }
@@ -153,6 +156,8 @@ describe('worker SEO routing', () => {
     ['/lab/library-2-model.js', 'text/javascript', 'library2Model'],
     ['/lab/auth-status.js', 'text/javascript', '__labAuthStatusLoaded'],
     ['/lab/sign-in-runtime.js', 'text/javascript', '__labSignInLoaded'],
+    // Same-origin iPhone audio unlock clip; media-src 'self' admits it.
+    ['/lab/unlock-silence.wav', 'audio/wav', 'RIFF-unlock-silence'],
   ])('serves the standalone Lab asset %s instead of the app shell', async (pathname, contentType, marker) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
