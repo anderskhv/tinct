@@ -117,7 +117,7 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 - Side panel: Chat | Feed | Cast (Feed = journal+highlights+notes+chats; Cast = character tracker, formerly "Threads").
 - Audio: paragraph-level playback, speed control, auto-advance, R2-hosted.
 - Auth: Supabase email + Google OAuth (Apple OAuth deferred — needs Apple Developer config).
-- Billing: Stripe Checkout, Premium **$3/mo**, 30-day free trial, three tiers (Anonymous / Free account / Premium).
+- Billing: Stripe Checkout, Premium **$5/mo**, 30-day free trial, three tiers (Anonymous / Free account / Premium).
 - Offline: DownloadManager + service worker caching.
 - Android: Capacitor build in `app/android/`, Play Store listing drafted (`PLAY-STORE-LISTING.md`).
 - Landing: static `app/public/landing.html` (logged-out users only — signed-in users redirect to `/read` before render).
@@ -237,7 +237,7 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Domain]** — `tinct.app`.
 - **[Onboarding Entry Point]** — Onboarding modal fires for ALL entry points (direct nav, SEO, share links). This is intentional — it's Tinct's differentiation from Project Gutenberg. Dismissable at any step.
 - **[Reading Angle is core, not premium]** — Free for all users. The #1 completion-rate mechanism — research confirms personal connection before reading begins is the top driver of book completion. Stored in session, injected into AI system prompt so mid-read chat references it. Skip option offered ("Just start reading" 5th card; "Or skip — the book works either way" copy in Account Onboarding Step 1) — pitched as default but never imposed.
-- **[Pricing]** — Premium **$3/mo**, 30-day free trial (auto-cancels). Three tiers in PricingModal: Anonymous (read-only) / Free account (reading features + 30-day Premium trial) / Premium ($3/mo: AI chat 200 msgs/mo, audiobook, Cast, offline, reading journal). Chat-pack overflow $5/200 messages stays as a separate product.
+- **[Pricing]** — Premium **$5/mo** (since 2026-10-05; AI use becomes a metered allowance shown as a usage bar, top-ups via chat packs — see DECISIONS.md), 30-day free trial (auto-cancels). Three tiers in PricingModal: Anonymous (read-only) / Free account (reading features + 30-day Premium trial) / Premium ($3/mo: AI chat 200 msgs/mo, audiobook, Cast, offline, reading journal). Chat-pack overflow $5/200 messages stays as a separate product.
 - **[Kids Editions Dropped]** — Permanently out of scope. Never generate, reference, or discuss children's editions.
 - **[Landing Page Auth Redirect — P0]** — Signed-in users must NEVER see the landing page. Auth-check script at top of `app/public/landing.html` inspects the Supabase session token and redirects to `/read` before render. Any regression is a P0 bug.
 - **[User Journeys v1]** — Two paths. Journey A (direct-to-book / SEO): edition picker → reader → state-aware top banner → end-of-chapter-1 progress prompt → sign-up → TierChooser. Journey B (library-first): landing → library → 3-step Book Onboarding → TierChooser → reader. Four locked principles: no hard gates, don't describe local storage, no-downside Premium (defaulted), three tiers always. URL parsing: `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Account Onboarding (6-step tour) is optional, available from Settings — NOT critical path.

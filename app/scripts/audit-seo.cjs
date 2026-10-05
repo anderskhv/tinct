@@ -190,6 +190,7 @@ function auditSharedSocialPreviews() {
   const pages = [
     ['landing', path.join(PUBLIC_DIR, 'landing.html')],
     ['about', path.join(PUBLIC_DIR, 'about.html')],
+    ['story', path.join(PUBLIC_DIR, 'story.html')],
     ['library hub', path.join(READ_DIR, 'index.html')],
   ]
 

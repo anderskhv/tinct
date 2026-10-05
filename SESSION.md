@@ -80,7 +80,7 @@ For Acclaim:
 | Highlights (5 colors), notes, reading journal | Done |
 | Audiobook (R2-hosted, paragraph-sync, speed control) | Done |
 | Auth (Supabase email + Google OAuth) | Done |
-| Billing (Stripe, 30-day trial, Premium $3/mo) | Done — code aligned to $3/mo as of 2026-04-21 |
+| Billing (Stripe, 30-day trial, Premium $5/mo) | Done — $5/mo live 2026-10-05 |
 | Offline mode (DownloadManager + service worker) | Done |
 | Android Capacitor build | In progress (`app/android/`) |
 | Landing page (`app/public/landing.html`) | Exists; needs update to reflect new onboarding feel (next session) |

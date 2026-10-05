@@ -337,9 +337,10 @@ describe('worker SEO routing', () => {
       expect(html).toContain('src="/covers/v2/wuthering-heights.webp"')
       expect(html).not.toContain('Frankenstein</h1>')
       expect(html).toContain('<script src="boot.js')
-      // Its crawlable text: the hook, and chapter links straight into the reader.
+      // Its crawlable text: the book's own opening and chapter links straight into the reader; no AI-written blurb.
       expect(html).toContain('id="book-about"')
-      expect(html).toContain('A tenant&#39;s curiosity and a housekeeper&#39;s memory tell the story')
+      expect(html).not.toContain('A tenant&#39;s curiosity and a housekeeper&#39;s memory tell the story')
+      expect(html).toContain('I have just returned from a visit to my landlord')
       expect(html).toContain('href="/reader?book=wuthering-heights&amp;chapter=3"')
       expect(html.match(/<main\b/g)).toHaveLength(1)
     })

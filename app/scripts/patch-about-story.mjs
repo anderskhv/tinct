@@ -27,7 +27,7 @@ const only = (dir, re) => {
 };
 
 const files = {
-  html: join(publicDir, 'about.html'),
+  html: join(publicDir, 'story.html'),
   payload: only(about, /^bootstrap-[a-f0-9]{12}\.js$/),
   story: only(chunks, /^scroll-story-[A-Za-z0-9_-]+\.js$/),
   iframe: join(about, 'audio-journey.html'),

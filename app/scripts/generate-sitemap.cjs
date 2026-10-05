@@ -356,7 +356,7 @@ function libraryHero(book) {
     id: book.id,
     title: book.title,
     author: book.author,
-    question: reviewedHook(book.id) || libraryBlurb(book.id) || book.description || '',
+    question: reviewedHook(book.id) || libraryBlurb(book.id) || '',
     cover: bookCoverSrc(book.id),
   }
   return `<script type="application/json" id="tinct-book-hero">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
@@ -471,9 +471,6 @@ function buildBookIndexPage(book, edition) {
   // Start reading opens the book the way the library does: the flap, the
   // introduction and the edition choice, then the reader.
   const readerHref = `/library?book=${book.id}`
-  const hook = (book.description && book.description.length >= 60)
-    ? book.description
-    : `Read ${book.title} by ${book.author} free online on Tinct.`
   const description = seoBookDescription(book)
   const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
   const chapterLinks = chapters
@@ -503,7 +500,6 @@ function buildBookIndexPage(book, edition) {
   <div class="breadcrumb">
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
   </div>
-  <p class="hook">${escapeHtml(hook)}</p>
 
   ${book.id === 'bible' ? '' : `<section class="glance-section" aria-label="Chapters">
     <div class="glance-label">Chapters</div>
@@ -594,6 +590,7 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
   entry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0 }, path.join(APP_DIR, 'public/landing.html'))
   entry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8 }, path.join(APP_DIR, 'public/about.html'))
+  entry(`${ORIGIN}/story`, { changefreq: 'monthly', priority: 0.6 }, path.join(APP_DIR, 'public/story.html'))
   entry(`${ORIGIN}/privacy`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/privacy.html'))
   entry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8 }, path.join(READ_DIR, 'index.html'))
   for (const b of books) {

@@ -86,7 +86,7 @@ That chain is breaking. Not because the books got worse. Because accessing them 
 - Read on phone, tablet, desktop, or e-reader — cross-device sync with a free account
 - Highlights, notes, reading journal that builds over time
 
-**Premium — $3/month (first month free, no card required):**
+**Premium — $5/month (first month free, no card required):**
 - An AI companion that knows your current page and your reading angle
 - A character tracker that shows who everyone is, only as far as you've read
 - A synced audiobook that picks up where you stopped reading
@@ -126,7 +126,7 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 
 | Platform | What they offer | Monthly cost |
 |---|---|---|
-| **Tinct** | Classics in authoritative translation + AI comparison translation, AI companion, audiobook, character tracker | **$3** |
+| **Tinct** | Classics in authoritative translation + AI comparison translation, AI companion, audiobook, character tracker | **$5** |
 | Kindle + Audible (full equivalent) | Classics reading + professional audio, no AI, no modern translation | ~$8–21 |
 | Kindle Unlimited | Ebook library, no AI, no translations | $11.99 |
 | Audible Plus | Classic audiobooks in catalogue, no text sync, no AI | $7.95 |
@@ -153,9 +153,9 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 ## 5. Revenue model
 
 **Free** — every book, every edition, cross-device sync, highlights, notes, reading journal.
-**Premium — $3/month** — AI companion (200 messages), audiobook, character tracker, journal export. First month free, no card required. Cancel anytime.
+**Premium — $5/month** — AI companion (200 messages), audiobook, character tracker, journal export. First month free, no card required. Cancel anytime.
 
-**Why $3:**
+**Why $5 (was $3 until 2026-10-05):**
 - **Less than a cup of coffee** — positions the price as trivial in the reader's head
 - **Less than a single ebook on Kindle** — positions it as an obvious bargain
 - 2–3× cheaper than Kindle Unlimited, Audible Plus, Scribd, Readwise
@@ -223,7 +223,7 @@ Current thinking: 50 titles. Enough to feel like a library; not so many that QA 
 **2. What's the first real growth channel?**
 - **SEO** — one landing page per book, indexable, converts via reading-angle onboarding. Most defensible long-term.
 - **Twitter/X** — @FallibleMusings audience is the right demographic (Deutsch-adjacent, literary, optimistic-about-civilisation). Slower but pre-qualified.
-- **Paid acquisition** — likely unprofitable at $3/mo. Deprioritised.
+- **Paid acquisition** — likely unprofitable at $5/mo. Deprioritised.
 - **Word of mouth** — slow but compounds. Reading angle + character tracker are the kind of features readers tell each other about.
 
 **3. What's the retention mechanism beyond the first book?**
@@ -232,7 +232,7 @@ Current thinking: 50 titles. Enough to feel like a library; not so many that QA 
 - No data yet — retention is the Phase 2 question to answer empirically
 
 **4. What happens when AI costs drop 10×?**
-Unit economics become trivial. $3/mo becomes a ~90% margin product. Good for Tinct. Likely within 18 months.
+Unit economics become trivial. $5/mo becomes a ~90% margin product. Good for Tinct. Likely within 18 months.
 
 **5. How do we measure mission success?**
 Not subscriber count alone. The better proxy: books finished per user. If a reader finishes three classics they'd never finished before, the transmission mechanism worked for them. Build telemetry to track this early.
