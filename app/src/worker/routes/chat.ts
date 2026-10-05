@@ -28,6 +28,7 @@ import {
 import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
+import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, type ChatUserBlock } from '../lib/chatImages'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -46,7 +47,8 @@ const MAX_TOKENS_CAP = 2048
 // 100KB was too tight: with 50 messages × full chat history replayed every
 // turn (incl. highlighted passages), long-running readers hit 413 mid-session.
 // 500KB matches MAX_MESSAGES × MAX_MESSAGE_LENGTH and leaves headroom for
-// the system prompt + JSON envelope.
+// the system prompt + JSON envelope. A signed-in request whose latest turn
+// carries pictures may use up to MAX_IMAGE_REQUEST_BODY_BYTES (chatImages.ts).
 const MAX_REQUEST_BODY_BYTES = 500_000
 // Raised from 4000 (2026-05-08) when the client started injecting the
 // full current-chapter text into the system prompt — necessary so the
@@ -99,7 +101,8 @@ type ParsedChatBody = {
   companion?: unknown
 }
 
-type SafeMessage = { role: 'user' | 'assistant'; content: string }
+/** Content is text, except the latest user turn of a signed-in request, which may carry pictures. */
+type SafeMessage = { role: 'user' | 'assistant'; content: string | ChatUserBlock[] }
 
 type ChatRequestTiming = {
   requestId: string
@@ -114,6 +117,9 @@ type ChatRequestTiming = {
   bookToolMs: number
   sourceSearchMs: number
   firstTextMs: number | null
+  /** Pictures in the latest turn and their estimated input tokens (metadata only). */
+  images: number
+  imageTokens: number
 }
 
 function makeChatRequestTiming(request: Request, audience: 'guest' | 'signed'): ChatRequestTiming {
@@ -122,7 +128,7 @@ function makeChatRequestTiming(request: Request, audience: 'guest' | 'signed'): 
     requestId: cfRay && /^[A-Za-z0-9_-]{1,200}$/.test(cfRay) ? cfRay : crypto.randomUUID(),
     startedAt: Date.now(), audience, path: 'plain', authAccessMs: 0, contextReadyMs: 0,
     providerRounds: 0, providerHeadersMs: 0, toolRounds: 0, bookToolMs: 0,
-    sourceSearchMs: 0, firstTextMs: null,
+    sourceSearchMs: 0, firstTextMs: null, images: 0, imageTokens: 0,
   }
 }
 
@@ -138,6 +144,7 @@ function logChatRequestTiming(timing: ChatRequestTiming, outcome: 'completed' | 
     provider_rounds: timing.providerRounds, provider_headers_ms: timing.providerHeadersMs,
     tool_rounds: timing.toolRounds, book_tool_ms: timing.bookToolMs,
     source_search_ms: timing.sourceSearchMs, first_text_ms: timing.firstTextMs,
+    ...(timing.images ? { images: timing.images, image_tokens_estimate: timing.imageTokens } : {}),
     stream_ms: timing.firstTextMs === null ? null : Math.max(0, Date.now() - timing.startedAt - timing.firstTextMs),
     total_ms: Date.now() - timing.startedAt,
   }))
@@ -560,13 +567,14 @@ interface ToolLoopInput {
  * through the model's normal book/source tool selection.
  */
 function explicitlyRequestsSourceSearch(messages: SafeMessage[]): boolean {
-  const latest = [...messages].reverse().find(message => message.role === 'user')?.content.trim() || ''
+  const latestMessage = [...messages].reverse().find(message => message.role === 'user')
+  const latest = latestMessage ? messageText(latestMessage.content).trim() : ''
   return /\b(?:check|search|look\s+up|consult)\b[^.!?\n]{0,80}\b(?:specific\s+)?sources?\b/i.test(latest)
     || /\b(?:specific\s+)?sources?\b[^.!?\n]{0,80}\b(?:check|search|look\s+up|consult)\b/i.test(latest)
 }
 
 function focusedSourceQuery(messages: SafeMessage[], book?: BookRef): string {
-  const userTurns = messages.filter(message => message.role === 'user').slice(-3).map(message => message.content.trim()).filter(Boolean)
+  const userTurns = messages.filter(message => message.role === 'user').slice(-3).map(message => messageText(message.content).trim()).filter(Boolean)
   const subject = book?.bookId.replace(/-/g, ' ')
   const prefix = subject ? `${subject}\n` : ''
   return `${prefix}${userTurns.join('\n').slice(-(1000 - prefix.length))}`
@@ -761,17 +769,27 @@ export async function handleChat(
   const apiKey = env.ANTHROPIC_API_KEY
   if (!apiKey) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
-  // Request size check
+  const allowLabGuest = options?.allowLabGuest === true
+  // Request size check. Signed-in requests with pictures may be larger; the
+  // text-only cap is applied again once the body shows whether it has any.
+  const bodyLimit = allowLabGuest ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES
   const contentLength = parseInt(request.headers.get('content-length') || '0', 10)
-  if (contentLength > MAX_REQUEST_BODY_BYTES) {
+  if (contentLength > bodyLimit) {
     return jsonResponse({ error: 'Request too large' }, 413, request)
   }
 
-  const bodyPromise = request.json()
-    .then((body) => ({ body: body as ParsedChatBody }))
-    .catch(() => ({ error: 'Invalid JSON' as const }))
+  const bodyPromise: Promise<{ body: ParsedChatBody; bytes: number } | { error: string; status: number }> = request.text()
+    .then((raw) => {
+      const bytes = raw.length * 3 > MAX_REQUEST_BODY_BYTES ? new TextEncoder().encode(raw).byteLength : raw.length
+      if (bytes > bodyLimit) return { error: 'Request too large', status: 413 }
+      try {
+        return { body: JSON.parse(raw) as ParsedChatBody, bytes }
+      } catch {
+        return { error: 'Invalid JSON', status: 400 }
+      }
+    })
+    .catch(() => ({ error: 'Invalid JSON', status: 400 }))
 
-  const allowLabGuest = options?.allowLabGuest === true
   // The librarian's catalogue loads while the caller is authenticated, not after.
   const libraryCatalogue = bodyPromise
     .then(parsed => ('body' in parsed && (parsed.body as { companion?: { intent?: unknown } } | null)?.companion?.intent === 'library') ? loadLibraryCatalogue(env, request) : null)
@@ -816,7 +834,7 @@ export async function handleChat(
 
   try {
     const parsedBody = await bodyPromise
-    if ('error' in parsedBody) return jsonResponse({ error: parsedBody.error }, 400, request)
+    if ('error' in parsedBody) return jsonResponse({ error: parsedBody.error }, parsedBody.status, request)
     const body = parsedBody.body
     if (typeof body !== 'object' || body === null) return jsonResponse({ error: 'Invalid request body' }, 400, request)
 
@@ -864,15 +882,38 @@ export async function handleChat(
     // Validate message structure and truncate per-message to the cap.
     // Long histories accumulate over a session; rather than reject the whole
     // request, trim each turn so the conversation can keep going.
+    // Only the latest user turn of a signed-in request may be an array of
+    // text and image blocks (chatImages.ts); everything else stays a string.
     const safeMessages: SafeMessage[] = []
-    for (const msg of messages) {
+    let imageCount = 0
+    let imageTokens = 0
+    for (const [index, msg] of messages.entries()) {
       if (typeof msg !== 'object' || msg === null) return jsonResponse({ error: 'Invalid message format' }, 400, request)
       const m = msg as Record<string, unknown>
       if (m.role !== 'user' && m.role !== 'assistant') return jsonResponse({ error: 'Invalid message role' }, 400, request)
-      if (typeof m.content !== 'string') return jsonResponse({ error: 'Invalid message content' }, 400, request)
+      if (Array.isArray(m.content) && m.role === 'user' && index === messages.length - 1) {
+        if (allowLabGuest) {
+          return jsonResponse({ error: contentHasImage(m.content) ? 'images_unavailable' : 'Invalid message content' }, 400, request)
+        }
+        const parsed = parseUserBlocks(m.content, MAX_MESSAGE_LENGTH)
+        if (!parsed.ok) return jsonResponse({ error: parsed.error === 'image_rejected' ? 'image_rejected' : 'Invalid message content' }, 400, request)
+        imageCount += parsed.imageCount
+        imageTokens += parsed.imageTokens
+        safeMessages.push({ role: 'user', content: parsed.blocks })
+        continue
+      }
+      if (typeof m.content !== 'string') {
+        if (allowLabGuest && contentHasImage(m.content)) return jsonResponse({ error: 'images_unavailable' }, 400, request)
+        return jsonResponse({ error: 'Invalid message content' }, 400, request)
+      }
       const content = m.content.length > MAX_MESSAGE_LENGTH ? m.content.slice(0, MAX_MESSAGE_LENGTH) : m.content
       safeMessages.push({ role: m.role, content })
     }
+    if (imageCount === 0 && parsedBody.bytes > MAX_REQUEST_BODY_BYTES) {
+      return jsonResponse({ error: 'Request too large' }, 413, request)
+    }
+    timing.images = imageCount
+    timing.imageTokens = imageTokens
 
     // One ledger row per Anthropic call (and per source search), attributed to
     // the reader, or to the hashed IP key when signed out. Metadata only.
@@ -896,9 +937,10 @@ export async function handleChat(
     if (allowLabGuest) {
       const systemChars = typeof system === 'string' ? system.length : system.reduce((sum, block) => sum + block.text.length, 0)
       const estimate = estimateAiCostMicros({
-        inputChars: systemChars + safeMessages.reduce((sum, message) => sum + message.content.length, 0),
+        inputChars: systemChars + safeMessages.reduce((sum, message) => sum + messageText(message.content).length, 0),
         maxTokens,
         tools: Boolean(book && env.ASSETS),
+        imageTokens,
       })
       const reserved = options?.reserveGuestSpend ? await options.reserveGuestSpend(estimate) : false
       if (!reserved) return jsonResponse(aiRestingBody(), 503, request)
