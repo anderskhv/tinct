@@ -50,8 +50,8 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous, and
 
 ## Rendering and dependencies
 The spec recommends rendering on the server: one Worker renderer for the download, the OG image and both formats, cached in R2 or the Cache API.
-- **DEPENDENCY:** Anders approves `satori` + `@resvg/resvg-wasm` (with the EB Garamond font files) for the Worker. *(Anders: delete this line before pasting if you don't approve; then build the image client-side on a canvas, ship the unfurl with text-only meta, and leave OG images for later.)*
-- Check the Worker bundle size limit after adding them. If it doesn't fit, render on the client and say so in your report.
+- **Approved by Anders:** `satori` + `@resvg/resvg-wasm` (with the EB Garamond font files) for the Worker.
+- **Shared links must unfurl with the quote image.** A text-only card is not acceptable. If the Worker bundle limit blocks the renderer, find another server-side way to produce the image (for example a separate small Worker for rendering) rather than dropping the image.
 
 ## Acceptance (before you report done)
 - Phone and desktop images match the mockup in all three looks and all three edition types (original, modern, translation credit such as "tr. George Long"), with each toggle on and off.
