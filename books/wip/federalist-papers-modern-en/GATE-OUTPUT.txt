@@ -1,5 +1,5 @@
 tool: unmodified books/classify-modern-en.py (sha256 950700285d86e213), run on a scratch mirror: served original-en + candidate.json as modern-en…
-candidate.json sha256 c7a034ed8c48bdaff61ad697e402617e3b908174993b33ad3eb57a08b21eea7c
+candidate.json sha256 1f123f52d66f4f4df3c4b8e2e47dd8d561bc10fd914c7ef90bed6db51327c7fa
 
 $ python3 books/classify-modern-en.py federalist-papers --gate --per-chapter   # scratch mirror
   ch    1  sim 0.729  REAL        No. 1 — General Introduction (Hamilton)
@@ -47,7 +47,7 @@ $ python3 books/classify-modern-en.py federalist-papers --gate --per-chapter   #
   ch   43  sim 0.659  REAL        No. 43 — The Same Subject Continued (The Powers Co
   ch   44  sim 0.666  REAL        No. 44 — Restrictions on the Authority of the Seve
   ch   45  sim 0.661  REAL        No. 45 — The Alleged Danger From the Powers of the
-  ch   46  sim 0.690  REAL        No. 46 — The Influence of the State and Federal Go
+  ch   46  sim 0.689  REAL        No. 46 — The Influence of the State and Federal Go
   ch   47  sim 0.721  REAL        No. 47 — The Particular Structure of the New Gover
   ch   48  sim 0.753  REAL        No. 48 — These Departments Should Not Be So Far Se
   ch   49  sim 0.735  REAL        No. 49 — Method of Guarding Against the Encroachme

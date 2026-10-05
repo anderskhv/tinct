@@ -2,7 +2,7 @@
  "file": "app/public/data/characters/federalist-papers.v1.json",
  "edition": "modern-en",
  "liveModernSha256": "1974574ebce6859b2c7fdde48b524360b6348e0492e425861e8259076297278d",
- "candidateSha256": "c7a034ed8c48bdaff61ad697e402617e3b908174993b33ad3eb57a08b21eea7c",
+ "candidateSha256": "1f123f52d66f4f4df3c4b8e2e47dd8d561bc10fd914c7ef90bed6db51327c7fa",
  "mentions": [
   {
    "characterId": "publius",
@@ -18,7 +18,12 @@
    "stillAnchored": true,
    "candidateOccurrencesUtf16Start": [
     0
-   ]
+   ],
+   "proposedNew": {
+    "text": "PUBLIUS",
+    "startOffset": 0,
+    "endOffset": 7
+   }
   },
   {
    "characterId": "faction",
@@ -34,7 +39,12 @@
    "stillAnchored": false,
    "candidateOccurrencesUtf16Start": [
     152
-   ]
+   ],
+   "proposedNew": {
+    "text": "violence of faction",
+    "startOffset": 152,
+    "endOffset": 171
+   }
   },
   {
    "characterId": "faction",
@@ -48,7 +58,12 @@
    "paragraphChanged": true,
    "textAtOldOffsetInCandidate": "By a faction, I unde",
    "stillAnchored": false,
-   "candidateOccurrencesUtf16Start": []
+   "candidateOccurrencesUtf16Start": [],
+   "proposedNew": {
+    "text": "By a faction, I understand",
+    "startOffset": 0,
+    "endOffset": 26
+   }
   },
   {
    "characterId": "ambition-counteracting-ambition",
@@ -64,7 +79,12 @@
    "stillAnchored": false,
    "candidateOccurrencesUtf16Start": [
     334
-   ]
+   ],
+   "proposedNew": {
+    "text": "Ambition must be made to counteract ambition",
+    "startOffset": 334,
+    "endOffset": 378
+   }
   },
   {
    "characterId": "the-union",
@@ -78,7 +98,12 @@
    "paragraphChanged": true,
    "textAtOldOffsetInCandidate": " of the UNION, the safety",
    "stillAnchored": false,
-   "candidateOccurrencesUtf16Start": []
+   "candidateOccurrencesUtf16Start": [],
+   "proposedNew": {
+    "text": "the existence of the UNION",
+    "startOffset": 259,
+    "endOffset": 285
+   }
   },
   {
    "characterId": "republican-government",
@@ -94,7 +119,12 @@
    "stillAnchored": false,
    "candidateOccurrencesUtf16Start": [
     86
-   ]
+   ],
+   "proposedNew": {
+    "text": "strictly republican",
+    "startOffset": 86,
+    "endOffset": 105
+   }
   },
   {
    "characterId": "the-judiciary",
@@ -110,7 +140,12 @@
    "stillAnchored": true,
    "candidateOccurrencesUtf16Start": [
     209
-   ]
+   ],
+   "proposedNew": {
+    "text": "least dangerous",
+    "startOffset": 209,
+    "endOffset": 224
+   }
   },
   {
    "characterId": "the-executive-power",
@@ -126,7 +161,12 @@
    "stillAnchored": false,
    "candidateOccurrencesUtf16Start": [
     50
-   ]
+   ],
+   "proposedNew": {
+    "text": "a vigorous Executive",
+    "startOffset": 50,
+    "endOffset": 70
+   }
   },
   {
    "characterId": "accumulation-of-powers",
@@ -142,7 +182,12 @@
    "stillAnchored": false,
    "candidateOccurrencesUtf16Start": [
     388
-   ]
+   ],
+   "proposedNew": {
+    "text": "very definition of tyranny",
+    "startOffset": 388,
+    "endOffset": 414
+   }
   }
  ],
  "positionAnchors": [
@@ -275,5 +320,6 @@
    "paragraphChanged": true
   }
  ],
- "note": "Anchors are chapter/paragraph/utf16 offsets into modern-en. paragraphHashes for every changed chapter, and sourceSha256, must be regenerated for modern-en. original-en cards are unaffected. Character files were not edited."
+ "note": "Anchors are chapter/paragraph/utf16 offsets into modern-en. paragraphHashes for every changed chapter, and sourceSha256, must be regenerated for modern-en. original-en cards are unaffected. Character files were not edited.",
+ "mentionsProposedReanchor": "proposed new anchors; the source of truth is the character owner re-reviewing the cards"
 }
