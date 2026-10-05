@@ -84,9 +84,14 @@ async function main(){
   new Function('module','exports','require',compiled)(workerModule,workerModule.exports,require)
   const rawPage=fs.readFileSync('public/read/'+book+'/book.html')
   const canonical=origin+'/read/'+book
+  // The Worker builds /read/<id> from the library page plus the book page
+  // (bookLibraryPage.ts), so it asks the assets for both.
+  const libraryFile=['dist','public'].map(root=>path.join(root,'lab/library_2/index.html')).find(file=>fs.existsSync(file))
+  const assetPages={['/read/'+book+'/book']:rawPage,'/lab/library_2/':libraryFile&&fs.readFileSync(libraryFile)}
   const expectedPage=await workerModule.exports.handleSeoAndStaticRequest(new Request(canonical),{ASSETS:{fetch:async req=>{
-   assert.equal(new URL(req.url).pathname,'/read/'+book+'/book')
-   return new Response(rawPage,{headers:{'Content-Type':'text/html; charset=utf-8'}})
+   const page=assetPages[new URL(req.url).pathname]
+   assert.ok(page,'Unexpected asset request '+new URL(req.url).pathname)
+   return new Response(page,{headers:{'Content-Type':'text/html; charset=utf-8'}})
   }}},{waitUntil:()=>{}})
   const expectedBytes=Buffer.from(await expectedPage.arrayBuffer()),pageResponse=await fetch(canonical)
   assert.equal(pageResponse.status,200)

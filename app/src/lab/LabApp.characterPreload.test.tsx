@@ -7,7 +7,7 @@ import { bibleFallbackSource } from './labSource'
 afterEach(() => { cleanup(); localStorage.clear(); sessionStorage.clear(); vi.unstubAllGlobals() })
 
 it('does not download a complete comparison Bible when only one edition is selected', async () => {
-  localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'web-en', compareEdition: 'kjv-en', compareOpen: false }))
+  localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'web-en', compareEdition: 'kjv-en', compareOpen: false, compareChosen: true }))
   const fetcher = vi.fn(async (_input: RequestInfo | URL) => ({ ok: false, status: 404, json: async () => ({}) }))
   vi.stubGlobal('fetch', fetcher)
   render(<LabApp pathname="/lab/phone" source={bibleFallbackSource()} authToken={null} online={false} />)

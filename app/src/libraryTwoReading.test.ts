@@ -387,4 +387,9 @@ it('an edition picked in the introduction wins over the saved one, keeps the pla
   // A compare edition equal to the reading edition is dropped.
   await api.readerDestination('frankenstein','modern-en',{compare:'modern-en',explicit:true})
   expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareEditionKey).toBeUndefined()
+  // The introduction's default pair is a default; its own pick (an edition or None) is the reader's choice.
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareChosen).toBeUndefined()
+  await api.readerDestination('frankenstein','modern-en',{compare:null,explicit:true,compareExplicit:true})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({primaryEditionKey:'modern-en',compareChosen:true})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareEditionKey).toBeUndefined()
 })

@@ -152,13 +152,22 @@ function waitingForNarration(clip: LabAudioClip | undefined, audio: HTMLAudioEle
 }
 
 /**
- * 8 ms of silence. Played muted inside a tap to unlock the narration element
- * (see `unlockPlayback`); never heard and never a narration source.
+ * 8 ms of silence (public/lab/unlock-silence.wav). Played muted inside a tap
+ * to unlock the narration element (see `unlockPlayback`); never heard and
+ * never a narration source. It is a same-origin file, not a data: URI:
+ * production's CSP is `media-src 'self' blob: mediastream:`, which refused the
+ * data: clip, so the iPhone unlock never happened.
  */
-export const LAB_SILENT_UNLOCK_SRC = 'data:audio/wav;base64,UklGRmQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YUAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA'
+export const LAB_SILENT_UNLOCK_SRC = '/lab/unlock-silence.wav'
 
 function isUnlockSource(audio: HTMLAudioElement): boolean {
-  return typeof audio.src === 'string' && audio.src.startsWith('data:audio/wav;base64,UklGRmQ')
+  // Browsers report `src` resolved to an absolute URL; compare the path.
+  if (typeof audio.src !== 'string' || !audio.src) return false
+  try {
+    return new URL(audio.src, 'https://tinct.invalid').pathname === LAB_SILENT_UNLOCK_SRC
+  } catch {
+    return false
+  }
 }
 
 function defaultCreateAudio(): HTMLAudioElement {

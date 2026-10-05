@@ -223,7 +223,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   const choose = (key: string) => {
     if (layer === 'mainEdition') onPrefs({ ...prefs, primaryEdition: key, compareOpen: prefs.compareOpen && prefs.compareEdition !== key })
     else if (layer === 'audioEdition') onPrefs({ ...prefs, audioEdition: key || prefs.primaryEdition, audioFollowsPrimary: key === '' })
-    else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '' })
+    else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '', compareChosen: true })
     onLayer('editions')
   }
   const editionRow = (label: string, target: LabV2SheetLayer, value: string, testId: string) => (

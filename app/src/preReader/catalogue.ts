@@ -228,6 +228,11 @@ export interface ReaderHandoffSelection {
   bookId: string
   primaryEditionKey: EditionKey
   compareEditionKey?: EditionKey
+  /**
+   * The Compare edition (or its absence) is the reader's own explicit pick,
+   * e.g. "None" in the library introduction. Without it, Compare is a default.
+   */
+  compareChosen?: boolean
   audioEditionKey?: EditionKey
   savedPlace?: SavedReaderPlaceInput
   /** Begin the first rendered page exactly at savedPlace (share-link starts only). */
@@ -241,6 +246,11 @@ export interface ReaderHandoffIntent {
   bookId: string
   primaryEditionKey: EditionKey
   compareEditionKey?: EditionKey
+  /**
+   * The Compare edition (or its absence) is the reader's own explicit pick,
+   * e.g. "None" in the library introduction. Without it, Compare is a default.
+   */
+  compareChosen?: boolean
   audioEditionKey?: EditionKey
   savedPlace?: SavedReaderPlaceInput
   /** One-use document handoff flag; never stored as the user's reading position. */
@@ -523,6 +533,7 @@ export function createReaderHandoffIntent(
     if (!primary.aligned || !compare || compare.key === primary.key || !compare.availability.compare) return null
     intent.compareEditionKey = compare.key
   }
+  if (selection.compareChosen === true) intent.compareChosen = true
   if (selection.audioEditionKey) {
     const audio = book.editions.find(edition => edition.key === selection.audioEditionKey)
     if (!audio?.availability.audio) return null

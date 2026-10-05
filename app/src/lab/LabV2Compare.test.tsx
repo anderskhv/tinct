@@ -30,6 +30,17 @@ function withCompare() {
   }))
 }
 
+/** A reader who chose None for Compare (Compare is on by default since 2026-10-06). */
+function withoutCompare() {
+  localStorage.setItem(LAB_PREFS_KEY, JSON.stringify({
+    version: 2,
+    shared: { primaryEdition: 'kjv-en', compareEdition: 'web-en', audioEdition: 'kjv-en', audioSpeed: 1, compareOpen: false, compareChosen: true },
+    phone: {},
+    desktop: {},
+    seenOnce: {},
+  }))
+}
+
 function renderPhone(props: Record<string, unknown> = {}) {
   return render(
     <LabApp
@@ -96,6 +107,7 @@ describe('the compare gesture', () => {
   })
 
   it('does nothing without a compare edition, and offers no Compare anywhere', () => {
+    withoutCompare()
     renderPhone()
     const page = screen.getByTestId('lab-book')
     swipe(page, 0, -110)
@@ -174,6 +186,7 @@ describe('the standby edition', () => {
 
   it('is not measured when there is nothing to swap to', () => {
     withNativePaging()
+    withoutCompare()
     renderPhone()
     expect(screen.getAllByTestId('lab-native-page-measure')).toHaveLength(1)
   })
