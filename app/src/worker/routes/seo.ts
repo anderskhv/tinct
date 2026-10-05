@@ -3,6 +3,7 @@ import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
+import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -194,7 +195,12 @@ async function serveLabPreReader(
   const labResp = await env.ASSETS.fetch(new Request(assetUrl.toString(), { method: requestMethod }))
   if (!labResp.ok) return null
 
-  const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(await labResp.text(), url.searchParams.get('book') || undefined, true), labResp)
+  // A book link puts that book in the library's hero from the first paint.
+  const bookId = url.searchParams.get('book') || undefined
+  let html = requestMethod === 'HEAD' ? '' : await labResp.text()
+  const linked = assetPath === LIBRARY_ENTRY_PATH && bookId && requestMethod !== 'HEAD' ? await loadGeneratedBookPage(url, env, bookId) : null
+  if (linked) html = prefillLibraryHero(html, linked.hero)
+  const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(html, bookId, true), labResp)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
   newResp.headers.set('Cache-Control', 'no-store')
   newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
@@ -202,6 +208,41 @@ async function serveLabPreReader(
     newResp.headers.set(key, value)
   }
   return newResp
+}
+
+/** The generated book page's hero, search tags and text, when the book has one. */
+async function loadGeneratedBookPage(url: URL, env: SeoEnv, bookId: string): Promise<GeneratedBookPage | null> {
+  if (!/^[a-z0-9-]{1,80}$/.test(bookId) || !PUBLIC_BOOK_IDS.has(bookId)) return null
+  try {
+    const resp = await env.ASSETS.fetch(new Request(`${url.origin}/read/${bookId}/book`))
+    if (resp.status !== 200) return null
+    return readGeneratedBookPage(await resp.text(), bookId)
+  } catch {
+    return null
+  }
+}
+
+/**
+ * `/read/<id>`, the URL that is shared: the library with this book in the hero,
+ * as `/library?book=<id>` shows it, carrying the book page's title,
+ * description, canonical, preview tags and crawlable text. Null when either
+ * page is missing, so the static book page still answers.
+ */
+async function serveBookLibraryPage(requestMethod: string, url: URL, env: SeoEnv, bookId: string): Promise<Response | null> {
+  const book = await loadGeneratedBookPage(url, env, bookId)
+  if (!book) return null
+  const libraryUrl = new URL(url.toString())
+  libraryUrl.pathname = LIBRARY_ENTRY_PATH
+  libraryUrl.search = ''
+  const library = await env.ASSETS.fetch(new Request(libraryUrl.toString()))
+  if (!library.ok) return null
+  const html = brandedHtml(composeBookLibraryPage(await library.text(), book), bookId)
+  const resp = new Response(requestMethod === 'HEAD' ? null : html, {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+  })
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) resp.headers.set(key, value)
+  return resp
 }
 
 async function serveLabDemo(
@@ -513,6 +554,15 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     if ((request.method === 'GET' || request.method === 'HEAD') && seoMatch) {
       const seoResp = await serveStaticHtml(request.method, request, url, `/read/${seoMatch[1]}/${seoMatch[2]}.html`, env)
       if (seoResp) return seoResp
+      // Chapter pages are no longer generated; older chapter links open the
+      // reader at that chapter, as the book page's chapter links do.
+      const chapterBook = seoMatch[1].toLowerCase(), chapterNumber = Number(seoMatch[2].match(/^chapter-(\d{1,5})$/i)?.[1] || 0)
+      if (chapterNumber > 0 && (BOOK_META[chapterBook] || GENERATED_BOOK_META[chapterBook])) {
+        const reader = new URL('/reader', url.origin)
+        reader.searchParams.set('book', chapterBook)
+        reader.searchParams.set('chapter', String(chapterNumber))
+        return new Response(null, { status: 302, headers: { Location: reader.pathname + reader.search, 'Cache-Control': 'no-store' } })
+      }
       // SEO file not found — fall through to SPA fallback below
     }
 
@@ -532,16 +582,27 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const bookId = bookMatch[1].toLowerCase()
       const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
       const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
-      // Bare `/read/{bookId}` is the public SEO book page. In-app opens add
-      // a query (`?from=app`) and signed-in readers carry `tinct_auth=1`;
-      // both skip the marketing page and open the library.
-      if (!url.search && !hasAuthCookie) {
-        const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
-        if (staticBookResp) return staticBookResp
+      const publicBook = !!(BOOK_META[bookId] || GENERATED_BOOK_META[bookId])
+      // `/read/{bookId}` is the shared book link: the library with that book in
+      // the hero, nothing opened by itself, plus the book's search metadata and
+      // text. Share and campaign parameters (fbclid, utm_*) keep that page; the
+      // app's own parameters below keep their in-app meaning.
+      const inApp = ['chapter', 'edition', 'from', 'view'].some(key => url.searchParams.has(key))
+      if (!inApp) {
+        // Signed-in readers land on their library with this book in focus.
+        if (hasAuthCookie && publicBook) {
+          return new Response(null, { status: 302, headers: { Location: `/library?book=${encodeURIComponent(bookId)}`, 'Cache-Control': 'no-store' } })
+        }
+        if (!hasAuthCookie) {
+          const bookPage = await serveBookLibraryPage(request.method, url, env, bookId)
+          if (bookPage) return bookPage
+          const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
+          if (staticBookResp) return staticBookResp
+        }
       }
-      // In-app opens (a query, or a signed-in reader) go to the book in the
-      // library, as does a book without a static SEO page.
-      if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
+      // In-app opens go to the book in the library, as does a book without a
+      // static SEO page.
+      if (publicBook) {
         // Older pages linked /read/{book}?chapter=N&edition=E. Open the live
         // reader on that chapter and edition instead of the library detail.
         const chapter = url.searchParams.get('chapter')
@@ -555,7 +616,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         }
         const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
-        target.searchParams.set('view', 'book-detail')
+        if (inApp) target.searchParams.set('view', 'book-detail')
         return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
       }
       return serveNotFound(request.method, url, env)
@@ -577,15 +638,15 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     // Bare /{bookId} URLs are legacy/shareable share links. They used to serve
     // the legacy React SPA shell, so an old link dropped the visitor into a
     // different product than the one /read/{bookId} and /library?book=... open.
-    // Send them to the same book in the current library instead; the canonical
-    // crawlable surface stays /read/{bookId}, which is what the sitemap lists.
+    // Send them to the same book in the current library instead, in the hero
+    // like any book link; the canonical crawlable surface stays /read/{bookId},
+    // which is what the sitemap lists.
     const bareBookMatch = url.pathname.match(/^\/([a-z0-9-]+)\/?$/i)
     if ((request.method === 'GET' || request.method === 'HEAD') && bareBookMatch) {
       const bookId = bareBookMatch[1].toLowerCase()
       if (BOOK_META[bookId] || GENERATED_BOOK_META[bookId]) {
         const target = new URL('/library', url.origin)
         target.searchParams.set('book', bookId)
-        target.searchParams.set('view', 'book-detail')
         return new Response(null, {
           status: 302,
           headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' },

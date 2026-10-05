@@ -37,6 +37,7 @@ import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
+import { RETENTION_CRON, runRetentionCleanup } from './worker/routes/retention'
 import {
   changedSegment,
   fetchParagraphContext,
@@ -217,6 +218,8 @@ export default {
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    ctx.waitUntil(handleScheduled(env))
+    // Each cron gets its own invocation: retention never re-runs the emails.
+    if (event.cron === RETENTION_CRON) ctx.waitUntil(runRetentionCleanup(env))
+    else ctx.waitUntil(handleScheduled(env))
   },
 }

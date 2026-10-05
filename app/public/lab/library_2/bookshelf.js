@@ -1,6 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261001one';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261006links';
+import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261006compare';
-import { createBookshelf } from './bookshelf-view.js?v=20261001one';
+import { createBookshelf } from './bookshelf-view.js?v=20261006links';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
@@ -12,11 +13,17 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  const loading=document.createElement('div');loading.className='bookshelf-loading';loading.setAttribute('aria-label','Loading your library');loading.hidden=!window.__library2Boot?.hint;hero.before(loading);
  let view=null,table={mode:'new',reading:[],finished:[]},saved=[],catalogue=[],api=null,loadingNow=false,pendingUpdate=false,ready=Promise.resolve(),resumeReady=Promise.resolve();
  try{catalogue=JSON.parse(sessionStorage.getItem('tinct:library-2-catalogue')||'[]');}catch{}
+ // A book link puts its book in focus on the desk. A book the reader is not
+ // reading stands at the front for this visit only; nothing is saved, and
+ // their own books keep their order.
+ const linked=sample||shelfStudy?null:window.__library2Boot?.book||null;
+ function deskBook(id){const entry=catalogue.find(b=>b.id===id&&b.discoveryAvailable!==false);if(!entry)return null;return {bookId:entry.id,title:entry.title,author:entry.author||'',cover:entry.art?.src||null,tone:entry.cover?.background||null,wordCount:entry.wordCount??null,displayYear:entry.displayYear||'',chapterLabel:'',headline:'',percent:null,recap:reviewedHooks[entry.id]||entry.blurb||entry.summary||'',linked:true};}
+ function desk(){if(!linked||table.reading.some(b=>b.bookId===linked))return table;const book=deskBook(linked);return book?{...table,reading:[book,...table.reading]}:table;}
  function settle(){loading.hidden=true;html.classList.remove('returning-pending');if(!html.classList.contains('returning')||shelfStudy)html.classList.remove('returning-scene-pending');}
  function show(key){
   html.classList.add('returning');html.dataset.returningView=shelfStudy?'shelf':'table';root.hidden=!shelfStudy;
   if(!sample)rememberVisit({mode:'shelf'});
-  if(!view)view=(shelfStudy?createBookshelf:createReadingTable)(shelfStudy?root:hero,{table,catalogue,saved,prepareCover,initial:sample?null:shelfStudy?readVisit()?.shelf:{bookId:readVisit()?.tableBook},
+  if(!view)view=(shelfStudy?createBookshelf:createReadingTable)(shelfStudy?root:hero,{table:desk(),catalogue,saved,prepareCover,initial:sample?null:shelfStudy?readVisit()?.shelf:{bookId:linked||readVisit()?.tableBook},
    onSelection:state=>{if(!sample)rememberVisit(shelfStudy?{shelf:state}:{tableBook:state.bookId});},enabled:()=>enabled()&&html.classList.contains('returning'),
    summaryFor:sample?null:(id,options)=>api.summaryFor(id,options),onError:notice,
    onRemoveReading:async id=>{
@@ -30,12 +37,12 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
     // Hide synchronously from the current view, then reconcile account data.
     ready=load(true);
    },
-   onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(table,saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
+   onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
    onOpen:async(id,shelf,img)=>{
     if(shelf==='reading'&&!sample){await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader')throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}
     else await openBook(id,img);
    }});
-  else if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;
+  else if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;
   if(key)view.focus(key);
   settle();
  }
@@ -49,7 +56,8 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   dispatchEvent(new Event('resize'));
   dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
  }
- if(!sample)onCachedTable((cached,engine)=>{api=engine;table=cached;present(true);});
+ // Hold a cached desk that cannot show the linked book yet; the full load follows.
+ if(!sample)onCachedTable((cached,engine)=>{api=engine;table=cached;if(linked&&!desk().reading.some(b=>b.bookId===linked))return;present(true);});
  async function load(refresh=false){
   if(loadingNow)return;loadingNow=true;
   try{
@@ -62,7 +70,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    else table=result.table;
    // A cloud shelf sync is independent of painting the books already on device.
    present();
-   const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}}
+   const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}}
    if(!sample)try{if(table.mode==='returning'||saved.length)localStorage.setItem('tinct-library-2-reading-table','{"mode":"returning"}');else localStorage.removeItem('tinct-library-2-reading-table');}catch{}
   }catch(error){
    window.__library2LoadError=String(error&&(error.stack||error.message)||error);
@@ -75,11 +83,11 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    else settle();
   }finally{loadingNow=false;}
  }
- addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(table,saved,catalogue);else pendingUpdate=true;}});
+ addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}});
  addEventListener('library2:shelf-removed',event=>{const id=event.detail;table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
  // A refresh that lands behind the menu, search, a book or My shelf is applied as
  // soon as the desk is visible again, so the desk and My shelf never disagree.
- const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(table,saved,catalogue);}};
+ const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(desk(),saved,catalogue);}};
  addEventListener('library2:overlayclosed',flushPending);
  addEventListener('library2:interactive',flushPending);
  // Preserve the live scene in the back/forward cache while refreshing its data.

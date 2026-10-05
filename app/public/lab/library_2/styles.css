@@ -345,3 +345,26 @@ html.returning-scene-pending #scene{opacity:0;transition:none}
 #collection-books .image-credits{grid-column:1/-1;max-width:760px;font:15px/1.6 Georgia,serif;color:#dcd6c0}
 #collection-books .image-credits p{margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid #eee7d01f}
 #collection-books .image-credits a{color:inherit;text-decoration:underline;text-decoration-color:#eee7d066;text-underline-offset:3px}
+/* Book links: the hero waits for the linked book rather than showing another (boot.js). */
+html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pending .hero-dots{visibility:hidden}
+.book-meta span:empty{display:none}
+/* /read/<id>: the book's own text after the shelves (src/worker/lib/bookLibraryPage.ts). */
+.book-about{border-top:1px solid var(--line);padding:44px max(28px,2.5vw) 88px}
+.book-about-text{max-width:880px;line-height:1.6}
+.book-about .breadcrumb{font:12px system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.book-about .breadcrumb a,.book-about .glance a{color:inherit;text-decoration:none}
+.book-about .breadcrumb span{color:var(--cream)}
+.book-about .hook{font-size:22px;font-style:italic;margin:0 0 40px}
+.book-about .glance-section{margin:0 0 48px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.book-about .glance-label{font:12px system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.book-about .glance{list-style:none;padding:0;margin:0;columns:2;column-gap:40px}
+.book-about .glance li{break-inside:avoid}
+.book-about .glance a{font-size:17px;display:flex;gap:14px;align-items:baseline;padding:4px 0}
+.book-about .glance a:hover{color:#fff}
+.book-about .glance-num{font:12px system-ui,sans-serif;color:var(--muted);min-width:76px}
+.book-about .glance-text{flex:1}
+.book-about h2.section{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:400;line-height:1.1;margin:0 0 16px}
+.book-about .body p{font-size:20px;margin:0 0 16px}
+@media(max-width:699px){.book-about{padding:36px 20px 72px}.book-about .hook{font-size:19px}.book-about .glance{columns:1}.book-about .glance a{display:block}.book-about .glance-num{display:block;min-width:0;margin-bottom:2px}.book-about .body p{font-size:18px}}
+/* A linked book on a returning reader's desk has no place or bookmark yet. */
+.reading-table.is-linked .rt-quote small,.rt-b.is-linked .rt-mark{display:none}
