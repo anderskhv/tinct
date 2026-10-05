@@ -4,7 +4,7 @@ import { afterEach, expect, it, vi } from 'vitest'
 import { LAB_SILENT_UNLOCK_SRC, useLabListen } from './useLabListen'
 
 /** One timed word per second; paragraph 0 has three sentences. */
-function harness() {
+function harness(extra: { onChapterComplete?: () => boolean } = {}) {
   const pending: Array<{ resolve: () => void; reject: (error: Error) => void }> = []
   const audio = new EventTarget() as HTMLAudioElement
   Object.assign(audio, {
@@ -18,7 +18,7 @@ function harness() {
     index, text, file: `p${index}.mp3`, duration: 20,
     words: text.split(' ').map((word, i) => ({ text: word, start: i, end: i + 1 })),
   }))
-  const hook = renderHook(() => useLabListen({ guardPlaybackRequests: true, bookId: 'frankenstein', chapterNumber: 1, paragraphs, followParagraphs: followed, createAudio: () => audio }))
+  const hook = renderHook(() => useLabListen({ guardPlaybackRequests: true, bookId: 'frankenstein', chapterNumber: 1, paragraphs, followParagraphs: followed, createAudio: () => audio, ...extra }))
   return { ...hook, audio, pending }
 }
 
@@ -148,4 +148,29 @@ it('starts audio outside the gesture when the Talk tap unlocked the element firs
   expect(h.result.current.narration).toEqual({ status: 'idle' })
   expect(h.audio.src).toContain('p0.mp3')
   expect(h.audio.currentTime).toBe(3)
+})
+
+it('an idle element erroring after the unlock never ends the chapter', async () => {
+  // Nightly QA, 5 Oct: the first Chat open after a load moved the reader to the
+  // next chapter. Removing the unlock clip's src makes the element report an
+  // error; with nothing playing, that error was read as the chapter's end.
+  const onChapterComplete = vi.fn(() => true)
+  const h = harness({ onChapterComplete })
+  act(() => h.result.current.unlockPlayback())
+  await act(async () => h.pending[0].resolve())
+  expect(h.audio.src).toBe('')
+  act(() => { h.audio.dispatchEvent(new Event('error')) })
+  expect(onChapterComplete).not.toHaveBeenCalled()
+  expect(h.audio.play).toHaveBeenCalledTimes(1)
+  expect(h.result.current.playing).toBe(false)
+})
+
+it('an unlock refused by the page (blocked source) never ends the chapter', async () => {
+  const onChapterComplete = vi.fn(() => true)
+  const h = harness({ onChapterComplete })
+  act(() => h.result.current.unlockPlayback())
+  await act(async () => h.pending[0].reject(new DOMException('Blocked', 'NotSupportedError')))
+  act(() => { h.audio.dispatchEvent(new Event('error')) })
+  expect(onChapterComplete).not.toHaveBeenCalled()
+  expect(h.audio.play).toHaveBeenCalledTimes(1)
 })
