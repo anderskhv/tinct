@@ -3,44 +3,33 @@
 **Status:** proposed by the PM session on 5 October 2026. The mockup is approved for discussion; the build is not yet assigned. This document is a spec only; the coding agent builds it.
 **Mockup:** Anders's private preview page "Tinct Quote Share" (claude.ai artifact). It shows the share sheet, the phone and desktop images, a long-quote example and the link previews.
 
-## What the reader gets
-From any highlight (or a fresh text selection), **Share** opens a small sheet:
-- **Preview** of the image, shaped for the device: phone → portrait 4:5; desktop → landscape 16:10.
-- **Edition:** the edition the reader was reading is preselected, and the reader can switch to the other edition. The same passage is mapped by paragraph alignment and the highlight range by text match; if the match fails, offer only the edition the highlight was made in.
-- **Look:** Paper (light) or Night (dark), defaulting to the reader's current theme. E-ink readers get Paper.
-- **Show surrounding lines** (default on): the sentences before and after the highlight, faded, so the image reads as a page of the book.
-- **"Read free at tinct.app"** (default on): a small Tinct wordmark and tagline in the page footer.
-- **Actions:**
-  - Phone: **Share…** opens the system share sheet with the image file and the link.
-  - Desktop: **Copy image**, **Download** and **Copy link**.
+## What the reader gets (revised after Anders's review, 5 October 2026)
+From any highlight, **Share** opens a minimal sheet:
+- A **preview** of the image.
+- One toggle: **Add "Read free at tinct.app"**, default on.
+- **Share…** (phone: the system share sheet with the image and the link) and **Copy link**. Desktop also gets **Copy image** and **Download**.
 
-## The image
-| | Phone | Desktop | Link preview (OG) |
+There are no other options. The image always uses **the edition and the look (Paper, Night or e-ink) the reader is already using**.
+
+## The image is the reader's own page
+It is rendered from the live reader's layout, not a separate design:
+- **Header:** the reader's bar, with the book title in Playfair bold, a dot, and the chapter pill in italic Garamond. No buttons or icons.
+- **Body:** the reader's justified EB Garamond page, with the highlight in the reader's gold highlight colour.
+- **Surrounding text, always:** the page starts a sentence or two before the highlight (with "…" if it begins mid-paragraph) and simply runs on until the page ends. If there isn't room for much context, that's fine; text is never shrunk to make more fit.
+- **Footer:** where the reader shows page progress, the image shows "Read free at tinct.app" (or nothing, if the toggle is off).
+
+| | Phone | Desktop, short highlight | Desktop, long highlight |
 |---|---|---|---|
-| Size | 1080 × 1350 (4:5) | 1600 × 1000 (16:10) | 1200 × 630 (1.91:1) |
-| Use | Reddit, Instagram and X feeds, iMessage | Laptop screen, landscape posts | Unfurls on Reddit, X, Slack, iMessage |
+| Shape | 4:5, 1080 × 1350 | 16:10, 1600 × 1000 | 16:10, 1600 × 1000 |
+| Layout | The phone reader page | One reader page, centred | **Both pages of the spread**, with the fold, the text flowing across exactly as in the reader, and page numbers |
 
-**Layout** (see the mockup):
-- **Running head** in IBM Plex Mono caps: book title on the left, chapter on the right, with a hairline below.
-- **Body** in EB Garamond: faded context, the highlight in the reader's gold highlight colour, then faded context. The text block is vertically centred.
-- **Footer** with a hairline above:
-  - Left: the citation. **Title** in Playfair Display, then author and edition credit.
-  - Right: the optional wordmark and "Read free at tinct.app".
-- **Colours** are the live reader's tokens: paper `#ece7db`, ink `#0b0b0b`, muted `#6a6256`, gold highlight `#f5e6c8`-family. Night uses the reader's dark tokens.
-- **Fonts** are all SIL OFL licensed (EB Garamond, Playfair Display, IBM Plex Mono), so they're fine to embed in rendered images.
+The desktop image switches to the two-page spread when the highlight doesn't fit on one page.
 
-**Fitting the page:**
-1. Start at a comfortable size for the format. Shrink in steps down to a floor (phone ≈ 34 px, desktop ≈ 28 px at full resolution) until the body fits.
-2. Drop the surrounding lines before shrinking the highlight itself.
-3. If the highlight alone exceeds about 600 characters at the floor size, trim at a sentence boundary with an ellipsis and tell the reader in the sheet ("Trimmed to fit, edit selection?").
-4. Never cut mid-word, and never alter the text.
+A highlight longer than the space available (a full spread on desktop, one page on phone) is cut at a sentence boundary with "…". The text is never changed and never shrunk below the reader's own size.
 
-**Attribution (required on every image):**
-- **Title, author, chapter or book label.**
-- **Edition credit:**
-  - **Tinct Modern E:** "Tinct Modern E".
-  - **Original-language English text:** the year or source, e.g. "1818 text".
-  - **Translation:** "tr. {translator}", e.g. "tr. George Long" for Meditations, taken from the book's source record.
+**Attribution:** the header carries the book and chapter. The edition credit (for example "tr. George Long" or "Tinct Modern E") goes in small type next to the footer tagline, and is always shown, even when the tagline is off.
+
+**Link preview (OG, 1200 × 630):** the same page treatment cropped around the highlight.
 
 ## The share link
 - **Format:** `https://tinct.app/q/{id}`, where `{id}` is a short random id. Store book, edition, chapter, paragraph, character range, look, format and tagline flag. Store **no** user identity on the public record; keep the creator's user id privately for analytics only.
@@ -73,8 +62,8 @@ The question to answer: do shared links bring readers who keep reading?
 Most book subreddits remove self-promotion; a branded quote image may be deleted in r/books. Subs that welcome quote images, and replies in discussions, work better. Keep the tagline toggle visible. The link, with its passage preview, does most of the work.
 
 ## Acceptance
-- Phone and desktop images match the mockup in both looks, with and without the tagline and context lines.
-- Long highlights shrink, then trim at a sentence with an ellipsis, without changing the text.
+- Phone and desktop images look like the live reader page in the reader's current edition and look, with and without the tagline.
+- Desktop uses the two-page spread when the highlight doesn't fit one page; over-long highlights are cut at a sentence with an ellipsis, without changing or shrinking the text.
 - The edition credit is correct for all three edition types.
 - A shared link unfurls with the preview image on X, Reddit and iMessage, and opens the exact passage, signed out or in.
 - No user identity appears in the public link or image.
