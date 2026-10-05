@@ -68,11 +68,14 @@ export async function migrateStoredLabHighlights(loadChapter: ChapterLoader = lo
   }))
   if (!moved.size) return false
   // Re-read: nothing written meanwhile is lost.
+  const now = Date.now()
   writeLabHighlights(readLabHighlights().map(highlight => {
     const before = stored.find(item => item.id === highlight.id)
     // A note edited while the chapter was loading belongs to the reader.
     // Retry its projection later instead of replacing it with our snapshot.
-    return JSON.stringify(before) === JSON.stringify(highlight) ? moved.get(highlight.id) ?? highlight : highlight
+    const next = JSON.stringify(before) === JSON.stringify(highlight) ? moved.get(highlight.id) : undefined
+    // Stamped so the moved copy wins over a stale one from another device.
+    return next ? { ...next, updatedAt: now } : highlight
   }))
   return true
 }
