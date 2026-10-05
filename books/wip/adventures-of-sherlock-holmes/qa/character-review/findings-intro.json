@@ -1,0 +1,60 @@
+{
+  "verdict": "accept-with-fixes",
+  "summary": "Mechanical checks all pass: preface.txt == onboarding.about + '\\n'; sha256 e94dfde2...4a0c and wordCount 160 match preface.txt bytes; reviewedHooks entry matches intro hook and parses in the reviewedIntroductions.test.ts format; openingText equals modern-en chapter 1 paragraph 0 verbatim; shapes match the Alice release. Stevenson quote is verbatim (pg637.txt lines 8956-8959, letter 'TO A. CONAN DOYLE', Vailima, Apia, Samoa, April 5th, 1893). Doyle biography facts are correct (1859-1930; Edinburgh medicine; A Study in Scarlet 1887 written while in Southsea practice; Strand July 1891-June 1892; book 1892; last Holmes stories 1927). Preface claims verified in story texts: Watson 'returned to civil practice' and married (story01), typist ('what I earn at typewriting', story03), pawnbroker paid to copy the Encyclopaedia Britannica (story02), masked visitor (story01). No culprit, disguise or solution is revealed. Fixes below are wording overclaims and voice-rule issues.",
+  "findings": [
+    {
+      "id": "I-01",
+      "severity": "major",
+      "file": "intro-data.json",
+      "field": "preface.paragraphs[0]",
+      "problem": "Overclaim: 'Each story begins with someone bringing a problem to Baker Street' and 'each turns on what Holmes notices while the visitor is still talking' are not true of every story. Boscombe Valley opens with a telegram to Watson at breakfast and Holmes summoned to the west of England; The Man with the Twisted Lip opens with Kate Whitney visiting Watson's home and Watson finding Holmes in an opium den, with the client at Lee; The Engineer's Thumb starts in Watson's consulting room.",
+      "evidence": "story04.txt [4:0] 'We were seated at breakfast one morning, my wife and I, when the maid brought in a telegram'; story06.txt [6:0] opens on Isa Whitney's opium habit, not a Baker Street consultation.",
+      "fix": "A masked visitor wants a photograph recovered. A pawnbroker is paid to copy out an encyclopaedia by hand. A typist cannot find the man she was about to marry. Most of the stories begin with someone bringing a problem to Baker Street that sounds either absurd or trivial, and many turn on what Holmes notices while the visitor is still talking."
+    },
+    {
+      "id": "I-02",
+      "severity": "minor",
+      "file": "onboarding.json",
+      "field": "whyItMatters[1].body",
+      "problem": "Voice rules: the contemporary closing line is a parallel triad ('bought, guarded and ruined') with an aphoristic ring, and the middle sentence uses a balanced 'what ... and what ...' construction (parallelism rhythm). The item also lacks the calibrated 'deals with / asks / follows' framing used in the published examples.",
+      "evidence": "\"...decide what a client can afford to disclose and what someone else can force them to conceal. Reputations are still bought, guarded and ruined on similar terms.\" Compare wuthering-heights.json whyItMatters[1]: 'The novel follows affection into the practical arrangements... It remains pointed where housing and family money shape intimate choices today.'",
+      "fix": "A king, a banker, a governess and a pawnbroker bring their troubles to the same sitting-room, but they arrive with very different means of defending themselves. The collection follows how money, marriage, employment and reputation limit what each client can safely disclose to Holmes. The question remains pointed wherever wealth buys privacy that others cannot afford."
+    },
+    {
+      "id": "I-03",
+      "severity": "minor",
+      "file": "onboarding.json",
+      "field": "whyItMatters[0].body",
+      "problem": "'Each story separates a visible fact from the account someone builds on it' is a universal claim that is loose for some cases (e.g. The Five Orange Pips); softening keeps it accurate. Otherwise the item meets the voice rules.",
+      "evidence": "Twelve-story collection; not every case is structured around a disputed reading of a single fact.",
+      "fix": "A scuffed shoe, a battered hat or an odd condition of employment can change the meaning of everything around it. The stories repeatedly separate a visible fact from the account someone builds on it, and Holmes’s confident readings are tested against what the case finally shows. The distinction still matters whenever a single detail is offered as proof."
+    },
+    {
+      "id": "I-04",
+      "severity": "minor",
+      "file": "onboarding.json",
+      "field": "acclaim[0].context",
+      "problem": "'the letter does not name the book' is slightly misleading: the letter does say 'adventures of Sherlock Holmes' (lowercase, not as a title) and then 'the volume'. A reader checking the source could read this as an error. The quote and source are otherwise verbatim and accurate; the 'not a contemporary review' caveat is good.",
+      "evidence": "pg637.txt: 'my compliments on your very ingenious and very interesting adventures of Sherlock Holmes. ... it was a pleurisy I was enjoying when I took the volume up'",
+      "fix": "A private letter from Stevenson to Doyle. Stevenson says he took “the volume” up while ill with pleurisy; he refers to Holmes’s “adventures” in lowercase rather than citing a title. It is one writer’s admiring response, not a contemporary review."
+    },
+    {
+      "id": "I-05",
+      "severity": "minor",
+      "file": "onboarding.json",
+      "field": "angleCards[1].text",
+      "problem": "First-person plural 'our view' (pre-existing, unchanged from the live file). The no-we/us/our rule is locked for whyItMatters; flagging for consistency of voice across onboarding.",
+      "evidence": "\"His response shapes our view of Holmes...\"",
+      "fix": "Notice when Watson is amused, impressed, ashamed, or alarmed. His response shapes the reader’s view of Holmes and keeps the investigation attached to ordinary human feeling."
+    },
+    {
+      "id": "I-06",
+      "severity": "minor",
+      "file": "onboarding.json",
+      "field": "cast[4].description",
+      "problem": "Spoiler-adjacent (pre-existing, unchanged from live file): pairing 'family authority' with 'financial independence' points readers toward the motive behind Hosmer Angel's disappearance in A Case of Identity, the shortest and most guessable mystery in the book.",
+      "evidence": "\"Her account connects courtship, family authority, and financial independence.\"",
+      "fix": "A young woman who asks Holmes to find Hosmer Angel, the man she was about to marry, after he vanishes on the morning of their wedding."
+    }
+  ]
+}

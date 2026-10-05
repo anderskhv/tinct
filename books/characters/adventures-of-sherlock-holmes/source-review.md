@@ -12,13 +12,13 @@ A private consulting detective with rooms in Baker Street, London. Clients bring
 
 “Wedlock suits you,” he remarked. “I think, Watson, that you have put on seven and a half pounds since I saw you.”
 
-A doctor and Holmes’s former fellow lodger at Baker Street, who tells these stories. He is now married and has returned to medical practice, but still joins Holmes on his cases.
+A doctor and Holmes’s friend, who narrates these cases. He shared rooms with Holmes at Baker Street before his marriage; some cases date from those bachelor days, others from after he returned to medical practice.
 
 ## original-en · mrs-hudson · 7:78
 
 “Very glad to see you. I dine at seven. There is a woodcock, I believe. By the way, in view of recent occurrences, perhaps I ought to ask Mrs. Hudson to examine its crop.”
 
-A member of the household at Holmes’s Baker Street rooms, mentioned by Holmes in passing.
+The woman who keeps house at Holmes’s Baker Street rooms and sees to his meals. Holmes jokes that he should have her check his dinner’s woodcock for jewels.
 
 ## original-en · irene-adler · 1:0
 
@@ -30,7 +30,7 @@ A retired American-born opera singer living in London. Watson says she is the on
 
 The man sprang from his chair and paced up and down the room in uncontrollable agitation. Then, with a gesture of desperation, he tore the mask from his face and hurled it upon the ground. “You are right,” he cried; “I am the King. Why should I attempt to conceal it?”
 
-The thirty-year-old hereditary King of Bohemia, of the House of Ormstein, who has come from Prague incognito to consult Holmes in person.
+The hereditary King of Bohemia, of the House of Ormstein. He is the masked visitor who called himself Count Von Kramm, and he has just torn off his mask and admitted who he is.
 
 ## original-en · count-von-kramm · 1:44
 
@@ -108,7 +108,7 @@ Jabez Wilson’s assistant at the pawnshop. Wilson says he is very capable and c
 
 “John Clay, the murderer, thief, smasher, and forger. He’s a young man, Mr. Merryweather, but he is at the head of his profession, and I would rather have my bracelets on him than on any criminal in London. He’s a remarkable man, is young John Clay. His grandfather was a royal duke, and he himself has been to Eton and Oxford. His brain is as cunning as his fingers, and though we meet signs of him at every turn, we never know where to find the man himself. He’ll crack a crib in Scotland one week, and be raising money to build an orphanage in Cornwall the next. I’ve been on his track for years and have never set eyes on him yet.”
 
-A young master criminal—murderer, thief, coiner and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.
+A young master criminal—murderer, thief, passer of counterfeit coin and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.
 
 ## original-en · duncan-ross · 2:28
 
@@ -138,7 +138,7 @@ Peter Jones, an official police agent from Scotland Yard whom Watson already kno
 
 “Ha! Our party is complete,” said Holmes, buttoning up his pea-jacket and taking his heavy hunting crop from the rack. “Watson, I think you know Mr. Jones, of Scotland Yard? Let me introduce you to Mr. Merryweather, who is to be our companion in to-night’s adventure.”
 
-A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure. He misses his Saturday-night game of cards.
+A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure.
 
 ## original-en · ezekiah-hopkins · 2:28
 
@@ -150,7 +150,7 @@ The late benefactor of Lebanon, Pennsylvania, named in the Red-Headed League’s
 
 “Sarasate plays at the St. James’s Hall this afternoon,” he remarked. “What do you think, Watson? Could your patients spare you for a few hours?”
 
-Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes takes Watson to hear him play at St. James’s Hall.
+Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes invites Watson to hear him play at St. James’s Hall.
 
 ## original-en · gustave-flaubert · 2:214
 
@@ -174,7 +174,7 @@ A client of Holmes’s whose “very simple problem” he mentions in passing. H
 
 “I came to you, sir, because I heard of you from Mrs. Etherege, whose husband you found so easy when the police and everyone had given him up for dead. Oh, Mr. Holmes, I wish you would do as much for me. I’m not rich, but still I have a hundred a year in my own right, besides the little that I make by the machine, and I would give it all to know what has become of Mr. Hosmer Angel.”
 
-A shy, softly spoken gentleman with tinted glasses whom Mary Sutherland met at a ball and became engaged to. He vanished from his cab on the way to their wedding, and she wants Holmes to find him.
+The man Mary Sutherland was engaged to. He has disappeared, and she has come to Holmes to find out what became of him.
 
 ## original-en · james-windibank · 3:19
 
@@ -246,7 +246,7 @@ The largest landowner in Boscombe Valley, who made his fortune in Australia and 
 
 “Boscombe Valley is a country district not very far from Ross, in Herefordshire. The largest landed proprietor in that part is a Mr. John Turner, who made his money in Australia and returned some years ago to the old country. One of the farms which he held, that of Hatherley, was let to Mr. Charles McCarthy, who was also an ex-Australian. The men had known each other in the colonies, so that it was not unnatural that when they came to settle down they should do so as near each other as possible. Turner was apparently the richer man, so McCarthy became his tenant but still remained, it seems, upon terms of perfect equality, as they were frequently together. McCarthy had one son, a lad of eighteen, and Turner had an only daughter of the same age, but neither of them had wives living. They appear to have avoided the society of the neighbouring English families and to have led retired lives, though both the McCarthys were fond of sport and were frequently seen at the race-meetings of the neighbourhood. McCarthy kept two servants—a man and a girl. Turner had a considerable household, some half-dozen at the least. That is as much as I have been able to gather about the families. Now for the facts.
 
-A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, he is said to be cold and forbidding in manner.
+A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James.
 
 ## original-en · james-mccarthy · 4:18
 
@@ -348,19 +348,19 @@ John Openshaw’s uncle. He emigrated to America as a young man, became a plante
 
 “You must know that my grandfather had two sons—my uncle Elias and my father Joseph. My father had a small factory at Coventry, which he enlarged at the time of the invention of bicycling. He was a patentee of the Openshaw unbreakable tire, and his business met with such success that he was able to sell it and to retire upon a handsome competence.
 
-John Openshaw’s father and Elias Openshaw’s younger brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.
+John Openshaw’s father and Elias Openshaw’s brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.
 
 ## original-en · kkk · 5:37
 
 “One day—it was in March, 1883—a letter with a foreign stamp lay upon the table in front of the colonel’s plate. It was not a common thing for him to receive letters, for his bills were all paid in ready money, and he had no friends of any sort. ‘From India!’ said he as he took it up, ‘Pondicherry postmark! What can this be?’ Opening it hurriedly, out there jumped five little dried orange pips, which pattered down upon his plate. I began to laugh at this, but the laugh was struck from my lips at the sight of his face. His lip had fallen, his eyes were protruding, his skin the colour of putty, and he glared at the envelope which he still held in his trembling hand, ‘K. K. K.!’ he shrieked, and then, ‘My God, my God, my sins have overtaken me!’
 
-Three letters, K. K. K., scrawled in red ink inside an envelope of five dried orange pips sent to Elias Openshaw. He recognises them with terror, but what they stand for is not explained.
+Three letters, K. K. K., that Elias Openshaw sees on an envelope from Pondicherry holding five dried orange pips. He recognises them with terror, but what they stand for is not explained.
 
 ## original-en · james-calhoun · 5:162
 
 He took an orange from the cupboard, and tearing it to pieces he squeezed out the pips upon the table. Of these he took five and thrust them into an envelope. On the inside of the flap he wrote “S. H. for J. O.” Then he sealed it and addressed it to “Captain James Calhoun, Barque _Lone Star_, Savannah, Georgia.”
 
-Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses an envelope to him.
+Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses to him an envelope of five orange pips, marked ‘S. H. for J. O.’
 
 ## original-en · lone-star · 5:162
 
@@ -402,7 +402,7 @@ A London police constable of the H Division, on duty near Waterloo Bridge, named
 
 “4th. Hudson came. Same old platform.
 
-A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The story never says who he was.
+A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The page does not say who he was.
 
 ## original-en · mccauley · 5:88
 
@@ -462,7 +462,7 @@ A Confederate general in whose army Elias Openshaw first fought; usually taken t
 
 Isa Whitney, brother of the late Elias Whitney, D.D., Principal of the Theological College of St. George’s, was much addicted to opium. The habit grew upon him, as I understand, from some foolish freak when he was at college; for having read De Quincey’s description of his dreams and sensations, he had drenched his tobacco with laudanum in an attempt to produce the same effects. He found, as so many more have done, that the practice is easier to attain than to get rid of, and for many years he continued to be a slave to the drug, an object of mingled horror and pity to his friends and relatives. I can see him now, with yellow, pasty face, drooping lids, and pin-point pupils, all huddled in a chair, the wreck and ruin of a noble man.
 
-Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has now been missing from home for two days.
+Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has been a slave to the drug for many years.
 
 ## original-en · kate-whitney · 6:6
 
@@ -474,7 +474,7 @@ Isa Whitney’s wife and an old school friend of Watson’s wife. She arrives la
 
 Isa Whitney, brother of the late Elias Whitney, D.D., Principal of the Theological College of St. George’s, was much addicted to opium. The habit grew upon him, as I understand, from some foolish freak when he was at college; for having read De Quincey’s description of his dreams and sensations, he had drenched his tobacco with laudanum in an attempt to produce the same effects. He found, as so many more have done, that the practice is easier to attain than to get rid of, and for many years he continued to be a slave to the drug, an object of mingled horror and pity to his friends and relatives. I can see him now, with yellow, pasty face, drooping lids, and pin-point pupils, all huddled in a chair, the wreck and ruin of a noble man.
 
-Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s. Mentioned only.
+Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s.
 
 ## original-en · thomas-de-quincey · 6:0
 
@@ -534,13 +534,13 @@ A commissionaire (a uniformed messenger) whom Holmes and Watson both know. He is
 
 “Hum! So much for the police-court,” said Holmes thoughtfully, tossing aside the paper. “The question for us now to solve is the sequence of events leading from a rifled jewel-case at one end to the crop of a goose in Tottenham Court Road at the other. You see, Watson, our little deductions have suddenly assumed a much more important and less innocent aspect. Here is the stone; the stone came from the goose, and the goose came from Mr. Henry Baker, the gentleman with the bad hat and all the other characteristics with which I have bored you. So now we must set ourselves very seriously to finding this gentleman and ascertaining what part he has played in this little mystery. To do this, we must try the simplest means first, and these lie undoubtedly in an advertisement in all the evening papers. If this fail, I shall have recourse to other methods.”
 
-The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. Holmes traces him through a card on the goose and the initials “H. B.” in the hat.
+The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. All Holmes has to identify him are a card on the goose reading ‘For Mrs. Henry Baker’ and the initials ‘H. B.’ in the hat.
 
 ## original-en · john-horner · 7:59
 
 “Precisely so, on December 22nd, just five days ago. John Horner, a plumber, was accused of having abstracted it from the lady’s jewel-case. The evidence against him was so strong that the case has been referred to the Assizes. I have some account of the matter here, I believe.” He rummaged amid his newspapers, glancing over the dates, until at last he smoothed one out, doubled it over, and read the following paragraph:
 
-A 26-year-old plumber charged with stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The police case against him is described as strong, and he has a previous conviction, but he protests his innocence.
+A plumber accused of stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The evidence against him is strong enough that the case has been sent to the Assizes.
 
 ## original-en · catherine-cusack · 7:60
 
@@ -564,7 +564,7 @@ The landlord of the Alpha Inn, a small Bloomsbury pub near the British Museum. T
 
 “Well, I got the two dozen from a salesman in Covent Garden.”
 
-A poultry salesman with one of the largest stalls in Covent Garden Market, who supplied the Alpha Inn with its two dozen geese. He is sharp-faced, keen on betting and short-tempered.
+A poultry salesman at Covent Garden Market who supplied the Alpha Inn with its two dozen geese.
 
 ## original-en · bill-breckinridges-boy · 7:136
 
@@ -600,7 +600,7 @@ A friend of James Ryder’s who went to the bad and has just served a sentence i
 
 “My name is Helen Stoner, and I am living with my stepfather, who is the last survivor of one of the oldest Saxon families in England, the Roylotts of Stoke Moran, on the western border of Surrey.”
 
-A frightened young woman who arrives at Baker Street at dawn to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.
+A frightened young woman who arrives at Baker Street early in the morning to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.
 
 ## original-en · julia-stoner · 8:24
 
@@ -708,7 +708,7 @@ A young hydraulic engineer with offices in Victoria Street, London. His case rea
 
 “Yesterday, however, just as I was thinking of leaving the office, my clerk entered to say there was a gentleman waiting who wished to see me upon business. He brought up a card, too, with the name of ‘Colonel Lysander Stark’ engraved upon it. Close at his heels came the colonel himself, a man rather over the middle size, but of an exceeding thinness. I do not think that I have ever seen so thin a man. His whole face sharpened away into nose and chin, and the skin of his cheeks was drawn quite tense over his outstanding bones. Yet this emaciation seemed to be his natural habit, and due to no disease, for his eye was bright, his step brisk, and his bearing assured. He was plainly but neatly dressed, and his age, I should judge, would be nearer forty than thirty.
 
-An extremely thin man of about forty with a slight German accent, who calls at Hatherley’s office as Colonel Lysander Stark with a commission he insists must stay secret.
+An extremely thin man, nearer forty than thirty, with a slight German accent. He calls at Hatherley’s office with a card engraved ‘Colonel Lysander Stark’ and brings a commission that he insists must stay secret.
 
 ## original-en · elise · 9:96
 
@@ -732,7 +732,7 @@ A local doctor. The Eyford station-master names him as the owner of a house that
 
 “Here is an advertisement which will interest you,” said he. “It appeared in all the papers about a year ago. Listen to this: ‘Lost, on the 9th inst., Mr. Jeremiah Hayling, aged twenty-six, a hydraulic engineer. Left his lodgings at ten o’clock at night, and has not been heard of since. Was dressed in,’ etc., etc. Ha! That represents the last time that the colonel needed to have his machine overhauled, I fancy.”
 
-A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and was never heard of again.
+A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and had not been heard of since.
 
 ## original-en · paddington-guard · 9:2
 
@@ -756,7 +756,7 @@ A plain-clothes policeman who travels to Eyford with Inspector Bradstreet, Holme
 
 The Lord St. Simon marriage, and its curious termination, have long ceased to be a subject of interest in those exalted circles in which the unfortunate bridegroom moves. Fresh scandals have eclipsed it, and their more piquant details have drawn the gossips away from this four-year-old drama. As I have reason to believe, however, that the full facts have never been revealed to the general public, and as my friend Sherlock Holmes had a considerable share in clearing the matter up, I feel that no memoir of him would be complete without some little sketch of this remarkable episode.
 
-An aristocratic bachelor of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.
+An aristocrat of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.
 
 ## original-en · hatty-doran · 10:23
 
@@ -774,7 +774,7 @@ An American gentleman whom Holmes brings to Baker Street on the evening of the c
 
 “In the dress is a pocket. In the pocket is a card-case. In the card-case is a note. And here is the very note.” He slapped it down upon the table in front of him. “Listen to this: ‘You will see me when all is ready. Come at once. F. H. M.’ Now my theory all along has been that Lady St. Simon was decoyed away by Flora Millar, and that she, with confederates, no doubt, was responsible for her disappearance. Here, signed with her initials, is the very note which was no doubt quietly slipped into her hand at the door and which lured her within their reach.”
 
-Initials signing a pencilled note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.
+Initials signing a note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.
 
 ## original-en · flora-millar · 10:43
 
@@ -792,7 +792,7 @@ Hatty Doran’s father, said to be the richest man on the Pacific slope after st
 
 “‘The ceremony, which was performed at St. George’s, Hanover Square, was a very quiet one, no one being present save the father of the bride, Mr. Aloysius Doran, the Duchess of Balmoral, Lord Backwater, Lord Eustace and Lady Clara St. Simon (the younger brother and sister of the bridegroom), and Lady Alicia Whittington. The whole party proceeded afterwards to the house of Mr. Aloysius Doran, at Lancaster Gate, where breakfast had been prepared. It appears that some little trouble was caused by a woman, whose name has not been ascertained, who endeavoured to force her way into the house after the bridal party, alleging that she had some claim upon Lord St. Simon. It was only after a painful and prolonged scene that she was ejected by the butler and the footman. The bride, who had fortunately entered the house before this unpleasant interruption, had sat down to breakfast with the rest, when she complained of a sudden indisposition and retired to her room. Her prolonged absence having caused some comment, her father followed her, but learned from her maid that she had only come up to her chamber for an instant, caught up an ulster and bonnet, and hurried down to the passage. One of the footmen declared that he had seen a lady leave the house thus apparelled, but had refused to credit that it was his mistress, believing her to be with the company. On ascertaining that his daughter had disappeared, Mr. Aloysius Doran, in conjunction with the bridegroom, instantly put themselves in communication with the police, and very energetic inquiries are being made, which will probably result in a speedy clearing up of this very singular business. Up to a late hour last night, however, nothing had transpired as to the whereabouts of the missing lady. There are rumours of foul play in the matter, and it is said that the police have caused the arrest of the woman who had caused the original disturbance, in the belief that, from jealousy or some other motive, she may have been concerned in the strange disappearance of the bride.’”
 
-Hatty Doran’s maid, an American who came with her from California. Lord St. Simon thinks she is allowed too many liberties.
+Hatty Doran’s maid, an American who came with her from California.
 
 ## original-en · duke-of-balmoral · 10:20
 
@@ -804,7 +804,7 @@ Lord St. Simon’s father, once Secretary for Foreign Affairs. A society paper r
 
 “‘The ceremony, which was performed at St. George’s, Hanover Square, was a very quiet one, no one being present save the father of the bride, Mr. Aloysius Doran, the Duchess of Balmoral, Lord Backwater, Lord Eustace and Lady Clara St. Simon (the younger brother and sister of the bridegroom), and Lady Alicia Whittington. The whole party proceeded afterwards to the house of Mr. Aloysius Doran, at Lancaster Gate, where breakfast had been prepared. It appears that some little trouble was caused by a woman, whose name has not been ascertained, who endeavoured to force her way into the house after the bridal party, alleging that she had some claim upon Lord St. Simon. It was only after a painful and prolonged scene that she was ejected by the butler and the footman. The bride, who had fortunately entered the house before this unpleasant interruption, had sat down to breakfast with the rest, when she complained of a sudden indisposition and retired to her room. Her prolonged absence having caused some comment, her father followed her, but learned from her maid that she had only come up to her chamber for an instant, caught up an ulster and bonnet, and hurried down to the passage. One of the footmen declared that he had seen a lady leave the house thus apparelled, but had refused to credit that it was his mistress, believing her to be with the company. On ascertaining that his daughter had disappeared, Mr. Aloysius Doran, in conjunction with the bridegroom, instantly put themselves in communication with the police, and very energetic inquiries are being made, which will probably result in a speedy clearing up of this very singular business. Up to a late hour last night, however, nothing had transpired as to the whereabouts of the missing lady. There are rumours of foul play in the matter, and it is said that the police have caused the arrest of the woman who had caused the original disturbance, in the belief that, from jealousy or some other motive, she may have been concerned in the strange disappearance of the bride.’”
 
-One of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.
+The Duke of Balmoral’s wife, one of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.
 
 ## original-en · lord-backwater · 10:16
 
@@ -918,7 +918,7 @@ Jephro Rucastle and his wife, Violet Hunter’s employers at the Copper Beeches 
 
 “I shall try not to miss anything of importance. The one unpleasant thing about the house, which struck me at once, was the appearance and conduct of the servants. There are only two, a man and his wife. Toller, for that is his name, is a rough, uncouth man, with grizzled hair and whiskers, and a perpetual smell of drink. Twice since I have been with them he has been quite drunk, and yet Mr. Rucastle seemed to take no notice of it. His wife is a very tall and strong woman with a sour face, as silent as Mrs. Rucastle and much less amiable. They are a most unpleasant couple, but fortunately I spend most of my time in the nursery and my own room, which are next to each other in one corner of the building.
 
-The Rucastles’ rough, grizzled manservant and groom, often drunk, and the only one who can manage the mastiff, Carlo, which he lets loose at night.
+The Rucastles’ manservant — a rough, uncouth man with grizzled hair and whiskers who smells of drink and has twice been drunk since Violet Hunter arrived. His wife is the household’s only other servant.
 
 ## original-en · mrs-toller · 12:167
 
@@ -972,13 +972,13 @@ A private consulting detective with rooms in Baker Street, London. Clients bring
 
 “Marriage agrees with you,” he observed. “Watson, I believe you have gained seven and a half pounds since our last meeting.”
 
-A doctor and Holmes’s former fellow lodger at Baker Street, who tells these stories. He is now married and has returned to medical practice, but still joins Holmes on his cases.
+A doctor and Holmes’s friend, who narrates these cases. He shared rooms with Holmes at Baker Street before his marriage; some cases date from those bachelor days, others from after he returned to medical practice.
 
 ## modern-en · mrs-hudson · 7:78
 
 “I shall be glad to see you. Dinner is at seven; I believe we have woodcock. Incidentally, after what has happened, perhaps I should ask Mrs. Hudson to inspect its crop.”
 
-A member of the household at Holmes’s Baker Street rooms, mentioned by Holmes in passing.
+The woman who keeps house at Holmes’s Baker Street rooms and sees to his meals. Holmes jokes that he should have her check his dinner’s woodcock for jewels.
 
 ## modern-en · irene-adler · 1:0
 
@@ -990,7 +990,7 @@ A retired American-born opera singer living in London. Watson says she is the on
 
 The man leaped out of his chair and began striding up and down the room, unable to master his agitation. Then, in a desperate gesture, he ripped the mask off his face and flung it to the floor. “You are right!” he cried. “I am the King. Why should I try to hide it?”
 
-The thirty-year-old hereditary King of Bohemia, of the House of Ormstein, who has come from Prague incognito to consult Holmes in person.
+The hereditary King of Bohemia, of the House of Ormstein. He is the masked visitor who called himself Count Von Kramm, and he has just torn off his mask and admitted who he is.
 
 ## modern-en · count-von-kramm · 1:44
 
@@ -1068,7 +1068,7 @@ Jabez Wilson’s assistant at the pawnshop. Wilson says he is very capable and c
 
 “John Clay: murderer, thief, passer of counterfeit money, and forger. He’s young, Mr. Merryweather, but at the very top of his profession. There is no criminal in London I would sooner clap my handcuffs on. Young John Clay is remarkable. His grandfather was a royal duke; he himself attended Eton and Oxford. His brain is as nimble as his fingers. We find traces of him everywhere, yet never know where to lay hands on him. One week he’ll burgle a house in Scotland; the next he’ll collect funds for an orphanage in Cornwall. I’ve pursued him for years without ever actually seeing him.”
 
-A young master criminal—murderer, thief, coiner and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.
+A young master criminal—murderer, thief, passer of counterfeit coin and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.
 
 ## modern-en · duncan-ross · 2:28
 
@@ -1098,7 +1098,7 @@ Peter Jones, an official police agent from Scotland Yard whom Watson already kno
 
 “Ah! We are all here,” Holmes said, fastening his pea-jacket and taking a heavy hunting crop from the rack. “Watson, I believe you know Mr. Jones of Scotland Yard. This is Mr. Merryweather, who will accompany us on tonight’s adventure.”
 
-A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure. He misses his Saturday-night game of cards.
+A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure.
 
 ## modern-en · ezekiah-hopkins · 2:28
 
@@ -1110,7 +1110,7 @@ The late benefactor of Lebanon, Pennsylvania, named in the Red-Headed League’s
 
 “Sarasate is playing at St. James’s Hall this afternoon,” he said. “What do you say, Watson? Could your patients manage without you for a few hours?”
 
-Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes takes Watson to hear him play at St. James’s Hall.
+Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes invites Watson to hear him play at St. James’s Hall.
 
 ## modern-en · gustave-flaubert · 2:214
 
@@ -1134,7 +1134,7 @@ A client of Holmes’s whose “very simple problem” he mentions in passing. H
 
 “I came because Mrs. Etherege told me about you, sir. You found her husband so easily after the police and everybody else had given him up for dead. Oh, Mr. Holmes, I wish you could do as much for me. I’m not wealthy, but I have a hundred pounds a year of my own, besides what I earn at the typewriter. I would give every penny to discover what has happened to Mr. Hosmer Angel.”
 
-A shy, softly spoken gentleman with tinted glasses whom Mary Sutherland met at a ball and became engaged to. He vanished from his cab on the way to their wedding, and she wants Holmes to find him.
+The man Mary Sutherland was engaged to. He has disappeared, and she has come to Holmes to find out what became of him.
 
 ## modern-en · james-windibank · 3:19
 
@@ -1206,7 +1206,7 @@ The largest landowner in Boscombe Valley, who made his fortune in Australia and 
 
 “Boscombe Valley is a rural district near Ross in Herefordshire. The principal landowner is Mr. John Turner, who made his fortune in Australia and came back to England some years ago. He let one of his farms, Hatherley, to Mr. Charles McCarthy, who had also lived in Australia. They knew each other in the colonies, so it was natural that, when settling down, they chose to live close together. Turner was apparently the wealthier of the two, making McCarthy his tenant. Nevertheless, they seem to have remained on entirely equal terms and often spent time together. McCarthy had one son, aged eighteen; Turner had an only daughter of the same age. Both men were widowers. They appear to have avoided the neighbouring English families and lived quietly, although both McCarthys enjoyed sport and were often seen at local race meetings. McCarthy employed two servants, a man and a girl. Turner’s household was larger—at least half a dozen. That is all I have learned about the families. Now for the events.
 
-A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, he is said to be cold and forbidding in manner.
+A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James.
 
 ## modern-en · james-mccarthy · 4:18
 
@@ -1308,19 +1308,19 @@ John Openshaw’s uncle. He emigrated to America as a young man, became a plante
 
 “My grandfather had two sons: my uncle Elias and my father Joseph. Father owned a small Coventry factory, which he expanded when bicycling was invented. He held the patent for the Openshaw unbreakable tyre. The business prospered so much that he sold it and retired with a comfortable income.
 
-John Openshaw’s father and Elias Openshaw’s younger brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.
+John Openshaw’s father and Elias Openshaw’s brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.
 
 ## modern-en · kkk · 5:37
 
 “One morning in March 1883, a foreign-stamped letter lay before the colonel’s breakfast plate. Letters rarely came for him: he paid bills in cash and had no friends. ‘From India!’ he said, picking it up. ‘Postmarked Pondicherry! What can this be?’ He tore it open. Five small, dried orange pips fell out, rattling onto his plate. I started to laugh, then stopped at the sight of his face. His lip sagged, his eyes bulged, and his skin turned the colour of putty. He stared at the envelope still held in his shaking hand. ‘K. K. K.!’ he screamed. Then: ‘My God, my God, my sins have caught up with me!’
 
-Three letters, K. K. K., scrawled in red ink inside an envelope of five dried orange pips sent to Elias Openshaw. He recognises them with terror, but what they stand for is not explained.
+Three letters, K. K. K., that Elias Openshaw sees on an envelope from Pondicherry holding five dried orange pips. He recognises them with terror, but what they stand for is not explained.
 
 ## modern-en · james-calhoun · 5:162
 
 He took an orange from the cupboard, tore it apart, and squeezed its seeds onto the table. Selecting five, he put them in an envelope. Inside the flap he wrote ‘S. H. for J. O.’ He sealed it and addressed it: ‘Captain James Calhoun, Barque _Lone Star_, Savannah, Georgia.’
 
-Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses an envelope to him.
+Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses to him an envelope of five orange pips, marked ‘S. H. for J. O.’
 
 ## modern-en · lone-star · 5:162
 
@@ -1362,7 +1362,7 @@ A London police constable of the H Division, on duty near Waterloo Bridge, named
 
 “4th. Hudson came. Same old platform.
 
-A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The story never says who he was.
+A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The page does not say who he was.
 
 ## modern-en · mccauley · 5:88
 
@@ -1422,7 +1422,7 @@ A Confederate general in whose army Elias Openshaw first fought; usually taken t
 
 Isa Whitney, brother of the late Elias Whitney, D.D., Principal of the Theological College of St. George’s, was deeply addicted to opium. As I understand it, the habit began with a foolish experiment during his college days. After reading De Quincey’s account of his dreams and sensations, he soaked his tobacco in laudanum, hoping to produce the same effects. He discovered, as so many others have, that the practice is easier to acquire than to abandon. For years he remained a slave to the drug, inspiring both horror and pity in his friends and relations. I can picture him still: his yellow, pasty face, his drooping eyelids and pin-point pupils, his body huddled in a chair—the ruined remains of a noble man.
 
-Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has now been missing from home for two days.
+Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has been a slave to the drug for many years.
 
 ## modern-en · kate-whitney · 6:6
 
@@ -1434,7 +1434,7 @@ Isa Whitney’s wife and an old school friend of Watson’s wife. She arrives la
 
 Isa Whitney, brother of the late Elias Whitney, D.D., Principal of the Theological College of St. George’s, was deeply addicted to opium. As I understand it, the habit began with a foolish experiment during his college days. After reading De Quincey’s account of his dreams and sensations, he soaked his tobacco in laudanum, hoping to produce the same effects. He discovered, as so many others have, that the practice is easier to acquire than to abandon. For years he remained a slave to the drug, inspiring both horror and pity in his friends and relations. I can picture him still: his yellow, pasty face, his drooping eyelids and pin-point pupils, his body huddled in a chair—the ruined remains of a noble man.
 
-Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s. Mentioned only.
+Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s.
 
 ## modern-en · thomas-de-quincey · 6:0
 
@@ -1494,13 +1494,13 @@ A commissionaire (a uniformed messenger) whom Holmes and Watson both know. He is
 
 “Hmm! That settles what happened in the police-court,” Holmes said thoughtfully, tossing the paper aside. “Our task is to trace the events connecting a plundered jewel-case at one end with a goose’s crop in Tottenham Court Road at the other. You see, Watson, our little deductions have suddenly become much more serious and far less innocent. Here is the stone. It came from the goose, and the goose came from Henry Baker, the owner of the shabby hat and all those other characteristics with which I have bored you. We must now make a serious effort to find him and discover his part in the mystery. Let us begin with the simplest method: advertisements in all the evening newspapers. If that fails, I have other methods to turn to.”
 
-The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. Holmes traces him through a card on the goose and the initials “H. B.” in the hat.
+The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. All Holmes has to identify him are a card on the goose reading ‘For Mrs. Henry Baker’ and the initials ‘H. B.’ in the hat.
 
 ## modern-en · john-horner · 7:59
 
 “Yes, on December twenty-second, exactly five days ago. A plumber, John Horner, was accused of taking it from the Countess’s jewel-case. The evidence seemed so strong that he has been sent for trial at the Assizes. I believe I have a report here.” He searched among the newspapers, checking their dates, until he found one, smoothed it out, folded it over, and read this paragraph:
 
-A 26-year-old plumber charged with stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The police case against him is described as strong, and he has a previous conviction, but he protests his innocence.
+A plumber accused of stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The evidence against him is strong enough that the case has been sent to the Assizes.
 
 ## modern-en · catherine-cusack · 7:60
 
@@ -1524,7 +1524,7 @@ The landlord of the Alpha Inn, a small Bloomsbury pub near the British Museum. T
 
 “I bought the two dozen from a dealer at Covent Garden.”
 
-A poultry salesman with one of the largest stalls in Covent Garden Market, who supplied the Alpha Inn with its two dozen geese. He is sharp-faced, keen on betting and short-tempered.
+A poultry salesman at Covent Garden Market who supplied the Alpha Inn with its two dozen geese.
 
 ## modern-en · bill-breckinridges-boy · 7:136
 
@@ -1560,7 +1560,7 @@ A friend of James Ryder’s who went to the bad and has just served a sentence i
 
 “My name is Helen Stoner. I live with my stepfather, the last surviving member of one of England’s oldest Saxon families: the Roylotts of Stoke Moran, on Surrey’s western boundary.”
 
-A frightened young woman who arrives at Baker Street at dawn to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.
+A frightened young woman who arrives at Baker Street early in the morning to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.
 
 ## modern-en · julia-stoner · 8:24
 
@@ -1668,7 +1668,7 @@ A young hydraulic engineer with offices in Victoria Street, London. His case rea
 
 “Yesterday, however, just as I was preparing to leave, my clerk announced a gentleman who wished to discuss business. He brought a card engraved ‘Colonel Lysander Stark’. The colonel followed close behind him. He was a little taller than the average man, but extraordinarily, almost unbelievably thin. I doubt I have ever seen a thinner man. His face narrowed into a sharp nose and chin, and the skin of his cheeks stretched tightly across projecting bones. Yet he seemed naturally lean rather than ill: his eyes were bright, his step brisk, and his manner confident. His clothes were plain but neat. I judged him nearer forty than thirty.
 
-An extremely thin man of about forty with a slight German accent, who calls at Hatherley’s office as Colonel Lysander Stark with a commission he insists must stay secret.
+An extremely thin man, nearer forty than thirty, with a slight German accent. He calls at Hatherley’s office with a card engraved ‘Colonel Lysander Stark’ and brings a commission that he insists must stay secret.
 
 ## modern-en · elise · 9:96
 
@@ -1692,7 +1692,7 @@ A local doctor. The Eyford station-master names him as the owner of a house that
 
 “This advertisement will interest you,” he said. “It ran in all the papers about a year ago. Listen: ‘Missing since the ninth of this month: Mr. Jeremiah Hayling, twenty-six, hydraulic engineer. He left his lodgings at ten in the evening and has not been heard from since. He was wearing’—and so on. Ah! I suspect that was the previous occasion on which the colonel needed his machinery serviced.”
 
-A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and was never heard of again.
+A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and had not been heard of since.
 
 ## modern-en · paddington-guard · 9:2
 
@@ -1716,7 +1716,7 @@ A plain-clothes policeman who travels to Eyford with Inspector Bradstreet, Holme
 
 Lord St. Simon’s marriage and its curious ending have long since lost their interest for the distinguished circles in which the unfortunate bridegroom moves. New scandals, with more tempting details, have drawn the gossips away from that drama of four years ago. Yet I have reason to believe the public has never heard the full facts. Since my friend Sherlock Holmes played a considerable part in explaining them, I feel that no account of his life would be complete without a brief description of this remarkable affair.
 
-An aristocratic bachelor of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.
+An aristocrat of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.
 
 ## modern-en · hatty-doran · 10:23
 
@@ -1734,7 +1734,7 @@ An American gentleman whom Holmes brings to Baker Street on the evening of the c
 
 “The dress has a pocket; inside is a card-case; inside that is a note. Here it is.” He slapped it onto the table. “Listen: ‘You will see me when all is ready. Come at once. F. H. M.’ My theory has always been that Flora Millar enticed Lady St. Simon away and caused her disappearance, undoubtedly with accomplices. Here is the actual note, signed with her initials, which must have been secretly passed to the bride at the door, drawing her into their power.”
 
-Initials signing a pencilled note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.
+Initials signing a note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.
 
 ## modern-en · flora-millar · 10:43
 
@@ -1752,7 +1752,7 @@ Hatty Doran’s father, said to be the richest man on the Pacific slope after st
 
 “‘The ceremony at St. George’s, Hanover Square, was very private. Present were only the bride’s father, Mr. Aloysius Doran; the Duchess of Balmoral; Lord Backwater; Lord Eustace and Lady Clara St. Simon, the bridegroom’s younger brother and sister; and Lady Alicia Whittington. Afterwards they all went to Mr. Doran’s house at Lancaster Gate, where breakfast awaited them. Some disturbance apparently arose when an unidentified woman tried to follow the bridal party into the house, declaring that she had a claim on Lord St. Simon. After a prolonged and embarrassing scene, the butler and footman removed her. Fortunately the bride had gone inside before this unpleasant interruption. She joined the company at breakfast, then complained of suddenly feeling unwell and went upstairs. Her lengthy absence attracted comment, and her father followed. Her maid said she had entered her room only briefly, picked up an ulster and bonnet, and hurried downstairs to the passage. One of the footmen declared that he had seen a woman leave the house dressed in just that manner but had not believed it was his mistress, whom he supposed to be with the guests. On discovering her disappearance, Mr. Doran and the bridegroom immediately contacted the police. Energetic enquiries are proceeding and will probably bring a rapid explanation of this extraordinary affair. By late last night, however, no news of the missing lady’s whereabouts had emerged. Foul play is rumoured. The police are reportedly holding the woman responsible for the earlier disturbance, believing that jealousy or some other motive may have led her to take part in the bride’s strange disappearance.’”
 
-Hatty Doran’s maid, an American who came with her from California. Lord St. Simon thinks she is allowed too many liberties.
+Hatty Doran’s maid, an American who came with her from California.
 
 ## modern-en · duke-of-balmoral · 10:20
 
@@ -1764,7 +1764,7 @@ Lord St. Simon’s father, once Secretary for Foreign Affairs. A society paper r
 
 “‘The ceremony at St. George’s, Hanover Square, was very private. Present were only the bride’s father, Mr. Aloysius Doran; the Duchess of Balmoral; Lord Backwater; Lord Eustace and Lady Clara St. Simon, the bridegroom’s younger brother and sister; and Lady Alicia Whittington. Afterwards they all went to Mr. Doran’s house at Lancaster Gate, where breakfast awaited them. Some disturbance apparently arose when an unidentified woman tried to follow the bridal party into the house, declaring that she had a claim on Lord St. Simon. After a prolonged and embarrassing scene, the butler and footman removed her. Fortunately the bride had gone inside before this unpleasant interruption. She joined the company at breakfast, then complained of suddenly feeling unwell and went upstairs. Her lengthy absence attracted comment, and her father followed. Her maid said she had entered her room only briefly, picked up an ulster and bonnet, and hurried downstairs to the passage. One of the footmen declared that he had seen a woman leave the house dressed in just that manner but had not believed it was his mistress, whom he supposed to be with the guests. On discovering her disappearance, Mr. Doran and the bridegroom immediately contacted the police. Energetic enquiries are proceeding and will probably bring a rapid explanation of this extraordinary affair. By late last night, however, no news of the missing lady’s whereabouts had emerged. Foul play is rumoured. The police are reportedly holding the woman responsible for the earlier disturbance, believing that jealousy or some other motive may have led her to take part in the bride’s strange disappearance.’”
 
-One of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.
+The Duke of Balmoral’s wife, one of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.
 
 ## modern-en · lord-backwater · 10:16
 
@@ -1878,7 +1878,7 @@ Jephro Rucastle and his wife, Violet Hunter’s employers at the Copper Beeches 
 
 “I shall try not to leave out anything important. One unpleasant feature of the house struck me immediately: the servants’ appearance and behaviour. There are only two, a man and his wife. Toller, as he is called, is a rough, uncouth man, with greying hair and whiskers and a constant smell of drink. Twice since my arrival he has been thoroughly drunk, yet Mr. Rucastle appeared not to notice. His wife is very tall and strong, with a sour face. She is as silent as Mrs. Rucastle and much less pleasant. They are a most disagreeable couple, but fortunately I spend most of my time in the nursery and my own bedroom, which stand next to each other in one corner of the house.
 
-The Rucastles’ rough, grizzled manservant and groom, often drunk, and the only one who can manage the mastiff, Carlo, which he lets loose at night.
+The Rucastles’ manservant — a rough, uncouth man with grizzled hair and whiskers who smells of drink and has twice been drunk since Violet Hunter arrived. His wife is the household’s only other servant.
 
 ## modern-en · mrs-toller · 12:167
 

@@ -1,0 +1,86 @@
+{
+ "story": 9,
+ "verdict": "accept-with-fixes",
+ "findings": [
+  {
+   "id": "S9-01",
+   "severity": "minor",
+   "type": "spoiler",
+   "entity": "lysander-stark",
+   "where": "snapshot [9:157]",
+   "problem": "The clause 'the police had already been hunting such a gang' comes from [9:158], one paragraph after the gate. The Hayling sentence also turns Holmes's hint into a flat statement that Stark 'did the same' to him.",
+   "evidence": "[9:158] O: “We have known for some time that a clever gang was at work,” said the inspector. … [9:134] O: That represents the last time that the colonel needed to have his machine overhauled, I fancy.",
+   "fix": "Move this snapshot's gate to [9:158] and keep the body. Or keep the gate at [9:157] and use: 'The thin, German-accented man who hired Hatherley as Colonel Lysander Stark and tried to kill him in the hydraulic press. Holmes suspects that Jeremiah Hayling, an engineer who went missing a year earlier, was called in to service the same machine. Holmes concludes that Stark’s group are large-scale coiners who use the press to make false silver. Elise, the woman at the house, called him ‘Fritz’.'"
+  },
+  {
+   "id": "S9-02",
+   "severity": "minor",
+   "type": "spoiler",
+   "entity": "lysander-stark",
+   "where": "snapshot [9:128]",
+   "problem": "'the story never says which name is his real one' is a statement about the whole story, made mid-story. It tells the reader the question will never be answered. The snapshot also calls her 'The woman at the house' although her card is named Elise from the same gate.",
+   "evidence": "[9:128] O: “‘You are mad, Elise!’ he shouted …",
+   "fix": "Replace the last sentence with: 'Elise, the woman at the house, calls him ‘Fritz’; whether either name is his real one is not yet clear.'"
+  },
+  {
+   "id": "S9-03",
+   "severity": "minor",
+   "type": "accuracy",
+   "entity": "lysander-stark",
+   "where": "first card [9:45]",
+   "problem": "'about forty' sharpens the text, which only says 'nearer forty than thirty'. 'calls … as Colonel Lysander Stark' also suggests an alias at first sight.",
+   "evidence": "[9:45] O: his age, I should judge, would be nearer forty than thirty.",
+   "fix": "BODY: 'An extremely thin man, nearer forty than thirty, with a slight German accent. He calls at Hatherley’s office with a card engraved ‘Colonel Lysander Stark’ and brings a commission that he insists must stay secret.'"
+  },
+  {
+   "id": "S9-04",
+   "severity": "minor",
+   "type": "accuracy",
+   "entity": "jeremiah-hayling",
+   "where": "first card [9:134] (first of two snapshots)",
+   "problem": "'was never heard of again' overstates the advertisement. It says only that he 'has not been heard of since', as of when it ran.",
+   "evidence": "[9:134] O: Left his lodgings at ten o’clock at night, and has not been heard of since.",
+   "fix": "BODY: 'A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement that Holmes kept from about a year earlier. He left his lodgings at ten at night and had not been heard of since.'"
+  },
+  {
+   "id": "S9-05",
+   "severity": "minor",
+   "type": "usefulness",
+   "entity": "bradstreet",
+   "where": "[9:137]–[9:158] (shows snapshot [6:220])",
+   "problem": "From his first appearance in this story until [9:159], tapping Bradstreet shows the Twisted Lip snapshot: Bow Street, a prisoner, Hugh Boone. Nothing in it says what he is doing here, where he is 'of Scotland Yard'. The [9:159] snapshot also states as fact that he is the same man as the Bow Street inspector who has since moved to Scotland Yard. The text only gives the same name.",
+   "evidence": "[9:137] O: Inspector Bradstreet, of Scotland Yard, … had spread an ordnance map of the county out upon the seat",
+   "fix": "Add a snapshot at [9:137]: 'A police inspector, here of Scotland Yard (an inspector Bradstreet also appears at Bow Street in the Hugh Boone affair). He travels to Eyford with Holmes, Watson and Hatherley and plots a ten-mile circle on the map to find the house.' Change [9:159] to: 'A police inspector, here of Scotland Yard, who leads the search for the coining gang near Eyford. Watson says his confidence that they would be caught proved mistaken.'"
+  },
+  {
+   "id": "S9-06",
+   "severity": "minor",
+   "type": "spoiler",
+   "entity": "victor-hatherley",
+   "where": "snapshot [9:132]",
+   "problem": "'secret night's work near Eyford' pre-empts Holmes's deduction at [9:153] that the house is close to Eyford. At [9:132] Hatherley believes he was driven seven to twelve miles out.",
+   "evidence": "[9:98] O: I was ten miles or so from Eyford, that was all I knew",
+   "fix": "Replace 'for a secret night’s work near Eyford' with 'for a secret night’s work at a country house reached by carriage from Eyford station'."
+  },
+  {
+   "id": "S9-07",
+   "severity": "minor",
+   "type": "usefulness",
+   "entity": "elise",
+   "where": "all snapshots (subtitle)",
+   "problem": "The first card's NAME 'The woman at the house' and SUBTITLE 'Woman Hatherley meets at the house' say the same thing twice and add no identity.",
+   "evidence": "[9:96] O: a woman appeared with a lamp in her hand … She spoke a few words in a foreign tongue",
+   "fix": "SUBTITLE: 'Foreign woman in Colonel Stark’s house' (true across all snapshots)."
+  },
+  {
+   "id": "S9-08",
+   "severity": "minor",
+   "type": "usefulness",
+   "entity": "dr-becher",
+   "where": "snapshot [9:169]",
+   "problem": "The card is careful, but it misses what the text clearly sets up. Hatherley's own question links the thin foreign 'patient' with the man he met, and the stout Englishman matches Ferguson. The link can be attributed without being stated as fact.",
+   "evidence": "[9:166] O: “is Dr. Becher a German, very thin, with a long, sharp nose?” [9:167] O: … a better-lined waistcoat … a foreigner … a little good Berkshire beef would do him no harm.",
+   "fix": "Append: 'Hatherley’s question shows he suspects the thin foreign ‘patient’ is the man who hired him.' Keep the last sentence as written."
+  }
+ ]
+}

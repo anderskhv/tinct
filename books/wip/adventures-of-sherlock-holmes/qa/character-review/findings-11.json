@@ -1,0 +1,23 @@
+{"story": 11, "verdict": "accept-with-fixes",
+ "findings": [
+  {"id": "S11-01", "severity": "minor", "type": "accuracy", "entity": "lucy-parr",
+   "where": "snapshot from [11:133]",
+   "problem": "Card says Mary saw Lucy 'slip out' to meet her sweetheart; Mary saw her slipping back IN at the back/kitchen door. It also credits Mary with the theory that Lucy passed on what she overheard; Mary only says Lucy may have overheard. The idea that Lucy went out to tell her sweetheart is Holmes's restatement, and Mary does not confirm it.",
+   "evidence": "[11:58] 'She came in just now by the back door.' [11:131] 'I met her slipping in. I saw the man, too, in the gloom.' [11:127] 'who may have heard uncle's remarks about the coronet.' [11:128] (Holmes) 'You infer that she may have gone out to tell her sweetheart'",
+   "fix": "BODY: The Holders’ second waiting-maid, in service only a few months. She served the coffee while Holder spoke of the coronet and may have overheard him. That night Mary saw her slipping back in at the kitchen door after meeting her sweetheart, the greengrocer Francis Prosper."},
+  {"id": "S11-02", "severity": "minor", "type": "accuracy", "entity": "sir-george-burnwell",
+   "where": "snapshot from [11:219]",
+   "problem": "The order of events is wrong. The card makes the no-prosecution promise follow Holmes's buy-back. In the text Holmes promised Burnwell no prosecution in return for the receiver's address, then bought the stones from the receiver, not from Burnwell.",
+   "evidence": "[11:219] 'I soon managed to get the address of the receiver who had them, on promising him that there would be no prosecution. Off I set to him, and after much chaffering I got our stones at £ 1000 apiece.'",
+   "fix": "BODY: Arthur’s worldly older friend, who took the Beryl Coronet with Mary’s help and fled with her. Holmes traced him by his boots and held him at pistol-point. Burnwell admitted he had already sold the three stones for £600. In return for a promise of no prosecution he gave up the receiver’s address, and Holmes bought the stones back from the receiver for £1,000 each."},
+  {"id": "S11-03", "severity": "minor", "type": "usefulness", "entity": "watson",
+   "where": "card from [1:4] (only snapshot) as seen throughout story 11",
+   "problem": "In this story Watson plainly lives at Baker Street with Holmes, but the card calls him Holmes's 'former' fellow lodger who is 'now married and has returned to medical practice'. A reader tapping Watson here gets a description that contradicts the page.",
+   "evidence": "[11:0] 'as I stood one morning in our bow-window'; [11:166] 'we found ourselves in our rooms once more'; [11:175] 'I retired to my room ... when I came down to breakfast in the morning there he was'",
+   "fix": "Add a snapshot from [11:0] — NAME: Dr. Watson | SUBTITLE: Holmes’s friend and the narrator | BODY: A doctor and Holmes’s closest friend, who tells these stories. In this case he is again sharing Holmes’s rooms at Baker Street and goes with him to Streatham. (The same snapshot also serves story 12; see S12-05.)"},
+  {"id": "S11-04", "severity": "minor", "type": "binding", "entity": "mary-holder",
+   "where": "original-en [11:206], [11:127]",
+   "problem": "The editions are bound inconsistently. Modern-en binds 'Mary' at [11:206] and 'my uncle' at [11:127]. Original-en leaves the corresponding 'Your niece' ([11:206]) and 'uncle's' ([11:127]) unbound. Both are safe at these positions.",
+   "evidence": "[11:206] O: 'Your niece, when you had, as she thought, gone to your room, slipped down'; [11:127] O: 'who may have heard uncle's remarks'",
+   "fix": "Bind original-en [11:206] 'Your niece' -> mary-holder; bind original-en [11:127] 'uncle' -> alexander-holder."}
+ ]}

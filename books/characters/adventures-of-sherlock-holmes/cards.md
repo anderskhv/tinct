@@ -8,17 +8,19 @@ A private consulting detective with rooms in Baker Street, London. Clients bring
 
 ## Dr. Watson · major
 
-A doctor and Holmes’s former fellow lodger at Baker Street, who tells these stories. He is now married and has returned to medical practice, but still joins Holmes on his cases.
+A doctor and Holmes’s friend, who narrates these cases. He shared rooms with Holmes at Baker Street before his marriage; some cases date from those bachelor days, others from after he returned to medical practice.
 
 ## Mrs. Hudson · supporting
 
-A member of the household at Holmes’s Baker Street rooms, mentioned by Holmes in passing.
+The woman who keeps house at Holmes’s Baker Street rooms and sees to his meals. Holmes jokes that he should have her check his dinner’s woodcock for jewels.
+
+After source chapter 8, paragraph 8: The woman who keeps house at Holmes’s Baker Street rooms. She answers the door to early callers and has lit the fire for Holmes’s new client.
 
 ## Irene Adler · major
 
 A retired American-born opera singer living in London. Watson says she is the one woman Holmes always calls ‘the woman’, though not out of love.
 
-After source chapter 1, paragraph 62: An American-born contralto, born in New Jersey in 1858, once prima donna of the Imperial Opera of Warsaw and now retired and living in London. The King of Bohemia, who calls her an adventuress, had an affair with her when he was Crown Prince and wants back the letters and photograph she has.
+After source chapter 1, paragraph 62: An American-born contralto, born in New Jersey in 1858, once prima donna of the Imperial Opera of Warsaw and now retired and living in London. The King of Bohemia, who calls her a well-known adventuress, met her in Warsaw some five years ago, became entangled with her, and wants back the compromising letters he wrote her.
 
 After source chapter 1, paragraph 142: An American-born contralto, formerly prima donna of the Imperial Opera of Warsaw, now living at Briony Lodge, St. John’s Wood. She holds a compromising photograph of herself with the King of Bohemia. She has just married the lawyer Godfrey Norton in a hurried ceremony at the Church of St. Monica, with Holmes, in his groom’s disguise, pulled in as witness.
 
@@ -26,17 +28,17 @@ After source chapter 1, paragraph 247: An American-born opera singer who outwits
 
 ## King of Bohemia · major
 
-The thirty-year-old hereditary King of Bohemia, of the House of Ormstein, who has come from Prague incognito to consult Holmes in person.
+The hereditary King of Bohemia, of the House of Ormstein. He is the masked visitor who called himself Count Von Kramm, and he has just torn off his mask and admitted who he is.
 
 After source chapter 1, paragraph 103: Wilhelm Gottsreich Sigismond von Ormstein, the thirty-year-old hereditary King of Bohemia, in London incognito. He is about to announce his betrothal to Clotilde Lothman von Saxe-Meningen and wants Holmes to recover a compromising photograph of himself with Irene Adler, which she has threatened to send to his bride’s family.
 
-After source chapter 1, paragraph 258: Wilhelm Gottsreich Sigismond von Ormstein, hereditary King of Bohemia. Irene Adler’s letter convinces him she will never use the photograph, and he declares himself satisfied. He gives Holmes her portrait as a reward; Holmes takes it but coldly ignores the King’s outstretched hand.
+After source chapter 1, paragraph 258: Wilhelm Gottsreich Sigismond von Ormstein, hereditary King of Bohemia. Irene Adler’s letter convinces him she will never use the photograph, and he declares himself satisfied. He gives Holmes her portrait as a reward; Holmes takes it, bows, and turns away without taking the King’s outstretched hand.
 
 ## Count Von Kramm · supporting
 
 The name given to Holmes by a masked, very tall visitor with a strong German accent, who says he is a Bohemian nobleman.
 
-After source chapter 1, paragraph 56: A false name. The masked visitor who called himself Count Von Kramm, a Bohemian nobleman, is the King of Bohemia himself. He tears off his mask after Holmes addresses him as ‘your Majesty’, and he goes on using the name while staying at the Langham.
+After source chapter 1, paragraph 56: A false name. The masked visitor who called himself Count Von Kramm, a Bohemian nobleman, is the King of Bohemia himself. He tears off his mask after Holmes addresses him as ‘your Majesty’.
 
 ## Slim youth in an ulster · supporting
 
@@ -94,17 +96,17 @@ After source chapter 2, paragraph 57: Jabez Wilson’s assistant, who works for 
 
 After source chapter 2, paragraph 141: Jabez Wilson’s assistant: a small, quick, beardless man of about thirty with an acid stain on his forehead and pierced ears. He showed Wilson the League’s advertisement and pushed him to apply. After a brief look at him, Holmes calls him the fourth smartest man in London and says he has known something of him before.
 
-After source chapter 2, paragraph 206: The name John Clay used while working as Jabez Wilson’s assistant. Holmes explains that he took the job at half wages, urged Wilson to apply to the sham League, and used the hours Wilson was away to dig a tunnel from the cellar to the bank behind the shop.
+After source chapter 2, paragraph 209: The name John Clay used while working as Jabez Wilson’s assistant. Holmes explains that he took the job at half wages, urged Wilson to apply to the sham League, and used the hours Wilson was away to dig a tunnel from the cellar to the bank behind the shop.
 
 ## John Clay · major
 
-A young master criminal—murderer, thief, coiner and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.
+A young master criminal—murderer, thief, passer of counterfeit coin and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.
 
 After source chapter 2, paragraph 195: A notorious young criminal whom Peter Jones of Scotland Yard has hunted for years. Holmes names him as the clean-cut, boyish young man who climbs up through the floor of the bank cellar.
 
 After source chapter 2, paragraph 203: A notorious young criminal whom Peter Jones of Scotland Yard has hunted for years. Caught climbing up through the floor of the bank cellar, he is handcuffed by Jones, insists on his royal blood, and is led off coolly to the police station.
 
-After source chapter 2, paragraph 206: A notorious young criminal caught tunnelling into the bank cellar and arrested by Peter Jones. Holmes explains that Clay, under the name Vincent Spaulding, had worked as Jabez Wilson’s assistant and devised the Red-Headed League with a red-haired accomplice to get Wilson out of the shop each day.
+After source chapter 2, paragraph 209: A notorious young criminal caught tunnelling into the bank cellar and arrested by Peter Jones. Holmes explains that Clay, under the name Vincent Spaulding, had worked as Jabez Wilson’s assistant and devised the Red-Headed League with a red-haired accomplice to get Wilson out of the shop each day.
 
 ## Duncan Ross · major
 
@@ -136,11 +138,13 @@ After source chapter 2, paragraph 203: Peter Jones of Scotland Yard, self-import
 
 ## Mr. Merryweather · supporting
 
-A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure. He misses his Saturday-night game of cards.
+A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure.
+
+After source chapter 2, paragraph 168: A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure. He laments missing his Saturday-night game of cards for the first time in twenty-seven years.
 
 After source chapter 2, paragraph 173: A long, thin, sad-faced man in an oppressively respectable frock-coat. Holmes explains that he is a bank director with a personal interest in the night’s business.
 
-After source chapter 2, paragraph 182: Chairman of directors of the City branch of a leading London bank. He leads the party into its cellar, where the bank keeps 30,000 French napoleons borrowed from the Bank of France and has had warnings of an attempt on them.
+After source chapter 2, paragraph 182: Chairman of the directors of one of the principal London banks. He leads the party into the cellar of its City branch, where the bank keeps 30,000 French napoleons borrowed from the Bank of France and has had warnings of an attempt on them.
 
 ## Ezekiah Hopkins · reference
 
@@ -150,7 +154,7 @@ After source chapter 2, paragraph 53: The late benefactor named in the Red-Heade
 
 ## Sarasate · reference
 
-Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes takes Watson to hear him play at St. James’s Hall.
+Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes invites Watson to hear him play at St. James’s Hall.
 
 ## Gustave Flaubert · reference
 
@@ -164,11 +168,15 @@ Pen name of the French novelist Aurore Dupin, a friend and long-time corresponde
 
 A client of Holmes’s whose “very simple problem” he mentions in passing. Her own case is told in A Case of Identity.
 
-After source chapter 3, paragraph 14: A young typist who lives with her mother and stepfather and has a small private income of her own. She comes to Holmes in distress because her fiancé disappeared on the morning of their wedding.
+After source chapter 3, paragraph 18: A short-sighted young typist with a small private income of her own. She has come to Holmes in distress to find out what has become of her fiancé, Mr. Hosmer Angel.
+
+After source chapter 3, paragraph 137: A short-sighted young typist with a small private income. Her vanished fiancé ‘Hosmer Angel’ was her stepfather in disguise, but Holmes decides not to tell her, believing she would not accept it. She has vowed to stay true to Hosmer.
 
 ## Hosmer Angel · major
 
-A shy, softly spoken gentleman with tinted glasses whom Mary Sutherland met at a ball and became engaged to. He vanished from his cab on the way to their wedding, and she wants Holmes to find him.
+The man Mary Sutherland was engaged to. He has disappeared, and she has come to Holmes to find out what became of him.
+
+After source chapter 3, paragraph 57: A shy, softly spoken gentleman, as Mary describes him, whom she met at the gasfitters’ ball and became engaged to. On their wedding morning he got into a separate cab to the church and was not in it when it arrived.
 
 After source chapter 3, paragraph 125: Not a real man. Holmes shows that ‘Hosmer Angel’ was Mary’s stepfather, James Windibank, in disguise, with tinted glasses, false whiskers and a whispering voice. He used it, with his wife’s help, to court Mary himself and so keep her and her income at home.
 
@@ -176,7 +184,7 @@ After source chapter 3, paragraph 125: Not a real man. Holmes shows that ‘Hosm
 
 Mary Sutherland’s stepfather, only about five years older than she is. He married her widowed mother and works as a travelling salesman for a wine importer. He refused to go to the police or to Holmes about her missing fiancé.
 
-After source chapter 3, paragraph 125: Mary Sutherland’s stepfather. Holmes shows that, with his wife’s help, he disguised himself as ‘Hosmer Angel’ and courted Mary so that she, and the hundred a year he had the use of, would stay at home. He then vanished at the church door to leave her bound to a missing fiancé.
+After source chapter 3, paragraph 125: Mary Sutherland’s stepfather. Holmes shows that, with his wife’s help, he disguised himself as ‘Hosmer Angel’ and courted Mary so that she, and the hundred a year he had the use of, would stay at home.
 
 After source chapter 3, paragraph 130: Mary Sutherland’s stepfather, who disguised himself as ‘Hosmer Angel’ to keep her and her income at home. Faced with the evidence, he claimed it began as a joke and insisted that nothing he did was legally actionable. He fled when Holmes reached for a hunting crop.
 
@@ -224,17 +232,21 @@ The Latin poet Horace, whom Holmes pairs with Hafiz as a source of worldly wisdo
 
 The largest landowner in Boscombe Valley, who made his fortune in Australia and came home to England some years ago. A widower with one daughter, he knew Charles McCarthy in the colonies and lets him Hatherley Farm.
 
+After source chapter 4, paragraph 120: The largest landowner in Boscombe Valley, about sixty, who made his fortune in the Victorian goldfields. Long in poor health, he has taken to his bed since McCarthy’s death. Lestrade says he was McCarthy’s great benefactor and let him have Hatherley Farm rent free.
+
 After source chapter 4, paragraph 193: The largest landowner in Boscombe Valley, an old acquaintance of Charles McCarthy from the Australian colonies and his landlord. Gravely ill, he comes to Holmes at the hotel; when Holmes says he knows all about McCarthy, Turner breaks down and says he would have spoken out rather than let young McCarthy be condemned.
 
 After source chapter 4, paragraph 209: The largest landowner in Boscombe Valley, dying of diabetes. In a signed confession he tells Holmes that he was once the goldfields bushranger Black Jack of Ballarat; that Charles McCarthy, the convoy driver whose life he spared, later found him in England and blackmailed him for twenty years; and that he struck McCarthy down at Boscombe Pool when McCarthy pressed for James to marry his daughter Alice.
 
-After source chapter 4, paragraph 215: The largest landowner in Boscombe Valley. He confessed to Holmes that he, once the bushranger Black Jack of Ballarat, killed his blackmailer Charles McCarthy at Boscombe Pool. Holmes kept the confession unused, and Turner lived seven months more before he died; his daughter never learned the truth.
+After source chapter 4, paragraph 215: The largest landowner in Boscombe Valley. He confessed to Holmes that he, once the bushranger Black Jack of Ballarat, killed his blackmailer Charles McCarthy at Boscombe Pool. Holmes kept the confession unused, and Turner lived seven months more before he died. Watson writes that his daughter and young McCarthy may yet live happily together, unaware of the past.
 
 ## Charles McCarthy · major
 
-A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, he is said to be cold and forbidding in manner.
+A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James.
 
 After source chapter 4, paragraph 18: A former Australian colonist who rented Hatherley Farm from his old acquaintance John Turner, a widower with one son, James. On Monday 3 June he walked to Boscombe Pool for an important three o’clock appointment and never came back alive.
+
+After source chapter 4, paragraph 38: A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, cold and forbidding in manner.
 
 After source chapter 4, paragraph 209: A former Australian colonist who lived rent-free at Hatherley Farm. John Turner’s confession reveals that McCarthy was the wagon-driver of a gold convoy that Turner’s gang robbed in Victoria; years later he recognised Turner in London and blackmailed him for twenty years. When he pressed for his son James to marry Turner’s daughter Alice, Turner killed him at Boscombe Pool.
 
@@ -244,13 +256,15 @@ The eighteen-year-old only son of Charles McCarthy of Hatherley Farm. Like his f
 
 After source chapter 4, paragraph 20: The eighteen-year-old only son of Charles McCarthy. He reported finding his father dying beside Boscombe Pool; a witness had seen the two quarrelling, his gun lay near the body and there was blood on his hand. The police arrested him, the inquest returned a verdict of wilful murder, and he awaits trial at the Assizes.
 
-After source chapter 4, paragraph 114: The eighteen-year-old son of Charles McCarthy, held for trial for his father’s murder; Alice Turner and Holmes believe him innocent. Holmes learns that he loves Alice but, two years ago, secretly married a Bristol barmaid—the reason he refused his father’s pressure to propose to Alice and spent the days before the killing in Bristol. The barmaid has now broken with him, revealing she already had a husband.
+After source chapter 4, paragraph 114: The eighteen-year-old son of Charles McCarthy, held for trial for his father’s murder; Miss Turner and Holmes believe him innocent. Holmes learns that he loves Miss Turner but, about two years ago, secretly married a Bristol barmaid. That is why he resisted his father’s pressure to propose, and why he spent the days before the killing in Bristol. The barmaid has now broken with him, revealing she already had a husband.
 
 After source chapter 4, paragraph 215: The son of Charles McCarthy, wrongly held for his father’s murder. He had secretly married a Bristol barmaid who turned out to be married already. He was acquitted at the Assizes on objections Holmes prepared for the defence, and may yet marry Alice Turner without ever learning the truth about the past.
 
 ## Miss Turner · major
 
 John Turner’s only daughter, about eighteen. She believes James McCarthy is innocent and has engaged Lestrade, and through him Holmes, on his behalf.
+
+After source chapter 4, paragraph 87: John Turner’s only daughter, who has known James McCarthy since childhood and is sure he is innocent. She brought in Lestrade and Holmes to clear him. She tells Holmes that Charles McCarthy wanted her to marry James, a match both James and her father opposed.
 
 After source chapter 4, paragraph 201: Alice Turner, John Turner’s only daughter, who has known James McCarthy since childhood and is sure he is innocent. She brought in Lestrade and Holmes to clear him. She told Holmes that Charles McCarthy wanted her to marry James, a match her father opposed.
 
@@ -269,6 +283,8 @@ The fourteen-year-old daughter of the lodge-keeper on the Boscombe Valley estate
 ## The lodge-keeper · supporting
 
 The keeper of the lodge on John Turner’s Boscombe Valley estate and father of Patience Moran. His lodge was the nearest house to the pool.
+
+After source chapter 4, paragraph 136: Moran, keeper of the lodge on John Turner’s Boscombe Valley estate and father of Patience Moran. His lodge was the nearest house to the pool.
 
 ## The coroner · supporting
 
@@ -320,19 +336,19 @@ After source chapter 5, paragraph 178: The young man from Horsham who brought Ho
 
 John Openshaw’s uncle. He emigrated to America as a young man, became a planter in Florida and a colonel in the Confederate army, then returned around 1869–70 to a small estate near Horsham, where he lived as a hard-drinking recluse.
 
-After source chapter 5, paragraph 45: John Openshaw’s uncle, a former Confederate colonel who lived as a recluse near Horsham. Seven weeks after a letter of five orange pips marked ‘K. K. K.’ arrived, he was found dead face-down in a shallow garden pool; the jury called it suicide, though John doubts it.
+After source chapter 5, paragraph 45: John Openshaw’s uncle, a former Confederate colonel who lived as a recluse near Horsham. Some weeks after a letter of five orange pips marked ‘K. K. K.’ arrived, he was found dead face-down in a shallow garden pool; the jury called it suicide, though John doubts it.
 
 After source chapter 5, paragraph 134: John Openshaw’s uncle, found dead in a shallow garden pool after receiving the orange-pip warning. Holmes believes he left America in 1869 carrying the papers of the Ku Klux Klan, and that several determined men, not chance, explain his death.
 
 ## Joseph Openshaw · supporting
 
-John Openshaw’s father and Elias Openshaw’s younger brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.
+John Openshaw’s father and Elias Openshaw’s brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.
 
 After source chapter 5, paragraph 65: John Openshaw’s father, who inherited the Horsham estate from his brother Elias. Days after receiving five orange pips and the order ‘Put the papers on the sundial’, he was found with a shattered skull in a chalk-pit near Portsdown Hill and died; the jury called it an accident, but John suspects a plot.
 
 ## K. K. K. · supporting
 
-Three letters, K. K. K., scrawled in red ink inside an envelope of five dried orange pips sent to Elias Openshaw. He recognises them with terror, but what they stand for is not explained.
+Three letters, K. K. K., that Elias Openshaw sees on an envelope from Pondicherry holding five dried orange pips. He recognises them with terror, but what they stand for is not explained.
 
 After source chapter 5, paragraph 128: Initials on the orange-pip warnings sent to the Openshaws. Holmes concludes they are not one person’s initials but the badge of a society: several resourceful men determined to recover papers Elias Openshaw took from America.
 
@@ -340,7 +356,7 @@ After source chapter 5, paragraph 134: The Ku Klux Klan: a terrorist secret soci
 
 ## Captain James Calhoun · major
 
-Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses an envelope to him.
+Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses to him an envelope of five orange pips, marked ‘S. H. for J. O.’
 
 After source chapter 5, paragraph 166: Captain of the barque Lone Star, of Savannah. Holmes calls him the leader of the gang behind the orange-pip warnings and sends him five pips of his own, signed ‘S. H. for J. O.’
 
@@ -376,7 +392,7 @@ A London police constable of the H Division, on duty near Waterloo Bridge, named
 
 ## Hudson · reference
 
-A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The story never says who he was.
+A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The page does not say who he was.
 
 ## McCauley · reference
 
@@ -422,7 +438,7 @@ A Confederate general in whose army Elias Openshaw first fought; usually taken t
 
 ## Isa Whitney · supporting
 
-Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has now been missing from home for two days.
+Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has been a slave to the drug for many years.
 
 ## Kate Whitney · supporting
 
@@ -430,7 +446,7 @@ Isa Whitney’s wife and an old school friend of Watson’s wife. She arrives la
 
 ## Elias Whitney · reference
 
-Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s. Mentioned only.
+Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s.
 
 ## Thomas De Quincey · reference
 
@@ -446,13 +462,13 @@ The Lascar (an Indian sailor) who runs the Bar of Gold opium den in Upper Swanda
 
 After source chapter 6, paragraph 63: The Lascar who runs the Bar of Gold opium den in Upper Swandam Lane, a man with a bad record. He blocked Mrs. St. Clair on the stairs when she tried to reach her husband. The police suspect he may have been an accomplice, but he says he knows nothing about the clothes or about his lodger, Hugh Boone.
 
-After source chapter 6, paragraph 213: The Lascar who runs the Bar of Gold opium den. For a good rent he let Neville St. Clair use a room there to change into and out of his Hugh Boone disguise, and he was the only person who knew the secret. After the arrest, St. Clair secretly gave him the ring and the note for Mrs. St. Clair.
+After source chapter 6, paragraph 213: The Lascar who runs the Bar of Gold opium den. For a good rent he let Neville St. Clair use a room there to change into and out of his Hugh Boone disguise, and he was the only person who knew the secret. While the police were in the den, St. Clair secretly gave him the ring and a note for Mrs. St. Clair.
 
 ## Neville St. Clair · major
 
 A well-off gentleman of Lee, in Kent, who has gone missing. Holmes is investigating and fears he came to harm in the Swandam Lane opium den.
 
-After source chapter 6, paragraph 122: A well-off gentleman of Lee, in Kent, who has been missing since Monday. His wife saw him at a window of the Swandam Lane opium den, and his clothes were found in a room there. Now a letter in his handwriting, posted at Gravesend, has reached her, telling her not to be frightened.
+After source chapter 6, paragraph 122: A well-off gentleman of Lee, in Kent, who has been missing since Monday. His wife saw him at a window of the Swandam Lane opium den, and his clothes were found in a room there. Now a note posted at Gravesend, which she is sure is in his hand, has reached her, telling her not to be frightened.
 
 After source chapter 6, paragraph 196: The missing gentleman of Lee, in Kent. In the Bow Street cells Holmes washes the face of the beggar Hugh Boone and reveals that the prisoner is Neville St. Clair himself, in disguise.
 
@@ -462,7 +478,7 @@ After source chapter 6, paragraph 220: A former actor and reporter who discovere
 
 Neville St. Clair’s wife, the daughter of a local brewer, who lives at The Cedars near Lee, in Kent. Her husband has disappeared, and Holmes is staying at her house while he investigates.
 
-After source chapter 6, paragraph 122: Neville St. Clair’s wife, of The Cedars near Lee, in Kent. She saw her husband at a window in Swandam Lane on the day he vanished. She now has a letter in his handwriting, posted at Gravesend, and insists he is alive.
+After source chapter 6, paragraph 122: Neville St. Clair’s wife, of The Cedars near Lee, in Kent. She saw her husband at a window in Swandam Lane on the day he vanished. She has now received a note posted at Gravesend which she is certain he wrote, and she is sure he is alive.
 
 ## Hugh Boone · major
 
@@ -484,7 +500,11 @@ The police inspector on duty at the Bow Street police station, who knows Holmes.
 
 After source chapter 6, paragraph 221: The police inspector on duty at the Bow Street police station, who knows Holmes. After the prisoner’s identity is revealed, he agrees the police can keep the affair quiet, as long as Hugh Boone never appears again.
 
-After source chapter 9, paragraph 160: The police inspector from the Hugh Boone affair, now of Scotland Yard, who leads the search for the gang in The Engineer’s Thumb. Watson says his confidence that they would be caught proved mistaken.
+After source chapter 7, paragraph 61: A police inspector who knows Holmes (an inspector Bradstreet handled the Hugh Boone affair). In the Hotel Cosmopolitan robbery he gave evidence at the police court about the arrest of John Horner.
+
+After source chapter 9, paragraph 138: A police inspector, here of Scotland Yard (an inspector Bradstreet also appears at Bow Street in the Hugh Boone affair). He travels to Eyford with Holmes, Watson and Hatherley and plots a ten-mile circle on the map to find the house.
+
+After source chapter 9, paragraph 160: A police inspector, here of Scotland Yard, who leads the search for the coining gang near Eyford. Watson says his confidence that they would be caught proved mistaken.
 
 ## Peterson · supporting
 
@@ -494,13 +514,15 @@ After source chapter 7, paragraph 51: A commissionaire whom Holmes and Watson bo
 
 ## Henry Baker · major
 
-The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. Holmes traces him through a card on the goose and the initials “H. B.” in the hat.
+The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. All Holmes has to identify him are a card on the goose reading ‘For Mrs. Henry Baker’ and the initials ‘H. B.’ in the hat.
 
 After source chapter 7, paragraph 95: A down-at-heel scholarly man who reclaims his hat and happily takes a replacement goose. He got his bird through the goose club at the Alpha Inn, and Holmes is satisfied that he knows nothing about the stone.
 
 ## John Horner · major
 
-A 26-year-old plumber charged with stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The police case against him is described as strong, and he has a previous conviction, but he protests his innocence.
+A plumber accused of stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The evidence against him is strong enough that the case has been sent to the Assizes.
+
+After source chapter 7, paragraph 61: A 26-year-old plumber charged with stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The police case against him is described as strong, and he has a previous conviction, but he protests his innocence.
 
 After source chapter 7, paragraph 186: The plumber charged with the jewel robbery. Holmes establishes that he was deliberately set up: called to the Countess’s room so that suspicion would fall on him, for a crime he knew nothing about.
 
@@ -522,7 +544,9 @@ The landlord of the Alpha Inn, a small Bloomsbury pub near the British Museum. T
 
 ## Breckinridge · supporting
 
-A poultry salesman with one of the largest stalls in Covent Garden Market, who supplied the Alpha Inn with its two dozen geese. He is sharp-faced, keen on betting and short-tempered.
+A poultry salesman at Covent Garden Market who supplied the Alpha Inn with its two dozen geese.
+
+After source chapter 7, paragraph 151: A sharp-faced, short-tempered poultry salesman with one of the largest stalls in Covent Garden Market. He refuses to say where the Alpha’s geese came from, but Holmes provokes him into a bet and he shows his ledger: they came from Mrs. Oakshott of Brixton Road.
 
 ## Bill · reference
 
@@ -532,7 +556,9 @@ The boy who helps at Breckinridge’s poultry stall in Covent Garden. Breckinrid
 
 An egg and poultry supplier at 117 Brixton Road. Breckinridge’s ledger shows she sold him twenty-four geese on 22 December.
 
-After source chapter 7, paragraph 191: James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas.
+After source chapter 7, paragraph 189: James Ryder’s sister, married to a man named Oakshott. She fattens fowls for the market at 117 Brixton Road and sold Breckinridge twenty-four geese on 22 December.
+
+After source chapter 7, paragraph 191: James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas. Ryder calls her Maggie.
 
 ## James Ryder · major
 
@@ -542,7 +568,7 @@ After source chapter 7, paragraph 169: An upper attendant at the Hotel Cosmopoli
 
 After source chapter 7, paragraph 184: An upper attendant at the Hotel Cosmopolitan. Holmes exposes him as the thief of the blue carbuncle: with the maid Catherine Cusack he arranged for Horner, a man with a previous conviction, to be called to the room, then emptied the jewel-case and raised the alarm.
 
-After source chapter 7, paragraph 214: The hotel attendant who stole the blue carbuncle and let Horner be blamed. He hid the stone in a goose at his sister’s, took the wrong bird, and lost track of it. Holmes lets him go, expecting him to flee and the case against Horner to collapse.
+After source chapter 7, paragraph 214: The hotel attendant who stole the blue carbuncle and let Horner be blamed. He hid the stone in a goose at his sister’s, took the wrong bird, and lost track of it. Holmes lets him go: without Ryder’s evidence the case against Horner must collapse, and Holmes judges him too frightened to go wrong again.
 
 ## John Robinson · supporting
 
@@ -556,7 +582,7 @@ A friend of James Ryder’s who went to the bad and has just served a sentence i
 
 ## Helen Stoner · major
 
-A frightened young woman who arrives at Baker Street at dawn to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.
+A frightened young woman who arrives at Baker Street early in the morning to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.
 
 After source chapter 8, paragraph 67: Holmes’s client, a woman of about thirty whose twin sister Julia died at Stoke Moran two years ago. Now engaged to Percy Armitage, she has been moved into Julia’s old room during repairs, and last night she heard the same low whistle that came before her sister’s death.
 
@@ -568,7 +594,9 @@ Helen Stoner’s twin sister, who grew up with her under Dr. Roylott’s roof at
 
 After source chapter 8, paragraph 30: Helen Stoner’s twin sister. She died two years ago at Stoke Moran, aged thirty, within a fortnight of her planned wedding to a major of marines she had met at her aunt’s.
 
-After source chapter 8, paragraph 50: Helen Stoner’s twin sister. Two years ago, shortly before her wedding, she had been hearing a low whistle at night; then one stormy night she ran screaming from her locked room, cried out ‘It was the band! The speckled band!’ and died. The coroner found no cause of death.
+After source chapter 8, paragraph 50: Helen Stoner’s twin sister. Two years ago, shortly before her wedding, she had been hearing a low whistle at night. On a stormy night Helen heard her scream; Julia staggered out of her room, cried ‘It was the band! The speckled band!’ and died without regaining consciousness.
+
+After source chapter 8, paragraph 60: Helen Stoner’s twin sister. Two years ago, shortly before her wedding, she had been hearing a low whistle at night. On a stormy night Helen heard her scream; Julia staggered out of her room, cried ‘It was the band! The speckled band!’ and died without regaining consciousness. The coroner could find no cause of death: her door and shutters were fastened, there were no marks of violence and no trace of poison. Helen believes she died of fright.
 
 After source chapter 8, paragraph 248: Helen Stoner’s twin sister. Holmes concludes she was killed by a swamp adder that her stepfather sent through the ventilator and down the false bell-rope onto her bed; ‘the band’ was her description of the snake glimpsed by matchlight.
 
@@ -582,13 +610,13 @@ After source chapter 8, paragraph 115: Helen Stoner’s stepfather, a violent ma
 
 After source chapter 8, paragraph 245: Helen Stoner’s stepfather. Holmes and Watson find him dead in his room, killed within seconds by a swamp adder coiled round his head; Holmes calls him a schemer who has fallen into the pit he dug for another.
 
-After source chapter 8, paragraph 249: Helen Stoner’s stepfather. Holmes concludes that he killed Julia, and meant to kill Helen, by sending a trained swamp adder through the ventilator and down a false bell-rope, recalling it with a whistle; Holmes’s blows drove the snake back, and it bit him.
+After source chapter 8, paragraph 251: Helen Stoner’s stepfather. Holmes concludes that he killed Julia by sending a trained swamp adder through the ventilator and down a false bell-rope, recalling it with a whistle, and that Helen, moved into the same room, was next. Holmes’s blows drove the snake back through the ventilator, and it turned on Roylott.
 
 ## Mrs. Stoner · supporting
 
 Helen and Julia Stoner’s mother, the young widow of Major-General Stoner of the Bengal Artillery, who married Dr. Roylott in India.
 
-After source chapter 8, paragraph 25: Helen and Julia Stoner’s mother, who married Dr. Roylott in India. She was killed eight years ago in a railway accident near Crewe, leaving her income of at least £1000 a year to Dr. Roylott, with a yearly sum reserved for each daughter on marriage.
+After source chapter 8, paragraph 25: Helen and Julia Stoner’s mother, who married Dr. Roylott in India. She was killed eight years ago in a railway accident near Crewe. Her income of at least £1000 a year went to Dr. Roylott while her daughters lived with him, with a yearly sum reserved for each daughter on marriage.
 
 After source chapter 8, paragraph 115: Helen and Julia Stoner’s mother, killed eight years ago in a railway accident. Holmes finds that her will now yields about £750 a year, of which each daughter may claim £250 on marriage.
 
@@ -642,7 +670,9 @@ After source chapter 8, paragraph 225: Dr. Roylott’s free-roaming baboon. At n
 
 A venomous snake that Holmes finds in Dr. Roylott’s room at the climax and names as the deadliest snake in India.
 
-After source chapter 8, paragraph 248: The venomous snake behind the ‘speckled band’. Holmes concludes Dr. Roylott trained it with milk and a whistle to pass through the ventilator and down the false bell-rope; after Holmes struck it with his cane it fled back and bit Roylott.
+After source chapter 8, paragraph 248: The venomous snake behind the ‘speckled band’. Holmes concludes Dr. Roylott had trained it, probably with milk, to come back at his whistle, and sent it through the ventilator and down the false bell-rope onto the bed.
+
+After source chapter 8, paragraph 251: The venomous snake behind the ‘speckled band’. Holmes concludes Dr. Roylott had trained it, probably with milk, to come back at his whistle, and sent it through the ventilator and down the false bell-rope onto the bed. Holmes’s cane drove it back through the ventilator, where it turned on its master.
 
 ## The Roylotts of Stoke Moran · reference
 
@@ -662,15 +692,15 @@ A real doctor turned criminal whom Holmes cites alongside Palmer. Generally iden
 
 A young hydraulic engineer with offices in Victoria Street, London. His case reaches Holmes through Watson, who treats him early one morning for a badly injured hand.
 
-After source chapter 9, paragraph 133: A young hydraulic engineer hired by Colonel Lysander Stark for a secret night’s work near Eyford. At the house he was locked inside a hydraulic press, escaped through a panel with a woman’s help, and lost his thumb to the colonel’s cleaver while hanging from a window. He woke near Eyford station and has put the case in Holmes’s hands.
+After source chapter 9, paragraph 133: A young hydraulic engineer hired by Colonel Lysander Stark for a secret night’s work at a country house reached by carriage from Eyford station. At the house he was locked inside a hydraulic press, escaped through a panel with a woman’s help, and lost his thumb to the colonel’s cleaver while hanging from a window. He woke near Eyford station and has put the case in Holmes’s hands.
 
 ## Colonel Lysander Stark · major
 
-An extremely thin man of about forty with a slight German accent, who calls at Hatherley’s office as Colonel Lysander Stark with a commission he insists must stay secret.
+An extremely thin man, nearer forty than thirty, with a slight German accent. He calls at Hatherley’s office with a card engraved ‘Colonel Lysander Stark’ and brings a commission that he insists must stay secret.
 
-After source chapter 9, paragraph 129: The thin, German-accented man who hired Hatherley under the name Colonel Lysander Stark. When Hatherley saw through the fuller’s-earth story, Stark locked him inside the hydraulic press and set it going. He then pursued him with a cleaver and cut off his thumb at the window. The woman at the house calls him ‘Fritz’; the story never says which name is his real one.
+After source chapter 9, paragraph 129: The thin, German-accented man who hired Hatherley under the name Colonel Lysander Stark. When Hatherley saw through the fuller’s-earth story, Stark locked him inside the hydraulic press and set it going. He then pursued him with a cleaver and cut off his thumb at the window. Elise, the woman at the house, calls him ‘Fritz’; whether either name is his real one is not yet clear.
 
-After source chapter 9, paragraph 158: The thin, German-accented man who hired Hatherley as Colonel Lysander Stark and tried to kill him in the hydraulic press. Holmes suspects he did the same to a missing engineer, Jeremiah Hayling, a year earlier. Holmes concludes that Stark’s group are large-scale coiners who use the press to make false silver; the police had already been hunting such a gang. The woman called him ‘Fritz’.
+After source chapter 9, paragraph 159: The thin, German-accented man who hired Hatherley as Colonel Lysander Stark and tried to kill him in the hydraulic press. Holmes suspects he did the same to a missing engineer, Jeremiah Hayling, a year earlier. Holmes concludes that Stark’s group are large-scale coiners who use the press to make false silver; the police had already been hunting such a gang. The woman called him ‘Fritz’.
 
 After source chapter 9, paragraph 172: The thin, German-accented man who hired Hatherley as Colonel Lysander Stark and tried to kill him in the hydraulic press. Holmes identifies him as one of a large-scale coining gang. He escaped before the police arrived, and Watson says nothing has been heard of ‘the sinister German’ since. His real name is never established; the woman called him ‘Fritz’.
 
@@ -696,11 +726,11 @@ After source chapter 9, paragraph 174: A short, stout, silent Englishman introdu
 
 A local doctor. The Eyford station-master names him as the owner of a house that caught fire during the night.
 
-After source chapter 9, paragraph 170: A local doctor, named by the Eyford station-master as the owner of the burning house. The station-master describes him as a well-fed Englishman with a foreign gentleman, said to be a patient, staying with him. Hatherley recognises the burning house as the one where he was attacked. The story never says whether Becher himself is one of the people Hatherley met there.
+After source chapter 9, paragraph 170: A local doctor, named by the Eyford station-master as the owner of the burning house. The station-master describes him as a well-fed Englishman with a foreign gentleman, said to be a patient, staying with him. Hatherley recognises the burning house as the one where he was attacked. Hatherley’s question shows he suspects the thin foreign ‘patient’ is the man who hired him. The story never says whether Becher himself is one of the people Hatherley met there.
 
 ## Jeremiah Hayling · reference
 
-A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and was never heard of again.
+A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and had not been heard of since.
 
 After source chapter 9, paragraph 135: A twenty-six-year-old hydraulic engineer who vanished about a year earlier after leaving his lodgings at night. Holmes suspects that ‘the colonel’ had called him in to service the same machine.
 
@@ -718,17 +748,21 @@ A plain-clothes policeman who travels to Eyford with Inspector Bradstreet, Holme
 
 ## Lord Robert St. Simon · major
 
-An aristocratic bachelor of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.
+An aristocrat of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.
 
-After source chapter 10, paragraph 44: An aristocratic bachelor of forty-one, second son of the Duke of Balmoral. His American bride, Hatty Doran, vanished from their wedding breakfast, and he consults Holmes about her disappearance.
+After source chapter 10, paragraph 44: An aristocrat of forty-one, second son of the Duke of Balmoral. His American bride, Hatty Doran, vanished from their wedding breakfast, and he consults Holmes about her disappearance.
 
-After source chapter 10, paragraph 208: Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead. He accepts the outcome coldly and refuses to stay for supper.
+After source chapter 10, paragraph 208: Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead.
+
+After source chapter 10, paragraph 216: Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead. He shakes her hand coldly, refuses Holmes’s invitation to supper and leaves.
 
 ## Hatty Doran · major
 
 The only daughter of a Californian mining millionaire, newly married to Lord St. Simon. Society papers describe her as a fascinating heiress with a large dowry.
 
 After source chapter 10, paragraph 44: The only daughter of a Californian mining millionaire. She vanished from her own wedding breakfast after marrying Lord St. Simon; the papers report rumours of foul play.
+
+After source chapter 10, paragraph 161: The only daughter of a Californian mining millionaire. She vanished from her own wedding breakfast after marrying Lord St. Simon and was seen entering Hyde Park with Flora Millar. Her wedding dress, shoes, wreath and veil have been found floating in the Serpentine.
 
 After source chapter 10, paragraph 198: The missing bride reappears at Baker Street, introduced by Holmes as Mrs. Francis Hay Moulton; Holmes says Lord St. Simon has already met her.
 
@@ -746,7 +780,7 @@ After source chapter 10, paragraph 208: Hatty Doran’s husband by an earlier se
 
 ## F. H. M. · supporting
 
-Initials signing a pencilled note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.
+Initials signing a note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.
 
 After source chapter 10, paragraph 207: The initials of Francis Hay Moulton, who scribbled the note in church and slipped it into Hatty’s hand when he returned her bouquet. Lestrade had taken them for Flora Millar’s.
 
@@ -756,7 +790,7 @@ A former dancer at the Allegro who has known Lord St. Simon for years. She made 
 
 After source chapter 10, paragraph 167: A former dancer at the Allegro and Lord St. Simon’s close friend of many years. She tried to force her way into the wedding breakfast and was seen with the bride in Hyde Park; Lestrade suspects she lured the bride into a trap and believes a note signed ‘F. H. M.’ proves it.
 
-After source chapter 10, paragraph 208: A former dancer at the Allegro and Lord St. Simon’s close friend of many years. The bride’s own account shows she left to join Frank Moulton; a woman who spoke to her in the Park about Lord St. Simon played no part, undoing Lestrade’s theory against Flora.
+After source chapter 10, paragraph 208: A former dancer at the Allegro and Lord St. Simon’s close friend of many years. The bride’s own account shows she left to join Frank Moulton. The woman who accosted her in the Park with talk about Lord St. Simon, presumably Flora, had nothing to do with it, which undoes Lestrade’s theory and his reading of the ‘F. H. M.’ note.
 
 ## Aloysius Doran · supporting
 
@@ -764,7 +798,9 @@ Hatty Doran’s father, said to be the richest man on the Pacific slope after st
 
 ## Alice · supporting
 
-Hatty Doran’s maid, an American who came with her from California. Lord St. Simon thinks she is allowed too many liberties.
+Hatty Doran’s maid, an American who came with her from California.
+
+After source chapter 10, paragraph 102: Hatty Doran’s maid, an American who came with her from California. Lord St. Simon saw the bride talking with her after the wedding and thinks she is allowed too many liberties.
 
 After source chapter 10, paragraph 208: Hatty Doran’s American maid from California. She had known Frank Moulton there and was his friend; on the wedding day Hatty told her everything and had her pack a few things and ready her ulster.
 
@@ -774,7 +810,7 @@ Lord St. Simon’s father, once Secretary for Foreign Affairs. A society paper r
 
 ## The Duchess of Balmoral · reference
 
-One of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.
+The Duke of Balmoral’s wife, one of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.
 
 ## Lord Backwater · reference
 
@@ -832,13 +868,13 @@ After source chapter 11, paragraph 203: Arthur’s worldly older friend and a fr
 
 After source chapter 11, paragraph 209: Arthur’s worldly older friend, whom Holmes calls a ruined gambler and one of the most dangerous men in England. He received the Beryl Coronet from Mary at the hall window; Arthur chased him down the lane, cut him over the eye and wrested the coronet back, leaving a fragment in his hands.
 
-After source chapter 11, paragraph 220: Arthur’s worldly older friend, who took the Beryl Coronet with Mary’s help and fled with her. Holmes traced him by his boots, confronted him at pistol-point and learned he had sold the three stones for £600; Holmes bought them back and promised no prosecution to avoid scandal.
+After source chapter 11, paragraph 220: Arthur’s worldly older friend, who took the Beryl Coronet with Mary’s help and fled with her. Holmes traced him by his boots and held him at pistol-point. Burnwell admitted he had already sold the three stones for £600. In return for a promise of no prosecution he gave up the receiver’s address, and Holmes bought the stones back from the receiver for £1,000 each.
 
 ## Lucy Parr · supporting
 
 The Holders’ second waiting-maid, in service only a few months but with excellent references. She is very pretty and has admirers who sometimes hang about the house.
 
-After source chapter 11, paragraph 134: The Holders’ second waiting-maid, in service only a few months. She served the coffee while Holder spoke of the coronet, and Mary saw her slip out to meet her sweetheart, the greengrocer Francis Prosper; Mary suggests she may have passed on what she overheard.
+After source chapter 11, paragraph 134: The Holders’ second waiting-maid, in service only a few months. She served the coffee while Holder spoke of the coronet and may have overheard him. That night Mary saw her slipping back in at the kitchen door after meeting her sweetheart, the greengrocer Francis Prosper.
 
 After source chapter 11, paragraph 216: The Holders’ second waiting-maid. Holmes confirmed from the snow and from inquiry that her night outing was simply a meeting with her sweetheart at the kitchen door, and ruled out the maids as the coronet’s takers.
 
@@ -858,7 +894,7 @@ A young governess with no family to advise her, who writes to Holmes asking whet
 
 After source chapter 12, paragraph 158: She took the post at the Copper Beeches, where the Rucastles had her wear an electric-blue dress and sit with her back to the window, and she found a locked, barricaded wing. Frightened by Rucastle’s threats, she has summoned Holmes to Winchester.
 
-After source chapter 12, paragraph 212: She helped Holmes and Watson search the locked wing at the Copper Beeches. Watson later reports that she became head of a private school at Walsall, with considerable success.
+After source chapter 12, paragraph 212: She locked Mrs. Toller in the cellar and gave Holmes the keys to the locked wing, though the prisoner had already gone. Watson later reports that she became head of a private school at Walsall, with considerable success.
 
 ## Jephro Rucastle · major
 
@@ -866,9 +902,9 @@ A very stout, smiling Hampshire gentleman who offers Violet Hunter an unusually 
 
 After source chapter 12, paragraph 170: Holmes now believes Rucastle hired Violet Hunter to impersonate his daughter, Alice, whom he suspects is locked in the barricaded room rather than in America, and that the window performances were meant to deceive the man watching from the road.
 
-After source chapter 12, paragraph 195: Caught by Holmes in the empty locked room, Rucastle ran for his mastiff, but the starving dog attacked him instead. Watson shot it, and Rucastle was carried inside alive but badly mauled.
+After source chapter 12, paragraph 195: Holmes believes Rucastle has been keeping his daughter Alice prisoner. Confronted by Holmes at the door of the empty room, Rucastle rushed downstairs — Violet Hunter cried that he had gone for the dog — but his starving mastiff seized him instead. Watson shot it, and Rucastle was carried inside alive but badly mauled.
 
-After source chapter 12, paragraph 206: Mrs. Toller confirms that he kept his daughter Alice prisoner to stop her marrying and taking control of money left to her by will, and hired Violet Hunter to drive away her suitor, Mr. Fowler. His mastiff mauled him when he set it loose.
+After source chapter 12, paragraph 206: Mrs. Toller confirms that he kept his daughter Alice prisoner to stop her marrying and taking control of money left to her by will, and hired Violet Hunter to drive away her suitor, Mr. Fowler. His own half-starved mastiff, loosed that evening, mauled him.
 
 After source chapter 12, paragraph 212: He kept his daughter Alice prisoner for her money and was mauled by his own mastiff. He survived as a broken man, cared for by his devoted wife, and still lives with his old servants.
 
@@ -898,7 +934,9 @@ Jephro Rucastle and his wife, Violet Hunter’s employers at the Copper Beeches 
 
 ## Toller · supporting
 
-The Rucastles’ rough, grizzled manservant and groom, often drunk, and the only one who can manage the mastiff, Carlo, which he lets loose at night.
+The Rucastles’ manservant — a rough, uncouth man with grizzled hair and whiskers who smells of drink and has twice been drunk since Violet Hunter arrived. His wife is the household’s only other servant.
+
+After source chapter 12, paragraph 133: The Rucastles’ rough, grizzled manservant and groom, often drunk, and the only one who can manage the mastiff, Carlo, which he lets loose at night.
 
 After source chapter 12, paragraph 209: He was so drunk that night that Violet Hunter could take his keys. Holmes concludes that Mr. Fowler, by winning over Toller’s wife, made sure Toller never lacked drink.
 

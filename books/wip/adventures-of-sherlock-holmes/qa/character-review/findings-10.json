@@ -1,0 +1,96 @@
+{
+ "story": 10,
+ "verdict": "accept-with-fixes",
+ "findings": [
+  {
+   "id": "S10-01",
+   "severity": "major",
+   "type": "accuracy",
+   "entity": "watson",
+   "where": "card from [1:4] as shown throughout story 10",
+   "problem": "The only Watson card says he is 'now married', has 'returned to medical practice' and is Holmes's 'former fellow lodger'. This story is set a few weeks before his marriage, while he still shares Baker Street rooms with Holmes. The card is false for the whole story and contradicts Watson's own thread.",
+   "evidence": "[10:1] O: It was a few weeks before my own marriage, during the days when I was still sharing rooms with Holmes in Baker Street",
+   "fix": "Add a Watson snapshot gated at [10:1]: 'A doctor and Holmes’s friend, who tells these stories. This case dates from a few weeks before his marriage, while he was still sharing Holmes’s rooms in Baker Street.' Then add a snapshot at the first Watson mention in story 11 that restores the correct status for that story. Or make the base card status-neutral: 'A doctor, Holmes’s friend and sometime fellow lodger at Baker Street, who tells these stories; some cases date from his bachelor days, others from after his marriage.'"
+  },
+  {
+   "id": "S10-02",
+   "severity": "major",
+   "type": "thread",
+   "entity": "alice-st-simon-maid",
+   "where": "thread",
+   "problem": "'the last person the bride confided in before she vanished' is shown at story open. It tells the reader that Alice was in on the bride's plan, which is concealed until Hatty's confession at [10:207]. Holmes also uses 'her resort to her confidential maid' as a clue to the solution ([10:219]).",
+   "evidence": "[10:207] O: “When I got back I told my maid, who had known him in California, and had always been his friend. I ordered her to say nothing …",
+   "fix": "Thread: 'Hatty’s American maid, who came with her from California.'"
+  },
+  {
+   "id": "S10-03",
+   "severity": "minor",
+   "type": "spoiler",
+   "entity": "lord-robert-st-simon",
+   "where": "snapshot [10:207]",
+   "problem": "'He accepts the outcome coldly and refuses to stay for supper' describes [10:210]–[10:215], after the gate.",
+   "evidence": "[10:215] O: “I think that there you ask a little too much,” responded his Lordship. … stalked out of the room.",
+   "fix": "At [10:207] use: 'Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead.' Add a snapshot at [10:215] that appends: 'He shakes her hand coldly, refuses Holmes’s invitation to supper and leaves.'"
+  },
+  {
+   "id": "S10-04",
+   "severity": "minor",
+   "type": "accuracy",
+   "entity": "lord-robert-st-simon",
+   "where": "first card [10:0] and snapshot [10:43]",
+   "problem": "'An aristocratic bachelor' is wrong at both gates. At [10:0] the text opens on 'the Lord St. Simon marriage', and by [10:43] the card itself mentions his bride. The title is ironic, but the card should not call a married man a bachelor.",
+   "evidence": "[10:77] O: I met her several times, became engaged to her, and have now married her.",
+   "fix": "[10:0]: 'An aristocrat of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.' [10:43]: 'An aristocrat of forty-one, second son of the Duke of Balmoral. His American bride, Hatty Doran, vanished from their wedding breakfast, and he consults Holmes about her disappearance.'"
+  },
+  {
+   "id": "S10-05",
+   "severity": "minor",
+   "type": "spoiler",
+   "entity": "alice-st-simon-maid",
+   "where": "first card [10:39]",
+   "problem": "The first mention is the newspaper's 'her maid'. The card's sentence 'Lord St. Simon thinks she is allowed too many liberties' is a later development from [10:101], released about 60 paragraphs early.",
+   "evidence": "[10:101] O: “A little too much so. It seemed to me that her mistress allowed her to take great liberties.”",
+   "fix": "First card BODY: 'Hatty Doran’s maid, an American who came with her from California.' Add a snapshot at [10:101]: 'Hatty Doran’s maid, an American who came with her from California. Lord St. Simon saw the bride talking with her after the wedding and thinks she is allowed too many liberties.'"
+  },
+  {
+   "id": "S10-06",
+   "severity": "minor",
+   "type": "usefulness",
+   "entity": "flora-millar",
+   "where": "snapshot [10:207]",
+   "problem": "'a woman who spoke to her in the Park about Lord St. Simon played no part' does not say who the woman was, so the sentence is hard to follow. The text implies she was Flora, who was seen walking into the Park with the bride, but never names her.",
+   "evidence": "[10:111] O: she was afterwards seen walking into Hyde Park in company with Flora Millar … [10:207] O: Some woman came talking something or other about Lord St. Simon to me … but I managed to get away from her",
+   "fix": "BODY: 'A former dancer at the Allegro and Lord St. Simon’s close friend of many years. The bride’s own account shows she left to join Frank Moulton. The woman who accosted her in the Park with talk about Lord St. Simon, presumably Flora, had nothing to do with it, which undoes Lestrade’s theory and his reading of the ‘F. H. M.’ note.'"
+  },
+  {
+   "id": "S10-07",
+   "severity": "minor",
+   "type": "usefulness",
+   "entity": "duchess-of-balmoral",
+   "where": "first card [10:39]",
+   "problem": "'One of the few guests' does not answer 'Who is this?'. She is the Duke of Balmoral's wife, and Hatty later refers to Lord St. Simon's mother being at the breakfast.",
+   "evidence": "[10:39] O: … the Duchess of Balmoral, Lord Backwater … [10:207] O: it was dreadful hard before his mother and all those great people",
+   "fix": "SUBTITLE: 'Wife of the Duke of Balmoral'. First card BODY: 'The Duke of Balmoral’s wife, one of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.' Optional snapshot at [10:207]: append 'Hatty’s account suggests she is Lord St. Simon’s mother.'"
+  },
+  {
+   "id": "S10-08",
+   "severity": "minor",
+   "type": "usefulness",
+   "entity": "hatty-doran",
+   "where": "between [10:43] and [10:197]",
+   "problem": "For more than 150 paragraphs the card stays at 'vanished … rumours of foul play'. Major in-story developments never reach it: the ulster and bonnet, being seen with Flora in Hyde Park, and her wedding clothes found in the Serpentine.",
+   "evidence": "[10:160] O: They were found floating near the margin by a park-keeper. They have been identified as her clothes",
+   "fix": "Add a snapshot at [10:160]: 'The only daughter of a Californian mining millionaire. She vanished from her own wedding breakfast after marrying Lord St. Simon and was seen entering Hyde Park with Flora Millar. Her wedding dress, shoes, wreath and veil have been found floating in the Serpentine.'"
+  },
+  {
+   "id": "S10-09",
+   "severity": "minor",
+   "type": "spoiler",
+   "entity": "fhm-note-signer",
+   "where": "first card [10:166]",
+   "problem": "'pencilled' is given at [10:166], but the text first says the note is in pencil at [10:172]. The gap is trivial and harmless.",
+   "evidence": "[10:172] O: Here is the note written in pencil over here.",
+   "fix": "Replace 'Initials signing a pencilled note' with 'Initials signing a note'."
+  }
+ ]
+}

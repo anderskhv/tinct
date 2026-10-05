@@ -1,6 +1,6 @@
 {
   "bookId": "adventures-of-sherlock-holmes",
-  "contentVersion": "2026-10-05.1",
+  "contentVersion": "2026-10-05.2",
   "coverage": "All twelve stories in both final live editions: named clients, households, police, culprits, aliases and disguise names, named references and principal unnamed figures. Story-scoped bindings; concealed identities, culprits and outcomes gated at paragraph end. Pronouns, generic descriptions and Holmes’s disguises unbound.",
   "coordinateBase": "chapters are stories 1-12; after uses one-based chapters and zero-based paragraph indices",
   "entities": [
@@ -175,7 +175,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Holmes’s friend and the narrator",
-      "body": "A doctor and Holmes’s former fellow lodger at Baker Street, who tells these stories. He is now married and has returned to medical practice, but still joins Holmes on his cases.",
+      "body": "A doctor and Holmes’s friend, who narrates these cases. He shared rooms with Holmes at Baker Street before his marriage; some cases date from those bachelor days, others from after he returned to medical practice.",
       "chapters": [
         1,
         2,
@@ -319,7 +319,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "Of the Baker Street household",
-      "body": "A member of the household at Holmes’s Baker Street rooms, mentioned by Holmes in passing.",
+      "body": "The woman who keeps house at Holmes’s Baker Street rooms and sees to his meals. Holmes jokes that he should have her check his dinner’s woodcock for jewels.",
       "chapters": [
         7,
         8
@@ -329,7 +329,16 @@
       ],
       "aliasRules": [],
       "exclude": [],
-      "snapshots": [],
+      "snapshots": [
+        {
+          "after": [
+            8,
+            7
+          ],
+          "body": "The woman who keeps house at Holmes’s Baker Street rooms. She answers the door to early callers and has lit the fire for Holmes’s new client.",
+          "why": "Her part at 8:2–7."
+        }
+      ],
       "notes": "The text of this collection never calls her landlady; story 1’s landlady is Mrs. Turner (separate entity). “Hudson” in 5:87 is a man in Elias Openshaw’s diary."
     },
     {
@@ -416,7 +425,7 @@
             1,
             61
           ],
-          "body": "An American-born contralto, born in New Jersey in 1858, once prima donna of the Imperial Opera of Warsaw and now retired and living in London. The King of Bohemia, who calls her an adventuress, had an affair with her when he was Crown Prince and wants back the letters and photograph she has.",
+          "body": "An American-born contralto, born in New Jersey in 1858, once prima donna of the Imperial Opera of Warsaw and now retired and living in London. The King of Bohemia, who calls her a well-known adventuress, met her in Warsaw some five years ago, became entangled with her, and wants back the compromising letters he wrote her.",
           "why": "59–61: the King names her as his former acquaintance; Holmes’s index gives her biography and states the compromising letters."
         },
         {
@@ -444,7 +453,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Hereditary King of Bohemia",
-      "body": "The thirty-year-old hereditary King of Bohemia, of the House of Ormstein, who has come from Prague incognito to consult Holmes in person.",
+      "body": "The hereditary King of Bohemia, of the House of Ormstein. He is the masked visitor who called himself Count Von Kramm, and he has just torn off his mask and admitted who he is.",
       "chapters": [
         1
       ],
@@ -557,7 +566,7 @@
             1,
             257
           ],
-          "body": "Wilhelm Gottsreich Sigismond von Ormstein, hereditary King of Bohemia. Irene Adler’s letter convinces him she will never use the photograph, and he declares himself satisfied. He gives Holmes her portrait as a reward; Holmes takes it but coldly ignores the King’s outstretched hand.",
+          "body": "Wilhelm Gottsreich Sigismond von Ormstein, hereditary King of Bohemia. Irene Adler’s letter convinces him she will never use the photograph, and he declares himself satisfied. He gives Holmes her portrait as a reward; Holmes takes it, bows, and turns away without taking the King’s outstretched hand.",
           "why": "247–257: outcome of the case."
         }
       ],
@@ -598,7 +607,7 @@
             55
           ],
           "name": "Count Von Kramm (the King of Bohemia)",
-          "body": "A false name. The masked visitor who called himself Count Von Kramm, a Bohemian nobleman, is the King of Bohemia himself. He tears off his mask after Holmes addresses him as ‘your Majesty’, and he goes on using the name while staying at the Langham.",
+          "body": "A false name. The masked visitor who called himself Count Von Kramm, a Bohemian nobleman, is the King of Bohemia himself. He tears off his mask after Holmes addresses him as ‘your Majesty’.",
           "why": "49: he admits the title is not his own; 54: Holmes says ‘your Majesty’; 55: ‘I am the King.’"
         }
       ],
@@ -1276,7 +1285,7 @@
         {
           "after": [
             2,
-            205
+            208
           ],
           "name": "Vincent Spaulding (John Clay)",
           "body": "The name John Clay used while working as Jabez Wilson’s assistant. Holmes explains that he took the job at half wages, urged Wilson to apply to the sham League, and used the hours Wilson was away to dig a tunnel from the cellar to the bank behind the shop.",
@@ -1295,7 +1304,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Notorious young criminal",
-      "body": "A young master criminal—murderer, thief, coiner and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.",
+      "body": "A young master criminal—murderer, thief, passer of counterfeit coin and forger—whom Peter Jones of Scotland Yard names as the man he most wants to arrest. Jones says Clay has royal ancestry, went to Eton and Oxford, and has never been seen by him despite years of pursuit.",
       "chapters": [
         2
       ],
@@ -1340,7 +1349,7 @@
         {
           "after": [
             2,
-            205
+            208
           ],
           "body": "A notorious young criminal caught tunnelling into the bank cellar and arrested by Peter Jones. Holmes explains that Clay, under the name Vincent Spaulding, had worked as Jabez Wilson’s assistant and devised the Red-Headed League with a red-haired accomplice to get Wilson out of the shop each day.",
           "why": "205: Holmes’s account makes Clay the assistant who urged Wilson to apply."
@@ -1522,7 +1531,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "Sad-faced, respectable gentleman on Holmes’s night expedition",
-      "body": "A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure. He misses his Saturday-night game of cards.",
+      "body": "A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure.",
       "chapters": [
         2
       ],
@@ -1573,6 +1582,14 @@
         {
           "after": [
             2,
+            167
+          ],
+          "body": "A long, thin, sad-faced man with a shiny hat and an oppressively respectable frock-coat, introduced by Holmes as a companion for the night’s adventure. He laments missing his Saturday-night game of cards for the first time in twenty-seven years.",
+          "why": "Raised at 2:167."
+        },
+        {
+          "after": [
+            2,
             172
           ],
           "body": "A long, thin, sad-faced man in an oppressively respectable frock-coat. Holmes explains that he is a bank director with a personal interest in the night’s business.",
@@ -1583,7 +1600,7 @@
             2,
             181
           ],
-          "body": "Chairman of directors of the City branch of a leading London bank. He leads the party into its cellar, where the bank keeps 30,000 French napoleons borrowed from the Bank of France and has had warnings of an attempt on them.",
+          "body": "Chairman of the directors of one of the principal London banks. He leads the party into the cellar of its City branch, where the bank keeps 30,000 French napoleons borrowed from the Bank of France and has had warnings of an attempt on them.",
           "why": "178–181: the bank, the cellar and the French gold."
         }
       ],
@@ -1594,7 +1611,7 @@
       "name": "Ezekiah Hopkins",
       "kind": "person",
       "category": "reference",
-      "subtitle": "Founder of the Red-Headed League, according to its advertisement",
+      "subtitle": "Benefactor named in the Red-Headed League’s advertisement",
       "body": "The late benefactor of Lebanon, Pennsylvania, named in the Red-Headed League’s advertisement; the notice says his bequest funds a vacancy paying £4 a week for nominal work.",
       "chapters": [
         2
@@ -1622,7 +1639,7 @@
       "kind": "cultural-figure",
       "category": "reference",
       "subtitle": "Spanish violinist (1844–1908)",
-      "body": "Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes takes Watson to hear him play at St. James’s Hall.",
+      "body": "Pablo de Sarasate, the celebrated Spanish violin virtuoso and composer. Holmes invites Watson to hear him play at St. James’s Hall.",
       "chapters": [
         2
       ],
@@ -1675,7 +1692,7 @@
       "name": "Mary Sutherland",
       "kind": "person",
       "category": "major",
-      "subtitle": "Holmes’s client; a short-sighted typist from Camberwell",
+      "subtitle": "Holmes’s client; a typist from Camberwell",
       "body": "A client of Holmes’s whose “very simple problem” he mentions in passing. Her own case is told in A Case of Identity.",
       "chapters": [
         3
@@ -1737,10 +1754,18 @@
         {
           "after": [
             3,
-            13
+            17
           ],
-          "body": "A young typist who lives with her mother and stepfather and has a small private income of her own. She comes to Holmes in distress because her fiancé disappeared on the morning of their wedding.",
+          "body": "A short-sighted young typist with a small private income of her own. She has come to Holmes in distress to find out what has become of her fiancé, Mr. Hosmer Angel.",
           "why": "Her own story opens; the reviewed setup identity applies from her first paragraph in story 3."
+        },
+        {
+          "after": [
+            3,
+            136
+          ],
+          "body": "A short-sighted young typist with a small private income. Her vanished fiancé ‘Hosmer Angel’ was her stepfather in disguise, but Holmes decides not to tell her, believing she would not accept it. She has vowed to stay true to Hosmer.",
+          "why": "Holmes’s decision at 3:136."
         }
       ],
       "notes": "Before her name at 13 she is described at 11–12 as ‘a large woman’ / ‘the maiden’ (O) / ‘the young lady’ (M 12); left unbound. Generic ‘the young lady’, ‘the girl’, ‘the daughter’, ‘the maiden’ (81) left unbound. Counts: 8 name spans plus ‘our visitor’ at 79 in each edition. Her address (No. 31 Lyon Place, Camberwell) is at 74; subtitle draws on 13–15 and 74."
@@ -1751,7 +1776,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Mary Sutherland’s vanished fiancé",
-      "body": "A shy, softly spoken gentleman with tinted glasses whom Mary Sutherland met at a ball and became engaged to. He vanished from his cab on the way to their wedding, and she wants Holmes to find him.",
+      "body": "The man Mary Sutherland was engaged to. He has disappeared, and she has come to Holmes to find out what became of him.",
       "chapters": [
         3
       ],
@@ -1764,6 +1789,14 @@
       "aliasRules": [],
       "exclude": [],
       "snapshots": [
+        {
+          "after": [
+            3,
+            56
+          ],
+          "body": "A shy, softly spoken gentleman, as Mary describes him, whom she met at the gasfitters’ ball and became engaged to. On their wedding morning he got into a separate cab to the church and was not in it when it arrived.",
+          "why": "Wedding-morning disappearance told at 3:56."
+        },
         {
           "after": [
             3,
@@ -1927,7 +1960,7 @@
             124
           ],
           "name": "James Windibank",
-          "body": "Mary Sutherland’s stepfather. Holmes shows that, with his wife’s help, he disguised himself as ‘Hosmer Angel’ and courted Mary so that she, and the hundred a year he had the use of, would stay at home. He then vanished at the church door to leave her bound to a missing fiancé.",
+          "body": "Mary Sutherland’s stepfather. Holmes shows that, with his wife’s help, he disguised himself as ‘Hosmer Angel’ and courted Mary so that she, and the hundred a year he had the use of, would stay at home.",
           "why": "124: Holmes’s account explicitly identifies the stepfather as the man who ‘appears as Mr. Hosmer Angel’."
         },
         {
@@ -2134,7 +2167,7 @@
       "name": "Mrs. Etherege",
       "kind": "person",
       "category": "reference",
-      "subtitle": "Former client who recommended Holmes to Mary Sutherland",
+      "subtitle": "Recommended Holmes to Mary Sutherland",
       "body": "An acquaintance of Mary’s whose husband Holmes found after the police had given him up for dead. She told Mary about Holmes.",
       "chapters": [
         3
@@ -2280,6 +2313,14 @@
         {
           "after": [
             4,
+            119
+          ],
+          "body": "The largest landowner in Boscombe Valley, about sixty, who made his fortune in the Victorian goldfields. Long in poor health, he has taken to his bed since McCarthy’s death. Lestrade says he was McCarthy’s great benefactor and let him have Hatherley Farm rent free.",
+          "why": "Lestrade’s information at 4:119."
+        },
+        {
+          "after": [
+            4,
             192
           ],
           "body": "The largest landowner in Boscombe Valley, an old acquaintance of Charles McCarthy from the Australian colonies and his landlord. Gravely ill, he comes to Holmes at the hotel; when Holmes says he knows all about McCarthy, Turner breaks down and says he would have spoken out rather than let young McCarthy be condemned.",
@@ -2298,7 +2339,7 @@
             4,
             214
           ],
-          "body": "The largest landowner in Boscombe Valley. He confessed to Holmes that he, once the bushranger Black Jack of Ballarat, killed his blackmailer Charles McCarthy at Boscombe Pool. Holmes kept the confession unused, and Turner lived seven months more before he died; his daughter never learned the truth.",
+          "body": "The largest landowner in Boscombe Valley. He confessed to Holmes that he, once the bushranger Black Jack of Ballarat, killed his blackmailer Charles McCarthy at Boscombe Pool. Holmes kept the confession unused, and Turner lived seven months more before he died. Watson writes that his daughter and young McCarthy may yet live happily together, unaware of the past.",
           "why": "Paragraph 214 reports his death seven months later."
         }
       ],
@@ -2314,7 +2355,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Tenant of Hatherley Farm",
-      "body": "A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, he is said to be cold and forbidding in manner.",
+      "body": "A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James.",
       "chapters": [
         4
       ],
@@ -2346,6 +2387,14 @@
           ],
           "body": "A former Australian colonist who rented Hatherley Farm from his old acquaintance John Turner, a widower with one son, James. On Monday 3 June he walked to Boscombe Pool for an important three o’clock appointment and never came back alive.",
           "why": "Paragraph 17: ‘From that appointment he never came back alive.’"
+        },
+        {
+          "after": [
+            4,
+            37
+          ],
+          "body": "A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, cold and forbidding in manner.",
+          "why": "Manner described by 4:37."
         },
         {
           "after": [
@@ -2406,7 +2455,7 @@
             4,
             113
           ],
-          "body": "The eighteen-year-old son of Charles McCarthy, held for trial for his father’s murder; Alice Turner and Holmes believe him innocent. Holmes learns that he loves Alice but, two years ago, secretly married a Bristol barmaid—the reason he refused his father’s pressure to propose to Alice and spent the days before the killing in Bristol. The barmaid has now broken with him, revealing she already had a husband.",
+          "body": "The eighteen-year-old son of Charles McCarthy, held for trial for his father’s murder; Miss Turner and Holmes believe him innocent. Holmes learns that he loves Miss Turner but, about two years ago, secretly married a Bristol barmaid. That is why he resisted his father’s pressure to propose, and why he spent the days before the killing in Bristol. The barmaid has now broken with him, revealing she already had a husband.",
           "why": "Paragraph 113 reveals the secret marriage and its collapse."
         },
         {
@@ -2437,6 +2486,15 @@
       "aliasRules": [],
       "exclude": [],
       "snapshots": [
+        {
+          "after": [
+            4,
+            86
+          ],
+          "name": "Miss Turner",
+          "body": "John Turner’s only daughter, who has known James McCarthy since childhood and is sure he is innocent. She brought in Lestrade and Holmes to clear him. She tells Holmes that Charles McCarthy wanted her to marry James, a match both James and her father opposed.",
+          "why": "Her interview with Holmes ends at 4:86."
+        },
         {
           "after": [
             4,
@@ -2552,9 +2610,32 @@
       "aliases": [
         "lodge-keeper"
       ],
-      "aliasRules": [],
+      "aliasRules": [
+        {
+          "chapter": 4,
+          "alias": "Moran",
+          "paragraphs": [
+            135
+          ],
+          "editions": [
+            "original-en",
+            "modern-en"
+          ],
+          "why": "Holmes goes into “the lodge” to have “a word with Moran”: the lodge-keeper, father of Patience Moran."
+        }
+      ],
       "exclude": [],
-      "snapshots": [],
+      "snapshots": [
+        {
+          "after": [
+            4,
+            135
+          ],
+          "body": "Moran, keeper of the lodge on John Turner’s Boscombe Valley estate and father of Patience Moran. His lodge was the nearest house to the pool.",
+          "why": "Named at 4:135.",
+          "name": "Moran, the lodge-keeper"
+        }
+      ],
       "notes": "All five ‘lodge-keeper’ hits (19 ×2, 37, 134, 188) are the same man. He presumably shares the surname Moran (his daughter is Patience Moran; Holmes goes to the lodge to ‘have a word with Moran’ at 135), but the text never names him outright, so ‘Moran’ at 135 stays unbound."
     },
     {
@@ -2997,7 +3078,7 @@
             5,
             44
           ],
-          "body": "John Openshaw’s uncle, a former Confederate colonel who lived as a recluse near Horsham. Seven weeks after a letter of five orange pips marked ‘K. K. K.’ arrived, he was found dead face-down in a shallow garden pool; the jury called it suicide, though John doubts it.",
+          "body": "John Openshaw’s uncle, a former Confederate colonel who lived as a recluse near Horsham. Some weeks after a letter of five orange pips marked ‘K. K. K.’ arrived, he was found dead face-down in a shallow garden pool; the jury called it suicide, though John doubts it.",
           "why": "44 narrates his death and the suicide verdict."
         },
         {
@@ -3018,7 +3099,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "John Openshaw’s father, Elias’s brother",
-      "body": "John Openshaw’s father and Elias Openshaw’s younger brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.",
+      "body": "John Openshaw’s father and Elias Openshaw’s brother. He had a small factory at Coventry, patented the Openshaw unbreakable tyre for bicycles, and sold the business to retire comfortably.",
       "chapters": [
         5
       ],
@@ -3128,7 +3209,7 @@
       "kind": "group",
       "category": "supporting",
       "subtitle": "Initials on the orange-pip warnings",
-      "body": "Three letters, K. K. K., scrawled in red ink inside an envelope of five dried orange pips sent to Elias Openshaw. He recognises them with terror, but what they stand for is not explained.",
+      "body": "Three letters, K. K. K., that Elias Openshaw sees on an envelope from Pondicherry holding five dried orange pips. He recognises them with terror, but what they stand for is not explained.",
       "chapters": [
         5
       ],
@@ -3165,7 +3246,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Captain of the barque Lone Star",
-      "body": "Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses an envelope to him.",
+      "body": "Captain of the American barque Lone Star, of Savannah, Georgia. Holmes addresses to him an envelope of five orange pips, marked ‘S. H. for J. O.’",
       "chapters": [
         5
       ],
@@ -3379,7 +3460,7 @@
       "kind": "unresolved-name",
       "category": "reference",
       "subtitle": "Name on a page of Elias Openshaw’s diary",
-      "body": "A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The story never says who he was.",
+      "body": "A name in an entry dated 4 March 1869 on a torn page of Elias Openshaw’s diary: ‘Hudson came. Same old platform.’ The page does not say who he was.",
       "chapters": [
         5
       ],
@@ -3593,7 +3674,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "Opium addict and Watson’s patient",
-      "body": "Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has now been missing from home for two days.",
+      "body": "Kate Whitney’s husband and one of Watson’s patients. He fell into opium addiction after trying to copy De Quincey’s accounts of opium dreams, and has been a slave to the drug for many years.",
       "chapters": [
         6
       ],
@@ -3645,7 +3726,7 @@
       "kind": "person",
       "category": "reference",
       "subtitle": "Isa Whitney’s late brother",
-      "body": "Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s. Mentioned only.",
+      "body": "Isa Whitney’s late brother, a Doctor of Divinity who was Principal of the Theological College of St. George’s.",
       "chapters": [
         6
       ],
@@ -3680,7 +3761,7 @@
       "name": "Watson’s wife",
       "kind": "unnamed-person",
       "category": "supporting",
-      "subtitle": "Watson’s wife",
+      "subtitle": "Kate Whitney’s old school friend",
       "body": "Watson’s wife, an old school friend of Kate Whitney. Friends in trouble tend to come to her for comfort.",
       "chapters": [
         6
@@ -3773,7 +3854,7 @@
             6,
             212
           ],
-          "body": "The Lascar who runs the Bar of Gold opium den. For a good rent he let Neville St. Clair use a room there to change into and out of his Hugh Boone disguise, and he was the only person who knew the secret. After the arrest, St. Clair secretly gave him the ring and the note for Mrs. St. Clair.",
+          "body": "The Lascar who runs the Bar of Gold opium den. For a good rent he let Neville St. Clair use a room there to change into and out of his Hugh Boone disguise, and he was the only person who knew the secret. While the police were in the den, St. Clair secretly gave him the ring and a note for Mrs. St. Clair.",
           "why": "208 names him as the only man who knew the secret; 212 says St. Clair gave him the ring and note. Both come after the 195 reveal."
         }
       ],
@@ -3842,7 +3923,7 @@
             6,
             121
           ],
-          "body": "A well-off gentleman of Lee, in Kent, who has been missing since Monday. His wife saw him at a window of the Swandam Lane opium den, and his clothes were found in a room there. Now a letter in his handwriting, posted at Gravesend, has reached her, telling her not to be frightened.",
+          "body": "A well-off gentleman of Lee, in Kent, who has been missing since Monday. His wife saw him at a window of the Swandam Lane opium den, and his clothes were found in a room there. Now a note posted at Gravesend, which she is sure is in his hand, has reached her, telling her not to be frightened.",
           "why": "59–74 set out the disappearance; 102–121 bring the letter. No identity information."
         },
         {
@@ -3956,7 +4037,7 @@
             6,
             121
           ],
-          "body": "Neville St. Clair’s wife, of The Cedars near Lee, in Kent. She saw her husband at a window in Swandam Lane on the day he vanished. She now has a letter in his handwriting, posted at Gravesend, and insists he is alive.",
+          "body": "Neville St. Clair’s wife, of The Cedars near Lee, in Kent. She saw her husband at a window in Swandam Lane on the day he vanished. She has now received a note posted at Gravesend which she is certain he wrote, and she is sure he is alive.",
           "why": "105–121: the letter."
         }
       ],
@@ -4208,10 +4289,26 @@
         },
         {
           "after": [
+            7,
+            60
+          ],
+          "body": "A police inspector who knows Holmes (an inspector Bradstreet handled the Hugh Boone affair). In the Hotel Cosmopolitan robbery he gave evidence at the police court about the arrest of John Horner.",
+          "why": "Newspaper report at 7:60."
+        },
+        {
+          "after": [
+            9,
+            137
+          ],
+          "body": "A police inspector, here of Scotland Yard (an inspector Bradstreet also appears at Bow Street in the Hugh Boone affair). He travels to Eyford with Holmes, Watson and Hatherley and plots a ten-mile circle on the map to find the house.",
+          "why": "Introduced in story 9 at 9:137."
+        },
+        {
+          "after": [
             9,
             159
           ],
-          "body": "The police inspector from the Hugh Boone affair, now of Scotland Yard, who leads the search for the gang in The Engineer’s Thumb. Watson says his confidence that they would be caught proved mistaken.",
+          "body": "A police inspector, here of Scotland Yard, who leads the search for the coining gang near Eyford. Watson says his confidence that they would be caught proved mistaken.",
           "why": "9:159 narrator foreshadows the failure."
         }
       ],
@@ -4264,7 +4361,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Owner of the lost hat and goose",
-      "body": "The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. Holmes traces him through a card on the goose and the initials “H. B.” in the hat.",
+      "body": "The man whose battered hat and Christmas goose Peterson picked up in Tottenham Court Road. All Holmes has to identify him are a card on the goose reading ‘For Mrs. Henry Baker’ and the initials ‘H. B.’ in the hat.",
       "chapters": [
         7
       ],
@@ -4351,7 +4448,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Plumber charged with the jewel robbery",
-      "body": "A 26-year-old plumber charged with stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The police case against him is described as strong, and he has a previous conviction, but he protests his innocence.",
+      "body": "A plumber accused of stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The evidence against him is strong enough that the case has been sent to the Assizes.",
       "chapters": [
         7
       ],
@@ -4362,6 +4459,14 @@
       "aliasRules": [],
       "exclude": [],
       "snapshots": [
+        {
+          "after": [
+            7,
+            60
+          ],
+          "body": "A 26-year-old plumber charged with stealing the Countess of Morcar’s blue carbuncle at the Hotel Cosmopolitan. The police case against him is described as strong, and he has a previous conviction, but he protests his innocence.",
+          "why": "Newspaper report details complete at 7:60."
+        },
         {
           "after": [
             7,
@@ -4480,7 +4585,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "Goose salesman at Covent Garden Market",
-      "body": "A poultry salesman with one of the largest stalls in Covent Garden Market, who supplied the Alpha Inn with its two dozen geese. He is sharp-faced, keen on betting and short-tempered.",
+      "body": "A poultry salesman at Covent Garden Market who supplied the Alpha Inn with its two dozen geese.",
       "chapters": [
         7
       ],
@@ -4526,7 +4631,16 @@
         }
       ],
       "exclude": [],
-      "snapshots": [],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            150
+          ],
+          "body": "A sharp-faced, short-tempered poultry salesman with one of the largest stalls in Covent Garden Market. He refuses to say where the Alpha’s geese came from, but Holmes provokes him into a bet and he shows his ledger: they came from Mrs. Oakshott of Brixton Road.",
+          "why": "Holmes explains the betting trick at 7:150."
+        }
+      ],
       "notes": "Named by the landlord in 106. Calls Holmes “Mr. Cocksure” (138 O) / “Mr. Know-it-all” (138 M)."
     },
     {
@@ -4597,9 +4711,17 @@
         {
           "after": [
             7,
+            188
+          ],
+          "body": "James Ryder’s sister, married to a man named Oakshott. She fattens fowls for the market at 117 Brixton Road and sold Breckinridge twenty-four geese on 22 December.",
+          "why": "Ryder names his sister at 7:188."
+        },
+        {
+          "after": [
+            7,
             190
           ],
-          "body": "James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas.",
+          "body": "James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas. Ryder calls her Maggie.",
           "why": "188: Ryder says his sister married Oakshott and fattens fowls in Brixton Road; 190 adds the promised Christmas goose. Gate moved to 190, where the promised goose is first mentioned."
         }
       ],
@@ -4667,7 +4789,7 @@
             7,
             213
           ],
-          "body": "The hotel attendant who stole the blue carbuncle and let Horner be blamed. He hid the stone in a goose at his sister’s, took the wrong bird, and lost track of it. Holmes lets him go, expecting him to flee and the case against Horner to collapse.",
+          "body": "The hotel attendant who stole the blue carbuncle and let Horner be blamed. He hid the stone in a goose at his sister’s, took the wrong bird, and lost track of it. Holmes lets him go: without Ryder’s evidence the case against Horner must collapse, and Holmes judges him too frightened to go wrong again.",
           "why": "188–207 his confession; 209–212 Holmes sends him away; 213 Holmes explains why."
         }
       ],
@@ -4752,7 +4874,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Holmes’s client; Julia Stoner’s twin sister",
-      "body": "A frightened young woman who arrives at Baker Street at dawn to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.",
+      "body": "A frightened young woman who arrives at Baker Street early in the morning to ask Holmes for help. She lives with her stepfather, Dr. Grimesby Roylott, at the old family house of Stoke Moran in Surrey.",
       "chapters": [
         8
       ],
@@ -4849,8 +4971,16 @@
             8,
             49
           ],
-          "body": "Helen Stoner’s twin sister. Two years ago, shortly before her wedding, she had been hearing a low whistle at night; then one stormy night she ran screaming from her locked room, cried out ‘It was the band! The speckled band!’ and died. The coroner found no cause of death.",
+          "body": "Helen Stoner’s twin sister. Two years ago, shortly before her wedding, she had been hearing a low whistle at night. On a stormy night Helen heard her scream; Julia staggered out of her room, cried ‘It was the band! The speckled band!’ and died without regaining consciousness.",
           "why": "35–49: the whistle conversation and the night of her death; the coroner’s finding follows at 55 but is general setup. Card quotes her words without interpreting them."
+        },
+        {
+          "after": [
+            8,
+            59
+          ],
+          "body": "Helen Stoner’s twin sister. Two years ago, shortly before her wedding, she had been hearing a low whistle at night. On a stormy night Helen heard her scream; Julia staggered out of her room, cried ‘It was the band! The speckled band!’ and died without regaining consciousness. The coroner could find no cause of death: her door and shutters were fastened, there were no marks of violence and no trace of poison. Helen believes she died of fright.",
+          "why": "Inquest findings 8:55–59."
         },
         {
           "after": [
@@ -5040,9 +5170,9 @@
         {
           "after": [
             8,
-            248
+            250
           ],
-          "body": "Helen Stoner’s stepfather. Holmes concludes that he killed Julia, and meant to kill Helen, by sending a trained swamp adder through the ventilator and down a false bell-rope, recalling it with a whistle; Holmes’s blows drove the snake back, and it bit him.",
+          "body": "Helen Stoner’s stepfather. Holmes concludes that he killed Julia by sending a trained swamp adder through the ventilator and down a false bell-rope, recalling it with a whistle, and that Helen, moved into the same room, was next. Holmes’s blows drove the snake back through the ventilator, and it turned on Roylott.",
           "why": "247–250: Holmes’s full explanation."
         }
       ],
@@ -5069,7 +5199,7 @@
             8,
             24
           ],
-          "body": "Helen and Julia Stoner’s mother, who married Dr. Roylott in India. She was killed eight years ago in a railway accident near Crewe, leaving her income of at least £1000 a year to Dr. Roylott, with a yearly sum reserved for each daughter on marriage.",
+          "body": "Helen and Julia Stoner’s mother, who married Dr. Roylott in India. She was killed eight years ago in a railway accident near Crewe. Her income of at least £1000 a year went to Dr. Roylott while her daughters lived with him, with a yearly sum reserved for each daughter on marriage.",
           "why": "24 reveals her death and the terms of her will."
         },
         {
@@ -5377,8 +5507,16 @@
             8,
             247
           ],
-          "body": "The venomous snake behind the ‘speckled band’. Holmes concludes Dr. Roylott trained it with milk and a whistle to pass through the ventilator and down the false bell-rope; after Holmes struck it with his cane it fled back and bit Roylott.",
+          "body": "The venomous snake behind the ‘speckled band’. Holmes concludes Dr. Roylott had trained it, probably with milk, to come back at his whistle, and sent it through the ventilator and down the false bell-rope onto the bed.",
           "why": "247–250: Holmes’s explanation."
+        },
+        {
+          "after": [
+            8,
+            250
+          ],
+          "body": "The venomous snake behind the ‘speckled band’. Holmes concludes Dr. Roylott had trained it, probably with milk, to come back at his whistle, and sent it through the ventilator and down the false bell-rope onto the bed. Holmes’s cane drove it back through the ventilator, where it turned on its master.",
+          "why": "Holmes explains at 8:249–250."
         }
       ],
       "notes": "THE SOLUTION. Card exists only from 244. Never bind ‘band’, ‘the speckled band’ (49, 62, 242), ‘yellow band’ (241), ‘strange headgear’ (243), ‘serpent’ (243), ‘creature’, ‘something’ or ‘it’. Counts O: swamp adder 1 + snake 3 (244, 247×2); M: 1 + 4 (244, 245, 247×2)."
@@ -5624,7 +5762,7 @@
             9,
             132
           ],
-          "body": "A young hydraulic engineer hired by Colonel Lysander Stark for a secret night’s work near Eyford. At the house he was locked inside a hydraulic press, escaped through a panel with a woman’s help, and lost his thumb to the colonel’s cleaver while hanging from a window. He woke near Eyford station and has put the case in Holmes’s hands.",
+          "body": "A young hydraulic engineer hired by Colonel Lysander Stark for a secret night’s work at a country house reached by carriage from Eyford station. At the house he was locked inside a hydraulic press, escaped through a panel with a woman’s help, and lost his thumb to the colonel’s cleaver while hanging from a window. He woke near Eyford station and has put the case in Holmes’s hands.",
           "why": "Paragraphs 119–132 give his full account of the attack and escape."
         }
       ],
@@ -5636,7 +5774,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Hatherley’s secretive client",
-      "body": "An extremely thin man of about forty with a slight German accent, who calls at Hatherley’s office as Colonel Lysander Stark with a commission he insists must stay secret.",
+      "body": "An extremely thin man, nearer forty than thirty, with a slight German accent. He calls at Hatherley’s office with a card engraved ‘Colonel Lysander Stark’ and brings a commission that he insists must stay secret.",
       "chapters": [
         9
       ],
@@ -5711,13 +5849,13 @@
             9,
             128
           ],
-          "body": "The thin, German-accented man who hired Hatherley under the name Colonel Lysander Stark. When Hatherley saw through the fuller’s-earth story, Stark locked him inside the hydraulic press and set it going. He then pursued him with a cleaver and cut off his thumb at the window. The woman at the house calls him ‘Fritz’; the story never says which name is his real one.",
+          "body": "The thin, German-accented man who hired Hatherley under the name Colonel Lysander Stark. When Hatherley saw through the fuller’s-earth story, Stark locked him inside the hydraulic press and set it going. He then pursued him with a cleaver and cut off his thumb at the window. Elise, the woman at the house, calls him ‘Fritz’; whether either name is his real one is not yet clear.",
           "why": "119–120: he locks Hatherley in the press; 126–128: cleaver attack, and the woman calls him ‘Fritz’."
         },
         {
           "after": [
             9,
-            157
+            158
           ],
           "body": "The thin, German-accented man who hired Hatherley as Colonel Lysander Stark and tried to kill him in the hydraulic press. Holmes suspects he did the same to a missing engineer, Jeremiah Hayling, a year earlier. Holmes concludes that Stark’s group are large-scale coiners who use the press to make false silver; the police had already been hunting such a gang. The woman called him ‘Fritz’.",
           "why": "134: Holmes links him to Hayling; 157–158: the coining gang is identified."
@@ -5738,7 +5876,7 @@
       "name": "The woman at the house",
       "kind": "person",
       "category": "supporting",
-      "subtitle": "Woman Hatherley meets at the house",
+      "subtitle": "Foreign woman in Colonel Stark’s house",
       "body": "A pretty, frightened woman in a rich dark dress who appears with a lamp at the house where Colonel Stark brings Hatherley. She speaks to the colonel in a foreign language.",
       "chapters": [
         9
@@ -6041,7 +6179,7 @@
             9,
             169
           ],
-          "body": "A local doctor, named by the Eyford station-master as the owner of the burning house. The station-master describes him as a well-fed Englishman with a foreign gentleman, said to be a patient, staying with him. Hatherley recognises the burning house as the one where he was attacked. The story never says whether Becher himself is one of the people Hatherley met there.",
+          "body": "A local doctor, named by the Eyford station-master as the owner of the burning house. The station-master describes him as a well-fed Englishman with a foreign gentleman, said to be a patient, staying with him. Hatherley recognises the burning house as the one where he was attacked. Hatherley’s question shows he suspects the thin foreign ‘patient’ is the man who hired him. The story never says whether Becher himself is one of the people Hatherley met there.",
           "why": "165–167: station-master’s description; 169: Hatherley identifies the house."
         }
       ],
@@ -6053,7 +6191,7 @@
       "kind": "person",
       "category": "reference",
       "subtitle": "Missing hydraulic engineer in an old advertisement",
-      "body": "A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and was never heard of again.",
+      "body": "A twenty-six-year-old hydraulic engineer reported missing in a newspaper advertisement Holmes kept from about a year earlier. He left his lodgings at ten at night and had not been heard of since.",
       "chapters": [
         9
       ],
@@ -6266,7 +6404,7 @@
       "kind": "person",
       "category": "major",
       "subtitle": "Holmes’s noble client; second son of the Duke of Balmoral",
-      "body": "An aristocratic bachelor of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.",
+      "body": "An aristocrat of forty-one, second son of the Duke of Balmoral and a former Under-Secretary for the colonies. He writes to Holmes about a painful event connected with his wedding.",
       "chapters": [
         10
       ],
@@ -6359,7 +6497,7 @@
             10,
             43
           ],
-          "body": "An aristocratic bachelor of forty-one, second son of the Duke of Balmoral. His American bride, Hatty Doran, vanished from their wedding breakfast, and he consults Holmes about her disappearance.",
+          "body": "An aristocrat of forty-one, second son of the Duke of Balmoral. His American bride, Hatty Doran, vanished from their wedding breakfast, and he consults Holmes about her disappearance.",
           "why": "Newspaper extracts (27–43) establish the vanished bride; safe recap."
         },
         {
@@ -6367,8 +6505,16 @@
             10,
             207
           ],
-          "body": "Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead. He accepts the outcome coldly and refuses to stay for supper.",
+          "body": "Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead.",
           "why": "Hatty’s account (204–207) explains the disappearance; his cold response follows at 210–215 but the reveal of the marriage is complete at 207."
+        },
+        {
+          "after": [
+            10,
+            215
+          ],
+          "body": "Second son of the Duke of Balmoral. His bride, Hatty Doran, left the wedding breakfast because she was already secretly married to Francis Hay Moulton, whom she had believed dead. He shakes her hand coldly, refuses Holmes’s invitation to supper and leaves.",
+          "why": "10:215."
         }
       ],
       "notes": "Bare 'St. Simon' is NOT an alias: it appears inside sibling names and in 'St. Simon marriage case' (143). Counts include named aliases plus listed rules (approx.). Subtitle uses 'second son of the Duke of Balmoral' (text, 20/23)."
@@ -6412,6 +6558,14 @@
           ],
           "body": "The only daughter of a Californian mining millionaire. She vanished from her own wedding breakfast after marrying Lord St. Simon; the papers report rumours of foul play.",
           "why": "Newspaper accounts (27–39) report the disappearance."
+        },
+        {
+          "after": [
+            10,
+            160
+          ],
+          "body": "The only daughter of a Californian mining millionaire. She vanished from her own wedding breakfast after marrying Lord St. Simon and was seen entering Hyde Park with Flora Millar. Her wedding dress, shoes, wreath and veil have been found floating in the Serpentine.",
+          "why": "10:160."
         },
         {
           "after": [
@@ -6541,7 +6695,7 @@
       "kind": "unresolved-name",
       "category": "supporting",
       "subtitle": "Initials signing a note found in the bride’s dress",
-      "body": "Initials signing a pencilled note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.",
+      "body": "Initials signing a note found in a card-case in the bride’s soaked wedding dress: ‘You will see me when all is ready. Come at once.’ Lestrade believes they stand for Flora Millar.",
       "chapters": [
         10
       ],
@@ -6595,7 +6749,7 @@
             10,
             207
           ],
-          "body": "A former dancer at the Allegro and Lord St. Simon’s close friend of many years. The bride’s own account shows she left to join Frank Moulton; a woman who spoke to her in the Park about Lord St. Simon played no part, undoing Lestrade’s theory against Flora.",
+          "body": "A former dancer at the Allegro and Lord St. Simon’s close friend of many years. The bride’s own account shows she left to join Frank Moulton. The woman who accosted her in the Park with talk about Lord St. Simon, presumably Flora, had nothing to do with it, which undoes Lestrade’s theory and his reading of the ‘F. H. M.’ note.",
           "why": "206–207: the note came from Moulton; the bride left of her own will."
         }
       ],
@@ -6642,7 +6796,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "Hatty Doran’s American maid",
-      "body": "Hatty Doran’s maid, an American who came with her from California. Lord St. Simon thinks she is allowed too many liberties.",
+      "body": "Hatty Doran’s maid, an American who came with her from California.",
       "chapters": [
         10
       ],
@@ -6670,6 +6824,14 @@
       ],
       "exclude": [],
       "snapshots": [
+        {
+          "after": [
+            10,
+            101
+          ],
+          "body": "Hatty Doran’s maid, an American who came with her from California. Lord St. Simon saw the bride talking with her after the wedding and thinks she is allowed too many liberties.",
+          "why": "10:101."
+        },
         {
           "after": [
             10,
@@ -6718,8 +6880,8 @@
       "name": "The Duchess of Balmoral",
       "kind": "person",
       "category": "reference",
-      "subtitle": "Guest at the St. Simon wedding",
-      "body": "One of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.",
+      "subtitle": "Wife of the Duke of Balmoral",
+      "body": "The Duke of Balmoral’s wife, one of the few guests at Lord St. Simon’s quiet wedding at St. George’s, Hanover Square.",
       "chapters": [
         10
       ],
@@ -7024,6 +7186,17 @@
             127
           ],
           "why": "Mary speaking of Holder (original has bare ‘uncle’s’, left unbound)."
+        },
+        {
+          "chapter": 11,
+          "alias": "uncle",
+          "paragraphs": [
+            127
+          ],
+          "editions": [
+            "original-en"
+          ],
+          "why": "Mary refers to Holder; matches the modern binding."
         }
       ],
       "exclude": [],
@@ -7225,6 +7398,17 @@
             215
           ],
           "why": "Holmes: Arthur’s cousin = Mary."
+        },
+        {
+          "chapter": 11,
+          "alias": "Your niece",
+          "paragraphs": [
+            206
+          ],
+          "editions": [
+            "original-en"
+          ],
+          "why": "Holmes to Holder about Mary."
         }
       ],
       "exclude": [],
@@ -7310,7 +7494,7 @@
             11,
             219
           ],
-          "body": "Arthur’s worldly older friend, who took the Beryl Coronet with Mary’s help and fled with her. Holmes traced him by his boots, confronted him at pistol-point and learned he had sold the three stones for £600; Holmes bought them back and promised no prosecution to avoid scandal.",
+          "body": "Arthur’s worldly older friend, who took the Beryl Coronet with Mary’s help and fled with her. Holmes traced him by his boots and held him at pistol-point. Burnwell admitted he had already sold the three stones for £600. In return for a promise of no prosecution he gave up the receiver’s address, and Holmes bought the stones back from the receiver for £1,000 each.",
           "why": "11:216–219: identification and confrontation."
         }
       ],
@@ -7342,7 +7526,7 @@
             11,
             133
           ],
-          "body": "The Holders’ second waiting-maid, in service only a few months. She served the coffee while Holder spoke of the coronet, and Mary saw her slip out to meet her sweetheart, the greengrocer Francis Prosper; Mary suggests she may have passed on what she overheard.",
+          "body": "The Holders’ second waiting-maid, in service only a few months. She served the coffee while Holder spoke of the coronet and may have overheard him. That night Mary saw her slipping back in at the kitchen door after meeting her sweetheart, the greengrocer Francis Prosper.",
           "why": "11:42, 56–58 and 126–133 give her movements, her sweetheart’s name (133) and Mary’s suggestion (attributed)."
         },
         {
@@ -7509,7 +7693,7 @@
             12,
             211
           ],
-          "body": "She helped Holmes and Watson search the locked wing at the Copper Beeches. Watson later reports that she became head of a private school at Walsall, with considerable success.",
+          "body": "She locked Mrs. Toller in the cellar and gave Holmes the keys to the locked wing, though the prisoner had already gone. Watson later reports that she became head of a private school at Walsall, with considerable success.",
           "why": "211 gives her later career."
         }
       ],
@@ -7572,7 +7756,7 @@
             12,
             194
           ],
-          "body": "Caught by Holmes in the empty locked room, Rucastle ran for his mastiff, but the starving dog attacked him instead. Watson shot it, and Rucastle was carried inside alive but badly mauled.",
+          "body": "Holmes believes Rucastle has been keeping his daughter Alice prisoner. Confronted by Holmes at the door of the empty room, Rucastle rushed downstairs — Violet Hunter cried that he had gone for the dog — but his starving mastiff seized him instead. Watson shot it, and Rucastle was carried inside alive but badly mauled.",
           "why": "186–194: confrontation and the dog’s attack."
         },
         {
@@ -7580,7 +7764,7 @@
             12,
             205
           ],
-          "body": "Mrs. Toller confirms that he kept his daughter Alice prisoner to stop her marrying and taking control of money left to her by will, and hired Violet Hunter to drive away her suitor, Mr. Fowler. His mastiff mauled him when he set it loose.",
+          "body": "Mrs. Toller confirms that he kept his daughter Alice prisoner to stop her marrying and taking control of money left to her by will, and hired Violet Hunter to drive away her suitor, Mr. Fowler. His own half-starved mastiff, loosed that evening, mauled him.",
           "why": "201–205: Mrs. Toller’s account and Holmes’s summary, confirmed by her."
         },
         {
@@ -7713,7 +7897,7 @@
       "kind": "person",
       "category": "supporting",
       "subtitle": "Groom and manservant at the Copper Beeches",
-      "body": "The Rucastles’ rough, grizzled manservant and groom, often drunk, and the only one who can manage the mastiff, Carlo, which he lets loose at night.",
+      "body": "The Rucastles’ manservant — a rough, uncouth man with grizzled hair and whiskers who smells of drink and has twice been drunk since Violet Hunter arrived. His wife is the household’s only other servant.",
       "chapters": [
         12
       ],
@@ -7723,6 +7907,14 @@
       "aliasRules": [],
       "exclude": [],
       "snapshots": [
+        {
+          "after": [
+            12,
+            132
+          ],
+          "body": "The Rucastles’ rough, grizzled manservant and groom, often drunk, and the only one who can manage the mastiff, Carlo, which he lets loose at night.",
+          "why": "Carlo and the nightly release introduced at 12:132."
+        },
         {
           "after": [
             12,
@@ -7861,7 +8053,7 @@
       "name": "Mr. Fowler",
       "kind": "person",
       "category": "supporting",
-      "subtitle": "Alice Rucastle’s suitor, a seaman",
+      "subtitle": "Alice Rucastle’s suitor",
       "body": "The young man who met Alice Rucastle at a friend’s house and stayed loyal to her through her long illness.",
       "chapters": [
         12
