@@ -288,7 +288,7 @@ describe('recap and catch-up routes', () => {
     expect(rows.find(row => row.user_id === userId)).toMatchObject({ guest_key: null })
   })
 
-  it('catch-up (/api/lab-catch-up) is covered as feature recap', async () => {
+  it('catch-up (/api/lab-catch-up) is covered as feature catch_up', async () => {
     const { rows } = stubFetch(() => undefined)
     const { ctx, pending } = context()
     const response = await handleLabCatchUp(
@@ -298,7 +298,7 @@ describe('recap and catch-up routes', () => {
     expect(response.status).toBe(200)
     await Promise.all(pending)
     expect(rows).toHaveLength(1)
-    expect(rows[0]).toMatchObject({ feature: 'recap', provider: 'anthropic', input_tokens: 900, output_tokens: 80, book_id: 'anna' })
+    expect(rows[0]).toMatchObject({ feature: 'catch_up', provider: 'anthropic', input_tokens: 900, output_tokens: 80, book_id: 'anna' })
   })
 
   it('a ledger outage never fails or delays the reader\'s response', async () => {

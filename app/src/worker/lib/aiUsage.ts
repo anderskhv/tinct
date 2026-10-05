@@ -56,7 +56,7 @@ export const AI_PRICING = {
 } as const
 
 export type AiFeature =
-  | 'chat' | 'explain' | 'librarian' | 'recap' | 'lab_chat' | 'talk'
+  | 'chat' | 'explain' | 'librarian' | 'recap' | 'chapter_notes' | 'catch_up' | 'lab_chat' | 'talk'
   | 'narration_generate' | 'narration_listen' | 'source_search'
 export type AiProvider = 'anthropic' | 'xai' | 'openai'
 
