@@ -199,7 +199,14 @@ async function run(engine,name,phone) {
       await page.keyboard.press('Escape')
     }
     // Single-word dictionary miss stays in the Define panel, with lexical intent.
-    const lookupWord=page.getByTestId('lab-word').nth(25)
+    // On a phone the outer thirds of the page turn it and never define (labTapPageDirection),
+    // so the lookup taps a visible word whose centre sits in the middle of the page.
+    const lookupIndex=await page.getByTestId('lab-word').evaluateAll(words=>words.findIndex((word,index)=>{
+      const r=word.getBoundingClientRect(),x=r.left+r.width/2
+      return index>=25&&r.width>0&&r.top>=0&&r.bottom<=innerHeight&&x>innerWidth*0.4&&x<innerWidth*0.6
+    }))
+    assert(lookupIndex>=0,'a visible word sits in the middle of the page')
+    const lookupWord=page.getByTestId('lab-word').nth(lookupIndex)
     await lookupWord.click()
     await page.getByText(definition,{exact:true}).waitFor({timeout:10000})
     assert.equal(await page.locator('.popup-define-result ol li').count(),1)
