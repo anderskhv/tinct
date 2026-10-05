@@ -1,0 +1,177 @@
+<title>Tinct Quote Share</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Layout: three renders of the share image built from the live reader's own page (header pill, justified Garamond, page footer), plus the one-screen share sheet. */
+:root {
+  --page: #d9d2c4; --panel: #f4f0e7; --line: #cfc6b5; --text: #1c1813; --text-soft: #5f574b; --accent: #1f4a5c; --accent-ink: #f4f0e7;
+  --r-bg: #ece7db; --r-paper: #ece7db; --r-ink: #0b0b0b; --r-muted: #6a6256; --r-faint: #8b8275; --r-pill: #e2d8c4; --r-hl: #f5e6c8; --r-edge: rgba(60,45,25,.10);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-ui: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --page:#121315; --panel:#1b1d20; --line:#33373c; --text:#e9e3d8; --text-soft:#a9a296; --accent:#86b6c9; --accent-ink:#0f1a1f; color-scheme: dark; } }
+:root[data-theme="dark"] { --page:#121315; --panel:#1b1d20; --line:#33373c; --text:#e9e3d8; --text-soft:#a9a296; --accent:#86b6c9; --accent-ink:#0f1a1f; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text); font-family: var(--font-body); padding-block: 24px 56px; padding-inline: 16px; }
+.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+h1 { font-family: var(--font-display); font-size: 1.8rem; margin: 0; }
+.lede { margin: 6px 0 0; color: var(--text-soft); font-size: 1.08rem; max-width: 70ch; }
+.box { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cap { font-family: var(--font-ui); font-size: .72rem; color: var(--text-soft); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; }
+.row2 { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (max-width: 900px) { .row2 { grid-template-columns: 1fr; } }
+.stage { background: var(--page); border-radius: 10px; padding: 16px; display: flex; justify-content: center; overflow: hidden; }
+
+/* ---- reader-faithful image ---- */
+.frame { container-type: inline-size; }
+.frame.phone { width: min(100%, 360px); aspect-ratio: 4 / 5; }
+.frame.desk { width: min(100%, 760px); aspect-ratio: 16 / 10; }
+.shot { background: var(--r-bg); color: var(--r-ink); display: flex; flex-direction: column; overflow: hidden; width: 100%; height: 100%; }
+.shot .bar { display: flex; align-items: center; gap: .5em; }
+.shot .bar .t { font-family: var(--font-body); font-style: italic; color: var(--r-muted); }
+.shot .bar .dot { color: var(--r-faint); }
+.shot .bar .pill { font-family: var(--font-body); font-style: italic; color: var(--r-muted); }
+.shot .txt p { margin: 0 0 .55em; text-align: justify; hyphens: auto; -webkit-hyphens: auto; line-height: 1.52; }
+.shot .txt { color: #a39a8c; }
+.shot mark { background: var(--r-hl); color: var(--r-ink); font-weight: 600; box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: .02em 0; }
+.shot .foot { font-family: var(--font-body); font-style: italic; color: var(--r-muted); text-align: center; }
+body.no-tag .shot .foot .tag { visibility: hidden; }
+body.no-ctx .shot .ctx { display: none; }
+.shot .ell { display: none; }
+body.no-ctx .shot .ell { display: inline; }
+/* Quote alone: centre it on the page so it doesn't float above an empty sheet. */
+body.no-ctx .shot.phone .txt, body.no-ctx .shot.desk.single .pg .txt { display: flex; flex-direction: column; justify-content: center; }
+
+/* phone 4:5 */
+.shot.phone { padding: 7cqw 7cqw 4cqw; }
+.shot.phone .bar { font-size: 4.6cqw; margin-bottom: 4.5cqw; }
+.shot.phone .txt { flex: 1; overflow: hidden; }
+.shot.phone .foot { font-size: 3.9cqw; padding-top: 2.6cqw; }
+
+/* desktop 16:10 */
+.shot.desk { padding: 2.4cqw 3cqw 1.6cqw; }
+.shot.desk .bar { justify-content: center; font-size: 2.3cqw; margin-bottom: 1.8cqw; }
+.shot.desk .sheet-page { flex: 1; display: flex; justify-content: center; min-height: 0; }
+.shot.desk .pg { background: var(--r-paper); box-shadow: 0 0 0 1px var(--r-edge), 0 .6cqw 1.6cqw rgba(60,45,25,.10); padding: 3.2cqw 3.4cqw 1.6cqw; display: flex; flex-direction: column; min-height: 0; }
+.shot.desk .pg .txt { flex: 1; overflow: hidden; }
+.shot.desk.single .pg { width: 56%; }
+.shot.desk.spread .pg { width: 100%; position: relative; }
+.shot.desk.spread .pg .txt { column-count: 2; column-gap: 7cqw; column-fill: auto; height: 100%; }
+.shot.desk.spread .pg::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 3cqw; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(60,45,25,.07) 45%, rgba(60,45,25,.11) 50%, rgba(60,45,25,.07) 55%, transparent); pointer-events: none; }
+.shot.desk .pg .nums { display: flex; justify-content: space-around; font-family: var(--font-body); font-size: 1cqw; color: var(--r-faint); padding-top: 1cqw; }
+.shot.desk .foot { font-size: 1.55cqw; padding-top: 1.1cqw; }
+
+/* share sheet */
+.sheetui { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.sheetui .mini { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+.sheetui .mini .frame.phone { width: 100%; }
+.toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 1rem; cursor: pointer; }
+.toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.toggle span { width: 38px; height: 22px; border-radius: 999px; background: var(--line); position: relative; flex: none; }
+.toggle span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--panel); transition: transform .15s; }
+.toggle input:checked + span { background: var(--accent); }
+.toggle input:checked + span::after { transform: translateX(16px); }
+.toggle input:focus-visible + span, .btns button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .toggle span::after { transition: none; } }
+.btns { display: flex; gap: 8px; }
+.btns button { flex: 1; font-family: var(--font-ui); font-size: .76rem; padding: 11px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
+.btns button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); flex: 2; }
+.fine { font-family: var(--font-ui); font-size: .7rem; color: var(--text-soft); margin: 0; line-height: 1.6; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Share a highlight</h1>
+    <p class="lede">The image is the reader's own page: same header, type and layout, in the edition and look the reader is already using. The quote always sits near the top of the page, with one sentence before it; all other text is greyed out. On desktop, a long highlight shows both pages. If a long highlight doesn't fit, the text gets smaller until the whole quote fits, but never below 75% of the reader's size; past that it's cut at a sentence with “…”. The quote is bold. Two options: surrounding text and the tinct.app line.</p>
+  </header>
+
+  <div class="row2">
+    <section class="box" aria-label="Share sheet on a phone">
+      <div class="cap"><span>The share sheet (phone)</span></div>
+      <div class="sheetui">
+        <div class="mini"><div class="frame phone"><div class="shot phone" data-kind="phone"></div></div></div>
+        <label class="toggle" for="opt-ctx">Show surrounding text<input type="checkbox" id="opt-ctx" checked><span aria-hidden="true"></span></label>
+        <label class="toggle" for="opt-tag">Add "Read free at tinct.app"<input type="checkbox" id="opt-tag" checked><span aria-hidden="true"></span></label>
+        <div class="btns"><button type="button" class="primary" id="b-share">Share…</button><button type="button" id="b-link">Copy link</button></div>
+        <p class="fine" id="status" role="status" aria-live="polite">Uses your edition (1818 original) and look (Paper). Both settings are remembered for next time.</p>
+      </div>
+    </section>
+    <section class="box" aria-label="Phone image">
+      <div class="cap"><span>Phone image · 4:5 · 1080 × 1350</span><span data-size="phone"></span></div>
+      <div class="stage"><div class="frame phone"><div class="shot phone" data-kind="phone"></div></div></div>
+    </section>
+  </div>
+
+  <section class="box" aria-label="Desktop short">
+    <div class="cap"><span>Desktop image · short highlight · one page · 1600 × 1000</span><span data-size="desk-single"></span></div>
+    <div class="stage"><div class="frame desk"><div class="shot desk single" data-kind="desk-single"></div></div></div>
+  </section>
+
+  <section class="box" aria-label="Desktop long">
+    <div class="cap"><span>Desktop image · long highlight · both pages</span><span data-size="desk-spread"></span></div>
+    <div class="stage"><div class="frame desk"><div class="shot desk spread" data-kind="desk-spread"></div></div></div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var P = ["It was on a dreary night of November that I beheld the accomplishment of my toils. With an anxiety that almost amounted to agony, I collected the instruments of life around me, that I might infuse a spark of being into the lifeless thing that lay at my feet. It was already one in the morning; the rain pattered dismally against the panes, and my candle was nearly burnt out, when, by the glimmer of the half-extinguished light, I saw the dull yellow eye of the creature open; it breathed hard, and a convulsive motion agitated its limbs.", "How can I describe my emotions at this catastrophe, or how delineate the wretch whom with such infinite pains and care I had endeavoured to form? His limbs were in proportion, and I had selected his features as beautiful. Beautiful! Great God! His yellow skin scarcely covered the work of muscles and arteries beneath; his hair was of a lustrous black, and flowing; his teeth of a pearly whiteness; but these luxuriances only formed a more horrid contrast with his watery eyes, that seemed almost of the same colour as the dun-white sockets in which they were set, his shrivelled complexion and straight black lips.", "The different accidents of life are not so changeable as the feelings of human nature. I had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body. For this I had deprived myself of rest and health. I had desired it with an ardour that far exceeded moderation; but now that I had finished, the beauty of the dream vanished, and breathless horror and disgust filled my heart. Unable to endure the aspect of the being I had created, I rushed out of the room and continued a long time traversing my bed-chamber, unable to compose my mind to sleep. At length lassitude succeeded to the tumult I had before endured, and I threw myself on the bed in my clothes, endeavouring to seek a few moments of forgetfulness. But it was in vain; I slept, indeed, but I was disturbed by the wildest dreams. I thought I saw Elizabeth, in the bloom of health, walking in the streets of Ingolstadt. Delighted and surprised, I embraced her, but as I imprinted the first kiss on her lips, they became livid with the hue of death; her features appeared to change, and I thought that I held the corpse of my dead mother in my arms; a shroud enveloped her form, and I saw the grave-worms crawling in the folds of the flannel. I started from my sleep with horror; a cold dew covered my forehead, my teeth chattered, and every limb became convulsed; when, by the dim and yellow light of the moon, as it forced its way through the window shutters, I beheld the wretch\u2014the miserable monster whom I had created. He held up the curtain of the bed; and his eyes, if eyes they may be called, were fixed on me. His jaws opened, and he muttered some inarticulate sounds, while a grin wrinkled his cheeks. He might have spoken, but I did not hear; one hand was stretched out, seemingly to detain me, but I escaped and rushed downstairs. I took refuge in the courtyard belonging to the house which I inhabited, where I remained during the rest of the night, walking up and down in the greatest agitation, listening attentively, catching and fearing each sound as if it were to announce the approach of the demoniacal corpse to which I had so miserably given life."];
+  var SHORT = "the beauty of the dream vanished, and breathless horror and disgust filled my heart.";
+  var LONG_START = "How can I describe my emotions at this catastrophe";
+  var PNEXT = "Oh! No mortal could support the horror of that countenance. A mummy again endued with animation could not be so hideous as that wretch.";
+  function esc(s) { return s.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+  function para(text, hl) {
+    if (!hl) return '<p>' + esc(text) + '</p>';
+    var i = text.indexOf(hl.s), j = hl.e ? text.indexOf(hl.e) + hl.e.length : text.length;
+    if (i < 0) i = 0;
+    return '<p>' + esc(text.slice(0, i)) + '<mark>' + esc(text.slice(i, j)) + '</mark>' + esc(text.slice(j)) + '</p>';
+  }
+  function bar() { return '<div class="bar"><span class="t">Frankenstein</span><span class="dot">·</span><span class="pill">Chapter 5</span></div>'; }
+  function foot(n) { return '<div class="foot"><span class="tag">Read free at tinct.app</span></div>'; }
+  // The page always opens one sentence before the highlight, so the quote sits near the top; everything else is greyed.
+  var p2 = P[2], si = p2.indexOf(SHORT), k = p2.indexOf("I had desired it");
+  // Context is wrapped in .ctx so the "surrounding text" toggle can hide it; with it off the quote stands alone with ellipses.
+  function ctx(t) { return '<span class="ctx">' + esc(t) + '</span>'; }
+  var shortBody = '<p>' + ctx('\u2026' + p2.slice(k, si)) + '<span class="ell">\u2026</span><mark>' + esc(SHORT) + '</mark>' + ctx(p2.slice(si + SHORT.length)) + '</p>';
+  var p0 = P[0], lastSent = p0.indexOf("it breathed hard");
+  var LONG_END = "the miserable monster whom I had created.";
+  var e2 = p2.indexOf(LONG_END) + LONG_END.length;
+  var longBody = '<p class="ctx">' + esc('\u2026' + p0.slice(lastSent)) + '</p>' +
+    '<p><mark>' + esc(P[1]) + '</mark></p>' +
+    '<p><mark>' + esc(p2.slice(0, e2)) + '</mark>' + ctx(p2.slice(e2)) + '</p>' + para(PNEXT);
+  document.querySelectorAll('[data-kind]').forEach(function (el) {
+    var kind = el.dataset.kind;
+    if (kind === 'phone') el.innerHTML = bar() + '<div class="txt">' + shortBody + '</div>' + foot();
+    else if (kind === 'desk-single') el.innerHTML = bar() + '<div class="sheet-page"><div class="pg"><div class="txt">' + shortBody + '</div><div class="nums"><span>14</span></div></div></div>' + foot();
+    else el.innerHTML = bar() + '<div class="sheet-page"><div class="pg"><div class="txt">' + longBody + '</div><div class="nums"><span>13</span><span>14</span></div></div></div>' + foot();
+  });
+  // Fit: reader size first; if the end of the highlight is hidden, step the text down until it fits, never below 75% of the reader's size.
+  var BASE = { 'phone': 5.9, 'desk-single': 2.15, 'desk-spread': 1.9 }, FLOOR = 0.75;
+  function fits(txt) {
+    var marks = txt.querySelectorAll('mark'); if (!marks.length) return true;
+    var rs = marks[marks.length - 1].getClientRects(), r = rs[rs.length - 1], b = txt.getBoundingClientRect();
+    return r.bottom <= b.bottom + 1 && r.right <= b.right + 1;
+  }
+  function fit() {
+    document.querySelectorAll('[data-kind]').forEach(function (el) {
+      var kind = el.dataset.kind, txt = el.querySelector('.txt'), sc = 1;
+      for (; sc >= FLOOR - 1e-9; sc -= 0.01) { txt.style.fontSize = (BASE[kind] * sc) + 'cqw'; if (fits(txt)) break; }
+      var cut = sc < FLOOR - 1e-9; if (cut) { sc = FLOOR; txt.style.fontSize = (BASE[kind] * sc) + 'cqw'; }
+      var lab = document.querySelector('[data-size="' + kind + '"]');
+      if (lab && !el.closest('.mini')) lab.textContent = cut ? 'Too long even at 75%: cut at a sentence with \u2026' : sc > 0.995 ? 'Text at the reader\u2019s size' : 'Text at ' + Math.round(sc * 100) + '% of the reader\u2019s size so the whole quote fits';
+    });
+  }
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
+  document.getElementById('opt-ctx').onchange = function (e) { document.body.classList.toggle('no-ctx', !e.target.checked); fit(); };
+  document.getElementById('opt-tag').onchange = function (e) { document.body.classList.toggle('no-tag', !e.target.checked); };
+  var st = document.getElementById('status');
+  document.getElementById('b-share').onclick = function () { st.textContent = 'Mockup: this would open the share sheet with the image and the link.'; };
+  document.getElementById('b-link').onclick = function () {
+    var link = 'https://tinct.app/q/7fk2pa';
+    if (navigator.clipboard) navigator.clipboard.writeText(link).then(function () { st.textContent = 'Copied the example link.'; }, function () { st.textContent = link; });
+    else st.textContent = link;
+  };
+})();
+</script>

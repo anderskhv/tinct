@@ -1,7 +1,7 @@
 # Share a highlight as an image: spec
 
-**Status:** proposed by the PM session on 5 October 2026. The mockup is approved for discussion; the build is not yet assigned. This document is a spec only; the coding agent builds it.
-**Mockup:** Anders's private preview page "Tinct Quote Share" (claude.ai artifact). It shows the share sheet, the phone and desktop images, a long-quote example and the link previews.
+**Status:** approved by Anders on 5 October 2026 and assigned to the coding agent (brief: `CODER-BRIEF.md`). This document is a spec only; the coding agent builds it.
+**Mockup:** `mockup.html` in this folder (open it in a browser). It shows the share sheet, the phone and desktop images, the surrounding-text toggle and the shrink-to-fit long quote. The fitting logic in its script is the reference behaviour.
 
 ## What the reader gets (revised after Anders's review, 5 October 2026)
 From any highlight, **Share** opens a minimal sheet:
