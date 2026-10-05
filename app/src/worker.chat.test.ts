@@ -132,7 +132,8 @@ describe('chat route', () => {
 
     expect(response.status).toBe(429)
     expect(await response.json()).toEqual({ error: 'Rate limit exceeded. Try again in a minute.' })
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    // The AI allowance switch is off: no account read happens at all.
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 
   it('allows trial users and caps the Anthropic request payload', async () => {

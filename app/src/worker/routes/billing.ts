@@ -2,6 +2,7 @@ import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
+import { topUpCreditMicros } from '../lib/aiAllowance'
 
 type VerifiedUser = { id: string; email: string }
 type VerifyUser = (env: BillingEnv, request: Request) => Promise<VerifiedUser | null>
@@ -117,6 +118,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('line_items[0][quantity]', '1')
       params.set('metadata[type]', 'chat_pack')
       params.set('metadata[message_count]', '100')
+      params.set('metadata[checkout_type]', 'chat_pack_100')
       params.set('metadata[amount_cents]', '300')
     } else if (body.type === 'chat_pack_200') {
       if (!env.STRIPE_PRICE_CHAT_200) return jsonResponse({ error: 'Service unavailable' }, 500, request)
@@ -125,6 +127,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('line_items[0][quantity]', '1')
       params.set('metadata[type]', 'chat_pack')
       params.set('metadata[message_count]', '200')
+      params.set('metadata[checkout_type]', 'chat_pack_200')
       params.set('metadata[amount_cents]', '500')
     } else {
       return jsonResponse({ error: 'Invalid checkout type' }, 400, request)
@@ -150,6 +153,19 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
   } catch {
     return jsonResponse({ error: 'Payment processing failed' }, 500, request)
   }
+}
+
+/**
+ * The chat-pack checkout type a completed session was created with. Sessions
+ * created before `checkout_type` was stored are read from their message count.
+ * Metadata is written by handleCreateCheckout and arrives in a signed event.
+ */
+export function chatPackCheckoutType(metadata: Record<string, string> | undefined): string | null {
+  if (!metadata) return null
+  if (metadata.checkout_type) return metadata.checkout_type
+  if (metadata.message_count === '100') return 'chat_pack_100'
+  if (metadata.message_count === '200') return 'chat_pack_200'
+  return null
 }
 
 export async function handleWebhook(request: Request, env: BillingEnv, ctx?: ExecutionContext): Promise<Response> {
@@ -214,16 +230,20 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
           }
         }
       } else if (type === 'chat_pack') {
-        const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
-        if (messageCount <= 0 || messageCount > 1000) break
-        const paymentRes = await supabaseInsert(env, 'payments', {
-          user_id: userId, stripe_session_id: obj.id,
-          amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
-          type: type || 'unknown', status: 'completed',
+        // A top-up adds AI credit (lib/aiAllowance.ts). The amount comes from
+        // the configured map by checkout type, never from the client.
+        const micros = topUpCreditMicros(chatPackCheckoutType(obj.metadata))
+        if (micros === null) break
+        // Records the payment and the credit in one transaction; a replayed
+        // event (same session id) credits nothing. A failure answers 500 so
+        // Stripe retries (also before the allowance migration has run).
+        const creditRes = await supabaseRpc(env, 'credit_ai_topup', {
+          p_user_id: userId,
+          p_stripe_session_id: obj.id,
+          p_micros: micros,
+          p_amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10) || 0,
         })
-        if (paymentRes.status === 409) break
-        if (!paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
-        await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
+        if (!creditRes.ok) return new Response('Top-up credit failed', { status: 500 })
         break
       }
 

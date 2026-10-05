@@ -1,6 +1,6 @@
 import { ChatUpstreamError, fetchChatUpstream as fetchAnthropic, logChatFailure, providerErrorType, readChatChunk, safeChatError } from '../lib/chatUpstream'
 import { COMPANION_MODEL, parseCompanionEffort, type CompanionEffort } from '../../companionModel'
-import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
+import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate, type AllowanceView } from '../lib/aiAllowance'
 import {
   createBookRetrieval,
   parseBookRef,
@@ -12,7 +12,7 @@ import {
 } from '../lib/bookRetrieval'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
-import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
+import { supabaseRpc, type SupabaseEnv } from '../lib/supabase'
 import { searchReadingSources } from './voiceResearch'
 import {
   COMPANION_INTENT_EFFORT,
@@ -754,7 +754,7 @@ export async function handleChat(
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   checkRateLimit: CheckRateLimit,
-  options?: { allowLabGuest?: boolean; reserveGuestSpend?: ReserveGuestSpend },
+  options?: { allowLabGuest?: boolean; reserveGuestSpend?: ReserveGuestSpend; allowanceGate?: AllowanceGate },
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
@@ -785,32 +785,23 @@ export async function handleChat(
   }
 
   const userId = user?.id ?? null
+  // The AI allowance (lib/aiAllowance.ts). Read alongside the rate limit and
+  // the body; applied once the request's feature is known, because Explain
+  // and Define are never blocked. Switch off: no read at all.
+  const allowanceGate = options?.allowanceGate ?? createAllowanceGate(env)
+  const allowancePromise: Promise<AllowanceView | null> = userId && allowanceGate.enforced
+    ? allowanceGate.load(userId)
+    : Promise.resolve(null)
   if (allowLabGuest) {
     const rateAllowed = await checkRateLimit(`lab-chat:${labGuestIp(request)}`, env.RATE_LIMIT)
     if (!rateAllowed) {
       return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
     }
   } else {
-    const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
-      ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
-          .then(async (profileRes) => {
-            if (!profileRes.ok) return null
-            const profiles = await profileRes.json() as ChatProfile[]
-            return profiles?.[0] ?? null
-          })
-          .catch(() => null)
-      : Promise.resolve(null)
-
-    const [rateAllowed, profile] = await Promise.all([
-      checkRateLimit(`chat:${userId}`, env.RATE_LIMIT),
-      profilePromise,
-    ])
+    const rateAllowed = await checkRateLimit(`chat:${userId}`, env.RATE_LIMIT)
     if (!rateAllowed) {
       return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
     }
-
-    const access = evaluateChatAccess(profile)
-    if (!access.allowed) return jsonResponse({ error: access.error }, 402, request)
   }
   timing.authAccessMs = Date.now() - authStartedAt
 
@@ -879,6 +870,9 @@ export async function handleChat(
     const feature: AiFeature = lookup ? 'explain'
       : companion?.intent === 'library' ? 'librarian'
       : allowLabGuest ? 'lab_chat' : 'chat'
+    if (userId && !allowsAiFeature(allowanceGate.enforced, feature, await allowancePromise)) {
+      return jsonResponse(allowanceUsedBody(), 402, request)
+    }
     const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
     const meter = createAiMeter(env, ctx, { userId, guest: userId ? null : ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
 

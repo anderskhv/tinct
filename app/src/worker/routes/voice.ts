@@ -1,10 +1,10 @@
 import { GROK_CLIENT_SECRET_TTL_SECONDS, GROK_VOICE_MODEL } from '../../voice/grokConfig'
-import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
+import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
 import { AI_RESTING_MESSAGE, AI_RESTING_TYPE } from '../lib/aiSpend'
 import { isProviderBudgetError } from '../lib/chatUpstream'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
-import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
+import { supabaseRpc, type SupabaseEnv } from '../lib/supabase'
 import { recordAiUsage, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
 
 export type VoiceEnv = SupabaseEnv & {
@@ -55,6 +55,7 @@ export async function handleVoiceSession(
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   checkRateLimit: CheckRateLimit,
+  allowanceGate: AllowanceGate = createAllowanceGate(env),
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
@@ -65,29 +66,19 @@ export async function handleVoiceSession(
   if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
   const userId = user.id
-  const profilePromise: Promise<ChatProfile | null> = env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY
-    ? supabaseGet(env, `profiles?id=eq.${userId}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
-        .then(async (profileRes) => {
-          if (!profileRes.ok) return null
-          const profiles = await profileRes.json() as ChatProfile[]
-          return profiles?.[0] ?? null
-        })
-        .catch(() => null)
-    : Promise.resolve(null)
-
-  const [rateAllowed, profile] = await Promise.all([
+  const [rateAllowed, allowance] = await Promise.all([
     checkRateLimit(`voice:${userId}`, env.RATE_LIMIT, 6),
-    profilePromise,
+    allowanceGate.enforced ? allowanceGate.load(userId) : Promise.resolve(null),
   ])
   if (!rateAllowed) {
     logVoiceStartFailure(429, 'rate_limited', true)
     return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
 
-  const access = evaluateChatAccess(profile)
-  if (!access.allowed) {
-    logVoiceStartFailure(402, 'no_access', true)
-    return jsonResponse({ error: access.error }, 402, request)
+  // Talk is a paid feature: refused only when the allowance is switched on and used up.
+  if (!allowsAiFeature(allowanceGate.enforced, 'talk', allowance)) {
+    logVoiceStartFailure(402, 'allowance_used', true)
+    return jsonResponse(allowanceUsedBody(), 402, request)
   }
 
   try {
