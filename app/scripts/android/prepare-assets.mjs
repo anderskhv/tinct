@@ -10,7 +10,8 @@ async function bytes(path) {
   } catch (error) { if (error.code === 'ENOENT') return 0; throw error }
 }
 let removed = 0
-for (const name of ['read', 'sitemap.xml', 'robots.txt']) {
+// lab/addbook: the unlinked Add-a-book test page (about 9 MB of catalogue and PDF reader).
+for (const name of ['read', 'sitemap.xml', 'robots.txt', 'lab/addbook']) {
   const path = join(root, name)
   removed += await bytes(path)
   await rm(path, { recursive: true, force: true })
