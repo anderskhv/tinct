@@ -9,7 +9,6 @@ import type { Edition } from '../types'
 import type { NarrationPilotInfo } from './labNarration'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
-import { LabAiUsageBar } from './LabAiUsageBar'
 import {
   labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   LAB_MAX_FONT_SIZE,
@@ -485,8 +484,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                 <strong>{auth.user?.email || 'Reader account'}</strong>
                 <span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span>
               </div>
-              {/* The AI usage bar: renders only while the Worker's allowance switch is on. */}
-              <LabAiUsageBar token={auth.user ? auth.session?.access_token ?? null : null} />
+              {/* No AI credits row while signed-in AI is open (AI_ALLOWANCE_ENFORCED); the credit model will add one back. */}
               <div className="lab-v2-year">
                 <p className="lab-v2-group-label">This year</p>
                 <div className="lab-v2-year-stats">

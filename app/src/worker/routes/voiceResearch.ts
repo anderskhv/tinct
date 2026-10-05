@@ -1,5 +1,5 @@
 import { jsonResponse } from '../lib/responses'
-import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
+import { evaluateChatAccess, type ChatProfile } from '../lib/chatAccess'
 import { supabaseGet } from '../lib/supabase'
 import { isValidUUID } from '../lib/security'
 import type { VoiceEnv } from './voice'
@@ -85,20 +85,16 @@ export async function handleVoiceResearch(
   verifyUser: (env: VoiceEnv, request: Request) => Promise<{ id: string } | null>,
   checkRateLimit: (key: string, kv?: VoiceEnv['RATE_LIMIT'], max?: number) => Promise<boolean>,
   ctx?: ExecutionContext,
-  allowanceGate: AllowanceGate = createAllowanceGate(env),
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   const user = await verifyUser(env, request)
   if (!user || !isValidUUID(user.id)) return jsonResponse({ error: 'Sign in to search sources.' }, 401, request)
   if (!env.OPENAI_API_KEY) return jsonResponse({ error: 'Search is unavailable.' }, 503, request)
   if (!await checkRateLimit(`voice-research:${user.id}`, env.RATE_LIMIT, 6)) return jsonResponse({ error: 'Please wait before searching again.' }, 429, request)
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=id`)
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=messages_used_this_period,message_balance,subscription_status,subscription_period_end,created_at`)
   if (!profileRes.ok) return jsonResponse({ error: 'Could not check account access.' }, 503, request)
-  const profile = ((await profileRes.json()) as Array<{ id: string }>)[0]
-  if (!profile) return jsonResponse({ error: 'Your AI balance is empty.' }, 402, request)
-  if (allowanceGate.enforced && !allowsAiFeature(true, 'source_search', await allowanceGate.load(user.id))) {
-    return jsonResponse(allowanceUsedBody(), 402, request)
-  }
+  const profile = ((await profileRes.json()) as ChatProfile[])[0]
+  if (!profile || !evaluateChatAccess(profile).allowed) return jsonResponse({ error: 'Your AI balance is empty.' }, 402, request)
   // Bound the request before parsing: only a public-topic search query is accepted.
   const reader = request.body?.getReader()
   if (!reader) return jsonResponse({ error: 'A question is required.' }, 400, request)

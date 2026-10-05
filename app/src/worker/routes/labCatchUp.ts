@@ -32,7 +32,6 @@ import {
 import type { Section } from '../../types'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
-import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import type { RecapCache } from './labRecap'
@@ -54,8 +53,6 @@ export interface LabCatchUpDeps {
   reserveGuestSpend?: ReserveGuestSpend
   /** Who to bill in the cost ledger when the request carries a session. Runs in the background write. */
   resolveUser?: (request: Request) => Promise<string | null>
-  /** The AI allowance (lib/aiAllowance.ts): false refuses generation for a signed-in reader whose allowance is used up. */
-  allowsAi?: (request: Request) => Promise<boolean>
 }
 
 export const CATCH_UP_MAX_TOKENS = 120
@@ -254,8 +251,6 @@ export async function handleLabCatchUp(
     : `The reader is part-way through ${unit.title}; the passage ends with the last chapter they finished.`
   const content = `Location: ${where}. ${status}\n\nPassage:\n\n${passage}\n\nWrite the catch-up entry.`
   const estimate = estimateAiCostMicros({ inputChars: CATCH_UP_SYSTEM_PROMPT.length + content.length, maxTokens: CATCH_UP_MAX_TOKENS })
-  // Cached and prepared entries above cost nothing and are always served.
-  if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
     guest: ledgerGuestKey(request),
