@@ -1,0 +1,477 @@
+{
+ "verdict": "not-accepted",
+ "summary": "89 findings checked (83 story findings plus 6 intro findings). 87 are resolved and 2 are justified (S4-08, S7-08); none are not-resolved. Compiled characters.v1.json matches editorial.json for every body, gate and subtitle in both editions, and every thread epithet matches its card subtitle. The fixes introduced one major regression (the Charles McCarthy [4:37] snapshot) and three minor gating or accuracy slips. Applying the four exact fixes below should make the package acceptable.",
+ "results": [
+  {
+   "id": "S1-01",
+   "status": "resolved",
+   "note": "[1:61] body now limited to Holmes's index entry, Warsaw five years ago ([1:59]) and the letters ([1:61]); no Crown Prince or photograph."
+  },
+  {
+   "id": "S1-02",
+   "status": "resolved",
+   "note": "First card no longer gives age or Prague; Ormstein is stated at [1:51], mask torn off at [1:55]."
+  },
+  {
+   "id": "S1-03",
+   "status": "resolved",
+   "note": "Langham sentence removed from [1:55] snapshot; 'your Majesty' is at [1:54]. Optional [1:104] snapshot not added (acceptable)."
+  },
+  {
+   "id": "S1-04",
+   "status": "resolved",
+   "note": "Thread no longer says 'young'."
+  },
+  {
+   "id": "S1-05",
+   "status": "resolved",
+   "note": "[1:257] now 'bows, and turns away without taking the King's outstretched hand', matching the text."
+  },
+  {
+   "id": "S1-06",
+   "status": "resolved",
+   "note": "King and Irene threads replaced with the reviewer's neutral text; Count thread unchanged as advised."
+  },
+  {
+   "id": "S2-01",
+   "status": "resolved",
+   "note": "Vincent Spaulding '(John Clay)' and john-clay snapshots now gated at [2:208], where the tunnel and bank are reasoned out. roleAfter [2:205] for Spaulding is supported by the motive remark in [2:205]."
+  },
+  {
+   "id": "S2-02",
+   "status": "resolved",
+   "note": "'passer of counterfeit coin' in first card."
+  },
+  {
+   "id": "S2-03",
+   "status": "resolved",
+   "note": "[2:181] now chairman of the bank's directors; cellar belongs to the City branch."
+  },
+  {
+   "id": "S2-04",
+   "status": "resolved",
+   "note": "Cards sentence removed from first card; new [2:167] snapshot matches [2:167] text."
+  },
+  {
+   "id": "S2-05",
+   "status": "resolved",
+   "note": "Subtitle and thread now attribute only the bequest to the advertisement; 'American millionaire' remains only in the [2:52] snapshot attributed to Spaulding."
+  },
+  {
+   "id": "S2-06",
+   "status": "resolved",
+   "note": "Thread no longer says 'young'."
+  },
+  {
+   "id": "S2-07",
+   "status": "resolved",
+   "note": "Subtitle now 'Holmes's client; a typist from Camberwell'; short sight appears only in [3:17]/[3:136] snapshots, after Holmes's remark at [3:14]."
+  },
+  {
+   "id": "S2-08",
+   "status": "resolved",
+   "note": "'Holmes invites Watson to hear him play'."
+  },
+  {
+   "id": "S3-01",
+   "status": "resolved",
+   "note": "Snapshot moved to [3:17]; income ([3:17]), short sight ([3:14]) and the search for Hosmer Angel are all known there."
+  },
+  {
+   "id": "S3-02",
+   "status": "resolved",
+   "note": "First card now minimal; ball/engagement/cab details moved to a [3:56] snapshot attributed to Mary. Tinted glasses no longer appear before [3:124]."
+  },
+  {
+   "id": "S3-03",
+   "status": "resolved",
+   "note": "Church-door sentence cut from [3:124]; [3:124] text covers the disguise and the wife's connivance."
+  },
+  {
+   "id": "S3-04",
+   "status": "resolved",
+   "note": "Thread now says Mary advertised the description herself and has four typewritten letters ([3:72])."
+  },
+  {
+   "id": "S3-05",
+   "status": "resolved",
+   "note": "[3:136] snapshot added; Holmes's decision at [3:136], her vow earlier in the story."
+  },
+  {
+   "id": "S3-06",
+   "status": "resolved",
+   "note": "Subtitle 'Recommended Holmes to Mary Sutherland'."
+  },
+  {
+   "id": "S4-01",
+   "status": "resolved",
+   "note": "[4:113] uses 'Miss Turner' only; 'Alice' first appears in cards from [4:200]/[4:208]."
+  },
+  {
+   "id": "S4-02",
+   "status": "resolved",
+   "note": "John Turner thread says 'father of Miss Turner'."
+  },
+  {
+   "id": "S4-03",
+   "status": "resolved",
+   "note": "[4:214] now reports Watson's prospect rather than a settled fact."
+  },
+  {
+   "id": "S4-04",
+   "status": "resolved",
+   "note": "[4:86] 'Miss Turner' snapshot added; content matches [4:76]-[4:86]."
+  },
+  {
+   "id": "S4-05",
+   "status": "resolved",
+   "note": "[4:119] snapshot added; age/benefactor/rent-free at [4:119], bedridden at [4:90], gold-mines at [4:93]."
+  },
+  {
+   "id": "S4-06",
+   "status": "resolved",
+   "note": "Leak fixed (first card no longer says 'cold and forbidding'), BUT the new [4:37] snapshot regresses the card: see newIssues (major)."
+  },
+  {
+   "id": "S4-07",
+   "status": "resolved",
+   "note": "'Moran' at [4:135] bound to boscombe-lodge-keeper in both editions (compiled mentions confirm, paragraph-scoped); [4:135] snapshot names him."
+  },
+  {
+   "id": "S4-08",
+   "status": "justified",
+   "note": "Not applied by the author: the attribution of the saying (Baxter vs. Bradford) depends on external scholarship, so leaving the reference unbound avoids an uncertain card. Reasonable; reviewer rated it minor."
+  },
+  {
+   "id": "S5-01",
+   "status": "resolved",
+   "note": "'younger' removed from body and subtitle."
+  },
+  {
+   "id": "S5-02",
+   "status": "resolved",
+   "note": "[5:44] says 'some weeks after'; all other facts are in [5:37]-[5:44]."
+  },
+  {
+   "id": "S5-03",
+   "status": "resolved",
+   "note": "'The page does not say who he was.'"
+  },
+  {
+   "id": "S5-04",
+   "status": "resolved",
+   "note": "Thread no longer reveals the warning to John."
+  },
+  {
+   "id": "S5-05",
+   "status": "resolved",
+   "note": "Red ink removed from first card; Pondicherry and dried pips are in [5:37]."
+  },
+  {
+   "id": "S5-06",
+   "status": "resolved",
+   "note": "Calhoun card now mentions the pips and 'S. H. for J. O.' from [5:162]."
+  },
+  {
+   "id": "S6-01",
+   "status": "resolved",
+   "note": "[6:212] now 'While the police were in the den', matching [6:212] and [6:67]."
+  },
+  {
+   "id": "S6-02",
+   "status": "resolved",
+   "note": "Both [6:121] snapshots attribute the handwriting to Mrs. St. Clair's certainty."
+  },
+  {
+   "id": "S6-03",
+   "status": "resolved",
+   "note": "'missing for two days' removed from the [6:0] card."
+  },
+  {
+   "id": "S6-04",
+   "status": "resolved",
+   "note": "Subtitle 'Kate Whitney's old school friend'; first mention is [6:1], so no earlier context is affected."
+  },
+  {
+   "id": "S6-05",
+   "status": "resolved",
+   "note": "'Mentioned only.' removed from the card. (Thread still ends '; mentioned only.' This was not part of the finding and is harmless.)"
+  },
+  {
+   "id": "S7-01",
+   "status": "resolved",
+   "note": "First card is neutral; temper and bet details are in the [7:150] snapshot."
+  },
+  {
+   "id": "S7-02",
+   "status": "resolved",
+   "note": "Henry Baker first card no longer implies he has been traced."
+  },
+  {
+   "id": "S7-03",
+   "status": "resolved",
+   "note": "First card limited to [7:59]; age/conviction/protests in [7:60] snapshot."
+  },
+  {
+   "id": "S7-04",
+   "status": "resolved",
+   "note": "[7:213] gives Holmes's stated reasons."
+  },
+  {
+   "id": "S7-05",
+   "status": "resolved",
+   "note": "[7:188] relationship snapshot added; 'Maggie' added to [7:190]. Note that 'Maggie' first appears at [7:194] (see newIssues, minor)."
+  },
+  {
+   "id": "S7-06",
+   "status": "resolved",
+   "note": "[7:60] Bradstreet snapshot added. It is hedged: 'an inspector Bradstreet handled the Hugh Boone affair'."
+  },
+  {
+   "id": "S7-07",
+   "status": "resolved",
+   "note": "Mrs. Hudson body now 'keeps house ... sees to his meals'; she is bound only in stories 7 and 8."
+  },
+  {
+   "id": "S7-08",
+   "status": "justified",
+   "note": "The reviewer marked it 'Acceptable as is'; it is backstory one to five paragraphs ahead, and nothing in it is concealed."
+  },
+  {
+   "id": "S7-09",
+   "status": "resolved",
+   "note": "Holmes thread now says 'an unexpected discovery'."
+  },
+  {
+   "id": "S8-01",
+   "status": "resolved",
+   "note": "[8:49] no longer mentions the coroner; [8:59] snapshot adds the inquest facts from [8:55]-[8:59]."
+  },
+  {
+   "id": "S8-02",
+   "status": "resolved",
+   "note": "'staggered out of her room'; death without regaining consciousness is at the end of [8:49]."
+  },
+  {
+   "id": "S8-03",
+   "status": "resolved",
+   "note": "Snapshot moved to [8:250] and Helen framed as Holmes's conclusion; [8:247] has 'sooner or later she must fall a victim'."
+  },
+  {
+   "id": "S8-04",
+   "status": "resolved",
+   "note": "[8:247] says 'probably with milk' and leaves out the bite; the bite is in the [8:250] snapshot."
+  },
+  {
+   "id": "S8-05",
+   "status": "resolved",
+   "note": "Watson body is now status-neutral (bachelor days and later cases), so it is true in stories 1, 8, 10, 11 and 12. It is consistent with [1:4] context."
+  },
+  {
+   "id": "S8-06",
+   "status": "resolved",
+   "note": "Condition 'while her daughters lived with him' added ([8:24])."
+  },
+  {
+   "id": "S8-07",
+   "status": "resolved",
+   "note": "Card and thread say 'early in the morning'."
+  },
+  {
+   "id": "S8-08",
+   "status": "resolved",
+   "note": "[8:7] Mrs. Hudson snapshot added, matching [8:2]/[8:7]."
+  },
+  {
+   "id": "S9-01",
+   "status": "resolved",
+   "note": "Snapshot moved to [9:158] (reviewer's option 1). The Hayling clause already reads 'Holmes suspects'."
+  },
+  {
+   "id": "S9-02",
+   "status": "resolved",
+   "note": "'whether either name is his real one is not yet clear'; she is named Elise."
+  },
+  {
+   "id": "S9-03",
+   "status": "resolved",
+   "note": "'nearer forty than thirty'; card-engraved name framing."
+  },
+  {
+   "id": "S9-04",
+   "status": "resolved",
+   "note": "'had not been heard of since'."
+  },
+  {
+   "id": "S9-05",
+   "status": "resolved",
+   "note": "[9:137] snapshot added and [9:159] hedged. The [9:137] body mentions the 'ten-mile' radius, which is stated only at [9:138] (see newIssues, trivial)."
+  },
+  {
+   "id": "S9-06",
+   "status": "resolved",
+   "note": "'a country house reached by carriage from Eyford station'."
+  },
+  {
+   "id": "S9-07",
+   "status": "resolved",
+   "note": "Subtitle 'Foreign woman in Colonel Stark's house'."
+  },
+  {
+   "id": "S9-08",
+   "status": "resolved",
+   "note": "Hatherley's suspicion added and attributed to him."
+  },
+  {
+   "id": "S10-01",
+   "status": "resolved",
+   "note": "Handled by the status-neutral Watson body (see S8-05). It no longer says 'now married' or 'former' lodger. The Watson thread for story 10 is correct."
+  },
+  {
+   "id": "S10-02",
+   "status": "resolved",
+   "note": "Maid thread: 'Hatty's American maid, who came with her from California.'"
+  },
+  {
+   "id": "S10-03",
+   "status": "resolved",
+   "note": "[10:207] has no aftermath; the [10:215] snapshot matches [10:213]-[10:215]."
+  },
+  {
+   "id": "S10-04",
+   "status": "resolved",
+   "note": "'bachelor' removed at [10:0] and [10:43]."
+  },
+  {
+   "id": "S10-05",
+   "status": "resolved",
+   "note": "First card is neutral; the liberties remark is in the [10:101] snapshot."
+  },
+  {
+   "id": "S10-06",
+   "status": "resolved",
+   "note": "Flora [10:207] now explains the Park encounter, hedged 'presumably Flora'."
+  },
+  {
+   "id": "S10-07",
+   "status": "resolved",
+   "note": "Subtitle and body identify her as the Duke's wife. The optional mother snapshot is omitted, which is acceptable."
+  },
+  {
+   "id": "S10-08",
+   "status": "resolved",
+   "note": "[10:160] Hatty snapshot added; Hyde Park with Flora is known from [10:111] and the clothes from [10:158]-[10:160]."
+  },
+  {
+   "id": "S10-09",
+   "status": "resolved",
+   "note": "'pencilled' removed."
+  },
+  {
+   "id": "S11-01",
+   "status": "resolved",
+   "note": "Direction is corrected to slipping back in, and the overhearing is hedged. A small residual inaccuracy remains ('served the coffee while Holder spoke'): see newIssues (minor)."
+  },
+  {
+   "id": "S11-02",
+   "status": "resolved",
+   "note": "Order now matches [11:219]: no-prosecution promise for the receiver's address, then purchase from the receiver."
+  },
+  {
+   "id": "S11-03",
+   "status": "resolved",
+   "note": "Handled by the status-neutral Watson body."
+  },
+  {
+   "id": "S11-04",
+   "status": "resolved",
+   "note": "original-en 'uncle' [11:127] and 'Your niece' [11:206] now bound (compiled mentions confirm)."
+  },
+  {
+   "id": "S12-01",
+   "status": "resolved",
+   "note": "[12:194] corrected: Holmes confronts him at the door, the dog cry is attributed to Violet, and the imprisonment context is restored. Matches [12:186]-[12:194]."
+  },
+  {
+   "id": "S12-02",
+   "status": "resolved",
+   "note": "'His own half-starved mastiff, loosed that evening, mauled him.'"
+  },
+  {
+   "id": "S12-03",
+   "status": "resolved",
+   "note": "Subtitle 'Alice Rucastle's suitor'; 'seaman' only at [12:209]."
+  },
+  {
+   "id": "S12-04",
+   "status": "resolved",
+   "note": "First card limited to [12:115]; Carlo is in the [12:132] snapshot."
+  },
+  {
+   "id": "S12-05",
+   "status": "resolved",
+   "note": "Handled by the status-neutral Watson body."
+  },
+  {
+   "id": "S12-06",
+   "status": "resolved",
+   "note": "[12:211] now reflects the cellar and the keys."
+  },
+  {
+   "id": "I-01",
+   "status": "resolved",
+   "note": "Preface paragraph 1 now says 'Most of the stories ... many turn on'."
+  },
+  {
+   "id": "I-02",
+   "status": "resolved",
+   "note": "whyItMatters[1] uses the reviewer's 'follows' wording, with no triad."
+  },
+  {
+   "id": "I-03",
+   "status": "resolved",
+   "note": "whyItMatters[0] says 'repeatedly'."
+  },
+  {
+   "id": "I-04",
+   "status": "resolved",
+   "note": "Acclaim context corrected. preface.txt is unchanged: it still equals about plus a newline, and the sha256 and wordCount (160) in manifest-entry.json still match."
+  },
+  {
+   "id": "I-05",
+   "status": "resolved",
+   "note": "'the reader's view of Holmes'."
+  },
+  {
+   "id": "I-06",
+   "status": "resolved",
+   "note": "Mary Sutherland cast description replaced; no motive hint."
+  }
+ ],
+ "newIssues": [
+  {
+   "severity": "major",
+   "entity": "charles-mccarthy",
+   "problem": "The new [4:37] snapshot (added for S4-06) replaces the [4:17] snapshot. It reverts to the present tense ('rents Hatherley Farm') and drops the fact that he went to Boscombe Pool and never came back alive. From [4:37] until [4:208], tapping the murder victim's name shows a card that reads as if he were alive and says nothing about his death, which is the central fact of the story.",
+   "fix": "[4:37] snapshot body: \"A former Australian colonist who rented Hatherley Farm from his old acquaintance John Turner, a widower with one son, James. On Monday 3 June he walked to Boscombe Pool for an important three o’clock appointment and never came back alive. His son describes him as cold and forbidding in manner and not a popular man.\""
+  },
+  {
+   "severity": "minor",
+   "entity": "mrs-oakshott",
+   "problem": "The [7:190] snapshot now ends 'Ryder calls her Maggie.', but the name Maggie first appears at [7:194] (and [7:201]). This is a four-paragraph early reveal of a first name. It gives away no plot, but it is inconsistent with the gating standard.",
+   "fix": "Remove \" Ryder calls her Maggie.\" from the [7:190] body. Add a snapshot after [7,194] with body: \"James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas. Ryder calls her Maggie.\""
+  },
+  {
+   "severity": "minor",
+   "entity": "bradstreet",
+   "problem": "The new [9:137] snapshot says he 'plots a ten-mile circle'. At [9:137] the text says only 'drawing a circle with Eyford for its centre'; the ten-mile radius is given at [9:138]. This is trivial.",
+   "fix": "[9:137] body: \"A police inspector, here of Scotland Yard (an inspector Bradstreet also appears at Bow Street in the Hugh Boone affair). He travels to Eyford with Holmes, Watson and Hatherley and draws a circle on the county map with Eyford at its centre to find the house.\""
+  },
+  {
+   "severity": "minor",
+   "entity": "lucy-parr",
+   "problem": "The [11:133] snapshot says she 'served the coffee while Holder spoke of the coronet'. At [11:42] Holder says Lucy 'had brought in the coffee' and he is 'sure, left the room', though he cannot swear the door was closed. The card contradicts his account.",
+   "fix": "[11:133] body: \"The Holders’ second waiting-maid, in service only a few months. She brought in the coffee on the evening Holder spoke of the coronet; he believes she had left the room, but Mary suggests she may have overheard him. That night Mary saw her slipping back in at the kitchen door after meeting her sweetheart, the greengrocer Francis Prosper.\""
+  }
+ ]
+}

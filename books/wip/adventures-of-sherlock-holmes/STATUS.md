@@ -9,3 +9,14 @@
 - Content resume point: none. No unresolved editorial findings.
 - Accepted hashes: MANIFEST.json. Alignment, lengths and changed paragraph coordinates: qa/alignment-and-length.json. Integration instructions: HANDOFF.md.
 - Content branch only: no app, registry, live edition, scripts or config changes; no deployment, publication, narration generation or Anthropic API use.
+
+## 2026-10-05: release assets completed and independently accepted
+
+- **Branch:** `claude/sherlock-adventures-content`.
+- **Characters:** 160 cards per edition, with 1,870 original and 1,863 modern UTF-16 mentions. Disguises, culprits and outcomes are gated at paragraph end. The six editorial checks are recorded in `books/characters/adventures-of-sherlock-holmes/README.md`. Revision `2026-10-05.2`.
+- **Threads:** 106 characters and 129 story summaries, setup-only so the cast list is spoiler-safe.
+- **Onboarding additions:** `openingText`; one verified primary-source acclaim (Stevenson to Doyle, 1893); recalibrated `whyItMatters`.
+- **Introduction:** intro data, preface (160 words, `e94dfde2…4a0c`), hook, manifest entry, audio-eligibility and `characterReleases` snippets in `release/`.
+- **Independent review:** ACCEPTED. 89 findings with no blockers; 87 resolved and 2 justified. The 4 recheck issues are fixed. See `EDITORIAL-FIXES.md` and `qa/character-review/`.
+- **Gates:** all pass. Rebuild `--check`; app `verifyCharacters` (1,036 checks); vitest 514/514; JSON; whole-book gate 0.484.
+- **Not yet done:** integration into `app/` paths, registry and shared files, and publication. These are listed in `release/HANDOFF.md`.

@@ -9,7 +9,7 @@ Source of truth: `editorial.json` (copy, aliases, chapter scopes, paragraph rule
 Coordinates are `story:paragraph`, with zero-based paragraphs and gates at paragraph end. First cards are safe at the start of each story. Suspicion is attributed rather than asserted. Disguise names and aliases have their own cards and are never bound to the real person before the reveal. Where a role label would itself hint at the solution, it is hidden until the reveal.
 
 - **1 Scandal:** Count Von Kramm is a separate card, renamed after 1:55, and "your Majesty" binds only from 55. Irene's marriage unlocks after 1:141, and "Madame", "my husband" and IRENE NORTON bind only after it. The slim youth in an ulster is a separate card, revealed as Irene after 1:243. Holmes's groom and clergyman disguises, the faked injury and the hired crowd are unbound.
-- **2 Red-Headed League:** Vincent Spaulding and John Clay are separate cards, linked after 2:205; Spaulding's role label is hidden until then. William Morris (2:100) and Archie are separate cards. Archie is never merged with Duncan Ross, because the text does not state it.
+- **2 Red-Headed League:** Vincent Spaulding and John Clay are separate cards, linked after 2:208, where Holmes finishes the tunnel explanation; Spaulding's role label is hidden until 2:205. William Morris (2:100) and Archie are separate cards. Archie is never merged with Duncan Ross, because the text does not state it.
 - **3 A Case of Identity:** Hosmer Angel and James Windibank are separate cards, linked after 3:124. Windibank's role label and the mother's connivance unlock at 3:124. Westhouse & Marbank as Holmes's "firm in the City" unlocks at 3:134.
 - **4 Boscombe Valley:** John Turner's guilt unlocks after 4:192, with his confession after 4:208 and death after 4:214; his role label is hidden until 4:192. Black Jack of Ballarat is a separate card, revealed after 4:202. The secret Bristol marriage unlocks after 4:113. Bare "McCarthy" denotes Charles except at 4:211.
 - **5 Five Orange Pips:**
@@ -26,7 +26,7 @@ Coordinates are `story:paragraph`, with zero-based paragraphs and gates at parag
 - **8 Speckled Band:**
   - "band", "speckled band" and "serpent" are never bound.
   - The swamp adder card first appears at 8:244.
-  - Roylott's guilt and death unlock at 8:244 and 8:248.
+  - Roylott's death unlocks at 8:244 and Holmes's full explanation at 8:250. The adder's card first appears at 8:244, with its explanation after 8:247 and 8:250.
   - "the Doctor" is always Roylott in this story, never Watson.
   - "Miss Roylott" (8:69) denotes Helen.
 - **9 Engineer's Thumb:** Elise's name unlocks after 9:128 and the coiners after 9:157. Dr. Becher's part is **left unresolved**: the text does not settle whether he is Ferguson or the gang's host, so the "foreign patient" phrase is unbound.
@@ -63,7 +63,7 @@ Coordinates are `story:paragraph`, with zero-based paragraphs and gates at parag
    - 9:166, where the modern edition drops Becher's name
    - 4:131, where the modern edition names Lestrade
 
-   No entity is omitted from either edition. Mention totals are 1,867 (original) and 1,862 (modern).
+   No entity is omitted from either edition. Mention totals are 1,870 (original) and 1,863 (modern) at revision 2026-10-05.2.
 
 ## Verification
 
@@ -72,6 +72,25 @@ python3 books/characters/entities/adventures-of-sherlock-holmes.py          # re
 python3 books/characters/entities/adventures-of-sherlock-holmes.py --check  # byte-identical rebuild
 ```
 
-The app's own `verifyCharacters` and `releasedCard` were run in memory with a temporary release entry, outside the repository. Both editions verify, source drift is rejected, and 952 gate checks pass, covering cards hidden before first mention, snapshots hidden before and shown at their gates, and role labels. The existing character suite (`npx vitest run src/services/characters`) passes 503/503, unchanged.
+The app's own `verifyCharacters` and `releasedCard` were run in memory with a temporary release entry, outside the repository. Both editions verify, source drift is rejected, and 1,036 gate checks pass (revision 2026-10-05.2), covering cards hidden before first mention, snapshots hidden before and shown at their gates, and role labels. The existing character suite (`npx vitest run src/services/characters`) passes 503/503, unchanged.
 
 Release owner: copy `characters.v1.json` to `app/public/data/characters/adventures-of-sherlock-holmes.v1.json`, add the `characterReleases` entry from `books/wip/adventures-of-sherlock-holmes/release/characterReleases-entry.txt`, then run app gates and production verification. A validated package is not live coverage.
+
+## Independent editorial review (2026-10-05)
+
+Seven fresh reviewers who did not write the content each covered two stories, or the intro and onboarding. They read the full text in both editions and checked:
+- every card, snapshot and gate;
+- every bound mention, in context;
+- every cast-list thread.
+
+They raised 89 findings in total:
+- **Story findings:** 83, none of them blockers. Three were major: Watson's marital status in story 10, the maid's thread in story 10, and Rucastle's confrontation in story 12.
+- **Intro/onboarding findings:** 6.
+
+Fixes were applied to 81 of the 83 story findings and all 6 intro findings. S4-08 (a Baxter card relying on external attribution) and S7-08 (marked acceptable as is by its reviewer) are recorded as justified.
+
+A separate fresh rechecker confirmed:
+- 87 findings resolved and 2 justified;
+- 4 issues introduced by the fixes (1 major, 3 minor).
+
+All four were then corrected with the rechecker's exact text. The records are in `books/wip/adventures-of-sherlock-holmes/qa/character-review/`.

@@ -1,5 +1,7 @@
 # READY — content package
 
+> **2026-10-05:** character cards, threads, intro/preface and release snippets completed and independently accepted on branch `claude/sherlock-adventures-content`. See `release/HANDOFF.md`. The "No generated character or threads artifact is supplied" note below is superseded.
+
 Repository: anderskhv/tinct
 Branch: content/sherlock-adventures-codex
 Checkout/base revision: ab3cc43f2687e6682833db6a66182d150788ffa4

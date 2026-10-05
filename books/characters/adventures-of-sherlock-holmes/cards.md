@@ -246,7 +246,7 @@ A former Australian colonist who rents Hatherley Farm from his old acquaintance 
 
 After source chapter 4, paragraph 18: A former Australian colonist who rented Hatherley Farm from his old acquaintance John Turner, a widower with one son, James. On Monday 3 June he walked to Boscombe Pool for an important three o’clock appointment and never came back alive.
 
-After source chapter 4, paragraph 38: A former Australian colonist who rents Hatherley Farm from his old acquaintance John Turner. A widower with one son, James, cold and forbidding in manner.
+After source chapter 4, paragraph 38: A former Australian colonist who rented Hatherley Farm from his old acquaintance John Turner, a widower with one son, James. On Monday 3 June he walked to Boscombe Pool for an important three o’clock appointment and never came back alive. His son describes him as cold and forbidding in manner and not a popular man.
 
 After source chapter 4, paragraph 209: A former Australian colonist who lived rent-free at Hatherley Farm. John Turner’s confession reveals that McCarthy was the wagon-driver of a gold convoy that Turner’s gang robbed in Victoria; years later he recognised Turner in London and blackmailed him for twenty years. When he pressed for his son James to marry Turner’s daughter Alice, Turner killed him at Boscombe Pool.
 
@@ -502,7 +502,7 @@ After source chapter 6, paragraph 221: The police inspector on duty at the Bow S
 
 After source chapter 7, paragraph 61: A police inspector who knows Holmes (an inspector Bradstreet handled the Hugh Boone affair). In the Hotel Cosmopolitan robbery he gave evidence at the police court about the arrest of John Horner.
 
-After source chapter 9, paragraph 138: A police inspector, here of Scotland Yard (an inspector Bradstreet also appears at Bow Street in the Hugh Boone affair). He travels to Eyford with Holmes, Watson and Hatherley and plots a ten-mile circle on the map to find the house.
+After source chapter 9, paragraph 138: A police inspector, here of Scotland Yard (an inspector Bradstreet also appears at Bow Street in the Hugh Boone affair). He travels to Eyford with Holmes, Watson and Hatherley and draws a circle on the county map with Eyford at its centre to find the house.
 
 After source chapter 9, paragraph 160: A police inspector, here of Scotland Yard, who leads the search for the coining gang near Eyford. Watson says his confidence that they would be caught proved mistaken.
 
@@ -558,7 +558,9 @@ An egg and poultry supplier at 117 Brixton Road. Breckinridge’s ledger shows s
 
 After source chapter 7, paragraph 189: James Ryder’s sister, married to a man named Oakshott. She fattens fowls for the market at 117 Brixton Road and sold Breckinridge twenty-four geese on 22 December.
 
-After source chapter 7, paragraph 191: James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas. Ryder calls her Maggie.
+After source chapter 7, paragraph 191: James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas.
+
+After source chapter 7, paragraph 195: James Ryder’s sister, married to a man named Oakshott. She fattens geese for the market in Brixton Road and had promised her brother a goose for Christmas. Ryder calls her Maggie.
 
 ## James Ryder · major
 
@@ -874,7 +876,7 @@ After source chapter 11, paragraph 220: Arthur’s worldly older friend, who too
 
 The Holders’ second waiting-maid, in service only a few months but with excellent references. She is very pretty and has admirers who sometimes hang about the house.
 
-After source chapter 11, paragraph 134: The Holders’ second waiting-maid, in service only a few months. She served the coffee while Holder spoke of the coronet and may have overheard him. That night Mary saw her slipping back in at the kitchen door after meeting her sweetheart, the greengrocer Francis Prosper.
+After source chapter 11, paragraph 134: The Holders’ second waiting-maid, in service only a few months. She brought in the coffee on the evening Holder spoke of the coronet; he believes she had left the room, but Mary suggests she may have overheard him. That night Mary saw her slipping back in at the kitchen door after meeting her sweetheart, the greengrocer Francis Prosper.
 
 After source chapter 11, paragraph 216: The Holders’ second waiting-maid. Holmes confirmed from the snow and from inquiry that her night outing was simply a meeting with her sweetheart at the kitchen door, and ruled out the maids as the coronet’s takers.
 
