@@ -101,9 +101,9 @@ function threeDayEmail(): { subject: string; html: string } {
     subject: 'Your Tinct trial ends in 3 days',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">3 days left of Premium.</h2>
-      <p>Your free Premium trial ends in <strong>3 days</strong>. To keep the AI companion, audiobook, Cast, and Feed, subscribe for <strong>$3/month</strong>.</p>
+      <p>Your free Premium trial ends in <strong>3 days</strong>. To keep the AI companion, audiobook, Cast, and Feed, subscribe for <strong>$5/month</strong>.</p>
       <p style="margin: 22px 0;">
-        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Keep Premium · $3/mo</a>
+        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Keep Premium · $5/mo</a>
       </p>
       <p style="color: #555; font-size: 14px;">Reading is always free. All your books, editions, highlights, and notes stay yours whether you subscribe or not.</p>
       <p style="color: #555; font-size: 14px;">Can't afford it? Reply to this email. We'll work something out.</p>
@@ -118,9 +118,9 @@ function trialEndedEmail(): { subject: string; html: string } {
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">Your trial ended.</h2>
       <p>You're now on the free tier. Reading stays free: all the books, every edition, your highlights, your notes, your reading position across devices. Nothing you've already made is gone.</p>
-      <p>Premium features (AI companion, audiobook, Cast, Feed) have paused. $3/month brings them back whenever you want.</p>
+      <p>Premium features (AI companion, audiobook, Cast, Feed) have paused. $5/month brings them back whenever you want.</p>
       <p style="margin: 22px 0;">
-        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Resubscribe · $3/mo</a>
+        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Resubscribe · $5/mo</a>
       </p>
       <p style="color: #555; font-size: 14px;">Or just keep reading for free. The books are still here.</p>
     `),

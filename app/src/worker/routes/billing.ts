@@ -12,6 +12,8 @@ export type BillingEnv = SupabaseEnv & {
   STRIPE_PRICE_PREMIUM?: string
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
+  /** 'on' once Stripe Tax is set up: Checkout then works out VAT / sales tax from the billing address. */
+  STRIPE_AUTOMATIC_TAX?: string
 }
 
 const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
@@ -85,6 +87,11 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     params.set('success_url', `${origin}?payment=success`)
     params.set('cancel_url', `${origin}?payment=cancelled`)
     params.set('metadata[supabase_user_id]', user.id)
+    if (env.STRIPE_AUTOMATIC_TAX === 'on') {
+      params.set('automatic_tax[enabled]', 'true')
+      // The customer already exists; Checkout saves the billing address it asks for onto it.
+      params.set('customer_update[address]', 'auto')
+    }
 
     const lastTouch = body.attribution?.last_touch || body.attribution?.first_touch || null
     if (lastTouch) {

@@ -72,6 +72,7 @@ interface Env {
   STRIPE_PRICE_PREMIUM?: string
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
+  STRIPE_AUTOMATIC_TAX?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string

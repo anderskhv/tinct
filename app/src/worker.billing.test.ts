@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -67,6 +67,38 @@ describe('billing routes', () => {
     expect(portal.status).toBe(401)
     expect(cancellation.status).toBe(401)
     expect(subscription.status).toBe(401)
+  })
+
+  describe('Stripe Tax at checkout', () => {
+    afterEach(() => vi.unstubAllGlobals())
+    const checkoutParams = async (env: Record<string, string>) => {
+      let sent = new URLSearchParams()
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+        const url = String(input)
+        if (url.includes('/rest/v1/profiles')) return Response.json([{ stripe_customer_id: 'cus_1' }])
+        if (url === 'https://api.stripe.com/v1/checkout/sessions') { sent = new URLSearchParams(String(init?.body)); return Response.json({ url: 'https://checkout.stripe.com/x' }) }
+        return Response.json({})
+      }))
+      const response = await handleCreateCheckout(
+        new Request('https://tinct.app/api/create-checkout', { method: 'POST', body: JSON.stringify({ type: 'subscription' }), headers: { 'content-type': 'application/json' } }),
+        { ...stripeEnv, STRIPE_PRICE_PREMIUM: 'price_5', ...env },
+        async () => ({ id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' }),
+      )
+      expect(response.status).toBe(200)
+      return sent
+    }
+
+    it('stays off until it is switched on', async () => {
+      const sent = await checkoutParams({})
+      expect(sent.get('line_items[0][price]')).toBe('price_5')
+      expect(sent.has('automatic_tax[enabled]')).toBe(false)
+    })
+
+    it('asks Stripe to work out the tax when switched on', async () => {
+      const sent = await checkoutParams({ STRIPE_AUTOMATIC_TAX: 'on' })
+      expect(sent.get('automatic_tax[enabled]')).toBe('true')
+      expect(sent.get('customer_update[address]')).toBe('auto')
+    })
   })
 
   it('rejects non-POST webhooks', async () => {
