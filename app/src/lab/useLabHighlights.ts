@@ -48,6 +48,8 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   compareParagraphs?: string[]
   /** Signed-in account: highlights and notes also sync through its `lab-highlights:{bookId}` rows. Absent or null = this device only. */
   userId?: string | null
+  /** A highlight from a shared link (/q/{id}): shown on its passage, never saved. */
+  shared?: LabHighlight | null
 }) {
   const [highlights, setHighlights] = useState<LabHighlight[]>(() => readLabHighlights())
   const highlightsRef = useRef(highlights)
@@ -145,9 +147,14 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     }
   }, [cloudWriter, bookId])
 
+  const shared = scope?.shared && scope.shared.bookId === scope.bookId && scope.shared.editionKey === scope.editionKey ? scope.shared : null
+  const shownHighlights = useMemo(
+    () => (shared && !visibleHighlights.some(h => h.id === shared.id) ? [...visibleHighlights, shared] : visibleHighlights),
+    [visibleHighlights, shared],
+  )
   const chapterHighlights = useMemo(
-    () => visibleHighlights.filter(h => h.chapterNumber === chapterNumber),
-    [visibleHighlights, chapterNumber],
+    () => shownHighlights.filter(h => h.chapterNumber === chapterNumber),
+    [shownHighlights, chapterNumber],
   )
 
   const addOrReuse = useCallback((range: LabHighlightRange, color: LabHighlightColor = 'gold', editionKey = scope?.editionKey, targetChapter = chapterNumber) => {
@@ -217,7 +224,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   }, [])
 
   return {
-    highlights: visibleHighlights,
+    highlights: shownHighlights,
     allHighlights: highlights,
     compareHighlights: projected(scope?.compareEditionKey).filter(h => h.chapterNumber === chapterNumber),
     unassignedHighlights: highlights.filter(h => !h.bookId || !h.editionKey),

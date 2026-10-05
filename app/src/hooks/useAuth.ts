@@ -8,6 +8,7 @@ import { clearLocalUserData } from '../services/storage'
 import type { UserProfile } from '../types'
 import { getAttributionPayload } from '../utils/attribution'
 import { trackEvent } from '../utils/analytics'
+import { trackShareLinkSignup } from '../utils/shareAttribution'
 import { clearSignedInCookie, hasSignedInCookie, setSignedInCookie } from '../utils/authCookie'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 
@@ -161,6 +162,7 @@ export function useAuth(): UseAuthReturn {
     })
     if (error) return { error: error.message }
     trackEvent('signup_completed', { method: 'email', path })
+    trackShareLinkSignup()
     return { confirmationRequired: !data.session }
   }, [])
 

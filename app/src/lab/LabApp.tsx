@@ -35,7 +35,8 @@ import {
 import { readSupabaseAccessToken } from './labAuth'
 import { useLabFunnel } from './useLabFunnel'
 import { useLabListenReport } from './useLabListenReport'
-import { trackFunnelOnce } from '../utils/funnel'
+import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
+import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { flushSync } from 'react-dom'
@@ -87,6 +88,7 @@ import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
@@ -141,7 +143,7 @@ import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
@@ -1665,7 +1667,26 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
-  const highlightsApi = useLabHighlights(book.chapterNumber, { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
+  // A shared highlight link (/q/{id} → /reader?…&share=id): its passage is
+  // painted for this visit only, never saved to the visitor's highlights.
+  const [sharedHighlight, setSharedHighlight] = useState<LabHighlight | null>(null)
+  useEffect(() => {
+    const link = sharedLinkForPage()
+    if (!link) return
+    trackFunnel('share_link_opened', { share_id: link.id, referrer_domain: link.ref || null })
+    let active = true
+    fetch(apiUrl(`/api/share/${link.id}`)).then(response => response.ok ? response.json() : null).then((record: { bookId?: string; editionKey?: string; chapterNumber?: number; paragraphIndex?: number; fromWord?: number; endParagraphIndex?: number; toWord?: number } | null) => {
+      if (!active || !record?.bookId || !record.editionKey || typeof record.chapterNumber !== 'number') return
+      setSharedHighlight({
+        id: `shared-${link.id}`, bookId: record.bookId, editionKey: record.editionKey, chapterNumber: record.chapterNumber,
+        paragraphIndex: record.paragraphIndex ?? 0, fromWord: record.fromWord ?? 0, endParagraphIndex: record.endParagraphIndex ?? 0, toWord: record.toWord ?? 0,
+        color: 'gold',
+      })
+    }).catch(() => {})
+    return () => { active = false }
+  }, [])
+  const [shareTarget, setShareTarget] = useState<LabShareTarget | null>(null)
+  const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
   // Set once the first page is on screen. Work the opening page does not
   // need (character cards, neighbouring chapters) waits for it rather than
   // sharing the network and main thread with the reader's first text.
@@ -5374,12 +5395,32 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             highlightsApi.remove(id)
             dismissSelectionPopup()
           }}
+          onShareHighlight={(id) => {
+            const mark = highlightsApi.highlights.find(h => h.id === id) ?? highlightsApi.compareHighlights.find(h => h.id === id)
+            dismissSelectionPopup()
+            if (!mark) return
+            const editionKey = mark.editionKey || selectionPopup.editionKey || readerEditionKey
+            setShareTarget({
+              bookId: mark.bookId || book.bookId || 'bible', editionKey, editionLabel: editionLabelFor(editionKey, allBookEditions),
+              chapterNumber: mark.chapterNumber, paragraphIndex: mark.paragraphIndex, fromWord: mark.fromWord,
+              endParagraphIndex: mark.endParagraphIndex, toWord: mark.toWord,
+            })
+          }}
           dismissPopup={dismissSelectionPopup}
           lab
         />
       )}
 
       {openFootnote && <LabFootnote open={openFootnote} onClose={() => setOpenFootnote(null)} />}
+
+      {shareTarget && (
+        <LabShareSheet
+          target={shareTarget}
+          format={isPhone ? 'phone' : 'desktop'}
+          look={typeof document !== 'undefined' && document.documentElement.dataset.eink === 'true' ? 'eink' : resolvedDarkMode ? 'night' : 'paper'}
+          onClose={() => setShareTarget(null)}
+        />
+      )}
 
       {!showPhoneChrome && (
         <p className="lab-visually-hidden" data-testid="lab-desktop-panes">

@@ -9,6 +9,7 @@
  */
 import type { ReaderPositionCoordinator } from '../readerPositionCoordinator'
 import type { RecapPreparationCoordinator } from '../recapPreparationCoordinator'
+import type { ShareStore } from '../shareStore'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
@@ -20,6 +21,7 @@ export type AdminAccountsEnv = SupabaseEnv & {
   RATE_LIMIT?: KVNamespace
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
+  SHARE_STORE?: DurableObjectNamespace<ShareStore>
 }
 
 type VerifySiteAdmin = (env: AdminAccountsEnv, request: Request) => Promise<boolean>
@@ -324,6 +326,11 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
     [`${prefix}do:reader-position`, async () => {
       if (!env.READER_POSITION) throw new Error('READER_POSITION binding missing')
       await env.READER_POSITION.getByName(userId).purge()
+    }],
+    // Shared highlight links stay public; only their link to the account goes.
+    [`${prefix}do:share-creator`, async () => {
+      if (!env.SHARE_STORE) throw new Error('SHARE_STORE binding missing')
+      await env.SHARE_STORE.getByName('shares').forgetCreator(userId)
     }],
     [`${prefix}kv:lab-chat-history`, async () => {
       if (!env.RATE_LIMIT) throw new Error('RATE_LIMIT binding missing')
