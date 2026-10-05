@@ -142,7 +142,7 @@ function bookMarkup(b, i) {
   const [name, colour] = bindingFor(b);
   const texture = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
   return `
-    <button class="rt-b" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
+    <button class="rt-b${b.linked ? ' is-linked' : ''}" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
       <span class="rt-shadow" aria-hidden="true"></span>
       <span class="rt-cast" aria-hidden="true"></span>
       <span class="rt-f rt-back"></span>
@@ -260,7 +260,9 @@ function wire(view, table, demo, keepBookId, options={}) {
   function positionRemove(animate=false){
     cancelAnimationFrame(removeFrame);
     if(!options.onRemoveReading)return;
-    remove.hidden=false;
+    // A linked book is not on the reader's list, so there is nothing to remove.
+    remove.hidden=!!table.reading[current]?.linked;
+    if(remove.hidden)return;
     const until=performance.now()+(animate&&!reduced?900:0);
     const move=()=>{
       if(!view.isConnected)return;
@@ -361,6 +363,9 @@ function wire(view, table, demo, keepBookId, options={}) {
     try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
     const set = () => {
       $('rt-title').textContent = b.title;
+      // A linked book the reader has not started: its question, and Read opens its introduction.
+      view.classList.toggle('is-linked', !!b.linked);
+      $('rt-continue').firstChild.textContent = b.linked ? 'Read' : 'Continue';
       renderBookMetadata($('rt-book-metadata'), b, {percent:b.percent});
       remove.setAttribute('aria-label',`Remove ${b.title} from currently reading`);
       $('rt-place').textContent = b.chapterLabel;
@@ -392,7 +397,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   async function continueReading() {
     const b = table.reading[current];
     if (!b || document.body.classList.contains('leaving')) return;
-    if(options.onOpen){try{await options.onOpen(b.bookId,'reading',books[current].querySelector('.rt-front img'));}catch{options.onError?.('This book could not open. Please try again.');}return;}
+    if(options.onOpen){try{await options.onOpen(b.bookId,b.linked?'linked':'reading',books[current].querySelector('.rt-front img'));}catch{options.onError?.('This book could not open. Please try again.');}return;}
     document.body.classList.add('leaving');
     const destination = demo || !view.api ? Promise.resolve(`/library?book=${encodeURIComponent(b.bookId)}&view=book-detail`) : view.api.readerDestination(b.bookId, null);
     const [href] = await Promise.all([destination, new Promise(r => setTimeout(r, 240))]);

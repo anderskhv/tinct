@@ -2,8 +2,13 @@ import { chromium, webkit } from '@playwright/test'
 import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
-const root=path.resolve('dist'),out='artifacts/library-public';fs.mkdirSync(out,{recursive:true});
-(async()=>{const live=process.env.LIBRARY_LIVE==='1';
+// The Worker's book-link composition, run here against the local build.
+import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage } from '../src/worker/lib/bookLibraryPage.ts'
+const root=path.resolve('dist'),out=process.env.LIBRARY_OUT||'artifacts/library-public';fs.mkdirSync(out+'/book-links',{recursive:true});
+// LIBRARY_ENGINES=chromium limits the engines; PW_CHROMIUM_PATH names a local Chromium binary.
+const engines=(process.env.LIBRARY_ENGINES||'chromium,webkit').split(','),chromiumPath=process.env.PW_CHROMIUM_PATH;
+const live=process.env.LIBRARY_LIVE==='1';
+(async()=>{
 // Navigations wait for DOMContentLoaded, then for the element under test: the
 // library's full load event waits on every image (portraits in the hidden author
 // flap included) and has stalled past 30s in CI without any visible fault.
@@ -33,8 +38,10 @@ async function checkSceneFilm(b,engine,label,options,expected){
  }
  console.log('SCENE_FILM '+JSON.stringify({engine,label,films}));await c.close();
 }
-for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
- const b=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})});
+for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>engines.includes(e.name()))){
+ const b=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})});
+ // Book links: the linked book is in the hero from the first paint, nothing opens by itself.
+ for(const [bw,bh,mobile] of engine===chromium?[[1440,900,false],[390,844,true]]:[[390,844,true]])await checkBookLinks(b,engine.name(),bw,bh,mobile,engine===chromium&&!mobile);
  if(engine===chromium){await checkSceneFilm(b,'chromium','desktop',{viewport:{width:w,height:h}},'assets/scenes/room-wide-v2.mp4');await checkSceneFilm(b,'chromium','reduced-motion',{viewport:{width:w,height:h},reducedMotion:'reduce'},null);}
  else await checkSceneFilm(b,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
@@ -142,3 +149,116 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]]){
  await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();
 }})().catch(e=>{console.error(e);process.exit(1)});
 
+// ---- Book links: /library?book=<id> and the shared /read/<id>/ (approved 6 Oct) ----
+async function checkBookLinks(b,engine,w,h,mobile,extended){
+ const LINKED='wuthering-heights',TITLE='Wuthering Heights',AUTHOR='Emily Brontë',label=`${engine}-${w}x${h}`,shots=out+'/book-links';
+ const library=()=>fs.readFileSync(path.join(root,'lab/library_2/index.html'),'utf8');
+ const generated=id=>{const f=path.join(root,'read',id||'','book.html');return /^[a-z0-9-]+$/.test(id||'')&&fs.existsSync(f)?readGeneratedBookPage(fs.readFileSync(f,'utf8'),id):null;};
+ async function open({state=null,raw=false}={}){
+  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(mobile?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
+  // Every animation frame from the first: which book the hero names and whether anything opened.
+  await c.addInitScript(()=>{window.__heroFrames=[];const tick=()=>{const copy=document.querySelector('.hero-copy');if(copy){const s=getComputedStyle(copy),cover=getComputedStyle(document.getElementById('hero-book')),root=document.documentElement;const shown=!root.classList.contains('returning')&&s.display!=='none'&&s.visibility==='visible'&&Number(s.opacity)>0;window.__heroFrames.push({title:document.getElementById('hero-title').textContent,cover:document.querySelector('#hero-book canvas')?.dataset.book,shown,coverShown:shown&&cover.visibility==='visible',overlay:!document.getElementById('book-overlay').hidden,desk:document.querySelector('.reading-table:not([hidden]) .rt-b.is-current')?.getAttribute('aria-label')||null});}if(window.__heroFrames.length<2000)requestAnimationFrame(tick);};requestAnimationFrame(tick);});
+  if(state)await c.addInitScript(value=>{if(!localStorage.getItem('tinct-lab-position'))localStorage.setItem('tinct-lab-position',value);},JSON.stringify(state));
+  if(!live){
+   // The Worker's routing for these pages, against the local build; account APIs answer nothing.
+   await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());
+    if(u.pathname.startsWith('/api/'))return r.fulfill({status:404,contentType:'application/json',body:'{}'});
+    const read=u.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/)?.[1],entry=['/','/index.html','/library','/library/'].includes(u.pathname);
+    if(read||entry){const page=generated(read||u.searchParams.get('book'));if(read&&!page)return r.fulfill({status:404,body:'missing'});return r.fulfill({contentType:'text/html',body:read?composeBookLibraryPage(library(),page):page&&!raw?prefillLibraryHero(library(),page.hero):library()});}
+    if(u.pathname==='/reader')return r.fulfill({path:path.join(root,'app.html'),contentType:'text/html'});
+    const f=path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f});return r.fulfill({status:404,body:''});});
+   await p.route(/supabase\.co/,r=>r.fulfill({status:404,contentType:'application/json',body:'{}'}));
+  }
+  return {c,p,errors};
+ }
+ const frames=p=>p.evaluate(()=>window.__heroFrames);
+ function onlyLinked(list,where){
+  assert(list.length>0,where+': frames recorded');
+  const other=list.find(f=>(f.shown&&f.title!==TITLE)||(f.coverShown&&f.cover!==LINKED)||(f.desk&&f.desk!==TITLE));
+  assert(!other,where+': no other book in the hero or on the desk '+JSON.stringify(other));
+  assert(!list.some(f=>f.overlay),where+': nothing opens by itself');
+ }
+ // A new reader: that book in the hero from the very first frame; Read opens the usual introduction.
+ for(const entry of ['/library?book='+LINKED,'/read/'+LINKED+'/']){
+  const {c,p,errors}=await open(),where=`${label} fresh ${entry}`,kind=entry.startsWith('/read')?'read':'library';
+  await p.goto('https://tinct.app'+entry,{waitUntil:'domcontentloaded'});
+  await p.locator('#read-featured').waitFor();
+  await p.waitForFunction(()=>document.getElementById('hero-time').textContent.trim().length>0);
+  await p.waitForTimeout(3500);
+  const list=await frames(p);onlyLinked(list,where);
+  assert(list[0].shown&&list[0].title===TITLE,where+': first frame shows the linked book '+JSON.stringify(list[0]));
+  assert.equal(await p.locator('#hero-author').innerText(),AUTHOR+'’s');
+  assert.equal(new URL(p.url()).pathname+new URL(p.url()).search,entry,where+': the address stays the shared link');
+  await p.screenshot({path:`${shots}/${label}-fresh-${kind}.png`});
+  if(kind==='read'){
+   const head=await p.evaluate(()=>({title:document.title,canonical:document.querySelector('link[rel=canonical]')?.href,ogTitle:document.querySelector('meta[property="og:title"]')?.content,robots:document.querySelector('meta[name=robots]')?.content||null,about:document.getElementById('book-about')?.innerText||''}));
+   assert.match(head.title,/Wuthering Heights/);assert.equal(head.canonical,'https://tinct.app/read/'+LINKED);assert.match(head.ogTitle,/Wuthering Heights/);assert.equal(head.robots,null,'the shared page is indexable');
+   assert(head.about.includes('a housekeeper'),where+': the book text is on the page');
+   if(extended){await p.evaluate(()=>document.getElementById('book-about').scrollIntoView({block:'start',behavior:'instant'}));await p.waitForTimeout(300);await p.screenshot({path:`${shots}/${label}-fresh-read-about.png`});await p.evaluate(()=>scrollTo({top:0,behavior:'instant'}));}
+  }
+  await p.locator('#read-featured').click();
+  await p.locator('#book-overlay').waitFor();await p.waitForFunction(a=>document.getElementById('slip-caption').textContent.includes(a),AUTHOR);
+  await p.waitForTimeout(1600);await p.screenshot({path:`${shots}/${label}-fresh-${kind}-opened.png`});
+  assert.deepEqual(errors,[],where+': no page errors');
+  console.log('BOOK_LINK '+JSON.stringify({where,frames:list.length,first:list[0]}));
+  await c.close();
+ }
+ if(extended&&!live){
+  // Without the Worker's prefilled hero (a development server), the hero waits for the book.
+  const {c,p,errors}=await open({raw:true}),where=`${label} unfilled /library?book=`;
+  await p.goto('https://tinct.app/library?book='+LINKED,{waitUntil:'domcontentloaded'});
+  await p.waitForFunction(t=>document.getElementById('hero-title').textContent===t&&!document.documentElement.classList.contains('linked-pending'),TITLE);
+  await p.waitForTimeout(2500);onlyLinked(await frames(p),where);assert.deepEqual(errors,[]);await c.close();
+ }
+ if(extended){
+  // A chapter link goes straight into the reader at that chapter.
+  const {c,p}=await open();
+  await p.goto('https://tinct.app/read/'+LINKED+'/',{waitUntil:'domcontentloaded'});
+  const link=p.locator(`#book-about a[href="/reader?book=${LINKED}&chapter=3"]`);
+  await link.scrollIntoViewIfNeeded();
+  const reader=p.waitForRequest(r=>r.url()===`https://tinct.app/reader?book=${LINKED}&chapter=3`);
+  await link.click();await reader;
+  await p.waitForFunction(()=>/Chapter III\b/.test(document.body.innerText),null,{timeout:45000});
+  await p.screenshot({path:`${shots}/${label}-chapter-link-reader.png`});
+  console.log('BOOK_LINK_CHAPTER '+JSON.stringify({engine,url:p.url()}));
+  await c.close();
+ }
+ // A reader with books on this device: their desk as usual, the linked book in focus beside them.
+ const now=Date.now(),place=(bookId,headerBook,chapterNumber,at)=>({bookId,headerBook,chapterNumber,sequentialChapter:chapterNumber,paragraphIndex:3,wordIndex:0,pageIndex:1,primaryEditionKey:'original-en',updatedAt:at,deviceId:'public-check',rev:0});
+ const state={owner:null,books:{frankenstein:place('frankenstein','Frankenstein',7,now),odyssey:place('odyssey','The Odyssey',3,now-60000)},finished:{},hidden:{},lastSettledBookId:'frankenstein',lastSettledAt:now,updatedAt:now,deviceId:'public-check'};
+ {
+  const {c,p,errors}=await open({state});
+  const desk=async()=>{await p.locator('.reading-table.is-ready').waitFor({timeout:30000});await p.waitForTimeout(800);return p.evaluate(()=>({books:[...document.querySelectorAll('.reading-table:not([hidden]) .rt-b')].map(b=>b.getAttribute('aria-label')),current:document.querySelector('.reading-table:not([hidden]) .rt-b.is-current')?.getAttribute('aria-label'),title:document.getElementById('rt-title').textContent,action:document.getElementById('rt-continue').textContent.trim(),remove:document.getElementById('rt-remove').hidden}));};
+  await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});
+  const own=await desk();assert(own.books.length===2&&own.current===own.books[0],'baseline desk '+JSON.stringify(own));
+  const before=await p.evaluate(()=>localStorage.getItem('tinct-lab-position'));
+  for(const entry of ['/library?book='+LINKED,'/read/'+LINKED+'/']){
+   await p.evaluate(()=>sessionStorage.clear());
+   await p.goto('https://tinct.app'+entry,{waitUntil:'domcontentloaded'});
+   const linked=await desk(),where=`${label} returning ${entry}`;
+   assert.deepEqual(linked.books,[TITLE,...own.books],where+': their own books keep their order');
+   assert.equal(linked.current,TITLE,where);assert.equal(linked.title,TITLE,where);assert.equal(linked.action,'Read',where);assert.equal(linked.remove,true,where+': nothing to remove');
+   await p.waitForTimeout(2500);onlyLinked(await frames(p),where);
+   assert.equal(await p.evaluate(()=>localStorage.getItem('tinct-lab-position')),before,where+': no reading state written');
+   await p.screenshot({path:`${shots}/${label}-returning-${entry.startsWith('/read')?'read':'library'}.png`});
+  }
+  await p.locator('#rt-continue').click();
+  await p.locator('#book-overlay').waitFor();await p.waitForFunction(a=>document.getElementById('slip-caption').textContent.includes(a),AUTHOR);
+  await p.waitForTimeout(1600);await p.screenshot({path:`${shots}/${label}-returning-read-opened.png`});
+  // A linked book already on the desk is simply brought into focus.
+  await p.evaluate(()=>sessionStorage.clear());
+  await p.goto('https://tinct.app/library?book=odyssey',{waitUntil:'domcontentloaded'});
+  const onDesk=await desk();
+  assert.deepEqual(onDesk.books,own.books);assert.equal(onDesk.current,'The Odyssey');assert.equal(onDesk.action,'Continue');
+  assert(!(await frames(p)).some(f=>f.overlay),'a desk book link opens nothing');
+  assert.deepEqual(errors,[],label+' returning: no page errors');
+  console.log('BOOK_LINK_RETURNING '+JSON.stringify({label,own,onDesk}));
+  await c.close();
+ }
+ if(live){
+  // Link previews: crawlers get the book's own title and image.
+  const preview=await (await fetch(`https://tinct.app/read/${LINKED}/`,{headers:{'user-agent':'Twitterbot/1.0'}})).text();
+  assert.match(preview,/<meta property="og:title" content="[^"]*Wuthering Heights/);
+  assert(preview.includes(`<meta property="og:image" content="https://tinct.app/brand/20260921/books/${LINKED}.jpg">`),'book preview image');
+ }
+}
