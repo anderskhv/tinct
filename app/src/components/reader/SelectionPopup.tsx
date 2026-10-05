@@ -1,5 +1,6 @@
 import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
+import { flushSync } from 'react-dom'
 import type { CharacterSelection } from '../../services/characters/characterCards'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
@@ -279,6 +280,18 @@ export function SelectionPopup({
     applyColor(color)
     dismissPopup()
   }
+  const noteFieldRef = useRef<HTMLTextAreaElement | null>(null)
+  /**
+   * Open the note editor and focus its field inside the same tap. iOS raises
+   * the keyboard only for a focus made within the gesture; a field merely
+   * rendered after it stayed unfocused, so text typed right after "Add note"
+   * went nowhere (phone QA, 6 Oct). Opening an existing highlight's note
+   * without this request still leaves the keyboard down.
+   */
+  const requestNote = (color?: HighlightColor) => {
+    flushSync(() => onRequestNote(color))
+    noteFieldRef.current?.focus({ preventScroll: true })
+  }
   const dismissRef = useRef(dismissPopup)
   dismissRef.current = dismissPopup
   useEffect(() => {
@@ -436,7 +449,7 @@ export function SelectionPopup({
 
       {contextualExplain && popupMode === 'colors' && <div className="popup-highlight-palette" aria-label="Highlight colour">
         {HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => pickColor(c.key)} />)}
-        <button type="button" className="popup-add-note" aria-label={selection.existingNote ? 'Edit note' : 'Add note'} onClick={() => onRequestNote(lastColor)}>+</button>
+        <button type="button" className="popup-add-note" aria-label={selection.existingNote ? 'Edit note' : 'Add note'} onClick={() => requestNote(lastColor)}>+</button>
       </div>}
 
       {popupMode === 'note' && (
@@ -452,6 +465,7 @@ export function SelectionPopup({
           </div>}
           <div className={contextualExplain ? 'popup-note-body' : undefined}>
             <textarea
+              ref={noteFieldRef}
               className="popup-textarea"
               value={noteInput}
               onChange={e => setNoteInput(e.target.value)}
@@ -460,7 +474,8 @@ export function SelectionPopup({
               rows={3}
               onClick={e => e.stopPropagation()}
               // Desktop: type straight away (otherwise the reader's letter shortcuts
-              // take the keys). Touch: no focus, so the keyboard waits for a tap.
+              // take the keys). Touch: the Add note tap focuses it (requestNote);
+              // merely showing a note does not raise the keyboard.
               autoFocus={!contextualExplain || (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches === true)}
             />
             <div className="popup-note-actions">
@@ -470,7 +485,10 @@ export function SelectionPopup({
               }}>{contextualExplain ? 'Back' : 'Cancel'}</button>
               <button
                 className="popup-button popup-button-primary"
+                // An empty new note is never saved; clearing an existing one is.
+                disabled={!noteInput.trim() && !selection.existingNote}
                 onClick={() => {
+                  if (!noteInput.trim() && !selection.existingNote) return
                   if (selection.existingHighlightId) {
                     onUpdateHighlightNote?.(selection.existingHighlightId, noteInput.trim())
                   }
@@ -500,7 +518,7 @@ export function SelectionPopup({
           {(popupMode === 'colors' || selection.existingHighlightId) && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}</div>}
           <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
           <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
-          <button type="button" className="popup-menu-action" onClick={onRequestNote}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
+          <button type="button" className="popup-menu-action" onClick={() => requestNote()}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
           {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
           </>}
         </div>

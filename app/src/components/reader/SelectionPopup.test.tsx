@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 
+import { useState } from 'react'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { SelectionPopup, type SelectionInfo, type SelectionPopupProps } from './SelectionPopup'
@@ -298,4 +299,58 @@ it('retains the source page for an expanded explanation', () => {
   const input = props({ lab: true, popupMode: 'explain', selection: selection({ x: window.innerWidth - 100 }), onRequestExplanation: vi.fn().mockResolvedValue('A short explanation.') })
   const { container } = render(<SelectionPopup {...input} />)
   expect(container.querySelector('[data-explain-origin="right"]')).toBeTruthy()
+})
+
+describe('phone note: typing right after Add note', () => {
+  // Nightly QA, 6 Oct: on a phone, Highlight → "+" (Add note) → type at once
+  // left the field empty ("Add a note…") and Save note stored an empty note.
+  // The field never took focus, so iOS raised no keyboard and the keys went
+  // nowhere. The tap that asks for the note must focus the field itself.
+  function NoteHarness({ onUpdateHighlightNote, existingNote }: { onUpdateHighlightNote: (id: string, note: string) => void; existingNote?: string }) {
+    const [mode, setMode] = useState<SelectionPopupProps['popupMode']>('colors')
+    const [note, setNote] = useState(existingNote ?? '')
+    const [info, setInfo] = useState(selection({ text: 'the storm rose', existingNote }))
+    return <SelectionPopup {...props({
+      lab: true,
+      popupMode: mode,
+      setPopupMode: setMode,
+      selection: info,
+      noteInput: note,
+      setNoteInput: setNote,
+      onUpdateHighlightNote,
+      onRequestExplanation: vi.fn(),
+      // Mirrors LabApp: the highlight is created, then the note editor opens.
+      onRequestNote: () => { setInfo(current => ({ ...current, existingHighlightId: current.existingHighlightId ?? 'h-new' })); setMode('note') },
+    })} />
+  }
+
+  it('focuses the note field inside the Add note tap (touch: no autofocus on mount)', () => {
+    const save = vi.fn()
+    render(<NoteHarness onUpdateHighlightNote={save} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Add note' }))
+    const field = screen.getByRole('textbox', { name: 'Highlight note' })
+    expect(document.activeElement).toBe(field)
+    fireEvent.change(field, { target: { value: 'Typed at once' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Save note' }))
+    expect(save).toHaveBeenCalledWith('h-new', 'Typed at once')
+  })
+
+  it('never saves an empty new note silently', () => {
+    const save = vi.fn()
+    render(<NoteHarness onUpdateHighlightNote={save} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Add note' }))
+    const button = screen.getByRole('button', { name: 'Save note' }) as HTMLButtonElement
+    expect(button.disabled).toBe(true)
+    fireEvent.click(button)
+    expect(save).not.toHaveBeenCalled()
+  })
+
+  it('still lets a reader clear an existing note on purpose', () => {
+    const save = vi.fn()
+    render(<NoteHarness onUpdateHighlightNote={save} existingNote="old" />)
+    fireEvent.click(screen.getByRole('button', { name: 'Edit note' }))
+    fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: '' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Save note' }))
+    expect(save).toHaveBeenCalledWith('h-new', '')
+  })
 })
