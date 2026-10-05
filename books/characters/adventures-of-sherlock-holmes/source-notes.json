@@ -1,0 +1,6494 @@
+{
+  "bookId": "adventures-of-sherlock-holmes",
+  "note": "Per-story inventory evidence from full readings of both editions (zero-based paragraph indices). Spoilers throughout; never expose to readers.",
+  "stories": [
+    {
+      "story": 1,
+      "concealments": [
+        {
+          "what": "The masked visitor ‘Count Von Kramm’ is the King of Bohemia himself.",
+          "revealedAt": [
+            1,
+            55
+          ],
+          "entities": [
+            "count-von-kramm",
+            "king-of-bohemia"
+          ],
+          "handling": "Separate entity count-von-kramm with snapshot after [1,55]. Holmes’s ‘your Majesty’ at 54 is the deduction; the King confirms at 55 (full name at 56). king-of-bohemia aliases ‘your Majesty’/‘Your Majesty’ bound only from 55; 54 excluded. Pre-reveal descriptions (21, 49, 53, 55 ‘The man’) unbound. At 49 he already admits the title is ‘not exactly my own’."
+        },
+        {
+          "what": "Irene Adler marries Godfrey Norton.",
+          "revealedAt": [
+            1,
+            141
+          ],
+          "entities": [
+            "irene-adler",
+            "godfrey-norton"
+          ],
+          "handling": "Snapshots for both after [1,141]. ‘Madame’ (155), ‘her husband’ (232, 237), ‘my husband’ (243), ‘IRENE NORTON’ (246) bound only in post-reveal paragraphs. No card names her ‘Irene Norton’ before 246; display name stays ‘Irene Adler’."
+        },
+        {
+          "what": "Holmes disguised as an out-of-work groom.",
+          "revealedAt": [
+            1,
+            121
+          ],
+          "entities": [
+            "sherlock-holmes"
+          ],
+          "handling": "Revealed to Watson and reader inside 121 itself; ‘groom’ left unbound (121, 126)."
+        },
+        {
+          "what": "Holmes disguised as a Nonconformist clergyman.",
+          "revealedAt": [
+            1,
+            170
+          ],
+          "entities": [
+            "sherlock-holmes"
+          ],
+          "handling": "Open to the reader at 170; Irene only learns after the fire alarm (her letter, 242). ‘clergyman’ at 170 and 242 not bound; the real clergyman at 137/141 is st-monicas-clergyman."
+        },
+        {
+          "what": "The street brawlers and onlookers outside Briony Lodge were all hired by Holmes, and his bloody injury was faked with red paint.",
+          "revealedAt": [
+            1,
+            202
+          ],
+          "entities": [
+            "sherlock-holmes"
+          ],
+          "handling": "Loafers, guardsmen, scissors-grinder, ‘a woman’ (189), ‘the poor gentleman’/‘injured man’ all left unbound; no group entity, so nothing to gate. (Accomplices revealed 200; paint trick 202.)"
+        },
+        {
+          "what": "The slim youth in an ulster who says ‘Good-night, Mister Sherlock Holmes’ is Irene Adler in men’s clothes.",
+          "revealedAt": [
+            1,
+            243
+          ],
+          "entities": [
+            "youth-in-ulster",
+            "irene-adler"
+          ],
+          "handling": "Separate entity youth-in-ulster, bound only at 213, with snapshot after [1,243] (242 = male costume, 243 = ‘I followed you to your door… wished you good-night’). Irene’s own card mentions it only in her snapshot after [1,246]. Deliberately omitted from threads so the cast list does not flag the passer-by."
+        },
+        {
+          "what": "Irene and her husband have fled England, leaving her own photograph and a letter in the hiding place.",
+          "revealedAt": [
+            1,
+            237
+          ],
+          "entities": [
+            "irene-adler",
+            "godfrey-norton"
+          ],
+          "handling": "godfrey-norton snapshot after [1,237]; irene-adler snapshot after [1,246] (letter)."
+        },
+        {
+          "what": "The King’s case resolves without recovering the photograph; he gives Holmes Irene’s portrait.",
+          "revealedAt": [
+            1,
+            257
+          ],
+          "entities": [
+            "king-of-bohemia"
+          ],
+          "handling": "king-of-bohemia snapshot after [1,257]. Threads are setup-only."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "John",
+          "people": [
+            "john-the-coachman",
+            "john-hare",
+            "(place) St. John’s Wood"
+          ],
+          "howToldApart": "‘John’ bound to the coachman only in 135 and 242; ‘John Hare’ (170) is its own reference entity; 116 is the place name St. John’s Wood. Watson is never called John in this story."
+        },
+        {
+          "name": "King",
+          "people": [
+            "king-of-bohemia",
+            "King of Scandinavia (unbound)"
+          ],
+          "howToldApart": "‘the King’ excluded at 96 (‘the King of Scandinavia’)."
+        },
+        {
+          "name": "clergyman",
+          "people": [
+            "st-monicas-clergyman",
+            "sherlock-holmes (disguise)"
+          ],
+          "howToldApart": "Bound to st-monicas-clergyman only at 137 and 141; Holmes’s disguise (170, 242) unbound."
+        },
+        {
+          "name": "Norton",
+          "people": [
+            "godfrey-norton",
+            "irene-adler (signs IRENE NORTON)"
+          ],
+          "howToldApart": "Case-sensitive: ‘Norton’ → Godfrey; uppercase ‘IRENE NORTON’ (246) → Irene."
+        },
+        {
+          "name": "servant",
+          "people": [
+            "irene-adlers-elderly-servant",
+            "mary-jane (‘servant girl’)",
+            "servant maids in the crowd (193)"
+          ],
+          "howToldApart": "Paragraph-scoped rules: ‘servant’ 241 only; ‘servant girl’ 8 only."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "a gentleman / your visitor (anonymous note)",
+          "where": [
+            [
+              1,
+              21
+            ]
+          ],
+          "why": "The note’s unnamed writer and caller is the King; pre-reveal, binding would spoil the disguise."
+        },
+        {
+          "text": "our strange visitor / the august person who employs me / his gigantic client / The man / Our visitor",
+          "where": [
+            [
+              1,
+              49
+            ],
+            [
+              1,
+              53
+            ],
+            [
+              1,
+              55
+            ],
+            [
+              1,
+              57
+            ]
+          ],
+          "why": "Pre-reveal or generic descriptions of the masked King; 57 is post-reveal but generic."
+        },
+        {
+          "text": "your client",
+          "where": [
+            [
+              1,
+              37
+            ],
+            [
+              1,
+              244
+            ]
+          ],
+          "why": "Generic."
+        },
+        {
+          "text": "my wife",
+          "where": [
+            [
+              1,
+              9
+            ]
+          ],
+          "why": "Watson’s unnamed wife; mentioned only."
+        },
+        {
+          "text": "my Boswell",
+          "where": [
+            [
+              1,
+              36
+            ]
+          ],
+          "why": "Holmes’s nickname for Watson; not a reference to bind."
+        },
+        {
+          "text": "Trepoff murder; Atkinson brothers at Trincomalee; reigning family of Holland",
+          "where": [
+            [
+              1,
+              1
+            ]
+          ],
+          "why": "Other cases of Holmes, mentioned only."
+        },
+        {
+          "text": "Wallenstein",
+          "where": [
+            [
+              1,
+              30
+            ]
+          ],
+          "why": "Historical figure in a gazetteer quotation about Egria; incidental."
+        },
+        {
+          "text": "Hebrew rabbi; staff-commander",
+          "where": [
+            [
+              1,
+              60
+            ]
+          ],
+          "why": "Entries in Holmes’s index; incidental."
+        },
+        {
+          "text": "the King of Scandinavia",
+          "where": [
+            [
+              1,
+              96
+            ]
+          ],
+          "why": "Clotilde’s father; mentioned only, explained in her card."
+        },
+        {
+          "text": "the Langham",
+          "where": [
+            [
+              1,
+              104
+            ]
+          ],
+          "why": "Hotel, not a person."
+        },
+        {
+          "text": "ostlers / cabmen / my cabby",
+          "where": [
+            [
+              1,
+              127
+            ],
+            [
+              1,
+              129
+            ],
+            [
+              1,
+              136
+            ],
+            [
+              1,
+              137
+            ]
+          ],
+          "why": "Generic background figures."
+        },
+        {
+          "text": "maid at Briony Lodge",
+          "where": [
+            [
+              1,
+              132
+            ],
+            [
+              1,
+              193
+            ]
+          ],
+          "why": "Unnamed maid who opens the door and the window; incidental."
+        },
+        {
+          "text": "Gross & Hankey’s",
+          "where": [
+            [
+              1,
+              133
+            ]
+          ],
+          "why": "Business name, not a person."
+        },
+        {
+          "text": "groom (Holmes’s disguise)",
+          "where": [
+            [
+              1,
+              121
+            ],
+            [
+              1,
+              126
+            ]
+          ],
+          "why": "Disguise revealed in-paragraph; do not bind generically."
+        },
+        {
+          "text": "Nonconformist clergyman / dear, kind old clergyman",
+          "where": [
+            [
+              1,
+              170
+            ],
+            [
+              1,
+              242
+            ]
+          ],
+          "why": "Holmes in disguise; not bound to avoid confusion with st-monicas-clergyman."
+        },
+        {
+          "text": "loafers, guardsmen, scissors-grinder, nurse-girl, well-dressed young men, ‘a woman’, ‘several voices’",
+          "where": [
+            [
+              1,
+              171
+            ],
+            [
+              1,
+              185
+            ],
+            [
+              1,
+              187
+            ],
+            [
+              1,
+              188
+            ],
+            [
+              1,
+              189
+            ]
+          ],
+          "why": "Holmes’s hired accomplices (revealed 200); no entity needed, and naming them as a group before 200 would spoil the staged brawl."
+        },
+        {
+          "text": "the poor gentleman / the injured man / a brave fellow",
+          "where": [
+            [
+              1,
+              185
+            ],
+            [
+              1,
+              186
+            ],
+            [
+              1,
+              189
+            ]
+          ],
+          "why": "Holmes faking injury; generic."
+        },
+        {
+          "text": "the lady / our lady of to-day / the woman",
+          "where": [
+            [
+              1,
+              141
+            ],
+            [
+              1,
+              185
+            ],
+            [
+              1,
+              189
+            ],
+            [
+              1,
+              206
+            ],
+            [
+              1,
+              208
+            ],
+            [
+              1,
+              232
+            ],
+            [
+              1,
+              241
+            ],
+            [
+              1,
+              248
+            ],
+            [
+              1,
+              244
+            ]
+          ],
+          "why": "Generic references to Irene; left unbound per policy (her named aliases cover her)."
+        },
+        {
+          "text": "Darlington Substitution Scandal; Arnsworth Castle business",
+          "where": [
+            [
+              1,
+              206
+            ]
+          ],
+          "why": "Other cases, mentioned only."
+        },
+        {
+          "text": "_the_ woman",
+          "where": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              258
+            ]
+          ],
+          "why": "Holmes’s title for Irene; italic markup, leave unbound."
+        },
+        {
+          "text": "your Majesty",
+          "where": [
+            [
+              1,
+              54
+            ]
+          ],
+          "why": "Reveal paragraph; deliberately excluded (gate)."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            1,
+            213
+          ],
+          "original": "a slim youth in an ulster",
+          "modern": "a slender young man in an ulster",
+          "handling": "Edition-specific alias rules on youth-in-ulster."
+        },
+        {
+          "where": [
+            1,
+            137
+          ],
+          "original": "a surpliced clergyman",
+          "modern": "a clergyman in a surplice",
+          "handling": "Edition-specific alias rules on st-monicas-clergyman."
+        },
+        {
+          "where": [
+            1,
+            208
+          ],
+          "original": "his Majesty",
+          "modern": "His Majesty",
+          "handling": "Edition-specific rules on king-of-bohemia."
+        },
+        {
+          "where": [
+            1,
+            112
+          ],
+          "original": "The King took",
+          "modern": "the King produced",
+          "handling": "Both ‘the King’ and ‘The King’ are aliases."
+        },
+        {
+          "where": [
+            1,
+            56
+          ],
+          "original": "Your Majesty had not spoken",
+          "modern": "Before your Majesty spoke",
+          "handling": "Both case variants bound from 55."
+        },
+        {
+          "where": [
+            1,
+            121
+          ],
+          "original": "certain that it was indeed he",
+          "modern": "certain it was Holmes",
+          "handling": "M names Holmes inside the groom-disguise paragraph; Holmes alias fine (reveal is in the same sentence)."
+        },
+        {
+          "where": [
+            1,
+            211
+          ],
+          "original": "He was searching his pockets",
+          "modern": "While Holmes searched his pockets",
+          "handling": "Extra Holmes mention in M only; explains Holmes count difference (O 47 / M 51 along with 53, 121, 241)."
+        },
+        {
+          "where": [
+            1,
+            134
+          ],
+          "original": "the coachman with his coat",
+          "modern": "Its coachman had his coat",
+          "handling": "Rule on bare ‘coachman’ covers both."
+        },
+        {
+          "where": [
+            1,
+            244
+          ],
+          "original": "I love and am loved by a better man than he.",
+          "modern": "I love a man better than he is, and that man loves me.",
+          "handling": "Modern phrasing is slightly ambiguous; no binding impact. Flag for the modern-edition editors."
+        },
+        {
+          "where": [
+            1,
+            0
+          ],
+          "original": "of dubious and questionable memory",
+          "modern": "of dubious and questionable reputation",
+          "handling": "No binding impact; ‘the late’ kept in both — cards avoid asserting death."
+        },
+        {
+          "where": [
+            1,
+            21
+          ],
+          "original": "(the note)",
+          "modern": "(the note left verbatim in the original wording)",
+          "handling": "Intentional: the German word order is the clue Holmes analyses in 32. No impact."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Sherlock Holmes",
+            "Mister Sherlock Holmes",
+            "Mr. Holmes",
+            "SHERLOCK HOLMES",
+            "Holmes’ (O 171, possessive)",
+            "Holmes’s (M 171, 193, 258, possessive)",
+            "Sherlock Holmes, Esq. (241, letter superscription)"
+          ],
+          "counts": {
+            "Holmes (word, incl. inside longer forms)": {
+              "original-en": 47,
+              "modern-en": 51
+            },
+            "Sherlock Holmes": {
+              "original-en": 10,
+              "modern-en": 7
+            }
+          },
+          "traps": "Disguises: (1) the ‘drunken-looking groom’ at 121 is Holmes — Watson recognises him within the same paragraph; leave ‘groom’ unbound (121, and 126 ‘a groom out of work’). M 121 already names Holmes (‘certain it was Holmes’) where O says ‘it was indeed he’. Holmes is the unnamed groom who witnesses the wedding (137–141) — narrated by Holmes himself, not concealed. (2) the ‘amiable and simple-minded Nonconformist clergyman’ at 170 is Holmes, shown openly to the reader; Irene’s ‘dear, kind old clergyman’ (242) is also Holmes. Do NOT bind ‘clergyman’ to Holmes globally: ‘surpliced clergyman’/‘the clergyman’ at 137/141 is the real officiating clergyman (st-monicas-clergyman). (3) The injured man at 185–193 (‘the poor gentleman’, ‘He is dead’, ‘a brave fellow’) is Holmes faking injury with red paint (revealed 202) — leave unbound. (4) ‘a slim youth in an ulster’ (213) who greets ‘Mister Sherlock Holmes’ is NOT Holmes — it is Irene (gated 243). (5) ‘Bohemian soul’ (1) is an adjective about Holmes, not Bohemia’s King. ‘my dear sir’ (249) is the King to Holmes — unbound."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "Dr. Watson",
+            "Doctor"
+          ],
+          "counts": {
+            "Watson": {
+              "original-en": 6,
+              "modern-en": 6
+            },
+            "Doctor": {
+              "original-en": 5,
+              "modern-en": 5
+            }
+          },
+          "traps": "Narrator ‘I’ unbound. ‘my Boswell’ (36) is Holmes’s nickname for Watson — leave unbound (it would otherwise suggest James Boswell). ‘Doctor’ (36, 38, 60, 145, 194) always Watson; no other doctor here. The only ‘John’ in the story is Irene’s coachman (135, 242), the actor John Hare (170) and the place St. John’s Wood (116) — never Watson. Watson’s wife (‘my wife’, 9) is unnamed; Watson’s servant girl is Mary Jane (9). Watson wears an ulster (192), not to be confused with the youth in an ulster (213)."
+        },
+        "irene-adler": {
+          "aliases": [
+            "Irene Adler",
+            "Miss Irene Adler",
+            "Miss Adler",
+            "Irene",
+            "Mademoiselle (115 only)",
+            "Madame (155 only)",
+            "IRENE NORTON (246 only)"
+          ],
+          "introducedHere": true,
+          "traps": "‘the late Irene Adler’ (0) — do not state that she is dead. The youth in an ulster (213) is her in disguise, separate entity gated to 243."
+        },
+        "king-of-bohemia": {
+          "aliases": [
+            "the King",
+            "The King",
+            "King of Bohemia",
+            "Wilhelm Gottsreich Sigismond von Ormstein",
+            "your Majesty / Your Majesty (from 55)",
+            "his Majesty (O 208)",
+            "His Majesty (M 208)"
+          ],
+          "introducedHere": true,
+          "traps": "Appears first masked as ‘Count Von Kramm’ (44, 46) — separate entity. ‘the King of Scandinavia’ (96) excluded."
+        },
+        "mrs-hudson": {
+          "occurs": false,
+          "note": "Not in this story. The Baker Street landlady here is Mrs. Turner (155) — separate entity mrs-turner."
+        },
+        "lestrade": {
+          "occurs": false
+        },
+        "bradstreet": {
+          "occurs": false
+        },
+        "mycroft": {
+          "occurs": false
+        }
+      }
+    },
+    {
+      "story": 2,
+      "concealments": [
+        {
+          "what": "Vincent Spaulding, Wilson’s assistant, is John Clay.",
+          "revealedAt": [
+            2,
+            205
+          ],
+          "entities": [
+            "vincent-spaulding",
+            "john-clay"
+          ],
+          "handling": "Separate entities. Spaulding cards before 205 describe only the assistant (Holmes’s interest at 122–140 is reported as his remarks, not as guilt). Clay’s first card (169) is Jones’s description only. Link released in snapshots after [2,205], where Holmes’s explanation makes the assistant the rogue who urged Wilson to apply in Clay’s scheme; 207–208 confirm. Strong hints at 194 (the clean-cut, boyish, beardless intruder named Clay) but the explicit statement is 205."
+        },
+        {
+          "what": "The intruder in the bank cellar is John Clay.",
+          "revealedAt": [
+            2,
+            194
+          ],
+          "entities": [
+            "john-clay"
+          ],
+          "handling": "‘the intruder’ (193) and ‘a clean-cut, boyish face’ (191) left unbound; Clay snapshot after 194."
+        },
+        {
+          "what": "The Red-Headed League is a sham to keep Wilson out of his shop; Duncan Ross is Clay’s red-haired accomplice.",
+          "revealedAt": [
+            2,
+            205
+          ],
+          "entities": [
+            "duncan-ross",
+            "ezekiah-hopkins",
+            "william-morris",
+            "archie"
+          ],
+          "handling": "Ross cards before 205 describe only what Wilson experienced (103 snapshot reports the landlord’s account and the false address without drawing conclusions). Hopkins is always attributed to the advertisement/Spaulding. Ross and Archie snapshots after 205 quote Holmes’s explanation."
+        },
+        {
+          "what": "Duncan Ross and William Morris are names for the same red-headed tenant.",
+          "revealedAt": [
+            2,
+            100
+          ],
+          "entities": [
+            "duncan-ross",
+            "william-morris"
+          ],
+          "handling": "Separate entities; Morris’s first mention is in the reveal paragraph itself, and Ross’s snapshot after 103 records it."
+        },
+        {
+          "what": "Merryweather is a bank director; the target is the French gold in the bank cellar behind Wilson’s shop.",
+          "revealedAt": [
+            2,
+            181
+          ],
+          "entities": [
+            "merryweather"
+          ],
+          "handling": "Subtitle avoids ‘bank’; snapshots after 172 (bank director) and 181 (chairman, French gold)."
+        },
+        {
+          "what": "Archie is (by implication) the man who called himself Duncan Ross.",
+          "revealedAt": null,
+          "entities": [
+            "archie",
+            "duncan-ross"
+          ],
+          "handling": "Never stated explicitly. Not merged; Archie’s 205 snapshot quotes Holmes on Clay’s red-haired accomplice without asserting identity."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "Jones",
+          "people": [
+            "peter-jones"
+          ],
+          "howToldApart": "Only Peter Jones in this story; ‘Athelney’ never occurs, so no link to any other Jones is made."
+        },
+        {
+          "name": "John",
+          "people": [
+            "john-clay"
+          ],
+          "howToldApart": "‘John’ occurs only in ‘John Clay’; Watson’s first name is not used in this story."
+        },
+        {
+          "name": "Wilson / Watson",
+          "people": [
+            "jabez-wilson",
+            "watson"
+          ],
+          "howToldApart": "Different names; just beware of visual similarity in review. ‘Doctor’ always Watson."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "a very stout, florid-faced, elderly gentleman with fiery red hair (O) / an elderly gentleman (M)",
+          "where": [
+            [
+              2,
+              0
+            ]
+          ],
+          "why": "Wilson before he is named; descriptive phrase, not needed."
+        },
+        {
+          "text": "This gentleman / this gentleman",
+          "where": [
+            [
+              2,
+              5
+            ]
+          ],
+          "why": "Means Watson, not Wilson."
+        },
+        {
+          "text": "this obliging youth (O) / this accommodating young man (M)",
+          "where": [
+            [
+              2,
+              34
+            ]
+          ],
+          "why": "Spaulding before he is named; low value."
+        },
+        {
+          "text": "a girl of fourteen (O) / a fourteen-year-old girl (M)",
+          "where": [
+            [
+              2,
+              39
+            ]
+          ],
+          "why": "Unnamed household servant, mentioned once."
+        },
+        {
+          "text": "the trustees",
+          "where": [
+            [
+              2,
+              43
+            ]
+          ],
+          "why": "Supposed trustees of the League fund; generic."
+        },
+        {
+          "text": "a small man / the little man (O) / the other",
+          "where": [
+            [
+              2,
+              58
+            ],
+            [
+              2,
+              60
+            ]
+          ],
+          "why": "Ross before his self-introduction at 62; ‘the manager’ (61, 87) is bound instead."
+        },
+        {
+          "text": "the landlord / an accountant",
+          "where": [
+            [
+              2,
+              96
+            ]
+          ],
+          "why": "Unnamed landlord of 7 Pope’s Court; one scene, low value."
+        },
+        {
+          "text": "Mr. Wilson’s assistant",
+          "where": [
+            [
+              2,
+              141
+            ]
+          ],
+          "why": "‘Mr. Wilson’ inside it is bound to jabez-wilson; overlapping spans not allowed."
+        },
+        {
+          "text": "a bright-looking, clean-shaven young fellow (O) / An alert-looking, clean-shaven young man (M)",
+          "where": [
+            [
+              2,
+              137
+            ]
+          ],
+          "why": "Spaulding at the door; ‘the assistant’ at 139 is bound instead."
+        },
+        {
+          "text": "Mortimer’s, McFarlane’s",
+          "where": [
+            [
+              2,
+              150
+            ]
+          ],
+          "why": "Shop names, not people."
+        },
+        {
+          "text": "this smooth-faced pawnbroker’s assistant (O) / the clean-shaven pawnbroker’s assistant (M)",
+          "where": [
+            [
+              2,
+              161
+            ]
+          ],
+          "why": "Spaulding; ‘pawnbroker’s’ would read as Wilson; left unbound."
+        },
+        {
+          "text": "the Sholto murder and the Agra treasure",
+          "where": [
+            [
+              2,
+              166
+            ]
+          ],
+          "why": "Reference to a case outside this collection; do not import facts."
+        },
+        {
+          "text": "the policeman (M)",
+          "where": [
+            [
+              2,
+              166
+            ]
+          ],
+          "why": "Jones; modern wording is generic. O ‘the police agent’ is bound."
+        },
+        {
+          "text": "the man upon whom you wish to lay your hands",
+          "where": [
+            [
+              2,
+              168
+            ]
+          ],
+          "why": "Clay before he is named."
+        },
+        {
+          "text": "His grandfather … a royal duke",
+          "where": [
+            [
+              2,
+              169
+            ]
+          ],
+          "why": "Unnamed ancestor of Clay."
+        },
+        {
+          "text": "the good pawnbroker (O) / our good pawnbroker (M); our friend’s premises",
+          "where": [
+            [
+              2,
+              178
+            ],
+            [
+              2,
+              208
+            ]
+          ],
+          "why": "Wilson; low value."
+        },
+        {
+          "text": "an inspector and two officers / three men",
+          "where": [
+            [
+              2,
+              187
+            ],
+            [
+              2,
+              196
+            ]
+          ],
+          "why": "Unnamed police."
+        },
+        {
+          "text": "a clean-cut, boyish face; a companion",
+          "where": [
+            [
+              2,
+              191
+            ]
+          ],
+          "why": "Clay and Archie before they are named—must stay unbound."
+        },
+        {
+          "text": "the intruder; The other",
+          "where": [
+            [
+              2,
+              193
+            ]
+          ],
+          "why": "Clay is not named until 194; binding would leak his identity a paragraph early."
+        },
+        {
+          "text": "my pal / your pal (O); my friend / your friend (M)",
+          "where": [
+            [
+              2,
+              195
+            ],
+            [
+              2,
+              199
+            ]
+          ],
+          "why": "Archie; generic."
+        },
+        {
+          "text": "one rogue … the other rogue; his accomplice",
+          "where": [
+            [
+              2,
+              205
+            ]
+          ],
+          "why": "Generic; meaning covered by snapshots."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            2,
+            24
+          ],
+          "original": "Mr. Jabez Wilson laughed heavily",
+          "modern": "Mr. Wilson gave a heavy laugh",
+          "handling": "Both bound to jabez-wilson."
+        },
+        {
+          "where": [
+            2,
+            36
+          ],
+          "original": "your assistant",
+          "modern": "Your assistant",
+          "handling": "Edition-specific case variants in aliasRules."
+        },
+        {
+          "where": [
+            2,
+            87
+          ],
+          "original": "Mr. Duncan Ross took to coming",
+          "modern": "Mr. Ross began visiting",
+          "handling": "‘Mr. Ross’ alias needed for M."
+        },
+        {
+          "where": [
+            2,
+            107
+          ],
+          "original": "said Mr. Jabez Wilson",
+          "modern": "Jabez Wilson said",
+          "handling": "Both bound."
+        },
+        {
+          "where": [
+            2,
+            148
+          ],
+          "original": "My dear doctor",
+          "modern": "My dear Doctor",
+          "handling": "Watson alias includes lowercase ‘doctor’ for O 148 only."
+        },
+        {
+          "where": [
+            2,
+            162
+          ],
+          "original": "Peter Jones, the official police agent",
+          "modern": "Peter Jones of the police",
+          "handling": "Name bound in both."
+        },
+        {
+          "where": [
+            2,
+            166
+          ],
+          "original": "said the police agent loftily",
+          "modern": "the policeman declared grandly",
+          "handling": "O phrase bound; M left unbound."
+        },
+        {
+          "where": [
+            2,
+            170
+          ],
+          "original": "Mr. John Clay",
+          "modern": "Mr. Clay",
+          "handling": "Both bound to john-clay."
+        },
+        {
+          "where": [
+            2,
+            173
+          ],
+          "original": "Mr. Merryweather … Mr. Merryweather",
+          "modern": "Mr. Merryweather … he",
+          "handling": "O has one more Merryweather span (12 vs 11)."
+        },
+        {
+          "where": [
+            2,
+            207
+          ],
+          "original": "this mysterious assistant",
+          "modern": "the mysterious assistant",
+          "handling": "Edition-specific aliasRules."
+        },
+        {
+          "where": [
+            2,
+            210
+          ],
+          "original": "Mr. Jabez Wilson’s presence",
+          "modern": "Mr. Wilson’s presence",
+          "handling": "Both bound."
+        },
+        {
+          "where": [
+            2,
+            12
+          ],
+          "original": "The portly client",
+          "modern": "Our stout client",
+          "handling": "Edition-specific aliasRules."
+        },
+        {
+          "where": [
+            2,
+            13
+          ],
+          "original": "Our visitor",
+          "modern": "our visitor",
+          "handling": "Edition-specific case variants."
+        },
+        {
+          "where": [
+            2,
+            0
+          ],
+          "original": "Sherlock Holmes (10× in O)",
+          "modern": "Holmes (Sherlock Holmes only 2× in M)",
+          "handling": "‘Holmes’ alias covers both."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Mr. Sherlock Holmes",
+            "Sherlock Holmes",
+            "Mr. Holmes",
+            "Holmes"
+          ],
+          "occurrences": {
+            "original-en": 53,
+            "modern-en": 53
+          },
+          "traps": "‘Sherlock Holmes’ occurs 10× in O but only 2× in M (M usually shortens to ‘Holmes’); total ‘Holmes’ spans are 53 in each. O possessive is ‘Holmes’’ (14, 193), M ‘Holmes’s’; word-boundary matching on ‘Holmes’ handles both. 151 ‘Holmes the sleuth-hound, Holmes the relentless…’ is still Holmes. ‘my companion’ (12, 15), ‘my friend’ (151, 171/172 ‘my friend remarked’), ‘Our friend here’ (164, Jones) mean Holmes but are generic—leave unbound. No disguises in this story."
+        },
+        "watson": {
+          "aliases": [
+            "Dr. Watson",
+            "Watson",
+            "Doctor",
+            "doctor"
+          ],
+          "occurrences": {
+            "original-en": 18,
+            "modern-en": 18
+          },
+          "traps": "‘Doctor’ is always Watson here: O 11, 30, 150, 152, 160, 164 (Jones), 178; M adds 148. O 148 is lowercase ‘My dear doctor’ (M ‘My dear Doctor’). No other doctor appears. ‘John’ in this story is John Clay, never Watson—do not bind ‘John’ to Watson. At 5 ‘This gentleman’ (O) / ‘this gentleman’ (M) is Watson being introduced to Wilson—unbound. Narrator ‘I’ unbound."
+        },
+        "mary-sutherland": {
+          "aliases": [
+            "Miss Mary Sutherland",
+            "Mary Sutherland"
+          ],
+          "occurrences": {
+            "original-en": 1,
+            "modern-en": 1
+          },
+          "where": [
+            [
+              2,
+              9
+            ]
+          ],
+          "traps": "Single mention at 2:9 (‘the very simple problem presented by Miss Mary Sutherland’). She is the client of story 3 (drafts/story03.json uses id ‘mary-sutherland’). Recommend binding this mention to that shared id, provided her first-encounter card stays setup-only; it must not reveal anything about her story’s solution. If the compiler cannot show a later chapter’s card here, leave unbound."
+        },
+        "lestrade": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "bradstreet": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "mrs-hudson": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "irene-adler": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "king-of-bohemia": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "mycroft": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        }
+      }
+    },
+    {
+      "story": 3,
+      "concealments": [
+        {
+          "what": "Hosmer Angel is James Windibank in disguise (tinted glasses, false whiskers and moustache, whispered voice)",
+          "revealedAt": [
+            3,
+            124
+          ],
+          "entities": [
+            "hosmer-angel",
+            "james-windibank"
+          ],
+          "handling": "Two separate entities. Neither first card mentions the other in any linking way; both snapshots are released after [3,124]. Strong hints come earlier (105 ‘the scoundrel’; 113 Windibank starts; 118 ‘I have caught him!’; 119–122 his panic and ‘not actionable’), but the explicit identification is 124, and gating at its end is conservative. 105 ‘the scoundrel’ and the pronoun ‘him’ in 118 are left unbound."
+        },
+        {
+          "what": "Mary’s mother was complicit in the deception",
+          "revealedAt": [
+            3,
+            124
+          ],
+          "entities": [
+            "mary-sutherlands-mother"
+          ],
+          "handling": "First card is neutral (widow, remarried); snapshot after [3,124]. Her eagerness for Hosmer (52) and her anger (64) are left out of the first card."
+        },
+        {
+          "what": "Holmes’s letter to ‘a firm in the City’ (98) was to Westhouse & Marbank, to check the de-disguised description against their travellers",
+          "revealedAt": [
+            3,
+            134
+          ],
+          "entities": [
+            "westhouse-and-marbank",
+            "james-windibank"
+          ],
+          "handling": "‘a firm in the City’ is unbound; the firm’s snapshot is gated after [3,134]."
+        },
+        {
+          "what": "The typed letters and Windibank’s typed reply come from the same machine (Holmes’s typewriter evidence)",
+          "revealedAt": [
+            3,
+            116
+          ],
+          "entities": [
+            "james-windibank",
+            "hosmer-angel"
+          ],
+          "handling": "Not put in either card before 124; the 124 snapshots carry the conclusion."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "father / Father",
+          "people": [
+            "james-windibank",
+            "late-mr-sutherland"
+          ],
+          "howToldApart": "Mary calls her stepfather ‘father’. Her dead father is ‘father’ only in 23 and 30 (dead / ‘when he was alive’). Paragraph-scoped rules: late father in 23 and 30; Windibank in 19–21, 34, 36, 38, 52, 65, 75."
+        },
+        {
+          "name": "Sutherland",
+          "people": [
+            "mary-sutherland",
+            "late-mr-sutherland"
+          ],
+          "howToldApart": "Only Mary is ever called Sutherland in the text; the late father is never given the name, so bind ‘Sutherland’ forms to Mary only."
+        },
+        {
+          "name": "James",
+          "people": [
+            "james-windibank"
+          ],
+          "howToldApart": "Only James Windibank; Watson’s first name is not used in this story. Do not bind bare ‘James’."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "a large woman / the maiden / the young lady / the girl / the daughter / that woman",
+          "where": [
+            [
+              3,
+              11
+            ],
+            [
+              3,
+              12
+            ],
+            [
+              3,
+              81
+            ],
+            [
+              3,
+              83
+            ],
+            [
+              3,
+              86
+            ],
+            [
+              3,
+              98
+            ],
+            [
+              3,
+              108
+            ],
+            [
+              3,
+              124
+            ],
+            [
+              3,
+              126
+            ],
+            [
+              3,
+              129
+            ]
+          ],
+          "why": "Generic descriptions of Mary; the named aliases are enough. 124/126 ‘the girl’ and ‘the daughter’ are in Holmes’s abstracted account."
+        },
+        {
+          "text": "the scoundrel",
+          "where": [
+            [
+              3,
+              105
+            ]
+          ],
+          "why": "Refers to the culprit before identification; binding would reveal Windibank."
+        },
+        {
+          "text": "the man / The man / our man / my man / the missing man / the disappearing bridegroom / the gentleman",
+          "where": [
+            [
+              3,
+              91
+            ],
+            [
+              3,
+              100
+            ],
+            [
+              3,
+              116
+            ],
+            [
+              3,
+              117
+            ],
+            [
+              3,
+              123
+            ],
+            [
+              3,
+              124
+            ],
+            [
+              3,
+              129
+            ],
+            [
+              3,
+              134
+            ]
+          ],
+          "why": "Ambiguous between persona and person, or spoiling; leave unbound."
+        },
+        {
+          "text": "the boy in buttons / the uniformed pageboy",
+          "where": [
+            [
+              3,
+              13
+            ]
+          ],
+          "why": "Unnamed one-off Baker Street page."
+        },
+        {
+          "text": "the cabman (O) / The driver (M)",
+          "where": [
+            [
+              3,
+              56
+            ]
+          ],
+          "why": "Unnamed one-off four-wheeler driver."
+        },
+        {
+          "text": "Mrs. Etherege’s husband",
+          "where": [
+            [
+              3,
+              17
+            ]
+          ],
+          "why": "Unnamed, one-off."
+        },
+        {
+          "text": "Dundas (the Dundas separation case); the husband / his wife",
+          "where": [
+            [
+              3,
+              4
+            ]
+          ],
+          "why": "A case name only; the couple are unnamed one-off anecdote figures. ‘his wife’ at 3–4 must not bind to Mary’s mother."
+        },
+        {
+          "text": "the reigning family of Holland / Holland’s reigning family",
+          "where": [
+            [
+              3,
+              8
+            ]
+          ],
+          "why": "Anonymous former clients; not worth a card."
+        },
+        {
+          "text": "Duchess of Devonshire",
+          "where": [
+            [
+              3,
+              11
+            ]
+          ],
+          "why": "Used only as the name of a hat fashion."
+        },
+        {
+          "text": "the Sign of Four / the Study in Scarlet",
+          "where": [
+            [
+              3,
+              99
+            ]
+          ],
+          "why": "Titles of earlier cases, not persons."
+        },
+        {
+          "text": "a firm in the City",
+          "where": [
+            [
+              3,
+              98
+            ]
+          ],
+          "why": "Is Westhouse & Marbank, but that is revealed only at 134."
+        },
+        {
+          "text": "the sufferer",
+          "where": [
+            [
+              3,
+              101
+            ]
+          ],
+          "why": "Watson’s unnamed patient."
+        },
+        {
+          "text": "Marseilles / Andover / The Hague case references",
+          "where": [
+            [
+              3,
+              10
+            ],
+            [
+              3,
+              81
+            ]
+          ],
+          "why": "Places of other cases, no persons named."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            3,
+            0
+          ],
+          "original": "said Sherlock Holmes",
+          "modern": "Holmes said",
+          "handling": "Both bind to sherlock-holmes."
+        },
+        {
+          "where": [
+            3,
+            12
+          ],
+          "original": "the maiden",
+          "modern": "the young lady",
+          "handling": "Both unbound."
+        },
+        {
+          "where": [
+            3,
+            23
+          ],
+          "original": "father’s death … Father was a plumber … father could have got",
+          "modern": "Father’s death … Father was a plumber … Father could have obtained",
+          "handling": "Case-specific rules for late-mr-sutherland per edition."
+        },
+        {
+          "where": [
+            3,
+            34
+          ],
+          "original": "father came back again",
+          "modern": "Father came home again",
+          "handling": "Edition-specific case rules for Windibank (same for 36, 38, 52)."
+        },
+        {
+          "where": [
+            3,
+            52
+          ],
+          "original": "Mother said … Mother was … mother said",
+          "modern": "Mother said … She supported him … Mother promised",
+          "handling": "O has 3 mother spans, M has 2; counts differ."
+        },
+        {
+          "where": [
+            3,
+            56
+          ],
+          "original": "the cabman (×2)",
+          "modern": "The driver",
+          "handling": "Unbound in both."
+        },
+        {
+          "where": [
+            3,
+            99
+          ],
+          "original": "the Irene Adler photograph",
+          "modern": "Irene Adler’s photograph",
+          "handling": "‘Irene Adler’ matches in both."
+        },
+        {
+          "where": [
+            3,
+            108
+          ],
+          "original": "the girl’s stepfather",
+          "modern": "the young lady’s stepfather",
+          "handling": "‘stepfather’ bound in both; ‘the girl’ / ‘the young lady’ unbound."
+        },
+        {
+          "where": [
+            3,
+            113
+          ],
+          "original": "Mr. Windibank gave a violent start",
+          "modern": "Windibank gave a violent start",
+          "handling": "Both match Windibank aliases."
+        },
+        {
+          "where": [
+            3,
+            117
+          ],
+          "original": "Mr. Windibank sprang",
+          "modern": "Windibank sprang",
+          "handling": "Both bind."
+        },
+        {
+          "where": [
+            3,
+            127
+          ],
+          "original": "Our visitor had recovered",
+          "modern": "our visitor had regained",
+          "handling": "Case-specific rule per edition."
+        },
+        {
+          "where": [
+            3,
+            134
+          ],
+          "original": "I wrote to the man himself",
+          "modern": "I wrote to Windibank",
+          "handling": "M has one extra Windibank span (O 20 vs M 21 name spans)."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes"
+          ],
+          "traps": "‘Sherlock Holmes’ appears in O only (0, 13, 18, 24, 80, 85, 101); M uses ‘Holmes’. ‘Mr. Holmes’ is used by Mary (many times) and by Windibank (117, 128). Holmes uses no disguise in this story. Counts per edition: ‘Holmes’ token in 46 paragraphs (O and M alike)."
+        },
+        "watson": {
+          "aliases": [
+            "Dr. Watson",
+            "Watson",
+            "Doctor"
+          ],
+          "traps": "‘Dr. Watson’ at 29 only; ‘Watson’ at 83, 86, 90; ‘Doctor’ (Holmes addressing him) at 4 and 98. ‘my boy’ (86) and ‘My dear fellow’ (0, 96) are Holmes’s forms of address and should not be bound. Watson narrates as ‘I’. No other doctor appears. ‘James’ here is only James Windibank, never Watson. Watson’s patient at 101 (‘the sufferer’) is unbound."
+        },
+        "king-of-bohemia": {
+          "occurrences": {
+            "original-en": [
+              [
+                3,
+                6,
+                "King of Bohemia"
+              ],
+              [
+                3,
+                99,
+                "King of Bohemia"
+              ]
+            ],
+            "modern-en": [
+              [
+                3,
+                6,
+                "King of Bohemia"
+              ],
+              [
+                3,
+                99,
+                "King of Bohemia"
+              ]
+            ]
+          },
+          "notes": "6: he gave Holmes a gold snuffbox ‘in return for my assistance in the case of the Irene Adler papers’. 99: Watson recalls this as the one case in which Holmes failed. Bind to the shared id. The ‘once only… to fail’ remark at 99 refers back to an earlier story’s outcome, so a reader of this chapter is past it."
+        },
+        "irene-adler": {
+          "occurrences": {
+            "original-en": [
+              [
+                3,
+                6,
+                "Irene Adler"
+              ],
+              [
+                3,
+                99,
+                "Irene Adler"
+              ]
+            ],
+            "modern-en": [
+              [
+                3,
+                6,
+                "Irene Adler"
+              ],
+              [
+                3,
+                99,
+                "Irene Adler"
+              ]
+            ]
+          },
+          "notes": "6: ‘the Irene Adler papers’ (both). 99: O ‘the Irene Adler photograph’, M ‘Irene Adler’s photograph’, and the name span matches in both. Bind to the shared id; no new facts."
+        },
+        "lestrade": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "bradstreet": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "mrs-hudson": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "notes": "Only ‘the boy in buttons’ / ‘the uniformed pageboy’ (13) appears from the household; unbound."
+        },
+        "mycroft": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        }
+      }
+    },
+    {
+      "story": 4,
+      "concealments": [
+        {
+          "what": "The murderer of Charles McCarthy is John Turner.",
+          "revealedAt": [
+            4,
+            192
+          ],
+          "entities": [
+            "john-turner",
+            "charles-mccarthy"
+          ],
+          "handling": "Holmes’s profile of the killer (143: tall, left-handed, limping, grey cloak, Indian cigars) and Turner’s limping entrance (186) are clues only. Watson’s ‘The culprit is—’ (184) is cut off by the waiter announcing ‘Mr. John Turner’ (185) — not a reveal. Turner effectively admits guilt at 191–192; full confession 202–208. john-turner first card and threads say nothing of guilt; first guilt snapshot after [4,192]; full story after [4,208]. ‘the murderer’, ‘the culprit’, ‘the criminal’, ‘the gentleman I describe’, ‘this man’ are never bound."
+        },
+        {
+          "what": "‘Black Jack of Ballarat’ was John Turner’s bushranger name.",
+          "revealedAt": [
+            4,
+            202
+          ],
+          "entities": [
+            "black-jack-of-ballarat",
+            "ballarat-gang",
+            "john-turner"
+          ],
+          "handling": "Separate alias entity whose first card names no owner; snapshot after [4,202]. Mention and reveal share paragraph 202. ‘Jack’ at 205 bound to john-turner by paragraph rule."
+        },
+        {
+          "what": "McCarthy’s dying words ‘a rat’ were the end of ‘Ballarat’ — he was naming his killer as ‘so-and-so of Ballarat’.",
+          "revealedAt": [
+            4,
+            167
+          ],
+          "entities": [],
+          "handling": "Place/clue words ‘a rat’, ‘ARAT’, ‘BALLARAT’, ‘Ballarat’ are left unbound (not people)."
+        },
+        {
+          "what": "James McCarthy secretly married a Bristol barmaid two years ago; this explains the quarrel and his Bristol absence. She already had a husband.",
+          "revealedAt": [
+            4,
+            113
+          ],
+          "entities": [
+            "james-mccarthy",
+            "bristol-barmaid"
+          ],
+          "handling": "bristol-barmaid first card (all mentions are in 113) is neutral; snapshots for both entities after [4,113]."
+        },
+        {
+          "what": "The quarrel between father and son concerned McCarthy’s wish that James marry Miss Turner.",
+          "revealedAt": [
+            4,
+            84
+          ],
+          "entities": [
+            "james-mccarthy",
+            "alice-turner",
+            "charles-mccarthy"
+          ],
+          "handling": "Not an identity concealment; mentioned only in alice-turner’s later snapshot (after 200) and james-mccarthy’s 113 snapshot. Not in first cards or threads."
+        },
+        {
+          "what": "Charles McCarthy was the gold-convoy wagon-driver who later blackmailed Turner for twenty years; the appointment at the pool was with Turner.",
+          "revealedAt": [
+            4,
+            207
+          ],
+          "entities": [
+            "charles-mccarthy",
+            "john-turner"
+          ],
+          "handling": "Gated into the charles-mccarthy and john-turner snapshots after [4,208]. ‘the wagon-driver’ (203) left unbound."
+        },
+        {
+          "what": "James McCarthy is acquitted; John Turner dies seven months later.",
+          "revealedAt": [
+            4,
+            214
+          ],
+          "entities": [
+            "james-mccarthy",
+            "john-turner"
+          ],
+          "handling": "Snapshots after [4,214]."
+        },
+        {
+          "what": "Charles McCarthy’s death (premise).",
+          "revealedAt": [
+            4,
+            17
+          ],
+          "entities": [
+            "charles-mccarthy"
+          ],
+          "handling": "Death is announced generically at 13 (‘the murdered man’) before he is named at 16; first card stays neutral, snapshot after [4,17]. James’s arrest is gated to a snapshot after [4,19]."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "McCarthy",
+          "people": [
+            "charles-mccarthy",
+            "james-mccarthy"
+          ],
+          "howToldApart": "Bare ‘McCarthy’ and ‘Mr. McCarthy’ = Charles (father), except 211 (‘if McCarthy is condemned’) = James via exclude+rule. James via longer matches: ‘James McCarthy’, ‘young McCarthy’, ‘Young McCarthy’ (O 197, M 134 — capitalised), ‘young Mr. McCarthy’ (O 19), ‘McCarthy junior’ (O 127), ‘younger McCarthy’ (M 127). Father via ‘McCarthy senior’ (O 127), ‘elder McCarthy’ (M 19). ‘McCarthys’ (16, 19 ×2) means both and is unbound."
+        },
+        {
+          "name": "Turner",
+          "people": [
+            "john-turner",
+            "alice-turner"
+          ],
+          "howToldApart": "Daughter only ever ‘Miss Turner’ (longer match) or ‘Alice’; every other ‘Turner’ (incl. ‘Mr. Turner’, ‘old Turner’, O ‘Old Turner’, ‘Turner’s daughter’) is John."
+        },
+        {
+          "name": "John",
+          "people": [
+            "john-turner",
+            "john-cobb"
+          ],
+          "howToldApart": "Only full names occur (‘John Turner’, ‘John Cobb’); bare ‘John’ never appears. Watson is never called John here."
+        },
+        {
+          "name": "Jack",
+          "people": [
+            "john-turner",
+            "black-jack-of-ballarat"
+          ],
+          "howToldApart": "‘Black Jack of Ballarat’ (202) is the alias entity (longer match); bare ‘Jack’ (205) bound to john-turner by paragraph rule after the reveal."
+        },
+        {
+          "name": "Moran",
+          "people": [
+            "patience-moran",
+            "boscombe-lodge-keeper"
+          ],
+          "howToldApart": "Only ‘Patience Moran’ is bound. Bare ‘Moran’ at 135 probably means the lodge-keeper (her father) but is unbound because the text never names him."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "Moran",
+          "where": [
+            [
+              4,
+              135
+            ]
+          ],
+          "why": "‘a word with Moran’ at the lodge — most likely the lodge-keeper, possibly Patience; the text does not settle it."
+        },
+        {
+          "text": "my wife",
+          "where": [
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              203
+            ]
+          ],
+          "why": "0 and 2 = Watson’s unnamed wife (no shared id); O 203 = Turner’s late wife. Pronoun-like; do not bind."
+        },
+        {
+          "text": "Anstruther",
+          "where": [
+            [
+              4,
+              4
+            ]
+          ],
+          "why": "One-off mention: a doctor who could cover Watson’s practice. Minor; no plot role."
+        },
+        {
+          "text": "the maid",
+          "where": [
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              37
+            ],
+            [
+              4,
+              129
+            ]
+          ],
+          "why": "Two different maids: Watson’s (0) and the McCarthys’ (37, 129). Unnamed, minor."
+        },
+        {
+          "text": "serving-man / manservant",
+          "where": [
+            [
+              4,
+              17
+            ]
+          ],
+          "why": "Probably John Cobb (‘the groom’, 37) but not equated in the text."
+        },
+        {
+          "text": "an old woman / an elderly woman",
+          "where": [
+            [
+              4,
+              18
+            ]
+          ],
+          "why": "Unnamed witness, one mention."
+        },
+        {
+          "text": "her mother (Patience’s)",
+          "where": [
+            [
+              4,
+              19
+            ]
+          ],
+          "why": "Unnamed, one mention."
+        },
+        {
+          "text": "McCarthys",
+          "where": [
+            [
+              4,
+              16
+            ],
+            [
+              4,
+              19
+            ]
+          ],
+          "why": "Plural — both father and son; no family entity needed."
+        },
+        {
+          "text": "inspector of constabulary / police inspector",
+          "where": [
+            [
+              4,
+              27
+            ]
+          ],
+          "why": "Unnamed, one mention."
+        },
+        {
+          "text": "A Juryman / jurors",
+          "where": [
+            [
+              4,
+              52
+            ],
+            [
+              4,
+              27
+            ]
+          ],
+          "why": "Unnamed role."
+        },
+        {
+          "text": "Witness",
+          "where": [
+            [
+              4,
+              39
+            ],
+            [
+              4,
+              41
+            ],
+            [
+              4,
+              43
+            ],
+            [
+              4,
+              45
+            ],
+            [
+              4,
+              47
+            ],
+            [
+              4,
+              49
+            ],
+            [
+              4,
+              51
+            ],
+            [
+              4,
+              53
+            ],
+            [
+              4,
+              55
+            ]
+          ],
+          "why": "Transcript label for James McCarthy; role label, not a name."
+        },
+        {
+          "text": "the surgeon",
+          "where": [
+            [
+              4,
+              105
+            ],
+            [
+              4,
+              181
+            ]
+          ],
+          "why": "Unnamed inquest witness."
+        },
+        {
+          "text": "the hotel waiter / the waiter",
+          "where": [
+            [
+              4,
+              185
+            ]
+          ],
+          "why": "Unnamed, one mention."
+        },
+        {
+          "text": "the elder (M) / the son / his son / the father / the young man / the lad",
+          "where": [
+            [
+              4,
+              13
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              4,
+              18
+            ],
+            [
+              4,
+              19
+            ],
+            [
+              4,
+              31
+            ],
+            [
+              4,
+              34
+            ],
+            [
+              4,
+              127
+            ]
+          ],
+          "why": "Generic nouns; father/son identities are clear from context but binding generics is disallowed."
+        },
+        {
+          "text": "the lady",
+          "where": [
+            [
+              4,
+              74
+            ]
+          ],
+          "why": "Lestrade’s reference to Miss Turner before she enters; generic noun."
+        },
+        {
+          "text": "Dad / dad / Father / father / my dear girl / my girl",
+          "where": [
+            [
+              4,
+              37
+            ],
+            [
+              4,
+              90
+            ],
+            [
+              4,
+              98
+            ],
+            [
+              4,
+              194
+            ],
+            [
+              4,
+              207
+            ],
+            [
+              4,
+              208
+            ]
+          ],
+          "why": "Kinship terms; pronoun-like."
+        },
+        {
+          "text": "the little girl",
+          "where": [
+            [
+              4,
+              31
+            ]
+          ],
+          "why": "Patience Moran, but generic."
+        },
+        {
+          "text": "my companion / my friend / my colleague",
+          "where": [
+            [
+              4,
+              76
+            ],
+            [
+              4,
+              81
+            ],
+            [
+              4,
+              130
+            ],
+            [
+              4,
+              131
+            ],
+            [
+              4,
+              190
+            ]
+          ],
+          "why": "Mostly Holmes, but O 131 ‘my companion’ is Lestrade per M; ambiguous, never bind."
+        },
+        {
+          "text": "the murderer / the culprit / the criminal / the gentleman I describe / this man",
+          "where": [
+            [
+              4,
+              105
+            ],
+            [
+              4,
+              142
+            ],
+            [
+              4,
+              150
+            ],
+            [
+              4,
+              151
+            ],
+            [
+              4,
+              167
+            ],
+            [
+              4,
+              173
+            ],
+            [
+              4,
+              184
+            ]
+          ],
+          "why": "Would bind the solution before 192 — spoiler. Never bind."
+        },
+        {
+          "text": "a visitor / the old man before 192",
+          "where": [
+            [
+              4,
+              185
+            ]
+          ],
+          "why": "‘old man’ is bound only in 192, 200, 209, 212."
+        },
+        {
+          "text": "My doctor",
+          "where": [
+            [
+              4,
+              198
+            ]
+          ],
+          "why": "Turner’s doctor — probably Dr. Willows but not named here."
+        },
+        {
+          "text": "the wagon-driver",
+          "where": [
+            [
+              4,
+              203
+            ]
+          ],
+          "why": "Charles McCarthy (same paragraph says so) — generic noun, left unbound."
+        },
+        {
+          "text": "a husband ... in the Bermuda Dockyard",
+          "where": [
+            [
+              4,
+              113
+            ]
+          ],
+          "why": "The barmaid’s existing husband; unnamed, one mention."
+        },
+        {
+          "text": "six troopers / three of our boys / my old pals",
+          "where": [
+            [
+              4,
+              203
+            ]
+          ],
+          "why": "Unnamed groups in Turner’s confession."
+        },
+        {
+          "text": "a rat / ARAT / BALLARAT / Ballarat",
+          "where": [
+            [
+              4,
+              39
+            ],
+            [
+              4,
+              68
+            ],
+            [
+              4,
+              105
+            ],
+            [
+              4,
+              159
+            ],
+            [
+              4,
+              162
+            ],
+            [
+              4,
+              164
+            ],
+            [
+              4,
+              166
+            ],
+            [
+              4,
+              167
+            ],
+            [
+              4,
+              169
+            ],
+            [
+              4,
+              202
+            ],
+            [
+              4,
+              203
+            ]
+          ],
+          "why": "Place name and clue word, not a person. ‘Ballarat’ inside ‘Black Jack of Ballarat’ / ‘Ballarat Gang’ is covered by those longer matches."
+        },
+        {
+          "text": "Baxter",
+          "where": [
+            [
+              4,
+              213
+            ]
+          ],
+          "why": "Holmes quotes ‘Baxter’s words’; the text does not identify which Baxter (the saying is often attributed to John Bradford), so no card rather than guess."
+        },
+        {
+          "text": "Study in Scarlet",
+          "where": [
+            [
+              4,
+              21
+            ]
+          ],
+          "why": "Title of an earlier case, not a person; do not import its facts."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            4,
+            4
+          ],
+          "original": "Mr. Sherlock Holmes’ cases",
+          "modern": "Mr. Holmes’s cases",
+          "handling": "Both bind to sherlock-holmes."
+        },
+        {
+          "where": [
+            4,
+            18
+          ],
+          "original": "a game-keeper in the employ of Mr. Turner … Mr. McCarthy was walking alone … seeing Mr. McCarthy pass … The game-keeper adds",
+          "modern": "employed by Turner … McCarthy was alone … Crowder adds",
+          "handling": "O has ‘Mr. Turner’/‘Mr. McCarthy’ ×2; M has bare ‘Turner’, one bare ‘McCarthy’ and an extra ‘Crowder’. Counts differ accordingly."
+        },
+        {
+          "where": [
+            4,
+            19
+          ],
+          "original": "Mr. McCarthy the elder … young Mr. McCarthy",
+          "modern": "The elder McCarthy … young McCarthy",
+          "handling": "Aliases ‘elder McCarthy’ (Charles) and ‘young Mr. McCarthy’ (James) cover both."
+        },
+        {
+          "where": [
+            4,
+            127
+          ],
+          "original": "McCarthy senior met his death from McCarthy junior",
+          "modern": "the younger McCarthy killed the elder",
+          "handling": "O: ‘McCarthy senior’→Charles, ‘McCarthy junior’→James. M: ‘younger McCarthy’→James; ‘the elder’ unbound (Charles count one lower in M)."
+        },
+        {
+          "where": [
+            4,
+            131
+          ],
+          "original": "then turned upon my companion",
+          "modern": "then turned to Lestrade",
+          "handling": "M binds Lestrade (+1); O ‘my companion’ unbound."
+        },
+        {
+          "where": [
+            4,
+            134
+          ],
+          "original": "These are young McCarthy’s feet",
+          "modern": "Young McCarthy’s prints",
+          "handling": "Capitalised ‘Young McCarthy’ listed as James alias."
+        },
+        {
+          "where": [
+            4,
+            197
+          ],
+          "original": "Young McCarthy must be got off",
+          "modern": "young McCarthy must be cleared",
+          "handling": "Same alias pair."
+        },
+        {
+          "where": [
+            4,
+            214
+          ],
+          "original": "Old Turner lived for seven months",
+          "modern": "Turner survived our meeting",
+          "handling": "Both bind to john-turner (behind the 214 gate anyway)."
+        },
+        {
+          "where": [
+            4,
+            6
+          ],
+          "original": "Sherlock Holmes was pacing",
+          "modern": "Holmes was walking",
+          "handling": "Several O ‘Sherlock Holmes’ become ‘Holmes’ in M (6, 105, 106, 163); M also has one fewer ‘Holmes’ at 130 and none at 134. Holmes totals O 47 vs M 45."
+        },
+        {
+          "where": [
+            4,
+            37
+          ],
+          "original": "my father … my father",
+          "modern": "Father … Father (capitalised)",
+          "handling": "Kinship term, unbound in both."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Mr. Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes"
+          ],
+          "occurrences": {
+            "original-en": 47,
+            "modern-en": 45
+          },
+          "traps": "O uses possessive ‘Holmes’’ (e.g. 4 ‘Mr. Sherlock Holmes’ cases’, 105, 129, 136) — word-boundary match is fine. M 4 has ‘Mr. Holmes’s cases’ where O has ‘Mr. Sherlock Holmes’ cases’. ‘my companion’ = Holmes at 76 (both) and O 190, but O 131 ‘turned upon my companion’ is rendered by M as Lestrade — leave ‘my companion’ unbound everywhere. ‘my friend’ (130, M 190) and ‘my colleague’ (81, Lestrade speaking of Holmes) unbound. No disguises in this story. Holmes’s ‘There, but for the grace of God, goes Sherlock Holmes’ (213) is a quotation inside his own speech — still Holmes, fine to bind."
+        },
+        "watson": {
+          "aliases": [
+            "Watson"
+          ],
+          "occurrences": {
+            "original-en": 4,
+            "modern-en": 4
+          },
+          "traps": "Watson is the unnamed narrator ‘I’; his wife (‘my wife’, 0, 2) is unnamed and unbound — note O 203 ‘my wife’ is Turner’s late wife. Other doctors: Anstruther (4, covers Watson’s practice, unbound) and Turner’s doctor (‘the doctor’ 88–89 → dr-willows; ‘My doctor’ 198 unbound). Do not bind ‘doctor’ globally. Johns here are John Turner and John Cobb, never Watson; ‘James’ is James McCarthy. Watson’s ‘The culprit is—’ (184) must not be bound to anyone."
+        },
+        "lestrade": {
+          "aliases": [
+            "Lestrade",
+            "Mr. Lestrade",
+            "detective (130 only)"
+          ],
+          "occurrences": {
+            "original-en": 25,
+            "modern-en": 26
+          },
+          "traps": "Introduced here (card drafted as entity `lestrade`). Mentioned at 21 as known from ‘the Study in Scarlet’ — do not import facts from that novel. M 131 has an extra ‘Lestrade’ (O ‘my companion’)."
+        },
+        "bradstreet": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "mrs-hudson": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "traps": "No landlady appears; the maid at 0 is Watson’s household maid."
+        },
+        "irene-adler": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "king-of-bohemia": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "mycroft": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        }
+      }
+    },
+    {
+      "story": 5,
+      "concealments": [
+        {
+          "what": "What ‘K. K. K.’ means: first only initials (37), then Holmes’s conclusion it is the badge of a society (127), then the Ku Klux Klan (129, encyclopedia 132), then the link to Elias’s flight with its papers (133).",
+          "revealedAt": [
+            5,
+            127
+          ],
+          "entities": [
+            "kkk",
+            "elias-openshaw"
+          ],
+          "handling": "First card describes only the letters. Snapshots after 127 (society) and after 133 (Ku Klux Klan, renamed). ‘Ku Klux Klan’ first appears at 129 where the after-127 card is already live; no leak."
+        },
+        {
+          "what": "Whether Elias’s death (verdict: suicide, 44) and Joseph’s (verdict: accident, 64) were murders.",
+          "revealedAt": [
+            5,
+            127
+          ],
+          "entities": [
+            "elias-openshaw",
+            "joseph-openshaw"
+          ],
+          "handling": "Deaths appear only in snapshots after 44 and 64 with the jury verdicts and John’s doubts; Holmes’s inference that several men caused them is attributed to Holmes in the after-133 Elias snapshot. Never asserted as fact."
+        },
+        {
+          "what": "John Openshaw’s death.",
+          "revealedAt": [
+            5,
+            146
+          ],
+          "entities": [
+            "john-openshaw"
+          ],
+          "handling": "Snapshot after 146 (newspaper: accident). Watson’s first hint (143 ‘you are too late’, 145 ‘Tragedy Near Waterloo Bridge’) precedes it; the 145 binding still shows the pre-death card. Murder framing only after 177, attributed to Holmes and Watson’s narration."
+        },
+        {
+          "what": "Who the senders are: Captain James Calhoun as ‘leader of the gang’ (165), the Lone Star traced via Pondicherry/Dundee (168–172), crew away on the night of the death and murder charge (176), narration calls them murderers and the ship is lost (177).",
+          "revealedAt": [
+            5,
+            165
+          ],
+          "entities": [
+            "james-calhoun",
+            "lone-star",
+            "kkk"
+          ],
+          "handling": "Calhoun and the Lone Star first appear at 162 with neutral cards (captain/ship of Savannah). Calhoun snapshots after 165 and 177; Lone Star snapshots after 172 and 177. Both kept out of the start-of-story cast list."
+        },
+        {
+          "what": "Meaning of the diary entries (‘set the pips on’, ‘cleared’, ‘visited Paramore’).",
+          "revealedAt": [
+            5,
+            135
+          ],
+          "entities": [
+            "mccauley",
+            "paramore",
+            "john-swain"
+          ],
+          "handling": "First cards quote the diary only; snapshots after 135 give Holmes’s reading, attributed."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "Openshaw",
+          "people": [
+            "john-openshaw",
+            "elias-openshaw",
+            "joseph-openshaw"
+          ],
+          "howToldApart": "Full forms (‘John Openshaw’, ‘Colonel Openshaw’, ‘uncle Elias’, ‘father Joseph’) bind globally. Bare ‘Openshaw’ only by paragraph: John at 125, 135, 137, 145, 160; Elias at 127, 133; 34 is the tyre brand; 163 is ambiguous and unbound. ‘my uncle’/‘Uncle’ = Elias and ‘my father’/‘Father’ = Joseph by per-edition paragraph rules, since the narrator is John."
+        },
+        {
+          "name": "John",
+          "people": [
+            "john-openshaw",
+            "john-swain"
+          ],
+          "howToldApart": "‘John Swain’ (88, 90) is a longer alias owned by john-swain; every other ‘John’ is John Openshaw. Watson is never called John here."
+        },
+        {
+          "name": "Major",
+          "people": [
+            "major-prendergast",
+            "major-freebody"
+          ],
+          "howToldApart": "Always given with surname; ‘the major’ bound only at 64 (Freebody)."
+        },
+        {
+          "name": "Hudson",
+          "people": [
+            "hudson-openshaw-diary"
+          ],
+          "howToldApart": "Only at 87, inside Elias’s diary; must not merge with Mrs. Hudson (absent from this story)."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "Openshaw (in ‘the Openshaw unbreakable tire’ / ‘tyre’)",
+          "where": [
+            [
+              5,
+              34
+            ]
+          ],
+          "why": "A product name, not a person."
+        },
+        {
+          "text": "Openshaw (‘as Openshaw did before him’)",
+          "where": [
+            [
+              5,
+              163
+            ]
+          ],
+          "why": "Ambiguous: could be John (most recent) or any of the three Openshaws who received pips."
+        },
+        {
+          "text": "The young man",
+          "where": [
+            [
+              5,
+              32
+            ]
+          ],
+          "why": "Precedes his self-introduction at 33; binding would name him early (harmless but premature)."
+        },
+        {
+          "text": "Paradol Chamber; Amateur Mendicant Society; barque Sophy Anderson; the Grice Patersons in the island of Uffa; Camberwell poisoning case (and ‘the dead man’)",
+          "where": [
+            [
+              5,
+              1
+            ]
+          ],
+          "why": "Earlier, unrecorded cases from 1887 mentioned in passing; titles only, no characters to identify."
+        },
+        {
+          "text": "Tankerville Club scandal",
+          "where": [
+            [
+              5,
+              18
+            ]
+          ],
+          "why": "Earlier case of Major Prendergast; mentioned in his card instead."
+        },
+        {
+          "text": "a woman (one of the four who beat Holmes)",
+          "where": [
+            [
+              5,
+              23
+            ]
+          ],
+          "why": "Unnamed in the text; must not be linked to Irene Adler."
+        },
+        {
+          "text": "the Sign of Four",
+          "where": [
+            [
+              5,
+              108
+            ]
+          ],
+          "why": "Title of an earlier case; mentioned in the Sholtos card."
+        },
+        {
+          "text": "my grandfather",
+          "where": [
+            [
+              5,
+              34
+            ]
+          ],
+          "why": "Unnamed Openshaw grandfather; mentioned once."
+        },
+        {
+          "text": "the servants; the tradespeople",
+          "where": [
+            [
+              5,
+              36
+            ]
+          ],
+          "why": "Generic."
+        },
+        {
+          "text": "the inspector; a policeman",
+          "where": [
+            [
+              5,
+              76
+            ],
+            [
+              5,
+              78
+            ],
+            [
+              5,
+              80
+            ]
+          ],
+          "why": "Unnamed police officers whom John consulted / who guard the house."
+        },
+        {
+          "text": "the landlady; the maid",
+          "where": [
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              141
+            ]
+          ],
+          "why": "Unnamed; not bound to Mrs. Hudson because the text does not name her."
+        },
+        {
+          "text": "My wife … her mother’s",
+          "where": [
+            [
+              5,
+              2
+            ]
+          ],
+          "why": "Watson’s unnamed wife and mother-in-law."
+        },
+        {
+          "text": "the writer; the senders; the man or men; this gang; cunning devils; the society",
+          "where": [
+            [
+              5,
+              118
+            ],
+            [
+              5,
+              123
+            ],
+            [
+              5,
+              125
+            ],
+            [
+              5,
+              127
+            ],
+            [
+              5,
+              135
+            ],
+            [
+              5,
+              148
+            ],
+            [
+              5,
+              149
+            ]
+          ],
+          "why": "Unidentified pursuers before the reveal; binding to the Lone Star crew or Calhoun would spoil, and they are a description rather than a name."
+        },
+        {
+          "text": "the two mates; Finns and Germans; the stevedore",
+          "where": [
+            [
+              5,
+              176
+            ]
+          ],
+          "why": "Unnamed crew and informant; one-off."
+        },
+        {
+          "text": "the K / treble K / letter K",
+          "where": [
+            [
+              5,
+              39
+            ],
+            [
+              5,
+              41
+            ],
+            [
+              5,
+              115
+            ]
+          ],
+          "why": "Bare letter, not the full initials."
+        },
+        {
+          "text": "Texas",
+          "where": [
+            [
+              5,
+              169
+            ]
+          ],
+          "why": "A US state (the ‘Lone Star’ state), not an entity."
+        },
+        {
+          "text": "the Republican policy; carpet-bag politicians; the negro voters",
+          "where": [
+            [
+              5,
+              35
+            ],
+            [
+              5,
+              48
+            ],
+            [
+              5,
+              132
+            ]
+          ],
+          "why": "Historical political groups mentioned in passing; no card needed."
+        },
+        {
+          "text": "Mr. Fordham as ‘the lawyer’ elsewhere",
+          "where": [
+            [
+              5,
+              40
+            ]
+          ],
+          "why": "At 40 the alias ‘Fordham’ already covers ‘Fordham, the Horsham lawyer’; ‘the Horsham lawyer’ left unbound."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            5,
+            3
+          ],
+          "original": "my companion",
+          "modern": "my friend",
+          "handling": "Both = Holmes; paragraph rules per edition."
+        },
+        {
+          "where": [
+            5,
+            34
+          ],
+          "original": "my uncle Elias … my father Joseph. My father had",
+          "modern": "my uncle Elias … my father Joseph. Father owned",
+          "handling": "‘uncle Elias’/‘father Joseph’ aliases; O ‘My father’ and M ‘Father’ rules."
+        },
+        {
+          "where": [
+            5,
+            35
+          ],
+          "original": "My uncle Elias … my uncle returned",
+          "modern": "Uncle Elias … he returned",
+          "handling": "‘uncle Elias’/‘Uncle Elias’ aliases; O-only ‘my uncle’ rule."
+        },
+        {
+          "where": [
+            5,
+            38
+          ],
+          "original": "uncle",
+          "modern": "Uncle",
+          "handling": "Case-variant rules per edition."
+        },
+        {
+          "where": [
+            5,
+            44
+          ],
+          "original": "my father entered into possession",
+          "modern": "Father inherited … my uncle’s credit",
+          "handling": "Modern has an extra Elias mention (‘my uncle’), bound by an M-only rule."
+        },
+        {
+          "where": [
+            5,
+            48
+          ],
+          "original": "‘Letters, memoranda, receipts, and a register’ (curly quotes)",
+          "modern": "'Letters, memoranda, receipts, and a register' (straight ASCII quotes)",
+          "handling": "Cosmetic; no binding impact. Flag for the modern-edition proofreader."
+        },
+        {
+          "where": [
+            5,
+            66
+          ],
+          "original": "my poor father … my father",
+          "modern": "My poor father … Father",
+          "handling": "Per-edition rules."
+        },
+        {
+          "where": [
+            5,
+            97
+          ],
+          "original": "said the young man",
+          "modern": "he said",
+          "handling": "O-only rule."
+        },
+        {
+          "where": [
+            5,
+            125
+          ],
+          "original": "young Openshaw",
+          "modern": "Openshaw",
+          "handling": "Bare ‘Openshaw’ rule for John at 125 in both; ‘young Openshaw’ O-only."
+        },
+        {
+          "where": [
+            5,
+            135
+          ],
+          "original": "young Openshaw has",
+          "modern": "Openshaw’s only chance",
+          "handling": "Same as 125."
+        },
+        {
+          "where": [
+            5,
+            129
+          ],
+          "original": "said Sherlock Holmes",
+          "modern": "Holmes leaned forward",
+          "handling": "Holmes alias covers both."
+        },
+        {
+          "where": [
+            5,
+            131
+          ],
+          "original": "Holmes turned over the leaves",
+          "modern": "He turned the pages",
+          "handling": "No Holmes mention in modern; nothing to bind."
+        },
+        {
+          "where": [
+            5,
+            145
+          ],
+          "original": "the name of Openshaw",
+          "modern": "Openshaw’s name",
+          "handling": "Rule covers both."
+        },
+        {
+          "where": [
+            5,
+            162
+          ],
+          "original": "“S. H. for J. O.” … “Captain James Calhoun, …”",
+          "modern": "‘S. H. for J. O.’ … ‘Captain James Calhoun, …’",
+          "handling": "Quote style differs; aliases unaffected."
+        },
+        {
+          "where": [
+            5,
+            0
+          ],
+          "original": "the Sherlock Holmes cases",
+          "modern": "Sherlock Holmes’s cases",
+          "handling": "Holmes alias matches both."
+        },
+        {
+          "where": [
+            5,
+            2
+          ],
+          "original": "Sherlock Holmes sat moodily",
+          "modern": "Holmes sat gloomily",
+          "handling": "Holmes alias covers both. Modern uses ‘Sherlock Holmes’ only at 0 and 106 (O has it 10 times)."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes",
+            "S. H."
+          ],
+          "paragraphRules": [
+            {
+              "alias": "my companion",
+              "paragraphs": [
+                3
+              ],
+              "editions": [
+                "original-en"
+              ]
+            },
+            {
+              "alias": "my friend",
+              "paragraphs": [
+                3
+              ],
+              "editions": [
+                "modern-en"
+              ]
+            }
+          ],
+          "counts": {
+            "Sherlock Holmes": {
+              "original-en": 10,
+              "modern-en": 2
+            },
+            "Holmes (incl. inside Sherlock Holmes)": {
+              "original-en": 25,
+              "modern-en": 24
+            },
+            "Mr. Holmes": {
+              "original-en": 2,
+              "modern-en": 2
+            },
+            "S. H.": {
+              "original-en": 1,
+              "modern-en": 1
+            }
+          },
+          "traps": "‘S. H.’ (162) is Holmes’s signature on the pips he sends to Calhoun (‘S. H. for J. O.’) — bind to Holmes; ‘J. O.’ is John Openshaw. ‘Holmes’ at 0 is adjectival (‘the Sherlock Holmes cases’; modern ‘Sherlock Holmes’s cases’) — harmless. ‘my friend’ at 0 (both editions) also means Holmes but is generic; leave unbound or bind at 0 only. No disguises in this story. ‘The ideal reasoner’ (113) is generic, not an alias."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "Doctor"
+          ],
+          "paragraphRules": [
+            {
+              "alias": "Doctor",
+              "paragraphs": [
+                135
+              ],
+              "editions": [
+                "original-en",
+                "modern-en"
+              ]
+            }
+          ],
+          "counts": {
+            "Watson": {
+              "original-en": 4,
+              "modern-en": 4
+            },
+            "Doctor": {
+              "original-en": 1,
+              "modern-en": 1
+            }
+          },
+          "traps": "Watson is never called John or James here. ‘John’ in this story is always John Openshaw or John Swain. ‘My wife … her mother’s’ (2) are Watson’s unnamed wife and mother-in-law — unbound. ‘My professional work’ (152, modern ‘My medical work’) is Watson’s practice. Bind ‘Doctor’ only at 135 (no lowercase ‘doctor’ occurs)."
+        },
+        "mrs-hudson": {
+          "aliases": [],
+          "counts": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "traps": "Mrs. Hudson is NOT named in this story. The unnamed ‘landlady’ (6) and ‘the maid’ (141) are left unbound. ‘Hudson’ at 87 is a man named in Elias Openshaw’s 1869 diary (entity hudson-openshaw-diary) — must never bind to mrs-hudson."
+        },
+        "irene-adler": {
+          "aliases": [],
+          "counts": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "traps": "Holmes says at 23 he has been beaten ‘once by a woman’ (modern ‘one at a woman’s [hands]’). The text does not name her; do NOT bind or link this to irene-adler."
+        },
+        "lestrade": {
+          "aliases": [],
+          "counts": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "traps": "Not present. The unnamed ‘inspector’ (76) whom John consulted is not Lestrade or Bradstreet; unbound."
+        },
+        "bradstreet": {
+          "aliases": [],
+          "counts": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "traps": "Not present."
+        }
+      }
+    },
+    {
+      "story": 6,
+      "concealments": [
+        {
+          "what": "Hugh Boone, the beggar suspected in the disappearance, is Neville St. Clair in disguise.",
+          "revealedAt": [
+            6,
+            195
+          ],
+          "entities": [
+            "hugh-boone",
+            "neville-st-clair"
+          ],
+          "handling": "Two separate entities. Hugh Boone’s card calls him only a disfigured beggar and lodger (from 62), then ‘arrested as a suspect’ (after 67). The identity snapshots on both cards are gated after [6,195], where Holmes washes the prisoner and introduces him as ‘Mr. Neville St. Clair, of Lee’. Pre-reveal descriptors (‘the cripple’ 61, ‘the sinister cripple’ 63, ‘this/that horrible man’ 148, ‘the prisoner’ 189/194) bind to hugh-boone only; ‘the prisoner’ 198/202/205 and ‘the missing man’ 197 bind to neville-st-clair."
+        },
+        {
+          "what": "Holmes is disguised as an old opium smoker in the Bar of Gold.",
+          "revealedAt": [
+            6,
+            27
+          ],
+          "entities": [
+            "sherlock-holmes"
+          ],
+          "handling": "The ‘tall, thin old man’ (14) and ‘the tall man’/‘the old man’ (27) are left unbound; the reveal comes mid-paragraph at 27, and ‘Sherlock Holmes’ in 27 binds normally."
+        },
+        {
+          "what": "The letter is genuine, and St. Clair is alive (the reader learns at 119–121 that Mrs. St. Clair believes it; confirmed at 212).",
+          "revealedAt": [
+            6,
+            212
+          ],
+          "entities": [
+            "neville-st-clair",
+            "the-lascar"
+          ],
+          "handling": "The snapshots after 121 say only that a letter in his handwriting arrived. The Lascar’s role in sending it appears only in his snapshot after 212."
+        },
+        {
+          "what": "The Lascar knew Boone’s secret and was his confidant.",
+          "revealedAt": [
+            6,
+            208
+          ],
+          "entities": [
+            "the-lascar"
+          ],
+          "handling": "The pre-reveal Lascar cards attribute only what the text says (he runs the den, police suspect he was an accomplice, he denies everything). The confidant role appears after 212 (the snapshot covers both 208 and 212)."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "St. Clair",
+          "people": [
+            "neville-st-clair",
+            "mrs-st-clair"
+          ],
+          "howToldApart": "‘Mrs. St. Clair’ is a separate alias; ‘Mr. St. Clair’ cannot match inside ‘Mrs.’ (word boundary). Bare ‘St. Clair’ is not used as an alias."
+        },
+        {
+          "name": "Whitney",
+          "people": [
+            "isa-whitney",
+            "kate-whitney",
+            "elias-whitney"
+          ],
+          "howToldApart": "Full-name aliases are longer and win. Bare ‘Whitney’ (17, 32) means Isa."
+        },
+        {
+          "name": "the inspector",
+          "people": [
+            "inspector-barton",
+            "bradstreet",
+            "unnamed Fresno Street inspector (60, 61)"
+          ],
+          "howToldApart": "Paragraph-scoped rules only: 67 → Barton; 173–199 → Bradstreet; 60–61 unbound."
+        },
+        {
+          "name": "John / James",
+          "people": [
+            "dog-cart driver (50)",
+            "watson (8, as ‘James’)"
+          ],
+          "howToldApart": "Both left unbound. ‘John’ at 50 is the driver; ‘James’ at 8 is Watson, named by his wife."
+        },
+        {
+          "name": "my wife / your wife",
+          "people": [
+            "watsons-wife",
+            "kate-whitney",
+            "mrs-st-clair"
+          ],
+          "howToldApart": "Paragraph-scoped: Watson’s wife 1, 5, 6, 7, 10, 31; Kate 23; Mrs. St. Clair 72, 201, 202, 211, 212."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "James",
+          "where": [
+            [
+              6,
+              8
+            ]
+          ],
+          "why": "Watson’s wife calls Watson ‘James’; it conflicts with his name elsewhere. Left unbound per brief; safe to bind to watson in paragraph 8 only if wanted."
+        },
+        {
+          "text": "John",
+          "where": [
+            [
+              6,
+              50
+            ]
+          ],
+          "why": "The dog-cart driver Holmes dismisses, not Watson; one-off."
+        },
+        {
+          "text": "a tall, thin old man / the tall man who sat by the brazier / the old man",
+          "where": [
+            [
+              6,
+              14
+            ],
+            [
+              6,
+              27
+            ]
+          ],
+          "why": "Holmes in disguise; binding before or inside the reveal paragraph would spoil it."
+        },
+        {
+          "text": "a decrepit figure",
+          "where": [
+            [
+              6,
+              32
+            ]
+          ],
+          "why": "Holmes still disguised; generic description, not needed."
+        },
+        {
+          "text": "a sallow Malay attendant",
+          "where": [
+            [
+              6,
+              15
+            ]
+          ],
+          "why": "One-off minor figure."
+        },
+        {
+          "text": "a Dane, who acts as assistant there",
+          "where": [
+            [
+              6,
+              60
+            ]
+          ],
+          "why": "The Lascar’s assistant; one-off mention."
+        },
+        {
+          "text": "the inspector (Fresno Street)",
+          "where": [
+            [
+              6,
+              60
+            ],
+            [
+              6,
+              61
+            ]
+          ],
+          "why": "Probably Inspector Barton, but the text does not say so."
+        },
+        {
+          "text": "a crippled wretch of hideous aspect / a hideous crippled wretch",
+          "where": [
+            [
+              6,
+              60
+            ]
+          ],
+          "why": "Hugh Boone before he is named; could be bound to hugh-boone, but left unbound to keep the paragraph-60 scene neutral."
+        },
+        {
+          "text": "this dear little woman / a little blonde woman",
+          "where": [
+            [
+              6,
+              52
+            ],
+            [
+              6,
+              79
+            ]
+          ],
+          "why": "Mrs. St. Clair before she is named on screen at 78; generic, so left unbound."
+        },
+        {
+          "text": "stable-boy",
+          "where": [
+            [
+              6,
+              79
+            ],
+            [
+              6,
+              161
+            ],
+            [
+              6,
+              166
+            ]
+          ],
+          "why": "Minor servant."
+        },
+        {
+          "text": "his little boy / two children / the children",
+          "where": [
+            [
+              6,
+              56
+            ],
+            [
+              6,
+              57
+            ],
+            [
+              6,
+              202
+            ]
+          ],
+          "why": "The St. Clair children are unnamed and do not act."
+        },
+        {
+          "text": "local brewer; schoolmaster in Chesterfield; my editor; a friend; the creditor",
+          "where": [
+            [
+              6,
+              56
+            ],
+            [
+              6,
+              206
+            ],
+            [
+              6,
+              207
+            ]
+          ],
+          "why": "One-off figures in background or confession."
+        },
+        {
+          "text": "some sailor customer",
+          "where": [
+            [
+              6,
+              215
+            ]
+          ],
+          "why": "Hypothetical; Bradstreet is guessing."
+        },
+        {
+          "text": "the man himself / the missing gentleman",
+          "where": [
+            [
+              6,
+              62
+            ],
+            [
+              6,
+              68
+            ],
+            [
+              6,
+              211
+            ]
+          ],
+          "why": "Generic references to St. Clair; not needed."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            6,
+            1
+          ],
+          "original": "my wife laid her needle-work down",
+          "modern": "My wife lowered her needlework",
+          "handling": "Case-variant rule for watsons-wife in M."
+        },
+        {
+          "where": [
+            6,
+            60
+          ],
+          "original": "the room in which Mr. St. Clair had last been seen",
+          "modern": "the room where her husband had last appeared",
+          "handling": "Neville mention exists in O only."
+        },
+        {
+          "where": [
+            6,
+            61
+          ],
+          "original": "all the clothes of Mr. Neville St. Clair … no other traces of Mr. Neville St. Clair",
+          "modern": "all Neville St. Clair’s clothes … no other trace of the man",
+          "handling": "O has 2 Neville mentions, M has 1."
+        },
+        {
+          "where": [
+            6,
+            68
+          ],
+          "original": "It was Neville St. Clair’s coat, and not Neville St. Clair",
+          "modern": "Neville St. Clair’s coat, rather than the man himself",
+          "handling": "O has 2, M has 1."
+        },
+        {
+          "where": [
+            6,
+            89
+          ],
+          "original": "said the lady",
+          "modern": "she said",
+          "handling": "‘the lady’ is bound to mrs-st-clair in O only."
+        },
+        {
+          "where": [
+            6,
+            148
+          ],
+          "original": "this horrible man",
+          "modern": "that horrible man",
+          "handling": "Separate rules per edition for hugh-boone."
+        },
+        {
+          "where": [
+            6,
+            202
+          ],
+          "original": "It was not the wife",
+          "modern": "It was not my wife",
+          "handling": "Separate rules per edition for mrs-st-clair."
+        },
+        {
+          "where": [
+            6,
+            206
+          ],
+          "original": "with a red head of hair",
+          "modern": "wearing a red wig",
+          "handling": "No binding impact."
+        },
+        {
+          "where": [
+            6,
+            50
+          ],
+          "original": "Give her her head",
+          "modern": "Give the mare her head",
+          "handling": "No binding impact (the horse)."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Mr. Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes"
+          ],
+          "paragraphOnly": {
+            "my companion": [
+              76,
+              80
+            ],
+            "my friend": [
+              32,
+              88,
+              221
+            ]
+          },
+          "traps": "DISGUISE: Holmes is the ‘tall, thin old man’ by the brazier (14) and ‘the tall man who sat by the brazier’ / ‘the old man’ (27). His identity is revealed mid-paragraph at 27, so these must stay unbound (do not bind 14 or 27 descriptors to Holmes). ‘a decrepit figure’ (32) is Holmes but leave unbound. ‘my friend’ is NOT global: 16/36 ‘a friend’ = Isa Whitney; 78 ‘my friend and colleague’ and 86 ‘my friend, Dr. Watson’ = Watson (Holmes speaking); 207 ‘a friend’ = St. Clair’s friend. Only 32, 88, 221 (Watson narrating/speaking) are Holmes. ‘my companion’ 76, 80 = Holmes."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "Dr. Watson"
+          ],
+          "paragraphOnly": {
+            "the doctor": [
+              9
+            ]
+          },
+          "traps": "His wife calls him ‘James’ at 8 (both editions: ‘send James off to bed’) — it is clearly Watson in context, but it conflicts with his name John elsewhere, so we left it UNBOUND; if bound, bind only paragraph 8. ‘John’ at 50 is NOT Watson — Holmes is dismissing the dog-cart’s driver (‘All right, John; we shall not need you’). ‘the doctor’s advice’ (9) = Watson; ‘to me as a doctor’ (10) and M 65 ‘your experience as a doctor’ are generic. ‘my friend and colleague’ (78) = Watson. Watson is the narrator ‘I’ throughout; Isa Whitney calls him Watson at 18, 24, 26."
+        },
+        "bradstreet": {
+          "aliases": [
+            "Inspector Bradstreet",
+            "Bradstreet"
+          ],
+          "traps": "Introduced here; card drafted in entities. ‘the inspector’ in 173–199 = Bradstreet; in 60, 61, 67 = Barton or the unnamed Fresno Street inspector."
+        },
+        "lestrade": {
+          "aliases": [],
+          "traps": "Does not occur."
+        },
+        "mrs-hudson": {
+          "aliases": [],
+          "traps": "Does not occur."
+        },
+        "irene-adler": {
+          "aliases": [],
+          "traps": "Does not occur."
+        }
+      }
+    },
+    {
+      "story": 7,
+      "concealments": [
+        {
+          "what": "The rat-faced little man badgering Breckinridge about geese is James Ryder (he first gives the false name John Robinson).",
+          "revealedAt": [
+            7,
+            168
+          ],
+          "entities": [
+            "james-ryder",
+            "john-robinson-alias"
+          ],
+          "handling": "Descriptions in 151–168 (“a little rat-faced fellow”, “the little man”, “the inquirer”, “the stranger”, “the little fellow”) are unbound. “John Robinson” is its own entity with a snapshot after 168."
+        },
+        {
+          "what": "Ryder stole the blue carbuncle, with Catherine Cusack as confederate, and framed Horner.",
+          "revealedAt": [
+            7,
+            183
+          ],
+          "entities": [
+            "james-ryder",
+            "catherine-cusack",
+            "john-horner"
+          ],
+          "handling": "First cards report only the public police-court testimony and the charge against Horner. Guilt and the frame-up appear in snapshots after 183 (Horner’s “knew nothing” after 185). Exposure begins at 179 (“The game’s up”), so 183 is a conservative gate."
+        },
+        {
+          "what": "Mrs. Oakshott is Ryder’s sister (“Maggie”); the stone was hidden in a goose from her flock.",
+          "revealedAt": [
+            7,
+            188
+          ],
+          "entities": [
+            "mrs-oakshott",
+            "james-ryder"
+          ],
+          "handling": "First card is her ledger identity only. Snapshot after 188. “my sister” bound only from 188."
+        },
+        {
+          "what": "Henry Baker is innocent and knows nothing of the stone.",
+          "revealedAt": [
+            7,
+            94
+          ],
+          "entities": [
+            "henry-baker"
+          ],
+          "handling": "First card makes no claim about involvement; snapshot after 94 records Holmes’s conclusion."
+        },
+        {
+          "what": "Outcome: Holmes lets Ryder go; the case against Horner is expected to collapse.",
+          "revealedAt": [
+            7,
+            213
+          ],
+          "entities": [
+            "james-ryder",
+            "john-horner"
+          ],
+          "handling": "Snapshots after 213."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "John",
+          "people": [
+            "john-horner",
+            "john-robinson-alias"
+          ],
+          "howToldApart": "Only full-name aliases are bound (“John Horner”, “John Robinson”); bare “John” is never an alias. Watson is never called John in this story."
+        },
+        {
+          "name": "Baker",
+          "people": [
+            "henry-baker",
+            "Mrs. Henry Baker (unbound)",
+            "Baker Street (place)"
+          ],
+          "howToldApart": "Bare “Baker” bound only at 93; “Mr. Baker”, “Henry Baker”, “Mr. Henry Baker” elsewhere. “Henry Baker” inside “For Mrs. Henry Baker” (12) is excluded. “Baker Street” (63, 79, 170) and “Bakers”/“Henry Bakers” (12) do not bind."
+        },
+        {
+          "name": "Oakshott",
+          "people": [
+            "mrs-oakshott",
+            "her husband (unbound, 188)"
+          ],
+          "howToldApart": "Only “Mrs. Oakshott” is an alias; bare “Oakshott” (188) stays unbound."
+        },
+        {
+          "name": "landlord / dealer",
+          "people": [
+            "windigate",
+            "breckinridge"
+          ],
+          "howToldApart": "Paragraph-limited rules only; “the dealer” in 202–203 and “dealers” in 105 M are left unbound."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "Mrs. Henry Baker",
+          "where": [
+            [
+              7,
+              12
+            ]
+          ],
+          "why": "Henry Baker’s wife, named only on the goose’s card (also “his wife”, 27, 40, 43). Mentioned only; Henry Baker alias excluded inside this span. Could become a reference entity if wanted."
+        },
+        {
+          "text": "H. B.",
+          "where": [
+            [
+              7,
+              12
+            ],
+            [
+              7,
+              23
+            ]
+          ],
+          "why": "Initials in the hat; punctuation-ending alias is fragile and the text is an inference clue, not a name."
+        },
+        {
+          "text": "my wife (Peterson’s wife), your family",
+          "where": [
+            [
+              7,
+              50
+            ],
+            [
+              7,
+              69
+            ]
+          ],
+          "why": "Unnamed; minor."
+        },
+        {
+          "text": "your wife (Watson’s wife)",
+          "where": [
+            [
+              7,
+              41
+            ]
+          ],
+          "why": "Watson’s wife, unnamed; Holmes’s hypothetical."
+        },
+        {
+          "text": "a tall man in a Scotch bonnet",
+          "where": [
+            [
+              7,
+              79
+            ]
+          ],
+          "why": "Henry Baker, named in the next paragraph; generic description left unbound."
+        },
+        {
+          "text": "a little rat-faced fellow / the little man / the inquirer / the stranger / the little fellow / our new companion",
+          "where": [
+            [
+              7,
+              151
+            ],
+            [
+              7,
+              153
+            ],
+            [
+              7,
+              156
+            ],
+            [
+              7,
+              157
+            ],
+            [
+              7,
+              164
+            ],
+            [
+              7,
+              168
+            ],
+            [
+              7,
+              170
+            ]
+          ],
+          "why": "Ryder before (and at) the reveal; must not bind to james-ryder before 168, and generic thereafter."
+        },
+        {
+          "text": "a man named Oakshott",
+          "where": [
+            [
+              7,
+              188
+            ]
+          ],
+          "why": "Mrs. Oakshott’s husband; mentioned once."
+        },
+        {
+          "text": "King of Proosia",
+          "where": [
+            [
+              7,
+              156
+            ]
+          ],
+          "why": "Breckinridge’s dismissive figure of speech, not a person in the story."
+        },
+        {
+          "text": "the man with the twisted lip",
+          "where": [
+            [
+              7,
+              6
+            ]
+          ],
+          "why": "Back-reference to story 6, whose central figure has a concealed identity; do not bind here."
+        },
+        {
+          "text": "a boy / The small boy / The boy",
+          "where": [
+            [
+              7,
+              109
+            ],
+            [
+              7,
+              137
+            ]
+          ],
+          "why": "Bill, Breckinridge’s boy; generic nouns left unbound (named “Bill” in 136)."
+        },
+        {
+          "text": "our good host",
+          "where": [
+            [
+              7,
+              93
+            ]
+          ],
+          "why": "Windigate (original only); generic."
+        },
+        {
+          "text": "the lady / my lady / her ladyship",
+          "where": [
+            [
+              7,
+              59
+            ],
+            [
+              7,
+              183
+            ]
+          ],
+          "why": "The Countess; generic forms left unbound."
+        },
+        {
+          "text": "the dealer / dealers",
+          "where": [
+            [
+              7,
+              105
+            ],
+            [
+              7,
+              202
+            ],
+            [
+              7,
+              203
+            ]
+          ],
+          "why": "Generic (105 M “a few dealers there”) or Maggie’s indirect reference; not bound."
+        },
+        {
+          "text": "a little knot of roughs / the roughs",
+          "where": [
+            [
+              7,
+              10
+            ],
+            [
+              7,
+              84
+            ]
+          ],
+          "why": "Unnamed street toughs; a group of no further consequence."
+        },
+        {
+          "text": "my father, my mother",
+          "where": [
+            [
+              7,
+              184
+            ]
+          ],
+          "why": "Ryder’s parents, invoked only."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            7,
+            59
+          ],
+          "original": "abstracted it from the lady’s jewel-case",
+          "modern": "taking it from the Countess’s jewel-case",
+          "handling": "“Countess” binds in modern only; counts differ."
+        },
+        {
+          "where": [
+            7,
+            183
+          ],
+          "original": "in my lady’s room",
+          "modern": "in the Countess’s room",
+          "handling": "Modern-only Countess binding."
+        },
+        {
+          "where": [
+            7,
+            93
+          ],
+          "original": "our good host, Windigate by name",
+          "modern": "our excellent landlord, Windigate",
+          "handling": "Modern-only “landlord” rule at 93."
+        },
+        {
+          "where": [
+            7,
+            100
+          ],
+          "original": "The man seemed surprised.",
+          "modern": "The landlord looked startled.",
+          "handling": "Modern-only “landlord” rule at 100."
+        },
+        {
+          "where": [
+            7,
+            104
+          ],
+          "original": "a salesman in Covent Garden",
+          "modern": "a dealer at Covent Garden",
+          "handling": "Edition-specific rules: “salesman” (O), “dealer” (M) for Breckinridge."
+        },
+        {
+          "where": [
+            7,
+            151
+          ],
+          "original": "Breckinridge, the salesman, framed in the door",
+          "modern": "Breckinridge stood framed in the stall doorway",
+          "handling": "O has an extra “salesman” mention covered by the O rule."
+        },
+        {
+          "where": [
+            7,
+            84
+          ],
+          "original": "Our visitor gave a rather shamefaced laugh",
+          "modern": "The visitor laughed rather sheepishly",
+          "handling": "Edition-specific Henry Baker rules."
+        },
+        {
+          "where": [
+            7,
+            138
+          ],
+          "original": "Mr. Cocksure",
+          "modern": "Mr. Know-it-all",
+          "handling": "Nickname for Holmes; optional paragraph-limited binding."
+        },
+        {
+          "where": [
+            7,
+            180
+          ],
+          "original": "For a moment he had staggered",
+          "modern": "For a moment Ryder had swayed",
+          "handling": "Modern has an extra “Ryder”."
+        },
+        {
+          "where": [
+            7,
+            208
+          ],
+          "original": "broken only by his heavy breathing",
+          "modern": "Only Ryder’s heavy breathing",
+          "handling": "Modern has an extra “Ryder”."
+        },
+        {
+          "where": [
+            7,
+            200
+          ],
+          "original": "I told my pal what I had done",
+          "modern": "I told my friend what I had done",
+          "handling": "Maudsley rules: “my pal” (O), “my friend” (M), paragraph 200 only."
+        },
+        {
+          "where": [
+            7,
+            60
+          ],
+          "original": "upper-attendant at the hotel",
+          "modern": "the hotel’s senior attendant",
+          "handling": "Subtitle uses “upper attendant” (169 O says “Head attendant”); both describe the same senior post."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes"
+          ],
+          "traps": "“Holmes’” possessive (79 O, 82 O, 208 O) and “Holmes’s” (82 M, 184 M, 208 M) contain “Holmes”. Breckinridge calls him “Mr. Cocksure” (138 O) / “Mr. Know-it-all” (138 M) — optional paragraph-limited binding to sherlock-holmes at 138 only. “my friend” (0, 208) and “my companion” (111, 157, 184 O) denote Holmes but should stay unbound; “my friend” in 200 M is Maudsley and “a friend” in 189 is Maudsley. No disguises in this story."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "my dear Watson"
+          ],
+          "traps": "“Doctor” in 213 (both editions) is Watson — bind only with a paragraph rule [213]. “the doctors’ quarter” / “the doctors’ district” (98) is NOT Watson. “your wife” (41) is Watson’s wife, unbound. “a friend” (2) is Watson, unbound. Names John/James here belong to John Horner, James Ryder and the false name John Robinson — none is Watson."
+        },
+        "bradstreet": {
+          "occurrences": [
+            [
+              7,
+              60,
+              "Inspector Bradstreet, B division (O) / Inspector Bradstreet of B Division (M)"
+            ]
+          ],
+          "note": "Single mention in the newspaper report: he gave evidence of Horner’s arrest. Not introduced in full here; bind “Inspector Bradstreet” / “Bradstreet” to the shared id. Holmes’s later opinion of the police is not about him by name."
+        },
+        "mrs-hudson": {
+          "occurrences": [
+            [
+              7,
+              78,
+              "Mrs. Hudson"
+            ]
+          ],
+          "note": "Holmes jokes about asking her to examine the woodcock’s crop. No card needed here."
+        },
+        "irene-adler": {
+          "occurrences": [
+            [
+              7,
+              6,
+              "Irene Adler"
+            ]
+          ],
+          "note": "In “the Irene Adler papers”, a back-reference to story 1. Binding is optional; nothing in this story adds to her card."
+        },
+        "mary-sutherland": {
+          "occurrences": [
+            [
+              7,
+              6,
+              "Miss Mary Sutherland"
+            ]
+          ],
+          "note": "Back-reference to story 3 (“the singular case of Miss Mary Sutherland”). Bind “Miss Mary Sutherland”/“Mary Sutherland” to whatever id story 3 uses; no new facts."
+        }
+      }
+    },
+    {
+      "story": 8,
+      "concealments": [
+        {
+          "what": "The ‘speckled band’ is a swamp adder",
+          "revealedAt": [
+            8,
+            244
+          ],
+          "entities": [
+            "swamp-adder",
+            "julia-stoner"
+          ],
+          "handling": "No entity binds ‘band’ / ‘speckled band’ / ‘yellow band’ / ‘serpent’ (243). Swamp-adder card first bound at 244; mechanism snapshot after 247."
+        },
+        {
+          "what": "Dr. Roylott’s guilt for Julia’s death and the plot against Helen",
+          "revealedAt": [
+            8,
+            244
+          ],
+          "entities": [
+            "grimesby-roylott",
+            "julia-stoner",
+            "swamp-adder"
+          ],
+          "handling": "First card neutral (stepfather, doctor, family). Holmes’s suspicion of motive attributed after 114; ‘schemer’ snapshot after 244; full explanation after 248 (Roylott) / 247 (Julia, adder)."
+        },
+        {
+          "what": "Dr. Roylott’s death",
+          "revealedAt": [
+            8,
+            244
+          ],
+          "entities": [
+            "grimesby-roylott",
+            "helen-stoner"
+          ],
+          "handling": "Para 0 mentions rumours of his death, but no card states it before the snapshot after 244 (Helen after 246)."
+        },
+        {
+          "what": "Gipsies’ non-involvement / Holmes’s false scent",
+          "revealedAt": [
+            8,
+            247
+          ],
+          "entities": [
+            "stoke-moran-gipsies"
+          ],
+          "handling": "Helen’s and Holmes’s gipsy speculation attributed (snapshot after 63); Holmes’s retraction only after 247."
+        },
+        {
+          "what": "The ‘hideous and distorted child’ on the lawn is the baboon",
+          "revealedAt": [
+            8,
+            224
+          ],
+          "entities": [
+            "roylott-baboon"
+          ],
+          "handling": "221 unbound; baboon snapshot after 224."
+        },
+        {
+          "what": "The huge intruder at Baker Street is Dr. Roylott",
+          "revealedAt": [
+            8,
+            97
+          ],
+          "entities": [
+            "grimesby-roylott"
+          ],
+          "handling": "‘a huge man’ / ‘this apparition’ / ‘this formidable figure’ (94–95) unbound; named at 97."
+        },
+        {
+          "what": "Mrs. Stoner’s death and the terms of her will",
+          "revealedAt": [
+            8,
+            24
+          ],
+          "entities": [
+            "mrs-stoner"
+          ],
+          "handling": "First card at 24 omits death; snapshot after 24."
+        },
+        {
+          "what": "Julia’s death",
+          "revealedAt": [
+            8,
+            27
+          ],
+          "entities": [
+            "julia-stoner"
+          ],
+          "handling": "First card at 24 neutral; snapshot after 29 (death confirmed at 27–29), then 49."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "Stoner",
+          "people": [
+            "helen-stoner",
+            "julia-stoner",
+            "mrs-stoner",
+            "major-general-stoner"
+          ],
+          "howToldApart": "‘Miss Stoner’ is always Helen; Julia is only ‘Julia’; ‘Mrs. Stoner’ and ‘Major-General Stoner’ are longer exact aliases. No bare ‘Stoner’ occurs."
+        },
+        {
+          "name": "Roylott",
+          "people": [
+            "grimesby-roylott",
+            "helen-stoner",
+            "roylotts-of-stoke-moran"
+          ],
+          "howToldApart": "‘Dr. (Grimesby) Roylott’ = stepfather; ‘Miss Roylott’ (69) = Helen, rule-bound; ‘Roylotts’ and ‘a Roylott’ (25) = family."
+        },
+        {
+          "name": "Doctor",
+          "people": [
+            "grimesby-roylott",
+            "watson",
+            "william-palmer-poisoner",
+            "edward-pritchard-poisoner"
+          ],
+          "howToldApart": "‘the Doctor’/‘Doctor’ = Roylott; ‘Dr. Watson’ = Watson; ‘a doctor’ (217) generic; inquest ‘doctors’ (57) unbound."
+        },
+        {
+          "name": "Armitage",
+          "people": [
+            "percy-armitage",
+            "mr-armitage-of-crane-water"
+          ],
+          "howToldApart": "Longer alias ‘Mr. Armitage’ claims the father’s span; bare ‘Armitage’ rule-bound to Percy in 66."
+        },
+        {
+          "name": "band",
+          "people": [
+            "swamp-adder",
+            "stoke-moran-gipsies"
+          ],
+          "howToldApart": "Never bound to anyone: the word is the mystery itself."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "the lady to whom the pledge was given",
+          "where": [
+            [
+              8,
+              0
+            ]
+          ],
+          "why": "Narrator does not say who she is (possibly Helen, unconfirmed); binding could also imply a death."
+        },
+        {
+          "text": "a young lady / the woman / the lady / our visitor (before name)",
+          "where": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              8,
+              14
+            ],
+            [
+              8,
+              19
+            ]
+          ],
+          "why": "Helen before she gives her name at 21; harmless but generic."
+        },
+        {
+          "text": "one ... who cares for me ... poor fellow; he to whom ... I have a right to look",
+          "where": [
+            [
+              8,
+              16
+            ],
+            [
+              8,
+              19
+            ]
+          ],
+          "why": "Probably Percy Armitage, never confirmed."
+        },
+        {
+          "text": "my sister / your sister / her sister / the dying woman",
+          "where": [
+            [
+              8,
+              27
+            ],
+            [
+              8,
+              28
+            ],
+            [
+              8,
+              34
+            ],
+            [
+              8,
+              49
+            ],
+            [
+              8,
+              87
+            ],
+            [
+              8,
+              140
+            ]
+          ],
+          "why": "Generic kinship nouns; Julia is bound by name only."
+        },
+        {
+          "text": "my mother / the deceased wife / his late wife",
+          "where": [
+            [
+              8,
+              24
+            ],
+            [
+              8,
+              29
+            ],
+            [
+              8,
+              114
+            ]
+          ],
+          "why": "Generic; Mrs. Stoner bound by name."
+        },
+        {
+          "text": "a huge man / this apparition / this formidable figure / our new visitor",
+          "where": [
+            [
+              8,
+              94
+            ],
+            [
+              8,
+              95
+            ],
+            [
+              8,
+              103
+            ]
+          ],
+          "why": "Roylott before and just after self-naming; generic descriptions."
+        },
+        {
+          "text": "the band / the speckled band / yellow band / serpent / strange headgear",
+          "where": [
+            [
+              8,
+              49
+            ],
+            [
+              8,
+              62
+            ],
+            [
+              8,
+              241
+            ],
+            [
+              8,
+              242
+            ],
+            [
+              8,
+              243
+            ]
+          ],
+          "why": "The solution; must never be bound early."
+        },
+        {
+          "text": "a hideous and distorted child",
+          "where": [
+            [
+              8,
+              221
+            ]
+          ],
+          "why": "The baboon before identification at 224."
+        },
+        {
+          "text": "the local blacksmith",
+          "where": [
+            [
+              8,
+              26
+            ]
+          ],
+          "why": "One-off victim of Roylott’s temper."
+        },
+        {
+          "text": "the housekeeper",
+          "where": [
+            [
+              8,
+              76
+            ],
+            [
+              8,
+              142
+            ]
+          ],
+          "why": "Unnamed, minor."
+        },
+        {
+          "text": "the driver / the lad who drove him / the landlord",
+          "where": [
+            [
+              8,
+              119
+            ],
+            [
+              8,
+              121
+            ],
+            [
+              8,
+              194
+            ],
+            [
+              8,
+              220
+            ]
+          ],
+          "why": "Unnamed one-offs."
+        },
+        {
+          "text": "the county coroner / the doctors",
+          "where": [
+            [
+              8,
+              51
+            ],
+            [
+              8,
+              54
+            ],
+            [
+              8,
+              55
+            ],
+            [
+              8,
+              57
+            ]
+          ],
+          "why": "Unnamed officials at Julia’s inquest."
+        },
+        {
+          "text": "a correspondent / a relative / native butler / the last squire / a gambler in the days of the Regency",
+          "where": [
+            [
+              8,
+              23
+            ],
+            [
+              8,
+              26
+            ]
+          ],
+          "why": "Unnamed figures in Roylott’s backstory."
+        },
+        {
+          "text": "Crown Inn / Doctors’ Commons / Leatherhead / Waterloo / Crane Water / Harrow / Stoke Moran",
+          "where": [
+            [
+              8,
+              66
+            ],
+            [
+              8,
+              112
+            ],
+            [
+              8,
+              16
+            ],
+            [
+              8,
+              29
+            ]
+          ],
+          "why": "Places, not people."
+        },
+        {
+          "text": "Eley’s No. 2",
+          "where": [
+            [
+              8,
+              114
+            ]
+          ],
+          "why": "A revolver make, not a person."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            8,
+            89
+          ],
+          "original": "Miss Helen Stoner … this old doctor … the doctor … a band of gipsies",
+          "modern": "Helen Stoner … the Doctor … the gipsy band’s",
+          "handling": "Separate aliases: ‘Miss Helen Stoner’ (O), ‘the doctor’ rule (O), ‘the Doctor’ (M), ‘gipsy’ (M). ‘this old doctor’ unbound."
+        },
+        {
+          "where": [
+            8,
+            194
+          ],
+          "original": "Dr. Grimesby Roylott",
+          "modern": "Dr. Roylott",
+          "handling": "Both bound to grimesby-roylott."
+        },
+        {
+          "where": [
+            8,
+            246
+          ],
+          "original": "the doctor met his fate",
+          "modern": "the Doctor had died",
+          "handling": "Rule ‘the doctor’ O; ‘the Doctor’ M."
+        },
+        {
+          "where": [
+            8,
+            247
+          ],
+          "original": "the doctor was furnished",
+          "modern": "the Doctor received",
+          "handling": "Same as 246."
+        },
+        {
+          "where": [
+            8,
+            29
+          ],
+          "original": "My stepfather learned",
+          "modern": "she told my stepfather",
+          "handling": "Edition-specific stepfather rules."
+        },
+        {
+          "where": [
+            8,
+            30
+          ],
+          "original": "his visitor",
+          "modern": "our visitor",
+          "handling": "‘our visitor’ rule M only."
+        },
+        {
+          "where": [
+            8,
+            139
+          ],
+          "original": "Miss Stoner did so",
+          "modern": "She did so",
+          "handling": "Explains Miss Stoner 15 vs 14."
+        },
+        {
+          "where": [
+            8,
+            243
+          ],
+          "original": "a loathsome serpent",
+          "modern": "a loathsome snake’s",
+          "handling": "Both unbound (pre-naming)."
+        },
+        {
+          "where": [
+            8,
+            245
+          ],
+          "original": "the reptile’s neck",
+          "modern": "the snake’s neck",
+          "handling": "M ‘snake’ bound via rule (post-reveal)."
+        },
+        {
+          "where": [
+            8,
+            225
+          ],
+          "original": "Holmes’ example",
+          "modern": "Holmes’s example",
+          "handling": "Both covered by ‘Holmes’."
+        },
+        {
+          "where": [
+            8,
+            107
+          ],
+          "original": "Holmes, the Scotland Yard Jack-in-office!",
+          "modern": "Holmes, that puffed-up Scotland Yard official!",
+          "handling": "‘Holmes’ bound in both."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes",
+            "Holmes’",
+            "Holmes’s"
+          ],
+          "traps": "O: Sherlock Holmes 9, Holmes 56 total; M: Sherlock Holmes 7, Holmes 58. ‘Holmes’’ (O 225) and ‘Holmes’s’ (M 0, 225) are possessives covered by ‘Holmes’. Roylott’s insults ‘Holmes, the meddler / the busybody / the Scotland Yard Jack-in-office’ (103–107) still denote Holmes. ‘my friend’ / ‘my companion’ are generic, unbound. No disguise in this story."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "Dr. Watson"
+          ],
+          "traps": "Watson 12/12, Dr. Watson 1/1 (7). Narrator ‘I’ unbound. ‘the Doctor’ (capital D) is ALWAYS Dr. Roylott, never Watson; ‘Doctor’ at 98 is Roylott. ‘The doctors’ at 57 are the doctors at Julia’s inquest; ‘a doctor’ (217) is generic; ‘Doctors’ Commons’ (112) is a place. Watson’s revolver/pistol (114, 230–240)."
+        },
+        "mrs-hudson": {
+          "aliases": [
+            "Mrs. Hudson"
+          ],
+          "traps": "Occurs at 2 and 7 (both editions), 2/2. Not introduced here; no card needed."
+        }
+      }
+    },
+    {
+      "story": 9,
+      "concealments": [
+        {
+          "what": "Who maimed Hatherley. The opening (14–25) reveals only a ‘murderous’ attack with something like a cleaver.",
+          "revealedAt": [
+            9,
+            128
+          ],
+          "entities": [
+            "lysander-stark",
+            "victor-hatherley"
+          ],
+          "handling": "Stark’s first card is neutral (thin, German-accented client wanting secrecy). Snapshot after 128 covers the press trap (119–120) and the cleaver blow. Hatherley’s full-account snapshot comes after 132."
+        },
+        {
+          "what": "The fuller’s-earth story is a lie; the press is used for coining.",
+          "revealedAt": [
+            9,
+            157
+          ],
+          "entities": [
+            "lysander-stark",
+            "ferguson"
+          ],
+          "handling": "At 115 Hatherley sees the story is false; 157 is Holmes’s ‘coiners on a large scale’. Coining appears only in snapshots after 157."
+        },
+        {
+          "what": "The woman calls the colonel ‘Fritz’, so ‘Colonel Lysander Stark’ may not be his real name.",
+          "revealedAt": [
+            9,
+            127
+          ],
+          "entities": [
+            "lysander-stark"
+          ],
+          "handling": "‘Fritz’ is bound to Stark only at 127, where the context makes the reference obvious. Snapshots say the text never settles which name is real. No separate entity is needed: the two names are never shown as different people."
+        },
+        {
+          "what": "The woman’s name (Elise) and her role as rescuer.",
+          "revealedAt": [
+            9,
+            128
+          ],
+          "entities": [
+            "elise"
+          ],
+          "handling": "Display name ‘The woman at the house’ until the snapshot after 128 renames her ‘Elise’. Warning snapshot after 103; rescue and name after 128."
+        },
+        {
+          "what": "Jeremiah Hayling was probably an earlier victim (Holmes’s inference).",
+          "revealedAt": [
+            9,
+            134
+          ],
+          "entities": [
+            "jeremiah-hayling",
+            "lysander-stark"
+          ],
+          "handling": "Hayling’s first card gives only the advertisement; his snapshot after 134 and Stark’s after 157 attribute the link to Holmes."
+        },
+        {
+          "what": "The house belongs to Dr. Becher, and Becher’s house is the gang’s house.",
+          "revealedAt": [
+            9,
+            169
+          ],
+          "entities": [
+            "dr-becher"
+          ],
+          "handling": "Becher’s first card (165) gives only what the station-master says. Snapshot after 169 adds Hatherley’s identification of the house. Becher’s own involvement, and any identity with Ferguson, is left explicitly unresolved."
+        },
+        {
+          "what": "The gang escapes and is never traced.",
+          "revealedAt": [
+            9,
+            171
+          ],
+          "entities": [
+            "lysander-stark",
+            "elise",
+            "ferguson"
+          ],
+          "handling": "159 foreshadows (‘not destined to fall into the hands of justice’); 171 states it. Escape appears only in snapshots after 171/173. Threads must not mention it."
+        },
+        {
+          "what": "Who carried Hatherley to the roadside (probably Elise and Ferguson, from footprints).",
+          "revealedAt": [
+            9,
+            173
+          ],
+          "entities": [
+            "elise",
+            "ferguson"
+          ],
+          "handling": "Snapshots after 173 present it as ‘probably’, as the text does."
+        },
+        {
+          "what": "Hatherley’s lamp set the house on fire (Holmes’s conclusion).",
+          "revealedAt": [
+            9,
+            170
+          ],
+          "entities": [
+            "victor-hatherley"
+          ],
+          "handling": "Not put on any card; mentioned here for completeness."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "Colonel",
+          "people": [
+            "Colonel Warburton (0, unbound)",
+            "lysander-stark"
+          ],
+          "howToldApart": "Warburton appears only as ‘Colonel Warburton’ at 0. Stark’s ‘the colonel’ rule starts at 45; bare ‘Colonel’ is bound only at 119."
+        },
+        {
+          "name": "Doctor / Dr.",
+          "people": [
+            "watson",
+            "dr-becher"
+          ],
+          "howToldApart": "Becher is always ‘Dr. Becher’. Watson is ‘Doctor’ (vocative) or ‘the doctor’ at 5, 7, 14, 41, 132. Never bind bare ‘Doctor’ globally."
+        },
+        {
+          "name": "hydraulic engineer",
+          "people": [
+            "victor-hatherley",
+            "jeremiah-hayling"
+          ],
+          "howToldApart": "‘the hydraulic engineer’ is bound to Hatherley only at 137; at 134 the phrase describes Hayling inside the advertisement and is not bound. At 81 ‘hydraulic engineers’ is generic."
+        },
+        {
+          "name": "Englishman",
+          "people": [
+            "ferguson",
+            "dr-becher"
+          ],
+          "howToldApart": "‘the morose/surly/silent/taciturn Englishman’ (171, 173) is Ferguson. ‘an Englishman’ / ‘English’ at 167 describes Becher and is not bound. The text never says whether they are the same man."
+        },
+        {
+          "name": "German",
+          "people": [
+            "lysander-stark",
+            "generic"
+          ],
+          "howToldApart": "Only ‘the sinister German’ (171) is bound. ‘German accent/books/people/exclamation’ and Hatherley’s ‘a German’ (166) are left unbound."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "Colonel Warburton",
+          "where": [
+            [
+              9,
+              0
+            ]
+          ],
+          "why": "One-off mention of another case Watson brought to Holmes; no further information."
+        },
+        {
+          "text": "my wife",
+          "where": [
+            [
+              9,
+              38
+            ]
+          ],
+          "why": "Watson’s wife, unnamed in this story; do not import a name from other stories."
+        },
+        {
+          "text": "the maid",
+          "where": [
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "why": "Watson’s maid; incidental."
+        },
+        {
+          "text": "my clerk / clerks",
+          "where": [
+            [
+              9,
+              45
+            ],
+            [
+              9,
+              58
+            ]
+          ],
+          "why": "Hatherley’s office clerk; incidental."
+        },
+        {
+          "text": "Venner & Matheson",
+          "where": [
+            [
+              9,
+              43
+            ]
+          ],
+          "why": "Greenwich engineering firm where Hatherley apprenticed; an organisation, incidental."
+        },
+        {
+          "text": "my poor father",
+          "where": [
+            [
+              9,
+              43
+            ]
+          ],
+          "why": "Hatherley’s late father; incidental."
+        },
+        {
+          "text": "who it was who gave me so good a character / the same source",
+          "where": [
+            [
+              9,
+              47
+            ],
+            [
+              9,
+              48
+            ]
+          ],
+          "why": "Stark’s unnamed source of information about Hatherley; never identified."
+        },
+        {
+          "text": "a few of my friends",
+          "where": [
+            [
+              9,
+              81
+            ]
+          ],
+          "why": "Stark’s associates in his cover story; too vague to bind."
+        },
+        {
+          "text": "porter",
+          "where": [
+            [
+              9,
+              87
+            ],
+            [
+              9,
+              131
+            ]
+          ],
+          "why": "Sleepy Eyford porter who doesn’t know Stark’s name. Minor, and not stated to be the station-master."
+        },
+        {
+          "text": "a gentleman staying with him, a patient… a foreigner (O) / a foreign gentleman… a patient (M)",
+          "where": [
+            [
+              9,
+              167
+            ]
+          ],
+          "why": "Implied to be Stark (thin foreigner at Becher’s house), but the text never says so outright. Binding it would assert an unsettled identity."
+        },
+        {
+          "text": "a German / a very thin German",
+          "where": [
+            [
+              9,
+              166
+            ]
+          ],
+          "why": "Hatherley’s description of the man he is asking about, inside a question; leave unbound."
+        },
+        {
+          "text": "my patron (O) / my client (M)",
+          "where": [
+            [
+              9,
+              86
+            ]
+          ],
+          "why": "Refers to Stark; left unbound as a loose epithet (safe to bind if wanted)."
+        },
+        {
+          "text": "my acquaintance of the morning (O) / the man I had met that morning (M); my companion",
+          "where": [
+            [
+              9,
+              87
+            ],
+            [
+              9,
+              96
+            ]
+          ],
+          "why": "Refer to Stark; loose epithets left unbound (safe to bind)."
+        },
+        {
+          "text": "the ruffian (O) / the brute (M); the villain",
+          "where": [
+            [
+              9,
+              126
+            ],
+            [
+              9,
+              142
+            ]
+          ],
+          "why": "Refer to Stark; loose epithets left unbound (safe to bind)."
+        },
+        {
+          "text": "the same good friend (O) / kind protector (M); My guide; my saviour (O) / my rescuer (M)",
+          "where": [
+            [
+              9,
+              122
+            ],
+            [
+              9,
+              124
+            ],
+            [
+              9,
+              126
+            ]
+          ],
+          "why": "Refer to Elise; loose epithets left unbound (safe to bind)."
+        },
+        {
+          "text": "my two companions; my companions",
+          "where": [
+            [
+              9,
+              112
+            ],
+            [
+              9,
+              115
+            ]
+          ],
+          "why": "Stark and Ferguson together; plural, not bound."
+        },
+        {
+          "text": "this gang / a clever gang / those criminals / the fugitives",
+          "where": [
+            [
+              9,
+              156
+            ],
+            [
+              9,
+              158
+            ],
+            [
+              9,
+              159
+            ],
+            [
+              9,
+              171
+            ]
+          ],
+          "why": "The coining gang as a group; no group entity was created (its members are carded individually)."
+        },
+        {
+          "text": "a peasant (O) / a countryman (M)",
+          "where": [
+            [
+              9,
+              171
+            ]
+          ],
+          "why": "Witness who saw the cart; incidental."
+        },
+        {
+          "text": "firemen",
+          "where": [
+            [
+              9,
+              172
+            ]
+          ],
+          "why": "Generic group."
+        },
+        {
+          "text": "One of these, whom I had cured",
+          "where": [
+            [
+              9,
+              1
+            ]
+          ],
+          "why": "The guard, introduced before he is named as such; pronoun-like, left unbound."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            9,
+            8
+          ],
+          "original": "That was the name, style, and abode of my morning visitor.",
+          "modern": "Such were my visitor’s name, profession, and address.",
+          "handling": "Modern-only ‘my visitor’ bound to Hatherley at 8 M."
+        },
+        {
+          "where": [
+            9,
+            39
+          ],
+          "original": "settled our new acquaintance upon the sofa",
+          "modern": "settled our visitor on the sofa",
+          "handling": "Separate edition-specific rules for Hatherley."
+        },
+        {
+          "where": [
+            9,
+            5
+          ],
+          "original": "this trusty tout",
+          "modern": "my faithful recruiter",
+          "handling": "Edition-specific rules for paddington-guard."
+        },
+        {
+          "where": [
+            9,
+            7
+          ],
+          "original": "a worthy fellow",
+          "modern": "A kindly fellow",
+          "handling": "Edition-specific rules for paddington-guard."
+        },
+        {
+          "where": [
+            9,
+            95
+          ],
+          "original": "Colonel Lysander Stark sprang out",
+          "modern": "Colonel Stark jumped out",
+          "handling": "Both aliases bound; same for 104, 113, 126, where modern shortens to ‘Colonel Stark’."
+        },
+        {
+          "where": [
+            9,
+            112
+          ],
+          "original": "the warnings of the lady … the fat manager … a fellow-countryman",
+          "modern": "the woman’s warning … the stout manager … a fellow Englishman",
+          "handling": "Edition-specific rules (elise, ferguson). Both editions establish Ferguson as English."
+        },
+        {
+          "where": [
+            9,
+            122
+          ],
+          "original": "a woman bent over me",
+          "modern": "A woman bent over me",
+          "handling": "Case-specific rules for elise."
+        },
+        {
+          "where": [
+            9,
+            135
+          ],
+          "original": "what the girl said",
+          "modern": "the woman’s words",
+          "handling": "‘the girl’ (O) and ‘the woman’ (M) both bound to elise at 135."
+        },
+        {
+          "where": [
+            9,
+            137
+          ],
+          "original": "a plain-clothes man",
+          "modern": "a plain-clothes officer",
+          "handling": "Edition-specific rules; same at 148."
+        },
+        {
+          "where": [
+            9,
+            159
+          ],
+          "original": "But the inspector was mistaken",
+          "modern": "The inspector was mistaken",
+          "handling": "Bradstreet alias needs both ‘the inspector’ and ‘The inspector’."
+        },
+        {
+          "where": [
+            9,
+            166
+          ],
+          "original": "is Dr. Becher a German, very thin, with a long, sharp nose?",
+          "modern": "is he a very thin German with a long, pointed nose?",
+          "handling": "Modern has no ‘Dr. Becher’ here (2 modern mentions vs 3 original)."
+        },
+        {
+          "where": [
+            9,
+            168
+          ],
+          "original": "The station-master had not finished his speech",
+          "modern": "Before he had finished",
+          "handling": "Original-only station-master mention."
+        },
+        {
+          "where": [
+            9,
+            171
+          ],
+          "original": "the morose Englishman … Holmes’ fears … Holmes’ ingenuity",
+          "modern": "the surly Englishman … His fears … Holmes’s ingenuity",
+          "handling": "Edition-specific Ferguson rules. Holmes has 2 mentions in O and 1 in M at 171."
+        },
+        {
+          "where": [
+            9,
+            173
+          ],
+          "original": "How our hydraulic engineer … the silent Englishman",
+          "modern": "How the engineer … the taciturn Englishman",
+          "handling": "Edition-specific rules for Hatherley and Ferguson."
+        },
+        {
+          "where": [
+            9,
+            0
+          ],
+          "original": "my friend, Mr. Sherlock Holmes",
+          "modern": "my friend Sherlock Holmes … Holmes obtained",
+          "handling": "Modern has an extra ‘Holmes’ at 0 and drops ‘Sherlock’ at 39, 133, 137."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": {
+            "original-en": [
+              "Mr. Sherlock Holmes",
+              "Sherlock Holmes",
+              "Holmes"
+            ],
+            "modern-en": [
+              "Sherlock Holmes",
+              "Holmes"
+            ]
+          },
+          "occurrences": {
+            "original-en": "Mr. Sherlock Holmes 0, 32; Sherlock Holmes 39, 133, 137; Holmes 1, 42, 88, 145, 157, 170, 171×2 (possessive ‘Holmes’’), 175",
+            "modern-en": "Sherlock Holmes 0, 32; Holmes 0, 1, 39, 42, 88, 133, 137, 145, 157, 170, 171 (‘Holmes’s’), 175"
+          },
+          "traps": "‘my friend’ (0, 32) is Holmes but generic, so leave it unbound. In 33 O ‘that fellow’ is Holmes; leave unbound. No disguises in this story."
+        },
+        "watson": {
+          "aliases": {
+            "original-en": [
+              "Doctor",
+              "the doctor"
+            ],
+            "modern-en": [
+              "Doctor",
+              "the doctor"
+            ]
+          },
+          "occurrences": {
+            "original-en": "Narrator ‘I’ throughout; never named. ‘Doctor’ (vocative) 5, 7, 14; ‘the doctor’ 41, 132",
+            "modern-en": "Same: ‘Doctor’ 5, 7, 14; ‘the doctor’ 41 (‘since the doctor dressed my hand’), 132 (‘The doctor kindly brought me’, capital T)"
+          },
+          "traps": "The name Watson never appears in this story. ‘a doctor’ (7) is generic: Hatherley asked where to find any doctor. Do not bind ‘Doctor’ globally, because ‘Dr. Becher’ (165–167) is a different doctor. Bind only the vocative ‘Doctor’ at 5, 7, 14 and ‘the doctor’/‘The doctor’ at 41 and 132, if Watson aliases are bound at all. ‘my wife’ (38) is Watson’s wife, who is unnamed here; do not import her name."
+        },
+        "bradstreet": {
+          "aliases": [
+            "Inspector Bradstreet",
+            "Bradstreet",
+            "the inspector",
+            "The inspector"
+          ],
+          "occurrences": {
+            "original-en": "Inspector Bradstreet 137; Bradstreet 137, 144, 156, 160; the inspector 146, 150, 158, 159 → 9",
+            "modern-en": "Inspector Bradstreet 137; Bradstreet 137, 144, 156, 160; the inspector 146, 150, 158; The inspector 159 → 9"
+          },
+          "storyLocalFacts": "Introduced here as ‘Inspector Bradstreet, of Scotland Yard’ (137). He draws a ten-mile circle around Eyford on an Ordnance map and guesses south (146). He says the Yard has known for some time of a skilful gang turning out half-crowns by the thousand, traced as far as Reading (158). Gated: the narrator says at 159 that he was wrong to think they would catch them.",
+          "aliasRuleSuggestion": "Bind ‘the inspector’ (146, 150, 158, 159 O) and ‘The inspector’ (159 M) to bradstreet; no other inspector appears in this story."
+        }
+      }
+    },
+    {
+      "story": 10,
+      "concealments": [
+        {
+          "what": "The bride Hatty Doran is already the wife of Francis Hay Moulton; she reappears as Mrs. Moulton",
+          "revealedAt": [
+            10,
+            197
+          ],
+          "entities": [
+            "hatty-doran",
+            "francis-hay-moulton"
+          ],
+          "handling": "Hatty snapshot after 197 (name 'Hatty Doran (Mrs. Moulton)'); 'Mrs. Moulton' bound only at 202. Details of the earlier secret marriage gated to 204."
+        },
+        {
+          "what": "The man in the front pew who returned the bouquet is Moulton, and he passed Hatty a note",
+          "revealedAt": [
+            10,
+            206
+          ],
+          "entities": [
+            "francis-hay-moulton"
+          ],
+          "handling": "'the gentleman in the pew' (91–95) left unbound; Moulton snapshot after 207 covers it."
+        },
+        {
+          "what": "The 'F. H. M.' initials are Moulton’s, not Flora Millar’s",
+          "revealedAt": [
+            10,
+            206
+          ],
+          "entities": [
+            "fhm-note-signer",
+            "flora-millar",
+            "francis-hay-moulton"
+          ],
+          "handling": "Separate unresolved-name entity with snapshot after 206; Flora card attributes the theory to Lestrade."
+        },
+        {
+          "what": "Flora Millar is not responsible for the disappearance (police suspicion was wrong)",
+          "revealedAt": [
+            10,
+            207
+          ],
+          "entities": [
+            "flora-millar"
+          ],
+          "handling": "Suspicion attributed to police/Lestrade until snapshot after 207."
+        },
+        {
+          "what": "Alice the maid knew Moulton and helped Hatty leave",
+          "revealedAt": [
+            10,
+            207
+          ],
+          "entities": [
+            "alice-st-simon-maid"
+          ],
+          "handling": "Snapshot after 207."
+        },
+        {
+          "what": "Moulton was reported killed by Apaches but survived",
+          "revealedAt": [
+            10,
+            207
+          ],
+          "entities": [
+            "francis-hay-moulton"
+          ],
+          "handling": "Death report (205) and survival (207) both only in post-197 snapshots."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "St. Simon",
+          "people": [
+            "lord-robert-st-simon",
+            "hatty-doran (as Lady St. Simon)",
+            "lord-eustace-st-simon",
+            "lady-clara-st-simon"
+          ],
+          "howToldApart": "Bare 'St. Simon' never bound; 'Lord St. Simon'/'Lord Robert St. Simon' = Robert, 'Lady St. Simon' = Hatty, 'Lady Clara St. Simon' and 'Lord Eustace' = siblings. The Duke of Balmoral is his father but is never called St. Simon in the text."
+        },
+        {
+          "name": "Alice / Alicia",
+          "people": [
+            "alice-st-simon-maid",
+            "lady-alicia-whittington"
+          ],
+          "howToldApart": "Different strings; word-boundary match keeps 'Alice' out of 'Alicia'."
+        },
+        {
+          "name": "Moulton",
+          "people": [
+            "francis-hay-moulton",
+            "hatty-doran (Mrs. Moulton, 202)"
+          ],
+          "howToldApart": "'Mr. Moulton'/'Francis Hay Moulton' = Frank; 'Mrs. Moulton' rule = Hatty at 202. Bare 'Moulton' never bound."
+        },
+        {
+          "name": "Doran",
+          "people": [
+            "hatty-doran",
+            "aloysius-doran"
+          ],
+          "howToldApart": "'Miss Doran'/'Hatty Doran' = Hatty; 'Mr. Doran'/'Aloysius Doran' = father. Bare 'Doran' not bound."
+        },
+        {
+          "name": "Duke / Duchess of Balmoral",
+          "people": [
+            "duke-of-balmoral",
+            "duchess-of-balmoral"
+          ],
+          "howToldApart": "Distinct strings."
+        },
+        {
+          "name": "king",
+          "people": [
+            "king-of-scandinavia",
+            "king-of-bohemia (other story)"
+          ],
+          "howToldApart": "Only 'King of Scandinavia' bound here; 'a king' (50) and 'a monarch' (216) unbound."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "the gentleman in the pew / a common-looking person / a man (92 M)",
+          "where": [
+            [
+              10,
+              91
+            ],
+            [
+              10,
+              92
+            ],
+            [
+              10,
+              94
+            ],
+            [
+              10,
+              95
+            ]
+          ],
+          "why": "Concealed Moulton; binding would spoil the solution."
+        },
+        {
+          "text": "a woman, whose name has not been ascertained / the woman who had caused the original disturbance",
+          "where": [
+            [
+              10,
+              39
+            ]
+          ],
+          "why": "Flora, but only named at 43; bind via name instead."
+        },
+        {
+          "text": "Some woman / A woman",
+          "where": [
+            [
+              10,
+              207
+            ]
+          ],
+          "why": "Implicitly Flora but never named; leave."
+        },
+        {
+          "text": "an American / this American",
+          "where": [
+            [
+              10,
+              219
+            ]
+          ],
+          "why": "Holmes’s hypothetical reasoning; generic."
+        },
+        {
+          "text": "St. Simon (bare)",
+          "where": [
+            [
+              10,
+              143
+            ]
+          ],
+          "why": "Names the case ('St. Simon marriage case'), not a person."
+        },
+        {
+          "text": "Moulton (bare in 'Mr. and Mrs. Francis Hay Moulton')",
+          "where": [
+            [
+              10,
+              197
+            ]
+          ],
+          "why": "'Mrs.' half denotes Hatty but is not a contiguous string; Francis Hay Moulton bound to Frank."
+        },
+        {
+          "text": "the butler, the footman / footmen, two police fellows, park-keeper, page-boy, confectioner’s man and youth, clergyman",
+          "where": [
+            [
+              10,
+              39
+            ],
+            [
+              10,
+              45
+            ],
+            [
+              10,
+              113
+            ],
+            [
+              10,
+              160
+            ],
+            [
+              10,
+              180
+            ],
+            [
+              10,
+              204
+            ],
+            [
+              10,
+              206
+            ]
+          ],
+          "why": "Anonymous minor figures."
+        },
+        {
+          "text": "Thoreau",
+          "where": [
+            [
+              10,
+              138
+            ]
+          ],
+          "why": "Passing quotation (trout in the milk); could be a cultural-figure reference if desired."
+        },
+        {
+          "text": "McQuire’s camp",
+          "where": [
+            [
+              10,
+              204
+            ]
+          ],
+          "why": "Place name, not a person."
+        },
+        {
+          "text": "Apache Indians / the Apaches",
+          "where": [
+            [
+              10,
+              205
+            ],
+            [
+              10,
+              207
+            ]
+          ],
+          "why": "Group mentioned in backstory; not a character."
+        },
+        {
+          "text": "Plantagenet, Tudor",
+          "where": [
+            [
+              10,
+              20
+            ]
+          ],
+          "why": "Lineage references."
+        },
+        {
+          "text": "a king (50), a monarch / a minister (216)",
+          "where": [
+            [
+              10,
+              50
+            ],
+            [
+              10,
+              216
+            ]
+          ],
+          "why": "Generic/historical allusion."
+        },
+        {
+          "text": "his mother",
+          "where": [
+            [
+              10,
+              207
+            ]
+          ],
+          "why": "Lord St. Simon’s mother; not explicitly identified with the Duchess."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            10,
+            16
+          ],
+          "original": "MY DEAR MR. SHERLOCK HOLMES",
+          "modern": "Dear Mr. Sherlock Holmes",
+          "handling": "Different case variants for Holmes."
+        },
+        {
+          "where": [
+            10,
+            136
+          ],
+          "original": "Lord St. Simon / our client",
+          "modern": "his lordship / he",
+          "handling": "Edition-specific rules; O has 'Lord St. Simon' (28 vs 25 in M)."
+        },
+        {
+          "where": [
+            10,
+            200
+          ],
+          "original": "said Lord St. Simon bitterly",
+          "modern": "he answered bitterly",
+          "handling": "No M binding."
+        },
+        {
+          "where": [
+            10,
+            164
+          ],
+          "original": "Miss Flora Millar",
+          "modern": "Miss Millar",
+          "handling": "Both aliases listed."
+        },
+        {
+          "where": [
+            10,
+            39
+          ],
+          "original": "Mr. Aloysius Doran ... house of Mr. Aloysius Doran",
+          "modern": "Mr. Aloysius Doran ... Mr. Doran’s house",
+          "handling": "Both aliases listed."
+        },
+        {
+          "where": [
+            10,
+            102
+          ],
+          "original": "this Alice",
+          "modern": "their conversation",
+          "handling": "Alice O=3, M=2."
+        },
+        {
+          "where": [
+            10,
+            110
+          ],
+          "original": "this maid, Alice",
+          "modern": "Alice",
+          "handling": "'maid' only in O."
+        },
+        {
+          "where": [
+            10,
+            140
+          ],
+          "original": "here is Lestrade! Good-afternoon, Lestrade!",
+          "modern": "here is Lestrade! Good afternoon!",
+          "handling": "Lestrade O=14, M=13."
+        },
+        {
+          "where": [
+            10,
+            92
+          ],
+          "original": "there was a gentleman in the pew",
+          "modern": "A man was sitting in the pew",
+          "handling": "Both unbound."
+        },
+        {
+          "where": [
+            10,
+            203
+          ],
+          "original": "the strange gentleman",
+          "modern": "the newcomer",
+          "handling": "Edition-specific rules for Moulton."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes",
+            "Master Holmes",
+            "Mr. Sherlock Holmes (16 M)",
+            "MR. SHERLOCK HOLMES (16 O)"
+          ],
+          "rulesSuggested": "'my friend' = Holmes at 0, 1, 46, 159 (O only); 'my companion' = Holmes at 154 O, 178 O. 'Holmes’s' (1 M) matches 'Holmes'.",
+          "traps": "'my friend' in 202 is Holmes speaking of Watson ('my friend and me'). 'Mr. Lestrade' is Lestrade. 'this good gentleman, Mr. Holmes' (209) is Holmes, in Hatty’s speech. No disguises in this story."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "Dr. Watson"
+          ],
+          "traps": "Narrator 'I' unbound. 'doctors' in 205 (Hatty’s doctors) are not Watson. 'my friend' in 202 (Holmes speaking) denotes Watson but leave unbound. Watson counts O=7, M=6 (20 O 'you Watson'; 20 M 'Watson')."
+        },
+        "lestrade": {
+          "aliases": [
+            "Lestrade",
+            "Mr. Lestrade"
+          ],
+          "occurrences": {
+            "original-en": 14,
+            "modern-en": 13
+          },
+          "paragraphs": [
+            16,
+            117,
+            140,
+            154,
+            164,
+            167,
+            170,
+            174,
+            176,
+            177,
+            178,
+            217,
+            221
+          ],
+          "rulesSuggested": "'The official detective' (141 O) / 'The police detective' (141 M) = Lestrade.",
+          "traps": "140 O has two 'Lestrade' (M one). Card is from story 4; nothing here changes it. He wrongly suspects Flora Millar — keep that attributed if mentioned."
+        }
+      }
+    },
+    {
+      "story": 11,
+      "concealments": [
+        {
+          "what": "Arthur is treated as the thief; his innocence",
+          "revealedAt": [
+            11,
+            198
+          ],
+          "entities": [
+            "arthur-holder"
+          ],
+          "handling": "Holder and the police accuse him (11:65–79); first card says only son with debts; snapshot after 79 reports arrest as his father’s action; innocence only after 11:198 (Holmes: ‘it was not’), full account after 11:210."
+        },
+        {
+          "what": "Mary’s secret understanding with Sir George Burnwell and their flight",
+          "revealedAt": [
+            11,
+            202
+          ],
+          "entities": [
+            "mary-holder",
+            "sir-george-burnwell"
+          ],
+          "handling": "No hint in first cards (Sir George’s card even reports Holder’s claim that Mary distrusts him, attributed). Snapshots after 11:202."
+        },
+        {
+          "what": "Mary took the coronet and handed it out of the hall window",
+          "revealedAt": [
+            11,
+            207
+          ],
+          "entities": [
+            "mary-holder"
+          ],
+          "handling": "Mary snapshot after 11:207. Her earlier window-closing (11:55), faint (11:75) and fear (11:137) are not glossed."
+        },
+        {
+          "what": "Sir George was the man in the lane who received the coronet and kept the three beryls",
+          "revealedAt": [
+            11,
+            208
+          ],
+          "entities": [
+            "sir-george-burnwell"
+          ],
+          "handling": "‘someone in the gloom’ (11:207) and ‘a dark figure’ (11:208) unbound; Sir George named in 11:208. ‘Boots’ (11:213, original) bound to him only because it falls after 11:208. Sale of the stones and confrontation gated to 11:219."
+        },
+        {
+          "what": "Mary’s disappearance",
+          "revealedAt": [
+            11,
+            183
+          ],
+          "entities": [
+            "mary-holder"
+          ],
+          "handling": "Snapshot after 11:183 (farewell note), before the reason is revealed."
+        },
+        {
+          "what": "Arthur’s arrest",
+          "revealedAt": [
+            11,
+            79
+          ],
+          "entities": [
+            "arthur-holder"
+          ],
+          "handling": "Snapshot after 11:79."
+        },
+        {
+          "what": "Identity of the illustrious client",
+          "revealedAt": null,
+          "entities": [
+            "illustrious-client"
+          ],
+          "handling": "Never revealed; card must never name or guess the person."
+        },
+        {
+          "what": "The ‘ill-dressed vagabond’ in the lane is Holmes in disguise",
+          "revealedAt": [
+            11,
+            219
+          ],
+          "entities": [
+            "sherlock-holmes"
+          ],
+          "handling": "Leave ‘vagabond’ (11:218) unbound."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "Holder",
+          "people": [
+            "alexander-holder",
+            "mary-holder",
+            "arthur-holder",
+            "Holder & Stevenson (firm)"
+          ],
+          "howToldApart": "Bare ‘Holder’ never stands alone. ‘Mr. Holder’ and ‘Alexander Holder’ = the banker; ‘Miss Holder’ and ‘Miss Mary Holder’ = Mary; Arthur is only ever ‘Arthur’; ‘Holder & Stevenson’ (11:14) is the bank and is not bound (longest-match: do not add a bare ‘Holder’ alias, or exclude 11:14’s firm name)."
+        },
+        {
+          "name": "my client / our client",
+          "people": [
+            "illustrious-client",
+            "alexander-holder"
+          ],
+          "howToldApart": "In Holder’s narration (11:34, 11:42) ‘my client’ = the illustrious client; in Watson’s narration ‘our client’ (11:105, 176, 191) = Holder. Bound per paragraph only."
+        },
+        {
+          "name": "his friend",
+          "people": [
+            "sir-george-burnwell",
+            "watson"
+          ],
+          "howToldApart": "11:38 = Sir George (Arthur’s friend); 11:116 = Watson. Not bound globally."
+        },
+        {
+          "name": "uncle / dad / Father",
+          "people": [
+            "alexander-holder"
+          ],
+          "howToldApart": "Always Holder (from Mary or Arthur); bound only in listed paragraphs."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "the police inspector / the inspector / an inspector; a constable",
+          "where": [
+            [
+              11,
+              16
+            ],
+            [
+              11,
+              75
+            ],
+            [
+              11,
+              79
+            ]
+          ],
+          "why": "Unnamed police officers; not Lestrade or Bradstreet."
+        },
+        {
+          "text": "my partner / Holder & Stevenson / Stevenson",
+          "where": [
+            [
+              11,
+              14
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              11,
+              83
+            ]
+          ],
+          "why": "Holder’s partner is never named as Stevenson in the text; firm name is not a person."
+        },
+        {
+          "text": "clerk, cashier",
+          "where": [
+            [
+              11,
+              18
+            ],
+            [
+              11,
+              34
+            ]
+          ],
+          "why": "Unnamed one-off bank staff."
+        },
+        {
+          "text": "groom, page, three maid-servants, the housemaid",
+          "where": [
+            [
+              11,
+              36
+            ],
+            [
+              11,
+              75
+            ]
+          ],
+          "why": "Unnamed household staff."
+        },
+        {
+          "text": "my dear wife; my brother",
+          "where": [
+            [
+              11,
+              37
+            ],
+            [
+              11,
+              40
+            ]
+          ],
+          "why": "Holder’s late wife and his late brother (Mary’s father), unnamed and dead before the story."
+        },
+        {
+          "text": "a young lady / the young lady",
+          "where": [
+            [
+              11,
+              106
+            ],
+            [
+              11,
+              137
+            ]
+          ],
+          "why": "Mary before/after naming; generic noun, left unbound (could be paragraph-bound to mary-holder safely)."
+        },
+        {
+          "text": "the maid / one of the servants / this girl / her sweetheart / her wooden-legged lover",
+          "where": [
+            [
+              11,
+              126
+            ],
+            [
+              11,
+              127
+            ],
+            [
+              11,
+              130
+            ],
+            [
+              11,
+              206
+            ]
+          ],
+          "why": "Generic references to Lucy Parr and Francis Prosper; safe but left unbound for simplicity."
+        },
+        {
+          "text": "The man with the wooden leg",
+          "where": [
+            [
+              11,
+              212
+            ]
+          ],
+          "why": "Modern rendering of ‘Wooden-leg’; generic description, unbound."
+        },
+        {
+          "text": "the booted man / the man in boots",
+          "where": [
+            [
+              11,
+              213
+            ]
+          ],
+          "why": "Modern rendering of ‘Boots’; generic, unbound."
+        },
+        {
+          "text": "someone in the gloom / a dark figure / his opponent",
+          "where": [
+            [
+              11,
+              207
+            ],
+            [
+              11,
+              208
+            ],
+            [
+              11,
+              214
+            ]
+          ],
+          "why": "Unnamed figure in the lane; must not be bound before identification."
+        },
+        {
+          "text": "his valet",
+          "where": [
+            [
+              11,
+              217
+            ]
+          ],
+          "why": "Sir George’s unnamed valet."
+        },
+        {
+          "text": "the receiver",
+          "where": [
+            [
+              11,
+              219
+            ]
+          ],
+          "why": "Unnamed fence who bought the stones."
+        },
+        {
+          "text": "ill-dressed vagabond / poorly dressed vagabond; loafer",
+          "where": [
+            [
+              11,
+              166
+            ],
+            [
+              11,
+              217
+            ],
+            [
+              11,
+              218
+            ]
+          ],
+          "why": "Holmes’s disguise; do not create a separate entity."
+        },
+        {
+          "text": "Beryl Coronet; Fairbank; Streatham; Threadneedle Street",
+          "where": [
+            [
+              11,
+              25
+            ],
+            [
+              11,
+              105
+            ],
+            [
+              11,
+              35
+            ],
+            [
+              11,
+              14
+            ]
+          ],
+          "why": "Object and places, not people."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            11,
+            28
+          ],
+          "original": "my illustrious client",
+          "modern": "my distinguished client",
+          "handling": "Both bound to illustrious-client."
+        },
+        {
+          "where": [
+            11,
+            39
+          ],
+          "original": "Sir George Burnwell",
+          "modern": "Sir George",
+          "handling": "Both aliases bound."
+        },
+        {
+          "where": [
+            11,
+            49
+          ],
+          "original": "dad (also 56, 60, 107)",
+          "modern": "Father",
+          "handling": "Paragraph rules per edition."
+        },
+        {
+          "where": [
+            11,
+            182
+          ],
+          "original": "MY DEAREST UNCLE",
+          "modern": "Dearest Uncle",
+          "handling": "Left unbound (letter salutation)."
+        },
+        {
+          "where": [
+            11,
+            105
+          ],
+          "original": "the banker’s son",
+          "modern": "Arthur’s guilt",
+          "handling": "Original binds ‘the banker’ to Holder; modern binds ‘Arthur’."
+        },
+        {
+          "where": [
+            11,
+            212
+          ],
+          "original": "Wooden-leg",
+          "modern": "The man with the wooden leg",
+          "handling": "Original bound to francis-prosper (paragraph rule); modern unbound."
+        },
+        {
+          "where": [
+            11,
+            213
+          ],
+          "original": "Boots (3×)",
+          "modern": "the booted man / the man in boots",
+          "handling": "Original bound to sir-george-burnwell (after 11:208 reveal); modern unbound."
+        },
+        {
+          "where": [
+            11,
+            40
+          ],
+          "original": "She is my niece",
+          "modern": "Mary is the last person to describe. My niece",
+          "handling": "Modern has an extra ‘Mary’."
+        },
+        {
+          "where": [
+            11,
+            7
+          ],
+          "original": "Sherlock Holmes (also 145, 194)",
+          "modern": "Holmes",
+          "handling": "Holmes full name more frequent in original."
+        },
+        {
+          "where": [
+            11,
+            181
+          ],
+          "original": "my boy",
+          "modern": "Arthur",
+          "handling": "Modern names Arthur more often (40, 105, 181, 204, 213, 214, 219); counts differ."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes",
+            "Holmes’",
+            "Holmes’s"
+          ],
+          "safeParagraphRules": [
+            {
+              "alias": "My friend",
+              "paragraphs": [
+                1,
+                105
+              ],
+              "editions": [
+                "original-en",
+                "modern-en"
+              ]
+            },
+            {
+              "alias": "my companion",
+              "paragraphs": [
+                166
+              ],
+              "editions": [
+                "original-en"
+              ]
+            }
+          ],
+          "traps": "‘a gentleman down from London’ (11:114) is Holmes, but ‘This gentleman?’ (11:115) is Mary asking about Watson. ‘his friend’ (11:38) is Sir George Burnwell (Arthur’s friend); ‘his friend’ (11:116) is Watson. Holmes goes out disguised as a loafer (11:166, 11:217); the ‘ill-dressed vagabond’ / ‘poorly dressed vagabond’ Holder saw in the lane (11:218) is Holmes, confirmed at 11:219 (‘It was I’) — leave unbound. Holmes’s ‘your son’ / ‘your niece’ lines mean Arthur / Mary. ‘Holmes’ also occurs inside ‘Mr. Holmes’ in Holder’s narration (11:36–62); that is still Holmes.",
+          "aliasesByEdition": {
+            "original-en": [
+              "Sherlock Holmes (7, 81, 145, 194)",
+              "Holmes",
+              "Mr. Holmes",
+              "Holmes’ (105, 137)"
+            ],
+            "modern-en": [
+              "Sherlock Holmes (81 only)",
+              "Holmes",
+              "Mr. Holmes",
+              "Holmes’s (105, 137)"
+            ]
+          }
+        },
+        "watson": {
+          "aliases": [
+            "Watson"
+          ],
+          "occurrences": {
+            "original-en": 2,
+            "modern-en": 2
+          },
+          "where": [
+            [
+              11,
+              167
+            ],
+            [
+              11,
+              176
+            ]
+          ],
+          "traps": "Watson narrates as ‘I’, but Holder’s long first-person account (11:17–79, 11:181) also uses ‘I’ and ‘my’ — never bind ‘I’. ‘This gentleman?’ (11:115) and ‘his friend’ (11:116) refer to Watson; optional paragraph-scoped binding. No ‘doctor’ in this story. No other James/John."
+        },
+        "lestrade": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "note": "Not present. The unnamed police inspector (11:16, 75, 79) is not Lestrade or Bradstreet — do not bind."
+        },
+        "bradstreet": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "mrs-hudson": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "irene-adler": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        },
+        "king-of-bohemia": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          },
+          "note": "The illustrious client is NOT the King of Bohemia or any other recurring figure; never link."
+        },
+        "mycroft": {
+          "occurrences": {
+            "original-en": 0,
+            "modern-en": 0
+          }
+        }
+      }
+    },
+    {
+      "story": 12,
+      "concealments": [
+        {
+          "what": "The prisoner in the barricaded wing is Alice Rucastle, not in Philadelphia as her father claims.",
+          "revealedAt": [
+            12,
+            169
+          ],
+          "entities": [
+            "alice-rucastle",
+            "jephro-rucastle"
+          ],
+          "handling": "Holmes deduces it at 169 (snapshots attribute it to him); Mrs. Toller confirms at 201–203. Alice’s first card (62) gives only Rucastle’s claim, credited to his letter. ‘the prisoner’, ‘the real person’, ‘his victim’ and the shadow/footsteps (144, 169, 180, 181) are never bound."
+        },
+        {
+          "what": "Violet Hunter was hired to impersonate Alice (the hair, the electric-blue dress, the window performances).",
+          "revealedAt": [
+            12,
+            169
+          ],
+          "entities": [
+            "violet-hunter",
+            "jephro-rucastle",
+            "alice-rucastle"
+          ],
+          "handling": "No card before 169 explains the purpose of the dress, the hair or the window. The coil of hair in the drawer (134–135) is not attributed to anyone."
+        },
+        {
+          "what": "The man in the road is Mr. Fowler, Alice’s suitor.",
+          "revealedAt": [
+            12,
+            209
+          ],
+          "entities": [
+            "man-in-the-road",
+            "mr-fowler"
+          ],
+          "handling": "A separate unnamed entity; Holmes’s ‘friend/fiancé’ theory is shown after 169; the name changes after 209 (206 Holmes’s summary, 209 Mrs. Toller’s confirmation). mr-fowler is bound only from his first naming at 201."
+        },
+        {
+          "what": "Rucastle’s motive: control of Alice’s money left to her by will.",
+          "revealedAt": [
+            12,
+            201
+          ],
+          "entities": [
+            "jephro-rucastle",
+            "alice-rucastle"
+          ],
+          "handling": "First appears in the jephro-rucastle snapshot after 205 and the alice-rucastle snapshot after 203."
+        },
+        {
+          "what": "Mrs. Toller was won over by Fowler and helped the escape (Toller kept drunk, ladder ready).",
+          "revealedAt": [
+            12,
+            209
+          ],
+          "entities": [
+            "mrs-toller",
+            "mr-toller",
+            "mr-fowler"
+          ],
+          "handling": "Snapshots after 208/209 only."
+        },
+        {
+          "what": "Carlo attacks Rucastle and is shot by Watson; Rucastle survives as a broken man.",
+          "revealedAt": [
+            12,
+            194
+          ],
+          "entities": [
+            "carlo",
+            "jephro-rucastle"
+          ],
+          "handling": "Snapshots after 194; Rucastle’s survival as a broken man is stated only after 211."
+        }
+      ],
+      "namesakes": [
+        {
+          "name": "Rucastle",
+          "people": [
+            "jephro-rucastle",
+            "mrs-rucastle",
+            "alice-rucastle",
+            "edward-rucastle",
+            "the-rucastles"
+          ],
+          "howToldApart": "Titles: ‘Mr. Rucastle’ / ‘JEPHRO RUCASTLE’ / ‘Jephro’ = Jephro; ‘Mrs. Rucastle’ = wife; ‘Miss Rucastle’ / ‘Miss Alice Rucastle’ / ‘Miss Alice’ / ‘Alice’ = daughter; ‘Rucastles’ = the couple; the son is only ‘Edward’ (118). Bare ‘Rucastle’ (not a global alias) appears only at 194 and 211, both Jephro, bound by rule. ‘Mr. and Mrs. Rucastle’ (109, 118, 143, 157): only the ‘Mrs. Rucastle’ span binds."
+        },
+        {
+          "name": "Toller",
+          "people": [
+            "mr-toller",
+            "mrs-toller",
+            "the-tollers"
+          ],
+          "howToldApart": "‘Mrs. Toller’ is the longer match (wife); bare ‘Toller’ = husband; ‘Tollers’ = couple."
+        },
+        {
+          "name": "Hunter",
+          "people": [
+            "violet-hunter"
+          ],
+          "howToldApart": "Only one Hunter. Uppercase ‘HUNTER’ appears standalone only at 86 (telegram signature)."
+        }
+      ],
+      "unbound": [
+        {
+          "text": "A prodigiously stout man / An enormously stout man; the gentleman; he (agency scene)",
+          "where": [
+            [
+              12,
+              24
+            ],
+            [
+              12,
+              35
+            ],
+            [
+              12,
+              60
+            ]
+          ],
+          "why": "These are Jephro Rucastle before he is named at 63. Binding them would not spoil the mystery, but it would show his name early, so they are left as a reviewer choice."
+        },
+        {
+          "text": "my wife / his wife (Mrs. Rucastle)",
+          "where": [
+            [
+              12,
+              44
+            ],
+            [
+              12,
+              53
+            ],
+            [
+              12,
+              62
+            ],
+            [
+              12,
+              70
+            ]
+          ],
+          "why": "Generic possessives."
+        },
+        {
+          "text": "the daughter / your daughter / my dear daughter",
+          "where": [
+            [
+              12,
+              62
+            ],
+            [
+              12,
+              112
+            ],
+            [
+              12,
+              169
+            ],
+            [
+              12,
+              187
+            ]
+          ],
+          "why": "Generic; ‘Alice’ already binds at 62."
+        },
+        {
+          "text": "the prisoner / the real person / his victim / the poor girl / this poor creature / shadow and steps",
+          "where": [
+            [
+              12,
+              144
+            ],
+            [
+              12,
+              169
+            ],
+            [
+              12,
+              171
+            ],
+            [
+              12,
+              172
+            ],
+            [
+              12,
+              180
+            ],
+            [
+              12,
+              181
+            ]
+          ],
+          "why": "These refer to the concealed prisoner and must not be bound to Alice."
+        },
+        {
+          "text": "the child / one child / little son / my charge / the creature",
+          "where": [
+            [
+              12,
+              41
+            ],
+            [
+              12,
+              113
+            ],
+            [
+              12,
+              137
+            ],
+            [
+              12,
+              157
+            ]
+          ],
+          "why": "Generic; the son is bound only via ‘Edward’ at 118."
+        },
+        {
+          "text": "An elderly man with a red face",
+          "where": [
+            [
+              12,
+              192
+            ]
+          ],
+          "why": "This is Toller, named at 194; left as a generic description."
+        },
+        {
+          "text": "a tall, gaunt woman",
+          "where": [
+            [
+              12,
+              194
+            ]
+          ],
+          "why": "This is Mrs. Toller, named at 195; left as a generic description."
+        },
+        {
+          "text": "the country surgeon",
+          "where": [
+            [
+              12,
+              210
+            ]
+          ],
+          "why": "An unnamed local doctor in a single mention; not Watson."
+        },
+        {
+          "text": "the page",
+          "where": [
+            [
+              12,
+              59
+            ]
+          ],
+          "why": "Agency page-boy, single incidental mention."
+        },
+        {
+          "text": "Westaway / Westaway’s",
+          "where": [
+            [
+              12,
+              23
+            ]
+          ],
+          "why": "Founder’s name, used mainly as the agency’s name; one incidental mention."
+        },
+        {
+          "text": "Lord Southerton",
+          "where": [
+            [
+              12,
+              111
+            ]
+          ],
+          "why": "Owns the surrounding woods (game preserves); one incidental mention with no role."
+        },
+        {
+          "text": "the colonel",
+          "where": [
+            [
+              12,
+              22
+            ]
+          ],
+          "why": "Covered by the ‘Colonel Spence Munro’ binding in the same paragraph."
+        },
+        {
+          "text": "the man with the twisted lip; the noble bachelor; the blue carbuncle",
+          "where": [
+            [
+              12,
+              6
+            ],
+            [
+              12,
+              16
+            ]
+          ],
+          "why": "Allusions to earlier cases by title; they are not persons in this story. The compiler may link them to those stories’ entities if desired."
+        },
+        {
+          "text": "Bradshaw",
+          "where": [
+            [
+              12,
+              83
+            ],
+            [
+              12,
+              90
+            ]
+          ],
+          "why": "The railway timetable, not a person."
+        },
+        {
+          "text": "her young man",
+          "where": [
+            [
+              12,
+              201
+            ]
+          ],
+          "why": "Generic; ‘Mr. Fowler’ binds in the same paragraph."
+        }
+      ],
+      "editionDivergences": [
+        {
+          "where": [
+            12,
+            5
+          ],
+          "original": "Sherlock Holmes had been silent",
+          "modern": "Holmes had been silent",
+          "handling": "Count difference only; both bind to sherlock-holmes."
+        },
+        {
+          "where": [
+            12,
+            10
+          ],
+          "original": "DEAR MR. HOLMES",
+          "modern": "Dear Mr. Holmes",
+          "handling": "Uppercase original is not matched by ‘Mr. Holmes’; add an O-only alias ‘MR. HOLMES’ if wanted."
+        },
+        {
+          "where": [
+            12,
+            47
+          ],
+          "original": "‘No,’ said I (I would not object)",
+          "modern": "‘Yes,’ I replied (I would indulge it)",
+          "handling": "Same meaning, opposite answer word; no binding impact."
+        },
+        {
+          "where": [
+            12,
+            62
+          ],
+          "original": "DEAR MISS HUNTER",
+          "modern": "Dear Miss Hunter",
+          "handling": "Both aliases listed for violet-hunter."
+        },
+        {
+          "where": [
+            12,
+            120
+          ],
+          "original": "a small bearded man in a grey suit",
+          "modern": "a small, bearded man in a grey suit",
+          "handling": "Edition-specific alias rules for man-in-the-road."
+        },
+        {
+          "where": [
+            12,
+            121
+          ],
+          "original": "an impertinent fellow",
+          "modern": "an impertinent man",
+          "handling": "Edition-specific alias rules."
+        },
+        {
+          "where": [
+            12,
+            143
+          ],
+          "original": "I once saw him carrying",
+          "modern": "Once I saw Toller carrying",
+          "handling": "Modern-en has one more ‘Toller’ (count O9/M10)."
+        },
+        {
+          "where": [
+            12,
+            56
+          ],
+          "original": "The manageress",
+          "modern": "the manageress",
+          "handling": "Case-specific alias rules for miss-stoper."
+        },
+        {
+          "where": [
+            12,
+            167
+          ],
+          "original": "my friend and I (Holmes speaking: Watson)",
+          "modern": "My friend and I",
+          "handling": "Do not bind ‘my friend’ globally; here it means Watson."
+        },
+        {
+          "where": [
+            12,
+            178
+          ],
+          "original": "Holmes’ face clouded over",
+          "modern": "his expression darkened",
+          "handling": "Count difference for sherlock-holmes."
+        },
+        {
+          "where": [
+            12,
+            81
+          ],
+          "original": "“Data! data! data!”",
+          "modern": "‘Facts! Facts! Facts!’ (single quotes)",
+          "handling": "No binding impact."
+        }
+      ],
+      "recurring": {
+        "sherlock-holmes": {
+          "aliases": [
+            "Sherlock Holmes",
+            "Holmes",
+            "Mr. Holmes",
+            "Holmes’ (possessive, original-en 178)"
+          ],
+          "traps": "‘Sherlock Holmes’ is O3/M2: modern-en 5 has only ‘Holmes’. ‘Mr. Holmes’ is O15/M16: original-en 10 has the uppercase letter heading ‘DEAR MR. HOLMES’, which case-sensitive ‘Holmes’ does not match (‘MR. HOLMES’ could be an O-only alias at 10); modern-en 10 has ‘Dear Mr. Holmes’. ‘my friend’ means Holmes at 3, 81, 114 and 211 (‘my friend Holmes’), but at original-en 167 Holmes says ‘my friend and I’, meaning Watson, so never bind ‘my friend’ globally. ‘my companion’ (19) is Holmes. ‘this beauty’ (181) is Rucastle, not Holmes. Holmes wears no disguise in this story."
+        },
+        "watson": {
+          "aliases": [
+            "Watson",
+            "My dear Watson (171; ‘Watson’ binds)"
+          ],
+          "traps": "Watson narrates as ‘I’ (unbound). He is called a ‘medical man’ (original-en 171) and ‘a doctor’ (modern-en 171): bind these only by rule, if at all. ‘the country surgeon’ (210) is a different, unnamed local doctor, not Watson. At original-en 167 ‘my friend’ in Holmes’s mouth means Watson."
+        },
+        "king-of-bohemia": {
+          "aliases": [
+            "King of Bohemia"
+          ],
+          "occurrences": {
+            "original-en": 1,
+            "modern-en": 1
+          },
+          "where": [
+            [
+              12,
+              6
+            ]
+          ],
+          "notes": "Holmes mentions the ‘small matter’ in which he tried to help the King of Bohemia. This is a passing allusion to an earlier case and does not need a new card."
+        },
+        "mary-sutherland": {
+          "aliases": [
+            "Miss Mary Sutherland",
+            "Mary Sutherland"
+          ],
+          "occurrences": {
+            "original-en": 1,
+            "modern-en": 1
+          },
+          "where": [
+            [
+              12,
+              6
+            ]
+          ],
+          "notes": "Allusion to the client of an earlier story in this collection. Bind to that story’s entity id (presumably ‘mary-sutherland’) if the compiler permits cross-chapter ids; otherwise leave unbound."
+        }
+      }
+    }
+  ]
+}
