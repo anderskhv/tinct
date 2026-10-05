@@ -119,3 +119,7 @@ Clarify only inside the sentence and only when the paragraph supports it. Exampl
 ## Coordinates
 
 Coordinates in this package are the file's chapter `number` (1–85, equal to the paper number) and a 0-based paragraph index, written `ch10 p3`.
+
+## Period language (decision added during rendering)
+
+Period terms for people (for example "negroes" in No. 54 and No. 55, in the Southern advocate's reported speech and in the census passage) are kept as printed. This edition does not soften or correct period language, per `books/AGENTS.md`. The surrounding commentary is modernized as usual.
