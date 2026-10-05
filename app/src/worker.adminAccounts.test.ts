@@ -267,6 +267,19 @@ describe('admin account routes', () => {
     expect(w.fetchMock.mock.calls.every(([, init]) => (init?.method ?? 'GET') === 'GET')).toBe(true)
   })
 
+  it('covers the reader\'s synced highlight rows (user_data lab-highlights:{bookId}) in export and deletion', async () => {
+    const highlightsRow = { user_id: userId, key: 'lab-highlights:emma', value: { v: 1, highlights: [{ id: 'hl-1', bookId: 'emma', note: 'mine' }], deleted: [{ id: 'hl-0', bookId: 'emma', deletedAt: 1 }] } }
+    const someoneElse = { user_id: '22222222-2222-4222-8222-222222222222', key: 'lab-highlights:emma', value: { v: 1, highlights: [], deleted: [] } }
+    const w = world()
+    w.state.tables.user_data.push(highlightsRow, someoneElse)
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.supabase.user_data).toContainEqual(highlightsRow)
+    expect(exported.supabase.user_data).not.toContainEqual(someoneElse)
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect(w.state.tables.user_data).toEqual([someoneElse])
+  })
+
   it('reports an unknown account as 404', async () => {
     const w = world()
     w.state.authUser = null

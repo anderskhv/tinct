@@ -17,11 +17,43 @@ import {
   type LabHighlightColor,
   type LabHighlightRange,
 } from './labHighlights'
+import {
+  applyLabHighlightSet,
+  createLabHighlightCloud,
+  createLabHighlightCloudWriter,
+  labHighlightBucket,
+  labHighlightSetFor,
+  LAB_HIGHLIGHTS_UNASSIGNED,
+  localLabHighlightBuckets,
+  readLabHighlightTombstones,
+  recordLabHighlightDeletions,
+  type LabHighlightCloudWriter,
+  type LabHighlightSet,
+} from './labHighlightSync'
 
-export function useLabHighlights(chapterNumber: number, scope?: { bookId: string; editionKey: string; paragraphs?: string[]; compareEditionKey?: string; compareParagraphs?: string[] }) {
+function bucketSignatures(list: LabHighlight[]): Map<string, string> {
+  const grouped = new Map<string, LabHighlight[]>()
+  for (const highlight of list) {
+    const bucket = labHighlightBucket(highlight)
+    grouped.set(bucket, [...(grouped.get(bucket) ?? []), highlight])
+  }
+  return new Map([...grouped].map(([bucket, items]) => [bucket, JSON.stringify(items)]))
+}
+
+export function useLabHighlights(chapterNumber: number, scope?: {
+  bookId: string
+  editionKey: string
+  paragraphs?: string[]
+  compareEditionKey?: string
+  compareParagraphs?: string[]
+  /** Signed-in account: highlights and notes also sync through its `lab-highlights:{bookId}` rows. Absent or null = this device only. */
+  userId?: string | null
+}) {
   const [highlights, setHighlights] = useState<LabHighlight[]>(() => readLabHighlights())
   const highlightsRef = useRef(highlights)
   highlightsRef.current = highlights
+  const userId = scope?.userId ?? null
+  const bookId = scope?.bookId
   const [sources, setSources] = useState<Record<string, string[]>>({})
   useEffect(() => {
     if (!scope) return
@@ -56,9 +88,62 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
   const inScope = (highlight: LabHighlight, editionKey = scope?.editionKey) => !scope || (highlight.bookId === scope.bookId && highlight.editionKey === editionKey)
   const visibleHighlights = useMemo(() => projected(), [highlights, sources, chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs])
 
+  // Signed in: one serialized writer per account. Merges that may carry marks
+  // from another device fold into the list here.
+  // Created in an effect (not a memo) so StrictMode's mount/unmount/mount
+  // ends with a live writer, and sign-out disposes it.
+  const [cloudWriter, setCloudWriter] = useState<LabHighlightCloudWriter | null>(null)
+  useEffect(() => {
+    const cloud = userId ? createLabHighlightCloud(userId) : null
+    if (!cloud) { setCloudWriter(null); return }
+    const writer = createLabHighlightCloudWriter(cloud, {
+      onMerged: (bucket: string, set: LabHighlightSet) => setHighlights(current => applyLabHighlightSet(current, bucket, set)),
+    })
+    setCloudWriter(writer)
+    return () => writer.dispose()
+  }, [userId])
+
+  const savedRef = useRef<Map<string, string> | null>(null)
   useEffect(() => {
     writeLabHighlights(highlights)
-  }, [highlights])
+    const next = bucketSignatures(highlights)
+    const previous = savedRef.current
+    savedRef.current = next
+    if (!cloudWriter || !previous) return
+    const tombstones = readLabHighlightTombstones()
+    for (const bucket of new Set([...previous.keys(), ...next.keys()])) {
+      if (previous.get(bucket) !== next.get(bucket)) cloudWriter.push(bucket, labHighlightSetFor(bucket, highlights, tombstones))
+    }
+  }, [highlights, cloudWriter])
+
+  // On sign-in: bring every book this device holds marks for into the
+  // account (a merge, never an overwrite), so nothing is lost when sign-out
+  // later clears the device copy.
+  useEffect(() => {
+    if (!cloudWriter) return
+    for (const bucket of localLabHighlightBuckets()) {
+      if (bucket !== bookId) void cloudWriter.sync(bucket)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cloudWriter])
+
+  // The open book (and marks without a recorded book, listed in Contents):
+  // on open, book change, reconnect and return to the tab.
+  useEffect(() => {
+    if (!cloudWriter || !bookId) return
+    const run = () => {
+      void cloudWriter.sync(bookId)
+      void cloudWriter.sync(LAB_HIGHLIGHTS_UNASSIGNED)
+    }
+    run()
+    const onVisible = () => { if (document.visibilityState === 'visible') run() }
+    window.addEventListener('online', run)
+    document.addEventListener('visibilitychange', onVisible)
+    return () => {
+      window.removeEventListener('online', run)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
+  }, [cloudWriter, bookId])
 
   const chapterHighlights = useMemo(
     () => visibleHighlights.filter(h => h.chapterNumber === chapterNumber),
@@ -113,18 +198,21 @@ export function useLabHighlights(chapterNumber: number, scope?: { bookId: string
   ), [chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs, sources, highlights])
 
   const setColor = useCallback((id: string, color: LabHighlightColor) => {
-    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.map(h=>h.id===id || group && h.groupId===group ? {...h,color}:h)})
+    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;const updatedAt=Date.now();return current.map(h=>h.id===id || group && h.groupId===group ? {...h,color,updatedAt}:h)})
   }, [])
 
   const setNote = useCallback((id: string, note: string) => {
-    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.map(h=>h.id===id || group && h.groupId===group ? {...h,note}:h)})
+    setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;const updatedAt=Date.now();return current.map(h=>h.id===id || group && h.groupId===group ? {...h,note,updatedAt}:h)})
   }, [])
 
   const keep = useCallback((id: string) => {
-    setHighlights(current => { const group = current.find(h => h.id === id)?.groupId; return current.map(h => h.id === id || group && h.groupId === group ? { ...h, kept: true } : h) })
+    setHighlights(current => { const group = current.find(h => h.id === id)?.groupId; const updatedAt = Date.now(); return current.map(h => h.id === id || group && h.groupId === group ? { ...h, kept: true, updatedAt } : h) })
   }, [])
 
   const remove = useCallback((id: string) => {
+    const group = highlightsRef.current.find(h => h.id === id)?.groupId
+    // Tombstones first, so the push that follows carries the deletion.
+    recordLabHighlightDeletions(highlightsRef.current.filter(h => h.id === id || (group && h.groupId === group)))
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.filter(h=>h.id!==id && (!group || h.groupId!==group))})
   }, [])
 

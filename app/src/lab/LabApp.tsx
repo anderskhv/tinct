@@ -1665,7 +1665,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const lastBarTopRef = useRef(0)
   const lastAdjustRef = useRef<LabPageAdjust>(null)
   const beforeGrowPagesRef = useRef<ChapterHearingPage[] | null>(null)
-  const highlightsApi = useLabHighlights(book.chapterNumber, { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs })
+  const highlightsApi = useLabHighlights(book.chapterNumber, { bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
   // Set once the first page is on screen. Work the opening page does not
   // need (character cards, neighbouring chapters) waits for it rather than
   // sharing the network and main thread with the reader's first text.

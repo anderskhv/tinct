@@ -36,6 +36,8 @@ export interface LabHighlight {
   /** Exact source wording, retained for requested history search. */
   text?: string
   kept?: boolean
+  /** Last change (ms). Missing on older marks; sync falls back to the id's creation time. */
+  updatedAt?: number
 }
 
 const STORAGE_KEY = 'tinct-lab-highlights'
@@ -89,8 +91,9 @@ export function createLabHighlight(
   range: LabHighlightRange,
   color: LabHighlightColor,
 ): LabHighlight {
+  const now = Date.now()
   return {
-    id: `hl-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: `hl-${now}-${Math.random().toString(36).slice(2, 8)}`,
     chapterNumber,
     text: range.text,
     paragraphIndex: range.paragraphIndex,
@@ -98,6 +101,7 @@ export function createLabHighlight(
     endParagraphIndex: range.endParagraphIndex,
     toWord: range.toWord,
     color,
+    updatedAt: now,
   }
 }
 

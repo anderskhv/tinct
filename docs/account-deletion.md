@@ -70,7 +70,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    `ai_usage_events`.
 4. **Stripe:** every customer on the profile or tagged with the account id:
    live subscriptions cancelled, customer deleted.
-5. **Supabase auth user.** This cascades `profiles`, `user_data`,
+5. **Supabase auth user.** This cascades `profiles`, `user_data` (every
+   per-user row, including synced highlights and notes, `lab-highlights:{bookId}`),
    `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions` and
    `site_admins`. It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
