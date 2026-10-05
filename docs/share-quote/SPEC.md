@@ -13,10 +13,10 @@ There are no other options. The image always uses **the edition and the look (Pa
 
 ## The image is the reader's own page
 It is rendered from the live reader's layout, not a separate design:
-- **Header:** the reader's bar, with the book title in Playfair bold, a dot, and the chapter pill in italic Garamond. No buttons or icons.
+- **Header:** a passive version of the reader's bar. It has the book title in Playfair bold, a dot, and the chapter in muted italic Garamond, as plain text: no pill background, no chevron, no buttons or icons. It must not look tappable.
 - **Body:** the reader's justified EB Garamond page, with the highlight in the reader's gold highlight colour.
 - **Surrounding text, always:** the page starts a sentence or two before the highlight (with "…" if it begins mid-paragraph) and simply runs on until the page ends. If there isn't room for much context, that's fine; text is never shrunk to make more fit.
-- **Footer:** where the reader shows page progress, the image shows "Read free at tinct.app" (or nothing, if the toggle is off).
+- **Footer:** where the reader shows page progress, the image shows "Read free at tinct.app" in the page's own serif (EB Garamond italic, muted), not the mono UI font. It shows nothing if the toggle is off. Remember each reader's last toggle choice, so readers who post on Reddit don't have to switch it off every time.
 
 | | Phone | Desktop, short highlight | Desktop, long highlight |
 |---|---|---|---|
