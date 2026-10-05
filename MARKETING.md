@@ -120,15 +120,15 @@ Paste: the draft, the subreddit or video, and the post or comment you're answeri
 | Reddit: improving reading comprehension and speed for a test | **C** | Test prep, not classics. |
 | Reddit r/LesbianBookClub: worst WLW book | **C** | Contemporary books, no question Tinct answers. |
 
-**Draft for the A lead** (adapt to the actual post before using; don't paste verbatim):
+**Final reply for the A lead** (approved 2026-10-05; shows the pattern, never paste it verbatim elsewhere):
 
-> For books originally written in English, the text is basically the same in both, so you're choosing between the extras. Oxford tends to have fuller endnotes and textual notes; Penguin's introductions are often livelier and their recent printings have nicer paper. Either is a good buy.
+> The difference is mostly when you get help. Oxford's notes are academic endnotes (context, references, textual detail) at the back. Penguin's are lighter, and its intros are written more for a general reader. Either way, read the intro after you finish, because both give away the plot.
 >
-> For translated books it matters much more, because the translator is the real choice, not the publisher. Look up who translated each edition (Penguin and Oxford often use different ones) and read the first page of each in a bookshop preview. The one whose voice you like on page one is the one you'll finish.
+> For translated books, though, the translator matters more than the series. For Monte Cristo, Penguin uses Robin Buss's modern translation; Oxford uses the classic 19th-century one, revised by David Coward. Both are complete, so read a page of each and pick the voice you like. Just avoid abridged editions.
 >
-> One tip: skip the introduction until you've finished the book. Both series' intros give away the plot.
->
-> If you want to try a book before buying, I'm building a free reader, tinct.app, that shows the original next to a modern-English version. No ads, no account needed. But a good paperback is still the best way to read these.
+> If you'd rather have help while you read than notes at the back, I'm building tinct.app. It puts the original next to a modern-English version, and you can ask the AI about the passage you're on, or tap a character or concept to get it explained as it comes up. It has Pride and Prejudice, but not Monte Cristo yet.
+
+Lessons from drafting it: answer the question they actually asked (here: what the notes are like), then let Tinct be the natural next step ("help while you read"). "I'm building" is enough disclosure. Leave pricing out of the first comment, but if asked whether the AI is free, say plainly that reading is free and the AI chat is a paid add-on.
 
 **Draft for the YouTube B lead:**
 
