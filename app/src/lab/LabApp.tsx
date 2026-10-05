@@ -3655,11 +3655,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const index = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, pages.length - 1)))
     const nextPage = desktopSpread ? (index + (openingOnRight ? 1 : 2) < pages.length ? index + (openingOnRight ? 1 : 2) : null) : adjacentPageIndex(pages.length, index, 1)
     if (nextPage != null) {
-      trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' })
+      trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' }, book.bookId || 'bible')
       goToPage(nextPage)
       return
     }
-    trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' })
+    trackFunnelOnce('first_page_turn', { book_id: book.bookId || 'bible' }, book.bookId || 'bible')
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without

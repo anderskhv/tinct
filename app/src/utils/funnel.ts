@@ -83,11 +83,12 @@ export function createFunnel(deps: FunnelDeps, surface: 'library' | 'reader' | '
     } catch { /* never throws */ }
   }
 
-  /** Once per device: the first time this has ever happened here. */
-  function trackOnce(name: FunnelEventName, props?: Props): void {
+  /** Once per device, or once per `scope` (a book) on this device. */
+  function trackOnce(name: FunnelEventName, props?: Props, scope?: string): void {
     try {
-      if (!deps.enabled() || deps.once.has(name)) return
-      deps.once.add(name)
+      const key = scope ? `${name}:${scope}` : name
+      if (!deps.enabled() || deps.once.has(key)) return
+      deps.once.add(key)
       track(name, props)
     } catch { /* never throws */ }
   }
@@ -239,4 +240,4 @@ export function funnel(surface: 'library' | 'reader' | 'sign-in' = 'reader'): Re
 
 /** Fire and forget helpers for call sites. */
 export function trackFunnel(name: FunnelEventName, props?: Props): void { funnel().track(name, props) }
-export function trackFunnelOnce(name: FunnelEventName, props?: Props): void { funnel().trackOnce(name, props) }
+export function trackFunnelOnce(name: FunnelEventName, props?: Props, scope?: string): void { funnel().trackOnce(name, props, scope) }
