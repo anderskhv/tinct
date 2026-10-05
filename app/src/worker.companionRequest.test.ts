@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { COMPANION_MAX_TOKENS, LAB_EXPLAIN_PROMPT, buildCompanionSystem, parseCompanionRequest } from './companion/companionRequest'
+import { COMPANION_LOOKUP_MODEL, COMPANION_MAX_TOKENS, COMPANION_NEARBY_PARAGRAPHS, LAB_EXPLAIN_PROMPT, buildCompanionSystem, parseCompanionRequest } from './companion/companionRequest'
 import { buildLabAskInstructions } from './companion/labAskPrompt'
 import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { handleChat, handleLabChat, resetLibraryCatalogueCacheForTest } from './worker/routes/chat'
@@ -53,6 +53,21 @@ describe('structured companion requests', () => {
     const parsed = parseCompanionRequest({ intent: 'ask', context })!
     expect(buildCompanionSystem(parsed)).toBe(buildLabAskInstructions(context))
   })
+
+  it('sends Explain and Define the paragraphs around the place, not the whole chapter', () => {
+    const paragraphs = Array.from({ length: 40 }, (_, i) => `Paragraph text ${i + 1}.`)
+    for (const intent of ['explain', 'define'] as const) {
+      const system = buildCompanionSystem(parseCompanionRequest({ intent, context: { ...context, paragraphs, paragraphIndex: 20 }, selection: 'Athena' })!)
+      expect(system).toContain('[18] Paragraph text 18.')
+      expect(system).toContain('[24] Paragraph text 24.')
+      expect(system).not.toContain('Paragraph text 17.')
+      expect(system).not.toContain('Paragraph text 25.')
+      expect(system).not.toContain('Full current chapter')
+    }
+    const ask = buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: { ...context, paragraphs, paragraphIndex: 20 } })!)
+    expect(ask).toContain('[1] Paragraph text 1.')
+    expect(ask).toContain('[40] Paragraph text 40.')
+  })
 })
 
 describe('signed-out companion route', () => {
@@ -73,9 +88,11 @@ describe('signed-out companion route', () => {
     }), { ANTHROPIC_API_KEY: 'k' }, ctx().ctx, async () => true, async () => true)
     expect(response.status).toBe(200)
     expect(bodies[0].max_tokens).toBe(COMPANION_MAX_TOKENS.explain)
-    expect(bodies[0].output_config).toEqual({ effort: 'low' })
+    // Haiku 4.5 rejects an effort setting.
+    expect(bodies[0].model).toBe(COMPANION_LOOKUP_MODEL)
+    expect(bodies[0].output_config).toBeUndefined()
     expect(bodies[0].tools).toBeUndefined()
-    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }))
+    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }, { nearby: COMPANION_NEARBY_PARAGRAPHS }))
     expect(bodies[0].messages).toEqual([{ role: 'user', content: `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\nAthena spoke.\n</selected_passage>` }])
   })
 
@@ -175,7 +192,7 @@ describe('signed-in companion route', () => {
     await Promise.all(pending)
     expect(response.status).toBe(200)
     expect(bodies[0].max_tokens).toBe(COMPANION_MAX_TOKENS.explain)
-    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }))
+    expect(bodies[0].system).toBe(buildLabAskInstructions({ ...context, lookups: false }, { nearby: COMPANION_NEARBY_PARAGRAPHS }))
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rpc/use_message'))).toBe(true)
   })
 })

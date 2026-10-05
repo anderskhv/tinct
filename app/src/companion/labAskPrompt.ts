@@ -34,9 +34,9 @@ export const LAB_ASK_SYSTEM_CAP = 32_000
 const LAB_ASK_SYSTEM_MARGIN = 200
 
 /** 1-based paragraph numbers so "second paragraph of Book 1" is in the payload. */
-export function numberedLabChapter(paragraphs: string[]): string {
+export function numberedLabChapter(paragraphs: string[], start = 0): string {
   return paragraphs
-    .map((text, index) => `[${index + 1}] ${text.replace(/\s+/g, ' ').trim()}`)
+    .map((text, index) => `[${start + index + 1}] ${text.replace(/\s+/g, ' ').trim()}`)
     .filter(line => line.length > 4)
     .join('\n\n')
 }
@@ -132,7 +132,7 @@ export function renderLabReadingTrail(input: Pick<LabAskContext, 'readingTrail' 
  * the whole prompt stays under the worker's system cap.
  * Production AudioStrip still uses buildVoiceInstructions.
  */
-export function buildLabAskInstructions(input: LabAskContext): string {
+export function buildLabAskInstructions(input: LabAskContext, options: { nearby?: number } = {}): string {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
   const current = (input.paragraphs[idx] || '').replace(/\s+/g, ' ').trim()
@@ -159,6 +159,14 @@ export function buildLabAskInstructions(input: LabAskContext): string {
   }
 
   if (input.personalHistory) lines.push(input.personalHistory)
+  if (options.nearby !== undefined) {
+    // Explain and Define answer about one passage: the paragraphs around it
+    // ground the answer at a fraction of the whole chapter's input.
+    const start = Math.max(0, idx - options.nearby)
+    const nearby = numberedLabChapter(input.paragraphs.slice(start, idx + options.nearby + 1), start)
+    if (nearby) lines.push(`Nearby paragraphs of the current chapter, numbered as in the chapter:\n${nearby}`)
+    return lines.join('\n\n')
+  }
   const chapter = numberedLabChapter(input.paragraphs)
   if (chapter) {
     const lead = `Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.\n`

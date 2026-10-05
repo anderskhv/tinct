@@ -49,6 +49,12 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   library: 900,
 })
 
+/** Paragraphs on each side of the reader's place sent with Explain and Define. */
+export const COMPANION_NEARBY_PARAGRAPHS = 3
+
+/** Explain and Define are short, single-turn answers: the smaller model serves them. */
+export const COMPANION_LOOKUP_MODEL = 'claude-haiku-4-5'
+
 export const COMPANION_INTENT_EFFORT: Readonly<Record<CompanionIntent, CompanionEffort>> = Object.freeze({
   ask: COMPANION_EFFORT_TYPED,
   explain: COMPANION_EFFORT_VOICE,
@@ -196,6 +202,9 @@ export function buildCompanionSystem(request: CompanionRequest, extras: { catalo
       const target = chapter.action.kind === 'prepare' ? chapter.target ?? [] : context.paragraphs
       return buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)
     }
+    case 'explain':
+    case 'define':
+      return buildLabAskInstructions(request.context!, { nearby: COMPANION_NEARBY_PARAGRAPHS })
     default:
       return buildLabAskInstructions(request.context!)
   }

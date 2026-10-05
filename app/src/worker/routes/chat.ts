@@ -16,6 +16,7 @@ import { supabaseGet, supabaseRpc, type SupabaseEnv } from '../lib/supabase'
 import { searchReadingSources } from './voiceResearch'
 import {
   COMPANION_INTENT_EFFORT,
+  COMPANION_LOOKUP_MODEL,
   COMPANION_MAX_TOKENS,
   buildCompanionSystem,
   companionBookRef,
@@ -855,7 +856,10 @@ export async function handleChat(
       ? COMPANION_MAX_TOKENS[companion.intent]
       : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
     const stream = body.stream === true
-    const effort = companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
+    // Explain and Define go to the smaller model, which takes no effort setting.
+    const lookup = companion?.intent === 'explain' || companion?.intent === 'define'
+    const model = lookup ? COMPANION_LOOKUP_MODEL : CHAT_MODEL
+    const effort = lookup ? null : companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
 
     // Validate message structure and truncate per-message to the cap.
     // Long histories accumulate over a session; rather than reject the whole
@@ -872,11 +876,11 @@ export async function handleChat(
 
     // One ledger row per Anthropic call (and per source search), attributed to
     // the reader, or to the hashed IP key when signed out. Metadata only.
-    const feature: AiFeature = companion?.intent === 'explain' || companion?.intent === 'define' ? 'explain'
+    const feature: AiFeature = lookup ? 'explain'
       : companion?.intent === 'library' ? 'librarian'
       : allowLabGuest ? 'lab_chat' : 'chat'
     const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
-    const meter = createAiMeter(env, ctx, { userId, guest: userId ? null : requestGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model: CHAT_MODEL })
+    const meter = createAiMeter(env, ctx, { userId, guest: userId ? null : requestGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
 
     const charge = () => {
       if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -918,7 +922,7 @@ export async function handleChat(
     timing.contextReadyMs = Date.now() - timing.startedAt
     const providerStartedAt = Date.now()
     const response = await fetchAnthropic(apiKey, {
-      model: CHAT_MODEL,
+      model,
       max_tokens: maxTokens,
       system,
       messages: safeMessages,
