@@ -29,7 +29,8 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       assert(calls.length < 80, 'Bounded cached acceptance')
       const call = { body, at: Date.now() }; calls.push(call)
       if (failNext) { failNext = false; call.injectedFailure = true; return route.fulfill({ status: 503, json: { error: 'unavailable' } }).catch(() => {}) }
-      const response = await route.fetch({ timeout: 15000, maxRetries: 1 })
+      // Labelled as Tinct's own check so its cached narration is not counted as a visitor's.
+      const response = await route.fetch({ headers: { ...req.headers(), 'x-tinct-check': '1' }, timeout: 15000, maxRetries: 1 })
       const json = await response.json()
       call.status = response.status(); call.generated = json.generated || 0
       assert.equal(response.status(), 200, JSON.stringify(json))

@@ -33,7 +33,7 @@ import type { Section } from '../../types'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { jsonResponse } from '../lib/responses'
-import { createAiMeter, requestGuestKey, type LedgerEnv } from '../lib/aiUsage'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import type { RecapCache } from './labRecap'
 
 export type LabCatchUpEnv = LedgerEnv & {
@@ -253,7 +253,7 @@ export async function handleLabCatchUp(
   const estimate = estimateAiCostMicros({ inputChars: CATCH_UP_SYSTEM_PROMPT.length + content.length, maxTokens: CATCH_UP_MAX_TOKENS })
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
-    guest: requestGuestKey(request),
+    guest: ledgerGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
   }, { feature: 'catch_up', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
   try {

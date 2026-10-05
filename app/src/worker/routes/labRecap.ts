@@ -29,7 +29,7 @@ import {
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { jsonResponse } from '../lib/responses'
-import { createAiMeter, requestGuestKey, type LedgerEnv } from '../lib/aiUsage'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 
 export type LabRecapEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
@@ -257,7 +257,7 @@ export async function handleLabRecap(
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
-    guest: requestGuestKey(request),
+    guest: ledgerGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
   }, { feature: 'recap', bookId: parsed.bookId, model })
   try {
