@@ -45,14 +45,23 @@ const library = {
   },
   async touch(key, patch) { const rec = await this.get(key); if (rec) { Object.assign(rec, patch); await this.put(rec) } },
 };
+// Opening your own file needs a Tinct account (searching free books does not). The
+// rights confirmation is asked once per account, before its first file opens; the key
+// sits under tinct-addbook:, so signing out clears it with the rest.
+const RIGHTS_COPY = "I confirm I have the right to read this file in Tinct, and I'm responsible for it (Terms §4).";
+const accountId = () => window.TinctAI?.session().userId || null;
+function needsAccount() {
+  if (accountId()) return false;
+  window.TinctStart?.showGate?.();
+  return true;
+}
 function attest(fileName) {
   return new Promise(resolve => {
     const layer = sheet('Your own book', `
       <div class="byob-attest">
         <p>Tinct opens <strong>${esc(fileName)}</strong> in this browser only. It is not uploaded, stored on a server or shared.</p>
-        <p>When you use Explain, Ask, Summarize or Catch me up, the passages you choose are sent to Tinct’s reading companion to answer you, on your Tinct account. They are not kept for training.</p>
-        <label><input type="checkbox" id="attestBox"> <span>I own this copy or am licensed to use it, and reading it this way, including asking about passages, is within my rights. I am responsible for respecting its copyright and licence terms.</span></label>
-        <div class="actions"><button type="button" id="attestCancel">Cancel</button><button type="button" class="primary" id="attestOk" disabled>Open book</button></div>
+        <label><input type="checkbox" id="attestBox"> <span>${esc(RIGHTS_COPY)}</span></label>
+        <div class="actions"><button type="button" id="attestCancel">Cancel</button><button type="button" class="primary" id="attestOk" disabled>Continue</button></div>
       </div>`, () => resolve(false));
     const box = layer.querySelector('#attestBox'), ok = layer.querySelector('#attestOk');
     box.onchange = () => { ok.disabled = !box.checked };
@@ -67,17 +76,18 @@ async function digest(bytes) {
 }
 const MAX_BYTES = 300 * 1024 * 1024;
 async function chooseFile(file) {
-  if (!file) return;
+  if (!file || needsAccount()) return;
   const kind = kindOf(file);
   if (!kind) { toast('Choose a PDF or EPUB file.'); return }
   if (file.size > MAX_BYTES) { toast('That file is larger than 300 MB, too big to open here.'); return }
   const bytes = new Uint8Array(await file.arrayBuffer());
   const key = kind + ':' + await digest(bytes);
-  if (!store.get('attested:' + key)) {
+  const rightsKey = 'rights:' + accountId();
+  if (!store.get(rightsKey)) {
     showReader(); $('column').innerHTML = '';
     if (!await attest(file.name)) { closeBook({ fromHistory: true }); return }
+    store.set(rightsKey, { at: new Date().toISOString() });
   }
-  store.set('attested:' + key, { at: new Date().toISOString() });
   stopNarration();
   const now = Date.now();
   const existing = await library.get(key);
@@ -86,6 +96,7 @@ async function chooseFile(file) {
   return openBook(kind, bytes, file.name, key);
 }
 async function openStored(key) {
+  if (needsAccount()) return false;
   const rec = await library.get(key);
   if (!rec) { toast('That book is no longer on this device. Open the file again.'); return false }
   await library.touch(key, { openedAt: Date.now() });
@@ -124,7 +135,7 @@ async function closeBook({ fromHistory = false } = {}) {
   window.TinctStart?.show();
 }
 addEventListener('popstate', () => { if (hasBook() && location.hash !== '#read') closeBook({ fromHistory: true }) });
-window.TinctReader = { chooseFile, openStored, close: closeBook, library, pickFile: () => $('fileInput').click() };
+window.TinctReader = { chooseFile, openStored, close: closeBook, library, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
 
 /* ---------- EPUB ---------- */
 async function openEpub(bytes, name, key) {
@@ -1019,10 +1030,11 @@ function speedPopover() {
 }
 
 /* ---------- Claude: on the reader's own account ---------- */
-// Tinct's reading companion through the page's Tinct account (js/tinct-api.js). It reads
-// text only for now, so pictures are never sent: figure questions use the caption, the
-// labels inside the figure and a rough text sketch of its shape.
-let sample = null, sampleImages = false, imgNote = 'The reading companion reads text only for now. For figures it uses the caption, the labels and a sketch of the shape.';
+// Tinct's reading companion through the page's Tinct account (js/tinct-api.js). Signed in,
+// pictures (a PDF page or passage, a snip, an attached image) go with the question; signed
+// out, or if a picture is refused, figure questions use the caption, the labels inside the
+// figure and a rough text sketch of its shape.
+let sample = null, sampleImages = null, imgNote = 'Pictures you attach or snip are sent to the reading companion when you are signed in.';
 function aiBook() {
   const pl = hasBook() ? currentPlace() : null, ch = pl && toc.ready ? chapterAt(pl.page) : null;
   return { title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
@@ -1032,7 +1044,7 @@ async function ai() {
   if (!window.TinctAI) return null;
   const f = (input, opts = {}) => TinctAI.ask(input, { ...opts, book: aiBook() });
   f.json = (input, opts = {}) => TinctAI.askJson(input, { ...opts, book: aiBook() });
-  f.limits = async () => ({ maxPromptBytes: 200000 });
+  f.limits = async () => ({ maxPromptBytes: 200000, images: TinctAI.imageLimits });
   sample = f;
   return f;
 }
@@ -1061,7 +1073,7 @@ function md(text) {
 async function pageImage(n, region) {
   // A picture of the printed page (or a region of it), so maths survives.
   const p = state.pages[n - 1];
-  if (sampleImages === false || !p) return null;
+  if (!PAGE_IMAGES || sampleImages === false || !p) return null;
   let src = p.canvas;
   if (!src) {
     const page = await state.pdf.getPage(n);
@@ -1943,7 +1955,10 @@ document.addEventListener('click', e => {
 });
 
 /* ---------- Files out ---------- */
-const IMAGES_ENABLED = false; // the companion endpoints take text only (see DEPLOY.md, "Pictures")
+// A picture of the page with every PDF Explain/Ask is not part of release 1: only what the
+// reader attaches or snips is sent.
+const PAGE_IMAGES = false;
+const IMAGES_ENABLED = true; // signed-in /api/chat takes pictures; guests fall back to text (see DEPLOY.md, "Images")
 function saveFile(name, blob) {
   try {
     const a = document.createElement('a');

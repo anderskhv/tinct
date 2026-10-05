@@ -27,9 +27,13 @@
       <div class="ab-door-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 17v-6m-3 3 3-3 3 3"/></svg></div>
       <h2>Your own book</h2>
       <p>Open a <strong>PDF</strong> or <strong>EPUB</strong> from this device: a textbook, lecture notes, a DRM-free ebook. It stays private in this browser.</p>
-      <div class="ab-drop" id="abDrop" tabindex="0" role="button" aria-label="Choose a PDF or EPUB file">
+      <div class="ab-drop" id="abDrop" tabindex="0" role="button" aria-label="Choose a PDF or EPUB file" hidden>
         <span class="ab-drop-main">Choose a PDF or EPUB</span>
         <span class="ab-drop-sub">or drop it here</span>
+      </div>
+      <div class="ab-gate" id="abGate">
+        <p class="ab-gate-copy">Add books to your shelf with a free account.</p>
+        <div class="ab-gate-acts"><a class="ab-btn is-go" id="abCreate" href="/sign-in?mode=create&amp;returnTo=%2Flab%2Faddbook%2F">Create account</a><a class="ab-btn" id="abSignIn" href="/sign-in?returnTo=%2Flab%2Faddbook%2F">Sign in</a></div>
       </div>
       <p class="ab-fine">Not uploaded or shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.</p>
     </article>

@@ -36,6 +36,11 @@ body[data-view="reader"] #start { display: none; }
 .ab-drop:hover, .ab-drop.is-over { background: rgba(185, 166, 216, .08); border-color: var(--ab-private); }
 .ab-drop-main { display: inline-block; padding: 11px 20px; border-radius: 999px; background: var(--ab-cream); color: var(--ab-bg); font-weight: 600; }
 .ab-drop-sub { font-size: 13px; color: var(--ab-faint); }
+.ab-drop[hidden], .ab-gate[hidden] { display: none; }
+.ab-gate { margin-top: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 120px; padding: 18px; border: 1.5px solid var(--ab-line); border-radius: 14px; text-align: center; }
+.ab-gate-copy { color: var(--ab-cream) !important; font: 18px/1.4 Georgia, serif; }
+.ab-gate-acts { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.ab-gate.is-flash { border-color: var(--ab-private); background: rgba(185, 166, 216, .08); }
 .ab-fine { font-size: 12.5px !important; color: var(--ab-faint) !important; }
 .ab-search { display: flex; gap: 8px; margin-top: 4px; }
 .ab-search input { flex: 1; min-width: 0; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--ab-line); background: var(--ab-bg); color: var(--ab-cream); font: 18px Georgia, serif; }

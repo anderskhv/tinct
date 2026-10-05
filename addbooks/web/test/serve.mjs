@@ -1,6 +1,8 @@
 // A local stand-in for tinct.app: serves the built page at /lab/addbook/, Tinct's fonts
 // at /fonts/, sends production's Content-Security-Policy, and answers /api/chat and
 // /api/lab-chat with a streamed reply in the Anthropic event format the Worker relays.
+// Like the Worker, /api/chat accepts the last turn as text and image blocks (base64 PNG,
+// JPEG or WebP, at most 4) and /api/lab-chat refuses pictures with images_unavailable.
 // Every chat request body is kept for the tests at GET /__requests.
 //   node addbooks/web/test/serve.mjs [port]
 import { createServer } from 'node:http';
@@ -38,6 +40,7 @@ export function start(port = 4720) {
     const url = new URL(req.url, 'http://localhost');
     if (req.method === 'POST' && (url.pathname === '/api/chat' || url.pathname === '/api/lab-chat')) {
       let body = '';
+      req.setEncoding('utf8');
       req.on('data', c => { body += c });
       req.on('end', () => {
         let json = null; try { json = JSON.parse(body) } catch {}
@@ -45,8 +48,15 @@ export function start(port = 4720) {
         requests.push({ path: url.pathname, auth, body: json });
         if (url.pathname === '/api/chat' && auth === 'Bearer expired-token') { res.writeHead(401, { 'Content-Type': 'application/json' }); res.end('{"error":"Unauthorized"}'); return }
         if (!json?.companion?.context?.paragraphs || !json?.messages?.length) { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"error":"Invalid request"}'); return }
-        const ask = json.messages.at(-1).content;
-        const reply = /reply with only JSON/i.test(ask) ? '{"title": "Mock stretch", "summary": "A mock summary of these pages."}' : `MOCK ANSWER (${url.pathname}). You asked: ${ask.slice(0, 60)}`;
+        const last = json.messages.at(-1).content;
+        const blocks = Array.isArray(last) ? last : null;
+        const images = blocks ? blocks.filter(b => b?.type === 'image') : [];
+        if (blocks && url.pathname === '/api/lab-chat' && images.length) { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"error":"images_unavailable"}'); return }
+        const imageOk = b => b?.source?.type === 'base64' && ['image/png', 'image/jpeg', 'image/webp'].includes(b.source.media_type) && /^[A-Za-z0-9+/]+={0,2}$/.test(b.source.data || '') && b.source.data.length * 0.75 <= 1572864;
+        if (blocks && (images.length > 4 || !images.every(imageOk) || !blocks.every(b => b?.type === 'image' || (b?.type === 'text' && typeof b.text === 'string')))) { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"error":"image_rejected"}'); return }
+        const ask = blocks ? blocks.filter(b => b.type === 'text').map(b => b.text).join('\n') : last;
+        const seen = images.length ? ` [${images.length} image${images.length > 1 ? 's' : ''}]` : '';
+        const reply = /reply with only JSON/i.test(ask) ? '{"title": "Mock stretch", "summary": "A mock summary of these pages."}' : `MOCK ANSWER (${url.pathname})${seen}. You asked: ${ask.slice(0, 60)}`;
         sse(res, reply);
       });
       return;

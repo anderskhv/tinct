@@ -11,11 +11,28 @@ const people = list => (list || []).map(p => p.name).filter(Boolean);
 const lifespan = p => p.birthYear || p.deathYear ? ` (${p.birthYear ?? '?'}–${p.deathYear ?? ''})` : '';
 
 /* ---------- Account ---------- */
+// Opening your own book needs a Tinct account; searching free books does not. Sign-in
+// returns here (the app's sign-in page allows /lab/addbook/ as a return target).
+const returnTo = () => '/lab/addbook/' + location.search;
+const signInHref = create => `/sign-in?${create ? 'mode=create&' : ''}returnTo=${encodeURIComponent(returnTo())}`;
 function renderAccount() {
   const s = window.TinctAI?.session() || {};
   $('abAccount').innerHTML = s.token
     ? `<span class="ab-who">${esc(s.name || s.email || 'Signed in')}</span>`
-    : `<a href="/sign-in">Sign in</a><span class="ab-who-note">${s.expired ? 'Your sign-in has expired.' : 'Optional: the companion works for guests, with a small daily allowance.'}</span>`;
+    : `<a href="${esc(signInHref(false))}">Sign in</a>${s.expired ? '<span class="ab-who-note">Your sign-in has expired.</span>' : ''}`;
+  const member = !!s.userId;
+  $('abDrop').hidden = !member;
+  $('abGate').hidden = member;
+  $('abCreate').href = signInHref(true);
+  $('abSignIn').href = signInHref(false);
+}
+function showGate() {
+  if ($('start').hidden) window.TinctReader?.close();
+  renderAccount();
+  const gate = $('abGate');
+  gate.scrollIntoView({ block: 'center' });
+  gate.classList.add('is-flash'); setTimeout(() => gate.classList.remove('is-flash'), 1600);
+  $('abCreate').focus({ preventScroll: true });
 }
 
 /* ---------- Your own book ---------- */
@@ -32,7 +49,7 @@ function coverHtml(title, author, kind, small) {
   return `<span class="ab-cover${small ? ' is-small' : ''}" style="--h:${hue(title)}" aria-hidden="true"><span class="ab-cover-t">${esc(title)}</span>${author ? `<span class="ab-cover-a">${esc(author)}</span>` : ''}${kind ? `<span class="ab-cover-k">${kind.toUpperCase()}</span>` : ''}</span>`;
 }
 async function renderShelf() {
-  const list = await (window.TinctReader?.library.list() ?? []);
+  const list = window.TinctAI?.session().userId ? await (window.TinctReader?.library.list() ?? []) : [];
   $('abShelf').hidden = !list.length;
   $('abBooks').innerHTML = list.map(b => `<li class="ab-book" data-key="${esc(b.key)}">
       <button type="button" class="ab-book-open" data-open="${esc(b.key)}" aria-label="Open ${esc(b.title)}">${coverHtml(b.title, b.author, b.kind)}
@@ -129,6 +146,7 @@ $('abResults').addEventListener('click', e => {
 window.TinctStart = {
   show() { $('start').hidden = false; renderAccount(); renderShelf(); scrollTo(0, 0) },
   hide() { $('start').hidden = true },
+  showGate,
 };
 function boot() {
   renderAccount(); renderShelf();
@@ -137,4 +155,4 @@ function boot() {
   else if ('requestIdleCallback' in window) requestIdleCallback(startWorker, { timeout: 4000 }); else setTimeout(startWorker, 1500);
 }
 if (window.TinctReader) boot(); else addEventListener('tinct-reader-ready', boot, { once: true });
-addEventListener('storage', e => { if (/^sb-.*-auth-token$/.test(e.key || '')) renderAccount() });
+addEventListener('storage', e => { if (/^sb-.*-auth-token$/.test(e.key || '')) { renderAccount(); renderShelf() } });

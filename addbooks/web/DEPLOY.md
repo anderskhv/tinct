@@ -6,7 +6,7 @@ This package builds two static outputs from one catalogue and one search engine
 | Output | Where it goes | What it is |
 |---|---|---|
 | `dist/lab-addbook/` | `app/public/lab/addbook/` → **https://tinct.app/lab/addbook/** | The Add-a-book page: open your own PDF or EPUB, or search free public-domain books. Unlinked, `noindex`. |
-| `dist/freepubs/` | Cloudflare Pages project → **https://freepubs.fyi** | SEO site: a page per popular book, author, topic and language, plus search. Links back to Tinct. |
+| `dist/freepubs/` | Cloudflare Pages project → **https://freepubs.fyi** | SEO site: a page per popular book, author, topic and language, plus search. Links back to Tinct. Not deployed yet (release 1 ships the lab page only). |
 
 No npm dependencies. Node 22+ and Python 3.10+. Nothing here calls a paid API at build time.
 
@@ -27,38 +27,66 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 24 browser checks under production CSP, chat API mocked
+node addbooks/web/test/e2e.mjs           # 33 browser checks under production CSP, chat API mocked
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
+`e2e.mjs` uses Chromium from `CHROMIUM_PATH`, else `/opt/pw-browsers/chromium`, else
+Playwright's own, and prints its own sample PDF when `test/fixtures/sample.pdf` is missing.
+
 Then release the app as usual from `app/` (`npm test`, `CI=true npm run build`,
-`npm run verify-bundle`, `npm run deploy`). **No app source changes are needed.** The
-Worker already serves `app/public/**` as static assets, and `/lab` is the experiments
-namespace. To take the page down, delete `app/public/lab/addbook` and redeploy.
+`npm run verify-bundle`, then merge to `main`). The Worker serves `app/public/**` as
+static assets, and `/lab` is the experiments namespace. To take the page down, delete
+`app/public/lab/addbook` and redeploy. Release 1 also changed the app in three small
+places: `/api/chat` accepts pictures (below), the sign-in page accepts `/lab/addbook/`
+as a return target (`app/src/lab/labSignInReturn.ts`), and sign-out deletes the
+`tinct-addbook` IndexedDB (`clearLocalUserData`).
 
 How it fits the app:
 - **Accounts:** reads the Supabase session that tinct.app already stores in
-  localStorage (`sb-*-auth-token`). Signed in → `POST /api/chat` with the Bearer token,
+  localStorage (`sb-*-auth-token`). Opening your own PDF or EPUB needs an account:
+  signed out, the "Your own book" door shows "Add books to your shelf with a free
+  account." with Create account / Sign in (`/sign-in?…&returnTo=/lab/addbook/`).
+  Searching free books stays open to everyone. A session whose token has lapsed still
+  counts as the account (its files are tagged with it); the companion then uses the
+  guest route until the reader signs in again on tinct.app.
+- **Rights confirmation:** once per account, before its first file opens: a checkbox
+  ("I confirm I have the right to read this file in Tinct, and I'm responsible for it
+  (Terms §4).") and Continue. Kept in localStorage `tinct-addbook:rights:<user id>`.
+- **Companion:** signed in → `POST /api/chat` with the Bearer token,
   using the user's normal allowance. Signed out or expired → `POST /api/lab-chat`
   (guest, per-IP, daily ceiling). Request shape: `companion.intent: 'ask'` with the
   selected passage in `companion.context.paragraphs`. Both are existing routes.
 - **CSP:** runs under the production policy as-is. No inline scripts, no CDNs,
   `data:` images only, pdf.js worker same-origin (`vendor/pdfjs`, Apache-2.0).
 - **Storage:** books stay in the browser (IndexedDB `tinct-addbook`, owner-tagged by
-  user id). Notes and highlights use localStorage keys `tinct-addbook:*`, which the
-  app's sign-out wipe already covers.
+  user id). Notes, highlights and the rights confirmation use localStorage keys
+  `tinct-addbook:*`. The app's sign-out wipe (`clearLocalUserData`) removes both.
 - **Free books:** the page links to the source library's EPUB. The user downloads it,
   then opens it here (CSP blocks fetching other origins, by design). `?q=` and
   `?work=<id>` deep-link into search; freepubs.fyi uses `?work=`.
 
-### Known limitation: images to the companion
+### Images to the companion (signed in only)
 
-`/api/chat` accepts text only, so snipping a figure and asking about it sends the
-caption and nearby text, not the picture (`IMAGES_ENABLED = false` in
-`src/js/reader.js`). To enable images later, the Worker's chat validator needs to
-accept content blocks of type `image` (base64 PNG/JPEG, ≤ 5 MB, ≤ 4 per request) and
-pass them through to the provider. Then set `IMAGES_ENABLED = true`. This is a
-separate, reviewed Worker change and is not part of this package.
+Signed in, a figure the reader snips from a PDF, or an image they attach, paste or drop
+into the chat, goes to `/api/chat` with the question (`IMAGES_ENABLED = true` in
+`src/js/reader.js`). `src/js/tinct-api.js` redraws each picture as PNG (JPEG for photos,
+or when PNG is too large) of at most 1568 px on its long side and ≤ 1.2 MB, and sends the
+last turn as `[...image blocks, {type: 'text', text}]`. Earlier turns stay text.
+
+The Worker (`app/src/worker/routes/chat.ts`, `lib/chatImages.ts`) accepts only that: at
+most 4 base64 `image/png`, `image/jpeg` or `image/webp` blocks of ≤ 1.5 MB decoded whose
+bytes match their type, in the latest user turn; a request with pictures may be up to
+8 MB (text-only requests keep the 500 KB cap). Anything else is `400
+{error:'image_rejected'}`. `/api/lab-chat` refuses pictures with `400
+{error:'images_unavailable'}`. Each picture adds about width × height / 750 input
+tokens (≤ 1,600) to the cost estimate; the usage ledger records the provider's actual
+input tokens, pictures included.
+
+Signed out (or with a lapsed sign-in) the client does not send pictures: it answers
+from the caption, the labels inside the figure and a rough text sketch, and says so.
+A picture of the whole page with every PDF Explain/Ask (`PAGE_IMAGES` in `reader.js`)
+stays off in release 1.
 
 ## 3. freepubs.fyi (separate Cloudflare Pages project)
 
@@ -97,7 +125,7 @@ What the site contains:
   strict CSP (no inline scripts or styles).
 - No hosting of books, no ads, no tracking.
 
-**Before announcing freepubs.fyi:** its "Read it with Tinct" links point at
+**freepubs.fyi is not deployed in release 1.** **Before announcing freepubs.fyi:** its "Read it with Tinct" links point at
 `/lab/addbook/`. That makes the lab page public in practice, so install it on
 tinct.app first, or build freepubs with `--tinct https://tinct.app/` until it is.
 
@@ -106,7 +134,7 @@ tinct.app first, or build freepubs with `--tinct https://tinct.app/` until it is
 ```
 addbooks/web/
   src/              lab page source (index.html, js/, css/, vendor/)
-  freepubs/        freepubs.fyi assets (site.css, find.js, favicon.svg)
+  freepubs/         freepubs.fyi assets (site.css, find.js, favicon.svg)
   scripts/          build.mjs, install.mjs, build-freepubs.mjs, catalog.mjs
   test/             e2e.mjs, freepubs.mjs, serve.mjs (CSP + mocked chat), make-epub.mjs
   dist/             build output (gitignored)
