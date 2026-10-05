@@ -34,6 +34,10 @@ In `app/src/worker/routes/seo.ts` (clean-URL SEO routing, the `seoMatch` block):
 
 ### 5. Small fixes
 - **Homepage headline:** `/` currently has two `<h1>`s and the first is the featured book ("Frankenstein"). Make the single `<h1>` about Tinct; the featured book title becomes an `h2` or similar. No visual change.
+- **Book pages also have two `<h1>`s** (`/read/odyssey`: the book title plus an empty `#collection-title`). One `<h1>` per page: the book title. Fix in the generator.
+- **Breadcrumbs on book pages:** add `BreadcrumbList` JSON-LD (Tinct → Library → Book) to `book.html`; the hub already has it. Structured data only, no visible copy.
+- **Orphan book pages:** the library hub links directly to only 39 of ~105 `/read/{bookId}` pages. Every live book page must be linked from the hub (or a hub-linked shelf page).
+- **Image dimensions:** `<img>` tags on `/` and book pages have no `width`/`height`; add them (or CSS `aspect-ratio`) to prevent layout shift. Decorative images keep `alt=""`; covers keep descriptive alt.
 - **Danish claims:** remove "modern Danish" from the Odyssey `BOOK_META` description in `app/src/worker/routes/seo.ts` and from `app/public/llms.txt` / `llms-full.txt` (English-only since 2026-09-21; see `STRATEGY.md#language-scope`). Point the `llms*.txt` "Representative Books" at `/read/{bookId}`, not `/summary`. Check generated book meta (`app/src/data/bookMetaGenerated.ts`) for the same.
 - **Caching:** static public HTML (`/read/{bookId}`, `/read/`, `/about`) is served with `cache-control: no-store`. Give it a short public cache (e.g. `public, max-age=300, stale-while-revalidate=86400`) unless a documented reason requires no-store; keep no-store for anything per-user.
 
