@@ -11,6 +11,12 @@ export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
 let pageHandoffRead = false
 let pageHandoff: ReaderHandoffIntent | null = null
+let pageSharedLink: { id: string; ref: string } | null = null
+
+/** The `/q/{id}` link this page was opened from, read before the URL is cleaned. */
+export function sharedLinkForPage(): { id: string; ref: string } | null {
+  return pageSharedLink
+}
 
 type HandoffStorage = Pick<Storage, 'getItem' | 'removeItem'>
 
@@ -58,7 +64,12 @@ export function readerHandoffFromUrlParams(params: URLSearchParams | null): Read
   if (!params || !bookId || !chapterText || !/^\d{1,5}$/.test(chapterText)) return null
   const chapterNumber = Number(chapterText)
   if (chapterNumber < 1 || !getBook(bookId)) return null
-  const savedPlace = { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 }
+  // A shared highlight (/q/{id}) opens at its passage, not the chapter top.
+  const at = (key: string) => {
+    const text = params.get(key)
+    return text && /^\d{1,6}$/.test(text) ? Number(text) : 0
+  }
+  const savedPlace = { bookId, chapterNumber, paragraphIndex: at('paragraph'), wordIndex: at('word'), page: 0 }
   const open = (primaryEditionKey: string) => createReaderHandoffIntent({ bookId, primaryEditionKey, savedPlace, startAtSavedPlace: true })
   const named = params.get('edition')
   if (!named) {
@@ -89,6 +100,8 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
       ? createReaderHandoffIntent({ bookId: heldBook, primaryEditionKey: heldEdition,
           savedPlace: { bookId: heldBook, chapterNumber: positive('chapter', 1), paragraphIndex: positive('paragraph', 0), wordIndex: positive('word', 0), page: 0 } })
       : consumeLabReaderHandoff() ?? readerHandoffFromUrlParams(params)
+    const shareId = params?.get('share')
+    if (pageHandoff && shareId && /^[a-hj-km-np-z2-9]{7}$/.test(shareId)) pageSharedLink = { id: shareId, ref: (params?.get('ref') || '').slice(0, 80) }
     if (!heldBook && pageHandoff && params?.has('chapter') && readerHandoffFromUrlParams(params)) forgetDeepLinkParams(params)
   }
   return pageHandoff
@@ -102,7 +115,7 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
 function forgetDeepLinkParams(params: URLSearchParams): void {
   try {
     const rest = new URLSearchParams(params)
-    for (const key of ['book', 'edition', 'chapter']) rest.delete(key)
+    for (const key of ['book', 'edition', 'chapter', 'paragraph', 'word', 'share', 'ref']) rest.delete(key)
     const query = rest.toString()
     window.history.replaceState(window.history.state, '', window.location.pathname + (query ? `?${query}` : '') + window.location.hash)
   } catch { /* the place still opens; only a reload would differ */ }

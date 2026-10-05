@@ -129,6 +129,14 @@ describe('Reader URL deep link (/reader?book=&edition=&chapter=)', () => {
     })
   })
 
+  it('a shared highlight link opens at its paragraph and word', () => {
+    expect(link('book=frankenstein&edition=original-en&chapter=9&paragraph=2&word=41&share=abcdefg')).toMatchObject({
+      bookId: 'frankenstein', primaryEditionKey: 'original-en', startAtSavedPlace: true,
+      savedPlace: { bookId: 'frankenstein', chapterNumber: 9, paragraphIndex: 2, wordIndex: 41 },
+    })
+    expect(link('book=frankenstein&edition=original-en&chapter=9&paragraph=-2&word=x')).toMatchObject({ savedPlace: { paragraphIndex: 0, wordIndex: 0 } })
+  })
+
   it('without an edition opens the new-reader default: Modern English with the original in Compare', () => {
     const handoff = link('book=werther&chapter=1')
     expect(handoff).toMatchObject({ primaryEditionKey: 'modern-en', compareEditionKey: 'original-en' })

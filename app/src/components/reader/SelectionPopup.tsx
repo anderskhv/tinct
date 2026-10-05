@@ -68,6 +68,8 @@ export interface SelectionPopupProps {
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define') => Promise<string>
   onCopy: () => void
   onShare?: (text: string) => void
+  /** Share a saved highlight as an image (live reader). */
+  onShareHighlight?: (id: string) => void
   onDeleteHighlight?: (id: string) => void
   dismissPopup: () => void
   lab?: boolean
@@ -75,6 +77,10 @@ export interface SelectionPopupProps {
 
 function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
   return selection.homeMode ?? defaultPopupMode(selection.text, selection.existingHighlightId)
+}
+
+function ShareIcon() {
+  return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 10V2M5 5l3-3 3 3M3 9v4.5h10V9" /></svg>
 }
 
 function CopyIcon() {
@@ -158,6 +164,7 @@ export function SelectionPopup({
   onRequestExplanation,
   onCopy,
   onDeleteHighlight,
+  onShareHighlight,
   dismissPopup,
   lab = false,
 }: SelectionPopupProps) {
@@ -511,6 +518,7 @@ export function SelectionPopup({
               <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
               <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><NoteIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
+              {selection.existingHighlightId && onShareHighlight && <button type="button" className="popup-menu-action" data-testid="popup-share-highlight" onClick={() => onShareHighlight(selection.existingHighlightId!)}><ShareIcon /><span>Share</span></button>}
             </>
           ) : <>
           {selection.existingHighlightId ? <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Remove highlight</span></button>

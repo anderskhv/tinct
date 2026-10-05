@@ -135,6 +135,12 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } 
     RATE_LIMIT: kv,
     READER_POSITION: namespace('position'),
     RECAP_PREPARATION: namespace('recap'),
+    SHARE_STORE: {
+      getByName: vi.fn((name: string) => {
+        expect(name).toBe('shares')
+        return { forgetCreator: vi.fn(async (id: string) => { expect(id).toBe(userId); log.push('do:share-forget'); return 0 }) }
+      }),
+    },
   } as unknown as AdminAccountsEnv
   vi.stubGlobal('fetch', fetchMock)
   vi.spyOn(console, 'log').mockImplementation(() => {})
@@ -187,6 +193,7 @@ describe('admin account routes', () => {
     expect(w.log.slice(0, auth + 1)).toEqual([
       'do:purge:recap',
       'do:purge:position',
+      'do:share-forget',
       'kv:delete:lab-chat-history',
       'kv:delete:lab-position',
       'rest:delete:analytics_events:device',
@@ -198,7 +205,7 @@ describe('admin account routes', () => {
       'auth:delete',
     ])
     // Post-delete sweep, then the cascade check.
-    expect(w.log.slice(auth + 1)).toEqual(['do:purge:recap', 'do:purge:position', 'kv:delete:lab-chat-history', 'kv:delete:lab-position'])
+    expect(w.log.slice(auth + 1)).toEqual(['do:purge:recap', 'do:purge:position', 'do:share-forget', 'kv:delete:lab-chat-history', 'kv:delete:lab-position'])
     expect(body.steps[body.steps.length - 1]).toEqual({ step: 'verify:cascade', status: 'ok' })
     // No SET NULL orphans; another device's anonymous rows are untouched.
     expect(w.state.tables.analytics_events.map(row => row.id)).toEqual(['e3'])

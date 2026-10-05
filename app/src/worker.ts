@@ -12,6 +12,8 @@ import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
 import { createGuestSpendReserver } from './worker/lib/aiSpend'
 import type { UsageCoordinator } from './worker/usageCoordinator'
+import type { ShareStore } from './worker/shareStore'
+import { handleShareApi, handleSharePage } from './worker/routes/share'
 import { isValidUUID } from './worker/lib/security'
 import { supabaseGet } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
@@ -61,6 +63,8 @@ interface Env {
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   /** Atomic rate-limit windows and the daily ceiling for signed-out AI. */
   USAGE_COORDINATOR?: DurableObjectNamespace<UsageCoordinator>
+  /** Shared highlight links (routes/share.ts). */
+  SHARE_STORE?: DurableObjectNamespace<ShareStore>
   /** Whole US cents per UTC day for signed-out AI; see lib/aiSpend.ts. */
   GUEST_AI_DAILY_CENTS?: string
   ANTHROPIC_API_KEY: string
@@ -165,6 +169,12 @@ export default {
     // Atomic and fail-closed (see lib/rateLimit.ts).
     const checkRateLimit = createRateLimiter(env)
     const reserveGuestSpend = createGuestSpendReserver(env)
+
+    if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
+      return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
+    }
+    const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx) : null
+    if (sharePage) return sharePage
 
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
