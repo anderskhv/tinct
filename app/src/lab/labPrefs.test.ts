@@ -523,3 +523,21 @@ describe('reader progress mode', () => {
     expect(readStoredReaderProgressMode('the-manual')).toBe('chapter')
   })
 })
+
+describe('Compare on by default (Anders, 2026-10-06)', () => {
+  afterEach(() => { try { localStorage.clear() } catch { /* jsdom */ } })
+
+  it('opens Compare for a new reader and for an old stored default that was never chosen', () => {
+    expect(DEFAULT_LAB_PREFS.compareOpen).toBe(true)
+    expect(parseLabStoredPrefs({ version: 2, shared: { compareOpen: false } }).shared.compareOpen).toBe(true)
+  })
+
+  it('keeps a reader’s own None, and persists it', () => {
+    const chosen = parseLabStoredPrefs({ version: 2, shared: { compareOpen: false, compareChosen: true } }).shared
+    expect(chosen).toMatchObject({ compareOpen: false, compareChosen: true })
+    writeLabPrefs({ ...readLabPrefs('phone'), compareOpen: false, compareChosen: true }, 'phone')
+    expect(readLabPrefs('desktop')).toMatchObject({ compareOpen: false, compareChosen: true })
+    writeLabPrefs({ ...readLabPrefs('phone'), compareOpen: true, compareChosen: true }, 'phone')
+    expect(readLabPrefs('phone').compareOpen).toBe(true)
+  })
+})

@@ -97,7 +97,14 @@ export interface LabSharedPrefs {
   /** Omitted in older preferences: narration follows the primary edition. */
   audioFollowsPrimary?: boolean
   audioSpeed: number
+  /**
+   * Compare is on by default (Anders, 2026-10-06): the AI/modern edition
+   * reads, the human edition sits beside it. Only a reader's own choice,
+   * marked by `compareChosen`, turns it off.
+   */
   compareOpen: boolean
+  /** True once the reader chose Compare's edition or None themselves. */
+  compareChosen?: boolean
   /**
    * Fish Audio narration pilot (docs/fish-audio-pilot-2026-09-18.md). Off
    * unless the reader opted in with `?narration=fish` on a reader route; the
@@ -188,7 +195,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   margins: 'medium',
   paragraphSpacing: 'standard',
   progressDisplay: { metric: 'page', scope: 'chapter' },
-  compareOpen: false,
+  compareOpen: true,
   voicePersona: 'male',
 }
 
@@ -356,7 +363,10 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
     audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
     ...(src.audiobookVoice === 'orion' || src.audiobookVoice === 'eve' ? { audiobookVoice: src.audiobookVoice } : {}),
-    compareOpen: typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
+    // Before 2026-10-06 Compare was off by default and that default was stored
+    // as if chosen; only a marked choice keeps Compare off now.
+    compareOpen: src.compareChosen === true && typeof src.compareOpen === 'boolean' ? src.compareOpen : fallback.compareOpen,
+    ...(src.compareChosen === true && typeof src.compareOpen === 'boolean' ? { compareChosen: true } : {}),
     voicePersona: src.voicePersonaChosen === true && (src.voicePersona === 'male' || src.voicePersona === 'female')
       ? src.voicePersona
       : fallback.voicePersona,

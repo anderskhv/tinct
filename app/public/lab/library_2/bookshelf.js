@@ -1,5 +1,5 @@
 import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261001one';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261001one';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261006compare';
 import { createBookshelf } from './bookshelf-view.js?v=20261001one';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 

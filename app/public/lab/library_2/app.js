@@ -8,7 +8,7 @@ import {mountBookshelf} from './bookshelf.js?v=20261001stale2';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261001one';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261006compare';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
@@ -123,7 +123,11 @@ $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>se
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
 const editionChoices=new Map();
 function availableEditions(){return (activeBook.editions||[]).filter(e=>e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
-function choices(){const available=availableEditions();if(!editionChoices.has(activeBook.id)){const main=available.find(e=>e.key===activeBook.defaultEditionKey)?.key||available[0]?.key||null;editionChoices.set(activeBook.id,{main,compare:null,explicit:false});}const picked=editionChoices.get(activeBook.id);if(!('compare' in picked))picked.compare=null;return picked;}
+// Compare is on by default (Anders, 2026-10-06): the AI/modern edition reads and
+// the human edition sits beside it. A reader who chose None in the reader keeps None.
+function compareChosenOff(){try{const shared=JSON.parse(localStorage.getItem('tinct-lab-prefs')||'null')?.shared;return shared?.compareChosen===true&&shared.compareOpen===false;}catch{return false;}}
+function pairedCompare(main){const comparable=availableEditions().filter(e=>e.key!==main&&e.availability?.compare!==false);return [activeBook.defaultCompareEditionKey,activeBook.defaultEditionKey].find(key=>key&&comparable.some(e=>e.key===key))||null;}
+function choices(){const available=availableEditions();if(!editionChoices.has(activeBook.id)){const main=available.find(e=>e.key===activeBook.defaultEditionKey)?.key||available[0]?.key||null;editionChoices.set(activeBook.id,{main,explicit:false});}const picked=editionChoices.get(activeBook.id);if(!('compare' in picked)){picked.compare=compareChosenOff()?null:pairedCompare(picked.main);picked.compareExplicit=false;}return picked;}
 let pageLocked=false,lockedScroll=0;function syncLock(){const lock=!!(activeBook||searchOpen||menuOpen||mode!=='minimized');if(lock===pageLocked)return;pageLocked=lock;if(!lock)queueMicrotask(()=>dispatchEvent(new Event('library2:interactive')));if(lock){lockedScroll=scrollY;Object.assign(document.body.style,{position:'fixed',top:-lockedScroll+'px',left:'0',right:'0',overflow:'hidden'});}else{for(const key of ['position','top','left','right','overflow'])document.body.style[key]='';scrollTo({top:lockedScroll,behavior:'instant'});}}
 function rectOf(c){const r=c.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};}
 export function bookDestination(){const dest=destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches);if(dest.tour){const u=ease(tourProgress),height=window.visualViewport?.height||innerHeight;const short=height<500,pageWidth=Math.min((innerWidth-40)/.66,short?620:(height-128)/1.5,620),pageHeight=short?height-128:pageWidth*1.5;dest.x=mix(20+pageWidth,0,u);dest.y=mix(60+(height-128-pageHeight)/2,0,u);dest.w=mix(pageWidth,innerWidth,u);dest.h=mix(pageHeight,height,u);}return dest;}
@@ -178,8 +182,8 @@ function renderIntro(){
  }
 
  else {
-  // Two dropdowns: the edition to read, and an optional edition to compare with
-  // (None by default: the single-edition view is the default, Compare is opt-in).
+  // Two dropdowns: the edition to read, and the edition to compare with (the
+  // paired human edition by default; None is the reader's explicit choice).
   const versions=availableEditions(),picked=choices();
   const dropdown=(label,options,current,onPick)=>{
    const field=el('section','edition-field');field.append(el('h3','',label));
@@ -192,8 +196,8 @@ function renderIntro(){
   };
   const asOption=v=>({key:v.key,label:v.label||v.key,note:v.provenanceLabel||''});
   if(versions.length){
-   dropdown('Reading edition',versions.map(asOption),picked.main,key=>{picked.main=key;picked.explicit=true;if(picked.compare===key)picked.compare=null;renderIntro();});
-   if(versions.length>1)dropdown('Compare with',[{key:null,label:'None',note:''},...versions.filter(v=>v.key!==picked.main).map(asOption)],picked.compare??null,key=>{picked.compare=key;renderIntro();});
+   dropdown('Reading edition',versions.map(asOption),picked.main,key=>{picked.main=key;picked.explicit=true;if(picked.compare===key)picked.compare=picked.compareExplicit?null:pairedCompare(key);renderIntro();});
+   if(versions.length>1)dropdown('Compare with',[{key:null,label:'None',note:''},...versions.filter(v=>v.key!==picked.main).map(asOption)],picked.compare??null,key=>{picked.compare=key;picked.compareExplicit=true;renderIntro();});
   }else{const field=el('section','edition-field');field.append(el('p','','No edition is currently available to start.'));body.append(field);}
  }
  fitIntroFooter();
@@ -203,7 +207,7 @@ function resetIntroScroll(){for(const id of ['intro','intro-body','paper'])$(id)
 all('[data-tab]').forEach(b=>{b.onclick=()=>{currentTab=b.dataset.tab;renderIntro();};b.onkeydown=e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const tabs=all('[data-tab]').filter(t=>!t.hidden);const i=tabs.indexOf(b);tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length].click();all('[data-tab]').find(t=>t.getAttribute('aria-selected')==='true').focus();};});
 // Straight into the production reader at the reader's place: one short fade, no intermediate pages.
 let leaving=false;
-async function startReading(){if(leaving||!activeBook)return;leaving=true;try{const picked=choices(),href=await readerDestination(activeBook,picked.main,{compare:picked.compare,explicit:picked.explicit});if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});document.body.classList.add('leaving');location.assign(href);}catch{leaving=false;document.body.classList.remove('leaving');notice('This edition could not open. Please try again.');}}
+async function startReading(){if(leaving||!activeBook)return;leaving=true;try{const picked=choices(),href=await readerDestination(activeBook,picked.main,{compare:picked.compare,explicit:picked.explicit,compareExplicit:picked.compareExplicit});if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});document.body.classList.add('leaving');location.assign(href);}catch{leaving=false;document.body.classList.remove('leaving');notice('This edition could not open. Please try again.');}}
 $('begin-reading').onclick=startReading;
 addEventListener('pageshow',event=>{if(event.persisted){
  // Browser Back restores the library scene, not the preface we left behind.

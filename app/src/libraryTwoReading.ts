@@ -242,7 +242,7 @@ export async function readerDestination(
   bookId: string,
   preferredEdition?: string | null,
   /** From the introduction's edition dropdowns: an explicit pick wins over the saved edition. */
-  choice?: { compare?: string | null; explicit?: boolean },
+  choice?: { compare?: string | null; explicit?: boolean; compareExplicit?: boolean },
 ): Promise<string> {
   await ensureNativeBook(bookId)
   const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
@@ -260,6 +260,9 @@ export async function readerDestination(
     bookId,
     primaryEditionKey: edition,
     ...(compare ? { compareEditionKey: compare } : {}),
+    // The introduction's own Compare pick (an edition or None) is the reader's
+    // choice; its default pair is only a default.
+    ...(choice?.compareExplicit ? { compareChosen: true } : {}),
     // A new reader has already met the book in the library's introduction, so
     // they start on page one rather than on the reader's own cover page.
     savedPlace: place

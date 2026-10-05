@@ -125,17 +125,24 @@ export function prefsFromLabReaderHandoff(current: LabPrefs, handoff: ReaderHand
     || savedOverride
     || (primary.hasAudio ? primary.key : book.editions.find(edition => edition.hasAudio)?.key)
     || primary.key
-  const compare = handoff.compareEditionKey
-    || defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
-    || primary.key
+  const pairedDefault = defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
+  const compare = handoff.compareEditionKey || pairedDefault || primary.key
+  // Compare is on by default for every entry point (Anders, 2026-10-06). An
+  // explicit pick in the handoff (an edition, or None) is the reader's new
+  // choice; otherwise a reader's earlier choice of None still holds.
+  const compareOpen = handoff.compareChosen
+    ? Boolean(handoff.compareEditionKey)
+    : current.compareChosen
+      ? current.compareOpen && compare !== primary.key
+      : compare !== primary.key
   return {
     ...current,
     primaryEdition: primary.key,
     compareEdition: compare,
     audioEdition: audio,
     audioFollowsPrimary: handoff.audioEditionKey ? handoff.audioEditionKey === primary.key : !savedOverride,
-    // A library entry can omit a pair without withdrawing the reader’s preference.
-    compareOpen: Boolean(handoff.compareEditionKey) || current.compareOpen,
+    compareOpen,
+    ...(handoff.compareChosen || current.compareChosen ? { compareChosen: true } : {}),
   }
 }
 
@@ -149,6 +156,17 @@ export function prefsFromLabResumePlace(current: LabPrefs, place: LabBookPlace |
   const compare = place.compareEditionKey
     ? book.editions.find(edition => edition.key === place.compareEditionKey && edition.key !== primary.key)
     : undefined
+  if (!current.compareChosen) {
+    // Compare is on by default (Anders, 2026-10-06): this book's pair, else
+    // its paired default. A book with one edition has nothing to compare.
+    const paired = compare?.key ?? defaultCompareEditionKey(book.id, book.editions, primary.key, book.year)
+    return syncLabAudioEdition({
+      ...current,
+      primaryEdition: primary.key,
+      compareEdition: paired ?? current.compareEdition,
+      compareOpen: Boolean(paired),
+    }, book.editions)
+  }
   return syncLabAudioEdition({
     ...current,
     primaryEdition: primary.key,

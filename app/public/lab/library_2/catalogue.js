@@ -59,6 +59,7 @@ export function libraryBook(entry) {
 export function attachCatalogue(book, entry) {
   book.editions = entry.editions || [];
   book.defaultEditionKey = entry.defaultEditionKey || null;
+  book.defaultCompareEditionKey = entry.defaultCompareEditionKey || null;
   book.wordCount = entry.wordCount ?? null;
   book.displayYear = entry.displayYear || '';
   book.firstChapter = entry.readingStructure?.chapters?.[0]?.number ?? 1;
@@ -83,7 +84,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20260930edpick').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261006compare').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });
