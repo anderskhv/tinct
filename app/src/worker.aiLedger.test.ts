@@ -348,3 +348,13 @@ describe('Talk', () => {
     expect(rows[0].cost_usd).toBe(talkCostUsd(TALK_SESSION_MAX_SECONDS))
   })
 })
+
+describe("Tinct's own checks in the ledger", () => {
+  it('labels a request carrying x-tinct-check as check, and leaves everyone else hashed', async () => {
+    const { ledgerGuestKey, CHECK_GUEST_KEY } = await import('./worker/lib/aiUsage')
+    const check = new Request('https://tinct.app/api/narration/ensure', { headers: { 'x-tinct-check': '1', 'cf-connecting-ip': '203.0.113.9' } })
+    const reader = new Request('https://tinct.app/api/narration/ensure', { headers: { 'cf-connecting-ip': '203.0.113.9' } })
+    expect(ledgerGuestKey(check)).toBe(CHECK_GUEST_KEY)
+    expect(ledgerGuestKey(reader)).toBe('203.0.113.9')
+  })
+})

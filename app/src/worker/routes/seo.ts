@@ -94,7 +94,7 @@ const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_E
 
 /** Static public pages (book pages, the hub, About, Privacy): short public cache. Per-user pages stay no-store. */
 const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
-const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/privacy', '/privacy/'])
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/story', '/story/', '/privacy', '/privacy/'])
 
 async function serveStaticHtml(
   requestMethod: string,

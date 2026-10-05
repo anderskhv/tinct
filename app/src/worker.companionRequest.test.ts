@@ -196,3 +196,13 @@ describe('signed-in companion route', () => {
     expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/rpc/use_message'))).toBe(true)
   })
 })
+
+describe('paragraph numbers stay internal', () => {
+  it('tells every companion prompt not to cite paragraph numbers', async () => {
+    const { LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE } = await import('./companion/labAskPrompt')
+    for (const intent of ['ask', 'explain', 'define'] as const) {
+      const request = parseCompanionRequest(intent === 'ask' ? { intent, context } : { intent, context, selection: 'Athena spoke.' })!
+      expect(buildCompanionSystem(request)).toContain(LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE)
+    }
+  })
+})

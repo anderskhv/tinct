@@ -193,7 +193,7 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   if(kind==='read'){
    const head=await p.evaluate(()=>({title:document.title,canonical:document.querySelector('link[rel=canonical]')?.href,ogTitle:document.querySelector('meta[property="og:title"]')?.content,robots:document.querySelector('meta[name=robots]')?.content||null,about:document.getElementById('book-about')?.innerText||''}));
    assert.match(head.title,/Wuthering Heights/);assert.equal(head.canonical,'https://tinct.app/read/'+LINKED);assert.match(head.ogTitle,/Wuthering Heights/);assert.equal(head.robots,null,'the shared page is indexable');
-   assert(head.about.includes('a housekeeper'),where+': the book text is on the page');
+   assert(head.about.includes('I have just returned from a visit to my landlord'),where+': the book text is on the page');
    if(extended){await p.evaluate(()=>document.getElementById('book-about').scrollIntoView({block:'start',behavior:'instant'}));await p.waitForTimeout(300);await p.screenshot({path:`${shots}/${label}-fresh-read-about.png`});await p.evaluate(()=>scrollTo({top:0,behavior:'instant'}));}
   }
   await p.locator('#read-featured').click();

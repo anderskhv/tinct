@@ -148,7 +148,7 @@ function setSlip(book){
  if(!portraits.length){const fallback=mary?{src:'assets/mary-shelley-portrait.jpg',alt:'Mary Shelley, painted by Richard Rothwell'}:authorPortrait(book.author);if(fallback){const image=el('img','author-flap-image');image.id='slip-portrait';image.src=fallback.src;image.alt=fallback.alt;$('slip-images').append(image);}}
  $('slip-caption').replaceChildren(el('span','',flap?[flap.name,flap.years].filter(Boolean).join(' · '):mary?book.author+' · 1797–1851':book.author));
  if(flap?.occupation)$('slip-caption').append(el('span','',flap.occupation));else if(mary)$('slip-caption').append(el('span','','English novelist'));
- if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.summary||book.preface[0];
+ if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.preface[0]||'';
 }
 let introExpanded=false,introProgress=null;
 
@@ -466,7 +466,7 @@ const bookshelf=mountBookshelf({hero:$('hero'),enabled:()=>!activeBook&&!searchO
 function featureLinked(book,entry){
  featured=book;featuredTarget=featuredBooks.indexOf(book);linkedState='shown';featureRequest++;
  const root=document.documentElement,info=signature[book.id],preview=$('hero-cover-preview'),c=$('hero-book').querySelector('canvas');
- if(root.dataset.linkedBook!==book.id){$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info?.question||reviewedHooks[book.id]||entry.blurb||book.summary||'';if(book.cover)preview.src=book.cover;}
+ if(root.dataset.linkedBook!==book.id){$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info?.question||reviewedHooks[book.id]||entry.blurb||'';if(book.cover)preview.src=book.cover;}
  $('hero-genre').textContent=info?.genre||bookCategory(book);$('hero-time').textContent=readingTime(book)||(info?`~${info.hours} hours to read`:'');
  $('hero-book').setAttribute('aria-label',`Open ${book.title}`);
  if(c.dataset.book!==book.id){c.dataset.book=book.id;c.removeAttribute('data-painted');preview.hidden=false;}

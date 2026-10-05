@@ -62,8 +62,8 @@ for (const directory of ['assets', 'fonts', '_next']) {
 }
 let html = relocate(readFileSync(join(source, 'bookshelf.html'), 'utf8'));
 html = externalize(html, 'bootstrap');
-html = html.replace('</head>', '<link rel="canonical" href="https://tinct.app/about"/><meta property="og:title" content="Tinct · Read something great"/><meta property="og:url" content="https://tinct.app/about"/><meta property="og:type" content="website"/></head>');
-writeFileSync(join(publicDir, 'about.html'), html);
+html = html.replace('</head>', '<link rel="canonical" href="https://tinct.app/story"/><meta property="og:title" content="Tinct · Read something great"/><meta property="og:url" content="https://tinct.app/about"/><meta property="og:type" content="website"/></head>');
+writeFileSync(join(publicDir, 'story.html'), html);
 writeFileSync(join(publicDir, 'about.rsc'), relocate(readFileSync(join(source, 'bookshelf.rsc'), 'utf8')));
 writeFileSync(join(target, 'audio-journey.html'), externalize(relocate(readFileSync(join(source, 'audio-journey.html'), 'utf8')), 'audio'));
-console.log('Imported approved v20 story at /about, with isolated assets and external scripts.');
+console.log('Imported approved v20 story at /story, with isolated assets and external scripts.');

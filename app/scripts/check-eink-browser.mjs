@@ -53,8 +53,9 @@ try{
   const readerMenu=await page.locator('.lab-super-panel').evaluate(n=>({paper:getComputedStyle(n).backgroundColor,blur:getComputedStyle(n).backdropFilter}))
   assert.deepEqual(readerMenu,{paper:'rgb(255, 255, 255)',blur:'none'},'reader main menu stays opaque')
   await page.screenshot({path:output+'/eink-reader-menu-'+width+'.png'})
-  await page.keyboard.press('Escape')
-  await page.keyboard.press('s')
+  // Settings opens from the reader menu, the way a reader reaches it. Letter
+  // shortcuts are for opted-in desktops only (#321), so `s` does nothing here.
+  await page.getByTestId('lab-super-row-settings').click()
   await page.getByTestId('lab-v2-theme-eink').waitFor()
   assert.equal(await page.getByTestId('lab-v2-theme-eink').getAttribute('aria-pressed'),'true')
   await page.getByTestId('lab-v2-theme-book').click()

@@ -72,12 +72,8 @@ function bookHref(bookId) {
 
 function oneLiner(book, taxEntry) {
   if (book.id === 'faust-part-1') return 'Original German available. English editions are temporarily unavailable.'
-  if (taxEntry && taxEntry.blurb) return taxEntry.blurb
-  const d = book.description || ''
-  if (d.length <= 140) return d
-  const cut = d.slice(0, 141)
-  const boundary = cut.lastIndexOf(' ')
-  return `${cut.slice(0, boundary > 90 ? boundary : 140).replace(/[,\s;:—-]+$/, '')}…`
+  // The library's own one-liner only; the registry blurb is not shown publicly.
+  return (taxEntry && taxEntry.blurb) || ''
 }
 
 // --- Build -----------------------------------------------------------------

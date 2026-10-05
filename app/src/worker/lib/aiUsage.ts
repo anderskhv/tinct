@@ -133,6 +133,8 @@ type WaitUntil = { waitUntil(promise: Promise<unknown>): void }
 
 /** Admin pre-warming is stored under this literal key, not hashed. */
 export const WARM_GUEST_KEY = 'warm'
+/** Tinct's own automated checks (header x-tinct-check: 1) are stored under this literal key. */
+export const CHECK_GUEST_KEY = 'check'
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
@@ -178,7 +180,7 @@ export function recordAiUsage(env: LedgerEnv, ctx: WaitUntil | undefined, identi
       try {
         if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return
         const userId = identity.userId ?? (identity.resolveUser ? await identity.resolveUser().catch(() => null) : null)
-        const guestKey = !userId && identity.guest ? (identity.guest === WARM_GUEST_KEY ? WARM_GUEST_KEY : await hashGuestKey(env, identity.guest)) : null
+        const guestKey = !userId && identity.guest ? (identity.guest === WARM_GUEST_KEY || identity.guest === CHECK_GUEST_KEY ? identity.guest : await hashGuestKey(env, identity.guest)) : null
         const response = await supabaseInsertMinimal(env, 'ai_usage_events', buildUsageRow(draft, { userId: userId ?? null, guestKey }))
         if (!response.ok) console.warn(JSON.stringify({ event: 'ai_usage_write_failed', status: response.status, feature: draft.feature }))
       } catch (error) {
@@ -215,6 +217,15 @@ export function createAiMeter(env: LedgerEnv, ctx: WaitUntil | undefined, identi
       })
     },
   }
+}
+
+/**
+ * Ledger identity for a signed-out caller: Tinct's own checks label themselves
+ * so their usage can be told apart; everyone else is the hashed client IP.
+ * Only the ledger uses this; rate limits always use requestGuestKey.
+ */
+export function ledgerGuestKey(request: Request): string {
+  return request.headers.get('x-tinct-check') === '1' ? CHECK_GUEST_KEY : requestGuestKey(request)
 }
 
 /** Client IP used for signed-out rate limits; the ledger hashes the same key. */

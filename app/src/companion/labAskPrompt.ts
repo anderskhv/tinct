@@ -45,6 +45,9 @@ export function numberedLabChapter(paragraphs: string[], start = 0): string {
 export const LAB_ASK_BOOK_TOOLS_RULE = `Use your reliable general knowledge of the book directly for familiar chapter summaries, explanations, themes, comparisons, and background. Supplied excerpts and reading history help with the exact edition and current position; they do not restrict what you may know or answer. Do not make a lookup a prerequisite for an answer you already know. Use read_chapter or find_in_book when exact wording, edition-specific details, genuine uncertainty, or the reader's request to verify makes checking useful. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). When retrieving a chapter range, use read_chapter with chapter and through labels in one call and continue truncated text at the returned start_paragraph and start_offset. For a chapter-by-chapter summary, cover every requested chapter separately using your knowledge, supplemented by retrieval where useful. Do not substitute vague guesses or "likely" merely because a chapter was not supplied. A failed lookup does not erase what you know: answer from reliable knowledge without a routine disclaimer about missing context; disclose uncertainty only when the claim itself is uncertain, and do not fabricate exact quotations. Do not narrate lookups.`
 
 /** Struck everywhere, typed and spoken. */
+/** The bracketed paragraph numbers in the prompt are for finding text; readers never see them. */
+export const LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE = `The bracketed paragraph numbers in this prompt are for your reference only; the reader never sees them. Never cite a paragraph by number ("paragraph 34", "[5]"). Point to the passage by quoting a few words or describing where it happens instead. Verse numbers in the Bible are visible and may be cited.`
+
 export const LAB_ASK_NO_PRAISE_RULE = `Never praise the question or the reader: no "Good question", "Good catch", "Great point", "Fair question", or any evaluative opener. Start with the substance.`
 
 /** The companion has the book; it never declines on the grounds of what it can see. */
@@ -58,6 +61,7 @@ export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page
 Do not greet. Do not say hello. Do not start with small talk. The app speaks the opening line.
 
 ${LAB_ASK_NO_PRAISE_RULE}
+${LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE}
 
 Answer completely and stop. Do not routinely end with a question, offer or invitation to continue. Ask only when clarification is necessary or a question is plainly the natural next move.
 
@@ -135,7 +139,8 @@ export function renderLabReadingTrail(input: Pick<LabAskContext, 'readingTrail' 
 export function buildLabAskInstructions(input: LabAskContext, options: { nearby?: number } = {}): string {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
-  const current = (input.paragraphs[idx] || '').replace(/\s+/g, ' ').trim()
+  // Quoted in full up to a bound, so one enormous paragraph cannot crowd the chapter out of the prompt cap.
+  const current = (input.paragraphs[idx] || '').replace(/\s+/g, ' ').trim().slice(0, 4_000)
   const toolsAvailable = Boolean(input.bookId && input.editionKey) && input.lookups !== false
 
   const lines = [

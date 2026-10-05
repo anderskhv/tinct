@@ -27,7 +27,7 @@ import {
 } from '../../companion/companionRequest'
 import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
-import { createAiMeter, requestGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
+import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -880,7 +880,7 @@ export async function handleChat(
       : companion?.intent === 'library' ? 'librarian'
       : allowLabGuest ? 'lab_chat' : 'chat'
     const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
-    const meter = createAiMeter(env, ctx, { userId, guest: userId ? null : requestGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
+    const meter = createAiMeter(env, ctx, { userId, guest: userId ? null : ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
 
     const charge = () => {
       if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {

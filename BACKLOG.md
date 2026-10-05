@@ -26,7 +26,7 @@
 | Cross-device sync (Supabase real-time) | Done |
 | Auth (email + Google OAuth) | Done |
 | Mobile responsive (5-tab nav, tap-to-turn, chapter advance) | Done |
-| Stripe billing ($3/mo + $3/100 chat packs) | Done |
+| Stripe billing ($5/mo since 2026-10-05; $3/100 chat packs) | Done |
 | 30-day free trial + trial expiry banner + email reminder (Brevo) | Done |
 | Subscription management (cancel, resubscribe, message tracking) | Done |
 | Deployed to tinct.app | Done |
