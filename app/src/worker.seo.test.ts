@@ -5,7 +5,7 @@ import { filterHeldDiscoveryCards, handleIndexNowVerification, handleSeoAndStati
 
 function routerEnv() {
   const shell = '<!doctype html><html><head><title>Tinct — A New Way to Read</title></head><body>app shell</body></html>'
-  const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey/summary">The Odyssey</a></body></html>'
+  const hub = '<!doctype html><html><head><title>Tinct Library</title></head><body><a href="/read/odyssey">The Odyssey</a></body></html>'
   const labSignIn = '<!doctype html><html><head><meta name="robots" content="noindex, noarchive"><title>Sign in</title></head><body><div id="tinct-lab-sign-in">sign in shell</div></body></html>'
   const notFound = '<!doctype html><html><head><title>Page not found — Tinct</title></head><body><a class="nf-wm" href="/">Tinct.</a><h1>This page isn’t on the shelf.</h1><a href="/library">Browse the library</a></body></html>'
   return {
@@ -199,8 +199,8 @@ describe('worker SEO routing', () => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
     expect(resp.headers.get('Location')).toBeNull()
-    expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, must-revalidate')
-    expect(await resp.text()).toContain('/read/odyssey/summary')
+    expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, stale-while-revalidate=86400')
+    expect(await resp.text()).toContain('href="/read/odyssey"')
   })
 
   it.each(['/odyssey', '/odyssey/'])('sends bare book URL %s to that book in the current library', async (pathname) => {
@@ -371,10 +371,50 @@ describe('worker SEO routing', () => {
       expect(resp.headers.get('Location')).toBe('/library?book=wuthering-heights')
     })
 
-    it('opens the reader at the chapter for an old /read/{book}/chapter-N link', async () => {
-      const resp = await worker.fetch(new Request('https://tinct.app/read/wuthering-heights/chapter-3'), env as never, ctx)
-      expect(resp.status).toBe(302)
-      expect(resp.headers.get('Location')).toBe('/reader?book=wuthering-heights&chapter=3')
+    it('gives the homepage one <h1>, about Tinct; the featured book is a section heading', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/'), env as never, ctx)
+      expect(resp.status).toBe(200)
+      const html = await resp.text()
+      expect(html.match(/<h1\b[^>]*>[^<]*<\/h1>/g)).toEqual(['<h1 class="sr-only">Tinct</h1>'])
+      expect(html).toContain('<h2 id="hero-title">')
+    })
+
+    it('caches the public book page briefly, varying by the sign-in cookie', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/read/wuthering-heights', { headers: { 'User-Agent': 'Googlebot' } }), env as never, ctx)
+      expect(resp.status).toBe(200)
+      expect(resp.headers.get('Cache-Control')).toBe('public, max-age=300, stale-while-revalidate=86400')
+      expect(resp.headers.get('Vary')).toBe('Cookie')
+    })
+
+    // The AI-written summary, themes, cast, chapters and chapter-N pages were
+    // removed: every old URL is one permanent redirect to the indexable book page.
+    it.each([
+      '/read/wuthering-heights/summary', '/read/wuthering-heights/summary/', '/read/wuthering-heights/summary.html',
+      '/read/wuthering-heights/themes', '/read/wuthering-heights/cast.html', '/read/wuthering-heights/chapters',
+      '/read/wuthering-heights/chapter-3', '/read/wuthering-heights/chapter-3.html',
+    ])('sends the retired page %s to the book page in one 301', async pathname => {
+      const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`, { headers: { 'User-Agent': 'Googlebot' } }), env as never, ctx)
+      expect(resp.status).toBe(301)
+      expect(resp.headers.get('Location')).toBe('/read/wuthering-heights')
+      expect(resp.headers.get('Cache-Control')).toBe('public, max-age=86400')
+      const target = await worker.fetch(new Request(`https://tinct.app${resp.headers.get('Location')}`, { headers: { 'User-Agent': 'Googlebot' } }), env as never, ctx)
+      expect(target.status).toBe(200)
+      expect(target.headers.get('X-Robots-Tag')).toBeNull()
+      const html = await target.text()
+      expect(html).not.toMatch(/name="robots"/)
+      expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/wuthering-heights">')
+    })
+
+    it('sends a retired Bible book summary to the Bible', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/read/bible-genesis/summary'), env as never, ctx)
+      expect(resp.status).toBe(301)
+      expect(resp.headers.get('Location')).toBe('/read/bible')
+    })
+
+    it('answers a retired page of an unknown book with the branded 404', async () => {
+      const resp = await worker.fetch(new Request('https://tinct.app/read/not-a-book/summary'), env as never, ctx)
+      expect(resp.status).toBe(404)
+      expect(resp.headers.get('X-Robots-Tag')).toBe('noindex, noarchive')
     })
   })
 

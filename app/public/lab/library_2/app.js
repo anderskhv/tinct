@@ -1,7 +1,7 @@
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260930fix';
 import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
-import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005cmds';
+import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
 import {mountBookshelf} from './bookshelf.js?v=20261006links';

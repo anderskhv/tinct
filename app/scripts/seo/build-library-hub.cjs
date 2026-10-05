@@ -6,11 +6,9 @@
  * Sources of truth:
  *   - app/src/data/bookRegistry.ts     → public book list (via generate-sitemap.cjs)
  *   - app/src/data/libraryTaxonomy.ts  → Houses → Shelves grouping + one-line blurbs
- *   - app/public/read/{bookId}/        → whether a summary page exists to link to
  *
- * Each book links to /read/{bookId}/summary when the static SEO page exists,
- * else to the SPA reader at /read/{bookId}. Books are listed once, under the
- * first shelf they belong to.
+ * Each book links to its book page at /read/{bookId}. Books are listed once,
+ * under the first shelf they belong to.
  *
  * NOTE on routing: the worker serves the SPA shell at exactly `/read`
  * (worker.ts LIBRARY_META branch), so this file is reachable at `/read/`
@@ -67,17 +65,13 @@ function esc(s) {
     .replace(/"/g, '&quot;')
 }
 
-function hasSummaryPage(bookId) {
-  return fs.existsSync(path.join(READ_DIR, bookId, 'summary.html'))
-}
-
 function bookHref(bookId) {
   if (bookId === 'faust-part-1') return '/library?book=faust-part-1&edition=original-de&view=book-detail'
-  return hasSummaryPage(bookId) ? `/read/${bookId}/summary` : `/read/${bookId}`
+  return `/read/${bookId}`
 }
 
 function oneLiner(book, taxEntry) {
-  if (book.id === 'faust-part-1') return 'Original German available. English and Danish editions are temporarily unavailable.'
+  if (book.id === 'faust-part-1') return 'Original German available. English editions are temporarily unavailable.'
   if (taxEntry && taxEntry.blurb) return taxEntry.blurb
   const d = book.description || ''
   if (d.length <= 140) return d
@@ -110,7 +104,7 @@ function build() {
   }
 
   const title = 'The Tinct Library — Read Classic Books Free Online | Tinct'
-  const description = `All ${books.length} classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online with summaries, themes, character guides, and available reading editions.`
+  const description = `All ${books.length} classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online.`
   const canonical = `${ORIGIN}/read/`
 
   const breadcrumbLd = {
@@ -385,7 +379,7 @@ ${lis}
   <main>
     <div class="breadcrumb"><a href="/">Tinct</a> / <span>Library</span></div>
     <h1 class="title">The <em>Library</em></h1>
-    <p class="hook">${books.length} classics, free to read online — each with a summary, themes, character guide, and available reading editions.</p>
+    <p class="hook">${books.length} classics, free to read online.</p>
 
 ${houseSections.join('\n\n')}
   </main>
