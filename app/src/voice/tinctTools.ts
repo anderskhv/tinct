@@ -280,7 +280,7 @@ export class TinctVoiceToolController<ViewSnapshot = unknown> {
       const topic = stringArg(args, 'topic')
       const facts: Record<string, string> = {
         library: 'The Library is opened from the book/library control; voice can open it directly.',
-        pricing: 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $3 per month and includes 100 AI messages per month, audiobook, Cast, offline mode, export, and the reading journal.',
+        pricing: 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes 100 AI messages per month, audiobook, Cast, offline mode, export, and the reading journal.',
         reading_history: 'The Reading Feed shows chapter activity for the current book. Voice can also recall the last session, today, yesterday, or the day before yesterday across the library.',
         voice_controls: 'Voice can open Tinct screens, change light or dark mode, adjust reader font size and audiobook speed, look up reading history, and undo the last voice-made change.',
       }

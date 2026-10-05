@@ -200,7 +200,7 @@ export async function handleLabChapterNotes(
   const meter = createAiMeter(env, ctx, {
     guest: requestGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
-  }, { feature: 'recap', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
+  }, { feature: 'chapter_notes', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
       model: RECAP_FAST_MODEL,

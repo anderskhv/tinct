@@ -255,7 +255,7 @@ export async function handleLabCatchUp(
   const meter = createAiMeter(env, ctx, {
     guest: requestGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
-  }, { feature: 'recap', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
+  }, { feature: 'catch_up', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
       model: RECAP_FAST_MODEL,

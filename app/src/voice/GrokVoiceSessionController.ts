@@ -8,6 +8,7 @@ import { IDLE_VOICE_SNAPSHOT, type StartVoiceSessionInput, type VoiceSessionCall
 import { LAB_AUDIO_CONSTRAINTS, type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
 import { isBenignRealtimeError } from './v2/voiceV2'
 import { reportTalkSeconds } from '../utils/usageReport'
+import { trackFunnel } from '../utils/funnel'
 
 export type GrokEvent = {
   type: string
@@ -283,7 +284,9 @@ export class GrokVoiceSessionController {
     this.send({ type: 'session.update', session: { instructions: next } })
   }
 
-  private fail(message: string) {
+  /** `stage` is a fixed code counted in the funnel; the message never leaves the device. */
+  private fail(message: string, stage: 'sign_in' | 'microphone' | 'setup' | 'connection' | 'request') {
+    trackFunnel('talk_failed', { stage })
     this.stop()
     this.emit({ error: message, connection: 'disconnected' })
   }
@@ -297,7 +300,7 @@ export class GrokVoiceSessionController {
     this.anchor = input.audio.pausePlayback()?.anchor ?? null
     this.emit({ isActive: true, state: 'reading', activity: 'connecting', connection: 'connecting', mode: input.mode ?? 'conversation', error: null })
     if (!input.labGuest && !input.authToken) {
-      this.fail('Sign in to ask by voice.')
+      this.fail('Sign in to ask by voice.', 'sign_in')
       this.callbacks.onNeedAuth?.()
       return
     }
@@ -313,7 +316,7 @@ export class GrokVoiceSessionController {
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
       for (const track of stream.getAudioTracks()) track.onended = () => {
-        if (current() && this.ui.isActive) this.fail('Microphone disconnected. Reconnect to continue.')
+        if (current() && this.ui.isActive) this.fail('Microphone disconnected. Reconnect to continue.', 'microphone')
       }
       // Capture immediately after permission succeeds. Until session.updated,
       // flushCapture retains a bounded local buffer; this preserves a first
@@ -335,7 +338,7 @@ export class GrokVoiceSessionController {
       this.callbacks.onUsage?.()
       this.callbacks.onLatency?.({ kind: 'session_setup', at: Date.now(), sessionSetupMs: Date.now() - this.startedAt, model: GROK_VOICE_MODEL })
     } catch (error) {
-      if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.')
+      if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.', 'setup')
     }
   }
 
@@ -437,7 +440,7 @@ export class GrokVoiceSessionController {
       if (generation !== this.generation || !this.ui.isActive || this.stopping || socket !== this.socket) return
       // Before the session is ready this is a setup failure the start loop may retry.
       if (!this.ready) { this.setupSocketFailed = true; return }
-      this.fail('Voice connection lost. Reconnect to continue.')
+      this.fail('Voice connection lost. Reconnect to continue.', 'connection')
     }
     socket.addEventListener('close', lost)
     socket.addEventListener('error', lost)
@@ -492,7 +495,7 @@ export class GrokVoiceSessionController {
         this.connectedAt = Date.now()
         if (typeof window !== 'undefined') window.addEventListener('pagehide', this.handlePageHide)
         try { if (!this.captureSource) this.startCapture() }
-        catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.'); return }
+        catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.', 'microphone'); return }
         this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
         if (input.greeting) {
           this.send({ type: 'response.create', response: { instructions: `The reader opened this conversation to prepare for the book. Say this opening line now, once: ${JSON.stringify(input.greeting)} Then wait for the reader. Keep the introduction spoiler-free unless asked otherwise.` } })
@@ -578,7 +581,7 @@ export class GrokVoiceSessionController {
       }
       case 'error': {
         if (isBenignRealtimeError(event.error?.message)) return
-        this.fail(event.error?.message || 'Voice could not complete that request. Reconnect to continue.')
+        this.fail(event.error?.message || 'Voice could not complete that request. Reconnect to continue.', 'request')
         return
       }
       default:
@@ -813,7 +816,7 @@ export class GrokVoiceSessionController {
     const fallback = () => {
       if (!current()) return
       try { this.startScriptCapture(context, source, sink, onChunk) }
-      catch { this.fail('Microphone capture could not start. Reconnect to continue.') }
+      catch { this.fail('Microphone capture could not start. Reconnect to continue.', 'microphone') }
     }
     if (typeof AudioWorkletNode !== 'undefined' && context.audioWorklet && typeof Blob !== 'undefined' && typeof URL !== 'undefined') {
       if (!this.captureModule) {
@@ -824,7 +827,7 @@ export class GrokVoiceSessionController {
         if (!current()) return
         const node = new AudioWorkletNode(context, 'tinct-pcm-capture', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [1], channelCount: 1 })
         node.port.onmessage = message => onChunk(message.data as Float32Array)
-        node.onprocessorerror = () => { if (current()) this.fail('Microphone capture stopped. Reconnect to continue.') }
+        node.onprocessorerror = () => { if (current()) this.fail('Microphone capture stopped. Reconnect to continue.', 'microphone') }
         source.connect(node)
         node.connect(sink)
         this.captureNode = node
@@ -838,7 +841,7 @@ export class GrokVoiceSessionController {
       const visible = typeof document === 'undefined' || document.visibilityState !== 'hidden'
       if (visible && context.state !== 'running') void context.resume().catch(() => {})
       if (visible && Date.now() - this.lastCaptureAt > 5000) {
-        this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.')
+        this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.', 'microphone')
         return
       }
       this.flushCapture()

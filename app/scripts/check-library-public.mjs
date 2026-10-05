@@ -218,7 +218,9 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
   await link.scrollIntoViewIfNeeded();
   const reader=p.waitForRequest(r=>r.url()===`https://tinct.app/reader?book=${LINKED}&chapter=3`);
   await link.click();await reader;
-  await p.waitForFunction(()=>/Chapter III\b/.test(document.body.innerText),null,{timeout:45000});
+  // The click navigates: wait for the reader document, which has no body for a moment while it loads.
+  await p.waitForURL(url=>url.pathname==='/reader',{waitUntil:'domcontentloaded'});
+  await p.waitForFunction(()=>/Chapter III\b/.test(document.body?.innerText||''),null,{timeout:45000});
   await p.screenshot({path:`${shots}/${label}-chapter-link-reader.png`});
   console.log('BOOK_LINK_CHAPTER '+JSON.stringify({engine,url:p.url()}));
   await c.close();

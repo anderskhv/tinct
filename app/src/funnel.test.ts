@@ -65,6 +65,16 @@ describe('reader funnel client', () => {
     expect(sent[0].body.events[0].props).toEqual({ book_id: 'a' })
   })
 
+  it('counts a book-scoped event once per book, so a second book still counts', () => {
+    const { deps, sent } = harness()
+    const funnel = createFunnel(deps)
+    funnel.trackOnce('first_page_turn', { book_id: 'a' }, 'a')
+    funnel.trackOnce('first_page_turn', { book_id: 'a' }, 'a')
+    funnel.trackOnce('first_page_turn', { book_id: 'b' }, 'b')
+    funnel.flush()
+    expect(sent[0].body.events.map((event: { props: unknown }) => event.props)).toEqual([{ book_id: 'a' }, { book_id: 'b' }])
+  })
+
   it('reports visible time only, flushing on hide and on the heartbeat', () => {
     const { deps, sent, clock, timers } = harness()
     const funnel = createFunnel(deps)

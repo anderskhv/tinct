@@ -27,6 +27,7 @@ export const FUNNEL_EVENT_NAMES = new Set([
   'landing_view', 'book_opened', 'first_page_turn', 'chapter_completed',
   'ai_first_use', 'anon_limit_reached', 'signup_started', 'signup_completed',
   'member_ai_use', 'checkout_started', 'checkout_completed',
+  'book_intro_viewed', 'audio_failed', 'talk_failed',
 ])
 
 export const EVENTS_MAX_BODY_BYTES = 16_384

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { trackFunnel } from '../utils/funnel'
 import {
   clipsFromFollowParagraphs,
   clipsFromManifest,
@@ -225,6 +226,10 @@ export function useLabListen(options: UseLabListenOptions) {
   const downloadedRef = useRef(new Set<string>())
   const narrationRetryRef = useRef<(() => void) | null>(null)
   const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
+  // Counted, never shown: which failure code and which book, nothing else.
+  useEffect(() => {
+    if (narrationState.status === 'error') trackFunnel('audio_failed', { book_id: optionsRef.current.bookId || 'bible', reason: narrationState.reason || 'unknown' })
+  }, [narrationState])
   const pendingPlaceRef = useRef<PlaceInput | null>(null)
   const playPlaceRef = useRef<(clips: LabAudioClip[], place: PlaceInput, andPlay: boolean, includeTitle?: boolean) => boolean>(() => false)
   const optionsRef = useRef(options)
