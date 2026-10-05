@@ -21,6 +21,7 @@ export type FunnelEventName =
   | 'landing_view' | 'book_opened' | 'first_page_turn' | 'chapter_completed'
   | 'ai_first_use' | 'anon_limit_reached' | 'signup_started' | 'signup_completed'
   | 'member_ai_use' | 'checkout_started' | 'checkout_completed'
+  | 'book_intro_viewed' | 'audio_failed' | 'talk_failed'
 
 type Wire = FunnelEventName | 'pageview' | 'page_duration'
 type Props = Record<string, string | number | boolean | null | undefined>

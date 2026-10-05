@@ -27,8 +27,8 @@ afterEach(() => vi.unstubAllGlobals())
 describe('funnel event rows', () => {
   it('accepts exactly the funnel, pageview and duration events', () => {
     expect([...FUNNEL_EVENT_NAMES].sort()).toEqual([
-      'ai_first_use', 'anon_limit_reached', 'book_opened', 'chapter_completed', 'checkout_completed', 'checkout_started',
-      'first_page_turn', 'landing_view', 'member_ai_use', 'page_duration', 'pageview', 'signup_completed', 'signup_started',
+      'ai_first_use', 'anon_limit_reached', 'audio_failed', 'book_intro_viewed', 'book_opened', 'chapter_completed', 'checkout_completed', 'checkout_started',
+      'first_page_turn', 'landing_view', 'member_ai_use', 'page_duration', 'pageview', 'signup_completed', 'signup_started', 'talk_failed',
     ])
   })
 

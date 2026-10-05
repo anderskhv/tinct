@@ -69,6 +69,9 @@ export function startLibraryFunnel(){
   document.addEventListener('visibilitychange',()=>client.visibility(document.visibilityState!=='hidden'));
   addEventListener('pagehide',()=>client.visibility(false));
   client.start();
+  // Other library modules report events without importing this one (it loads on its own tag).
+  addEventListener('tinct:funnel',event=>{const {name,props}=event.detail||{};if(LIBRARY_EVENTS.has(name))client.track(name,props);});
   return client;
 }
+const LIBRARY_EVENTS=new Set(['book_intro_viewed']);
 if(typeof window!=='undefined'&&typeof document!=='undefined'&&!window.__tinctNoFunnel)startLibraryFunnel();
