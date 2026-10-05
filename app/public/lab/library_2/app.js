@@ -1,7 +1,7 @@
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260930fix';
 import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
-import {registerCommands,openCommands} from '/omarchy/experience.js?v=20260928-1';
+import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005cmds';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
 import {mountBookshelf} from './bookshelf.js?v=20261006links';
@@ -517,4 +517,4 @@ registerCommands({
   {id:'library-fullscreen',label:'Toggle full screen',key:'f',run:()=>{if(document.fullscreenElement)void document.exitFullscreen();else void document.documentElement.requestFullscreen?.().catch(()=>{});}},
  ]
 });
-const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;$('search-toggle').before(commandsButton);
+const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;if(commandsEnabled)$('search-toggle').before(commandsButton);

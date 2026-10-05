@@ -87,6 +87,16 @@ for(const engine of [chromium,webkit]) {
     HTMLMediaElement.prototype.play=async function(){this.muted=true}
   })
   try {
+    // A visitor who never opted in gets no commands panel, no Ctrl/Cmd+K and no letter shortcuts.
+    await page.goto(origin+'/library',{waitUntil:'domcontentloaded'})
+    await page.locator('#search-toggle').waitFor()
+    await page.waitForTimeout(800)
+    assert.equal(await page.locator('#library-commands').count(),0,'no commands button without opting in')
+    await page.locator('#header').click({position:{x:5,y:5}})
+    for(const key of ['?','Control+k','c'])await page.keyboard.press(key)
+    await page.waitForTimeout(400)
+    assert.equal(await page.evaluate(()=>document.documentElement.dataset.tinctCommandsOpen),undefined,'no commands panel without opting in')
+    assert.equal(await page.locator('#librarian-live .library-chat-form').isVisible().catch(()=>false),false,'no letter shortcuts without opting in')
     await page.goto(origin+'/library?omarchy=1',{waitUntil:'domcontentloaded'})
     await page.locator('#library-commands').waitFor()
     await page.waitForFunction(()=>document.documentElement.dataset.tinctTheme==='omarchy')

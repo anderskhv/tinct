@@ -31,7 +31,7 @@ export function loadDesktopExperience() {
   const script = document.createElement('script')
   script.id = 'tinct-desktop-runtime'
   script.type = 'module'
-  script.src = '/omarchy/experience.js?v=20260928-1'
+  script.src = '/omarchy/experience.js?v=20261005cmds'
   document.head.append(script)
 }
 
