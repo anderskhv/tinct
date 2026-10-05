@@ -21,6 +21,7 @@ import {
 } from '../../chapterNotes'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
+import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import type { RecapCache } from './labRecap'
@@ -39,6 +40,8 @@ export interface LabChapterNotesDeps {
   createRetrieval?: typeof createBookRetrieval
   reserveGuestSpend?: ReserveGuestSpend
   resolveUser?: (request: Request) => Promise<string | null>
+  /** The AI allowance (lib/aiAllowance.ts): false refuses generation for a signed-in reader whose allowance is used up. */
+  allowsAi?: (request: Request) => Promise<boolean>
 }
 
 /**
@@ -244,6 +247,8 @@ export async function handleLabChapterNotes(
   const model = CHAPTER_NOTES_MODEL[parsed.kind]
   const maxTokens = CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
+  // Cached and prepared entries above cost nothing and are always served.
+  if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
     guest: ledgerGuestKey(request),

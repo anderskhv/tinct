@@ -31,6 +31,7 @@ import {
 } from '../../recapSummary'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
+import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
 import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
@@ -59,6 +60,8 @@ export interface LabRecapDeps {
   reserveGuestSpend?: ReserveGuestSpend
   /** Who to bill in the cost ledger when the request carries a session. Runs in the background write. */
   resolveUser?: (request: Request) => Promise<string | null>
+  /** The AI allowance (lib/aiAllowance.ts): false refuses generation for a signed-in reader whose allowance is used up. */
+  allowsAi?: (request: Request) => Promise<boolean>
 }
 
 export const RECAP_MAX_TOKENS = 300
@@ -270,6 +273,8 @@ export async function handleLabRecap(
   const model = parsed.brief ? RECAP_FAST_MODEL : COMPANION_MODEL
   const maxTokens = parsed.brief ? RECAP_BRIEF_MAX_TOKENS : RECAP_MAX_TOKENS
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
+  // Cached and prepared entries above cost nothing and are always served.
+  if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
     guest: ledgerGuestKey(request),
