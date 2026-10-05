@@ -32,6 +32,16 @@ describe('safeLabReturnTo', () => {
     expect(safe('/lab/anything-else')).toBe(LAB_DEFAULT_RETURN_TO)
   })
 
+  it('returns to the Add-a-book page, always with its trailing slash', () => {
+    expect(safe('/lab/addbook/')).toBe('/lab/addbook/')
+    expect(safe('/lab/addbook')).toBe('/lab/addbook/')
+    expect(safe('/lab/addbook/index.html?q=meditations')).toBe('/lab/addbook/?q=meditations')
+    expect(safe(`${ORIGIN}/lab/addbook/?work=pg2680`)).toBe('/lab/addbook/?work=pg2680')
+    expect(safe('/lab/addbook/js/reader.js')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('/lab/addbook/../admin')).toBe(LAB_DEFAULT_RETURN_TO)
+    expect(safe('https://evil.example/lab/addbook/')).toBe(LAB_DEFAULT_RETURN_TO)
+  })
+
   it('falls back to the library for empty and unknown same-origin paths', () => {
     expect(safe(null)).toBe(LAB_DEFAULT_RETURN_TO)
     expect(safe(undefined)).toBe(LAB_DEFAULT_RETURN_TO)

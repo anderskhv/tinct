@@ -133,6 +133,9 @@ export function setAnonymousMode(restricted: boolean): void {
  * and journals — and the sign-in migration would copy them into the new
  * account's cloud row. Auth tokens (`sb-*`) are owned by Supabase and untouched.
  */
+/** IndexedDB database of the Add-a-book page (addbooks/web/src/js/reader.js). */
+export const ADD_BOOK_IDB_NAME = 'tinct-addbook'
+
 export function clearLocalUserData(): void {
   try {
     const toRemove: string[] = []
@@ -148,6 +151,8 @@ export function clearLocalUserData(): void {
   } catch (e) {
     console.warn('clearLocalUserData failed:', e)
   }
+  // Books opened from the reader's own files on /lab/addbook/ live in IndexedDB.
+  try { if (typeof indexedDB !== 'undefined') indexedDB.deleteDatabase(ADD_BOOK_IDB_NAME) } catch { /* private mode */ }
 }
 
 // Active storage provider — starts as localStorage, can be swapped

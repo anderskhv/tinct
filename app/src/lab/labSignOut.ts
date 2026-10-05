@@ -9,7 +9,8 @@ import { clearLabPositionMirror } from './labPositionStore'
  * (`tinct-lab-prefs` is on its preserve list; the device id is wiped so the
  * next reader on this device is not linked to the last); the
  * reading-memory and IndexedDB wipes are explicit so they do not depend on a
- * key prefix staying in that namespace.
+ * key prefix staying in that namespace. (`clearLocalUserData` also drops the
+ * books opened from the reader's own files on /lab/addbook/.)
  */
 export function wipeLabDeviceUserData(): void {
   clearLocalUserData()
