@@ -50,6 +50,7 @@ Use the Greek forms already used in the served modern text and in the Cast (char
 | Hercules | **Heracles** | |
 | Aesculapius | **Asclepius** | |
 | Ilius | **Ilium** | the city; Cast uses Ilium. "Troy" stays "Troy" |
+| Proserpine | **Persephone** | Book 9 only; same mapping as the accepted Odyssey edition |
 | Ilius (the man: "the tomb of Ilius", Book 11 and 24) | **Ilus** | Founder of the city, not the city. The city *Ilius* becomes *Ilium*. |
 | Alexandrus | **Paris** | Same man, two names in Butler; the Cast display name wins. Where Butler writes *Alexandrus* write *Paris*. (Recorded in `ACCEPTANCE-RECORD.md`.) |
 
