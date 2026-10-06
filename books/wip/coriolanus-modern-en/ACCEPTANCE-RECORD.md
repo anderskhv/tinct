@@ -13,9 +13,9 @@ The served modern-en was the public-domain source text with spelling and a few w
 
 | Measure (unmodified `books/classify-modern-en.py --gate`, scratch mirror) | Result | Limit |
 |---|---|---|
-| Weighted similarity | **0.593** | <= 0.75 |
-| Light + mechanical chapters | **1/29 = 3.4%** | <= 5% |
-| Identical long paragraphs | **18/564 = 3.2%** | <= 5% |
+| Weighted similarity | **0.574** | <= 0.75 |
+| Light + mechanical chapters | **0/29 = 0.0%** | <= 5% |
+| Identical long paragraphs | **1/564 = 0.2%** | <= 5% |
 | Truncated quotations / scaffolding | 0 / 0 | 0 |
 | Words per sentence (paragraphs over 25 words) | source 14.0, served modern-en 13.9, candidate **11.9** | |
 
@@ -32,13 +32,13 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-eb92b14b1f870f3a6aa35a9b62890da8ae7163982548f990a5e3694da315fe69
+7d0d264e3c8745723b1a37184d71c03d79f8030b1c5fb92aa270d1c35e53b4dc
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/coriolanus-modern-en.json`.
 - **Structure:** 29 chapters, 1379 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
-- **Length:** 30,533 words (source 28,925).
-- **Changed against the live modern-en:** 1105 of 1379 paragraphs (`changed-paragraphs.json`). 358 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
+- **Length:** 30,581 words (source 28,925).
+- **Changed against the live modern-en:** 893 of 1379 paragraphs (`changed-paragraphs.json`). 146 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
 
@@ -50,7 +50,7 @@ eb92b14b1f870f3a6aa35a9b62890da8ae7163982548f990a5e3694da315fe69
 
 ## Character package impact
 
-1587 modern-en mentions: 1148 unchanged, 408 moved (proposed re-anchors), 31 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+1587 modern-en mentions: 1360 unchanged, 206 moved (proposed re-anchors), 21 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -64,3 +64,4 @@ eb92b14b1f870f3a6aa35a9b62890da8ae7163982548f990a5e3694da315fe69
 ## Book-specific notes
 
 - Renderer flagged: 14:55 (a verifier called 'the strongest flavor is theirs' a literal gloss of 'great'st taste most palates theirs': odd but not wrong).
+- Served stage directions and speaker labels: the served modern-en already had its stage directions normalized (bracketed, e.g. '[Enter Richard, Duke of Gloucester, alone.]') and some speaker labels disambiguated (e.g. 'KING HENRY V.', 'PRINCE HENRY.', 'KATHERINE.', 'VOLSCIAN.'). The renderers copied these from the source form as instructed. After review, every such paragraph was set back to the served live text mechanically (script, `reviews/fixes-extra.json`): stage-direction paragraphs that equal the source take the live paragraph, and a speech paragraph whose label differs from the live label takes the live label with the candidate's speech text unchanged. These mechanical restorations were not re-read by a reviewer; they only restore text that was already served.

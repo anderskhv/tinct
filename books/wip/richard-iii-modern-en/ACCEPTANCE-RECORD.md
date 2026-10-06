@@ -13,9 +13,9 @@ The served modern-en was the public-domain source text with spelling and a few w
 
 | Measure (unmodified `books/classify-modern-en.py --gate`, scratch mirror) | Result | Limit |
 |---|---|---|
-| Weighted similarity | **0.628** | <= 0.75 |
+| Weighted similarity | **0.608** | <= 0.75 |
 | Light + mechanical chapters | **0/25 = 0.0%** | <= 5% |
-| Identical long paragraphs | **13/562 = 2.3%** | <= 5% |
+| Identical long paragraphs | **0/562 = 0.0%** | <= 5% |
 | Truncated quotations / scaffolding | 0 / 0 | 0 |
 | Words per sentence (paragraphs over 25 words) | source 14.1, served modern-en 13.1, candidate **11.7** | |
 
@@ -32,13 +32,13 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-dfc31a52bada1a9e1b0a84f84f629b0fe068149af5e74dece8378848ea84f300
+ef3386e3688784603bb96438d431c5c4dbb951faefa8015d5b4d8ea858a6a764
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/richard-iii-modern-en.json`.
 - **Structure:** 25 chapters, 1420 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
-- **Length:** 31,871 words (source 30,808).
-- **Changed against the live modern-en:** 1175 of 1420 paragraphs (`changed-paragraphs.json`). 355 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
+- **Length:** 31,880 words (source 30,808).
+- **Changed against the live modern-en:** 964 of 1420 paragraphs (`changed-paragraphs.json`). 144 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
 
@@ -50,7 +50,7 @@ dfc31a52bada1a9e1b0a84f84f629b0fe068149af5e74dece8378848ea84f300
 
 ## Character package impact
 
-1879 modern-en mentions: 1233 unchanged, 386 moved (proposed re-anchors), 260 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+1879 modern-en mentions: 1470 unchanged, 367 moved (proposed re-anchors), 42 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -64,3 +64,4 @@ dfc31a52bada1a9e1b0a84f84f629b0fe068149af5e74dece8378848ea84f300
 ## Book-specific notes
 
 - Renderer flagged: 23:34 ('Give me a watch', timepiece or sentry), 23:157, 15:44 ('effeminate remorse' rendered 'womanly pity'), 19:61 (the 'Humphrey Hower' pun, glossed).
+- Served stage directions and speaker labels: the served modern-en already had its stage directions normalized (bracketed, e.g. '[Enter Richard, Duke of Gloucester, alone.]') and some speaker labels disambiguated (e.g. 'KING HENRY V.', 'PRINCE HENRY.', 'KATHERINE.', 'VOLSCIAN.'). The renderers copied these from the source form as instructed. After review, every such paragraph was set back to the served live text mechanically (script, `reviews/fixes-extra.json`): stage-direction paragraphs that equal the source take the live paragraph, and a speech paragraph whose label differs from the live label takes the live label with the candidate's speech text unchanged. These mechanical restorations were not re-read by a reviewer; they only restore text that was already served.

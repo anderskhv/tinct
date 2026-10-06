@@ -13,9 +13,9 @@ The served modern-en was the public-domain source text with spelling and a few w
 
 | Measure (unmodified `books/classify-modern-en.py --gate`, scratch mirror) | Result | Limit |
 |---|---|---|
-| Weighted similarity | **0.597** | <= 0.75 |
+| Weighted similarity | **0.589** | <= 0.75 |
 | Light + mechanical chapters | **0/15 = 0.0%** | <= 5% |
-| Identical long paragraphs | **2/457 = 0.4%** | <= 5% |
+| Identical long paragraphs | **0/457 = 0.0%** | <= 5% |
 | Truncated quotations / scaffolding | 0 / 0 | 0 |
 | Words per sentence (paragraphs over 25 words) | source 15.1, served modern-en 14.2, candidate **11.6** | |
 
@@ -32,13 +32,13 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-413088916f3cca207d55b0fb0c78bb151fe4859a3ff299c117a0b5dae9d4663b
+ed6f069e41b68ed0d99009e2cb8fe7d8f429b70ce7de87283cf3eb8f23031e24
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/winters-tale-modern-en.json`.
 - **Structure:** 15 chapters, 911 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
 - **Length:** 26,830 words (source 25,744).
-- **Changed against the live modern-en:** 766 of 911 paragraphs (`changed-paragraphs.json`). 194 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
+- **Changed against the live modern-en:** 660 of 911 paragraphs (`changed-paragraphs.json`). 88 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
 
@@ -50,7 +50,7 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 ## Character package impact
 
-1059 modern-en mentions: 799 unchanged, 260 moved (proposed re-anchors), 0 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+1059 modern-en mentions: 921 unchanged, 138 moved (proposed re-anchors), 0 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -65,3 +65,4 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 - Renderer flagged: 12:213 (Camillo's 'disliken the truth of your own seeming', rendered loosely), 13:41 (Leontes's 'print your royal father off'), 13:8 (Paulina's Alexander/successor lines). Please look at those.
 - Speaker prefixes without periods ('CLEOMENES Sir') and mid-sentence paragraph splits (12:197-199, 12:221-223, 12:241-246) are kept as served.
+- Served stage directions and speaker labels: the served modern-en already had its stage directions normalized (bracketed, e.g. '[Enter Richard, Duke of Gloucester, alone.]') and some speaker labels disambiguated (e.g. 'KING HENRY V.', 'PRINCE HENRY.', 'KATHERINE.', 'VOLSCIAN.'). The renderers copied these from the source form as instructed. After review, every such paragraph was set back to the served live text mechanically (script, `reviews/fixes-extra.json`): stage-direction paragraphs that equal the source take the live paragraph, and a speech paragraph whose label differs from the live label takes the live label with the candidate's speech text unchanged. These mechanical restorations were not re-read by a reviewer; they only restore text that was already served.

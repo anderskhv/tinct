@@ -13,9 +13,9 @@ The served modern-en was the public-domain source text with spelling and a few w
 
 | Measure (unmodified `books/classify-modern-en.py --gate`, scratch mirror) | Result | Limit |
 |---|---|---|
-| Weighted similarity | **0.610** | <= 0.75 |
+| Weighted similarity | **0.596** | <= 0.75 |
 | Light + mechanical chapters | **0/19 = 0.0%** | <= 5% |
-| Identical long paragraphs | **7/445 = 1.6%** | <= 5% |
+| Identical long paragraphs | **1/445 = 0.2%** | <= 5% |
 | Truncated quotations / scaffolding | 0 / 0 | 0 |
 | Words per sentence (paragraphs over 25 words) | source 14.6, served modern-en 14.6, candidate **11.9** | |
 
@@ -32,13 +32,13 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-d183d462a261483ab01b3f575bd700ea53cd3ff6ecab7bff3d2d4b7e1d421fc1
+d54e3d958ec2ef39dc66d8ae51cace4e97ea1f9d4537d0c0c2d392948bcc736f
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/henry-iv-part-2-modern-en.json`.
 - **Structure:** 19 chapters, 1081 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
-- **Length:** 27,720 words (source 26,974).
-- **Changed against the live modern-en:** 900 of 1081 paragraphs (`changed-paragraphs.json`). 250 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
+- **Length:** 27,814 words (source 26,974).
+- **Changed against the live modern-en:** 747 of 1081 paragraphs (`changed-paragraphs.json`). 106 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
 
@@ -50,7 +50,7 @@ d183d462a261483ab01b3f575bd700ea53cd3ff6ecab7bff3d2d4b7e1d421fc1
 
 ## Character package impact
 
-1547 modern-en mentions: 981 unchanged, 469 moved (proposed re-anchors), 97 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+1547 modern-en mentions: 1216 unchanged, 327 moved (proposed re-anchors), 4 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -64,3 +64,4 @@ d183d462a261483ab01b3f575bd700ea53cd3ff6ecab7bff3d2d4b7e1d421fc1
 ## Book-specific notes
 
 - Renderer flagged: 7:112 (Poins on the 'fiery Trigon', ambiguous in the source), 14:19 ('golden rigol', 'suspire'), 17:62/17:64 (Pistol's bombast kept roaring). The Hostess's malapropisms were kept (a reviewer restored 'honeysuckle'/'honeyseed').
+- Served stage directions and speaker labels: the served modern-en already had its stage directions normalized (bracketed, e.g. '[Enter Richard, Duke of Gloucester, alone.]') and some speaker labels disambiguated (e.g. 'KING HENRY V.', 'PRINCE HENRY.', 'KATHERINE.', 'VOLSCIAN.'). The renderers copied these from the source form as instructed. After review, every such paragraph was set back to the served live text mechanically (script, `reviews/fixes-extra.json`): stage-direction paragraphs that equal the source take the live paragraph, and a speech paragraph whose label differs from the live label takes the live label with the candidate's speech text unchanged. These mechanical restorations were not re-read by a reviewer; they only restore text that was already served.

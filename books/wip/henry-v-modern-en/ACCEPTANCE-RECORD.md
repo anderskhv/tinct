@@ -13,11 +13,11 @@ The served modern-en was the public-domain source text with spelling and a few w
 
 | Measure (unmodified `books/classify-modern-en.py --gate`, scratch mirror) | Result | Limit |
 |---|---|---|
-| Weighted similarity | **0.614** | <= 0.75 |
+| Weighted similarity | **0.597** | <= 0.75 |
 | Light + mechanical chapters | **0/23 = 0.0%** | <= 5% |
-| Identical long paragraphs | **13/395 = 3.3%** | <= 5% |
+| Identical long paragraphs | **5/395 = 1.3%** | <= 5% |
 | Truncated quotations / scaffolding | 0 / 0 | 0 |
-| Words per sentence (paragraphs over 25 words) | source 18.3, served modern-en 15.8, candidate **12.8** | |
+| Words per sentence (paragraphs over 25 words) | source 18.3, served modern-en 15.8, candidate **12.9** | |
 
 Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate script running against a scratch mirror that contains the candidate in place of the live file; re-run `python3 books/classify-modern-en.py henry-v --gate` after integration.
 
@@ -32,13 +32,13 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-d1386d91efe528cd3c4ce35903ff67e8064274e01af2417ada3799478a86a9e5
+ec46baaf614b9f6d78b33c837eb77da6250ce8a108a6676928909c713ff0c04f
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/henry-v-modern-en.json`.
 - **Structure:** 23 chapters, 883 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
-- **Length:** 28,102 words (source 26,750).
-- **Changed against the live modern-en:** 777 of 883 paragraphs (`changed-paragraphs.json`). 234 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
+- **Length:** 28,250 words (source 26,750).
+- **Changed against the live modern-en:** 608 of 883 paragraphs (`changed-paragraphs.json`). 81 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
 
@@ -50,7 +50,7 @@ d1386d91efe528cd3c4ce35903ff67e8064274e01af2417ada3799478a86a9e5
 
 ## Character package impact
 
-1324 modern-en mentions: 650 unchanged, 459 moved (proposed re-anchors), 215 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+1324 modern-en mentions: 1026 unchanged, 266 moved (proposed re-anchors), 32 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -65,3 +65,4 @@ d1386d91efe528cd3c4ce35903ff67e8064274e01af2417ada3799478a86a9e5
 
 - Katharine's dialect spellings in the wooing scene were rendered as plain English (per the play note); the French lesson keeps the French with an English dash-gloss. French lines elsewhere are kept verbatim without glosses.
 - Renderer flagged: 23:41/23:55 (Henry's wooing puns), 14:63 (a reviewer fixed a reversal of who made the offer to God), 2:9 (Salic law genealogy).
+- Served stage directions and speaker labels: the served modern-en already had its stage directions normalized (bracketed, e.g. '[Enter Richard, Duke of Gloucester, alone.]') and some speaker labels disambiguated (e.g. 'KING HENRY V.', 'PRINCE HENRY.', 'KATHERINE.', 'VOLSCIAN.'). The renderers copied these from the source form as instructed. After review, every such paragraph was set back to the served live text mechanically (script, `reviews/fixes-extra.json`): stage-direction paragraphs that equal the source take the live paragraph, and a speech paragraph whose label differs from the live label takes the live label with the candidate's speech text unchanged. These mechanical restorations were not re-read by a reviewer; they only restore text that was already served.

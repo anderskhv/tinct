@@ -2,31 +2,19 @@
  "package": "app/public/data/characters/richard-iii.v1.json",
  "edition": "modern-en",
  "pinnedLiveModernEnSha256": "30204ef16006235b5dfad0a5281469da176f220f6b89e97f071efb523ce56b6f",
- "candidateSha256": "dfc31a52bada1a9e1b0a84f84f629b0fe068149af5e74dece8378848ea84f300",
+ "candidateSha256": "ef3386e3688784603bb96438d431c5c4dbb951faefa8015d5b4d8ea858a6a764",
  "pinMatchesServedLive": true,
  "offsetUnit": "utf16",
  "mentionsTotal": 1879,
- "unchanged": 1233,
- "moved": 386,
- "needsRuling": 260,
+ "unchanged": 1470,
+ "moved": 367,
+ "needsRuling": 42,
  "notes": [
   "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
   "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
   "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
  ],
  "mentions": [
-  {
-   "characterId": "richard-iii",
-   "chapter": 1,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
   {
    "characterId": "house-of-york",
    "chapter": 1,
@@ -115,30 +103,6 @@
     "endOffset": 1724,
     "text": "Clarence",
     "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
-   }
-  },
-  {
-   "characterId": "clarence",
-   "chapter": 1,
-   "paragraph": 2,
-   "oldStartOffset": 7,
-   "oldEndOffset": 15,
-   "oldText": "CLARENCE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "brakenbury",
-   "chapter": 1,
-   "paragraph": 2,
-   "oldStartOffset": 30,
-   "oldEndOffset": 40,
-   "oldText": "BRAKENBURY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -321,30 +285,6 @@
   {
    "characterId": "clarence",
    "chapter": 1,
-   "paragraph": 24,
-   "oldStartOffset": 8,
-   "oldEndOffset": 16,
-   "oldText": "CLARENCE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "brakenbury",
-   "chapter": 1,
-   "paragraph": 24,
-   "oldStartOffset": 18,
-   "oldEndOffset": 28,
-   "oldText": "BRAKENBURY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "clarence",
-   "chapter": 1,
    "paragraph": 25,
    "oldStartOffset": 70,
    "oldEndOffset": 78,
@@ -373,18 +313,6 @@
    }
   },
   {
-   "characterId": "hastings",
-   "chapter": 1,
-   "paragraph": 26,
-   "oldStartOffset": 12,
-   "oldEndOffset": 20,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "clarence",
    "chapter": 1,
    "paragraph": 30,
@@ -397,18 +325,6 @@
     "endOffset": 49,
     "text": "Clarence",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 1,
-   "paragraph": 37,
-   "oldStartOffset": 6,
-   "oldEndOffset": 14,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -502,45 +418,6 @@
    }
   },
   {
-   "characterId": "henry-vi",
-   "chapter": 2,
-   "paragraph": 0,
-   "oldStartOffset": 26,
-   "oldEndOffset": 31,
-   "oldText": "Henry",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 24,
-    "endOffset": 29,
-    "text": "Henry",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "halberds",
-   "chapter": 2,
-   "paragraph": 0,
-   "oldStartOffset": 41,
-   "oldEndOffset": 52,
-   "oldText": "halberdiers",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "anne",
-   "chapter": 2,
-   "paragraph": 0,
-   "oldStartOffset": 71,
-   "oldEndOffset": 75,
-   "oldText": "ANNE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "house-of-lancaster",
    "chapter": 2,
    "paragraph": 1,
@@ -613,18 +490,6 @@
     "endOffset": 1315,
     "text": "Henry",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 2,
-   "paragraph": 3,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -838,36 +703,12 @@
    }
   },
   {
-   "characterId": "anne",
-   "chapter": 2,
-   "paragraph": 98,
-   "oldStartOffset": 13,
-   "oldEndOffset": 17,
-   "oldText": "ANNE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "gentlemen",
    "chapter": 2,
    "paragraph": 99,
    "oldStartOffset": 9,
    "oldEndOffset": 18,
    "oldText": "Gentlemen",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "halberds",
-   "chapter": 2,
-   "paragraph": 102,
-   "oldStartOffset": 8,
-   "oldEndOffset": 19,
-   "oldText": "halberdiers",
    "proposed": {
     "status": "NEEDS_RULING",
     "note": "the mention text no longer occurs in this paragraph of the candidate"
@@ -904,54 +745,6 @@
    }
   },
   {
-   "characterId": "queen-elizabeth",
-   "chapter": 3,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 22,
-   "oldText": "QUEEN ELIZABETH",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "dorset",
-   "chapter": 3,
-   "paragraph": 0,
-   "oldStartOffset": 40,
-   "oldEndOffset": 46,
-   "oldText": "DORSET",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "rivers",
-   "chapter": 3,
-   "paragraph": 0,
-   "oldStartOffset": 53,
-   "oldEndOffset": 59,
-   "oldText": "RIVERS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "grey",
-   "chapter": 3,
-   "paragraph": 0,
-   "oldStartOffset": 70,
-   "oldEndOffset": 74,
-   "oldText": "GREY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richard-iii",
    "chapter": 3,
    "paragraph": 7,
@@ -963,45 +756,6 @@
     "startOffset": 86,
     "endOffset": 93,
     "text": "Richard",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 3,
-   "paragraph": 10,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 3,
-   "paragraph": 10,
-   "oldStartOffset": 22,
-   "oldEndOffset": 29,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 3,
-   "paragraph": 10,
-   "oldStartOffset": 39,
-   "oldEndOffset": 44,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 38,
-    "endOffset": 43,
-    "text": "Derby",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }
   },
@@ -1051,30 +805,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 3,
-   "paragraph": 23,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 3,
-   "paragraph": 23,
-   "oldStartOffset": 40,
-   "oldEndOffset": 48,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "clarence",
    "chapter": 3,
    "paragraph": 31,
@@ -1102,18 +832,6 @@
     "endOffset": 69,
     "text": "Hastings",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "margaret",
-   "chapter": 3,
-   "paragraph": 38,
-   "oldStartOffset": 11,
-   "oldEndOffset": 25,
-   "oldText": "QUEEN MARGARET",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -1432,30 +1150,6 @@
    }
   },
   {
-   "characterId": "catesby",
-   "chapter": 3,
-   "paragraph": 117,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 3,
-   "paragraph": 121,
-   "oldStartOffset": 16,
-   "oldEndOffset": 23,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "clarence",
    "chapter": 3,
    "paragraph": 122,
@@ -1543,30 +1237,6 @@
     "endOffset": 151,
     "text": "Clarence",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "clarence",
-   "chapter": 4,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 15,
-   "oldText": "CLARENCE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "keeper",
-   "chapter": 4,
-   "paragraph": 0,
-   "oldStartOffset": 22,
-   "oldEndOffset": 28,
-   "oldText": "KEEPER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -1677,42 +1347,6 @@
   {
    "characterId": "clarence",
    "chapter": 4,
-   "paragraph": 12,
-   "oldStartOffset": 1,
-   "oldEndOffset": 9,
-   "oldText": "CLARENCE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "brakenbury",
-   "chapter": 4,
-   "paragraph": 13,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BRAKENBURY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "brakenbury",
-   "chapter": 4,
-   "paragraph": 21,
-   "oldStartOffset": 1,
-   "oldEndOffset": 11,
-   "oldText": "BRAKENBURY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "clarence",
-   "chapter": 4,
    "paragraph": 22,
    "oldStartOffset": 62,
    "oldEndOffset": 70,
@@ -1723,30 +1357,6 @@
     "endOffset": 69,
     "text": "Clarence",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "brakenbury",
-   "chapter": 4,
-   "paragraph": 24,
-   "oldStartOffset": 8,
-   "oldEndOffset": 18,
-   "oldText": "BRAKENBURY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "keeper",
-   "chapter": 4,
-   "paragraph": 24,
-   "oldStartOffset": 27,
-   "oldEndOffset": 33,
-   "oldText": "KEEPER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -1807,102 +1417,6 @@
     "endOffset": 219,
     "text": "Edward",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "first-murderer",
-   "chapter": 4,
-   "paragraph": 103,
-   "oldStartOffset": 7,
-   "oldEndOffset": 21,
-   "oldText": "FIRST MURDERER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "edward-iv",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 18,
-   "oldText": "KING EDWARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "queen-elizabeth",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 26,
-   "oldEndOffset": 41,
-   "oldText": "QUEEN ELIZABETH",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "dorset",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 43,
-   "oldEndOffset": 49,
-   "oldText": "DORSET",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "rivers",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 51,
-   "oldEndOffset": 57,
-   "oldText": "RIVERS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 59,
-   "oldEndOffset": 67,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 69,
-   "oldEndOffset": 79,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "grey",
-   "chapter": 5,
-   "paragraph": 0,
-   "oldStartOffset": 81,
-   "oldEndOffset": 85,
-   "oldText": "GREY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -1996,30 +1510,6 @@
    }
   },
   {
-   "characterId": "ratcliffe",
-   "chapter": 5,
-   "paragraph": 18,
-   "oldStartOffset": 7,
-   "oldEndOffset": 16,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 5,
-   "paragraph": 18,
-   "oldStartOffset": 21,
-   "oldEndOffset": 28,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "buckingham",
    "chapter": 5,
    "paragraph": 21,
@@ -2091,33 +1581,6 @@
     "startOffset": 313,
     "endOffset": 321,
     "text": "Clarence",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 5,
-   "paragraph": 32,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 5,
-   "paragraph": 32,
-   "oldStartOffset": 24,
-   "oldEndOffset": 29,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 22,
-    "endOffset": 27,
-    "text": "Derby",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }
   },
@@ -2227,57 +1690,6 @@
    }
   },
   {
-   "characterId": "duchess",
-   "chapter": 6,
-   "paragraph": 0,
-   "oldStartOffset": 15,
-   "oldEndOffset": 22,
-   "oldText": "DUCHESS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "duchess",
-   "chapter": 6,
-   "paragraph": 0,
-   "oldStartOffset": 26,
-   "oldEndOffset": 30,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "children",
-   "chapter": 6,
-   "paragraph": 0,
-   "oldStartOffset": 44,
-   "oldEndOffset": 52,
-   "oldText": "CHILDREN",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "clarence",
-   "chapter": 6,
-   "paragraph": 0,
-   "oldStartOffset": 56,
-   "oldEndOffset": 64,
-   "oldText": "Clarence",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 55,
-    "endOffset": 63,
-    "text": "Clarence",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
    "characterId": "clarence",
    "chapter": 6,
    "paragraph": 3,
@@ -2290,42 +1702,6 @@
     "endOffset": 73,
     "text": "Clarence",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "queen-elizabeth",
-   "chapter": 6,
-   "paragraph": 14,
-   "oldStartOffset": 7,
-   "oldEndOffset": 22,
-   "oldText": "QUEEN ELIZABETH",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "rivers",
-   "chapter": 6,
-   "paragraph": 14,
-   "oldStartOffset": 53,
-   "oldEndOffset": 59,
-   "oldText": "RIVERS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "dorset",
-   "chapter": 6,
-   "paragraph": 14,
-   "oldStartOffset": 64,
-   "oldEndOffset": 70,
-   "oldText": "DORSET",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -2494,81 +1870,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 6,
-   "paragraph": 32,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 6,
-   "paragraph": 32,
-   "oldStartOffset": 16,
-   "oldEndOffset": 26,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 6,
-   "paragraph": 32,
-   "oldStartOffset": 28,
-   "oldEndOffset": 35,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 6,
-   "paragraph": 32,
-   "oldStartOffset": 44,
-   "oldEndOffset": 49,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 43,
-    "endOffset": 48,
-    "text": "Derby",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 6,
-   "paragraph": 32,
-   "oldStartOffset": 51,
-   "oldEndOffset": 59,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 6,
-   "paragraph": 32,
-   "oldStartOffset": 65,
-   "oldEndOffset": 74,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "buckingham",
    "chapter": 6,
    "paragraph": 38,
@@ -2596,30 +1897,6 @@
     "endOffset": 218,
     "text": "Buckingham",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 6,
-   "paragraph": 44,
-   "oldStartOffset": 16,
-   "oldEndOffset": 26,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 6,
-   "paragraph": 44,
-   "oldStartOffset": 31,
-   "oldEndOffset": 38,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -2653,78 +1930,6 @@
    }
   },
   {
-   "characterId": "archbishop",
-   "chapter": 8,
-   "paragraph": 0,
-   "oldStartOffset": 11,
-   "oldEndOffset": 21,
-   "oldText": "ARCHBISHOP",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "archbishop",
-   "chapter": 8,
-   "paragraph": 0,
-   "oldStartOffset": 25,
-   "oldEndOffset": 29,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "york-boy",
-   "chapter": 8,
-   "paragraph": 0,
-   "oldStartOffset": 49,
-   "oldEndOffset": 53,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "queen-elizabeth",
-   "chapter": 8,
-   "paragraph": 0,
-   "oldStartOffset": 55,
-   "oldEndOffset": 70,
-   "oldText": "QUEEN ELIZABETH",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "duchess",
-   "chapter": 8,
-   "paragraph": 0,
-   "oldStartOffset": 80,
-   "oldEndOffset": 87,
-   "oldText": "DUCHESS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "duchess",
-   "chapter": 8,
-   "paragraph": 0,
-   "oldStartOffset": 91,
-   "oldEndOffset": 95,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "york-boy",
    "chapter": 8,
    "paragraph": 3,
@@ -2755,18 +1960,6 @@
    }
   },
   {
-   "characterId": "messenger",
-   "chapter": 8,
-   "paragraph": 20,
-   "oldStartOffset": 9,
-   "oldEndOffset": 18,
-   "oldText": "MESSENGER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "vaughan",
    "chapter": 8,
    "paragraph": 26,
@@ -2779,102 +1972,6 @@
     "endOffset": 109,
     "text": "Vaughan",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "prince-edward",
-   "chapter": 9,
-   "paragraph": 0,
-   "oldStartOffset": 29,
-   "oldEndOffset": 35,
-   "oldText": "PRINCE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "prince-edward",
-   "chapter": 9,
-   "paragraph": 0,
-   "oldStartOffset": 36,
-   "oldEndOffset": 42,
-   "oldText": "EDWARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 9,
-   "paragraph": 0,
-   "oldStartOffset": 44,
-   "oldEndOffset": 51,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 9,
-   "paragraph": 0,
-   "oldStartOffset": 53,
-   "oldEndOffset": 63,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "cardinal",
-   "chapter": 9,
-   "paragraph": 0,
-   "oldStartOffset": 65,
-   "oldEndOffset": 73,
-   "oldText": "CARDINAL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 9,
-   "paragraph": 0,
-   "oldStartOffset": 85,
-   "oldEndOffset": 92,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "mayor",
-   "chapter": 9,
-   "paragraph": 7,
-   "oldStartOffset": 16,
-   "oldEndOffset": 21,
-   "oldText": "MAYOR",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "attendants",
-   "chapter": 9,
-   "paragraph": 7,
-   "oldStartOffset": 27,
-   "oldEndOffset": 37,
-   "oldText": "attendants",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -2905,18 +2002,6 @@
     "endOffset": 160,
     "text": "Hastings",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 9,
-   "paragraph": 10,
-   "oldStartOffset": 12,
-   "oldEndOffset": 20,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -2980,30 +2065,6 @@
    }
   },
   {
-   "characterId": "cardinal",
-   "chapter": 9,
-   "paragraph": 20,
-   "oldStartOffset": 8,
-   "oldEndOffset": 16,
-   "oldText": "CARDINAL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 9,
-   "paragraph": 20,
-   "oldStartOffset": 21,
-   "oldEndOffset": 29,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "julius-caesar",
    "chapter": 9,
    "paragraph": 23,
@@ -3031,42 +2092,6 @@
     "endOffset": 270,
     "text": "Buckingham",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "york-boy",
-   "chapter": 9,
-   "paragraph": 39,
-   "oldStartOffset": 21,
-   "oldEndOffset": 25,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 9,
-   "paragraph": 39,
-   "oldStartOffset": 27,
-   "oldEndOffset": 35,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "cardinal",
-   "chapter": 9,
-   "paragraph": 39,
-   "oldStartOffset": 45,
-   "oldEndOffset": 53,
-   "oldText": "CARDINAL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -3112,102 +2137,6 @@
     "endOffset": 28,
     "text": "Clarence",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "prince-edward",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 18,
-   "oldEndOffset": 24,
-   "oldText": "PRINCE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "prince-edward",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 25,
-   "oldEndOffset": 31,
-   "oldText": "EDWARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "york-boy",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 33,
-   "oldEndOffset": 37,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 39,
-   "oldEndOffset": 47,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "dorset",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 49,
-   "oldEndOffset": 55,
-   "oldText": "DORSET",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 69,
-   "oldEndOffset": 76,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 78,
-   "oldEndOffset": 88,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 9,
-   "paragraph": 77,
-   "oldStartOffset": 94,
-   "oldEndOffset": 101,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -3331,18 +2260,6 @@
    }
   },
   {
-   "characterId": "catesby",
-   "chapter": 9,
-   "paragraph": 91,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "hastings",
    "chapter": 9,
    "paragraph": 92,
@@ -3355,30 +2272,6 @@
     "endOffset": 71,
     "text": "Hastings",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "messenger",
-   "chapter": 10,
-   "paragraph": 0,
-   "oldStartOffset": 9,
-   "oldEndOffset": 18,
-   "oldText": "MESSENGER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 10,
-   "paragraph": 0,
-   "oldStartOffset": 34,
-   "oldEndOffset": 42,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -3397,18 +2290,6 @@
    }
   },
   {
-   "characterId": "hastings",
-   "chapter": 10,
-   "paragraph": 9,
-   "oldStartOffset": 7,
-   "oldEndOffset": 15,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "catesby",
    "chapter": 10,
    "paragraph": 14,
@@ -3421,18 +2302,6 @@
     "endOffset": 169,
     "text": "Catesby",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 10,
-   "paragraph": 17,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -3511,165 +2380,6 @@
    }
   },
   {
-   "characterId": "stanley",
-   "chapter": 10,
-   "paragraph": 33,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 10,
-   "paragraph": 33,
-   "oldStartOffset": 24,
-   "oldEndOffset": 29,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 22,
-    "endOffset": 27,
-    "text": "Derby",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "pursuivant",
-   "chapter": 10,
-   "paragraph": 40,
-   "oldStartOffset": 9,
-   "oldEndOffset": 19,
-   "oldText": "PURSUIVANT",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 10,
-   "paragraph": 42,
-   "oldStartOffset": 8,
-   "oldEndOffset": 15,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 10,
-   "paragraph": 42,
-   "oldStartOffset": 20,
-   "oldEndOffset": 27,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "priest",
-   "chapter": 10,
-   "paragraph": 51,
-   "oldStartOffset": 9,
-   "oldEndOffset": 15,
-   "oldText": "PRIEST",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 10,
-   "paragraph": 54,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "priest",
-   "chapter": 10,
-   "paragraph": 56,
-   "oldStartOffset": 6,
-   "oldEndOffset": 12,
-   "oldText": "PRIEST",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 11,
-   "paragraph": 0,
-   "oldStartOffset": 11,
-   "oldEndOffset": 18,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 11,
-   "paragraph": 0,
-   "oldStartOffset": 19,
-   "oldEndOffset": 28,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "halberds",
-   "chapter": 11,
-   "paragraph": 0,
-   "oldStartOffset": 35,
-   "oldEndOffset": 46,
-   "oldText": "halberdiers",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "rivers",
-   "chapter": 11,
-   "paragraph": 0,
-   "oldStartOffset": 67,
-   "oldEndOffset": 73,
-   "oldText": "RIVERS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "grey",
-   "chapter": 11,
-   "paragraph": 0,
-   "oldStartOffset": 75,
-   "oldEndOffset": 79,
-   "oldText": "GREY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richard-ii",
    "chapter": 11,
    "paragraph": 5,
@@ -3715,105 +2425,6 @@
    }
   },
   {
-   "characterId": "buckingham",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 19,
-   "oldEndOffset": 26,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 35,
-   "oldEndOffset": 40,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 34,
-    "endOffset": 39,
-    "text": "Derby",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 42,
-   "oldEndOffset": 50,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ely",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 66,
-   "oldEndOffset": 69,
-   "oldText": "ELY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "norfolk",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 71,
-   "oldEndOffset": 78,
-   "oldText": "NORFOLK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 80,
-   "oldEndOffset": 89,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "lovell",
-   "chapter": 12,
-   "paragraph": 0,
-   "oldStartOffset": 91,
-   "oldEndOffset": 97,
-   "oldText": "LOVELL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "hastings",
    "chapter": 12,
    "paragraph": 7,
@@ -3829,18 +2440,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 12,
-   "paragraph": 9,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "hastings",
    "chapter": 12,
    "paragraph": 12,
@@ -3853,66 +2452,6 @@
     "endOffset": 81,
     "text": "Hastings",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 12,
-   "paragraph": 20,
-   "oldStartOffset": 8,
-   "oldEndOffset": 15,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 12,
-   "paragraph": 20,
-   "oldStartOffset": 20,
-   "oldEndOffset": 30,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ely",
-   "chapter": 12,
-   "paragraph": 22,
-   "oldStartOffset": 21,
-   "oldEndOffset": 24,
-   "oldText": "ELY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 12,
-   "paragraph": 27,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 12,
-   "paragraph": 27,
-   "oldStartOffset": 19,
-   "oldEndOffset": 29,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -3991,42 +2530,6 @@
    }
   },
   {
-   "characterId": "lovell",
-   "chapter": 12,
-   "paragraph": 33,
-   "oldStartOffset": 16,
-   "oldEndOffset": 22,
-   "oldText": "LOVELL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 12,
-   "paragraph": 33,
-   "oldStartOffset": 27,
-   "oldEndOffset": 36,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 12,
-   "paragraph": 33,
-   "oldStartOffset": 47,
-   "oldEndOffset": 55,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "stanley",
    "chapter": 12,
    "paragraph": 34,
@@ -4102,30 +2605,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 13,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 13,
-   "paragraph": 0,
-   "oldStartOffset": 19,
-   "oldEndOffset": 29,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "catesby",
    "chapter": 13,
    "paragraph": 2,
@@ -4138,30 +2617,6 @@
     "endOffset": 312,
     "text": "Catesby",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "mayor",
-   "chapter": 13,
-   "paragraph": 4,
-   "oldStartOffset": 16,
-   "oldEndOffset": 21,
-   "oldText": "MAYOR",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 13,
-   "paragraph": 4,
-   "oldStartOffset": 26,
-   "oldEndOffset": 33,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -4246,18 +2701,6 @@
    }
   },
   {
-   "characterId": "mayor",
-   "chapter": 13,
-   "paragraph": 24,
-   "oldStartOffset": 11,
-   "oldEndOffset": 16,
-   "oldText": "MAYOR",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "edward-iv",
    "chapter": 13,
    "paragraph": 25,
@@ -4330,30 +2773,6 @@
    }
   },
   {
-   "characterId": "ratcliffe",
-   "chapter": 13,
-   "paragraph": 33,
-   "oldStartOffset": 8,
-   "oldEndOffset": 17,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "lovell",
-   "chapter": 13,
-   "paragraph": 33,
-   "oldStartOffset": 22,
-   "oldEndOffset": 28,
-   "oldText": "LOVELL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "clarence",
    "chapter": 13,
    "paragraph": 34,
@@ -4366,18 +2785,6 @@
     "endOffset": 64,
     "text": "Clarence",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "scrivener",
-   "chapter": 14,
-   "paragraph": 0,
-   "oldStartOffset": 9,
-   "oldEndOffset": 18,
-   "oldText": "SCRIVENER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -4408,30 +2815,6 @@
     "endOffset": 359,
     "text": "Hastings",
     "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 15,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 15,
-   "paragraph": 0,
-   "oldStartOffset": 19,
-   "oldEndOffset": 29,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -4495,54 +2878,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 15,
-   "paragraph": 11,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "mayor",
-   "chapter": 15,
-   "paragraph": 12,
-   "oldStartOffset": 16,
-   "oldEndOffset": 21,
-   "oldText": "MAYOR",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "citizens",
-   "chapter": 15,
-   "paragraph": 12,
-   "oldStartOffset": 26,
-   "oldEndOffset": 34,
-   "oldText": "CITIZENS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 15,
-   "paragraph": 14,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "catesby",
    "chapter": 15,
    "paragraph": 17,
@@ -4570,66 +2905,6 @@
     "endOffset": 52,
     "text": "Edward",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 15,
-   "paragraph": 23,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 15,
-   "paragraph": 27,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 15,
-   "paragraph": 29,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "bishops",
-   "chapter": 15,
-   "paragraph": 29,
-   "oldStartOffset": 34,
-   "oldEndOffset": 41,
-   "oldText": "BISHOPS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 15,
-   "paragraph": 29,
-   "oldStartOffset": 43,
-   "oldEndOffset": 50,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -4720,42 +2995,6 @@
     "endOffset": 753,
     "text": "Edward",
     "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 15,
-   "paragraph": 45,
-   "oldStartOffset": 8,
-   "oldEndOffset": 18,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "mayor",
-   "chapter": 15,
-   "paragraph": 45,
-   "oldStartOffset": 24,
-   "oldEndOffset": 29,
-   "oldText": "MAYOR",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 15,
-   "paragraph": 48,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -4885,30 +3124,6 @@
     "endOffset": 57,
     "text": "Plantagenet",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "brakenbury",
-   "chapter": 16,
-   "paragraph": 6,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BRAKENBURY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 16,
-   "paragraph": 16,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -5110,78 +3325,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 17,
-   "paragraph": 0,
-   "oldStartOffset": 36,
-   "oldEndOffset": 43,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 17,
-   "paragraph": 0,
-   "oldStartOffset": 53,
-   "oldEndOffset": 63,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 17,
-   "paragraph": 0,
-   "oldStartOffset": 65,
-   "oldEndOffset": 72,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 17,
-   "paragraph": 0,
-   "oldStartOffset": 74,
-   "oldEndOffset": 83,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "lovell",
-   "chapter": 17,
-   "paragraph": 0,
-   "oldStartOffset": 85,
-   "oldEndOffset": 91,
-   "oldText": "LOVELL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "page",
-   "chapter": 17,
-   "paragraph": 0,
-   "oldStartOffset": 95,
-   "oldEndOffset": 99,
-   "oldText": "PAGE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "buckingham",
    "chapter": 17,
    "paragraph": 1,
@@ -5242,18 +3385,6 @@
    }
   },
   {
-   "characterId": "page",
-   "chapter": 17,
-   "paragraph": 29,
-   "oldStartOffset": 6,
-   "oldEndOffset": 10,
-   "oldText": "PAGE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "buckingham",
    "chapter": 17,
    "paragraph": 30,
@@ -5266,18 +3397,6 @@
     "endOffset": 47,
     "text": "Buckingham",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 17,
-   "paragraph": 32,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -5356,30 +3475,6 @@
    }
   },
   {
-   "characterId": "catesby",
-   "chapter": 17,
-   "paragraph": 36,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "tyrrel",
-   "chapter": 17,
-   "paragraph": 38,
-   "oldStartOffset": 7,
-   "oldEndOffset": 13,
-   "oldText": "TYRREL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "tyrrel",
    "chapter": 17,
    "paragraph": 45,
@@ -5407,18 +3502,6 @@
     "endOffset": 61,
     "text": "Tyrrel",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 17,
-   "paragraph": 52,
-   "oldStartOffset": 7,
-   "oldEndOffset": 17,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -5482,18 +3565,6 @@
    }
   },
   {
-   "characterId": "buckingham",
-   "chapter": 17,
-   "paragraph": 75,
-   "oldStartOffset": 27,
-   "oldEndOffset": 37,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "hastings",
    "chapter": 17,
    "paragraph": 76,
@@ -5506,18 +3577,6 @@
     "endOffset": 137,
     "text": "Hastings",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "tyrrel",
-   "chapter": 18,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 13,
-   "oldText": "TYRREL",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -5611,18 +3670,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 18,
-   "paragraph": 2,
-   "oldStartOffset": 7,
-   "oldEndOffset": 19,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "tyrrel",
    "chapter": 18,
    "paragraph": 10,
@@ -5698,18 +3745,6 @@
    }
   },
   {
-   "characterId": "ratcliffe",
-   "chapter": 18,
-   "paragraph": 14,
-   "oldStartOffset": 7,
-   "oldEndOffset": 16,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "buckingham",
    "chapter": 18,
    "paragraph": 18,
@@ -5727,18 +3762,6 @@
   {
    "characterId": "margaret",
    "chapter": 19,
-   "paragraph": 0,
-   "oldStartOffset": 11,
-   "oldEndOffset": 25,
-   "oldText": "QUEEN MARGARET",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "margaret",
-   "chapter": 19,
    "paragraph": 1,
    "oldStartOffset": 325,
    "oldEndOffset": 333,
@@ -5749,42 +3772,6 @@
     "endOffset": 314,
     "text": "Margaret",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "duchess",
-   "chapter": 19,
-   "paragraph": 3,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "DUCHESS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "duchess",
-   "chapter": 19,
-   "paragraph": 3,
-   "oldStartOffset": 18,
-   "oldEndOffset": 22,
-   "oldText": "YORK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "queen-elizabeth",
-   "chapter": 19,
-   "paragraph": 3,
-   "oldStartOffset": 27,
-   "oldEndOffset": 42,
-   "oldText": "QUEEN ELIZABETH",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -5814,21 +3801,6 @@
     "startOffset": 101,
     "endOffset": 112,
     "text": "Plantagenet",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "henry-vi",
-   "chapter": 19,
-   "paragraph": 14,
-   "oldStartOffset": 19,
-   "oldEndOffset": 24,
-   "oldText": "Harry",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 21,
-    "endOffset": 26,
-    "text": "Harry",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }
   },
@@ -6148,30 +4120,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 19,
-   "paragraph": 40,
-   "oldStartOffset": 7,
-   "oldEndOffset": 19,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 19,
-   "paragraph": 40,
-   "oldStartOffset": 45,
-   "oldEndOffset": 52,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "rivers",
    "chapter": 19,
    "paragraph": 45,
@@ -6397,30 +4345,6 @@
    }
   },
   {
-   "characterId": "queen-elizabeth",
-   "chapter": 19,
-   "paragraph": 158,
-   "oldStartOffset": 19,
-   "oldEndOffset": 34,
-   "oldText": "QUEEN ELIZABETH",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 19,
-   "paragraph": 160,
-   "oldStartOffset": 7,
-   "oldEndOffset": 16,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richmond",
    "chapter": 19,
    "paragraph": 162,
@@ -6508,33 +4432,6 @@
    }
   },
   {
-   "characterId": "stanley",
-   "chapter": 19,
-   "paragraph": 178,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 19,
-   "paragraph": 178,
-   "oldStartOffset": 24,
-   "oldEndOffset": 29,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 22,
-    "endOffset": 27,
-    "text": "Derby",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
    "characterId": "ely",
    "chapter": 19,
    "paragraph": 186,
@@ -6595,18 +4492,6 @@
    }
   },
   {
-   "characterId": "messenger",
-   "chapter": 19,
-   "paragraph": 200,
-   "oldStartOffset": 9,
-   "oldEndOffset": 18,
-   "oldText": "MESSENGER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "edward-courtney",
    "chapter": 19,
    "paragraph": 201,
@@ -6637,18 +4522,6 @@
    }
   },
   {
-   "characterId": "messenger",
-   "chapter": 19,
-   "paragraph": 202,
-   "oldStartOffset": 15,
-   "oldEndOffset": 24,
-   "oldText": "MESSENGER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "guilfords",
    "chapter": 19,
    "paragraph": 203,
@@ -6664,18 +4537,6 @@
    }
   },
   {
-   "characterId": "messenger",
-   "chapter": 19,
-   "paragraph": 204,
-   "oldStartOffset": 15,
-   "oldEndOffset": 24,
-   "oldText": "MESSENGER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "buckingham",
    "chapter": 19,
    "paragraph": 209,
@@ -6688,18 +4549,6 @@
     "endOffset": 133,
     "text": "Buckingham",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "messenger",
-   "chapter": 19,
-   "paragraph": 212,
-   "oldStartOffset": 15,
-   "oldEndOffset": 24,
-   "oldText": "MESSENGER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -6730,18 +4579,6 @@
     "endOffset": 362,
     "text": "Buckingham",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 19,
-   "paragraph": 215,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -6787,45 +4624,6 @@
     "endOffset": 123,
     "text": "Buckingham",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 20,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 20,
-   "paragraph": 0,
-   "oldStartOffset": 24,
-   "oldEndOffset": 29,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 22,
-    "endOffset": 27,
-    "text": "Derby",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "christopher",
-   "chapter": 20,
-   "paragraph": 0,
-   "oldStartOffset": 39,
-   "oldEndOffset": 50,
-   "oldText": "CHRISTOPHER",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -6916,42 +4714,6 @@
     "endOffset": 163,
     "text": "Rice ap Thomas",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "sheriff",
-   "chapter": 21,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "SHERIFF",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "halberds",
-   "chapter": 21,
-   "paragraph": 0,
-   "oldStartOffset": 19,
-   "oldEndOffset": 30,
-   "oldText": "halberdiers",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 21,
-   "paragraph": 0,
-   "oldStartOffset": 37,
-   "oldEndOffset": 47,
-   "oldText": "BUCKINGHAM",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -7075,30 +4837,6 @@
    }
   },
   {
-   "characterId": "richmond",
-   "chapter": 22,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 15,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "blunt",
-   "chapter": 22,
-   "paragraph": 0,
-   "oldStartOffset": 25,
-   "oldEndOffset": 30,
-   "oldText": "BLUNT",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "stanley",
    "chapter": 22,
    "paragraph": 1,
@@ -7111,96 +4849,6 @@
     "endOffset": 206,
     "text": "Stanley",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
-   "paragraph": 0,
-   "oldStartOffset": 7,
-   "oldEndOffset": 19,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "norfolk",
-   "chapter": 23,
-   "paragraph": 0,
-   "oldStartOffset": 35,
-   "oldEndOffset": 42,
-   "oldText": "NORFOLK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 23,
-   "paragraph": 0,
-   "oldStartOffset": 44,
-   "oldEndOffset": 53,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 11,
-   "oldStartOffset": 7,
-   "oldEndOffset": 15,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "brandon",
-   "chapter": 23,
-   "paragraph": 11,
-   "oldStartOffset": 29,
-   "oldEndOffset": 36,
-   "oldText": "Brandon",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 28,
-    "endOffset": 35,
-    "text": "Brandon",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "blunt",
-   "chapter": 23,
-   "paragraph": 11,
-   "oldStartOffset": 55,
-   "oldEndOffset": 60,
-   "oldText": "BLUNT",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 11,
-   "oldStartOffset": 83,
-   "oldEndOffset": 91,
-   "oldText": "Richmond",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 82,
-    "endOffset": 90,
-    "text": "Richmond",
-    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
    }
   },
   {
@@ -7324,78 +4972,6 @@
    }
   },
   {
-   "characterId": "blunt",
-   "chapter": 23,
-   "paragraph": 17,
-   "oldStartOffset": 6,
-   "oldEndOffset": 11,
-   "oldText": "BLUNT",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 19,
-   "oldStartOffset": 1,
-   "oldEndOffset": 9,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
-   "paragraph": 20,
-   "oldStartOffset": 19,
-   "oldEndOffset": 31,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 23,
-   "paragraph": 20,
-   "oldStartOffset": 33,
-   "oldEndOffset": 42,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "norfolk",
-   "chapter": 23,
-   "paragraph": 20,
-   "oldStartOffset": 44,
-   "oldEndOffset": 51,
-   "oldText": "NORFOLK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 23,
-   "paragraph": 20,
-   "oldStartOffset": 56,
-   "oldEndOffset": 63,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "stanley",
    "chapter": 23,
    "paragraph": 32,
@@ -7423,18 +4999,6 @@
     "endOffset": 122,
     "text": "George",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 23,
-   "paragraph": 33,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -7498,69 +5062,6 @@
    }
   },
   {
-   "characterId": "ratcliffe",
-   "chapter": 23,
-   "paragraph": 41,
-   "oldStartOffset": 6,
-   "oldEndOffset": 15,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
-   "paragraph": 41,
-   "oldStartOffset": 17,
-   "oldEndOffset": 24,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 23,
-   "paragraph": 42,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "STANLEY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "stanley",
-   "chapter": 23,
-   "paragraph": 42,
-   "oldStartOffset": 23,
-   "oldEndOffset": 28,
-   "oldText": "Derby",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 22,
-    "endOffset": 27,
-    "text": "Derby",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 42,
-   "oldStartOffset": 32,
-   "oldEndOffset": 40,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richmond",
    "chapter": 23,
    "paragraph": 45,
@@ -7591,57 +5092,6 @@
    }
   },
   {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 47,
-   "oldStartOffset": 9,
-   "oldEndOffset": 17,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "edward-lancaster",
-   "chapter": 23,
-   "paragraph": 51,
-   "oldStartOffset": 20,
-   "oldEndOffset": 26,
-   "oldText": "EDWARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "edward-lancaster",
-   "chapter": 23,
-   "paragraph": 51,
-   "oldStartOffset": 41,
-   "oldEndOffset": 47,
-   "oldText": "Edward",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 32,
-    "endOffset": 38,
-    "text": "Edward",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "henry-vi",
-   "chapter": 23,
-   "paragraph": 51,
-   "oldStartOffset": 56,
-   "oldEndOffset": 61,
-   "oldText": "Henry",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richard-iii",
    "chapter": 23,
    "paragraph": 53,
@@ -7651,33 +5101,6 @@
    "proposed": {
     "status": "NEEDS_RULING",
     "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 55,
-   "oldStartOffset": 4,
-   "oldEndOffset": 12,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 55,
-   "oldStartOffset": 28,
-   "oldEndOffset": 36,
-   "oldText": "Richmond",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 30,
-    "endOffset": 38,
-    "text": "Richmond",
-    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
    }
   },
   {
@@ -7693,30 +5116,6 @@
     "endOffset": 76,
     "text": "Richmond",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "henry-vi",
-   "chapter": 23,
-   "paragraph": 58,
-   "oldStartOffset": 20,
-   "oldEndOffset": 25,
-   "oldText": "HENRY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
-   "paragraph": 60,
-   "oldStartOffset": 4,
-   "oldEndOffset": 16,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -7750,18 +5149,6 @@
    "oldStartOffset": 0,
    "oldEndOffset": 5,
    "oldText": "Henry",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "clarence",
-   "chapter": 23,
-   "paragraph": 65,
-   "oldStartOffset": 20,
-   "oldEndOffset": 28,
-   "oldText": "CLARENCE",
    "proposed": {
     "status": "NEEDS_RULING",
     "note": "the mention text no longer occurs in this paragraph of the candidate"
@@ -7822,30 +5209,6 @@
    }
   },
   {
-   "characterId": "rivers",
-   "chapter": 23,
-   "paragraph": 72,
-   "oldStartOffset": 21,
-   "oldEndOffset": 27,
-   "oldText": "RIVERS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "grey",
-   "chapter": 23,
-   "paragraph": 72,
-   "oldStartOffset": 29,
-   "oldEndOffset": 33,
-   "oldText": "GREY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richard-iii",
    "chapter": 23,
    "paragraph": 74,
@@ -7867,33 +5230,6 @@
    "proposed": {
     "status": "NEEDS_RULING",
     "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
-   "paragraph": 79,
-   "oldStartOffset": 4,
-   "oldEndOffset": 16,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "vaughan",
-   "chapter": 23,
-   "paragraph": 79,
-   "oldStartOffset": 30,
-   "oldEndOffset": 37,
-   "oldText": "Vaughan",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 32,
-    "endOffset": 39,
-    "text": "Vaughan",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }
   },
   {
@@ -7921,18 +5257,6 @@
     "endOffset": 59,
     "text": "Richard",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "hastings",
-   "chapter": 23,
-   "paragraph": 85,
-   "oldStartOffset": 20,
-   "oldEndOffset": 28,
-   "oldText": "HASTINGS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -8014,18 +5338,6 @@
    }
   },
   {
-   "characterId": "anne",
-   "chapter": 23,
-   "paragraph": 99,
-   "oldStartOffset": 25,
-   "oldEndOffset": 29,
-   "oldText": "ANNE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "richard-iii",
    "chapter": 23,
    "paragraph": 101,
@@ -8074,18 +5386,6 @@
    "oldStartOffset": 4,
    "oldEndOffset": 12,
    "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "buckingham",
-   "chapter": 23,
-   "paragraph": 106,
-   "oldStartOffset": 20,
-   "oldEndOffset": 30,
-   "oldText": "BUCKINGHAM",
    "proposed": {
     "status": "NEEDS_RULING",
     "note": "the mention text no longer occurs in this paragraph of the candidate"
@@ -8148,18 +5448,6 @@
   {
    "characterId": "richard-iii",
    "chapter": 23,
-   "paragraph": 113,
-   "oldStartOffset": 1,
-   "oldEndOffset": 13,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
    "paragraph": 114,
    "oldStartOffset": 288,
    "oldEndOffset": 295,
@@ -8200,18 +5488,6 @@
     "endOffset": 1294,
     "text": "Richard",
     "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 23,
-   "paragraph": 115,
-   "oldStartOffset": 7,
-   "oldEndOffset": 16,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -8277,54 +5553,6 @@
   {
    "characterId": "richard-iii",
    "chapter": 23,
-   "paragraph": 124,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 23,
-   "paragraph": 124,
-   "oldStartOffset": 18,
-   "oldEndOffset": 27,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "lords",
-   "chapter": 23,
-   "paragraph": 125,
-   "oldStartOffset": 11,
-   "oldEndOffset": 16,
-   "oldText": "LORDS",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richmond",
-   "chapter": 23,
-   "paragraph": 125,
-   "oldStartOffset": 20,
-   "oldEndOffset": 28,
-   "oldText": "RICHMOND",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 23,
    "paragraph": 129,
    "oldStartOffset": 172,
    "oldEndOffset": 179,
@@ -8383,45 +5611,6 @@
    }
   },
   {
-   "characterId": "richard-iii",
-   "chapter": 23,
-   "paragraph": 135,
-   "oldStartOffset": 7,
-   "oldEndOffset": 19,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "ratcliffe",
-   "chapter": 23,
-   "paragraph": 135,
-   "oldStartOffset": 21,
-   "oldEndOffset": 30,
-   "oldText": "RATCLIFFE",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "soldiers",
-   "chapter": 23,
-   "paragraph": 135,
-   "oldStartOffset": 35,
-   "oldEndOffset": 43,
-   "oldText": "Soldiers",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 34,
-    "endOffset": 42,
-    "text": "Soldiers",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
    "characterId": "surrey",
    "chapter": 23,
    "paragraph": 138,
@@ -8449,18 +5638,6 @@
     "endOffset": 199,
     "text": "Richmond",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "norfolk",
-   "chapter": 23,
-   "paragraph": 147,
-   "oldStartOffset": 7,
-   "oldEndOffset": 14,
-   "oldText": "NORFOLK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
@@ -8601,45 +5778,6 @@
   {
    "characterId": "norfolk",
    "chapter": 24,
-   "paragraph": 0,
-   "oldStartOffset": 27,
-   "oldEndOffset": 34,
-   "oldText": "NORFOLK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "soldiers",
-   "chapter": 24,
-   "paragraph": 0,
-   "oldStartOffset": 39,
-   "oldEndOffset": 47,
-   "oldText": "Soldiers",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 38,
-    "endOffset": 46,
-    "text": "Soldiers",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "catesby",
-   "chapter": 24,
-   "paragraph": 0,
-   "oldStartOffset": 56,
-   "oldEndOffset": 63,
-   "oldText": "CATESBY",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "norfolk",
-   "chapter": 24,
    "paragraph": 1,
    "oldStartOffset": 28,
    "oldEndOffset": 35,
@@ -8665,45 +5803,6 @@
     "endOffset": 185,
     "text": "Richmond",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "norfolk",
-   "chapter": 24,
-   "paragraph": 2,
-   "oldStartOffset": 6,
-   "oldEndOffset": 13,
-   "oldText": "NORFOLK",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
-   "characterId": "soldiers",
-   "chapter": 24,
-   "paragraph": 2,
-   "oldStartOffset": 18,
-   "oldEndOffset": 26,
-   "oldText": "Soldiers",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 21,
-    "endOffset": 29,
-    "text": "Soldiers",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "richard-iii",
-   "chapter": 24,
-   "paragraph": 3,
-   "oldStartOffset": 15,
-   "oldEndOffset": 27,
-   "oldText": "KING RICHARD",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
    }
   },
   {
