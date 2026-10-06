@@ -1,5 +1,6 @@
 // End-to-end checks in headless Chromium under production's CSP, with the chat API mocked.
-//   node addbooks/web/test/e2e.mjs            (needs a build: node addbooks/web/scripts/build.mjs)
+//   node addbooks/web/test/e2e.mjs            (needs a build: node addbooks/web/scripts/build.mjs,
+//                                              and the app's, for the Tinct reader: npm run build in app/)
 // Playwright comes from app/node_modules (no new dependency). Screenshots go to
 // addbooks/web/test/output/.
 import { createRequire } from 'node:module';
@@ -19,6 +20,23 @@ const PORT = 4721, BASE = `http://127.0.0.1:${PORT}/lab/addbook/`;
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
 const RIGHTS = "I confirm I have the right to read this file in Tinct, and I'm responsible for it (Terms §4).";
 const SESSION_KEY = 'sb-yazjyiqsxjystvpkyouk-auth-token';
+// An EPUB opens in the Tinct reader: /reader?userBook=<the first 24 hex digits of its SHA-256>.
+const READER_URL = /\/reader\?userBook=[0-9a-f]{24}$/;
+// The Tinct reader, ready with its text on the page.
+async function tinctReader(p) {
+  await p.waitForURL(READER_URL, { timeout: 30000 });
+  await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length > 20, null, { timeout: 30000 });
+  await p.evaluate(() => document.fonts.ready);
+  await p.waitForTimeout(300);
+}
+// Drag across words on the page, as a reader does with a mouse: it highlights them and opens the popup.
+async function dragWords(p, from, to) {
+  const words = p.locator('.lab-page-wrap [data-testid="lab-word"]');
+  const a = await words.nth(from).boundingBox(), z = await words.nth(to).boundingBox();
+  await p.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await p.mouse.down();
+  await p.mouse.move(z.x + z.width / 2, z.y + z.height / 2, { steps: 12 }); await p.mouse.up();
+  await p.waitForSelector('.selection-popup', { timeout: 5000 });
+}
 
 async function ensureFixture(name, url) {
   const file = join(FIX, name);
@@ -78,6 +96,15 @@ const check = (name, ok, detail) => { results.push({ name, ok: !!ok, detail }); 
 
 async function page(browser, viewport, opts = {}) {
   const ctx = await browser.newContext({ viewport, deviceScaleFactor: 1, ...opts });
+  // The Tinct reader's auth client never reaches the real Supabase from a test. A lapsed
+  // sign-in renews there as it does on tinct.app (same account and token); nothing else answers.
+  await ctx.route(/^https:\/\/[a-z0-9]+\.supabase\.co\//, route => {
+    const req = route.request();
+    if (!/\/auth\/v1\/token\?grant_type=refresh_token/.test(req.url())) return route.abort();
+    const token = String(JSON.parse(req.postData() || '{}').refresh_token || '').replace(/^refresh-/, '');
+    const user = { 'test-token': 'u-test', 'cloud-token': 'u-cloud', 'other-token': 'u-other' }[token] || 'u-test';
+    return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ access_token: token, refresh_token: 'refresh-' + token, token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: user, aud: 'authenticated', email: 'reader@example.com' } }) });
+  });
   const p = await ctx.newPage();
   const problems = [];
   p.on('pageerror', e => problems.push('pageerror: ' + e.message));
@@ -93,8 +120,8 @@ async function openFile(p, file) {
   const chooser = p.waitForEvent('filechooser');
   await p.click('#abDrop');
   await (await chooser).setFiles(file);
-  await p.waitForSelector('#attestBox, .epub-sheet, .pdf-sheet, .pdf-status[role="alert"]', { timeout: 30000 });
-  const box = await p.$('#attestBox');
+  await Promise.race([p.waitForSelector('#attestBox, .epub-sheet, .pdf-sheet, .pdf-status[role="alert"]', { timeout: 30000 }), p.waitForURL(READER_URL, { timeout: 30000 })]);
+  const box = !READER_URL.test(p.url()) && await p.$('#attestBox');
   if (!box) return null;
   const shown = await p.evaluate(() => ({ text: document.querySelector('#attestBox').closest('label').textContent.trim(), disabled: document.getElementById('attestOk').disabled, button: document.getElementById('attestOk').textContent.trim(),
     overStart: !document.getElementById('start').hidden && document.getElementById('root').hidden && !document.getElementById('root').contains(document.getElementById('attestBox')) }));
@@ -104,7 +131,7 @@ async function openFile(p, file) {
 // A Tinct session as tinct.app stores it. `expired`: the account is known but its token
 // has lapsed, so the companion uses the guest route.
 async function signIn(p, { expired = false, token = 'test-token', user = 'u-test' } = {}) {
-  await p.evaluate(([key, expired, token, user]) => localStorage.setItem(key, JSON.stringify({ access_token: token, expires_at: Math.floor(Date.now() / 1000) + (expired ? -60 : 3600), user: { id: user, email: 'reader@example.com' } })), [SESSION_KEY, expired, token, user]);
+  await p.evaluate(([key, expired, token, user]) => localStorage.setItem(key, JSON.stringify({ access_token: token, refresh_token: 'refresh-' + token, token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + (expired ? -60 : 3600), user: { id: user, email: 'reader@example.com' } })), [SESSION_KEY, expired, token, user]);
   await p.reload();
   await p.waitForSelector('#doorOwn');
 }
@@ -186,59 +213,60 @@ try {
   check('first file asks for the rights confirmation, with the approved copy', rights?.text === RIGHTS && rights.button === 'Continue' && rights.overStart, rights);
   check('Continue stays disabled until the box is ticked', rights?.disabled === true);
   check('the confirmation is kept per account under tinct-addbook:', await p.evaluate(() => !!localStorage.getItem('tinct-addbook:rights:u-test')));
-  await p.waitForSelector('.epub-sheet', { timeout: 30000 });
-  const epubInfo = await p.evaluate(() => ({ title: document.getElementById('bookTitle').textContent, chapters: document.querySelectorAll('.epub-sheet').length, scripts: document.querySelectorAll('.epub-pg script, .epub-pg style, .epub-pg iframe').length, label: document.getElementById('pageLabel').textContent }));
-  check('EPUB opens with its chapters', epubInfo.chapters > 5 && /time machine/i.test(epubInfo.title), epubInfo);
-  check('EPUB content is sanitised', epubInfo.scripts === 0);
-  await p.click('#pageBtn');
-  await p.waitForSelector('.lab-contents-v2 [data-go]');
-  const tocCount = await p.locator('.lab-contents-v2 [data-go]').count();
-  check('EPUB contents list', tocCount > 5, tocCount);
-  await p.locator('.lab-contents-v2 [data-go]').nth(3).click();
-  await p.waitForTimeout(400);
-  await p.screenshot({ path: join(OUT, 'desktop-epub.png') });
+  // The EPUB opens in the Tinct reader, not in Add a book's own view.
+  await tinctReader(p);
+  const hex = p.url().match(/userBook=([0-9a-f]{24})/)[1];
+  const epubInfo = await p.evaluate(() => ({ title: document.querySelector('[data-testid="lab-header-book"]').textContent, chapter: document.querySelector('[data-testid="lab-header-chapter"]').textContent.trim(), words: document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length, oldView: document.querySelectorAll('.epub-sheet, .epub-pg').length, play: !!document.querySelector('[data-testid="lab-v2-play"]'), docTitle: document.title }));
+  check('EPUB opens in the Tinct reader at /reader?userBook=', /time machine/i.test(epubInfo.title) && epubInfo.words > 20 && epubInfo.oldView === 0 && /Time Machine · Tinct$/i.test(epubInfo.docTitle), epubInfo);
+  check('Tinct reader: narration is not offered for a user book', !epubInfo.play);
+  await p.screenshot({ path: join(OUT, 'desktop-tinct-epub.png') });
+  // Chapters from the book's contents, in the reader's own Contents.
+  await p.click('[data-testid="lab-header-chapter"]');
+  await p.waitForSelector('[data-testid^="lab-tree-chapter-"]');
+  const tocCount = await p.locator('[data-testid^="lab-tree-chapter-"]').count();
+  check('EPUB chapters in the Tinct contents', tocCount > 5, tocCount);
+  await p.screenshot({ path: join(OUT, 'desktop-tinct-epub-contents.png') });
+  await p.locator('[data-testid^="lab-tree-chapter-"]').nth(3).click();
+  await p.waitForFunction(() => document.querySelector('[data-testid="lab-root"]').dataset.chapter === '4', null, { timeout: 10000 });
+  await tinctReader(p);
+  const chapter4 = await p.textContent('[data-testid="lab-header-chapter"]');
+  check('a chapter opens from the contents', await p.evaluate(() => document.querySelector('[data-testid="lab-root"]').dataset.chapter) === '4', chapter4.trim());
 
-  // Select a sentence, Explain → companion (guest: no sign-in) → streamed answer in the dock.
-  const sel = await p.evaluate(() => {
-    const ps = [...document.querySelectorAll('.epub-pg p')].filter(x => x.textContent.length > 120 && x.getBoundingClientRect().top > 80 && x.getBoundingClientRect().bottom < innerHeight);
-    const el = ps[0]; const t = el.firstChild; const r = document.createRange(); r.setStart(t, 0); r.setEnd(t, Math.min(80, t.length));
-    getSelection().removeAllRanges(); getSelection().addRange(r); return r.toString();
-  });
-  await p.waitForSelector('.selection-popup [data-a="explain"]', { timeout: 5000 });
-  await p.click('.selection-popup [data-a="explain"]');
-  await p.waitForFunction(() => /MOCK ANSWER/.test(document.querySelector('.lab-ask-thread')?.textContent || ''), null, { timeout: 15000 });
-  const reqs = await (await fetch(`http://127.0.0.1:${PORT}/__requests`)).json();
-  const last = reqs.at(-1);
-  check('Explain goes to the guest companion with the passage', last.path === '/api/lab-chat' && last.body.companion.intent === 'ask' && JSON.stringify(last.body).replace(/\\n|\s+/g, ' ').includes(sel.replace(/\s+/g, ' ').trim().slice(0, 30)), { path: last.path, title: last.body.companion.context.bookTitle, chapter: last.body.companion.context.chapterLabel });
-  await p.screenshot({ path: join(OUT, 'desktop-epub-explain.png') });
-
-  // Highlight in an EPUB (CSS Custom Highlight API) and its colour row.
-  await p.evaluate(() => {
-    const el = [...document.querySelectorAll('.epub-pg p')].filter(x => x.textContent.length > 160)[12]; el.scrollIntoView({ block: 'center' });
-  });
+  // Explain → companion (the reader renewed the lapsed sign-in) with the passage and the chapter's text, never the book's id.
+  await dragWords(p, 4, 14);
+  await p.locator('.selection-popup .popup-menu-action', { hasText: 'Explain' }).click();
+  await p.waitForFunction(() => /MOCK ANSWER/.test(document.querySelector('.selection-popup')?.textContent || ''), null, { timeout: 15000 });
+  const last = await lastRequest();
+  const ctxSent = last.body.companion.context;
+  check('Explain goes to the companion with the passage and the chapter text, not the book id', last.path === '/api/chat' && last.auth === 'Bearer test-token' && last.body.companion.intent === 'explain' && last.body.companion.selection.split(/\s+/).length >= 10
+    && /time machine/i.test(ctxSent.bookTitle) && ctxSent.paragraphs.length > 3 && ctxSent.bookId === undefined && ctxSent.editionKey === undefined && !JSON.stringify(last.body).includes('userbook-'),
+    { path: last.path, intent: last.body.companion.intent, title: ctxSent.bookTitle, chapter: ctxSent.chapterLabel, bookId: ctxSent.bookId });
+  await p.screenshot({ path: join(OUT, 'desktop-tinct-epub-explain.png') });
+  await p.keyboard.press('Escape');
   await p.waitForTimeout(300);
-  await p.evaluate(() => {
-    const el = [...document.querySelectorAll('.epub-pg p')].filter(x => x.textContent.length > 160)[12];
-    const t = el.firstChild; const r = document.createRange(); r.setStart(t, 5); r.setEnd(t, Math.min(70, t.length));
-    getSelection().removeAllRanges(); getSelection().addRange(r);
-  });
-  await p.waitForSelector('.selection-popup [data-a="highlight"]', { timeout: 5000 });
-  await p.click('.selection-popup [data-a="highlight"]');
-  await p.waitForSelector('.byob-palette-pop [data-color="sky"]');
-  await p.click('.byob-palette-pop [data-color="sky"]');
-  const hl = await p.evaluate(() => ({ saved: Object.keys(localStorage).filter(k => k.startsWith('tinct-addbook:hl:')).map(k => JSON.parse(localStorage.getItem(k))).flat().map(h => ({ color: h.color, len: h.end - h.start })), drawn: window.CSS?.highlights?.has('tinct-hl-sky') }));
-  check('EPUB highlight saved and drawn in the chosen colour', hl.saved.some(h => h.color === 'sky' && h.len > 10) && hl.drawn, hl);
-  await p.mouse.click(5, 300);
-  await p.screenshot({ path: join(OUT, 'desktop-epub-highlight.png') });
 
-  // Back to the start page: the book is on "Your books".
-  await p.click('#superBtn'); await p.click('.lab-super-row[data-row="close"]');
+  // Highlight: saved in this browser under the user book, drawn on the page.
+  await dragWords(p, 20, 34);
+  await p.locator('.selection-popup .popup-menu-action', { hasText: /^Highlight$/ }).first().click();
+  await p.waitForFunction(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').length > 0, null, { timeout: 5000 }).catch(() => {});
+  const hl = await p.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').map(h => ({ bookId: h.bookId, chapter: h.chapterNumber, color: h.color, words: h.toWord - h.fromWord })));
+  await p.keyboard.press('Escape');
+  await p.waitForTimeout(300);
+  const drawn = await p.evaluate(() => document.querySelectorAll('.lab-page-wrap [class*="highlight"]').length);
+  check('Tinct reader: highlight saved on this device under the user book and drawn', hl.length === 1 && hl[0].bookId === 'userbook-' + hex && hl[0].chapter === 4 && drawn > 0, { hl, drawn });
+  await p.screenshot({ path: join(OUT, 'desktop-tinct-epub-highlight.png') });
+  const place = await p.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:place:' + h) || 'null'), hex);
+  check('Tinct reader: the place is kept on this device', place?.chapterNumber === 4, place);
+
+  // The back arrow returns to Add a book, with the book on "Your books".
+  await p.click('[data-testid="lab-library-back"]');
+  await p.waitForURL(/\/lab\/addbook\/$/, { timeout: 10000 });
   await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
-  check('book listed on this device', /time machine/i.test(await p.textContent('#abBooks')));
+  check('back arrow returns to Your books', /time machine/i.test(await p.textContent('#abBooks')) && await p.isVisible('#abShelf'), p.url());
   await p.screenshot({ path: join(OUT, 'desktop-shelf.png') });
   await p.click('.ab-book-open');
-  await p.waitForSelector('.epub-sheet');
-  check('reopens from this device', true);
+  await tinctReader(p);
+  check('reopens from Your books at the saved chapter', await p.evaluate(() => document.querySelector('[data-testid="lab-root"]').dataset.chapter) === '4');
   await p.goBack();
   await p.waitForSelector('#doorOwn:visible');
   check('browser Back returns to the start page', await p.isVisible('#doorOwn'));
@@ -406,11 +434,13 @@ try {
     await p.screenshot({ path: join(OUT, 'phone-start.png'), fullPage: true });
     await signIn(p);
     await openFile(p, epub);
-    await p.waitForSelector('.epub-sheet', { timeout: 30000 });
-    await p.waitForTimeout(400);
-    const overflow2 = await p.evaluate(() => document.querySelector('.pdf-scroll').scrollWidth > innerWidth + 1);
-    check('phone: EPUB has no sideways scroll', !overflow2);
-    await p.screenshot({ path: join(OUT, 'phone-epub.png') });
+    await tinctReader(p);
+    const overflow2 = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+    check('phone: EPUB opens in the Tinct reader with no sideways scroll', !overflow2 && await p.evaluate(() => document.querySelector('[data-testid="lab-root"]').dataset.labLayout === 'phone' || document.querySelector('.lab').classList.contains('is-phone')));
+    // Signed in: the account copy was sent before the page left for the reader.
+    const sent = (await bookState()).users['u-test'] || [];
+    check('signed in: the EPUB is saved privately to the account before it opens', sent.some(b => b.type === 'epub' && /time machine/i.test(b.title)), sent.map(b => ({ type: b.type, title: b.title })));
+    await p.screenshot({ path: join(OUT, 'phone-tinct-epub.png') });
     check('phone: no page errors or CSP violations', !problems.length, problems.slice(0, 6));
     await ctx.close();
   }

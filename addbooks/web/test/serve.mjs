@@ -8,6 +8,8 @@
 // for the Worker route: Bearer test-token / cloud-token / other-token are three accounts,
 // files are checked by their bytes (PDF, or ZIP with an EPUB mimetype) and capped at 50 MB.
 // Its state and a log of calls are at GET /__books.
+// The Tinct reader is served from the app build (app/dist, `npm run build` in app/) at
+// /reader, with its assets, so an EPUB opened here can be read in it (/reader?userBook=…).
 //   node addbooks/web/test/serve.mjs [port]
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, statSync } from 'node:fs';
@@ -18,11 +20,12 @@ import { fileURLToPath } from 'node:url';
 const REPO = join(fileURLToPath(import.meta.url), '../../../..');
 const DIST = join(REPO, 'addbooks/web/dist/lab-addbook');
 const FONTS = join(REPO, 'app/public/fonts');
+const APP = join(REPO, 'app/dist');
 // The shared internal-traffic flag (?internal=1) every tinct.app page loads.
 const INTERNAL = join(REPO, 'app/public/lab/internal-traffic.js');
 // Copied from app/src/worker/routes/seo.ts (SECURITY_HEADERS) so the tests run under the real policy.
 const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai; img-src 'self' data:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'";
-const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.gz': 'application/gzip', '.woff2': 'font/woff2', '.txt': 'text/plain' };
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.gz': 'application/gzip', '.woff2': 'font/woff2', '.woff': 'font/woff', '.txt': 'text/plain', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.ico': 'image/x-icon', '.webmanifest': 'application/manifest+json' };
 export const requests = [];
 
 const BOOK_USERS = { 'Bearer test-token': 'u-test', 'Bearer cloud-token': 'u-cloud', 'Bearer other-token': 'u-other' };
@@ -97,8 +100,9 @@ export function start(port = 4720) {
         const auth = req.headers.authorization || null;
         requests.push({ path: url.pathname, auth, body: json });
         if (url.pathname === '/api/chat' && auth === 'Bearer expired-token') { res.writeHead(401, { 'Content-Type': 'application/json' }); res.end('{"error":"Unauthorized"}'); return }
-        if (!json?.companion?.context?.paragraphs || !json?.messages?.length) { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"error":"Invalid request"}'); return }
-        const last = json.messages.at(-1).content;
+        const selection = ['explain', 'define'].includes(json?.companion?.intent) ? json.companion.selection : null;
+        if (!json?.companion?.context?.paragraphs || (!json?.messages?.length && !selection)) { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"error":"Invalid request"}'); return }
+        const last = selection ? `${json.companion.intent}: ${selection}` : json.messages.at(-1).content;
         const blocks = Array.isArray(last) ? last : null;
         const images = blocks ? blocks.filter(b => b?.type === 'image') : [];
         if (blocks && url.pathname === '/api/lab-chat' && images.length) { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"error":"images_unavailable"}'); return }
@@ -119,8 +123,10 @@ export function start(port = 4720) {
     else if (url.pathname === '/lab/addbook') { res.writeHead(301, { Location: '/lab/addbook/' }); res.end(); return }
     else if (url.pathname.startsWith('/fonts/')) file = join(FONTS, normalize(decodeURIComponent(url.pathname.slice(7))));
     else if (url.pathname === '/lab/internal-traffic.js') file = INTERNAL;
+    else if (url.pathname === '/reader') file = join(APP, 'app.html');
+    else if (!url.pathname.startsWith('/api/')) file = join(APP, normalize(decodeURIComponent(url.pathname)));
     if (file && existsSync(file) && statSync(file).isDirectory()) file = join(file, 'index.html');
-    if (!file || !existsSync(file) || (!file.startsWith(DIST) && !file.startsWith(FONTS) && file !== INTERNAL)) { res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not found'); return }
+    if (!file || !existsSync(file) || (!file.startsWith(DIST) && !file.startsWith(FONTS) && !file.startsWith(APP + '/') && file !== INTERNAL)) { res.writeHead(404, { 'Content-Type': url.pathname.startsWith('/api/') ? 'application/json' : 'text/plain' }); res.end(url.pathname.startsWith('/api/') ? '{"error":"Not found"}' : 'Not found'); return }
     res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream', 'Content-Security-Policy': CSP, 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store' });
     res.end(readFileSync(file));
   });

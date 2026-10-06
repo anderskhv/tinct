@@ -27,7 +27,7 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 60 browser checks under production CSP, chat and user-books APIs mocked
+node addbooks/web/test/e2e.mjs           # 63 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
@@ -67,6 +67,34 @@ How it fits the app:
   `USER_BOOKS`), so "Your books" lists it on the reader's other devices; opening it
   there downloads it and keeps it in IndexedDB. Removing a book deletes both copies.
   Sign-out leaves the account copies. See below.
+- **EPUBs read in the Tinct reader:** an EPUB opened here (or from Your books) goes to
+  `/reader?userBook=<first 24 hex digits of its SHA-256>` once its account copy is sent
+  (waited for up to 10 s; a slower upload finishes on the next open). PDFs keep this
+  page's view. See "EPUBs in the Tinct reader" below.
+
+### EPUBs in the Tinct reader
+
+Code: `app/src/lab/userBook/` (tests beside it), `node addbooks/web/test/e2e.mjs` (needs
+the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader`).
+
+- **Conversion** (`epubEdition.ts`, in the browser): spine order; chapters cut at the
+  table of contents (EPUB 3 nav, else NCX; a short front matter joins the first chapter),
+  else one per document; text only, as paragraphs; italics as the editions' `_…_`
+  emphasis. Pictures, styles, scripts, footnote markers and tables' layout are dropped.
+  DRM is refused here before leaving the page (`TinctEpub.metadata`). The conversion is
+  kept on the book's IndexedDB record (`edition`), redone when `USER_EDITION_CONVERTER` changes.
+- **Reader:** `loadLabBookSource` reads `userbook-<hex>` ids from that conversion; no
+  fetch. Hidden for user books: narration, Talk, Cast, Compare, editions, Catch me up,
+  primers, book switcher, sharing, library progress. Summarize asks the companion to recap
+  the chapter on screen. The back arrow (phone: menu → Your books) goes to `/lab/addbook/#books`.
+- **Stays on this device** (not synced, cleared by sign-out): the place
+  (`tinct-addbook:place:<hex>`), highlights and notes (`tinct-lab-highlights`, the cloud
+  writer skips `userbook-` books), chat (`tinct:chat-history:userbook-<hex>`, same).
+  Not recorded: position record, reading memory, reading year, library snapshot. No
+  analytics event is sent while a user book is open, nor any naming one.
+- **Companion:** Ask, Explain, Define and Summarize send the chapter's text as context
+  with the title and author, never the book's id or edition, so the Worker answers from
+  the text (no book lookups, no book id in the usage ledger), with its usual auth and limits.
 
 ### Your books in your account (release 2)
 
