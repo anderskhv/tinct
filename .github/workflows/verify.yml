@@ -103,6 +103,9 @@ jobs:
       - name: Verify hyphenation hardening
         if: ${{ !cancelled() }}
         run: node scripts/check-hyphenation-hardening.mjs
+      - name: Verify page breaks end on a filled line
+        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        run: node scripts/check-page-break-lines.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -111,6 +114,7 @@ jobs:
             app/artifacts/shakespeare-layout
             app/artifacts/library-public
             app/artifacts/hyphenation-hardening
+            app/artifacts/page-break-lines
 
   reading-benchmark:
     runs-on: ubuntu-latest
