@@ -7,6 +7,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
 import { paragraphKeepsWithNext } from './labParagraphStyle'
+import { planHyphenation } from './labHyphenPlan'
 import { LAB_CONTINUED_TAIL_MAX_GAP_EM, labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
@@ -296,6 +297,17 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           const page = host.querySelector<HTMLElement>('.lab-desktop-measure-page')!
           const header = host.querySelector<HTMLElement>('.lab-passage-header')!
           const rows = host.querySelector<HTMLElement>('.lab-desktop-measure-rows')!
+          // Single-edition leaves are hyphenated where a line needs it (labHyphenPlan);
+          // a paired Compare row keeps the browser's own hyphenation.
+          const plans = !comparison
+          const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
+          if (plans) {
+            const row = document.createElement('div')
+            row.className = 'lab-desktop-measure-row'
+            rows.replaceChildren(row)
+            planHyphenation(row, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
+            rows.replaceChildren()
+          }
           const makeParagraph = (segment: ChapterPageSegment, words: ReturnType<typeof tokenizeHearingWords>[], texts: string[]) => {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
@@ -309,6 +321,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               p,
               segmentWordTexts(words[segment.paragraphIndex] || [], segment),
               { text: texts[segment.paragraphIndex], from: segment.from },
+              { plans: plans && texts === paragraphs },
             )
           }
           const end = page.querySelector<HTMLElement>('.lab-chapter-end')
@@ -358,7 +371,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               const p = makeParagraph(segments[run[0]], source, paragraphs)
               for (const index of run.slice(1)) {
                 const segment = segments[index]
-                labMeasureJoinInto(p, segmentWordTexts(source[segment.paragraphIndex] || [], segment), { text: paragraphs[segment.paragraphIndex], from: segment.from })
+                labMeasureJoinInto(p, segmentWordTexts(source[segment.paragraphIndex] || [], segment), { text: paragraphs[segment.paragraphIndex], from: segment.from }, { plans })
               }
               row.append(p)
               rows.append(row)
@@ -366,7 +379,6 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const bottom = withEnd && end ? end.getBoundingClientRect().bottom : rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
           }
-          const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
           let pages = measuredDesktopPages(
             source.map(words => words.length),
             fits,

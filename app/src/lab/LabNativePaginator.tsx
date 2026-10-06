@@ -24,6 +24,7 @@ import {
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { planHyphenation } from './labHyphenPlan'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
@@ -439,8 +440,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               const segment = segments[index]
               const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
               const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
-              if (position === 0) labMeasureParagraphInto(p, words, lineation)
-              else labMeasureJoinInto(p, words, lineation)
+              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true })
+              else labMeasureJoinInto(p, words, lineation, { plans: true })
               if (index === segments.length - 1) tailBlock = position === 0 ? p : p.lastElementChild
             })
             stage.append(p)
@@ -466,6 +467,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
+        // Hyphens where a line needs one, chosen in this column (labHyphenPlan).
+        planHyphenation(stage, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
         const lengths = sourceWords.map(words => words.length)
         const fitEnd = chapterActions
           ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords))
