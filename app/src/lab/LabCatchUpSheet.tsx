@@ -26,6 +26,8 @@ export interface LabCatchUpSheetProps {
   paragraphIndex: number
   /** The reader finished the current chapter (the "so far" entry then covers all of it). */
   completed: boolean
+  /** The current chapter's paragraphs in `editionKey`; with them, a "so far" entry is only asked for once there is narrative to summarise. */
+  paragraphs?: readonly string[]
   /** Bible only, read once at open: chapters the reader has a record of reading; earlier biblical books without one are left out. */
   readChapters?: () => ReadonlySet<number> | null
   readToken?: () => Promise<string | null>
@@ -42,12 +44,13 @@ interface EntryState { state: CatchUpLoadState; summary?: string }
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, readChapters, readToken, onClose, onDiscuss } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, readChapters, readToken, onClose, onDiscuss } = props
   // The place is captured once, when the sheet opens.
   const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
     bookId, editionKey, bookTitle,
     units: catchUpUnits({ title: bookTitle || bookId, chapters, sections, bible: bookId === 'bible' }),
     chapters, chapterNumber, paragraphIndex, completed,
+    currentParagraphs: paragraphs ?? null,
     readChapters: bookId === 'bible' ? readChapters?.() ?? null : null,
   }))
   const keys = useMemo(() => entries.map(entry => entry.key), [entries])
@@ -109,7 +112,10 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
       inflight.current.delete(entry.key)
       if (!mounted.current) return
       if (!result.ok && catchUpShouldCoolDown(result.status)) setCoolUntil(Date.now() + CATCH_UP_COOLDOWN_MS)
-      setStates(prev => ({ ...prev, [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : { state: 'error' } }))
+      setStates(prev => ({
+        ...prev,
+        [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : result.empty ? { state: 'empty' } : { state: 'error' },
+      }))
     })()
   }, [readToken])
 
@@ -140,6 +146,8 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
           <ol className="lab-catch-up-timeline">
             {entries.map(entry => {
               const status = states[entry.key]
+              // Nothing to summarise there: no entry, never the model's words about it.
+              if (status?.state === 'empty') return null
               return (
                 <li key={entry.key} className={`lab-catch-up-entry is-${entry.kind}`} data-key={entry.key}
                   data-state={status?.state ?? 'idle'} data-testid="lab-catch-up-entry">

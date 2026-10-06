@@ -14,7 +14,7 @@
  * rule — both conditions, five minutes away and the return straight out of the
  * book's own reader — and the hero asks it before it asks the network.
  */
-import { LAB_RECAP_ROUTE, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
+import { LAB_RECAP_ROUTE, isUsableRecapSummary, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 /**
@@ -159,7 +159,8 @@ type FetchLike = (input: string, init: RequestInit) => Promise<{ ok: boolean; st
 
 export type RecapSummaryResult =
   | { ok: true; response: LabRecapResponse }
-  | { ok: false; error: string }
+  /** `empty`: the Worker found nothing to summarise yet (only a heading or an address read). */
+  | { ok: false; error: string; empty?: boolean }
 
 function readStore(storage: RecapSummaryStorage | null): StoredRecapSummaries {
   try {
@@ -175,12 +176,13 @@ function readStore(storage: RecapSummaryStorage | null): StoredRecapSummaries {
 
 export function readStoredRecapSummary(storage: RecapSummaryStorage | null, key: string): string | null {
   const entry = readStore(storage).entries[key]
-  return entry && typeof entry.summary === 'string' && entry.summary.trim() ? entry.summary : null
+  // A stored line that is not a summary (an older model reply asking for more text) is ignored, so a fresh one replaces it.
+  return entry && isUsableRecapSummary(entry.summary) ? entry.summary : null
 }
 
-/** Remember a summary under its cache key; the oldest entries beyond the cap are dropped. */
+/** Remember a summary under its cache key; the oldest entries beyond the cap are dropped. Non-summaries are never stored. */
 export function storeRecapSummary(storage: RecapSummaryStorage | null, key: string, summary: string, now: number): void {
-  if (!storage) return
+  if (!storage || !isUsableRecapSummary(summary)) return
   const store = readStore(storage)
   store.entries[key] = { summary, at: now }
   const kept = Object.entries(store.entries)
@@ -216,6 +218,7 @@ export async function requestLabRecapSummary(input: {
     if (!response.ok) return { ok: false, error: `recap route returned ${response.status}` }
     const data = await response.json() as Partial<LabRecapResponse> | null
     const summary = typeof data?.summary === 'string' ? data.summary.trim() : ''
+    if (data?.empty === true || (summary && !isUsableRecapSummary(summary))) return { ok: false, error: 'nothing to summarise yet', empty: true }
     if (!summary || !data?.coverage) return { ok: false, error: 'recap route returned no summary' }
     return { ok: true, response: { ...data, summary } as LabRecapResponse }
   } catch (error) {

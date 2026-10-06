@@ -4650,6 +4650,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           chapters={book.chapters} sections={book.sections}
           chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
           completed={finishedChapters.has(book.chapterNumber)}
+          paragraphs={readerParagraphs}
           readChapters={() => new Set(labChapterStatuses({
             bookId: book.bookId || 'bible', chapterNumbers: book.chapters.map(chapter => chapter.number), finished: finishedChapters,
             memory: readDeviceReadingMemory(), position: readPositionState(), viewer: authUser?.id ?? null, conversations: readLabBookChat(book.bookId || 'bible'),

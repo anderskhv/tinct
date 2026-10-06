@@ -143,6 +143,24 @@ describe('catchUpPlan', () => {
     expect(plan.map(entry => entry.title)).not.toContain('Genesis')
   })
 
+  it('leaves out the "so far" entry until the reader has read narrative in the current chapter (Frankenstein, Letter 4)', () => {
+    const letters: CatchUpChapter[] = [1, 2, 3, 4].map(n => ({ number: n, title: `Letter ${n}` }))
+    const units = catchUpUnits({ title: 'Frankenstein', chapters: letters, bible: false })
+    const sentence = 'So strange an accident has happened to us that I cannot forbear recording it, although it is very probable that you will see me before these papers can come into your possession.'
+    const letter4 = ['_To Mrs. Saville, England._', 'August 5th, 17—.', ...Array.from({ length: 37 }, () => sentence)]
+    const plan = (paragraphIndex: number, currentParagraphs?: string[]) => catchUpPlan({
+      bookId: 'frankenstein', editionKey: 'original-en', bookTitle: 'Frankenstein', units, chapters: letters, chapterNumber: 4, paragraphIndex, completed: false, currentParagraphs,
+    })
+    // Only the heading lines read: the timeline ends with the earlier letters, then "You are here".
+    for (const at of [0, 1, 2, 4]) {
+      expect(plan(at, letter4).map(entry => entry.title)).toEqual(['Letter 1', 'Letter 2', 'Letter 3'])
+      expect(plan(at, letter4).every(entry => entry.kind === 'unit')).toBe(true)
+    }
+    expect(plan(5, letter4).at(-1)).toMatchObject({ kind: 'current', title: 'Letter 4', request: { chapterNumber: 4, paragraphIndex: 5, brief: true } })
+    // Text not loaded: the entry stays and the Worker decides.
+    expect(plan(1).at(-1)).toMatchObject({ kind: 'current', title: 'Letter 4' })
+  })
+
   it('an unknown chapter yields an empty plan', () => {
     expect(catchUpPlan({ bookId: 'p', editionKey: 'e', units: [], chapters: plain, chapterNumber: 999, paragraphIndex: 0, completed: false })).toEqual([])
   })

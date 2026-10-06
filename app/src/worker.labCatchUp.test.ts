@@ -275,6 +275,50 @@ describe('POST /api/lab-catch-up', () => {
     expect(cache.entries.size).toBe(0)
   })
 
+  describe('structured entry: nothing to summarise is an empty entry, never a request for more text', () => {
+    const complaint = 'I need to see the actual content of Part 1 to write an accurate summary. Could you provide the full text of the passage?'
+    const toolAnswer = (input: Record<string, unknown>) => vi.fn(async () => Response.json({
+      model: RECAP_FAST_MODEL, stop_reason: 'tool_use', content: [{ type: 'tool_use', id: 'toolu_1', name: 'write_entry', input }], usage: { input_tokens: 300, output_tokens: 20 },
+    }))
+
+    it('forces the write_entry tool and reads its summary field', async () => {
+      const { ctx } = makeContext()
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+      const fetchAnthropic = toolAnswer({ nothing_to_summarise: false, summary: 'Anna arrives in the snow.' })
+      const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Anna arrives in the snow.', source: 'model' })
+      const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+      expect(payload.tool_choice).toEqual({ type: 'tool', name: 'write_entry' })
+      expect(String(payload.system)).toMatch(/nothing_to_summarise to true/)
+    })
+
+    it('answers 200 with an empty entry and caches nothing, whether the model sets the field or writes a complaint', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+      for (const fetchAnthropic of [toolAnswer({ nothing_to_summarise: true, summary: '' }), toolAnswer({ nothing_to_summarise: false, summary: complaint }), anthropicOk(complaint)]) {
+        const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+        expect(response.status).toBe(200)
+        expect(await response.json()).toMatchObject({ summary: '', empty: true, unitId: 'part-part-1' })
+      }
+      await Promise.all(pending)
+      expect(cache.entries.size).toBe(0)
+    })
+
+    it('skips a cached or pre-written complaint and replaces the cached one', async () => {
+      const { ctx, pending } = makeContext()
+      const cache = fakeCache()
+      const key = `https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/part-part-1/end`
+      cache.entries.set(key, JSON.stringify({ summary: complaint }))
+      const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets({ staticFile: { version: 1, units: { 'part-part-1': { summary: complaint } } } }) }
+      const fetchAnthropic = toolAnswer({ nothing_to_summarise: false, summary: 'Anna arrives in the snow.' })
+      const response = await handleLabCatchUp(catchUpRequest(partOne), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+      expect(await response.json()).toMatchObject({ summary: 'Anna arrives in the snow.', source: 'model' })
+      await Promise.all(pending)
+      expect(JSON.parse(cache.entries.get(key)!)).toEqual({ summary: 'Anna arrives in the snow.' })
+    })
+  })
+
   it('never reaches api.anthropic.com from tests: the default transport is only used when no fake is injected', async () => {
     const globalFetch = vi.fn(async () => Response.json({ stop_reason: 'end_turn', content: [{ type: 'text', text: 'via global fetch' }] }))
     vi.stubGlobal('fetch', globalFetch)

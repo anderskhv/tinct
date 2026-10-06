@@ -84,6 +84,35 @@ describe('LabCatchUpSheet', () => {
     expect(calls.find(call => call.url === LAB_RECAP_ROUTE)?.body).toEqual({ bookId: 'plain', editionKey, bookTitle: 'Plain', chapterNumber: 3, paragraphIndex: 4, completed: false, brief: true })
   })
 
+  it('does not ask for the chapter in progress when only its heading lines are read', async () => {
+    const calls = stubFetch(okBodies)
+    const letter = ['_To Mrs. Saville, England._', 'August 5th, 17—.', ...Array.from({ length: 37 }, () => 'So strange an accident has happened to us that I cannot forbear recording it, although it is very probable that you will see me before these papers can come into your possession.')]
+    renderSheet({ chapterNumber: 4, paragraphIndex: 1, paragraphs: letter })
+    expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)).toEqual(['Chapter 1', 'Chapter 2', 'Chapter 3'])
+    const timeline = screen.getByTestId('lab-catch-up-body').querySelector('ol')!
+    expect(timeline.lastElementChild?.textContent).toBe('You are here')
+    await waitFor(() => expect(calls).toHaveLength(3), slow)
+    expect(calls.some(call => call.url === LAB_RECAP_ROUTE)).toBe(false)
+  })
+
+  it('an empty answer or a reply asking for more text is never shown: the entry is left out, with no Retry', async () => {
+    const complaint = 'I need to see the actual content of Chapter 2 to write an accurate summary. Could you provide the full text of the passage where the reader stopped?'
+    const calls = stubFetch(call => call.body.unitId === 'ch-1' ? { status: 200, body: { summary: '', empty: true } }
+      : call.body.unitId === 'ch-2' ? { status: 200, body: { summary: complaint } }
+        : call.url === LAB_RECAP_ROUTE ? { status: 200, body: { summary: '', empty: true, coverage: { chapterNumber: 4 } } }
+          : okBodies(call))
+    renderSheet({ chapterNumber: 4 })
+    await waitFor(() => expect(screen.getByText('Recap of ch-3.')).toBeTruthy(), slow)
+    await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)).toEqual(['Chapter 3']), slow)
+    expect(screen.queryByText(/I need to see/)).toBeNull()
+    expect(screen.queryByTestId('lab-catch-up-retry')).toBeNull()
+    expect(calls.some(call => call.url === LAB_RECAP_ROUTE)).toBe(true)
+    // Nothing was remembered for a reopen: the empty entries are asked again, never shown from memory.
+    cleanup()
+    renderSheet({ chapterNumber: 4 })
+    expect(screen.queryByText(/I need to see/)).toBeNull()
+  })
+
   it('a failed entry shows a quiet retry, and the rest of the timeline still loads', async () => {
     let fail = true
     stubFetch(call => call.body.unitId === 'ch-2' && fail ? { status: 502, body: { error: 'x' } } : okBodies(call))

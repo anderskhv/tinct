@@ -77,6 +77,28 @@ describe('requestLabRecapSummary', () => {
     const throwing = vi.fn(async () => { throw new Error('offline') })
     expect(await requestLabRecapSummary({ request, fetchImpl: throwing })).toEqual({ ok: false, error: 'offline' })
   })
+
+  it('reports an empty entry, or a reply asking for more text, as nothing to summarise', async () => {
+    const coverage = { chapterNumber: 4, throughParagraph: 0, paragraphCount: 39, complete: false, fromChapterNumber: null }
+    const empty = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ summary: '', empty: true, coverage }) }))
+    expect(await requestLabRecapSummary({ request, fetchImpl: empty })).toEqual({ ok: false, error: 'nothing to summarise yet', empty: true })
+    const asking = vi.fn(async () => ({ ok: true, status: 200, json: async () => ({ summary: COMPLAINT, coverage }) }))
+    expect(await requestLabRecapSummary({ request, fetchImpl: asking })).toMatchObject({ ok: false, empty: true })
+  })
+})
+
+const COMPLAINT = 'I need to see the actual content of Letter 4 to write an accurate summary. The passage provided only shows the heading "Letter 4" and the salutation "To Mrs. Saville, England." but contains no narrative or content beyond that. Could you provide the full text of the passage where the reader stopped?'
+
+describe('a stored reply that is not a summary', () => {
+  it('is never written, and one already on the device is ignored so a fresh summary replaces it', () => {
+    const storage = memoryStorage()
+    storeRecapSummary(storage, 'k1', COMPLAINT, 1000)
+    expect(storage.dump()[RECAP_SUMMARY_STORAGE_KEY]).toBeUndefined()
+    storage.setItem(RECAP_SUMMARY_STORAGE_KEY, JSON.stringify({ v: 1, entries: { k1: { summary: COMPLAINT, at: 1000 } } }))
+    expect(readStoredRecapSummary(storage, 'k1')).toBeNull()
+    storeRecapSummary(storage, 'k1', 'Walton records a strange accident in the ice.', 2000)
+    expect(readStoredRecapSummary(storage, 'k1')).toBe('Walton records a strange accident in the ice.')
+  })
 })
 
 describe('away threshold before a summary is generated', () => {

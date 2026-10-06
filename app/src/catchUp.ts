@@ -19,11 +19,11 @@
  * requested.
  */
 import type { Section } from './types'
-import type { LabRecapRequest } from './recapSummary'
+import { briefRecapHasEnoughText, type LabRecapRequest } from './recapSummary'
 import { contentsBooks } from './lab/labContents'
 
 export const CATCH_UP_ROUTE = '/api/lab-catch-up'
-export const CATCH_UP_PROMPT_VERSION = 'catch-up-v2'
+export const CATCH_UP_PROMPT_VERSION = 'catch-up-v3'
 export const CATCH_UP_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 /** Unit ids are slugs: `book-2-kings`, `part-book-two-1805`, `ch-12`. */
 export const CATCH_UP_UNIT_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,95}$/
@@ -62,6 +62,8 @@ export interface CatchUpResponse {
   complete: boolean
   version: string
   source: 'static' | 'cache' | 'model'
+  /** The model found nothing to summarise: `summary` is empty, the entry is not shown and nothing is cached. */
+  empty?: boolean
 }
 
 function slug(value: string): string {
@@ -151,6 +153,13 @@ export function catchUpPlan(input: {
   paragraphIndex: number
   completed: boolean
   readChapters?: ReadonlySet<number> | null
+  /**
+   * The current chapter's paragraphs, when loaded. With them, the "so far"
+   * entry is left out until the reader has read enough narrative to summarise
+   * (`briefRecapHasEnoughText`): a heading, an address and a date are not a
+   * chapter's events. Without them the entry is kept and the Worker decides.
+   */
+  currentParagraphs?: readonly string[] | null
 }): CatchUpEntry[] {
   const order = new Map(input.chapters.map((chapter, index) => [chapter.number, index]))
   const here = order.get(input.chapterNumber)
@@ -174,6 +183,9 @@ export function catchUpPlan(input: {
     })
   }
   const current = input.chapters[here]
+  if (input.currentParagraphs?.length && !briefRecapHasEnoughText({
+    paragraphs: input.currentParagraphs, paragraphIndex: input.paragraphIndex, completed: input.completed,
+  })) return entries
   entries.push({
     key: `here:${input.chapterNumber}:${input.paragraphIndex}`,
     kind: 'current',

@@ -34,6 +34,8 @@ import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetriev
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { jsonResponse } from '../lib/responses'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
+import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
+import { isUsableRecapSummary } from '../../recapSummary'
 import type { RecapCache } from './labRecap'
 
 export type LabCatchUpEnv = LedgerEnv & {
@@ -55,7 +57,8 @@ export interface LabCatchUpDeps {
   resolveUser?: (request: Request) => Promise<string | null>
 }
 
-export const CATCH_UP_MAX_TOKENS = 120
+/** 40 words plus the structured entry call's own few tokens. */
+export const CATCH_UP_MAX_TOKENS = 160
 /** About 8K tokens of source per entry; long units are sampled evenly across their chapters. */
 export const CATCH_UP_MAX_PASSAGE_CHARS = 32_000
 /** Every request, cached or not: a long timeline is many cheap lookups. */
@@ -73,6 +76,7 @@ export const CATCH_UP_SYSTEM_PROMPT = [
   'A long passage is sampled: parts of each chapter are left out. Cover the whole span evenly, not only its opening.',
   'For non-narrative text (proverbs, letters, essays, laws, poems) state the main points instead of events.',
   'No praise, no interpretation, no advice, no preamble, no headings, no bullet points, and no quotation marks around the answer.',
+  RECAP_ENTRY_INSTRUCTION,
 ].join('\n')
 
 function labGuestIp(request: Request): string {
@@ -150,16 +154,10 @@ function defaultCache(): RecapCache | null {
 }
 
 type AnthropicMessage = {
-  content?: Array<{ type?: string; text?: string }>
+  content?: Array<{ type?: string; text?: string; name?: string; input?: unknown }>
   stop_reason?: string
   model?: string
   usage?: { input_tokens?: number; output_tokens?: number }
-}
-
-function textOf(message: AnthropicMessage): string {
-  return Array.isArray(message.content)
-    ? message.content.filter(block => block?.type === 'text' && typeof block.text === 'string').map(block => block.text!.trim()).filter(Boolean).join('\n').trim()
-    : ''
 }
 
 /**
@@ -173,7 +171,7 @@ async function staticSummary(assets: AssetsBinding, origin: string, parsed: Pars
     if (!response.ok) return null
     const data = await response.json() as { units?: Record<string, { summary?: unknown }> } | null
     const summary = data?.units?.[catchUpStaticKey(parsed)]?.summary
-    return typeof summary === 'string' && summary.trim() ? summary.trim() : null
+    return isUsableRecapSummary(summary) ? summary.trim() : null
   } catch {
     return null
   }
@@ -220,8 +218,9 @@ export async function handleLabCatchUp(
   if (!coverage) return jsonResponse({ error: 'Chapter not in unit' }, 400, request)
   // A through chapter that ends the unit is the whole unit: one entry, one cache key.
   const throughChapter = coverage.complete ? null : parsed.throughChapter
-  const respond = (summary: string, source: CatchUpResponse['source']) => jsonResponse({
+  const respond = (summary: string, source: CatchUpResponse['source'], empty = false) => jsonResponse({
     summary, unitId: unit.id, title: unit.title, chapters: coverage.chapters, complete: coverage.complete, version: CATCH_UP_PROMPT_VERSION, source,
+    ...(empty ? { empty: true } : {}),
   } satisfies CatchUpResponse, 200, request)
 
   const prewritten = await staticSummary(env.ASSETS, origin, { ...parsed, throughChapter })
@@ -234,7 +233,8 @@ export async function handleLabCatchUp(
       const hit = await cache.match(cacheKey)
       if (hit) {
         const stored = await hit.json() as { summary?: unknown }
-        if (typeof stored.summary === 'string' && stored.summary) return respond(stored.summary, 'cache')
+        // An entry that is not a summary is skipped and replaced below.
+        if (isUsableRecapSummary(stored?.summary)) return respond(stored.summary, 'cache')
       }
     } catch { /* a cache failure is never a user-facing failure */ }
   }
@@ -262,6 +262,7 @@ export async function handleLabCatchUp(
       max_tokens: CATCH_UP_MAX_TOKENS,
       system: CATCH_UP_SYSTEM_PROMPT,
       messages: [{ role: 'user', content }],
+      ...RECAP_ENTRY_TOOL_PAYLOAD,
     }, apiKey)
     if (!response.ok) {
       if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)
@@ -269,14 +270,17 @@ export async function handleLabCatchUp(
     }
     const message = await response.json() as AnthropicMessage
     meter.anthropic(message.usage)
-    const summary = message.stop_reason === 'refusal' ? '' : textOf(message)
-    if (!summary) return jsonResponse({ error: 'Summary unavailable' }, 502, request)
+    const entry = readRecapEntry(message)
+    if (entry.kind === 'none') return jsonResponse({ error: 'Summary unavailable' }, 502, request)
     console.log(JSON.stringify({
       event: 'lab_catch_up_usage',
       route: CATCH_UP_ROUTE,
       input_tokens: message.usage?.input_tokens ?? 0,
       output_tokens: message.usage?.output_tokens ?? 0,
     }))
+    // Nothing to summarise: no entry, and nothing cached that could keep reappearing.
+    if (entry.kind === 'empty') return respond('', 'model', true)
+    const summary = entry.summary
     if (cache) {
       const stored = new Response(JSON.stringify({ summary }), {
         headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${CATCH_UP_CACHE_TTL_SECONDS}` },
