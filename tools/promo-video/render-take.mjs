@@ -20,12 +20,12 @@ const FPS = Number(arg('--fps', preview ? 30 : 60));
 const SS = Number(arg('--ss', preview ? 1 : 1.5));
 const WORKERS = Number(arg('--workers', 2));
 const take = JSON.parse(fs.readFileSync(path.join(ROOT, arg('--take', 'take.json')), 'utf8'));
-const DIR = path.join(OUT, 'take');
+const DIR = path.join(OUT, take.dir || 'take'); // working folder for this take's source + frames
 const out = path.resolve(arg('--out', path.join(OUT, preview ? 'tinct-take-preview.mp4' : `tinct-take-${W}x${H}.mp4`)));
 
 // ---- source frames (60 fps, constant rate) ----
 const video = arg('--video', take.video && path.resolve(ROOT, take.video));
-const SRC = path.join(DIR, 'source.mov');
+const SRC = path.join(DIR, fs.existsSync(path.join(DIR, 'source.mp4')) ? 'source.mp4' : 'source.mov');
 fs.mkdirSync(path.join(DIR, 'frames'), { recursive: true });
 if (video && path.resolve(video) !== SRC) fs.copyFileSync(video, SRC);
 if (!fs.readdirSync(path.join(DIR, 'frames')).length) {
@@ -36,7 +36,7 @@ if (!fs.readdirSync(path.join(DIR, 'frames')).length) {
 }
 const srcCount = fs.readdirSync(path.join(DIR, 'frames')).filter((f) => f.endsWith('.jpg')).length;
 const srcDur = srcCount / 60;
-const srcFrame = (s) => `/out/take/frames/f${String(Math.min(srcCount, Math.max(1, Math.round(s * 60) + 1))).padStart(5, '0')}.jpg`;
+const srcFrame = (s) => `/out/${take.dir || 'take'}/frames/f${String(Math.min(srcCount, Math.max(1, Math.round(s * 60) + 1))).padStart(5, '0')}.jpg`;
 
 // ---- timeline ----
 const total = srcDur + take.endHold;
@@ -118,11 +118,13 @@ const segs = (await Promise.all(Array.from({ length: WORKERS }, (_, w) => worker
 await browser.close();
 server.close();
 
-// Join the segments and lay the recording's own audio (narration) underneath.
+// Join the segments and, unless disabled, lay the recording's own audio underneath.
 const list = path.join(tmp, 'list.txt');
 fs.writeFileSync(list, segs.map((s) => `file '${s}'`).join('\n'));
-const r = spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, '-i', SRC,
-  '-map', '0:v', '-map', '1:a?', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-af', `apad,afade=t=out:st=${(total - 1.5).toFixed(2)}:d=1.5`,
-  '-t', total.toFixed(3), '-movflags', '+faststart', out], { stdio: 'inherit' });
+// "audio": false in the take leaves the soundtrack out.
+const audio = take.audio === false ? ['-an'] : ['-i', SRC, '-map', '0:v', '-map', '1:a?', '-c:a', 'aac', '-b:a', '160k',
+  '-af', `apad,afade=t=out:st=${(total - 1.5).toFixed(2)}:d=1.5`];
+const r = spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, ...audio,
+  '-c:v', 'copy', '-t', total.toFixed(3), '-movflags', '+faststart', out], { stdio: 'inherit' });
 if (r.status) process.exit(r.status);
 console.log(`\nWrote ${out}`);

@@ -48,7 +48,7 @@
 <body>
 <div id="wrap"></div>
 <div id="vignette"></div>
-<div id="grain"></div>
+
 <div id="caption"><span></span></div>
 <div class="card" id="endcard">
   <div class="mark">Tinct</div>
@@ -206,9 +206,9 @@ function loadImage(src) {
 }
 const STATUS_H = 162, HOME_H = 0; // px at 3x. App frame fills below the status bar.
 function luminance(r, g, b) { return 0.2126 * r + 0.7152 * g + 0.0722 * b; }
-function drawStatusBar(bg) {
+function drawStatusBar(bg, h = STATUS_H) {
   sctx.fillStyle = `rgb(${bg[0]},${bg[1]},${bg[2]})`;
-  sctx.fillRect(0, 0, SCREEN_PX_W, STATUS_H);
+  sctx.fillRect(0, 0, SCREEN_PX_W, h);
   const fg = luminance(...bg) > 140 ? '#111' : '#f4f1ea';
   sctx.fillStyle = fg;
   sctx.font = '600 51px -apple-system, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif';
@@ -237,7 +237,17 @@ const pctx = probe.getContext('2d', { willReadFrequently: true });
 // that (e.g. a cropped device recording) sits at the bottom, and the space above it
 // takes the colour of its top edge, feathered into the image so there's no seam.
 const APP_H = SCREEN_PX_H - STATUS_H;
+// A full-screen device recording (iPhone aspect) fills the whole screen; its own
+// status bar is painted over with a clean one (no recording dot, no Live Activity).
+const isNative = (img) => img.height / img.width > 2.1;
+const NATIVE_STATUS_H = 176; // px at 1170 wide: the iOS status bar band
 function drawApp(img, alpha = 1) {
+  if (isNative(img)) {
+    sctx.globalAlpha = alpha;
+    sctx.drawImage(img, 0, 0, SCREEN_PX_W, SCREEN_PX_H);
+    sctx.globalAlpha = 1;
+    return;
+  }
   const h = img.height * (SCREEN_PX_W / img.width);
   const top = STATUS_H + Math.max(0, APP_H - h);
   sctx.globalAlpha = alpha;
@@ -254,7 +264,9 @@ function drawApp(img, alpha = 1) {
   sctx.globalAlpha = 1;
 }
 function edgeColor(img, fromBottom) {
-  pctx.drawImage(img, 0, fromBottom ? img.height - 4 : 0, img.width, 4, 0, 0, 4, 1);
+  // Native recordings: sample just below the status bar (the island sits inside it).
+  const y = fromBottom ? img.height - 4 : isNative(img) ? Math.round(img.height * 0.072) : 0;
+  pctx.drawImage(img, 0, y, img.width, 4, 0, 0, 4, 1);
   const d = pctx.getImageData(1, 0, 1, 1).data;
   return [d[0], d[1], d[2]];
 }
@@ -269,7 +281,7 @@ async function setScreen(src, srcB = null, mix = 0) {
   sctx.fillRect(0, 0, SCREEN_PX_W, SCREEN_PX_H);
   drawApp(img);
   if (imgB) drawApp(imgB, mix);
-  drawStatusBar(top.map(Math.round));
+  drawStatusBar(top.map(Math.round), isNative(img) ? NATIVE_STATUS_H : STATUS_H);
   sctx.fillStyle = luminance(...bot) > 140 ? 'rgba(0,0,0,.82)' : 'rgba(255,255,255,.85)';
   roundRectPath(SCREEN_PX_W / 2 - 200, SCREEN_PX_H - 40, 400, 15, 8); sctx.fill();
   screenTex.needsUpdate = true;
@@ -322,7 +334,7 @@ function orbit({ az, el, d, lx = 0, lz = 0, fov = 30, shift = 0.045 }) {
 // blur exact with a few pre-blurred layers masked by linear gradients across the
 // focus line: no depth buffer or per-pixel shader needed.
 const glCanvas = renderer.domElement;
-glCanvas.style.opacity = '0';
+glCanvas.style.display = 'none'; // only read via drawImage; keeping it out of layout saves compositing
 const post = document.createElement('canvas');
 post.width = W; post.height = H;
 post.style.cssText = 'position:fixed;inset:0;width:100%;height:100%';
