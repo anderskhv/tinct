@@ -60,7 +60,8 @@ The recorder divides timestamps by the same factor, which gives ~30 fps of real
 motion. A run takes about 6 minutes.
 
 **Test-run switches.**
-- `PROMO_MOCK_CHAT=1` uses a canned librarian reply, so no prod chat is spent.
+- The librarian reply is canned by default, so no production API spend. `PROMO_REAL_CHAT=1`
+  opts in to the live librarian, which is one Anthropic call on Tinct's key.
 - `PROMO_STOP_AFTER=<marker>` ends the run early.
 - `--debug` saves screenshots at each step.
 
@@ -74,8 +75,7 @@ The last clip pulls back to the end card. Re-render after an edit; there's no ne
 to re-record.
 
 **Costs and caveats.**
-- The librarian step sends one guest message to the production chat. Each run uses
-  one of the 10 free guest AI uses per device, and the recorder resets that counter.
+- The librarian is mocked unless `PROMO_REAL_CHAT=1` is set; see above.
 - Guest narration only plays cached audio. The Original (1831) opening of
   Frankenstein is cached; the Modern English opening is not, so the recorder
   switches to the original edition.

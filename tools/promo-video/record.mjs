@@ -57,8 +57,10 @@ await ctx.addInitScript(() => {
   };
 });
 
-// PROMO_MOCK_CHAT=1: canned librarian reply, for test runs that shouldn't use prod chat.
-if (process.env.PROMO_MOCK_CHAT) {
+// The librarian reply is canned by default: a real one is an Anthropic API call on
+// Tinct's production key, and CLAUDE.md bans API spend in development.
+// PROMO_REAL_CHAT=1 opts in to the live librarian (costs one guest message).
+if (!process.env.PROMO_REAL_CHAT) {
   await ctx.route('**/api/lab-chat', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ content: [{ type: 'text',
     text: 'For ambition and what we owe the things we make, start with **Frankenstein**: a young scientist creates life, then abandons it.\n\n[[book:frankenstein]]' }] }) }));
 }
