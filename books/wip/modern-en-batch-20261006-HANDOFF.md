@@ -36,3 +36,23 @@ The full text was not re-read by the coordinator.
 - **modern-da** is stale for every book here and for Democracy; no new Danish.
 - **Tool issues (not touched by this batch):** `books/classify-modern-en.py` raises a NameError on misaligned paragraph counts; `books/audit-truncation.py` has a hard-coded local path.
 - Earlier packages (Democracy in America on this branch; Social Contract, Iliad, Federalist Papers and Brothers Karamazov on their own branches; Moby-Dick link rulings; the Othello pilot, which stays on hold) are described in the previous brief.
+
+## Second batch (same evening, same process)
+
+Same pipeline, review of every re-rendered paragraph, fresh verification of every reviewer correction, gate pass on every candidate.
+These are mostly **targeted** repairs (only the chapters or paragraphs that were left identical or very close to the source were re-rendered; everything else is the served text).
+
+| Book | Scope | Gate similarity (<= 0.75) | Paragraphs | Changed vs live | Character mentions / moved / need ruling | candidate.json sha256 |
+|---|---|---|---|---|---|---|
+| `much-ado-about-nothing` | ch 15-17 | 0.681 | 1118 | 97 | 1647 / 50 / 0 | `e93fb1e66e2c9dc2…` |
+| `the-republic` | long identical paragraphs, ch 1-10 | 0.628 | 4308 | 218 | 193 / 1 / 0 | `2bc78ba1f33b207c…` |
+| `phaedrus` | ch 6 | 0.708 | 408 | 41 | 657 / 22 / 0 | `5ad44b8b…` |
+| `the-awakening` | full re-render | 0.710 | 1044 | 906 | 1415 / 989 / 37 | `f71e5c5b…` |
+| `war-and-peace` | 25 chapters (158, 168-170, 173, 175, 181, 183, 185, 255, 260-261, 263, 265-267, 269-274, 276-278) | 0.682 | 11340 | 578 | 8466 / 440 / 2 | `16d0f165ce7cbbed…` |
+| `jekyll-and-hyde` | ch 1, 2, 5, 7, 8, 9 | 0.701 | 339 | 236 | 504 / 232 / 0 | `640dc4ea5d7d56f4…` |
+
+Notes for this batch:
+- **The Awakening** is the largest character-card impact (989 moved, 37 need a ruling) because it was fully re-rendered.
+- **War and Peace:** one verifier-supplied replacement (ch168 p0) was applied without a further verification round; the served original-en and modern-en carry different chapter titles for chapters 28-32 (pre-existing); the candidate keeps the served modern-en titles. The live file is compact JSON (no indentation), and the candidate uses the same serialization.
+- **Much Ado:** served stage directions follow the live bracketed form; speaker labels equal the source.
+- **Not done:** Alice in Wonderland (31 identical long paragraphs are verse and letters; needs a ruling), Great Expectations, US Founding Documents (waiting on Anders), Odyssey and Othello (on hold), Ulysses, The Histories, Fear and Trembling (tool crash).
