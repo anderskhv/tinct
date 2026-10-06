@@ -221,7 +221,9 @@ try {
   const hex = p.url().match(/userBook=([0-9a-f]{24})/)[1];
   const epubInfo = await p.evaluate(() => ({ title: document.querySelector('[data-testid="lab-header-book"]').textContent, chapter: document.querySelector('[data-testid="lab-header-chapter"]').textContent.trim(), words: document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length, oldView: document.querySelectorAll('.epub-sheet, .epub-pg').length, play: !!document.querySelector('[data-testid="lab-v2-play"]'), docTitle: document.title }));
   const opening = (await p.textContent('.lab-page-wrap')).replace(/\s+/g, ' ');
-  check('the book opens at its own title page, without Project Gutenberg\u2019s header', /by H\. G\. Wells/.test(opening) && !/Project Gutenberg|START OF THE|eBook/i.test(opening), opening.slice(0, 160));
+  // The book's title page is set as Tinct's own title opening (title and author above the first chapter heading).
+  const titleOpening = await p.evaluate(() => document.querySelector('.lab-page-wrap [data-testid="lab-book-opening"]')?.textContent.replace(/\s+/g, ' ').trim() ?? null);
+  check('the book opens under its own title and author, without Project Gutenberg\u2019s header', /The Time Machine/.test(titleOpening || '') && /H\. G\. Wells/.test(titleOpening || '') && !/Project Gutenberg|START OF THE|eBook/i.test(opening), { titleOpening, opening: opening.slice(0, 160) });
   check('EPUB opens in the Tinct reader at /reader?userBook=', /time machine/i.test(epubInfo.title) && epubInfo.words > 3 && epubInfo.oldView === 0 && /Time Machine · Tinct$/i.test(epubInfo.docTitle), epubInfo);
   check('Tinct reader: narration is not offered for a user book', !epubInfo.play);
   await p.screenshot({ path: join(OUT, 'desktop-tinct-epub.png') });
@@ -428,6 +430,50 @@ try {
     await p.waitForSelector('.pdf-status[role="alert"]', { timeout: 10000 });
     check('DRM EPUB is refused with an explanation', /DRM/.test(await p.textContent('.pdf-status')));
     check('DRM test: no page errors', !problems.length, problems);
+    await ctx.close();
+  }
+
+  // ---- An EPUB with pictures: figures at their place, the card, Explain with the picture, the cover on Your books ----
+  {
+    const { ctx, p, problems } = await page(browser, { width: 1280, height: 800 });
+    await p.goto(BASE);
+    await signIn(p);
+    const figuresEpub = join(FIX, 'figures.epub');
+    const { makeFigureEpub } = await import('./make-epub.mjs');
+    writeFileSync(figuresEpub, makeFigureEpub());
+    await openFile(p, figuresEpub);
+    await tinctReader(p);
+    await p.waitForFunction(() => [...document.querySelectorAll('.lab-page-wrap [data-testid="lab-figure"] img')].some(img => img.complete && img.naturalWidth > 0), null, { timeout: 10000 }).catch(() => {});
+    const shown = await p.evaluate(() => {
+      const figure = document.querySelector('.lab-page-wrap [data-testid="lab-figure"]');
+      const img = figure?.querySelector('img');
+      return { chapter: document.querySelector('[data-testid="lab-header-chapter"]').textContent.trim(), inline: figure?.classList.contains('is-inline'), caption: figure?.querySelector('.lab-figure-caption')?.textContent, drawn: !!img && img.complete && img.naturalWidth > 0, blob: /^blob:/.test(img?.src || ''), word: figure?.closest('[data-testid="lab-word"]')?.dataset.wordIndex };
+    });
+    check('figures: a picture stands at its place, drawn from this device, caption beneath; no Cover chapter', /^The Workshop/.test(shown.chapter) && shown.inline && /workbench/.test(shown.caption || '') && shown.drawn && shown.blob && shown.word === '0', shown);
+    await p.screenshot({ path: join(OUT, 'desktop-figures.png') });
+    await p.click('.lab-page-wrap [data-testid="lab-figure"]');
+    await p.waitForSelector('[data-testid="lab-figure-card"] img', { timeout: 5000 });
+    check('figures: a tap opens the figure card', await p.evaluate(() => /Figure 1/.test(document.querySelector('[data-testid="lab-figure-card"]').textContent)));
+    await p.screenshot({ path: join(OUT, 'desktop-figure-card.png') });
+    await p.click('[data-testid="lab-figure-explain"]');
+    await p.waitForFunction(() => /MOCK ANSWER/.test(document.body.textContent || ''), null, { timeout: 15000 }).catch(() => {});
+    const asked = await lastRequest();
+    const lastTurn = asked?.body?.messages?.at(-1)?.content;
+    check('figures: Explain sends the picture with the question, signed in, as an image block', asked?.path === '/api/chat' && Array.isArray(lastTurn) && lastTurn[0]?.type === 'image' && /^image\/(png|jpeg)$/.test(lastTurn[0]?.source?.media_type) && /Explain this figure/.test(lastTurn.at(-1)?.text || ''), { path: asked?.path, blocks: Array.isArray(lastTurn) ? lastTurn.map(b => b.type) : typeof lastTurn });
+    await p.keyboard.press('Escape');
+    await p.click('[data-testid="lab-header-chapter"]');
+    await p.waitForSelector('[data-testid="lab-contents-tab-figures"]', { timeout: 5000 });
+    await p.click('[data-testid="lab-contents-tab-figures"]');
+    const listed = await p.locator('[data-testid="lab-contents-figure"]').count();
+    check('figures: the Figures tab lists every figure', listed === 5, listed);
+    await p.screenshot({ path: join(OUT, 'desktop-figures-tab.png') });
+    await p.keyboard.press('Escape');
+    await p.click('[data-testid="lab-library-back"]');
+    await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
+    const cover = await p.evaluate(() => [...document.querySelectorAll('.ab-book')].find(li => /Lanterns Illustrated/.test(li.textContent))?.querySelector('.ab-cover.has-image img')?.naturalWidth || 0);
+    check('figures: Your books shows the EPUB’s own cover', cover > 0, cover);
+    await p.screenshot({ path: join(OUT, 'desktop-shelf-cover.png') });
+    check('figures: no page errors or CSP violations', !problems.length, problems.slice(0, 6));
     await ctx.close();
   }
 

@@ -313,13 +313,15 @@
 
 /* On a narrow phone measure, long indivisible words create a coarse,
    stair-step rag. Let the browser use the edition language's dictionary on
-   the painted page, while avoiding arbitrary mid-letter emergency breaks.
+   the painted page; a word is broken mid-letter only when it is wider than the column.
    Two letters may precede the hyphen ("un-sound"), matching labHyphenate's
    HYPHEN_MIN_HEAD, so short prefixes can rescue an otherwise gappy line. */
 .lab.is-phone .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word,
 .lab.has-phone-chrome .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word {
   white-space: normal;
-  overflow-wrap: normal;
+  /* Only a word wider than the whole column ("christiantranshumanistpodcast.com")
+     is broken where it must be, rather than running off the page. */
+  overflow-wrap: break-word;
   word-break: normal;
   -webkit-hyphens: auto;
   hyphens: auto;
@@ -2219,6 +2221,12 @@
 
 .lab-word-fragment::after {
   content: '\2010';
+}
+
+/* A break at the book's own dash ("twenty-|third") shows that dash; adding a
+   hyphen after it would print a character the book does not have. */
+.lab-word-fragment.is-hard-break::after {
+  content: none;
 }
 
 /* The verse number is small and raised. Its margin used to sit before it:
@@ -4494,6 +4502,255 @@
 .lab-footnote .lab-footnote-body p { margin: 0; font-size: 15px; line-height: 1.5; }
 .lab-footnote-number { font: 600 .7em/1 'IBM Plex Mono', monospace; margin-right: .2em; vertical-align: super; }
 
+
+/* ---------- Any book's structure beyond prose (labParagraphStyle) ----------
+   Subheadings, labels, list items, a chapter's subtitle and byline, as an
+   edition's chapter records them (`kinds`, for built-in and own books alike),
+   and an index line of " • "-separated items in any book (`index`). Each is a
+   whole paragraph's block, painted and measured alike (the paginators put the
+   same classes on their measured blocks), and none is ever justified. Sizes
+   stay the body size so line metrics stay the reader's; small capitals and
+   italics carry the distinction. */
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-item, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index)[class][class] {
+  text-align: left;
+  text-align-last: auto;
+}
+/* Important: the phone and desktop reading rules set `hyphens: auto` on the
+   same elements with higher or equal specificity. */
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-item, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index),
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-item, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index) * {
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+/* Words are set smaller inside the block (the block keeps the reader's line
+   height, so the page's rhythm and measurement are unchanged). */
+.lab .lab-hearing-line.is-kind-heading[class] {
+  margin-top: .9em;
+  font-weight: 600;
+}
+.lab .lab-hearing-line.is-kind-heading[class] > span {
+  font-size: .8em;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.lab .lab-hearing-stage > .lab-hearing-line.is-kind-heading:first-child { margin-top: 0; }
+.lab .lab-hearing-line:is(.is-kind-label, .is-kind-byline)[class] > span {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: .56em;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .72;
+}
+.lab .lab-hearing-line.is-kind-label[class] { margin-top: .6em; }
+.lab .lab-hearing-line.is-kind-label[class] + .lab-hearing-line { margin-top: 0; }
+/* A chapter's subtitle: italic and a step smaller, under the heading. */
+.lab .lab-hearing-line.is-kind-subtitle[class] {
+  font-style: italic;
+}
+.lab .lab-hearing-line.is-kind-subtitle[class] > span {
+  font-size: .82em;
+}
+.lab .lab-hearing-line.is-kind-byline[class] { margin-bottom: .6em; }
+.lab .lab-hearing-line.is-kind-item[class] {
+  position: relative;
+  padding-left: 1.15em;
+  text-indent: 0;
+}
+.lab .lab-hearing-line.is-kind-item:not(.is-kind-resumed)::before {
+  content: '\2022';
+  position: absolute;
+  left: .3em;
+}
+/* Lines set apart by breaks (verse, addresses, credits): ragged, close
+   together, a wrapped line indented under its start. */
+.lab .lab-hearing-line.is-kind-line[class] {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.lab .lab-hearing-line.is-kind-line.is-kind-resumed[class] { text-indent: 0; }
+.lab .lab-hearing-line.is-kind-line[class] + .lab-hearing-line.is-kind-line { margin-top: 0; }
+/* Keep with next in the phone's column preflight too (the measured paginator
+   carries the heading itself; see measuredDesktopPages). */
+.lab-native-page-flow .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle) {
+  break-after: avoid;
+}
+
+/* ---------- Figures (labFigures.ts, LabFigure.tsx) ----------
+   A figure is its own paragraph and one word: the word's span is a block
+   holding the figure. Inline: full column width (sized in px from the page by
+   labFigures, so the measuring copy and the page agree), caption beneath in
+   italic. Strip: a 64px thumbnail, "FIGURE N ↗" and the caption. The same
+   rules style the page's buttons and the measuring copy's spans. */
+.lab .lab-hearing-line.is-figure[class][class] {
+  text-align: left;
+  text-align-last: auto;
+  text-indent: 0;
+  padding-left: 0;
+}
+.lab .lab-hearing-word.lab-figure-word {
+  display: block;
+  white-space: normal !important;
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+.lab .lab-figure {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: .35em 0 .55em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab .lab-figure:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.lab .lab-figure-frame {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 2px;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.lab .lab-figure-frame img,
+.lab .lab-figure-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.lab .lab-figure-caption {
+  display: block;
+  margin-top: .45em;
+  font-style: italic;
+  font-size: .78em;
+  line-height: 1.35;
+  opacity: .86;
+}
+.lab .lab-figure.is-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+}
+.lab .lab-figure-thumb {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.lab .lab-figure-thumb img { object-fit: cover; }
+.lab .lab-figure-strip-text { display: flex; flex-direction: column; min-width: 0; }
+.lab .lab-figure-label,
+.lab .lab-figure-ref {
+  font: 500 .56em/1.5 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .72;
+}
+.lab .lab-figure-strip-text .lab-figure-caption { margin-top: .1em; }
+
+/* The figure card: the Catch me up sheet, the image large and zoomable. */
+.lab .lab-figure-card-body { padding: 4px 16px 10px; display: flex; flex-direction: column; gap: 10px; }
+.lab .lab-figure-zoom {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  min-height: 200px;
+  max-height: 62vh;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+  cursor: zoom-in;
+}
+.lab .lab-figure-zoom[data-zoom="in"] { cursor: grab; }
+.lab .lab-figure-zoom-inner { transform-origin: center; transition: transform .12s ease-out; }
+.lab .lab-figure-zoom img { display: block; max-width: 100%; max-height: 62vh; object-fit: contain; -webkit-user-select: none; user-select: none; }
+.lab .lab-figure-card-caption { margin: 0; font-family: var(--lab-font-reader, 'EB Garamond', Georgia, serif); font-style: italic; font-size: 17px; line-height: 1.4; }
+.lab .lab-figure-card-foot { gap: 10px; }
+
+/* Links: tappable, quiet. A bare address shows its domain and an arrow. */
+.lab .lab-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: .16em;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
+.lab .lab-link.is-link-end::after {
+  content: '\2009\2197';
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* The book's title opening above its first chapter heading. */
+.lab .lab-book-opening {
+  flex: 1 0 100%;
+  margin: 0 0 1.4rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--lab-border, #d8d0c0) 80%, transparent);
+}
+.lab .lab-book-opening p { margin: 0; text-align: left; }
+.lab .lab-book-opening-title {
+  font-family: 'Playfair Display', 'EB Garamond', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--lab-ink, #0b0b0b);
+}
+.lab .lab-book-opening p.lab-book-opening-subtitle {
+  margin-top: .35rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: var(--lab-ink-muted, #6a6256);
+}
+.lab .lab-book-opening p.lab-book-opening-author {
+  margin-top: .7rem;
+  font: 500 .72rem/1.3 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--lab-ink-muted, #6a6256);
+}
+
+/* At most two hyphenated lines in a row where the browser still hyphenates
+   (Compare, a book without patterns). A block property: on the word spans
+   (above) it never applied. */
+.lab .lab-hearing-line {
+  -webkit-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
+}
+
+/* Planned hyphenation (labHyphenPlan): a paragraph with a plan breaks words
+   only where the plan put a discretionary hyphen, drawn after the head of the
+   word as generated content so it never enters the text, a copy or a
+   selection. Important: the phone and desktop reading rules set
+   `hyphens: auto` on the same elements with higher specificity. */
+.lab .lab-hearing-line.has-hyphen-plan,
+.lab .lab-hearing-line.has-hyphen-plan * {
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+.lab .lab-syl::after { content: '\00AD'; }
+/* The planning copy is laid out ragged: its room per line is what it measures. */
+.lab .lab-hearing-line.is-hyphen-planning {
+  text-align: left !important;
+  text-align-last: left !important;
+}
 
 /* ─────────────────────────────────────────────────────────────────────────
    Reader chrome V2 — the reader shell.
@@ -7022,3 +7279,4 @@
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle { opacity:1; color:inherit; }
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle::first-letter { text-transform:uppercase; }
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .lab-person-actions { padding:10px 0 4px; }
+

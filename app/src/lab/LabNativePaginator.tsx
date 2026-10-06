@@ -2,9 +2,9 @@ import { proseJoins, proseRuns } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
+import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
   LAB_ORPHAN_PAGE_WORDS,
   chapterPagesCover,
@@ -23,6 +23,10 @@ import {
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
+import { paragraphKind, paragraphKindClass, wordLink } from './labParagraphStyle'
+import { planHyphenation } from './labHyphenPlan'
+import { figureFor, setFigureLayout } from './labFigures'
+import { LabFigureView } from './LabFigure'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
@@ -222,22 +226,27 @@ function NativeWord({
   paragraphIndex,
   wordIndex,
   spacing,
+  paragraph,
 }: {
   text: string
   paragraphIndex: number
   wordIndex: number
   spacing: string
+  paragraph?: string
 }) {
+  // A link is laid out as painted: its label, not the raw address.
+  const link = wordLink(paragraph, wordIndex, text)
+  const figure = figureFor(text)
   return (
     <>
       {spacing}
       <span
-        className="lab-hearing-word"
+        className={figure ? 'lab-hearing-word lab-figure-word' : 'lab-hearing-word'}
         data-native-word="true"
         data-paragraph-index={paragraphIndex}
         data-word-index={wordIndex}
       >
-        {isLabVerseMarker(text) ? (
+        {figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
           <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
@@ -257,6 +266,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
         spacing={nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        paragraph={text}
       />
     )
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
@@ -295,7 +305,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
  * where the reader will.
  */
 function NativeParagraph({ paragraphs, run }: { paragraphs: string[]; run: number[] }) {
-  return <p className="lab-hearing-line">{run.map((paragraphIndex, position) => position === 0
+  return <p className={`lab-hearing-line${paragraphKindClass(paragraphs[run[0]])}`}>{run.map((paragraphIndex, position) => position === 0
     ? <Fragment key={paragraphIndex}>{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</Fragment>
     : <Fragment key={paragraphIndex}>{' '}<span className="lab-prose-join">{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</span></Fragment>)}</p>
 }
@@ -411,16 +421,22 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         const header = surface.querySelector<HTMLElement>('.lab-passage-header')!
         const stage = surface.querySelector<HTMLElement>('.lab-hearing-stage')!
         const sourceWords = paragraphs.map(tokenizeHearingWords)
-        const wordBreaks = hyphenLang && hyphensReady
-          ? (paragraphIndex: number, wordIndex: number) => hyphenationBreaks(
-              sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang,
-            )
-          : undefined
+        // The book's own dashes break at a page edge from the first pass, as
+        // the browser breaks them inside a page; dictionary breaks join once
+        // the patterns land.
+        const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
+        // A heading, list item or index line is never hyphenated: at a page edge only its own dashes break.
+        const wordBreaks = (paragraphIndex: number, wordIndex: number) => pageEdgeBreaks(
+          sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', paragraphKind(paragraphs[paragraphIndex]) ? null : breakLang,
+        )
         const end = surface.querySelector<HTMLElement>('.lab-chapter-end')
-        const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
+        // The block holding the last segment's words in the latest trial.
+        let tailBlock = null as Element | null
+        const paint = (segments: ChapterPageSegment[], first: boolean, withEnd: boolean) => {
           if (end) end.hidden = !withEnd
           header.hidden = !first
           stage.replaceChildren()
+          tailBlock = null
           for (const run of proseRuns(paragraphs, segments)) {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
@@ -428,28 +444,54 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               const segment = segments[index]
               const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
               const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
-              if (position === 0) labMeasureParagraphInto(p, words, lineation)
-              else labMeasureJoinInto(p, words, lineation)
+              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true })
+              else labMeasureJoinInto(p, words, lineation, { plans: true })
+              if (index === segments.length - 1) tailBlock = position === 0 ? p : p.lastElementChild
             })
             stage.append(p)
           }
+        }
+        const lineStarts = (segments: ChapterPageSegment[], first: boolean) => {
+          const tail = segments[segments.length - 1]
+          if (!tail) return null
+          paint(segments, first, false)
+          return tailBlock ? measuredLineStarts(tailBlock, tail.from) : null
+        }
+        const tailGap = (segments: ChapterPageSegment[], first: boolean) => {
+          if (!segments.length) return null
+          paint(segments, first, false)
+          const block = tailBlock?.closest('.lab-hearing-line') ?? null
+          return block ? measuredTailGapEm(block) : null
+        }
+        const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
+          paint(segments, first, withEnd)
           const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
           const last = painted[painted.length - 1]
           const lastBottom = last ? Math.max(...[...last.getClientRects()].map(rect => rect.bottom)) : Infinity
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
+        // Figures are sized from this page (labFigures); the page paints with the same.
+        header.hidden = true
+        stage.replaceChildren()
+        const probe = document.createElement('p')
+        probe.className = 'lab-hearing-line'
+        stage.append(probe)
+        setFigureLayout({ columnWidth: probe.getBoundingClientRect().width, pageHeight: host.getBoundingClientRect().bottom - probe.getBoundingClientRect().top })
+        probe.remove()
+        // Hyphens where a line needs one, chosen in this column (labHyphenPlan).
+        planHyphenation(stage, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
         const lengths = sourceWords.map(words => words.length)
         const fitEnd = chapterActions
-          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords))
+          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords), lineStarts)
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
         const kept = keepPages?.length && keepWidth === pageWidth
-          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start), fitEnd)
+          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts, tailGap), fitEnd)
           : null
         if (kept && chapterPagesCover(paragraphs, kept)) pages = kept
         else {
-          pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs)
+          pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, undefined, lineStarts, tailGap)
           if (fitEnd) pages = fitEnd(pages)
         }
         if (end) end.hidden = true

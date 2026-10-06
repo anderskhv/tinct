@@ -1,5 +1,10 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
+import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
+import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
+import { figureFor, figureLabel, isFigureToken, type LabFigure } from './labFigures'
+import { LabFigureView } from './LabFigure'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -120,6 +125,14 @@ interface LabPassageProps {
    */
   footnotes?: PlacedFootnote[]
   onFootnote?: (note: PlacedFootnote, marker: HTMLElement) => void
+  /** A figure on the page was tapped: open its card. */
+  onOpenFigure?: (figure: LabFigure) => void
+  /**
+   * The page was laid out with planned hyphens (labHyphenPlan: the phone's
+   * paginator) and must paint them, on every paint of it. Desktop leaves keep
+   * the browser's dictionary hyphenation.
+   */
+  plannedHyphens?: boolean
 }
 
 function wordSpacing(
@@ -135,9 +148,17 @@ function wordSpacing(
   return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
-function renderWordText(text: string, emphasis = false) {
-  const content = isLabVerseMarker(text) ? (
+function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number, onOpenFigure?: (figure: LabFigure) => void) {
+  const figure = figureFor(text)
+  if (figure) return <LabFigureView figure={figure} onOpen={onOpenFigure} />
+  const link = wordIndex >= 0 ? wordLink(paragraph, wordIndex, text) : null
+  const content = link ? (
+    <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>{link.trail}</>
+  ) : isLabVerseMarker(text) ? (
     <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
+  ) : hyphenAt != null && hyphenAt > 0 && hyphenAt < text.length ? (
+    // A planned hyphen (labHyphenPlan): drawn by CSS after the head, never in the text.
+    <><span className="lab-syl">{text.slice(0, hyphenAt)}</span>{text.slice(hyphenAt)}</>
   ) : text
   return emphasis ? <em>{content}</em> : content
 }
@@ -249,7 +270,8 @@ export function lineContinuesParagraph(
  */
 export const LAB_CONTINUED_TAIL_MIN_FILL = 0.6
 
-interface TailRect { left: number; right: number; bottom: number; height: number }
+type TailRect = LabTailRect
+export { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap }
 
 /** Natural fill (0..1) of the last painted line, from per-fragment word rects. */
 export function continuedTailFill(
@@ -289,7 +311,11 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
-      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.setAttribute('data-tail-full', 'true')
+      if (fill < LAB_CONTINUED_TAIL_MIN_FILL) return
+      // Never stretched beyond ordinary loose spacing (the paginator ends such
+      // a page a line earlier; this guards a paint that differs from its measure).
+      if ((measuredTailGapEm(line) ?? 0) > LAB_CONTINUED_TAIL_MAX_GAP_EM) return
+      line.setAttribute('data-tail-full', 'true')
     } catch { /* jsdom has no layout */ }
   })
 }
@@ -312,18 +338,18 @@ function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphInd
   return lineContinuesParagraph(paragraphs, last) || sliceRunContinues(paragraphs, lineSlice(last))
 }
 
-function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
+function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[], usePlans = false) {
   return proseRuns(paragraphs, lines.map(lineSlice)).map(run => (
-    <p key={run[0]} className={`lab-hearing-line${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
+    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${hyphenPlanClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], usePlans)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
       {joinedLines(run, (lineIndex) => {
         const line = lines[lineIndex]
         return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
         // The page-edge fragment: its hyphen is drawn by CSS, as on the reading page.
-        ? <span key={`${lineIndex}-${wordIndex}`} className="lab-word-fragment" aria-hidden="true">{spacing}{word.text}</span>
+        ? <span key={`${lineIndex}-${wordIndex}`} className={labFragmentClass(word.text)} aria-hidden="true">{spacing}{word.text}</span>
         : (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
-          {renderWordText(word.text, word.emphasis)}
+          {renderWordText(word.text, word.emphasis, paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex, usePlans ? plannedBreak(paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex, word.text) : undefined)}
         </span>
       ), lineationFor(paragraphs, line))
       })}
@@ -358,6 +384,7 @@ function renderHearingWords(
   readingPage?: ChapterHearingPage,
   chapterPages?: ChapterHearingPage[],
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
+  usePlans = false,
 ) {
   const fallbackParagraphIndex = paragraph?.index ?? 0
   const lines = readingPage
@@ -370,7 +397,7 @@ function renderHearingWords(
     return (
       <p
         key={run[0]}
-        className={`lab-hearing-line${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
+        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${hyphenPlanClass(paragraphs[paragraphIndex], usePlans)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
         {joinedLines(run, (lineIndex) => {
@@ -391,7 +418,7 @@ function renderHearingWords(
                 : undefined}
             >
               {spacing}
-              {renderWordText(word.text, word.emphasis)}
+              {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], word.wordIndex ?? -1, usePlans && word.wordIndex != null ? plannedBreak(paragraphs[paragraphIndex], word.wordIndex, word.text) : undefined)}
             </span>
           )
         }, lineationFor(paragraphs, line, fallbackParagraphIndex))
@@ -497,6 +524,8 @@ export function LabPassage({
   pageEndMarker,
   onToggleControls,
   layoutKey = '',
+  onOpenFigure,
+  plannedHyphens = false,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -959,6 +988,9 @@ export function LabPassage({
     // Verse-paired Compare lays each primary line in its own grid row, so
     // lines are never joined there; a joined BSB line only sits tight.
     const gridRows = alignCompare && compare
+    // Single-edition pages paint the hyphenation the paginator measured them with.
+    // Only a page the phone's paginator laid out with its hyphen plan paints it.
+    const usePlans = plannedHyphens && !compare
     const lineParagraph = (lineIndex: number) => pageLines[lineIndex].paragraphIndex ?? readingPage?.paragraphIndex ?? 0
     const slices = pageLines.map(lineSlice)
     const lineBody = (lineIndex: number) => {
@@ -983,7 +1015,7 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
+                            className={`${labFragmentClass(word.text)} ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}
@@ -1000,7 +1032,7 @@ export function LabPassage({
                         <Fragment key={`${lineIndex}-${wordIndex}`}>
                         {endsHere && <span className="lab-compare-page-end" data-testid="lab-compare-page-end" data-label="end of your page" role="img" aria-label="End of your page" />}
                         <span
-                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}${isFigureToken(word.text) ? ' lab-figure-word' : ''}`}
                           data-testid={openingOnly ? "lab-opening-word" : "lab-word"}
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
@@ -1008,7 +1040,7 @@ export function LabPassage({
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, word.emphasis)}
+                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord, word.text) : undefined, onOpenFigure)}
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
@@ -1040,7 +1072,7 @@ export function LabPassage({
                     key={lineIndex}
                     id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
-                      'lab-hearing-line',
+                      'lab-hearing-line' + paragraphKindClass(paragraphs[paragraphIndex], pageLines[lineIndex].from ?? readingPage?.from) + hyphenPlanClass(paragraphs[paragraphIndex], usePlans),
                       gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
                       inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
                       runContinuesParagraph(paragraphs, pageLines, run) ? 'is-continued' : '',
@@ -1145,7 +1177,7 @@ export function LabPassage({
         <div className="lab-book-col">
           {previousChapterEnding ? <>
             {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
-            <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+            <LabPassage plannedHyphens={plannedHyphens} selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
               paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
               compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
               markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
@@ -1157,13 +1189,13 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord, plannedHyphens && !compare)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderPlainWords(readingLines, paragraphs)}
+                {renderPlainWords(readingLines, paragraphs, plannedHyphens && !compare)}
               </div>
             </div>
           ) : (
@@ -1190,7 +1222,7 @@ export function LabPassage({
             {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
             {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
-                <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
+                <LabPassage plannedHyphens={plannedHyphens} selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
                   paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
                   compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{ kind: 'none' }}
@@ -1220,7 +1252,9 @@ export function LabPassage({
                 const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
                 const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
-                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
+                // A figure in the Compare column is named, not drawn (it is drawn beside it).
+                const shown = isFigureToken(word.text) ? <span className="lab-figure-ref">{figureLabel(figureFor(word.text) ?? { number: 0 })}</span> : word.emphasis ? <em>{word.text}</em> : word.text
+                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{shown}</span></Fragment>
               }))
               }
               const pieceData = (paragraphIndex: number, segment: { from: number; to: number }) => ({
@@ -1290,7 +1324,7 @@ export function LabPageMeasurePaint(input: {
         <div className="lab-book-col">
           <div className="lab-hearing-stage">
             {proseRuns(input.paragraphs, lines.map(lineSlice)).map(run => (
-              <p key={run[0]} className="lab-hearing-line">
+              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}`}>
                 {joinedLines(run, (lineIndex) => {
                   const line = lines[lineIndex]
                   return renderWordGroups(line.words, (word, wordIndex, spacing) => (
@@ -1301,7 +1335,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, word.emphasis)}
+                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex)}
                   </span>
                 ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))
                 })}

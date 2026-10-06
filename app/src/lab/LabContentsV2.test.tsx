@@ -38,6 +38,25 @@ describe('V2 contents data', () => {
   })
 })
 
+describe('Figures tab', () => {
+  it('appears beside Chapters only for a book with figures, and jumps to one', () => {
+    const p = props()
+    const { rerender } = render(<LabContentsV2 {...p} />)
+    expect(screen.queryByTestId('lab-contents-tab-figures')).toBeNull()
+    rerender(<LabContentsV2 {...p} figures={[
+      { id: 'f1', number: 1, src: '/data/figures/test-fixture/lamp.png', caption: 'A lamp of the old kind.', chapterNumber: 44, paragraphIndex: 1 },
+      { id: 'f2', number: 2, src: '/data/figures/test-fixture/harbour.png', chapterNumber: 51, paragraphIndex: 0, large: true },
+    ]} />)
+    expect(screen.getByTestId('lab-contents-tab-chapters').getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByTestId('lab-contents-tab-figures'))
+    const rows = screen.getAllByTestId('lab-contents-figure')
+    expect(rows.map(row => row.textContent)).toEqual(['Figure 1 · Genesis 44A lamp of the old kind.', 'Figure 2 · Psalms 1'])
+    fireEvent.click(rows[1])
+    expect(p.onOpenPassage).toHaveBeenCalledWith({ chapterNumber: 51, paragraphIndex: 0, wordIndex: 0 })
+    expect(p.onSelectChapter).not.toHaveBeenCalled()
+  })
+})
+
 describe('Design 1 contents', () => {
   it('opens at the current chapter and browses other branches without moving the reading marker', () => {
     const p = props(); render(<LabContentsV2 {...p} currentPercent={68} />)

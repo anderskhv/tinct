@@ -72,6 +72,14 @@ function nextId() {
   return `lab_ask_${Date.now()}_${++labAskId}`
 }
 
+/** What a question carries beside its text: a highlighted passage, or a figure's picture. */
+export interface LabAskAttachment {
+  highlightedText?: string
+  onAccepted?: () => void
+  /** The picture to send with the question (signed in only), drawn as the companion takes pictures. */
+  image?: () => Promise<unknown | null>
+}
+
 export interface UseLabAskOptions {
   bookTitle: string
   bookAuthor: string
@@ -151,7 +159,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     chapterRequest?: ChapterChatRequest
     context: LabAskContext
     userTurn: LabAskTurn
-    attachment?: { highlightedText?: string; onAccepted?: () => void }
+    attachment?: LabAskAttachment
   } | null>(null)
   const optionsRef = useRef(options)
   optionsRef.current = options
@@ -537,8 +545,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const sendTyped = useCallback(async (
     content: string,
     chapterRequest?: ChapterChatRequest,
-    retry?: { context: LabAskContext; userTurn: LabAskTurn; attachment?: { highlightedText?: string; onAccepted?: () => void } },
-    attachment?: { highlightedText?: string; onAccepted?: () => void },
+    retry?: { context: LabAskContext; userTurn: LabAskTurn; attachment?: LabAskAttachment },
+    attachment?: LabAskAttachment,
   ) => {
     const text = content.trim()
     const gated = gatedChapterRef.current
@@ -665,10 +673,21 @@ export function useLabAsk(options: UseLabAskOptions) {
             },
           }
         : { intent: 'ask', context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) } }
+      const messages: Array<{ role: string; content: string | unknown[] }> = history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message)
+      // A figure asked about goes with the question, signed in only (the
+      // Worker's picture path: images in the latest user turn; chatImages.ts).
+      // Signed out the companion has its caption, in the highlighted text.
+      const attached = attachment ?? retry?.attachment
+      if (authToken && attached?.image && messages.length) {
+        const block = await attached.image().catch(() => null)
+        if (!stillHere()) return
+        const last = messages[messages.length - 1]
+        if (block) messages[messages.length - 1] = { ...last, content: [block, { type: 'text', text: String(last.content) }] }
+      }
       const body = JSON.stringify({
         stream: true,
         companion,
-        messages: history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message),
+        messages,
       })
       let rawReply = ''
       let firstFailureType: string | null = null

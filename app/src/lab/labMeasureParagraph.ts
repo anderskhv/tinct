@@ -1,5 +1,17 @@
+import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
+import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { hyphenPlanFor, plannedBreak, type HyphenPlan } from './labHyphenPlan'
+import { figureElement, figureFor } from './labFigures'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
+
+/**
+ * The class of a page-edge fragment. One that ends on the book's own dash
+ * ("twenty-") is a hard break: CSS draws no second hyphen after it.
+ */
+export function labFragmentClass(text: string): string {
+  return HARD_BREAK_FRAGMENT_RE.test(text) ? 'lab-word-fragment is-hard-break' : 'lab-word-fragment'
+}
 
 export interface MeasurableWord {
   text: string
@@ -36,30 +48,80 @@ export function labMeasuredWordSpacing(
  * match what the reader saw — a column that overflowed its box, or one that
  * stopped a line short of the bottom. One builder, two call sites, one layout.
  */
+export interface LabMeasureOptions {
+  /** Paint the paragraph's hyphenation plan (labHyphenPlan), as the single-edition reading page does. */
+  plans?: boolean
+  /** This plan instead of the stored one (while a plan is being made). */
+  plan?: HyphenPlan
+}
+
+/**
+ * A word with a planned break: its head in a `lab-syl` span whose generated
+ * content is a discretionary hyphen, then its tail. The word's text is unchanged.
+ */
+export function appendPlannedWord(target: Node, text: string, at: number | undefined): void {
+  if (at == null || at <= 0 || at >= text.length) { target.appendChild(document.createTextNode(text)); return }
+  const head = document.createElement('span')
+  head.className = 'lab-syl'
+  head.textContent = text.slice(0, at)
+  target.appendChild(head)
+  target.appendChild(document.createTextNode(text.slice(at)))
+}
+
 export function labMeasureParagraphInto(
   p: HTMLElement,
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
+  options: LabMeasureOptions = {},
 ): HTMLElement {
+  // While planning, the plan being made covers whole words; a stored plan is
+  // drawn only in the whole word it was made for (plannedBreak).
+  const breakAt = (index: number, shown: string): number | undefined => options.plan
+    ? options.plan.get((lineation?.from ?? 0) + index)
+    : options.plans && lineation ? plannedBreak(lineation.text, lineation.from + index, shown) : undefined
+  const planned = !!options.plan || !!(options.plans && lineation && hyphenPlanFor(lineation.text))
   const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]
     // The fragment carries the CSS hyphen, so it must be measured with it.
     if (word.fragment) {
-      span.className = 'lab-word-fragment'
+      span.className = labFragmentClass(word.text)
       span.setAttribute('aria-hidden', 'true')
       span.textContent = word.text
       return span
     }
+    // A figure is a block of its own (labFigures), measured at the size it paints.
+    const figure = figureFor(word.text)
+    if (figure) {
+      span.className = 'lab-hearing-word lab-figure-word'
+      span.append(figureElement(figure))
+      return span
+    }
     span.className = 'lab-hearing-word'
-    const content: Node = isLabVerseMarker(word.text)
+    // A link paints its label (a bare address shows its domain and an arrow),
+    // so it is measured as painted.
+    const link = lineation ? wordLink(lineation.text, lineation.from + index, word.text) : null
+    const content: Node = link
+      ? (() => {
+          const group = document.createDocumentFragment()
+          const anchor = document.createElement('a')
+          anchor.className = link.end ? 'lab-link is-link-end' : 'lab-link'
+          anchor.textContent = link.label
+          group.append(link.lead, anchor, link.trail)
+          return group
+        })()
+      : isLabVerseMarker(word.text)
       ? (() => {
           const marker = document.createElement('span')
           marker.className = 'lab-verse-mark'
           marker.textContent = labVerseMarkerDisplay(word.text)
           return marker
         })()
-      : document.createTextNode(word.text)
+      : (() => {
+          const group = document.createDocumentFragment()
+          appendPlannedWord(group, word.text, breakAt(index, word.text))
+          return group
+        })()
     if (word.emphasis) {
       const em = document.createElement('em')
       em.append(content)
@@ -69,6 +131,12 @@ export function labMeasureParagraphInto(
     // span, matching the reader, so a highlight starting there paints it.
     if (leading) span.prepend(document.createTextNode(leading))
     return span
+  }
+  // A heading, list item or label paints in its own style; measure it so.
+  if (lineation && p.tagName === 'P') {
+    const kind = paragraphKindClass(lineation.text, lineation.from).trim()
+    if (kind) p.classList.add(...kind.split(/\s+/))
+    if (planned) p.classList.add('has-hyphen-plan')
   }
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
@@ -137,10 +205,94 @@ export function labMeasureJoinInto(
   p: HTMLElement,
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
+  options: LabMeasureOptions = {},
 ): HTMLElement {
   const span = document.createElement('span')
   span.className = 'lab-prose-join'
-  labMeasureParagraphInto(span, words, lineation)
+  labMeasureParagraphInto(span, words, lineation, options)
   p.append(' ', span)
   return p
+}
+
+function inkRects(element: Element): DOMRect[] {
+  return [...element.getClientRects()].filter(rect => rect.width > 0 && rect.height > 0)
+}
+
+/**
+ * The word indexes that begin a painted line, among the words of one measured
+ * paragraph slice. `container` is the block (or `lab-prose-join` span) that
+ * `labMeasureParagraphInto` / `labMeasureJoinInto` filled; `from` is the
+ * paragraph index of its first word, which is never listed.
+ *
+ * The paginator needs this to move a page break back without leaving a short
+ * last line: a break moved to a line start ends the page on the full line
+ * above it; a break moved anywhere else ends the page partway along a line,
+ * which is what left "made in science." alone on a ragged last line.
+ *
+ * A verse number and the word after it are one unbreakable unit, so the unit
+ * starts a line at the number. A word the browser hyphenated across two lines
+ * belongs to the line it starts on. A display fragment is not a word.
+ */
+export function measuredLineStarts(container: Element, from: number): number[] {
+  const nestedJoin = container.classList.contains('lab-prose-join') ? container : null
+  const words = [...container.querySelectorAll<HTMLElement>('.lab-hearing-word')]
+    .filter(word => word.closest('.lab-prose-join') === nestedJoin)
+  const starts: number[] = []
+  let previous: DOMRect | null = null
+  for (let index = 0; index < words.length; index += 1) {
+    const marker = Boolean(words[index].querySelector('.lab-verse-mark')) && index + 1 < words.length
+    // A verse number is set small and raised; its line is its word's line.
+    const placed = marker ? words[index + 1] : words[index]
+    const rects = inkRects(placed)
+    if (rects.length > 0) {
+      const first = rects[0]
+      if (previous && index > 0 && first.top + first.height / 2 > previous.bottom) starts.push(from + index)
+      previous = rects[rects.length - 1]
+    }
+    if (marker) index += 1
+  }
+  return starts
+}
+
+export interface LabTailRect { left: number; right: number; bottom: number; height: number }
+
+/**
+ * The widest word gap, in ems, that justifying the last painted line would
+ * set: its widest natural gap plus the room left at the end shared among its
+ * gaps. A continued tail is only stretched while this stays within ordinary
+ * loose spacing; beyond it the line is left start-aligned rather than set as
+ * "Across      Physics      consists" (Anders, iPhone, 6 Oct 2026).
+ */
+export const LAB_CONTINUED_TAIL_MAX_GAP_EM = 1.5
+
+export function continuedTailJustifiedGap(contentRight: number, words: LabTailRect[], fontSize: number): number {
+  const painted = words.filter(rect => rect.height > 0 && rect.right > rect.left)
+  if (painted.length < 2 || !(fontSize > 0)) return 0
+  const lastBottom = Math.max(...painted.map(rect => rect.bottom))
+  const line = painted
+    .filter(rect => Math.abs(rect.bottom - lastBottom) < Math.max(8, rect.height / 2))
+    .sort((a, b) => a.left - b.left)
+  if (line.length < 2) return 0
+  let natural = 0
+  for (let index = 1; index < line.length; index += 1) natural = Math.max(natural, line[index].left - line[index - 1].right)
+  const room = Math.max(0, contentRight - line[line.length - 1].right)
+  return (natural + room / (line.length - 1)) / fontSize
+}
+
+/**
+ * `continuedTailJustifiedGap` of a laid-out block's last line: its words (and
+ * any page-edge fragment) as the block paints them, set ragged or justified.
+ * Null where there is no layout to read.
+ */
+export function measuredTailGapEm(block: Element): number | null {
+  const view = block.ownerDocument?.defaultView
+  if (!view) return null
+  const style = view.getComputedStyle(block)
+  const box = block.getBoundingClientRect()
+  const words: LabTailRect[] = []
+  block.querySelectorAll('.lab-hearing-word, [data-testid="lab-word"], .lab-word-fragment').forEach((word) => {
+    for (const rect of word.getClientRects()) words.push(rect)
+  })
+  if (!words.length || !(box.width > 0)) return null
+  return continuedTailJustifiedGap(box.right - (parseFloat(style.paddingRight) || 0), words, parseFloat(style.fontSize) || 16)
 }

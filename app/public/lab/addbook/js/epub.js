@@ -100,10 +100,30 @@
     return { opfPath, opf, meta, title, authors, language };
   }
 
-  // Title, authors and language only (the Tinct reader converts the book itself).
+  // Title, authors and language (the Tinct reader converts the book itself), and the
+  // book's own cover as a small JPEG data: URL for Your books (empty when it has none).
   async function metadata(buffer, opts = {}) {
-    const { title, authors, language } = await readPackage(openZip(buffer), opts);
-    return { title, authors, language };
+    const zip = openZip(buffer);
+    const { opfPath, opf, meta, title, authors, language } = await readPackage(zip, opts);
+    let cover = '';
+    try { cover = await coverThumb(zip, opfPath, opf, meta) } catch { cover = '' }
+    return { title, authors, language, cover };
+  }
+  // The cover image (cover-image, else <meta name="cover">), drawn 180 px wide.
+  async function coverThumb(zip, opfPath, opf, meta) {
+    const items = byLocal(opf, 'item').map(item => ({ id: item.getAttribute('id'), href: resolve(opfPath, item.getAttribute('href') || ''), type: item.getAttribute('media-type') || '', props: (item.getAttribute('properties') || '').split(/\s+/) }));
+    const coverId = byLocal(meta, 'meta').find(m => m.getAttribute('name') === 'cover')?.getAttribute('content');
+    const item = items.find(i => i.props.includes('cover-image')) || items.find(i => i.id === coverId);
+    if (!item || !/^image\/(png|jpeg|gif|webp)$/.test(item.type) || typeof createImageBitmap !== 'function') return '';
+    const bytes = await zip.read(item.href);
+    if (!bytes || bytes.length > 8000000) return '';
+    const bmp = await createImageBitmap(new Blob([bytes], { type: item.type }));
+    const canvas = document.createElement('canvas');
+    canvas.width = 180; canvas.height = Math.max(1, Math.round(180 * bmp.height / bmp.width));
+    if (canvas.height > 400) return '';
+    canvas.getContext('2d').drawImage(bmp, 0, 0, canvas.width, canvas.height);
+    bmp.close?.();
+    return canvas.toDataURL('image/jpeg', 0.82);
   }
 
   async function parse(buffer, opts = {}) {

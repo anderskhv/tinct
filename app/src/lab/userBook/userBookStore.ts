@@ -25,6 +25,8 @@ interface UserBookRecord {
   owner: string
   bytes?: ArrayBuffer
   edition?: UserBookEdition
+  /** The book's pictures (figure id -> image), converted with the edition and kept beside it. */
+  figureImages?: Record<string, Blob>
   [field: string]: unknown
 }
 
@@ -34,6 +36,8 @@ export interface LoadedUserBook {
   hex: string
   bookId: string
   edition: UserBookEdition
+  /** The book's pictures, by figure id, read from this device only. */
+  images: Map<string, Blob>
   /** Saved place, already checked against the edition; null opens the first chapter. */
   place: UserBookPlace | null
 }
@@ -72,8 +76,8 @@ async function readRecord(key: string, owner: string): Promise<UserBookRecord | 
   } finally { db.close() }
 }
 
-/** Keep the conversion on the book's own record (read and written in one transaction). */
-async function keepEdition(key: string, owner: string, edition: UserBookEdition): Promise<void> {
+/** Keep the conversion and its pictures on the book's own record (read and written in one transaction). */
+async function keepEdition(key: string, owner: string, edition: UserBookEdition, images: Map<string, Blob>): Promise<void> {
   const db = await openDb()
   try {
     await new Promise<void>((resolve, reject) => {
@@ -82,7 +86,7 @@ async function keepEdition(key: string, owner: string, edition: UserBookEdition)
       const request = store.get(key)
       request.onsuccess = () => {
         const record = request.result as UserBookRecord | undefined
-        if (record && record.owner === owner) store.put({ ...record, edition })
+        if (record && record.owner === owner) store.put({ ...record, edition, figureImages: Object.fromEntries(images) })
       }
       tx.oncomplete = () => resolve()
       tx.onerror = () => reject(tx.error)
@@ -107,12 +111,15 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   try { record = await readRecord(key, owner) } catch { return { ok: false, reason: 'storage', message: STORAGE_MESSAGE } }
   if (!record || record.kind !== 'epub') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
   let edition = usableUserEdition(record.edition) ? record.edition : null
+  let images = new Map<string, Blob>(Object.entries(record.figureImages ?? {}).filter((entry): entry is [string, Blob] => entry[1] instanceof Blob))
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     try {
       // The converter loads only for a book not converted on this device yet.
-      const { epubToEdition } = await import('./epubEdition')
-      edition = await epubToEdition(new Uint8Array(record.bytes), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, '') })
+      const { convertEpub } = await import('./epubEdition')
+      const converted = await convertEpub(new Uint8Array(record.bytes), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, '') })
+      edition = converted.edition
+      images = converted.images
     } catch (error) {
       const code = (error as { code?: string } | null)?.code
       const message = code && ['drm', 'unsupported', 'bad_epub', 'not_zip'].includes(code) && error instanceof Error
@@ -121,7 +128,7 @@ export async function openUserBook(hex: string, options: { owner?: string | null
       return { ok: false, reason: 'unreadable', message }
     }
     // A browser that cannot keep it converts again next time; reading goes on.
-    await keepEdition(key, owner, edition).catch(() => {})
+    await keepEdition(key, owner, edition, images).catch(() => {})
   }
-  return { ok: true, book: { hex, bookId: userBookId(hex), edition, place: readUserBookPlace(hex, edition) } }
+  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition) } }
 }

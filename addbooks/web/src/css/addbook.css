@@ -73,6 +73,8 @@ body[data-view="reader"] #start { display: none; }
 .ab-cover-a { font: 9px var(--ab-ui); letter-spacing: .1em; text-transform: uppercase; opacity: .8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .ab-cover-k { position: absolute; right: 6px; top: 6px; font: 600 8px var(--ab-ui); letter-spacing: .08em; padding: 2px 5px; border-radius: 4px; background: rgba(0, 0, 0, .35); }
 .ab-cover.is-small { padding: 4px; border-radius: 2px; }
+.ab-cover.has-image { padding: 0; background: #1a1916; }
+.ab-cover.has-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .ab-cover.is-small .ab-cover-t { font-size: 6.5px; }
 .ab-cover.is-small .ab-cover-a { display: none; }
 
@@ -136,3 +138,8 @@ body[data-view="reader"] #start { display: none; }
 ::highlight(tinct-hl-lavender) { background-color: rgba(156, 116, 222, .32); }
 .lab.is-epub #playBtn { display: none !important; }
 .pdf-status { padding: 40px 16px; text-align: center; font: 16px/1.5 var(--ab-ui); color: #4a443b; max-width: 52ch; margin: 0 auto; }
+/* Phones and touch screens (2026-10-06): iOS Safari zooms into a focused field whose text is under 16px and does not zoom back. Fields stay at 16px or more here; zoom itself stays allowed and desktop keeps its look. */
+@media (pointer: coarse), (max-width: 520px) {
+  .byob-jump input, .byob-row select { font-size: max(16px, 1em); }
+  .lab.byob .lab-ask .lab-ask-input { font-size: 16px !important; }
+}

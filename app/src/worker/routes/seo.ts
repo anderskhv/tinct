@@ -18,6 +18,8 @@ const INDEXNOW_KEY_RE = /^[A-Za-z0-9-]{8,128}$/
 // SPA in an iframe for the live product demo. Same-origin only — third-party
 // sites still can't frame us. CSP `frame-src` and `frame-ancestors` are
 // also relaxed to 'self' for the same reason.
+// `img-src blob:` draws the figures of a reader's own book from this device
+// (object URLs, app/src/lab/labFigures.ts); nothing is fetched for them.
 // Omarchy exposes only its read-only palette at this exact loopback port/path.
 // Keep browser local-network permission and the bridge's Host/Origin checks.
 const SECURITY_HEADERS: Record<string, string> = {
@@ -25,7 +27,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai; img-src 'self' data:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai; img-src 'self' data: blob:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'",
 }
 
 // ===== Bot UA Blocklist (KV-free first line of defence) =====
