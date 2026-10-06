@@ -32,7 +32,7 @@
   .card .line { margin-top: calc(var(--u) * 3); font: italic 500 calc(var(--u) * 4.4) / 1.25 'Playfair Display', serif; opacity: .92; }
   .card .url { margin-top: calc(var(--u) * 5); font: 500 calc(var(--u) * 2.4) / 1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
   #caption {
-    position: fixed; left: 0; right: 0; bottom: calc(var(--u) * 7); text-align: center; opacity: 0;
+    position: fixed; left: 0; right: 0; bottom: calc(var(--u) * 4.5); text-align: center; opacity: 0;
   }
   #caption span {
     display: inline-block; padding: calc(var(--u) * 1.6) calc(var(--u) * 3) calc(var(--u) * 1.5); border-radius: 999px;
@@ -248,13 +248,13 @@ async function setScreen(src) {
 // edge, so text reads upright), el = elevation in degrees, d = distance (cm),
 // look = point on the phone (x, z) the camera aims at.
 const SHOTS = {
-  hero:      { from: { az: -24, el: 56, d: 35.0, look: [0, 0.4] }, to: { az: -14, el: 60, d: 32.3, look: [0, 0.2] } },
-  left:      { from: { az: -18, el: 62, d: 30.7, look: [0, -0.2] }, to: { az: -8, el: 64, d: 29.2, look: [0, -0.6] } },
-  right:     { from: { az: 20, el: 58, d: 31.8, look: [0, 0.2] }, to: { az: 11, el: 61, d: 29.7, look: [0, 0] } },
-  top:       { from: { az: 8, el: 66, d: 28.6, look: [0, -1.6] }, to: { az: -2, el: 68, d: 27.0, look: [0, -1.9] } },
-  bottom:    { from: { az: -10, el: 62, d: 28.6, look: [0, 1.4] }, to: { az: 2, el: 64, d: 27.0, look: [0, 1.7] } },
-  overhead:  { from: { az: 4, el: 74, d: 31.8, look: [0, 0] }, to: { az: -5, el: 76, d: 30.7, look: [0, 0] } },
-  reveal:    { from: { az: -6, el: 62, d: 30.7, look: [0, 0] }, to: { az: -22, el: 50, d: 48.8, look: [0, 0.6] } },
+  hero:      { from: { az: -24, el: 56, d: 36.8, look: [0, 0.4] }, to: { az: -14, el: 60, d: 33.9, look: [0, 0.2] } },
+  left:      { from: { az: -18, el: 62, d: 32.2, look: [0, -0.2] }, to: { az: -8, el: 64, d: 30.7, look: [0, -0.6] } },
+  right:     { from: { az: 20, el: 58, d: 33.4, look: [0, 0.2] }, to: { az: 11, el: 61, d: 31.2, look: [0, 0] } },
+  top:       { from: { az: 8, el: 64, d: 32.5, look: [0, -0.9] }, to: { az: -2, el: 66, d: 33, look: [0, -0.8] } },
+  bottom:    { from: { az: -10, el: 62, d: 32.5, look: [0, 0.9] }, to: { az: 2, el: 64, d: 31, look: [0, 1.1] } },
+  overhead:  { from: { az: 4, el: 74, d: 33.4, look: [0, 0] }, to: { az: -5, el: 76, d: 32.2, look: [0, 0] } },
+  reveal:    { from: { az: -6, el: 62, d: 30.7, look: [0, 0] }, to: { az: -22, el: 50, d: 51.2, look: [0, 0.6] } },
 };
 const ease = (x) => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 const easeSine = (x) => -(Math.cos(Math.PI * x) - 1) / 2;
@@ -271,6 +271,7 @@ function setCamera(shotName, p) {
     .applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
   camera.position.copy(target).add(off);
   camera.fov = 30;
+  camera.setViewOffset(W, H, 0, H * 0.045, W, H); // phone sits slightly high; captions go below
   camera.updateProjectionMatrix();
   camera.lookAt(target);
 }
