@@ -359,3 +359,53 @@ describe('completed authentication', () => {
     expect(mode()).toBe('welcome')
   })
 })
+
+describe('account page Premium choice', () => {
+  const signedIn = { data: { session: { access_token: 'token-1', user: { id: 'user-a', email: 'reader@example.com' } } } }
+
+  async function account(info: unknown) {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => String(input) === '/api/subscription-info'
+      ? Response.json(info)
+      : Response.json({ error: 'Payment processing failed' }, { status: 400 }))
+    vi.stubGlobal('fetch', fetchMock)
+    auth.getSession.mockResolvedValueOnce(signedIn as never)
+    history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader')
+    mountSignInShell()
+    await import('./labSignIn')
+    for (let i = 0; i < 4; i++) await flush()
+    const block = document.querySelector<HTMLElement>('[data-premium]')!
+    const visiblePlans = [...block.querySelectorAll<HTMLElement>('[data-plan]')].filter(plan => !plan.hidden).map(plan => plan.textContent?.trim())
+    return { fetchMock, block, visiblePlans }
+  }
+  afterEach(() => vi.unstubAllGlobals())
+
+  it('offers monthly and yearly to a signed-in reader who does not pay', async () => {
+    const { block, visiblePlans, fetchMock } = await account({ subscription_status: null, intervals: ['month', 'year'] })
+    expect(block.hidden).toBe(false)
+    expect(visiblePlans).toEqual(['Monthly$5/month', 'Yearly$50/year'])
+    expect(document.querySelector<HTMLInputElement>('[name=premiumInterval]:checked')?.value).toBe('month')
+    expect((fetchMock.mock.calls[0][1]?.headers as Record<string, string>).Authorization).toBe('Bearer token-1')
+  })
+
+  it('hides the yearly plan when the Worker has no yearly price', async () => {
+    const { block, visiblePlans } = await account({ subscription_status: null, intervals: ['month'] })
+    expect(block.hidden).toBe(false)
+    expect(visiblePlans).toEqual(['Monthly$5/month'])
+  })
+
+  it('shows nothing to a paying reader', async () => {
+    const { block } = await account({ subscription_status: 'active', intervals: ['month', 'year'] })
+    expect(block.hidden).toBe(true)
+  })
+
+  it('sends the chosen interval to checkout and says so when it cannot start', async () => {
+    const { fetchMock } = await account({ subscription_status: null, intervals: ['month', 'year'] })
+    document.querySelector<HTMLInputElement>('[name=premiumInterval][value=year]')!.checked = true
+    document.querySelector<HTMLButtonElement>('[data-checkout]')!.click()
+    for (let i = 0; i < 4; i++) await flush()
+    const call = fetchMock.mock.calls.find(([url]) => String(url) === '/api/create-checkout')!
+    expect(JSON.parse(String(call[1]?.body))).toMatchObject({ type: 'subscription', interval: 'year' })
+    expect(document.querySelector('[data-auth-status]')?.textContent).toBe('Payment could not start. Please try again.')
+    expect(document.querySelector<HTMLButtonElement>('[data-checkout]')!.disabled).toBe(false)
+  })
+})

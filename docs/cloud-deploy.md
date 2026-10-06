@@ -87,6 +87,7 @@ npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
 npx wrangler secret put STRIPE_SECRET_KEY
 npx wrangler secret put STRIPE_WEBHOOK_SECRET
 npx wrangler secret put STRIPE_PRICE_PREMIUM
+npx wrangler secret put STRIPE_PRICE_PREMIUM_YEARLY   # optional; without it the yearly plan is hidden
 npx wrangler secret put STRIPE_PRICE_CHAT_100
 npx wrangler secret put STRIPE_PRICE_CHAT_200
 npx wrangler secret put INDEXNOW_KEY

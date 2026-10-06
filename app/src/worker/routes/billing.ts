@@ -10,6 +10,8 @@ export type BillingEnv = SupabaseEnv & {
   STRIPE_SECRET_KEY?: string
   STRIPE_WEBHOOK_SECRET?: string
   STRIPE_PRICE_PREMIUM?: string
+  /** The yearly Premium price. Without it the yearly plan is not offered. */
+  STRIPE_PRICE_PREMIUM_YEARLY?: string
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
   /** 'on' once Stripe Tax is set up: Checkout then works out VAT / sales tax from the billing address. */
@@ -17,6 +19,44 @@ export type BillingEnv = SupabaseEnv & {
 }
 
 const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
+
+export type BillingInterval = 'month' | 'year'
+
+/**
+ * The Premium price for a billing interval, from the Worker's own secrets.
+ * The client only ever names the interval; a price id never comes from it.
+ */
+export function premiumPriceFor(env: BillingEnv, interval: BillingInterval): string | null {
+  return (interval === 'year' ? env.STRIPE_PRICE_PREMIUM_YEARLY : env.STRIPE_PRICE_PREMIUM) || null
+}
+
+/** The intervals checkout can sell right now: monthly and, once its price is set, yearly. */
+export function availablePremiumIntervals(env: BillingEnv): BillingInterval[] {
+  return (['month', 'year'] as const).filter(interval => premiumPriceFor(env, interval))
+}
+
+/** The only fields a checkout request may carry. Anything else (a price id above all) is refused. */
+const CHECKOUT_FIELDS = new Set(['type', 'interval', 'attribution'])
+
+type CheckoutBody = {
+  type: string
+  interval?: BillingInterval
+  attribution?: {
+    first_touch?: Record<string, unknown> | null
+    last_touch?: Record<string, unknown> | null
+  }
+}
+
+function parseCheckoutBody(value: unknown): CheckoutBody | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+  const body = value as Record<string, unknown>
+  if (Object.keys(body).some(key => !CHECKOUT_FIELDS.has(key))) return null
+  if (typeof body.type !== 'string') return null
+  if (body.interval !== undefined) {
+    if (body.type !== 'subscription' || (body.interval !== 'month' && body.interval !== 'year')) return null
+  }
+  return body as CheckoutBody
+}
 
 async function computeHmac(secret: string, payload: string): Promise<string> {
   const encoder = new TextEncoder()
@@ -47,6 +87,16 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
   if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
+  let body: CheckoutBody | null = null
+  try { body = parseCheckoutBody(await request.json()) } catch { body = null }
+  if (!body) return jsonResponse({ error: 'Invalid checkout request' }, 400, request)
+  const interval: BillingInterval = body.interval ?? 'month'
+  if (body.type === 'subscription' && !premiumPriceFor(env, interval)) {
+    // A plan whose price is not configured is not on sale: the page hides it, and a
+    // stale page gets a plain refusal instead of a charge for the other interval.
+    return jsonResponse({ error: interval === 'year' ? 'The yearly plan is not available' : 'Service unavailable' }, interval === 'year' ? 400 : 500, request)
+  }
+
   const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
   const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
   let customerId = profiles?.[0]?.stripe_customer_id || null
@@ -72,13 +122,6 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     await supabaseUpdate(env, 'profiles', user.id, { stripe_customer_id: customerId })
   }
 
-  const body = await request.json() as {
-    type: string
-    attribution?: {
-      first_touch?: Record<string, unknown> | null
-      last_touch?: Record<string, unknown> | null
-    }
-  }
   const origin = getAllowedOrigin(request)
 
   try {
@@ -104,12 +147,15 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     }
 
     if (body.type === 'subscription') {
-      if (!env.STRIPE_PRICE_PREMIUM) return jsonResponse({ error: 'Service unavailable' }, 500, request)
+      // Monthly and yearly are the same Premium: same metadata, same webhook path,
+      // same tax settings above. Only the price differs.
       params.set('mode', 'subscription')
-      params.set('line_items[0][price]', env.STRIPE_PRICE_PREMIUM)
+      params.set('line_items[0][price]', premiumPriceFor(env, interval)!)
       params.set('line_items[0][quantity]', '1')
       params.set('metadata[type]', 'subscription')
+      params.set('metadata[interval]', interval)
       params.set('subscription_data[metadata][supabase_user_id]', user.id)
+      params.set('subscription_data[metadata][interval]', interval)
     } else if (body.type === 'chat_pack_100') {
       if (!env.STRIPE_PRICE_CHAT_100) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
@@ -145,7 +191,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     }
     const checkoutUrl = stripeData.url
     if (!checkoutUrl) return jsonResponse({ error: 'Payment processing failed' }, 500, request)
-    recordServerEvent(env, ctx, { name: 'checkout_started', userId: user.id, props: { type: String(body.type).slice(0, 32) } })
+    recordServerEvent(env, ctx, { name: 'checkout_started', userId: user.id, props: { type: String(body.type).slice(0, 32), ...(body.type === 'subscription' ? { interval } : {}) } })
     return jsonResponse({ url: checkoutUrl }, 200, request)
   } catch {
     return jsonResponse({ error: 'Payment processing failed' }, 500, request)
@@ -390,5 +436,6 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
     message_balance: profile.message_balance,
     period_start: profile.period_start,
     stripe: stripeSubscription,
+    intervals: availablePremiumIntervals(env),
   }, 200, request)
 }
