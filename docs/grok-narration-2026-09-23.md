@@ -8,6 +8,8 @@ Ara (`ara`, public key `f`) is the female default; Helios (`helios`, key `m`) is
 
 The exact normalized displayed text, provider, model identity, voice and synthesis settings form the shared content address. Timings and MP3 must validate before publication. Changed chunks invalidate independently; identical chunks across books/editions reuse audio. Sparse maps support direct seeks without synthesizing preceding text.
 
+Dashes are never sent to the narrator (`speakableText` in `app/src/narration/narrationCore.ts`, spoken-text rules version 2, 2026-10-06): a numeric range reads "to" (`1914–1918` → "1914 to 1918"), and every other dash run — em/en dash, `--`, an elided year (`17—.`), a blank name (`Mr. ——`, `D——`, `R-----`) — becomes a pause (dropped before punctuation, a comma between words), never the word "dash" or "blank". Hyphenated words are untouched. Only chunks whose spoken text changed get new identities; the rules version is part of the reader's replay-cache identity so devices stop replaying older recordings.
+
 A SQLite Durable Object per identity owns a 120-second synthesis lease. One object per UTC month atomically reserves bytes against daily/monthly ceilings before every paid attempt. Retries are bounded; rejected reservations fail closed. Reservations conservatively include attempts whose billing outcome is unknown. KV counters remain informational.
 
 ## Playback

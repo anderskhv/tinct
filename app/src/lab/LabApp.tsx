@@ -2670,7 +2670,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Keep the page on screen, and every page before it, exactly as laid
     // out. The paginator lays out only what follows at the new foot, from
     // the word after the kept page — so a page reached in this same commit
-    // still begins on the same word.
+    // still begins on the same word (Play never moves a word on screen:
+    // scripts/check-inline-audio-loading.mjs).
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
     const index = Math.min(current, Math.max(0, shownIndex))
     setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
@@ -5064,11 +5065,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         </section>
       )}
 
-      {showPhoneChrome && audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk && <button
-        type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
-        onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
-      >×</button>}
-
       {(audioBarActive || desktopAudioBarActive) && speedPopoverOpen && (
         <section
           id="lab-audio-speed-popover"
@@ -5210,6 +5206,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               </>
             )}
           </div>
+          {/* The paused player's own close, on its top-right corner, as the
+              desktop dock carries its dismiss inside the dock. */}
+          {audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk && <button
+            type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
+            onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
+          ><svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg></button>}
         </footer>
       )}
       </div>}

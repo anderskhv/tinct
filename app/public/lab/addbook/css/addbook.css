@@ -136,3 +136,8 @@ body[data-view="reader"] #start { display: none; }
 ::highlight(tinct-hl-lavender) { background-color: rgba(156, 116, 222, .32); }
 .lab.is-epub #playBtn { display: none !important; }
 .pdf-status { padding: 40px 16px; text-align: center; font: 16px/1.5 var(--ab-ui); color: #4a443b; max-width: 52ch; margin: 0 auto; }
+/* Phones and touch screens (2026-10-06): iOS Safari zooms into a focused field whose text is under 16px and does not zoom back. Fields stay at 16px or more here; zoom itself stays allowed and desktop keeps its look. */
+@media (pointer: coarse), (max-width: 520px) {
+  .byob-jump input, .byob-row select { font-size: max(16px, 1em); }
+  .lab.byob .lab-ask .lab-ask-input { font-size: 16px !important; }
+}

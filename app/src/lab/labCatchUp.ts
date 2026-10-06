@@ -4,6 +4,7 @@
  * reopening the sheet costs nothing. Nothing here touches the DOM.
  */
 import { CATCH_UP_ROUTE, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
+import { isUsableRecapSummary } from '../recapSummary'
 import { requestLabRecapSummary } from '../preReader/recapSummaryClient'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 
@@ -16,7 +17,8 @@ export const CATCH_UP_COOLDOWN_MS = 20_000
 
 export type CatchUpEntryResult =
   | { ok: true; summary: string }
-  | { ok: false; status: number }
+  /** `empty`: nothing to summarise there yet; the sheet leaves the entry out instead of offering Retry. */
+  | { ok: false; status: number; empty?: boolean }
 
 type FetchLike = (input: string, init: RequestInit) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>
 
@@ -29,7 +31,8 @@ export function catchUpMemoryKey(entry: CatchUpEntry): string {
 }
 
 export function rememberedCatchUp(entry: CatchUpEntry): string | null {
-  return memory.get(catchUpMemoryKey(entry)) ?? null
+  const summary = memory.get(catchUpMemoryKey(entry))
+  return isUsableRecapSummary(summary) ? summary : null
 }
 
 export function resetCatchUpMemory(): void {
@@ -37,6 +40,7 @@ export function resetCatchUpMemory(): void {
 }
 
 function remember(entry: CatchUpEntry, summary: string): void {
+  if (!isUsableRecapSummary(summary)) return
   if (memory.size >= MEMORY_MAX) {
     const oldest = memory.keys().next().value
     if (oldest !== undefined) memory.delete(oldest)
@@ -56,7 +60,7 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
     let status = 0
     const recorded: FetchLike = async (url, init) => { const response = await fetchImpl(url, init); status = response.status; return response }
     const result = await requestLabRecapSummary({ request: entry.request, token: options.token, fetchImpl: recorded })
-    if (!result.ok) return { ok: false, status }
+    if (!result.ok) return result.empty ? { ok: false, status, empty: true } : { ok: false, status }
     remember(entry, result.response.summary)
     return { ok: true, summary: result.response.summary }
   }
@@ -69,6 +73,7 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
     if (!response.ok) return { ok: false, status: response.status }
     const data = await response.json() as Partial<CatchUpResponse> | null
     const summary = typeof data?.summary === 'string' ? data.summary.trim() : ''
+    if (data?.empty === true || (summary && !isUsableRecapSummary(summary))) return { ok: false, status: response.status, empty: true }
     if (!summary) return { ok: false, status: response.status }
     remember(entry, summary)
     return { ok: true, summary }
@@ -82,7 +87,8 @@ export function catchUpShouldCoolDown(status: number): boolean {
   return status === 429 || status === 503
 }
 
-export type CatchUpLoadState = 'idle' | 'loading' | 'ok' | 'error'
+/** `empty`: the Worker found nothing to summarise; the entry is not shown. */
+export type CatchUpLoadState = 'idle' | 'loading' | 'ok' | 'error' | 'empty'
 
 /**
  * Which entries to start next: wanted, idle, oldest first, within the

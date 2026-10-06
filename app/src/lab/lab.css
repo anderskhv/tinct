@@ -5497,9 +5497,9 @@
 
 /* ── The foot, without the bar ─────────────────────────────────────────
    V2 has no reading bar: Play is in the top bar and the rest is in the menu.
-   What the foot holds is the progress line, in its own treatment and always
-   shown, and — for as long as audio plays — the transport, with the progress
-   line above it. The space the bar held goes to the page. The column's
+   What the foot holds is the progress line, in its own treatment, or — for
+   as long as the transport is up — the transport alone: the progress line
+   steps aside rather than sit between the page and the player. The space the bar held goes to the page. The column's
    bottom is measured from the rail itself, so the last line always clears it
    and the home indicator; V1's rules for the rail are overridden here only. */
 
@@ -5575,18 +5575,22 @@
   padding-bottom: 0;
 }
 
-/* With the transport up the rail sits above it, and the column ends above
-   the rail: 20px of rail over the 3.72rem the transport takes. The page on
-   screen does not reflow when this changes — the transport covers its last
-   line — and only the pages after it are laid out again at this height
-   (LabApp's page freeze, `labPagesKeepingPrefix`). */
+/* With the transport up the progress line is put away and the column ends
+   above the 3.72rem the transport takes. The page on screen keeps its first
+   word and its lines; it is laid out again at this height from that word,
+   so it ends on the last line that clears the transport and the next page
+   picks up from there (LabApp's page freeze, `labPagesKeepingPrefix`). */
 .lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-body,
 .lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-body {
-  padding-bottom: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px));
 }
 .lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-bottom-chrome,
 .lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-bottom-chrome {
-  height: calc(4.97rem + env(safe-area-inset-bottom, 0px));
+  height: calc(3.72rem + env(safe-area-inset-bottom, 0px));
+}
+.lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress,
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress {
+  visibility: hidden;
 }
 
 /* Desktop: the rail's column is gone, and its width goes to the page. */
@@ -6278,18 +6282,25 @@
   position: absolute;
   inset: -6px;
 }
+/* The paused player's close sits on the player itself: a small disc in its
+   top-right corner, clear of the Talk glyph, with a 44px target. */
 .lab[data-chrome-version="v2"] .lab-audio-dismiss {
   position: absolute;
-  right: 10px;
-  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
-  z-index: 230;
+  top: 3px;
+  right: 3px;
+  z-index: 2;
   pointer-events: auto;
-  width: 28px;
-  height: 28px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  padding: 0;
   border: 1px solid var(--lab-border);
   border-radius: 50%;
   color: var(--lab-ink);
   background: var(--lab-paper);
+  cursor: pointer;
 }
 .lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-passage,
 .lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-passage { padding-top: .4rem; }
@@ -6304,7 +6315,7 @@
 }
 
 .lab[data-chrome-version="v2"] .lab-audio-dismiss::before {
-  content: ''; position: absolute; inset: -8px;
+  content: ''; position: absolute; inset: -11px;
 }
 
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon svg { width: 20px; height: 20px; }
