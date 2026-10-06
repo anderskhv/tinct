@@ -13,9 +13,9 @@ The served modern-en was the public-domain source text with spelling and a few w
 
 | Measure (unmodified `books/classify-modern-en.py --gate`, scratch mirror) | Result | Limit |
 |---|---|---|
-| Weighted similarity | **0.749** | <= 0.75 |
+| Weighted similarity | **0.747** | <= 0.75 |
 | Light + mechanical chapters | **0/9 = 0.0%** | <= 5% |
-| Identical long paragraphs | **4/331 = 1.2%** | <= 5% |
+| Identical long paragraphs | **2/331 = 0.6%** | <= 5% |
 | Truncated quotations / scaffolding | 0 / 0 | 0 |
 | Words per sentence (paragraphs over 25 words) | source 38.0, served modern-en 25.8, candidate **21.8** | |
 
@@ -32,13 +32,13 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-f9145e7b1c0131a421e4e4bef28d2b4fda974f92e643f1bf121261907959808d
+31cffde50bfc13b6cba19cdd873c13dab3653b9b82825b3590d51c3b2de63368
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/phaedo-modern-en.json`.
 - **Structure:** 9 chapters, 652 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
-- **Length:** 26,695 words (source 27,292).
-- **Changed against the live modern-en:** 419 of 652 paragraphs (`changed-paragraphs.json`). 239 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
+- **Length:** 26,702 words (source 27,292).
+- **Changed against the live modern-en:** 396 of 652 paragraphs (`changed-paragraphs.json`). 216 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
 
@@ -50,7 +50,7 @@ f9145e7b1c0131a421e4e4bef28d2b4fda974f92e643f1bf121261907959808d
 
 ## Character package impact
 
-466 modern-en mentions: 204 unchanged, 252 moved (proposed re-anchors), 10 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+466 modern-en mentions: 209 unchanged, 248 moved (proposed re-anchors), 9 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -66,3 +66,4 @@ f9145e7b1c0131a421e4e4bef28d2b4fda974f92e643f1bf121261907959808d
 - The whole-book gate result is 0.749 against a limit of 0.75, so the margin is very thin. Re-run the gate after integration; if it is borderline in the real checkout, a few paragraphs in ch5 (p80-159) are the closest to the source and could take a second pass.
 - 7:133: the source reads 'they had that ideas exist' (a word is missing); the candidate reads 'they had agreed that ideas exist'. 5:121 'for a for some time' typo normalized.
 - Quoted speech in multi-voice paragraphs (ch1, ch2, ch8, ch9) follows the style note's single-quote convention.
+- Second look (read-only audit, then mechanical edits in `reviews/fixes-extra.json`): 23 changed paragraphs were word-for-word identical to the source although the served edition had modernized some of them; those are set back to the served modern-en text. Gate similarity moved 0.749 -> 0.747, so the margin is still thin; re-run the gate after integration.

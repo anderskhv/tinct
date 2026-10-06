@@ -6,7 +6,7 @@
 |---|---|
 | Branch | `claude/inspiring-ritchie-zi00fu` |
 | Folder | `books/wip/descartes-meditations-modern-en/` |
-| Candidate | `candidate.json`, sha256 `584a1672898ec27470c8be0643d84c4c5a6db32c1422e03f52d90566cc552b37` |
+| Candidate | `candidate.json`, sha256 `2ddde8f1a095fb38a607c4f15893d4e07944f282a92347731d3d00bc7ad469a8` |
 | Replaces | served `descartes-meditations-modern-en.json`, sha256 `789863ff9c80db5b86ba5d351db4ad2b1067dab0539bd118a7d66a2aba65ea51` |
 | Baseline (original-en, unchanged) | sha256 `98e410390472e0f6e3701987e10f2b44974cdac1e277ba4d520a9e959103961a` |
 | Status | content accepted / handed off, **not published** |

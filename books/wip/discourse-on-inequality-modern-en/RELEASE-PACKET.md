@@ -6,7 +6,7 @@
 |---|---|
 | Branch | `claude/inspiring-ritchie-zi00fu` |
 | Folder | `books/wip/discourse-on-inequality-modern-en/` |
-| Candidate | `candidate.json`, sha256 `14a4b969a2b61cfd79a4351c0738ee1632a97f5944072965d670374cfbb9bdbf` |
+| Candidate | `candidate.json`, sha256 `07d61b6e3daabbe3d82c788120c68ac5ff2fd40bb79ac336aaf2dee7b9e5f504` |
 | Replaces | served `discourse-on-inequality-modern-en.json`, sha256 `78356e4ffdf62ec28c056fe871521967da428d31fafe694cad8b064f7019c62f` |
 | Baseline (original-en, unchanged) | sha256 `d3e7e7975ac634b98f685abcd7f6aae64b3621a74db31e1d229f2b6cfc4ba3bd` |
 | Status | content accepted / handed off, **not published** |

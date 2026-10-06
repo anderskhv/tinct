@@ -32,7 +32,7 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-14a4b969a2b61cfd79a4351c0738ee1632a97f5944072965d670374cfbb9bdbf
+07d61b6e3daabbe3d82c788120c68ac5ff2fd40bb79ac336aaf2dee7b9e5f504
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/discourse-on-inequality-modern-en.json`.
@@ -67,3 +67,4 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 - 4:55: the source reads 'longs of kings' (damaged); a renderer read it as 'lords of kings'. 4:54: a stray 'I' ('happiness and I virtue') was dropped. 4:3 and 4:24: 'vigorous in light' and 'very fang' were read as 'fighting' and 'long' (guesses).
 - Stray typos in the source were silently corrected by renderers in several places ('pur reason', 'Other surgical', 'Would accrue', 'docs').
 - 1:13: the source's parenthetical '(not to make you happy, for your ancestors have saved you that trouble)' is kept (restored by a reviewer fix).
+- Second look (read-only audit, then one direct edit in `reviews/fixes-extra.json`, not re-verified): ch4 p55 'the lords of kings' (a renderer guess at the damaged 'longs of kings') is replaced by 'the kings of kings', matching Rousseau's 'les Rois des Rois' and the served baseline. ch3 p21 ('are' read as 'fire') audited as faithful.

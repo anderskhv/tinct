@@ -32,7 +32,7 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-e4f94572995511b16096d9dd5d04752df8769c9584be457baf8d1a7e6a0355c2
+0e0dc440df0aa2ccf4d05bb9b1c4a208394951bbcf0c9057d47d650e8b90ef36
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/symposium-modern-en.json`.
@@ -50,7 +50,7 @@ e4f94572995511b16096d9dd5d04752df8769c9584be457baf8d1a7e6a0355c2
 
 ## Character package impact
 
-531 modern-en mentions: 67 unchanged, 459 moved (proposed re-anchors), 5 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
+531 modern-en mentions: 68 unchanged, 458 moved (proposed re-anchors), 5 need a ruling (`character-card-impact.json` lists only the moved or unresolved ones). Pin check: character file's pinned modern-en sha matches the served live file.
 
 ## Open issues (recorded, not blocking acceptance)
 
@@ -65,3 +65,4 @@ e4f94572995511b16096d9dd5d04752df8769c9584be457baf8d1a7e6a0355c2
 
 - 3:0 in the source is missing a subject ('since there are more Loves than one,--should have begun'); the candidate supplies 'you'. 3:9 'godess' is rendered 'goddess'. 7:62 'is and the same' is rendered 'one and the same'.
 - Quotation nesting across the verse paragraphs in ch1 (1:15-1:24) and in 1:46 follows the served pattern; renderers flagged these as the least certain places.
+- Second look (read-only audit, then one direct edit in `reviews/fixes-extra.json`, not re-verified): ch3 p0 now reads 'you should have begun by deciding...' (the damaged source drops the subject; Jowett has 'you'). Open and optional: 'Phaedrus, he said' can read as Aristodemus speaking; the source has the same ambiguity.

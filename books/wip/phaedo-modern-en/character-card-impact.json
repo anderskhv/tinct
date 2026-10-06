@@ -2,13 +2,13 @@
  "package": "app/public/data/characters/phaedo.v1.json",
  "edition": "modern-en",
  "pinnedLiveModernEnSha256": "2c46156a475567697bb7aadb6a66d362e08ea37cc23fc80d124c2be7e0cff8c7",
- "candidateSha256": "f9145e7b1c0131a421e4e4bef28d2b4fda974f92e643f1bf121261907959808d",
+ "candidateSha256": "31cffde50bfc13b6cba19cdd873c13dab3653b9b82825b3590d51c3b2de63368",
  "pinMatchesServedLive": true,
  "offsetUnit": "utf16",
  "mentionsTotal": 466,
- "unchanged": 204,
- "moved": 252,
- "needsRuling": 10,
+ "unchanged": 209,
+ "moved": 248,
+ "needsRuling": 9,
  "notes": [
   "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
   "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
@@ -1039,18 +1039,6 @@
    }
   },
   {
-   "characterId": "socrates",
-   "chapter": 1,
-   "paragraph": 58,
-   "oldStartOffset": 16,
-   "oldEndOffset": 24,
-   "oldText": "Socrates",
-   "proposed": {
-    "status": "NEEDS_RULING",
-    "note": "the mention text no longer occurs in this paragraph of the candidate"
-   }
-  },
-  {
    "characterId": "simmias",
    "chapter": 1,
    "paragraph": 59,
@@ -1092,21 +1080,6 @@
     "startOffset": 84,
     "endOffset": 92,
     "text": "Socrates",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "simmias",
-   "chapter": 2,
-   "paragraph": 1,
-   "oldStartOffset": 12,
-   "oldEndOffset": 19,
-   "oldText": "Simmias",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 20,
-    "endOffset": 27,
-    "text": "Simmias",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }
   },
@@ -1166,21 +1139,6 @@
     "status": "MOVED",
     "startOffset": 1090,
     "endOffset": 1097,
-    "text": "Simmias",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "simmias",
-   "chapter": 2,
-   "paragraph": 40,
-   "oldStartOffset": 11,
-   "oldEndOffset": 18,
-   "oldText": "Simmias",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 19,
-    "endOffset": 26,
     "text": "Simmias",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }
@@ -1848,21 +1806,6 @@
   {
    "characterId": "cebes",
    "chapter": 5,
-   "paragraph": 148,
-   "oldStartOffset": 45,
-   "oldEndOffset": 50,
-   "oldText": "Cebes",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 47,
-    "endOffset": 52,
-    "text": "Cebes",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "cebes",
-   "chapter": 5,
    "paragraph": 160,
    "oldStartOffset": 10,
    "oldEndOffset": 15,
@@ -2513,21 +2456,6 @@
     "status": "MOVED",
     "startOffset": 134,
     "endOffset": 141,
-    "text": "Simmias",
-    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
-   }
-  },
-  {
-   "characterId": "simmias",
-   "chapter": 7,
-   "paragraph": 42,
-   "oldStartOffset": 27,
-   "oldEndOffset": 34,
-   "oldText": "Simmias",
-   "proposed": {
-    "status": "MOVED",
-    "startOffset": 21,
-    "endOffset": 28,
     "text": "Simmias",
     "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
    }

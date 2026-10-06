@@ -32,12 +32,12 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 
 **`candidate.json`, sha256:**
 ```
-584a1672898ec27470c8be0643d84c4c5a6db32c1422e03f52d90566cc552b37
+2ddde8f1a095fb38a607c4f15893d4e07944f282a92347731d3d00bc7ad469a8
 ```
 
 - **Serialization:** identical to the live file (`json.dumps(indent=2, ensure_ascii=False)`, no trailing newline); drop-in replacement for `app/public/data/editions/descartes-meditations-modern-en.json`.
 - **Structure:** 9 chapters, 144 paragraphs. Chapter order, titles and per-chapter paragraph counts are identical to both served editions, so saved places, highlights and notes map 1:1 with no migration.
-- **Length:** 27,565 words (source 30,126).
+- **Length:** 27,567 words (source 30,126).
 - **Changed against the live modern-en:** 143 of 144 paragraphs (`changed-paragraphs.json`). 0 paragraphs are identical to the source, which are mostly quotations, verse, citations, stage directions and short lines the style note keeps verbatim.
 
 ## How it was made
@@ -67,3 +67,4 @@ Full gate output is in `GATE-OUTPUT.txt`. It was produced by the unmodified gate
 - 9:18: the source reads 'which, therefore, I do not know to be divisible'. The candidate says 'and so I know it to be divisible', which follows the argument (Veitch's printed text looks like a slip) but is a silent correction of the source wording. Decide whether to keep.
 - 7:6: the source reads 'we may have produced many other objects' (apparently damaged for 'he'); the candidate reads 'he may have produced'.
 - 7:15: a verifier noted that a conditional ('if he has not given me...') had become an assertion; this was restored by a direct edit after the verifier pass (fixes-extra.json). That one edit was not re-verified by a fresh reviewer.
+- Second look (coordinator-run read-only audit, then direct edits recorded in `reviews/fixes-extra.json`, NOT re-verified by a fresh verifier): ch7 p6 restores the modal 'so that I may have a place'; ch7 p15 joins the reason to its condition ('good reason to be content, because if he has not given me...'). Audit also judged ch9 p18 (a deliberate correction of the source's 'I do not know to be divisible') and ch7 p6's 'he may have produced' (source damaged: 'we') as faithful. Open, low priority: ch7 p15 'impress that resolution' resolves the source's ambiguous 'it'.
