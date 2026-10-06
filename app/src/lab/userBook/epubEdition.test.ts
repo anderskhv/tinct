@@ -296,6 +296,23 @@ describe('a designed book, not a converted one', () => {
     ])
   })
 
+  it('joins a list of names the print wrapped, and keeps verse whose lines open on capitals', async () => {
+    const edition = await epubToEdition(book([
+      ['one', `<h1>One</h1>
+        <p class="indentc"><em>Additional support by Ada Wren, Basil</em><br/> <em>Corvin, Delia Frost, Ezra Holt,</em><br/> <em>Fenna Lund, and Gil Marsh.</em></p>
+        <p>The sea is calm to-night,<br/>The tide is full, the moon lies fair<br/>Upon the straits,</p>
+        <p>O lamp of mine,<br/>And Robin, come,<br/>Thou art the light.</p>`],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'One'], ['two.xhtml', 'Two']]))
+    const [one] = edition.chapters
+    expect([one.paragraphs, one.kinds]).toEqual([
+      ['_Additional support by Ada Wren, Basil Corvin, Delia Frost, Ezra Holt, Fenna Lund, and Gil Marsh._',
+        'The sea is calm to-night,', 'The tide is full, the moon lies fair', 'Upon the straits,',
+        'O lamp of mine,', 'And Robin, come,', 'Thou art the light.'],
+      [null, 'line', 'line', 'line', 'line', 'line', 'line'],
+    ])
+  })
+
   it('never reads a bold lead-in line under the heading as a subtitle or byline', async () => {
     const edition = await epubToEdition(book([
       ['one', '<h1>Sam Writer: On Lamps</h1><p><strong>Hosts:</strong> Sam Writer &amp; Jo Smith</p><p>Body text follows here.</p>'],
