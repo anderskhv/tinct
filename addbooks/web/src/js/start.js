@@ -1,6 +1,6 @@
 // Tinct · Add a book: the start page. Two doors: your own book (PDF or EPUB, opened
-// privately; signed in, also kept privately in your account) and free public-domain books (search; download from the
-// source library, then open the file here).
+// privately and kept privately in your account) and free public-domain books (search;
+// download from the source library, then open the file here).
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const params = new URLSearchParams(location.search);
