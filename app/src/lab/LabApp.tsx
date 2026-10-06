@@ -1715,10 +1715,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const settledPageGeometryRef = useRef<{ width: number; height: number } | null>(null)
   const pageAnchorRef = useRef<{ paragraphIndex: number; wordIndex: number } | null>(null)
   // V2 phone: the audio transport opening or closing changes the reserved
-  // foot. The pages before the one on screen are kept exactly; the page on
-  // screen and those after it are laid out at the new height from the page's
-  // own first word (see labPagesKeepingPrefix), so it never loses its place
-  // and no line sits under the transport.
+  // foot. The page on screen (and those before it) is kept exactly; only the
+  // pages after it are laid out at the new height (see labPagesKeepingPrefix).
   // `transportOpenRef` is the foot now; `mapTransportOpenRef` the foot the
   // native map in use was measured against.
   const [pageFreeze, setPageFreeze] = useState<{ content: string[]; layoutKey: string; pages: ChapterHearingPage[] } | null>(null)
@@ -2299,10 +2297,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       // and changes later page boundaries on every navigation.
       if (labPageFitsPaint(painted)) return
       // The foot just changed height under this page (the transport opened
-      // or closed) and the map has not caught up: the map laid out at the new
-      // foot is on its way and ends the page above the transport. A page
-      // kept through that change is one the reader had already left; its
-      // words stay where they are. Peeling either would move them.
+      // or closed) and the map has not caught up, or this is a page kept
+      // through that change: its words stay where they are and the
+      // transport covers its last line. Peeling it would move them.
       const frozen = pageFreezeRef.current
       if (
         mapTransportOpenRef.current !== transportOpenRef.current
@@ -2670,17 +2667,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setPageFreeze(null)
       return
     }
-    // Keep every page before the one on screen exactly as laid out. The page
-    // on screen is laid out again at the new foot from its own first word
-    // (the word after the kept pages), so it still begins on the same word
-    // and its lines stay where they are: with the transport up it ends at the
-    // last line that clears the transport, and the lines the transport would
-    // have covered open the next page; with the transport put away it fills
-    // the taller column again. A page reached in this same commit is laid out
-    // afresh the same way.
+    // Keep the page on screen, and every page before it, exactly as laid
+    // out. The paginator lays out only what follows at the new foot, from
+    // the word after the kept page — so a page reached in this same commit
+    // still begins on the same word (Play never moves a word on screen:
+    // scripts/check-inline-audio-loading.mjs).
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
     const index = Math.min(current, Math.max(0, shownIndex))
-    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index) })
+    setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, index + 1) })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on the foot changing only; tracks the shown page every commit
   })
   // Phone Chat takes the page surface's place: the page and its paginator are
@@ -4657,7 +4651,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           chapters={book.chapters} sections={book.sections}
           chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
           completed={finishedChapters.has(book.chapterNumber)}
-          paragraphs={readerParagraphs}
           readChapters={() => new Set(labChapterStatuses({
             bookId: book.bookId || 'bible', chapterNumbers: book.chapters.map(chapter => chapter.number), finished: finishedChapters,
             memory: readDeviceReadingMemory(), position: readPositionState(), viewer: authUser?.id ?? null, conversations: readLabBookChat(book.bookId || 'bible'),
