@@ -38,6 +38,7 @@ import {
   type AnthropicStreamResult,
   type LabTalkContext,
 } from './labCompanion'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export const LAB_ASK_COMPANION_TOOL_V2 = {
   type: 'function',
@@ -155,6 +156,7 @@ async function fetchLabCompanionHopV2(input: {
 }): Promise<CompanionResponse> {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
+    ...internalTrafficHeaders(),
   }
   if (input.authToken) headers.Authorization = `Bearer ${input.authToken}`
   return fetch(apiUrl(input.authToken ? '/api/chat' : '/api/lab-chat'), {

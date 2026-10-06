@@ -1,4 +1,5 @@
 import {restartNativePage} from './native-page.mjs'
+import {markInternal} from '../lib/internalTraffic.cjs'
 import {prepareSilentEmulator} from './prepare-silent-emulator.mjs'
 import {checkNativeSync} from './check-sync.mjs'
 import {checkNativeDownloads} from './check-downloads.mjs'
@@ -25,6 +26,8 @@ try {
  stage('launch')
  await device.shell('am start -n '+activity)
  page=await(await device.webView({pkg:packageId})).page()
+ // Tinct's own check: its funnel events and AI calls are marked internal, never counted as readers.
+ await markInternal(page)
  page.setDefaultTimeout(60000)
  await page.locator('#hero-book canvas[data-painted="true"]').waitFor()
  assert.equal(await page.evaluate(()=>window.Capacitor?.isNativePlatform()),true)
@@ -165,7 +168,7 @@ try {
   acceptanceFailures.push({check:'native-account-sync',error:String(error)})
   console.log(JSON.stringify({nativeAcceptanceFailure:acceptanceFailures.at(-1)}))
   // Sync exercises a real restart: recover the current WebView even on failure.
-  page=await(await device.webView({pkg:packageId})).page()
+  page=await markInternal(await(await device.webView({pkg:packageId})).page())
  }
  stage('native-background-audio')
  let background

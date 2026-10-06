@@ -1,9 +1,10 @@
 import {chromium} from '@playwright/test'
 import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const output='artifacts/direct-audio-cache'
 await fs.mkdir(output,{recursive:true})
-const browser=await chromium.launch()
+const browser=await markInternal(await chromium.launch())
 try {
  const context=await browser.newContext({serviceWorkers:'allow'})
  const page=await context.newPage()

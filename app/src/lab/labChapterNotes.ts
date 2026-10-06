@@ -5,6 +5,7 @@
  * they are stored so other surfaces can reuse them.
  */
 import { CHAPTER_NOTES_ROUTE, chapterNotesCacheKey, parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesRequest } from '../chapterNotes'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export const CHAPTER_NOTES_STORAGE_KEY = 'tinct:chapter-notes'
 export const EXPLANATIONS_STORAGE_KEY = 'tinct:explanations'
@@ -36,7 +37,7 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
   const fetchImpl = options.fetchImpl ?? (typeof fetch === 'function' ? (url: string, init: RequestInit) => fetch(url, init) : null)
   if (!fetchImpl) return { ok: false, status: 0 }
   try {
-    const response = await fetchImpl(CHAPTER_NOTES_ROUTE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(request) })
+    const response = await fetchImpl(CHAPTER_NOTES_ROUTE, { method: 'POST', headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders() }, body: JSON.stringify(request) })
     if (!response.ok) return { ok: false, status: response.status }
     const beats = parseChapterNotesBeats(await response.json())
     if (!beats) return { ok: false, status: response.status }

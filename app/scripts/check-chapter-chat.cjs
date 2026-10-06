@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Real reader/layout/edition data; Chat responses are intercepted. No model calls.
 const { chromium, webkit } = require('playwright')
 const assert = require('node:assert/strict')
@@ -13,7 +14,7 @@ async function state(page) {
 async function main() {
  const results=[]
  for(const config of [{name:'phone',engine:webkit,width:390,height:844},{name:'small-phone-large-text',engine:webkit,width:360,height:640,fontSize:1.8},{name:'desktop',engine:chromium,width:1440,height:950}]) {
-  const browser=await config.engine.launch()
+  const browser=await markInternal(await config.engine.launch())
   try {
    const page=await browser.newPage({serviceWorkers:'block',viewport:{width:config.width,height:config.height},isMobile:config.width<800,hasTouch:config.width<800})
    await page.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))

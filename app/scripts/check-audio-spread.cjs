@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const origin='https://tinct.app',built=process.env.READER_BUILT!=='0',out='artifacts/audio-spread';
 fs.mkdirSync(out,{recursive:true});
@@ -10,7 +11,7 @@ async function geometry(p){return p.evaluate(()=>[...document.querySelectorAll('
 (async()=>{
 const results=[];
 for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(e.name()))){
- const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
+ const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
  const context=await browser.newContext({viewport:{width:1450,height:813},serviceWorkers:'block'});
  const calls=[];
  await context.route('**/*',async r=>{

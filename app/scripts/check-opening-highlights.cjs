@@ -1,10 +1,11 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const origin='https://tinct.app',baseline=process.env.OPENING_BASELINE==='1',built=process.env.READER_BUILT!=='0';
 const out=process.env.ARTIFACT_DIR||'artifacts/opening-highlights';fs.mkdirSync(out,{recursive:true});
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(500);}
 (async()=>{const results=[];
 for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(e.name()))){
- const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
+ const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
  const context=await browser.newContext({viewport:{width:1450,height:879},serviceWorkers:'block'});
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());

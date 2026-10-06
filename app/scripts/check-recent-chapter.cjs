@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Isolated guest state; uses real text and navigation. Run from app/.
 const { chromium, webkit } = require('playwright')
 const assert = require('node:assert/strict')
@@ -25,7 +26,7 @@ async function choose(page, chapter) {
   }
 }
 async function main() {
-  const browser = await (engine === 'webkit' ? webkit : chromium).launch()
+  const browser = await markInternal(await (engine === 'webkit' ? webkit : chromium).launch())
   try {
     for (const desktop of [false, true]) {
       const page = await browser.newPage({serviceWorkers:'block', viewport: desktop ? { width: 1440, height: 900 } : { width: 390, height: 844 }, isMobile: !desktop, hasTouch: !desktop })

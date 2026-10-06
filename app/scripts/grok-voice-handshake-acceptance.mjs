@@ -2,6 +2,7 @@ import { chromium } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = 'https://tinct.app'
 const persona = process.env.VOICE_PERSONA === 'male' ? 'male' : 'female'
@@ -10,10 +11,10 @@ const verifyForceMessage = process.env.VERIFY_FORCE_MESSAGE === '1'
 const output = `artifacts/voice-capture/${persona}`
 await fs.mkdir(output, { recursive: true })
 
-const browser = await chromium.launch({ headless: true, args: [
+const browser = await markInternal(await chromium.launch({ headless: true, args: [
   '--mute-audio', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream',
   '--use-file-for-fake-audio-capture=' + path.resolve(process.argv[2]),
-] })
+] }))
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, permissions: ['microphone'], serviceWorkers: 'block' })
 const page = await context.newPage()
 page.setDefaultTimeout(10_000)

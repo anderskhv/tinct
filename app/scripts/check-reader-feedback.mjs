@@ -2,11 +2,12 @@ import { chromium } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.READER_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/reader-feedback-20260928'
 await fs.mkdir(output, { recursive: true })
-const browser = await chromium.launch({ headless: true, args: ['--mute-audio','--no-sandbox','--disable-gpu'], ...(process.env.QA_CHROMIUM ? { executablePath: process.env.QA_CHROMIUM } : {}) })
+const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio','--no-sandbox','--disable-gpu'], ...(process.env.QA_CHROMIUM ? { executablePath: process.env.QA_CHROMIUM } : {}) }))
 const results = []
 for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zechariah'], [411, 18, 'ezra']]) {
  const context = await browser.newContext({ viewport: { width: 390, height: 700 }, hasTouch: true, serviceWorkers: 'block' })

@@ -1,6 +1,7 @@
 import { textOfRange, cleanExcerpt } from './textRange'
 import type { RecapSummary } from './recap'
 import type { ReadingSession, StoredRecapSummary } from './types'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export const RECAP_SUMMARY_PROMPT_VERSION = 'recap-summary-v1'
 export const RECAP_SUMMARY_ROUTE = '/api/chat'
@@ -113,6 +114,7 @@ export async function requestRecapSummary(input: {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...internalTrafficHeaders(),
         Authorization: `Bearer ${input.token}`,
       },
       body: JSON.stringify({

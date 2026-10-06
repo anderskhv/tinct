@@ -5,6 +5,7 @@
  * reports are keepalive fetches that never await, throw or block anything.
  */
 import { apiUrl } from './apiUrl'
+import { internalTrafficHeaders } from './internalTraffic'
 
 type Post = (path: string, body: object, token: string | null | undefined) => void
 
@@ -13,7 +14,7 @@ const defaultPost: Post = (path, body, token) => {
     if (typeof fetch !== 'function') return
     void fetch(apiUrl(path), {
       method: 'POST', keepalive: true, body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+      headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), ...(token ? { Authorization: `Bearer ${token}` } : {}) },
     }).catch(() => {})
   } catch { /* the ledger never breaks the feature */ }
 }

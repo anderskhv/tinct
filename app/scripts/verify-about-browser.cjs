@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const { chromium } = require('@playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -5,7 +6,7 @@ const origin = process.argv[2] || 'http://127.0.0.1:8793';
 const out = process.argv[3] || '/tmp/tinct-about-qa';
 (async () => {
   fs.mkdirSync(out, { recursive: true });
-  const browser = await chromium.launch({ headless: true });
+  const browser = await markInternal(await chromium.launch({ headless: true }));
   const report = [];
   for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
     const page = await browser.newPage({ viewport });

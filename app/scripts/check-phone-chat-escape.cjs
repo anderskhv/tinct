@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 /**
  * Escape closes the Chat panel on the phone — the regression guard for the
  * key that PR #45 taught only the desktop.
@@ -25,7 +26,7 @@ const DRAFT = 'why does Athene go to Ithaca'
 
 async function main() {
   fs.mkdirSync(OUT, { recursive: true })
-  const browser = await chromium.launch({ executablePath: EXECUTABLE })
+  const browser = await markInternal(await chromium.launch({ executablePath: EXECUTABLE }))
   const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 393, height: 852 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 })
   await page.route('**/api/**', route => route.fulfill({ status: 404, body: '{}' }))
   await page.addInitScript(() => {

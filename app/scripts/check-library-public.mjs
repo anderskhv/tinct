@@ -4,6 +4,7 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 // The Worker's book-link composition, run here against the local build.
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage } from '../src/worker/lib/bookLibraryPage.ts'
+import { markInternal } from './lib/internalTraffic.cjs'
 const root=path.resolve('dist'),out=process.env.LIBRARY_OUT||'artifacts/library-public';fs.mkdirSync(out+'/book-links',{recursive:true});
 // LIBRARY_ENGINES=chromium limits the engines; PW_CHROMIUM_PATH names a local Chromium binary.
 const engines=(process.env.LIBRARY_ENGINES||'chromium,webkit').split(','),chromiumPath=process.env.PW_CHROMIUM_PATH;
@@ -46,7 +47,7 @@ async function closeQuietly(c,p){
  let timer;await Promise.race([c.close(),new Promise(r=>{timer=setTimeout(()=>{console.log('CONTEXT_CLOSE_SLOW');r();},15000);})]).catch(()=>{});clearTimeout(timer);
 }
 for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>engines.includes(e.name()))){
- const b=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})});
+ const b=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})}));
  // Book links: the linked book is in the hero from the first paint, nothing opens by itself.
  for(const [bw,bh,mobile] of engine===chromium?[[1440,900,false],[390,844,true]]:[[390,844,true]])await checkBookLinks(b,engine.name(),bw,bh,mobile,engine===chromium&&!mobile);
  if(engine===chromium){await checkSceneFilm(b,'chromium','desktop',{viewport:{width:w,height:h}},'assets/scenes/room-wide-v2.mp4');await checkSceneFilm(b,'chromium','reduced-motion',{viewport:{width:w,height:h},reducedMotion:'reduce'},null);}

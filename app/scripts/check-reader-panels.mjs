@@ -2,6 +2,7 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
@@ -127,7 +128,7 @@ async function select(page) {
   await page.getByRole('button',{name:'Explain',exact:true}).waitFor()
 }
 async function run(engine,name,phone) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:phone?'phone':'desktop',live}
   try {
@@ -316,7 +317,7 @@ async function run(engine,name,phone) {
   } finally { await browser.close(); results.push(result) }
 }
 async function compareLabel(engine,name){
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:'desktop-comparison',live}
   try{
@@ -384,7 +385,7 @@ async function checkFullPageFold(page) {
   return fold
 }
 async function bookSurface(engine,name){
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:'desktop-book-surface',live}
   try{
@@ -426,7 +427,7 @@ async function bookSurface(engine,name){
 
 
 async function contentsAndSameEdition(engine,name,phone){
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:phone?'phone-contents':'desktop-contents',live}
   try{
@@ -552,7 +553,7 @@ async function highlightBodyPaint(page){
 
 async function safariPaintProbe(){
  if(live)return
- const browser=await webkit.launch({headless:true})
+ const browser=await markInternal(await webkit.launch({headless:true}))
  try{
   const state=await boot(browser,false,'notes-from-underground','original-en',1,{paragraphIndex:0,highlights:[{id:'probe',bookId:'notes-from-underground',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:115,color:'gold',kept:true}],deviceScaleFactor:2})
   const {page}=state;await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
@@ -620,7 +621,7 @@ async function checkHighlightPaint(page){
 }
 
 async function highlightRegression(engine,name){
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:'persisted-highlight-regression',live,clicks:[]}
   try{
@@ -683,7 +684,7 @@ async function highlightRegression(engine,name){
 
 
 async function mobileChromeRegression(engine,name){
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:'phone-chrome-regression',live}
   try{
@@ -738,7 +739,7 @@ async function mobileChromeRegression(engine,name){
 
 async function designReference(){
   if(live)return
-  const browser=await chromium.launch({headless:true,args:['--mute-audio']})
+  const browser=await markInternal(await chromium.launch({headless:true,args:['--mute-audio']}))
   try{
     const state=await boot(browser,false)
     const {page}=state
@@ -760,7 +761,7 @@ async function designReference(){
   }finally{await browser.close()}
 }
 async function feedbackRegression(engine,name,phone) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   const result={engine:name,layout:phone?'phone-feedback':'desktop-feedback',live}
   let state
   try {
@@ -798,7 +799,7 @@ async function feedbackRegression(engine,name,phone) {
 }
 
 async function antigoneAudioAvailability(engine,name) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:'antigone-audio-availability',live}
   try {
@@ -832,7 +833,7 @@ async function antigoneAudioAvailability(engine,name) {
 
 
 async function menuRedesign(engine,name,phone) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:phone?'phone-new-menu':'desktop-new-menu',live}
   try {
@@ -889,7 +890,7 @@ async function menuRedesign(engine,name,phone) {
 
 // Revealing the reader controls or opening Chat mid-chapter never moves the page.
 async function revealKeepsPage(engine,name,phone) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:phone?'phone-reveal-keeps-page':'desktop-reveal-keeps-page',live}
   try {
@@ -916,7 +917,7 @@ async function revealKeepsPage(engine,name,phone) {
 
 // Desktop panels open beside what opened them and grow in place (Anders 2026-10-01).
 async function panelsOpenNearSource(engine,name) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:'desktop-panels-near-source',live}
   try {
@@ -949,7 +950,7 @@ async function panelsOpenNearSource(engine,name) {
 
 // Library -> Continue reopens the exact page, every time (guest; QA 2026-10-01 found one page of drift per round trip).
 async function libraryContinueKeepsPage(engine,name,phone) {
-  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
   const result={engine:name,layout:phone?'phone-library-continue':'desktop-library-continue',live}
   try {

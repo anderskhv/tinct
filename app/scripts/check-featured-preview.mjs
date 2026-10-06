@@ -2,6 +2,7 @@ import {chromium,webkit} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live=process.env.LIBRARY_LIVE==='1'
 const out='artifacts/featured-preview'
 await fs.mkdir(out,{recursive:true})
@@ -14,7 +15,7 @@ if(live){
  assert((denied.headers.get('cache-control')||'').includes('no-store'))
 }
 for(const [name,engine] of Object.entries({chromium,webkit})){
- const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}:{})})
+ const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}:{})}))
  try{
  for(const [label,width,height,touch] of [['phone',390,660,true],['small-phone',375,560,true],['ipad',820,1024,true],['desktop',1440,900,false]]){
  const context=await browser.newContext({viewport:{width,height},isMobile:touch,hasTouch:touch,deviceScaleFactor:touch?2:1,serviceWorkers:'block'})

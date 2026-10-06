@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // TEST_ORIGIN=http://127.0.0.1:5198 ARTIFACT_DIR=/tmp/chapter-end node scripts/check-chapter-end-leaf.cjs
 // Isolated browser fixtures; all API/account requests are intercepted.
 const {chromium,webkit}=require('playwright')
@@ -43,7 +44,7 @@ async function run(browser,viewport,before){
  }finally{await context.close()}
 }
 ;(async()=>{const results=[];for(const viewport of[{width:1440,height:795},{width:1440,height:950},{width:1024,height:768},{width:390,height:844}]){
- const browser=await(viewport.width<900?webkit:chromium).launch()
+ const browser=await markInternal(await (viewport.width<900?webkit:chromium).launch())
  try{const before=await run(browser,viewport,true),after=await run(browser,viewport,false)
  assert.deepEqual(after.pages.map(p=>({end:p.end,keys:p.keys})),before.pages.map(p=>({end:p.end,keys:p.keys})),'All page boundaries and end-screen transitions remain identical')
  results.push({before,after});console.log(JSON.stringify({viewport,sourcePages:after.pages.filter(p=>!p.end).length,endScreen:after.pages.some(p=>p.end),paginationUnchanged:true}))

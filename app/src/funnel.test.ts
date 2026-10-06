@@ -206,3 +206,60 @@ describe('usage reports', () => {
     expect(post).toHaveBeenCalledTimes(3)
   })
 })
+
+describe('internal traffic (?internal=1) in the funnel', () => {
+  type Sent = { events: Array<{ name: string; props: Record<string, unknown> }> }
+
+  it('reader: marks every event internal: true while the flag is set', () => {
+    const { deps, sent, runTimers } = harness({ internal: () => true })
+    const funnel = createFunnel(deps)
+    funnel.start()
+    funnel.track('book_opened', { book_id: 'odyssey' })
+    runTimers()
+    const events = sent.flatMap(entry => entry.body.events)
+    expect(events.map(event => event.name)).toEqual(['pageview', 'book_opened'])
+    for (const event of events) expect(event.props.internal).toBe(true)
+    expect(events[1].props.book_id).toBe('odyssey')
+  })
+
+  it('reader: checks the flag when sending, so events queued just before it was set are marked too', () => {
+    let internal = false
+    const { deps, sent, runTimers } = harness({ internal: () => internal })
+    const funnel = createFunnel(deps)
+    funnel.track('first_page_turn')
+    internal = true
+    runTimers()
+    expect(sent[0].body.events[0].props.internal).toBe(true)
+  })
+
+  it('reader: sends no internal prop without the flag', () => {
+    const { deps, sent, runTimers } = harness({ internal: () => false })
+    const funnel = createFunnel(deps)
+    funnel.track('book_opened', { book_id: 'odyssey' })
+    runTimers()
+    expect(sent[0].body.events[0].props).not.toHaveProperty('internal')
+  })
+
+  it('library: marks every event internal: true while the flag is set, and nothing otherwise', () => {
+    const run = (internal: boolean) => {
+      const sent: string[] = []
+      const seen = new Set<string>()
+      const client = createLibraryFunnel({
+        enabled: () => true, internal: () => internal, deviceId: () => 'device-1234abcd', sessionId: () => 'session1234abcd', path: () => '/library', referrer: () => '',
+        attribution: () => ({}), visible: () => true, now: () => 1_000,
+        sessionSeen: { has: (n: string) => seen.has(n), add: (n: string) => { seen.add(n) } },
+        once: { has: () => false, add: () => {} },
+        send: (body: string) => { sent.push(body) },
+      })
+      client.start()
+      client.track('book_intro_viewed', { book_id: 'odyssey' })
+      client.flush()
+      client.stop()
+      return sent.flatMap(body => (JSON.parse(body) as Sent).events)
+    }
+    const marked = run(true)
+    expect(marked.map(event => event.name)).toEqual(['pageview', 'landing_view', 'book_intro_viewed'])
+    for (const event of marked) expect(event.props.internal).toBe(true)
+    for (const event of run(false)) expect(event.props).not.toHaveProperty('internal')
+  })
+})

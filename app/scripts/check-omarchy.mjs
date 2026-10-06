@@ -4,6 +4,7 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 import os from 'node:os'
 import { spawn } from 'node:child_process'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live=process.env.TINCT_DESKTOP_LIVE==='1', origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''), output='artifacts/omarchy'
 await fs.mkdir(output,{recursive:true})
@@ -33,7 +34,7 @@ bridge.on('error',error=>console.error(error))
 try {
 for(let i=0;i<50;i++){try{if((await fetch('http://127.0.0.1:47653/health')).ok)break}catch{};if(i===49)throw Error('Theme bridge did not start');await new Promise(r=>setTimeout(r,100))}
 for(const engine of [chromium,webkit]) {
-  const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
+  const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
   const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'})
   if(engine===chromium)await context.grantPermissions(['local-network-access'],{origin})
   const page=await context.newPage(), errors=[],requests=[],network=[]

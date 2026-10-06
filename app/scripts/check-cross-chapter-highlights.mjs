@@ -2,12 +2,13 @@ import {chromium,webkit} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const origin='https://tinct.app',output='artifacts/cross-chapter',live=process.env.READER_BUILT==='0'
 const results=[]
 await fs.mkdir(output,{recursive:true})
 const edition=JSON.parse(await fs.readFile('public/data/editions/bible-kjv-en.json','utf8'))
 for(const engine of [chromium,webkit]){
- const browser=await engine.launch({headless:true})
+ const browser=await markInternal(await engine.launch({headless:true}))
  try{for(const reverse of [false,true]){
   const context=await browser.newContext({viewport:{width:1440,height:950},serviceWorkers:'block'})
   const page=await context.newPage()

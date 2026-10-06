@@ -15,6 +15,7 @@
  * book's own reader — and the hero asks it before it asks the network.
  */
 import { LAB_RECAP_ROUTE, type LabRecapRequest, type LabRecapResponse } from '../recapSummary'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 /**
  * Away from a book for at least this long before a "so far" summary is
@@ -207,6 +208,7 @@ export async function requestLabRecapSummary(input: {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...internalTrafficHeaders(),
         ...(input.token ? { Authorization: `Bearer ${input.token}` } : {}),
       },
       body: JSON.stringify(input.request),

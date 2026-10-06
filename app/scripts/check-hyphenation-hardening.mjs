@@ -2,6 +2,7 @@ import { chromium } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.HYPHENATION_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
@@ -9,7 +10,7 @@ const output = 'artifacts/hyphenation-hardening'
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 await fs.mkdir(output, { recursive: true })
 
-const browser = await chromium.launch({ headless: true, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio'] }))
 const results = []
 
 async function routeBuiltApp(page, delayEnglish) {

@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Real production reader and reviewed assets; no model calls or account writes.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),assert=require('node:assert/strict')
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5197',dir=process.env.ARTIFACT_DIR||'/tmp/tinct-hamlet';fs.mkdirSync(dir,{recursive:true})
@@ -40,7 +41,7 @@ if (book === 'crime-and-punishment') {
  reviewedCases[book]=selected.map(([label,m])=>[label,m.chapterNumber,m.characterId,m.paragraphIndex])
 }
 const cases=reviewedCases[book];assert.ok(cases,`No reviewed browser cases for ${book}`)
-;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await engine.launch();try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){
+;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await markInternal(await engine.launch());try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){
 if(process.env.TEST_CASE&&`${device}-${edition}-${label}`!==process.env.TEST_CASE)continue
 
 const e=asset.editions[edition];if(edition==='modern-en'&&['caesar','chu'].includes(id)&&!e.characters.some(c=>c.id===id)){results.push({device,edition,label,omitted:true});continue}const mention=e.mentions.find(m=>m.chapterNumber===ch&&m.characterId===id&&(label!=='new-cawdor'||m.resolution==='reviewed-title-transfer')&&(pi===undefined||m.paragraphIndex===pi));assert.ok(mention,label)

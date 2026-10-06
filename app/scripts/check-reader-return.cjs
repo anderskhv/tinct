@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Run from app/: TEST_ORIGIN=https://tinct.app ENGINE=webkit node scripts/check-reader-return.cjs
 // Isolated fixture account; every account request/write is intercepted. Real book text and browser layout.
 const { chromium, webkit } = require('playwright')
@@ -14,7 +15,7 @@ const user = { id: '11111111-1111-4111-8111-111111111111', email: 'fixture@examp
 const exp = Math.floor(Date.now() / 1000) + 3600
 const token = [{ alg: 'HS256', typ: 'JWT' }, { sub: user.id, exp, role: 'authenticated' }, 'fixture'].map(x => typeof x === 'string' ? x : Buffer.from(JSON.stringify(x)).toString('base64url')).join('.')
 async function main() {
-  const browser = await (engine === 'webkit' ? webkit : chromium).launch()
+  const browser = await markInternal(await (engine === 'webkit' ? webkit : chromium).launch())
   const results = []
   try {
     for (const scenario of ['slow-supporting-data', 'slow-position', 'different-book']) {

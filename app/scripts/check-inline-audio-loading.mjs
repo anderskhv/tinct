@@ -2,6 +2,7 @@ import { chromium, webkit } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
@@ -184,7 +185,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
   }
 }
 for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
-  const browser = await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) })
+  const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
   try {
     for (const theme of ['dark', 'light']) await run(browser, engine, { theme })
     if (engine === 'chromium') {

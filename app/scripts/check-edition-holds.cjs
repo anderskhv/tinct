@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const { chromium, webkit } = require('playwright')
 const fs = require('node:fs')
 const path = require('node:path')
@@ -24,7 +25,7 @@ if (!process.env.TEST_ORIGIN) {
   }).listen(5197)
 }
 ;(async () => {
- const browsers = { desktop: await chromium.launch({args:['--mute-audio']}), phone: await webkit.launch() }
+ const browsers = { desktop: await markInternal(await chromium.launch({args:['--mute-audio']})), phone: await markInternal(await webkit.launch()) }
  const results=[]
  try {
   const held = { ...manifest.editions, 'jane-eyre/modern-da': { reason: 'Danish editions are no longer offered' }, 'odyssey/modern-da': { reason: 'Danish editions are no longer offered' } }

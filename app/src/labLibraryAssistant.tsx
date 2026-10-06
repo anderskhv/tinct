@@ -26,6 +26,7 @@ import {
   type LibraryCatalogueBook,
   type LibraryShelf,
 } from './lab/libraryLibrarian'
+import { internalTrafficHeaders } from './utils/internalTraffic'
 
 type Mode = 'search' | 'chat' | 'talk' | null
 export interface LibraryAssistantControls {
@@ -291,7 +292,7 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
       const post = (bearer: string | null) => fetch(apiUrl(bearer ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         signal: controller.signal,
-        headers: { 'Content-Type': 'application/json', ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}) },
+        headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}) },
         body: JSON.stringify({
           stream: true,
           companion: { intent: 'library', library: { contextBookId: contextBook?.id ?? null, shelf: host?.getShelf?.() ?? null } },

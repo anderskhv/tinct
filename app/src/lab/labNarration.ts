@@ -13,6 +13,7 @@ import { usesRetainedBella } from '../narration/bellaRetention'
 import { apiUrl } from '../utils/apiUrl'
 import { isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
 import type { LabPrefs } from './labPrefs'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export type NarrationPilotFlag = 'fish' | 'off' | null
 
@@ -72,7 +73,7 @@ export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOpt
 
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {
   try {
-    const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store' })
+    const response = await fetchImpl(apiUrl('/api/narration/voices'), { cache: 'no-store', headers: internalTrafficHeaders() })
     if (!response.ok) return { enabled: false, provider: 'grok', reason: `http_${response.status}`, voices: [] }
     const json = await response.json() as Partial<NarrationPilotInfo>
     return {
@@ -174,7 +175,7 @@ export async function ensureNarration(
       ? { index: item.index, fromChunk: item.fromChunk, textHash: await sha256Hex(narrationTextForParagraph(item.text)) }
       : { index: item.index, fromChunk: item.fromChunk }
   )))
-  const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+  const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
   if (options.authToken) headers.Authorization = `Bearer ${options.authToken}`
   // The Worker may wait up to ~55 s on a busy provider; past that the
   // request is abandoned client-side rather than left hanging.

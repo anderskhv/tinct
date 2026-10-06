@@ -3,6 +3,7 @@ import {chromium,webkit} from 'playwright'
 import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const origin='https://tinct.app',out='artifacts/reader-device-sync'
 fs.mkdirSync(out,{recursive:true})
 const assets=fs.readdirSync('dist/assets').filter(f=>f.endsWith('.js')).map(f=>fs.readFileSync('dist/assets/'+f,'utf8')).join('\n')
@@ -15,7 +16,7 @@ const authKey='sb-'+new URL(supabaseUrl).hostname.split('.')[0]+'-auth-token'
 const note=JSON.stringify([{id:'device-sync-note',bookId:'bible',editionKey:'web-en',chapterNumber:923,paragraphIndex:1,fromWord:1,endParagraphIndex:1,toWord:3,color:'blue',note:'Keep æ — 123 exactly.',text:'fixture'}])
 const results=[]
 for(const engine of [chromium,webkit]){
- const browser=await engine.launch()
+ const browser=await markInternal(await engine.launch())
  const now=Date.now()
  const local={bookId:'ezra',headerBook:'Ezra',chapterNumber:9,sequentialChapter:412,paragraphIndex:1,wordIndex:0,primaryEditionKey:'web-en',updatedAt:now-100000,deviceId:'desktop',rev:1}
  let position={owner:user.id,books:{ezra:local},finished:{},hidden:{},lastSettledBookId:'ezra',lastSettledAt:local.updatedAt,updatedAt:local.updatedAt,deviceId:'desktop'}

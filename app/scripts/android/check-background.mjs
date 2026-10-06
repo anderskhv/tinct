@@ -1,4 +1,5 @@
 import {build} from 'esbuild'
+import {markInternal} from '../lib/internalTraffic.cjs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -7,6 +8,7 @@ import {pathToFileURL} from 'node:url'
 
 /** Silent, isolated emulator check. Every API request is intercepted. */
 export async function checkBackgroundAudio(device,page,output){
+ await markInternal(page)
  await build({entryPoints:['src/narration/narrationCore.ts'],bundle:true,platform:'node',format:'esm',outfile:path.join(output,'narration-fixture.mjs')})
  const {chunkNarrationText,narrationTextForParagraph}=await import(pathToFileURL(path.resolve(output,'narration-fixture.mjs')).href)
  const bible=JSON.parse(await fs.readFile('public/data/editions/bible-web-en.json','utf8'))
