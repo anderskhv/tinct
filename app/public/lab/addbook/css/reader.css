@@ -76,6 +76,9 @@ body { overscroll-behavior: none; }
 .lab.byob.is-phone .lab-v2-library-back { display: none; }
 /* The rights sheet over the start page */
 .lab.byob.byob-sheet-host { position: fixed; inset: 0; z-index: 90; min-height: 0; height: auto; background: transparent; }
+/* A short sheet (the rights question) is as tall as its content; a centred dialog on desktop */
+.lab.byob .lab-v2-sheet.byob-dialog { height: auto !important; min-height: 0 !important; max-height: calc(100dvh - 48px); }
+.lab.byob:not(.is-phone) .lab-v2-sheet.byob-dialog { top: 50%; bottom: auto; transform: translate(-50%, -50%); border-radius: 20px; }
 /* Docked chat */
 .lab.byob { --dock-w: 380px; }
 .lab.byob .lab-ask.byob-dock { position: fixed !important; top: calc(var(--pdf-top, 50px) + 12px) !important; right: 14px !important; bottom: 14px !important; left: auto !important; width: var(--dock-w) !important; height: calc(100dvh - var(--pdf-top, 50px) - 26px) !important; min-height: 0 !important; max-height: none !important; max-width: 60vw; margin: 0 !important; border-radius: 16px !important; z-index: 35; }

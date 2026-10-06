@@ -117,6 +117,7 @@ function attest(fileName) {
         <label><input type="checkbox" id="attestBox"> <span>${esc(RIGHTS_COPY)}</span></label>
         <div class="actions"><button type="button" id="attestCancel">Cancel</button><button type="button" class="primary" id="attestOk" disabled>Continue</button></div>
       </div>`, () => resolve(false), readerShown() ? root : startHost());
+    layer.querySelector('.lab-v2-sheet').classList.add('byob-dialog');
     const box = layer.querySelector('#attestBox'), ok = layer.querySelector('#attestOk');
     box.onchange = () => { ok.disabled = !box.checked };
     layer.querySelector('#attestCancel').onclick = () => { closeSheet(layer); resolve(false) };
