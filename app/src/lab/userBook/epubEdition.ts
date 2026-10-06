@@ -244,7 +244,8 @@ export function joinSegments(segments: Segment[]): string {
     const text = segment.text.replace(/\s+/g, ' ')
     if (!text) continue
     const last = runs[runs.length - 1]
-    if (last && last.em === segment.em) last.text += text
+    // A space between two italic runs (a line break the print set) stays inside the italics.
+    if (last && (last.em === segment.em || !text.trim())) last.text += text
     else runs.push({ text, em: segment.em })
   }
   let out = ''
@@ -272,6 +273,21 @@ function externalHref(href: string | null): string | null {
   const value = (href || '').trim()
   if (!/^https?:\/\/[^\s<>"]+$/i.test(value)) return null
   try { const url = new URL(value); return /^https?:$/.test(url.protocol) ? url.href : null } catch { return null }
+}
+
+/** Capitalised words a line of verse (or any sentence) commonly opens on: never taken for a name. */
+const VERSE_OPENERS = new Set(('a an and as at but by for from he her his how i if in is it its my no nor not now o of oh on or our she so than that the thee their then there these they this those thou thus thy till to under upon us we what when where which while who whose why will with ye yet you your'
+  + ' all be come do did had has have let may me must one shall should some such was were would').split(' '))
+
+/**
+ * Whether a line opens on a person's name: a capitalised word that is not a
+ * common opener, followed by a comma or by a second capitalised word
+ * ("Koberle, Tomas …", "Anders Hvelplund, and …"). "And Robin …", "The
+ * sea, …" and "Thou art …" are verse, not names.
+ */
+function opensOnName(line: string): boolean {
+  const match = /^(\p{Lu}[\p{Ll}'’-]+)(,|\s+\p{Lu}[\p{Ll}'’.-]*)/u.exec(line)
+  return !!match && !VERSE_OPENERS.has(match[1].toLowerCase())
 }
 
 function documentBlocks(source: string, base = ''): DocumentBlocks {
@@ -352,7 +368,10 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
     // lower case is the page's wrapping, not the author's. Then it is one paragraph.
     const lineText = (run: Segment[]) => run.map(segment => segment.text).join('').replace(INVISIBLE, '').replace(/\s+/g, ' ').trim()
     const lines = runs.map(lineText)
-    const wrapped = lines.some((line, index) => index > 0 && /\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(line))
+    const wrapped = lines.some((line, index) => index > 0 && ((/\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(line))
+      // A list of names wrapped by the print ("… Ayush Modi, / Anders Hvelplund, and …"):
+      // a line ending in a comma before one that opens on a name.
+      || (/,$/.test(lines[index - 1]) && opensOnName(line))))
     if (wrapped) { emit(gathered); return }
     for (const run of runs) emit(run, true)
   }
