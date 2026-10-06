@@ -63,7 +63,7 @@ const W = innerWidth, H = innerHeight;
 document.documentElement.style.setProperty('--u', (Math.min(W, H) / 100) + 'px');
 
 const params = new URLSearchParams(location.search);
-const FRAME_COLOR = params.get('frame') || '#e0652a'; // cosmic orange, like the iPhone 17 Pro
+const FRAME_COLOR = params.get('frame') || '#c9541e'; // cosmic orange, like the iPhone 17 Pro
 
 // ---------- renderer / scene ----------
 const SS = Number(params.get('ss') || 2); // supersampling: render at SSx, the browser downsamples
@@ -89,6 +89,10 @@ const key = new THREE.DirectionalLight(0xfff4e6, 2.2);
 key.position.set(-14, 30, -10);
 scene.add(key);
 scene.add(new THREE.HemisphereLight(0xfff8ee, 0x6b6157, 0.55));
+// Rim light from behind: draws a bright highlight along the metal edge.
+const rim = new THREE.DirectionalLight(0xffffff, 1.6);
+rim.position.set(18, 10, -26);
+scene.add(rim);
 
 // ---------- phone ----------
 // Units: centimetres. Roughly an iPhone 15 Pro.
@@ -119,7 +123,7 @@ const bodyGeo = new THREE.ExtrudeGeometry(roundedRect(PW - bevel * 2, PH - bevel
 });
 bodyGeo.translate(0, 0, -(PD - bevel * 2) / 2);
 // Anodised aluminium: less metallic than steel so the colour stays saturated.
-const frameMat = new THREE.MeshStandardMaterial({ color: FRAME_COLOR, metalness: 0.55, roughness: 0.34 });
+const frameMat = new THREE.MeshStandardMaterial({ color: FRAME_COLOR, metalness: 0.7, roughness: 0.17, envMapIntensity: 1.6 });
 const body = new THREE.Mesh(bodyGeo, frameMat);
 phone.add(body);
 
@@ -299,17 +303,93 @@ function setCamera(shotName, p) {
 }
 // Places the camera on an orbit around the phone (degrees, cm). render-take.mjs drives
 // this directly along one continuous spline.
-function orbit({ az, el, d, lx = 0, lz = 0 }) {
+function orbit({ az, el, d, lx = 0, lz = 0, fov = 30, shift = 0.045 }) {
   az *= DEG; el *= DEG;
   // Look-at point in world space (phone sits on the turntable).
   const target = new THREE.Vector3(lx, PD, lz).applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
   const off = new THREE.Vector3(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(d)
     .applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
   camera.position.copy(target).add(off);
-  camera.fov = 30;
-  camera.setViewOffset(W, H, 0, H * 0.045, W, H); // phone sits slightly high; captions go below
+  camera.fov = fov; // a long lens (small fov) flattens perspective like a product macro shot
+  camera.setViewOffset(W, H, 0, H * shift, W, H); // shift > 0 sits the phone high, leaving room for captions
   camera.updateProjectionMatrix();
   camera.lookAt(target);
+}
+
+// ---------- depth of field ----------
+// The phone and the floor are one plane, so inverse depth is an affine function of
+// screen position and so is the circle of confusion |1 - zFocus/z|. That makes lens
+// blur exact with a few pre-blurred layers masked by linear gradients across the
+// focus line: no depth buffer or per-pixel shader needed.
+const glCanvas = renderer.domElement;
+glCanvas.style.opacity = '0';
+const post = document.createElement('canvas');
+post.width = W; post.height = H;
+post.style.cssText = 'position:fixed;inset:0;width:100%;height:100%';
+document.getElementById('wrap').appendChild(post);
+const postCtx = post.getContext('2d');
+const layer = document.createElement('canvas');
+const layerCtx = layer.getContext('2d');
+const Y_AXIS = new THREE.Vector3(0, 1, 0);
+function focusField(fz) {
+  // Screen position (px) and inverse view depth for three points on the phone plane.
+  const rows = [[-6, -9], [6, -9], [0, 9]].map(([x, z]) => {
+    const p = new THREE.Vector3(x, PD, z).applyAxisAngle(Y_AXIS, turntable.rotation.y);
+    const v = p.clone().applyMatrix4(camera.matrixWorldInverse);
+    const s = p.clone().project(camera);
+    return [(s.x + 1) / 2 * W, (1 - s.y) / 2 * H, -1 / v.z];
+  });
+  // Solve [x y 1]·[a b c] = 1/z.
+  const [[x1, y1, w1], [x2, y2, w2], [x3, y3, w3]] = rows;
+  const det = x1 * (y2 - y3) - y1 * (x2 - x3) + (x2 * y3 - x3 * y2);
+  const a = (w1 * (y2 - y3) - y1 * (w2 - w3) + (w2 * y3 - w3 * y2)) / det;
+  const b = (x1 * (w2 - w3) - w1 * (x2 - x3) + (x2 * w3 - x3 * w2)) / det;
+  const c = (x1 * (y2 * w3 - y3 * w2) - y1 * (x2 * w3 - x3 * w2) + w1 * (x2 * y3 - x3 * y2)) / det;
+  const focus = new THREE.Vector3(0, PD, fz).applyAxisAngle(Y_AXIS, turntable.rotation.y).applyMatrix4(camera.matrixWorldInverse);
+  const zf = -focus.z;
+  // f(x, y) = 1 - zf/z = f0 + gx·x + gy·y
+  return { f0: 1 - zf * c, gx: -zf * a, gy: -zf * b };
+}
+// dof: blur (px, as a fraction of frame height) per unit of |1 - zFocus/z|.
+function composite(dof, fz) {
+  postCtx.clearRect(0, 0, W, H);
+  postCtx.drawImage(glCanvas, 0, 0, W, H);
+  if (!dof) return;
+  const { f0, gx, gy } = focusField(fz);
+  const m = Math.hypot(gx, gy);
+  if (m < 1e-9) return;
+  const K = dof * H;                 // CoC px = K·|f|
+  const ux = gx / m, uy = gy / m;    // unit vector across the focus line
+  const px = -f0 * gx / (m * m), py = -f0 * gy / (m * m); // a point on the focus line
+  const radii = [2, 4.5, 9, 16, 26]; // CoC radius (px) reached by each layer
+  const L = (radii.at(-1) / (K * m)) * 1.05; // gradient half-length in px
+  let prev = 0;
+  for (const r of radii) {
+    const s0 = prev / (K * m), s1 = r / (K * m);
+    prev = r;
+    if (s0 > Math.hypot(W, H)) break;
+    const scale = r > 8 ? 0.25 : 0.5; // blur big radii at lower resolution (faster, invisible)
+    const lw = Math.round(W * scale), lh = Math.round(H * scale);
+    if (layer.width !== lw) { layer.width = lw; layer.height = lh; }
+    layerCtx.globalCompositeOperation = 'source-over';
+    layerCtx.clearRect(0, 0, lw, lh);
+    layerCtx.filter = `blur(${(r * 0.5 * scale).toFixed(2)}px)`;
+    layerCtx.drawImage(glCanvas, 0, 0, lw, lh);
+    layerCtx.filter = 'none';
+    // Mask: opaque where |s| >= s1, clear where |s| <= s0, symmetric about the focus line.
+    const g = layerCtx.createLinearGradient((px - ux * L) * scale, (py - uy * L) * scale, (px + ux * L) * scale, (py + uy * L) * scale);
+    const at = (s) => Math.min(1, Math.max(0, 0.5 + s / (2 * L)));
+    g.addColorStop(0, 'rgba(0,0,0,1)');
+    g.addColorStop(at(-s1), 'rgba(0,0,0,1)');
+    g.addColorStop(at(-s0), 'rgba(0,0,0,0)');
+    g.addColorStop(at(s0), 'rgba(0,0,0,0)');
+    g.addColorStop(at(s1), 'rgba(0,0,0,1)');
+    g.addColorStop(1, 'rgba(0,0,0,1)');
+    layerCtx.globalCompositeOperation = 'destination-in';
+    layerCtx.fillStyle = g;
+    layerCtx.fillRect(0, 0, lw, lh);
+    postCtx.drawImage(layer, 0, 0, W, H);
+  }
 }
 
 // ---------- frame API (driven by render.mjs) ----------
@@ -319,6 +399,7 @@ window.renderFrame = async ({ screenSrc, screenSrcB = null, mix = 0, shot, p, ca
   if (screenSrc && key !== lastScreen) { await setScreen(screenSrc, screenSrcB, mix); lastScreen = key; }
   if (cam) orbit(cam); else setCamera(shot, p);
   renderer.render(scene, camera);
+  composite(cam?.dof ?? 0, cam?.fz ?? cam?.lz ?? 0);
   const capEl = document.getElementById('caption');
   capEl.firstChild.textContent = caption; capEl.style.opacity = caption ? captionOpacity : 0;
   document.getElementById('endcard').style.opacity = endcard;

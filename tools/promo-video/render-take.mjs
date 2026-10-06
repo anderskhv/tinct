@@ -45,8 +45,11 @@ const smooth = (x) => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 *
 
 // Camera: cubic Hermite through keyframes with Catmull-Rom tangents (time-aware), so
 // velocity is continuous everywhere and only the first and last keys come to rest.
-const keys = take.camera.map((k) => ({ ...k, t: k.t === 'end' ? total : k.t }));
-const PARAMS = ['az', 'el', 'd', 'lx', 'lz'];
+// fov: lens (smaller = longer lens), shift: vertical framing offset, dof: lens blur
+// strength (0 = none), fz: focus point along the phone (defaults to the look-at point).
+const DEFAULTS = { lx: 0, lz: 0, fov: 30, shift: 0.045, dof: 0 };
+const keys = take.camera.map((k) => ({ ...DEFAULTS, fz: k.lz ?? 0, ...k, t: k.t === 'end' ? total : k.t }));
+const PARAMS = ['az', 'el', 'd', 'lx', 'lz', 'fov', 'shift', 'dof', 'fz'];
 function camAt(t) {
   t = Math.max(keys[0].t, Math.min(keys.at(-1).t, t));
   let i = keys.findIndex((k, j) => j < keys.length - 1 && t <= keys[j + 1].t);
@@ -54,9 +57,9 @@ function camAt(t) {
   const a = keys[i], b = keys[i + 1], dt = b.t - a.t, u = (t - a.t) / dt;
   const h00 = 2 * u ** 3 - 3 * u ** 2 + 1, h10 = u ** 3 - 2 * u ** 2 + u, h01 = -2 * u ** 3 + 3 * u ** 2, h11 = u ** 3 - u ** 2;
   const tangent = (j, p) => (j === 0 || j === keys.length - 1) ? 0
-    : ((keys[j + 1][p] ?? 0) - (keys[j - 1][p] ?? 0)) / (keys[j + 1].t - keys[j - 1].t);
+    : (keys[j + 1][p] - keys[j - 1][p]) / (keys[j + 1].t - keys[j - 1].t);
   const cam = {};
-  for (const p of PARAMS) cam[p] = h00 * (a[p] ?? 0) + h10 * dt * tangent(i, p) + h01 * (b[p] ?? 0) + h11 * dt * tangent(i + 1, p);
+  for (const p of PARAMS) cam[p] = h00 * a[p] + h10 * dt * tangent(i, p) + h01 * b[p] + h11 * dt * tangent(i + 1, p);
   return cam;
 }
 
