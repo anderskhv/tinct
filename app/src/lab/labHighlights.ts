@@ -1,3 +1,4 @@
+import { isFigureToken, readableParagraph } from './labFigures'
 import type { HighlightColor } from '../types'
 import { tokenizeWithEmphasis } from './labEmphasis'
 
@@ -162,7 +163,8 @@ export function buildHighlightRange(
     const words = tokenizeWithEmphasis(paragraphs[p] || '')
     const from = p === paragraphIndex ? fromWord : 0
     const to = p === endParagraphIndex ? toWord : words.length
-    if (to > from) textParts.push(words.slice(from, to).map(word => word.text).join(' '))
+    // A figure reads as its caption ("[Figure 2: …]"), never as its placeholder.
+    if (to > from) textParts.push(words.slice(from, to).map(word => isFigureToken(word.text) ? readableParagraph(word.text) : word.text).join(' '))
   }
   const text = textParts.join(' ').trim()
   if (!text) return null

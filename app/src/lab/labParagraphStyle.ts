@@ -23,6 +23,7 @@
  */
 
 import type { Chapter, ParagraphKind } from '../types'
+import { isFigureToken, registerFigures } from './labFigures'
 
 export type LabParagraphKind = ParagraphKind
 
@@ -101,6 +102,8 @@ export function paragraphKeepsWithNext(text: string | undefined): boolean {
  * first word: a list item continued from the previous page has no bullet.
  */
 export function paragraphKindClass(text: string | undefined, from = 0): string {
+  // A figure (labFigures.ts) is a block of its own: never justified, never hyphenated.
+  if (isFigureToken(text)) return ' is-figure'
   const kind = paragraphKind(text)
   if (!kind) return ''
   return ` is-kind-${kind}${from > 0 ? ' is-kind-resumed' : ''}`
@@ -164,14 +167,15 @@ export function wordLink(text: string | undefined, wordIndex: number, word: stri
 }
 
 /**
- * Register what a chapter records beside its paragraphs (kinds, links), for
+ * Register what a chapter records beside its paragraphs (kinds, links, figures), for
  * any book: a built-in edition's chapter JSON and a reader's own converted
  * EPUB carry the same fields. A chapter without them registers nothing.
  */
-export function registerChapterStructure(chapter: Pick<Chapter, 'paragraphs' | 'kinds' | 'links'> | null | undefined): void {
+export function registerChapterStructure(chapter: Pick<Chapter, 'paragraphs' | 'kinds' | 'links' | 'figures'> & { number?: number } | null | undefined): void {
   if (!chapter) return
   registerParagraphKinds(chapter.paragraphs, chapter.kinds)
   registerParagraphLinks(chapter.paragraphs, chapter.links)
+  registerFigures(chapter)
 }
 
 export function registerBookOpening(chapterTitle: string, opening: LabBookOpening): void {

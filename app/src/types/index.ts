@@ -44,10 +44,39 @@ export type ParagraphKind = 'heading' | 'label' | 'item' | 'subtitle' | 'byline'
 /** Web links in a chapter: [paragraph, fromWord, toWord, href]; http(s) only. */
 export type ChapterLink = [number, number, number, string]
 
+/**
+ * A picture in a chapter, for any book. It stands in the text as a paragraph
+ * of its own whose whole text is one word, `\uFFFC` + `id` (labFigures.ts),
+ * so positions, highlights, page turns and resume treat it as one item at
+ * its original place. The reader lays it out from these hints, never from the
+ * image itself, so pages measure the same before the image has loaded.
+ */
+export interface ChapterFigure {
+  /** Unique within the book; the paragraph text is `\uFFFC${id}`. */
+  id: string
+  /** Its number in the book, in reading order ("Figure 3"). */
+  number: number
+  /**
+   * Where the image is: a same-origin path for a built-in edition
+   * (`/data/figures/<book>/<file>`), or `asset:<key>` for a reader's own book,
+   * resolved on the device (labFigures.ts).
+   */
+  src: string
+  caption?: string
+  alt?: string
+  /** Intrinsic size in pixels: the aspect ratio and how large it may be drawn. */
+  width?: number
+  height?: number
+  /** A large or detailed image (a map, a plate): always shown as a strip that opens the full image. */
+  large?: boolean
+}
+
 export interface Chapter {
   number: number
   title: string
   paragraphs: string[]
+  /** Pictures standing in this chapter's text, each a paragraph of its own. */
+  figures?: ChapterFigure[]
   /** Per paragraph, when any is more than prose. Absent for plain prose chapters. */
   kinds?: Array<ParagraphKind | null>
   /** External links by word range. A bare address in the text links by itself. */

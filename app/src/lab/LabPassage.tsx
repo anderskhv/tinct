@@ -3,6 +3,8 @@ import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './l
 import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
+import { figureFor, figureLabel, isFigureToken, type LabFigure } from './labFigures'
+import { LabFigureView } from './LabFigure'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -123,6 +125,8 @@ interface LabPassageProps {
    */
   footnotes?: PlacedFootnote[]
   onFootnote?: (note: PlacedFootnote, marker: HTMLElement) => void
+  /** A figure on the page was tapped: open its card. */
+  onOpenFigure?: (figure: LabFigure) => void
 }
 
 function wordSpacing(
@@ -138,7 +142,9 @@ function wordSpacing(
   return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
-function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number) {
+function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number, onOpenFigure?: (figure: LabFigure) => void) {
+  const figure = figureFor(text)
+  if (figure) return <LabFigureView figure={figure} onOpen={onOpenFigure} />
   const link = wordIndex >= 0 ? wordLink(paragraph, wordIndex, text) : null
   const content = link ? (
     <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>{link.trail}</>
@@ -511,6 +517,7 @@ export function LabPassage({
   pageEndMarker,
   onToggleControls,
   layoutKey = '',
+  onOpenFigure,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -1016,7 +1023,7 @@ export function LabPassage({
                         <Fragment key={`${lineIndex}-${wordIndex}`}>
                         {endsHere && <span className="lab-compare-page-end" data-testid="lab-compare-page-end" data-label="end of your page" role="img" aria-label="End of your page" />}
                         <span
-                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}${isFigureToken(word.text) ? ' lab-figure-word' : ''}`}
                           data-testid={openingOnly ? "lab-opening-word" : "lab-word"}
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
@@ -1024,7 +1031,7 @@ export function LabPassage({
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord) : undefined)}
+                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord) : undefined, onOpenFigure)}
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
@@ -1236,7 +1243,9 @@ export function LabPassage({
                 const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
                 const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
-                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
+                // A figure in the Compare column is named, not drawn (it is drawn beside it).
+                const shown = isFigureToken(word.text) ? <span className="lab-figure-ref">{figureLabel(figureFor(word.text) ?? { number: 0 })}</span> : word.emphasis ? <em>{word.text}</em> : word.text
+                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{shown}</span></Fragment>
               }))
               }
               const pieceData = (paragraphIndex: number, segment: { from: number; to: number }) => ({

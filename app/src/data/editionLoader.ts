@@ -8,14 +8,15 @@ import { editionPatchesPath, editionShardManifestUrl, editionShardUrl, editionWh
 const cache = new Map<string, EditionData>()
 const inFlight = new Map<string, Promise<EditionData>>()
 const manifestCache = new Map<string, ChapterShardManifest>()
-/** A chapter shard's text and the structure that travels beside it (kinds, links). */
-type ChapterShard = Pick<Chapter, 'paragraphs' | 'kinds' | 'links'>
+/** A chapter shard's text and the structure that travels beside it (kinds, links, figures). */
+type ChapterShard = Pick<Chapter, 'paragraphs' | 'kinds' | 'links' | 'figures'>
 const chapterShardCache = new Map<string, ChapterShard>()
 
-function chapterShardOf(chapter: { paragraphs: string[]; kinds?: unknown; links?: unknown }): ChapterShard {
+function chapterShardOf(chapter: { paragraphs: string[]; kinds?: unknown; links?: unknown; figures?: unknown }): ChapterShard {
   const shard: ChapterShard = { paragraphs: chapter.paragraphs }
   if (Array.isArray(chapter.kinds)) shard.kinds = chapter.kinds as Chapter['kinds']
   if (Array.isArray(chapter.links)) shard.links = chapter.links as Chapter['links']
+  if (Array.isArray(chapter.figures)) shard.figures = chapter.figures as Chapter['figures']
   return shard
 }
 const PATCH_WAIT_MS = 350

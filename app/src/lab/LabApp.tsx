@@ -88,6 +88,9 @@ import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { LabFigureCard } from './LabFigure'
+import { figureReadingText, type LabFigure } from './labFigures'
+import { figureImageBlock } from './labFigureImage'
 import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
@@ -724,7 +727,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
-  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string } | null>(null)
+  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure } | null>(null)
+  // The figure card over the page (LabFigure.tsx); an overlay only, it never moves the reader.
+  const [figureCard, setFigureCard] = useState<LabFigure | null>(null)
   useEffect(() => {
     setAskAttachment(current => current?.bookId === book.bookId ? current : null)
   }, [book.bookId])
@@ -4103,6 +4108,32 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     else stayInAskRef.current = false
   }, [ask, callOpen, chrome, desktopAskOpen, interruptHearForAsk, openPhoneAsk, restoreCallAnchor, resumeListenAfterAsk, showPhoneChrome])
 
+  /** The chat, open (never toggled shut), for a figure the reader asks about. */
+  const openChatForFigure = useCallback(() => {
+    setFigureCard(null)
+    setContentsConversation(null)
+    setTocOpen(false)
+    if (!showPhoneChrome) {
+      interruptHearForAsk()
+      setDesktopAskOpen(true)
+      if (ask.voiceActive) ask.stopVoice()
+      return
+    }
+    openPhoneAsk()
+  }, [ask, interruptHearForAsk, openPhoneAsk, showPhoneChrome])
+  const explainFigure = useCallback((figure: LabFigure) => {
+    openChatForFigure()
+    void ask.sendTyped('Explain this figure.', undefined, undefined, {
+      highlightedText: figureReadingText(figure),
+      image: () => figureImageBlock(figure),
+    })
+  }, [ask, openChatForFigure])
+  const askAboutFigure = useCallback((figure: LabFigure) => {
+    openChatForFigure()
+    setAskAttachment({ bookId: book.bookId || 'bible', text: figureReadingText(figure), figure })
+    setDraft('')
+  }, [book.bookId, openChatForFigure])
+
   const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
@@ -4311,8 +4342,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     interruptHearForAsk()
     setDesktopAskOpen(true)
     const attachment = askAttachment?.bookId === book.bookId ? askAttachment : null
+    const figure = attachment?.figure
     void ask.sendTyped(value, undefined, undefined, {
       highlightedText: attachment?.text,
+      ...(figure ? { image: () => figureImageBlock(figure) } : {}),
       onAccepted: () => {
         setDraft('')
         setAskAttachment(null)
@@ -4738,6 +4771,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           returnTo={signInReturnTo}
         />
       )}
+      {figureCard && (
+        <LabFigureCard figure={figureCard} onClose={() => setFigureCard(null)}
+          onExplain={explainFigure} onAsk={askAboutFigure} />
+      )}
       {!frontispieceVisible && superSheet === 'catchup' && !book.chaptersProvisional && (
         // Read-only over the reader: it takes the place once, at open, and never writes one.
         <LabCatchUpSheet
@@ -4892,6 +4929,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             chapterNumber={book.chapterNumber}
             footnotes={chapterFootnotes}
             onFootnote={showFootnote}
+            onOpenFigure={setFigureCard}
             selectingRange={crossChapterRange(book.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null)}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             tapZones={pageTurnAffordance.tapZones}
@@ -5017,7 +5055,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             turns={ask.turns}
             historyStatus={ask.historyStatus}
             draft={draft}
-            attachment={askAttachment?.bookId === book.bookId ? askAttachment : null}
+            attachment={askAttachment && askAttachment.bookId === book.bookId ? { text: askAttachment.text, kind: askAttachment.figure ? 'figure' : 'highlight' } : null}
             onRemoveAttachment={() => setAskAttachment(null)}
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
             onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
@@ -5363,6 +5401,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         chapters={book.chapters}
         chaptersReady={!book.chaptersProvisional}
         sections={book.sections}
+        figures={book.figures}
         currentChapter={book.chapterNumber}
         currentPage={chapterProgress.currentPage}
         totalPages={chapterProgress.totalPages}

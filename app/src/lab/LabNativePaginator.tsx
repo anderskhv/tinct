@@ -25,6 +25,8 @@ import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { planHyphenation } from './labHyphenPlan'
+import { figureFor, setFigureLayout } from './labFigures'
+import { LabFigureView } from './LabFigure'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
@@ -234,16 +236,17 @@ function NativeWord({
 }) {
   // A link is laid out as painted: its label, not the raw address.
   const link = wordLink(paragraph, wordIndex, text)
+  const figure = figureFor(text)
   return (
     <>
       {spacing}
       <span
-        className="lab-hearing-word"
+        className={figure ? 'lab-hearing-word lab-figure-word' : 'lab-hearing-word'}
         data-native-word="true"
         data-paragraph-index={paragraphIndex}
         data-word-index={wordIndex}
       >
-        {link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
+        {figure ? <LabFigureView figure={figure} /> : link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
           <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
@@ -467,6 +470,14 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           const bottom = withEnd && end ? Math.max(lastBottom, end.getBoundingClientRect().bottom) : lastBottom
           return labPageFitsPaint({ lastBottom: bottom, chromeTop: host.getBoundingClientRect().bottom })
         }
+        // Figures are sized from this page (labFigures); the page paints with the same.
+        header.hidden = true
+        stage.replaceChildren()
+        const probe = document.createElement('p')
+        probe.className = 'lab-hearing-line'
+        stage.append(probe)
+        setFigureLayout({ columnWidth: probe.getBoundingClientRect().width, pageHeight: host.getBoundingClientRect().bottom - probe.getBoundingClientRect().top })
+        probe.remove()
         // Hyphens where a line needs one, chosen in this column (labHyphenPlan).
         planHyphenation(stage, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
         const lengths = sourceWords.map(words => words.length)

@@ -2,6 +2,7 @@ import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { hyphenPlanFor, type HyphenPlan } from './labHyphenPlan'
+import { figureElement, figureFor } from './labFigures'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 /**
@@ -82,6 +83,13 @@ export function labMeasureParagraphInto(
       span.className = labFragmentClass(word.text)
       span.setAttribute('aria-hidden', 'true')
       span.textContent = word.text
+      return span
+    }
+    // A figure is a block of its own (labFigures), measured at the size it paints.
+    const figure = figureFor(word.text)
+    if (figure) {
+      span.className = 'lab-hearing-word lab-figure-word'
+      span.append(figureElement(figure))
       return span
     }
     span.className = 'lab-hearing-word'

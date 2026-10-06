@@ -7,6 +7,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
 import { paragraphKeepsWithNext } from './labParagraphStyle'
+import { isFigureToken, setFigureLayout } from './labFigures'
 import { planHyphenation } from './labHyphenPlan'
 import { LAB_CONTINUED_TAIL_MAX_GAP_EM, labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 
@@ -93,7 +94,13 @@ export function measuredDesktopPages(
 ): ChapterHearingPage[] {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
-  const commit = () => { if (segments.length) pages.push({ ...segments[0], segments }); segments = [] }
+  // A figure that did not fit the rest of its page opens the next one.
+  let deferred: ChapterPageSegment | null = null
+  const commit = () => {
+    if (segments.length) pages.push({ ...segments[0], segments })
+    segments = deferred ? [deferred] : []
+    deferred = null
+  }
   const isFirst = () => !start && pages.length === 0
   lengths.forEach((length, paragraphIndex) => {
     if (pages.length >= pageLimit) return
@@ -101,6 +108,14 @@ export function measuredDesktopPages(
     const resumes = start && paragraphIndex === start.paragraphIndex
     let from = resumes ? start.wordIndex : 0
     let headBreak: number | undefined = resumes && start.wordIndex < length ? start.headBreak : undefined
+    // A figure (labFigures) that does not fit the rest of the page floats to
+    // the top of the next one while the text after it keeps filling this page.
+    // One at a time; a figure alone on its page stays where it is.
+    if (!resumes && length === 1 && segments.length && !deferred && paragraphIndex < lengths.length - 1
+      && isFigureToken(paragraphs?.[paragraphIndex]) && !fits([...segments, { paragraphIndex, from: 0, to: 1 }], isFirst())) {
+      deferred = { paragraphIndex, from: 0, to: 1 }
+      return
+    }
     while (from < length && pages.length < pageLimit) {
       const segment = (to: number, tailFragment?: number): ChapterPageSegment => ({
         paragraphIndex,
@@ -128,7 +143,7 @@ export function measuredDesktopPages(
           carried.unshift(segments.pop()!)
         }
         commit()
-        segments = carried
+        segments = [...segments, ...carried]
         continue
       }
       let to = Math.max(from + 1, low)
@@ -208,6 +223,7 @@ export function measuredDesktopPages(
       from = to
     }
   })
+  commit()
   commit()
   return pages
 }
@@ -301,6 +317,20 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           // a paired Compare row keeps the browser's own hyphenation.
           const plans = !comparison
           const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
+          // Figures are sized from this leaf (labFigures); the page paints with the same.
+          // The next chapter's opening (pageLimit) is measured in the same leaf and sets nothing.
+          if (pageLimit == null) {
+            const probeRow = document.createElement('div')
+            probeRow.className = 'lab-desktop-measure-row'
+            const probe = document.createElement('p')
+            probe.className = 'lab-hearing-line'
+            probeRow.append(probe)
+            if (comparison) probeRow.append(document.createElement('p'))
+            header.hidden = true
+            rows.replaceChildren(probeRow)
+            setFigureLayout({ columnWidth: probe.getBoundingClientRect().width, pageHeight: page.getBoundingClientRect().height })
+            rows.replaceChildren()
+          }
           if (plans) {
             const row = document.createElement('div')
             row.className = 'lab-desktop-measure-row'
