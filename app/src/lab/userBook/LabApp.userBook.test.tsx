@@ -10,6 +10,7 @@ import type { UserBookEdition } from './userEdition'
 import { userBookId } from './userBookId'
 import { readUserBookPlace } from './userBookPlace'
 import { UserBookReader } from './UserBookReader'
+import { USER_BOOK_CHAPTER_CHARS, USER_BOOK_PASSAGE_CHARS, chapterWindow, passageWindow } from './userBookContext'
 
 const leave = vi.hoisted(() => vi.fn())
 vi.mock('../labLeaveForLibrary', async importOriginal => ({ ...await importOriginal<typeof import('../labLeaveForLibrary')>(), leaveForLibrary: leave }))
@@ -149,6 +150,47 @@ describe('a user book in the Tinct reader', () => {
     expect((await loadChapterText({ bookId: BOOK_ID, editionKey: 'own-en', chapterNumber: 1 }))?.title).toBe('The Lamp')
     expect(readLabHighlights()).toEqual([])
     expect(requests).toEqual([])
+  })
+})
+
+describe('what of a user book reaches the companion', () => {
+  // A long chapter: 300 paragraphs of 600 characters (180,000 characters).
+  const long = Array.from({ length: 300 }, (_, i) => `p${String(i).padStart(3, '0')} ` + 'word '.repeat(119))
+  const longBook = () => ({ ...loaded(), edition: { ...edition(), chapters: [{ number: 1, title: 'Long', paragraphs: long }, edition().chapters[1]] } })
+  const sent = () => requests.filter(request => request.url.endsWith('/api/lab-chat')).map(request => request.body as { companion: { context: { paragraphs: string[]; paragraphIndex: number } } })
+  const size = (paragraphs: string[]) => paragraphs.reduce((sum, paragraph) => sum + paragraph.length, 0)
+
+  it('windows: a passage stays within 9,000 characters around its place; a chapter within 120,000', () => {
+    const passage = passageWindow(long, 150)
+    expect(size(passage.paragraphs)).toBeLessThanOrEqual(USER_BOOK_PASSAGE_CHARS)
+    expect(size(passage.paragraphs)).toBeGreaterThan(USER_BOOK_PASSAGE_CHARS - 1200)
+    expect(passage.paragraphs[passage.paragraphIndex]).toBe(long[150])
+    expect(passageWindow(['x'.repeat(20_000)], 0).paragraphs[0].length).toBe(USER_BOOK_PASSAGE_CHARS)
+    const chapter = chapterWindow(long, 10)
+    expect(size(chapter.paragraphs)).toBe(USER_BOOK_CHAPTER_CHARS)
+    expect(chapter.paragraphs[0]).toBe(long[0])
+  })
+
+  it('Ask sends a window around the reader\u2019s place, not the chapter', async () => {
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={longBook()} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'What is this?' } })
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    await waitFor(() => expect(sent().length).toBe(1))
+    const context = sent()[0].companion.context
+    expect(size(context.paragraphs)).toBeLessThanOrEqual(USER_BOOK_PASSAGE_CHARS)
+    expect(context.paragraphs[context.paragraphIndex]).toBe(long[0])
+  })
+
+  it('Recap this chapter sends the chapter, capped at 120,000 characters', async () => {
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={longBook()} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
+    await waitFor(() => expect(sent().length).toBe(1))
+    const context = sent()[0].companion.context
+    expect(size(context.paragraphs)).toBe(USER_BOOK_CHAPTER_CHARS)
+    expect(context.paragraphs[0]).toBe(long[0])
   })
 })
 

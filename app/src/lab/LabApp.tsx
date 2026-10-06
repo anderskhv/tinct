@@ -1046,7 +1046,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     chapterNumber: book.chapterNumber,
     editionLabel: book.editionLabel,
     paragraphs: book.paragraphs,
-    paragraphIndex: focusParagraph ?? 0,
+    // A user book sends only a window around this paragraph: the page on screen when nothing is in focus.
+    paragraphIndex: focusParagraph ?? (privateBook ? readingPages[readingPageIndex]?.paragraphIndex ?? 0 : 0),
     authToken,
     signedIn,
     onAccountPrompt: (request) => {
@@ -4355,7 +4356,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       interruptHearForAsk()
       setDesktopAskOpen(true)
       if (showPhoneChrome) setPhoneAskOpen(true)
-      void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind])
+      void ask.askAboutChapter(CHAPTER_CHAT_MESSAGES[kind])
       return
     }
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.

@@ -135,6 +135,85 @@ describe('epubToEdition', () => {
   })
 })
 
+describe('library matter', () => {
+  // Shaped like Project Gutenberg's own EPUB 3 (ebookmaker): a marked-up header with the
+  // START marker before the title page, a footer document with the END marker and the
+  // licence, and a contents entry pointing into the licence.
+  const PG_HEADER = `<header class="pg-boilerplate pgheader" id="pg-header" lang="en"><h2 id="pg-header-heading">The Project Gutenberg eBook of <span>Night Book</span></h2>
+    <div>This eBook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever.</div>
+    <div class="container" id="pg-machine-header"><p><strong>Title</strong>: Night Book</p><p><strong>Release date</strong>: October 2, 2004 [eBook #35]</p></div>
+    <div id="pg-start-separator"><span>*** START OF THE PROJECT GUTENBERG EBOOK NIGHT BOOK ***</span></div></header>`
+  const PG_FOOTER = `<footer class="pg-boilerplate pgheader" id="pg-footer" lang="en"><div id="pg-end-separator"><span>*** END OF THE PROJECT GUTENBERG EBOOK NIGHT BOOK ***</span></div>
+    <h2 id="pg-footer-heading">THE FULL PROJECT GUTENBERG™ LICENSE</h2><div>Updated editions will replace the previous one.</div><div>Section 5. General Information About Project Gutenberg electronic works</div></footer>`
+  const nav = (entries: Array<[string, string]>) => xhtml(`<nav epub:type="toc"><ol>${entries.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ol></nav>`)
+
+  it('leaves out Project Gutenberg’s header, START marker, END marker and licence', async () => {
+    const bytes = zip([
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', CONTAINER],
+      ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ['coverpage-wrapper', 'wrap.xhtml'], ['pg-header', 'h0.xhtml'], ['c1', 'h1.xhtml'], ['pg-footer', 'h2.xhtml']], ['coverpage-wrapper', 'pg-header', 'c1', 'pg-footer'])],
+      ['OEBPS/toc.xhtml', nav([['h0.xhtml#title', 'Night Book'], ['h1.xhtml#ch1', 'I. The Lamp'], ['h2.xhtml#pg-footer-heading', 'THE FULL PROJECT GUTENBERG™ LICENSE']])],
+      ['OEBPS/wrap.xhtml', xhtml('<div><svg xmlns="http://www.w3.org/2000/svg"><image href="cover.jpg"/></svg></div>')],
+      ['OEBPS/h0.xhtml', xhtml(`${PG_HEADER}<h1 id="title">Night Book</h1><div class="h2">by A. Writer</div>`)],
+      ['OEBPS/h1.xhtml', xhtml('<h2 id="ch1">I. The Lamp</h2><p>The lamp was lit.</p><p>The end.</p>')],
+      ['OEBPS/h2.xhtml', xhtml(PG_FOOTER)],
+    ])
+    const edition = await epubToEdition(bytes)
+    const all = JSON.stringify(edition.chapters)
+    expect(all).not.toMatch(/Gutenberg|START OF|END OF|eBook|LICENSE/i)
+    expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
+      ['Night Book', ['by A. Writer']],
+      ['I. The Lamp', ['The lamp was lit.', 'The end.']],
+    ])
+  })
+
+  it('cuts at the plain-text PG markers of an older file', async () => {
+    const body = [
+      '<p>The Project Gutenberg EBook of Night Book, by A. Writer</p>',
+      '<p>This eBook is for the use of anyone anywhere at no cost.</p>',
+      '<p>*** START OF THIS PROJECT GUTENBERG EBOOK NIGHT BOOK ***</p>',
+      '<h1>Night Book</h1>', '<h2 id="c1">Chapter I</h2>', '<p>One.</p>', '<p>Two.</p>', '<h2 id="c2">Chapter II</h2>', '<p>Three.</p>', '<p>Four.</p>', '<p>Five.</p>', '<p>Six.</p>',
+      '<p>End of the Project Gutenberg EBook of Night Book, by A. Writer</p>',
+      '<p>*** END OF THIS PROJECT GUTENBERG EBOOK NIGHT BOOK ***</p>',
+      '<p>Updated editions will replace the previous one.</p>',
+    ].join('')
+    const bytes = zip([
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', CONTAINER],
+      ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ['b', 'b.xhtml']], ['b'])],
+      ['OEBPS/toc.xhtml', nav([['b.xhtml#c1', 'Chapter I'], ['b.xhtml#c2', 'Chapter II']])],
+      ['OEBPS/b.xhtml', xhtml(body)],
+    ])
+    const edition = await epubToEdition(bytes)
+    expect(JSON.stringify(edition.chapters)).not.toMatch(/Gutenberg|START OF|END OF|Updated editions/i)
+    expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
+      ['Chapter I', ['Night Book', 'One.', 'Two.']],
+      ['Chapter II', ['Three.', 'Four.', 'Five.', 'Six.']],
+    ])
+  })
+
+  it('leaves out Standard Ebooks’ imprint, colophon and uncopyright, and Wikisource’s own pages', async () => {
+    const section = (type: string, text: string) => xhtml(`<section epub:type="${type}"><h2>${type}</h2><p>${text}</p></section>`)
+    const bytes = zip([
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', CONTAINER],
+      ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ['imprint', 'imprint.xhtml'], ['c1', 'c1.xhtml'], ['c2', 'c2.xhtml'], ['about', 'about.xhtml'], ['colophon', 'colophon.xhtml'], ['uncopyright', 'uncopyright.xhtml']], ['imprint', 'c1', 'c2', 'about', 'colophon', 'uncopyright'])],
+      ['OEBPS/toc.xhtml', nav([['imprint.xhtml', 'Imprint'], ['c1.xhtml', 'One'], ['c2.xhtml', 'Two'], ['about.xhtml', 'About this digital edition'], ['colophon.xhtml', 'Colophon'], ['uncopyright.xhtml', 'Uncopyright']])],
+      ['OEBPS/imprint.xhtml', section('frontmatter imprint', 'This ebook is the product of many hours of hard work by volunteers for Standard Ebooks.')],
+      ['OEBPS/c1.xhtml', xhtml('<section epub:type="chapter"><h2>One</h2><p>Alpha.</p></section>')],
+      ['OEBPS/c2.xhtml', xhtml('<section epub:type="chapter"><h2>Two</h2><p>Beta.</p></section>')],
+      ['OEBPS/about.xhtml', xhtml('<h1>About this digital edition</h1><p>This e-book comes from the online library Wikisource.</p>')],
+      ['OEBPS/colophon.xhtml', section('backmatter colophon', 'The cover page is adapted from a painting.')],
+      ['OEBPS/uncopyright.xhtml', section('backmatter copyright-page', 'May you do good and not evil.')],
+    ])
+    const edition = await epubToEdition(bytes)
+    expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
+      ['One', ['Alpha.']],
+      ['Two', ['Beta.']],
+    ])
+  })
+})
+
 describe('joinSegments', () => {
   it('marks only whole-word italic runs, so the word sequence never changes', () => {
     expect(joinSegments([{ text: 'a ', em: false }, { text: 'b c', em: true }, { text: '. d', em: false }])).toBe('a _b c_. d')

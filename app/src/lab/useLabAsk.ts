@@ -65,6 +65,7 @@ import {
 } from './labVoiceControls'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 import { isUserBookId } from './userBook/userBookId'
+import { chapterWindow, passageWindow } from './userBook/userBookContext'
 
 let labAskId = 0
 function nextId() {
@@ -197,17 +198,23 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
   }, [viewerId])
 
+  // A reader's own book sends a window around the place, or the (capped)
+  // chapter for a question about the whole chapter (userBook/userBookContext.ts).
+  const wholeChapterRef = useRef(false)
   const askContextNow = useCallback((readingTrail: LabReadingTrailEntry[]): LabAskContext => {
     const current = optionsRef.current
     const page = current.getPage?.() ?? null
+    const scoped = privateBook
+      ? (wholeChapterRef.current ? chapterWindow : passageWindow)(current.paragraphs, current.paragraphIndex)
+      : { paragraphs: current.paragraphs, paragraphIndex: current.paragraphIndex }
     return {
       bookTitle: current.bookTitle,
       bookAuthor: current.bookAuthor,
       chapterLabel: current.chapterLabel,
       chapterNumber: current.chapterNumber,
       editionLabel: current.editionLabel,
-      paragraphs: current.paragraphs,
-      paragraphIndex: current.paragraphIndex,
+      paragraphs: scoped.paragraphs,
+      paragraphIndex: scoped.paragraphIndex,
       readingAngle: labReadingAngle(),
       // A reader's own book is named by its text only: no id, no edition, so
       // the Worker never looks it up (or meters it) and answers from the
@@ -872,8 +879,9 @@ export function useLabAsk(options: UseLabAskOptions) {
         chapterLabel: input.chapterLabel ?? optionsRef.current.chapterLabel,
         editionKey: privateBook ? undefined : input.editionKey,
         editionLabel: input.editionLabel,
-        paragraphs: input.paragraphs,
-        paragraphIndex: input.paragraphIndex,
+        ...(privateBook
+          ? passageWindow(input.paragraphs, input.paragraphIndex)
+          : { paragraphs: input.paragraphs, paragraphIndex: input.paragraphIndex }),
         // Explain answers the selected passage from the chapter supplied in
         // the prompt. Without book lookups the worker streams the answer as
         // it is written instead of holding the whole round (see chat.ts).
@@ -907,9 +915,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     } finally { entry.listeners.clear() }
   }, [askContextNow, gateAiAction, privateBook, sessionToken, signedIn, viewerId])
 
+  /** A question about the whole chapter on screen (a recap): for a reader's own book its context is the chapter, capped. */
+  const askAboutChapter = useCallback((text: string) => {
+    wholeChapterRef.current = true
+    // sendTyped reads its context before its first await.
+    try { return sendTyped(text) } finally { wholeChapterRef.current = false }
+  }, [sendTyped])
+
   return {
     turns,
     discardSpeculativeExplanation,
+    askAboutChapter,
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
     historyStatus,

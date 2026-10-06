@@ -128,8 +128,35 @@ interface DocumentBlocks {
   blocks: Block[]
   /** Element id → index of the block it starts in (or precedes). */
   anchors: Map<string, number>
+  /** Ids inside the source library's own matter (left out), so contents entries pointing there are dropped too. */
+  dropped: Set<string>
+  /** Nothing but the library's own matter: no chapter starts here. */
+  libraryOnly: boolean
   images: number
 }
+
+/**
+ * The source library's own matter, not the book: Project Gutenberg's header
+ * and footer (licence) blocks, Standard Ebooks' imprint, colophon and
+ * uncopyright sections.
+ */
+function libraryMatter(el: Element): boolean {
+  const id = (el.getAttribute('id') || '').toLowerCase()
+  if (id === 'pg-header' || id === 'pg-footer') return true
+  const cls = (el.getAttribute('class') || '').toLowerCase()
+  if (/(^|\s)(pg-boilerplate|pgheader|pgfooter)(\s|$)/.test(cls)) return true
+  return /(^|\s)(imprint|colophon|copyright-page)(\s|$)/.test(epubType(el))
+}
+
+/** A whole document that is a Wikisource export's own page (about the digital edition, credits). */
+function wikisourceMatter(blocks: Block[]): boolean {
+  const first = blocks[0]?.text.replace(/_/g, '').trim() || ''
+  return /^(about this digital edition|credits)$/i.test(first) && blocks.some(block => /wikisource/i.test(block.text))
+}
+
+// Project Gutenberg's plain-text markers, for files without the marked-up header and footer.
+const PG_START = /^\*{3}\s*START OF (THE|THIS) PROJECT GUTENBERG E-?BOOK/i
+const PG_END = /^(\*{3}\s*END OF (THE|THIS) PROJECT GUTENBERG E-?BOOK|End of (the )?Project Gutenberg'?s? E-?Book)/i
 
 const BLOCK = new Set(['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre', 'ul', 'ol', 'li', 'dl', 'dt', 'dd', 'figure', 'figcaption', 'hr', 'table', 'thead', 'tbody', 'tfoot', 'tr', 'caption', 'section', 'article', 'aside', 'header', 'footer', 'main', 'nav', 'center', 'address', 'hgroup', 'body', 'html', 'details', 'summary'])
 const DROP = new Set(['head', 'script', 'style', 'iframe', 'object', 'embed', 'form', 'input', 'button', 'select', 'textarea', 'noscript', 'video', 'audio', 'canvas', 'template', 'link', 'meta', 'title', 'base', 'source', 'track', 'map', 'area', 'frame', 'frameset', 'applet', 'dialog', 'rt', 'rp'])
@@ -175,6 +202,8 @@ function documentBlocks(source: string): DocumentBlocks {
   const body = byLocal(doc, 'body')[0] || doc.documentElement
   const blocks: Block[] = []
   const anchors = new Map<string, number>()
+  const dropped = new Set<string>()
+  let libraryMatterSeen = false
   let images = 0
   let segments: Segment[] = []
   let heading = false
@@ -197,6 +226,11 @@ function documentBlocks(source: string): DocumentBlocks {
       const el = child as Element
       const name = el.localName.toLowerCase()
       if (DROP.has(name)) continue
+      if (libraryMatter(el)) {
+        libraryMatterSeen = true
+        for (const inner of [el, ...el.getElementsByTagName('*')]) { const id = inner.getAttribute('id'); if (id) dropped.add(id) }
+        continue
+      }
       const id = el.getAttribute('id') || (name === 'a' ? el.getAttribute('name') : null)
       if (id && !anchors.has(id)) anchors.set(id, blocks.length)
       if (PICTURE.has(name)) { images++; continue }
@@ -233,7 +267,7 @@ function documentBlocks(source: string): DocumentBlocks {
 
   walk(body, false, false)
   flush()
-  return { blocks, anchors, images }
+  return { blocks, anchors, dropped, libraryOnly: libraryMatterSeen && blocks.length === 0, images }
 }
 
 /* ---------- Contents ---------- */
@@ -338,16 +372,34 @@ export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { 
   const docStart = new Map<string, number>()
   const anchorAt = new Map<string, number>()
   const docTitles: Array<{ at: number; title: string }> = []
+  // Contents entries into the library's own matter (a licence, credits) name no chapter.
+  const droppedPlaces = new Set<string>()
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
     const parsed = documentBlocks(source || '')
+    for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
+    if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
     docStart.set(item.href, stream.length)
     for (const [id, index] of parsed.anchors) anchorAt.set(`${item.href}#${id}`, stream.length + index)
     const firstHeading = parsed.blocks.find(block => block.heading)?.text
     docTitles.push({ at: stream.length, title: firstHeading ? clean(firstHeading.replace(/(^|\s)_|_(\s|$)/g, '$1$2')) : '' })
     stream.push(...parsed.blocks)
     droppedImages += parsed.images
+  }
+  // Without the marked-up header and footer, Project Gutenberg's text markers bound the book.
+  const startMarker = stream.findIndex((block, index) => index < stream.length / 2 && PG_START.test(block.text))
+  const endFrom = Math.max(0, startMarker)
+  const endMarker = stream.findIndex((block, index) => index > endFrom && index > stream.length / 2 && PG_END.test(block.text))
+  if (startMarker >= 0 || endMarker >= 0) {
+    const from = startMarker + 1
+    const to = endMarker >= 0 ? endMarker : stream.length
+    const shift = (at: number) => Math.max(0, at - from)
+    stream.splice(to)
+    stream.splice(0, from)
+    for (const [key, at] of docStart) docStart.set(key, shift(at))
+    for (const [key, at] of anchorAt) anchorAt.set(key, at < from ? -1 : at - from)
+    for (const doc of docTitles) doc.at = shift(doc.at)
   }
   if (!stream.length) throw new EpubError('bad_epub', 'This EPUB has no readable chapters.')
 
@@ -356,9 +408,9 @@ export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { 
   const starts = new Map<number, string>()
   for (const entry of toc) {
     const docAt = docStart.get(entry.path)
-    if (docAt === undefined) continue
+    if (docAt === undefined || droppedPlaces.has(entry.path) || droppedPlaces.has(`${entry.path}#${entry.anchor}`)) continue
     const at = entry.anchor ? anchorAt.get(`${entry.path}#${entry.anchor}`) ?? docAt : docAt
-    if (at >= stream.length) continue
+    if (at < 0 || at >= stream.length) continue
     // Two entries at one place (a part and its first chapter): the deeper names it.
     if (!starts.has(at) || entry.depth > 0) starts.set(at, entry.label)
   }

@@ -2,7 +2,7 @@
 
 export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
 /** Bump when the conversion changes, so stored conversions are redone. */
-export const USER_EDITION_CONVERTER = 1
+export const USER_EDITION_CONVERTER = 2
 
 export interface UserBookChapter {
   number: number

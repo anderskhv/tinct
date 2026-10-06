@@ -27,7 +27,7 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 63 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
+node addbooks/web/test/e2e.mjs           # 66 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
@@ -80,7 +80,11 @@ the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader
 - **Conversion** (`epubEdition.ts`, in the browser): spine order; chapters cut at the
   table of contents (EPUB 3 nav, else NCX; a short front matter joins the first chapter),
   else one per document; text only, as paragraphs; italics as the editions' `_…_`
-  emphasis. Pictures, styles, scripts, footnote markers and tables' layout are dropped.
+  emphasis. Pictures, styles, scripts, footnote markers and tables' layout are dropped,
+  and so is the source library's own matter: Project Gutenberg's header (through the
+  START marker), END marker and licence (marked up, or by the plain-text markers),
+  Standard Ebooks' imprint, colophon and uncopyright, and Wikisource's "About this
+  digital edition" and credits pages.
   DRM is refused here before leaving the page (`TinctEpub.metadata`). The conversion is
   kept on the book's IndexedDB record (`edition`), redone when `USER_EDITION_CONVERTER` changes.
 - **Reader:** `loadLabBookSource` reads `userbook-<hex>` ids from that conversion; no
@@ -92,9 +96,12 @@ the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader
   writer skips `userbook-` books), chat (`tinct:chat-history:userbook-<hex>`, same).
   Not recorded: position record, reading memory, reading year, library snapshot. No
   analytics event is sent while a user book is open, nor any naming one.
-- **Companion:** Ask, Explain, Define and Summarize send the chapter's text as context
-  with the title and author, never the book's id or edition, so the Worker answers from
-  the text (no book lookups, no book id in the usage ledger), with its usual auth and limits.
+- **Companion** (`userBookContext.ts`): Ask, Explain and Define send the question or
+  selection with a window of at most 9,000 characters around the reader's place (as this
+  page's own view did); "Recap this chapter" (Summarize, chapter end) sends the chapter,
+  cut at 120,000 characters (as this page's Summarize). Never the book's id or edition,
+  so the Worker answers from the text (no book lookups, no book id in the usage ledger),
+  with its usual auth and limits.
 
 ### Your books in your account (release 2)
 

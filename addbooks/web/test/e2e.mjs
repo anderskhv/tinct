@@ -25,8 +25,11 @@ const READER_URL = /\/reader\?userBook=[0-9a-f]{24}$/;
 // The Tinct reader, ready with its text on the page.
 async function tinctReader(p) {
   await p.waitForURL(READER_URL, { timeout: 30000 });
-  await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length > 20, null, { timeout: 30000 });
+  await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length > 3, null, { timeout: 30000 });
   await p.evaluate(() => document.fonts.ready);
+  // The t mark spins once per reader load (as on every book); screenshots wait for it to rest.
+  await p.waitForSelector('[data-testid="lab-super"].is-spinning', { timeout: 2500 }).catch(() => {});
+  await p.waitForSelector('[data-testid="lab-super"]:not(.is-spinning)', { timeout: 5000 });
   await p.waitForTimeout(300);
 }
 // Drag across words on the page, as a reader does with a mouse: it highlights them and opens the popup.
@@ -217,7 +220,9 @@ try {
   await tinctReader(p);
   const hex = p.url().match(/userBook=([0-9a-f]{24})/)[1];
   const epubInfo = await p.evaluate(() => ({ title: document.querySelector('[data-testid="lab-header-book"]').textContent, chapter: document.querySelector('[data-testid="lab-header-chapter"]').textContent.trim(), words: document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length, oldView: document.querySelectorAll('.epub-sheet, .epub-pg').length, play: !!document.querySelector('[data-testid="lab-v2-play"]'), docTitle: document.title }));
-  check('EPUB opens in the Tinct reader at /reader?userBook=', /time machine/i.test(epubInfo.title) && epubInfo.words > 20 && epubInfo.oldView === 0 && /Time Machine · Tinct$/i.test(epubInfo.docTitle), epubInfo);
+  const opening = (await p.textContent('.lab-page-wrap')).replace(/\s+/g, ' ');
+  check('the book opens at its own title page, without Project Gutenberg\u2019s header', /by H\. G\. Wells/.test(opening) && !/Project Gutenberg|START OF THE|eBook/i.test(opening), opening.slice(0, 160));
+  check('EPUB opens in the Tinct reader at /reader?userBook=', /time machine/i.test(epubInfo.title) && epubInfo.words > 3 && epubInfo.oldView === 0 && /Time Machine · Tinct$/i.test(epubInfo.docTitle), epubInfo);
   check('Tinct reader: narration is not offered for a user book', !epubInfo.play);
   await p.screenshot({ path: join(OUT, 'desktop-tinct-epub.png') });
   // Chapters from the book's contents, in the reader's own Contents.
@@ -225,6 +230,8 @@ try {
   await p.waitForSelector('[data-testid^="lab-tree-chapter-"]');
   const tocCount = await p.locator('[data-testid^="lab-tree-chapter-"]').count();
   check('EPUB chapters in the Tinct contents', tocCount > 5, tocCount);
+  const tocLabels = await p.locator('[data-testid^="lab-tree-chapter-"]').allTextContents();
+  check('contents: no Project Gutenberg licence chapter', !tocLabels.some(label => /gutenberg|license/i.test(label)), tocLabels.slice(0, 3).concat(tocLabels.slice(-2)));
   await p.screenshot({ path: join(OUT, 'desktop-tinct-epub-contents.png') });
   await p.locator('[data-testid^="lab-tree-chapter-"]').nth(3).click();
   await p.waitForFunction(() => document.querySelector('[data-testid="lab-root"]').dataset.chapter === '4', null, { timeout: 10000 });
@@ -239,8 +246,8 @@ try {
   const last = await lastRequest();
   const ctxSent = last.body.companion.context;
   check('Explain goes to the companion with the passage and the chapter text, not the book id', last.path === '/api/chat' && last.auth === 'Bearer test-token' && last.body.companion.intent === 'explain' && last.body.companion.selection.split(/\s+/).length >= 10
-    && /time machine/i.test(ctxSent.bookTitle) && ctxSent.paragraphs.length > 3 && ctxSent.bookId === undefined && ctxSent.editionKey === undefined && !JSON.stringify(last.body).includes('userbook-'),
-    { path: last.path, intent: last.body.companion.intent, title: ctxSent.bookTitle, chapter: ctxSent.chapterLabel, bookId: ctxSent.bookId });
+    && /time machine/i.test(ctxSent.bookTitle) && ctxSent.paragraphs.length > 3 && ctxSent.paragraphs.join('').length <= 9000 && ctxSent.bookId === undefined && ctxSent.editionKey === undefined && !JSON.stringify(last.body).includes('userbook-'),
+    { path: last.path, intent: last.body.companion.intent, title: ctxSent.bookTitle, chapter: ctxSent.chapterLabel, chars: ctxSent.paragraphs.join('').length, bookId: ctxSent.bookId });
   await p.screenshot({ path: join(OUT, 'desktop-tinct-epub-explain.png') });
   await p.keyboard.press('Escape');
   await p.waitForTimeout(300);
@@ -440,6 +447,8 @@ try {
     // Signed in: the account copy was sent before the page left for the reader.
     const sent = (await bookState()).users['u-test'] || [];
     check('signed in: the EPUB is saved privately to the account before it opens', sent.some(b => b.type === 'epub' && /time machine/i.test(b.title)), sent.map(b => ({ type: b.type, title: b.title })));
+    const mark = await p.evaluate(() => { const b = document.querySelector('[data-testid="lab-super"]'); const r = b.getBoundingClientRect(); return { spinning: b.classList.contains('is-spinning'), inside: r.right <= innerWidth && r.top >= 0, visible: r.width > 30 } });
+    check('phone: the t menu button is drawn at rest, as in the reader', !mark.spinning && mark.inside && mark.visible, mark);
     await p.screenshot({ path: join(OUT, 'phone-tinct-epub.png') });
     check('phone: no page errors or CSP violations', !problems.length, problems.slice(0, 6));
     await ctx.close();
