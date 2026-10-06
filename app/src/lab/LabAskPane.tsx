@@ -17,7 +17,7 @@ interface LabAskPaneProps {
   typedLoading: boolean
   turns: LabAskTurn[]
   draft: string
-  attachment?: { text: string } | null
+  attachment?: { text: string; kind?: 'highlight' | 'figure' } | null
   onRemoveAttachment?: () => void
   onDraftChange: (value: string) => void
   onSubmit: (value: string) => void
@@ -428,8 +428,8 @@ export function LabAskPane({
       }}
     >
       {attachment && (
-        <section className="lab-ask-attachment" data-testid="lab-ask-attachment" aria-label="Highlighted passage attached to question">
-          <span className="lab-ask-attachment-label">Highlight:</span>
+        <section className="lab-ask-attachment" data-testid="lab-ask-attachment" aria-label={attachment.kind === 'figure' ? 'Figure attached to question' : 'Highlighted passage attached to question'}>
+          <span className="lab-ask-attachment-label">{attachment.kind === 'figure' ? 'Figure:' : 'Highlight:'}</span>
           <p className="lab-ask-attachment-text" tabIndex={0}>{attachment.text}</p>
           <div className="lab-ask-attachment-actions">
             <button type="button" onClick={() => {
@@ -466,7 +466,7 @@ export function LabAskPane({
           event.preventDefault()
           submit()
         }}
-        placeholder={attachment ? 'Ask about this passage…' : LAB_COPY.askPlaceholder}
+        placeholder={attachment ? (attachment.kind === 'figure' ? 'Ask about this figure…' : 'Ask about this passage…') : LAB_COPY.askPlaceholder}
       />
       <button
         type="button"

@@ -14,6 +14,7 @@ import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
 import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
 import { registerChapterStructure } from './labParagraphStyle'
+import { bookFigures, type LabFigure } from './labFigures'
 import { isUserBookId } from './userBook/userBookId'
 import { loadUserBookSource } from './userBook/userBookSource'
 
@@ -70,6 +71,8 @@ export interface LabSource {
   chaptersProvisional?: boolean
   sections?: Section[]
   cast: LabCastMember[]
+  /** The book's figures, in reading order (those of the chapters loaded, for a windowed edition). */
+  figures?: LabFigure[]
   /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
   supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
 }
@@ -603,6 +606,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     headerChapter: entry.title,
     paragraphs: entry.paragraphs,
     compareParagraphs,
+    ...(primaryData.chapters.some(chapter => chapter.figures?.length) ? { figures: bookFigures(primaryData.chapters) } : {}),
     followParagraphs: supporting.followParagraphs,
     audioTitle: 'audioTitle' in supporting ? supporting.audioTitle : undefined,
     chapters: primaryData.chapters.map(chapter => ({

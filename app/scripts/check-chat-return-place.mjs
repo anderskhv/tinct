@@ -22,7 +22,7 @@ const origin = 'https://tinct.app'
 // old data: audio unlock clip (so the iPhone unlock never happened), and that
 // refusal once moved the reader to the next chapter on opening Chat. Any
 // media-src violation now fails the run (exercise with TEST_REAL_PLAY=1).
-const PRODUCTION_CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data:; media-src 'self' blob: mediastream:"
+const PRODUCTION_CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' blob: mediastream:"
 const dist = path.resolve('dist')
 const book = process.env.TEST_BOOK || 'to-the-lighthouse'
 const chapter = Number(process.env.TEST_CHAPTER || 1)

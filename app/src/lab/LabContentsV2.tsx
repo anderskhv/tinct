@@ -6,6 +6,8 @@ import type { LabHighlight } from './labHighlights'
 import type { LabChapterStatus } from './labChapterStatus'
 import { contentsExcerpt, contentsQuestion, contentsQuote, searchContents, type ContentsPlace } from './labContents'
 import './labContentsV2.css'
+import type { LabFigure } from './labFigures'
+import { LabFigureThumb } from './LabFigure'
 
 import { contentsTree, flattenContents, contentsPercent, type ContentsNode } from './labContentsTree'
 
@@ -15,6 +17,8 @@ interface Props {
   open: boolean; bookId: string; title: string; editionKey: string; editionLabel: string
   chapters: LabChapter[]; sections?: Section[]; currentChapter: number; currentPage: number; totalPages: number; currentPercent?: number
   chaptersReady: boolean
+  /** The book's figures; with any, a Figures tab sits beside Chapters. */
+  figures?: LabFigure[]
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
   onSwitchBook?: () => void
@@ -51,6 +55,8 @@ export function LabContentsV2(props: Props) {
   const current = flat.find(node => node.chapter === currentChapter)
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set(current?.parents.map(n => n.id)))
   const [view, setView] = useState<View | null>(null)
+  const [tab, setTab] = useState<'chapters' | 'figures'>('chapters')
+  const figures = props.figures ?? []
   const [scope, setScope] = useState<Scope>('all')
   const [query, setQuery] = useState('')
   const [chapterFilter, setChapterFilter] = useState<number | null>(null)
@@ -90,7 +96,7 @@ export function LabContentsV2(props: Props) {
     setExpanded(new Set(current?.parents.map(n => n.id))); setView(null)
     setCrumbs([]); reveal.current = true
   }, [open, bookId, currentChapter, props.chaptersReady])
-  useEffect(() => { setLoadedText(null); setLoadError(false); setView(null) }, [bookId, editionKey])
+  useEffect(() => { setLoadedText(null); setLoadError(false); setView(null); setTab('chapters') }, [bookId, editionKey])
   useEffect(() => {
     if (!needsText || data) return
     let cancelled = false
@@ -212,11 +218,27 @@ export function LabContentsV2(props: Props) {
         <button className="title" aria-label={'Switch books, currently ' + title} onClick={props.onSwitchBook}>{title}</button>
         <div className="actions"><button onClick={() => showOverlay('search')} aria-label="Search contents" disabled={!props.chaptersReady}><Icon name="search" /></button><button onClick={() => showOverlay('highlights')} aria-label="Highlights" disabled={!props.chaptersReady}><Icon name="highlight" /></button><button onClick={onClose} aria-label="Back to book"><Icon name="close" /></button></div>
       </header>
+      {figures.length > 0 && <nav className="tabs" aria-label="Contents" inert={view ? true : undefined}>
+        <button aria-pressed={tab === 'chapters'} data-testid="lab-contents-tab-chapters" onClick={() => setTab('chapters')}>Chapters</button>
+        <button aria-pressed={tab === 'figures'} data-testid="lab-contents-tab-figures" onClick={() => setTab('figures')}>Figures</button>
+      </nav>}
+      {tab === 'figures' && figures.length > 0 ? <div className="viewport figures" inert={view ? true : undefined}>
+        <ol className="figure-list" aria-label="Figures">{figures.map(figure => (
+          <li key={figure.id}>
+            <button className="figure-row" data-testid="lab-contents-figure" data-figure-id={figure.id}
+              onClick={() => props.onOpenPassage({ chapterNumber: figure.chapterNumber ?? currentChapter, paragraphIndex: figure.paragraphIndex ?? 0, wordIndex: 0 })}>
+              <LabFigureThumb figure={figure} />
+              <span className="figure-text"><small>Figure {figure.number} · {chapterTitle(figure.chapterNumber ?? currentChapter)}</small>{(figure.caption || figure.alt) && <span className="figure-caption">{figure.caption || figure.alt}</span>}</span>
+            </button>
+          </li>
+        ))}</ol>
+      </div> : <>
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => locate(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
         {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status" role="status">Loading contents…</p>}
         {historyStatus}
       </div>
+      </>}
       {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : 'Highlights'}>
         <div className="overlay-head">
           {view === 'search' ? <><Icon name="search" /><input type="search" aria-label={'Search ' + title} placeholder="Search book or chats…" value={query} onChange={event => setQuery(event.target.value)} /></> : <span className="overlay-title">{view === 'chats' ? 'Chats' : view === 'highlight' ? 'Highlight' : 'Highlights'}</span>}

@@ -1,0 +1,31 @@
+{
+  "_comment": "Test fixture only, never published: the built-in edition shape (public/data/editions/<book>-<edition>.json) with figures. A figure is a paragraph whose whole text is U+FFFC followed by its id; its picture, caption and size hints are in the chapter's figures list. Invented text; the image paths do not exist.",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "One",
+      "paragraphs": [
+        "The lamp stood on the sill where it had always stood.",
+        "￼f1",
+        "Nobody remembered who had first lit it."
+      ],
+      "figures": [
+        { "id": "f1", "number": 1, "src": "/data/figures/test-fixture/lamp.png", "caption": "A lamp of the old kind, drawn for this test.", "alt": "A brass lamp", "width": 800, "height": 600 }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Two",
+      "paragraphs": [
+        "A Map of the Harbour",
+        "The harbour had forty lamps, and each had a keeper.",
+        "￼f2",
+        "The keepers met once a year to compare their ledgers."
+      ],
+      "kinds": ["heading", null, null, null],
+      "figures": [
+        { "id": "f2", "number": 2, "src": "/data/figures/test-fixture/harbour.png", "caption": "The harbour, every lamp marked.", "width": 2400, "height": 1600, "large": true }
+      ]
+    }
+  ]
+}
