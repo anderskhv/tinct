@@ -6,6 +6,7 @@ import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVers
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
+import { paragraphKeepsWithNext } from './labParagraphStyle'
 import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
@@ -101,7 +102,20 @@ export function measuredDesktopPages(
         if (fits([...segments, segment(to)], isFirst())) low = to
         else high = to - 1
       }
-      if (low === from && segments.length) { commit(); continue }
+      if (low === from && segments.length) {
+        // Keep with next: a page never ends on a heading (or a label) whose
+        // text starts overleaf. It opens the next page instead, above it.
+        const carried: ChapterPageSegment[] = []
+        while (segments.length > 1) {
+          const tail = segments[segments.length - 1]
+          const whole = tail.from === 0 && tail.to === lengths[tail.paragraphIndex] && tail.headBreak == null && tail.tailFragment == null
+          if (!whole || !paragraphKeepsWithNext(paragraphs?.[tail.paragraphIndex])) break
+          carried.unshift(segments.pop()!)
+        }
+        commit()
+        segments = carried
+        continue
+      }
       let to = Math.max(from + 1, low)
       // The line starts of the page as it naturally fills, measured once and
       // only when a rule below wants to move the break.

@@ -1,5 +1,5 @@
 import { isNativeCapacitor } from '../utils/nativePlatform'
-import type { EditionData, EditionKey } from '../types'
+import type { Chapter, EditionData, EditionKey } from '../types'
 import { apiUrl } from '../utils/apiUrl'
 import { perfMark, perfMeasure } from '../utils/perf'
 import { CHAPTER_SHARDED_EDITION_IDS } from './editionShardRegistry'
@@ -8,7 +8,16 @@ import { editionPatchesPath, editionShardManifestUrl, editionShardUrl, editionWh
 const cache = new Map<string, EditionData>()
 const inFlight = new Map<string, Promise<EditionData>>()
 const manifestCache = new Map<string, ChapterShardManifest>()
-const chapterShardCache = new Map<string, string[]>()
+/** A chapter shard's text and the structure that travels beside it (kinds, links). */
+type ChapterShard = Pick<Chapter, 'paragraphs' | 'kinds' | 'links'>
+const chapterShardCache = new Map<string, ChapterShard>()
+
+function chapterShardOf(chapter: { paragraphs: string[]; kinds?: unknown; links?: unknown }): ChapterShard {
+  const shard: ChapterShard = { paragraphs: chapter.paragraphs }
+  if (Array.isArray(chapter.kinds)) shard.kinds = chapter.kinds as Chapter['kinds']
+  if (Array.isArray(chapter.links)) shard.links = chapter.links as Chapter['links']
+  return shard
+}
 const PATCH_WAIT_MS = 350
 let nativeWholeEditions: Promise<Set<string>> | null = null
 async function hasNativeWholeCopy(bookId: string, editionKey: EditionKey): Promise<boolean> {
@@ -174,7 +183,7 @@ async function loadChapterShard(
   editionKey: EditionKey,
   entry: ChapterShardManifest['chapters'][number],
   opts: { bypassCache?: boolean } = {},
-): Promise<string[]> {
+): Promise<ChapterShard> {
   const cacheKey = `${bookId}-${editionKey}-ch${entry.number}`
   if (!opts.bypassCache && chapterShardCache.has(cacheKey)) {
     return chapterShardCache.get(cacheKey)!
@@ -188,11 +197,11 @@ async function loadChapterShard(
   if (!chapter || typeof chapter !== 'object' || !Array.isArray((chapter as { paragraphs?: unknown }).paragraphs)) {
     throw new Error(`Edition ${bookId}-${editionKey} chapter ${entry.number} is malformed`)
   }
-  const paragraphs = (chapter as { paragraphs: string[] }).paragraphs
+  const shard = chapterShardOf(chapter as { paragraphs: string[] })
   if (!opts.bypassCache) {
-    chapterShardCache.set(cacheKey, paragraphs)
+    chapterShardCache.set(cacheKey, shard)
   }
-  return paragraphs
+  return shard
 }
 
 async function loadChapterShardedEdition(
@@ -206,7 +215,7 @@ async function loadChapterShardedEdition(
     title: entry.title,
     section: entry.section,
     paragraphCount: entry.paragraphCount,
-    paragraphs: await loadChapterShard(bookId, editionKey, entry, opts),
+    ...await loadChapterShard(bookId, editionKey, entry, opts),
   })))
   return {
     chapters,
@@ -240,7 +249,7 @@ export async function loadEditionWindow(
       return loadEdition(bookId, editionKey, { ...opts, forceWholeBook: true })
     }
 
-    const paragraphsByChapter = new Map<number, string[]>()
+    const paragraphsByChapter = new Map<number, ChapterShard>()
     await Promise.all(loadedChapters.map(async (chapterNumber) => {
       const entry = entriesByNumber.get(chapterNumber)!
       paragraphsByChapter.set(chapterNumber, await loadChapterShard(bookId, editionKey, entry, opts))
@@ -252,7 +261,7 @@ export async function loadEditionWindow(
         title: entry.title,
         section: entry.section,
         paragraphCount: entry.paragraphCount,
-        paragraphs: paragraphsByChapter.get(entry.number) ?? [],
+        ...(paragraphsByChapter.get(entry.number) ?? { paragraphs: [] }),
       })),
       sections: manifestData.sections,
       windowed: {

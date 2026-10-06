@@ -1,6 +1,7 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
 import { labFragmentClass } from './labMeasureParagraph'
+import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -136,8 +137,11 @@ function wordSpacing(
   return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
-function renderWordText(text: string, emphasis = false) {
-  const content = isLabVerseMarker(text) ? (
+function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1) {
+  const link = wordIndex >= 0 ? wordLink(paragraph, wordIndex, text) : null
+  const content = link ? (
+    <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>{link.trail}</>
+  ) : isLabVerseMarker(text) ? (
     <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
   ) : text
   return emphasis ? <em>{content}</em> : content
@@ -315,7 +319,7 @@ function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphInd
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
   return proseRuns(paragraphs, lines.map(lineSlice)).map(run => (
-    <p key={run[0]} className={`lab-hearing-line${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
+    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
       {joinedLines(run, (lineIndex) => {
         const line = lines[lineIndex]
         return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
@@ -324,7 +328,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
         : (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
-          {renderWordText(word.text, word.emphasis)}
+          {renderWordText(word.text, word.emphasis, paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex)}
         </span>
       ), lineationFor(paragraphs, line))
       })}
@@ -371,7 +375,7 @@ function renderHearingWords(
     return (
       <p
         key={run[0]}
-        className={`lab-hearing-line${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
+        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
         {joinedLines(run, (lineIndex) => {
@@ -392,7 +396,7 @@ function renderHearingWords(
                 : undefined}
             >
               {spacing}
-              {renderWordText(word.text, word.emphasis)}
+              {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], word.wordIndex ?? -1)}
             </span>
           )
         }, lineationFor(paragraphs, line, fallbackParagraphIndex))
@@ -1009,7 +1013,7 @@ export function LabPassage({
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, word.emphasis)}
+                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord)}
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
@@ -1041,7 +1045,7 @@ export function LabPassage({
                     key={lineIndex}
                     id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
-                      'lab-hearing-line',
+                      'lab-hearing-line' + paragraphKindClass(paragraphs[paragraphIndex], pageLines[lineIndex].from ?? readingPage?.from),
                       gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
                       inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
                       runContinuesParagraph(paragraphs, pageLines, run) ? 'is-continued' : '',
@@ -1291,7 +1295,7 @@ export function LabPageMeasurePaint(input: {
         <div className="lab-book-col">
           <div className="lab-hearing-stage">
             {proseRuns(input.paragraphs, lines.map(lineSlice)).map(run => (
-              <p key={run[0]} className="lab-hearing-line">
+              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}`}>
                 {joinedLines(run, (lineIndex) => {
                   const line = lines[lineIndex]
                   return renderWordGroups(line.words, (word, wordIndex, spacing) => (
@@ -1302,7 +1306,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, word.emphasis)}
+                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex)}
                   </span>
                 ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))
                 })}
