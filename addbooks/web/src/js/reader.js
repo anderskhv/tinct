@@ -193,7 +193,7 @@ async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
   catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
   const author = meta.authors.join(', ');
-  await library.touch(key, { title: meta.title, author });
+  await library.touch(key, { title: meta.title, author, ...(meta.cover ? { cover: meta.cover } : {}) });
   if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
   if (token !== state.token) return;
   leftForTinct = true;

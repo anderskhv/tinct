@@ -10,6 +10,7 @@ import type { LabSource } from '../labSource'
 import type { UserBookEdition } from './userEdition'
 import { isUserBookId } from './userBookId'
 import { registerBookOpening, registerChapterStructure } from '../labParagraphStyle'
+import { bookFigures } from '../labFigures'
 
 const editions = new Map<string, UserBookEdition>()
 const editionLists = new Map<string, Edition[]>()
@@ -81,6 +82,7 @@ export function userBookLabSource(bookId: string, edition: UserBookEdition, chap
     compareParagraphs: [],
     followParagraphs: chapter.paragraphs.map((text, index) => ({ index, text })),
     chapters: chapterList(edition),
+    ...(edition.chapters.some(item => item.figures?.length) ? { figures: bookFigures(edition.chapters) } : {}),
     cast: [],
   }
 }

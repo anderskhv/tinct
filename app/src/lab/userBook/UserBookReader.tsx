@@ -9,6 +9,7 @@ import { LabApp } from '../LabApp'
 import { USER_BOOKS_SHELF_URL } from './userBookId'
 import { registerUserBook } from './userBookSource'
 import { openUserBook, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
+import { registerFigureAssets } from '../labFigures'
 
 type ReaderState = { status: 'opening' } | { status: 'ready'; book: LoadedUserBook } | { status: 'failed'; message: string }
 
@@ -36,6 +37,14 @@ export function UserBookReader({ hex, owner, open = openUserBook }: {
     })
     return () => { live = false }
   }, [hex, open, owner])
+
+  // The book's pictures are drawn from this device while it is open (labFigures).
+  const images = state.status === 'ready' ? state.book.images : null
+  useEffect(() => {
+    if (!images) return
+    registerFigureAssets(key => images.get(key) ?? null)
+    return () => registerFigureAssets(null)
+  }, [images])
 
   if (state.status === 'ready') return <LabApp userBook={state.book} />
   return (

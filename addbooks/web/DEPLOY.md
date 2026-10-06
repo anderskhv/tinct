@@ -27,7 +27,7 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 66 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
+node addbooks/web/test/e2e.mjs           # 72 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
@@ -80,8 +80,14 @@ the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader
 - **Conversion** (`epubEdition.ts`, in the browser): spine order; chapters cut at the
   table of contents (EPUB 3 nav, else NCX; a short front matter joins the first chapter),
   else one per document; text only, as paragraphs; italics as the editions' `_…_`
-  emphasis. Pictures, styles, scripts, footnote markers and tables' layout are dropped,
-  and so is the source library's own matter: Project Gutenberg's header (through the
+  emphasis; subheadings, list items, labels, links and a chapter's subtitle and byline
+  as the general chapter `kinds` and `links` (app/src/types/index.ts). Every picture that
+  is not decoration (an ornament, divider, logo or icon, by name or by size) becomes a
+  figure at its place (`figures`, app/src/lab/labFigures.ts); its image is kept beside the
+  conversion on the same record (`figureImages`) and drawn through object URLs. The cover
+  image is never a chapter or a figure: this page keeps a small copy of it on the record
+  (`cover`, a data: URL) for Your books. Styles, scripts, footnote markers and tables'
+  layout are dropped, and so is the source library's own matter: Project Gutenberg's header (through the
   START marker), END marker and licence (marked up, or by the plain-text markers),
   Standard Ebooks' imprint, colophon and uncopyright, and Wikisource's "About this
   digital edition" and credits pages.
@@ -98,7 +104,8 @@ the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader
   analytics event is sent while a user book is open, nor any naming one.
 - **Companion** (`userBookContext.ts`): Ask, Explain and Define send the question or
   selection with a window of at most 9,000 characters around the reader's place (as this
-  page's own view did); "Recap this chapter" (Summarize, chapter end) sends the chapter,
+  page's own view did; a figure is sent as its caption); a figure's Explain or Ask also
+  sends its picture, signed in only, through the picture path below; "Recap this chapter" (Summarize, chapter end) sends the chapter,
   cut at 120,000 characters (as this page's Summarize). Never the book's id or edition,
   so the Worker answers from the text (no book lookups, no book id in the usage ledger),
   with its usual auth and limits.

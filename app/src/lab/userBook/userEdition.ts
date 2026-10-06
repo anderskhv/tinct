@@ -3,13 +3,13 @@ import type { Chapter, ParagraphKind } from '../../types'
 
 export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
 /** Bump when the conversion changes, so stored conversions are redone. */
-export const USER_EDITION_CONVERTER = 3
+export const USER_EDITION_CONVERTER = 4
 
 /** The general paragraph kinds every edition may carry (types/index.ts). */
 export type UserBookParagraphKind = ParagraphKind
 
-/** A chapter exactly as a built-in edition's chapter JSON has it: text, kinds and links. */
-export type UserBookChapter = Pick<Chapter, 'number' | 'title' | 'paragraphs' | 'kinds' | 'links'>
+/** A chapter exactly as a built-in edition's chapter JSON has it: text, kinds, links and figures. */
+export type UserBookChapter = Pick<Chapter, 'number' | 'title' | 'paragraphs' | 'kinds' | 'links' | 'figures'>
 
 export interface UserBookEdition {
   format: typeof USER_EDITION_FORMAT

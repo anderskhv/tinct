@@ -45,7 +45,9 @@ for (const ev of ['dragleave', 'drop']) $('abDrop').addEventListener(ev, () => $
 /* ---------- Your books: this device's and your account's ---------- */
 const when = t => { const d = new Date(t), days = Math.round((Date.now() - t) / 86400000); return days < 1 ? 'today' : days < 2 ? 'yesterday' : days < 7 ? `${days} days ago` : d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: d.getFullYear() === new Date().getFullYear() ? undefined : 'numeric' }) };
 const hue = s => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) % 360; return h };
-function coverHtml(title, author, kind, small) {
+function coverHtml(title, author, kind, small, image) {
+  // The book's own cover (an EPUB's cover image, kept on this device as a data: URL).
+  if (image && /^data:image\/(jpeg|png);base64,/.test(image)) return `<span class="ab-cover has-image${small ? ' is-small' : ''}" aria-hidden="true"><img src="${esc(image)}" alt=""></span>`;
   return `<span class="ab-cover${small ? ' is-small' : ''}" style="--h:${hue(title)}" aria-hidden="true"><span class="ab-cover-t">${esc(title)}</span>${author ? `<span class="ab-cover-a">${esc(author)}</span>` : ''}${kind ? `<span class="ab-cover-k">${kind.toUpperCase()}</span>` : ''}</span>`;
 }
 // This device's books show at once; the account's copies join when the list arrives.
@@ -53,7 +55,7 @@ let shelfRun = 0;
 function drawShelf(list) {
   $('abShelf').hidden = !list.length;
   $('abBooks').innerHTML = list.map(b => `<li class="ab-book" data-key="${esc(b.key)}"${b.local ? '' : ' data-cloud-only'}>
-      <button type="button" class="ab-book-open" data-open="${esc(b.key)}" aria-label="Open ${esc(b.title)}">${coverHtml(b.title, b.author, b.kind)}
+      <button type="button" class="ab-book-open" data-open="${esc(b.key)}" aria-label="Open ${esc(b.title)}">${coverHtml(b.title, b.author, b.kind, false, b.cover)}
         <span class="ab-book-meta"><b>${esc(b.title)}</b>${b.author ? `<span>${esc(b.author)}</span>` : ''}<small>${b.kind.toUpperCase()} · ${b.openedAt ? 'opened ' + when(b.openedAt) : 'added ' + when(b.addedAt)}</small></span></button>
       <button type="button" class="ab-book-x" data-remove="${esc(b.key)}" aria-label="Remove ${esc(b.title)}">×</button>
     </li>`).join('');
