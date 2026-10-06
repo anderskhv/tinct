@@ -1,5 +1,6 @@
 import { supabase } from '../services/supabase'
 import { captureAttribution, getAttributionPayload } from './attribution'
+import { withholdAnalytics } from '../lab/userBook/privateReading'
 
 const isDev = import.meta.env.DEV
 const sessionId = (() => {
@@ -108,7 +109,7 @@ const startHeartbeat = (userId?: string | null) => {
  *   /                         — landing / home
  */
 export async function trackPageview(path: string, userId?: string | null) {
-  if (isDev || !supabase) return
+  if (isDev || !supabase || withholdAnalytics(path)) return
   if (!path || path === lastPath) return
   captureAttribution()
 
@@ -155,7 +156,7 @@ export async function trackPageview(path: string, userId?: string | null) {
  * Track a custom event (e.g., 'book_opened', 'edition_switched', 'chat_started').
  */
 export async function trackEvent(eventType: string, payload?: Record<string, any>, userId?: string | null) {
-  if (isDev || !supabase) return
+  if (isDev || !supabase || withholdAnalytics(payload)) return
   captureAttribution()
   try {
     await supabase.from('analytics_events').insert({

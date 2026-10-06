@@ -21,8 +21,8 @@ export interface LabSuperMenuRow {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), reading choices, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false }: { phone?: boolean } = {}): LabSuperMenuRow[] {
-  return [
+export function labSuperMenuRows({ phone = false, privateBook = false }: { phone?: boolean; privateBook?: boolean } = {}): LabSuperMenuRow[] {
+  const rows: LabSuperMenuRow[] = [
     { id: 'chat', label: 'Chat' },
     { id: 'talk', label: 'Talk' },
     { id: 'summarize', label: 'Summarize' },
@@ -33,7 +33,14 @@ export function labSuperMenuRows({ phone = false }: { phone?: boolean } = {}): L
     ...(phone ? [{ id: 'library' as const, label: 'Library', ruleBefore: true }] : []),
     { id: 'account', label: 'Account', chevron: true, ruleBefore: !phone },
   ]
+  // A reader's own book (userBook/): no Talk, no Catch me up (it reads earlier
+  // chapters on the server), and one edition. Library returns to Your books.
+  return privateBook
+    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id)).map(row => row.id === 'library' ? { ...row, label: 'Your books' } : row)
+    : rows
 }
+
+const USER_BOOK_HIDDEN_ROWS = new Set<LabSuperMenuId>(['talk', 'catchup', 'editions'])
 
 /**
  * The surface. Genuinely see-through: a fill of the paper colour over a blur

@@ -17,6 +17,7 @@
 import { apiUrl } from './apiUrl'
 import { captureAttribution, getAttributionPayload } from './attribution'
 import { isInternalTraffic } from './internalTraffic'
+import { readingPrivateBook, withholdAnalytics } from '../lab/userBook/privateReading'
 
 export type FunnelEventName =
   | 'landing_view' | 'book_opened' | 'first_page_turn' | 'chapter_completed'
@@ -202,6 +203,8 @@ function browserDeps(): FunnelDeps {
   return {
     enabled: () => {
       if (typeof window === 'undefined' || import.meta.env.DEV || import.meta.env.MODE === 'test') return false
+      // A reader's own book is never reported (lab/userBook/privateReading.ts).
+      if (readingPrivateBook()) return false
       return !(typeof navigator !== 'undefined' && navigator.webdriver)
     },
     deviceId: () => (deviceIdReader ? deviceIdReader() : lightDeviceId()),
@@ -247,5 +250,5 @@ export function funnel(surface: 'library' | 'reader' | 'sign-in' = 'reader'): Re
 }
 
 /** Fire and forget helpers for call sites. */
-export function trackFunnel(name: FunnelEventName, props?: Props): void { funnel().track(name, props) }
-export function trackFunnelOnce(name: FunnelEventName, props?: Props, scope?: string): void { funnel().trackOnce(name, props, scope) }
+export function trackFunnel(name: FunnelEventName, props?: Props): void { if (!withholdAnalytics(props)) funnel().track(name, props) }
+export function trackFunnelOnce(name: FunnelEventName, props?: Props, scope?: string): void { if (!withholdAnalytics([props, scope])) funnel().trackOnce(name, props, scope) }

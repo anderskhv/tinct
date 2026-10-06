@@ -5,6 +5,7 @@ import type { BookReadingLog } from '../types'
 import { readDeviceReadingMemory, visibleToViewer, loadChapterText } from '../readingMemory'
 import { readAllLabBookChats } from './labChatHistory'
 import { readLabHighlights } from './labHighlights'
+import { isUserBookId } from './userBook/userBookId'
 
 /** Personal records are retrieved only for a question about the reader's activity. */
 export function requestsPersonalHistory(query: string): boolean {
@@ -38,12 +39,13 @@ export async function personalHistoryEvidence(query: string, viewer: string | nu
       records.push({ at: record.lastReadAt || 0, text: `Reading log: ${log.bookId}, ${label(log.bookId, record.chapterNumber)}, editions ${record.editions.join(', ')}; ${record.completed ? 'marked completed' : 'visited'}; ${record.lastReadAt ? new Date(record.lastReadAt).toISOString() : 'legacy imported progress, date unknown; may be inferred rather than a confirmed visit'}` })
     }
   }
-  for (const conversation of readAllLabBookChats()) {
+  // A reader's own books stay out: only the passages asked about leave the device.
+  for (const conversation of readAllLabBookChats().filter(item => !isUserBookId(item.bookId))) {
     for (const message of conversation.messages) {
       records.push({ at: message.timestamp, text: `Chat: ${conversation.bookId}, ${label(conversation.bookId, message.chapterNumber ?? conversation.chapterNumber)}; ${message.role}: ${message.content.slice(0, 1600)}${message.highlightedText ? `; passage: ${message.highlightedText.slice(0, 600)}` : ''}` })
     }
   }
-  const marks = readLabHighlights()
+  const marks = readLabHighlights().filter(mark => !isUserBookId(mark.bookId))
   const restored = new Map<string, string>()
   await Promise.race([Promise.all(marks.filter(mark => !mark.text && mark.bookId && mark.editionKey).slice(-24).map(async mark => {
     const chapter = await loadChapterText({ bookId: mark.bookId!, editionKey: mark.editionKey!, chapterNumber: mark.chapterNumber }).catch(() => null)

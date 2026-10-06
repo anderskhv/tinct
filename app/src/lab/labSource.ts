@@ -12,6 +12,8 @@ import { hasRecordedAudio } from '../data/audioAvailability'
 import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
 import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
+import { isUserBookId } from './userBook/userBookId'
+import { loadUserBookSource } from './userBook/userBookSource'
 
 export const LAB_BOOK_ID = 'bible'
 // New Bible readers start in the Berean Standard Bible; saved places keep their own edition.
@@ -502,6 +504,8 @@ async function applyVerseLines(
 }
 
 export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
+  // A reader's own book is read from this device only (userBook/userBookSource.ts).
+  if (isUserBookId(input.bookId)) return loadUserBookSource(input)
   await ensureNativeBook(input.bookId, [input.primaryEditionKey, input.compareEditionKey].filter((key): key is string => !!key))
   // One migration for every caller, before the book id is even dispatched on:
   // no reader of this function can aim it at a withdrawn edition.
@@ -609,6 +613,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
 
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
+  if (isUserBookId(bookId)) return (await loadUserBookSource({ bookId })).chapters
   await ensureNativeBook(bookId, [requestedEditionKey])
   const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters

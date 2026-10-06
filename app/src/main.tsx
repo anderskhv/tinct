@@ -8,6 +8,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import AdminApp from './AdminApp'
 import { LabApp } from './lab/LabApp'
+import { userBookFromSearch } from './lab/userBook/userBookId'
+import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
@@ -43,6 +45,13 @@ const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.l
 // The reader is the only public app surface; /admin/metrics is the private
 // dashboard. The Worker serves this bundle at no other path.
 const Root = pathname === '/admin/metrics' ? AdminApp : LabApp
+// A reader's own EPUB from Add a book: /reader?userBook=<hex> (lab/userBook/),
+// loaded only on that page.
+const userBookHex = pathname === '/reader' ? userBookFromSearch(window.location.search) : null
+// Read now, before the auth client can drop a lapsed session: Add a book tags
+// files with the account even when its sign-in has lapsed.
+const userBookOwner = userBookHex ? (readCachedSupabaseUser()?.id ?? null) : null
+const UserBookReader = React.lazy(() => import('./lab/userBook/UserBookReader').then(module => ({ default: module.UserBookReader })))
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader') {
   startReaderLoadTrace()
@@ -51,7 +60,7 @@ if (pathname === '/reader') {
 
 const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Root />
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : <Root />}
   </React.StrictMode>,
 )
 

@@ -2,6 +2,7 @@ import { supabase } from '../services/supabase'
 import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
 import { highlightWrittenAt } from './labHighlightContentMigration'
 import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import { isUserBookId } from './userBook/userBookId'
 
 /**
  * Highlights and notes across a signed-in reader's devices.
@@ -381,12 +382,15 @@ export function createLabHighlightCloudWriter(cloud: LabHighlightCloud, options:
 
   return {
     push(bucket: string, set: LabHighlightSet) {
+      // A reader's own book keeps its marks on this device (lab/userBook).
+      if (isUserBookId(bucket)) return
       if (disposed || known.get(bucket) === labHighlightSetSignature(set)) return
       const waiting = queued.has(bucket)
       queued.set(bucket, set)
       if (!waiting) void serial(bucket, () => flush(bucket))
     },
     sync(bucket: string) {
+      if (isUserBookId(bucket)) return Promise.resolve(readLocalLabHighlightSet(bucket))
       return serial(bucket, () => syncNow(bucket))
     },
     dispose() { disposed = true; queued.clear() },
