@@ -152,12 +152,13 @@ export function labResumeAfterPage(
 
 /**
  * The page map after the reserved foot changes height under an open page
- * (the audio transport opening or closing). The pages up to and including
- * the one on screen are kept exactly — no word the reader is looking at
- * moves; with the transport up it simply covers that page's last line — and
- * only the rest of the chapter is laid out again, from the word after the
- * kept page, at the new height. `paginateFrom` lays out a remainder;
- * `fitEnd` reserves the chapter actions on the final leaf.
+ * (the audio transport opening or closing). The pages before the one on
+ * screen are kept exactly, and the rest of the chapter — the page on screen
+ * first — is laid out again at the new height from the word after the last
+ * kept page. The page on screen therefore begins on the same word with the
+ * same lines; it only ends earlier (transport up, nothing under it) or later
+ * (transport away). `paginateFrom` lays out a remainder; `fitEnd` reserves
+ * the chapter actions on the final leaf.
  */
 export function labPagesKeepingPrefix(
   kept: ChapterHearingPage[],

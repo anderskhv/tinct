@@ -5,8 +5,8 @@ import { chapterPageSegments, type ChapterHearingPage, type ChapterPageSegment }
 
 /**
  * The V2 phone foot changes height when the audio transport opens or closes.
- * The reader's page must not move a word: it is kept, and only the pages after
- * it are laid out again at the new height.
+ * The reader's page must not lose its place: the pages before it are kept,
+ * and it is laid out again from its own first word at the new height.
  */
 const lengths = [13, 70, 4, 16]
 const count = (segments: ChapterPageSegment[]) => segments.reduce((n, s) => n + s.to - s.from, 0)
@@ -41,6 +41,23 @@ describe('keeping the open page through a foot change', () => {
     expect(next.slice(0, 2)).toEqual(open.slice(0, 2))
     expect(words(next)).toEqual(everyWord)
     expect(count(chapterPageSegments(next[2]))).toBe(30)
+  })
+
+  it('lays the page on screen out again from its own first word when the transport opens', () => {
+    // LabApp keeps the pages before the one on screen; the page itself keeps
+    // its first word and ends on the last line that clears the transport.
+    const current = 2
+    const next = labPagesKeepingPrefix(closed.slice(0, current), lengths, paginateAt(26))
+    expect(next.slice(0, current)).toEqual(closed.slice(0, current))
+    expect(next[current]).toMatchObject({ paragraphIndex: closed[current].paragraphIndex, from: closed[current].from })
+    expect(count(chapterPageSegments(next[current]))).toBeLessThanOrEqual(26)
+    expect(count(chapterPageSegments(closed[current]))).toBeGreaterThan(count(chapterPageSegments(next[current])))
+    // The words it no longer holds open the next page; nothing is lost.
+    expect(words(next)).toEqual(everyWord)
+    // Put away again, the same page fills the full column from the same word.
+    const back = labPagesKeepingPrefix(next.slice(0, current), lengths, paginateAt(30))
+    expect(back[current]).toMatchObject({ paragraphIndex: closed[current].paragraphIndex, from: closed[current].from })
+    expect(back).toEqual(closed)
   })
 
   it('keeps the whole map when the kept page ends the chapter', () => {
