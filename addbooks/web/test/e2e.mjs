@@ -221,7 +221,9 @@ try {
   const hex = p.url().match(/userBook=([0-9a-f]{24})/)[1];
   const epubInfo = await p.evaluate(() => ({ title: document.querySelector('[data-testid="lab-header-book"]').textContent, chapter: document.querySelector('[data-testid="lab-header-chapter"]').textContent.trim(), words: document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length, oldView: document.querySelectorAll('.epub-sheet, .epub-pg').length, play: !!document.querySelector('[data-testid="lab-v2-play"]'), docTitle: document.title }));
   const opening = (await p.textContent('.lab-page-wrap')).replace(/\s+/g, ' ');
-  check('the book opens at its own title page, without Project Gutenberg\u2019s header', /by H\. G\. Wells/.test(opening) && !/Project Gutenberg|START OF THE|eBook/i.test(opening), opening.slice(0, 160));
+  // The book's title page is set as Tinct's own title opening (title and author above the first chapter heading).
+  const titleOpening = await p.evaluate(() => document.querySelector('.lab-page-wrap [data-testid="lab-book-opening"]')?.textContent.replace(/\s+/g, ' ').trim() ?? null);
+  check('the book opens under its own title and author, without Project Gutenberg\u2019s header', /The Time Machine/.test(titleOpening || '') && /H\. G\. Wells/.test(titleOpening || '') && !/Project Gutenberg|START OF THE|eBook/i.test(opening), { titleOpening, opening: opening.slice(0, 160) });
   check('EPUB opens in the Tinct reader at /reader?userBook=', /time machine/i.test(epubInfo.title) && epubInfo.words > 3 && epubInfo.oldView === 0 && /Time Machine · Tinct$/i.test(epubInfo.docTitle), epubInfo);
   check('Tinct reader: narration is not offered for a user book', !epubInfo.play);
   await p.screenshot({ path: join(OUT, 'desktop-tinct-epub.png') });

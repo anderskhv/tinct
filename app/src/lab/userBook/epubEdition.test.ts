@@ -161,8 +161,9 @@ describe('library matter', () => {
     const edition = await epubToEdition(bytes)
     const all = JSON.stringify(edition.chapters)
     expect(all).not.toMatch(/Gutenberg|START OF|END OF|eBook|LICENSE/i)
+    // The title page (title and "by" author only) is left out too: the reader
+    // opens the first chapter under the book's own title.
     expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
-      ['Night Book', ['by A. Writer']],
       ['I. The Lamp', ['The lamp was lit.', 'The end.']],
     ])
   })
@@ -211,6 +212,161 @@ describe('library matter', () => {
       ['One', ['Alpha.']],
       ['Two', ['Beta.']],
     ])
+  })
+})
+
+describe('a designed book, not a converted one', () => {
+  const nav = (entries: Array<[string, string]>) => xhtml(`<nav epub:type="toc"><ol>${entries.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ol></nav>`)
+  const book = (docs: Array<[string, string]>, entries: Array<[string, string]>, metadata = '') => zip([
+    ['mimetype', 'application/epub+zip'],
+    ['META-INF/container.xml', CONTAINER],
+    ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ...docs.map(([name]): [string, string] => [name, `${name}.xhtml`])], docs.map(([name]) => name)).replace('</metadata>', `${metadata}</metadata>`)],
+    ['OEBPS/toc.xhtml', nav(entries)],
+    ...docs.map(([name, body]): [string, string] => [`OEBPS/${name}.xhtml`, xhtml(body)]),
+  ])
+
+  it('leaves out the cover, half-title, copyright page and the book’s own contents page', async () => {
+    const edition = await epubToEdition(book([
+      ['cover', '<section epub:type="cover"><img src="cover.jpg" alt="Cover"/></section>'],
+      ['half', '<section epub:type="halftitle"><p>NIGHT<br/>BOOK</p></section>'],
+      ['copy', '<p>Copyright © 2025 A. Writer</p><p>All rights reserved.</p><p>ISBN 000-0-00-000000-0</p>'],
+      ['contents', '<p><strong>CONTENTS</strong></p><p><a href="one.xhtml">One Night</a></p><p><a href="two.xhtml">Two Nights</a></p><p><a href="three.xhtml">The Third Night</a></p>'],
+      ['one', '<h1>One Night</h1><p>Alpha.</p>'],
+      ['two', '<h1>Two Nights</h1><p>Beta.</p>'],
+      ['three', '<h1>The Third Night</h1><p>Gamma.</p>'],
+    ], [['cover.xhtml', 'Cover'], ['copy.xhtml', 'Copyright'], ['contents.xhtml', 'Contents'], ['one.xhtml', 'One Night'], ['two.xhtml', 'Two Nights'], ['three.xhtml', 'The Third Night']], '<dc:title id="sub">A Novel of Lamps</dc:title><meta refines="#sub" property="title-type">subtitle</meta>'))
+    expect(edition.title).toBe('Night Book')
+    expect(edition.subtitle).toBe('A Novel of Lamps')
+    expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
+      ['One Night', ['Alpha.']],
+      ['Two Nights', ['Beta.']],
+      ['The Third Night', ['Gamma.']],
+    ])
+    expect(JSON.stringify(edition)).not.toMatch(/Cover|CONTENTS|rights reserved|ISBN/)
+  })
+
+  it('keeps subheadings, table labels and list items as kinds beside plain paragraphs', async () => {
+    const edition = await epubToEdition(book([
+      ['one', `<p class="cht1"><strong>ONE<br/> NIGHT</strong></p>
+        <p class="head1">EPISODE DETAILS</p>
+        <table><tr><td><p><span><strong>Date</strong></span></p></td><td><p>2012</p></td></tr>
+          <tr><td><p><strong>Ideas</strong></p></td><td><p><span class="tb1">•</span> A first idea.</p></td></tr></table>
+        <ul><li>Listed thing</li><li>Another <em>listed</em> thing</li></ul>
+        <h3>Transcript</h3>
+        <p>The talk began.</p>
+        <p><strong>Not a heading, a bold sentence.</strong></p>
+        <p><strong>Homepage:</strong></p>`],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'One Night'], ['two.xhtml', 'Two']]))
+    const [one] = edition.chapters
+    expect(one.paragraphs).toEqual(['EPISODE DETAILS', 'Date', '2012', 'Ideas', 'A first idea.', 'Listed thing', 'Another _listed_ thing', 'Transcript', 'The talk began.', 'Not a heading, a bold sentence.', 'Homepage:'])
+    // A bold line ending in a colon introduces what follows: a label, kept with it.
+    expect(one.kinds).toEqual(['heading', 'label', null, 'label', 'item', 'item', 'item', 'heading', null, null, 'label'])
+    expect(edition.chapters[1].kinds).toBeUndefined()
+  })
+
+  it('drops empty paragraphs and a lone "Link" label above an address, keeping anchors on their text', async () => {
+    const edition = await epubToEdition(book([
+      ['one', `<h1>One</h1>
+        <p>&#x00A0;</p><p>\u200b</p><p><span class="tb1">&#x2022;</span></p>
+        <table><tr><td><p><strong>Link</strong></p></td><td><p><a href="https://youtu.be/abc">https://youtu.be/abc</a></p></td></tr>
+          <tr><td><p><strong>Show</strong></p></td><td><p id="show">Closer to Night</p></td></tr></table>
+        <p>Link</p><p>A link is a thing that joins.</p>`],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'One'], ['one.xhtml#show', 'Two']]))
+    const [one] = edition.chapters
+    // "Link" before prose is the book's own word and stays.
+    expect(one.paragraphs).toEqual(['https://youtu.be/abc', 'Show'])
+    expect(edition.chapters[1].paragraphs.slice(0, 3)).toEqual(['Closer to Night', 'Link', 'A link is a thing that joins.'])
+  })
+
+  it('joins credits the print wrapped mid-clause, and keeps a poem’s lines', async () => {
+    const edition = await epubToEdition(book([
+      ['one', `<h1>One</h1>
+        <p><em>Major support for this volume<br/> was provided by A. Patron.</em></p>
+        <p>The lamp is lit,<br/>the night is long.</p>
+        <p>Shall I compare thee<br/>To a lamp at night?</p>`],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'One'], ['two.xhtml', 'Two']]))
+    const [one] = edition.chapters
+    expect([one.paragraphs, one.kinds]).toEqual([
+      ['_Major support for this volume was provided by A. Patron._', 'The lamp is lit,', 'the night is long.', 'Shall I compare thee', 'To a lamp at night?'],
+      [null, 'line', 'line', 'line', 'line'],
+    ])
+  })
+
+  it('never reads a bold lead-in line under the heading as a subtitle or byline', async () => {
+    const edition = await epubToEdition(book([
+      ['one', '<h1>Sam Writer: On Lamps</h1><p><strong>Hosts:</strong> Sam Writer &amp; Jo Smith</p><p>Body text follows here.</p>'],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'Sam Writer: On Lamps'], ['two.xhtml', 'Two']]))
+    expect(edition.chapters[0].paragraphs[0]).toBe('Hosts: Sam Writer & Jo Smith')
+    expect(edition.chapters[0].kinds).toBeUndefined()
+  })
+
+  it('keeps web links by word range and bare addresses as their own words; nothing else links', async () => {
+    const edition = await epubToEdition(book([
+      ['one', `<h1>One</h1>
+        <p><a href="https://youtu.be/abc">https://youtu.be/abc</a></p>
+        <p>See <a href="https://example.org/a">the full episode</a> online, or <a href="javascript:alert(1)">this</a>, <a href="data:text/html,x">that</a> and <a href="two.xhtml">chapter two</a>.</p>
+        <p>Read <a href="http://www.site.org/page"><em>www.site.org/page</em></a> today.</p>`],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'One'], ['two.xhtml', 'Two']]))
+    const [one] = edition.chapters
+    expect(one.paragraphs).toEqual([
+      'https://youtu.be/abc',
+      'See the full episode online, or this, that and chapter two.',
+      'Read _http://www.site.org/page_ today.',
+    ])
+    expect(one.links).toEqual([[1, 1, 4, 'https://example.org/a']])
+    expect(JSON.stringify(edition)).not.toMatch(/javascript|data:/)
+  })
+
+  it('sets an anthology chapter’s opening: repeated title out, subtitle and byline in', async () => {
+    const edition = await epubToEdition(book([
+      ['one', '<p class="chapnum">1</p><p class="chaptitle">The Fate of Lamps</p><p>What Many Lamps Mean for Night</p><p>Sam Writer</p><p>Modern lamps consist of two parts, and both of them are bright.</p>'],
+      ['two', '<h1>The Second Essay</h1><h2>A Subtitle Set as a Heading</h2><p class="author">Jo Smith</p><p>Body text.</p>'],
+      ['three', '<h1>Preface</h1><p>Preface</p><p>Notes on the Night</p><p>The preface begins here and runs on.</p>'],
+      ['four', '<h1>Notes</h1><p>Ann Lee</p><p>Ann Lee said that lamps were bright.</p>'],
+    ], [['one.xhtml', '1 The Fate of Lamps'], ['two.xhtml', 'The Second Essay'], ['three.xhtml', 'Preface'], ['four.xhtml', 'Notes']]))
+    const [one, two, three, four] = edition.chapters
+    expect([one.paragraphs, one.kinds]).toEqual([
+      ['What Many Lamps Mean for Night', 'Sam Writer', 'Modern lamps consist of two parts, and both of them are bright.'],
+      ['subtitle', 'byline', null],
+    ])
+    expect([two.paragraphs, two.kinds]).toEqual([['A Subtitle Set as a Heading', 'Jo Smith', 'Body text.'], ['subtitle', 'byline', null]])
+    // A repeated plain-paragraph title goes; a lone title-cased line after it is a subtitle.
+    expect([three.paragraphs, three.kinds]).toEqual([['Notes on the Night', 'The preface begins here and runs on.'], ['subtitle', null]])
+    // A name alone after the heading is a byline.
+    expect([four.paragraphs, four.kinds]).toEqual([['Ann Lee', 'Ann Lee said that lamps were bright.'], ['byline', null]])
+  })
+
+  it('leaves body text alone when an opening line is not clearly a subtitle or byline', async () => {
+    const edition = await epubToEdition(book([
+      ['one', '<h1>One</h1><p>It was dark.</p><p>Nobody came.</p>'],
+      ['two', '<h1>Two</h1><p>the lamp, lit at last</p><p>Then morning.</p>'],
+    ], [['one.xhtml', 'One'], ['two.xhtml', 'Two']]))
+    expect(edition.chapters.map(chapter => chapter.kinds)).toEqual([undefined, undefined])
+  })
+
+  it('sets lines parted by breaks as lines, and a heading broken over lines as one heading', async () => {
+    const edition = await epubToEdition(book([
+      ['one', '<h1>One</h1><p>The lamp is lit,<br/>the night is long.</p><p><strong>A BROKEN<br/>HEADING</strong></p><p>Prose follows here.</p>'],
+      ['two', '<h1>Two</h1><p>Beta.</p>'],
+    ], [['one.xhtml', 'One'], ['two.xhtml', 'Two']]))
+    const [one] = edition.chapters
+    expect([one.paragraphs, one.kinds]).toEqual([
+      ['The lamp is lit,', 'the night is long.', 'A BROKEN HEADING', 'Prose follows here.'],
+      ['line', 'line', 'heading', null],
+    ])
+  })
+
+  it('keeps an index’s page numbers, which link to print pages rather than notes', async () => {
+    const edition = await epubToEdition(book([
+      ['one', '<h1>One</h1><p id="page_7">Alpha.</p>'],
+      ['index', '<h1>Index</h1><p>Lamps, <a href="one.xhtml#page_7">7</a>, <a href="one.xhtml#page_9">9</a></p><p>Note<a href="one.xhtml#fn1">1</a></p>'],
+    ], [['one.xhtml', 'One'], ['index.xhtml', 'Index']]))
+    expect(edition.chapters[1].paragraphs).toEqual(['Lamps, 7, 9', 'Note'])
   })
 })
 

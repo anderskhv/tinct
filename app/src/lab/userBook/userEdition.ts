@@ -1,19 +1,22 @@
 /** The shape of a reader's own book once converted (epubEdition.ts). Types and constants only. */
+import type { Chapter, ParagraphKind } from '../../types'
 
 export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
 /** Bump when the conversion changes, so stored conversions are redone. */
-export const USER_EDITION_CONVERTER = 2
+export const USER_EDITION_CONVERTER = 3
 
-export interface UserBookChapter {
-  number: number
-  title: string
-  paragraphs: string[]
-}
+/** The general paragraph kinds every edition may carry (types/index.ts). */
+export type UserBookParagraphKind = ParagraphKind
+
+/** A chapter exactly as a built-in edition's chapter JSON has it: text, kinds and links. */
+export type UserBookChapter = Pick<Chapter, 'number' | 'title' | 'paragraphs' | 'kinds' | 'links'>
 
 export interface UserBookEdition {
   format: typeof USER_EDITION_FORMAT
   converter: number
   title: string
+  /** The book's subtitle from its metadata, if it names one. */
+  subtitle?: string
   author: string
   /** The book's own language tag (`dc:language`), possibly empty. */
   language: string
