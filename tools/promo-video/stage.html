@@ -195,6 +195,19 @@ turntable.add(phone);
 turntable.rotation.y = 0.12;
 scene.add(turntable);
 
+// Pose: lying flat (default) or raised — tilted up by `tilt` degrees about its
+// bottom-to-top axis and floating `lift` cm above the surface, like a product shot.
+// The shadow spreads and softens as the phone lifts.
+window.setPose = ({ tilt = 0, lift = 0 } = {}) => {
+  const t = tilt * Math.PI / 180;
+  phone.rotation.x = -Math.PI / 2 + t;
+  phone.position.y = PD / 2 + 0.01 + (PH / 2) * Math.sin(t) + lift;
+  const spread = 1 + lift * 0.08 + Math.sin(t) * 0.25;
+  shadow.scale.set(spread, Math.cos(t) * 0.85 + 0.15, 1);
+  shadow.material.opacity = Math.max(0.35, 1 - lift * 0.12 - Math.sin(t) * 0.35);
+  shadow.position.set(0.55 + lift * 0.25, 0.002, 0.45 + lift * 0.3);
+};
+
 // ---------- screen compositing ----------
 const imgCache = new Map();
 function loadImage(src) {
@@ -270,8 +283,30 @@ function edgeColor(img, fromBottom) {
   const d = pctx.getImageData(1, 0, 1, 1).data;
   return [d[0], d[1], d[2]];
 }
+// Fingertip indicators (iOS "show touches" style): {x, y} in screen px (1170 wide),
+// a = opacity, p = press (0 = hovering, 1 = pressed), r = release ring 0..1.
+function drawTouches(touches) {
+  for (const { x, y, a = 1, p = 1, r = 0 } of touches) {
+    if (a <= 0) continue;
+    const R = 62 * (1.12 - 0.12 * p);
+    sctx.save();
+    sctx.globalAlpha = a;
+    sctx.shadowColor = 'rgba(0,0,0,0.28)'; sctx.shadowBlur = 24; sctx.shadowOffsetY = 6;
+    sctx.fillStyle = 'rgba(96,86,76,0.42)'; // warm grey reads on light and dark screens
+    sctx.beginPath(); sctx.arc(x, y, R, 0, Math.PI * 2); sctx.fill();
+    sctx.shadowColor = 'transparent';
+    sctx.lineWidth = 5; sctx.strokeStyle = 'rgba(255,255,255,0.85)';
+    sctx.stroke();
+    if (r > 0) { // expanding ring as the finger lifts
+      sctx.globalAlpha = a * (1 - r) * 0.8;
+      sctx.lineWidth = 4; sctx.strokeStyle = 'rgba(255,255,255,0.9)';
+      sctx.beginPath(); sctx.arc(x, y, R * (1 + r * 0.9), 0, Math.PI * 2); sctx.stroke();
+    }
+    sctx.restore();
+  }
+}
 // Draws app frame `src`, optionally dissolving towards `srcB` by `mix` (0..1).
-async function setScreen(src, srcB = null, mix = 0) {
+async function setScreen(src, srcB = null, mix = 0, touches = []) {
   const img = await loadImage(src);
   const imgB = srcB && mix > 0 ? await loadImage(srcB) : null;
   const top = edgeColor(img, false), bot = edgeColor(img, true);
@@ -281,6 +316,7 @@ async function setScreen(src, srcB = null, mix = 0) {
   sctx.fillRect(0, 0, SCREEN_PX_W, SCREEN_PX_H);
   drawApp(img);
   if (imgB) drawApp(imgB, mix);
+  drawTouches(touches);
   drawStatusBar(top.map(Math.round), isNative(img) ? NATIVE_STATUS_H : STATUS_H);
   sctx.fillStyle = luminance(...bot) > 140 ? 'rgba(0,0,0,.82)' : 'rgba(255,255,255,.85)';
   roundRectPath(SCREEN_PX_W / 2 - 200, SCREEN_PX_H - 40, 400, 15, 8); sctx.fill();
@@ -318,7 +354,8 @@ function setCamera(shotName, p) {
 function orbit({ az, el, d, lx = 0, lz = 0, fov = 30, shift = 0.045 }) {
   az *= DEG; el *= DEG;
   // Look-at point in world space (phone sits on the turntable).
-  const target = new THREE.Vector3(lx, PD, lz).applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
+  turntable.updateMatrixWorld(true);
+  const target = phone.localToWorld(new THREE.Vector3(lx, -lz, PD / 2));
   const off = new THREE.Vector3(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(d)
     .applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
   camera.position.copy(target).add(off);
@@ -406,9 +443,9 @@ function composite(dof, fz) {
 
 // ---------- frame API (driven by render.mjs) ----------
 let lastScreen = null;
-window.renderFrame = async ({ screenSrc, screenSrcB = null, mix = 0, shot, p, cam, caption = '', captionOpacity = 0, endcard = 0 }) => {
-  const key = `${screenSrc}|${mix > 0 ? screenSrcB + '|' + mix.toFixed(3) : ''}`;
-  if (screenSrc && key !== lastScreen) { await setScreen(screenSrc, screenSrcB, mix); lastScreen = key; }
+window.renderFrame = async ({ screenSrc, screenSrcB = null, mix = 0, touches = [], shot, p, cam, caption = '', captionOpacity = 0, endcard = 0 }) => {
+  const key = `${screenSrc}|${mix > 0 ? screenSrcB + '|' + mix.toFixed(3) : ''}|${JSON.stringify(touches)}`;
+  if (screenSrc && key !== lastScreen) { await setScreen(screenSrc, screenSrcB, mix, touches); lastScreen = key; }
   if (cam) orbit(cam); else setCamera(shot, p);
   renderer.render(scene, camera);
   composite(cam?.dof ?? 0, cam?.fz ?? cam?.lz ?? 0);

@@ -64,6 +64,34 @@ function camAt(t) {
   return cam;
 }
 
+// ---- touch indicators ----
+// taps: {t: touch-down time, x, y} in recording px (1180 wide). swipes: {from, to, x, y}:
+// the finger follows the content's measured scroll (scroll.json, from scroll.py)
+// between touch-down and lift-off.
+const SCALE = 1170 / 1180;
+const scrollPath = path.join(DIR, 'scroll.json');
+const scroll = fs.existsSync(scrollPath) ? JSON.parse(fs.readFileSync(scrollPath, 'utf8')) : [];
+const scrolled = (a, b) => { let d = 0; for (let i = Math.round(a * 30); i < Math.round(b * 30); i++) d += scroll[i] || 0; return d; };
+const HOVER = 0.14, PRESS = 0.16, LIFT = 0.38;
+function touchesAt(s) {
+  const out = [];
+  for (const { t, x, y } of take.touches?.taps || []) {
+    const u = s - (t - HOVER);
+    if (u < 0 || u > HOVER + PRESS + LIFT) continue;
+    const a = Math.min(smooth(u / HOVER), 1 - smooth((u - HOVER - PRESS) / LIFT));
+    const p = smooth(u / HOVER), r = Math.max(0, (u - HOVER - PRESS) / LIFT);
+    out.push({ x: x * SCALE, y: y * SCALE, a, p, r: Math.min(1, r) });
+  }
+  for (const { from, to, x, y } of take.touches?.swipes || []) {
+    const u = s - (from - HOVER);
+    if (u < 0 || s > to + LIFT) continue;
+    const dy = scrolled(from, Math.min(s, to));
+    const a = Math.min(smooth(u / HOVER), 1 - smooth((s - to) / LIFT));
+    out.push({ x: x * SCALE, y: (y - dy) * SCALE, a, p: smooth(u / HOVER), r: s > to ? Math.min(1, (s - to) / LIFT) : 0 });
+  }
+  return out;
+}
+
 function frameParams(i) {
   const t = i / FPS;
   const s = Math.min(t, srcDur - 1 / 60);
@@ -74,6 +102,7 @@ function frameParams(i) {
   const cap = take.captions.find((c) => t >= c.from && t <= c.to);
   return {
     ...screen,
+    touches: touchesAt(s),
     cam: camAt(t),
     caption: cap?.text || '',
     captionOpacity: cap ? Math.min(smooth((t - cap.from) / 0.5), smooth((cap.to - t) / 0.5)) : 0,
@@ -81,6 +110,26 @@ function frameParams(i) {
   };
 }
 console.log(`One take: ${total.toFixed(1)}s, ${frameCount} frames at ${W}x${H}@${FPS} (supersample ${SS}x)`);
+
+// --stills 12.5,40 renders just those moments (seconds) to out/stills/ for a quick look.
+if (arg('--stills')) {
+  const { server, url } = await serve();
+  const browser = await launch();
+  const page = await browser.newPage({ viewport: { width: W, height: H } });
+  page.on('pageerror', (e) => console.error('[stage]', e.message));
+  await page.goto(`${url}/stage.html?ss=${SS}`);
+  await page.evaluate(() => window.stageReady);
+  if (take.phone) await page.evaluate((p) => window.setPose(p), take.phone);
+  fs.mkdirSync(path.join(OUT, 'stills'), { recursive: true });
+  for (const t of arg('--stills').split(',').map(Number)) {
+    await page.evaluate((p) => window.renderFrame(p), frameParams(Math.round(t * FPS)));
+    await page.screenshot({ path: path.join(OUT, 'stills', `t${t.toFixed(2)}.jpg`), type: 'jpeg', quality: 92 });
+  }
+  await browser.close();
+  server.close();
+  console.log('Wrote stills to', path.join(OUT, 'stills'));
+  process.exit(0);
+}
 
 // ---- render ----
 // Frames are rendered in short chunks, each its own finished MP4, so an interrupted
@@ -106,6 +155,7 @@ async function worker() {
   page.on('pageerror', (e) => console.error('[stage]', e.message));
   await page.goto(`${url}/stage.html?ss=${SS}`);
   await page.evaluate(() => window.stageReady);
+  if (take.phone) await page.evaluate((p) => window.setPose(p), take.phone);
   for (let c; (c = todo.shift()) !== undefined;) {
     const part = chunkPath(c) + '.part.mp4';
     const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
