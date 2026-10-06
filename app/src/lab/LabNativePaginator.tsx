@@ -483,7 +483,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         planHyphenation(stage, paragraphs, breakLang, (p, words, text, plan) => { labMeasureParagraphInto(p, words, { text, from: 0 }, { plan }) })
         const lengths = sourceWords.map(words => words.length)
         const fitEnd = chapterActions
-          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords))
+          ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords), lineStarts)
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
         const kept = keepPages?.length && keepWidth === pageWidth

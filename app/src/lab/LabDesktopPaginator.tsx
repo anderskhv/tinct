@@ -409,6 +409,16 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const bottom = withEnd && end ? end.getBoundingClientRect().bottom : rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
           }
+          const lineStarts: LineStartLookup | undefined = comparison ? undefined : (segments, first) => {
+            const tail = segments[segments.length - 1]
+            if (!tail) return null
+            fits(segments, first)
+            const block = rows.lastElementChild?.querySelector('.lab-hearing-line')
+            if (!block) return null
+            const runs = proseRuns(paragraphs, segments)
+            const join = (runs[runs.length - 1]?.length ?? 0) > 1 ? block.lastElementChild : null
+            return measuredLineStarts(join ?? block, tail.from)
+          }
           let pages = measuredDesktopPages(
             source.map(words => words.length),
             fits,
@@ -419,16 +429,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             undefined,
             // Single-edition leaves only: a paired row's primary column sits
             // beside its comparison, and the older word-count rules stay.
-            comparison ? undefined : (segments, first) => {
-              const tail = segments[segments.length - 1]
-              if (!tail) return null
-              fits(segments, first)
-              const block = rows.lastElementChild?.querySelector('.lab-hearing-line')
-              if (!block) return null
-              const runs = proseRuns(paragraphs, segments)
-              const join = (runs[runs.length - 1]?.length ?? 0) > 1 ? block.lastElementChild : null
-              return measuredLineStarts(join ?? block, tail.from)
-            },
+            lineStarts,
             comparison ? undefined : (segments, first) => {
               if (!segments.length) return null
               fits(segments, first)
@@ -445,7 +446,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             // it if the complete action row fits; the matching folio is hidden.
             const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 16
             endInFooter = !comparison && !lastFits && !!end && end.getBoundingClientRect().height <= footerSpace
-            if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true), cleanPageStarts(source))
+            if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true), cleanPageStarts(source), lineStarts)
           }
           if (end) end.hidden = true
           header.hidden = true
