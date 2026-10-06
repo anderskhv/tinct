@@ -79,6 +79,35 @@ export async function handleBalance(request: Request, env: BillingEnv, verifyUse
   return jsonResponse(profiles?.[0] || { token_balance_cents: 0, total_tokens_used: 0, messages_used_this_period: 0, message_balance: 0 }, 200, request)
 }
 
+/**
+ * The reader's Stripe customer, created (and saved on the profile) the first
+ * time they buy anything. Shared by every Checkout this Worker starts.
+ */
+export async function ensureStripeCustomer(env: BillingEnv, user: VerifiedUser): Promise<{ id: string } | { error: string }> {
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
+  const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
+  const existing = profiles?.[0]?.stripe_customer_id || null
+  if (existing) return { id: existing }
+  const params = new URLSearchParams()
+  params.set('email', user.email)
+  params.set('metadata[supabase_user_id]', user.id)
+  const customerRes = await fetch('https://api.stripe.com/v1/customers', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: params.toString(),
+  })
+  const customerData = await customerRes.json() as { id?: string; error?: { message: string } }
+  if (!customerRes.ok || !customerData.id) {
+    console.error('[Stripe] Customer creation failed:', customerData.error?.message)
+    return { error: `Payment setup failed: ${customerData.error?.message || 'Could not create customer'}` }
+  }
+  await supabaseUpdate(env, 'profiles', user.id, { stripe_customer_id: customerData.id })
+  return { id: customerData.id }
+}
+
 export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser, ctx?: ExecutionContext): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
@@ -97,30 +126,9 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     return jsonResponse({ error: interval === 'year' ? 'The yearly plan is not available' : 'Service unavailable' }, interval === 'year' ? 400 : 500, request)
   }
 
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=stripe_customer_id`)
-  const profiles = await profileRes.json() as { stripe_customer_id: string | null }[]
-  let customerId = profiles?.[0]?.stripe_customer_id || null
-
-  if (!customerId) {
-    const params = new URLSearchParams()
-    params.set('email', user.email)
-    params.set('metadata[supabase_user_id]', user.id)
-    const customerRes = await fetch('https://api.stripe.com/v1/customers', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${btoa(env.STRIPE_SECRET_KEY + ':')}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params.toString(),
-    })
-    const customerData = await customerRes.json() as { id?: string; error?: { message: string } }
-    if (!customerRes.ok || !customerData.id) {
-      console.error('[Stripe] Customer creation failed:', customerData.error?.message)
-      return jsonResponse({ error: `Payment setup failed: ${customerData.error?.message || 'Could not create customer'}` }, 500, request)
-    }
-    customerId = customerData.id
-    await supabaseUpdate(env, 'profiles', user.id, { stripe_customer_id: customerId })
-  }
+  const customer = await ensureStripeCustomer(env, user)
+  if ('error' in customer) return jsonResponse({ error: customer.error }, 500, request)
+  const customerId = customer.id
 
   const origin = getAllowedOrigin(request)
 
@@ -198,7 +206,16 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
   }
 }
 
-export async function handleWebhook(request: Request, env: BillingEnv, ctx?: ExecutionContext): Promise<Response> {
+/** A completed Checkout session, as the webhook hands it to a product's grant. */
+export type CheckoutSessionObject = { id: string; metadata?: Record<string, string>; customer?: string; payment_intent?: string | null }
+
+/** Products granted outside this file. Each grant must be idempotent: Stripe redelivers events. */
+export interface WebhookHooks {
+  /** A paid Modern English edition (routes/publicBookModern.ts). 'refunded': the book was already paid for, so this payment was refunded. */
+  modernEdition?: (session: CheckoutSessionObject) => Promise<{ outcome: 'granted' | 'already' | 'refunded' | 'invalid'; amountCents: number }>
+}
+
+export async function handleWebhook(request: Request, env: BillingEnv, ctx?: ExecutionContext, hooks: WebhookHooks = {}): Promise<Response> {
   if (request.method !== 'POST') return Response.json({ error: 'Method not allowed' }, { status: 405 })
   if (!env.STRIPE_WEBHOOK_SECRET || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return Response.json({ error: 'Service unavailable' }, { status: 500 })
@@ -230,7 +247,7 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
 
   const event = JSON.parse(rawBody) as {
     type: string
-    data: { object: { id: string; metadata?: Record<string, string>; customer?: string; subscription?: string; current_period_end?: number; status?: string } }
+    data: { object: { id: string; metadata?: Record<string, string>; customer?: string; subscription?: string; current_period_end?: number; status?: string; payment_intent?: string | null } }
   }
   const obj = event.data.object
 
@@ -270,6 +287,17 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
         if (paymentRes.status === 409) break
         if (!paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
         await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
+        break
+      } else if (type === 'modern_edition') {
+        // Without the grant wired in, fail so Stripe redelivers once it is.
+        if (!hooks.modernEdition) return new Response('Not configured', { status: 503 })
+        const grant = await hooks.modernEdition(obj)
+        if (grant.outcome === 'invalid') break
+        const paymentRes = await supabaseInsert(env, 'payments', {
+          user_id: userId, stripe_session_id: obj.id, amount_cents: grant.amountCents,
+          type, status: grant.outcome === 'refunded' ? 'refunded' : 'completed',
+        })
+        if (paymentRes.status !== 409 && !paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
         break
       }
 

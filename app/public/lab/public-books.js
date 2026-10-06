@@ -16,6 +16,18 @@ export function addToTinctEnabled(storage) {
   return ADD_TO_TINCT_FOR_EVERYONE || isInternal(storage)
 }
 
+/**
+ * The switch for paid Modern English editions of added books: while false, the
+ * offer, the edition and its chapter states show only on devices with the
+ * internal flag. The Worker has its own kill switch (PUBLIC_BOOK_MODERN_EDITIONS).
+ */
+export const MODERN_EDITIONS_FOR_EVERYONE = false
+
+/** Whether this device sees Modern English editions of added books. */
+export function modernEditionsEnabled(storage) {
+  return MODERN_EDITIONS_FOR_EVERYONE || isInternal(storage)
+}
+
 /** Every public book id starts with this; registry ids never do. */
 export const PUBLIC_BOOK_PREFIX = 'pd-'
 export const PUBLIC_BOOK_ID = /^pd-[a-z]{2,4}-[a-z0-9-]{1,60}$/

@@ -39,6 +39,7 @@ import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
 import { handleUserBooks } from './worker/routes/userBooks'
 import { handlePublicBooks, handlePublicEditionData, runPublicCoverJobs } from './worker/routes/publicBooks'
+import { MODERN_EDITION_CRON, grantModernEdition, runModernEditionJobs } from './worker/routes/publicBookModern'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import { RETENTION_CRON, runRetentionCleanup } from './worker/routes/retention'
@@ -103,6 +104,14 @@ interface Env {
   PUBLIC_BOOK_AI_CLASSIFY?: string
   /** "1": queue painted xAI covers for added books. Production only; off by default. */
   PUBLIC_BOOK_PAINTED_COVERS?: string
+  /** "1": offer and generate paid Modern English editions of added books (routes/publicBookModern.ts). Off by default. */
+  PUBLIC_BOOK_MODERN_EDITIONS?: string
+  PUBLIC_BOOK_MODERN_MODEL?: string
+  /** Stripe prices of the four Modern English tiers (secrets). */
+  STRIPE_PRICE_MODERN_T1?: string
+  STRIPE_PRICE_MODERN_T2?: string
+  STRIPE_PRICE_MODERN_T3?: string
+  STRIPE_PRICE_MODERN_T4?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -232,7 +241,9 @@ export default {
       case '/api/lab-chapter-notes': return handleLabChapterNotes(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env) })
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser, ctx)
-      case '/api/webhook': return handleWebhook(request, env, ctx)
+      case '/api/webhook': return handleWebhook(request, env, ctx, {
+        modernEdition: session => grantModernEdition(env, session, { waitUntil: promise => ctx.waitUntil(promise) }),
+      })
       case '/api/create-portal': return handleCreatePortal(request, env, verifyUser)
       case '/api/cancel-subscription': return handleCancelSubscription(request, env, verifyUser)
       case '/api/subscription-info': return handleSubscriptionInfo(request, env, verifyUser)
@@ -266,6 +277,8 @@ export default {
       // Painted covers for added public books (no-op unless PUBLIC_BOOK_PAINTED_COVERS=1).
       ctx.waitUntil(runPublicCoverJobs(env, { limit: 5 }).catch(() => null))
     }
+    // Modern English editions still being written (no-op unless PUBLIC_BOOK_MODERN_EDITIONS=1).
+    else if (event.cron === MODERN_EDITION_CRON) ctx.waitUntil(runModernEditionJobs(env, { budgetMs: 8 * 60_000 }).catch(() => 0))
     else ctx.waitUntil(handleScheduled(env))
   },
 }
