@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261006links';
+import {mountBookshelf} from './bookshelf.js?v=20261006filters';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261006add';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261006filters';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20260928covers';
-import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,ADD_PARAM} from './add-to-tinct.js?v=20261006add';
+import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,ADD_PARAM} from './add-to-tinct.js?v=20261006filters';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -122,7 +122,8 @@ function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden
 export function filterBooks(query){const words=query.toLocaleLowerCase().trim().split(/\s+/);return books.filter(b=>words.every(word=>`${b.title} ${b.author}`.toLocaleLowerCase().includes(word)));}
 function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?`${matches.length} ${matches.length===1?'book':'books'} found`:'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
- if(addEnabled()){renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork});return;}
+ // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them.
+ if(addEnabled()){const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults});if(q)$('search-label').textContent=`${shown.length} ${shown.length===1?'book':'books'} found`;return;}
  renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}

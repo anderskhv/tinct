@@ -179,6 +179,118 @@ describe('library search panel with the flag', () => {
   })
 })
 
+describe('search filters', () => {
+  type Ed = { key: string; language: string; discoveryAvailable?: boolean; audioHeld?: boolean; availability: { chapterText: boolean; audio: boolean } }
+  const ed = (key: string, language: string, audio = false, patch: Partial<Ed> = {}): Ed => ({ key, language, availability: { chapterText: true, audio }, ...patch })
+  const library = [
+    { id: 'frankenstein', title: 'Frankenstein', author: 'Mary Shelley', editions: [ed('original-en', 'en', true), ed('modern-en', 'en', true)] },
+    { id: 'faust-part-1', title: 'Faust', author: 'Goethe', editions: [ed('original-de', 'de'), ed('modern-en', 'en')] },
+    { id: 'death-of-ivan-ilyich', title: 'The Death of Ivan Ilyich', author: 'Leo Tolstoy', editions: [ed('original-en', 'en'), ed('original-ru', 'ru')] },
+    // Danish is out of discovery; a held recording or a withheld edition does not count.
+    { id: 'held', title: 'Held', author: 'X', editions: [ed('original-en', 'en', true, { audioHeld: true }), ed('modern-en', 'en', false, { discoveryAvailable: false }), ed('modern-da', 'da', true)] },
+    { id: 'pd-pg-1', title: 'Added', author: 'Y', editions: [ed('original-en', 'en')] },
+    { id: 'loading', title: 'Not attached yet', author: 'Z' },
+  ]
+  const ids = (list: Array<{ id: string }>) => list.map(book => book.id)
+  const none = { modern: false, audio: false, language: '' }
+
+  it('reads Modern English, Audio and languages from the editions the library already loaded', () => {
+    expect(addToTinct.bookFacts(library[0])).toEqual({ modern: true, audio: true, languages: ['en'] })
+    expect(addToTinct.bookFacts(library[1])).toEqual({ modern: true, audio: false, languages: ['de', 'en'] })
+    expect(addToTinct.bookFacts(library[3])).toEqual({ modern: false, audio: false, languages: ['en'] })
+    expect(addToTinct.bookFacts(library[5])).toEqual({ modern: false, audio: false, languages: [] })
+    expect(addToTinct.libraryLanguages(library).map(addToTinct.languageName)).toEqual(['English', 'German', 'Russian'])
+  })
+
+  it('narrows Available in Tinct: every filter set must hold, none set leaves the list as it was', () => {
+    expect(addToTinct.filterAvailable(library, none)).toBe(library)
+    expect(ids(addToTinct.filterAvailable(library, { ...none, modern: true }))).toEqual(['frankenstein', 'faust-part-1'])
+    expect(ids(addToTinct.filterAvailable(library, { ...none, audio: true }))).toEqual(['frankenstein'])
+    expect(ids(addToTinct.filterAvailable(library, { ...none, language: 'de' }))).toEqual(['faust-part-1'])
+    expect(ids(addToTinct.filterAvailable(library, { ...none, language: 'ru' }))).toEqual(['death-of-ivan-ilyich'])
+    expect(ids(addToTinct.filterAvailable(library, { ...none, language: 'da' }))).toEqual([])
+    expect(ids(addToTinct.filterAvailable(library, { modern: true, audio: false, language: 'de' }))).toEqual(['faust-part-1'])
+    expect(ids(addToTinct.filterAvailable(library, { modern: true, audio: true, language: 'de' }))).toEqual([])
+  })
+
+  it('leaves Not yet in Tinct out for Modern English or Audio, and keeps works in the chosen language', () => {
+    const works = [work('pg:105', 'Persuasion', 'Jane Austen'), work('pg:2', 'Faust', 'Goethe', { language: ['de'] }), work('pg:3', 'No language', 'X', { language: undefined })]
+    expect(addToTinct.filterNotYet(works, none)).toBe(works)
+    expect(addToTinct.filterNotYet(works, { ...none, modern: true })).toEqual([])
+    expect(addToTinct.filterNotYet(works, { ...none, audio: true, language: 'en' })).toEqual([])
+    expect(ids(addToTinct.filterNotYet(works, { ...none, language: 'en' }))).toEqual(['pg:105'])
+  })
+
+  describe('chips in the search panel', () => {
+    class FakeWorker {
+      onmessage: ((event: { data: unknown }) => void) | null = null
+      onerror: (() => void) | null = null
+      postMessage(message: { type: string; request?: number }) {
+        queueMicrotask(() => {
+          if (message.type === 'load') this.onmessage?.({ data: { type: 'ready' } })
+          if (message.type === 'search') this.onmessage?.({ data: { type: 'results', request: message.request, results: [work('pg:105', 'Persuasion', 'Jane Austen')] } })
+        })
+      }
+    }
+    beforeEach(() => { localStorage.setItem(INTERNAL_KEY, '1'); vi.stubGlobal('Worker', FakeWorker) })
+    afterEach(() => { localStorage.removeItem(INTERNAL_KEY); vi.unstubAllGlobals() })
+
+    it('shows Modern English, Audio and a language menu only with a query, and narrows both groups', async () => {
+      const host = document.createElement('div')
+      const box = document.createElement('div')
+      host.append(box); document.body.append(host)
+      let renders = 0
+      const render = (query: string) => {
+        renders++
+        box.replaceChildren()
+        return addToTinct.renderSearchGroups(box, {
+          query, tinct: library.slice(0, 3), tinctBooks: library, el, onAdd: () => {}, addingWork: null,
+          renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))),
+          filterHost: host, onFilters: () => render(query),
+        })
+      }
+      render('')
+      const bar = host.querySelector('.search-filters') as HTMLElement
+      expect(host.firstElementChild).toBe(bar)
+      expect(bar.hidden).toBe(true)
+      expect(render('a').length).toBe(3)
+      expect(bar.hidden).toBe(false)
+      expect(host.querySelectorAll('.search-filters')).toHaveLength(1)
+      const [modern, audio] = [...bar.querySelectorAll('button')] as HTMLButtonElement[]
+      const language = bar.querySelector('select') as HTMLSelectElement
+      expect([modern.textContent, audio.textContent]).toEqual(['Modern English', 'Audio'])
+      expect([...language.options].map(o => o.textContent)).toEqual(['Any language', 'English', 'German', 'Russian'])
+      expect(modern.getAttribute('aria-pressed')).toBe('false')
+      // The catalogue worker is shared by the page (the first search started it): count what it found.
+      await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
+      const found = box.querySelector('.free-group')?.getAttribute('data-free-group')
+      expect(Number(found)).toBeGreaterThan(0)
+
+      audio.click()
+      expect(audio.getAttribute('aria-pressed')).toBe('true')
+      expect([...box.querySelectorAll('.search-result')].map(b => b.textContent)).toEqual(['Frankenstein'])
+      expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('0') // decided without a catalogue search
+      audio.click()
+
+      language.value = 'de'; language.dispatchEvent(new Event('change'))
+      expect(language.classList.contains('on')).toBe(true)
+      expect([...box.querySelectorAll('.search-result')].map(b => b.textContent)).toEqual(['Faust'])
+      await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('0')) // the catalogue results are English
+      language.value = 'en'; language.dispatchEvent(new Event('change'))
+      await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe(found))
+      expect(box.querySelectorAll('.search-result')).toHaveLength(3)
+
+      modern.click()
+      expect([...box.querySelectorAll('.search-result')].map(b => b.textContent)).toEqual(['Frankenstein', 'Faust'])
+      modern.click()
+      language.value = ''; language.dispatchEvent(new Event('change'))
+      expect(addToTinct.searchFilters()).toEqual(none)
+      expect(renders).toBeGreaterThan(5)
+      host.remove()
+    })
+  })
+})
+
 describe('My shelf groups', () => {
   // jsdom has no canvas: the paper cover keeps its blank canvas (paperCover handles a null context).
   beforeEach(() => { vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null) })
