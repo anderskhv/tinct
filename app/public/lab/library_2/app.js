@@ -1,5 +1,5 @@
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260930fix';
-import {periodGroups,inPeriod,populatedShelves,collectionReels} from './browse-groups.js?v=20260929reels';
+import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
@@ -8,12 +8,13 @@ import {mountBookshelf} from './bookshelf.js?v=20261006links';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261006compare';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261006add';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20260928covers';
+import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,ADD_PARAM} from './add-to-tinct.js?v=20261006add';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -44,7 +45,7 @@ if(book.id==='odyssey'){ctx.strokeStyle='#d1bd7780';ctx.lineWidth=w*.003;ctx.beg
 function paintCovers(){all('canvas[data-book]').forEach(c=>paintCover(c,c.dataset.book));}
 // Covers load as they near the screen: the full catalogue must not download at once.
 const coverReady=new Map();
-function ensureCover(book){if(!coverReady.has(book.id)){const ready=(async()=>{const im=new Image();im.src=book.cover;await im.decode();textures.set(book.id,im);all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready)coverReady.delete(book.id);});coverReady.set(book.id,ready);}return coverReady.get(book.id);}
+function ensureCover(book){if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}if(!coverReady.has(book.id)){const ready=(async()=>{const im=new Image();im.src=book.cover;await im.decode();textures.set(book.id,im);all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready)coverReady.delete(book.id);});coverReady.set(book.id,ready);}return coverReady.get(book.id);}
 const coverObserver=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;coverObserver.unobserve(entry.target);const book=books.find(b=>b.id===entry.target.dataset.book);if(book)ensureCover(book);}),{rootMargin:'400px'});
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
@@ -55,7 +56,7 @@ function coverButton(book,cls='book-card cover-button'){const b=el('button',cls)
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
 [['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);});
 // The rest of the library: every discoverable book, shelved by house.
-loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e=>[e.id,e]));books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
+loadCatalogue().then(({books:entries,houses})=>{const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);});
  libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();
@@ -117,9 +118,30 @@ function drawBookGround(ctx){
 }
 
 let searchOpen=false,openedFromSearch=false,menuOpen=false;
-function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden=!open;syncLock();if(open){if(menuOpen)setMenu(false);if(!preserve)renderResults();setTimeout(()=>$('search-input').focus(),40);}else{$('search-toggle').focus();}}
+function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden=!open;syncLock();if(open){void warmFreeSearch();if(menuOpen)setMenu(false);if(!preserve)renderResults();setTimeout(()=>$('search-input').focus(),40);}else{$('search-toggle').focus();}}
 export function filterBooks(query){const words=query.toLocaleLowerCase().trim().split(/\s+/);return books.filter(b=>words.every(word=>`${b.title} ${b.author}`.toLocaleLowerCase().includes(word)));}
-function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?`${matches.length} ${matches.length===1?'book':'books'} found`:'Explore the library';$('search-results').replaceChildren();matches.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));$('search-results').append(b);});if(!matches.length)$('search-results').append(el('p','','Try another title or author.'));}
+function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?`${matches.length} ${matches.length===1?'book':'books'} found`:'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
+ // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
+ if(addEnabled()){renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork});return;}
+ renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
+// A catalogue book readers added: its form, era and year join the library's menus.
+function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}
+const ADD_FAILURES={daily_limit:'You have added the most books you can today. Please try again tomorrow.',in_progress:'This book is being added. Please try again in a few minutes.',not_importable:'This book cannot be added to Tinct.',unreadable:'This book could not be read from its library.',failed:'This book could not be added. Please try again.'};
+let addingWork=null;
+/** Add: import the work for everyone, then open it (Currently reading). Signed out: sign in first, then it continues here. */
+async function addWork(work,button){
+ const signIn=()=>location.assign(`/sign-in?returnTo=${encodeURIComponent(`/library?${ADD_PARAM}=${encodeURIComponent(work.id)}`)}`);
+ if(!document.documentElement.classList.contains('signed-in')){signIn();return;}
+ if(addingWork)return;addingWork=work.id;if(button){button.disabled=true;button.textContent='Adding…';}
+ try{
+  const result=await (await addEngine()).importWork(work.id);
+  if(!result.ok){if(result.reason==='signed_out'){signIn();return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
+  const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
+  try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
+  document.body.classList.add('leaving');location.assign(await readerDestination(book,null));
+ }catch{document.body.classList.remove('leaving');notice(ADD_FAILURES.failed);}
+ finally{addingWork=null;if(button?.isConnected){button.disabled=false;button.textContent='Add';}}
+}
 $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>setSearch(false);$('search-input').oninput=renderResults;
 
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
@@ -372,6 +394,8 @@ async function removeFromMyShelf(id){
   if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
  }catch{notice('Your shelf could not be saved. Please try again.');}
 }
+let ownShelf=null,ownShelfLoading=null;
+function loadOwnShelf(){if(!ownShelfLoading)ownShelfLoading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});return ownShelfLoading;}
 function renderMyBooks(){
  $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
  const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
@@ -393,6 +417,11 @@ function renderMyBooks(){
    card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);
   });
  });
+ // Your own books: this account's PDFs and EPUBs from Add a book, then the + tile.
+ if(addEnabled()){
+  if(ownShelf===null)void loadOwnShelf();
+  total+=appendOwnShelf(grid,ownShelf||[],el);
+ }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
@@ -518,3 +547,5 @@ registerCommands({
  ]
 });
 const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;if(commandsEnabled)$('search-toggle').before(commandsButton);
+// Back from sign-in after a signed-out Add (/library?add=<work id>): the add continues once.
+{const params=new URLSearchParams(location.search),pendingAdd=params.get(ADD_PARAM);if(pendingAdd!==null){params.delete(ADD_PARAM);const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}if(addEnabled()&&document.documentElement.classList.contains('signed-in')&&/^[a-z]{2,4}:\S{1,200}$/.test(pendingAdd)){notice('Adding to Tinct…');void addWork({id:pendingAdd},null);}}}

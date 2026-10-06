@@ -3,6 +3,7 @@ import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset } from './cover-assets.js?v=20260928covers';
+import { withPublicBooks } from './add-to-tinct.js?v=20261006add';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -24,7 +25,7 @@ export function loadCatalogueData() {
     catalogueData = (native || early || fetch(CATALOGUE_URL).then(response => {
       if (!response.ok) throw new Error(`Catalogue ${response.status}`);
       return response.json();
-    })).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
+    })).then(data => (native ? data : withPublicBooks(data))).catch(error => { catalogueData = null; window.__library2CatalogueShared = null; throw error; });
     window.__library2CatalogueShared = catalogueData;
   }
   return catalogueData;
@@ -52,6 +53,8 @@ export function libraryBook(entry) {
     preface: null,
     characters: null,
     fromCatalogue: true,
+    // A book readers added (public-books.js): a paper cover until a painting exists.
+    ...(entry.paper ? { paper: !entry.art, public: entry.public || null, form: entry.form || null, era: entry.era || null, year: entry.year ?? null } : {}),
   };
 }
 
@@ -84,7 +87,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261006compare').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261006add').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });
