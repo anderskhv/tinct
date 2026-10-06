@@ -81,8 +81,8 @@ export function setHyphenPlanForTest(text: string, plan: Map<number, number>): v
   plans.set(text, plan)
 }
 
-/** Prose a plan can be made for: no kind, no verse lineation. */
-function plannable(text: string, words: Array<{ text: string }>): boolean {
+/** Prose a plan can be made for: no kind (an index line is one), no verse lineation. */
+export function plannable(text: string, words: Array<{ text: string }>): boolean {
   if (!text || words.length < 2 || paragraphKind(text)) return false
   return !presentationLineRanges(text, 0, words.length)
 }

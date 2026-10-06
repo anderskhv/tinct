@@ -23,7 +23,7 @@ import {
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
-import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { paragraphKind, paragraphKindClass, wordLink } from './labParagraphStyle'
 import { planHyphenation } from './labHyphenPlan'
 import { figureFor, setFigureLayout } from './labFigures'
 import { LabFigureView } from './LabFigure'
@@ -425,8 +425,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         // the browser breaks them inside a page; dictionary breaks join once
         // the patterns land.
         const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
+        // A heading, list item or index line is never hyphenated: at a page edge only its own dashes break.
         const wordBreaks = (paragraphIndex: number, wordIndex: number) => pageEdgeBreaks(
-          sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', breakLang,
+          sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', paragraphKind(paragraphs[paragraphIndex]) ? null : breakLang,
         )
         const end = surface.querySelector<HTMLElement>('.lab-chapter-end')
         // The block holding the last segment's words in the latest trial.

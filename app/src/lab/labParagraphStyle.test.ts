@@ -3,6 +3,7 @@ import { measuredDesktopPages } from './LabDesktopPaginator'
 import { chapterPageSegments } from './labHearing'
 import {
   bookOpening,
+  isSeparatedList,
   looksLikeHeading,
   paragraphKeepsWithNext,
   paragraphKind,
@@ -15,6 +16,8 @@ import {
   wordLink,
 } from './labParagraphStyle'
 import { continuedTailJustifiedGap } from './LabPassage'
+import { plannable } from './labHyphenPlan'
+import { tokenizeHearingWords } from './labHearing'
 
 afterEach(resetParagraphStyles)
 
@@ -29,6 +32,25 @@ describe('paragraph kinds', () => {
     expect(paragraphKindClass('Never registered')).toBe('')
     expect(paragraphKeepsWithNext('Transcript')).toBe(true)
     expect(paragraphKeepsWithNext('A point')).toBe(false)
+  })
+
+  it('sets a keyword or index line ragged-right in any book, with no added hyphens', () => {
+    const index = 'explanatory knowledge • genetic knowledge • universality • unforeseeable problems'
+    expect(isSeparatedList(index)).toBe(true)
+    // Unregistered (a built-in book records no kinds): the reader derives it from the text.
+    expect(paragraphKind(index)).toBe('index')
+    expect(paragraphKindClass(index)).toBe(' is-kind-index')
+    expect(paragraphKindClass(index, 4)).toBe(' is-kind-index is-kind-resumed')
+    expect(paragraphKeepsWithNext(index)).toBe(false)
+    // No hyphenation plan is made for it.
+    expect(plannable(index, tokenizeHearingWords(index))).toBe(false)
+    // Two separators, or bullets without spaces, stay prose.
+    expect(isSeparatedList('salt • pepper • oil, and then the rest of a sentence.')).toBe(false)
+    expect(isSeparatedList('a•b•c•d')).toBe(false)
+    expect(paragraphKindClass('Plain prose, as ever.')).toBe('')
+    // A kind the book records wins.
+    registerParagraphKinds([index], ['item'])
+    expect(paragraphKind(index)).toBe('item')
   })
 
   it('treats the same text registered as two kinds as prose', () => {

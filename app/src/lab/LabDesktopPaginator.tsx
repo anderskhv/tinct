@@ -6,7 +6,7 @@ import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVers
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
-import { paragraphKeepsWithNext } from './labParagraphStyle'
+import { paragraphKeepsWithNext, paragraphKind } from './labParagraphStyle'
 import { isFigureToken, setFigureLayout } from './labFigures'
 import { planHyphenation } from './labHyphenPlan'
 import { LAB_CONTINUED_TAIL_MAX_GAP_EM, labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
@@ -412,7 +412,8 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
           let pages = measuredDesktopPages(
             source.map(words => words.length),
             fits,
-            (paragraphIndex, wordIndex) => pageEdgeBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', breakLang),
+            // A heading, list item or index line is never hyphenated: at a page edge only its own dashes break.
+            (paragraphIndex, wordIndex) => pageEdgeBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', paragraphKind(paragraphs[paragraphIndex]) ? null : breakLang),
             pageLimit,
             paragraphs,
             undefined,
