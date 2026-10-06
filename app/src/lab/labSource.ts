@@ -2,6 +2,7 @@ import { registerLoadedChapter } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
+import { ensurePublicBook } from '../utils/publicBooks'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
@@ -507,6 +508,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   // A reader's own book is read from this device only (userBook/userBookSource.ts).
   if (isUserBookId(input.bookId)) return loadUserBookSource(input)
   await ensureNativeBook(input.bookId, [input.primaryEditionKey, input.compareEditionKey].filter((key): key is string => !!key))
+  // A public book readers added (pd-…) is registered from the server first.
+  await ensurePublicBook(input.bookId)
   // One migration for every caller, before the book id is even dispatched on:
   // no reader of this function can aim it at a withdrawn edition.
   const selection: LabBookSourceSelection = {
@@ -615,6 +618,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
   if (isUserBookId(bookId)) return (await loadUserBookSource({ bookId })).chapters
   await ensureNativeBook(bookId, [requestedEditionKey])
+  await ensurePublicBook(bookId)
   const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
   return loadEditionChapterList(bookId, editionKey)

@@ -1,0 +1,90 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+const session = { current: null as null | { access_token: string } }
+vi.mock('./services/supabase', () => ({ supabase: { auth: { getSession: async () => ({ data: { session: session.current } }) } } }))
+const converted = { chapters: [{ number: 1, title: 'One', paragraphs: ['Text.'] }] }
+vi.mock('./lab/userBook/epubEdition', () => ({ epubToEdition: vi.fn(async () => converted) }))
+
+const USER = '11111111-1111-4111-8111-111111111111'
+function memoryStorage(values: Record<string, string> = {}) {
+  const map = new Map(Object.entries(values))
+  return {
+    get length() { return map.size },
+    key: (i: number) => [...map.keys()][i] ?? null,
+    getItem: (k: string) => map.get(k) ?? null,
+    setItem: (k: string, v: string) => { map.set(k, v) },
+    removeItem: (k: string) => { map.delete(k) },
+  }
+}
+
+beforeEach(() => {
+  vi.stubGlobal('window', globalThis)
+  vi.stubGlobal('localStorage', memoryStorage({ 'sb-x-auth-token': JSON.stringify({ user: { id: USER, email: 'a@example.com' } }) }))
+})
+afterEach(() => { vi.unstubAllGlobals(); session.current = null })
+
+describe('importWork (the browser half of Add)', () => {
+  it('is signed out without a session and never calls the Worker', async () => {
+    const { importWork } = await import('./libraryAdd')
+    const fetchImpl = vi.fn()
+    expect(await importWork('pg:1', { fetchImpl: fetchImpl as unknown as typeof fetch })).toEqual({ ok: false, reason: 'signed_out' })
+    expect(fetchImpl).not.toHaveBeenCalled()
+  })
+
+  it('prepares, converts the downloaded EPUB with the reader converter, and commits only the chapters', async () => {
+    session.current = { access_token: 'tok' }
+    const { importWork } = await import('./libraryAdd')
+    const calls: Array<{ url: string; init?: RequestInit }> = []
+    const fetchImpl = (async (url: string, init?: RequestInit) => {
+      calls.push({ url, init })
+      if (url === '/api/public-books/import') return Response.json({ status: 'convert', bookId: 'pd-pg-1', source: '/api/public-books/import/pd-pg-1/source' })
+      if (url.endsWith('/source')) return new Response(new Uint8Array([1, 2, 3]))
+      return Response.json({ status: 'imported', bookId: 'pd-pg-1', entry: { id: 'pd-pg-1' } }, { status: 201 })
+    }) as unknown as typeof fetch
+    const stages: string[] = []
+    const result = await importWork('pg:1', { fetchImpl, onStage: stage => stages.push(stage) })
+    expect(result).toEqual({ ok: true, bookId: 'pd-pg-1', entry: { id: 'pd-pg-1' }, existed: false })
+    expect(stages).toEqual(['download', 'convert', 'publish'])
+    expect(calls.map(c => c.url)).toEqual(['/api/public-books/import', '/api/public-books/import/pd-pg-1/source', '/api/public-books/import/pd-pg-1/commit'])
+    expect(new Headers(calls[0].init?.headers).get('Authorization')).toBe('Bearer tok')
+    expect(JSON.parse(String(calls[0].init?.body))).toEqual({ workId: 'pg:1' })
+    expect(JSON.parse(String(calls[2].init?.body))).toEqual({ chapters: converted.chapters })
+  })
+
+  it('returns an existing book at once and maps Worker refusals to reasons', async () => {
+    session.current = { access_token: 'tok' }
+    const { importWork } = await import('./libraryAdd')
+    const reply = (status: number, body: unknown) => (async () => Response.json(body, { status })) as unknown as typeof fetch
+    expect(await importWork('pg:1', { fetchImpl: reply(200, { status: 'exists', bookId: 'pd-pg-1', entry: { id: 'pd-pg-1' } }) })).toMatchObject({ ok: true, existed: true })
+    expect(await importWork('pg:1', { fetchImpl: reply(429, { error: 'daily_limit' }) })).toEqual({ ok: false, reason: 'daily_limit' })
+    expect(await importWork('pg:1', { fetchImpl: reply(409, { error: 'in_progress' }) })).toEqual({ ok: false, reason: 'in_progress' })
+    expect(await importWork('pg:1', { fetchImpl: reply(422, { error: 'not_importable' }) })).toEqual({ ok: false, reason: 'not_importable' })
+    expect(await importWork('pg:1', { fetchImpl: reply(401, { error: 'Unauthorized' }) })).toEqual({ ok: false, reason: 'signed_out' })
+    expect(await importWork('pg:1', { fetchImpl: (async () => { throw new Error('offline') }) as unknown as typeof fetch })).toEqual({ ok: false, reason: 'failed' })
+  })
+})
+
+describe('ownBooks (My shelf: Your own books)', () => {
+  it('lists the account copies (this device has no IndexedDB here), newest first, opening in Add a book', async () => {
+    session.current = { access_token: 'tok' }
+    const { ownBooks } = await import('./libraryAdd')
+    const fetchImpl = (async () => Response.json({ books: [
+      { type: 'pdf', sha256: 'a'.repeat(64), title: 'Lecture notes', createdAt: '2026-10-01T00:00:00Z' },
+      { type: 'epub', sha256: 'b'.repeat(64), title: 'My novel', author: 'Me', createdAt: '2026-10-05T00:00:00Z' },
+      { type: 'epub', title: 'No hash' },
+    ] })) as unknown as typeof fetch
+    const list = await ownBooks(fetchImpl)
+    expect(list.map(b => [b.title, b.kind, b.href, b.readingAt])).toEqual([
+      ['My novel', 'epub', '/lab/addbook/#books', null],
+      ['Lecture notes', 'pdf', '/lab/addbook/#books', null],
+    ])
+  })
+
+  it('is empty when nobody is signed in on this device', async () => {
+    vi.stubGlobal('localStorage', memoryStorage())
+    const { ownBooks } = await import('./libraryAdd')
+    const fetchImpl = vi.fn()
+    expect(await ownBooks(fetchImpl as unknown as typeof fetch)).toEqual([])
+    expect(fetchImpl).not.toHaveBeenCalled()
+  })
+})

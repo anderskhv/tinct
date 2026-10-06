@@ -1,4 +1,6 @@
 import { nativeLibraryCatalogue, ensureNativeBook } from './utils/nativeBooks'
+import { ensurePublicBook } from './utils/publicBooks'
+import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
@@ -118,13 +120,32 @@ async function loadCatalogue(provided?: Promise<{ books?: CatalogueBook[] }>): P
     const data = native ?? (provided ? await provided : await (async () => {
       const response = await fetch(LAB_CATALOGUE_URL)
       if (!response.ok) throw new Error(String(response.status))
-      return await response.json() as { books?: CatalogueBook[] }
+      return await withPublicBooks(await response.json() as { books: CatalogueBook[] })
     })())
     catalogue = new Map((data.books ?? []).map(book => [book.id, book]))
   } catch {
     return new Map()
   }
   return catalogue
+}
+
+/** Books readers added (public-books.js), merged in where the device sees them. */
+async function withPublicBooks(data: { books: CatalogueBook[] }): Promise<{ books: CatalogueBook[] }> {
+  if (!addToTinctEnabled()) return data
+  try {
+    const response = await fetch(PUBLIC_BOOKS_INDEX_URL)
+    if (!response.ok) return data
+    const index = await response.json() as { books?: Array<CatalogueBook & { shelfIds?: string[] }> }
+    return mergePublicBooks(data, index.books ?? [])
+  } catch {
+    return data
+  }
+}
+
+/** A book just added on this page joins the catalogue the reading engine already holds. */
+function addCatalogueBook(entry: CatalogueBook): void {
+  if (!isPublicBookId(entry?.id)) return
+  catalogue?.set(entry.id, entry)
 }
 
 async function readAuth(): Promise<RecapAuth> {
@@ -245,6 +266,7 @@ export async function readerDestination(
   choice?: { compare?: string | null; explicit?: boolean; compareExplicit?: boolean },
 ): Promise<string> {
   await ensureNativeBook(bookId)
+  await ensurePublicBook(bookId).catch(() => {})
   const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
   const book = books.get(bookId)
   const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
@@ -541,4 +563,4 @@ export async function hideFromReadingNow(bookId: string): Promise<void> {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress, addCatalogueBook }

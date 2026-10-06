@@ -31,7 +31,10 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 60, not 30: installing the acceptance browsers alone has taken 16 minutes, and a
+    # job cut off after the direct deploy skips both the production checks and the
+    # rollback (6 Oct, #335 and #336).
+    timeout-minutes: 60
     env:
       CI: true
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
