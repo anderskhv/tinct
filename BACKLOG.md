@@ -151,4 +151,4 @@ The unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is dropped
 - [ ] Bionic reading mode
 - [ ] 3+ translation comparison
 - [ ] Email reminders for reading streaks
-- [ ] Annual subscription option ($50/year)
+- [x] Annual subscription option ($50/year) — checkout + account page, 2026-10-06

@@ -91,6 +91,11 @@ export function captureAttribution(): void {
 
 export function getAttributionPayload(): { first_touch: AttributionSnapshot | null; last_touch: AttributionSnapshot | null } {
   captureAttribution()
+  return readAttributionPayload()
+}
+
+/** The stored touches, without recording the current page as one (for in-app pages such as account). */
+export function readAttributionPayload(): { first_touch: AttributionSnapshot | null; last_touch: AttributionSnapshot | null } {
   return {
     first_touch: readSnapshot(FIRST_TOUCH_KEY),
     last_touch: readSnapshot(LAST_TOUCH_KEY),

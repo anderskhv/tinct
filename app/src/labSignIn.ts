@@ -19,6 +19,7 @@ import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
 import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
+import { fetchSubscriptionInfo, premiumOfferIntervals, startPremiumCheckout, type PremiumInterval } from './lab/labPremiumOffer'
 
 type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account' | 'welcome'
 
@@ -76,6 +77,41 @@ function setMode(next: Mode) {
   else url.searchParams.set('mode', mode)
   url.searchParams.set('returnTo', returnTo)
   history.replaceState(null, '', url)
+}
+
+let premiumToken: string | null = null
+
+/**
+ * The account page offers Premium, monthly or yearly, to a signed-in reader who
+ * is not paying. Only the intervals the Worker has a price for are shown; with
+ * none (or no answer) the block stays hidden.
+ */
+async function showPremiumOffer(token: string | undefined) {
+  const block = root?.querySelector<HTMLElement>('[data-premium]')
+  if (!block || !token) return
+  const intervals = premiumOfferIntervals(await fetchSubscriptionInfo(token))
+  if (!intervals.length) return
+  premiumToken = token
+  block.querySelectorAll<HTMLElement>('[data-plan]').forEach(plan => {
+    plan.hidden = !intervals.includes(plan.dataset.plan as PremiumInterval)
+  })
+  const first = block.querySelector<HTMLInputElement>(`[data-plan="${intervals[0]}"] input`)
+  if (first) first.checked = true
+  block.hidden = false
+}
+
+async function checkout(button: HTMLButtonElement) {
+  if (!premiumToken) return
+  const chosen = root?.querySelector<HTMLInputElement>('[name=premiumInterval]:checked')?.value
+  const interval: PremiumInterval = chosen === 'year' ? 'year' : 'month'
+  button.disabled = true
+  setStatus()
+  try {
+    location.assign(await startPremiumCheckout(premiumToken, interval))
+  } catch {
+    setStatus('Payment could not start. Please try again.', 'error')
+    button.disabled = false
+  }
 }
 
 function returnToLibrary() {
@@ -258,8 +294,9 @@ async function signInWithProvider(button: HTMLElement) {
 }
 
 root?.addEventListener('click', async event => {
-  const target = (event.target as Element).closest<HTMLElement>('[data-set-mode], [data-oauth], [data-sign-out], [data-return]')
+  const target = (event.target as Element).closest<HTMLElement>('[data-set-mode], [data-oauth], [data-sign-out], [data-return], [data-checkout]')
   if (!target) return
+  if (target.hasAttribute('data-checkout')) await checkout(target as HTMLButtonElement)
   if (target.dataset.setMode) setMode(target.dataset.setMode as Mode)
   if (target.hasAttribute('data-return')) returnToLibrary()
   if (target.hasAttribute('data-oauth')) await signInWithProvider(target)
@@ -314,7 +351,10 @@ async function initialize() {
       setSignedInCookie()
       if (mode === 'reset') setMode('reset')
       else if (authReturn) completeSignIn(data.session, callback === 'signup')
-      else setMode(mode === 'welcome' ? 'welcome' : 'account')
+      else {
+        setMode(mode === 'welcome' ? 'welcome' : 'account')
+        if (mode === 'account') void showPremiumOffer(data.session.access_token)
+      }
       rememberPendingProvider(null)
     } else {
       setMode(mode === 'welcome' || mode === 'account' ? 'signin' : mode)
