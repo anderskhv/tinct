@@ -131,3 +131,5 @@ html.returning-pending #hero{visibility:hidden}
 }
 
 .bookshelf .empty-bay{max-width:180px;text-align:center;white-space:normal;font-size:12px}
+/* Phones and touch screens (2026-10-06): iOS Safari zooms into a focused field under 16px and does not zoom back. Desktop keeps its look. */
+@media (pointer:coarse),(max-width:520px){.bookshelf #bs-find-book{font-size:16px}}

@@ -368,3 +368,5 @@ html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pendin
 @media(max-width:699px){.book-about{padding:36px 20px 72px}.book-about .hook{font-size:19px}.book-about .glance{columns:1}.book-about .glance a{display:block}.book-about .glance-num{display:block;min-width:0;margin-bottom:2px}.book-about .body p{font-size:18px}}
 /* A linked book on a returning reader's desk has no place or bookmark yet. */
 .reading-table.is-linked .rt-quote small,.rt-b.is-linked .rt-mark{display:none}
+/* Phones and touch screens (2026-10-06): iOS Safari zooms into a focused field under 16px and does not zoom back. Desktop keeps its look. */
+@media (pointer:coarse),(max-width:520px){.reader-toolbar select{font-size:max(16px,1em)}}
