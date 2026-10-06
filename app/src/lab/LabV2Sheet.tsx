@@ -27,8 +27,10 @@ import {
   LAB_V2_THEMES,
   labAlignmentValue,
   labFontValue,
+  labPrefsForMainEdition,
   type LabV2SheetLayer,
 } from './labV2Sheet'
+import { getBook } from '../data/bookRegistry'
 
 export interface LabV2SheetProps {
   bookId?: string
@@ -221,7 +223,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
     : layer === 'audioEdition' ? prefs.audioFollowsPrimary === false ? prefs.audioEdition : ''
     : prefs.compareOpen ? prefs.compareEdition : ''
   const choose = (key: string) => {
-    if (layer === 'mainEdition') onPrefs({ ...prefs, primaryEdition: key, compareOpen: prefs.compareOpen && prefs.compareEdition !== key })
+    if (layer === 'mainEdition') onPrefs(labPrefsForMainEdition(prefs, key, bookId, editions, getBook(bookId)?.year))
     else if (layer === 'audioEdition') onPrefs({ ...prefs, audioEdition: key || prefs.primaryEdition, audioFollowsPrimary: key === '' })
     else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '', compareChosen: true })
     onLayer('editions')
