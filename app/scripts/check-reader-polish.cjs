@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Real layout and public audio only. All AI/account endpoints are blocked.
 const {chromium,webkit}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5191',out=process.env.ARTIFACT_DIR||'/tmp/tinct-reader-polish';fs.mkdirSync(out,{recursive:true});
@@ -11,7 +12,7 @@ async function setup(b,mobile,edition='original-en',bookId='democracy-in-america
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true'&&document.querySelector('.lab-page-wrap > .lab-passage [data-testid="lab-word"]'));await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(300)}
 async function snap(p){return p.locator('.lab-page-wrap > .lab-passage').evaluate(e=>{const words=[...e.querySelectorAll('[data-testid="lab-word"]')],last=words.at(-1),chrome=document.querySelector('.lab-bottom-chrome'),foot=document.querySelector('.lab-desktop-page-footers');return{keys:words.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex),bottom:Math.max(...words.map(w=>w.getBoundingClientRect().bottom)),limit:Math.min(chrome.getBoundingClientRect().top,foot?.getBoundingClientRect().top??Infinity),line:parseFloat(getComputedStyle(last.parentElement).lineHeight),progress:chrome.textContent}})}
 async function wake(p){if(await p.getByTestId('lab-root').getAttribute('data-reader-controls')==='hidden')await p.locator('.lab-header').click({position:{x:20,y:20}})}
-(async()=>{const b=await({chromium,webkit}[engine]).launch(),results=[];try{
+(async()=>{const b=await markInternal(await ({chromium,webkit}[engine]).launch()),results=[];try{
  for(const [bookId,edition,chapter] of (process.env.SKIP_MOBILE?[]:[['democracy-in-america','original-en',1],['bible','kjv-en',788],['bible','kjv-en',789]])){
  const p=await setup(b,true,edition,bookId,chapter),expected=await p.getByTestId('lab-native-page-measure').first().locator('[data-native-page-flow] [data-native-word]').evaluateAll(ws=>ws.map(w=>w.dataset.paragraphIndex+':'+w.dataset.wordIndex));
  let seen=[],pages=[],gaps=[],latencies=[];

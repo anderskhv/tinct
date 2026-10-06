@@ -2,6 +2,7 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
@@ -61,7 +62,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
 }
 
 for (const [engine, name] of [[chromium,'chromium'],[webkit,'webkit']]) {
-  const browser = await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  const browser = await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   try {
     for (const phone of [false,true]) for (const fontSize of [1.3,2.2]) {
       let reference

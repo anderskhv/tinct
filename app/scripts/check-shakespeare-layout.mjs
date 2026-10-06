@@ -3,6 +3,7 @@ import { chromium, webkit, devices } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.SHAKESPEARE_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, ''), output = 'artifacts/shakespeare-layout'
 await fs.mkdir(output, { recursive: true })
@@ -68,7 +69,7 @@ async function inspect(page, scenario) {
   return state
 }
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] })
+  const browser = await markInternal(await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] }))
   try {
     const scenarios = []
     for (const width of [320, 390]) for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width, layout, size, alignment, explicit: true, phone: true, book: 'macbeth', chapter: 1, paragraph: 0 })

@@ -90,6 +90,10 @@ const PRESERVED_KEYS: ReadonlySet<string> = new Set([
   // kept: it also identifies analytics events, so the next person on a shared
   // device starts with a fresh one (privacy review 2026-10-02).
   'tinct-lab-prefs',
+  // Tinct's own testing flag (`?internal=1`, public/lab/internal-traffic.js):
+  // a property of the device, not of the reader, so signing out keeps it.
+  // Added 2026-10-06.
+  'tinct:internal',
 ])
 
 /**

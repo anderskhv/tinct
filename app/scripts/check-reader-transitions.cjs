@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Run from app/: TEST_ORIGIN=http://127.0.0.1:5191 ENGINE=webkit node scripts/check-reader-transitions.cjs
 // Uses real browser layout, chapter data and audiobook playback. No AI calls.
 const { chromium, webkit } = require('playwright')
@@ -38,7 +39,7 @@ async function swap(page) {
   await page.waitForTimeout(250)
 }
 async function main() {
-  const browser = await (engine === 'webkit' ? webkit : chromium).launch()
+  const browser = await markInternal(await (engine === 'webkit' ? webkit : chromium).launch())
   const results = []
   try {
     for (const chapter of [788, 789]) {

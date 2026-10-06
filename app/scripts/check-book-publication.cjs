@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Silent, isolated built/live acceptance. No synthesis, microphone or account writes.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
@@ -107,7 +108,7 @@ async function main(){
  const phoneEngine=process.env.PUBLICATION_PHONE_ENGINE==='chromium'?chromium:webkit
  const executablePath=process.env.PLAYWRIGHT_CHROMIUM_PATH
  for(const [device,engine,phone] of [['phone',phoneEngine,true],['desktop',chromium,false]]){
-  const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(executablePath?{executablePath}:{})}:{})})
+  const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(executablePath?{executablePath}:{})}:{})}))
   try{
    for(const ed of ['modern-en','original-en']){
     const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')

@@ -552,7 +552,13 @@ export function LabAskPane({
             type="button"
             className="lab-ask-done"
             // With the keyboard up this is still the way back to the book:
-            // one tap puts the keyboard away and closes Chat together.
+            // one tap puts the keyboard away and closes Chat together. The
+            // press must not move focus: a blur on press closes the keyboard,
+            // the sheet reflows under the finger and the click never lands,
+            // so the first tap only dismissed the keyboard (QA 2026-10-06).
+            // The click below blurs the field itself.
+            onPointerDown={(event) => event.preventDefault()}
+            onMouseDown={(event) => event.preventDefault()}
             onClick={() => { textareaRef.current?.blur(); onKeyboardOpenChange?.(false); onDone?.() }}
             data-testid="lab-ask-done"
           >

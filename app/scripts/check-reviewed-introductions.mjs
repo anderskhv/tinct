@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 import {createHash} from 'node:crypto'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live=process.env.LIBRARY_LIVE==='1',origin='https://tinct.app',out='artifacts/reviewed-introductions'
 fs.mkdirSync(out,{recursive:true})
 const firstSource=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/featured-copy.json'))
@@ -27,7 +28,7 @@ if(live){
  }
 }
 for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[webkit,393,844,'reduce'],[webkit,393,844,'no-preference']]){
- const browser=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})})
+ const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
  try{
  const context=await browser.newContext({viewport:{width,height},serviceWorkers:'block',reducedMotion,...(engine===webkit?{isMobile:true,hasTouch:true}:{})})
  await context.addInitScript(()=>{

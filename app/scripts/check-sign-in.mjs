@@ -2,6 +2,7 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.AUTH_LIVE === '1'
 const origin = 'https://tinct.app'
@@ -17,7 +18,7 @@ const sessionFor = reader => {
   return { access_token: token, refresh_token: 'fixture-refresh', token_type: 'bearer', expires_in: 3600, expires_at: exp, user: reader }
 }
 for (const [engine, type] of Object.entries({ chromium, webkit })) {
-  const browser = await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) })
+  const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
   try {
     for (const [size, width, height] of [['phone', 390, 844], ['desktop', 1440, 900]]) {
       for (const test of ['signed-out', 'new-google', 'returning-google', 'email-confirmed', 'password-reset']) {

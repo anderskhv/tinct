@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const { chromium, webkit } = require('playwright')
 const assert = require('node:assert/strict')
 const fs = require('node:fs')
@@ -31,7 +32,7 @@ async function assertActionReachable(page, label) {
 
 ;(async () => {
   for (const [engine, width, height] of [[chromium, 1440, 900], [webkit, 360, 844]]) {
-    const browser = await engine.launch()
+    const browser = await markInternal(await engine.launch())
     try {
       const page = await browser.newPage({serviceWorkers:'block', viewport: { width, height }, isMobile: width < 900, hasTouch: true })
       await page.goto(`${origin}/`)

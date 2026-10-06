@@ -139,6 +139,12 @@
     return request;
   }
 
+  // Tinct's own testing (?internal=1, public/lab/internal-traffic.js) labels its AI calls so the
+  // Worker's cost log stores them under its `check` key. Read here directly: this is a classic script.
+  function internalHeaders() {
+    try { return localStorage.getItem('tinct:internal') === '1' ? { 'x-tinct-check': '1' } : {} } catch { return {} }
+  }
+
   const STATUS = { 400: 'bad_request', 401: 'session_expired', 402: 'quota', 403: 'not_granted', 413: 'prompt_too_large', 429: 'rate_limited', 503: 'busy' };
 
   // ask(input, { onText, signal, images, book }) -> { text }
@@ -150,7 +156,7 @@
     const body = JSON.stringify(images.length ? await withImages(request, images) : request);
     const attempt = async token => fetch(token ? '/api/chat' : '/api/lab-chat', {
       method: 'POST', signal: opts.signal, credentials: 'same-origin',
-      headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { Authorization: 'Bearer ' + token } : {}),
+      headers: Object.assign({ 'Content-Type': 'application/json' }, internalHeaders(), token ? { Authorization: 'Bearer ' + token } : {}),
       body,
     });
     let response;

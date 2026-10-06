@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const { webkit, chromium } = require('playwright')
 const fs = require('fs')
 const assert = require('assert')
@@ -9,7 +10,7 @@ const assert = require('assert')
   const results = []
 
   for (const [name, engine, width] of [['phone', webkit, 390], ['desktop', chromium, 1440]]) {
-    const browser = await engine.launch()
+    const browser = await markInternal(await engine.launch())
     const page = await browser.newPage({serviceWorkers:'block', viewport: { width, height: name === 'phone' ? 844 : 950 }, hasTouch: name === 'phone', isMobile: name === 'phone' })
     await page.addInitScript(() => {
       localStorage.setItem('tinct-highlight-color', 'sky')

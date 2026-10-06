@@ -8,6 +8,8 @@ import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader
 import { editionShardManifestUrl, editionShardPath, editionShardUrl } from '../data/editionUrls'
 import { followParagraphFromManifest, type FollowParagraph, type ManifestParagraph } from './labFollow'
 import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
+import { hasRecordedAudio } from '../data/audioAvailability'
+import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
 import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
 
@@ -251,6 +253,8 @@ async function loadBookThreadsJson(bookId: string): Promise<{ characters?: Threa
   if (bookId === LAB_BOOK_ID) return loadThreadsJson()
   const cached = bookThreadsJsonCache.get(bookId)
   if (cached) return cached
+  // A book without a Cast file would only log a 404; nothing to ask for.
+  if (!bookHasThreads(bookId)) return { characters: [] }
   const response = await fetch(`/data/editions/${bookId}-threads.json?v=${encodeURIComponent(labBuildVersion())}`).catch(() => null)
   let data: { characters?: ThreadCharacter[] } = { characters: [] }
   if (response?.ok) {
@@ -272,6 +276,8 @@ async function loadAudioFollowMetadata(
   editionKey = LAB_EDITION_KEY,
   bookId = LAB_BOOK_ID,
 ): Promise<{ followParagraphs: FollowParagraph[]; audioTitle?: LabAudioTitleClip }> {
+  // Streamed-only editions have no recorded manifest; asking is a certain 404.
+  if (!hasRecordedAudio(bookId, editionKey)) return { followParagraphs: paragraphs.map((text, index) => ({ index, text })) }
   try {
     const manifestRes = await fetch(labAudioManifestUrl(chapterNumber, editionKey, bookId))
     if (!manifestRes.ok) {

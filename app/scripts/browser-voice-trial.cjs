@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 /** Opt-in real WebRTC test. Uses a fresh browser profile and synthetic speech,
  * never the user's microphone. No response or AI endpoint is stubbed.
  * Run from app/: node scripts/browser-voice-trial.cjs <full|mini> <fixtures> <output> [base] [conversation|resume|disconnect]
@@ -69,7 +70,7 @@ const INIT = () => {
         str += String.fromCharCode(b); return btoa(str); };
 };
 (async () => {
-    const browser = await chromium.launch({ headless: true, args: ['--autoplay-policy=no-user-gesture-required'] });
+    const browser = await markInternal(await chromium.launch({ headless: true, args: ['--autoplay-policy=no-user-gesture-required'] }));
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, permissions: ['microphone'] });
     await context.addInitScript(INIT);
     const page = await context.newPage();

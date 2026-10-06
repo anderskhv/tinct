@@ -2,10 +2,11 @@ import { chromium } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.LIBRARY_LIVE === '1'
 const output = 'artifacts/library-two-assistant'
 await fs.mkdir(output, { recursive: true })
-const browser = await chromium.launch({ headless: true, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio'] }))
 try {
   for (const viewport of [{ width:393, height:734 }, { width:1512, height:862 }]) {
     const context = await browser.newContext({ viewport, serviceWorkers:'block', permissions:[] })

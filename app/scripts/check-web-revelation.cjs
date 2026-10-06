@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Isolated, muted reader acceptance for the reviewed WEB Revelation cleanup.
 const { chromium, webkit } = require('playwright')
 const fs = require('node:fs'), path = require('node:path'), assert = require('node:assert/strict')
@@ -16,7 +17,7 @@ assert.ok(wordIndex >= 0)
 ;(async () => {
  const results = []
  for (const [device, engine] of [['phone', webkit], ['desktop', chromium]]) {
-  const browser = await engine.launch()
+  const browser = await markInternal(await engine.launch())
   try {
    const page = await browser.newPage({serviceWorkers:'block', viewport: device === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 950 }, isMobile: device === 'phone', hasTouch: device === 'phone' })
    page.setDefaultTimeout(30000)

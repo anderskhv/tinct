@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 // Isolated real reader and source data. All chat/account APIs are intercepted.
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict')
 const origin=process.env.TEST_ORIGIN||'https://tinct.app',dir=process.env.ARTIFACT_DIR||'artifacts/chapter-preview'
@@ -25,7 +26,7 @@ async function state(p){return p.evaluate(()=>{
 })}
 ;(async()=>{const results=[]
 for(const config of configs){
- const browser=await(config.width<900?webkit:chromium).launch()
+ const browser=await markInternal(await (config.width<900?webkit:chromium).launch())
  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:config.width,height:config.height},isMobile:config.width<900,hasTouch:config.width<900})
  const p=await context.newPage(),calls=[],notes=[]
  const source=edition.chapters.find(c=>c.number===config.chapter)

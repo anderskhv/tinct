@@ -9,6 +9,7 @@ import { LAB_AUDIO_CONSTRAINTS, type AudioPlaybackAnchor, type VoiceReaderContex
 import { isBenignRealtimeError } from './v2/voiceV2'
 import { reportTalkSeconds } from '../utils/usageReport'
 import { trackFunnel } from '../utils/funnel'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export type GrokEvent = {
   type: string
@@ -383,7 +384,7 @@ export class GrokVoiceSessionController {
       const request = (async () => {
         const response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
+          headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders(), ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
           body: '{}',
           signal: abort.signal,
         })

@@ -5,6 +5,7 @@
  */
 import { CATCH_UP_ROUTE, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
 import { requestLabRecapSummary } from '../preReader/recapSummaryClient'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 /** Requests in flight at once. The oldest entries go first, in reading order. */
 export const CATCH_UP_CONCURRENCY = 3
@@ -62,7 +63,7 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
   try {
     const response = await fetchImpl(CATCH_UP_ROUTE, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders() },
       body: JSON.stringify(entry.request),
     })
     if (!response.ok) return { ok: false, status: response.status }

@@ -105,6 +105,37 @@ describe('loadLabSource', () => {
     expect(requested.some(url => url.includes('path=odyssey%2Foriginal-en%2Fch2'))).toBe(true)
   })
 
+  it.each([
+    ['alice-in-wonderland', 'modern-en', 'original-en'],
+    ['confessions', 'modern-en', 'original-en'],
+  ])('asks for no Cast file or recorded manifest that %s does not have', async (bookId, primary, compare) => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    const requested: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requested.push(url)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes(`${bookId}-${primary}.json`) || url.includes(`${bookId}-${compare}.json`)) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Chapter 1', paragraphs: ['First words.'] },
+          { number: 2, title: 'Chapter 2', paragraphs: ['Second words.'] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      if (url.includes('audio-manifest')) return new Response('{"paragraphs":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+
+    const source = await loadLabBookSource({ bookId, primaryEditionKey: primary, compareEditionKey: compare, chapterNumber: 2 })
+
+    expect(source.paragraphs[0]).toBe('Second words.')
+    expect(source.cast).toEqual([])
+    const hasCast = bookId !== 'confessions'
+    expect(requested.some(url => url.includes(`${bookId}-threads.json`))).toBe(hasCast)
+    const recorded = bookId !== 'alice-in-wonderland'
+    expect(requested.some(url => url.includes('audio-manifest'))).toBe(recorded)
+  })
+
   it('loads production Bible Genesis 1 and the chapter list', async () => {
     const manifest = {
       chapters: [
@@ -136,7 +167,13 @@ describe('loadLabSource', () => {
     })
     vi.stubGlobal('fetch', fetchMock)
 
-    const source = await loadLabSource(1)
+    // The Berean Standard Bible streams its narration and has no recorded
+    // manifest, so it is never asked for; the KJV recording supplies follow data.
+    const streamed = await loadLabSource(1)
+    expect(streamed.followParagraphs[0]?.file).toBeUndefined()
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes('audio-manifest'))).toBe(false)
+    const source = await loadLabSource(1, { audio: 'kjv-en' })
+    expect(fetchMock.mock.calls.some(([input]) => String(input).includes('path=bible%2Fkjv-en%2Fch1%2Fmanifest.json'))).toBe(true)
     expect(source.bookTitle).toBe('The Bible')
     expect(source.headerBook).toBe('Genesis')
     expect(source.headerChapter).toBe('1')

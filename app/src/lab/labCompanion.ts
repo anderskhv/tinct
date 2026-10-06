@@ -3,6 +3,7 @@ import { apiUrl } from '../utils/apiUrl'
 import { nearbyParagraphWindow } from '../voice/context'
 import { LAB_COPY } from './labCopy'
 import type { LabReadingTrailEntry } from './labReadingTrail'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export interface LabTalkContext {
   bookTitle: string
@@ -401,6 +402,7 @@ async function fetchLabCompanionHop(input: {
 }): Promise<{ ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> }> {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
+    ...internalTrafficHeaders(),
   }
   if (input.authToken) headers.Authorization = `Bearer ${input.authToken}`
   return fetch(apiUrl(input.authToken ? '/api/chat' : '/api/lab-chat'), {

@@ -3,6 +3,7 @@ import { build } from 'esbuild'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1', origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/book-transition'
@@ -16,7 +17,7 @@ const incoming = edition.chapters.find(c => c.title === 'Nehemiah 1')
 const cueText = 'You have completed Ezra. Next book: Nehemiah.'
 const results = []
 for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
- const browser = await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) })
+ const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
  try { for (const phone of [false, true]) {
   const label = engine + (phone ? '-phone' : '-desktop')
   const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, serviceWorkers: 'block' })

@@ -2,9 +2,10 @@ import {chromium} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const out='artifacts/library-visual',origin='https://tinct.app'
 await fs.mkdir(out,{recursive:true})
-let browser=await chromium.launch({headless:true})
+let browser=await markInternal(await chromium.launch({headless:true}))
 async function routeLocal(context){
  await context.route('**/*',async route=>{
   const u=new URL(route.request().url())

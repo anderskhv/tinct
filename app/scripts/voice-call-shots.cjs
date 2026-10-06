@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 /**
  * Screenshots of the phone call surface, with the voice layer stubbed.
  *
@@ -142,10 +143,10 @@ const STUB = () => {
 
 async function main() {
   mkdirSync(OUT, { recursive: true })
-  const browser = await chromium.launch({
+  const browser = await markInternal(await chromium.launch({
     executablePath: EXECUTABLE,
     args: ['--ssl-version-max=tls1.2', '--no-sandbox', '--autoplay-policy=no-user-gesture-required'],
-  })
+  }))
 
   const shots = []
   for (const theme of ['light', 'dark']) {

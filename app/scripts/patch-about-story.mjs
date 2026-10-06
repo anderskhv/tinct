@@ -80,6 +80,9 @@ const edits = [
     'data-precedence="vite-rsc/importer-resources"/><link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>', 1, 'about-v21.css'],
   ['html', 'product fonts for the Talk panel', '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>',
     '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/><link rel="stylesheet" href="/fonts/tinct-fonts.css"/>', 1, 'tinct-fonts.css'],
+  // Tinct's own testing (?internal=1) marks itself on every page (public/lab/internal-traffic.js).
+  ['html', 'internal traffic flag', '<link rel="stylesheet" href="/fonts/tinct-fonts.css"/>',
+    '<link rel="stylesheet" href="/fonts/tinct-fonts.css"/><script type="module" src="/lab/internal-traffic.js"></script>', 1, 'internal-traffic.js'],
   ['html', 'behaviour script', 'id="_R_" async=""></script>', 'id="_R_" async=""></script><script src="/assets/about-v20/about-v21.js" defer=""></script>', 1, 'about-v21.js'],
   // A persistent exit, mirrored in HTML and payload: "Escape" until the reveal has been seen, then
   // "Start reading". 2026-09-12 (Anders, "just want ppl to click read"): the footer bar that used to follow it

@@ -16,6 +16,7 @@
  */
 import { apiUrl } from './apiUrl'
 import { captureAttribution, getAttributionPayload } from './attribution'
+import { isInternalTraffic } from './internalTraffic'
 
 export type FunnelEventName =
   | 'landing_view' | 'book_opened' | 'first_page_turn' | 'chapter_completed'
@@ -41,6 +42,8 @@ export interface FunnelDeps {
   once: { has(name: string): boolean; add(name: string): void }
   setTimer: (fn: () => void, ms: number) => unknown
   clearTimer: (handle: unknown) => void
+  /** Tinct's own testing (`?internal=1`): every event is sent marked `internal: true`. */
+  internal?: () => boolean
 }
 
 export const FUNNEL_FLUSH_MS = 4000
@@ -65,9 +68,11 @@ export function createFunnel(deps: FunnelDeps, surface: 'library' | 'reader' | '
   function flush(): void {
     if (timer !== null) { deps.clearTimer(timer); timer = null }
     if (queue.length === 0) return
-    const events = queue.slice(0, 20)
+    let events = queue.slice(0, 20)
     queue = queue.slice(20)
     try {
+      // Checked at send time, so events queued just before the flag was set are marked too.
+      if (deps.internal?.()) events = events.map(event => ({ ...event, props: { ...event.props, internal: true } }))
       deps.send(JSON.stringify({
         deviceId: deps.deviceId(), sessionId: deps.sessionId(), surface, path: deps.path(),
         referrer: deps.referrer(), attribution: deps.attribution(), events,
@@ -224,6 +229,7 @@ function browserDeps(): FunnelDeps {
     once: browserOnce(),
     setTimer: (fn, ms) => setTimeout(fn, ms),
     clearTimer: handle => clearTimeout(handle as ReturnType<typeof setTimeout>),
+    internal: isInternalTraffic,
   }
 }
 

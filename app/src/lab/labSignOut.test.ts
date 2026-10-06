@@ -32,6 +32,8 @@ const DEVICE_KEYS: Record<string, string> = {
   'tinct:device-preferences': '{"theme":"dark"}',
   'tinct:last-user-id': 'user-a',
   'tinct:tinct-tour-seen': 'true',
+  // Tinct's own testing flag (?internal=1) belongs to the device and survives sign-out.
+  'tinct:internal': '1',
 }
 
 function seed() {

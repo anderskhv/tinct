@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 /**
  * Screenshots of the voice surface (locked 2026-09-11) on phone and desktop,
  * with the voice layer stubbed exactly as voice-call-shots.cjs stubs it.
@@ -412,10 +413,10 @@ async function desktop(browser, theme) {
 
 async function main() {
   mkdirSync(OUT, { recursive: true })
-  const browser = await chromium.launch({
+  const browser = await markInternal(await chromium.launch({
     executablePath: EXECUTABLE,
     args: ['--ssl-version-max=tls1.2', '--no-sandbox', '--autoplay-policy=no-user-gesture-required'],
-  })
+  }))
   for (const theme of ['light', 'dark']) {
     console.log(`phone / ${theme}`)
     await phone(browser, theme)

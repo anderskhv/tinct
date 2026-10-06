@@ -63,6 +63,7 @@ import {
   type LabVoiceActionEntry,
   type LabVoiceViewSnapshot,
 } from './labVoiceControls'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 let labAskId = 0
 function nextId() {
@@ -632,6 +633,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         })
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
+        ...internalTrafficHeaders(),
       }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
       const context = { ...requestContext, readingTrail: chapterRequest ? undefined : await readTrail() }
@@ -873,7 +875,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       }
       const authToken = await resolveLabVoiceToken({ override: optionsRef.current.authToken, sessionToken, readSession: readSupabaseAccessToken })
       if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
       const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',

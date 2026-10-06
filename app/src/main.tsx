@@ -1,3 +1,5 @@
+// First: applies and strips ?internal=1|0 before anything reads the address, and shows the badge.
+import './utils/internalTraffic'
 import { initializeNativeBooks } from './utils/nativeBooks'
 import { nativeEntryDestination } from './utils/nativeEntry'
 import { registerReaderOffline } from './utils/registerReaderOffline'

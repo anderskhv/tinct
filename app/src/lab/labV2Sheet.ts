@@ -16,8 +16,11 @@ import {
   type LabMargins,
   type LabParagraphSpacing,
   type LabTextAlignment,
+  type LabPrefs,
   type LabTheme,
 } from './labPrefs'
+import { defaultCompareEditionKey } from '../data/editionDefaults'
+import type { Edition } from '../types'
 
 export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
 
@@ -122,3 +125,28 @@ export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
  * time. The CSS animation and the clock that removes the element agree.
  */
 export const LAB_V2_VERSION_PILL_MS = 2600
+
+/**
+ * Prefs after the reader picks a new main edition. When the new main is the
+ * edition Compare was showing, Compare pairs with another edition rather than
+ * turning off: with one other edition the two swap, otherwise the book's
+ * paired default, else the previous main. A Compare the reader turned off
+ * (None) stays off.
+ */
+export function labPrefsForMainEdition(
+  prefs: LabPrefs,
+  key: string,
+  bookId: string,
+  editions: readonly Pick<Edition, 'key' | 'style' | 'language'>[],
+  year?: number | null,
+): LabPrefs {
+  if (prefs.compareEdition !== key) return { ...prefs, primaryEdition: key }
+  if (prefs.compareChosen && !prefs.compareOpen) return { ...prefs, primaryEdition: key, compareOpen: false }
+  const others = editions.filter(edition => edition.key !== key)
+  const previous = others.find(edition => edition.key === prefs.primaryEdition)?.key
+  const pair = others.length === 1
+    ? others[0].key
+    : defaultCompareEditionKey(bookId, others, key, year) ?? previous ?? others[0]?.key
+  if (!pair) return { ...prefs, primaryEdition: key, compareOpen: false }
+  return { ...prefs, primaryEdition: key, compareEdition: pair, compareOpen: prefs.compareOpen }
+}

@@ -13,6 +13,8 @@ import { fileURLToPath } from 'node:url';
 const REPO = join(fileURLToPath(import.meta.url), '../../../..');
 const DIST = join(REPO, 'addbooks/web/dist/lab-addbook');
 const FONTS = join(REPO, 'app/public/fonts');
+// The shared internal-traffic flag (?internal=1) every tinct.app page loads.
+const INTERNAL = join(REPO, 'app/public/lab/internal-traffic.js');
 // Copied from app/src/worker/routes/seo.ts (SECURITY_HEADERS) so the tests run under the real policy.
 const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai; img-src 'self' data:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'";
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.gz': 'application/gzip', '.woff2': 'font/woff2', '.txt': 'text/plain' };
@@ -66,8 +68,9 @@ export function start(port = 4720) {
     if (url.pathname.startsWith('/lab/addbook/')) file = join(DIST, normalize(decodeURIComponent(url.pathname.slice('/lab/addbook/'.length) || 'index.html')));
     else if (url.pathname === '/lab/addbook') { res.writeHead(301, { Location: '/lab/addbook/' }); res.end(); return }
     else if (url.pathname.startsWith('/fonts/')) file = join(FONTS, normalize(decodeURIComponent(url.pathname.slice(7))));
+    else if (url.pathname === '/lab/internal-traffic.js') file = INTERNAL;
     if (file && existsSync(file) && statSync(file).isDirectory()) file = join(file, 'index.html');
-    if (!file || !existsSync(file) || (!file.startsWith(DIST) && !file.startsWith(FONTS))) { res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not found'); return }
+    if (!file || !existsSync(file) || (!file.startsWith(DIST) && !file.startsWith(FONTS) && file !== INTERNAL)) { res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not found'); return }
     res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream', 'Content-Security-Policy': CSP, 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store' });
     res.end(readFileSync(file));
   });

@@ -2,10 +2,11 @@ import {chromium} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { markInternal } from './lib/internalTraffic.cjs'
 const output=process.env.EINK_OUTPUT||'artifacts/eink-browser',origin='https://tinct.app',live=process.env.EINK_LIVE==='1'
 const readerShell=await fs.access('dist/app.html').then(()=>'/app.html',()=>'/index.html')
 await fs.mkdir(output,{recursive:true})
-const browser=await chromium.launch({headless:true,args:['--mute-audio']})
+const browser=await markInternal(await chromium.launch({headless:true,args:['--mute-audio']}))
 try{
  for(const width of [600,1200]){
   const context=await browser.newContext({viewport:{width,height:1000},serviceWorkers:'block'})

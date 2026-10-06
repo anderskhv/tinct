@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const origin=process.env.TEST_ORIGIN||'https://tinct.app',built=process.env.READER_BUILT!=='0',out=process.env.ARTIFACT_DIR||'artifacts/reader-spread';
 fs.mkdirSync(out,{recursive:true});
@@ -15,7 +16,7 @@ async function turn(p,key){const before=await p.locator('.lab').evaluate(n=>n.da
 (async()=>{
 const results=[];let continuations=0,docked=0;
 for(const engine of [chromium,webkit].filter(engine=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(engine.name()))){
-const browser=await engine.launch({args:engine===chromium?['--mute-audio']:[]});
+const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
 for(const {fontSize,chapter,height} of [
  ...[1.3,1.8,2.2].flatMap(fontSize=>[917,918].map(chapter=>({fontSize,chapter,height:813}))),
  {fontSize:1.3,chapter:595,height:400}

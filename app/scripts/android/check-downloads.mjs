@@ -1,10 +1,13 @@
 import {restartNativePage} from './native-page.mjs'
+import {markInternal} from '../lib/internalTraffic.cjs'
 import http from 'node:http'
 import fs from 'node:fs/promises'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 const hash = value => crypto.createHash('sha256').update(value).digest('hex')
 export async function checkNativeDownloads(device, page, output) {
+ // The fixture books (native-future-book, ...) must never show up as readers: mark this WebView internal.
+ await markInternal(page)
  const index=JSON.parse(await fs.readFile('dist/native-books/index.json','utf8'))
  const base=index.books.find(book=>book.id==='frankenstein')
  const edition=JSON.parse(await fs.readFile('public/data/editions/frankenstein-original-en.json','utf8'))

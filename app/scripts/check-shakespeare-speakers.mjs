@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { registerShakespeareSpeakers, verseSpeakerEnd } from '../src/lab/labVerseLines.ts'
+import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.SHAKESPEARE_LIVE === '1'
 const origin = 'https://tinct.app', output = 'artifacts/shakespeare-speakers'
 await fs.mkdir(output, { recursive: true })
@@ -45,7 +46,7 @@ const books = [...registry.matchAll(/export const (\w+): Book = \{([\s\S]*?)\n\}
   .filter(([, key, body]) => published.split(',').map(s => s.trim()).includes(key) && body.includes("author: 'William Shakespeare'"))
   .map(([, , body]) => body.match(/id: '([^']+)'/)[1])
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] })
+  const browser = await markInternal(await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] }))
   try {
     const scenarios = books.flatMap(book => ['original-en', 'modern-en'].map(edition => ({ book, edition, chapter: 1, paragraph: 0, size: 1.3, alignment: 'left', explicit: false, layout: 'verse', width: 1440 })))
     for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ book: 'hamlet', edition: 'original-en', chapter: 2, paragraph: 69, size, alignment, explicit: true, layout: 'verse', width: 1440, theme: 'dark', screenshot: true })

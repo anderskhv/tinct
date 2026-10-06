@@ -15,6 +15,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { createRequire } from 'node:module'
 import esbuild from 'esbuild'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = 'https://tinct.app'
 // Pages are served with production's media and script policy. It refused the
@@ -193,7 +194,7 @@ const returns = {
   },
 }
 
-const browser = await chromium.launch({ executablePath, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ executablePath, args: ['--mute-audio'] }))
 const results = []
 let failed = false
 try {

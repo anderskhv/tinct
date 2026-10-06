@@ -133,6 +133,7 @@ fi
 echo "5. Chat API"
 CHAT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL/api/chat" \
   -H "Content-Type: application/json" \
+  -H "x-tinct-check: 1" \
   -d '{"messages":[{"role":"user","content":"ping"}]}' 2>/dev/null || echo "000")
 if [ "$CHAT_STATUS" = "401" ] || [ "$CHAT_STATUS" = "200" ] || [ "$CHAT_STATUS" = "429" ]; then
   pass "Chat API responds (HTTP $CHAT_STATUS)"

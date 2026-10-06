@@ -641,6 +641,26 @@ describe('V2 multiline composer and copying', () => {
     expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
     expect(onDone).toHaveBeenCalledOnce()
   })
+  it('does not let the press on Back to book blur the field, so one tap returns with the draft kept', () => {
+    const onDone = vi.fn(), onKeyboardOpenChange = vi.fn(), onDraftChange = vi.fn()
+    render(<LabAskPane {...base} draft="Half a question" onDraftChange={onDraftChange} onDone={onDone} onKeyboardOpenChange={onKeyboardOpenChange} />)
+    const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
+    field.focus()
+    onKeyboardOpenChange.mockClear()
+    const done = screen.getByTestId('lab-ask-done')
+    // A cancelled press is what keeps the keyboard (and the button) in place until the click.
+    expect(fireEvent.pointerDown(done)).toBe(false)
+    expect(fireEvent.mouseDown(done)).toBe(false)
+    expect(document.activeElement).toBe(field)
+    expect(onKeyboardOpenChange).not.toHaveBeenCalled()
+    expect(onDone).not.toHaveBeenCalled()
+    fireEvent.click(done)
+    expect(onDone).toHaveBeenCalledOnce()
+    expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
+    expect(document.activeElement).not.toBe(field)
+    expect(onDraftChange).not.toHaveBeenCalled()
+    expect(field.value).toBe('Half a question')
+  })
   it('grows the writing area, swaps voice for send, and uses Enter for a new line', () => {
     const onSubmit = vi.fn()
     const { rerender } = render(<LabAskPane {...base} draft="" onSubmit={onSubmit} />)

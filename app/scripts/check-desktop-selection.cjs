@@ -1,3 +1,4 @@
+const { markInternal } = require('./lib/internalTraffic.cjs')
 const { chromium, webkit } = require('playwright')
 const assert = require('node:assert/strict'), fs = require('node:fs')
 const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5195'
@@ -5,7 +6,7 @@ const dir = process.env.ARTIFACT_DIR || '/tmp/tinct-desktop-selection'
 fs.mkdirSync(dir, { recursive: true })
 ;(async () => {
   for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
-    const browser = await engine.launch()
+    const browser = await markInternal(await engine.launch())
     try {
       const page = await browser.newPage({serviceWorkers:'block', viewport: { width: 1440, height: 950 } })
       await page.route('**/api/**', route => route.fulfill({ status: 404, body: '{}' }))
