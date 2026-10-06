@@ -38,6 +38,7 @@ import { handleLabRecap } from './worker/routes/labRecap'
 import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
 import { handleUserBooks } from './worker/routes/userBooks'
+import { handlePublicBooks, handlePublicEditionData, runPublicCoverJobs } from './worker/routes/publicBooks'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import { RETENTION_CRON, runRetentionCleanup } from './worker/routes/retention'
@@ -96,6 +97,12 @@ interface Env {
   AUDIO_BUCKET?: R2Bucket
   /** Private bucket for readers' own PDF/EPUB files (routes/userBooks.ts). Never public. */
   USER_BOOKS?: R2Bucket
+  /** Optional dedicated bucket for added public-domain books; AUDIO_BUCKET's public-books/ prefix otherwise (routes/publicBooks.ts). */
+  PUBLIC_BOOKS?: R2Bucket
+  /** "1": a model places added books the rules cannot. Production only; off by default. */
+  PUBLIC_BOOK_AI_CLASSIFY?: string
+  /** "1": queue painted xAI covers for added books. Production only; off by default. */
+  PUBLIC_BOOK_PAINTED_COVERS?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -184,6 +191,22 @@ export default {
       return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
     }
 
+    if (url.pathname === '/api/public-books' || url.pathname.startsWith('/api/public-books/')) {
+      const windows = env.USAGE_COORDINATOR
+      return handlePublicBooks(request, env, {
+        verifyUser: req => verifyUser(env, req),
+        checkRateLimit,
+        // Fail closed like the rate limiter: without the coordinator nothing is imported.
+        countDaily: async (key, limit) => { try { return windows ? await windows.getByName(`rl:${key}`).hit(limit, 86_400_000) : false } catch { return false } },
+        acquireLock: async bookId => { try { return windows ? await windows.getByName(`rl:public-book-lock:${bookId}`).hit(1, 600_000) : false } catch { return false } },
+        waitUntil: promise => ctx.waitUntil(promise),
+      })
+    }
+    if (url.pathname.startsWith('/data/editions/pd-')) {
+      const edition = await handlePublicEditionData(request, env)
+      if (edition) return edition
+    }
+
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     }
@@ -238,7 +261,11 @@ export default {
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
     // Each cron gets its own invocation: retention never re-runs the emails.
-    if (event.cron === RETENTION_CRON) ctx.waitUntil(runRetentionCleanup(env))
+    if (event.cron === RETENTION_CRON) {
+      ctx.waitUntil(runRetentionCleanup(env))
+      // Painted covers for added public books (no-op unless PUBLIC_BOOK_PAINTED_COVERS=1).
+      ctx.waitUntil(runPublicCoverJobs(env, { limit: 5 }).catch(() => null))
+    }
     else ctx.waitUntil(handleScheduled(env))
   },
 }
