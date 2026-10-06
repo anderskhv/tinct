@@ -22,6 +22,9 @@ async function checkSceneFilm(b,engine,label,options,expected){
  const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
  const pending=new Set(),errors=[];p.on('request',r=>pending.add(r));p.on('requestfinished',r=>pending.delete(r));p.on('requestfailed',r=>pending.delete(r));p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
+ // The request proves the film's src; never let the browser decode it. CI's Chromium has no
+ // H.264, and decoding the film the spoofed canPlayType admits has frozen the page for 20+ minutes.
+ await p.route('**/*.mp4',r=>r.abort());
  await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});
  // On a stall, log what the page was doing; CI artifacts are not readable from every agent.
  await p.locator('#read-featured').waitFor().catch(async error=>{
