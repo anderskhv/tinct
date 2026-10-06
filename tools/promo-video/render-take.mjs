@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
+import crypto from 'node:crypto';
 import { launch, serve, ROOT, OUT } from './lib.mjs';
 
 const argv = process.argv.slice(2);
@@ -82,41 +83,53 @@ function frameParams(i) {
 console.log(`One take: ${total.toFixed(1)}s, ${frameCount} frames at ${W}x${H}@${FPS} (supersample ${SS}x)`);
 
 // ---- render ----
+// Frames are rendered in short chunks, each its own finished MP4, so an interrupted
+// run resumes where it stopped. Chunks are keyed by a hash of everything that
+// affects the picture (take, stage, size), so editing either starts fresh.
+const CHUNK = 240; // frames
+const key = crypto.createHash('sha1')
+  .update(JSON.stringify(take)).update(fs.readFileSync(path.join(ROOT, 'stage.html')))
+  .update(`${W}x${H}@${FPS}ss${SS}n${srcCount}`).digest('hex').slice(0, 10);
+const tmp = path.join(OUT, 'chunks', key);
+fs.mkdirSync(tmp, { recursive: true });
+const chunkPath = (c) => path.join(tmp, `c${String(c).padStart(4, '0')}.mp4`);
+const chunks = Array.from({ length: Math.ceil(frameCount / CHUNK) }, (_, c) => c);
+const todo = chunks.filter((c) => !fs.existsSync(chunkPath(c)));
+console.log(`${chunks.length - todo.length}/${chunks.length} chunks already rendered (${path.relative(ROOT, tmp)})`);
 const { server, url } = await serve();
 const browser = await launch();
-const tmp = path.join(OUT, 'segments');
-fs.rmSync(tmp, { recursive: true, force: true });
-fs.mkdirSync(tmp, { recursive: true });
-const per = Math.ceil(frameCount / WORKERS);
+const total0 = todo.reduce((n, c) => n + Math.min(CHUNK, frameCount - c * CHUNK), 0);
 let done = 0;
 const t0 = Date.now();
-async function worker(w) {
-  const a = w * per, b = Math.min(frameCount, a + per);
-  if (a >= b) return null;
-  const seg = path.join(tmp, `seg-${w}.mp4`);
+async function worker() {
   const page = await browser.newPage({ viewport: { width: W, height: H } });
   page.on('pageerror', (e) => console.error('[stage]', e.message));
   await page.goto(`${url}/stage.html?ss=${SS}`);
   await page.evaluate(() => window.stageReady);
-  const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', seg], { stdio: ['pipe', 'inherit', 'inherit'] });
-  for (let i = a; i < b; i++) {
-    await page.evaluate((p) => window.renderFrame(p), frameParams(i));
-    const jpg = await page.screenshot({ type: 'jpeg', quality: 96 });
-    if (!ff.stdin.write(jpg)) await new Promise((r) => ff.stdin.once('drain', r));
-    if (++done % 60 === 0) {
-      const el = (Date.now() - t0) / 1000;
-      process.stdout.write(`\r${done}/${frameCount} frames  ${el.toFixed(0)}s elapsed, ~${((frameCount - done) * el / done).toFixed(0)}s left   `);
+  for (let c; (c = todo.shift()) !== undefined;) {
+    const part = chunkPath(c) + '.part.mp4';
+    const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
+      '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', part], { stdio: ['pipe', 'inherit', 'inherit'] });
+    for (let i = c * CHUNK; i < Math.min(frameCount, (c + 1) * CHUNK); i++) {
+      await page.evaluate((p) => window.renderFrame(p), frameParams(i));
+      const jpg = await page.screenshot({ type: 'jpeg', quality: 96 });
+      if (!ff.stdin.write(jpg)) await new Promise((r) => ff.stdin.once('drain', r));
+      if (++done % 60 === 0) {
+        const el = (Date.now() - t0) / 1000;
+        process.stdout.write(`\r${done}/${total0} frames  ${el.toFixed(0)}s elapsed, ~${((total0 - done) * el / done).toFixed(0)}s left   `);
+      }
     }
+    ff.stdin.end();
+    const code = await new Promise((r) => ff.on('close', r));
+    if (code !== 0) throw new Error(`ffmpeg failed on chunk ${c}`);
+    fs.renameSync(part, chunkPath(c));
   }
-  ff.stdin.end();
-  await new Promise((r) => ff.on('close', r));
   await page.close();
-  return seg;
 }
-const segs = (await Promise.all(Array.from({ length: WORKERS }, (_, w) => worker(w)))).filter(Boolean);
+await Promise.all(Array.from({ length: WORKERS }, () => worker()));
 await browser.close();
 server.close();
+const segs = chunks.map(chunkPath);
 
 // Join the segments and, unless disabled, lay the recording's own audio underneath.
 const list = path.join(tmp, 'list.txt');
