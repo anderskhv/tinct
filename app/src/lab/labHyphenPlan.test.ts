@@ -10,8 +10,11 @@ describe('a planned hyphen', () => {
   it('splits only the planned word, and never changes its text', () => {
     const text = 'The incandescence of lamps.'
     setHyphenPlanForTest(text, new Map([[1, 8]]))
-    expect(plannedBreak(text, 1)).toBe(8)
-    expect(plannedBreak(text, 2)).toBeUndefined()
+    expect(plannedBreak(text, 1, 'incandescence')).toBe(8)
+    expect(plannedBreak(text, 2, 'of')).toBeUndefined()
+    // The tail of the word continued from the previous page is painted whole,
+    // never split at the whole word's break (it moved words when Play repainted).
+    expect(plannedBreak(text, 1, 'descence')).toBeUndefined()
     expect(hyphenPlanClass(text)).toBe(' has-hyphen-plan')
     // Compare columns paint without plans.
     expect(hyphenPlanClass(text, false)).toBe('')
@@ -23,6 +26,16 @@ describe('a planned hyphen', () => {
     expect(words[1].textContent).toBe('incandescence')
     expect(p.querySelectorAll('.lab-syl')).toHaveLength(1)
     expect(p.textContent).toBe(text)
+  })
+
+  it('never splits a word continued from the previous page in the measuring copy', () => {
+    const text = 'The incandescence of lamps.'
+    setHyphenPlanForTest(text, new Map([[1, 8]]))
+    const words = tokenizeHearingWords(text).slice(1).map((word, index) => index === 0 ? { ...word, text: 'descence' } : word)
+    const p = labMeasureParagraphInto(document.createElement('p'), words, { text, from: 1 }, { plans: true })
+    expect(p.querySelector('.lab-syl')).toBeNull()
+    expect(p.classList.contains('has-hyphen-plan')).toBe(true)
+    expect(p.textContent).toBe('descence of lamps.')
   })
 
   it('is ignored where plans are not painted', () => {

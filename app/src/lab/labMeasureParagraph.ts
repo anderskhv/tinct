@@ -1,7 +1,7 @@
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
-import { hyphenPlanFor, type HyphenPlan } from './labHyphenPlan'
+import { hyphenPlanFor, plannedBreak, type HyphenPlan } from './labHyphenPlan'
 import { figureElement, figureFor } from './labFigures'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
@@ -74,7 +74,12 @@ export function labMeasureParagraphInto(
   lineation?: { text?: string; from: number },
   options: LabMeasureOptions = {},
 ): HTMLElement {
-  const plan = options.plan ?? (options.plans && lineation ? hyphenPlanFor(lineation.text) : null)
+  // While planning, the plan being made covers whole words; a stored plan is
+  // drawn only in the whole word it was made for (plannedBreak).
+  const breakAt = (index: number, shown: string): number | undefined => options.plan
+    ? options.plan.get((lineation?.from ?? 0) + index)
+    : options.plans && lineation ? plannedBreak(lineation.text, lineation.from + index, shown) : undefined
+  const planned = !!options.plan || !!(options.plans && lineation && hyphenPlanFor(lineation.text))
   const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]
@@ -114,7 +119,7 @@ export function labMeasureParagraphInto(
         })()
       : (() => {
           const group = document.createDocumentFragment()
-          appendPlannedWord(group, word.text, plan?.get((lineation?.from ?? 0) + index))
+          appendPlannedWord(group, word.text, breakAt(index, word.text))
           return group
         })()
     if (word.emphasis) {
@@ -131,7 +136,7 @@ export function labMeasureParagraphInto(
   if (lineation && p.tagName === 'P') {
     const kind = paragraphKindClass(lineation.text, lineation.from).trim()
     if (kind) p.classList.add(...kind.split(/\s+/))
-    if (plan) p.classList.add('has-hyphen-plan')
+    if (planned) p.classList.add('has-hyphen-plan')
   }
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {

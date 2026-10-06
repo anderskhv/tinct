@@ -332,9 +332,9 @@ function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphInd
   return lineContinuesParagraph(paragraphs, last) || sliceRunContinues(paragraphs, lineSlice(last))
 }
 
-function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[]) {
+function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[], usePlans = false) {
   return proseRuns(paragraphs, lines.map(lineSlice)).map(run => (
-    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
+    <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], lines[run[0]].from)}${hyphenPlanClass(paragraphs[lines[run[0]].paragraphIndex ?? 0], usePlans)}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}>
       {joinedLines(run, (lineIndex) => {
         const line = lines[lineIndex]
         return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
@@ -343,7 +343,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
         : (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
-          {renderWordText(word.text, word.emphasis, paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex)}
+          {renderWordText(word.text, word.emphasis, paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex, usePlans ? plannedBreak(paragraphs[line.paragraphIndex ?? 0], (line.from ?? 0) + wordIndex, word.text) : undefined)}
         </span>
       ), lineationFor(paragraphs, line))
       })}
@@ -378,6 +378,7 @@ function renderHearingWords(
   readingPage?: ChapterHearingPage,
   chapterPages?: ChapterHearingPage[],
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void,
+  usePlans = false,
 ) {
   const fallbackParagraphIndex = paragraph?.index ?? 0
   const lines = readingPage
@@ -390,7 +391,7 @@ function renderHearingWords(
     return (
       <p
         key={run[0]}
-        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
+        className={`lab-hearing-line${paragraphKindClass(paragraphs[paragraphIndex], lines[run[0]].from)}${hyphenPlanClass(paragraphs[paragraphIndex], usePlans)}${run.some(paragraphCurrent) ? ' is-paragraph-current' : ''}${runContinuesParagraph(paragraphs, lines, run) ? ' is-continued' : ''}`}
         data-follow-granularity={followGranularityAttr(followParagraphs, paragraphIndex)}
       >
         {joinedLines(run, (lineIndex) => {
@@ -411,7 +412,7 @@ function renderHearingWords(
                 : undefined}
             >
               {spacing}
-              {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], word.wordIndex ?? -1)}
+              {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], word.wordIndex ?? -1, usePlans && word.wordIndex != null ? plannedBreak(paragraphs[paragraphIndex], word.wordIndex, word.text) : undefined)}
             </span>
           )
         }, lineationFor(paragraphs, line, fallbackParagraphIndex))
@@ -1031,7 +1032,7 @@ export function LabPassage({
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord) : undefined, onOpenFigure)}
+                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord, word.text) : undefined, onOpenFigure)}
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
@@ -1180,13 +1181,13 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord, !compare)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderPlainWords(readingLines, paragraphs)}
+                {renderPlainWords(readingLines, paragraphs, !compare)}
               </div>
             </div>
           ) : (
@@ -1315,7 +1316,7 @@ export function LabPageMeasurePaint(input: {
         <div className="lab-book-col">
           <div className="lab-hearing-stage">
             {proseRuns(input.paragraphs, lines.map(lineSlice)).map(run => (
-              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}`}>
+              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}${hyphenPlanClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex])}`}>
                 {joinedLines(run, (lineIndex) => {
                   const line = lines[lineIndex]
                   return renderWordGroups(line.words, (word, wordIndex, spacing) => (
@@ -1326,7 +1327,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex)}
+                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex, plannedBreak(input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex, word.text))}
                   </span>
                 ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))
                 })}

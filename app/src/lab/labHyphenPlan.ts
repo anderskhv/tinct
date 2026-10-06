@@ -49,10 +49,15 @@ export type HyphenPlan = ReadonlyMap<number, number>
 const EMPTY: HyphenPlan = new Map()
 let activeKey = ''
 const plans = new Map<string, HyphenPlan>()
+/** Each planned paragraph's words, so a break is drawn only in the whole word it was planned for. */
+const planWords = new Map<string, readonly string[]>()
 
 if (typeof document !== 'undefined') {
-  // A face that arrives after a plan was made changes every width it measured.
-  document.fonts?.addEventListener?.('loadingdone', () => { activeKey = ''; plans.clear() })
+  // A face that arrives after a plan was made changes every width it measured:
+  // the next measurement plans afresh. The plans stay until then, because a
+  // page already laid out with them must keep painting with them (a render
+  // in between, such as Play, must never move a word).
+  document.fonts?.addEventListener?.('loadingdone', () => { activeKey = '' })
 }
 
 /** The plan for a paragraph in the current column, or null when it has none (the browser hyphenates). */
@@ -60,9 +65,15 @@ export function hyphenPlanFor(text: string | undefined): HyphenPlan | null {
   return text ? plans.get(text) ?? null : null
 }
 
-/** The character offset in word `wordIndex` of `text` after which a hyphen may be drawn, if planned. */
-export function plannedBreak(text: string | undefined, wordIndex: number): number | undefined {
-  return hyphenPlanFor(text)?.get(wordIndex)
+/**
+ * The character offset in word `wordIndex` of `text` after which a hyphen may
+ * be drawn, if planned, and only where `shown` is that whole word: the tail of
+ * a word continued from the previous page ("cording" of "ac-cording") is
+ * painted as it is, never split at the whole word's break.
+ */
+export function plannedBreak(text: string | undefined, wordIndex: number, shown: string): number | undefined {
+  const at = hyphenPlanFor(text)?.get(wordIndex)
+  return at != null && planWords.get(text!)?.[wordIndex] === shown ? at : undefined
 }
 
 /** ` has-hyphen-plan` for a paragraph painted with its plan, else ''. */
@@ -74,11 +85,13 @@ export function hyphenPlanClass(text: string | undefined, usePlans = true): stri
 export function resetHyphenPlans(): void {
   activeKey = ''
   plans.clear()
+  planWords.clear()
 }
 
 /** Test seam: install a plan directly. */
 export function setHyphenPlanForTest(text: string, plan: Map<number, number>): void {
   plans.set(text, plan)
+  planWords.set(text, tokenizeHearingWords(text).map(word => word.text))
 }
 
 /** Prose a plan can be made for: no kind (an index line is one), no verse lineation. */
@@ -211,7 +224,7 @@ export function planHyphenation(
     const width = p.getBoundingClientRect().width
     if (!(width > 0)) return
     const key = [lang, Math.round(width * 10), style.fontFamily, style.fontSize, style.fontWeight, style.wordSpacing, style.letterSpacing, style.paddingLeft, style.paddingRight].join('|')
-    if (key !== activeKey) { activeKey = key; plans.clear() }
+    if (key !== activeKey) { activeKey = key; plans.clear(); planWords.clear() }
     for (const text of paragraphs) {
       if (plans.has(text)) continue
       const words = tokenizeHearingWords(text)
@@ -221,6 +234,7 @@ export function planHyphenation(
         ? [] : hyphenationBreaks(words[index].text, lang)
       const plan = planParagraph(p, words, breaksOf, current => paint(p, words, text, current))
       plans.set(text, plan.size ? plan : EMPTY)
+      planWords.set(text, words.map(word => word.text))
     }
   } finally {
     p.remove()
