@@ -70,18 +70,91 @@ export function paperCover(title,author,kind){
  return c;
 }
 
+// ---- Search filters (with the search, so only where enabled() allows) ----
+// Modern English, Audio and a language narrow "Available in Tinct" using the catalogue
+// the library already loaded (each book's editions); nothing new is fetched. "Not yet
+// in Tinct" works have no modern edition or narration yet, so Modern English or Audio
+// leaves that group out; a language keeps the works in that language.
+/** Language names as the app writes them (src/lab/preparationEditionLabel.ts, Add a book). */
+export const LANGUAGE_NAMES={en:'English',da:'Danish',sv:'Swedish',no:'Norwegian',nb:'Norwegian',fi:'Finnish',de:'German',nl:'Dutch',fr:'French',it:'Italian',es:'Spanish',pt:'Portuguese',pl:'Polish',ru:'Russian',la:'Latin',el:'Greek',hu:'Hungarian',is:'Icelandic'};
+export const languageName=code=>LANGUAGE_NAMES[code]||code;
+export const NO_FILTERS=Object.freeze({modern:false,audio:false,language:''});
+let filters={...NO_FILTERS};
+/** The filters set in this search panel. */
+export const searchFilters=()=>filters;
+export const filtersActive=f=>!!(f&&(f.modern||f.audio||f.language));
+/** A book's editions a reader can open from the library (as the edition picker offers them). */
+export function readableEditions(book){return (book?.editions||[]).filter(e=>e&&e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
+/** What the filters ask of a library book: a Modern English edition, narration, the languages it can be read in. */
+export function bookFacts(book){
+ const editions=readableEditions(book);
+ return {modern:editions.some(e=>e.key==='modern-en'),audio:editions.some(e=>e.availability?.audio===true&&e.audioHeld!==true),languages:[...new Set(editions.map(e=>e.language).filter(Boolean))]};
+}
+/** "Available in Tinct" narrowed by the filters (every filter set must hold). */
+export function filterAvailable(books,f=filters){
+ if(!filtersActive(f))return books;
+ return books.filter(book=>{const facts=bookFacts(book);return(!f.modern||facts.modern)&&(!f.audio||facts.audio)&&(!f.language||facts.languages.includes(f.language));});
+}
+/** "Not yet in Tinct" works the filters keep: none with Modern English or Audio, those in the language otherwise. */
+export function filterNotYet(works,f=filters){
+ if(f?.modern||f?.audio)return [];
+ if(!f?.language)return works||[];
+ return (works||[]).filter(work=>(work.language||[]).includes(f.language));
+}
+/** The languages the library's books can be read in: English first, then by name. */
+export function libraryLanguages(books){
+ const codes=new Set();for(const book of books||[])for(const code of bookFacts(book).languages)codes.add(code);
+ return [...codes].sort((a,b)=>a==='en'?-1:b==='en'?1:languageName(a).localeCompare(languageName(b)));
+}
+/** The chip row under the search field: made once in `host`, shown only with a query. */
+export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
+ if(!host)return null;
+ let bar=host.querySelector(':scope > .search-filters');
+ if(!bar){
+  bar=el('div','search-filters');bar.setAttribute('role','group');bar.setAttribute('aria-label','Filter results');
+  const chip=(key,label)=>{const b=el('button','search-filter',label);b.type='button';b.dataset.filter=key;
+   b.onclick=()=>{filters={...filters,[key]:!filters[key]};paint();bar.changed?.();};return b;};
+  const language=el('select','search-filter search-language');language.dataset.filter='language';language.setAttribute('aria-label','Language');
+  language.onchange=()=>{filters={...filters,language:language.value};paint();bar.changed?.();};
+  bar.append(chip('modern','Modern English'),chip('audio','Audio'),language);host.prepend(bar);
+ }
+ function paint(){
+  for(const b of bar.querySelectorAll('button[data-filter]'))b.setAttribute('aria-pressed',String(!!filters[b.dataset.filter]));
+  const select=bar.querySelector('.search-language');select.value=filters.language;select.classList.toggle('on',!!filters.language);
+ }
+ bar.changed=onChange;
+ const select=bar.querySelector('.search-language'),codes=libraryLanguages(tinctBooks);
+ if(filters.language&&!codes.includes(filters.language))codes.push(filters.language);
+ if(select.dataset.codes!==codes.join(',')){
+  select.dataset.codes=codes.join(',');
+  const any=el('option','','Any language');any.value='';
+  select.replaceChildren(any,...codes.map(code=>{const o=el('option','',languageName(code));o.value=code;return o;}));
+ }
+ select.hidden=codes.length<2;
+ paint();
+ bar.hidden=!query.trim();
+ return bar;
+}
+
 // ---- Rendering ----
-/** "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel. */
-export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork}){
+/**
+ * "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel,
+ * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown.
+ */
+export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,filterHost,onFilters}){
  box.classList.add('has-groups');
  const head=text=>el('h2','search-group-head',text);
+ const bar=syncSearchFilters(filterHost,{query,tinctBooks,el,onChange:onFilters});
+ let shown=tinct;
  if(query.trim()){
+  const f=bar?filters:NO_FILTERS;shown=filterAvailable(tinct,f);
   box.append(head('Available in Tinct'));
-  if(tinct.length)renderTinct(tinct);else box.append(el('p','search-none','Try another title or author.'));
+  if(shown.length)renderTinct(shown);else box.append(el('p','search-none','Try another title or author.'));
   const group=el('section','free-group');group.dataset.freeGroup='pending';box.append(group);
-  void searchFree(query).then(free=>{
+  if(f.modern||f.audio)group.dataset.freeGroup='0';
+  else void searchFree(query).then(free=>{
    if(!group.isConnected)return;
-   const {notYet}=groupSearchResults({tinct,free,tinctBooks});group.dataset.freeGroup=String(notYet.length);
+   const {notYet}=groupSearchResults({tinct,free:filterNotYet(free,f),tinctBooks});group.dataset.freeGroup=String(notYet.length);
    if(!notYet.length)return;
    group.append(head('Not yet in Tinct'));const list=el('ol','free-list');
    for(const work of notYet){
@@ -97,6 +170,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
  }else renderTinct(tinct);
  const file=el('div','file-box');file.append(el('p','','Have it as a file?'));
  const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_BOOK_PAGE;file.append(pick);box.append(file);
+ return shown;
 }
 
 /** My shelf's own-book card: a paper cover that opens the book. */
