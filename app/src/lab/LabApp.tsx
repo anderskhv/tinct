@@ -173,6 +173,10 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
+import { USER_BOOKS_SHELF_URL } from './userBook/userBookId'
+import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
+import { writeUserBookPlace } from './userBook/userBookPlace'
+import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
@@ -361,6 +365,12 @@ export interface LabAppProps {
   online?: boolean
   source?: LabSource
   authToken?: string | null
+  /**
+   * A reader's own EPUB (`/reader?userBook=…`, see userBook/). Its text,
+   * place, highlights and chat stay on this device; registry-only features
+   * (Cast, narration, Compare, editions, Talk, library progress) are hidden.
+   */
+  userBook?: LoadedUserBook
 }
 
 function readOnline(override?: boolean): boolean {
@@ -381,7 +391,16 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-export function LabApp({ pathname, search, online, source, authToken }: LabAppProps) {
+/** Desktop commands that do not apply to a user book: one edition, no narration, Talk or book switching. */
+const USER_BOOK_HIDDEN_COMMANDS = new Set(['talk', 'listen', 'editions', 'original', 'modern', 'compare', 'books'])
+
+/** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
+function userBookPrefs(prefs: LabPrefs, editionKey: string): LabPrefs {
+  if (prefs.primaryEdition === editionKey && prefs.compareEdition === editionKey && prefs.audioEdition === editionKey && !prefs.compareOpen) return prefs
+  return { ...prefs, primaryEdition: editionKey, compareEdition: editionKey, audioEdition: editionKey, audioFollowsPrimary: true, compareOpen: false }
+}
+
+export function LabApp({ pathname, search, online, source, authToken, userBook }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const voiceVersion = 'v2'
@@ -399,10 +418,38 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // phone draws it full screen; the desktop draws it in the companion panel
   // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
   const voicePanelSurface = !showPhoneChrome
-  const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
+  const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
   const { user: authUser, likelyAuthenticated } = useAuth()
-  const boot = bootLabReading(source)
+  const privateBook = Boolean(userBook)
+  // A user book opens at its own saved place (userBookStore.ts), never the
+  // reader's registry place; it is registered so chapter loads find it.
+  const [userBookBoot] = useState(() => {
+    if (!userBook) return null
+    registerUserBook(userBook.bookId, userBook.edition)
+    const place = userBook.place
+    return {
+      book: userBookLabSource(userBook.bookId, userBook.edition, place?.chapterNumber ?? 1),
+      place: place ? { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex } : { paragraphIndex: 0, wordIndex: 0 },
+      resume: null,
+    }
+  })
+  const boot = userBookBoot ?? bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
+  const userBookEditionKey = userBookBoot ? userBookBoot.book.editions![0].key : null
+  // Stored prefs keep the reader's own edition choices: a user book writes appearance only.
+  const persistPrefs = useCallback((next: LabPrefs, profile: LabAppearanceProfile) => {
+    if (!userBookEditionKey) { writeLabPrefs(next, profile); return }
+    const stored = readLabPrefs(profile)
+    writeLabPrefs({
+      ...next,
+      primaryEdition: stored.primaryEdition,
+      compareEdition: stored.compareEdition,
+      audioEdition: stored.audioEdition,
+      audioFollowsPrimary: stored.audioFollowsPrimary,
+      compareOpen: stored.compareOpen,
+      ...(stored.compareChosen ? { compareChosen: stored.compareChosen } : {}),
+    }, profile)
+  }, [userBookEditionKey])
   const [readerLoadError, setReaderLoadError] = useState('')
   /** A way out of a load error: a Bible chapter another version has. */
   const [readerLoadAction, setReaderLoadAction] = useState<{ label: string; primaryEdition: string } | null>(null)
@@ -417,7 +464,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // Fish narration pilot opt-in/out from the URL, applied before the first
     // render so every write of these prefs already carries it.
     const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
-    return syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
+    const synced = syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
+    return userBookEditionKey ? userBookPrefs(synced, userBookEditionKey) : synced
   })
   const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
   const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
@@ -499,16 +547,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const updatePrefs = useCallback((next: LabPrefs) => {
     const synced = syncLabAudioEdition(migrateLabPrefsEditions(next, book.bookId || 'bible'), allBookEditions)
     setPrefs(synced)
-    writeLabPrefs(synced, appearanceProfile)
-  }, [appearanceProfile, book.bookId, allBookEditions])
+    persistPrefs(synced, appearanceProfile)
+  }, [appearanceProfile, book.bookId, allBookEditions, persistPrefs])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
       if (current.voicePersona === voicePersona && current.voicePersonaChosen) return current
       const next = { ...current, voicePersona, voicePersonaChosen: true }
-      writeLabPrefs(next, appearanceProfile)
+      persistPrefs(next, appearanceProfile)
       return next
     })
-  }, [appearanceProfile])
+  }, [appearanceProfile, persistPrefs])
   useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
@@ -518,14 +566,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
   useEffect(() => {
+    // A user book is never narrated: its text is not sent to the speech provider.
+    if (privateBook) return
     let cancelled = false
     void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
     return () => { cancelled = true }
-  }, [])
+  }, [privateBook])
   const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
   // Narration follows the text on the page: the primary edition, not the
   // Kokoro audio edition, so painted words and spoken words are one text.
-  const narrationApplies = narrationInfo?.enabled === true
+  const narrationApplies = !privateBook && narrationInfo?.enabled === true
     && narrationVoice != null
     && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber, narrationInfo.provider)
   const retainedBella = narrationInfo?.provider !== 'grok' && usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
@@ -533,10 +583,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
     prefsProfileRef.current = appearanceProfile
-    setPrefs(syncLabAudioEdition(
+    const next = syncLabAudioEdition(
       migrateLabPrefsEditions(readLabPrefs(appearanceProfile), book.bookId || 'bible'),
       allBookEditions,
-    ))
+    )
+    setPrefs(userBookEditionKey ? userBookPrefs(next, userBookEditionKey) : next)
   }, [appearanceProfile, book.bookId, bookEditions])
   // The book on screen is not known until its source loads (a handoff mounts a
   // placeholder first), so a withdrawn edition is corrected the moment we know
@@ -550,7 +601,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     releaseLabReaderHandoffForPage(readerHandoff)
     if (readerHandoff) writeLabPrefs(prefs, appearanceProfile)
     // The narration flag was folded into the initial prefs; remember it.
-    else if (narrationFlag) writeLabPrefs(prefs, appearanceProfile)
+    else if (narrationFlag) persistPrefs(prefs, appearanceProfile)
     // This effect only releases the StrictMode bridge after the committed mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -995,7 +1046,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     chapterNumber: book.chapterNumber,
     editionLabel: book.editionLabel,
     paragraphs: book.paragraphs,
-    paragraphIndex: focusParagraph ?? 0,
+    // A user book sends only a window around this paragraph: the page on screen when nothing is in focus.
+    paragraphIndex: focusParagraph ?? (privateBook ? readingPages[readingPageIndex]?.paragraphIndex ?? 0 : 0),
     authToken,
     signedIn,
     onAccountPrompt: (request) => {
@@ -1012,7 +1064,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     onResumeListen: forceAudio => resumeListenRef.current(forceAudio),
     onSetPlaybackSpeed: (rate) => setSpeedRef.current(rate),
     onPlaybackSkip: (kind) => skipRef.current(kind),
-    userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
+    // A user book's chat stays on this device: no account row to sync with.
+    userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     voiceToolAdapter,
     voiceVersion,
     voicePersona: prefs.voicePersona,
@@ -1085,7 +1138,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   const listen = useLabListen({
     guardPlaybackRequests: true,
-    playbackUnavailable: Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
+    playbackUnavailable: privateBook || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
@@ -1108,8 +1161,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     bookId: book.bookId || 'bible',
     chapter: book.chapterNumber,
     page: readingPageIndex,
-    onCover: Boolean(chapterCoverTitle),
-    paused: tocOpen,
+    // A user book is not counted in the reading year.
+    onCover: privateBook || Boolean(chapterCoverTitle),
+    paused: privateBook || tocOpen,
     listeningRef: listenPlayingRef,
   })
   // Warm narration ahead of the reader: the chapter's opening on arrival, the
@@ -1162,19 +1216,23 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // Set by the first tap, key or wheel on the reader; a cloud record that
   // lands after that never moves the page.
   const interactionRef = useRef(false)
-  const { notePlace, initialPositionResolved, biblicalBook, finishedChapters, markChapterFinished, readPositionState } = useLabPositionSync({
+  const placeWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || tocOpen
+  const positionSync = useLabPositionSync({
     book,
     placeRef,
     readerStateRef,
-    sourceLocked: Boolean(source || (readerHandoff && !readerHandoff.resumeLatest)),
+    sourceLocked: Boolean(source || userBook || (readerHandoff && !readerHandoff.resumeLatest)),
     resumeLibraryBookId: readerHandoff?.resumeLatest ? readerHandoff.bookId : undefined,
     resolveBeforePaint: true,
-    writesSuspended: Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || tocOpen,
-    authToken,
+    writesSuspended: placeWritesSuspended,
+    // A user book never reads or writes the account's position record: as a
+    // signed-out reader it has no cloud to wait for, and its own place is
+    // kept on this device below (userBookPlace).
+    authToken: userBook ? null : authToken,
     // Same shape the reading-memory hook takes: an explicit token means an
     // explicit identity, so the position record is reconciled against the
     // same account the memory is.
-    ownerId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
+    ownerId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     interactedRef: interactionRef,
     onResolvedPlace: (place) => {
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
@@ -1229,6 +1287,32 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
     },
   })
+  const { initialPositionResolved, biblicalBook, readPositionState } = positionSync
+  // A user book's place: the same tuple, written to this device only, under
+  // the same suspensions. No 'hide' flush is needed: every note is written.
+  const userPlaceBookRef = useRef(book)
+  userPlaceBookRef.current = book
+  const notePlace = useCallback<typeof positionSync.notePlace>((reason, at) => {
+    if (!userBook) { positionSync.notePlace(reason, at); return }
+    if (reason === 'hide' || placeWritesSuspended) return
+    const current = userPlaceBookRef.current
+    if (current.bookId !== userBook.bookId || current.paragraphs.length === 0) return
+    writeUserBookPlace(userBook.hex, {
+      chapterNumber: at?.sequentialChapter ?? current.chapterNumber,
+      paragraphIndex: at?.paragraphIndex ?? placeRef.current.paragraphIndex,
+      wordIndex: at?.wordIndex ?? placeRef.current.wordIndex,
+      updatedAt: Date.now(),
+    })
+  // positionSync.notePlace is the stable callback the hook returns.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userBook, placeWritesSuspended, positionSync.notePlace])
+  const [userBookFinished, setUserBookFinished] = useState<Set<number>>(() => new Set())
+  const finishedChapters = userBook ? userBookFinished : positionSync.finishedChapters
+  const markChapterFinished = useCallback((chapterNumber: number) => {
+    if (!userBook) { positionSync.markChapterFinished(chapterNumber); return }
+    setUserBookFinished(current => current.has(chapterNumber) ? current : new Set([...current, chapterNumber]))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userBook, positionSync.markChapterFinished])
   const initialResolving = !initialPositionResolved || remoteResumePending
   const positionWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || initialResolving || Boolean(readerLoadError)
   // The library's first paint comes from a snapshot (labLibraryBoot.ts). The
@@ -1236,7 +1320,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // the library and whenever the page is hidden, so the library never has to
   // wait for the network to show "Reading now".
   const rememberLibraryPlace = useCallback(() => {
-    if (positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
+    // The library's "Reading now" is for Tinct's books; a user book stays on Add a book's shelf.
+    if (userBook || positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
     const userId = authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)
     writeLabLibraryBootSnapshot(snapshotWithReaderPlace(readLabLibraryBootSnapshot(), {
       userId,
@@ -1245,7 +1330,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       chapterLabel: book.chapterLabel,
       now: Date.now(),
     }))
-  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, positionWritesSuspended, readerLoadError])
+  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, positionWritesSuspended, readerLoadError, userBook])
   const rememberLibraryPlaceRef = useRef(rememberLibraryPlace)
   rememberLibraryPlaceRef.current = rememberLibraryPlace
   useEffect(() => {
@@ -1364,7 +1449,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [book.chapterNumber, notePlace, positionWritesSuspended, readerHandoff])
 
   useEffect(() => {
-    document.title = LAB_COPY.documentTitle
+    document.title = userBook ? `${userBook.edition.title} · ${LAB_COPY.documentTitle}` : LAB_COPY.documentTitle
     const existing = document.querySelector('meta[name="robots"]')
     if (existing) {
       existing.setAttribute('content', 'noindex, noarchive')
@@ -1419,6 +1504,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       chapterNavigationRef.current += 1
       setChapterCoverTitle(null)
       setBook(source)
+      return
+    }
+    // A user book mounts with its chapter in hand and has one edition; its
+    // chapter loads go through the navigation handlers.
+    if (userBook) {
+      markReaderLoadTrace('required_text_ready', { outcome: 'success' })
       return
     }
     let cancelled = false
@@ -1488,7 +1579,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       }
     })
     return () => { cancelled = true }
-  }, [source, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
+  }, [source, userBook, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
 
   useEffect(() => {
     markReaderLoadTrace('fonts_start', { startOf: 'fonts' })
@@ -1686,17 +1777,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => { active = false }
   }, [])
   const [shareTarget, setShareTarget] = useState<LabShareTarget | null>(null)
-  const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
+  const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
   // Set once the first page is on screen. Work the opening page does not
   // need (character cards, neighbouring chapters) waits for it rather than
   // sharing the network and main thread with the reader's first text.
   const [firstPageShown, setFirstPageShown] = useState(false)
-  const primaryCharacters = useCharacterCards(firstPageShown ? book.bookId : undefined, prefs.primaryEdition)
+  const primaryCharacters = useCharacterCards(firstPageShown && !privateBook ? book.bookId : undefined, prefs.primaryEdition)
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
-  const compareCharacters = useCharacterCards(firstPageShown && prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
+  const compareCharacters = useCharacterCards(firstPageShown && prefs.compareOpen && !privateBook ? book.bookId : undefined, prefs.compareEdition)
   // Author footnotes, for the edition actually on the page; other editions never request any.
-  const chapterFootnotes = useChapterFootnotes(firstPageShown ? book.bookId : undefined, readerEditionKey, book.chapterNumber, readerParagraphs)
+  const chapterFootnotes = useChapterFootnotes(firstPageShown && !privateBook ? book.bookId : undefined, readerEditionKey, book.chapterNumber, readerParagraphs)
   const [openFootnote, setOpenFootnote] = useState<OpenFootnote | null>(null)
   const showFootnote = useCallback((note: PlacedFootnote, marker: HTMLElement) => {
     const rect = marker.getBoundingClientRect()
@@ -2753,7 +2844,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [carriedEnding, setCarriedEnding] = useState<{
     bookId: string; editionKey: string; targetChapter: number; layoutKey: string; width: number; height: number;
     title: string; chapterNumber: number; paragraphs: string[]; page: ChapterHearingPage; previousAnchor: {paragraphIndex:number;wordIndex:number} | null;
-    folio: number; chapterEnd: ReactNode; onPrimer: () => void;
+    folio: number; chapterEnd: ReactNode; onPrimer?: () => void;
   } | null>(null)
   const carriedEndingCurrent = desktopSpread && carriedEnding?.bookId === (book.bookId || 'bible')
     && carriedEnding.editionKey === readerEditionKey && carriedEnding.targetChapter === book.chapterNumber
@@ -2815,14 +2906,15 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     pageIndex: readingPageIndex,
     pages: readingPages,
     pagesSettled: measuredPaging ? nativePagesRevision > 0 : settleIndex === null,
-    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && !tocOpen,
+    // A user book is not recorded in the reading memory (it syncs to the account).
+    ready: !privateBook && !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && !tocOpen,
     pageTurnDirection: pageTurn?.direction ?? null,
     finishedChapters,
   })
   useRecapPreparation({
     playing: listen.playing,
     userId: authUser?.id ?? null,
-    ready: !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
+    ready: !privateBook && !frontispieceVisible && !positionWritesSuspended && !readerLoadError && readerParagraphs.length > 0 && initialPositionResolved,
     request: {
       bookId: book.bookId || 'bible', editionKey: readerEditionKey,
       chapterNumber: book.chapterNumber, paragraphIndex: Math.max(0, placeRef.current.paragraphIndex),
@@ -3563,9 +3655,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         layoutKey: `${readerLayoutKey}:${fullscreen}`, width: window.innerWidth, height: window.innerHeight,
         title: book.chapterTitle, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs, page: readingPage,
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
-        folio: bookPageEstimate.page, onPrimer: () => openChapterNotes('primer', endedChapter),
-        chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext
-          onContinue={() => goNextRef.current()} busy={false} onDiscuss={() => openChapterNotes('end', endedChapter)} />,
+        folio: bookPageEstimate.page, onPrimer: privateBook ? undefined : () => openChapterNotes('primer', endedChapter),
+        chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext recap={!privateBook}
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes('end', endedChapter)} />,
       })
     } else setCarriedEnding(null)
     void goToChapter(next, 'start', true)
@@ -3957,6 +4049,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   }, [ask])
 
   const handleTalk = useCallback(() => {
+    // Talk is not offered for a user book (its text would go to the voice provider).
+    if (privateBook) return
     setCallStartedAt(Date.now())
     dictation.stop()
     setTocOpen(false)
@@ -3972,7 +4066,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setCallParagraph(focusParagraph ?? placeRef.current.paragraphIndex)
     setCallOpen(true)
     startCallVoice()
-  }, [captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, startCallVoice])
+  }, [captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, startCallVoice, privateBook])
 
   // A move the conversation makes (a jump to a paragraph) moves the tint.
   useEffect(() => {
@@ -4255,6 +4349,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
 
   const handleChapterChat = useCallback((kind: 'discuss' | 'prepare' | 'preview') => {
     if (ask.typedLoading || initialResolving || book.chaptersProvisional) return
+    if (privateBook) {
+      // A user book's chapter actions are ordinary questions about the
+      // chapter on screen: its text goes with them, nothing is looked up.
+      dictation.stop()
+      interruptHearForAsk()
+      setDesktopAskOpen(true)
+      if (showPhoneChrome) setPhoneAskOpen(true)
+      void ask.askAboutChapter(CHAPTER_CHAT_MESSAGES[kind])
+      return
+    }
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
       bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
@@ -4276,10 +4380,17 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setDesktopAskOpen(true)
     if (showPhoneChrome) setPhoneAskOpen(true)
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
-  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights])
+  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights, privateBook])
 
   const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber) => {
     if (initialResolving || book.chaptersProvisional) return
+    if (privateBook) {
+      // Chapter notes are made and cached on the server from Tinct's own
+      // editions; a user book's summary is a recap in the chat instead.
+      setSuperMenuOpen(false)
+      if (kind !== 'primer' && chapterNumber === book.chapterNumber) handleChapterChat('discuss')
+      return
+    }
     const chapter = book.chapters.find(item => item.number === chapterNumber)
     const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
     const title = kind === 'primer' ? `Before ${label}` : kind === 'end' ? `${label} in brief` : `${label} so far`
@@ -4292,7 +4403,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
       },
     })
-  }, [book, dictation, initialResolving, readerEditionKey])
+  }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat])
 
   // Chat and Talk carry the card into the conversation the reader chose.
   const continueChapterNotes = useCallback((mode: 'chat' | 'talk', title: string, beats: ChapterNotesBeat[] | null) => {
@@ -4306,6 +4417,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     if (id === 'chat') { handleChat(); return }
+    if (privateBook) {
+      // Back to Add a book's Your books; Talk, Catch me up and editions are not offered.
+      if (id === 'summarize') openChapterNotes('end')
+      else if (id === 'settings') setSuperSheet('reading')
+      else if (id === 'account') setSuperSheet('account')
+      else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(USER_BOOKS_SHELF_URL)
+      return
+    }
     if (id === 'talk') { handleTalk(); return }
     // Summarize is the whole current chapter (Anders, 2026-10-02); the reading
     // so far is Catch me up's job.
@@ -4317,7 +4436,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`)
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, openChapterNotes])
 
   // Contents -> Introduction opens the book's introduction in the library.
   // The navigation waits for the commit that closes Contents: writes are
@@ -4325,10 +4444,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // 'hide' flush uses keepalive) before the reader document is left.
   const [introductionRequested, setIntroductionRequested] = useState(false)
   const openIntroduction = useCallback(() => {
+    if (privateBook) return
     listen.pause()
     setTocOpen(false)
     setIntroductionRequested(true)
-  }, [listen])
+  }, [listen, privateBook])
   useEffect(() => {
     if (!introductionRequested || tocOpen) return
     setIntroductionRequested(false)
@@ -4412,7 +4532,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
       { id: 'account', label: 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
-    ],
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id)),
   })
 
   if (temporaryHold && !holdRecovery) return (
@@ -4428,7 +4548,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   return (
     <div
       ref={labRootRef}
-      lang={allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      lang={userBook ? (userBook.edition.language || 'en') : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
@@ -4539,8 +4659,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             type="button"
             className="lab-v2-library-back"
             data-testid="lab-library-back"
-            aria-label="Back to library"
-            title="Library"
+            aria-label={privateBook ? 'Back to your books' : 'Back to library'}
+            title={privateBook ? 'Your books' : 'Library'}
             onClick={() => handleSuperMenuSelect('library')}
           >
             <LibraryBackIcon size={LAB_V2_PLAY_PX} />
@@ -4556,10 +4676,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               type="button"
               className="lab-header-book"
               data-testid="lab-header-book"
-              aria-label={`Switch books, currently ${book.bookTitle}`}
-              aria-expanded={bookSwitcherOpen}
+              aria-label={privateBook ? 'Table of contents' : `Switch books, currently ${book.bookTitle}`}
+              aria-expanded={privateBook ? tocOpen : bookSwitcherOpen}
               aria-haspopup="dialog"
-              onClick={openBookSwitcher}
+              onClick={privateBook ? () => { setReaderControlsVisible(true); setTocOpen(true) } : openBookSwitcher}
             >
               <span>{book.bookTitle}</span>
             </button>
@@ -4579,7 +4699,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
-              <button
+              {!privateBook && <button
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
@@ -4588,7 +4708,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
                 onClick={handleBarListen}
               >
                 {listen.loading ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
-              </button>
+              </button>}
               <LabSuperButton
                 open={superMenuOpen}
                 onToggle={handleSuperToggle}
@@ -4620,6 +4740,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         <LabSuperMenu
           open={superMenuOpen}
           phone={showPhoneChrome}
+          privateBook={privateBook}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -4685,7 +4806,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               {readerLoadAction.label}
             </button>
           )}
-          <a href="/library">Return to the library</a>
+          {privateBook ? <a href={USER_BOOKS_SHELF_URL}>Return to your books</a> : <a href="/library">Return to the library</a>}
         </div>
       )}
 
@@ -4731,7 +4852,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           ) : <LabPassage
             pendingLayout={measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
-            onPreviewChapter={() => openChapterNotes('primer')}
+            onPreviewChapter={privateBook ? undefined : () => openChapterNotes('primer')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
               docked={desktopPaging && desktopEndInFooter}
@@ -4749,7 +4870,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               onSelectRange: (range, x, y, side, intent, id) => handleSelectRange(range, x, y, side, intent, id, {
                 chapterNumber: nextChapterOpening.chapterNumber, chapterLabel: nextChapterOpening.title, paragraphs: nextChapterOpening.paragraphs,
               }),
-              onPrimer: () => openChapterNotes('primer', nextChapterOpening.chapterNumber),
+              onPrimer: privateBook ? undefined : () => openChapterNotes('primer', nextChapterOpening.chapterNumber),
             } : undefined}
             previousChapterEnding={openingOnRight && carriedEndingCurrent ? {
               ...carriedEndingCurrent, highlights: highlightsApi.highlights,
@@ -4928,7 +5049,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
             onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
             onMic={handleMic}
-            onVoiceMode={() => {
+            onVoiceMode={privateBook ? undefined : () => {
               dictation.stop()
               handleTalk()
             }}
@@ -5260,7 +5381,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       />
 
       <LabContentsV2
-        onSwitchBook={openBookSwitcher}
+        onSwitchBook={privateBook ? undefined : openBookSwitcher}
         open={tocOpen}
         bookId={book.bookId || 'bible'}
         title={book.bookTitle}
@@ -5281,7 +5402,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
-        onOpenIntroduction={openIntroduction}
+        onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         onClose={() => setTocOpen(false)}
       />
@@ -5358,7 +5479,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             setAskAttachment({ bookId: book.bookId, text })
             setDraft('')
           }}
-          onTalkExplanation={(answer) => {
+          onTalkExplanation={privateBook ? undefined : (answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
             // Let the explanation enter the hook's context before starting voice.
@@ -5397,7 +5518,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             highlightsApi.remove(id)
             dismissSelectionPopup()
           }}
-          onShareHighlight={(id) => {
+          onShareHighlight={privateBook ? undefined : (id) => {
             const mark = highlightsApi.highlights.find(h => h.id === id) ?? highlightsApi.compareHighlights.find(h => h.id === id)
             dismissSelectionPopup()
             if (!mark) return

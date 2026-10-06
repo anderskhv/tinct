@@ -6,6 +6,7 @@ import { supabase } from '../services/supabase'
 import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
 import { isStuckRepeatedLine, type LabAskTurn } from './labAsk'
 import { biblicalBookId } from './labPosition'
+import { isUserBookId } from './userBook/userBookId'
 import {
   clearLabChatHistoryLocal as clearLegacyLabChatHistoryLocal,
   readLabChatHistoryLocal as readLegacyLabChatHistoryLocal,
@@ -563,11 +564,14 @@ export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<s
 
   return {
     push(bookId: string, conversations: ChatConversation[]) {
+      // A reader's own book keeps its chat on this device (lab/userBook).
+      if (isUserBookId(bookId)) return
       queued.set(bookId, conversations)
       if (!inFlight.has(bookId)) void run(bookId)
     },
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
     sync(bookId: string, onUnavailable?: () => void, isCurrent?: () => boolean) {
+      if (isUserBookId(bookId)) return Promise.resolve(readLabBookChat(bookId))
       return syncLabBookChatWithCloud({ bookId, cloud, revs, onUnavailable, isCurrent })
     },
     isDirty: () => dirty,

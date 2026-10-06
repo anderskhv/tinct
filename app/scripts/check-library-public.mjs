@@ -9,6 +9,11 @@ const root=path.resolve('dist'),out=process.env.LIBRARY_OUT||'artifacts/library-
 // LIBRARY_ENGINES=chromium limits the engines; PW_CHROMIUM_PATH names a local Chromium binary.
 const engines=(process.env.LIBRARY_ENGINES||'chromium,webkit').split(','),chromiumPath=process.env.PW_CHROMIUM_PATH;
 const live=process.env.LIBRARY_LIVE==='1';
+// Where the run is, for the watchdog below: a stall names its stage instead of
+// silently using up the CI job's time (the film check stalled 20+ minutes, 5-6 Oct).
+let stageName='start',stageAt=Date.now();
+const stage=name=>{stageName=name;stageAt=Date.now();};
+const watchdog=setInterval(()=>{if(Date.now()-stageAt>180000){console.error('LIBRARY_STALL_STAGE '+JSON.stringify({stage:stageName,seconds:Math.round((Date.now()-stageAt)/1000)}));process.exit(1);}},10000);watchdog.unref();
 (async()=>{
 // Navigations wait for DOMContentLoaded, then for the element under test: the
 // library's full load event waits on every image (portraits in the hidden author
@@ -46,15 +51,20 @@ async function checkSceneFilm(b,engine,label,options,expected){
 // minutes (2026-10-05, 2026-10-06) after every check had passed. Stop the film
 // first, and never wait on the close itself for long.
 async function closeQuietly(c,p){
- await p.evaluate(()=>{for(const v of document.querySelectorAll('video')){v.pause();v.removeAttribute('src');v.load();}}).catch(()=>{});
+ await Promise.race([p.evaluate(()=>{for(const v of document.querySelectorAll('video')){v.pause();v.removeAttribute('src');v.load();}}),new Promise(r=>setTimeout(r,5000))]).catch(()=>{});
  let timer;await Promise.race([c.close(),new Promise(r=>{timer=setTimeout(()=>{console.log('CONTEXT_CLOSE_SLOW');r();},15000);})]).catch(()=>{});clearTimeout(timer);
 }
 for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>engines.includes(e.name()))){
  const b=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})}));
  // Book links: the linked book is in the hero from the first paint, nothing opens by itself.
  for(const [bw,bh,mobile] of engine===chromium?[[1440,900,false],[390,844,true]]:[[390,844,true]])await checkBookLinks(b,engine.name(),bw,bh,mobile,engine===chromium&&!mobile);
- if(engine===chromium){await checkSceneFilm(b,'chromium','desktop',{viewport:{width:w,height:h}},'assets/scenes/room-wide-v2.mp4');await checkSceneFilm(b,'chromium','reduced-motion',{viewport:{width:w,height:h},reducedMotion:'reduce'},null);}
- else await checkSceneFilm(b,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);
+ // The film checks get a browser of their own: one that wedges after a film
+ // (CI, 5-6 Oct) cannot stall the checks that follow on \`b\`.
+ const fb=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})});
+ if(engine===chromium){stage('film desktop');await checkSceneFilm(fb,'chromium','desktop',{viewport:{width:w,height:h}},'assets/scenes/room-wide-v2.mp4');stage('film reduced-motion');await checkSceneFilm(fb,'chromium','reduced-motion',{viewport:{width:w,height:h},reducedMotion:'reduce'},null);}
+ else{stage('film phone');await checkSceneFilm(fb,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);}
+ stage('film browser close');await Promise.race([fb.close(),new Promise(r=>setTimeout(()=>{console.log('FILM_BROWSER_CLOSE_SLOW');r();},15000))]).catch(()=>{});
+ stage('library '+engine.name());
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
  await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===5);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
@@ -157,8 +167,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  await p.locator('#collection-back').click();
  // The bare-home shortcut uses a same-account fixture; the existing reader remains the position resolver.
  await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('tinct-lab-position'));s.owner='public-check';localStorage.setItem('tinct-lab-position',JSON.stringify(s));localStorage.setItem('sb-public-check-auth-token',JSON.stringify({user:{id:'public-check'}}));});
- await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();
-}})().catch(e=>{console.error(e);process.exit(1)});
+ await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();stage('next engine');
+}})().then(()=>process.exit(0),e=>{console.error(e);process.exit(1)});
 
 // ---- Book links: /library?book=<id> and the shared /read/<id>/ (approved 6 Oct) ----
 async function checkBookLinks(b,engine,w,h,mobile,extended){

@@ -1,4 +1,6 @@
 import { CHAPTER_SHARDED_EDITION_IDS } from '../data/editionShardRegistry'
+import { isUserBookId } from '../lab/userBook/userBookId'
+import { registeredUserBook } from '../lab/userBook/userBookSource'
 
 /**
  * Resolve the exact edition chapter text a session's anchors point at.
@@ -37,6 +39,11 @@ export async function loadChapterText(input: {
   fetchImpl?: FetchLike
   version?: string
 }): Promise<ResolvedChapterText | null> {
+  // A reader's own book is on this device only; it is never fetched.
+  if (isUserBookId(input.bookId)) {
+    const chapter = registeredUserBook(input.bookId)?.chapters.find(item => item.number === input.chapterNumber)
+    return chapter ? { title: chapter.title, paragraphs: chapter.paragraphs } : null
+  }
   const fetchImpl = input.fetchImpl ?? (typeof fetch === 'function' ? (url: string) => fetch(url) : null)
   if (!fetchImpl) return null
   const suffix = input.version ? `?v=${encodeURIComponent(input.version)}` : ''

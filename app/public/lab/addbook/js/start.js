@@ -157,7 +157,10 @@ window.TinctStart = {
   showGate,
 };
 function boot() {
-  renderAccount(); renderShelf();
+  // Back from the Tinct reader: /lab/addbook/#books shows Your books.
+  const toShelf = location.hash === '#books';
+  if (toShelf) history.replaceState(null, '', location.pathname + location.search);
+  renderAccount(); renderShelf({ reveal: toShelf });
   const q = params.get('q');
   if (q) { $('abQuery').value = q; runSearch(q) } else if (params.get('work')) { startWorker(); $('abResults').hidden = false; $('abResults').innerHTML = '<p class="ab-status">Finding the book…</p>' }
   else if ('requestIdleCallback' in window) requestIdleCallback(startWorker, { timeout: 4000 }); else setTimeout(startWorker, 1500);

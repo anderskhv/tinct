@@ -62,7 +62,8 @@ try {
     }
     if (readerBootUsesDefaultFace(prefs)) preload(READER_BOOT_DEFAULT_FACE_URL, 'font')
     // The signed-in reader's cloud position, started before the bundle runs.
-    if (navigator.onLine !== false) {
+    // A reader's own book (?userBook=) never reads the account's position.
+    if (navigator.onLine !== false && !new URLSearchParams(location.search).has('userBook')) {
       const entries: Array<[string, string | null]> = []
       for (let i = 0; i < localStorage.length; i += 1) {
         const key = localStorage.key(i)

@@ -93,6 +93,9 @@ for(const engine of [chromium,webkit]){
   await phone.waitForFunction(()=>JSON.parse(localStorage.getItem('tinct-lab-position')).lastSettledBookId==='zechariah')
   for(let i=0;i<100&&position.lastSettledBookId!=='zechariah';i++)await phone.waitForTimeout(50)
   assert.equal(position.lastSettledBookId,'zechariah','Phone published its actual reading action')
+  // The phone's chat row is committed on its own schedule (about 0.7 s after the reader is
+  // ready), independent of the position write above: wait for it as for the position.
+  for(let i=0;i<100&&!chat.value.some(c=>c.messages.some(m=>m.id==='phone-turn'));i++)await phone.waitForTimeout(50)
   assert(chat.value.some(c=>c.messages.some(m=>m.id==='phone-turn')),'Phone chat reached the shared account fixture')
   const expected=position.books.zechariah
   const started=Date.now()

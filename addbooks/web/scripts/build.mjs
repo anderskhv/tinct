@@ -2,7 +2,8 @@
 // Builds the Add-a-book page for tinct.app/lab/addbook/ into addbooks/web/dist/lab-addbook/.
 //   node addbooks/web/scripts/build.mjs [--catalog <index.json[.gz]>]
 // Needs the search catalogue (./addbooks/scripts/build-index) unless a committed
-// catalogue (addbooks/web/data/catalog.json.gz) is present. No npm dependencies.
+// catalogue (addbooks/web/data/catalog.json.gz, else the installed
+// app/public/lab/addbook/data/catalog.json.gz) is present. No npm dependencies.
 import { cpSync, mkdirSync, rmSync, readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
@@ -34,7 +35,9 @@ cpSync(join(REPO, 'addbooks/site/search.js'), join(OUT, 'js/search.js'));
 
 // The slim catalogue.
 mkdirSync(join(OUT, 'data'), { recursive: true });
-const committed = join(WEB, 'data/catalog.json.gz');
+// Without the full index, the committed catalogue, else the one installed in the app,
+// is copied byte for byte (rebuilding it needs ./addbooks/scripts/build-index).
+const committed = [join(WEB, 'data/catalog.json.gz'), join(REPO, 'app/public/lab/addbook/data/catalog.json.gz')].find(existsSync) || join(WEB, 'data/catalog.json.gz');
 let works = 0;
 if (!opt('--catalog') && !existsSync(join(REPO, 'addbooks/site/data/index.json.gz')) && !existsSync(join(REPO, 'addbooks/site/data/index.json')) && existsSync(committed)) {
   cpSync(committed, join(OUT, 'data/catalog.json.gz'));

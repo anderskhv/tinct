@@ -64,6 +64,8 @@ import {
   type LabVoiceViewSnapshot,
 } from './labVoiceControls'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { isUserBookId } from './userBook/userBookId'
+import { chapterWindow, passageWindow } from './userBook/userBookContext'
 
 let labAskId = 0
 function nextId() {
@@ -117,6 +119,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   // History is one row per registry book, shared with the classic reader
   // (`chat-history:{bookId}`). The Bible is one book, as in the registry.
   const chatBookId = options.bookId || ''
+  const privateBook = isUserBookId(chatBookId)
   const [typedLoading, setTypedLoading] = useState(false)
   const [historyStatus, setHistoryStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
   // `conversations` is this book's stored history (classic shape, for the
@@ -181,7 +184,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const readTrail = useCallback(async (): Promise<LabReadingTrailEntry[]> => {
     const current = optionsRef.current
-    if (!current.bookId) return []
+    if (!current.bookId || isUserBookId(current.bookId)) return []
     try {
       return await buildLabReadingTrail({
         bookId: current.bookId,
@@ -195,23 +198,32 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
   }, [viewerId])
 
+  // A reader's own book sends a window around the place, or the (capped)
+  // chapter for a question about the whole chapter (userBook/userBookContext.ts).
+  const wholeChapterRef = useRef(false)
   const askContextNow = useCallback((readingTrail: LabReadingTrailEntry[]): LabAskContext => {
     const current = optionsRef.current
     const page = current.getPage?.() ?? null
+    const scoped = privateBook
+      ? (wholeChapterRef.current ? chapterWindow : passageWindow)(current.paragraphs, current.paragraphIndex)
+      : { paragraphs: current.paragraphs, paragraphIndex: current.paragraphIndex }
     return {
       bookTitle: current.bookTitle,
       bookAuthor: current.bookAuthor,
       chapterLabel: current.chapterLabel,
       chapterNumber: current.chapterNumber,
       editionLabel: current.editionLabel,
-      paragraphs: current.paragraphs,
-      paragraphIndex: current.paragraphIndex,
+      paragraphs: scoped.paragraphs,
+      paragraphIndex: scoped.paragraphIndex,
       readingAngle: labReadingAngle(),
-      bookId: current.bookId,
+      // A reader's own book is named by its text only: no id, no edition, so
+      // the Worker never looks it up (or meters it) and answers from the
+      // paragraphs sent here, as Add a book does.
+      bookId: privateBook ? undefined : current.bookId,
       // Last line of defence: whatever the reader carries, a withdrawn edition
       // never leaves the client. The worker cannot retrieve text for one, and
       // the failed tool round is what kills the whole answer.
-      editionKey: current.bookId && current.editionKey
+      editionKey: privateBook ? undefined : current.bookId && current.editionKey
         ? migrateWithheldEdition(current.bookId, current.editionKey)
         : current.editionKey,
       chapterCount: current.chapterCount,
@@ -219,7 +231,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       totalPages: page?.totalPages,
       readingTrail,
     }
-  }, [])
+  }, [privateBook])
   const liveToken = options.authToken !== undefined ? options.authToken : sessionToken
   const signedIn = options.signedIn ?? (Boolean(liveToken) || likelyAuthenticated)
   // Account policy (labAccountPrompt.ts), in one place, before any network
@@ -319,9 +331,10 @@ export function useLabAsk(options: UseLabAskOptions) {
     paragraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
     readingAngle: labReadingAngle(),
-    bookId: options.bookId,
-    editionKey: askEditionKey,
+    bookId: privateBook ? undefined : options.bookId,
+    editionKey: privateBook ? undefined : askEditionKey,
   }), [
+    privateBook,
     options.bookAuthor,
     options.bookTitle,
     options.chapterLabel,
@@ -864,10 +877,11 @@ export function useLabAsk(options: UseLabAskOptions) {
         ...askContextNow([]),
         chapterNumber: requestChapter,
         chapterLabel: input.chapterLabel ?? optionsRef.current.chapterLabel,
-        editionKey: input.editionKey,
+        editionKey: privateBook ? undefined : input.editionKey,
         editionLabel: input.editionLabel,
-        paragraphs: input.paragraphs,
-        paragraphIndex: input.paragraphIndex,
+        ...(privateBook
+          ? passageWindow(input.paragraphs, input.paragraphIndex)
+          : { paragraphs: input.paragraphs, paragraphIndex: input.paragraphIndex }),
         // Explain answers the selected passage from the chapter supplied in
         // the prompt. Without book lookups the worker streams the answer as
         // it is written instead of holding the whole round (see chat.ts).
@@ -899,11 +913,19 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (explanationRef.current === entry) explanationRef.current = null
       throw error
     } finally { entry.listeners.clear() }
-  }, [askContextNow, gateAiAction, sessionToken, signedIn, viewerId])
+  }, [askContextNow, gateAiAction, privateBook, sessionToken, signedIn, viewerId])
+
+  /** A question about the whole chapter on screen (a recap): for a reader's own book its context is the chapter, capped. */
+  const askAboutChapter = useCallback((text: string) => {
+    wholeChapterRef.current = true
+    // sendTyped reads its context before its first await.
+    try { return sendTyped(text) } finally { wholeChapterRef.current = false }
+  }, [sendTyped])
 
   return {
     turns,
     discardSpeculativeExplanation,
+    askAboutChapter,
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
     historyStatus,

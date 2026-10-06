@@ -77,8 +77,8 @@
 
   const ALLOWED_ENCRYPTION = new Set(['http://www.idpf.org/2008/embedding', 'http://ns.adobe.com/pdf/enc#RC']);
 
-  async function parse(buffer, opts = {}) {
-    const zip = openZip(buffer);
+  // The package: DRM refused, then the OPF and its title, authors and language.
+  async function readPackage(zip, opts) {
     if (zip.has('META-INF/rights.xml')) throw fail('drm', 'This book is protected by DRM (copy protection), so it cannot be opened here. Books you buy from many stores are protected; DRM-free EPUBs open fine.');
     const enc = await zip.readText('META-INF/encryption.xml');
     if (enc) {
@@ -95,6 +95,20 @@
     const title = textOf(meta, 'title') || opts.fallbackTitle || 'Untitled book';
     const authors = byLocal(meta, 'creator').map(c => c.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean);
     const language = textOf(meta, 'language') || '';
+    const spine = byLocal(opf, 'itemref').length;
+    if (!spine) throw fail('bad_epub', 'This EPUB has no readable chapters.');
+    return { opfPath, opf, meta, title, authors, language };
+  }
+
+  // Title, authors and language only (the Tinct reader converts the book itself).
+  async function metadata(buffer, opts = {}) {
+    const { title, authors, language } = await readPackage(openZip(buffer), opts);
+    return { title, authors, language };
+  }
+
+  async function parse(buffer, opts = {}) {
+    const zip = openZip(buffer);
+    const { opfPath, opf, meta, title, authors, language } = await readPackage(zip, opts);
     const manifest = new Map();
     for (const item of byLocal(opf, 'item')) manifest.set(item.getAttribute('id'), { id: item.getAttribute('id'), href: resolve(opfPath, item.getAttribute('href') || ''), type: item.getAttribute('media-type') || '', props: (item.getAttribute('properties') || '').split(/\s+/) });
     const spineEl = byLocal(opf, 'spine')[0];
@@ -267,5 +281,5 @@
     return { index, href: path, title: (heading?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 140), node: out, text };
   }
 
-  global.TinctEpub = { parse, openZip, resolve };
+  global.TinctEpub = { parse, metadata, openZip, resolve };
 })(typeof window !== 'undefined' ? window : globalThis);

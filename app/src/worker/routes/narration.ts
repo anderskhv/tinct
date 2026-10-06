@@ -50,7 +50,6 @@ import {
   narrationCacheIdentity,
   narrationMapKey,
   narrationMapPrefix,
-  narrationReplayIdentity,
   narrationTextForParagraph,
   narrationTokens,
   mp3DurationSeconds,
@@ -265,7 +264,10 @@ async function handleVoices(request: Request, env: NarrationEnv): Promise<Respon
   const info = publicConfig(config)
   const voices = await Promise.all(config.voices.map(async voice => ({
     key: voice.key, label: voice.label, persona: voice.persona,
-    cacheIdentity: await narrationReplayIdentity({ provider: config.provider, model: config.model, voiceId: voice.id, settings: config.settings }),
+    cacheIdentity: await sha256Hex(JSON.stringify([
+      NARRATION_CACHE_VERSION, NARRATION_CHUNKER_VERSION,
+      config.provider, config.model, voice.id, config.settings,
+    ])),
   })))
   const response = jsonResponse({ ...info, voices }, 200, request)
   response.headers.set('Cache-Control', 'no-store')

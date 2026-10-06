@@ -22,7 +22,8 @@ interface LabAskPaneProps {
   onDraftChange: (value: string) => void
   onSubmit: (value: string) => void
   onMic: () => void
-  onVoiceMode: () => void
+  /** Absent: no voice conversation is offered (a reader's own book). */
+  onVoiceMode?: () => void
   onRetry?: () => void
   notice?: string | null
   onDone?: () => void
@@ -511,7 +512,7 @@ export function LabAskPane({
           <span className="lab-ask-voice-x" aria-hidden="true">×</span>
         </button>
       )}
-      {conversationState === 'idle' && !canSend && dictationState === 'idle' && (
+      {conversationState === 'idle' && !canSend && dictationState === 'idle' && onVoiceMode && (
         <button
           type="button"
           className="lab-ask-icon lab-ask-voice"

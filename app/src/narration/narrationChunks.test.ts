@@ -11,7 +11,6 @@ import {
   isSilentNarrationToken,
   narrationTokens,
   paragraphWordsFromChunks,
-  speakableText,
   spokenText,
 } from './narrationCore'
 
@@ -40,8 +39,7 @@ describe('chunkNarrationTokens', () => {
       expect(chunks[chunks.length - 1]?.wordTo).toBe(tokens.length)
       chunks.forEach((chunk, index) => {
         if (index > 0) expect(chunk.wordFrom).toBe(chunks[index - 1].wordTo)
-        // The display words exactly, read with the dash rules (never "dash").
-        expect(chunk.text).toBe(speakableText(tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')))
+        expect(chunk.text).toBe(tokens.slice(chunk.wordFrom, chunk.wordTo).join(' '))
         expect(chunk.text.length).toBeLessThanOrEqual(NARRATION_CHUNK_MAX_CHARS * 1.2)
       })
     }

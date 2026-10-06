@@ -42,7 +42,7 @@ const library = {
   async get(key) { try { const rec = await this.tx('readonly', s => s.get(key)); return rec && rec.owner === owner() ? rec : null } catch { return null } },
   async remove(key) { try { await this.tx('readwrite', s => s.delete(key)) } catch {} },
   async list() {
-    try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
+    try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, edition, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
     catch { return [] }
   },
   // Read and write in one transaction, so concurrent patches (title, cloud id) both land.
@@ -94,6 +94,7 @@ async function removeBook(key) {
   const rec = await library.get(key);
   const id = rec?.cloudId || cloud.get(key)?.id;
   await library.remove(key);
+  store.del('place:' + key.replace(/^epub:/, ''));
   if (!id) return true;
   try { await window.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
   catch { toast('Removed from this device, but not from your account. Try again.'); return false }
@@ -147,6 +148,8 @@ async function chooseFile(file) {
   const existing = await library.get(key);
   const saved = await library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || nameTitle(file.name), author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
+  // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
+  if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
   await openBook(kind, bytes, file.name, key);
   if (hasBook() && state.key === key) saveToAccount(key, file, { kind, name: file.name, title: state.title, author: state.author });
 }
@@ -170,10 +173,35 @@ async function openStored(key) {
   } else await library.touch(key, { openedAt: Date.now() });
   // Opened before it reached the account (offline, or the sign-in had lapsed): save it now.
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
+  if (rec.kind === 'epub' && await library.get(key)) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key);
   if (pending && hasBook() && state.key === key) saveToAccount(key, pending, { kind: rec.kind, name: rec.name, title: state.title, author: state.author }, { quiet: true });
   return true;
 }
+// EPUBs open in the Tinct reader (/reader?userBook=<hex>), which reads the file from
+// this browser's copy and converts it to Tinct's own pages. Here: refuse what it cannot
+// open (DRM, not an EPUB), name the book on the shelf, and send the account copy before
+// leaving the page (bounded: a slow upload finishes on the next open).
+const ACCOUNT_COPY_WAIT_MS = 10000;
+async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
+  const token = ++state.token;
+  showReader();
+  closeAllPopups();
+  $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  let meta;
+  try { meta = await TinctEpub.metadata(bytes, { fallbackTitle: name.replace(/\.epub$/i, '') }) }
+  catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
+  if (token !== state.token) return;
+  const author = meta.authors.join(', ');
+  await library.touch(key, { title: meta.title, author });
+  if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
+  if (token !== state.token) return;
+  leftForTinct = true;
+  location.assign('/reader?userBook=' + encodeURIComponent(key.slice('epub:'.length)));
+}
+// Back from the reader may restore this page as it was left ("Opening…"): show Your books.
+let leftForTinct = false;
+addEventListener('pageshow', e => { if (e.persisted && leftForTinct) { leftForTinct = false; closeBook({ toShelf: true }) } });
 async function openBook(kind, bytes, name, key) {
   showReader();
   if (kind === 'epub') await openEpub(bytes, name, key); else await openPdf(bytes, name, key);

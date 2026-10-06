@@ -4,6 +4,8 @@ import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './l
 export interface LabSuperMenuProps {
   open: boolean
   phone?: boolean
+  /** A reader's own book: the rows that apply to it only. */
+  privateBook?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -72,7 +74,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -99,7 +101,7 @@ export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuPro
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone })
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">
