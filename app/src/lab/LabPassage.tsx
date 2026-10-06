@@ -2,6 +2,7 @@ import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} f
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
 import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -137,12 +138,15 @@ function wordSpacing(
   return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
 }
 
-function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1) {
+function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number) {
   const link = wordIndex >= 0 ? wordLink(paragraph, wordIndex, text) : null
   const content = link ? (
     <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>{link.trail}</>
   ) : isLabVerseMarker(text) ? (
     <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
+  ) : hyphenAt != null && hyphenAt > 0 && hyphenAt < text.length ? (
+    // A planned hyphen (labHyphenPlan): drawn by CSS after the head, never in the text.
+    <><span className="lab-syl">{text.slice(0, hyphenAt)}</span>{text.slice(hyphenAt)}</>
   ) : text
   return emphasis ? <em>{content}</em> : content
 }
@@ -969,6 +973,8 @@ export function LabPassage({
     // Verse-paired Compare lays each primary line in its own grid row, so
     // lines are never joined there; a joined BSB line only sits tight.
     const gridRows = alignCompare && compare
+    // Single-edition pages paint the hyphenation the paginator measured them with.
+    const usePlans = !compare
     const lineParagraph = (lineIndex: number) => pageLines[lineIndex].paragraphIndex ?? readingPage?.paragraphIndex ?? 0
     const slices = pageLines.map(lineSlice)
     const lineBody = (lineIndex: number) => {
@@ -1018,7 +1024,7 @@ export function LabPassage({
                           data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}
                         >
                           {spacing}
-                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord)}
+                          {renderWordText(word.text, word.emphasis, paragraphs[paragraphIndex], absoluteWord, usePlans ? plannedBreak(paragraphs[paragraphIndex], absoluteWord) : undefined)}
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
@@ -1050,7 +1056,7 @@ export function LabPassage({
                     key={lineIndex}
                     id={secondary ? undefined : `lab-p-${paragraphIndex}`}
                     className={[
-                      'lab-hearing-line' + paragraphKindClass(paragraphs[paragraphIndex], pageLines[lineIndex].from ?? readingPage?.from),
+                      'lab-hearing-line' + paragraphKindClass(paragraphs[paragraphIndex], pageLines[lineIndex].from ?? readingPage?.from) + hyphenPlanClass(paragraphs[paragraphIndex], usePlans),
                       gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
                       inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
                       runContinuesParagraph(paragraphs, pageLines, run) ? 'is-continued' : '',

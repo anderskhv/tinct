@@ -1,6 +1,7 @@
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
+import { hyphenPlanFor, type HyphenPlan } from './labHyphenPlan'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 /**
@@ -46,11 +47,33 @@ export function labMeasuredWordSpacing(
  * match what the reader saw — a column that overflowed its box, or one that
  * stopped a line short of the bottom. One builder, two call sites, one layout.
  */
+export interface LabMeasureOptions {
+  /** Paint the paragraph's hyphenation plan (labHyphenPlan), as the single-edition reading page does. */
+  plans?: boolean
+  /** This plan instead of the stored one (while a plan is being made). */
+  plan?: HyphenPlan
+}
+
+/**
+ * A word with a planned break: its head in a `lab-syl` span whose generated
+ * content is a discretionary hyphen, then its tail. The word's text is unchanged.
+ */
+export function appendPlannedWord(target: Node, text: string, at: number | undefined): void {
+  if (at == null || at <= 0 || at >= text.length) { target.appendChild(document.createTextNode(text)); return }
+  const head = document.createElement('span')
+  head.className = 'lab-syl'
+  head.textContent = text.slice(0, at)
+  target.appendChild(head)
+  target.appendChild(document.createTextNode(text.slice(at)))
+}
+
 export function labMeasureParagraphInto(
   p: HTMLElement,
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
+  options: LabMeasureOptions = {},
 ): HTMLElement {
+  const plan = options.plan ?? (options.plans && lineation ? hyphenPlanFor(lineation.text) : null)
   const makeWord = (index: number, leading = ''): HTMLElement => {
     const span = document.createElement('span')
     const word = words[index]
@@ -81,7 +104,11 @@ export function labMeasureParagraphInto(
           marker.textContent = labVerseMarkerDisplay(word.text)
           return marker
         })()
-      : document.createTextNode(word.text)
+      : (() => {
+          const group = document.createDocumentFragment()
+          appendPlannedWord(group, word.text, plan?.get((lineation?.from ?? 0) + index))
+          return group
+        })()
     if (word.emphasis) {
       const em = document.createElement('em')
       em.append(content)
@@ -96,6 +123,7 @@ export function labMeasureParagraphInto(
   if (lineation && p.tagName === 'P') {
     const kind = paragraphKindClass(lineation.text, lineation.from).trim()
     if (kind) p.classList.add(...kind.split(/\s+/))
+    if (plan) p.classList.add('has-hyphen-plan')
   }
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
@@ -164,10 +192,11 @@ export function labMeasureJoinInto(
   p: HTMLElement,
   words: MeasurableWord[],
   lineation?: { text?: string; from: number },
+  options: LabMeasureOptions = {},
 ): HTMLElement {
   const span = document.createElement('span')
   span.className = 'lab-prose-join'
-  labMeasureParagraphInto(span, words, lineation)
+  labMeasureParagraphInto(span, words, lineation, options)
   p.append(' ', span)
   return p
 }

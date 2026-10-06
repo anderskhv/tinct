@@ -313,13 +313,15 @@
 
 /* On a narrow phone measure, long indivisible words create a coarse,
    stair-step rag. Let the browser use the edition language's dictionary on
-   the painted page, while avoiding arbitrary mid-letter emergency breaks.
+   the painted page; a word is broken mid-letter only when it is wider than the column.
    Two letters may precede the hyphen ("un-sound"), matching labHyphenate's
    HYPHEN_MIN_HEAD, so short prefixes can rescue an otherwise gappy line. */
 .lab.is-phone .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word,
 .lab.has-phone-chrome .lab-passage.is-reading:not(.lab-native-page-surface) .lab-hearing-word {
   white-space: normal;
-  overflow-wrap: normal;
+  /* Only a word wider than the whole column ("christiantranshumanistpodcast.com")
+     is broken where it must be, rather than running off the page. */
+  overflow-wrap: break-word;
   word-break: normal;
   -webkit-hyphens: auto;
   hyphens: auto;
@@ -4618,6 +4620,31 @@
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--lab-ink-muted, #6a6256);
+}
+
+/* At most two hyphenated lines in a row where the browser still hyphenates
+   (Compare, a book without patterns). A block property: on the word spans
+   (above) it never applied. */
+.lab .lab-hearing-line {
+  -webkit-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
+}
+
+/* Planned hyphenation (labHyphenPlan): a paragraph with a plan breaks words
+   only where the plan put a discretionary hyphen, drawn after the head of the
+   word as generated content so it never enters the text, a copy or a
+   selection. Important: the phone and desktop reading rules set
+   `hyphens: auto` on the same elements with higher specificity. */
+.lab .lab-hearing-line.has-hyphen-plan,
+.lab .lab-hearing-line.has-hyphen-plan * {
+  -webkit-hyphens: manual !important;
+  hyphens: manual !important;
+}
+.lab .lab-syl::after { content: '\00AD'; }
+/* The planning copy is laid out ragged: its room per line is what it measures. */
+.lab .lab-hearing-line.is-hyphen-planning {
+  text-align: left !important;
+  text-align-last: left !important;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
