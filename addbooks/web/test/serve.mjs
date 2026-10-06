@@ -4,10 +4,15 @@
 // Like the Worker, /api/chat accepts the last turn as text and image blocks (base64 PNG,
 // JPEG or WebP, at most 4) and /api/lab-chat refuses pictures with images_unavailable.
 // Every chat request body is kept for the tests at GET /__requests.
+// /api/user-books (the reader's private copies in their account) is an in-memory stand-in
+// for the Worker route: Bearer test-token / cloud-token / other-token are three accounts,
+// files are checked by their bytes (PDF, or ZIP with an EPUB mimetype) and capped at 50 MB.
+// Its state and a log of calls are at GET /__books.
 //   node addbooks/web/test/serve.mjs [port]
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
+import { createHash, randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const REPO = join(fileURLToPath(import.meta.url), '../../../..');
@@ -19,6 +24,49 @@ const INTERNAL = join(REPO, 'app/public/lab/internal-traffic.js');
 const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' http://127.0.0.1:47653/theme https://yazjyiqsxjystvpkyouk.supabase.co wss://yazjyiqsxjystvpkyouk.supabase.co https://api.stripe.com wss://api.x.ai; img-src 'self' data:; media-src 'self' blob: mediastream:; frame-src 'self' https://js.stripe.com; frame-ancestors 'self'";
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.gz': 'application/gzip', '.woff2': 'font/woff2', '.txt': 'text/plain' };
 export const requests = [];
+
+const BOOK_USERS = { 'Bearer test-token': 'u-test', 'Bearer cloud-token': 'u-cloud', 'Bearer other-token': 'u-other' };
+const BOOK_BYTES = 50 * 1024 * 1024;
+export const books = { users: {}, log: [] };
+const sendJson = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) };
+function sniff(buf) {
+  if (buf.subarray(0, 5).toString('latin1') === '%PDF-') return 'pdf';
+  if (buf.length > 38 && buf.readUInt32LE(0) === 0x04034b50 && buf.subarray(30, 38).toString('latin1') === 'mimetype') {
+    const at = 30 + buf.readUInt16LE(26) + buf.readUInt16LE(28);
+    if (buf.subarray(at, at + 20).toString('latin1') === 'application/epub+zip') return 'epub';
+  }
+  return null;
+}
+function userBooks(req, res, url) {
+  const user = BOOK_USERS[req.headers.authorization || ''];
+  const id = url.pathname.slice('/api/user-books/'.length) || null;
+  books.log.push({ method: req.method, id, user: user || null });
+  if (!user) return sendJson(res, 401, { error: 'Unauthorized' });
+  const mine = books.users[user] ||= [];
+  if (!id && req.method === 'GET') return sendJson(res, 200, { books: mine.map(({ bytes, ...b }) => b) });
+  if (!id && req.method === 'POST') {
+    const parts = []; let size = 0;
+    req.on('data', c => { size += c.length; if (size <= BOOK_BYTES) parts.push(c) });
+    req.on('end', () => {
+      if (size > BOOK_BYTES) return sendJson(res, 413, { error: 'file_too_large' });
+      const buf = Buffer.concat(parts), type = sniff(buf);
+      if (!type) return sendJson(res, 415, { error: 'unsupported_type' });
+      const sha256 = createHash('sha256').update(buf).digest('hex');
+      const same = mine.find(b => b.sha256 === sha256);
+      if (same) { const { bytes, ...book } = same; return sendJson(res, 200, { book, existing: true }) }
+      const h = n => { try { return decodeURIComponent(req.headers[n] || '') } catch { return '' } };
+      const book = { id: randomBytes(16).toString('hex'), name: h('x-book-name'), title: h('x-book-title'), author: h('x-book-author'), type, size: buf.length, sha256, createdAt: new Date().toISOString() };
+      mine.unshift({ ...book, bytes: buf });
+      sendJson(res, 201, { book });
+    });
+    return;
+  }
+  const found = id && mine.find(b => b.id === id);
+  if (!found) return sendJson(res, 404, { error: 'Not found' });
+  if (req.method === 'GET') { res.writeHead(200, { 'Content-Type': found.type === 'pdf' ? 'application/pdf' : 'application/epub+zip', 'Content-Length': found.bytes.length, 'Cache-Control': 'no-store' }); res.end(found.bytes); return }
+  if (req.method === 'DELETE') { mine.splice(mine.indexOf(found), 1); return sendJson(res, 200, { ok: true }) }
+  sendJson(res, 405, { error: 'Method not allowed' });
+}
 
 function sse(res, text) {
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache' });
@@ -63,6 +111,8 @@ export function start(port = 4720) {
       });
       return;
     }
+    if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) return userBooks(req, res, url);
+    if (url.pathname === '/__books') { sendJson(res, 200, { users: Object.fromEntries(Object.entries(books.users).map(([u, list]) => [u, list.map(({ bytes, ...b }) => b)])), log: books.log }); return }
     if (url.pathname === '/__requests') { res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(requests)); return }
     let file = null;
     if (url.pathname.startsWith('/lab/addbook/')) file = join(DIST, normalize(decodeURIComponent(url.pathname.slice('/lab/addbook/'.length) || 'index.html')));

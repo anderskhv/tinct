@@ -191,8 +191,43 @@
     return { title: '', summary: text.trim() };
   }
 
+  // ---- Your own books in your Tinct account (signed in only): /api/user-books.
+  // A private copy per account, so a book opens on the reader's other devices. The
+  // server checks the file type from its bytes and caps size, count and upload rate.
+  const BOOK_BYTES = 50 * 1024 * 1024; // server limit per file
+  async function booksFetch(path, init = {}) {
+    const s = session();
+    if (!s.token) throw err('signed_out');
+    let r;
+    try { r = await fetch('/api/user-books' + path, Object.assign({}, init, { credentials: 'same-origin', cache: 'no-store', headers: Object.assign({ Authorization: 'Bearer ' + s.token }, init.headers || {}) })) }
+    catch { throw err('offline') }
+    if (r.ok) return r;
+    let detail = ''; try { detail = (await r.json())?.error || '' } catch {}
+    throw err(r.status === 404 ? 'not_found' : detail || STATUS[r.status] || 'failed', detail || 'HTTP ' + r.status, { status: r.status });
+  }
+  const books = {
+    maxBytes: BOOK_BYTES,
+    // -> [{ id, name, title, author, type: 'pdf'|'epub', size, sha256, createdAt }]
+    async list() { return (await (await booksFetch('')).json()).books || [] },
+    // `file`: a Blob or File. -> the stored record (the same one when this account already has the file).
+    async upload(file, meta = {}) {
+      if (file.size > BOOK_BYTES) throw err('file_too_large');
+      const enc = v => encodeURIComponent(String(v || '').slice(0, 300));
+      const r = await booksFetch('', { method: 'POST', body: file, headers: {
+        'Content-Type': meta.kind === 'epub' ? 'application/epub+zip' : 'application/pdf',
+        'X-Book-Name': enc(meta.name), 'X-Book-Title': enc(meta.title), 'X-Book-Author': enc(meta.author),
+      } });
+      return (await r.json()).book;
+    },
+    async download(id) { return new Uint8Array(await (await booksFetch('/' + encodeURIComponent(id))).arrayBuffer()) },
+    async remove(id) {
+      try { await booksFetch('/' + encodeURIComponent(id), { method: 'DELETE' }) }
+      catch (e) { if (e.code !== 'not_found') throw e }
+    },
+  };
+
   // What the reader may attach: anything the browser decodes; it is redrawn before sending.
   const imageLimits = { maxCount: MAX_IMAGES, maxInputBytes: 40 * 1024 * 1024, mediaTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp', 'image/avif'] };
-  const api = { session, ask, askJson, toRequest, imageLimits, onSignedOut: null };
+  const api = { session, ask, askJson, toRequest, imageLimits, books, onSignedOut: null };
   window.TinctAI = api;
 })();

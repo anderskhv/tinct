@@ -55,6 +55,12 @@ curl -sS -X POST https://tinct.app/api/admin/delete-user \
 The export response has `complete: true` when every store was read in full;
 otherwise `errors` and `truncated` say what is missing. Re-run in that case.
 
+`r2.userBooks` lists the reader's own uploaded PDF/EPUB files (id, file name,
+title, author, type, size, upload date) from the private `tinct-user-books`
+bucket. It does not contain the files themselves. If the reader asks for the
+files, they can download each one from the Add-a-book page while signed in
+(`/lab/addbook/`, "Your books").
+
 ## What deletion does, in order
 
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
@@ -62,7 +68,10 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
 1. **Durable Objects:** recap preparation, then reader position (alarm and all
    storage). Recap goes first because its alarm reads the position object.
 2. **KV:** `lab-chat-history:<id>` (Talk/chat history) and `lab-position:<id>`
-   (legacy position record).
+   (legacy position record). Then **R2:** every object under `u/<id>/` in the
+   private `tinct-user-books` bucket (the reader's own PDF/EPUB files,
+   `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
+   none remain.
 3. **Rows that would otherwise survive as anonymous orphans** (`ON DELETE SET
    NULL`): anonymous `analytics_events` from the reader's devices (pre-sign-up
    history: rows with no user whose `device_id` appears on the reader's own
@@ -75,8 +84,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions` and
    `site_admins`. It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
-6. **Sweep and verify:** once sign-in is impossible, the Durable Object and KV
-   steps run again, catching anything a still-open tab or an in-flight alarm
+6. **Sweep and verify:** once sign-in is impossible, the Durable Object, KV
+   and R2 steps run again, catching anything a still-open tab or an in-flight alarm
    wrote meanwhile. Then every table is checked for leftover rows.
 
 A re-run after the account is gone returns `accountAlreadyDeleted: true` and

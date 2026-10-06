@@ -34,7 +34,10 @@
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }
   ],
   "r2_buckets": [
-    { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" }
+    { "binding": "AUDIO_BUCKET", "bucket_name": "tinct-audio" },
+    // Readers' own PDF/EPUB files (src/worker/routes/userBooks.ts). Private: no public
+    // access or custom domain. Keys u/{userId}/{fileId}; purged by account deletion.
+    { "binding": "USER_BOOKS", "bucket_name": "tinct-user-books" }
   ],
   "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }, { "name": "USAGE_COORDINATOR", "class_name": "UsageCoordinator" }, { "name": "SHARE_STORE", "class_name": "ShareStore" }] },
   "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }, { "tag": "usage-coordinator-v1", "new_sqlite_classes": ["UsageCoordinator"] }, { "tag": "share-store-v1", "new_sqlite_classes": ["ShareStore"] }],
