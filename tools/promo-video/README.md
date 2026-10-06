@@ -4,6 +4,29 @@ Makes a phone-in-3D promo clip of the real app, in the style of the Grids teaser
 (a slow camera glide over a tilted phone, with real, readable UI on screen). No
 generative video: every pixel on the screen is Tinct itself.
 
+**One continuous take from a device recording** (`render-take.mjs`). This is the
+current style.
+
+```
+npm install
+node render-take.mjs --video ~/Desktop/ScreenRecording.mov   # → out/tinct-take-1080x1350.mp4
+node render-take.mjs --preview                                 # 540px @ 30 fps quick look
+```
+
+- The recording plays at real speed on a cosmic-orange iPhone, so its narration
+  audio stays in sync.
+- The camera follows one smooth spline through `take.json`'s keyframes. The only
+  ease-in and ease-out are at the start and end.
+- Blank page-load moments dissolve from the last good frame to the next one
+  (`dissolve` in `take.json`).
+- The recording ends with a pull-back into the end card.
+- A recording cropped shorter than the screen sits at the bottom, with its header
+  colour filling the space above.
+- Output is 60 fps with 1.5× supersampling. That's about 1 s per frame, so roughly
+  90 minutes for 80 seconds.
+
+**Scripted walk-through on tinct.app** (`record.mjs` + `render.mjs`, multi-shot):
+
 ```
 npm install
 npm run record     # Playwright walks tinct.app on a 390x790 phone viewport → out/recording/

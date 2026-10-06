@@ -63,7 +63,7 @@ const W = innerWidth, H = innerHeight;
 document.documentElement.style.setProperty('--u', (Math.min(W, H) / 100) + 'px');
 
 const params = new URLSearchParams(location.search);
-const FRAME_COLOR = params.get('frame') || '#24586b';
+const FRAME_COLOR = params.get('frame') || '#e0652a'; // cosmic orange, like the iPhone 17 Pro
 
 // ---------- renderer / scene ----------
 const SS = Number(params.get('ss') || 2); // supersampling: render at SSx, the browser downsamples
@@ -118,7 +118,8 @@ const bodyGeo = new THREE.ExtrudeGeometry(roundedRect(PW - bevel * 2, PH - bevel
   depth: PD - bevel * 2, bevelEnabled: true, bevelThickness: bevel, bevelSize: bevel, bevelSegments: 10, curveSegments: 48,
 });
 bodyGeo.translate(0, 0, -(PD - bevel * 2) / 2);
-const frameMat = new THREE.MeshStandardMaterial({ color: FRAME_COLOR, metalness: 0.9, roughness: 0.3 });
+// Anodised aluminium: less metallic than steel so the colour stays saturated.
+const frameMat = new THREE.MeshStandardMaterial({ color: FRAME_COLOR, metalness: 0.55, roughness: 0.34 });
 const body = new THREE.Mesh(bodyGeo, frameMat);
 phone.add(body);
 
@@ -228,16 +229,44 @@ function roundRectPath(x, y, w, h, r) {
 }
 const probe = document.createElement('canvas'); probe.width = 4; probe.height = 1;
 const pctx = probe.getContext('2d', { willReadFrequently: true });
-async function setScreen(src) {
-  const img = await loadImage(src);
-  const scale = SCREEN_PX_W / img.width;
-  pctx.drawImage(img, 0, 0, img.width, 4, 0, 0, 4, 1);
+// The app frame fills the screen below the status bar. A frame that is shorter than
+// that (e.g. a cropped device recording) sits at the bottom, and the space above it
+// takes the colour of its top edge, feathered into the image so there's no seam.
+const APP_H = SCREEN_PX_H - STATUS_H;
+function drawApp(img, alpha = 1) {
+  const h = img.height * (SCREEN_PX_W / img.width);
+  const top = STATUS_H + Math.max(0, APP_H - h);
+  sctx.globalAlpha = alpha;
+  if (top > STATUS_H) {
+    const c = edgeColor(img, false).map(Math.round).join(',');
+    sctx.fillStyle = `rgb(${c})`;
+    sctx.fillRect(0, 0, SCREEN_PX_W, top + 2);
+    sctx.drawImage(img, 0, top, SCREEN_PX_W, h);
+    const g = sctx.createLinearGradient(0, top, 0, top + 70);
+    g.addColorStop(0, `rgba(${c},1)`); g.addColorStop(1, `rgba(${c},0)`);
+    sctx.fillStyle = g;
+    sctx.fillRect(0, top, SCREEN_PX_W, 70);
+  } else sctx.drawImage(img, 0, top, SCREEN_PX_W, h);
+  sctx.globalAlpha = 1;
+}
+function edgeColor(img, fromBottom) {
+  pctx.drawImage(img, 0, fromBottom ? img.height - 4 : 0, img.width, 4, 0, 0, 4, 1);
   const d = pctx.getImageData(1, 0, 1, 1).data;
-  drawStatusBar([d[0], d[1], d[2]]);
-  sctx.drawImage(img, 0, STATUS_H, SCREEN_PX_W, img.height * scale);
-  // home indicator
-  const lum = (() => { pctx.drawImage(img, 0, img.height - 4, img.width, 4, 0, 0, 4, 1); const q = pctx.getImageData(1, 0, 1, 1).data; return luminance(q[0], q[1], q[2]); })();
-  sctx.fillStyle = lum > 140 ? 'rgba(0,0,0,.82)' : 'rgba(255,255,255,.85)';
+  return [d[0], d[1], d[2]];
+}
+// Draws app frame `src`, optionally dissolving towards `srcB` by `mix` (0..1).
+async function setScreen(src, srcB = null, mix = 0) {
+  const img = await loadImage(src);
+  const imgB = srcB && mix > 0 ? await loadImage(srcB) : null;
+  const top = edgeColor(img, false), bot = edgeColor(img, true);
+  if (imgB) { const t2 = edgeColor(imgB, false), b2 = edgeColor(imgB, true); for (let i = 0; i < 3; i++) { top[i] += (t2[i] - top[i]) * mix; bot[i] += (b2[i] - bot[i]) * mix; } }
+  sctx.clearRect(0, 0, SCREEN_PX_W, SCREEN_PX_H);
+  sctx.fillStyle = `rgb(${bot.map(Math.round).join(',')})`;
+  sctx.fillRect(0, 0, SCREEN_PX_W, SCREEN_PX_H);
+  drawApp(img);
+  if (imgB) drawApp(imgB, mix);
+  drawStatusBar(top.map(Math.round));
+  sctx.fillStyle = luminance(...bot) > 140 ? 'rgba(0,0,0,.82)' : 'rgba(255,255,255,.85)';
   roundRectPath(SCREEN_PX_W / 2 - 200, SCREEN_PX_H - 40, 400, 15, 8); sctx.fill();
   screenTex.needsUpdate = true;
 }
@@ -263,8 +292,15 @@ const DEG = Math.PI / 180;
 function setCamera(shotName, p) {
   const s = SHOTS[shotName] || SHOTS.hero;
   const k = shotName === 'reveal' ? ease(p) : easeSine(p);
-  const az = lerp(s.from.az, s.to.az, k) * DEG, el = lerp(s.from.el, s.to.el, k) * DEG, d = lerp(s.from.d, s.to.d, k);
-  const lx = lerp(s.from.look[0], s.to.look[0], k), lz = lerp(s.from.look[1], s.to.look[1], k);
+  orbit({
+    az: lerp(s.from.az, s.to.az, k), el: lerp(s.from.el, s.to.el, k), d: lerp(s.from.d, s.to.d, k),
+    lx: lerp(s.from.look[0], s.to.look[0], k), lz: lerp(s.from.look[1], s.to.look[1], k),
+  });
+}
+// Places the camera on an orbit around the phone (degrees, cm). render-take.mjs drives
+// this directly along one continuous spline.
+function orbit({ az, el, d, lx = 0, lz = 0 }) {
+  az *= DEG; el *= DEG;
   // Look-at point in world space (phone sits on the turntable).
   const target = new THREE.Vector3(lx, PD, lz).applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
   const off = new THREE.Vector3(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(d)
@@ -278,9 +314,10 @@ function setCamera(shotName, p) {
 
 // ---------- frame API (driven by render.mjs) ----------
 let lastScreen = null;
-window.renderFrame = async ({ screenSrc, shot, p, caption = '', captionOpacity = 0, endcard = 0 }) => {
-  if (screenSrc && screenSrc !== lastScreen) { await setScreen(screenSrc); lastScreen = screenSrc; }
-  setCamera(shot, p);
+window.renderFrame = async ({ screenSrc, screenSrcB = null, mix = 0, shot, p, cam, caption = '', captionOpacity = 0, endcard = 0 }) => {
+  const key = `${screenSrc}|${mix > 0 ? screenSrcB + '|' + mix.toFixed(3) : ''}`;
+  if (screenSrc && key !== lastScreen) { await setScreen(screenSrc, screenSrcB, mix); lastScreen = key; }
+  if (cam) orbit(cam); else setCamera(shot, p);
   renderer.render(scene, camera);
   const capEl = document.getElementById('caption');
   capEl.firstChild.textContent = caption; capEl.style.opacity = caption ? captionOpacity : 0;

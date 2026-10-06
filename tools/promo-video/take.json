@@ -1,0 +1,26 @@
+{
+  "_doc": "One continuous shot for render-take.mjs. Times are seconds in the recording (it plays at real speed). camera: orbit keyframes (az/el degrees, d cm, lx/lz look-at offset on the phone); the path is a smooth spline through them. dissolve: blank stretches (page loads) to cross-fade over. endHold: seconds after the recording ends for the pull-back and end card.",
+  "endHold": 4.6,
+  "dissolve": [[18.05, 19.4], [69.58, 70.6]],
+  "camera": [
+    { "t": 0,     "az": -30, "el": 52, "d": 43,   "lz": 0.2 },
+    { "t": 6,     "az": -22, "el": 56, "d": 39,   "lz": 0.1 },
+    { "t": 12,    "az": -12, "el": 60, "d": 36.5, "lz": 0 },
+    { "t": 19,    "az": 0,   "el": 62, "d": 36,   "lz": 0 },
+    { "t": 27,    "az": 12,  "el": 63, "d": 35.5, "lz": 0.3 },
+    { "t": 37,    "az": 13,  "el": 65, "d": 34.5, "lz": -0.4 },
+    { "t": 47,    "az": 4,   "el": 66, "d": 34.5, "lz": -0.3 },
+    { "t": 57,    "az": -8,  "el": 64, "d": 35.5, "lz": -0.1 },
+    { "t": 66,    "az": -17, "el": 61, "d": 36.5, "lz": 0 },
+    { "t": 73,    "az": -16, "el": 61, "d": 35.5, "lz": 0.3 },
+    { "t": 78.1,  "az": -9,  "el": 61, "d": 36,   "lz": 0.2 },
+    { "t": "end", "az": 6,   "el": 50, "d": 54,   "lz": 0.6 }
+  ],
+  "captions": [
+    { "from": 12.6, "to": 17.6, "text": "Meet the cast before you begin" },
+    { "from": 23.8, "to": 31.0, "text": "A primer before every chapter" },
+    { "from": 33.6, "to": 51.0, "text": "Listen as every word lights up" },
+    { "from": 73.6, "to": 78.0, "text": "Catch up on what you've read" }
+  ],
+  "endcard": { "from": 80.2, "to": 81.6 }
+}
