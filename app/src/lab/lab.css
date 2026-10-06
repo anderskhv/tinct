@@ -7002,3 +7002,12 @@
 @media (hover: hover) {
   .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-v2-library-back { opacity: 1; }
 }
+/* Person and place cards (Anders, 2026-10-06): the text lines up under the name
+   in the panel head, the role sits right beneath it, and the one-line role is
+   the key part, so it is full ink with a capital. */
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .popup-character { padding:0 18px 6px; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .popup-character small { display:block; margin:-4px 0 0; opacity:1; color:var(--lab-ink-muted); font-size:13px; line-height:1.3; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .popup-character p { margin:8px 0 0; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle { opacity:1; color:inherit; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle::first-letter { text-transform:uppercase; }
+.lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .lab-person-actions { padding:10px 0 4px; }

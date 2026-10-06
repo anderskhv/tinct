@@ -404,7 +404,7 @@ export function SelectionPopup({
           {defineResult?.resolvedFrom && defineResult.resolvedFrom !== defineResult.word && (
             <div className="popup-define-note">from &ldquo;{defineResult.resolvedFrom}&rdquo;</div>
           )}
-          {defineLoading && <div className="popup-define-status">Looking up…</div>}
+          {defineLoading && !contextualLookup && <div className="popup-define-status">Looking up…</div>}
           {!defineLoading && defineResult && !contextualLookup && (
             <div className="popup-define-result">
               <ol className="popup-define-list">
@@ -414,8 +414,9 @@ export function SelectionPopup({
               </ol>
             </div>
           )}
-          {!defineLoading && contextualLookup ? (
-            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} />
+          {/* The passage lookup starts with the dictionary, not after it (Anders, 2026-10-06). */}
+          {contextualLookup ? (
+            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
