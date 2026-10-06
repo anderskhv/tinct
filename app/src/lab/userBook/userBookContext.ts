@@ -5,13 +5,17 @@
  * 9,000 characters), never the whole chapter; a chapter recap carries the
  * chapter, capped as Add a book capped its Summarize. Pure.
  */
+import { readableParagraph } from '../labFigures'
+
 export const USER_BOOK_PASSAGE_CHARS = 9_000
 export const USER_BOOK_CHAPTER_CHARS = 120_000
 
 export interface ContextWindow { paragraphs: string[]; paragraphIndex: number }
 
 /** Paragraphs around `index`, widening on both sides while they fit `budget` characters. */
-export function passageWindow(paragraphs: string[], index: number, budget = USER_BOOK_PASSAGE_CHARS): ContextWindow {
+export function passageWindow(source: string[], index: number, budget = USER_BOOK_PASSAGE_CHARS): ContextWindow {
+  // A figure is sent as its caption, never as its placeholder (labFigures).
+  const paragraphs = source.map(readableParagraph)
   if (paragraphs.length === 0) return { paragraphs: [], paragraphIndex: 0 }
   const at = Math.max(0, Math.min(index, paragraphs.length - 1))
   const centre = paragraphs[at].slice(0, budget)
@@ -29,7 +33,8 @@ export function passageWindow(paragraphs: string[], index: number, budget = USER
 }
 
 /** The chapter from its start, cut at `budget` characters. */
-export function chapterWindow(paragraphs: string[], index: number, budget = USER_BOOK_CHAPTER_CHARS): ContextWindow {
+export function chapterWindow(source: string[], index: number, budget = USER_BOOK_CHAPTER_CHARS): ContextWindow {
+  const paragraphs = source.map(readableParagraph)
   const out: string[] = []
   let used = 0
   for (const paragraph of paragraphs) {

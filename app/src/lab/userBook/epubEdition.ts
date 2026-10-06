@@ -22,6 +22,8 @@
  */
 
 import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
+import type { ChapterFigure } from '../../types'
+import { figureToken } from '../labFigures'
 
 export { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition }
 
@@ -143,6 +145,19 @@ interface Block {
   links?: Array<[number, number, string]>
   /** Opens with a bold lead-in ("Hosts: …", "About the author: …"): a labelled line, never a subtitle or byline. */
   lead?: boolean
+  /** A picture standing here (its text is a placeholder until the figure is numbered). */
+  figure?: Picture
+  /** The numbered figure, once its image has been read. */
+  meta?: ChapterFigure
+}
+
+/** A picture found in the text, before its image is read. */
+interface Picture {
+  /** Its file in the EPUB, or an inline SVG drawing. */
+  href?: string
+  svg?: string
+  alt: string
+  caption?: string
 }
 
 interface DocumentBlocks {
@@ -157,6 +172,15 @@ interface DocumentBlocks {
   /** The document's own epub:type / role (body and its first section): cover, titlepage, toc, … */
   docType: string
 }
+
+/** Decoration, not a figure: ornaments, dividers, logos, icons (by file name, class or id). */
+const DECORATION = /(^|[\W_])(ornaments?|orn|fleurons?|dinkus|dingbats?|dividers?|separators?|seperators?|flourish(es)?|decorations?|decorative|spacers?|logos?|icons?|bullets?)\d*([\W_]|$)/i
+/** A paragraph set as a picture's caption. */
+const CAPTION_CLASS = /^(caption|figcaption|fig-?cap(tion)?|illus-?cap(tion)?|image-?caption|figure-?caption|pic-?caption)[-_]?\d*$/i
+/** A caption that names itself ("Figure 3. …", "Plate II: …"). */
+const CAPTION_TEXT = /^(fig(ure)?|plate|illustration|map|diagram)\.?\s*[\divxlc]+[a-z]?\s*[.:—–-]/i
+/** Stands in for a figure's text until it is numbered. */
+const PICTURE_PLACEHOLDER = '\uFFFC'
 
 /**
  * The source library's own matter, not the book: Project Gutenberg's header
@@ -250,7 +274,7 @@ function externalHref(href: string | null): string | null {
   try { const url = new URL(value); return /^https?:$/.test(url.protocol) ? url.href : null } catch { return null }
 }
 
-function documentBlocks(source: string): DocumentBlocks {
+function documentBlocks(source: string, base = ''): DocumentBlocks {
   let doc = new DOMParser().parseFromString(source, 'application/xhtml+xml')
   if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(source, 'text/html')
   const body = byLocal(doc, 'body')[0] || doc.documentElement
@@ -267,6 +291,35 @@ function documentBlocks(source: string): DocumentBlocks {
   let heading = false
   // The block elements open around the text being gathered, innermost last.
   const open: Element[] = []
+  // Pictures met inside a sentence: they stand after their paragraph, never in it.
+  let pending: Picture[] = []
+
+  /** A picture element as a figure, or null for decoration or a picture the book does not hold. */
+  const pictureOf = (el: Element): Picture | null => {
+    const name = el.localName.toLowerCase()
+    const role = (el.getAttribute('role') || '').toLowerCase()
+    if (role === 'presentation' || role === 'none' || el.getAttribute('aria-hidden') === 'true') return null
+    if (name === 'picture') { const img = byLocal(el, 'img')[0]; return img ? pictureOf(img) : null }
+    if (name === 'svg') {
+      const image = byLocal(el, 'image')[0]
+      if (image) return pictureOf(image)
+      // A drawing set in the page: kept as an SVG picture when it says how large it is.
+      if (!(el.getAttribute('viewBox') || (el.getAttribute('width') && el.getAttribute('height')))) return null
+      if ([...classTokens(el), el.getAttribute('id') || ''].some(token => DECORATION.test(token))) return null
+      let svg = ''
+      try { svg = new XMLSerializer().serializeToString(el) } catch { return null }
+      if (!/xmlns=/.test(svg.slice(0, 200))) svg = svg.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"')
+      return svg.length < 2_000_000 ? { svg, alt: clean(el.getAttribute('aria-label') || byLocal(el, 'title')[0]?.textContent) } : null
+    }
+    const href = name === 'img'
+      ? el.getAttribute('src') || ''
+      : el.getAttribute('href') || el.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || el.getAttribute('xlink:href') || ''
+    if (!href || /^[a-z][a-z0-9+.-]*:/i.test(href)) return null
+    const file = href.split(/[?#]/)[0].split('/').pop() || ''
+    if (DECORATION.test(file) || [...classTokens(el), el.getAttribute('id') || ''].some(token => DECORATION.test(token))) return null
+    return { href: resolveHref(base, href.split('#')[0]), alt: clean(el.getAttribute('alt') || el.getAttribute('title')) }
+  }
+  const pictureBlock = (figure: Picture): Block => ({ text: PICTURE_PLACEHOLDER, heading: false, figure })
 
   /**
    * End the paragraph being gathered. A line break inside it ends a paragraph
@@ -274,6 +327,10 @@ function documentBlocks(source: string): DocumentBlocks {
    * "ROBERT<br/>LAWRENCE KUHN:<br/>CLOSER TO TRUTH" is one title.
    */
   const flush = () => {
+    gather()
+    if (pending.length) { blocks.push(...pending.map(pictureBlock)); pending = [] }
+  }
+  const gather = () => {
     const gathered = segments
     segments = []
     if (!gathered.some(segment => segment.br)) { emit(gathered); return }
@@ -344,6 +401,13 @@ function documentBlocks(source: string): DocumentBlocks {
     }
     text = text.replace(INVISIBLE, '').replace(/\s+/g, ' ').trim()
     if (EMPTY_PARAGRAPH.test(text)) return
+    // A picture's caption set as the paragraph after it.
+    const previous = blocks[blocks.length - 1]
+    if (previous?.figure && !previous.figure.caption && wordCount(text) <= 80
+      && (open.slice(-2).flatMap(classTokens).some(token => CAPTION_CLASS.test(token)) || CAPTION_TEXT.test(plain(text)))) {
+      previous.figure.caption = plain(text)
+      return
+    }
     const block: Block = { text, heading }
     if (links.length) block.links = links
     if (lead) block.lead = true
@@ -395,7 +459,28 @@ function documentBlocks(source: string): DocumentBlocks {
       }
       const id = el.getAttribute('id') || (name === 'a' ? el.getAttribute('name') : null)
       if (id && !anchors.has(id)) anchors.set(id, blocks.length)
-      if (PICTURE.has(name)) { images++; continue }
+      if (name === 'figure') {
+        // A figure element: its picture, captioned by its figcaption.
+        const inner = [...el.getElementsByTagName('*')].find(child => PICTURE.has(child.localName.toLowerCase()))
+        if (inner) {
+          flush()
+          const picture = pictureOf(inner)
+          if (!picture) { images++; continue }
+          const caption = byLocal(el, 'figcaption')[0]
+          if (caption) picture.caption = plain(clean(caption.textContent)) || undefined
+          for (const child of el.getElementsByTagName('*')) { const childId = child.getAttribute('id'); if (childId && !anchors.has(childId)) anchors.set(childId, blocks.length) }
+          blocks.push(pictureBlock(picture))
+          continue
+        }
+      }
+      if (PICTURE.has(name)) {
+        const picture = pictureOf(el)
+        if (!picture) { images++; continue }
+        // Inside a sentence it stands after the paragraph; between paragraphs, here.
+        if (segments.some(segment => segment.text.trim())) pending.push(picture)
+        else { flush(); blocks.push(pictureBlock(picture)) }
+        continue
+      }
       // A line break ends a paragraph (verse, addresses), but not a heading: "I.<br/>Introduction" is one title.
       if (name === 'br') { if (segments.length) segments.push({ text: ' ', em, strong, link, ...(inHeading ? {} : { br: true as const }) }); continue }
       const type = epubType(el)
@@ -644,7 +729,62 @@ function subtitleOf(meta: Element): string {
   return ''
 }
 
+/* ---------- Pictures ---------- */
+
+const IMAGE_TYPES: Record<string, string> = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp', svg: 'image/svg+xml', avif: 'image/avif', bmp: 'image/bmp' }
+/** A picture larger than this is not kept. */
+const MAX_PICTURE_BYTES = 8_000_000
+
+/** Pixel size from an image's own header (PNG, GIF, JPEG, WebP) or an SVG's attributes; null when it cannot say. */
+export function imageSize(bytes: Uint8Array, type: string): { width: number; height: number } | null {
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+  const at = (i: number) => bytes[i]
+  try {
+    if (type === 'image/svg+xml') {
+      const head = new TextDecoder().decode(bytes.subarray(0, 4000))
+      const tag = /<svg\b[^>]*>/i.exec(head)?.[0] || ''
+      const num = (name: string) => { const m = new RegExp(`\\b${name}\\s*=\\s*["']\\s*([\\d.]+)(px)?\\s*["']`, 'i').exec(tag); return m ? parseFloat(m[1]) : NaN }
+      let width = num('width'), height = num('height')
+      const box = /\bviewBox\s*=\s*["']\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)/i.exec(tag)
+      if (!(width > 0 && height > 0) && box) { width = parseFloat(box[1]); height = parseFloat(box[2]) }
+      return width > 0 && height > 0 ? { width: Math.round(width), height: Math.round(height) } : null
+    }
+    if (at(0) === 0x89 && at(1) === 0x50 && at(2) === 0x4e && at(3) === 0x47) return { width: view.getUint32(16), height: view.getUint32(20) }
+    if (at(0) === 0x47 && at(1) === 0x49 && at(2) === 0x46) return { width: view.getUint16(6, true), height: view.getUint16(8, true) }
+    if (at(0) === 0xff && at(1) === 0xd8) {
+      let i = 2
+      while (i + 9 < bytes.length) {
+        if (at(i) !== 0xff) { i += 1; continue }
+        const marker = at(i + 1)
+        const length = view.getUint16(i + 2)
+        if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) return { width: view.getUint16(i + 7), height: view.getUint16(i + 5) }
+        i += 2 + length
+      }
+      return null
+    }
+    if (at(0) === 0x52 && at(1) === 0x49 && at(2) === 0x46 && at(3) === 0x46 && at(8) === 0x57 && at(9) === 0x45) {
+      const chunk = String.fromCharCode(at(12), at(13), at(14), at(15))
+      if (chunk === 'VP8 ') return { width: view.getUint16(26, true) & 0x3fff, height: view.getUint16(28, true) & 0x3fff }
+      if (chunk === 'VP8L') { const b = view.getUint32(21, true); return { width: (b & 0x3fff) + 1, height: ((b >> 14) & 0x3fff) + 1 } }
+      if (chunk === 'VP8X') return { width: 1 + (at(24) | at(25) << 8 | at(26) << 16), height: 1 + (at(27) | at(28) << 8 | at(29) << 16) }
+    }
+  } catch { /* a damaged header: no size */ }
+  return null
+}
+
+/** Too small to be a figure: an ornament, a logo, a glyph set as a picture. */
+const decorativeSize = (size: { width: number; height: number }) => size.width < 100 || size.height < 50 || size.width * size.height < 15_000
+/** Large or detailed: shown as a strip that opens the full image. */
+const largeSize = (size: { width: number; height: number }) => size.width * size.height >= 1_500_000 || (size.width >= 1400 && size.height >= 1000) || size.height / size.width > 2.2
+
+/** A converted book and its pictures (figure id -> image), kept beside it on this device. */
+export interface EpubConversion { edition: UserBookEdition; images: Map<string, Blob> }
+
 export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { fallbackTitle?: string } = {}): Promise<UserBookEdition> {
+  return (await convertEpub(input, options)).edition
+}
+
+export async function convertEpub(input: ArrayBuffer | Uint8Array, options: { fallbackTitle?: string } = {}): Promise<EpubConversion> {
   const zip = openZip(input)
   if (zip.has('META-INF/rights.xml')) throw new EpubError('drm', DRM_MESSAGE)
   const encryption = await zip.readText('META-INF/encryption.xml')
@@ -676,6 +816,11 @@ export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { 
   if (!spine.length) throw new EpubError('bad_epub', 'This EPUB has no readable chapters.')
 
   const toc = await readToc(zip, manifest, spineEl)
+  // The cover picture is the book's cover (Add a book shows it), never a figure.
+  const coverId = byLocal(meta, 'meta').find(item => item.getAttribute('name') === 'cover')?.getAttribute('content') || ''
+  const coverHref = ([...manifest.values()].find(item => item.props.includes('cover-image')) || manifest.get(coverId))?.href || ''
+  const tocLabelOf = new Map<string, string>()
+  for (const entry of toc) if (!tocLabelOf.has(entry.path)) tocLabelOf.set(entry.path, entry.label)
   const tocLabels = new Set(toc.map(entry => titleKey(entry.label)).filter(Boolean))
   const bookWords = titlePageWords(title, subtitle, author, textOf(meta, 'publisher'))
   // The whole book as one run of blocks, remembering where each document and anchor starts.
@@ -689,9 +834,19 @@ export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { 
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
-    const parsed = documentBlocks(source || '')
+    const parsed = documentBlocks(source || '', item.href)
     for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
     if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
+    // A page of nothing but a picture before the book's text begins: the cover,
+    // a title page set as an image. The book opens with its own title instead.
+    const pictures = parsed.blocks.filter(block => block.figure)
+    if (pictures.length && pictures.length === parsed.blocks.length && !stream.some(block => !block.figure)
+      && (/\b(cover|titlepage|halftitle)\b/.test(parsed.docType) || COVER_LABEL.test(norm(tocLabelOf.get(item.href) || ''))
+        || pictures.every(block => block.figure!.href === coverHref || /(cover|title)/i.test((block.figure!.href || '').split('/').pop() || '')))) {
+      droppedPlaces.add(item.href)
+      droppedImages += pictures.length
+      continue
+    }
     // The book's cover, title pages, copyright page and its own contents page:
     // the reader opens with the title itself (labParagraphStyle) and has its own chapter menu.
     if (parsed.blocks.length && (titleMatter(parsed.blocks, parsed.docType, bookWords) || copyrightMatter(parsed.blocks)
@@ -762,6 +917,44 @@ export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { 
     pieces[1].blocks = [...front.blocks, ...pieces[1].blocks]
     pieces.shift()
   }
+  // Every picture read once: decoration, the cover and what cannot be read are
+  // left out; the rest are numbered in reading order and kept beside the book.
+  const images = new Map<string, Blob>()
+  const typeOf = (href: string) => [...manifest.values()].find(item => item.href === href)?.type || IMAGE_TYPES[(href.split('.').pop() || '').toLowerCase()] || ''
+  let figureCount = 0
+  for (const piece of pieces) {
+    const kept: Block[] = []
+    for (const block of piece.blocks) {
+      if (!block.figure) { kept.push(block); continue }
+      const picture = block.figure
+      let bytes: Uint8Array | null = null
+      let type = 'image/svg+xml'
+      if (picture.svg) bytes = new TextEncoder().encode(picture.svg)
+      else if (picture.href && picture.href !== coverHref) {
+        type = typeOf(picture.href)
+        bytes = /^image\//.test(type) ? await zip.read(picture.href).catch(() => null) : null
+      }
+      const size = bytes ? imageSize(bytes, type) : null
+      if (!bytes || bytes.length > MAX_PICTURE_BYTES || (size && decorativeSize(size))) { droppedImages += 1; continue }
+      figureCount += 1
+      const id = `f${figureCount}`
+      images.set(id, new Blob([bytes as BlobPart], { type }))
+      kept.push({
+        text: figureToken(id),
+        heading: false,
+        figure: picture,
+        meta: {
+          id, number: figureCount, src: `asset:${id}`,
+          ...(picture.caption ? { caption: picture.caption.slice(0, 600) } : {}),
+          ...(picture.alt ? { alt: picture.alt.slice(0, 300) } : {}),
+          ...(size ? { width: size.width, height: size.height } : {}),
+          ...(size && largeSize(size) ? { large: true } : {}),
+        },
+      })
+    }
+    piece.blocks = kept
+  }
+  pieces = pieces.filter(piece => piece.blocks.length > 0)
   const chapters: UserBookChapter[] = pieces.map((piece, index) => {
     const titled = piece.title || piece.blocks.find(block => block.heading)?.text.replace(/(^|\s)_|_(\s|$)/g, '$1$2') || `Section ${index + 1}`
     const opened = chapterOpening(piece.blocks, titled)
@@ -770,7 +963,9 @@ export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { 
     if (blocks.some(block => block.kind)) chapter.kinds = blocks.map(block => block.kind ?? null)
     const links = blocks.flatMap((block, paragraph) => (block.links ?? []).map(([from, to, href]): [number, number, number, string] => [paragraph, from, to, href]))
     if (links.length) chapter.links = links
+    const figures = blocks.flatMap(block => block.meta ? [block.meta] : [])
+    if (figures.length) chapter.figures = figures
     return chapter
   })
-  return { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, language, chapters, droppedImages }
+  return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, language, chapters, droppedImages }, images }
 }

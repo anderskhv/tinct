@@ -2,9 +2,10 @@
 import { describe, expect, it } from 'vitest'
 import { crc32, deflateRawSync } from 'node:zlib'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book e2e tests
-import { makeEpub, zip } from '../../../../addbooks/web/test/make-epub.mjs'
+import { makeEpub, makeFigureEpub, zip } from '../../../../addbooks/web/test/make-epub.mjs'
 import { stripUnderscoreEmphasis } from '../emphasisText'
-import { epubToEdition, EpubError, joinSegments, USER_EDITION_CONVERTER, USER_EDITION_FORMAT } from './epubEdition'
+import { convertEpub, epubToEdition, EpubError, imageSize, joinSegments, USER_EDITION_CONVERTER, USER_EDITION_FORMAT } from './epubEdition'
+import { figureToken } from '../labFigures'
 
 const CONTAINER = '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'
 const xhtml = (body: string) => `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>x</title></head><body>${body}</body></html>`
@@ -367,6 +368,48 @@ describe('a designed book, not a converted one', () => {
       ['index', '<h1>Index</h1><p>Lamps, <a href="one.xhtml#page_7">7</a>, <a href="one.xhtml#page_9">9</a></p><p>Note<a href="one.xhtml#fn1">1</a></p>'],
     ], [['one.xhtml', 'One'], ['index.xhtml', 'Index']]))
     expect(edition.chapters[1].paragraphs).toEqual(['Lamps, 7, 9', 'Note'])
+  })
+})
+
+describe('figures', () => {
+  it('keeps every picture at its place as a figure, with its caption; leaves out the cover and decoration', async () => {
+    const { edition, images } = await convertEpub(makeFigureEpub())
+    // No Cover chapter: the cover picture is the book's cover, not a chapter or a figure.
+    expect(edition.chapters.map(chapter => chapter.title)).toEqual(['The Workshop', 'The Ledger', 'The Shape of a Flame'])
+    const [one, two, three] = edition.chapters
+    expect(one.figures?.map(figure => [figure.id, figure.number, figure.caption, figure.width, figure.height, figure.large ?? false])).toEqual([
+      ['f1', 1, 'The workbench, with lamps in every stage of making.', 800, 500, false],
+      ['f2', 2, undefined, 400, 300, false],
+    ])
+    // A figure is a paragraph of one word at its place; a picture inside a sentence stands after its paragraph.
+    const at = (chapter: typeof one, id: string) => chapter.paragraphs.indexOf(figureToken(id))
+    expect(one.paragraphs[at(one, 'f1') - 1]).toMatch(/^Paragraph 2\./)
+    expect(one.paragraphs[at(one, 'f2') - 1]).toMatch(/^A small mark sat on every label, and the lamps were sorted by size/)
+    expect(one.paragraphs.join(' ')).not.toMatch(/ornament|icon/)
+    expect(two.figures?.map(figure => [figure.number, figure.caption, figure.large ?? false])).toEqual([
+      [3, 'A lamp-post on the quay, drawn to scale.', false],
+      // 1800 x 1000: a detailed plate, always a strip. Its "Plate I." caption is its own paragraph no more.
+      [4, 'Plate I. A map of the harbour and every lamp on it.', true],
+    ])
+    expect(two.paragraphs.some(text => /^Plate I\./.test(text))).toBe(false)
+    expect(three.figures?.map(figure => [figure.number, figure.caption, figure.width, figure.height])).toEqual([[5, 'The shape of a flame, drawn from life.', 400, 300]])
+    // Pictures stay on the device, beside the book: one image per figure, never the cover.
+    expect([...images.keys()]).toEqual(['f1', 'f2', 'f3', 'f4', 'f5'])
+    expect(images.get('f1')?.type).toBe('image/png')
+    expect(images.get('f5')?.type).toBe('image/svg+xml')
+    expect(edition.chapters.flatMap(chapter => chapter.figures ?? []).every(figure => figure.src === `asset:${figure.id}`)).toBe(true)
+    expect(edition.droppedImages).toBe(3)
+    // The edition itself is plain JSON (the pictures travel separately).
+    expect(JSON.parse(JSON.stringify(edition))).toEqual(edition)
+  })
+
+  it('reads picture sizes from their headers', () => {
+    const png = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 3, 32, 0, 0, 1, 244])
+    expect(imageSize(png, 'image/png')).toEqual({ width: 800, height: 500 })
+    const gif = new Uint8Array([0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x2c, 0x01, 0xc8, 0x00])
+    expect(imageSize(gif, 'image/gif')).toEqual({ width: 300, height: 200 })
+    expect(imageSize(new TextEncoder().encode('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"></svg>'), 'image/svg+xml')).toEqual({ width: 640, height: 480 })
+    expect(imageSize(new Uint8Array([1, 2, 3]), 'image/png')).toBeNull()
   })
 })
 
