@@ -1,0 +1,8218 @@
+{
+ "package": "app/public/data/characters/henry-iv-part-2.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "5488605e212b451b6693e21690babd7690cb5f295a62ffac479519cb394cd203",
+ "candidateSha256": "d183d462a261483ab01b3f575bd700ea53cd3ff6ecab7bff3d2d4b7e1d421fc1",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 1547,
+ "unchanged": 981,
+ "moved": 469,
+ "needsRuling": 97,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "lord-bardolph",
+   "chapter": 1,
+   "paragraph": 0,
+   "oldStartOffset": 12,
+   "oldEndOffset": 20,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 11,
+    "endOffset": 19,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 1,
+   "paragraph": 7,
+   "oldStartOffset": 7,
+   "oldEndOffset": 21,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 20,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 132,
+   "oldEndOffset": 137,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 92,
+    "endOffset": 97,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "douglas",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 199,
+   "oldEndOffset": 206,
+   "oldText": "Douglas",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 190,
+    "endOffset": 197,
+    "text": "Douglas",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 221,
+   "oldEndOffset": 232,
+   "oldText": "Prince John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 205,
+    "endOffset": 216,
+    "text": "Prince John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 234,
+   "oldEndOffset": 246,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 218,
+    "endOffset": 230,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 286,
+   "oldEndOffset": 291,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 268,
+    "endOffset": 273,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 331,
+   "oldEndOffset": 335,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 299,
+    "endOffset": 303,
+    "text": "John",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "caesar",
+   "chapter": 1,
+   "paragraph": 13,
+   "oldStartOffset": 458,
+   "oldEndOffset": 464,
+   "oldText": "Caesar",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 437,
+    "endOffset": 443,
+    "text": "Caesar",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "travers",
+   "chapter": 1,
+   "paragraph": 17,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Travers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Travers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 20,
+   "oldStartOffset": 361,
+   "oldEndOffset": 366,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 398,
+    "endOffset": 403,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 20,
+   "oldStartOffset": 367,
+   "oldEndOffset": 372,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 404,
+    "endOffset": 409,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 21,
+   "oldStartOffset": 53,
+   "oldEndOffset": 58,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 51,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 21,
+   "oldStartOffset": 59,
+   "oldEndOffset": 64,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 52,
+    "endOffset": 57,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 21,
+   "oldStartOffset": 87,
+   "oldEndOffset": 94,
+   "oldText": "Hotspur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 82,
+    "text": "Hotspur",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 21,
+   "oldStartOffset": 102,
+   "oldEndOffset": 110,
+   "oldText": "Coldspur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 92,
+    "text": "Coldspur",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "travers",
+   "chapter": 1,
+   "paragraph": 23,
+   "oldStartOffset": 61,
+   "oldEndOffset": 68,
+   "oldText": "Travers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 59,
+    "endOffset": 66,
+    "text": "Travers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "morton",
+   "chapter": 1,
+   "paragraph": 25,
+   "oldStartOffset": 7,
+   "oldEndOffset": 13,
+   "oldText": "Morton",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 12,
+    "text": "Morton",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "morton",
+   "chapter": 1,
+   "paragraph": 26,
+   "oldStartOffset": 191,
+   "oldEndOffset": 197,
+   "oldText": "Morton",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 194,
+    "endOffset": 200,
+    "text": "Morton",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "priam",
+   "chapter": 1,
+   "paragraph": 28,
+   "oldStartOffset": 234,
+   "oldEndOffset": 239,
+   "oldText": "Priam",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 255,
+    "endOffset": 260,
+    "text": "Priam",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "priam",
+   "chapter": 1,
+   "paragraph": 28,
+   "oldStartOffset": 326,
+   "oldEndOffset": 331,
+   "oldText": "Priam",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 333,
+    "endOffset": 338,
+    "text": "Priam",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 28,
+   "oldStartOffset": 381,
+   "oldEndOffset": 386,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 395,
+    "endOffset": 400,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "douglas",
+   "chapter": 1,
+   "paragraph": 28,
+   "oldStartOffset": 513,
+   "oldEndOffset": 520,
+   "oldText": "Douglas",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 523,
+    "endOffset": 530,
+    "text": "Douglas",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "morton",
+   "chapter": 1,
+   "paragraph": 30,
+   "oldStartOffset": 217,
+   "oldEndOffset": 223,
+   "oldText": "Morton",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 221,
+    "endOffset": 227,
+    "text": "Morton",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 32,
+   "oldStartOffset": 49,
+   "oldEndOffset": 54,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 41,
+    "endOffset": 46,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 1,
+   "paragraph": 34,
+   "oldStartOffset": 185,
+   "oldEndOffset": 190,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 168,
+    "endOffset": 173,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 34,
+   "oldStartOffset": 246,
+   "oldEndOffset": 251,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 229,
+    "endOffset": 234,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 1,
+   "paragraph": 34,
+   "oldStartOffset": 735,
+   "oldEndOffset": 742,
+   "oldText": "Hotspur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 716,
+    "endOffset": 723,
+    "text": "Hotspur",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "douglas",
+   "chapter": 1,
+   "paragraph": 34,
+   "oldStartOffset": 999,
+   "oldEndOffset": 1006,
+   "oldText": "Douglas",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 977,
+    "endOffset": 984,
+    "text": "Douglas",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 1,
+   "paragraph": 34,
+   "oldStartOffset": 1357,
+   "oldEndOffset": 1369,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1345,
+    "endOffset": 1357,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 1,
+   "paragraph": 35,
+   "oldStartOffset": 761,
+   "oldEndOffset": 775,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 795,
+    "endOffset": 809,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cain",
+   "chapter": 1,
+   "paragraph": 35,
+   "oldStartOffset": 980,
+   "oldEndOffset": 984,
+   "oldText": "Cain",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1013,
+    "endOffset": 1017,
+    "text": "Cain",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 1,
+   "paragraph": 39,
+   "oldStartOffset": 812,
+   "oldEndOffset": 819,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 832,
+    "endOffset": 839,
+    "text": "Richard",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "dommelton",
+   "chapter": 2,
+   "paragraph": 3,
+   "oldStartOffset": 1272,
+   "oldEndOffset": 1281,
+   "oldText": "Dommelton",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1283,
+    "endOffset": 1292,
+    "text": "Dommelton",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 2,
+   "paragraph": 4,
+   "oldStartOffset": 61,
+   "oldEndOffset": 69,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 73,
+    "text": "Bardolph",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "achitophel",
+   "chapter": 2,
+   "paragraph": 5,
+   "oldStartOffset": 102,
+   "oldEndOffset": 112,
+   "oldText": "Achitophel",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 115,
+    "text": "Achitophel",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 2,
+   "paragraph": 5,
+   "oldStartOffset": 770,
+   "oldEndOffset": 778,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 759,
+    "endOffset": 767,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 2,
+   "paragraph": 9,
+   "oldStartOffset": 82,
+   "oldEndOffset": 90,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 87,
+    "endOffset": 95,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "galen",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 120,
+   "oldEndOffset": 125,
+   "oldText": "Galen",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 122,
+    "endOffset": 127,
+    "text": "Galen",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 2,
+   "paragraph": 59,
+   "oldStartOffset": 421,
+   "oldEndOffset": 425,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 415,
+    "endOffset": 419,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 2,
+   "paragraph": 63,
+   "oldStartOffset": 91,
+   "oldEndOffset": 113,
+   "oldText": "Lord John of Lancaster",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 92,
+    "endOffset": 114,
+    "text": "Lord John of Lancaster",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 2,
+   "paragraph": 63,
+   "oldStartOffset": 153,
+   "oldEndOffset": 167,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 154,
+    "endOffset": 168,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 2,
+   "paragraph": 67,
+   "oldStartOffset": 121,
+   "oldEndOffset": 133,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 145,
+    "endOffset": 157,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 2,
+   "paragraph": 73,
+   "oldStartOffset": 224,
+   "oldEndOffset": 236,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 239,
+    "endOffset": 251,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lords",
+   "chapter": 3,
+   "paragraph": 0,
+   "oldStartOffset": 27,
+   "oldEndOffset": 32,
+   "oldText": "Lords",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 26,
+    "endOffset": 31,
+    "text": "Lords",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 3,
+   "paragraph": 0,
+   "oldStartOffset": 33,
+   "oldEndOffset": 41,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 3,
+   "paragraph": 0,
+   "oldStartOffset": 43,
+   "oldEndOffset": 50,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 49,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lord-bardolph",
+   "chapter": 3,
+   "paragraph": 0,
+   "oldStartOffset": 55,
+   "oldEndOffset": 63,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 54,
+    "endOffset": 62,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 3,
+   "paragraph": 3,
+   "oldStartOffset": 151,
+   "oldEndOffset": 165,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 133,
+    "endOffset": 147,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 3,
+   "paragraph": 4,
+   "oldStartOffset": 39,
+   "oldEndOffset": 47,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 56,
+    "endOffset": 64,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 3,
+   "paragraph": 4,
+   "oldStartOffset": 135,
+   "oldEndOffset": 149,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 131,
+    "endOffset": 145,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 3,
+   "paragraph": 7,
+   "oldStartOffset": 72,
+   "oldEndOffset": 79,
+   "oldText": "Hotspur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 73,
+    "endOffset": 80,
+    "text": "Hotspur",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lord-bardolph",
+   "chapter": 3,
+   "paragraph": 13,
+   "oldStartOffset": 74,
+   "oldEndOffset": 82,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 68,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "glendower",
+   "chapter": 3,
+   "paragraph": 13,
+   "oldStartOffset": 198,
+   "oldEndOffset": 207,
+   "oldText": "Glendower",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 170,
+    "endOffset": 179,
+    "text": "Glendower",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 3,
+   "paragraph": 17,
+   "oldStartOffset": 81,
+   "oldEndOffset": 86,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 90,
+    "endOffset": 95,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 3,
+   "paragraph": 18,
+   "oldStartOffset": 555,
+   "oldEndOffset": 562,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 563,
+    "endOffset": 570,
+    "text": "Richard",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 3,
+   "paragraph": 18,
+   "oldStartOffset": 688,
+   "oldEndOffset": 695,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 739,
+    "endOffset": 746,
+    "text": "Richard",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 4,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Hostess",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Hostess",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "officers",
+   "chapter": 4,
+   "paragraph": 0,
+   "oldStartOffset": 24,
+   "oldEndOffset": 32,
+   "oldText": "Officers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 31,
+    "text": "Officers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "fang",
+   "chapter": 4,
+   "paragraph": 0,
+   "oldStartOffset": 34,
+   "oldEndOffset": 38,
+   "oldText": "Fang",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 37,
+    "text": "Fang",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "snare",
+   "chapter": 4,
+   "paragraph": 0,
+   "oldStartOffset": 43,
+   "oldEndOffset": 48,
+   "oldText": "Snare",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 47,
+    "text": "Snare",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "snare",
+   "chapter": 4,
+   "paragraph": 4,
+   "oldStartOffset": 27,
+   "oldEndOffset": 32,
+   "oldText": "Snare",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 24,
+    "text": "Snare",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "fang",
+   "chapter": 4,
+   "paragraph": 14,
+   "oldStartOffset": 106,
+   "oldEndOffset": 110,
+   "oldText": "Fang",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 102,
+    "endOffset": 106,
+    "text": "Fang",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "snare",
+   "chapter": 4,
+   "paragraph": 14,
+   "oldStartOffset": 140,
+   "oldEndOffset": 145,
+   "oldText": "Snare",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 136,
+    "endOffset": 141,
+    "text": "Snare",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "smooth",
+   "chapter": 4,
+   "paragraph": 14,
+   "oldStartOffset": 314,
+   "oldEndOffset": 320,
+   "oldText": "Smooth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 329,
+    "endOffset": 335,
+    "text": "Smooth",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 4,
+   "paragraph": 14,
+   "oldStartOffset": 877,
+   "oldEndOffset": 885,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 898,
+    "endOffset": 906,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "fang",
+   "chapter": 4,
+   "paragraph": 14,
+   "oldStartOffset": 931,
+   "oldEndOffset": 935,
+   "oldText": "Fang",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 955,
+    "endOffset": 959,
+    "text": "Fang",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "snare",
+   "chapter": 4,
+   "paragraph": 14,
+   "oldStartOffset": 947,
+   "oldEndOffset": 952,
+   "oldText": "Snare",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 971,
+    "endOffset": 976,
+    "text": "Snare",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 4,
+   "paragraph": 15,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 4,
+   "paragraph": 15,
+   "oldStartOffset": 17,
+   "oldEndOffset": 25,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 24,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 4,
+   "paragraph": 18,
+   "oldStartOffset": 35,
+   "oldEndOffset": 43,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 53,
+    "endOffset": 61,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 4,
+   "paragraph": 27,
+   "oldStartOffset": 29,
+   "oldEndOffset": 33,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 37,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 4,
+   "paragraph": 32,
+   "oldStartOffset": 45,
+   "oldEndOffset": 49,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 48,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "keech",
+   "chapter": 4,
+   "paragraph": 34,
+   "oldStartOffset": 435,
+   "oldEndOffset": 440,
+   "oldText": "Keech",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 431,
+    "endOffset": 436,
+    "text": "Keech",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 4,
+   "paragraph": 34,
+   "oldStartOffset": 496,
+   "oldEndOffset": 503,
+   "oldText": "Quickly",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 497,
+    "endOffset": 504,
+    "text": "Quickly",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "gower",
+   "chapter": 4,
+   "paragraph": 42,
+   "oldStartOffset": 7,
+   "oldEndOffset": 12,
+   "oldText": "Gower",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 11,
+    "text": "Gower",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 4,
+   "paragraph": 53,
+   "oldStartOffset": 25,
+   "oldEndOffset": 33,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 44,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 4,
+   "paragraph": 56,
+   "oldStartOffset": 8,
+   "oldEndOffset": 15,
+   "oldText": "Hostess",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 16,
+    "text": "Hostess",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "fang",
+   "chapter": 4,
+   "paragraph": 56,
+   "oldStartOffset": 17,
+   "oldEndOffset": 21,
+   "oldText": "Fang",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 22,
+    "text": "Fang",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "snare",
+   "chapter": 4,
+   "paragraph": 56,
+   "oldStartOffset": 23,
+   "oldEndOffset": 28,
+   "oldText": "Snare",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 24,
+    "endOffset": 29,
+    "text": "Snare",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 4,
+   "paragraph": 56,
+   "oldStartOffset": 30,
+   "oldEndOffset": 38,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 31,
+    "endOffset": 39,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 4,
+   "paragraph": 63,
+   "oldStartOffset": 101,
+   "oldEndOffset": 115,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 115,
+    "endOffset": 129,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "gower",
+   "chapter": 4,
+   "paragraph": 65,
+   "oldStartOffset": 91,
+   "oldEndOffset": 96,
+   "oldText": "Gower",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 89,
+    "text": "Gower",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 4,
+   "paragraph": 69,
+   "oldStartOffset": 63,
+   "oldEndOffset": 67,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 64,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "gower",
+   "chapter": 4,
+   "paragraph": 71,
+   "oldStartOffset": 39,
+   "oldEndOffset": 44,
+   "oldText": "Gower",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 52,
+    "text": "Gower",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 5,
+   "paragraph": 0,
+   "oldStartOffset": 24,
+   "oldEndOffset": 29,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 28,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 1,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 3,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 5,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 7,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 5,
+   "paragraph": 7,
+   "oldStartOffset": 42,
+   "oldEndOffset": 47,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 41,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 9,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 11,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 13,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 13,
+   "oldStartOffset": 80,
+   "oldEndOffset": 88,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 83,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 15,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 17,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 18,
+   "oldStartOffset": 70,
+   "oldEndOffset": 78,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 60,
+    "endOffset": 68,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 19,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 5,
+   "paragraph": 20,
+   "oldStartOffset": 249,
+   "oldEndOffset": 257,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 226,
+    "endOffset": 234,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 5,
+   "paragraph": 21,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 22,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 22,
+   "oldStartOffset": 41,
+   "oldEndOffset": 49,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 35,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 24,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 5,
+   "paragraph": 24,
+   "oldStartOffset": 36,
+   "oldEndOffset": 44,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 30,
+    "endOffset": 38,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 27,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "althaea",
+   "chapter": 5,
+   "paragraph": 29,
+   "oldStartOffset": 33,
+   "oldEndOffset": 40,
+   "oldText": "Althaea",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 36,
+    "text": "Althaea",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 30,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "althaea",
+   "chapter": 5,
+   "paragraph": 31,
+   "oldStartOffset": 24,
+   "oldEndOffset": 31,
+   "oldText": "Althaea",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 20,
+    "endOffset": 27,
+    "text": "Althaea",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 32,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 35,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 5,
+   "paragraph": 35,
+   "oldStartOffset": 38,
+   "oldEndOffset": 46,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 40,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 42,
+   "oldStartOffset": 10,
+   "oldEndOffset": 14,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 12,
+    "endOffset": 16,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 42,
+   "oldStartOffset": 15,
+   "oldEndOffset": 23,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 25,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 44,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "japhet",
+   "chapter": 5,
+   "paragraph": 44,
+   "oldStartOffset": 65,
+   "oldEndOffset": 71,
+   "oldText": "Japhet",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 73,
+    "endOffset": 79,
+    "text": "Japhet",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 44,
+   "oldStartOffset": 97,
+   "oldEndOffset": 101,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 109,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 44,
+   "oldStartOffset": 102,
+   "oldEndOffset": 110,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 110,
+    "endOffset": 118,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 44,
+   "oldStartOffset": 167,
+   "oldEndOffset": 172,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 172,
+    "endOffset": 177,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 46,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 48,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 5,
+   "paragraph": 48,
+   "oldStartOffset": 95,
+   "oldEndOffset": 100,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 93,
+    "endOffset": 98,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 48,
+   "oldStartOffset": 305,
+   "oldEndOffset": 318,
+   "oldText": "Jack Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 323,
+    "endOffset": 336,
+    "text": "Jack Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 48,
+   "oldStartOffset": 342,
+   "oldEndOffset": 346,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 356,
+    "endOffset": 360,
+    "text": "John",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 48,
+   "oldStartOffset": 385,
+   "oldEndOffset": 389,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 399,
+    "endOffset": 403,
+    "text": "John",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 50,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 52,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 54,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 56,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 58,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 5,
+   "paragraph": 59,
+   "oldStartOffset": 38,
+   "oldEndOffset": 45,
+   "oldText": "Quickly",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 41,
+    "endOffset": 48,
+    "text": "Quickly",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 5,
+   "paragraph": 59,
+   "oldStartOffset": 59,
+   "oldEndOffset": 73,
+   "oldText": "Doll Tearsheet",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 76,
+    "text": "Doll Tearsheet",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 60,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 62,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 64,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 5,
+   "paragraph": 64,
+   "oldStartOffset": 36,
+   "oldEndOffset": 44,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 22,
+    "endOffset": 30,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 67,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 5,
+   "paragraph": 68,
+   "oldStartOffset": 8,
+   "oldEndOffset": 16,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 17,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 71,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 5,
+   "paragraph": 71,
+   "oldStartOffset": 31,
+   "oldEndOffset": 39,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 33,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 5,
+   "paragraph": 73,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "jove",
+   "chapter": 5,
+   "paragraph": 73,
+   "oldStartOffset": 62,
+   "oldEndOffset": 66,
+   "oldText": "Jove",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 53,
+    "endOffset": 57,
+    "text": "Jove",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 6,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 21,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 20,
+    "text": "Northumberland",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 6,
+   "paragraph": 0,
+   "oldStartOffset": 28,
+   "oldEndOffset": 42,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 41,
+    "text": "Northumberland",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 0,
+   "oldStartOffset": 52,
+   "oldEndOffset": 57,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 51,
+    "endOffset": 56,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 1,
+   "oldStartOffset": 160,
+   "oldEndOffset": 165,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 148,
+    "endOffset": 153,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 164,
+   "oldEndOffset": 169,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 163,
+    "endOffset": 168,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 192,
+   "oldEndOffset": 197,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 186,
+    "endOffset": 191,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 1240,
+   "oldEndOffset": 1247,
+   "oldText": "Hotspur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1209,
+    "endOffset": 1216,
+    "text": "Hotspur",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 1477,
+   "oldEndOffset": 1482,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1462,
+    "endOffset": 1467,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 6,
+   "paragraph": 4,
+   "oldStartOffset": 1541,
+   "oldEndOffset": 1548,
+   "oldText": "Hotspur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1529,
+    "endOffset": 1536,
+    "text": "Hotspur",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "drawers",
+   "chapter": 7,
+   "paragraph": 0,
+   "oldStartOffset": 11,
+   "oldEndOffset": 18,
+   "oldText": "Drawers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 10,
+    "endOffset": 17,
+    "text": "Drawers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 1,
+   "oldStartOffset": 79,
+   "oldEndOffset": 83,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 84,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 2,
+   "oldStartOffset": 133,
+   "oldEndOffset": 138,
+   "oldText": "Johns",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 138,
+    "endOffset": 143,
+    "text": "Johns",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 4,
+   "oldStartOffset": 131,
+   "oldEndOffset": 135,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 124,
+    "endOffset": 128,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 4,
+   "oldStartOffset": 159,
+   "oldEndOffset": 167,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 152,
+    "endOffset": 160,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 7,
+   "paragraph": 8,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Hostess",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Hostess",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 8,
+   "oldStartOffset": 19,
+   "oldEndOffset": 33,
+   "oldText": "Doll Tearsheet",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 32,
+    "text": "Doll Tearsheet",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 11,
+   "oldStartOffset": 80,
+   "oldEndOffset": 84,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 88,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 12,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "arthur",
+   "chapter": 7,
+   "paragraph": 14,
+   "oldStartOffset": 17,
+   "oldEndOffset": 23,
+   "oldText": "Arthur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 25,
+    "text": "Arthur",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 16,
+   "oldStartOffset": 18,
+   "oldEndOffset": 22,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 23,
+    "text": "Doll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 22,
+   "oldStartOffset": 81,
+   "oldEndOffset": 85,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 79,
+    "text": "Doll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 22,
+   "oldStartOffset": 111,
+   "oldEndOffset": 115,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 109,
+    "text": "Doll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 35,
+   "oldStartOffset": 26,
+   "oldEndOffset": 30,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 27,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "tisick",
+   "chapter": 7,
+   "paragraph": 35,
+   "oldStartOffset": 118,
+   "oldEndOffset": 124,
+   "oldText": "Tisick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 127,
+    "endOffset": 133,
+    "text": "Tisick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 7,
+   "paragraph": 35,
+   "oldStartOffset": 326,
+   "oldEndOffset": 333,
+   "oldText": "Quickly",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 319,
+    "endOffset": 326,
+    "text": "Quickly",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 7,
+   "paragraph": 41,
+   "oldStartOffset": 7,
+   "oldEndOffset": 13,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 12,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 41,
+   "oldStartOffset": 15,
+   "oldEndOffset": 23,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 14,
+    "endOffset": 22,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 44,
+   "oldStartOffset": 39,
+   "oldEndOffset": 43,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 30,
+    "endOffset": 34,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 7,
+   "paragraph": 52,
+   "oldStartOffset": 96,
+   "oldEndOffset": 102,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 94,
+    "endOffset": 100,
+    "text": "Pistol",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 56,
+   "oldStartOffset": 38,
+   "oldEndOffset": 42,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 36,
+    "text": "Doll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 57,
+   "oldStartOffset": 41,
+   "oldEndOffset": 49,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 52,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pluto",
+   "chapter": 7,
+   "paragraph": 59,
+   "oldStartOffset": 37,
+   "oldEndOffset": 42,
+   "oldText": "Pluto",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 43,
+    "endOffset": 48,
+    "text": "Pluto",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "erebus",
+   "chapter": 7,
+   "paragraph": 59,
+   "oldStartOffset": 99,
+   "oldEndOffset": 105,
+   "oldText": "Erebus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 111,
+    "text": "Erebus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hiren",
+   "chapter": 7,
+   "paragraph": 59,
+   "oldStartOffset": 203,
+   "oldEndOffset": 208,
+   "oldText": "Hiren",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 208,
+    "endOffset": 213,
+    "text": "Hiren",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "caesar",
+   "chapter": 7,
+   "paragraph": 61,
+   "oldStartOffset": 143,
+   "oldEndOffset": 150,
+   "oldText": "Caesars",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 148,
+    "endOffset": 155,
+    "text": "Caesars",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cerberus",
+   "chapter": 7,
+   "paragraph": 61,
+   "oldStartOffset": 221,
+   "oldEndOffset": 229,
+   "oldText": "Cerberus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 225,
+    "endOffset": 233,
+    "text": "Cerberus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hiren",
+   "chapter": 7,
+   "paragraph": 64,
+   "oldStartOffset": 62,
+   "oldEndOffset": 67,
+   "oldText": "Hiren",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 80,
+    "text": "Hiren",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "atropos",
+   "chapter": 7,
+   "paragraph": 77,
+   "oldStartOffset": 132,
+   "oldEndOffset": 139,
+   "oldText": "Atropos",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 150,
+    "endOffset": 157,
+    "text": "Atropos",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 7,
+   "paragraph": 82,
+   "oldStartOffset": 22,
+   "oldEndOffset": 28,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 29,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 84,
+   "oldStartOffset": 8,
+   "oldEndOffset": 16,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 17,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 7,
+   "paragraph": 84,
+   "oldStartOffset": 21,
+   "oldEndOffset": 27,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 22,
+    "endOffset": 28,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 87,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hector",
+   "chapter": 7,
+   "paragraph": 91,
+   "oldStartOffset": 183,
+   "oldEndOffset": 189,
+   "oldText": "Hector",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 201,
+    "endOffset": 207,
+    "text": "Hector",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "agamemnon",
+   "chapter": 7,
+   "paragraph": 91,
+   "oldStartOffset": 213,
+   "oldEndOffset": 222,
+   "oldText": "Agamemnon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 228,
+    "endOffset": 237,
+    "text": "Agamemnon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 96,
+   "oldStartOffset": 53,
+   "oldEndOffset": 57,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 58,
+    "endOffset": 62,
+    "text": "Doll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 7,
+   "paragraph": 98,
+   "oldStartOffset": 33,
+   "oldEndOffset": 38,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 37,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 99,
+   "oldStartOffset": 22,
+   "oldEndOffset": 26,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 21,
+    "endOffset": 25,
+    "text": "Doll",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 106,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 108,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 111,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "saturn",
+   "chapter": 7,
+   "paragraph": 111,
+   "oldStartOffset": 14,
+   "oldEndOffset": 20,
+   "oldText": "Saturn",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 8,
+    "endOffset": 14,
+    "text": "Saturn",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "venus",
+   "chapter": 7,
+   "paragraph": 111,
+   "oldStartOffset": 25,
+   "oldEndOffset": 30,
+   "oldText": "Venus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 24,
+    "text": "Venus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 120,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 7,
+   "paragraph": 120,
+   "oldStartOffset": 15,
+   "oldEndOffset": 20,
+   "oldText": "POINS",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 14,
+    "text": "POINS",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 123,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 125,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "jesus",
+   "chapter": 7,
+   "paragraph": 126,
+   "oldStartOffset": 124,
+   "oldEndOffset": 129,
+   "oldText": "Jesus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 117,
+    "endOffset": 122,
+    "text": "Jesus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 130,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 133,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 135,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 137,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 141,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 141,
+   "oldStartOffset": 226,
+   "oldEndOffset": 234,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 236,
+    "endOffset": 244,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 143,
+   "oldStartOffset": 37,
+   "oldEndOffset": 45,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 31,
+    "endOffset": 39,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lucifer",
+   "chapter": 7,
+   "paragraph": 143,
+   "oldStartOffset": 80,
+   "oldEndOffset": 87,
+   "oldText": "Lucifer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 86,
+    "endOffset": 93,
+    "text": "Lucifer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 144,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 149,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 155,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 156,
+   "oldStartOffset": 249,
+   "oldEndOffset": 253,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 242,
+    "endOffset": 246,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 156,
+   "oldStartOffset": 254,
+   "oldEndOffset": 262,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 247,
+    "endOffset": 255,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 7,
+   "paragraph": 157,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 7,
+   "paragraph": 157,
+   "oldStartOffset": 25,
+   "oldEndOffset": 30,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 24,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 7,
+   "paragraph": 158,
+   "oldStartOffset": 22,
+   "oldEndOffset": 27,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 22,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 158,
+   "oldStartOffset": 38,
+   "oldEndOffset": 46,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 41,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 161,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 7,
+   "paragraph": 169,
+   "oldStartOffset": 8,
+   "oldEndOffset": 16,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 17,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 7,
+   "paragraph": 169,
+   "oldStartOffset": 21,
+   "oldEndOffset": 29,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 22,
+    "endOffset": 30,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 7,
+   "paragraph": 176,
+   "oldStartOffset": 93,
+   "oldEndOffset": 97,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 101,
+    "endOffset": 105,
+    "text": "Doll",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 1,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 8,
+   "paragraph": 1,
+   "oldStartOffset": 45,
+   "oldEndOffset": 52,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 49,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 8,
+   "paragraph": 4,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "surrey",
+   "chapter": 8,
+   "paragraph": 4,
+   "oldStartOffset": 19,
+   "oldEndOffset": 25,
+   "oldText": "Surrey",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 24,
+    "text": "Surrey",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 6,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 8,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 10,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 8,
+   "paragraph": 11,
+   "oldStartOffset": 136,
+   "oldEndOffset": 150,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 141,
+    "endOffset": 155,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 12,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "neptune",
+   "chapter": 8,
+   "paragraph": 12,
+   "oldStartOffset": 248,
+   "oldEndOffset": 255,
+   "oldText": "Neptune",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 242,
+    "endOffset": 249,
+    "text": "Neptune",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 8,
+   "paragraph": 12,
+   "oldStartOffset": 536,
+   "oldEndOffset": 543,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 543,
+    "endOffset": 550,
+    "text": "Richard",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 8,
+   "paragraph": 12,
+   "oldStartOffset": 548,
+   "oldEndOffset": 562,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 555,
+    "endOffset": 569,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hotspur",
+   "chapter": 8,
+   "paragraph": 12,
+   "oldStartOffset": 675,
+   "oldEndOffset": 680,
+   "oldText": "Percy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 681,
+    "endOffset": 686,
+    "text": "Percy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 8,
+   "paragraph": 12,
+   "oldStartOffset": 830,
+   "oldEndOffset": 837,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 836,
+    "endOffset": 843,
+    "text": "Richard",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 8,
+   "paragraph": 13,
+   "oldStartOffset": 4,
+   "oldEndOffset": 11,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5,
+    "endOffset": 12,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 8,
+   "paragraph": 13,
+   "oldStartOffset": 26,
+   "oldEndOffset": 31,
+   "oldText": "Nevil",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 33,
+    "text": "Nevil",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 8,
+   "paragraph": 14,
+   "oldStartOffset": 71,
+   "oldEndOffset": 85,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 68,
+    "endOffset": 82,
+    "text": "Northumberland",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 8,
+   "paragraph": 14,
+   "oldStartOffset": 130,
+   "oldEndOffset": 144,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 127,
+    "endOffset": 141,
+    "text": "Northumberland",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 8,
+   "paragraph": 15,
+   "oldStartOffset": 342,
+   "oldEndOffset": 349,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 320,
+    "endOffset": 327,
+    "text": "Richard",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 8,
+   "paragraph": 15,
+   "oldStartOffset": 393,
+   "oldEndOffset": 407,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 371,
+    "endOffset": 385,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 16,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 8,
+   "paragraph": 16,
+   "oldStartOffset": 154,
+   "oldEndOffset": 168,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 149,
+    "endOffset": 163,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "rumour",
+   "chapter": 8,
+   "paragraph": 17,
+   "oldStartOffset": 32,
+   "oldEndOffset": 37,
+   "oldText": "Rumor",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "glendower",
+   "chapter": 8,
+   "paragraph": 17,
+   "oldStartOffset": 301,
+   "oldEndOffset": 310,
+   "oldText": "Glendower",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 286,
+    "endOffset": 295,
+    "text": "Glendower",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 8,
+   "paragraph": 18,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 19,
+   "oldEndOffset": 26,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 25,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 37,
+   "oldEndOffset": 43,
+   "oldText": "Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 42,
+    "text": "Mouldy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shadow",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 45,
+   "oldEndOffset": 51,
+   "oldText": "Shadow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 50,
+    "text": "Shadow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "wart",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 53,
+   "oldEndOffset": 57,
+   "oldText": "Wart",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 52,
+    "endOffset": 56,
+    "text": "Wart",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 59,
+   "oldEndOffset": 65,
+   "oldText": "Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 58,
+    "endOffset": 64,
+    "text": "Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bullcalf",
+   "chapter": 9,
+   "paragraph": 0,
+   "oldStartOffset": 67,
+   "oldEndOffset": 75,
+   "oldText": "Bullcalf",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 66,
+    "endOffset": 74,
+    "text": "Bullcalf",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 9,
+   "paragraph": 1,
+   "oldStartOffset": 144,
+   "oldEndOffset": 151,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 135,
+    "endOffset": 142,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 2,
+   "oldStartOffset": 34,
+   "oldEndOffset": 41,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 35,
+    "endOffset": 42,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ellen",
+   "chapter": 9,
+   "paragraph": 3,
+   "oldStartOffset": 101,
+   "oldEndOffset": 106,
+   "oldText": "Ellen",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 98,
+    "endOffset": 103,
+    "text": "Ellen",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 4,
+   "oldStartOffset": 41,
+   "oldEndOffset": 48,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 55,
+    "endOffset": 62,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "william-shallow",
+   "chapter": 9,
+   "paragraph": 5,
+   "oldStartOffset": 50,
+   "oldEndOffset": 57,
+   "oldText": "William",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 48,
+    "endOffset": 55,
+    "text": "William",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 7,
+   "oldStartOffset": 120,
+   "oldEndOffset": 127,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 127,
+    "endOffset": 134,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "john-doit",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 132,
+   "oldEndOffset": 141,
+   "oldText": "John Doit",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 122,
+    "endOffset": 131,
+    "text": "John Doit",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "george-barnes",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 170,
+   "oldEndOffset": 183,
+   "oldText": "George Barnes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 160,
+    "endOffset": 173,
+    "text": "George Barnes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "francis-pickbone",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 189,
+   "oldEndOffset": 205,
+   "oldText": "Francis Pickbone",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 179,
+    "endOffset": 195,
+    "text": "Francis Pickbone",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "will-squele",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 211,
+   "oldEndOffset": 222,
+   "oldText": "Will Squele",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 201,
+    "endOffset": 212,
+    "text": "Will Squele",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 428,
+   "oldEndOffset": 441,
+   "oldText": "Jack Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 421,
+    "endOffset": 434,
+    "text": "Jack Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 451,
+   "oldEndOffset": 455,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 444,
+    "endOffset": 448,
+    "text": "John",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "elder-mowbray",
+   "chapter": 9,
+   "paragraph": 9,
+   "oldStartOffset": 480,
+   "oldEndOffset": 511,
+   "oldText": "Thomas Mowbray, Duke of Norfolk",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 474,
+    "endOffset": 505,
+    "text": "Thomas Mowbray, Duke of Norfolk",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sampson-stockfish",
+   "chapter": 9,
+   "paragraph": 11,
+   "oldStartOffset": 173,
+   "oldEndOffset": 190,
+   "oldText": "Sampson Stockfish",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 189,
+    "endOffset": 206,
+    "text": "Sampson Stockfish",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jesus",
+   "chapter": 9,
+   "paragraph": 11,
+   "oldStartOffset": 224,
+   "oldEndOffset": 229,
+   "oldText": "Jesus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 240,
+    "endOffset": 245,
+    "text": "Jesus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "jesus",
+   "chapter": 9,
+   "paragraph": 11,
+   "oldStartOffset": 231,
+   "oldEndOffset": 236,
+   "oldText": "Jesus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 240,
+    "endOffset": 245,
+    "text": "Jesus",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "gaunt",
+   "chapter": 9,
+   "paragraph": 17,
+   "oldStartOffset": 81,
+   "oldEndOffset": 94,
+   "oldText": "John of Gaunt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 93,
+    "text": "John of Gaunt",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 9,
+   "paragraph": 21,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 23,
+   "oldStartOffset": 38,
+   "oldEndOffset": 45,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 49,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 25,
+   "oldStartOffset": 68,
+   "oldEndOffset": 72,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 66,
+    "endOffset": 70,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 25,
+   "oldStartOffset": 73,
+   "oldEndOffset": 81,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 71,
+    "endOffset": 79,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 31,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 33,
+   "oldStartOffset": 49,
+   "oldEndOffset": 63,
+   "oldText": "Robert Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 48,
+    "endOffset": 62,
+    "text": "Robert Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "surecard",
+   "chapter": 9,
+   "paragraph": 33,
+   "oldStartOffset": 72,
+   "oldEndOffset": 80,
+   "oldText": "Surecard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 71,
+    "endOffset": 79,
+    "text": "Surecard",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 9,
+   "paragraph": 34,
+   "oldStartOffset": 39,
+   "oldEndOffset": 46,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 45,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 40,
+   "oldStartOffset": 146,
+   "oldEndOffset": 158,
+   "oldText": "Ralph Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 143,
+    "endOffset": 155,
+    "text": "Ralph Mouldy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 40,
+   "oldStartOffset": 240,
+   "oldEndOffset": 246,
+   "oldText": "Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 248,
+    "endOffset": 254,
+    "text": "Mouldy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 46,
+   "oldStartOffset": 126,
+   "oldEndOffset": 130,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 119,
+    "endOffset": 123,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 49,
+   "oldStartOffset": 25,
+   "oldEndOffset": 31,
+   "oldText": "Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 26,
+    "endOffset": 32,
+    "text": "Mouldy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 49,
+   "oldStartOffset": 47,
+   "oldEndOffset": 53,
+   "oldText": "Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 45,
+    "endOffset": 51,
+    "text": "Mouldy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 51,
+   "oldStartOffset": 90,
+   "oldEndOffset": 94,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 94,
+    "endOffset": 98,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shadow",
+   "chapter": 9,
+   "paragraph": 51,
+   "oldStartOffset": 108,
+   "oldEndOffset": 120,
+   "oldText": "Simon Shadow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 112,
+    "endOffset": 124,
+    "text": "Simon Shadow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 66,
+   "oldStartOffset": 32,
+   "oldEndOffset": 36,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 40,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 68,
+   "oldStartOffset": 76,
+   "oldEndOffset": 90,
+   "oldText": "Francis Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 71,
+    "endOffset": 85,
+    "text": "Francis Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 70,
+   "oldStartOffset": 30,
+   "oldEndOffset": 36,
+   "oldText": "Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 35,
+    "text": "Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 75,
+   "oldStartOffset": 182,
+   "oldEndOffset": 189,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 188,
+    "endOffset": 195,
+    "text": "Shallow",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 75,
+   "oldStartOffset": 204,
+   "oldEndOffset": 211,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 210,
+    "endOffset": 217,
+    "text": "Shallow",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 77,
+   "oldStartOffset": 202,
+   "oldEndOffset": 208,
+   "oldText": "Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 210,
+    "endOffset": 216,
+    "text": "Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 79,
+   "oldStartOffset": 38,
+   "oldEndOffset": 44,
+   "oldText": "Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 45,
+    "text": "Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bullcalf",
+   "chapter": 9,
+   "paragraph": 81,
+   "oldStartOffset": 34,
+   "oldEndOffset": 42,
+   "oldText": "Bullcalf",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 40,
+    "text": "Bullcalf",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bullcalf",
+   "chapter": 9,
+   "paragraph": 83,
+   "oldStartOffset": 54,
+   "oldEndOffset": 62,
+   "oldText": "Bullcalf",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 55,
+    "text": "Bullcalf",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 91,
+   "oldStartOffset": 114,
+   "oldEndOffset": 121,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 113,
+    "endOffset": 120,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "saint-george",
+   "chapter": 9,
+   "paragraph": 92,
+   "oldStartOffset": 81,
+   "oldEndOffset": 93,
+   "oldText": "Saint George",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 92,
+    "text": "Saint George",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 97,
+   "oldStartOffset": 72,
+   "oldEndOffset": 79,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 65,
+    "endOffset": 72,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "robin-nightwork",
+   "chapter": 9,
+   "paragraph": 100,
+   "oldStartOffset": 85,
+   "oldEndOffset": 100,
+   "oldText": "Robin Nightwork",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 89,
+    "endOffset": 104,
+    "text": "Robin Nightwork",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 102,
+   "oldStartOffset": 87,
+   "oldEndOffset": 91,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 92,
+    "endOffset": 96,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 104,
+   "oldStartOffset": 65,
+   "oldEndOffset": 69,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 66,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "jesus",
+   "chapter": 9,
+   "paragraph": 104,
+   "oldStartOffset": 162,
+   "oldEndOffset": 167,
+   "oldText": "Jesus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 160,
+    "endOffset": 165,
+    "text": "Jesus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 105,
+   "oldStartOffset": 8,
+   "oldEndOffset": 16,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 17,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 105,
+   "oldStartOffset": 18,
+   "oldEndOffset": 25,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 26,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 9,
+   "paragraph": 105,
+   "oldStartOffset": 30,
+   "oldEndOffset": 37,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 31,
+    "endOffset": 38,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 9,
+   "paragraph": 113,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "justices",
+   "chapter": 9,
+   "paragraph": 113,
+   "oldStartOffset": 24,
+   "oldEndOffset": 32,
+   "oldText": "Justices",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 23,
+    "endOffset": 31,
+    "text": "Justices",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 120,
+   "oldStartOffset": 24,
+   "oldEndOffset": 30,
+   "oldText": "Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 20,
+    "endOffset": 26,
+    "text": "Mouldy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bullcalf",
+   "chapter": 9,
+   "paragraph": 120,
+   "oldStartOffset": 32,
+   "oldEndOffset": 40,
+   "oldText": "Bullcalf",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 36,
+    "text": "Bullcalf",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 120,
+   "oldStartOffset": 42,
+   "oldEndOffset": 48,
+   "oldText": "Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 44,
+    "text": "Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shadow",
+   "chapter": 9,
+   "paragraph": 120,
+   "oldStartOffset": 54,
+   "oldEndOffset": 60,
+   "oldText": "Shadow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 49,
+    "endOffset": 55,
+    "text": "Shadow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mouldy",
+   "chapter": 9,
+   "paragraph": 121,
+   "oldStartOffset": 43,
+   "oldEndOffset": 49,
+   "oldText": "Mouldy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 42,
+    "text": "Mouldy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "bullcalf",
+   "chapter": 9,
+   "paragraph": 121,
+   "oldStartOffset": 110,
+   "oldEndOffset": 118,
+   "oldText": "Bullcalf",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 93,
+    "endOffset": 101,
+    "text": "Bullcalf",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 123,
+   "oldStartOffset": 176,
+   "oldEndOffset": 183,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 181,
+    "endOffset": 188,
+    "text": "Shallow",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "wart",
+   "chapter": 9,
+   "paragraph": 123,
+   "oldStartOffset": 192,
+   "oldEndOffset": 196,
+   "oldText": "Wart",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 197,
+    "endOffset": 201,
+    "text": "Wart",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shadow",
+   "chapter": 9,
+   "paragraph": 123,
+   "oldStartOffset": 408,
+   "oldEndOffset": 414,
+   "oldText": "Shadow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 431,
+    "endOffset": 437,
+    "text": "Shadow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "feeble",
+   "chapter": 9,
+   "paragraph": 123,
+   "oldStartOffset": 564,
+   "oldEndOffset": 570,
+   "oldText": "Feeble",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 582,
+    "endOffset": 588,
+    "text": "Feeble",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "wart",
+   "chapter": 9,
+   "paragraph": 123,
+   "oldStartOffset": 676,
+   "oldEndOffset": 680,
+   "oldText": "Wart",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 695,
+    "endOffset": 699,
+    "text": "Wart",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 9,
+   "paragraph": 123,
+   "oldStartOffset": 689,
+   "oldEndOffset": 697,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 708,
+    "endOffset": 716,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "wart",
+   "chapter": 9,
+   "paragraph": 124,
+   "oldStartOffset": 16,
+   "oldEndOffset": 20,
+   "oldText": "Wart",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 23,
+    "text": "Wart",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "dagonet",
+   "chapter": 9,
+   "paragraph": 126,
+   "oldStartOffset": 138,
+   "oldEndOffset": 145,
+   "oldText": "Dagonet",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 132,
+    "endOffset": 139,
+    "text": "Dagonet",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "arthur",
+   "chapter": 9,
+   "paragraph": 126,
+   "oldStartOffset": 149,
+   "oldEndOffset": 155,
+   "oldText": "Arthur",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 143,
+    "endOffset": 149,
+    "text": "Arthur",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 9,
+   "paragraph": 127,
+   "oldStartOffset": 197,
+   "oldEndOffset": 205,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 192,
+    "endOffset": 200,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 9,
+   "paragraph": 129,
+   "oldStartOffset": 47,
+   "oldEndOffset": 54,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 43,
+    "endOffset": 50,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "justices",
+   "chapter": 9,
+   "paragraph": 131,
+   "oldStartOffset": 51,
+   "oldEndOffset": 59,
+   "oldText": "Justices",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 55,
+    "text": "Justices",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 9,
+   "paragraph": 131,
+   "oldStartOffset": 66,
+   "oldEndOffset": 74,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 63,
+    "endOffset": 71,
+    "text": "Bardolph",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 9,
+   "paragraph": 131,
+   "oldStartOffset": 103,
+   "oldEndOffset": 111,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 101,
+    "endOffset": 109,
+    "text": "Bardolph",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "vice",
+   "chapter": 9,
+   "paragraph": 131,
+   "oldStartOffset": 1069,
+   "oldEndOffset": 1073,
+   "oldText": "Vice",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1027,
+    "endOffset": 1031,
+    "text": "Vice",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "gaunt",
+   "chapter": 9,
+   "paragraph": 131,
+   "oldStartOffset": 1131,
+   "oldEndOffset": 1144,
+   "oldText": "John of Gaunt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1089,
+    "endOffset": 1102,
+    "text": "John of Gaunt",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "gaunt",
+   "chapter": 9,
+   "paragraph": 131,
+   "oldStartOffset": 1330,
+   "oldEndOffset": 1343,
+   "oldText": "John of Gaunt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1285,
+    "endOffset": 1298,
+    "text": "John of Gaunt",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 10,
+   "paragraph": 0,
+   "oldStartOffset": 31,
+   "oldEndOffset": 38,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 30,
+    "endOffset": 37,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 10,
+   "paragraph": 0,
+   "oldStartOffset": 40,
+   "oldEndOffset": 48,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 47,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 10,
+   "paragraph": 5,
+   "oldStartOffset": 148,
+   "oldEndOffset": 162,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 130,
+    "endOffset": 144,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 11,
+   "oldStartOffset": 7,
+   "oldEndOffset": 19,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 18,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 13,
+   "oldStartOffset": 34,
+   "oldEndOffset": 46,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 45,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 10,
+   "paragraph": 14,
+   "oldStartOffset": 69,
+   "oldEndOffset": 78,
+   "oldText": "Lord John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 70,
+    "endOffset": 79,
+    "text": "Lord John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 15,
+   "oldStartOffset": 33,
+   "oldEndOffset": 45,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 30,
+    "endOffset": 42,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "richard-ii",
+   "chapter": 10,
+   "paragraph": 17,
+   "oldStartOffset": 242,
+   "oldEndOffset": 249,
+   "oldText": "Richard",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 221,
+    "endOffset": 228,
+    "text": "Richard",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 17,
+   "oldStartOffset": 300,
+   "oldEndOffset": 312,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 297,
+    "endOffset": 309,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 10,
+   "paragraph": 29,
+   "oldStartOffset": 14,
+   "oldEndOffset": 25,
+   "oldText": "Prince John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 26,
+    "text": "Prince John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 31,
+   "oldStartOffset": 34,
+   "oldEndOffset": 46,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 45,
+    "endOffset": 57,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 34,
+   "oldStartOffset": 6,
+   "oldEndOffset": 18,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 19,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 41,
+   "oldStartOffset": 47,
+   "oldEndOffset": 59,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 35,
+    "endOffset": 47,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 10,
+   "paragraph": 42,
+   "oldStartOffset": 7,
+   "oldEndOffset": 19,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 18,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 23,
+   "oldEndOffset": 30,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 22,
+    "endOffset": 29,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 70,
+   "oldEndOffset": 78,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 69,
+    "endOffset": 77,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 113,
+   "oldEndOffset": 137,
+   "oldText": "Prince John of Lancaster",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 112,
+    "endOffset": 136,
+    "text": "Prince John of Lancaster",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 143,
+   "oldEndOffset": 155,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 142,
+    "endOffset": 154,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "officers",
+   "chapter": 11,
+   "paragraph": 0,
+   "oldStartOffset": 157,
+   "oldEndOffset": 165,
+   "oldText": "Officers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 156,
+    "endOffset": 164,
+    "text": "Officers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 11,
+   "paragraph": 1,
+   "oldStartOffset": 44,
+   "oldEndOffset": 51,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 43,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 11,
+   "paragraph": 1,
+   "oldStartOffset": 114,
+   "oldEndOffset": 122,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 103,
+    "endOffset": 111,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 11,
+   "paragraph": 2,
+   "oldStartOffset": 108,
+   "oldEndOffset": 120,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 106,
+    "endOffset": 118,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hydra",
+   "chapter": 11,
+   "paragraph": 2,
+   "oldStartOffset": 363,
+   "oldEndOffset": 368,
+   "oldText": "Hydra",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 366,
+    "endOffset": 371,
+    "text": "Hydra",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 11,
+   "paragraph": 15,
+   "oldStartOffset": 68,
+   "oldEndOffset": 75,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 66,
+    "endOffset": 73,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 11,
+   "paragraph": 26,
+   "oldStartOffset": 6,
+   "oldEndOffset": 18,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 19,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 11,
+   "paragraph": 29,
+   "oldStartOffset": 6,
+   "oldEndOffset": 14,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 15,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 11,
+   "paragraph": 31,
+   "oldStartOffset": 7,
+   "oldEndOffset": 19,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 18,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 11,
+   "paragraph": 35,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hastings",
+   "chapter": 11,
+   "paragraph": 37,
+   "oldStartOffset": 36,
+   "oldEndOffset": 44,
+   "oldText": "Hastings",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 41,
+    "text": "Hastings",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 11,
+   "paragraph": 37,
+   "oldStartOffset": 136,
+   "oldEndOffset": 143,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 133,
+    "endOffset": 140,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 12,
+   "paragraph": 0,
+   "oldStartOffset": 27,
+   "oldEndOffset": 35,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 26,
+    "endOffset": 34,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 0,
+   "oldStartOffset": 40,
+   "oldEndOffset": 48,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 47,
+    "text": "Colevile",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 2,
+   "oldStartOffset": 45,
+   "oldEndOffset": 53,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 52,
+    "text": "Colevile",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 3,
+   "oldStartOffset": 22,
+   "oldEndOffset": 30,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 21,
+    "endOffset": 29,
+    "text": "Colevile",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 3,
+   "oldStartOffset": 93,
+   "oldEndOffset": 101,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 105,
+    "endOffset": 113,
+    "text": "Colevile",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 3,
+   "oldStartOffset": 220,
+   "oldEndOffset": 228,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 248,
+    "endOffset": 256,
+    "text": "Colevile",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 12,
+   "paragraph": 8,
+   "oldStartOffset": 7,
+   "oldEndOffset": 31,
+   "oldText": "Prince John of Lancaster",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 30,
+    "text": "Prince John of Lancaster",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 12,
+   "paragraph": 8,
+   "oldStartOffset": 33,
+   "oldEndOffset": 45,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 44,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "blunt",
+   "chapter": 12,
+   "paragraph": 8,
+   "oldStartOffset": 47,
+   "oldEndOffset": 52,
+   "oldText": "Blunt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 51,
+    "text": "Blunt",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 12,
+   "paragraph": 9,
+   "oldStartOffset": 84,
+   "oldEndOffset": 96,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 87,
+    "endOffset": 99,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 12,
+   "paragraph": 10,
+   "oldStartOffset": 6,
+   "oldEndOffset": 18,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 19,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 12,
+   "oldStartOffset": 424,
+   "oldEndOffset": 441,
+   "oldText": "Sir John Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 434,
+    "endOffset": 451,
+    "text": "Sir John Colevile",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 14,
+   "oldStartOffset": 238,
+   "oldEndOffset": 246,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 247,
+    "endOffset": 255,
+    "text": "Colevile",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 21,
+   "oldStartOffset": 35,
+   "oldEndOffset": 43,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 34,
+    "endOffset": 42,
+    "text": "Colevile",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 12,
+   "paragraph": 25,
+   "oldStartOffset": 7,
+   "oldEndOffset": 19,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 18,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "blunt",
+   "chapter": 12,
+   "paragraph": 28,
+   "oldStartOffset": 81,
+   "oldEndOffset": 86,
+   "oldText": "Blunt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 79,
+    "endOffset": 84,
+    "text": "Blunt",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "blunt",
+   "chapter": 12,
+   "paragraph": 29,
+   "oldStartOffset": 8,
+   "oldEndOffset": 13,
+   "oldText": "Blunt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 14,
+    "text": "Blunt",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "colevile",
+   "chapter": 12,
+   "paragraph": 29,
+   "oldStartOffset": 30,
+   "oldEndOffset": 38,
+   "oldText": "Colevile",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 31,
+    "endOffset": 39,
+    "text": "Colevile",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 12,
+   "paragraph": 32,
+   "oldStartOffset": 26,
+   "oldEndOffset": 34,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 21,
+    "endOffset": 29,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 12,
+   "paragraph": 33,
+   "oldStartOffset": 16,
+   "oldEndOffset": 24,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 25,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 12,
+   "paragraph": 34,
+   "oldStartOffset": 1660,
+   "oldEndOffset": 1665,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1607,
+    "endOffset": 1612,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 12,
+   "paragraph": 35,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 12,
+   "paragraph": 38,
+   "oldStartOffset": 83,
+   "oldEndOffset": 97,
+   "oldText": "Robert Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 84,
+    "endOffset": 98,
+    "text": "Robert Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 13,
+   "paragraph": 0,
+   "oldStartOffset": 17,
+   "oldEndOffset": 24,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 23,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "gloucester",
+   "chapter": 13,
+   "paragraph": 0,
+   "oldStartOffset": 54,
+   "oldEndOffset": 62,
+   "oldText": "Humphrey",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 53,
+    "endOffset": 61,
+    "text": "Humphrey",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 1,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 3,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "gloucester",
+   "chapter": 13,
+   "paragraph": 3,
+   "oldStartOffset": 10,
+   "oldEndOffset": 18,
+   "oldText": "Humphrey",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Humphrey",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 5,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 7,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "clarence",
+   "chapter": 13,
+   "paragraph": 7,
+   "oldStartOffset": 28,
+   "oldEndOffset": 46,
+   "oldText": "Thomas of Clarence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 24,
+    "endOffset": 42,
+    "text": "Thomas of Clarence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 10,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "clarence",
+   "chapter": 13,
+   "paragraph": 10,
+   "oldStartOffset": 35,
+   "oldEndOffset": 53,
+   "oldText": "Thomas of Clarence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 50,
+    "text": "Thomas of Clarence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 12,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 14,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "poins",
+   "chapter": 13,
+   "paragraph": 15,
+   "oldStartOffset": 15,
+   "oldEndOffset": 20,
+   "oldText": "Poins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 10,
+    "endOffset": 15,
+    "text": "Poins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 16,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 18,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 13,
+   "paragraph": 19,
+   "oldStartOffset": 7,
+   "oldEndOffset": 19,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 18,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 13,
+   "paragraph": 21,
+   "oldStartOffset": 87,
+   "oldEndOffset": 98,
+   "oldText": "Prince John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 91,
+    "endOffset": 102,
+    "text": "Prince John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "mowbray",
+   "chapter": 13,
+   "paragraph": 21,
+   "oldStartOffset": 134,
+   "oldEndOffset": 141,
+   "oldText": "Mowbray",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 138,
+    "endOffset": 145,
+    "text": "Mowbray",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 22,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "westmoreland",
+   "chapter": 13,
+   "paragraph": 22,
+   "oldStartOffset": 13,
+   "oldEndOffset": 25,
+   "oldText": "Westmoreland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 21,
+    "text": "Westmoreland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "harcourt",
+   "chapter": 13,
+   "paragraph": 23,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Harcourt",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Harcourt",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "northumberland",
+   "chapter": 13,
+   "paragraph": 25,
+   "oldStartOffset": 151,
+   "oldEndOffset": 165,
+   "oldText": "Northumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 152,
+    "endOffset": 166,
+    "text": "Northumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 13,
+   "paragraph": 25,
+   "oldStartOffset": 179,
+   "oldEndOffset": 187,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 176,
+    "endOffset": 184,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 26,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "edward-iii",
+   "chapter": 13,
+   "paragraph": 33,
+   "oldStartOffset": 160,
+   "oldEndOffset": 166,
+   "oldText": "Edward",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 167,
+    "endOffset": 173,
+    "text": "Edward",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 13,
+   "paragraph": 36,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 0,
+   "oldStartOffset": 48,
+   "oldEndOffset": 55,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 54,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 1,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 3,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 7,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 9,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 11,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 13,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 17,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 21,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 21,
+   "oldStartOffset": 10,
+   "oldEndOffset": 17,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 22,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 25,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 27,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 30,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 32,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 32,
+   "oldStartOffset": 137,
+   "oldEndOffset": 144,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 133,
+    "endOffset": 140,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 33,
+   "oldStartOffset": 6,
+   "oldEndOffset": 13,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 14,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 35,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 38,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 40,
+   "oldStartOffset": 37,
+   "oldEndOffset": 42,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 43,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 41,
+   "oldStartOffset": 8,
+   "oldEndOffset": 15,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 16,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 42,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 43,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 43,
+   "oldStartOffset": 32,
+   "oldEndOffset": 37,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 49,
+    "text": "Harry",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 43,
+   "oldStartOffset": 1171,
+   "oldEndOffset": 1176,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1191,
+    "endOffset": 1196,
+    "text": "Harry",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 43,
+   "oldStartOffset": 1671,
+   "oldEndOffset": 1676,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1696,
+    "endOffset": 1701,
+    "text": "Harry",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 44,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 45,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 45,
+   "oldStartOffset": 1480,
+   "oldEndOffset": 1485,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1543,
+    "endOffset": 1548,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 46,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 14,
+   "paragraph": 47,
+   "oldStartOffset": 7,
+   "oldEndOffset": 29,
+   "oldText": "Lord John of Lancaster",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 28,
+    "text": "Lord John of Lancaster",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 48,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 14,
+   "paragraph": 48,
+   "oldStartOffset": 36,
+   "oldEndOffset": 53,
+   "oldText": "John of Lancaster",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 49,
+    "text": "John of Lancaster",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 50,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 14,
+   "paragraph": 50,
+   "oldStartOffset": 48,
+   "oldEndOffset": 52,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 44,
+    "endOffset": 48,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 50,
+   "oldStartOffset": 205,
+   "oldEndOffset": 212,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 211,
+    "endOffset": 218,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 14,
+   "paragraph": 51,
+   "oldStartOffset": 0,
+   "oldEndOffset": 12,
+   "oldText": "PRINCE HENRY",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 51,
+   "oldStartOffset": 25,
+   "oldEndOffset": 32,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 26,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 14,
+   "paragraph": 52,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 53,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 55,
+   "oldStartOffset": 0,
+   "oldEndOffset": 8,
+   "oldText": "HENRY IV",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 14,
+   "paragraph": 55,
+   "oldStartOffset": 246,
+   "oldEndOffset": 251,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 241,
+    "endOffset": 246,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 16,
+   "oldEndOffset": 24,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 15,
+    "endOffset": 23,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 15,
+   "paragraph": 0,
+   "oldStartOffset": 26,
+   "oldEndOffset": 34,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 33,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 1,
+   "oldStartOffset": 66,
+   "oldEndOffset": 70,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 66,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 3,
+   "oldStartOffset": 152,
+   "oldEndOffset": 156,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 135,
+    "endOffset": 139,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 4,
+   "oldStartOffset": 7,
+   "oldEndOffset": 11,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 10,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 15,
+   "paragraph": 6,
+   "oldStartOffset": 140,
+   "oldEndOffset": 144,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 139,
+    "endOffset": 143,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "william-cook",
+   "chapter": 15,
+   "paragraph": 8,
+   "oldStartOffset": 42,
+   "oldEndOffset": 54,
+   "oldText": "William cook",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 15,
+   "paragraph": 10,
+   "oldStartOffset": 42,
+   "oldEndOffset": 46,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 35,
+    "endOffset": 39,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "william-cook",
+   "chapter": 15,
+   "paragraph": 12,
+   "oldStartOffset": 146,
+   "oldEndOffset": 158,
+   "oldText": "William cook",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 14,
+   "oldStartOffset": 122,
+   "oldEndOffset": 126,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 118,
+    "endOffset": 122,
+    "text": "Davy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 16,
+   "oldStartOffset": 26,
+   "oldEndOffset": 30,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 19,
+    "endOffset": 23,
+    "text": "Davy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 16,
+   "oldStartOffset": 53,
+   "oldEndOffset": 57,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 52,
+    "endOffset": 56,
+    "text": "Davy",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 18,
+   "oldStartOffset": 36,
+   "oldEndOffset": 40,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 55,
+    "endOffset": 59,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 20,
+   "oldStartOffset": 59,
+   "oldEndOffset": 63,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 62,
+    "endOffset": 66,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 15,
+   "paragraph": 21,
+   "oldStartOffset": 6,
+   "oldEndOffset": 10,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 11,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 15,
+   "paragraph": 24,
+   "oldStartOffset": 115,
+   "oldEndOffset": 119,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 117,
+    "endOffset": 121,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 26,
+   "oldStartOffset": 6,
+   "oldEndOffset": 13,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 14,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 15,
+   "paragraph": 28,
+   "oldStartOffset": 8,
+   "oldEndOffset": 16,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 9,
+    "endOffset": 17,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 29,
+   "oldStartOffset": 97,
+   "oldEndOffset": 104,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 88,
+    "endOffset": 95,
+    "text": "Shallow",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 29,
+   "oldStartOffset": 498,
+   "oldEndOffset": 505,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 486,
+    "endOffset": 493,
+    "text": "Shallow",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 29,
+   "oldStartOffset": 624,
+   "oldEndOffset": 631,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 625,
+    "endOffset": 632,
+    "text": "Shallow",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 29,
+   "oldStartOffset": 882,
+   "oldEndOffset": 889,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 883,
+    "endOffset": 890,
+    "text": "Shallow",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 15,
+   "paragraph": 29,
+   "oldStartOffset": 905,
+   "oldEndOffset": 910,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 906,
+    "endOffset": 911,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 15,
+   "paragraph": 31,
+   "oldStartOffset": 14,
+   "oldEndOffset": 18,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 20,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 32,
+   "oldStartOffset": 25,
+   "oldEndOffset": 32,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 36,
+    "text": "Shallow",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 15,
+   "paragraph": 32,
+   "oldStartOffset": 49,
+   "oldEndOffset": 56,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 57,
+    "endOffset": 64,
+    "text": "Shallow",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 16,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 16,
+   "paragraph": 10,
+   "oldStartOffset": 48,
+   "oldEndOffset": 53,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 45,
+    "endOffset": 50,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 10,
+   "oldStartOffset": 74,
+   "oldEndOffset": 79,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 80,
+    "text": "Harry",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "warwick",
+   "chapter": 16,
+   "paragraph": 12,
+   "oldStartOffset": 31,
+   "oldEndOffset": 38,
+   "oldText": "Warwick",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 32,
+    "endOffset": 39,
+    "text": "Warwick",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 16,
+   "paragraph": 20,
+   "oldStartOffset": 39,
+   "oldEndOffset": 43,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 51,
+    "endOffset": 55,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 16,
+   "paragraph": 20,
+   "oldStartOffset": 44,
+   "oldEndOffset": 52,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 56,
+    "endOffset": 64,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 0,
+   "oldEndOffset": 7,
+   "oldText": "HENRY V",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "amurath",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 181,
+   "oldEndOffset": 188,
+   "oldText": "Amurath",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 202,
+    "endOffset": 209,
+    "text": "Amurath",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "amurath",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 192,
+   "oldEndOffset": 199,
+   "oldText": "Amurath",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 202,
+    "endOffset": 209,
+    "text": "Amurath",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 214,
+   "oldEndOffset": 219,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 234,
+    "endOffset": 239,
+    "text": "Harry",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 220,
+   "oldEndOffset": 225,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 234,
+    "endOffset": 239,
+    "text": "Harry",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "henry-iv",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 640,
+   "oldEndOffset": 645,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 652,
+    "endOffset": 657,
+    "text": "Harry",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 25,
+   "oldStartOffset": 673,
+   "oldEndOffset": 678,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 678,
+    "endOffset": 683,
+    "text": "Harry",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 27,
+   "oldStartOffset": 0,
+   "oldEndOffset": 7,
+   "oldText": "HENRY V",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 29,
+   "oldStartOffset": 0,
+   "oldEndOffset": 7,
+   "oldText": "HENRY V",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 31,
+   "oldStartOffset": 0,
+   "oldEndOffset": 7,
+   "oldText": "HENRY V",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 16,
+   "paragraph": 31,
+   "oldStartOffset": 1806,
+   "oldEndOffset": 1811,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1830,
+    "endOffset": 1835,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 15,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 14,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 17,
+   "oldEndOffset": 24,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 16,
+    "endOffset": 23,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 26,
+   "oldEndOffset": 33,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 32,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 35,
+   "oldEndOffset": 39,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 34,
+    "endOffset": 38,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 0,
+   "oldStartOffset": 41,
+   "oldEndOffset": 49,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 40,
+    "endOffset": 48,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 17,
+   "paragraph": 1,
+   "oldStartOffset": 164,
+   "oldEndOffset": 171,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 166,
+    "endOffset": 173,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 17,
+   "paragraph": 3,
+   "oldStartOffset": 63,
+   "oldEndOffset": 67,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 69,
+    "endOffset": 73,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 3,
+   "oldStartOffset": 106,
+   "oldEndOffset": 110,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 113,
+    "endOffset": 117,
+    "text": "Davy",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 3,
+   "oldStartOffset": 120,
+   "oldEndOffset": 124,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 113,
+    "endOffset": 117,
+    "text": "Davy",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 3,
+   "oldStartOffset": 137,
+   "oldEndOffset": 141,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 134,
+    "endOffset": 138,
+    "text": "Davy",
+    "note": "3 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 17,
+   "paragraph": 5,
+   "oldStartOffset": 60,
+   "oldEndOffset": 64,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 63,
+    "endOffset": 67,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 18,
+   "oldStartOffset": 7,
+   "oldEndOffset": 11,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 10,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 20,
+   "oldStartOffset": 4,
+   "oldEndOffset": 12,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5,
+    "endOffset": 13,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 23,
+   "oldStartOffset": 4,
+   "oldEndOffset": 12,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5,
+    "endOffset": 13,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 33,
+   "oldStartOffset": 183,
+   "oldEndOffset": 191,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 188,
+    "endOffset": 196,
+    "text": "Bardolph",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 36,
+   "oldStartOffset": 78,
+   "oldEndOffset": 86,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 77,
+    "endOffset": 85,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 43,
+   "oldStartOffset": 6,
+   "oldEndOffset": 10,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 11,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "silence",
+   "chapter": 17,
+   "paragraph": 45,
+   "oldStartOffset": 4,
+   "oldEndOffset": 11,
+   "oldText": "Silence",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5,
+    "endOffset": 12,
+    "text": "Silence",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "davy",
+   "chapter": 17,
+   "paragraph": 53,
+   "oldStartOffset": 7,
+   "oldEndOffset": 11,
+   "oldText": "Davy",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 10,
+    "text": "Davy",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 54,
+   "oldStartOffset": 45,
+   "oldEndOffset": 51,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 53,
+    "endOffset": 59,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 56,
+   "oldStartOffset": 7,
+   "oldEndOffset": 13,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 12,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 17,
+   "paragraph": 62,
+   "oldStartOffset": 65,
+   "oldEndOffset": 69,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 70,
+    "endOffset": 74,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 62,
+   "oldStartOffset": 81,
+   "oldEndOffset": 87,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 86,
+    "endOffset": 92,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cophetua",
+   "chapter": 17,
+   "paragraph": 65,
+   "oldStartOffset": 63,
+   "oldEndOffset": 71,
+   "oldText": "Cophetua",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 64,
+    "endOffset": 72,
+    "text": "Cophetua",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "robin-hood",
+   "chapter": 17,
+   "paragraph": 67,
+   "oldStartOffset": 15,
+   "oldEndOffset": 25,
+   "oldText": "Robin Hood",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 18,
+    "endOffset": 28,
+    "text": "Robin Hood",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "will-scarlet",
+   "chapter": 17,
+   "paragraph": 67,
+   "oldStartOffset": 27,
+   "oldEndOffset": 34,
+   "oldText": "Scarlet",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 30,
+    "endOffset": 37,
+    "text": "Scarlet",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "little-john",
+   "chapter": 17,
+   "paragraph": 67,
+   "oldStartOffset": 40,
+   "oldEndOffset": 44,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 43,
+    "endOffset": 47,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 68,
+   "oldStartOffset": 89,
+   "oldEndOffset": 95,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 92,
+    "endOffset": 98,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "furies",
+   "chapter": 17,
+   "paragraph": 68,
+   "oldStartOffset": 114,
+   "oldEndOffset": 120,
+   "oldText": "Furies",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 121,
+    "endOffset": 127,
+    "text": "Furies",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 17,
+   "paragraph": 76,
+   "oldStartOffset": 35,
+   "oldEndOffset": 39,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 38,
+    "endOffset": 42,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 17,
+   "paragraph": 76,
+   "oldStartOffset": 74,
+   "oldEndOffset": 79,
+   "oldText": "Harry",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 77,
+    "endOffset": 82,
+    "text": "Harry",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 76,
+   "oldStartOffset": 125,
+   "oldEndOffset": 131,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 129,
+    "endOffset": 135,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 79,
+   "oldStartOffset": 119,
+   "oldEndOffset": 125,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 123,
+    "endOffset": 129,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 17,
+   "paragraph": 82,
+   "oldStartOffset": 164,
+   "oldEndOffset": 170,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 169,
+    "endOffset": 175,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 82,
+   "oldStartOffset": 178,
+   "oldEndOffset": 186,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 183,
+    "endOffset": 191,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 17,
+   "paragraph": 83,
+   "oldStartOffset": 6,
+   "oldEndOffset": 14,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 7,
+    "endOffset": 15,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 17,
+   "paragraph": 84,
+   "oldStartOffset": 100,
+   "oldEndOffset": 107,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 107,
+    "endOffset": 114,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "beadles",
+   "chapter": 18,
+   "paragraph": 0,
+   "oldStartOffset": 7,
+   "oldEndOffset": 14,
+   "oldText": "Beadles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 6,
+    "endOffset": 13,
+    "text": "Beadles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 18,
+   "paragraph": 0,
+   "oldStartOffset": 28,
+   "oldEndOffset": 35,
+   "oldText": "Hostess",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 27,
+    "endOffset": 34,
+    "text": "Hostess",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hostess",
+   "chapter": 18,
+   "paragraph": 0,
+   "oldStartOffset": 36,
+   "oldEndOffset": 43,
+   "oldText": "Quickly",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 35,
+    "endOffset": 42,
+    "text": "Quickly",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 18,
+   "paragraph": 0,
+   "oldStartOffset": 48,
+   "oldEndOffset": 62,
+   "oldText": "Doll Tearsheet",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 47,
+    "endOffset": 61,
+    "text": "Doll Tearsheet",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 18,
+   "paragraph": 4,
+   "oldStartOffset": 31,
+   "oldEndOffset": 35,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 30,
+    "endOffset": 34,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 18,
+   "paragraph": 5,
+   "oldStartOffset": 165,
+   "oldEndOffset": 171,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 213,
+    "endOffset": 219,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "grooms",
+   "chapter": 19,
+   "paragraph": 0,
+   "oldStartOffset": 11,
+   "oldEndOffset": 17,
+   "oldText": "Grooms",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 10,
+    "endOffset": 16,
+    "text": "Grooms",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 5,
+   "oldStartOffset": 71,
+   "oldEndOffset": 79,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 70,
+    "endOffset": 78,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 19,
+   "paragraph": 5,
+   "oldStartOffset": 81,
+   "oldEndOffset": 88,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 80,
+    "endOffset": 87,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 19,
+   "paragraph": 5,
+   "oldStartOffset": 90,
+   "oldEndOffset": 96,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 89,
+    "endOffset": 95,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 19,
+   "paragraph": 5,
+   "oldStartOffset": 98,
+   "oldEndOffset": 106,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 97,
+    "endOffset": 105,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 19,
+   "paragraph": 6,
+   "oldStartOffset": 35,
+   "oldEndOffset": 49,
+   "oldText": "Robert Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 39,
+    "endOffset": 53,
+    "text": "Robert Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 19,
+   "paragraph": 19,
+   "oldStartOffset": 76,
+   "oldEndOffset": 80,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 79,
+    "text": "Doll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "helen",
+   "chapter": 19,
+   "paragraph": 19,
+   "oldStartOffset": 86,
+   "oldEndOffset": 91,
+   "oldText": "Helen",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 85,
+    "endOffset": 90,
+    "text": "Helen",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alecto",
+   "chapter": 19,
+   "paragraph": 19,
+   "oldStartOffset": 253,
+   "oldEndOffset": 259,
+   "oldText": "Alecto",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 250,
+    "endOffset": 256,
+    "text": "Alecto",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "doll",
+   "chapter": 19,
+   "paragraph": 19,
+   "oldStartOffset": 273,
+   "oldEndOffset": 277,
+   "oldText": "Doll",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 270,
+    "endOffset": 274,
+    "text": "Doll",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 19,
+   "paragraph": 19,
+   "oldStartOffset": 285,
+   "oldEndOffset": 291,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 289,
+    "endOffset": 295,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 19,
+   "paragraph": 27,
+   "oldStartOffset": 0,
+   "oldEndOffset": 7,
+   "oldText": "HENRY V",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "prince-henry",
+   "chapter": 19,
+   "paragraph": 30,
+   "oldStartOffset": 0,
+   "oldEndOffset": 7,
+   "oldText": "HENRY V",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 33,
+   "oldStartOffset": 27,
+   "oldEndOffset": 31,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 26,
+    "endOffset": 30,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "shallow",
+   "chapter": 19,
+   "paragraph": 34,
+   "oldStartOffset": 37,
+   "oldEndOffset": 44,
+   "oldText": "Shallow",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 42,
+    "endOffset": 49,
+    "text": "Shallow",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 35,
+   "oldStartOffset": 113,
+   "oldEndOffset": 117,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 99,
+    "endOffset": 103,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 37,
+   "oldStartOffset": 53,
+   "oldEndOffset": 57,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 51,
+    "endOffset": 55,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pistol",
+   "chapter": 19,
+   "paragraph": 38,
+   "oldStartOffset": 67,
+   "oldEndOffset": 73,
+   "oldText": "Pistol",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 73,
+    "endOffset": 79,
+    "text": "Pistol",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bardolph",
+   "chapter": 19,
+   "paragraph": 38,
+   "oldStartOffset": 81,
+   "oldEndOffset": 89,
+   "oldText": "Bardolph",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 87,
+    "endOffset": 95,
+    "text": "Bardolph",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 19,
+   "paragraph": 39,
+   "oldStartOffset": 34,
+   "oldEndOffset": 45,
+   "oldText": "Prince John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 44,
+    "text": "Prince John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "officers",
+   "chapter": 19,
+   "paragraph": 39,
+   "oldStartOffset": 47,
+   "oldEndOffset": 55,
+   "oldText": "Officers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 46,
+    "endOffset": 54,
+    "text": "Officers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 40,
+   "oldStartOffset": 29,
+   "oldEndOffset": 33,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 28,
+    "endOffset": 32,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 40,
+   "oldStartOffset": 34,
+   "oldEndOffset": 42,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 33,
+    "endOffset": 41,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lancaster",
+   "chapter": 19,
+   "paragraph": 44,
+   "oldStartOffset": 16,
+   "oldEndOffset": 27,
+   "oldText": "Prince John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 17,
+    "endOffset": 28,
+    "text": "Prince John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 54,
+   "oldStartOffset": 124,
+   "oldEndOffset": 128,
+   "oldText": "John",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 120,
+    "endOffset": 124,
+    "text": "John",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "katharine",
+   "chapter": 19,
+   "paragraph": 54,
+   "oldStartOffset": 165,
+   "oldEndOffset": 174,
+   "oldText": "Katharine",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 161,
+    "endOffset": 170,
+    "text": "Katharine",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "falstaff",
+   "chapter": 19,
+   "paragraph": 54,
+   "oldStartOffset": 209,
+   "oldEndOffset": 217,
+   "oldText": "Falstaff",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 205,
+    "endOffset": 213,
+    "text": "Falstaff",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "oldcastle",
+   "chapter": 19,
+   "paragraph": 54,
+   "oldStartOffset": 297,
+   "oldEndOffset": 306,
+   "oldText": "Oldcastle",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 295,
+    "endOffset": 304,
+    "text": "Oldcastle",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}

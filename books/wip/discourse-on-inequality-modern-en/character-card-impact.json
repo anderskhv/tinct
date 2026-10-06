@@ -1,0 +1,991 @@
+{
+ "package": "app/public/data/characters/discourse-on-inequality.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "78356e4ffdf62ec28c056fe871521967da428d31fafe694cad8b064f7019c62f",
+ "candidateSha256": "14a4b969a2b61cfd79a4351c0738ee1632a97f5944072965d670374cfbb9bdbf",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 69,
+ "unchanged": 3,
+ "moved": 60,
+ "needsRuling": 6,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "tarquins",
+   "chapter": 1,
+   "paragraph": 5,
+   "oldStartOffset": 967,
+   "oldEndOffset": 975,
+   "oldText": "Tarquins",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1073,
+    "endOffset": 1081,
+    "text": "Tarquins",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "isaac",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 191,
+   "oldEndOffset": 207,
+   "oldText": "virtuous citizen",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 195,
+    "endOffset": 211,
+    "text": "virtuous citizen",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "tacitus",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 425,
+   "oldEndOffset": 432,
+   "oldText": "Tacitus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 436,
+    "endOffset": 443,
+    "text": "Tacitus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "plutarch",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 434,
+   "oldEndOffset": 442,
+   "oldText": "Plutarch",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 445,
+    "endOffset": 453,
+    "text": "Plutarch",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "grotius",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 448,
+   "oldEndOffset": 455,
+   "oldText": "Grotius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 458,
+    "endOffset": 465,
+    "text": "Grotius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "isaac",
+   "chapter": 1,
+   "paragraph": 16,
+   "oldStartOffset": 607,
+   "oldEndOffset": 622,
+   "oldText": "best of fathers",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 617,
+    "endOffset": 632,
+    "text": "best of fathers",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "isaac",
+   "chapter": 1,
+   "paragraph": 17,
+   "oldStartOffset": 290,
+   "oldEndOffset": 296,
+   "oldText": "father",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 273,
+    "endOffset": 279,
+    "text": "father",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 1,
+   "paragraph": 18,
+   "oldStartOffset": 1682,
+   "oldEndOffset": 1685,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1706,
+    "endOffset": 1709,
+    "text": "God",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "glaucus",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 966,
+   "oldEndOffset": 973,
+   "oldText": "Glaucus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 905,
+    "endOffset": 912,
+    "text": "Glaucus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 0,
+   "oldStartOffset": 1487,
+   "oldEndOffset": 1500,
+   "oldText": "divine Author",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1473,
+    "endOffset": 1486,
+    "text": "divine Author",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aristotle",
+   "chapter": 2,
+   "paragraph": 4,
+   "oldStartOffset": 998,
+   "oldEndOffset": 1008,
+   "oldText": "Aristotles",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1024,
+    "endOffset": 1034,
+    "text": "Aristotles",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pliny-elder",
+   "chapter": 2,
+   "paragraph": 4,
+   "oldStartOffset": 1013,
+   "oldEndOffset": 1019,
+   "oldText": "Plinys",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1039,
+    "endOffset": 1045,
+    "text": "Plinys",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "burlamaqui",
+   "chapter": 2,
+   "paragraph": 6,
+   "oldStartOffset": 370,
+   "oldEndOffset": 380,
+   "oldText": "Burlamaqui",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 371,
+    "endOffset": 381,
+    "text": "Burlamaqui",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "persius",
+   "chapter": 2,
+   "paragraph": 15,
+   "oldStartOffset": 76,
+   "oldEndOffset": 83,
+   "oldText": "Persius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 71,
+    "endOffset": 78,
+    "text": "Persius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "adam",
+   "chapter": 2,
+   "paragraph": 22,
+   "oldStartOffset": 1136,
+   "oldEndOffset": 1145,
+   "oldText": "first man",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1117,
+    "endOffset": 1126,
+    "text": "first man",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 22,
+   "oldStartOffset": 1208,
+   "oldEndOffset": 1211,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1185,
+    "endOffset": 1188,
+    "text": "God",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "moses",
+   "chapter": 2,
+   "paragraph": 22,
+   "oldStartOffset": 1286,
+   "oldEndOffset": 1291,
+   "oldText": "Moses",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1261,
+    "endOffset": 1266,
+    "text": "Moses",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 2,
+   "paragraph": 23,
+   "oldStartOffset": 457,
+   "oldEndOffset": 468,
+   "oldText": "God Himself",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 453,
+    "endOffset": 464,
+    "text": "God Himself",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "plato",
+   "chapter": 2,
+   "paragraph": 23,
+   "oldStartOffset": 1132,
+   "oldEndOffset": 1137,
+   "oldText": "Plato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1154,
+    "endOffset": 1159,
+    "text": "Plato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "xenocrates",
+   "chapter": 2,
+   "paragraph": 23,
+   "oldStartOffset": 1142,
+   "oldEndOffset": 1152,
+   "oldText": "Xenocrates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1164,
+    "endOffset": 1174,
+    "text": "Xenocrates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "aristotle",
+   "chapter": 3,
+   "paragraph": 0,
+   "oldStartOffset": 424,
+   "oldEndOffset": 433,
+   "oldText": "Aristotle",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 398,
+    "endOffset": 407,
+    "text": "Aristotle",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "montesquieu",
+   "chapter": 3,
+   "paragraph": 5,
+   "oldStartOffset": 81,
+   "oldEndOffset": 107,
+   "oldText": "Another famous philosopher",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "cumberland",
+   "chapter": 3,
+   "paragraph": 5,
+   "oldStartOffset": 132,
+   "oldEndOffset": 142,
+   "oldText": "Cumberland",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 142,
+    "endOffset": 152,
+    "text": "Cumberland",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pufendorf",
+   "chapter": 3,
+   "paragraph": 5,
+   "oldStartOffset": 147,
+   "oldEndOffset": 156,
+   "oldText": "Pufendorf",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "correal",
+   "chapter": 3,
+   "paragraph": 6,
+   "oldStartOffset": 268,
+   "oldEndOffset": 283,
+   "oldText": "Francis Correal",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 231,
+    "endOffset": 246,
+    "text": "Francis Correal",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "plato",
+   "chapter": 3,
+   "paragraph": 8,
+   "oldStartOffset": 1882,
+   "oldEndOffset": 1887,
+   "oldText": "Plato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1729,
+    "endOffset": 1734,
+    "text": "Plato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "podalirius",
+   "chapter": 3,
+   "paragraph": 8,
+   "oldStartOffset": 1950,
+   "oldEndOffset": 1960,
+   "oldText": "Podalirius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1805,
+    "endOffset": 1815,
+    "text": "Podalirius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "machaon",
+   "chapter": 3,
+   "paragraph": 8,
+   "oldStartOffset": 1965,
+   "oldEndOffset": 1972,
+   "oldText": "Machaon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1820,
+    "endOffset": 1827,
+    "text": "Machaon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "celsus",
+   "chapter": 3,
+   "paragraph": 8,
+   "oldStartOffset": 2102,
+   "oldEndOffset": 2108,
+   "oldText": "Celsus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1978,
+    "endOffset": 1984,
+    "text": "Celsus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hippocrates",
+   "chapter": 3,
+   "paragraph": 8,
+   "oldStartOffset": 2171,
+   "oldEndOffset": 2182,
+   "oldText": "Hippocrates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2045,
+    "endOffset": 2056,
+    "text": "Hippocrates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 3,
+   "paragraph": 22,
+   "oldStartOffset": 377,
+   "oldEndOffset": 384,
+   "oldText": "Creator",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 348,
+    "endOffset": 355,
+    "text": "Creator",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "condillac",
+   "chapter": 3,
+   "paragraph": 24,
+   "oldStartOffset": 175,
+   "oldEndOffset": 189,
+   "oldText": "Abbé Condillac",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 199,
+    "endOffset": 213,
+    "text": "Abbé Condillac",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "hobbes",
+   "chapter": 3,
+   "paragraph": 33,
+   "oldStartOffset": 37,
+   "oldEndOffset": 43,
+   "oldText": "Hobbes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 36,
+    "endOffset": 42,
+    "text": "Hobbes",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hobbes",
+   "chapter": 3,
+   "paragraph": 33,
+   "oldStartOffset": 418,
+   "oldEndOffset": 424,
+   "oldText": "Hobbes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 417,
+    "endOffset": 423,
+    "text": "Hobbes",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hobbes",
+   "chapter": 3,
+   "paragraph": 33,
+   "oldStartOffset": 1842,
+   "oldEndOffset": 1848,
+   "oldText": "Hobbes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1806,
+    "endOffset": 1812,
+    "text": "Hobbes",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hobbes",
+   "chapter": 3,
+   "paragraph": 33,
+   "oldStartOffset": 2009,
+   "oldEndOffset": 2015,
+   "oldText": "Hobbes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1963,
+    "endOffset": 1969,
+    "text": "Hobbes",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "hobbes",
+   "chapter": 3,
+   "paragraph": 33,
+   "oldStartOffset": 2460,
+   "oldEndOffset": 2466,
+   "oldText": "Hobbes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2348,
+    "endOffset": 2354,
+    "text": "Hobbes",
+    "note": "6 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "mandeville",
+   "chapter": 3,
+   "paragraph": 33,
+   "oldStartOffset": 3709,
+   "oldEndOffset": 3740,
+   "oldText": "author of the Fable of the Bees",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 3567,
+    "endOffset": 3598,
+    "text": "author of the Fable of the Bees",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sulla",
+   "chapter": 3,
+   "paragraph": 34,
+   "oldStartOffset": 394,
+   "oldEndOffset": 399,
+   "oldText": "Sulla",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 379,
+    "endOffset": 384,
+    "text": "Sulla",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "alexander",
+   "chapter": 3,
+   "paragraph": 34,
+   "oldStartOffset": 457,
+   "oldEndOffset": 476,
+   "oldText": "Alexander of Pherae",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "andromache",
+   "chapter": 3,
+   "paragraph": 34,
+   "oldStartOffset": 563,
+   "oldEndOffset": 573,
+   "oldText": "Andromache",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 544,
+    "endOffset": 554,
+    "text": "Andromache",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "priam",
+   "chapter": 3,
+   "paragraph": 34,
+   "oldStartOffset": 578,
+   "oldEndOffset": 583,
+   "oldText": "Priam",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 559,
+    "endOffset": 564,
+    "text": "Priam",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "juvenal",
+   "chapter": 3,
+   "paragraph": 35,
+   "oldStartOffset": 81,
+   "oldEndOffset": 88,
+   "oldText": "Juvenal",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 82,
+    "text": "Juvenal",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "socrates",
+   "chapter": 3,
+   "paragraph": 37,
+   "oldStartOffset": 1213,
+   "oldEndOffset": 1221,
+   "oldText": "Socrates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1072,
+    "endOffset": 1080,
+    "text": "Socrates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "locke",
+   "chapter": 4,
+   "paragraph": 19,
+   "oldStartOffset": 959,
+   "oldEndOffset": 964,
+   "oldText": "Locke",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 981,
+    "endOffset": 986,
+    "text": "Locke",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "grotius",
+   "chapter": 4,
+   "paragraph": 27,
+   "oldStartOffset": 898,
+   "oldEndOffset": 905,
+   "oldText": "Grotius",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 840,
+    "endOffset": 847,
+    "text": "Grotius",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ceres",
+   "chapter": 4,
+   "paragraph": 27,
+   "oldStartOffset": 912,
+   "oldEndOffset": 917,
+   "oldText": "Ceres",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 854,
+    "endOffset": 859,
+    "text": "Ceres",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "ceres",
+   "chapter": 4,
+   "paragraph": 27,
+   "oldStartOffset": 931,
+   "oldEndOffset": 942,
+   "oldText": "Legislatrix",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 873,
+    "endOffset": 884,
+    "text": "Legislatrix",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 4,
+   "paragraph": 38,
+   "oldStartOffset": 1463,
+   "oldEndOffset": 1480,
+   "oldText": "Sovereign Creator",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1368,
+    "endOffset": 1385,
+    "text": "Sovereign Creator",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lycurgus",
+   "chapter": 4,
+   "paragraph": 41,
+   "oldStartOffset": 633,
+   "oldEndOffset": 641,
+   "oldText": "Lycurgus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 582,
+    "endOffset": 590,
+    "text": "Lycurgus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pliny-younger",
+   "chapter": 4,
+   "paragraph": 42,
+   "oldStartOffset": 1203,
+   "oldEndOffset": 1208,
+   "oldText": "Pliny",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1165,
+    "endOffset": 1170,
+    "text": "Pliny",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "trajan",
+   "chapter": 4,
+   "paragraph": 42,
+   "oldStartOffset": 1212,
+   "oldEndOffset": 1218,
+   "oldText": "Trajan",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1174,
+    "endOffset": 1180,
+    "text": "Trajan",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "brasidas",
+   "chapter": 4,
+   "paragraph": 43,
+   "oldStartOffset": 567,
+   "oldEndOffset": 575,
+   "oldText": "Brasidas",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 526,
+    "endOffset": 534,
+    "text": "Brasidas",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "satrap",
+   "chapter": 4,
+   "paragraph": 43,
+   "oldStartOffset": 581,
+   "oldEndOffset": 595,
+   "oldText": "Persian satrap",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "tacitus",
+   "chapter": 4,
+   "paragraph": 44,
+   "oldStartOffset": 805,
+   "oldEndOffset": 812,
+   "oldText": "Tacitus",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "locke",
+   "chapter": 4,
+   "paragraph": 45,
+   "oldStartOffset": 171,
+   "oldEndOffset": 176,
+   "oldText": "Locke",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 137,
+    "endOffset": 142,
+    "text": "Locke",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "sidney",
+   "chapter": 4,
+   "paragraph": 45,
+   "oldStartOffset": 181,
+   "oldEndOffset": 187,
+   "oldText": "Sidney",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 147,
+    "endOffset": 153,
+    "text": "Sidney",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "louis",
+   "chapter": 4,
+   "paragraph": 46,
+   "oldStartOffset": 643,
+   "oldEndOffset": 652,
+   "oldText": "Louis XIV",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 635,
+    "endOffset": 644,
+    "text": "Louis XIV",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 4,
+   "paragraph": 48,
+   "oldStartOffset": 230,
+   "oldEndOffset": 249,
+   "oldText": "Author of our being",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 232,
+    "endOffset": 251,
+    "text": "Author of our being",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "barbeyrac",
+   "chapter": 4,
+   "paragraph": 48,
+   "oldStartOffset": 616,
+   "oldEndOffset": 625,
+   "oldText": "Barbeyrac",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 619,
+    "endOffset": 628,
+    "text": "Barbeyrac",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "locke",
+   "chapter": 4,
+   "paragraph": 48,
+   "oldStartOffset": 642,
+   "oldEndOffset": 647,
+   "oldText": "Locke",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 645,
+    "endOffset": 650,
+    "text": "Locke",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "pufendorf",
+   "chapter": 4,
+   "paragraph": 49,
+   "oldStartOffset": 0,
+   "oldEndOffset": 9,
+   "oldText": "Pufendorf",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "lycurgus",
+   "chapter": 4,
+   "paragraph": 57,
+   "oldStartOffset": 409,
+   "oldEndOffset": 417,
+   "oldText": "Lycurgus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 401,
+    "endOffset": 409,
+    "text": "Lycurgus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lucan",
+   "chapter": 4,
+   "paragraph": 61,
+   "oldStartOffset": 162,
+   "oldEndOffset": 167,
+   "oldText": "Lucan",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 138,
+    "endOffset": 143,
+    "text": "Lucan",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "diogenes",
+   "chapter": 4,
+   "paragraph": 65,
+   "oldStartOffset": 628,
+   "oldEndOffset": 636,
+   "oldText": "Diogenes",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 649,
+    "endOffset": 657,
+    "text": "Diogenes",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "cato",
+   "chapter": 4,
+   "paragraph": 65,
+   "oldStartOffset": 747,
+   "oldEndOffset": 751,
+   "oldText": "Cato",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 769,
+    "endOffset": 773,
+    "text": "Cato",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}
