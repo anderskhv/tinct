@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { trackFunnel } from '../utils/funnel'
+import { hasRecordedAudio } from '../data/audioAvailability'
 import {
   clipsFromFollowParagraphs,
   clipsFromManifest,
@@ -1109,7 +1110,8 @@ export function useLabListen(options: UseLabListenOptions) {
       let followed = chapterHasWordTimings(sourceFollowParagraphs)
         ? sourceFollowParagraphs
         : paragraphsRef.current
-      if (!chapterHasWordTimings(followed)) {
+      // Streamed-only editions have no recorded manifest or sidecar to ask for.
+      if (!chapterHasWordTimings(followed) && hasRecordedAudio(bookId, edition)) {
         const [manifestRes, sidecarRes] = await Promise.all([
           Promise.resolve(fetch(labAudioManifestUrl(chapter, edition, bookId))).catch(() => null),
           Promise.resolve(fetch(labAudioSidecarUrl(chapter, edition, bookId))).catch(() => null),
@@ -1136,6 +1138,7 @@ export function useLabListen(options: UseLabListenOptions) {
       return attachWords(followed, title ? [title, ...fromSource] : fromSource)
     }
 
+    if (!hasRecordedAudio(bookId, edition)) return []
     const [manifestRes, sidecarRes] = await Promise.all([
       fetch(labAudioManifestUrl(chapter, edition, bookId)),
       fetch(labAudioSidecarUrl(chapter, edition, bookId)).catch(() => null),

@@ -6,6 +6,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
+import { DEFAULT_LAB_PREFS, writeLabPrefs } from './labPrefs'
 import { LAB_TEE_CROSS, LAB_TEE_MORPH_FRAMES, LAB_TEE_REST } from './labSuperGlyph'
 import { labSuperMenuRows } from './labSuperMenu'
 
@@ -65,6 +66,9 @@ class FakeAudio {
 }
 
 function stubAudio() {
+  // The default Bible text (Berean Standard Bible) streams its narration and
+  // has no recording; the recorded-audio transport is exercised with the KJV recording.
+  writeLabPrefs({ ...DEFAULT_LAB_PREFS, audioEdition: 'kjv-en', audioFollowsPrimary: false }, 'phone')
   const audio = new FakeAudio()
   vi.stubGlobal('Audio', class { constructor() { return audio } })
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
