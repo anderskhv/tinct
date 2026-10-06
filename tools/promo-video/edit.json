@@ -1,0 +1,16 @@
+{
+  "_doc": "Cut list for render.mjs. from/to are marker names from out/recording/manifest.json, optionally offset in seconds (e.g. \"listening+5\"). speed>1 plays the source faster; duration overrides. shot names live in stage.html SHOTS.",
+  "clips": [
+    { "from": "library",            "to": "library+4",        "shot": "glideTop" },
+    { "from": "librarian",          "to": "librarian-ask",    "speed": 1.4, "shot": "readClose",  "caption": "Ask the librarian" },
+    { "from": "librarian-ask",      "to": "librarian-answer", "speed": 2.6, "shot": "glideTop",   "caption": "Ask the librarian" },
+    { "from": "librarian-answer",   "to": "open-book+1.5",    "speed": 1.4, "shot": "overhead" },
+    { "from": "open-book+1.5",      "to": "edition",          "speed": 3.2, "shot": "glideMid",   "caption": "Meet the cast before you begin" },
+    { "from": "edition",            "to": "reader+1",         "speed": 2.4, "shot": "readClose",  "caption": "The original, or modern English" },
+    { "from": "listening-1",        "to": "listening+4",      "shot": "readClose",  "caption": "Listen as every word lights up" },
+    { "from": "listening+4",        "to": "listening+8.5",    "shot": "glideTop",   "caption": "Listen as every word lights up" },
+    { "from": "character",          "to": "define",           "speed": 1.3, "shot": "readClose",  "caption": "Tap a name: who's who" },
+    { "from": "define",             "to": "end",              "speed": 1.3, "shot": "glideMid",   "caption": "Tap any word you don't know" },
+    { "from": "end",                "to": "end",              "duration": 4.5, "shot": "reveal", "endcard": true }
+  ]
+}

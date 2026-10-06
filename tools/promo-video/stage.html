@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tinct promo stage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ece7db;
+    --ink: #0b0b0b;
+    --accent: #1f4a5c;
+    --stage: #8d8478;
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--stage); }
+  #wrap { position: fixed; inset: 0; }
+  canvas { display: block; }
+  /* Soft studio vignette, like a lit backdrop. */
+  #vignette {
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 42%, rgba(0,0,0,0) 45%, rgba(20,14,8,.42) 100%);
+  }
+  #grain {
+    position: fixed; inset: -50%; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .card {
+    position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; text-align: center; color: var(--paper);
+  }
+  .card .mark { font: 600 calc(var(--u) * 13) / 1 'Playfair Display', serif; letter-spacing: -.01em; }
+  .card .line { margin-top: calc(var(--u) * 3); font: italic 500 calc(var(--u) * 4.4) / 1.25 'Playfair Display', serif; opacity: .92; }
+  .card .url { margin-top: calc(var(--u) * 5); font: 500 calc(var(--u) * 2.4) / 1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
+  #caption {
+    position: fixed; left: 0; right: 0; bottom: calc(var(--u) * 7); text-align: center; opacity: 0;
+  }
+  #caption span {
+    display: inline-block; padding: calc(var(--u) * 1.6) calc(var(--u) * 3) calc(var(--u) * 1.5); border-radius: 999px;
+    font: 500 calc(var(--u) * 2.5) / 1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--paper); background: rgba(11, 11, 11, .74); box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+  }
+  #endcard { background: radial-gradient(110% 80% at 50% 45%, #24586b 0%, var(--accent) 45%, #0f2a35 100%); }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="wrap"></div>
+<div id="vignette"></div>
+<div id="grain"></div>
+<div id="caption"><span></span></div>
+<div class="card" id="endcard">
+  <div class="mark">Tinct</div>
+  <div class="line">Read the classics, deeply.</div>
+  <div class="url">tinct.app</div>
+</div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const W = innerWidth, H = innerHeight;
+document.documentElement.style.setProperty('--u', (Math.min(W, H) / 100) + 'px');
+
+const params = new URLSearchParams(location.search);
+const FRAME_COLOR = params.get('frame') || '#24586b';
+
+// ---------- renderer / scene ----------
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setSize(W, H);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.getElementById('wrap').appendChild(renderer.domElement);
+
+const STAGE = new THREE.Color('#8d8478');
+const scene = new THREE.Scene();
+scene.background = STAGE;
+scene.fog = new THREE.Fog(STAGE, 60, 140);
+
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.9;
+
+const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 500);
+
+// Ground the phone rests on: same tone as the backdrop, catches the shadow.
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(600, 600),
+  new THREE.MeshStandardMaterial({ color: STAGE, roughness: 1, metalness: 0 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+const key = new THREE.DirectionalLight(0xfff4e6, 2.2);
+key.position.set(-14, 30, -10);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.camera.left = -20; key.shadow.camera.right = 20;
+key.shadow.camera.top = 20; key.shadow.camera.bottom = -20;
+key.shadow.radius = 10;
+key.shadow.bias = -0.0005;
+scene.add(key);
+scene.add(new THREE.HemisphereLight(0xfff8ee, 0x6b6157, 0.55));
+
+// ---------- phone ----------
+// Units: centimetres. Roughly an iPhone 15 Pro.
+const PW = 7.16, PH = 14.66, PD = 0.66, PR = 1.12;
+const SW = 6.62, SH = SW * (2532 / 1170), SR = 0.96;
+
+function roundedRect(w, h, r) {
+  const s = new THREE.Shape();
+  const x = -w / 2, y = -h / 2;
+  s.moveTo(x + r, y);
+  s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r);
+  s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+  s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y);
+  return s;
+}
+function planarUV(geo, w, h) {
+  const pos = geo.attributes.position, uv = geo.attributes.uv;
+  for (let i = 0; i < pos.count; i++) uv.setXY(i, pos.getX(i) / w + 0.5, pos.getY(i) / h + 0.5);
+  uv.needsUpdate = true;
+  return geo;
+}
+
+const phone = new THREE.Group();
+const bevel = 0.14;
+const bodyGeo = new THREE.ExtrudeGeometry(roundedRect(PW - bevel * 2, PH - bevel * 2, PR - bevel), {
+  depth: PD - bevel * 2, bevelEnabled: true, bevelThickness: bevel, bevelSize: bevel, bevelSegments: 10, curveSegments: 48,
+});
+bodyGeo.translate(0, 0, -(PD - bevel * 2) / 2);
+const frameMat = new THREE.MeshPhysicalMaterial({
+  color: FRAME_COLOR, metalness: 0.9, roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.25,
+});
+const body = new THREE.Mesh(bodyGeo, frameMat);
+body.castShadow = true;
+phone.add(body);
+
+const frontZ = PD / 2 + 0.002;
+const glass = new THREE.Mesh(
+  new THREE.ShapeGeometry(roundedRect(PW - 0.16, PH - 0.16, PR - 0.08), 48),
+  new THREE.MeshPhysicalMaterial({ color: 0x050505, roughness: 0.08, metalness: 0, clearcoat: 1 })
+);
+glass.position.z = frontZ;
+phone.add(glass);
+
+// Screen content is composited on a 2D canvas (status bar + app frame + home indicator).
+const SCREEN_PX_W = 1170, SCREEN_PX_H = 2532;
+const screenCanvas = document.createElement('canvas');
+screenCanvas.width = SCREEN_PX_W; screenCanvas.height = SCREEN_PX_H;
+const sctx = screenCanvas.getContext('2d');
+const screenTex = new THREE.CanvasTexture(screenCanvas);
+screenTex.colorSpace = THREE.SRGBColorSpace;
+screenTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+screenTex.generateMipmaps = true;
+screenTex.minFilter = THREE.LinearMipmapLinearFilter;
+const screen = new THREE.Mesh(
+  planarUV(new THREE.ShapeGeometry(roundedRect(SW, SH, SR), 48), SW, SH),
+  new THREE.MeshBasicMaterial({ map: screenTex, toneMapped: false })
+);
+screen.position.z = frontZ + 0.002;
+phone.add(screen);
+
+// Faint glass reflection over the screen.
+const sheen = new THREE.Mesh(
+  new THREE.ShapeGeometry(roundedRect(SW, SH, SR), 48),
+  new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.05, roughness: 0.05, metalness: 0, envMapIntensity: 1.6 })
+);
+sheen.position.z = frontZ + 0.004;
+phone.add(sheen);
+
+const island = new THREE.Mesh(
+  new THREE.ShapeGeometry(roundedRect(2.05, 0.6, 0.3), 24),
+  new THREE.MeshBasicMaterial({ color: 0x000000 })
+);
+island.position.set(0, SH / 2 - 0.5, frontZ + 0.006);
+phone.add(island);
+
+// Side buttons.
+function button(x, y, h) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(0.08, h, 0.3), frameMat);
+  m.position.set(x, y, 0); m.castShadow = true; phone.add(m);
+}
+button(-PW / 2 - 0.02, 4.1, 0.6);
+button(-PW / 2 - 0.02, 2.9, 1.0);
+button(-PW / 2 - 0.02, 1.6, 1.0);
+button(PW / 2 + 0.02, 2.4, 1.6);
+
+// Phone lies on the ground, screen up, top of phone pointing away (-Z).
+phone.rotation.x = -Math.PI / 2;
+phone.position.y = PD / 2 + 0.01;
+const turntable = new THREE.Group();
+turntable.add(phone);
+turntable.rotation.y = 0.18;
+scene.add(turntable);
+
+// ---------- screen compositing ----------
+const imgCache = new Map();
+function loadImage(src) {
+  if (imgCache.has(src)) return imgCache.get(src);
+  const p = new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+  imgCache.set(src, p);
+  if (imgCache.size > 12) imgCache.delete(imgCache.keys().next().value);
+  return p;
+}
+const STATUS_H = 162, HOME_H = 0; // px at 3x. App frame fills below the status bar.
+function luminance(r, g, b) { return 0.2126 * r + 0.7152 * g + 0.0722 * b; }
+function drawStatusBar(bg) {
+  sctx.fillStyle = `rgb(${bg[0]},${bg[1]},${bg[2]})`;
+  sctx.fillRect(0, 0, SCREEN_PX_W, STATUS_H);
+  const fg = luminance(...bg) > 140 ? '#111' : '#f4f1ea';
+  sctx.fillStyle = fg;
+  sctx.font = '600 51px -apple-system, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif';
+  sctx.textBaseline = 'middle';
+  sctx.fillText('9:41', 150, 88);
+  // signal
+  const bx = 850, by = 88;
+  for (let i = 0; i < 4; i++) { const h = 14 + i * 9; sctx.fillRect(bx + i * 16, by + 20 - h, 11, h); }
+  // wifi
+  sctx.lineWidth = 7; sctx.strokeStyle = fg; sctx.lineCap = 'round';
+  for (let i = 0; i < 3; i++) { sctx.beginPath(); sctx.arc(950, by + 22, 12 + i * 12, -Math.PI * 0.77, -Math.PI * 0.23); sctx.stroke(); }
+  // battery
+  sctx.lineWidth = 4; sctx.globalAlpha = 0.45;
+  roundRectPath(1000, by - 18, 72, 36, 10); sctx.stroke();
+  sctx.fillRect(1076, by - 7, 5, 14);
+  sctx.globalAlpha = 1;
+  roundRectPath(1006, by - 12, 52, 24, 6); sctx.fill();
+}
+function roundRectPath(x, y, w, h, r) {
+  sctx.beginPath(); sctx.moveTo(x + r, y); sctx.arcTo(x + w, y, x + w, y + h, r); sctx.arcTo(x + w, y + h, x, y + h, r);
+  sctx.arcTo(x, y + h, x, y, r); sctx.arcTo(x, y, x + w, y, r); sctx.closePath();
+}
+const probe = document.createElement('canvas'); probe.width = 4; probe.height = 1;
+const pctx = probe.getContext('2d', { willReadFrequently: true });
+async function setScreen(src) {
+  const img = await loadImage(src);
+  const scale = SCREEN_PX_W / img.width;
+  pctx.drawImage(img, 0, 0, img.width, 4, 0, 0, 4, 1);
+  const d = pctx.getImageData(1, 0, 1, 1).data;
+  drawStatusBar([d[0], d[1], d[2]]);
+  sctx.drawImage(img, 0, STATUS_H, SCREEN_PX_W, img.height * scale);
+  // home indicator
+  const lum = (() => { pctx.drawImage(img, 0, img.height - 4, img.width, 4, 0, 0, 4, 1); const q = pctx.getImageData(1, 0, 1, 1).data; return luminance(q[0], q[1], q[2]); })();
+  sctx.fillStyle = lum > 140 ? 'rgba(0,0,0,.82)' : 'rgba(255,255,255,.85)';
+  roundRectPath(SCREEN_PX_W / 2 - 200, SCREEN_PX_H - 40, 400, 15, 8); sctx.fill();
+  screenTex.needsUpdate = true;
+}
+
+// ---------- camera shots ----------
+// World: phone centred at origin lying flat, its top towards -Z (rotated by turntable).
+// Each shot: from/to camera {p: position, t: look-at target, fov}. Eased within the shot.
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const SHOTS = {
+  // Long-lens glides across the screen at a diagonal (the Grids look). Camera sits
+  // below the phone's bottom edge so text always reads the right way up.
+  glideTop:    { from: { p: V(6.5, 10, 3.5), t: V(0.2, 0, -4.4), fov: 24 }, to: { p: V(5, 10.5, 4.5), t: V(0, 0, -2.8), fov: 24 } },
+  glideMid:    { from: { p: V(-6, 11, 8.5), t: V(-0.2, 0, -1.2), fov: 24 }, to: { p: V(-4.5, 11, 9.5), t: V(0, 0, 0.6), fov: 24 } },
+  glideLow:    { from: { p: V(6, 9, 13), t: V(0.3, 0, 2.2), fov: 24 }, to: { p: V(4, 9.5, 13.5), t: V(0, 0, 3.6), fov: 24 } },
+  // Near top-down for reading detail.
+  readClose:   { from: { p: V(2.5, 17, 5), t: V(0, 0, -1.6), fov: 26 }, to: { p: V(1.2, 16, 5.5), t: V(0, 0, -0.8), fov: 26 } },
+  readLow:     { from: { p: V(-3, 16, 9), t: V(0, 0, 1.2), fov: 26 }, to: { p: V(-1.5, 15.5, 10), t: V(0, 0, 2.2), fov: 26 } },
+  // Whole screen, gently drifting.
+  overhead:    { from: { p: V(2.5, 30, 9), t: V(0, 0, 0.3), fov: 30 }, to: { p: V(-1, 29, 9.5), t: V(0, 0, 0.1), fov: 30 } },
+  // Wide pull-back reveal for the end.
+  reveal:      { from: { p: V(4, 20, 14), t: V(0, 0, 0), fov: 30 }, to: { p: V(8, 30, 34), t: V(0, -2, -1), fov: 30 } },
+};
+const ease = (x) => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const easeSine = (x) => -(Math.cos(Math.PI * x) - 1) / 2;
+function setCamera(shotName, p) {
+  const s = SHOTS[shotName] || SHOTS.overhead;
+  const k = shotName === 'reveal' ? ease(p) : easeSine(p);
+  camera.position.lerpVectors(s.from.p, s.to.p, k);
+  const t = new THREE.Vector3().lerpVectors(s.from.t, s.to.t, k);
+  camera.fov = s.from.fov + (s.to.fov - s.from.fov) * k;
+  camera.updateProjectionMatrix();
+  camera.lookAt(t);
+}
+
+// ---------- frame API (driven by render.mjs) ----------
+let lastScreen = null;
+let shadowBaked = false;
+window.renderFrame = async ({ screenSrc, shot, p, caption = '', captionOpacity = 0, endcard = 0 }) => {
+  if (screenSrc && screenSrc !== lastScreen) { await setScreen(screenSrc); lastScreen = screenSrc; }
+  setCamera(shot, p);
+  renderer.render(scene, camera);
+  // Phone and light never move, so the shadow map only needs one pass.
+  if (!shadowBaked) { shadowBaked = true; renderer.shadowMap.autoUpdate = false; }
+  const capEl = document.getElementById('caption');
+  capEl.firstChild.textContent = caption; capEl.style.opacity = caption ? captionOpacity : 0;
+  document.getElementById('endcard').style.opacity = endcard;
+  await new Promise(requestAnimationFrame);
+  return true;
+};
+window.stageReady = document.fonts.ready.then(() => true);
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "tinct-promo-video",
+  "private": true,
+  "type": "module",
+  "description": "Records real Tinct screens with Playwright and renders them on a 3D phone (three.js) into an MP4.",
+  "scripts": {
+    "record": "node record.mjs",
+    "render": "node render.mjs",
+    "all": "node record.mjs && node render.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.56.1",
+    "three": "0.170.0"
+  }
+}
