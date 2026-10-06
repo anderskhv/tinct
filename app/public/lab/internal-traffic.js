@@ -39,7 +39,9 @@ export function applyInternalFromUrl(win){
  return storage?isInternal(storage):false
 }
 const BADGE_ATTR='data-tinct-internal-badge'
-/** Shows or removes the badge. Vertical text in the right-hand edge strip: never over text or controls. */
+/** Shows or removes the badge. Vertical text in the right-hand edge strip: never over text or controls.
+ * System monospace only: loading a web font after the reader has paged re-lays out the desktop
+ * Compare spread (chapter-preview check, 2026-10-06). */
 export function syncInternalBadge(doc,enabled){
  try{
   const d=doc||document
@@ -52,7 +54,7 @@ export function syncInternalBadge(doc,enabled){
   badge.setAttribute('role','note')
   badge.setAttribute('aria-label','internal')
   badge.textContent='internal'
-  badge.style.cssText='position:fixed;right:max(1px,env(safe-area-inset-right));top:28%;writing-mode:vertical-rl;z-index:2147483646;pointer-events:none;user-select:none;-webkit-user-select:none;font:10px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.06em;color:#8b8778;opacity:.55;margin:0;padding:0'
+  badge.style.cssText='position:fixed;right:max(1px,env(safe-area-inset-right));top:28%;writing-mode:vertical-rl;z-index:2147483646;pointer-events:none;user-select:none;-webkit-user-select:none;font:10px/1 ui-monospace,monospace;letter-spacing:.06em;color:#8b8778;opacity:.55;margin:0;padding:0'
   d.body.appendChild(badge)
   return badge
  }catch{return null}
