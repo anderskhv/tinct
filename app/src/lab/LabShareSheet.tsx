@@ -10,9 +10,10 @@ import './labShare.css'
  * Download. The image is drawn by the Worker (/api/share/preview, then
  * /q/{id}/image.png) in the reader's own edition and look.
  *
- * The link is created when the sheet opens (and again after a toggle
- * changes), so Share… can hand the system share sheet a ready image straight
- * from the tap, as iOS requires.
+ * Nothing is stored until the reader taps Share… or Copy link (privacy
+ * notice: "When you share a highlight, we store…"). The preview image is
+ * fetched when the sheet opens, which writes nothing, so Share… can attach it
+ * and Copy image and Download never create a link.
  */
 
 export interface LabShareTarget {
@@ -44,7 +45,7 @@ function writePrefs(prefs: { context: boolean; tagline: boolean }): void {
   try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)) } catch { /* remembered for this visit only */ }
 }
 
-interface Created { key: string; url: string; image: string; blob: Blob | null }
+interface Created { key: string; url: string }
 
 export function LabShareSheet({ target, look, format, onClose }: {
   target: LabShareTarget
@@ -56,6 +57,7 @@ export function LabShareSheet({ target, look, format, onClose }: {
   const [status, setStatus] = useState('')
   const [created, setCreated] = useState<Created | null>(null)
   const [previewLoaded, setPreviewLoaded] = useState(false)
+  const [preview, setPreview] = useState<{ src: string; blob: Blob } | null>(null)
   const pending = useRef<Promise<Created | null> | null>(null)
   const dialog = useRef<HTMLDivElement>(null)
 
@@ -72,6 +74,15 @@ export function LabShareSheet({ target, look, format, onClose }: {
 
   useEffect(() => { trackFunnel('share_sheet_opened', { book_id: target.bookId, format, look }) }, [target.bookId, format, look])
   useEffect(() => { setPreviewLoaded(false) }, [previewSrc])
+  // The image itself, ready for Share…, Copy image and Download (no write).
+  useEffect(() => {
+    let active = true
+    fetch(previewSrc).then(response => response.ok ? response.blob() : null).then(blob => {
+      if (active && blob) setPreview({ src: previewSrc, blob })
+    }).catch(() => {})
+    return () => { active = false }
+  }, [previewSrc])
+  const previewBlob = preview?.src === previewSrc ? preview.blob : null
 
   const create = useCallback((): Promise<Created | null> => {
     if (created?.key === key) return Promise.resolve(created)
@@ -85,15 +96,10 @@ export function LabShareSheet({ target, look, format, onClose }: {
           body: key,
         })
         if (!response.ok) return null
-        const data = await response.json() as { url?: string; image?: string }
-        if (!data.url || !data.image) return null
+        const data = await response.json() as { url?: string }
+        if (!data.url) return null
         trackFunnel('share_created', { book_id: target.bookId, format, look, tagline: prefs.tagline, edition: target.editionKey })
-        let blob: Blob | null = null
-        try {
-          const image = await fetch(data.image)
-          if (image.ok) blob = await image.blob()
-        } catch { /* the link still shares */ }
-        const next = { key, url: data.url, image: data.image, blob }
+        const next = { key, url: data.url }
         setCreated(next)
         return next
       } catch {
@@ -105,12 +111,6 @@ export function LabShareSheet({ target, look, format, onClose }: {
     pending.current = run
     return run
   }, [created, key, target.bookId, target.editionKey, format, look, prefs.tagline])
-
-  // Prepare the link as soon as the sheet opens or a toggle changes.
-  useEffect(() => {
-    const timer = window.setTimeout(() => { void create() }, 350)
-    return () => window.clearTimeout(timer)
-  }, [key]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     dialog.current?.focus()
@@ -126,22 +126,26 @@ export function LabShareSheet({ target, look, format, onClose }: {
     setStatus('')
   }
 
-  const fileOf = (ready: Created) => ready.blob ? new File([ready.blob], 'tinct-quote.png', { type: 'image/png' }) : null
+  const openShareSheet = (ready: Created) => {
+    const nav = navigator as Navigator & { canShare?: (data: ShareData) => boolean }
+    const file = previewBlob ? new File([previewBlob], 'tinct-quote.png', { type: 'image/png' }) : null
+    const withFile: ShareData | null = file && nav.canShare?.({ files: [file] }) ? { files: [file], url: ready.url } : null
+    return nav.share!(withFile ?? { url: ready.url })
+      .then(() => { setStatus(''); trackFunnel('share_completed', { method: 'native', book_id: target.bookId }) })
+  }
 
   const onShare = () => {
+    if (!navigator.share) { void copyLink(); return }
     const ready = created?.key === key ? created : null
-    if (!ready) {
-      setStatus('Preparing…')
-      void create().then(next => setStatus(next ? '' : 'Could not create the link. Try again.'))
-      return
-    }
-    const file = fileOf(ready)
-    const nav = navigator as Navigator & { canShare?: (data: ShareData) => boolean }
-    const withFile: ShareData | null = file && nav.canShare?.({ files: [file] }) ? { files: [file], url: ready.url } : null
-    if (!nav.share) { void copyLink(); return }
-    nav.share(withFile ?? { url: ready.url })
-      .then(() => trackFunnel('share_completed', { method: 'native', book_id: target.bookId }))
-      .catch(() => { /* dismissed */ })
+    if (ready) { void openShareSheet(ready).catch(() => { /* dismissed */ }); return }
+    // The link is made on this tap. If the browser no longer counts the tap
+    // by the time it exists (iOS), the next tap shares it straight away.
+    void create().then(next => {
+      if (!next) { setStatus('Could not create the link. Try again.'); return }
+      return openShareSheet(next).catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === 'NotAllowedError') setStatus('The link is ready. Tap Share… again.')
+      })
+    })
   }
 
   const copyLink = async () => {
@@ -168,8 +172,8 @@ export function LabShareSheet({ target, look, format, onClose }: {
     try {
       const ClipboardItemCtor = (window as unknown as { ClipboardItem?: typeof ClipboardItem }).ClipboardItem
       if (!ClipboardItemCtor || !navigator.clipboard?.write) throw new Error('unsupported')
-      const blob = created?.key === key && created.blob ? Promise.resolve(created.blob) : create().then(next => { if (!next?.blob) throw new Error('no image'); return next.blob })
-      await navigator.clipboard.write([new ClipboardItemCtor({ 'image/png': blob })])
+      if (!previewBlob) throw new Error('no image')
+      await navigator.clipboard.write([new ClipboardItemCtor({ 'image/png': previewBlob })])
       setStatus('Copied the image.')
       trackFunnel('share_completed', { method: 'copy_image', book_id: target.bookId })
     } catch {
@@ -177,10 +181,9 @@ export function LabShareSheet({ target, look, format, onClose }: {
     }
   }
 
-  const download = async () => {
-    const next = await create()
-    if (!next?.blob) { setStatus('Could not make the image. Try again.'); return }
-    const href = URL.createObjectURL(next.blob)
+  const download = () => {
+    if (!previewBlob) { setStatus('Could not make the image. Try again.'); return }
+    const href = URL.createObjectURL(previewBlob)
     const link = document.createElement('a')
     link.href = href
     link.download = `tinct-${target.bookId}-quote.png`
@@ -207,7 +210,7 @@ export function LabShareSheet({ target, look, format, onClose }: {
         {format === 'desktop' && (
           <div className="lab-share-buttons">
             <button type="button" onClick={() => void copyImage()} data-testid="lab-share-copy-image">Copy image</button>
-            <button type="button" onClick={() => void download()} data-testid="lab-share-download">Download</button>
+            <button type="button" onClick={download} data-testid="lab-share-download">Download</button>
           </div>
         )}
         <p className="lab-share-status" role="status" aria-live="polite" data-testid="lab-share-status">
