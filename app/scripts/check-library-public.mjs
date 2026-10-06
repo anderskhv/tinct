@@ -36,7 +36,14 @@ async function checkSceneFilm(b,engine,label,options,expected){
   assert.equal(await p.locator('video').count(),0,label+': no video element');
   assert.deepEqual(films,[],label+': no film requested');
  }
- console.log('SCENE_FILM '+JSON.stringify({engine,label,films}));await c.close();
+ console.log('SCENE_FILM '+JSON.stringify({engine,label,films}));await closeQuietly(c,p);
+}
+// Closing a context while the looping film still streams has hung CI for 20+
+// minutes (2026-10-05, 2026-10-06) after every check had passed. Stop the film
+// first, and never wait on the close itself for long.
+async function closeQuietly(c,p){
+ await p.evaluate(()=>{for(const v of document.querySelectorAll('video')){v.pause();v.removeAttribute('src');v.load();}}).catch(()=>{});
+ let timer;await Promise.race([c.close(),new Promise(r=>{timer=setTimeout(()=>{console.log('CONTEXT_CLOSE_SLOW');r();},15000);})]).catch(()=>{});clearTimeout(timer);
 }
 for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>engines.includes(e.name()))){
  const b=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})});
