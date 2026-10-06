@@ -5,7 +5,8 @@
   --ab-line: rgba(238, 231, 208, .18); --ab-accent: #c9b682; --ab-private: #b9a6d8;
   --ab-serif: 'EB Garamond', Georgia, 'Times New Roman', serif; --ab-ui: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
-body[data-view="start"] { background: var(--ab-bg); color: var(--ab-cream); }
+/* The app's stylesheet fixes body to the viewport for its reader; the start page scrolls. */
+body[data-view="start"] { background: var(--ab-bg); color: var(--ab-cream); overflow: visible; height: auto; min-height: 100vh; }
 body[data-view="start"] #root { display: none; }
 body[data-view="reader"] #start { display: none; }
 .ab-visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -133,5 +134,5 @@ body[data-view="reader"] #start { display: none; }
 ::highlight(tinct-hl-sage) { background-color: rgba(108, 178, 108, .34); }
 ::highlight(tinct-hl-sky) { background-color: rgba(96, 148, 226, .32); }
 ::highlight(tinct-hl-lavender) { background-color: rgba(156, 116, 222, .32); }
-.lab.is-epub #snipBtn, .lab.is-epub #playBtn { display: none !important; }
+.lab.is-epub #playBtn { display: none !important; }
 .pdf-status { padding: 40px 16px; text-align: center; font: 16px/1.5 var(--ab-ui); color: #4a443b; max-width: 52ch; margin: 0 auto; }
