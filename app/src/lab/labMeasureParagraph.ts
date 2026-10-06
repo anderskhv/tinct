@@ -1,5 +1,6 @@
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
+import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 /**
@@ -61,7 +62,19 @@ export function labMeasureParagraphInto(
       return span
     }
     span.className = 'lab-hearing-word'
-    const content: Node = isLabVerseMarker(word.text)
+    // A link paints its label (a bare address shows its domain and an arrow),
+    // so it is measured as painted.
+    const link = lineation ? wordLink(lineation.text, lineation.from + index, word.text) : null
+    const content: Node = link
+      ? (() => {
+          const group = document.createDocumentFragment()
+          const anchor = document.createElement('a')
+          anchor.className = link.end ? 'lab-link is-link-end' : 'lab-link'
+          anchor.textContent = link.label
+          group.append(link.lead, anchor, link.trail)
+          return group
+        })()
+      : isLabVerseMarker(word.text)
       ? (() => {
           const marker = document.createElement('span')
           marker.className = 'lab-verse-mark'
@@ -78,6 +91,11 @@ export function labMeasureParagraphInto(
     // span, matching the reader, so a highlight starting there paints it.
     if (leading) span.prepend(document.createTextNode(leading))
     return span
+  }
+  // A heading, list item or label paints in its own style; measure it so.
+  if (lineation && p.tagName === 'P') {
+    const kind = paragraphKindClass(lineation.text, lineation.from).trim()
+    if (kind) p.classList.add(...kind.split(/\s+/))
   }
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
@@ -193,3 +211,4 @@ export function measuredLineStarts(container: Element, from: number): number[] {
   }
   return starts
 }
+

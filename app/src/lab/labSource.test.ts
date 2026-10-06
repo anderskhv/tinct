@@ -10,9 +10,11 @@ import {
   prevLabChapter,
   resetLabBibleManifestCache,
 } from './labSource'
+import { paragraphKind, resetParagraphStyles, wordLink } from './labParagraphStyle'
 
 afterEach(() => {
   resetLabBibleManifestCache()
+  resetParagraphStyles()
   vi.unstubAllGlobals()
 })
 
@@ -103,6 +105,28 @@ describe('loadLabSource', () => {
     expect(source.compareParagraphs[0]).toContain('morning came')
     expect(requested.some(url => url.includes('bible-'))).toBe(false)
     expect(requested.some(url => url.includes('path=odyssey%2Foriginal-en%2Fch2'))).toBe(true)
+  })
+
+  it('registers the subheadings, list items and links a built-in chapter records, as for a reader’s own book', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('candide-original-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Book 1', paragraphs: ['A Fixture Heading', 'A listed point.', 'See the full text online.'],
+            kinds: ['heading', 'item', null], links: [[2, 1, 4, 'https://example.org/candide'], [2, 0, 1, 'javascript:alert(1)']] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({ bookId: 'candide', primaryEditionKey: 'original-en', chapterNumber: 1, readingFirst: true })
+    expect(source.paragraphs).toEqual(['A Fixture Heading', 'A listed point.', 'See the full text online.'])
+    expect(paragraphKind('A Fixture Heading')).toBe('heading')
+    expect(paragraphKind('A listed point.')).toBe('item')
+    expect(wordLink('See the full text online.', 2, 'full')).toMatchObject({ href: 'https://example.org/candide' })
+    expect(wordLink('See the full text online.', 0, 'See')).toBeNull()
   })
 
   it.each([

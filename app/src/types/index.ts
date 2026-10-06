@@ -33,10 +33,25 @@ export interface Edition {
   hasVerseLines?: boolean
 }
 
+/**
+ * What a paragraph is beyond running prose, for any book: a subheading, a
+ * label above a value, a list item, a chapter's subtitle or byline, or a line
+ * set apart (verse, an address). Painted by the reader (lab/labParagraphStyle.ts);
+ * the paragraph's text and word positions are the same either way.
+ */
+export type ParagraphKind = 'heading' | 'label' | 'item' | 'subtitle' | 'byline' | 'line'
+
+/** Web links in a chapter: [paragraph, fromWord, toWord, href]; http(s) only. */
+export type ChapterLink = [number, number, number, string]
+
 export interface Chapter {
   number: number
   title: string
   paragraphs: string[]
+  /** Per paragraph, when any is more than prose. Absent for plain prose chapters. */
+  kinds?: Array<ParagraphKind | null>
+  /** External links by word range. A bare address in the text links by itself. */
+  links?: ChapterLink[]
   /** Section path this chapter belongs to, e.g. "Old Testament — Genesis" */
   section?: string
   /** Known paragraph total when a chapter's text is not loaded yet. */

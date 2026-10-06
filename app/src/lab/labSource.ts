@@ -13,6 +13,7 @@ import { hasRecordedAudio } from '../data/audioAvailability'
 import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
 import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
+import { registerChapterStructure } from './labParagraphStyle'
 import { isUserBookId } from './userBook/userBookId'
 import { loadUserBookSource } from './userBook/userBookSource'
 
@@ -566,7 +567,11 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   if (!entry?.paragraphs.length) {
     throw new Error(`Edition ${registryBook.id}-${primaryEdition.key} has no readable chapter ${requestedChapter}`)
   }
-  const compareParagraphs = compareData?.chapters.find(chapter => chapter.number === entry.number)?.paragraphs ?? []
+  const compareChapter = compareData?.chapters.find(chapter => chapter.number === entry.number)
+  const compareParagraphs = compareChapter?.paragraphs ?? []
+  // Subheadings, list items and links travel beside the text, as in a reader's own book.
+  registerChapterStructure(entry)
+  registerChapterStructure(compareChapter)
   if (registryBook.author === 'William Shakespeare') {
     registerShakespeareSpeakers(entry.paragraphs)
     registerShakespeareSpeakers(compareParagraphs)

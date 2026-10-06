@@ -46,6 +46,10 @@ describe('editionLoader chapter shards', () => {
         })
       }
       const chapterMatch = url.match(/ch000(\d)\.json/)
+      if (chapterMatch?.[1] === '2') {
+        // A chapter's structure travels with its text (types/index.ts Chapter).
+        return jsonResponse({ paragraphs: ['chapter 2'], kinds: ['heading'], links: [[0, 0, 1, 'https://example.org/']] })
+      }
       if (chapterMatch) {
         return jsonResponse({ paragraphs: [`chapter ${chapterMatch[1]}`] })
       }
@@ -61,6 +65,8 @@ describe('editionLoader chapter shards', () => {
       ['chapter 3'],
       [],
     ])
+    expect(data.chapters[1]).toMatchObject({ kinds: ['heading'], links: [[0, 0, 1, 'https://example.org/']] })
+    expect(data.chapters[0].kinds).toBeUndefined()
     expect(requested.some(url => url.includes('/data/editions/anna-karenina-modern-en.json'))).toBe(false)
   })
 

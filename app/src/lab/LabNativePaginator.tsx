@@ -23,6 +23,7 @@ import {
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
 import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
+import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
 
 export interface LabNativeWordPlacement {
@@ -222,12 +223,16 @@ function NativeWord({
   paragraphIndex,
   wordIndex,
   spacing,
+  paragraph,
 }: {
   text: string
   paragraphIndex: number
   wordIndex: number
   spacing: string
+  paragraph?: string
 }) {
+  // A link is laid out as painted: its label, not the raw address.
+  const link = wordLink(paragraph, wordIndex, text)
   return (
     <>
       {spacing}
@@ -237,7 +242,7 @@ function NativeWord({
         data-paragraph-index={paragraphIndex}
         data-word-index={wordIndex}
       >
-        {isLabVerseMarker(text) ? (
+        {link ? <>{link.lead}<a className={`lab-link${link.end ? ' is-link-end' : ''}`}>{link.label}</a>{link.trail}</> : isLabVerseMarker(text) ? (
           <span className="lab-verse-mark">{labVerseMarkerDisplay(text)}</span>
         ) : text}
       </span>
@@ -257,6 +262,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
         spacing={nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        paragraph={text}
       />
     )
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
@@ -295,7 +301,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
  * where the reader will.
  */
 function NativeParagraph({ paragraphs, run }: { paragraphs: string[]; run: number[] }) {
-  return <p className="lab-hearing-line">{run.map((paragraphIndex, position) => position === 0
+  return <p className={`lab-hearing-line${paragraphKindClass(paragraphs[run[0]])}`}>{run.map((paragraphIndex, position) => position === 0
     ? <Fragment key={paragraphIndex}>{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</Fragment>
     : <Fragment key={paragraphIndex}>{' '}<span className="lab-prose-join">{nativeParagraphWords(paragraphs[paragraphIndex], paragraphIndex)}</span></Fragment>)}</p>
 }
