@@ -1,0 +1,107 @@
+/**
+ * Public-domain books readers added to Tinct (`pd-…` ids, worker/routes/publicBooks.ts)
+ * in the reader. Their registry facts live on the server, not in bookRegistry.ts,
+ * so the reader registers a book before it is used: from `/api/public-books/{id}`
+ * on demand (loadLabBookSource, readerDestination), and before the first render
+ * when the hand-off or a saved place names one (main.tsx), because the reader's
+ * boot reads the registry synchronously. Edition text is then fetched like any
+ * other edition (`/data/editions/{id}-{key}.json`, served from R2 by the Worker).
+ * Registration mirrors nativeBooks.ts: the book joins BOOKS and the pre-reader catalogue.
+ */
+import { BOOKS } from '../data/bookRegistry'
+import { PRE_READER_CATALOGUE, type PreReaderBookViewModel } from '../preReader/catalogue'
+import type { Book, Edition } from '../types'
+import { apiUrl } from './apiUrl'
+import { isPublicBookId, PUBLIC_BOOKS_INDEX_URL } from '../../public/lab/public-books.js'
+
+export { isPublicBookId }
+
+export interface PublicEntry {
+  id: string
+  title: string
+  author: string
+  summary?: string
+  year?: number | null
+  wordCount?: number | null
+  cover?: { background?: string; accent?: string }
+  editions: Array<{ key: string; language: string; style?: string; label: string; translator?: string | null; year?: number | null }>
+}
+
+/** The registry Book an index entry describes (the same fields the server's `book` has). */
+export function bookFromEntry(entry: PublicEntry): Book {
+  return {
+    id: entry.id,
+    title: entry.title,
+    author: entry.author,
+    ...(entry.summary ? { description: entry.summary } : {}),
+    ...(typeof entry.year === 'number' ? { year: entry.year } : {}),
+    ...(typeof entry.wordCount === 'number' ? { wordCount: entry.wordCount } : {}),
+    coverColor: entry.cover?.background,
+    coverAccent: entry.cover?.accent,
+    editions: entry.editions.map(edition => ({
+      key: edition.key,
+      language: edition.language as Edition['language'],
+      style: 'original',
+      label: edition.label,
+      aligned: false,
+      hasAudio: false,
+      ...(edition.translator ? { translator: edition.translator } : {}),
+      ...(typeof edition.year === 'number' ? { year: edition.year } : {}),
+    })),
+  }
+}
+
+/** Adds (or refreshes) one public book in the registry and the pre-reader catalogue. */
+export function registerPublicBook(book: Book, entry?: unknown): void {
+  if (!isPublicBookId(book.id) || book.id !== book.id.trim()) return
+  const existing = BOOKS.find(item => item.id === book.id)
+  if (existing) Object.assign(existing, book)
+  else BOOKS.push(book)
+  if (entry && typeof entry === 'object' && (entry as { id?: unknown }).id === book.id) {
+    const byId = PRE_READER_CATALOGUE.booksById as Map<string, PreReaderBookViewModel>
+    const view = entry as PreReaderBookViewModel
+    const old = byId.get(book.id)
+    if (old) Object.assign(old, view)
+    else { PRE_READER_CATALOGUE.books.push(view); byId.set(book.id, view) }
+  }
+}
+
+const pending = new Map<string, Promise<void>>()
+
+/** Makes sure a `pd-` book is registered; registry books and other ids return at once. */
+export function ensurePublicBook(bookId: string, fetchImpl: typeof fetch = fetch): Promise<void> {
+  if (!isPublicBookId(bookId) || BOOKS.some(book => book.id === bookId)) return Promise.resolve()
+  let job = pending.get(bookId)
+  if (!job) {
+    job = fetchImpl(apiUrl(`/api/public-books/${encodeURIComponent(bookId)}`)).then(async response => {
+      if (!response.ok) throw new Error(`public book ${response.status}`)
+      const data = await response.json() as { book?: Book; entry?: unknown }
+      if (!data.book || data.book.id !== bookId) throw new Error('public book malformed')
+      registerPublicBook(data.book, data.entry)
+    }).finally(() => pending.delete(bookId))
+    pending.set(bookId, job)
+  }
+  return job
+}
+
+/** True when stored reader state (hand-off, saved places) names a public book. */
+export function mentionsPublicBook(...raw: Array<string | null | undefined>): boolean {
+  return raw.some(value => typeof value === 'string' && /"pd-[a-z]{2,4}-/.test(value))
+}
+
+/**
+ * Before the reader's first render: register every added book when the
+ * hand-off or the saved places name one (one small index request; nothing
+ * otherwise). Never throws; a failure leaves the reader's usual fallbacks.
+ */
+export async function preloadPublicBooksForReader(fetchImpl: typeof fetch = fetch): Promise<void> {
+  let raw: Array<string | null> = []
+  try { raw = [sessionStorage.getItem('tinct:lab-reader-handoff'), localStorage.getItem('tinct-lab-position')] } catch { return }
+  if (!mentionsPublicBook(...raw)) return
+  try {
+    const response = await fetchImpl(apiUrl(PUBLIC_BOOKS_INDEX_URL))
+    if (!response.ok) return
+    const data = await response.json() as { books?: PublicEntry[] }
+    for (const entry of data.books ?? []) if (isPublicBookId(entry?.id)) registerPublicBook(bookFromEntry(entry), entry)
+  } catch { /* the reader falls back as for any unknown book */ }
+}

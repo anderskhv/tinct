@@ -90,6 +90,7 @@ export default defineConfig(({ mode, command }) => {
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
+        libraryAdd: path.resolve(process.cwd(), 'src/libraryAdd.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
       },
       output: {
@@ -107,6 +108,8 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/native-books.js'
               : chunk.name === 'libraryTwoReading'
                 ? 'lab/library-2-reading.js'
+              : chunk.name === 'libraryAdd'
+                ? 'lab/library-add.js'
               : 'assets/[name]-[hash].js',
       },
     },
@@ -197,6 +200,11 @@ export default defineConfig(({ mode, command }) => {
           }
           if (pathOnly === '/lab/library-2-reading.js') {
             req.url = `/src/libraryTwoReading.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/library-add.js') {
+            req.url = `/src/libraryAdd.ts${url.slice(pathOnly.length)}`
             next()
             return
           }
