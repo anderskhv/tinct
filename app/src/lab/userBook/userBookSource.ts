@@ -9,6 +9,7 @@ import type { Edition, Language } from '../../types'
 import type { LabSource } from '../labSource'
 import type { UserBookEdition } from './userEdition'
 import { isUserBookId } from './userBookId'
+import { registerBookOpening, registerChapterStructure } from '../labParagraphStyle'
 
 const editions = new Map<string, UserBookEdition>()
 const editionLists = new Map<string, Edition[]>()
@@ -48,7 +49,14 @@ export function userBookEditions(edition: UserBookEdition): Edition[] {
 }
 
 export function registerUserBook(bookId: string, edition: UserBookEdition): void {
-  if (isUserBookId(bookId)) editions.set(bookId, edition)
+  if (!isUserBookId(bookId)) return
+  editions.set(bookId, edition)
+  // Headings, list items, labels and links are painted from what the
+  // conversion recorded beside each chapter's paragraphs; the book opens under
+  // its own title, above the first chapter's heading.
+  for (const chapter of edition.chapters) registerChapterStructure(chapter)
+  const first = edition.chapters[0]
+  if (first) registerBookOpening(first.title, { title: edition.title, subtitle: edition.subtitle, author: edition.author })
 }
 
 export function registeredUserBook(bookId: string): UserBookEdition | null {
