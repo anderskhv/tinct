@@ -14,6 +14,7 @@ import {
   safeExternalHref,
   wordLink,
 } from './labParagraphStyle'
+import { continuedTailJustifiedGap } from './LabPassage'
 
 afterEach(resetParagraphStyles)
 
@@ -112,5 +113,36 @@ describe('keep with next', () => {
     registerParagraphKinds(paragraphs, ['heading', null])
     const pages = measuredDesktopPages(paragraphs.map(p => p.split(' ').length), (segments) => segments.length === 1 || segments[1].to - segments[1].from <= 0, undefined, Infinity, paragraphs)
     expect(chapterPageSegments(pages[0])).toEqual([{ paragraphIndex: 0, from: 0, to: 1 }])
+  })
+})
+
+describe('a page whose last line would be stretched', () => {
+  // 10 words of one paragraph; three words to a line, three lines to a page.
+  const fits = (segments: { from: number; to: number }[]) => segments[segments.length - 1].to - segments[segments.length - 1].from <= 9
+  const lineStarts = (segments: { from: number; to: number }[]) => {
+    const { from, to } = segments[segments.length - 1]
+    return [from + 3, from + 6].filter(at => at < to)
+  }
+
+  it('ends a line earlier when justifying its last line would open giant gaps', () => {
+    // Line three ("6 7 8") would be justified at 3em gaps: the page ends after line two.
+    const pages = measuredDesktopPages([10], fits, undefined, Infinity, undefined, undefined, lineStarts, segments => segments[segments.length - 1].to === 9 ? 3 : 0.4)
+    expect(pages.map(page => chapterPageSegments(page).map(s => [s.from, s.to]))).toEqual([[[0, 6]], [[6, 10]]])
+  })
+
+  it('keeps the filled end when the line stays within ordinary spacing', () => {
+    const pages = measuredDesktopPages([10], fits, undefined, Infinity, undefined, undefined, lineStarts, () => 0.4)
+    expect(chapterPageSegments(pages[0])).toEqual([{ paragraphIndex: 0, from: 0, to: 9 }])
+  })
+})
+
+describe('a continued last line', () => {
+  const rect = (left: number, right: number) => ({ left, right, bottom: 100, height: 20 })
+  it('is not stretched across giant gaps', () => {
+    // "Across Physics consists" on a 330px measure at 25px type: ~4em gaps if justified.
+    expect(continuedTailJustifiedGap(330, [rect(0, 70), rect(76, 160), rect(166, 260)], 25)).toBeGreaterThan(1.5)
+  })
+  it('is stretched like an interior line when the gaps stay ordinary', () => {
+    expect(continuedTailJustifiedGap(330, [rect(0, 60), rect(66, 120), rect(126, 190), rect(196, 250), rect(256, 318)], 25)).toBeLessThan(1.5)
   })
 })

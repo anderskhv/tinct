@@ -7,7 +7,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
 import { paragraphKeepsWithNext } from './labParagraphStyle'
-import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts } from './labMeasureParagraph'
+import { LAB_CONTINUED_TAIL_MAX_GAP_EM, labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
  * when the two editions have different lengths. No translated words are lost. */
@@ -34,6 +34,13 @@ export type WordBreakLookup = (paragraphIndex: number, wordIndex: number) => num
  */
 export type LineStartLookup = (segments: ChapterPageSegment[], first: boolean) => number[] | null
 
+/**
+ * How widely the last painted line of a trial page would be spaced if it were
+ * justified to the margin, in ems (`continuedTailJustifiedGap`). Null when the
+ * layout cannot say.
+ */
+export type TailGapLookup = (segments: ChapterPageSegment[], first: boolean) => number | null
+
 /** Greedily fill the measured page, splitting a long paragraph at a word.
  * Both columns are measured as a paired row, so subsequent paragraphs align.
  *
@@ -55,7 +62,13 @@ export type LineStartLookup = (segments: ChapterPageSegment[], first: boolean) =
  * interior line; moving the break to a mid-line sentence end left that line
  * short and ragged ("made in science." | "He soon noticed", Frankenstein;
  * nightly QA, Oct 2026), or justified across giant gaps. Where no line start
- * qualifies, the page keeps its natural, filled end. */
+ * qualifies, the page keeps its natural, filled end.
+ *
+ * With `tailGap`, a page whose paragraph continues never ends on a line that
+ * justifying would stretch beyond `LAB_CONTINUED_TAIL_MAX_GAP_EM` (Anders,
+ * iPhone, 6 Oct 2026): the next word has already been offered to that line as
+ * a hyphenated fragment; if the line is still too loose, the page ends a line
+ * earlier, on a line the browser itself filled. */
 export interface LabPaginationStart {
   paragraphIndex: number
   wordIndex: number
@@ -75,6 +88,7 @@ export function measuredDesktopPages(
   paragraphs?: string[],
   start?: LabPaginationStart,
   lineStarts?: LineStartLookup,
+  tailGap?: TailGapLookup,
 ): ChapterHearingPage[] {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
@@ -173,8 +187,21 @@ export function measuredDesktopPages(
           }
         }
       }
-      segments.push(segment(to, tailFragment))
+      if (tailGap && to < length) {
+        const gap = tailGap([...segments, segment(to, tailFragment)], isFirst())
+        if (gap != null && gap > LAB_CONTINUED_TAIL_MAX_GAP_EM) {
+          // The line starts of the page as it ends now (the rules above may have moved `to`).
+          const lines = lineStarts?.([...segments, segment(to)], isFirst()) ?? null
+          let line = -1
+          for (const at of lines ?? []) if (at > from && at < to && at > line) line = at
+          if (line > from) { to = line; tailFragment = undefined }
+          // A one-line opening of a new paragraph goes overleaf whole.
+          else if (lines && segments.length && from === 0 && headBreak == null) { to = from; tailFragment = undefined }
+        }
+      }
+      if (to > from) segments.push(segment(to, tailFragment))
       commit()
+      if (to === from) continue
       // Whatever this page showed of the next word, that page resumes after.
       headBreak = tailFragment
       from = to
@@ -358,6 +385,12 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               const runs = proseRuns(paragraphs, segments)
               const join = (runs[runs.length - 1]?.length ?? 0) > 1 ? block.lastElementChild : null
               return measuredLineStarts(join ?? block, tail.from)
+            },
+            comparison ? undefined : (segments, first) => {
+              if (!segments.length) return null
+              fits(segments, first)
+              const block = rows.lastElementChild?.querySelector('.lab-hearing-line')
+              return block ? measuredTailGapEm(block) : null
             },
           )
           const tail = pages.length ? chapterPageSegments(pages[pages.length - 1]).at(-1) : undefined

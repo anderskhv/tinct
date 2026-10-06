@@ -2,7 +2,7 @@ import { proseJoins, proseRuns } from './labPoetry'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
@@ -452,6 +452,12 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           paint(segments, first, false)
           return tailBlock ? measuredLineStarts(tailBlock, tail.from) : null
         }
+        const tailGap = (segments: ChapterPageSegment[], first: boolean) => {
+          if (!segments.length) return null
+          paint(segments, first, false)
+          const block = tailBlock?.closest('.lab-hearing-line') ?? null
+          return block ? measuredTailGapEm(block) : null
+        }
         const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
           paint(segments, first, withEnd)
           const painted = [...stage.querySelectorAll('.lab-hearing-word, .lab-word-fragment')]
@@ -466,11 +472,11 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
         const kept = keepPages?.length && keepWidth === pageWidth
-          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts), fitEnd)
+          ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts, tailGap), fitEnd)
           : null
         if (kept && chapterPagesCover(paragraphs, kept)) pages = kept
         else {
-          pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, undefined, lineStarts)
+          pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, undefined, lineStarts, tailGap)
           if (fitEnd) pages = fitEnd(pages)
         }
         if (end) end.hidden = true

@@ -1,6 +1,6 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
-import { labFragmentClass } from './labMeasureParagraph'
+import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
@@ -254,7 +254,8 @@ export function lineContinuesParagraph(
  */
 export const LAB_CONTINUED_TAIL_MIN_FILL = 0.6
 
-interface TailRect { left: number; right: number; bottom: number; height: number }
+type TailRect = LabTailRect
+export { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap }
 
 /** Natural fill (0..1) of the last painted line, from per-fragment word rects. */
 export function continuedTailFill(
@@ -294,7 +295,11 @@ export function markFullContinuedTails(root: HTMLElement | null): void {
         for (const rect of word.getClientRects()) fragments.push(rect)
       })
       const fill = continuedTailFill(box.left + padLeft, box.right - padRight, fragments)
-      if (fill >= LAB_CONTINUED_TAIL_MIN_FILL) line.setAttribute('data-tail-full', 'true')
+      if (fill < LAB_CONTINUED_TAIL_MIN_FILL) return
+      // Never stretched beyond ordinary loose spacing (the paginator ends such
+      // a page a line earlier; this guards a paint that differs from its measure).
+      if ((measuredTailGapEm(line) ?? 0) > LAB_CONTINUED_TAIL_MAX_GAP_EM) return
+      line.setAttribute('data-tail-full', 'true')
     } catch { /* jsdom has no layout */ }
   })
 }

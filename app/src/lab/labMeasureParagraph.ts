@@ -212,3 +212,45 @@ export function measuredLineStarts(container: Element, from: number): number[] {
   return starts
 }
 
+export interface LabTailRect { left: number; right: number; bottom: number; height: number }
+
+/**
+ * The widest word gap, in ems, that justifying the last painted line would
+ * set: its widest natural gap plus the room left at the end shared among its
+ * gaps. A continued tail is only stretched while this stays within ordinary
+ * loose spacing; beyond it the line is left start-aligned rather than set as
+ * "Across      Physics      consists" (Anders, iPhone, 6 Oct 2026).
+ */
+export const LAB_CONTINUED_TAIL_MAX_GAP_EM = 1.5
+
+export function continuedTailJustifiedGap(contentRight: number, words: LabTailRect[], fontSize: number): number {
+  const painted = words.filter(rect => rect.height > 0 && rect.right > rect.left)
+  if (painted.length < 2 || !(fontSize > 0)) return 0
+  const lastBottom = Math.max(...painted.map(rect => rect.bottom))
+  const line = painted
+    .filter(rect => Math.abs(rect.bottom - lastBottom) < Math.max(8, rect.height / 2))
+    .sort((a, b) => a.left - b.left)
+  if (line.length < 2) return 0
+  let natural = 0
+  for (let index = 1; index < line.length; index += 1) natural = Math.max(natural, line[index].left - line[index - 1].right)
+  const room = Math.max(0, contentRight - line[line.length - 1].right)
+  return (natural + room / (line.length - 1)) / fontSize
+}
+
+/**
+ * `continuedTailJustifiedGap` of a laid-out block's last line: its words (and
+ * any page-edge fragment) as the block paints them, set ragged or justified.
+ * Null where there is no layout to read.
+ */
+export function measuredTailGapEm(block: Element): number | null {
+  const view = block.ownerDocument?.defaultView
+  if (!view) return null
+  const style = view.getComputedStyle(block)
+  const box = block.getBoundingClientRect()
+  const words: LabTailRect[] = []
+  block.querySelectorAll('.lab-hearing-word, [data-testid="lab-word"], .lab-word-fragment').forEach((word) => {
+    for (const rect of word.getClientRects()) words.push(rect)
+  })
+  if (!words.length || !(box.width > 0)) return null
+  return continuedTailJustifiedGap(box.right - (parseFloat(style.paddingRight) || 0), words, parseFloat(style.fontSize) || 16)
+}

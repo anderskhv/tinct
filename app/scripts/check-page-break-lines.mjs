@@ -9,7 +9,12 @@
 //             than 1.6x the font size (a short line stretched to the margin).
 //
 // Runs against the local build in dist/ (served through page.route, no
-// network), phone layout 390x844, headless Chromium, muted, no microphone.
+// network), phone layout 390x844 and 360x780, headless Chromium, muted, no
+// microphone. Two widths because one Chromium release lays a line out a few
+// pixels differently from another (headless shell 145 found gappy tails that
+// 141 did not): the reader must hold the bar wherever its lines happen to
+// break, not only where one browser version breaks them. PAGE_BREAK_WIDTHS
+// overrides the widths ("390x844,360x780").
 // PAGE_BREAK_LIVE=1 checks https://tinct.app instead. PAGE_BREAK_PAGES sets
 // how many pages per chapter are scanned (default 30). Exit code 1 on any
 // short continuing last line; gappy lines are reported, and fail too unless
@@ -32,6 +37,10 @@ export const PAGE_BREAK_CHAPTERS = [
   { name: 'Sense and Sensibility Chapter 1', book: 'sense-and-sensibility', chapter: 1 },
   { name: 'Bible Esther 8 (BSB)', book: 'bible', edition: 'bsb-en', chapter: 434 },
 ]
+const viewports = (process.env.PAGE_BREAK_WIDTHS || '390x844,360x780').split(',').map(value => {
+  const [width, height] = value.split('x').map(Number)
+  return { width, height: height || 844 }
+})
 const only = process.env.PAGE_BREAK_ONLY
 const chapters = only ? PAGE_BREAK_CHAPTERS.filter(item => item.book === only) : PAGE_BREAK_CHAPTERS
 
@@ -130,8 +139,8 @@ async function settle(page) {
 
 const report = []
 let failures = 0
-for (const item of chapters) {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, serviceWorkers: 'block' })
+for (const viewport of viewports) for (const item of chapters) {
+  const context = await browser.newContext({ viewport, deviceScaleFactor: 2, isMobile: true, hasTouch: true, serviceWorkers: 'block' })
   const page = await context.newPage()
   const errors = []
   page.on('pageerror', error => errors.push(error.message))
@@ -171,13 +180,13 @@ for (const item of chapters) {
     if (tail.maxGap > 1.6 * tail.fontSize) gappy.push(label)
   })
   const continuing = pages.filter((current, index) => current.tail && pages[index + 1]).length
-  report.push({ chapter: item.name, pages: pages.length, continuing, short, gappy, errors })
-  console.log(`${item.name}: ${pages.length} pages, ${continuing} continuing last lines, ${short.length} short, ${gappy.length} gappy`)
+  report.push({ chapter: item.name, viewport: `${viewport.width}x${viewport.height}`, pages: pages.length, continuing, short, gappy, errors })
+  console.log(`${item.name} @${viewport.width}: ${pages.length} pages, ${continuing} continuing last lines, ${short.length} short, ${gappy.length} gappy`)
   for (const entry of short) console.log(`  SHORT page ${entry.page}: "…${entry.last}" | "${entry.next}" (fill ${entry.fill}, room ${entry.room}px)`)
   for (const entry of gappy) console.log(`  GAPPY page ${entry.page}: "…${entry.last}" | "${entry.next}" (fill ${entry.fill}, largest gap ${entry.maxGapEm}em)`)
   if (errors.length) console.log(`  page errors: ${errors.join(' | ')}`)
   failures += short.length + (allowGaps ? 0 : gappy.length) + (pages.length < 2 ? 1 : 0)
-  await page.screenshot({ path: `${output}/${item.book}-${item.chapter}-last.png` })
+  await page.screenshot({ path: `${output}/${item.book}-${item.chapter}-${viewport.width}-last.png` })
   await context.close()
 }
 await fs.writeFile(`${output}/report.json`, `${JSON.stringify(report, null, 2)}\n`)
