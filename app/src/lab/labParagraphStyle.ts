@@ -25,7 +25,11 @@
 import type { Chapter, ParagraphKind } from '../types'
 import { isFigureToken, registerFigures } from './labFigures'
 
-export type LabParagraphKind = ParagraphKind
+/**
+ * A book's own kinds, and one the reader derives from the text itself:
+ * `index`, a run of short items separated by bullets (isSeparatedList).
+ */
+export type LabParagraphKind = ParagraphKind | 'index'
 
 const KINDS = new Set<LabParagraphKind>(['heading', 'label', 'item', 'subtitle', 'byline', 'line'])
 
@@ -51,7 +55,21 @@ export function registerParagraphKinds(paragraphs: string[], list: ReadonlyArray
 }
 
 export function paragraphKind(text: string | undefined): LabParagraphKind | null {
-  return text ? kinds.get(text) ?? null : null
+  if (!text) return null
+  return kinds.get(text) ?? (isSeparatedList(text) ? 'index' : null)
+}
+
+/** Separators between items of a keyword or index line. */
+const LIST_SEPARATOR = /\s•\s/g
+
+/**
+ * A keyword or index paragraph, in any book: short items joined by " • "
+ * ("explanatory knowledge • genetic knowledge • universality • …"), three
+ * separators or more. Justified, its few long gaps open into rivers, so it is
+ * set ragged-right with no added hyphens (the `index` kind, lab.css).
+ */
+export function isSeparatedList(text: string | undefined): boolean {
+  return !!text && (text.match(LIST_SEPARATOR)?.length ?? 0) >= 3
 }
 
 const SMALL_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'nor', 'but', 'of', 'for', 'in', 'on', 'to', 'at', 'by', 'with', 'from', 'into', 'as', 'vs', 'is', 'its', 'de', 'la', 'le', 'du', 'des', 'et'])
