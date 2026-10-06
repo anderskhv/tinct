@@ -1,7 +1,8 @@
 'use strict';
 // Tinct · Add a book: the reader for a book of your own (PDF or EPUB), on tinct.app.
-// Ported from the BYOB demo. The file stays in this browser; only what the reader asks
-// about (a passage, a page's text) goes to Tinct's companion, on their Tinct account.
+// Ported from the BYOB demo. The file is kept in this browser and, signed in, as a private
+// copy in the reader's Tinct account; only what the reader asks about (a passage, a page's
+// text) goes to Tinct's companion, on their Tinct account.
 const BUILD = document.documentElement.dataset.build || 'dev';
 const $ = id => document.getElementById(id);
 const root = document.querySelector('.lab');
@@ -29,9 +30,10 @@ function applyLayout() {
 }
 const isPhone = () => root.classList.contains('is-phone');
 
-/* ---------- Your books on this device ---------- */
-// Files are kept in this browser only (IndexedDB), tagged with the Tinct account that
-// opened them so a different reader on the same browser does not see them.
+/* ---------- Your books ---------- */
+// Files are kept in this browser (IndexedDB), tagged with the Tinct account that opened
+// them so a different reader on the same browser does not see them. Signed in, each is
+// also kept privately in that account (below, `cloud`) so it opens on other devices.
 const owner = () => window.TinctAI?.session().userId || 'guest';
 const library = {
   open() { return new Promise((res, rej) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) },
@@ -43,8 +45,59 @@ const library = {
     try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
     catch { return [] }
   },
-  async touch(key, patch) { const rec = await this.get(key); if (rec) { Object.assign(rec, patch); await this.put(rec) } },
+  // Read and write in one transaction, so concurrent patches (title, cloud id) both land.
+  async touch(key, patch) { try { await this.tx('readwrite', s => { const r = s.get(key); r.onsuccess = () => { const rec = r.result; if (rec && rec.owner === owner()) s.put(Object.assign(rec, patch)) } }) } catch {} },
 };
+// The account's copies (/api/user-books via TinctAI.books), keyed like the local records:
+// kind + ':' + the first 24 hex digits of the file's SHA-256.
+const cloud = {
+  owner: null, records: new Map(), busy: new Set(),
+  keyOf: b => b.type + ':' + String(b.sha256 || '').slice(0, 24),
+  usable: () => !!window.TinctAI?.session().token,
+  mine() { if (this.owner !== owner()) { this.owner = owner(); this.records = new Map() } return this.records },
+  get(key) { return this.mine().get(key) || null },
+  async refresh() {
+    if (!this.usable()) return false;
+    try { const list = await window.TinctAI.books.list(); const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true }
+    catch { return false }
+  },
+};
+// Saves a private copy to the account in the background; quiet on reopen retries.
+async function saveToAccount(key, file, meta, { quiet = false } = {}) {
+  if (!cloud.usable() || cloud.busy.has(key)) return;
+  const known = cloud.get(key);
+  if (known) { await library.touch(key, { cloudId: known.id }); return }
+  if (file.size > window.TinctAI.books.maxBytes) { if (!quiet) toast('Kept on this device only: files over 50 MB are not saved to your account.'); return }
+  cloud.busy.add(key);
+  try {
+    const book = await window.TinctAI.books.upload(file, meta);
+    if (book?.sha256) cloud.get(key) || cloud.mine().set(cloud.keyOf(book), book);
+    await library.touch(key, { cloudId: book?.id || null });
+    if (!quiet) toast('Saved to your account.');
+  } catch (e) {
+    if (!quiet && e?.code === 'account_full') toast('Kept on this device only: your account’s storage for books is full.');
+  } finally { cloud.busy.delete(key) }
+}
+// Every book on the shelf: this device's, plus the account's copies not yet on it.
+async function shelf() {
+  const local = await library.list();
+  const here = new Set(local.map(r => r.key));
+  const out = local.map(r => Object.assign(r, { cloud: !!(r.cloudId || cloud.get(r.key)), local: true }));
+  for (const [key, b] of cloud.mine()) {
+    if (here.has(key)) continue;
+    out.push({ key, kind: b.type, name: b.name, title: b.title || b.name || 'Untitled', author: b.author || '', size: b.size, addedAt: Date.parse(b.createdAt) || 0, cloud: true, local: false });
+  }
+  return out.sort((a, b) => (b.openedAt || b.addedAt || 0) - (a.openedAt || a.addedAt || 0));
+}
+// Removes a book from this device and from the account.
+async function removeBook(key) {
+  const rec = await library.get(key);
+  const id = rec?.cloudId || cloud.get(key)?.id;
+  await library.remove(key);
+  if (!id) return true;
+  try { await window.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
+  catch { toast('Removed from this device, but not from your account. Try again.'); return false }
+}
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation is asked once per account, before its first file opens; the key
 // sits under tinct-addbook:, so signing out clears it with the rest.
@@ -59,7 +112,7 @@ function attest(fileName) {
   return new Promise(resolve => {
     const layer = sheet('Your own book', `
       <div class="byob-attest">
-        <p>Tinct opens <strong>${esc(fileName)}</strong> in this browser only. It is not uploaded, stored on a server or shared.</p>
+        <p>Tinct opens <strong>${esc(fileName)}</strong> here and keeps a private copy in your account, so you can open it on your other devices. It is never shared.</p>
         <label><input type="checkbox" id="attestBox"> <span>${esc(RIGHTS_COPY)}</span></label>
         <div class="actions"><button type="button" id="attestCancel">Cancel</button><button type="button" class="primary" id="attestOk" disabled>Continue</button></div>
       </div>`, () => resolve(false));
@@ -93,14 +146,31 @@ async function chooseFile(file) {
   const existing = await library.get(key);
   const saved = await library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || file.name.replace(/\.(pdf|epub)$/i, ''), author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
-  return openBook(kind, bytes, file.name, key);
+  await openBook(kind, bytes, file.name, key);
+  if (hasBook() && state.key === key) saveToAccount(key, file, { kind, name: file.name, title: state.title, author: state.author });
 }
 async function openStored(key) {
   if (needsAccount()) return false;
-  const rec = await library.get(key);
-  if (!rec) { toast('That book is no longer on this device. Open the file again.'); return false }
-  await library.touch(key, { openedAt: Date.now() });
+  let rec = await library.get(key);
+  if (!rec) {
+    // On the account but not on this device yet: download it, then keep it here too.
+    const remote = cloud.get(key);
+    if (!remote) { toast('That book is no longer on this device. Open the file again.'); return false }
+    let bytes;
+    try { bytes = await window.TinctAI.books.download(remote.id) }
+    catch (e) {
+      if (e?.code === 'not_found') { cloud.mine().delete(key); toast('That book is no longer in your account.') }
+      else toast('That book could not be downloaded. Try again.');
+      return false;
+    }
+    const now = Date.now();
+    rec = { key, kind: remote.type, name: remote.name || remote.title, size: bytes.byteLength, title: remote.title || remote.name, author: remote.author || '', owner: owner(), addedAt: Date.parse(remote.createdAt) || now, openedAt: now, cloudId: remote.id, bytes: bytes.buffer };
+    if (!await library.put(rec)) toast('This browser could not keep a copy, so you will need to open the file again next time.');
+  } else await library.touch(key, { openedAt: Date.now() });
+  // Opened before it reached the account (offline, or the sign-in had lapsed): save it now.
+  const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key);
+  if (pending && hasBook() && state.key === key) saveToAccount(key, pending, { kind: rec.kind, name: rec.name, title: state.title, author: state.author }, { quiet: true });
   return true;
 }
 async function openBook(kind, bytes, name, key) {
@@ -135,7 +205,7 @@ async function closeBook({ fromHistory = false } = {}) {
   window.TinctStart?.show();
 }
 addEventListener('popstate', () => { if (hasBook() && location.hash !== '#read') closeBook({ fromHistory: true }) });
-window.TinctReader = { chooseFile, openStored, close: closeBook, library, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
+window.TinctReader = { chooseFile, openStored, close: closeBook, library, cloud, shelf, removeBook, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
 
 /* ---------- EPUB ---------- */
 async function openEpub(bytes, name, key) {

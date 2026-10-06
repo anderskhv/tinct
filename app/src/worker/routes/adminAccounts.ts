@@ -15,6 +15,7 @@ import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
+import { listUserBooks, purgeUserBooks } from './userBooks'
 
 export type AdminAccountsEnv = SupabaseEnv & {
   STRIPE_SECRET_KEY?: string
@@ -22,6 +23,8 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId} (routes/userBooks.ts). */
+  USER_BOOKS?: R2Bucket
 }
 
 type VerifySiteAdmin = (env: AdminAccountsEnv, request: Request) => Promise<boolean>
@@ -280,6 +283,15 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
       : (errors.push('do: RECAP_PREPARATION binding missing'), null),
   }
 
+  // The reader's own uploaded files: listed (name, size, dates), never the bytes.
+  const r2: Record<string, unknown> = {
+    userBooks: env.USER_BOOKS
+      ? await attempt('r2 user-books', async () => (await listUserBooks(env.USER_BOOKS!, account.userId)).map(book => ({
+        id: book.id, name: book.name, title: book.title, author: book.author, type: book.type, size: book.size, createdAt: book.createdAt,
+      })))
+      : (errors.push('r2: USER_BOOKS binding missing'), null),
+  }
+
   const stripeSummary = await attempt('stripe', () => exportStripe(env, account))
 
   console.log(JSON.stringify({ event: 'admin_account_export', user: account.userId.slice(0, 8), errors: errors.length }))
@@ -293,6 +305,7 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     supabase,
     kv,
     durableObjects,
+    r2,
     stripe: stripeSummary,
   }, 200, request)
 }
@@ -339,6 +352,11 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
     [`${prefix}kv:lab-position`, async () => {
       if (!env.RATE_LIMIT) throw new Error('RATE_LIMIT binding missing')
       await env.RATE_LIMIT.delete(positionKvKey(userId))
+    }],
+    // The reader's own PDF/EPUB files: every object under u/{userId}/.
+    [`${prefix}r2:user-books`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      await purgeUserBooks(env.USER_BOOKS, userId)
     }],
   ]
 }

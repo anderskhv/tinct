@@ -3,7 +3,7 @@
 // Playwright comes from app/node_modules (no new dependency). Screenshots go to
 // addbooks/web/test/output/.
 import { createRequire } from 'node:module';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { start } from './serve.mjs';
@@ -71,11 +71,12 @@ async function openFile(p, file) {
 }
 // A Tinct session as tinct.app stores it. `expired`: the account is known but its token
 // has lapsed, so the companion uses the guest route.
-async function signIn(p, { expired = false, token = 'test-token' } = {}) {
-  await p.evaluate(([key, expired, token]) => localStorage.setItem(key, JSON.stringify({ access_token: token, expires_at: Math.floor(Date.now() / 1000) + (expired ? -60 : 3600), user: { id: 'u-test', email: 'reader@example.com' } })), [SESSION_KEY, expired, token]);
+async function signIn(p, { expired = false, token = 'test-token', user = 'u-test' } = {}) {
+  await p.evaluate(([key, expired, token, user]) => localStorage.setItem(key, JSON.stringify({ access_token: token, expires_at: Math.floor(Date.now() / 1000) + (expired ? -60 : 3600), user: { id: user, email: 'reader@example.com' } })), [SESSION_KEY, expired, token, user]);
   await p.reload();
   await p.waitForSelector('#doorOwn');
 }
+const bookState = async () => (await fetch(`http://127.0.0.1:${PORT}/__books`)).json();
 const lastRequest = async () => (await (await fetch(`http://127.0.0.1:${PORT}/__requests`)).json()).at(-1);
 // Drag a snip box over the middle of a PDF page in view, then Explain it.
 async function snipAndExplain(p) {
@@ -182,7 +183,7 @@ try {
   await p.mouse.click(5, 300);
   await p.screenshot({ path: join(OUT, 'desktop-epub-highlight.png') });
 
-  // Back to the start page: the book is on "Your books on this device".
+  // Back to the start page: the book is on "Your books".
   await p.click('#superBtn'); await p.click('.lab-super-row[data-row="close"]');
   await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
   check('book listed on this device', /time machine/i.test(await p.textContent('#abBooks')));
@@ -287,6 +288,70 @@ try {
     await p.screenshot({ path: join(OUT, 'phone-epub.png') });
     check('phone: no page errors or CSP violations', !problems.length, problems.slice(0, 6));
     await ctx.close();
+  }
+
+  // ---- Your books in your account: saved after opening, listed and opened on another device, removed from both ----
+  {
+    const one = await page(browser, { width: 1280, height: 800 });
+    await one.p.goto(BASE);
+    await signIn(one.p, { token: 'cloud-token', user: 'u-cloud' });
+    await openFile(one.p, pdf);
+    await one.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    await one.p.waitForFunction(() => /Saved to your account\./.test(document.querySelector('.byob-toast:not([hidden])')?.textContent || ''), null, { timeout: 15000 });
+    const saved = await bookState();
+    const mine = saved.users['u-cloud'] || [];
+    const posts = saved.log.filter(l => l.method === 'POST' && l.user === 'u-cloud');
+    check('signed in: an opened file is saved privately to the account, once', mine.length === 1 && mine[0].type === 'pdf' && mine[0].size === statSync(pdf).size && mine[0].name === 'sample.pdf'
+      && posts.length === 1 && posts[0].user === 'u-cloud', { mine: mine.map(b => ({ name: b.name, title: b.title, size: b.size })), posts });
+    const linked = await one.p.evaluate(async () => (await window.TinctReader.library.list()).map(r => r.cloudId));
+    check('this device’s copy is linked to the account copy', linked.length === 1 && linked[0] === mine[0]?.id, linked);
+    // Reopening from the shelf does not upload again.
+    await one.p.click('#superBtn'); await one.p.click('.lab-super-row[data-row="close"]');
+    await one.p.waitForSelector('#abShelf:not([hidden]) .ab-book');
+    await one.p.click('.ab-book-open'); await one.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    await one.p.waitForTimeout(500);
+    check('reopening does not upload again', (await bookState()).log.filter(l => l.method === 'POST' && l.user === 'u-cloud').length === 1);
+    check('account copy, first device: no page errors', !one.problems.length, one.problems.slice(0, 6));
+    await one.ctx.close();
+
+    // A different account never sees it: its shelf stays empty.
+    const three = await page(browser, { width: 1280, height: 800 });
+    await three.p.goto(BASE);
+    const before = (await bookState()).log.length;
+    await signIn(three.p, { token: 'other-token', user: 'u-other' });
+    for (let i = 0; i < 40 && !(await bookState()).log.slice(before).some(l => l.user === 'u-other' && l.method === 'GET'); i++) await three.p.waitForTimeout(100);
+    await three.p.waitForTimeout(300);
+    check('another account’s shelf does not list it', await three.p.evaluate(() => document.getElementById('abShelf').hidden && !document.querySelector('.ab-book')));
+    await three.ctx.close();
+
+    // A second device: empty browser storage, same account.
+    const two = await page(browser, { width: 1280, height: 800 });
+    await two.p.goto(BASE);
+    await signIn(two.p, { token: 'cloud-token', user: 'u-cloud' });
+    await two.p.waitForSelector('#abShelf:not([hidden]) .ab-book[data-cloud-only]', { timeout: 10000 });
+    const listed = await two.p.textContent('#abBooks');
+    check('another device lists the account’s book on “Your books”', listed.includes(mine[0]?.title || '?') && /PDF · added today/.test(listed), listed.replace(/\s+/g, ' ').trim());
+    await two.p.screenshot({ path: join(OUT, 'desktop-shelf-account.png') });
+    await two.p.click('.ab-book[data-cloud-only] .ab-book-open');
+    await two.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    await two.p.waitForSelector('.text-layer span', { timeout: 15000 });
+    const kept = await two.p.evaluate(async () => (await window.TinctReader.library.list()).map(r => ({ cloudId: r.cloudId, size: r.size })));
+    check('a book only in the account downloads, opens and is kept on this device', kept.length === 1 && kept[0].cloudId === mine[0]?.id && kept[0].size === mine[0]?.size
+      && (await bookState()).log.some(l => l.method === 'GET' && l.id === mine[0]?.id), kept);
+    await two.p.click('#superBtn'); await two.p.click('.lab-super-row[data-row="close"]');
+    await two.p.waitForSelector('#abShelf:not([hidden]) .ab-book:not([data-cloud-only])');
+    // Remove (× then Remove): gone from this device and from the account.
+    await two.p.click('.ab-book-x'); await two.p.click('.ab-book-x');
+    await two.p.waitForFunction(() => document.getElementById('abShelf').hidden, null, { timeout: 10000 });
+    const after = await bookState();
+    const local = await two.p.evaluate(async () => (await window.TinctReader.library.list()).length);
+    check('removing a book deletes it from this device and the account', local === 0 && (after.users['u-cloud'] || []).length === 0 && after.log.some(l => l.method === 'DELETE' && l.id === mine[0]?.id), { local, left: after.users['u-cloud'] });
+    await two.p.reload(); await two.p.waitForSelector('#doorOwn');
+    await two.p.waitForTimeout(800);
+    check('and it stays removed after a reload', await two.p.evaluate(() => document.getElementById('abShelf').hidden));
+    check('account copy, second device: no page errors', !two.problems.length, two.problems.slice(0, 6));
+    await two.ctx.close();
+
   }
 } catch (e) {
   check('run completed', false, String(e?.stack || e).slice(0, 600));

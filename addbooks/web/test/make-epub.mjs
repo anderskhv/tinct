@@ -2,7 +2,7 @@
 // chapter with markup the reader must strip.
 import { crc32 } from 'node:zlib';
 
-function zip(files) {
+export function zip(files) {
   const enc = new TextEncoder(), locals = [], centrals = [];
   let offset = 0;
   for (const [name, content] of files) {

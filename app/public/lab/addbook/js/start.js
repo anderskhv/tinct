@@ -1,6 +1,6 @@
 // Tinct · Add a book: the start page. Two doors: your own book (PDF or EPUB, opened
-// privately in this browser) and free public-domain books (search; download from the
-// source library, then open the file here).
+// privately and kept privately in your account) and free public-domain books (search;
+// download from the source library, then open the file here).
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const params = new URLSearchParams(location.search);
@@ -42,20 +42,28 @@ $('abDrop').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key ==
 for (const ev of ['dragenter', 'dragover']) $('abDrop').addEventListener(ev, () => $('abDrop').classList.add('is-over'));
 for (const ev of ['dragleave', 'drop']) $('abDrop').addEventListener(ev, () => $('abDrop').classList.remove('is-over'));
 
-/* ---------- Your books on this device ---------- */
+/* ---------- Your books: this device's and your account's ---------- */
 const when = t => { const d = new Date(t), days = Math.round((Date.now() - t) / 86400000); return days < 1 ? 'today' : days < 2 ? 'yesterday' : days < 7 ? `${days} days ago` : d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: d.getFullYear() === new Date().getFullYear() ? undefined : 'numeric' }) };
 const hue = s => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) % 360; return h };
 function coverHtml(title, author, kind, small) {
   return `<span class="ab-cover${small ? ' is-small' : ''}" style="--h:${hue(title)}" aria-hidden="true"><span class="ab-cover-t">${esc(title)}</span>${author ? `<span class="ab-cover-a">${esc(author)}</span>` : ''}${kind ? `<span class="ab-cover-k">${kind.toUpperCase()}</span>` : ''}</span>`;
 }
-async function renderShelf() {
-  const list = window.TinctAI?.session().userId ? await (window.TinctReader?.library.list() ?? []) : [];
+// This device's books show at once; the account's copies join when the list arrives.
+let shelfRun = 0;
+function drawShelf(list) {
   $('abShelf').hidden = !list.length;
-  $('abBooks').innerHTML = list.map(b => `<li class="ab-book" data-key="${esc(b.key)}">
+  $('abBooks').innerHTML = list.map(b => `<li class="ab-book" data-key="${esc(b.key)}"${b.local ? '' : ' data-cloud-only'}>
       <button type="button" class="ab-book-open" data-open="${esc(b.key)}" aria-label="Open ${esc(b.title)}">${coverHtml(b.title, b.author, b.kind)}
-        <span class="ab-book-meta"><b>${esc(b.title)}</b>${b.author ? `<span>${esc(b.author)}</span>` : ''}<small>${b.kind.toUpperCase()} · opened ${when(b.openedAt || b.addedAt)}</small></span></button>
-      <button type="button" class="ab-book-x" data-remove="${esc(b.key)}" aria-label="Remove ${esc(b.title)} from this device">×</button>
+        <span class="ab-book-meta"><b>${esc(b.title)}</b>${b.author ? `<span>${esc(b.author)}</span>` : ''}<small>${b.kind.toUpperCase()} · ${b.openedAt ? 'opened ' + when(b.openedAt) : 'added ' + when(b.addedAt)}</small></span></button>
+      <button type="button" class="ab-book-x" data-remove="${esc(b.key)}" aria-label="Remove ${esc(b.title)}">×</button>
     </li>`).join('');
+}
+async function renderShelf() {
+  const run = ++shelfRun, reader = window.TinctReader;
+  if (!window.TinctAI?.session().userId || !reader) { drawShelf([]); return }
+  const local = await reader.shelf();
+  if (run === shelfRun) drawShelf(local);
+  if (await reader.cloud.refresh() && run === shelfRun) { const all = await reader.shelf(); if (run === shelfRun) drawShelf(all) }
 }
 $('abBooks').addEventListener('click', async e => {
   const open = e.target.closest('[data-open]');
@@ -63,8 +71,8 @@ $('abBooks').addEventListener('click', async e => {
   const x = e.target.closest('[data-remove]');
   if (!x) return;
   const li = x.closest('.ab-book');
-  if (li.classList.contains('is-confirm')) { await window.TinctReader?.library.remove(x.dataset.remove); renderShelf(); return }
-  li.classList.add('is-confirm'); x.textContent = 'Remove'; x.setAttribute('aria-label', 'Confirm: remove from this device');
+  if (li.classList.contains('is-confirm')) { x.disabled = true; await window.TinctReader?.removeBook(x.dataset.remove); renderShelf(); return }
+  li.classList.add('is-confirm'); x.textContent = 'Remove'; x.setAttribute('aria-label', 'Confirm: remove from this device and your account');
   setTimeout(() => { if (li.isConnected) { li.classList.remove('is-confirm'); x.textContent = '×' } }, 4000);
 });
 
@@ -133,7 +141,7 @@ function renderResults({ total, results, focus }) {
   box.innerHTML = `<h2 class="ab-results-title">${focus ? 'Free book' : `${total.toLocaleString('en')} free book${total === 1 ? '' : 's'}`}</h2>
     <ol class="ab-result-list">${results.map(resultCard).join('')}</ol>
     ${results.length < total ? '<button type="button" class="ab-btn ab-more" data-more>Show more books</button>' : ''}
-    <p class="ab-fine">Downloads come from the library that holds the book. Then open the file here: it stays private in this browser.</p>`;
+    <p class="ab-fine">Downloads come from the library that holds the book. Then open the file here: it stays private to your account.</p>`;
 }
 $('abResults').addEventListener('click', e => {
   if (e.target.closest('[data-more]')) { limit += 12; runSearch(lastQuery, true); return }

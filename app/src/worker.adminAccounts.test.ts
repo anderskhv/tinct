@@ -1,17 +1,20 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handleAdminDeleteUser, handleAdminExportUser, type AdminAccountsEnv } from './worker/routes/adminAccounts'
+import { fakeUserBooksBucket } from './worker/fakeUserBooksBucket'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const email = 'reader@example.com'
 const device = 'device-abc12345'
+const otherUser = '22222222-2222-4222-8222-222222222222'
 
 function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } })
 }
 
 /**
- * In-memory stand-in for Supabase REST + Auth admin, Stripe, KV and both
- * Durable Objects. Every mutating call is appended to `log` so tests can
+ * In-memory stand-in for Supabase REST + Auth admin, Stripe, KV, both
+ * Durable Objects and the USER_BOOKS bucket (2 objects per list page, so
+ * purging the reader's 3 files takes more than one page). Every mutating call is appended to `log` so tests can
  * assert ordering.
  */
 function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } = {}) {
@@ -128,7 +131,20 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } 
       }
     }),
   })
+  const userBooks = fakeUserBooksBucket({ pageSize: 2, log })
+  const book = (owner: string, n: number, name: string, size: number) => {
+    const id = n.toString(16).padStart(32, '0')
+    userBooks.objects.set(`u/${owner}/${id}`, {
+      key: `u/${owner}/${id}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-05T00:00:00Z'),
+      customMetadata: { name: encodeURIComponent(name), title: encodeURIComponent(name.replace(/\.\w+$/, '')), author: '', type: name.endsWith('.epub') ? 'epub' : 'pdf', sha256: id.repeat(2), createdAt: `2026-10-0${n}T00:00:00.000Z` },
+    })
+  }
+  book(userId, 1, 'Notes.pdf', 10)
+  book(userId, 2, 'Kapitel ø.epub', 20)
+  book(userId, 3, 'Slides.pdf', 30)
+  book(otherUser, 4, 'Theirs.pdf', 40)
   const env = {
+    USER_BOOKS: userBooks.bucket,
     SUPABASE_URL: 'https://example.supabase.co',
     SUPABASE_SERVICE_ROLE_KEY: 'service-role',
     STRIPE_SECRET_KEY: 'stripe-test',
@@ -144,7 +160,7 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } 
   } as unknown as AdminAccountsEnv
   vi.stubGlobal('fetch', fetchMock)
   vi.spyOn(console, 'log').mockImplementation(() => {})
-  return { env, log, state, kvStore, doState, fetchMock, options }
+  return { env, log, state, kvStore, doState, fetchMock, options, userBooks }
 }
 
 function post(path: string, body: unknown): Request {
@@ -196,6 +212,8 @@ describe('admin account routes', () => {
       'do:share-forget',
       'kv:delete:lab-chat-history',
       'kv:delete:lab-position',
+      'r2:delete:user-books',
+      'r2:delete:user-books',
       'rest:delete:analytics_events:device',
       'rest:delete:analytics_events',
       'rest:delete:issue_reports',
@@ -204,8 +222,11 @@ describe('admin account routes', () => {
       'stripe:delete-customer',
       'auth:delete',
     ])
-    // Post-delete sweep, then the cascade check.
+    // Post-delete sweep (nothing left under the reader's prefix, so no R2 delete), then the cascade check.
     expect(w.log.slice(auth + 1)).toEqual(['do:purge:recap', 'do:purge:position', 'do:share-forget', 'kv:delete:lab-chat-history', 'kv:delete:lab-position'])
+    expect(body.steps.filter(s => s.step.endsWith('r2:user-books')).map(s => [s.step, s.status])).toEqual([['r2:user-books', 'ok'], ['sweep:r2:user-books', 'ok']])
+    // Every file under u/{userId}/ is gone, across list pages; another reader's file stays.
+    expect([...w.userBooks.objects.keys()]).toEqual([`u/${otherUser}/${'4'.padStart(32, '0')}`])
     expect(body.steps[body.steps.length - 1]).toEqual({ step: 'verify:cascade', status: 'ok' })
     // No SET NULL orphans; another device's anonymous rows are untouched.
     expect(w.state.tables.analytics_events.map(row => row.id)).toEqual(['e3'])
@@ -240,6 +261,20 @@ describe('admin account routes', () => {
     expect(thirdBody.steps.find(s => s.step === 'auth:delete-user')).toEqual({ step: 'auth:delete-user', status: 'skipped', detail: 'auth user already deleted' })
   })
 
+  it('keeps the auth user when the USER_BOOKS bucket is not bound, so the files are never orphaned', async () => {
+    const w = world()
+    delete (w.env as { USER_BOOKS?: unknown }).USER_BOOKS
+    const res = await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)
+    const body = await res.json() as { ok: boolean; steps: { step: string; status: string; detail?: string }[] }
+    expect(res.status).toBe(500)
+    expect(body.steps.find(s => s.step === 'r2:user-books')).toEqual({ step: 'r2:user-books', status: 'failed', detail: 'USER_BOOKS binding missing' })
+    expect(body.steps.find(s => s.step === 'auth:delete-user')?.status).toBe('skipped')
+    expect(w.state.authUser).not.toBeNull()
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(false)
+    expect(exported.errors).toContain('r2: USER_BOOKS binding missing')
+  })
+
   it('treats an already-deleted Stripe customer as done', async () => {
     const w = world({ stripeCustomer: true })
     w.state.customerDeleted = true
@@ -268,6 +303,13 @@ describe('admin account routes', () => {
     expect(body.supabase.analytics_events_device_anonymous.map((row: { id: string }) => row.id)).toEqual(['e2'])
     expect(body.kv).toEqual({ labChatHistory: { threads: ['hello'] }, labPosition: { owner: userId } })
     expect(body.durableObjects).toEqual({ readerPosition: { position: { owner: userId } }, recapPreparation: { queue: { entries: {} }, owner: userId } })
+    // Own uploaded books are listed (name, size, dates) across list pages, never their bytes or another reader's.
+    expect(body.r2.userBooks).toEqual([
+      { id: '3'.padStart(32, '0'), name: 'Slides.pdf', title: 'Slides', author: '', type: 'pdf', size: 30, createdAt: '2026-10-03T00:00:00.000Z' },
+      { id: '2'.padStart(32, '0'), name: 'Kapitel ø.epub', title: 'Kapitel ø', author: '', type: 'epub', size: 20, createdAt: '2026-10-02T00:00:00.000Z' },
+      { id: '1'.padStart(32, '0'), name: 'Notes.pdf', title: 'Notes', author: '', type: 'pdf', size: 10, createdAt: '2026-10-01T00:00:00.000Z' },
+    ])
+    expect(w.userBooks.objects.size).toBe(4)
     expect(body.stripe.customers[0]).toMatchObject({ id: 'cus_Test1', subscriptions: [{ id: 'sub_Live1', status: 'active' }, { id: 'sub_Old1', status: 'canceled' }], invoices: [{ id: 'in_1' }] })
     // Read-only: no deletes anywhere.
     expect(w.log).toEqual([])

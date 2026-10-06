@@ -27,7 +27,7 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 33 browser checks under production CSP, chat API mocked
+node addbooks/web/test/e2e.mjs           # 43 browser checks under production CSP, chat and user-books APIs mocked
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
@@ -59,9 +59,48 @@ How it fits the app:
   selected passage in `companion.context.paragraphs`. Both are existing routes.
 - **CSP:** runs under the production policy as-is. No inline scripts, no CDNs,
   `data:` images only, pdf.js worker same-origin (`vendor/pdfjs`, Apache-2.0).
-- **Storage:** books stay in the browser (IndexedDB `tinct-addbook`, owner-tagged by
+- **Storage:** books are kept in the browser (IndexedDB `tinct-addbook`, owner-tagged by
   user id). Notes, highlights and the rights confirmation use localStorage keys
   `tinct-addbook:*`. The app's sign-out wipe (`clearLocalUserData`) removes both.
+- **Your books in your account (release 2):** signed in, a file is uploaded in the
+  background after it opens, to the private R2 bucket `tinct-user-books` (binding
+  `USER_BOOKS`), so "Your books" lists it on the reader's other devices; opening it
+  there downloads it and keeps it in IndexedDB. Removing a book deletes both copies.
+  Sign-out leaves the account copies. See below.
+
+### Your books in your account (release 2)
+
+Worker: `app/src/worker/routes/userBooks.ts`, tests `app/src/worker.userBooks.test.ts`.
+Every route needs a signed-in user; responses are `no-store`; anything not the caller's
+is `404`.
+
+| Route | |
+|---|---|
+| `GET /api/user-books` | The caller's books: `{books: [{id, name, title, author, type, size, sha256, createdAt}], limits}` |
+| `POST /api/user-books` | Raw file body; `X-Book-Name`, `X-Book-Title`, `X-Book-Author` (percent-encoded). `201 {book}`, or `200 {book, existing: true}` when the account already has the same file |
+| `GET /api/user-books/{id}` | The file, to its owner only |
+| `DELETE /api/user-books/{id}` | Deletes it |
+
+- **Keys:** `u/{userId}/{fileId}`, fileId 16 random bytes (hex). Metadata is the object's
+  R2 customMetadata (percent-encoded, ASCII): written and deleted with the bytes, and
+  R2 listing is strongly consistent, so there is no separate index to drift.
+- **Checks:** type from the bytes (`%PDF-`, or a ZIP whose stored `mimetype` entry is
+  `application/epub+zip`), else `415`. Limits (constants in `userBooks.ts`): 50 MB per
+  file and 2 GB / 200 files per account (`413 file_too_large` / `413 account_full`),
+  10 uploads per account per minute (`429`). Concurrent uploads can pass the account
+  check together, so the totals can be exceeded by at most a few in-flight files.
+- **Never shared, indexed or deduplicated across accounts;** the same file twice in one
+  account is stored once.
+- **Export and deletion:** the admin export lists the files (`r2.userBooks`, no bytes);
+  account deletion removes everything under `u/{userId}/` (`docs/account-deletion.md`).
+- **Takedown** (a rights holder writes to contact@tinct.app, as the privacy notice says):
+  find the object in the Cloudflare dashboard (R2 → `tinct-user-books`), or ask for the
+  account and use the admin export to identify the file id, then delete
+  `u/{userId}/{fileId}`. The reader's browser copy goes when they remove it or sign out.
+- **Before the first deploy:** the bucket must exist. Cloudflare dashboard → R2 Object
+  Storage → Create bucket → name `tinct-user-books`, location Automatic, default storage
+  class Standard → Create. Leave Public access disabled and add no custom domain or
+  r2.dev URL. A deploy without the bucket fails, which is the safe failure.
 - **Free books:** the page links to the source library's EPUB. The user downloads it,
   then opens it here (CSP blocks fetching other origins, by design). `?q=` and
   `?work=<id>` deep-link into search; freepubs.fyi uses `?work=`.

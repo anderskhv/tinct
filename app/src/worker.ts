@@ -37,6 +37,7 @@ import { handleLabChatHistory } from './worker/routes/labChatHistory'
 import { handleLabRecap } from './worker/routes/labRecap'
 import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
+import { handleUserBooks } from './worker/routes/userBooks'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import { RETENTION_CRON, runRetentionCleanup } from './worker/routes/retention'
@@ -92,6 +93,8 @@ interface Env {
   NARRATION_MONTHLY_BYTES?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
+  /** Private bucket for readers' own PDF/EPUB files (routes/userBooks.ts). Never public. */
+  USER_BOOKS?: R2Bucket
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -175,6 +178,10 @@ export default {
     }
     const sharePage = url.pathname.startsWith('/q/') ? await handleSharePage(request, env, ctx) : null
     if (sharePage) return sharePage
+
+    if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
+      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
+    }
 
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
