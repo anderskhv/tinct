@@ -12,7 +12,7 @@
     --accent: #1f4a5c;
     --stage: #8d8478;
   }
-  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--stage); }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: radial-gradient(120% 85% at 45% 40%, #a59c8f 0%, var(--stage) 55%, #6f665b 100%); }
   #wrap { position: fixed; inset: 0; }
   canvas { display: block; }
   /* Soft studio vignette, like a lit backdrop. */
@@ -66,20 +66,18 @@ const params = new URLSearchParams(location.search);
 const FRAME_COLOR = params.get('frame') || '#24586b';
 
 // ---------- renderer / scene ----------
-const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
-renderer.setPixelRatio(1);
+const SS = Number(params.get('ss') || 2); // supersampling: render at SSx, the browser downsamples
+const renderer = new THREE.WebGLRenderer({ antialias: SS < 2, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(SS);
 renderer.setSize(W, H);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.getElementById('wrap').appendChild(renderer.domElement);
 
 const STAGE = new THREE.Color('#8d8478');
 const scene = new THREE.Scene();
-scene.background = STAGE;
-scene.fog = new THREE.Fog(STAGE, 60, 140);
+// Backdrop is CSS (body background + vignette); only the phone is shaded in WebGL.
 
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
@@ -87,23 +85,8 @@ scene.environmentIntensity = 0.9;
 
 const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 500);
 
-// Ground the phone rests on: same tone as the backdrop, catches the shadow.
-const ground = new THREE.Mesh(
-  new THREE.PlaneGeometry(600, 600),
-  new THREE.MeshStandardMaterial({ color: STAGE, roughness: 1, metalness: 0 })
-);
-ground.rotation.x = -Math.PI / 2;
-ground.receiveShadow = true;
-scene.add(ground);
-
 const key = new THREE.DirectionalLight(0xfff4e6, 2.2);
 key.position.set(-14, 30, -10);
-key.castShadow = true;
-key.shadow.mapSize.set(2048, 2048);
-key.shadow.camera.left = -20; key.shadow.camera.right = 20;
-key.shadow.camera.top = 20; key.shadow.camera.bottom = -20;
-key.shadow.radius = 10;
-key.shadow.bias = -0.0005;
 scene.add(key);
 scene.add(new THREE.HemisphereLight(0xfff8ee, 0x6b6157, 0.55));
 
@@ -135,17 +118,14 @@ const bodyGeo = new THREE.ExtrudeGeometry(roundedRect(PW - bevel * 2, PH - bevel
   depth: PD - bevel * 2, bevelEnabled: true, bevelThickness: bevel, bevelSize: bevel, bevelSegments: 10, curveSegments: 48,
 });
 bodyGeo.translate(0, 0, -(PD - bevel * 2) / 2);
-const frameMat = new THREE.MeshPhysicalMaterial({
-  color: FRAME_COLOR, metalness: 0.9, roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.25,
-});
+const frameMat = new THREE.MeshStandardMaterial({ color: FRAME_COLOR, metalness: 0.9, roughness: 0.3 });
 const body = new THREE.Mesh(bodyGeo, frameMat);
-body.castShadow = true;
 phone.add(body);
 
 const frontZ = PD / 2 + 0.002;
 const glass = new THREE.Mesh(
   new THREE.ShapeGeometry(roundedRect(PW - 0.16, PH - 0.16, PR - 0.08), 48),
-  new THREE.MeshPhysicalMaterial({ color: 0x050505, roughness: 0.08, metalness: 0, clearcoat: 1 })
+  new THREE.MeshBasicMaterial({ color: 0x070707 })
 );
 glass.position.z = frontZ;
 phone.add(glass);
@@ -167,14 +147,6 @@ const screen = new THREE.Mesh(
 screen.position.z = frontZ + 0.002;
 phone.add(screen);
 
-// Faint glass reflection over the screen.
-const sheen = new THREE.Mesh(
-  new THREE.ShapeGeometry(roundedRect(SW, SH, SR), 48),
-  new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.05, roughness: 0.05, metalness: 0, envMapIntensity: 1.6 })
-);
-sheen.position.z = frontZ + 0.004;
-phone.add(sheen);
-
 const island = new THREE.Mesh(
   new THREE.ShapeGeometry(roundedRect(2.05, 0.6, 0.3), 24),
   new THREE.MeshBasicMaterial({ color: 0x000000 })
@@ -185,7 +157,7 @@ phone.add(island);
 // Side buttons.
 function button(x, y, h) {
   const m = new THREE.Mesh(new THREE.BoxGeometry(0.08, h, 0.3), frameMat);
-  m.position.set(x, y, 0); m.castShadow = true; phone.add(m);
+  m.position.set(x, y, 0); phone.add(m);
 }
 button(-PW / 2 - 0.02, 4.1, 0.6);
 button(-PW / 2 - 0.02, 2.9, 1.0);
@@ -195,9 +167,27 @@ button(PW / 2 + 0.02, 2.4, 1.6);
 // Phone lies on the ground, screen up, top of phone pointing away (-Z).
 phone.rotation.x = -Math.PI / 2;
 phone.position.y = PD / 2 + 0.01;
+// Soft contact shadow: a pre-blurred rounded rect under the phone, offset away from the key light.
+const shadowCanvas = document.createElement('canvas');
+shadowCanvas.width = 512; shadowCanvas.height = 768;
+{
+  const c = shadowCanvas.getContext('2d');
+  c.filter = 'blur(26px)';
+  c.fillStyle = 'rgba(40, 28, 16, 0.55)';
+  c.beginPath(); c.roundRect(96, 96, 320, 576, 60); c.fill();
+  c.filter = 'blur(7px)';
+  c.fillStyle = 'rgba(30, 20, 10, 0.45)';
+  c.beginPath(); c.roundRect(118, 116, 276, 540, 44); c.fill();
+}
+const shadowTex = new THREE.CanvasTexture(shadowCanvas);
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(PW * 512 / 300, PH * 768 / 560),
+  new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+shadow.rotation.x = -Math.PI / 2;
+shadow.position.set(0.55, 0.002, 0.45);
 const turntable = new THREE.Group();
+turntable.add(shadow);
 turntable.add(phone);
-turntable.rotation.y = 0.18;
+turntable.rotation.y = 0.12;
 scene.add(turntable);
 
 // ---------- screen compositing ----------
@@ -253,44 +243,44 @@ async function setScreen(src) {
 }
 
 // ---------- camera shots ----------
-// World: phone centred at origin lying flat, its top towards -Z (rotated by turntable).
-// Each shot: from/to camera {p: position, t: look-at target, fov}. Eased within the shot.
-const V = (x, y, z) => new THREE.Vector3(x, y, z);
+// Product-shot framing: the whole phone stays in view. Each shot eases between two
+// orbit positions around the phone: az = degrees around (0 = from the phone's bottom
+// edge, so text reads upright), el = elevation in degrees, d = distance (cm),
+// look = point on the phone (x, z) the camera aims at.
 const SHOTS = {
-  // Long-lens glides across the screen at a diagonal (the Grids look). Camera sits
-  // below the phone's bottom edge so text always reads the right way up.
-  glideTop:    { from: { p: V(6.5, 10, 3.5), t: V(0.2, 0, -4.4), fov: 24 }, to: { p: V(5, 10.5, 4.5), t: V(0, 0, -2.8), fov: 24 } },
-  glideMid:    { from: { p: V(-6, 11, 8.5), t: V(-0.2, 0, -1.2), fov: 24 }, to: { p: V(-4.5, 11, 9.5), t: V(0, 0, 0.6), fov: 24 } },
-  glideLow:    { from: { p: V(6, 9, 13), t: V(0.3, 0, 2.2), fov: 24 }, to: { p: V(4, 9.5, 13.5), t: V(0, 0, 3.6), fov: 24 } },
-  // Near top-down for reading detail.
-  readClose:   { from: { p: V(2.5, 17, 5), t: V(0, 0, -1.6), fov: 26 }, to: { p: V(1.2, 16, 5.5), t: V(0, 0, -0.8), fov: 26 } },
-  readLow:     { from: { p: V(-3, 16, 9), t: V(0, 0, 1.2), fov: 26 }, to: { p: V(-1.5, 15.5, 10), t: V(0, 0, 2.2), fov: 26 } },
-  // Whole screen, gently drifting.
-  overhead:    { from: { p: V(2.5, 30, 9), t: V(0, 0, 0.3), fov: 30 }, to: { p: V(-1, 29, 9.5), t: V(0, 0, 0.1), fov: 30 } },
-  // Wide pull-back reveal for the end.
-  reveal:      { from: { p: V(4, 20, 14), t: V(0, 0, 0), fov: 30 }, to: { p: V(8, 30, 34), t: V(0, -2, -1), fov: 30 } },
+  hero:      { from: { az: -24, el: 56, d: 35.0, look: [0, 0.4] }, to: { az: -14, el: 60, d: 32.3, look: [0, 0.2] } },
+  left:      { from: { az: -18, el: 62, d: 30.7, look: [0, -0.2] }, to: { az: -8, el: 64, d: 29.2, look: [0, -0.6] } },
+  right:     { from: { az: 20, el: 58, d: 31.8, look: [0, 0.2] }, to: { az: 11, el: 61, d: 29.7, look: [0, 0] } },
+  top:       { from: { az: 8, el: 66, d: 28.6, look: [0, -1.6] }, to: { az: -2, el: 68, d: 27.0, look: [0, -1.9] } },
+  bottom:    { from: { az: -10, el: 62, d: 28.6, look: [0, 1.4] }, to: { az: 2, el: 64, d: 27.0, look: [0, 1.7] } },
+  overhead:  { from: { az: 4, el: 74, d: 31.8, look: [0, 0] }, to: { az: -5, el: 76, d: 30.7, look: [0, 0] } },
+  reveal:    { from: { az: -6, el: 62, d: 30.7, look: [0, 0] }, to: { az: -22, el: 50, d: 48.8, look: [0, 0.6] } },
 };
 const ease = (x) => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 const easeSine = (x) => -(Math.cos(Math.PI * x) - 1) / 2;
+const lerp = (a, b, k) => a + (b - a) * k;
+const DEG = Math.PI / 180;
 function setCamera(shotName, p) {
-  const s = SHOTS[shotName] || SHOTS.overhead;
+  const s = SHOTS[shotName] || SHOTS.hero;
   const k = shotName === 'reveal' ? ease(p) : easeSine(p);
-  camera.position.lerpVectors(s.from.p, s.to.p, k);
-  const t = new THREE.Vector3().lerpVectors(s.from.t, s.to.t, k);
-  camera.fov = s.from.fov + (s.to.fov - s.from.fov) * k;
+  const az = lerp(s.from.az, s.to.az, k) * DEG, el = lerp(s.from.el, s.to.el, k) * DEG, d = lerp(s.from.d, s.to.d, k);
+  const lx = lerp(s.from.look[0], s.to.look[0], k), lz = lerp(s.from.look[1], s.to.look[1], k);
+  // Look-at point in world space (phone sits on the turntable).
+  const target = new THREE.Vector3(lx, PD, lz).applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
+  const off = new THREE.Vector3(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).multiplyScalar(d)
+    .applyAxisAngle(new THREE.Vector3(0, 1, 0), turntable.rotation.y);
+  camera.position.copy(target).add(off);
+  camera.fov = 30;
   camera.updateProjectionMatrix();
-  camera.lookAt(t);
+  camera.lookAt(target);
 }
 
 // ---------- frame API (driven by render.mjs) ----------
 let lastScreen = null;
-let shadowBaked = false;
 window.renderFrame = async ({ screenSrc, shot, p, caption = '', captionOpacity = 0, endcard = 0 }) => {
   if (screenSrc && screenSrc !== lastScreen) { await setScreen(screenSrc); lastScreen = screenSrc; }
   setCamera(shot, p);
   renderer.render(scene, camera);
-  // Phone and light never move, so the shadow map only needs one pass.
-  if (!shadowBaked) { shadowBaked = true; renderer.shadowMap.autoUpdate = false; }
   const capEl = document.getElementById('caption');
   capEl.firstChild.textContent = caption; capEl.style.opacity = caption ? captionOpacity : 0;
   document.getElementById('endcard').style.opacity = endcard;

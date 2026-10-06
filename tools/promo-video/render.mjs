@@ -83,12 +83,12 @@ async function worker(w) {
   page.on('pageerror', (e) => console.error('[stage]', e.message));
   await page.goto(`${url}/stage.html`);
   await page.evaluate(() => window.stageReady);
-  const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'png', '-i', '-',
+  const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
     '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2', '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', seg], { stdio: ['pipe', 'inherit', 'inherit'] });
   for (let i = a; i < b; i++) {
     await page.evaluate((p) => window.renderFrame(p), frameParams(i));
-    const png = await page.screenshot({ type: 'png' });
-    if (!ff.stdin.write(png)) await new Promise((r) => ff.stdin.once('drain', r));
+    const jpg = await page.screenshot({ type: 'jpeg', quality: 96 }); // PNG encode is ~10x slower
+    if (!ff.stdin.write(jpg)) await new Promise((r) => ff.stdin.once('drain', r));
     done++;
     if (done % 30 === 0) {
       const el = (Date.now() - t0) / 1000;

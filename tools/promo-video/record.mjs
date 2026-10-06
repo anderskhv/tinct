@@ -12,6 +12,9 @@ import { launch, OUT } from './lib.mjs';
 const ORIGIN = process.env.TINCT_ORIGIN || 'https://tinct.app';
 const REC = path.join(OUT, 'recording');
 const DEBUG = process.argv.includes('--debug');
+// Slow-motion factor: the page runs K times slower than real time (see timewarp.js),
+// so a headless capture that manages ~6 fps yields ~30 fps of story time.
+const K = Number(process.env.PROMO_SLOW || 5);
 fs.rmSync(REC, { recursive: true, force: true });
 fs.mkdirSync(REC, { recursive: true });
 
@@ -25,6 +28,8 @@ const ctx = await browser.newContext({
   serviceWorkers: 'block', colorScheme: 'light',
   userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1',
 });
+
+await ctx.addInitScript({ content: `window.__PROMO_K=${K};\n` + fs.readFileSync(new URL('./timewarp.js', import.meta.url), 'utf8') });
 
 // Fresh guest with a voice already chosen; visible touch ripples for the viewer.
 await ctx.addInitScript(() => {
@@ -52,24 +57,37 @@ await ctx.addInitScript(() => {
   };
 });
 
+// PROMO_MOCK_CHAT=1: canned librarian reply, for test runs that shouldn't use prod chat.
+if (process.env.PROMO_MOCK_CHAT) {
+  await ctx.route('**/api/lab-chat', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ content: [{ type: 'text',
+    text: 'For ambition and what we owe the things we make, start with **Frankenstein**: a young scientist creates life, then abandons it.\n\n[[book:frankenstein]]' }] }) }));
+}
+const STOP_AFTER = process.env.PROMO_STOP_AFTER;
 const page = await ctx.newPage();
+page.on('console', (m) => { if (DEBUG && ['error', 'warning'].includes(m.type())) console.log('  [console]', m.text().slice(0, 200)); });
 page.on('pageerror', (e) => console.error('[page]', e.message));
+page.setDefaultTimeout(30000 * K);
 const cdp = await ctx.newCDPSession(page);
 
 // ---- screencast ----
 const frames = [];
 const markers = [];
 let t0 = null;
-const now = () => Date.now() / 1000 - t0;
+const now = () => (Date.now() / 1000 - t0) / K;
 cdp.on('Page.screencastFrame', async ({ data, metadata, sessionId }) => {
   cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
   if (t0 == null) return;
   const file = `f${String(frames.length + 1).padStart(5, '0')}.jpg`;
   fs.writeFileSync(path.join(REC, file), Buffer.from(data, 'base64'));
-  frames.push({ file, t: Math.max(0, metadata.timestamp - t0) });
+  frames.push({ file, t: Math.max(0, (metadata.timestamp - t0) / K) });
 });
-const mark = (name) => { markers.push({ name, t: now() }); console.log(`  ▸ ${name} @ ${now().toFixed(1)}s`); };
-const wait = (ms) => page.waitForTimeout(ms);
+class Stop extends Error {}
+const mark = (name) => {
+  markers.push({ name, t: now() }); console.log(`  ▸ ${name} @ ${now().toFixed(1)}s`);
+  if (STOP_AFTER && markers.at(-2)?.name === STOP_AFTER) throw new Stop();
+};
+const wait = (ms) => page.waitForTimeout(ms * K); // story-time milliseconds
+const T = (ms) => ms * K; // story-time timeout -> real
 const shot = async (name) => { if (DEBUG) await page.screenshot({ path: path.join(OUT, `debug-${name}.png`) }); };
 
 // ---- human-ish input ----
@@ -100,10 +118,11 @@ async function tap(locator) {
   await locator.waitFor({ state: 'visible' });
   const inView = await locator.evaluate((el) => { const r = el.getBoundingClientRect(); return r.top >= 70 && r.bottom <= innerHeight - 150; }); // clear of headers and docked inputs
   if (!inView) { await locator.evaluate((el) => el.scrollIntoView({ behavior: 'smooth', block: 'center' })); await wait(1300); }
+  const box = await locator.boundingBox();
   const { x, y } = await center(locator);
   await page.evaluate(([x, y]) => window.__promoTouch(x, y, 'down'), [x, y]);
   await wait(160);
-  await page.touchscreen.tap(x, y);
+  await locator.tap({ position: { x: x - box.x, y: y - box.y } });
   await page.evaluate(() => window.__promoTouch(0, 0, 'up')).catch(() => {}); // tap may have navigated
 }
 // Long press via pointer events (what the reader listens to for words).
@@ -134,6 +153,7 @@ async function swipe(selector, dy, ms = 900) {
 }
 
 // ================= the walk-through =================
+async function walk() {
 await page.goto(`${ORIGIN}/library`, { waitUntil: 'networkidle' });
 await page.locator('#hero-title').waitFor();
 await wait(2500); // cover art + hero image settle
@@ -154,7 +174,7 @@ await wait(700);
 // 2. Librarian chat
 mark('librarian');
 await tap(page.locator('#librarian'));
-await page.locator('#chat:not([disabled])').waitFor({ timeout: 20000 });
+await page.locator('#chat:not([disabled])').waitFor({ timeout: T(20000) });
 await wait(900);
 await shot('librarian-panel');
 await tap(page.locator('#chat'));
@@ -167,7 +187,7 @@ await wait(400);
 await tap(page.getByRole('button', { name: 'Send' }));
 mark('librarian-thinking');
 const bookCard = page.locator('.library-assistant-books button').filter({ hasText: /Frankenstein/ }).first();
-await bookCard.waitFor({ timeout: 60000 });
+await bookCard.waitFor({ timeout: T(60000) });
 mark('librarian-answer');
 await wait(4500);
 await shot('librarian-answer');
@@ -175,7 +195,7 @@ await shot('librarian-answer');
 // 3. Open Frankenstein from the recommendation
 mark('open-book');
 await tap(bookCard);
-await page.locator('#book-overlay').waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
+await page.locator('#book-overlay').waitFor({ state: 'visible', timeout: T(15000) }).catch(() => {});
 await wait(1200);
 await shot('book-overlay');
 mark('book-intro');
@@ -201,8 +221,8 @@ await wait(1400);
 await shot('edition');
 mark('begin-reading');
 await tap(page.locator('#begin-reading'));
-await page.waitForURL(/\/reader/, { timeout: 20000 });
-await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 30000 });
+await page.waitForURL(/\/reader/, { timeout: T(20000) });
+await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: T(30000) });
 mark('reader');
 await wait(2500);
 await shot('reader');
@@ -210,7 +230,7 @@ await shot('reader');
 // 4. Listen with word-by-word highlighting
 mark('listen');
 await tap(page.locator('[data-testid="lab-v2-play"]:visible, [data-testid="lab-listen"]:visible').first());
-await page.waitForFunction(() => document.querySelector('.lab-hearing-word.is-current, [data-testid="lab-word"].is-current'), null, { timeout: 30000 })
+await page.waitForFunction(() => document.querySelector('.lab-hearing-word.is-current, [data-testid="lab-word"].is-current'), null, { timeout: T(30000) })
   .catch(() => console.warn('  ! no word highlight seen'));
 mark('listening');
 await wait(9000);
@@ -225,7 +245,7 @@ const nameWord = word(/^Saville/);
 mark('character');
 if (await nameWord.count()) {
   await press(nameWord, 480);
-  await page.locator('.selection-popup[data-popup-mode="character"]').waitFor({ timeout: 8000 }).catch(() => console.warn('  ! no character popup'));
+  await page.locator('.selection-popup[data-popup-mode="character"]').waitFor({ timeout: T(8000) }).catch(() => console.warn('  ! no character popup'));
   await wait(3800);
   await shot('character');
   await page.keyboard.press('Escape');
@@ -237,7 +257,7 @@ mark('define');
 const hard = word(/^forebodings/);
 if (await hard.count()) {
   await press(hard, 450);
-  await page.locator('.popup-define').waitFor({ timeout: 8000 }).catch(() => console.warn('  ! no define popup'));
+  await page.locator('.popup-define').waitFor({ timeout: T(8000) }).catch(() => console.warn('  ! no define popup'));
   await wait(3800);
   await shot('define');
   await page.keyboard.press('Escape');
@@ -245,6 +265,8 @@ if (await hard.count()) {
 } else console.warn('  ! lookup word not on screen');
 mark('end');
 await wait(600);
+}
+try { await walk(); } catch (e) { if (!(e instanceof Stop)) throw e; console.log('  (stopped early)'); }
 
 await cdp.send('Page.stopScreencast');
 await wait(300);

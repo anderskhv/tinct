@@ -25,6 +25,22 @@ node render.mjs --size 1080x1920     # 9:16 for Reels / Shorts / TikTok
 Taps show as soft touch ripples. Each step sets a named marker in
 `out/recording/manifest.json`.
 
+**Slow-motion capture.** Headless Chromium only manages about 6 screenshots a second
+here, which made motion stutter. `timewarp.js` makes the page run 5× slower
+(`PROMO_SLOW` sets the factor). It slows:
+- clocks, rAF and timers
+- CSS and Web Animations
+- media playback rate
+- smooth scrolls
+
+The recorder divides timestamps by the same factor, which gives ~30 fps of real
+motion. A run takes about 6 minutes.
+
+**Test-run switches.**
+- `PROMO_MOCK_CHAT=1` uses a canned librarian reply, so no prod chat is spent.
+- `PROMO_STOP_AFTER=<marker>` ends the run early.
+- `--debug` saves screenshots at each step.
+
 **Editing.** `edit.json` is the cut list. Each clip has:
 - source range (marker ± seconds)
 - speed
@@ -41,5 +57,5 @@ to re-record.
   Frankenstein is cached; the Modern English opening is not, so the recorder
   switches to the original edition.
 - Voice Talk needs a signed-in session, so it isn't part of the guest walk-through.
-- Rendering uses software WebGL in headless Chromium. It's slow (about 1 s per frame
-  per worker at 1080p), so use `--preview` to iterate.
+- Rendering uses software WebGL with 2× supersampling. It takes about 1.3 s per frame,
+  so a full render runs 30–35 minutes. Use `--preview` to iterate.
