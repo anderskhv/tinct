@@ -108,6 +108,7 @@ function needsAccount() {
   window.TinctStart?.showGate?.();
   return true;
 }
+// Shown over whichever view is in front: the start page (a pop-up over it) or the reader.
 function attest(fileName) {
   return new Promise(resolve => {
     const layer = sheet('Your own book', `
@@ -115,7 +116,7 @@ function attest(fileName) {
         <p>Tinct opens <strong>${esc(fileName)}</strong> here and keeps a private copy in your account, so you can open it on your other devices. It is never shared.</p>
         <label><input type="checkbox" id="attestBox"> <span>${esc(RIGHTS_COPY)}</span></label>
         <div class="actions"><button type="button" id="attestCancel">Cancel</button><button type="button" class="primary" id="attestOk" disabled>Continue</button></div>
-      </div>`, () => resolve(false));
+      </div>`, () => resolve(false), readerShown() ? root : startHost());
     const box = layer.querySelector('#attestBox'), ok = layer.querySelector('#attestOk');
     box.onchange = () => { ok.disabled = !box.checked };
     layer.querySelector('#attestCancel').onclick = () => { closeSheet(layer); resolve(false) };
@@ -137,14 +138,13 @@ async function chooseFile(file) {
   const key = kind + ':' + await digest(bytes);
   const rightsKey = 'rights:' + accountId();
   if (!store.get(rightsKey)) {
-    showReader(); $('column').innerHTML = '';
-    if (!await attest(file.name)) { closeBook({ fromHistory: true }); return }
+    if (!await attest(file.name)) return;
     store.set(rightsKey, { at: new Date().toISOString() });
   }
   stopNarration();
   const now = Date.now();
   const existing = await library.get(key);
-  const saved = await library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || file.name.replace(/\.(pdf|epub)$/i, ''), author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
+  const saved = await library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || nameTitle(file.name), author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
   await openBook(kind, bytes, file.name, key);
   if (hasBook() && state.key === key) saveToAccount(key, file, { kind, name: file.name, title: state.title, author: state.author });
@@ -190,8 +190,9 @@ addEventListener('dragover', e => e.preventDefault());
 addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFile(e.dataTransfer?.files?.[0]) });
 
 /* ---------- Reader ↔ start page ---------- */
+const readerShown = () => document.body.dataset.view === 'reader';
 function showReader() { document.body.dataset.view = 'reader'; $('root').hidden = false; window.TinctStart?.hide(); applyLayout() }
-async function closeBook({ fromHistory = false } = {}) {
+async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   closeChat(); stopNarration(); closeAllPopups(); endSnip?.();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
@@ -202,8 +203,10 @@ async function closeBook({ fromHistory = false } = {}) {
   document.body.dataset.view = 'start'; $('root').hidden = true;
   document.title = 'Add a book · Tinct';
   if (!fromHistory && location.hash === '#read') history.back();
-  window.TinctStart?.show();
+  window.TinctStart?.show({ shelf: toShelf });
 }
+// Back to library: the start page, with "Your books" in view.
+$('backBtn').onclick = () => closeBook({ toShelf: true });
 addEventListener('popstate', () => { if (hasBook() && location.hash !== '#read') closeBook({ fromHistory: true }) });
 window.TinctReader = { chooseFile, openStored, close: closeBook, library, cloud, shelf, removeBook, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
 
@@ -264,9 +267,12 @@ async function openPdf(bytes, name, key) {
   if (token !== state.token) return;
   state.pdf?.destroy?.();
   furniture.clear();
-  let title = name.replace(/\.pdf$/i, ''), author = '';
-  try { const meta = await pdf.getMetadata(); const t = meta?.info?.Title?.trim(); if (t && t.length > 3 && !/^(untitled|microsoft word|document)/i.test(t) && !/\.(pdf|docx?|tex|dvi|html?|txt|rtf|odt|pages)$/i.test(t)) title = t; author = meta?.info?.Author?.trim() || '' } catch {}
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, title, author, texts: new Map(), figs: new Map() });
+  let title = null, author = '';
+  try { const meta = await pdf.getMetadata(); title = metaTitle(meta?.info?.Title, name); author = meta?.info?.Author?.trim() || '' } catch {}
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, title: '', author, texts: new Map(), figs: new Map() });
+  if (!title) title = await printedTitle().catch(() => null);
+  if (token !== state.token) return;
+  state.title = title || nameTitle(name);
   root.classList.add('is-pdf'); root.classList.remove('is-epub');
   root.style.removeProperty('--epub-scale');
   const first = (await pdf.getPage(1)).getViewport({ scale: 1 });
@@ -281,6 +287,58 @@ async function openPdf(bytes, name, key) {
   buildContents();
   if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
+}
+// The document's title: its metadata Title when that is a real title, else the largest
+// line(s) printed on page 1, else the file name made readable.
+const nameTitle = name => name.replace(/\.(pdf|epub)$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || name;
+function metaTitle(raw, name) {
+  const t = String(raw || '').replace(/\s+/g, ' ').trim();
+  const bare = s => s.toLowerCase().replace(/\.(pdf|epub)$/i, '').replace(/[^\p{L}\p{N}]+/gu, '');
+  if (t.length <= 3 || /^(untitled|microsoft word|document)\b/i.test(t) || /\.(pdf|docx?|tex|dvi|html?|txt|rtf|odt|pages)$/i.test(t)) return null;
+  if (bare(t) === bare(name) || (/_/.test(t) && !/\s/.test(t))) return null;
+  return t;
+}
+// Positioned text → visual lines: { y, size, fonts, text, words }. Rotated text is left out.
+function textRows(items) {
+  const rows = [];
+  for (const it of items) {
+    const [a, b, c, d, x, y] = it.transform;
+    if (!it.str.trim() || Math.abs(b) > 0.01 * Math.abs(a) || Math.abs(c) > 0.01 * Math.abs(d)) continue;
+    const size = Math.hypot(c, d) || it.height || 0;
+    let row = rows.find(r => Math.abs(r.y - y) < Math.max(2, size * 0.3));
+    if (!row) { row = { y, parts: [] }; rows.push(row) }
+    row.parts.push({ x, w: it.width || 0, s: it.str, size, font: it.fontName });
+  }
+  return rows.sort((p, q) => q.y - p.y).map(r => {
+    const parts = r.parts.sort((p, q) => p.x - q.x);
+    // The line's size is the size most of its characters are set in (a large symbol does not count).
+    const by = new Map();
+    for (const p of parts) { const k = Math.round(p.size * 2) / 2; by.set(k, (by.get(k) || 0) + p.s.trim().length) }
+    const size = [...by].sort((p, q) => q[1] - p[1])[0][0];
+    let text = '';
+    parts.forEach((p, i) => { const prev = parts[i - 1]; if (prev && p.x - (prev.x + prev.w) > size * 0.12 && !/\s$/.test(text) && !/^\s/.test(p.s)) text += ' '; text += p.s });
+    text = text.replace(/\s+/g, ' ').replace(/\s+([,.:;!?)])/g, '$1').trim();
+    const fonts = new Set(parts.filter(p => p.s.trim()).map(p => p.font));
+    return { y: r.y, x: parts[0].x, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length };
+  });
+}
+async function printedTitle() {
+  const rows = textRows((await pageText(1)).items).filter(r => /\p{L}{2}/u.test(r.text));
+  if (!rows.length) return null;
+  const weight = new Map();
+  for (const r of rows) { const k = Math.round(r.size * 2) / 2; weight.set(k, (weight.get(k) || 0) + r.chars) }
+  const body = [...weight].sort((p, q) => q[1] - p[1])[0][0];
+  const top = Math.max(...rows.map(r => r.size));
+  if (top < body * 1.15) return null;
+  const i = rows.findIndex(r => r.size >= top * 0.92);
+  const lines = [rows[i]];
+  for (let j = i + 1; j < rows.length && lines.length < 3; j++) {
+    const r = rows[j], prev = lines.at(-1);
+    if (r.size < top * 0.92 || prev.y - r.y > r.size * 2) break;
+    lines.push(r);
+  }
+  const t = lines.map(l => l.text).join(' ').replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '').replace(/\s+/g, ' ').trim();
+  return t.length >= 3 && t.length <= 200 ? t : null;
 }
 function crop() { return state.trim ? TRIM : { x: 0, y: 0 } }
 function sheetRatio(w, h) { const c = crop(); return `${w * (1 - 2 * c.x)} / ${h * (1 - 2 * c.y)}` }
@@ -735,7 +793,15 @@ addEventListener('keydown', e => {
 /* ---------- Popups, sheets and the menu, in Tinct's markup ---------- */
 let openPanel = null;
 function closeAllPopups() { closeMenu(); hideSelection(); closeJump(); document.querySelector('.lab-contents-v2')?.remove(); document.querySelector('.lab-audio-speed-popover')?.remove() }
-function sheet(title, html, onClose) {
+// Sheets live in the reader's root; on the start page, in a host that carries the same classes.
+function startHost() {
+  const host = document.createElement('div');
+  host.className = `lab byob byob-sheet-host ${innerWidth < 700 ? 'is-phone' : 'is-desktop'}`;
+  host.dataset.chromeVersion = 'v2'; host.dataset.theme = 'light';
+  document.body.appendChild(host);
+  return host;
+}
+function sheet(title, html, onClose, host = root) {
   const layer = document.createElement('div');
   layer.className = 'lab-v2-sheet-layer lab-catch-up-layer';
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
@@ -746,10 +812,10 @@ function sheet(title, html, onClose) {
   const close = () => { closeSheet(layer); onClose?.() };
   layer.querySelector('.lab-super-scrim').onclick = close;
   layer.querySelector('.lab-v2-dismiss').onclick = close;
-  root.appendChild(layer);
+  host.appendChild(layer);
   return layer;
 }
-function closeSheet(layer) { layer?.remove() }
+function closeSheet(layer) { const host = layer?.parentElement; layer?.remove(); if (host?.classList.contains('byob-sheet-host')) host.remove() }
 let toastTimer;
 function toast(text) {
   let t = document.querySelector('.byob-toast');
@@ -857,7 +923,7 @@ async function toggleFullscreen() {
 }
 function setTrim(on) { prefs.trim = state.trim = on; savePrefs(); if (state.pages.length) setZoom(state.zoom); else applyCrop() }
 
-/* ---------- Chapters: the PDF outline, else the printed Contents pages ---------- */
+/* ---------- Chapters: the PDF outline, else the printed Contents pages, else the headings ---------- */
 const toc = { entries: [], ready: false, expanded: new Set() };
 const norm = s => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const ROMAN = { i: 1, v: 5, x: 10, l: 50, c: 100, d: 500, m: 1000 };
@@ -940,15 +1006,79 @@ async function contentsEntries(pdf) {
   for (const e of entries) e.page = e.arabic ? (offA == null ? null : Number(e.printed) + offA) : (offR == null ? null : roman(e.printed) + offR);
   return entries.filter(e => e.page && e.page <= pdf.numPages);
 }
+// Headings, for a PDF with neither: short lines set clearly larger than the page's body
+// text, or in a bold face at body size, that do not repeat across pages (running heads).
+const HEADING_PAGES = 400;
+const isBold = name => /bold|black|heavy|semibold|demi|cmbx/i.test(name || '');
+async function fontName(page, id) {
+  try { if (!page.commonObjs.has(id)) await page.getOperatorList(); return page.commonObjs.has(id) ? page.commonObjs.get(id)?.name || '' : '' } catch { return '' }
+}
+// A heading reads like a title: few words, mostly letters, starting with a capital or a
+// section number, not a sentence or formula running on, not a figure or table caption.
+function headingLike(r) {
+  const t = r.text, letters = (t.match(/\p{L}/gu) || []).length;
+  return r.words <= 12 && letters >= 2 && letters >= t.replace(/\s/g, '').length * 0.6
+    && /^([\p{Lu}]|[\dIVXivx]+(?:\.\d+)*[.)]?\s|[A-Z]\.?\d*\s|§)/u.test(t) && !/[,;]$/.test(t)
+    && !/[=∑∫≡⊗⊕→←≈≤≥±×√∂∇]/.test(t) && !/^(fig(ure)?|table|tab)\.?\s*\d/i.test(t);
+}
+async function headingEntries(pdf) {
+  const token = state.token, pages = [];
+  for (let n = 1; n <= Math.min(HEADING_PAGES, pdf.numPages); n++) {
+    const page = await pdf.getPage(n), [, y0, , y1] = page.view;
+    if (token !== state.token) return null;
+    pages.push({ n, page, y0, h: y1 - y0, rows: textRows((await pageText(n)).items) });
+  }
+  // Body text: the size and face that carry the most characters, per page when it has enough.
+  const bodyOf = rows => { const w = new Map(); for (const r of rows) if (r.font) { const k = Math.round(r.size * 2) / 2 + '|' + r.font; w.set(k, (w.get(k) || 0) + r.chars) } const top = [...w].sort((p, q) => q[1] - p[1])[0]; return top && { size: Number(top[0].split('|')[0]), font: top[0].slice(top[0].indexOf('|') + 1), chars: top[1] } };
+  const docBody = bodyOf(pages.flatMap(p => p.rows));
+  if (!docBody) return null;
+  // Running heads and feet: the same words (numbers aside) near the top or bottom of several pages.
+  const edgeKey = r => r.text.toLowerCase().replace(/\d+/g, '').replace(/[^\p{L}]+/gu, '');
+  const atEdge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1;
+  const seen = new Map(), exact = new Map();
+  for (const p of pages) {
+    for (const k of new Set(p.rows.filter(r => atEdge(p, r)).map(edgeKey))) seen.set(k, (seen.get(k) || 0) + 1);
+    for (const k of new Set(p.rows.map(r => r.text.toLowerCase()))) exact.set(k, (exact.get(k) || 0) + 1);
+  }
+  const out = [];
+  for (const p of pages) {
+    const local = bodyOf(p.rows), body = local && local.chars >= 300 ? local : docBody;
+    // On page 1, what sits above the first body paragraph is the title block (title, authors).
+    const para = p.rows.findIndex(r => r.font === body.font && Math.abs(r.size - body.size) < 0.6 && r.words >= 6);
+    const first = p.n > 1 ? 0 : para < 0 ? Infinity : para;
+    let prev = null;
+    for (const [i, r] of p.rows.entries()) {
+      if (i < first) continue;
+      if (!headingLike(r)) { prev = null; continue }
+      if ((atEdge(p, r) && seen.get(edgeKey(r)) >= 3) || exact.get(r.text.toLowerCase()) >= 3) { prev = null; continue }
+      const larger = r.size >= body.size * 1.15;
+      const sameSize = Math.abs(r.size - body.size) <= body.size * 0.08;
+      const heading = larger || (sameSize && r.font && r.font !== body.font && isBold(await fontName(p.page, r.font)));
+      if (token !== state.token) return null;
+      if (!heading) { prev = null; continue }
+      // A heading that wraps onto a second line, in the same face.
+      if (prev && prev.font === r.font && prev.y - r.y < r.size * 1.8 && prev.words + r.words <= 16) {
+        prev.entry.label = (prev.entry.label + ' ' + r.text).replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '');
+        Object.assign(prev, { y: r.y, words: prev.words + r.words });
+        continue;
+      }
+      const entry = { id: 'h' + out.length, label: r.text, page: p.n, kind: 'chapter', parent: null };
+      out.push(entry);
+      prev = { entry, font: r.font, y: r.y, words: r.words };
+    }
+  }
+  return out.length >= 2 && out.length <= Math.max(12, pages.length * 4) ? out : null;
+}
 async function buildContents() {
   const token = state.token, key = 'toc:' + state.key;
   toc.ready = false; toc.entries = [];
+  // Cached as { v: 2, entries }; an older empty list predates headings, so look again.
   const cached = store.get(key);
-  let entries = cached;
+  let entries = Array.isArray(cached) ? (cached.length ? cached : null) : cached?.v === 2 ? cached.entries : null;
   if (!entries) {
-    entries = (await outlineEntries(state.pdf)) || (await contentsEntries(state.pdf)) || [];
+    entries = (await outlineEntries(state.pdf)) || (await contentsEntries(state.pdf)) || (await headingEntries(state.pdf)) || [];
     if (token !== state.token) return;
-    store.set(key, entries);
+    store.set(key, { v: 2, entries });
   }
   toc.entries = entries.sort((a, b) => a.page - b.page);
   toc.ready = true;
@@ -1357,7 +1487,7 @@ function startSnip() {
   closeAllPopups(); getSelection().removeAllRanges();
   const ov = document.createElement('div'); ov.className = 'byob-snip'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'Snip a figure');
   ov.innerHTML = `<p class="byob-snip-hint">Drag a box around a figure or formula · <button type="button" data-cancel>Cancel</button></p><div class="byob-snip-box" hidden></div>`;
-  root.appendChild(ov); root.classList.add('is-snipping'); $('snipBtn').classList.add('is-active');
+  root.appendChild(ov); root.classList.add('is-snipping');
   ov.querySelector('[data-cancel]').onclick = endSnip;
   const box = ov.querySelector('.byob-snip-box'); let start = null;
   ov.addEventListener('wheel', e => { $('scroll').scrollTop += e.deltaY }, { passive: true });
@@ -1387,7 +1517,7 @@ function startSnip() {
     regionPopup(anchor, { blob, page: p.n, text, frac, kind: 'snip', caption: captionNear(p, frac), sketch: sketchOf(p, frac) });
   });
 }
-function endSnip() { document.querySelector('.byob-snip')?.remove(); root.classList.remove('is-snipping'); $('snipBtn').classList.remove('is-active') }
+function endSnip() { document.querySelector('.byob-snip')?.remove(); root.classList.remove('is-snipping') }
 async function snipImage(n, f) {
   try {
     const page = await state.pdf.getPage(n), base = page.getViewport({ scale: 1 });
@@ -1641,7 +1771,6 @@ document.addEventListener('mouseup', () => {
   drag.on = false; clearInterval(drag.scroller); drag.scroller = 0;
   if (!drag.moved) getSelection().removeAllRanges();
 });
-$('snipBtn').onclick = startSnip;
 document.addEventListener('paste', e => {
   if (!IMAGES_ENABLED || !state.pdf) return;
   const t = e.target, inChat = t?.closest?.('.lab-ask');

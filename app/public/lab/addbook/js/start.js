@@ -58,11 +58,11 @@ function drawShelf(list) {
       <button type="button" class="ab-book-x" data-remove="${esc(b.key)}" aria-label="Remove ${esc(b.title)}">×</button>
     </li>`).join('');
 }
-async function renderShelf() {
+async function renderShelf({ reveal = false } = {}) {
   const run = ++shelfRun, reader = window.TinctReader;
   if (!window.TinctAI?.session().userId || !reader) { drawShelf([]); return }
   const local = await reader.shelf();
-  if (run === shelfRun) drawShelf(local);
+  if (run === shelfRun) { drawShelf(local); if (reveal && local.length) $('abShelf').scrollIntoView({ block: 'nearest' }) }
   if (await reader.cloud.refresh() && run === shelfRun) { const all = await reader.shelf(); if (run === shelfRun) drawShelf(all) }
 }
 $('abBooks').addEventListener('click', async e => {
@@ -152,7 +152,7 @@ $('abResults').addEventListener('click', e => {
 
 /* ---------- Showing and hiding ---------- */
 window.TinctStart = {
-  show() { $('start').hidden = false; renderAccount(); renderShelf(); scrollTo(0, 0) },
+  show({ shelf = false } = {}) { $('start').hidden = false; renderAccount(); scrollTo(0, 0); renderShelf({ reveal: shelf }) },
   hide() { $('start').hidden = true },
   showGate,
 };
