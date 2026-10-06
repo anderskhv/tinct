@@ -127,6 +127,12 @@ interface LabPassageProps {
   onFootnote?: (note: PlacedFootnote, marker: HTMLElement) => void
   /** A figure on the page was tapped: open its card. */
   onOpenFigure?: (figure: LabFigure) => void
+  /**
+   * The page was laid out with planned hyphens (labHyphenPlan: the phone's
+   * paginator) and must paint them, on every paint of it. Desktop leaves keep
+   * the browser's dictionary hyphenation.
+   */
+  plannedHyphens?: boolean
 }
 
 function wordSpacing(
@@ -519,6 +525,7 @@ export function LabPassage({
   onToggleControls,
   layoutKey = '',
   onOpenFigure,
+  plannedHyphens = false,
 }: LabPassageProps) {
   const hearing = mode === 'hearing'
   const followActive = hearingFollowPaintActive(mode, playing, follow) && !browseWhileListening
@@ -982,7 +989,8 @@ export function LabPassage({
     // lines are never joined there; a joined BSB line only sits tight.
     const gridRows = alignCompare && compare
     // Single-edition pages paint the hyphenation the paginator measured them with.
-    const usePlans = !compare
+    // Only a page the phone's paginator laid out with its hyphen plan paints it.
+    const usePlans = plannedHyphens && !compare
     const lineParagraph = (lineIndex: number) => pageLines[lineIndex].paragraphIndex ?? readingPage?.paragraphIndex ?? 0
     const slices = pageLines.map(lineSlice)
     const lineBody = (lineIndex: number) => {
@@ -1169,7 +1177,7 @@ export function LabPassage({
         <div className="lab-book-col">
           {previousChapterEnding ? <>
             {isChapterFirstReadingPage(previousChapterEnding.page) && <LabChapterHeading title={previousChapterEnding.title} preview={Boolean(previousChapterEnding.onPrimer)} onPreview={previousChapterEnding.onPrimer} />}
-            <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
+            <LabPassage plannedHyphens={plannedHyphens} selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly chapterTitle={previousChapterEnding.title} chapterNumber={previousChapterEnding.chapterNumber}
               paragraphs={previousChapterEnding.paragraphs} readingPage={previousChapterEnding.page}
               compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]}
               markedIndexes={new Set()} keyboardSelection={keyboardSelection} highlights={previousChapterEnding.highlights}
@@ -1181,13 +1189,13 @@ export function LabPassage({
           {hearing && followActive ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord, !compare)}
+                {renderHearingWords(paragraph, linesFollow, paragraphs, followParagraphs, readingPage, chapterPages, onSeekToWord, plannedHyphens && !compare)}
               </div>
             </div>
           ) : hearing && !browseWhileListening ? (
             <div className="lab-hearing" data-testid="lab-hearing">
               <div className="lab-hearing-stage" data-testid="lab-hearing-stage">
-                {renderPlainWords(readingLines, paragraphs, !compare)}
+                {renderPlainWords(readingLines, paragraphs, plannedHyphens && !compare)}
               </div>
             </div>
           ) : (
@@ -1214,7 +1222,7 @@ export function LabPassage({
             {!previousChapterEnding && nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
             {!previousChapterEnding && !nextReadingPage && nextChapterOpening && (
               <div className="lab-next-chapter-opening" data-testid="lab-next-chapter-opening">
-                <LabPassage selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
+                <LabPassage plannedHyphens={plannedHyphens} selectionChapters={selectionChapters} onCrossChapterSelect={onCrossChapterSelect} onCrossChapterSelecting={onCrossChapterSelecting} openingOnly
                   chapterTitle={nextChapterOpening.title} chapterNumber={nextChapterOpening.chapterNumber ?? chapterNumber + 1}
                   paragraphs={nextChapterOpening.paragraphs} readingPage={nextChapterOpening.page}
                   compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={{ kind: 'none' }}
@@ -1316,7 +1324,7 @@ export function LabPageMeasurePaint(input: {
         <div className="lab-book-col">
           <div className="lab-hearing-stage">
             {proseRuns(input.paragraphs, lines.map(lineSlice)).map(run => (
-              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}${hyphenPlanClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex])}`}>
+              <p key={run[0]} className={`lab-hearing-line${paragraphKindClass(input.paragraphs[lines[run[0]].paragraphIndex ?? input.page.paragraphIndex], lines[run[0]].from ?? input.page.from)}`}>
                 {joinedLines(run, (lineIndex) => {
                   const line = lines[lineIndex]
                   return renderWordGroups(line.words, (word, wordIndex, spacing) => (
@@ -1327,7 +1335,7 @@ export function LabPageMeasurePaint(input: {
                       : 'lab-hearing-word'}
                   >
                     {spacing}
-                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex, plannedBreak(input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex, word.text))}
+                    {renderWordText(word.text, word.emphasis, input.paragraphs[line.paragraphIndex ?? input.page.paragraphIndex], (line.from ?? input.page.from) + wordIndex)}
                   </span>
                 ), lineationFor(input.paragraphs, line, input.page.paragraphIndex, input.page.from))
                 })}

@@ -4861,6 +4861,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
           ) : <LabPassage
+            plannedHyphens={measuredPaging && !desktopPaging}
             pendingLayout={measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
             onPreviewChapter={privateBook ? undefined : () => openChapterNotes('primer')}
             chapterActionsBusy={ask.typedLoading}
