@@ -2221,12 +2221,6 @@
   content: '\2010';
 }
 
-/* A break at the book's own dash ("twenty-|third") shows that dash; adding a
-   hyphen after it would print a character the book does not have. */
-.lab-word-fragment.is-hard-break::after {
-  content: none;
-}
-
 /* The verse number is small and raised. Its margin used to sit before it:
    highlights are painted per text fragment (::highlight) and a margin is not
    text, so a band across "² And" had a slit there. The space before the

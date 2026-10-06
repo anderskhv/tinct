@@ -1,6 +1,5 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
-import { labFragmentClass } from './labMeasureParagraph'
 import { LabChapterHeading } from './LabChapterHeading'
 import { useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
@@ -320,7 +319,7 @@ function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs
         const line = lines[lineIndex]
         return renderWordGroups(line.words, (word, wordIndex, spacing) => word.fragment
         // The page-edge fragment: its hyphen is drawn by CSS, as on the reading page.
-        ? <span key={`${lineIndex}-${wordIndex}`} className={labFragmentClass(word.text)} aria-hidden="true">{spacing}{word.text}</span>
+        ? <span key={`${lineIndex}-${wordIndex}`} className="lab-word-fragment" aria-hidden="true">{spacing}{word.text}</span>
         : (
         <span key={`${lineIndex}-${wordIndex}`} className="lab-hearing-word">
           {spacing}
@@ -984,7 +983,7 @@ export function LabPassage({
                         return (
                           <span
                             key={`${lineIndex}-${wordIndex}`}
-                            className={`${labFragmentClass(word.text)} ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
+                            className={`lab-word-fragment ${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}`}
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}

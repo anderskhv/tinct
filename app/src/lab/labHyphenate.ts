@@ -104,46 +104,6 @@ export function hyphenationBreaks(token: string, lang: HyphenLang): number[] {
   return breaks
 }
 
-/** A dash the book itself prints, after which any browser may end a line. */
-const HARD_BREAK_DASH_RE = /[-\u2010\u2013\u2014]/
-/** A page-edge fragment that ends on the book's own dash draws no hyphen of its own. */
-export const HARD_BREAK_FRAGMENT_RE = /[-\u2010\u2013\u2014]$/
-
-/**
- * Character offsets just after a dash the text already contains, where a
- * browser ends a line without adding anything: "twenty-|third",
- * "him\u2014|and". At a page edge the reader must offer the same break, or a
- * page whose last line has room for "twenty-" ends before it and its last
- * line is cut short (Esther 8:9, Anders, 6 Oct 2026).
- *
- * Unlike `hyphenationBreaks` nothing is inserted: the fragment shows the
- * book's own dash, so no reader can mistake it for a discretionary hyphen.
- * Only a dash between two letters counts, never one in a number or at either
- * end of the token, and a non-breaking hyphen (U+2011) never breaks.
- */
-export function hardBreaks(token: string): number[] {
-  if (!token || /\d/.test(token)) return []
-  const breaks: number[] = []
-  for (let index = 1; index < token.length - 1; index += 1) {
-    if (!HARD_BREAK_DASH_RE.test(token[index])) continue
-    if (!/\p{L}/u.test(token[index - 1]) || !/\p{L}/u.test(token[index + 1])) continue
-    const head = index + 1
-    if (head >= HYPHEN_MIN_HEAD && token.length - head >= 2) breaks.push(head)
-  }
-  return breaks
-}
-
-/**
- * Every break a page edge may use, ascending: the book's own dashes always,
- * and dictionary hyphenation once a language's patterns are in memory.
- */
-export function pageEdgeBreaks(token: string, lang: HyphenLang | null): number[] {
-  const hard = hardBreaks(token)
-  const soft = lang ? hyphenationBreaks(token, lang) : []
-  if (hard.length === 0) return soft
-  return [...new Set([...hard, ...soft])].sort((a, b) => a - b)
-}
-
 /**
  * The longest break that keeps the head within `maxHeadChars`, or null when no
  * break fits. The paginator asks this once it knows how much of the last line

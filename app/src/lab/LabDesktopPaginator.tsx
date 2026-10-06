@@ -4,9 +4,9 @@ import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
+import { hyphenLangForEdition, hyphenationBreaks, hyphenatorReady, loadHyphenator } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
-import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
 
 /** Proportional word boundaries preserve all of each aligned paragraph, even
  * when the two editions have different lengths. No translated words are lost. */
@@ -25,14 +25,6 @@ export function comparisonSegment(segment: ChapterPageSegment, primary: string[]
  */
 export type WordBreakLookup = (paragraphIndex: number, wordIndex: number) => number[]
 
-/**
- * Where the painted lines of a trial page begin: word indexes, in the
- * paragraph of the page's LAST segment, that start a line when `segments` is
- * laid out. Null when the layout cannot say (the paginator then keeps its
- * older word-count rules for that page).
- */
-export type LineStartLookup = (segments: ChapterPageSegment[], first: boolean) => number[] | null
-
 /** Greedily fill the measured page, splitting a long paragraph at a word.
  * Both columns are measured as a paired row, so subsequent paragraphs align.
  *
@@ -45,16 +37,7 @@ export type LineStartLookup = (segments: ChapterPageSegment[], first: boolean) =
  * With `start`, pagination resumes mid-chapter at that word — the point just
  * after a page that is being kept as it is. No page of the result is the
  * chapter's first (no heading), and `headBreak` continues a word the kept page
- * already showed the opening of.
- *
- * With `lineStarts`, a page break is only ever moved back (a paragraph's last
- * words kept off the next page, a new sentence's first word or two kept
- * together) to the START of a painted line, so the page still ends on a full
- * line. A page whose paragraph continues sets its last line like any
- * interior line; moving the break to a mid-line sentence end left that line
- * short and ragged ("made in science." | "He soon noticed", Frankenstein;
- * nightly QA, Oct 2026), or justified across giant gaps. Where no line start
- * qualifies, the page keeps its natural, filled end. */
+ * already showed the opening of. */
 export interface LabPaginationStart {
   paragraphIndex: number
   wordIndex: number
@@ -73,7 +56,6 @@ export function measuredDesktopPages(
   pageLimit = Infinity,
   paragraphs?: string[],
   start?: LabPaginationStart,
-  lineStarts?: LineStartLookup,
 ): ChapterHearingPage[] {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
@@ -103,16 +85,6 @@ export function measuredDesktopPages(
       }
       if (low === from && segments.length) { commit(); continue }
       let to = Math.max(from + 1, low)
-      // The line starts of the page as it naturally fills, measured once and
-      // only when a rule below wants to move the break.
-      let starts: Set<number> | null | undefined
-      const naturalLineStarts = () => {
-        if (starts === undefined) {
-          const found = lineStarts?.([...segments, segment(to)], isFirst())
-          starts = found ? new Set(found) : null
-        }
-        return starts
-      }
       // A paragraph's last word or two never open a page alone ("God."):
       // carry their whole sentence when it starts close by, else a few words.
       if (paragraphs && to < length && length - to < WIDOW_WORDS && length - WIDOW_WORDS > from) {
@@ -121,28 +93,14 @@ export function measuredDesktopPages(
         for (let start = to; start > Math.max(from, length - WIDOW_SENTENCE_REACH); start--) {
           if (/[.!?;:][”’"')]*$/.test(words[start - 1]?.text || '')) { cut = Math.min(cut, start); break }
         }
-        const lines = naturalLineStarts()
-        if (!lines) to = cut
-        else {
-          // Back to the start of the line that holds the cut, so the page
-          // ends on the full line above it. None on this page: the page keeps
-          // its natural, filled end.
-          let line = -1
-          for (const at of lines) if (at > from && at <= cut && at > line) line = at
-          if (line > 0) to = line
-        }
+        to = cut
       }
       if (paragraphs && to < length) {
         const words = tokenizeHearingWords(paragraphs[paragraphIndex])
-        const lines = naturalLineStarts()
         // Avoid a page ending with just the first word or two of a new
         // sentence (e.g. "Thus"). Never remove a whole page or skip a word.
-        // Measured: only when those words are all the last line holds.
         for (let cut = to - 1; cut >= Math.max(from + 1, to - 2); cut--) {
-          if (/[.!?][”’"')]*$/.test(words[cut - 1]?.text || '')) {
-            if (!lines || lines.has(cut)) to = cut
-            break
-          }
+          if (/[.!?][”’"')]*$/.test(words[cut - 1]?.text || '')) { to = cut; break }
         }
       }
       // The last line has whatever room the next whole word could not use. The
@@ -325,27 +283,9 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const bottom = withEnd && end ? end.getBoundingClientRect().bottom : rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
           }
-          const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
-          let pages = measuredDesktopPages(
-            source.map(words => words.length),
-            fits,
-            (paragraphIndex, wordIndex) => pageEdgeBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', breakLang),
-            pageLimit,
-            paragraphs,
-            undefined,
-            // Single-edition leaves only: a paired row's primary column sits
-            // beside its comparison, and the older word-count rules stay.
-            comparison ? undefined : (segments, first) => {
-              const tail = segments[segments.length - 1]
-              if (!tail) return null
-              fits(segments, first)
-              const block = rows.lastElementChild?.querySelector('.lab-hearing-line')
-              if (!block) return null
-              const runs = proseRuns(paragraphs, segments)
-              const join = (runs[runs.length - 1]?.length ?? 0) > 1 ? block.lastElementChild : null
-              return measuredLineStarts(join ?? block, tail.from)
-            },
-          )
+          let pages = measuredDesktopPages(source.map(words => words.length), fits, hyphenLang && hyphensReady
+            ? (paragraphIndex, wordIndex) => hyphenationBreaks(source[paragraphIndex]?.[wordIndex]?.text ?? '', hyphenLang)
+            : undefined, pageLimit, paragraphs)
           const tail = pages.length ? chapterPageSegments(pages[pages.length - 1]).at(-1) : undefined
           const complete = tail?.paragraphIndex === source.length - 1 && tail.to === source[source.length - 1]?.length
           let endInFooter = false

@@ -1,14 +1,5 @@
-import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
-
-/**
- * The class of a page-edge fragment. One that ends on the book's own dash
- * ("twenty-") is a hard break: CSS draws no second hyphen after it.
- */
-export function labFragmentClass(text: string): string {
-  return HARD_BREAK_FRAGMENT_RE.test(text) ? 'lab-word-fragment is-hard-break' : 'lab-word-fragment'
-}
 
 export interface MeasurableWord {
   text: string
@@ -55,7 +46,7 @@ export function labMeasureParagraphInto(
     const word = words[index]
     // The fragment carries the CSS hyphen, so it must be measured with it.
     if (word.fragment) {
-      span.className = labFragmentClass(word.text)
+      span.className = 'lab-word-fragment'
       span.setAttribute('aria-hidden', 'true')
       span.textContent = word.text
       return span
@@ -152,44 +143,4 @@ export function labMeasureJoinInto(
   labMeasureParagraphInto(span, words, lineation)
   p.append(' ', span)
   return p
-}
-
-function inkRects(element: Element): DOMRect[] {
-  return [...element.getClientRects()].filter(rect => rect.width > 0 && rect.height > 0)
-}
-
-/**
- * The word indexes that begin a painted line, among the words of one measured
- * paragraph slice. `container` is the block (or `lab-prose-join` span) that
- * `labMeasureParagraphInto` / `labMeasureJoinInto` filled; `from` is the
- * paragraph index of its first word, which is never listed.
- *
- * The paginator needs this to move a page break back without leaving a short
- * last line: a break moved to a line start ends the page on the full line
- * above it; a break moved anywhere else ends the page partway along a line,
- * which is what left "made in science." alone on a ragged last line.
- *
- * A verse number and the word after it are one unbreakable unit, so the unit
- * starts a line at the number. A word the browser hyphenated across two lines
- * belongs to the line it starts on. A display fragment is not a word.
- */
-export function measuredLineStarts(container: Element, from: number): number[] {
-  const nestedJoin = container.classList.contains('lab-prose-join') ? container : null
-  const words = [...container.querySelectorAll<HTMLElement>('.lab-hearing-word')]
-    .filter(word => word.closest('.lab-prose-join') === nestedJoin)
-  const starts: number[] = []
-  let previous: DOMRect | null = null
-  for (let index = 0; index < words.length; index += 1) {
-    const marker = Boolean(words[index].querySelector('.lab-verse-mark')) && index + 1 < words.length
-    // A verse number is set small and raised; its line is its word's line.
-    const placed = marker ? words[index + 1] : words[index]
-    const rects = inkRects(placed)
-    if (rects.length > 0) {
-      const first = rects[0]
-      if (previous && index > 0 && first.top + first.height / 2 > previous.bottom) starts.push(from + index)
-      previous = rects[rects.length - 1]
-    }
-    if (marker) index += 1
-  }
-  return starts
 }
