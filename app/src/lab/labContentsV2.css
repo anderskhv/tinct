@@ -19,6 +19,7 @@
 .lab-contents-v2 .node{min-height:var(--row);display:flex;align-items:center;gap:4px;position:relative}
 .lab-contents-v2 .label{min-width:0;flex:1;min-height:var(--row);display:flex;align-items:center;gap:6px;text-align:left;padding:3px 6px;color:var(--muted)}
 .lab-contents-v2 .label .text{min-width:0;overflow-wrap:anywhere}
+.lab-contents-v2 .label .modern-state{margin-left:auto;flex:none;font:400 11px/1 'IBM Plex Mono',monospace;color:var(--muted)}
 .lab-contents-v2 .branch>.node>.label{font:400 16px/1.15 'EB Garamond',Georgia,serif;color:var(--ink)}
 .lab-contents-v2 .branch>.node>.label>svg{margin-left:auto;width:11px;height:11px}
 .lab-contents-v2 .branch.open>.node>.label>svg{transform:rotate(90deg)}

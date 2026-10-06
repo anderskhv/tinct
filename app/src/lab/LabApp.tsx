@@ -96,7 +96,9 @@ import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
-import { LAB_V2_VERSION_PILL_MS, type LabV2SheetLayer } from './labV2Sheet'
+import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
+import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, startModernCheckout, useLabModernEdition } from './labModernEdition'
+import { isPublicBookId, modernEditionsEnabled } from '../../public/lab/public-books.js'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
 import {
@@ -763,6 +765,36 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }
   }, [signedIn])
   const signInReturnTo = labCurrentPath()
+  // Paid Modern English editions of added public-domain books (labModernEdition.ts).
+  const modernBookId = book.bookId || 'bible'
+  const modernPrefsRef = useRef(prefs)
+  modernPrefsRef.current = prefs
+  const modern = useLabModernEdition({
+    enabled: !privateBook && isPublicBookId(modernBookId) && modernEditionsEnabled(),
+    bookId: modernBookId,
+    editionKey: prefs.primaryEdition,
+    chapterNumber: book.chapterNumber,
+    pending: !!book.modernPending,
+    // Back from a completed purchase: read the edition just bought.
+    onPurchased: () => {
+      const registered = getBook(modernBookId)
+      if (!registered?.editions.some(edition => edition.key === MODERN_EDITION_KEY)) return
+      updatePrefs(labPrefsForMainEdition(modernPrefsRef.current, MODERN_EDITION_KEY, modernBookId, registered.editions, registered.year))
+    },
+  })
+  const [modernCheckoutBusy, setModernCheckoutBusy] = useState(false)
+  const buyModernEdition = useCallback(async () => {
+    const token = await readSupabaseAccessToken()
+    if (!token) return
+    setModernCheckoutBusy(true)
+    try {
+      const url = await startModernCheckout(modernBookId, book.chapterNumber, token)
+      markPendingPurchase(modernBookId)
+      window.location.assign(url)
+    } catch {
+      setModernCheckoutBusy(false)
+    }
+  }, [modernBookId, book.chapterNumber])
   const [readingPageIndex, setReadingPageIndex] = useState(
     readerHandoff?.savedPlace?.page ?? boot.resume?.pageIndex ?? 0,
   )
@@ -1576,7 +1608,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       }
     })
     return () => { cancelled = true }
-  }, [source, userBook, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey])
+    // modern.refresh: a Modern English chapter shown in its original text is now written; reload it in place.
+  }, [source, userBook, book.bookId, bookEditions, prefs.primaryEdition, prefs.compareEdition, prefs.compareOpen, audioEditionKey, modern.refresh])
 
   useEffect(() => {
     markReaderLoadTrace('fonts_start', { startOf: 'fonts' })
@@ -4770,6 +4803,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={signInReturnTo}
+          modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
+            ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
+            : undefined}
         />
       )}
       {figureCard && (
@@ -4828,6 +4864,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           aria-busy={initialResolving || undefined}
         >
           {desktopCompareActive && <div className="lab-compare-divider" aria-hidden="true"><span>Compare</span></div>}
+          {modern.preparing && !readerLoadError && (
+            <p className="lab-modern-status" role="status" data-testid="lab-modern-status">Modern English for this chapter is being prepared.</p>
+          )}
           {/* The version just swapped to, named for about a second and then
               gone. It sits on the page the reader landed on, every swap, and
               never stays: the page carries no running head. */}
@@ -5406,6 +5445,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         totalPages={chapterProgress.totalPages}
         currentPercent={chapterProgress.percent}
         statuses={pickerStatuses}
+        modernStates={prefs.primaryEdition === MODERN_EDITION_KEY && modern.status?.state === 'paid' ? modern.status.chapters : undefined}
         conversations={ask.conversations}
         historyStatus={ask.historyStatus}
         highlights={highlightsApi.highlights}

@@ -2,7 +2,8 @@ import { registerLoadedChapter } from './labPoetry'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
-import { ensurePublicBook } from '../utils/publicBooks'
+import { ensurePublicBook, isPublicBookId } from '../utils/publicBooks'
+import { loadPublicModernEdition, modernChapterPending, MODERN_EDITION_KEY } from './labModernEdition'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
@@ -73,6 +74,11 @@ export interface LabSource {
   cast: LabCastMember[]
   /** The book's figures, in reading order (those of the chapters loaded, for a windowed edition). */
   figures?: LabFigure[]
+  /**
+   * An added book's Modern English chapter that is not written yet, served in
+   * its original text (labModernEdition.ts). The paragraphs match one to one.
+   */
+  modernPending?: boolean
   /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
   supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
 }
@@ -559,10 +565,14 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   // Started before the text request so it costs no wall time of its own.
   const linesPromise = verseLineSidecar(registryBook.id, registryBook.editions)
   const threadsPromise = selection.readingFirst ? undefined : loadBookThreadsJson(registryBook.id)
+  // An added book's paid Modern English edition is read fresh while it is still being written.
+  const loadText = (key: string) => isPublicBookId(registryBook.id) && key === MODERN_EDITION_KEY
+    ? loadPublicModernEdition(registryBook.id)
+    : loadEditionWindow(registryBook.id, key, requestedChapter)
   const [primaryData, compareData] = await Promise.all([
-    loadEditionWindow(registryBook.id, primaryEdition.key, requestedChapter),
+    loadText(primaryEdition.key),
     compareEdition
-      ? loadEditionWindow(registryBook.id, compareEdition.key, requestedChapter).catch(() => null)
+      ? loadText(compareEdition.key).catch(() => null)
       : Promise.resolve(null),
   ])
   const entry = primaryData.chapters.find(chapter => chapter.number === requestedChapter)
@@ -619,6 +629,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     })),
     sections: primaryData.sections,
     cast: supporting.cast,
+    ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true } : {}),
     ...(selection.readingFirst ? { supplement } : {}),
   }
 }
