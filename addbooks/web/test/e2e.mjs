@@ -42,6 +42,37 @@ async function samplePdf(browser) {
   return file;
 }
 
+// A short paper with no outline and no printed contents, as a word processor exports it:
+// its metadata Title is just the file name, the title is printed large on page 1, the
+// section headings are bold at body size, and every page has a running head.
+async function paperPdf(browser) {
+  const file = join(FIX, 'Constructor_theory_of_time_SUB_Version.pdf');
+  if (existsSync(file)) return file;
+  mkdirSync(FIX, { recursive: true });
+  const para = i => `<p>Paragraph ${i + 1}. In the traditional conception of laws of physics, time is the parameter on which physical quantities depend, and this dependence is typically expressed through differential equations in which time is an independent variable that nothing can change.</p>`;
+  const section = (title, n) => `<h2>${title}</h2>${Array.from({ length: n }, (_, i) => para(i)).join('')}`;
+  const html = `<!doctype html><meta charset="utf-8"><title>Constructor_theory_of_time_SUB_Version</title><style>body{font:16px/1.5 Georgia,serif;margin:0}h1{font-size:30px;font-weight:bold;margin:0 0 10px}.by{font-size:21px;margin:0 0 24px}h2{font-size:16px;font-weight:bold;margin:22px 0 10px}</style>
+    <h1>Constructor theory of time</h1><p class="by">David Deutsch &amp; Chiara Marletto</p>
+    <p>Constructor theory is a research programme in fundamental physics proposing the principle that the laws of physics are expressible exclusively as specifications of which transformations of physical systems can be brought about.</p>
+    ${section('1. Introduction: why time is problematic', 12)}${section('2. Inaccuracy, unreliability and limits', 12)}${section('3. Possible and impossible tasks', 12)}`;
+  const ctx = await browser.newContext(); const page = await ctx.newPage();
+  await page.setContent(html);
+  writeFileSync(file, await page.pdf({ format: 'A4', displayHeaderFooter: true, headerTemplate: '<div style="font:bold 16px Georgia,serif;width:100%;text-align:center">Deutsch &amp; Marletto · Constructor theory of time · <span class="pageNumber"></span></div>', footerTemplate: '<div></div>', margin: { top: '22mm', bottom: '20mm', left: '20mm', right: '20mm' } }));
+  await ctx.close();
+  return file;
+}
+// A PDF whose metadata carries its real title, under an unhelpful file name.
+async function titledPdf(browser) {
+  const file = join(FIX, 'scan_0042.pdf');
+  if (existsSync(file)) return file;
+  mkdirSync(FIX, { recursive: true });
+  const ctx = await browser.newContext(); const page = await ctx.newPage();
+  await page.setContent(`<!doctype html><meta charset="utf-8"><title>Notes on Natural Philosophy</title><style>body{font:16px/1.5 Georgia,serif}h1{font-size:30px}</style><h1>Draft 3</h1>${'<p>The motion of bodies is governed by forces, and the forces by the bodies that bear them, so that each part of nature acts upon every other part.</p>'.repeat(6)}`);
+  writeFileSync(file, await page.pdf({ format: 'A4' }));
+  await ctx.close();
+  return file;
+}
+
 const results = [];
 const check = (name, ok, detail) => { results.push({ name, ok: !!ok, detail }); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  ' + JSON.stringify(detail).slice(0, 300) : ''}`) };
 
@@ -65,7 +96,8 @@ async function openFile(p, file) {
   await p.waitForSelector('#attestBox, .epub-sheet, .pdf-sheet, .pdf-status[role="alert"]', { timeout: 30000 });
   const box = await p.$('#attestBox');
   if (!box) return null;
-  const shown = await p.evaluate(() => ({ text: document.querySelector('#attestBox').closest('label').textContent.trim(), disabled: document.getElementById('attestOk').disabled, button: document.getElementById('attestOk').textContent.trim() }));
+  const shown = await p.evaluate(() => ({ text: document.querySelector('#attestBox').closest('label').textContent.trim(), disabled: document.getElementById('attestOk').disabled, button: document.getElementById('attestOk').textContent.trim(),
+    overStart: !document.getElementById('start').hidden && document.getElementById('root').hidden && !document.getElementById('root').contains(document.getElementById('attestBox')) }));
   await box.check(); await p.click('#attestOk');
   return shown;
 }
@@ -80,7 +112,7 @@ const bookState = async () => (await fetch(`http://127.0.0.1:${PORT}/__books`)).
 const lastRequest = async () => (await (await fetch(`http://127.0.0.1:${PORT}/__requests`)).json()).at(-1);
 // Drag a snip box over the middle of a PDF page in view, then Explain it.
 async function snipAndExplain(p) {
-  await p.click('#snipBtn');
+  await p.click('#superBtn'); await p.click('.lab-super-row[data-row="snip"]');
   await p.waitForSelector('.byob-snip');
   const r = await p.evaluate(() => {
     const ov = document.querySelector('.byob-snip').getBoundingClientRect();
@@ -134,8 +166,24 @@ try {
   // A known account whose token has lapsed: files open, the companion uses the guest route.
   await signIn(p, { expired: true });
   check('signed in: own book opens files', await p.isVisible('#abDrop') && !(await p.isVisible('#abGate')));
+  // The rights confirmation is a pop-up over the start page; Cancel stays there.
+  {
+    const chooser = p.waitForEvent('filechooser');
+    await p.click('#abDrop');
+    await (await chooser).setFiles(epub);
+    await p.waitForSelector('#attestBox', { timeout: 30000 });
+    const over = await p.evaluate(() => ({ view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, title: document.title,
+      sheet: document.querySelector('#attestBox').closest('.lab-v2-sheet')?.getAttribute('aria-label'), text: document.querySelector('.byob-attest p').textContent.trim() }));
+    check('the rights confirmation opens over the start page, not an empty reader', over.view === 'start' && over.start && !over.root && over.title === 'Add a book · Tinct' && over.sheet === 'Your own book'
+      && /^Tinct opens pg35\.epub here and keeps a private copy in your account/.test(over.text), over);
+    await p.screenshot({ path: join(OUT, 'desktop-rights-over-start.png') });
+    await p.click('#attestCancel');
+    await p.waitForTimeout(300);
+    const after = await p.evaluate(() => ({ view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, sheet: !!document.querySelector('#attestBox, .byob-sheet-host'), hash: location.hash, rights: localStorage.getItem('tinct-addbook:rights:u-test') }));
+    check('Cancel stays on the start page and opens nothing', after.view === 'start' && after.start && !after.root && !after.sheet && after.hash === '' && !after.rights && await p.isVisible('#doorOwn'), after);
+  }
   const rights = await openFile(p, epub);
-  check('first file asks for the rights confirmation, with the approved copy', rights?.text === RIGHTS && rights.button === 'Continue', rights);
+  check('first file asks for the rights confirmation, with the approved copy', rights?.text === RIGHTS && rights.button === 'Continue' && rights.overStart, rights);
   check('Continue stays disabled until the box is ticked', rights?.disabled === true);
   check('the confirmation is kept per account under tinct-addbook:', await p.evaluate(() => !!localStorage.getItem('tinct-addbook:rights:u-test')));
   await p.waitForSelector('.epub-sheet', { timeout: 30000 });
@@ -253,6 +301,83 @@ try {
   check('Export notes saves a Markdown file', !!file && /\.md$/.test(file.suggestedFilename()), file?.suggestedFilename());
   check('desktop: no page errors or CSP violations', !problems.length, problems.slice(0, 6));
   await ctx.close();
+
+  // ---- Titles, headings, the top bar and Back to library ----
+  {
+    const { ctx, p, problems } = await page(browser, { width: 1440, height: 900 });
+    await p.goto(BASE);
+    await signIn(p, { token: 'test-token', user: 'u-titles' });
+    const paper = await paperPdf(browser);
+    await openFile(p, paper);
+    await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    // Its metadata Title is just the file name, so the title printed large on page 1 is used.
+    const shown = await p.evaluate(() => ({ title: document.getElementById('bookTitle').textContent, doc: document.title, contents: document.getElementById('bookBtn').getAttribute('aria-label') }));
+    check('title: from page 1 when the metadata title is just the file name', shown.title === 'Constructor theory of time' && shown.doc === 'Constructor theory of time · Tinct' && shown.contents === 'Contents of Constructor theory of time', shown);
+    // Top bar: Back to library at the left; Play and the t menu at the right; no snip button.
+    const bar = await p.evaluate(() => {
+      const back = document.getElementById('backBtn'), hdr = document.getElementById('hdr');
+      return { back: back && { label: back.getAttribute('aria-label'), text: back.textContent.trim(), left: back.getBoundingClientRect().left, visible: back.getBoundingClientRect().width > 0 }, title: document.getElementById('bookBtn').getBoundingClientRect().left,
+        controls: [...hdr.querySelectorAll('.lab-header-controls button')].map(b => b.id), snip: !!document.querySelector('#snipBtn, .byob-snip-btn') };
+    });
+    check('top bar: icon-only Back to library at the left', bar.back?.label === 'Back to library' && bar.back.text === '' && bar.back.visible && bar.back.left < bar.title && bar.back.left < 40, bar.back);
+    check('top bar: no snip button, Play and the menu remain', !bar.snip && bar.controls.join(',') === 'playBtn,superBtn', bar.controls);
+    await p.waitForFunction(() => /Saved to your account\./.test(document.querySelector('.byob-toast:not([hidden])')?.textContent || ''), null, { timeout: 15000 });
+    // test-token is the server's account u-test.
+    const acct = ((await bookState()).users['u-test'] || []).filter(b => b.name === 'Constructor_theory_of_time_SUB_Version.pdf');
+    check('title: the account copy is stored under the document title', acct.length === 1 && acct[0].title === 'Constructor theory of time' && acct[0].name === 'Constructor_theory_of_time_SUB_Version.pdf', acct.map(b => ({ name: b.name, title: b.title })));
+    await p.screenshot({ path: join(OUT, 'desktop-pdf-title-topbar.png') });
+    await p.screenshot({ path: join(OUT, 'desktop-topbar.png'), clip: { x: 0, y: 0, width: 1440, height: 60 } });
+    // No outline and no printed contents: the contents popover lists the headings, with Go to page.
+    await p.click('#pageBtn');
+    await p.waitForSelector('.lab-contents-v2 .tree [data-go]', { timeout: 15000 });
+    const toc = await p.evaluate(() => ({ title: document.querySelector('.lab-contents-v2 .title').textContent, rows: [...document.querySelectorAll('.lab-contents-v2 [data-go]')].map(b => [b.querySelector('.text').textContent, b.getAttribute('aria-label')]), jump: !!document.querySelector('.lab-contents-v2 .byob-toc-jump:not([hidden]) #jumpInput'), none: /no table of contents/.test(document.querySelector('.lab-contents-v2').textContent) }));
+    const labels = toc.rows.map(r => r[0]);
+    check('headings: an outline-less PDF gets its sections from its headings', labels.join(' | ') === '1. Introduction: why time is problematic | 2. Inaccuracy, unreliability and limits | 3. Possible and impossible tasks' && !toc.none, labels);
+    check('headings: the title block and running heads are left out; Go to page stays', toc.jump && toc.title === 'Constructor theory of time' && !labels.some(l => /Marletto|^Constructor theory of time$/.test(l)), toc);
+    await p.screenshot({ path: join(OUT, 'desktop-pdf-headings.png') });
+    const target = await p.evaluate(() => Number(document.querySelectorAll('.lab-contents-v2 [data-go]')[2].getAttribute('aria-label').match(/page (\d+)$/)[1]));
+    await p.locator('.lab-contents-v2 [data-go]').nth(2).click();
+    await p.waitForFunction(t => /^3\. Possible and impossible tasks/.test(document.getElementById('pageLabel').textContent) && new RegExp(`^p\\. ${t} ·`).test(document.getElementById('progress').textContent), target, { timeout: 5000 }).catch(() => {});
+    const at = await p.evaluate(() => ({ label: document.getElementById('pageLabel').textContent, progress: document.getElementById('progress').textContent }));
+    check('headings: choosing one goes to its page and names the section', target > 1 && at.label === '3. Possible and impossible tasks' && at.progress.startsWith(`p. ${target} ·`), { target, ...at });
+    // Back to library: the start page, with "Your books" in view, under the document title.
+    await p.click('#backBtn');
+    await p.waitForSelector('#abShelf:not([hidden]) .ab-book', { timeout: 10000 });
+    await p.waitForTimeout(300);
+    const back = await p.evaluate(() => { const r = document.getElementById('abShelf').getBoundingClientRect(); return { view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, inView: r.top >= 0 && r.top < innerHeight && r.bottom <= innerHeight + 1, hash: location.hash, books: document.getElementById('abBooks').textContent.replace(/\s+/g, ' ').trim() } });
+    check('Back to library returns to the start page with Your books in view', back.view === 'start' && back.start && !back.root && back.inView && back.hash === '', back);
+    check('title: Your books lists the document title', /Constructor theory of time/.test(back.books) && !/SUB|_/.test(back.books), back.books);
+    await p.screenshot({ path: join(OUT, 'desktop-back-to-shelf.png') });
+    // The start page scrolls by hand too (the app's stylesheet pins body to the viewport for the reader).
+    await p.evaluate(() => scrollTo(0, 0)); await p.mouse.move(700, 400); await p.mouse.wheel(0, 500); await p.waitForTimeout(400);
+    check('the start page scrolls with the wheel', await p.evaluate(() => document.documentElement.scrollHeight > innerHeight && scrollY > 0));
+    // A real metadata Title wins over the page and the file name.
+    await openFile(p, await titledPdf(browser));
+    await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    check('title: from the PDF metadata when it is a real title', await p.textContent('#bookTitle') === 'Notes on Natural Philosophy', await p.textContent('#bookTitle'));
+    // A PDF whose outline-less pages carry no headings keeps the message.
+    await p.click('#pageBtn');
+    await p.waitForSelector('.lab-contents-v2 .status:not([role])', { timeout: 15000 });
+    check('headings: none found keeps the no-contents message', /This PDF has no table of contents\. Use the page number above\./.test(await p.textContent('.lab-contents-v2')));
+    await p.keyboard.press('Escape');
+    check('titles and headings: no page errors', !problems.length, problems.slice(0, 6));
+    await ctx.close();
+  }
+
+  // ---- Phone top bar ----
+  {
+    const { ctx, p, problems } = await page(browser, { width: 390, height: 844 }, { isMobile: true, hasTouch: true });
+    await p.goto(BASE);
+    await signIn(p, { token: 'test-token', user: 'u-phone' });
+    await openFile(p, await paperPdf(browser));
+    await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    // As in Tinct's reader, the phone keeps the way back in the t menu ("Your books") and draws no arrow.
+    const bar = await p.evaluate(() => { const box = id => document.getElementById(id).getBoundingClientRect(); return { back: box('backBtn').width > 0, snip: !!document.querySelector('#snipBtn, .byob-snip-btn'), oneRow: Math.abs(box('playBtn').top - box('bookBtn').top) < 20 && Math.abs(box('superBtn').top - box('bookBtn').top) < 20, overflow: document.getElementById('hdr').scrollWidth > innerWidth + 1, title: document.getElementById('bookTitle').textContent } });
+    check('phone: top bar has no snip button and fits on one row', !bar.back && !bar.snip && bar.oneRow && !bar.overflow && bar.title === 'Constructor theory of time', bar);
+    await p.screenshot({ path: join(OUT, 'phone-pdf-topbar.png') });
+    check('phone top bar: no page errors', !problems.length, problems.slice(0, 6));
+    await ctx.close();
+  }
 
   // ---- DRM-protected EPUB is refused ----
   {

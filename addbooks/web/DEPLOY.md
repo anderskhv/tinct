@@ -27,7 +27,7 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 43 browser checks under production CSP, chat and user-books APIs mocked
+node addbooks/web/test/e2e.mjs           # 60 browser checks under production CSP, chat and user-books APIs mocked
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
