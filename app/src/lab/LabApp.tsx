@@ -159,7 +159,7 @@ import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
 import { useLabListen } from './useLabListen'
-import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, splitLabPagesAtAnchor, type LabCompareAnchor } from './labCompare'
+import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
@@ -779,26 +779,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }
   // Only a Bible book opening (Genesis, Exodus, ...) shows a cover page.
   const [chapterCoverTitle, setChapterCoverTitle] = useState<string | null>(null)
-  // Only a place inside the chapter needs its own page break. A link to the
-  // chapter's start already begins page one, and rebuilding the map from a
-  // word budget split short chapters (Werther's Preface) across two leaves.
-  const explicitStartAnchor = useMemo(() => (
-    readerHandoff?.startAtSavedPlace
-      && readerHandoff.savedPlace?.chapterNumber === book.chapterNumber
-      && ((readerHandoff.savedPlace.paragraphIndex ?? 0) > 0 || (readerHandoff.savedPlace.wordIndex ?? 0) > 0)
-      ? {
-          paragraphIndex: readerHandoff.savedPlace.paragraphIndex ?? 0,
-          wordIndex: readerHandoff.savedPlace.wordIndex ?? 0,
-        }
-      : null
-  ), [book.chapterNumber, readerHandoff])
+  // A deep link to a word (a shared highlight, `paragraph=&word=`) opens the
+  // page that holds it as the chapter naturally lays out — the page the
+  // sharer was reading — through the same saved-place restore as Continue
+  // (`restorePlaceRef`). It used to cut the map so a page began AT the word:
+  // that page was built from a word-count estimate instead of the measured
+  // layout, so it showed the highlight's few lines and then blank paper, and
+  // on desktop both leaves stopped half-way (nightly QA, /q/fv7btyc, Oct 2026).
   const pendingMapHighlightRef = useRef<LabHighlight | null>(null)
   const [openAtEnd, setOpenAtEnd] = useState(false)
   const [pageMetrics, setPageMetrics] = useState<LabPageMetrics | null>(null)
-  const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => {
-    const pages = chapterHearingPages(readerParagraphs, null)
-    return explicitStartAnchor ? splitLabPagesAtAnchor(pages, explicitStartAnchor) : pages
-  })
+  const [readingPages, setReadingPages] = useState<ChapterHearingPage[]>(() => chapterHearingPages(readerParagraphs, null))
   const [draftPages, setDraftPages] = useState<ChapterHearingPage[]>(readingPages)
   const [settleIndex, setSettleIndex] = useState<number | null>(0)
   const labRootRef = useRef<HTMLDivElement | null>(null)
@@ -1659,7 +1650,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     const naturalNext = settledPrimaryPages
       ?? swapped
       ?? chapterHearingPages(readerParagraphs, canUseLabPageBudget(budget) ? budget : null)
-    const next = withComparePassage(explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext, readerParagraphs)
+    const next = withComparePassage(naturalNext, readerParagraphs)
     swapCommittedRef.current = null
     if (settledPrimaryPages || swapped) {
       if (settledPrimaryPages) mobilePrimaryPagesRef.current = null
@@ -1722,7 +1713,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (!canUseLabPageBudget(budget)) return
     didBudgetPageRef.current = true
     const naturalNext = chapterHearingPages(readerParagraphs, budget)
-    const next = withComparePassage(explicitStartAnchor ? splitLabPagesAtAnchor(naturalNext, explicitStartAnchor) : naturalNext, readerParagraphs)
+    const next = withComparePassage(naturalNext, readerParagraphs)
     const keep = pageAnchorRef.current
     const landing = chapterLandingRef.current
     readingPagesRef.current = next
@@ -1821,18 +1812,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[]) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
-    // A native column can place the final words of the author's note and the
-    // opening words on one leaf. Cutting that leaf at the explicit start would
-    // leave an eight-word page. Rebuild only this share-link session from the
-    // measured page budget so the requested paragraph begins a normally filled
-    // page; ordinary reader sessions continue to adopt the native map verbatim.
-    const explicitBudget = pageMetricsRef.current ? labPageBudgetFromMetrics(pageMetricsRef.current) : null
-    const explicitPages = explicitStartAnchor
-      ? chapterHearingPages(nativeContentRef.current, canUseLabPageBudget(explicitBudget) ? explicitBudget : null)
-      : null
-    const next = withComparePassage(explicitStartAnchor && explicitPages
-      ? splitLabPagesAtAnchor(explicitPages, explicitStartAnchor)
-      : incoming, nativeContentRef.current)
+    // Every session, a deep link's included, adopts the measured map verbatim.
+    const next = withComparePassage(incoming, nativeContentRef.current)
     // Audio chrome temporarily changes the available box. Keep the reading
     // page map as the single authority instead of repaginating mid-playback.
     // The transport opens and closes over the page, and the column changes
@@ -1907,7 +1888,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     // rendered-page verification now that the font-settled preflight is the
     // authority; refs alone do not trigger that verification effect.
     setNativePagesRevision(revision => revision + 1)
-  }, [explicitStartAnchor, measuredPaging, withComparePassage])
+  }, [measuredPaging, withComparePassage])
 
   /**
    * The standby map, off the critical path entirely: a ref write, no state,
@@ -2753,7 +2734,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (
       !measuredPaging || desktopPaging
       || nativeMeasuredContent !== readerParagraphs || pages.length === 0
-      || explicitStartAnchor || comparePassageRef.current?.paragraphs === readerParagraphs
+      || comparePassageRef.current?.paragraphs === readerParagraphs
     ) {
       setPageFreeze(null)
       return
@@ -2782,7 +2763,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     phoneAskShownRef.current = phoneAsk
     if (!phoneAsk || wasOpen) return
     const pages = readingPagesRef.current
-    if (!measuredPaging || desktopPaging || nativeMeasuredContent !== readerParagraphs || pages.length === 0 || explicitStartAnchor) return
+    if (!measuredPaging || desktopPaging || nativeMeasuredContent !== readerParagraphs || pages.length === 0) return
     const current = Math.max(0, Math.min(readingPageIndexRef.current, pages.length - 1))
     setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1) })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on Chat opening only; reads the page map as it is then
@@ -3749,18 +3730,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       landingChapterRef.current = null
       openAtEndRef.current = false
       setOpenAtEnd(false)
-      const exactStartIndex = explicitStartAnchor
-        ? readingPagesRef.current.findIndex(page => {
-            const anchor = pageAnchorOf(page)
-            return anchor?.paragraphIndex === explicitStartAnchor.paragraphIndex && anchor.wordIndex === explicitStartAnchor.wordIndex
-          })
-        : -1
-      const startIndex = exactStartIndex >= 0 ? exactStartIndex : 0
-      const first = readingPagesRef.current[startIndex]
-      pageAnchorRef.current = explicitStartAnchor ?? pageAnchorOf(first)
-      if (explicitStartAnchor) placeRef.current = explicitStartAnchor
-      readingPageIndexRef.current = startIndex
-      setReadingPageIndex(startIndex)
+      const first = readingPagesRef.current[0]
+      pageAnchorRef.current = pageAnchorOf(first)
+      readingPageIndexRef.current = 0
+      setReadingPageIndex(0)
       return
     }
     const reading = readingPagesRef.current
@@ -3791,7 +3764,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       if (listen.playing) void browseToChapter(target, 'start', continuation)
       else void goToChapter(target, 'start', false, continuation)
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, explicitStartAnchor, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage, openingOnRight])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, temporaryHold, desktopSpread, quietDesktopAfterTurn, nextChapterOpening, nextOpeningPage, openingOnRight])
 
   goNextRef.current = goNext
 
