@@ -17,7 +17,7 @@ The full text was not re-read by the coordinator.
 | `henry-iv-part-2` | 0.596 | 1081 | 747 | 1547 / 327 / 4 | `d54e3d958ec2ef39…` |
 | `henry-v` | 0.597 | 883 | 608 | 1324 / 266 / 32 | `ec46baaf614b9f6d…` |
 | `richard-iii` | 0.608 | 1420 | 964 | 1879 / 367 / 42 | `ef3386e368878460…` |
-| `phaedo` | 0.747 | 652 | 396 | 466 / 248 / 9 | `31cffde50bfc13b6…` |
+| `phaedo` | 0.738 | 652 | 397 | 466 / 258 / 9 | `af2b3cd42a3fbb83…` |
 | `symposium` | 0.696 | 226 | 217 | 531 / 458 / 5 | `0e0dc440df0aa2cc…` |
 | `utilitarianism` | 0.721 | 94 | 94 | 42 / 42 / 0 | `534c43afa8af1f7d…` |
 | `descartes-meditations` | 0.668 | 144 | 143 | 189 / 183 / 2 | `2ddde8f1a095fb38…` |
@@ -28,7 +28,7 @@ The full text was not re-read by the coordinator.
 
 ## Things the coding window should know
 
-- **Phaedo is borderline** (0.747 after a second look restored 23 paragraphs that had regressed to the source). Re-run the gate after integration. Descartes, the Discourse, Symposium and Phaedo also got small post-verification edits from a read-only second look (listed in each acceptance record; not re-verified by a fresh verifier).
+- **Phaedo is borderline** (0.738 after a second look restored 23 paragraphs that had regressed to the source and 26 more near-source paragraphs were re-rendered, reviewed and partly re-verified). Re-run the gate after integration. Descartes, the Discourse, Symposium and Phaedo also got small post-verification edits from a read-only second look (listed in each acceptance record; not re-verified by a fresh verifier).
 - **Descartes 9:18 and 7:6, Discourse 3:21 and 4:55, Symposium 3:0** contain renderer guesses at damaged source text; see each acceptance record.
 - **Character cards:** the last column of the table is mentions / moved (proposed re-anchor) / need ruling. `needsRuling` mentions are ones whose text no longer occurs in the candidate paragraph (the largest are Richard III 42, Henry V 32, Coriolanus 21). Check each package's `character-card-impact.json`; snapshot and reveal-point coordinates were not re-derived.
 - **Plays: served stage directions and speaker labels.** The served modern-en normalizes stage directions (bracketed) and some labels (`KING HENRY V.`, `PRINCE HENRY.`, `KATHERINE.`, `VOLSCIAN.`). The renderers had copied the source forms, so after review those paragraphs were set back mechanically to the served text (`reviews/fixes-extra.json` in each play package). This restoration was not re-read by a reviewer.
