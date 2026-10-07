@@ -146,7 +146,10 @@ export async function handleVoiceUsage(
   const raw = typeof body?.seconds === 'number' ? body.seconds : NaN
   if (!Number.isFinite(raw) || raw <= 0) return jsonResponse({ error: 'Invalid seconds' }, 400, request)
   const seconds = Math.min(raw, TALK_SESSION_MAX_SECONDS)
-  const bookId = typeof body.bookId === 'string' && /^[a-z0-9-]{1,64}$/.test(body.bookId) ? body.bookId : null
+  // A reader's own book is never named in the ledger: the marker "userbook" stands for any of them.
+  const bookId = typeof body.bookId === 'string' && /^[a-z0-9-]{1,64}$/.test(body.bookId)
+    ? (body.bookId.startsWith('userbook') ? 'userbook' : body.bookId)
+    : null
   recordAiUsage(env as LedgerEnv, ctx, { userId: user.id }, {
     feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds, book_id: bookId, cost_usd: talkCostUsd(seconds),
   })

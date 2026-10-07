@@ -50,6 +50,8 @@ export const LAB_CALL_COPY = {
   callLabel: 'Voice conversation',
   /** The caption while the microphone is open and nothing is being said. */
   askAboutPage: 'Ask about this page.',
+  /** The first line of every Talk conversation (AI Act art. 50 transparency). */
+  aiDisclosure: "You're talking to an AI.",
   minimize: 'Minimize the conversation',
   expand: 'Open the conversation',
 } as const

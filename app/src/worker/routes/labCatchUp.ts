@@ -38,6 +38,7 @@ import { jsonResponse } from '../lib/responses'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
 import { isUsableRecapSummary } from '../../recapSummary'
+import { sampleCatchUpText } from '../../ownCatchUp'
 import type { RecapCache } from './labRecap'
 
 export type LabCatchUpEnv = LedgerEnv & {
@@ -127,21 +128,12 @@ function cleanParagraph(text: string): string {
   return text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 }
 
-/** Opening and closing of a text within `maxChars`, the middle marked as left out. */
-function sample(text: string, maxChars: number): string {
-  if (text.length <= maxChars) return text
-  const marker = ' […] '
-  const head = Math.max(0, Math.floor((maxChars - marker.length) * 0.6))
-  const tail = Math.max(0, maxChars - marker.length - head)
-  return `${text.slice(0, head).trimEnd()}${marker}${text.slice(text.length - tail).trimStart()}`
-}
-
 /** The text the model sees: every covered chapter, each given an even share of the budget. */
 export function buildCatchUpPassage(chapters: ChapterText[], maxChars = CATCH_UP_MAX_PASSAGE_CHARS): string {
   if (!chapters.length) return ''
   const share = Math.max(200, Math.floor(maxChars / chapters.length) - 40)
   return chapters
-    .map(chapter => `${chapter.title}\n\n${sample(chapter.paragraphs.map(cleanParagraph).filter(Boolean).join('\n\n'), share)}`)
+    .map(chapter => `${chapter.title}\n\n${sampleCatchUpText(chapter.paragraphs.map(cleanParagraph).filter(Boolean).join('\n\n'), share)}`)
     .join('\n\n')
 }
 

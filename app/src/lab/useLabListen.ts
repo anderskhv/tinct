@@ -18,6 +18,7 @@ import { setAudioSource } from '../utils/audioPlayback'
 import { isNativeCapacitor } from '../utils/nativePlatform'
 import {readerMediaSession, readerMediaMetadata, playReaderAudioTransition, playReaderAudio, endNativeNarration} from '../utils/readerMediaSession'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
+import { LAB_COPY } from './labCopy'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
 import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
 import {
@@ -1449,7 +1450,8 @@ export function useLabListen(options: UseLabListenOptions) {
       const book = options.bookTitle || options.bookId || 'Tinct audiobook'
       session.metadata = readerMediaMetadata({
         title: options.chapterTitle || `Chapter ${options.chapterNumber ?? 1}`,
-        artist: book,
+        // The lock screen's second line names the voice as synthetic (AI Act art. 50).
+        artist: `${book} · ${LAB_COPY.aiNarration}`,
         album: book,
         ...(options.coverSrc ? { artwork: [{ src: new URL(options.coverSrc, window.location.href).href, sizes: '540x810', type: 'image/webp' }] } : {}),
       })

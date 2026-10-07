@@ -26,7 +26,9 @@ export function setUsageReportTransport(next: Post | null): void { post = next ?
 /** Connected Talk time (signed-in only: Talk requires an account). */
 export function reportTalkSeconds(input: { seconds: number; authToken?: string | null; bookId?: string | null }): void {
   if (!input.authToken || !(input.seconds >= 1)) return
-  post('/api/voice-usage', { seconds: Math.round(input.seconds), ...(input.bookId ? { bookId: input.bookId } : {}) }, input.authToken)
+  // A reader's own book (`userbook-…`) is reported without its id.
+  const bookId = input.bookId && !input.bookId.startsWith('userbook-') ? input.bookId : null
+  post('/api/voice-usage', { seconds: Math.round(input.seconds), ...(bookId ? { bookId } : {}) }, input.authToken)
 }
 
 export const LISTEN_REPORT_EVERY_SECONDS = 60

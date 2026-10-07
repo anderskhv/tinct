@@ -236,11 +236,14 @@ describe('the menu’s Librarian row', () => {
     expect(onSelect).toHaveBeenLastCalledWith('talk')
   })
 
-  it('a reader’s own book: Chat only, and the body opens Chat whatever the default', () => {
+  it('a reader’s own book: Chat and Talk as for any book, the body opening the default (2026-10-08)', () => {
     const onSelect = vi.fn()
     render(<LabSuperMenu open phone privateBook onSelect={onSelect} onClose={() => {}} librarianMode="talk" />)
-    expect(screen.queryByRole('button', { name: 'Talk' })).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'Talk' }))
+    expect(onSelect).toHaveBeenLastCalledWith('talk')
     fireEvent.click(screen.getByTestId('lab-super-row-librarian'))
+    expect(onSelect).toHaveBeenLastCalledWith('talk')
+    fireEvent.click(screen.getByRole('button', { name: 'Chat' }))
     expect(onSelect).toHaveBeenLastCalledWith('chat')
   })
 })

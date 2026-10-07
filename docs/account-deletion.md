@@ -67,6 +67,13 @@ the audio. `ownBookNarrationSpend` is the daily byte count of own-book
 narration from the account's spend object (`own-user:<id>` in the
 `NARRATION_COORDINATOR` Durable Object, routes/ownBookNarration.ts).
 
+`r2.ownBookRecaps` counts the Catch me up recaps of the reader's own books
+(objects and bytes under `u/<id>/recaps/`: one per finished chapter and one
+for the chapter in progress, per book, routes/ownCatchUp.ts), never the text.
+Deleting one book from Your books (`DELETE /api/user-books/<fileId>`) deletes
+that book's narration and recaps (`u/<id>/narration/<bookHex>/`,
+`u/<id>/recaps/<bookHex>/`) with the file.
+
 ## What deletion does, in order
 
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
@@ -76,8 +83,9 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
 2. **KV:** `lab-chat-history:<id>` (Talk/chat history) and `lab-position:<id>`
    (legacy position record). The own-book narration spend object
    (`own-user:<id>`, purged). Then **R2:** every object under `u/<id>/` in the
-   private `tinct-user-books` bucket (the reader's own PDF/EPUB files and their
-   narration under `u/<id>/narration/`,
+   private `tinct-user-books` bucket (the reader's own PDF/EPUB files, their
+   narration under `u/<id>/narration/` and their Catch me up recaps under
+   `u/<id>/recaps/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain.
 3. **Rows that would otherwise survive as anonymous orphans** (`ON DELETE SET

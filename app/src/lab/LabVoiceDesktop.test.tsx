@@ -78,6 +78,16 @@ describe('the desktop panel', () => {
     expect(screen.getByTestId('lab-voice-turn-assistant').querySelector('.lab-voice-caret')).toBeNull()
   })
 
+  it('opens the transcript with the AI line, above every turn', () => {
+    renderPanel()
+    const thread = screen.getByTestId('lab-voice-panel-thread')
+    expect(thread.firstElementChild).toBe(screen.getByTestId('lab-voice-panel-ai'))
+    expect(screen.getByTestId('lab-voice-panel-ai').textContent).toBe("You're talking to an AI.")
+    cleanup()
+    renderPanel({}, { turns: [] })
+    expect(screen.getByTestId('lab-voice-panel-thread').firstElementChild).toBe(screen.getByTestId('lab-voice-panel-ai'))
+  })
+
   it('invites the reader when nothing has been said yet', () => {
     renderPanel({}, { turns: [] })
     expect(screen.getByTestId('lab-voice-panel-empty').textContent).toBe('Ask about this page.')

@@ -363,6 +363,24 @@ describe('admin account routes', () => {
     expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${otherUser}/narration/`))).toHaveLength(1)
   })
 
+  it('exports a count of own-book Catch me up recaps (never their text) and deletes them with the account', async () => {
+    const w = world()
+    const recap = (owner: string, name: string, size: number) => w.userBooks.objects.set(`u/${owner}/recaps/${'ab'.repeat(12)}/own-catch-up-v1/${name}`, {
+      key: `u/${owner}/recaps/${'ab'.repeat(12)}/own-catch-up-v1/${name}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-07T00:00:00Z'), customMetadata: {},
+    })
+    recap(userId, 'c1.json', 300)
+    recap(userId, 'current.json', 200)
+    recap(otherUser, 'c1.json', 300)
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownBookRecaps).toEqual({ objects: 2, bytes: 500 })
+    expect(exported.r2.userBooks).toHaveLength(3)
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${otherUser}/recaps/`))).toHaveLength(1)
+  })
+
   it('keeps the auth user when the narration coordinator is not bound, so the spend record is never orphaned', async () => {
     const w = world()
     delete (w.env as { NARRATION_COORDINATOR?: unknown }).NARRATION_COORDINATOR

@@ -3,7 +3,7 @@ import type { Chapter, ParagraphKind } from '../../types'
 
 export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
 /** Bump when the conversion changes, so stored conversions are redone. */
-export const USER_EDITION_CONVERTER = 4
+export const USER_EDITION_CONVERTER = 5
 
 /** The general paragraph kinds every edition may carry (types/index.ts). */
 export type UserBookParagraphKind = ParagraphKind

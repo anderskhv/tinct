@@ -347,6 +347,27 @@ describe('Talk', () => {
     expect(rows[0].seconds).toBe(TALK_SESSION_MAX_SECONDS)
     expect(rows[0].cost_usd).toBe(talkCostUsd(TALK_SESSION_MAX_SECONDS))
   })
+
+  it('never names a reader’s own book: a userbook- id is recorded as the marker "userbook"', async () => {
+    const { rows } = stubFetch(() => undefined)
+    const { ctx, pending } = context()
+    expect((await handleVoiceUsage(post('/api/voice-usage', { seconds: 30, bookId: 'userbook-ab12cd34ef56ab12cd34ef56' }), env, ctx, async () => reader, allow)).status).toBe(204)
+    await Promise.all(pending)
+    expect(rows).toHaveLength(1)
+    expect(rows[0].book_id).toBe('userbook')
+    expect(JSON.stringify(rows)).not.toContain('ab12cd34ef56')
+  })
+
+  it('the client reports Talk on an own book without its id', async () => {
+    const { reportTalkSeconds, setUsageReportTransport } = await import('./utils/usageReport')
+    const sent: Array<{ path: string; body: object }> = []
+    setUsageReportTransport((path, body) => { sent.push({ path, body }) })
+    try {
+      reportTalkSeconds({ seconds: 42, authToken: 't', bookId: 'userbook-ab12cd34ef56ab12cd34ef56' })
+      reportTalkSeconds({ seconds: 42, authToken: 't', bookId: 'bible' })
+    } finally { setUsageReportTransport(null) }
+    expect(sent).toEqual([{ path: '/api/voice-usage', body: { seconds: 42 } }, { path: '/api/voice-usage', body: { seconds: 42, bookId: 'bible' } }])
+  })
 })
 
 describe("Tinct's own checks in the ledger", () => {

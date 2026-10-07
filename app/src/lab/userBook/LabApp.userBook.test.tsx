@@ -71,7 +71,7 @@ afterEach(() => {
 })
 
 describe('a user book in the Tinct reader', () => {
-  it('opens at its saved place, with registry-only controls hidden', async () => {
+  it('opens at its saved place, with registry-only controls hidden and Talk and Catch me up offered', async () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 })} />)
     const root = screen.getByTestId('lab-root')
     expect(root.getAttribute('data-chapter')).toBe('2')
@@ -82,10 +82,10 @@ describe('a user book in the Tinct reader', () => {
     expect(document.title).toBe('My Own Notebook · Tinct')
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    expect(rows).toEqual(['librarian', 'summarize', 'settings', 'account'])
-    // The Librarian row offers Chat only: no Talk for a reader's own book.
+    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'settings', 'account'])
+    // The Librarian row offers Chat and Talk, as for any book (2026-10-08).
     expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
-    expect(screen.queryByTestId('lab-super-row-talk')).toBeNull()
+    expect(screen.getByTestId('lab-super-row-talk')).toBeTruthy()
   })
 
   it('keeps its place on this device only and loads chapters without fetching', async () => {

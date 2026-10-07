@@ -123,6 +123,8 @@ export function LabVoiceCall({
       </div>
 
       <div className="lab-call-stage">
+        {/* The conversation's first line, quiet and never in the way (AI Act art. 50). */}
+        <p className="lab-call-ai" data-testid="lab-call-ai">{LAB_CALL_COPY.aiDisclosure}</p>
         <VoiceOrb
           status={view.status}
           motion={motion}

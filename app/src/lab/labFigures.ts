@@ -21,7 +21,9 @@
  * Images: a built-in edition names a same-origin path; a reader's own book
  * names `asset:<key>`, resolved on this device from what the book's store
  * hands over (registerFigureAssets) and shown through object URLs created
- * when a figure is drawn and revoked when the last one showing it goes.
+ * when a figure is drawn and revoked when the last one showing it goes. A
+ * figure whose image cannot be drawn (`unavailable`, or it fails to load)
+ * shows a plain placeholder with its caption, never a broken image.
  */
 import type { Chapter, ChapterFigure } from '../types'
 
@@ -185,35 +187,89 @@ export function figureElement(figure: LabFigure): HTMLElement {
 type AssetResolver = (key: string) => Blob | null
 
 let assets: AssetResolver | null = null
+/** Bumped whenever the device assets change, or object URLs must be made again. */
+let assetGeneration = 0
+const assetListeners = new Set<() => void>()
 
-/** A reader's own book hands over its pictures (kept on this device) while it is open. */
+/**
+ * A reader's own book hands over its pictures (kept on this device) while it is open.
+ * Figures already drawn are told, so they draw again from the new pictures: one
+ * drawn before the book handed them over, or holding a URL made for an earlier
+ * set, is never left blank or broken.
+ */
 export function registerFigureAssets(resolver: AssetResolver | null): void {
   assets = resolver
-  for (const [src, entry] of urls) { URL.revokeObjectURL(entry.url); urls.delete(src) }
+  refreshFigureUrls()
 }
 
-const urls = new Map<string, { url: string; users: number }>()
-
-/** The URL to draw a figure's image from: its own path, or an object URL made now for a device asset. */
-export function acquireFigureUrl(src: string): string | null {
-  if (!src.startsWith('asset:')) return /^\/(?!\/)/.test(src) ? src : null
-  const held = urls.get(src)
-  if (held) { held.users += 1; return held.url }
-  const blob = assets?.(src.slice('asset:'.length)) ?? null
-  if (!blob || typeof URL.createObjectURL !== 'function') return null
-  const url = URL.createObjectURL(blob)
-  urls.set(src, { url, users: 1 })
-  return url
+/** Every object URL made again (the page came back from the browser's cache, an image failed to load). */
+export function refreshFigureUrls(): void {
+  for (const entry of urls.values()) URL.revokeObjectURL(entry.url)
+  urls.clear()
+  assetGeneration += 1
+  for (const listener of [...assetListeners]) listener()
 }
 
-/** The last figure drawing a device asset is gone: its object URL is revoked. */
-export function releaseFigureUrl(src: string): void {
+/** The current asset generation, for a figure to draw again when it changes. */
+export function figureAssetGeneration(): number {
+  return assetGeneration
+}
+
+export function subscribeFigureAssets(listener: () => void): () => void {
+  assetListeners.add(listener)
+  return () => { assetListeners.delete(listener) }
+}
+
+interface HeldUrl { url: string; users: number }
+const urls = new Map<string, HeldUrl>()
+
+/** A drawn figure's hold on its image URL. */
+export interface FigureUrlHold { url: string; release: () => void }
+
+/**
+ * The URL to draw a figure's image from, held until released: its own path,
+ * or an object URL made now (from the bytes on this device) for a device
+ * asset, shared by every figure showing it and revoked when the last goes.
+ * Null when there is nothing to draw (no image, or not handed over yet).
+ */
+export function holdFigureUrl(src: string): FigureUrlHold | null {
+  if (!src) return null
+  if (!src.startsWith('asset:')) return /^\/(?!\/)/.test(src) ? { url: src, release: () => {} } : null
+  let held = urls.get(src)
+  if (!held) {
+    const blob = assets?.(src.slice('asset:'.length)) ?? null
+    if (!blob || typeof URL.createObjectURL !== 'function') return null
+    held = { url: URL.createObjectURL(blob), users: 0 }
+    urls.set(src, held)
+  }
+  const entry = held
+  entry.users += 1
+  let released = false
+  return {
+    url: entry.url,
+    release: () => {
+      if (released) return
+      released = true
+      entry.users -= 1
+      if (entry.users > 0 || urls.get(src) !== entry) return
+      urls.delete(src)
+      URL.revokeObjectURL(entry.url)
+    },
+  }
+}
+
+/** A figure's URL failed to draw: the next hold makes a fresh object URL. */
+export function dropFigureUrl(src: string, url: string): void {
   const held = urls.get(src)
-  if (!held) return
-  held.users -= 1
-  if (held.users > 0) return
+  if (!held || held.url !== url) return
   urls.delete(src)
-  URL.revokeObjectURL(held.url)
+  URL.revokeObjectURL(url)
+}
+
+// iOS Safari can bring a page back from its cache with object URLs that no longer
+// load: every figure draws again from fresh ones.
+if (typeof window !== 'undefined') {
+  window.addEventListener('pageshow', event => { if ((event as PageTransitionEvent).persisted && urls.size) refreshFigureUrls() })
 }
 
 /** The image itself, for sending to the companion. */

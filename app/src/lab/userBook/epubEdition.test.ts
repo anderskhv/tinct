@@ -2,7 +2,7 @@
 import { describe, expect, it } from 'vitest'
 import { crc32, deflateRawSync } from 'node:zlib'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book e2e tests
-import { makeEpub, makeFigureEpub, zip } from '../../../../addbooks/web/test/make-epub.mjs'
+import { makeCommercialEpub, makeEpub, makeFigureEpub, png as makePng, zip } from '../../../../addbooks/web/test/make-epub.mjs'
 import { stripUnderscoreEmphasis } from '../emphasisText'
 import { convertEpub, epubToEdition, EpubError, imageSize, joinSegments, USER_EDITION_CONVERTER, USER_EDITION_FORMAT } from './epubEdition'
 import { figureToken } from '../labFigures'
@@ -444,6 +444,78 @@ describe('figures', () => {
     expect(imageSize(gif, 'image/gif')).toEqual({ width: 300, height: 200 })
     expect(imageSize(new TextEncoder().encode('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"></svg>'), 'image/svg+xml')).toEqual({ width: 640, height: 480 })
     expect(imageSize(new Uint8Array([1, 2, 3]), 'image/png')).toBeNull()
+  })
+})
+
+describe('figures in a commercially made EPUB', () => {
+  const figuresOf = (edition: Awaited<ReturnType<typeof convertEpub>>['edition']) => edition.chapters.flatMap(chapter => chapter.figures ?? [])
+  const decode = (data: ArrayBuffer) => new TextDecoder().decode(new Uint8Array(data))
+
+  for (const epub2 of [false, true]) {
+    it(`finds every picture however it is referenced, and gives each one a picture it can draw (${epub2 ? 'EPUB 2, NCX' : 'EPUB 3, nav'})`, async () => {
+      const { edition, images } = await convertEpub(makeCommercialEpub({ epub2 }))
+      expect(edition.chapters.map(chapter => chapter.title)).toEqual(['One: Two Openings', 'Two: Plates', 'Three: Formats', 'Four: Elsewhere'])
+      const figures = figuresOf(edition)
+      // All thirteen, in reading order, each under its own caption; the cover is never a figure.
+      expect(figures.map(figure => Number(/^Figure (\d+):/.exec(figure.caption || '')?.[1]))).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
+      const byNumber = (n: number) => figures.find(figure => figure.caption?.startsWith(`Figure ${n}:`))!
+      const image = (n: number) => images.get(byNumber(n).id)
+      // Every drawable figure names a picture kept beside the book, typed by what its bytes are.
+      for (const [n, type] of [[1, 'image/jpeg'], [2, 'image/png'], [3, 'image/png'], [4, 'image/jpeg'], [5, 'image/svg+xml'], [6, 'image/webp'], [7, 'image/gif'], [8, 'image/svg+xml'], [11, 'image/png'], [12, 'image/png']] as const) {
+        expect(byNumber(n).src, `figure ${n}`).toBe(`asset:${byNumber(n).id}`)
+        expect(image(n)?.type, `figure ${n}`).toBe(type)
+        expect(Object.prototype.toString.call(image(n)?.data), `figure ${n}`).toBe('[object ArrayBuffer]')
+      }
+      expect(byNumber(1).alt).toBe('Image')
+      // A lazy page's 1-pixel placeholder gives way to its real picture (data-src / srcset).
+      expect([byNumber(6).width, byNumber(6).height]).toEqual([240, 150])
+      // The SVG file declared image/jpeg is repaired to draw on its own: its prefix declared,
+      // its HTML entity read, and the picture it places written into it.
+      const chart = decode(image(8)!.data)
+      expect(new DOMParser().parseFromString(chart, 'image/svg+xml').getElementsByTagName('parsererror')).toHaveLength(0)
+      expect(chart).toMatch(/xmlns:sodipodi=/)
+      expect(chart).toMatch(/data:image\/png;base64,/)
+      expect(chart).not.toMatch(/&nbsp;|href="inset\.png"/)
+      // The 5000 x 3200 plate is a strip (the browser redraws it smaller: own-figures.mjs).
+      expect(byNumber(11).large).toBe(true)
+      // A file the book lacks keeps its caption, as a placeholder; so do BMP and TIFF where
+      // nothing can decode them (this test's DOM; a browser redraws them as PNG).
+      for (const n of [9, 10, 13]) {
+        expect(byNumber(n).unavailable, `figure ${n}`).toBe(true)
+        expect(byNumber(n).src, `figure ${n}`).toBe('')
+        expect(image(n), `figure ${n}`).toBeUndefined()
+      }
+      // A caption is the figure's, never a paragraph of its own.
+      expect(edition.chapters.flatMap(chapter => chapter.paragraphs).some(text => /^Figure \d+:/.test(text))).toBe(false)
+      expect(JSON.parse(JSON.stringify(edition))).toEqual(edition)
+    })
+  }
+
+  it('text-only conversion (Add to Tinct) has the same paragraphs and figures, without keeping pictures', async () => {
+    const full = await convertEpub(makeCommercialEpub())
+    const text = await convertEpub(makeCommercialEpub(), { images: false })
+    expect(text.images.size).toBe(0)
+    expect(text.edition.chapters.map(chapter => chapter.paragraphs)).toEqual(full.edition.chapters.map(chapter => chapter.paragraphs))
+    expect((await epubToEdition(makeCommercialEpub())).chapters.map(chapter => chapter.paragraphs)).toEqual(full.edition.chapters.map(chapter => chapter.paragraphs))
+  })
+
+  it('a picture named only by a data: URL, or set in a section that the XHTML parser rejects, still draws', async () => {
+    const pngBytes: Uint8Array = makePng(200, 120)
+    const dataUrl = 'data:image/png;base64,' + Buffer.from(pngBytes).toString('base64')
+    const files: Array<[string, string]> = [
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', CONTAINER],
+      ['OEBPS/content.opf', opf([['c1', 'c1.xhtml'], ['c2', 'c2.xhtml']], ['c1', 'c2'])],
+      ['OEBPS/c1.xhtml', xhtml(`<h1>One</h1><p>Opening words of the first chapter.</p><p><img src="${dataUrl}" alt="Image"/></p><p class="caption">Figure 1: Inline data.</p>`)],
+      // &nbsp; is not XML: the chapter is read as HTML, and its drawing still becomes a picture that draws.
+      ['OEBPS/c2.xhtml', `<html><body><h1>Two</h1><p>Text&nbsp;here.</p><figure><svg width="300" height="200" viewBox="0 0 300 200" inkscape:label="layer"><rect width="300" height="200" fill="#ccc"/></svg><figcaption>Figure 2: Drawn.</figcaption></figure></body></html>`],
+    ]
+    const { edition, images } = await convertEpub(zip(files))
+    const figures = edition.chapters.flatMap(chapter => chapter.figures ?? [])
+    expect(figures.map(figure => [figure.caption, figure.src])).toEqual([['Figure 1: Inline data.', 'asset:f1'], ['Figure 2: Drawn.', 'asset:f2']])
+    expect(images.get('f1')?.type).toBe('image/png')
+    const svg = new TextDecoder().decode(new Uint8Array(images.get('f2')!.data))
+    expect(new DOMParser().parseFromString(svg, 'image/svg+xml').getElementsByTagName('parsererror')).toHaveLength(0)
   })
 })
 

@@ -456,8 +456,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     isAnonymous: !liveToken,
     // Voice sessions require sign-in; a signed-out Talk shows the account sheet.
     labGuest: false,
+    // A reader's own book: the id stays on this device (turns are recorded
+    // under it locally; the Talk usage report drops it), no edition key goes
+    // out, and the session hears only the passage on screen (buildVoiceReaderContext
+    // and buildLabTalkReference window it), exactly as Talk on any book.
     bookId: options.bookId || LAB_CHAT_BOOK_ID,
-    editionKey: askEditionKey, editionLabel: options.editionLabel,
+    editionKey: privateBook ? undefined : askEditionKey, editionLabel: options.editionLabel,
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
     chapterNumber: options.chapterNumber ?? 1,
