@@ -2,7 +2,7 @@
 
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LabV2Sheet } from './LabV2Sheet'
+import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { labPrefsForMainEdition } from './labV2Sheet'
 import { DEFAULT_LAB_PREFS, type LabPrefs } from './labPrefs'
 import { FRANKENSTEIN, THE_HISTORIES } from '../data/bookRegistry'

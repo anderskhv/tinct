@@ -23,7 +23,7 @@ const INDEXNOW_KEY_RE = /^[A-Za-z0-9-]{8,128}$/
 // (object URLs, app/src/lab/labFigures.ts); nothing is fetched for them.
 // Omarchy exposes only its read-only palette at this exact loopback port/path.
 // Keep browser local-network permission and the bridge's Host/Origin checks.
-const SECURITY_HEADERS: Record<string, string> = {
+export const SECURITY_HEADERS: Record<string, string> = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -254,6 +254,24 @@ async function serveLabPreReader(
     newResp.headers.set(key, value)
   }
   return newResp
+}
+
+/**
+ * Your reading (social ship 1) at its public URL, from the static page
+ * `/lab/your-reading/`. worker.ts calls this only while the Worker var
+ * SOCIAL_READING_TIME is on; off, the URL is left to the usual handling.
+ */
+export const YOUR_READING_PATHS = new Set(['/your-reading', '/your-reading/'])
+export async function serveYourReadingPage(request: Request, env: SeoEnv): Promise<Response> {
+  const url = new URL(request.url)
+  return (await serveLabPreReader(request.method, url, env, '/lab/your-reading/')) ?? serveNotFound(request.method, url, env)
+}
+/** The asset folder behind it is not a page while the switch is off. */
+export function isYourReadingAssetPage(pathname: string): boolean {
+  return /^\/lab\/your-reading(?:\/(?:index\.html)?)?$/.test(pathname)
+}
+export function serveNotFoundPage(request: Request, env: SeoEnv): Promise<Response> {
+  return serveNotFound(request.method, new URL(request.url), env)
 }
 
 /** The generated book page's hero, search tags and text, when the book has one. */

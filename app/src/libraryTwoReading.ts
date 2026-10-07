@@ -30,7 +30,8 @@ import { decideLabAiAction, recordLabAiAction } from './lab/labAccountPrompt'
 import { trackFunnel, trackFunnelOnce } from './utils/funnel'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
-import { isMachineMadeOriginal } from './data/editionDefaults'
+import { humanPrimaryEditionKey, isMachineMadeOriginal } from './data/editionDefaults'
+import { newBooksOpenIn } from './social/socialClient'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
@@ -272,7 +273,12 @@ export async function readerDestination(
   const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
   const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
   const preferred = preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null
-  const order = choice?.explicit ? [preferred, saved] : [saved, preferred]
+  // "New books open in" (profiles, social ship 2): only a book this reader has
+  // never opened, and only without an explicit pick. Null while profiles are off.
+  const human = !place && !choice?.explicit && newBooksOpenIn() === 'human'
+    ? humanPrimaryEditionKey(bookId, readable.map(edition => ({ key: edition.key, style: edition.style ?? '', language: edition.language ?? '' })) as never) ?? null
+    : null
+  const order = choice?.explicit ? [preferred, saved] : [saved, human, preferred]
   const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const compare = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null

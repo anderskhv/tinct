@@ -18,6 +18,7 @@ import { LabFootnote, type OpenFootnote } from './LabFootnote'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
 import { LabChapterEnd } from './LabChapterEnd'
+import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
@@ -198,6 +199,7 @@ import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSes
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
+import { socialProfilesOn } from '../social/socialClient'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -4598,6 +4600,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   useEffect(() => {
     if (finalPageReached && !temporaryHold && !finishedChapters.has(book.chapterNumber)) markChapterFinished(book.chapterNumber)
   }, [finalPageReached, temporaryHold, finishedChapters, book.chapterNumber, markChapterFinished])
+  // Social ship 3: the "Finished {book}" reading card at the end of a book (nothing while SOCIAL_FRIENDS is off).
+  const finishedCard = useFinishedCard({ bookId: book.bookId || 'bible', title: book.bookTitle || 'the book', signedIn, privateBook })
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
@@ -4739,7 +4743,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
-      { id: 'account', label: 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'account', label: socialProfilesOn() ? 'Profile' : 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration)),
   })
@@ -5093,6 +5097,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
               busy={false} onDiscuss={() => openChapterNotes('end')}
+              finishedCard={finishedCard}
             /> : undefined}
             desktopSpread={desktopSpread}
             selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}

@@ -12,7 +12,7 @@ import {
   startModernCheckout,
 } from './labModernEdition'
 import { LabContentsV2 } from './LabContentsV2'
-import { LabV2Sheet } from './LabV2Sheet'
+import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { DEFAULT_LAB_PREFS } from './labPrefs'
 
 vi.mock('../data/editionLoader', () => ({ loadEdition: vi.fn(async () => ({ chapters: [] })) }))

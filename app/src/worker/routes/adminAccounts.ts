@@ -17,6 +17,7 @@ import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } 
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
 import { listUserBooks, purgeUserBooks } from './userBooks'
+import { listProfileImages, purgeProfileImages } from './profiles'
 
 export type AdminAccountsEnv = SupabaseEnv & {
   STRIPE_SECRET_KEY?: string
@@ -69,7 +70,7 @@ type Profile = Record<string, unknown> & { id: string; email?: string | null; st
 type Account = { userId: string; email: string | null; authUser: AuthUser | null; profile: Profile | null }
 
 /** Every Supabase table holding rows for one account, with a stable page order. */
-const USER_TABLES: { table: string; column: string; order: string }[] = [
+const USER_TABLES: { table: string; column: string; order: string; optional?: true }[] = [
   { table: 'profiles', column: 'id', order: 'id' },
   { table: 'user_data', column: 'user_id', order: 'key' },
   { table: 'user_data_audit', column: 'user_id', order: 'created_at,id' },
@@ -79,7 +80,31 @@ const USER_TABLES: { table: string; column: string; order: string }[] = [
   { table: 'analytics_events', column: 'user_id', order: 'created_at,id' },
   { table: 'issue_reports', column: 'user_id', order: 'created_at,id' },
   { table: 'ai_usage_events', column: 'user_id', order: 'id' },
+  // Reading time ledger (migrations/20261008_reading_time.sql). Optional: the
+  // Worker may run before the migration, and a missing table holds no rows.
+  { table: 'reading_time', column: 'user_id', order: 'day,book_id', optional: true },
   { table: 'site_admins', column: 'user_id', order: 'user_id' },
+]
+
+/**
+ * Tables that may not exist yet (their migration can run after the Worker
+ * ships): profiles (social ship 2, 20261008_profiles.sql) and the lifecycle
+ * email send log (ship 4, 20261008_email_log.sql). Exported and checked like
+ * USER_TABLES, but a missing table (404) exports as null, not as an error, and
+ * does not fail the deletion check. Every row here is removed by ON DELETE
+ * CASCADE when the auth user goes. Who blocked this reader is someone else's
+ * choice and is not exported.
+ */
+const OPTIONAL_USER_TABLES: { key: string; table: string; column: string; order: string }[] = [
+  { key: 'reader_profiles', table: 'reader_profiles', column: 'id', order: 'id' },
+  { key: 'follows_following', table: 'follows', column: 'follower', order: 'followed' },
+  { key: 'follows_followers', table: 'follows', column: 'followed', order: 'follower' },
+  { key: 'blocks', table: 'blocks', column: 'blocker', order: 'blocked' },
+  { key: 'email_log', table: 'email_log', column: 'user_id', order: 'sent_at,id' },
+  // Social (ship 3, 20261008_social.sql): this reader's cached 7-day total and the reports they filed.
+  // Reports about this reader go with the account (ON DELETE CASCADE); they name the reporter and are not exported.
+  { key: 'leaderboard_7d', table: 'leaderboard_7d', column: 'user_id', order: 'user_id' },
+  { key: 'profile_reports_filed', table: 'profile_reports', column: 'reporter', order: 'created_at,id' },
 ]
 
 /** ON DELETE SET NULL tables: rows must be deleted before the auth user goes. */
@@ -115,10 +140,16 @@ async function readBody(request: Request): Promise<Record<string, unknown> | nul
   }
 }
 
-async function getAll(env: AdminAccountsEnv, table: string, filter: string, order: string, select = '*'): Promise<{ rows: Record<string, unknown>[]; truncated: boolean }> {
+/** PostgREST's answer for a table that does not exist (yet): 404 / PGRST205. */
+function missingTable(res: Response): boolean {
+  return res.status === 404
+}
+
+async function getAll(env: AdminAccountsEnv, table: string, filter: string, order: string, select = '*', optional = false): Promise<{ rows: Record<string, unknown>[]; truncated: boolean }> {
   const rows: Record<string, unknown>[] = []
   for (let page = 0; page < MAX_PAGES; page++) {
     const res = await supabaseGet(env, `${table}?${filter}&select=${select}&order=${order}&limit=${PAGE}&offset=${page * PAGE}`)
+    if (optional && missingTable(res)) return { rows, truncated: false }
     if (!res.ok) throw new Error(`${table} read failed (${res.status})`)
     const batch = await res.json() as Record<string, unknown>[]
     rows.push(...batch)
@@ -271,10 +302,21 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
   }
 
   const supabase: Record<string, unknown> = {}
-  for (const { table, column, order } of USER_TABLES) {
-    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order))
+  for (const { table, column, order, optional } of USER_TABLES) {
+    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order, '*', optional))
     supabase[table] = result?.rows ?? null
     if (result?.truncated) truncated.push(table)
+  }
+  for (const { key, table, column, order } of OPTIONAL_USER_TABLES) {
+    try {
+      const result = await getAll(env, table, `${column}=eq.${account.userId}`, order)
+      supabase[key] = result.rows
+      if (result.truncated) truncated.push(key)
+    } catch (error) {
+      const missing = error instanceof Error && /\(404\)/.test(error.message)
+      supabase[key] = null
+      if (!missing) errors.push(`${key}: ${error instanceof Error ? error.message : 'failed'}`)
+    }
   }
   const devices = deviceIdsFrom((supabase.analytics_events as Record<string, unknown>[] | null) ?? [])
   const anonymousRows: Record<string, unknown>[] = []
@@ -309,6 +351,10 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
         id: book.id, name: book.name, title: book.title, author: book.author, type: book.type, size: book.size, createdAt: book.createdAt,
       })))
       : (errors.push('r2: USER_BOOKS binding missing'), null),
+    // Profile pictures and backgrounds (routes/profiles.ts): listed, never the bytes.
+    profileImages: env.USER_BOOKS
+      ? await attempt('r2 profile-images', () => listProfileImages(env.USER_BOOKS!, account.userId))
+      : null,
     // Recordings made when the reader chose Listen on an own book: counted, never the audio.
     ownBookNarration: env.USER_BOOKS
       ? await attempt('r2 own-book narration', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/narration/`))
@@ -394,6 +440,11 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
     [`${prefix}r2:user-books`, async () => {
       if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
       await purgeUserBooks(env.USER_BOOKS, userId)
+    }],
+    // Profile pictures and backgrounds: every object under profile/{userId}/.
+    [`${prefix}r2:profile-images`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      await purgeProfileImages(env.USER_BOOKS, userId)
     }],
   ]
 }
@@ -490,8 +541,15 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
     for (const [name, run] of purgeAndKvSteps(env, userId, 'sweep:')) await step(name, run)
     await step('verify:cascade', async () => {
       const leftovers: string[] = []
-      for (const { table, column } of USER_TABLES) {
+      for (const { table, column, optional } of USER_TABLES) {
         const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (optional && missingTable(res)) continue
+        if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
+        if ((await res.json() as unknown[]).length) leftovers.push(table)
+      }
+      for (const { table, column } of OPTIONAL_USER_TABLES) {
+        const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (res.status === 404) continue
         if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
         if ((await res.json() as unknown[]).length) leftovers.push(table)
       }

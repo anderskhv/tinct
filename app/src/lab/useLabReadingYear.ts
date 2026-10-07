@@ -1,16 +1,38 @@
 import { useEffect, useRef, useState } from 'react'
 import { readLabDeviceId } from './labPositionStore'
-import { forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear, type ReadingYearTotals } from './labReadingYear'
+import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear, type ReadingYearTotals } from './labReadingYear'
+import { addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
+import { localDay } from '../readingTime/model'
+import { supabase } from '../services/supabase'
 
 /** Reading time counts only while the reader was active this recently (or audio plays). */
 const ACTIVE_WINDOW_MS = 3 * 60_000
 const TICK_MS = 30_000
 const SYNC_MS = 2 * 60_000
+/** Heartbeats: about once a minute (the Worker accepts one per ~50 s). */
+const BEAT_EVERY_MS = 58_000
+/** Pending time from other books, days, or signed-out reading goes up this often. */
+const FLUSH_EVERY_MS = 10 * 60_000
+
+async function sessionToken(userId: string): Promise<string | null> {
+  if (!supabase) return null
+  try {
+    const { data } = await supabase.auth.getSession()
+    return data.session?.user?.id === userId ? data.session.access_token : null
+  } catch {
+    return null
+  }
+}
 
 /**
  * Records this device's reading into the year tally: pages for each forward
  * page turn, and time only while the reader is visibly in use (a turn or
  * input within the last three minutes, or narration playing).
+ *
+ * While the Worker's reading-time switch is on (labReadingTime.ts), the same
+ * counted time goes to the ledger instead: a per-day, per-book pending store,
+ * a heartbeat about once a minute, and a flush for what a heartbeat cannot
+ * carry. Off (the default, or until the switch is known) nothing changes.
  */
 export function useLabReadingYear(input: {
   userId: string | null
@@ -27,6 +49,82 @@ export function useLabReadingYear(input: {
   const dirtyRef = useRef(false)
   const userRef = useRef(userId)
   userRef.current = userId
+  const bookRef = useRef(bookId)
+  bookRef.current = bookId
+  const ledgerRef = useRef<LedgerStatus>('unknown')
+  const lastBeatRef = useRef(Date.now())
+  const lastFlushRef = useRef(0)
+  const sendingRef = useRef(false)
+
+  // Flush what the heartbeat cannot carry: other books and days, offline
+  // time, and after sign-in the signed-out tally. One request at a time.
+  const flush = async (force = false) => {
+    const user = userRef.current
+    if (!user || ledgerRef.current !== 'on' || sendingRef.current) return
+    if (!force && Date.now() - lastFlushRef.current < FLUSH_EVERY_MS) return
+    lastFlushRef.current = Date.now()
+    sendingRef.current = true
+    try {
+      const token = await sessionToken(user)
+      if (!token) return
+      const year = new Date().getFullYear()
+      const guestSeconds = readingYearTotals(readLocalReadingYear(year, null)).seconds
+      const batch = nextFlush({ userId: user, today: localDay(), currentBookId: bookRef.current, guestEarlier: guestSeconds > 0 ? { year, seconds: guestSeconds } : null })
+      if (!batch) return
+      const outcome = await sendFlush(token, user, batch, flushedYear => writeLocalReadingYear(emptyReadingYear(flushedYear), null))
+      if (outcome === 'unavailable') ledgerRef.current = 'unavailable'
+      else if (outcome === 'off') ledgerRef.current = 'off'
+    } finally {
+      sendingRef.current = false
+    }
+  }
+
+  const beat = async () => {
+    const user = userRef.current
+    if (!user || ledgerRef.current !== 'on' || sendingRef.current) return
+    if (Date.now() - lastBeatRef.current < BEAT_EVERY_MS) return
+    const payload = beatPayload(readPending(user), localDay(), bookRef.current, listeningRef.current)
+    if (!payload) return
+    lastBeatRef.current = Date.now()
+    sendingRef.current = true
+    let outcome: Awaited<ReturnType<typeof sendBeat>> = 'failed'
+    try {
+      const token = await sessionToken(user)
+      if (!token) return
+      outcome = await sendBeat(token, payload)
+      // Sent is settled: the Worker's limits decide what of it counts.
+      if (outcome === 'credited') subtractPending(user, [payload])
+      else if (outcome === 'unavailable') ledgerRef.current = 'unavailable'
+      else if (outcome === 'off') ledgerRef.current = 'off'
+    } finally {
+      sendingRef.current = false
+    }
+    if (outcome === 'credited') void flush()
+  }
+
+  useEffect(() => {
+    let live = true
+    void readingTimeSwitch().then(on => {
+      if (!live || ledgerRef.current !== 'unknown') return
+      ledgerRef.current = on ? 'on' : 'off'
+    })
+    return () => { live = false }
+  }, [])
+
+  // Signed in with the ledger on: bring the yearly tally up to date (the
+  // Worker merges it once, at the account's first ledger contact), then flush.
+  useEffect(() => {
+    if (!userId) return
+    let live = true
+    void readingTimeSwitch().then(async on => {
+      if (!live || !on) return
+      const year = new Date().getFullYear()
+      await syncReadingYear(userId, readLocalReadingYear(year, userId)).catch(() => {})
+      if (live) void flush(true)
+    })
+    return () => { live = false }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId])
 
   const add = (entry: { seconds?: number; pages?: number; bookId?: string }) => {
     const year = new Date().getFullYear()
@@ -54,7 +152,14 @@ export function useLabReadingYear(input: {
     const timer = window.setInterval(() => {
       const now = Date.now()
       const active = now - activeAtRef.current < ACTIVE_WINDOW_MS || listeningRef.current
-      if (document.visibilityState === 'visible' && !paused && active) add({ seconds: Math.min(60, Math.round((now - last) / 1000)) })
+      if (document.visibilityState === 'visible' && !paused && active) {
+        const seconds = Math.min(60, Math.round((now - last) / 1000))
+        if (ledgerRef.current === 'on' || ledgerRef.current === 'unavailable') {
+          // Narration playing counts as listening, otherwise reading.
+          addPending(userRef.current, localDay(), bookRef.current, listeningRef.current ? { listen: seconds } : { read: seconds })
+          void beat()
+        } else add({ seconds })
+      }
       last = now
     }, TICK_MS)
     return () => { events.forEach(name => window.removeEventListener(name, mark)); window.clearInterval(timer) }

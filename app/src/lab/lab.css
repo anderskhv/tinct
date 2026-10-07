@@ -6827,6 +6827,9 @@
   border-radius: 999px; padding: 2px 10px;
 }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap:hover > span { background: var(--lab-surface); }
+/* Social ship 3: the end of a book offers the "Finished {book}" reading card (only while SOCIAL_FRIENDS is on). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-finished-card { color: var(--lab-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
+.lab[data-chrome-version="v2"] .lab-chapter-finished-note { margin: 0; font: italic 15px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-muted); }
 .lab[data-chrome-version="v2"] .lab-ask-notice .lab-text-btn { margin-left: 8px; text-decoration: underline; }
 
 
@@ -7371,3 +7374,95 @@
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle::first-letter { text-transform:uppercase; }
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .lab-person-actions { padding:10px 0 4px; }
 
+
+/* Reading time on the account sheet (LabReadingTimeBlock.tsx, social ship 1).
+   Shown only while the Worker's SOCIAL_READING_TIME switch is on. Sentence-case
+   serif label, the hours in large type, a quiet 7-day bar with today darkest. */
+.lab[data-chrome-version="v2"] .lab-v2-time {
+  margin: 12px 0 2px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-label {
+  margin: 0 0 4px 4px;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--lab-ink);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-figure {
+  flex: 0 0 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  color: var(--lab-ink);
+  white-space: nowrap;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-figure small {
+  font-size: 0.5em;
+  margin-left: 1px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bars {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  height: 46px;
+  max-width: 220px;
+  margin-left: auto;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  height: 100%;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar-track {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar-fill {
+  display: block;
+  border-radius: 2px;
+  background: var(--lab-ink);
+  opacity: 0.22;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar.is-today .lab-v2-time-bar-fill {
+  opacity: 0.85;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar-day {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  height: 11px;
+  text-align: center;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 10.5px;
+  line-height: 11px;
+  color: var(--lab-v2-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-facts {
+  margin: 8px 4px 6px;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--lab-v2-quiet);
+}

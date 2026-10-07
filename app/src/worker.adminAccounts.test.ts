@@ -17,7 +17,7 @@ function json(body: unknown, status = 200): Response {
  * purging the reader's 3 files takes more than one page). Every mutating call is appended to `log` so tests can
  * assert ordering.
  */
-function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } = {}) {
+function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; readingTimeMissing?: boolean } = {}) {
   const log: string[] = []
   const state = {
     authUser: { id: userId, email: 'Reader@Example.com', created_at: '2026-01-01T00:00:00Z', last_sign_in_at: '2026-09-01T00:00:00Z', user_metadata: { name: 'R' }, app_metadata: { provider: 'email' }, identities: [{ provider: 'email', created_at: '2026-01-01T00:00:00Z' }] } as Record<string, unknown> | null,
@@ -36,6 +36,7 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } 
       ],
       issue_reports: [{ id: 'i1', user_id: userId }],
       ai_usage_events: [{ id: 1, user_id: userId }],
+      reading_time: [{ user_id: userId, day: '2026-10-07', book_id: 'odyssey', read_seconds: 600, listen_seconds: 0 }],
       site_admins: [] as Record<string, unknown>[],
     } as Record<string, Record<string, unknown>[]>,
     customerDeleted: false,
@@ -43,7 +44,7 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } 
   }
 
   const cascade = () => {
-    for (const table of ['profiles', 'user_data', 'user_data_audit', 'token_usage', 'payments', 'reading_memory_sessions', 'site_admins']) {
+    for (const table of ['profiles', 'user_data', 'user_data_audit', 'token_usage', 'payments', 'reading_memory_sessions', 'reading_time', 'site_admins']) {
       state.tables[table] = state.tables[table].filter(row => row.user_id !== userId && row.id !== userId)
     }
     for (const table of ['analytics_events', 'issue_reports', 'ai_usage_events']) {
@@ -77,6 +78,8 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean } 
     }
     if (url.hostname === 'example.supabase.co' && url.pathname.startsWith('/rest/v1/')) {
       const table = url.pathname.slice('/rest/v1/'.length)
+      // Before its migration runs, PostgREST answers 404 for the reading-time table.
+      if (table === 'reading_time' && options.readingTimeMissing) return json({ code: 'PGRST205', message: 'Could not find the table' }, 404)
       const rows = state.tables[table] ?? []
       if (method === 'DELETE') {
         log.push(`rest:delete:${table}${url.searchParams.get('user_id') === 'is.null' ? ':device' : ''}`)
@@ -309,9 +312,11 @@ describe('admin account routes', () => {
     expect(body.userId).toBe(userId)
     expect(body.auth).toMatchObject({ id: userId, created_at: '2026-01-01T00:00:00Z', last_sign_in_at: '2026-09-01T00:00:00Z', user_metadata: { name: 'R' } })
     expect(Object.keys(body.supabase).sort()).toEqual([
-      'ai_usage_events', 'analytics_events', 'analytics_events_device_anonymous', 'issue_reports', 'payments', 'profiles',
-      'reading_memory_sessions', 'site_admins', 'token_usage', 'user_data', 'user_data_audit',
+      'ai_usage_events', 'analytics_events', 'analytics_events_device_anonymous', 'blocks', 'email_log', 'follows_followers',
+      'follows_following', 'issue_reports', 'leaderboard_7d', 'payments', 'profile_reports_filed', 'profiles', 'reader_profiles',
+      'reading_memory_sessions', 'reading_time', 'site_admins', 'token_usage', 'user_data', 'user_data_audit',
     ])
+    expect(body.supabase.reading_time).toEqual([{ user_id: userId, day: '2026-10-07', book_id: 'odyssey', read_seconds: 600, listen_seconds: 0 }])
     expect(body.supabase.user_data).toEqual([{ user_id: userId, key: 'tinct:highlights', value: { a: 1 } }])
     expect(body.supabase.analytics_events.map((row: { id: string }) => row.id)).toEqual(['e1', 'e4'])
     expect(body.supabase.analytics_events_device_anonymous.map((row: { id: string }) => row.id)).toEqual(['e2'])
@@ -341,6 +346,42 @@ describe('admin account routes', () => {
     const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
     expect(deleted.ok).toBe(true)
     expect(w.state.tables.user_data).toEqual([someoneElse])
+  })
+
+  it('exports and deletes as before when the reading-time table does not exist yet', async () => {
+    const w = world({ readingTimeMissing: true })
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.errors).toEqual([])
+    expect(exported.supabase.reading_time).toEqual([])
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean; steps: { step: string; status: string }[] }
+    expect(deleted.ok).toBe(true)
+    expect(deleted.steps[deleted.steps.length - 1]).toEqual({ step: 'verify:cascade', status: 'ok' })
+  })
+
+  it('deletes the reading-time ledger with the account', async () => {
+    const w = world()
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect(w.state.tables.reading_time).toEqual([])
+  })
+
+  it('exports the email send log, and treats a not-yet-created email_log table as empty', async () => {
+    const w = world()
+    w.state.tables.email_log = [{ id: 1, user_id: userId, template: 'welcome', dedupe_key: 'welcome:-' }, { id: 2, user_id: otherUser, template: 'welcome', dedupe_key: 'welcome:-' }]
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.supabase.email_log).toEqual([{ id: 1, user_id: userId, template: 'welcome', dedupe_key: 'welcome:-' }])
+
+    const missing = world()
+    const inner = globalThis.fetch
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) =>
+      String(input).includes('/rest/v1/email_log') ? json({ code: 'PGRST205' }, 404) : inner(input, init)))
+    const body = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), missing.env, admin)).json() as Record<string, any>
+    expect(body.complete).toBe(true)
+    expect(body.errors).toEqual([])
+    expect(body.supabase.email_log).toBeNull()
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), missing.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
   })
 
   it('exports and deletes own-book narration: the recordings under u/{userId}/narration/ and the spend object', async () => {

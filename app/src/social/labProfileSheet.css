@@ -1,0 +1,55 @@
+/* The reader's Profile sheet header (social ship 2). Reader look: Paper, Night, e-ink. */
+.lab[data-chrome-version="v2"] .lab-v2-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 2px;
+  margin: 4px 0 2px;
+}
+.lab[data-chrome-version="v2"] .lab-v2-profile-avatar,
+.lab[data-chrome-version="v2"] .lab-v2-profile-avatar.tinct-avatar {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #172015;
+  background-repeat: no-repeat;
+  color: #e8d59e;
+  font: 400 17px/1 'EB Garamond', Georgia, serif;
+  box-shadow: 0 0 0 1px var(--lab-v2-hair, rgba(32, 26, 19, 0.12));
+}
+.lab[data-chrome-version="v2"] .lab-v2-profile-avatar[data-kind="initial"] {
+  background-image: linear-gradient(150deg, #2a3a2a, #18241a);
+}
+.lab[data-chrome-version="v2"] .lab-v2-profile-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  line-height: 1.2;
+}
+.lab[data-chrome-version="v2"] .lab-v2-profile-text strong {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-v2-profile-text em {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 13px;
+  color: var(--lab-v2-quiet);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-v2-profile-tier {
+  flex: none;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--lab-v2-quiet);
+}

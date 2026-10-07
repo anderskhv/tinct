@@ -4,6 +4,8 @@ export type EmailEnv = {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
+  /** "1": the lifecycle engine replaces the legacy trial-day emails (src/worker/lifecycle/runtime.ts). */
+  LIFECYCLE_EMAILS?: string
 }
 // ===== Email: Send via Brevo =====
 
@@ -12,7 +14,7 @@ export async function sendEmail(
   to: string,
   subject: string,
   html: string,
-  options: { senderName?: string; replyTo?: string } = {}
+  options: { senderName?: string; replyTo?: string; text?: string; headers?: Record<string, string> } = {}
 ): Promise<boolean> {
   if (!env.BREVO_API_KEY) return false
   try {
@@ -23,6 +25,10 @@ export async function sendEmail(
       htmlContent: html,
     }
     if (options.replyTo) body.replyTo = { email: options.replyTo }
+    // Lifecycle emails (src/worker/lifecycle): the plain-text part and the
+    // List-Unsubscribe headers. Absent for every other email.
+    if (options.text) body.textContent = options.text
+    if (options.headers && Object.keys(options.headers).length) body.headers = options.headers
     const res = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -64,7 +70,11 @@ function wrapEmail(inner: string): string {
 // Anders' own account and numbered Tinct test aliases. Keep this gate local to
 // the scheduled campaign so transactional auth, issue-review, and internal
 // anomaly emails continue to work normally.
-function isLifecycleTestRecipient(email: string): boolean {
+// The lifecycle engine (src/worker/lifecycle) uses the same gate and, while
+// LIFECYCLE_TEST_GATE is true, only ever reads the test aliases' profiles.
+export const LIFECYCLE_TEST_GATE = true
+export function isLifecycleTestRecipient(email: string): boolean {
+  if (!LIFECYCLE_TEST_GATE) return true
   const normalized = email.trim().toLowerCase()
   return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
 }
@@ -182,6 +192,15 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
     return
   }
 
+  // With LIFECYCLE_EMAILS on, the lifecycle engine (src/worker/lifecycle,
+  // */10 cron) replaces these four trial-day emails; the anomaly check stays.
+  if (env.LIFECYCLE_EMAILS !== '1') await sendLegacyTrialEmails(env)
+
+  // Anomaly detection: chapters with 3+ reports in the last 24h
+  await sendAnomalyAlert(env)
+}
+
+async function sendLegacyTrialEmails(env: EmailEnv): Promise<void> {
   // Four emails across the trial. Sent from "Tinct" brand voice. Mid-trial
   // email is the feedback ask — we commit to reading every reply.
   const milestones: Array<{ daysAgo: number; email: () => { subject: string; html: string } }> = [
@@ -214,8 +233,9 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
     console.log(`[cron] daysAgo=${daysAgo}: sent ${sent}/${users.length}, paused ${skipped}`)
   }
   console.log(`[cron] total emails sent: ${totalSent}`)
+}
 
-  // Anomaly detection: chapters with 3+ reports in the last 24h
+async function sendAnomalyAlert(env: EmailEnv): Promise<void> {
   try {
     const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
     const anomalyRes = await fetch(
@@ -223,7 +243,7 @@ export async function handleScheduled(env: EmailEnv): Promise<void> {
       {
         method: 'POST',
         headers: {
-          'apikey': env.SUPABASE_SERVICE_ROLE_KEY,
+          'apikey': env.SUPABASE_SERVICE_ROLE_KEY!,
           'Authorization': `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
           'Content-Type': 'application/json',
         },

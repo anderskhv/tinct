@@ -55,11 +55,26 @@ curl -sS -X POST https://tinct.app/api/admin/delete-user \
 The export response has `complete: true` when every store was read in full;
 otherwise `errors` and `truncated` say what is missing. Re-run in that case.
 
+`supabase.reading_time` is the reading-time ledger (seconds read and listened
+per day and book; `app/supabase/migrations/20261008_reading_time.sql`). Until
+that migration has run the table does not exist; export and deletion then
+treat it as empty instead of failing.
+
 `r2.userBooks` lists the reader's own uploaded PDF/EPUB files (id, file name,
 title, author, type, size, upload date) from the private `tinct-user-books`
 bucket. It does not contain the files themselves. If the reader asks for the
 files, they can download each one from the Add-a-book page while signed in
 (`/lab/addbook/`, "Your books").
+
+`r2.profileImages` lists the reader's stored profile pictures and backgrounds
+(uploads and the copied Google photo, keys `profile/<id>/…` in the same private
+bucket), without the bytes. `supabase.reader_profiles`, `follows_following`,
+`follows_followers`, `blocks` (whom the reader blocked; never who blocked them)
+and `email_log` (the lifecycle email send log) come from the profiles and email-log migrations of
+2026-10-08, and `leaderboard_7d` (the reader's cached 7-day total) and
+`profile_reports_filed` (reports this reader filed) from the social migration;
+before those have run they export as `null` without an error. Reports *about*
+the reader name their reporter and are not exported; they go with the account.
 
 `r2.ownBookNarration` counts the recordings made when the reader chose Listen
 on one of their own books (objects and bytes under `u/<id>/narration/`), never
@@ -87,7 +102,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    narration under `u/<id>/narration/` and their Catch me up recaps under
    `u/<id>/recaps/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
-   none remain.
+   none remain; then every object under `profile/<id>/` in the same bucket
+   (profile pictures and backgrounds, `app/src/worker/routes/profiles.ts`).
 3. **Rows that would otherwise survive as anonymous orphans** (`ON DELETE SET
    NULL`): anonymous `analytics_events` from the reader's devices (pre-sign-up
    history: rows with no user whose `device_id` appears on the reader's own
@@ -97,8 +113,13 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    live subscriptions cancelled, customer deleted.
 5. **Supabase auth user.** This cascades `profiles`, `user_data` (every
    per-user row, including synced highlights and notes, `lab-highlights:{bookId}`),
-   `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions` and
-   `site_admins`. It runs **only if every earlier step succeeded**, so the
+   `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions`,
+   `site_admins`, and (once their migrations have run) `reading_time` (the
+   reading-time ledger), `reader_profiles`, `follows` and `blocks` in both
+   directions, the lifecycle email send log `email_log`, `leaderboard_7d` and
+   reports about the reader in `profile_reports` (reports the reader filed keep
+   no reporter: ON DELETE SET NULL) (all exported too;
+   a not-yet-created table counts as empty). It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
 6. **Sweep and verify:** once sign-in is impossible, the Durable Object, KV
    and R2 steps run again, catching anything a still-open tab or an in-flight alarm

@@ -31,7 +31,7 @@ import {
   handleWebhook,
 } from './worker/routes/billing'
 import { handleAdminIssues } from './worker/routes/adminIssues'
-import { handleEvents } from './worker/routes/events'
+import { handleEvents, recordServerEvent } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
 import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -47,6 +47,9 @@ import { COVER_RUN_LIMIT, handlePublicBooks, handlePublicEditionData, runPublicC
 import { MODERN_EDITION_CRON, grantModernEdition, runModernEditionJobs } from './worker/routes/publicBookModern'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
+import { handleEmailLink, isEmailLinkRequest } from './worker/routes/emailLinks'
+import { handleAdminAnnounceEmail } from './worker/routes/adminAnnounce'
+import { runLifecycleCron } from './worker/lifecycle/runtime'
 import { RETENTION_CRON, runRetentionCleanup } from './worker/routes/retention'
 import {
   changedSegment,
@@ -59,11 +62,33 @@ import {
 } from './worker/routes/issueReports'
 import { handleApproveFix } from './worker/routes/issueReview'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
+import { handleProfiles, isProfileApiPath, socialProfilesOn, type ProfileAuthUser } from './worker/routes/profiles'
+import { isYouAssetPage, isYouPath, serveYouPage, withSocialMarkers } from './worker/routes/socialPages'
 import {
+  ADMIN_SOCIAL_PATHS,
+  FRIENDS_META,
+  FRIENDS_PATHS,
+  handleSocial,
+  isSocialApiPath,
+  isSocialAssetPage,
+  profileHandleFromPath,
+  runLeaderboardCron,
+  serveProfilePage,
+  serveSocialAssetPage,
+  type SocialDeps,
+} from './worker/routes/social'
+import { socialFriendsOn } from './social/socialRules'
+import {
+  YOUR_READING_PATHS,
   handleIndexNowVerification,
   handleSeoAndStaticRequest,
   isBlockedBot,
+  isYourReadingAssetPage,
+  serveNotFoundPage,
+  serveYourReadingPage,
 } from './worker/routes/seo'
+import { handleReadingTime, readingTimeEnabled } from './worker/routes/readingTime'
+import { BEAT_MIN_GAP_MS } from './readingTime/model'
 
 
 interface Env {
@@ -92,6 +117,14 @@ interface Env {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
+  /** "1": lifecycle emails (src/worker/lifecycle/runtime.ts). Off by default. */
+  LIFECYCLE_EMAILS?: string
+  /** "1": the trial-ending / trial-ended notices. Off until checkout is confirmed. */
+  LIFECYCLE_TRIAL_NOTICES?: string
+  /** Secret: signs one-click unsubscribe and confirm links in lifecycle emails. */
+  EMAIL_LINK_SECRET?: string
+  /** Optional Reply-To for lifecycle emails (Anders's inbox). */
+  LIFECYCLE_REPLY_TO?: string
   /** Fish Audio narration pilot (docs/fish-audio-pilot-2026-09-18.md). Secret; never sent to clients. */
   FISH_AUDIO_API_KEY?: string
   NARRATION_PILOT?: string
@@ -124,6 +157,12 @@ interface Env {
   STRIPE_PRICE_MODERN_T2?: string
   STRIPE_PRICE_MODERN_T3?: string
   STRIPE_PRICE_MODERN_T4?: string
+  /** "1": reading time ledger, the new account-sheet block and Your reading (routes/readingTime.ts). Off by default. */
+  SOCIAL_READING_TIME?: string
+  /** "1": profiles (social ship 2). Off by default: no profile route, page or marker exists. */
+  SOCIAL_PROFILES?: string
+  /** "1" (with SOCIAL_PROFILES "1"): social ship 3, follows, leaderboard, @profiles (routes/social.ts). Off by default. */
+  SOCIAL_FRIENDS?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -205,6 +244,10 @@ export default {
     const allowanceGate = createAllowanceGate(env)
     const allowsAi = (feature: 'recap' | 'chapter_notes' | 'catch_up') => (req: Request) => requestAllowsAiFeature(allowanceGate, ledgerUser(env), req, feature)
 
+    // Signed unsubscribe / confirm links from lifecycle emails. Without
+    // EMAIL_LINK_SECRET (no such link was ever sent) this never matches.
+    if (isEmailLinkRequest(url, env)) return handleEmailLink(request, env)
+
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
     }
@@ -230,6 +273,62 @@ export default {
     if (url.pathname.startsWith('/data/editions/pd-')) {
       const edition = await handlePublicEditionData(request, env)
       if (edition) return edition
+    }
+
+    if (url.pathname === '/api/reading-time' || url.pathname.startsWith('/api/reading-time/')) {
+      const windows = env.USAGE_COORDINATOR
+      // Atomic and fail-closed, like the rate limiter: no coordinator, no credit.
+      const once = async (key: string, windowMs: number) => { try { return windows ? await windows.getByName(`rl:${key}`).hit(1, windowMs) : false } catch { return false } }
+      return handleReadingTime(request, env, {
+        verifyUser: req => verifyUser(env, req),
+        beatGate: userId => once(`reading-beat:${userId}`, BEAT_MIN_GAP_MS),
+        flushOnce: (userId, flushId) => once(`reading-flush:${userId}:${flushId}`, 30 * 86_400_000),
+        checkRateLimit,
+      })
+    }
+    // Your reading: a page only while reading time is switched on.
+    if ((request.method === 'GET' || request.method === 'HEAD') && readingTimeEnabled(env) && YOUR_READING_PATHS.has(url.pathname)) {
+      return serveYourReadingPage(request, env)
+    }
+    if ((request.method === 'GET' || request.method === 'HEAD') && !readingTimeEnabled(env) && isYourReadingAssetPage(url.pathname)) {
+      return serveNotFoundPage(request, env)
+    }
+    // Profiles (social ship 2): nothing here runs while SOCIAL_PROFILES is off.
+    const social = socialProfilesOn(env)
+    // Social (ship 3): nothing here runs unless SOCIAL_FRIENDS and SOCIAL_PROFILES are both on.
+    const friends = socialFriendsOn(env)
+    const pageRequest = request.method === 'GET' || request.method === 'HEAD'
+    if (social && isProfileApiPath(url.pathname)) {
+      return handleProfiles(request, env, {
+        verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
+        // The brief's profile events land in the funnel while ship 3 is on.
+        track: friends ? (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }) : undefined,
+      })
+    }
+    if (social && pageRequest && isYouPath(url.pathname)) {
+      const you = await serveYouPage(request, env, friends ? FRIENDS_META : '')
+      if (you) return you
+    }
+    if (!social && pageRequest && isYouAssetPage(url.pathname)) return serveNotFoundPage(request, env)
+    if (friends) {
+      const socialDeps: SocialDeps = {
+        verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
+        verifySiteAdmin: req => verifySiteAdmin(env, req),
+        checkRateLimit,
+        track: (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }),
+      }
+      if (isSocialApiPath(url.pathname)) return handleSocial(request, env, socialDeps)
+      if (pageRequest) {
+        const handle = profileHandleFromPath(url.pathname)
+        if (handle) return serveProfilePage(request, env, socialDeps, handle)
+        const asset = FRIENDS_PATHS.has(url.pathname) ? '/lab/friends/' : ADMIN_SOCIAL_PATHS.has(url.pathname) ? '/lab/admin-social/' : null
+        if (asset) {
+          const page = await serveSocialAssetPage(request, env, asset)
+          if (page) return page
+        }
+      }
+    } else if (pageRequest && isSocialAssetPage(url.pathname)) {
+      return serveNotFoundPage(request, env)
     }
 
     // Read-aloud of a reader's own book: separate routes, storage and budget (ownBookNarration.ts).
@@ -284,13 +383,16 @@ export default {
       case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env, verifySiteAdmin)
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
+      case '/api/admin/announce-email': if (env.LIFECYCLE_EMAILS === '1') return handleAdminAnnounceEmail(request, env, verifySiteAdmin)
+        break
       case '/api/fixes-count': return handleFixesCount(request, env, verifyUser)
       case '/api/edition-patches': return handleEditionPatches(request, env, checkRateLimit)
       case '/api/audio-manifest': return handleAudioManifest(request, env)
       case '/api/audio-file': return handleAudioFile(request, env)
     }
 
-    return handleSeoAndStaticRequest(request, env, ctx)
+    const page = await handleSeoAndStaticRequest(request, env, ctx)
+    return social ? withSocialMarkers(page, request, friends ? FRIENDS_META : '') : page
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
@@ -306,6 +408,11 @@ export default {
       // Painted covers too, so a new book is not left with a paper cover until 03:17
       // (no-op unless PUBLIC_BOOK_PAINTED_COVERS=1). A short budget: about 15 s per painting.
       ctx.waitUntil(runPublicCoverJobs(env, { limit: COVER_RUN_LIMIT, backfill: true, budgetMs: 60_000 }).catch(() => null))
+      // Lifecycle emails: welcome every run, reading/trial emails hourly
+      // (no-op unless LIFECYCLE_EMAILS=1; only the test aliases while gated).
+      if (env.LIFECYCLE_EMAILS === '1') ctx.waitUntil(runLifecycleCron(env, event.scheduledTime).catch(error => console.error('[lifecycle]', error)))
+      // The 7-day leaderboard, rebuilt hourly (no-op unless SOCIAL_FRIENDS and SOCIAL_PROFILES are on).
+      if (socialFriendsOn(env)) ctx.waitUntil(runLeaderboardCron(env, event.scheduledTime).catch(() => false))
     }
     else ctx.waitUntil(handleScheduled(env))
   },

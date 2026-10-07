@@ -23,11 +23,25 @@ import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseInsertMinimal, type SupabaseEnv } from '../lib/supabase'
 
-export type EventsEnv = SupabaseEnv & { RATE_LIMIT?: KVNamespace }
+export type EventsEnv = SupabaseEnv & { RATE_LIMIT?: KVNamespace; SOCIAL_FRIENDS?: string; SOCIAL_PROFILES?: string }
 type VerifyUser = (env: EventsEnv, request: Request) => Promise<{ id: string } | null>
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
 
-export const FUNNEL_EVENT_NAMES = new Set([
+/**
+ * The social brief's events (docs/social/CODER-BRIEF.md "Analytics events").
+ * Accepted only while SOCIAL_FRIENDS (and SOCIAL_PROFILES) are on; off, the
+ * intake is exactly as before. Profile and follow events are recorded by the
+ * Worker; leaderboard_opened, profile_viewed and reading_card_shared by the pages.
+ */
+export const SOCIAL_EVENT_NAMES = [
+  'profile_created', 'profile_skipped', 'visibility_changed',
+  'follow', 'unfollow',
+  'leaderboard_opened', 'profile_viewed',
+  'reading_card_shared',
+] as const
+export type SocialEventName = typeof SOCIAL_EVENT_NAMES[number]
+
+export const FUNNEL_EVENT_NAMES = new Set<string>([
   'pageview', 'page_duration',
   'landing_view', 'book_opened', 'first_page_turn', 'chapter_completed',
   'ai_first_use', 'anon_limit_reached', 'signup_started', 'signup_completed',
@@ -35,6 +49,7 @@ export const FUNNEL_EVENT_NAMES = new Set([
   'book_intro_viewed', 'audio_failed', 'talk_failed',
   'share_sheet_opened', 'share_created', 'share_completed', 'share_link_opened', 'share_link_signup',
 ])
+const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)
 
 export const EVENTS_MAX_BODY_BYTES = 16_384
 export const EVENTS_MAX_BATCH = 20
@@ -104,7 +119,7 @@ export function isCheckRequest(request: Request): boolean {
 }
 
 /** Pure: validate a batch and map it onto analytics_events rows. Returns null for a malformed body. */
-export function buildAnalyticsRows(body: unknown, userAgent: string, userId: string | null, options: { internal?: boolean } = {}): AnalyticsInsertRow[] | null {
+export function buildAnalyticsRows(body: unknown, userAgent: string, userId: string | null, options: { internal?: boolean; social?: boolean } = {}): AnalyticsInsertRow[] | null {
   if (!body || typeof body !== 'object') return null
   const batch = body as IncomingBatch
   if (typeof batch.deviceId !== 'string' || !ID.test(batch.deviceId)) return null
@@ -116,7 +131,7 @@ export function buildAnalyticsRows(body: unknown, userAgent: string, userId: str
   const attribution = cleanAttribution(batch.attribution)
   const rows: AnalyticsInsertRow[] = []
   for (const item of (batch.events as IncomingEvent[]).slice(0, EVENTS_MAX_BATCH)) {
-    if (!item || typeof item.name !== 'string' || !FUNNEL_EVENT_NAMES.has(item.name)) continue
+    if (!item || typeof item.name !== 'string' || !(FUNNEL_EVENT_NAMES.has(item.name) || (options.social === true && SOCIAL_EVENTS.has(item.name)))) continue
     const props = cleanProps(item.props)
     // `internal` is only ever true: a stray false or string never marks or unmarks a row.
     delete props.internal
@@ -166,12 +181,12 @@ export function insertAnalyticsRows(env: EventsEnv, ctx: { waitUntil(p: Promise<
 export function recordServerEvent(
   env: EventsEnv,
   ctx: { waitUntil(p: Promise<unknown>): void } | undefined,
-  input: { name: 'checkout_started' | 'checkout_completed'; userId: string | null; props?: Record<string, Primitive> },
+  input: { name: 'checkout_started' | 'checkout_completed' | SocialEventName; userId: string | null; props?: Record<string, Primitive> },
 ): void {
   const rows = buildAnalyticsRows({
     deviceId: `server-${input.userId ?? 'anonymous'}`.slice(0, 64), sessionId: `server-${input.name}`, surface: 'server', path: '/api',
     events: [{ name: input.name, props: input.props ?? {} }],
-  }, 'tinct-worker', input.userId)
+  }, 'tinct-worker', input.userId, { social: SOCIAL_EVENTS.has(input.name) })
   if (rows) insertAnalyticsRows(env, ctx, rows)
 }
 
@@ -199,7 +214,7 @@ export async function handleEvents(
   const internal = isCheckRequest(request)
 
   // Validate first with no user, so a malformed or rate-limited beacon costs nothing.
-  if (!buildAnalyticsRows(parsed, ua, null, { internal })) return jsonResponse({ error: 'Invalid events' }, 400, request)
+  if (!buildAnalyticsRows(parsed, ua, null, { internal, social: env.SOCIAL_FRIENDS === '1' && env.SOCIAL_PROFILES === '1' })) return jsonResponse({ error: 'Invalid events' }, 400, request)
   if (!await checkRateLimit(`events:${clientIp(request)}`, env.RATE_LIMIT, EVENTS_RATE_PER_MINUTE)) {
     return new Response(null, { status: 204, headers: corsHeaders(request) })
   }
@@ -213,7 +228,7 @@ export async function handleEvents(
         userId = user && isValidUUID(user.id) ? user.id : null
       } catch { userId = null }
     }
-    const rows = buildAnalyticsRows(parsed, ua, userId, { internal })
+    const rows = buildAnalyticsRows(parsed, ua, userId, { internal, social: env.SOCIAL_FRIENDS === '1' && env.SOCIAL_PROFILES === '1' })
     if (rows) await writeAnalyticsRows(env, rows)
   })())
   return new Response(null, { status: 204, headers: corsHeaders(request) })

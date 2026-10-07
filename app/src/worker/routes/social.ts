@@ -1,0 +1,716 @@
+/**
+ * Social (ship 3): follows, the Friends and Everyone leaderboards, Find, the
+ * public profile page at tinct.app/@handle, reports, the reading card and the
+ * admin view. Everything here answers only while the Worker vars
+ * SOCIAL_FRIENDS and SOCIAL_PROFILES are both "1"; off, worker.ts never calls
+ * in and every URL behaves exactly as before.
+ *
+ *   GET  /api/social/board?tab=friends|everyone   the leaderboard (last 7 days)
+ *   GET  /api/social/rank                          "#N among friends" for the sheet and You
+ *   GET  /api/social/find[?q=]                     search Everyone readers; Following you; Also reading your books
+ *   GET  /api/social/profile/{handle}              one profile as this visitor may see it
+ *   POST /api/social/follow|unfollow|remove-follower|block  { handle }
+ *   POST /api/social/unblock                       { id }
+ *   GET  /api/social/blocked                       readers you blocked
+ *   POST /api/social/report                        { handle, reason }
+ *   POST /api/social/card                          { bookId } -> PNG "Finished {book} · {hours}"
+ *   GET  /@{handle}                                the public profile page (noindex)
+ *   GET  /friends, /admin/social                   the pages
+ *   GET|POST /api/admin/social…                    admin view: rename, hide, reports, photo review
+ *
+ * Who sees what is decided here and in public_profile_cards: Only me and
+ * hidden profiles never appear; blocked readers never see each other in
+ * either direction; the leaderboard is opt-in; Find only lists Everyone.
+ * Never returned: email, highlights, notes, chats, Talk.
+ */
+import {
+  HANDLE_PROBLEM_COPY,
+  backgroundView,
+  cleanDisplayName,
+  handleProblem,
+  initialOf,
+  normalizeHandle,
+  pictureView,
+  profileLinkText,
+  relationOf,
+  type PublicProfileView,
+  type Relation,
+} from '../../social/profileRules'
+import {
+  LEADERBOARD_STALE_MS,
+  REPORT_REASONS,
+  appearsOnBoard,
+  finishedCardLine,
+  leaderboardWindow,
+  mutualFriends,
+  parseFindQuery,
+  rankRows,
+  socialFriendsOn,
+  windowSeconds,
+  type Board,
+  type BoardCard,
+  type ReportReason,
+} from '../../social/socialRules'
+import { profileDocument, profileMissingHtml, type ProfileBook, type ProfilePageData, type ProfilePicture } from '../../social/profilePageView'
+import { formatDuration, readingTimeStats, type LedgerRow } from '../../readingTime/model'
+import { yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
+import type { LabPositionState } from '../../lab/labPosition'
+import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
+import { corsHeaders } from '../lib/responses'
+import { isValidUUID } from '../lib/security'
+import { ProfilesUnavailable, supabaseProfileStore, type ProfileStore } from '../lib/profileStore'
+import { SocialUnavailable, supabaseSocialStore, type AdminProfileRow, type SocialStore } from '../lib/socialStore'
+import { imageUrl, viewFor, type ProfileAuthUser, type ProfilesEnv } from './profiles'
+import { loadLedger } from './readingTime'
+import { createLifecycleDeps } from '../lifecycle/runtime'
+import { SECURITY_HEADERS } from './seo'
+import { SOCIAL_META } from './socialPages'
+
+export type SocialEnv = ProfilesEnv & {
+  SOCIAL_FRIENDS?: string
+  RATE_LIMIT?: KVNamespace
+  READER_POSITION?: DurableObjectNamespace<import('../readerPositionCoordinator').ReaderPositionCoordinator>
+  ASSETS?: { fetch: (request: Request) => Promise<Response> }
+}
+
+export type SocialTrack = (name: 'follow' | 'unfollow', userId: string, props?: Record<string, string>) => void
+
+export interface SocialDeps {
+  verifyUser: (request: Request) => Promise<ProfileAuthUser | null>
+  verifySiteAdmin: (request: Request) => Promise<boolean>
+  profiles?: ProfileStore
+  social?: SocialStore
+  now?: () => number
+  catalogue?: () => Promise<Map<string, CatalogueEntry>>
+  position?: (userId: string) => Promise<LabPositionState | null>
+  ledger?: (userId: string) => Promise<LedgerRow[]>
+  checkRateLimit?: (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
+  track?: SocialTrack
+  /** The reading card's PNG (tests pass a stand-in; the Worker draws it with resvg). */
+  renderCard?: (input: FinishedCardInput) => Promise<Uint8Array>
+}
+
+export interface FinishedCardInput { title: string; author: string; duration: string | null; link: string; cover: string | null }
+
+/** The public paths this module answers while switched on. */
+export const FRIENDS_PATHS = new Set(['/friends', '/friends/'])
+export const ADMIN_SOCIAL_PATHS = new Set(['/admin/social', '/admin/social/'])
+
+export function isSocialApiPath(pathname: string): boolean {
+  return pathname.startsWith('/api/social/') || pathname === '/api/admin/social' || pathname.startsWith('/api/admin/social/')
+}
+
+/** `/@anders` -> "anders" (any case; one trailing slash). */
+export function profileHandleFromPath(pathname: string): string | null {
+  const match = /^\/@([A-Za-z0-9_.]{1,40})\/?$/.exec(pathname)
+  return match ? normalizeHandle(match[1]) : null
+}
+
+/** The static pages behind /friends and /admin/social are not pages while the switch is off. */
+export function isSocialAssetPage(pathname: string): boolean {
+  return /^\/lab\/(?:friends|admin-social)(?:\/(?:index\.html)?)?$/.test(pathname)
+}
+
+export const FRIENDS_META = '<meta name="tinct-friends" content="1">'
+
+const BOOK_IDS = Object.keys(GENERATED_BOOK_META)
+const BOARD_LIMIT = 50
+const EVERYONE_POOL = 1000
+
+function reply(data: unknown, status: number, request: Request): Response {
+  return Response.json(data, { status, headers: { ...corsHeaders(request), 'Cache-Control': 'private, no-store' } })
+}
+
+async function readJson(request: Request): Promise<Record<string, unknown> | null> {
+  try {
+    const text = await request.text()
+    if (text.length > 4096) return null
+    const body = JSON.parse(text)
+    return body && typeof body === 'object' && !Array.isArray(body) ? body as Record<string, unknown> : null
+  } catch {
+    return null
+  }
+}
+
+interface Context {
+  env: SocialEnv
+  deps: SocialDeps
+  profiles: ProfileStore
+  social: SocialStore
+  now: number
+}
+
+function context(env: SocialEnv, deps: SocialDeps): Context {
+  return {
+    env,
+    deps,
+    profiles: deps.profiles ?? supabaseProfileStore(env),
+    social: deps.social ?? supabaseSocialStore(env),
+    now: deps.now?.() ?? Date.now(),
+  }
+}
+
+async function catalogueOf(ctx: Context): Promise<Map<string, CatalogueEntry>> {
+  if (ctx.deps.catalogue) return ctx.deps.catalogue()
+  const map = await createLifecycleDeps(ctx.env as never).catalogue()
+  return map as unknown as Map<string, CatalogueEntry>
+}
+
+async function positionOf(ctx: Context, userId: string): Promise<LabPositionState | null> {
+  if (ctx.deps.position) return ctx.deps.position(userId)
+  return createLifecycleDeps(ctx.env as never).position(userId)
+}
+
+async function ledgerOf(ctx: Context, userId: string): Promise<LedgerRow[] | null> {
+  try {
+    return await (ctx.deps.ledger ? ctx.deps.ledger(userId) : loadLedger(ctx.env, userId))
+  } catch {
+    return null
+  }
+}
+
+// ===== Pictures =====
+
+type PictureSource = { kind: PublicProfileView['picture']['kind']; value: string | null }
+
+function pictureFor(ownerId: string, picture: PictureSource, name: string, signedOutView: boolean): ProfilePicture {
+  const stored = picture.kind === 'upload' || picture.kind === 'google'
+  const view = pictureView(picture.kind, picture.value, name, stored ? imageUrl(ownerId, 'picture', picture.value) : null)
+  if (view.kind === 'initial') return { src: null, pos: '50% 50%', cover: false, private: false, initial: view.initial }
+  // A signed-out visitor only ever gets approved photos of profiles anyone may see: a plain URL works.
+  return { src: view.src, pos: view.pos, cover: view.cover, private: Boolean(view.private) && !signedOutView, initial: initialOf(name) }
+}
+
+function bannerFor(ownerId: string, background: PublicProfileView['background'], signedOutView: boolean): { src: string; private: boolean } {
+  const kind = background?.kind ?? 'library'
+  const value = background?.value ?? null
+  const view = backgroundView(kind, value, kind === 'upload' ? imageUrl(ownerId, 'background', value) : null)
+  return { src: view.src, private: Boolean(view.private) && !signedOutView }
+}
+
+/** A board or Find row's picture (cards from the view: unapproved photos are already the initial). */
+function cardPicture(card: Pick<BoardCard, 'id' | 'picture_kind' | 'picture_value' | 'display_name'>): ProfilePicture {
+  return pictureFor(card.id, { kind: card.picture_kind, value: card.picture_value }, card.display_name, false)
+}
+
+// ===== Relations =====
+
+interface Circle { following: Set<string>; followers: Set<string>; friends: Set<string>; blocked: Set<string> }
+
+async function circleOf(ctx: Context, userId: string): Promise<Circle> {
+  const [following, followers, blocked] = await Promise.all([
+    ctx.social.following(userId), ctx.social.followers(userId), ctx.social.blockedEitherWay(userId),
+  ])
+  const visibleFollowing = following.filter(id => !blocked.has(id))
+  const visibleFollowers = followers.filter(id => !blocked.has(id))
+  return {
+    following: new Set(visibleFollowing),
+    followers: new Set(visibleFollowers),
+    friends: mutualFriends(visibleFollowing, visibleFollowers),
+    blocked,
+  }
+}
+
+function relationIn(circle: Circle, id: string): Relation {
+  return relationOf({ self: false, viewerFollowsOwner: circle.following.has(id), ownerFollowsViewer: circle.followers.has(id), blocked: circle.blocked.has(id) })
+}
+
+// ===== The leaderboard =====
+
+async function freshBoard(ctx: Context): Promise<string | null> {
+  let refreshedAt = await ctx.social.boardRefreshedAt()
+  const age = refreshedAt ? ctx.now - Date.parse(refreshedAt) : Infinity
+  if (!(age < LEADERBOARD_STALE_MS)) {
+    try {
+      await ctx.social.refreshBoard()
+      refreshedAt = new Date(ctx.now).toISOString()
+    } catch (error) {
+      console.warn(JSON.stringify({ event: 'leaderboard_refresh_failed', detail: error instanceof Error ? error.message : 'failed' }))
+    }
+  }
+  return refreshedAt
+}
+
+export interface BoardEntry {
+  rank: number
+  handle: string
+  name: string
+  picture: ProfilePicture
+  seconds: number
+  duration: string
+  book: string | null
+  self: boolean
+}
+
+/** The book each reader spent most time in this window (only for readers who show what they read). */
+async function windowBooks(ctx: Context, ids: string[]): Promise<Map<string, string>> {
+  const out = new Map<string, string>()
+  if (!ids.length) return out
+  const { start } = leaderboardWindow(ctx.now)
+  const rows = await ctx.social.ledgerSince(ids, start, undefined, 2000).catch(() => [])
+  const per = new Map<string, Map<string, number>>()
+  for (const row of rows) {
+    const books = per.get(row.user_id) ?? new Map<string, number>()
+    books.set(row.book_id, (books.get(row.book_id) ?? 0) + (Number(row.read_seconds) || 0) + (Number(row.listen_seconds) || 0))
+    per.set(row.user_id, books)
+  }
+  const catalogue = per.size ? await catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()) : new Map<string, CatalogueEntry>()
+  for (const [id, books] of per) {
+    const top = [...books.entries()].sort((a, b) => b[1] - a[1]).find(([bookId]) => catalogue.has(bookId))
+    if (top) out.set(id, catalogue.get(top[0])!.title)
+  }
+  return out
+}
+
+export async function buildBoard(ctx: Context, viewerId: string, tab: Board): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; entries: BoardEntry[] }> {
+  const circle = await circleOf(ctx, viewerId)
+  const refreshedAt = await freshBoard(ctx)
+  const pool = tab === 'friends' ? await ctx.social.cardsByIds([...circle.friends]) : await ctx.social.everyoneBoardCards(EVERYONE_POOL)
+  const others = pool.filter(card => card.id !== viewerId && appearsOnBoard(card, tab, circle))
+  const own = await ctx.profiles.getOwn(viewerId)
+  const seconds = await ctx.social.boardSeconds([viewerId, ...others.map(card => card.id)])
+  type Row = { id: string; handle: string; name: string; picture: ProfilePicture; seconds: number; showsReading: boolean; self: boolean }
+  const rows: Row[] = others
+    // Everyone lists readers with time this week; Friends lists every friend on the board.
+    .filter(card => tab === 'friends' || (seconds.get(card.id) ?? 0) > 0)
+    .map(card => ({ id: card.id, handle: card.handle, name: card.display_name, picture: cardPicture(card), seconds: seconds.get(card.id) ?? 0, showsReading: card.show_reading, self: false }))
+  if (own) {
+    rows.push({
+      id: viewerId, handle: own.handle, name: own.display_name,
+      picture: pictureFor(viewerId, { kind: own.picture_kind, value: own.picture_value }, own.display_name, false),
+      seconds: seconds.get(viewerId) ?? 0, showsReading: true, self: true,
+    })
+  }
+  const ranked = rankRows(rows, row => row.seconds, row => row.name)
+  const shown = ranked.slice(0, BOARD_LIMIT)
+  const meRanked = ranked.find(item => item.row.self) ?? null
+  const books = await windowBooks(ctx, [...shown, ...(meRanked ? [meRanked] : [])].filter(item => item.row.showsReading).map(item => item.row.id))
+  const entry = (item: typeof ranked[number]): BoardEntry => ({
+    rank: item.rank, handle: item.row.handle, name: item.row.self ? 'You' : item.row.name, picture: item.row.picture,
+    seconds: item.seconds, duration: formatDuration(item.seconds), book: books.get(item.row.id) ?? null, self: item.row.self,
+  })
+  const window = leaderboardWindow(ctx.now)
+  // Whether others see the viewer on this board (the page explains when they do not).
+  const ownCard = own ? await ctx.profiles.getCardById(viewerId).catch(() => null) : null
+  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && (tab === 'friends' || ownCard.visibility === 'everyone'))
+  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, entries: shown.map(entry) }
+}
+
+// ===== Find =====
+
+function findRow(card: BoardCard, circle: Circle, book: string | null = null) {
+  return {
+    handle: card.handle, name: card.display_name, link: profileLinkText(card.handle), picture: cardPicture(card),
+    relation: relationIn(circle, card.id), book,
+  }
+}
+
+async function buildFind(ctx: Context, viewerId: string, q: string | null) {
+  const circle = await circleOf(ctx, viewerId)
+  const query = parseFindQuery(q)
+  if (q !== null) {
+    if (!query) return { results: [] }
+    const cards = await ctx.social.searchEveryone(query, 20)
+    return { results: cards.filter(card => card.id !== viewerId && !circle.blocked.has(card.id)).map(card => findRow(card, circle)) }
+  }
+  // Following you, not followed back (their card shows to anyone with the link, so it may show here).
+  const waiting = [...circle.followers].filter(id => !circle.following.has(id))
+  const waitingCards = waiting.length ? await ctx.social.cardsByIds(waiting.slice(0, 50)) : []
+  // Also reading your books: Everyone readers who show what they read, in the last 30 days.
+  const since = leaderboardWindow(ctx.now - 23 * 86_400_000).start
+  const mine = await ctx.social.ledgerSince([viewerId], since, undefined, 500).catch(() => [])
+  const myBooks = [...new Set(mine.map(row => row.book_id))].slice(0, 20)
+  const others = myBooks.length ? await ctx.social.ledgerSince(null, since, myBooks, 1000).catch(() => []) : []
+  const latest = new Map<string, { bookId: string; day: string }>()
+  for (const row of others) {
+    if (row.user_id === viewerId || circle.blocked.has(row.user_id)) continue
+    const known = latest.get(row.user_id)
+    if (!known || row.day > known.day) latest.set(row.user_id, { bookId: row.book_id, day: row.day })
+  }
+  const candidates = [...latest.keys()].slice(0, 100)
+  const cards = candidates.length ? await ctx.social.cardsByIds(candidates) : []
+  const catalogue = cards.length ? await catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()) : new Map<string, CatalogueEntry>()
+  const also = cards
+    .filter(card => card.visibility === 'everyone' && card.show_reading && !circle.blocked.has(card.id))
+    .sort((a, b) => Number(circle.following.has(a.id)) - Number(circle.following.has(b.id)) || (latest.get(b.id)!.day).localeCompare(latest.get(a.id)!.day))
+    .slice(0, 10)
+  const alsoRows = await Promise.all(also.map(async card => {
+    const { bookId } = latest.get(card.id)!
+    const title = catalogue.get(bookId)?.title ?? null
+    let chapter: string | null = null
+    try {
+      const place = (await positionOf(ctx, card.id))?.books?.[bookId] as { sequentialChapter?: number } | undefined
+      if (place?.sequentialChapter) chapter = `chapter ${place.sequentialChapter}`
+    } catch { /* the title alone */ }
+    return findRow(card, circle, title ? [title, chapter].filter(Boolean).join(' · ') : null)
+  }))
+  const own = await ctx.profiles.getOwn(viewerId)
+  return {
+    followingYou: waitingCards.filter(card => !circle.blocked.has(card.id)).map(card => findRow(card, circle)),
+    alsoReading: alsoRows.filter(row => row.book),
+    link: own ? profileLinkText(own.handle) : null,
+  }
+}
+
+// ===== One profile =====
+
+async function ownerIdFor(ctx: Context, handle: string, viewerId: string | null): Promise<string | null> {
+  if (viewerId) {
+    const own = await ctx.profiles.getOwn(viewerId)
+    if (own?.handle === handle) return viewerId
+  }
+  return (await ctx.profiles.getCardByHandle(handle))?.id ?? null
+}
+
+/** One profile as this visitor may see it, or null (missing, Only me, hidden, blocked). */
+export async function buildProfile(ctx: Context, handle: string, viewerId: string | null): Promise<ProfilePageData | null> {
+  if (handleProblem(handle) === 'format') return null
+  const ownerId = await ownerIdFor(ctx, handle, viewerId)
+  if (!ownerId) return null
+  const view = await viewFor(ctx.profiles, ownerId, viewerId)
+  if (!view) return null
+  let relation: Relation | null = null
+  let followsYou = false
+  if (viewerId) {
+    if (viewerId === ownerId) relation = 'self'
+    else {
+      const rel = await ctx.profiles.relation(viewerId, ownerId)
+      relation = relationOf({ self: false, ...rel })
+      followsYou = rel.ownerFollowsViewer
+      if (relation === 'blocked') return null
+    }
+  }
+  const signedOut = viewerId === null
+  const data: ProfilePageData = {
+    handle: view.handle, name: view.name, link: profileLinkText(view.handle),
+    picture: pictureFor(ownerId, view.picture, view.name, signedOut),
+    banner: bannerFor(ownerId, view.background, signedOut),
+    relation, followsYou, limited: view.limited, time: null, readingNow: null, finished: null,
+  }
+  if (view.limited || (!view.shows.time && !view.shows.reading)) return data
+  const rows = await ledgerOf(ctx, ownerId)
+  if (rows && view.shows.time) {
+    const last7 = windowSeconds(rows.map(row => ({ user_id: ownerId, day: row.day, book_id: row.bookId, read_seconds: row.read, listen_seconds: row.listen })), ctx.now).get(ownerId) ?? 0
+    const year = String(new Date(ctx.now).getUTCFullYear())
+    const yearSeconds = rows.filter(row => row.day.startsWith(`${year}-`)).reduce((sum, row) => sum + row.read + row.listen, 0)
+    data.time = { last7: formatDuration(last7), year: formatDuration(yearSeconds) }
+  }
+  if (view.shows.reading) {
+    const [catalogue, position] = await Promise.all([catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()), positionOf(ctx, ownerId).catch(() => null)])
+    const stats = readingTimeStats(rows ?? [], new Date(ctx.now).toISOString().slice(0, 10))
+    const shelf = yourReadingView({ stats, positions: position, catalogue })
+    const toBook = (book: { bookId: string; title: string; cover: string | null; progress: string | null; hours: string | null }): ProfileBook => ({
+      bookId: book.bookId, title: book.title, cover: book.cover, progress: book.progress, hours: view.shows.time ? book.hours : null,
+    })
+    data.readingNow = shelf.readingNow.slice(0, 6).map(toBook)
+    data.finished = shelf.finished.slice(0, 24).map(toBook)
+  }
+  return data
+}
+
+// ===== Pages =====
+
+function pageHeaders(): Record<string, string> {
+  return {
+    ...SECURITY_HEADERS,
+    'Content-Type': 'text/html; charset=utf-8',
+    'Cache-Control': 'private, no-store',
+    'X-Robots-Tag': 'noindex, nofollow, noarchive',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+  }
+}
+
+function signedInCookie(request: Request): boolean {
+  return (request.headers.get('cookie') || '').split(';').some(part => part.trim() === 'tinct_auth=1')
+}
+
+/** GET /@handle: Worker-rendered, noindex, with the reader's banner. */
+export async function serveProfilePage(request: Request, env: SocialEnv, deps: SocialDeps, handle: string): Promise<Response> {
+  const ctx = context(env, deps)
+  const markers = `${SOCIAL_META}${FRIENDS_META}`
+  // A signed-in visitor gets an empty page that their own script fills in (with their follow
+  // state), so a reader they blocked, or who blocked them, never flashes into view.
+  if (signedInCookie(request)) {
+    return new Response(request.method === 'HEAD' ? null : profileDocument(null, { handle, loading: true, markers }), { headers: pageHeaders() })
+  }
+  let data: ProfilePageData | null = null
+  try {
+    data = await buildProfile(ctx, handle, null)
+  } catch (error) {
+    if (!(error instanceof ProfilesUnavailable || error instanceof SocialUnavailable)) throw error
+  }
+  const html = data
+    ? profileDocument(data, { handle, loading: false, markers })
+    : profileDocument(null, { handle, loading: false, markers }).replace('<main data-main></main>', `<main data-main>${profileMissingHtml()}</main>`)
+  return new Response(request.method === 'HEAD' ? null : html, { status: data ? 200 : 404, headers: pageHeaders() })
+}
+
+/** /friends and /admin/social, from their static pages, with the switch markers. */
+export async function serveSocialAssetPage(request: Request, env: { ASSETS: { fetch: (request: Request) => Promise<Response> } }, assetPath: string): Promise<Response | null> {
+  const url = new URL(request.url)
+  const asset = await env.ASSETS.fetch(new Request(new URL(assetPath, url.origin).toString(), { method: request.method }))
+  if (!asset.ok) return null
+  const html = request.method === 'HEAD' ? null : (await asset.text()).replace('</head>', `${SOCIAL_META}${FRIENDS_META}</head>`)
+  const response = new Response(html, { status: 200, headers: pageHeaders() })
+  response.headers.set('Cache-Control', 'no-store')
+  return response
+}
+
+// ===== The reading card =====
+
+export async function coverDataUri(env: SocialEnv, origin: string, src: string | null): Promise<string | null> {
+  if (!src || !env.ASSETS || !/^\/[A-Za-z0-9_./-]+\.(?:jpe?g|png|webp)$/.test(src)) return null
+  try {
+    const res = await env.ASSETS.fetch(new Request(new URL(src, origin).toString()))
+    if (!res.ok) return null
+    const bytes = new Uint8Array(await res.arrayBuffer())
+    if (bytes.length > 1_500_000) return null
+    let binary = ''
+    for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000))
+    const type = src.endsWith('.png') ? 'image/png' : src.endsWith('.webp') ? 'image/webp' : 'image/jpeg'
+    return `data:${type};base64,${btoa(binary)}`
+  } catch {
+    return null
+  }
+}
+
+async function handleCard(request: Request, ctx: Context, viewerId: string): Promise<Response> {
+  const body = await readJson(request)
+  const bookId = typeof body?.bookId === 'string' && /^[a-z0-9-]{1,80}$/.test(body.bookId) ? body.bookId : null
+  if (!bookId) return reply({ error: 'invalid_card' }, 400, request)
+  if (ctx.deps.checkRateLimit && !(await ctx.deps.checkRateLimit(`reading-card:${viewerId}`, ctx.env.RATE_LIMIT, 6))) return reply({ error: 'rate_limited' }, 429, request)
+  const catalogue = await catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>())
+  const book = catalogue.get(bookId)
+  if (!book) return reply({ error: 'unknown_book' }, 404, request)
+  const rows = await ledgerOf(ctx, viewerId) ?? []
+  const seconds = rows.filter(row => row.bookId === bookId).reduce((sum, row) => sum + row.read + row.listen, 0)
+  const duration = seconds >= 60 ? formatDuration(seconds) : null
+  // It links to the reader's public profile when others can see it, else to the book.
+  const own = await ctx.profiles.getOwn(viewerId).catch(() => null)
+  const link = own && own.visibility !== 'only_me' ? `https://${profileLinkText(own.handle)}` : `https://tinct.app/read/${bookId}`
+  const origin = new URL(request.url).origin
+  const input: FinishedCardInput = { title: book.title, author: (book as { author?: string }).author ?? '', duration, link, cover: await coverDataUri(ctx.env, origin, book.art?.src ?? null) }
+  let png: Uint8Array
+  try {
+    png = ctx.deps.renderCard ? await ctx.deps.renderCard(input) : await (await import('../lib/readingCard')).renderFinishedCardPng(ctx.env.ASSETS!, origin, input)
+  } catch (error) {
+    console.warn(JSON.stringify({ event: 'finished_card_failed', reason: error instanceof Error ? error.message : 'failed' }))
+    return reply({ error: 'unavailable' }, 503, request)
+  }
+  return new Response(png as unknown as BodyInit, {
+    headers: {
+      ...corsHeaders(request),
+      'Content-Type': 'image/png',
+      'Cache-Control': 'private, no-store',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Card-Link': link,
+      'X-Card-Line': encodeURIComponent(finishedCardLine(book.title, duration)),
+      'Access-Control-Expose-Headers': 'X-Card-Link, X-Card-Line',
+    },
+  })
+}
+
+// ===== Admin =====
+
+function adminRow(row: AdminProfileRow) {
+  const stored = (kind: string, value: string | null, slot: 'picture' | 'background') =>
+    (kind === 'upload' || kind === 'google') && value ? `/api/admin/social/image?user=${row.id}&slot=${slot}&v=${encodeURIComponent(value)}` : null
+  return {
+    id: row.id, name: row.display_name, handle: row.handle, link: profileLinkText(row.handle), visibility: row.visibility, hidden: Boolean(row.hidden_at),
+    picture: { kind: row.picture_kind, value: row.picture_kind === 'upload' || row.picture_kind === 'google' ? null : row.picture_value, review: row.picture_review, url: stored(row.picture_kind, row.picture_value, 'picture') },
+    background: { kind: row.background_kind, value: row.background_kind === 'upload' ? null : row.background_value, review: row.background_review, url: stored(row.background_kind, row.background_value, 'background') },
+    updatedAt: row.updated_at ?? null,
+  }
+}
+
+async function handleAdmin(request: Request, url: URL, ctx: Context): Promise<Response> {
+  if (!(await ctx.deps.verifySiteAdmin(request))) return reply({ error: 'Forbidden' }, 403, request)
+  const path = url.pathname.replace(/\/+$/, '')
+  if (path === '/api/admin/social' && request.method === 'GET') {
+    const q = (url.searchParams.get('q') || '').slice(0, 60)
+    const [pending, reports, profiles] = await Promise.all([
+      ctx.social.pendingReviews(50), ctx.social.openReports(100), q ? ctx.social.adminProfiles(q, 30) : Promise.resolve([]),
+    ])
+    const reported = new Map<string, AdminProfileRow | null>()
+    for (const report of reports) if (!reported.has(report.reported)) reported.set(report.reported, await ctx.social.adminProfile(report.reported))
+    return reply({
+      pending: pending.map(adminRow),
+      reports: reports.map(report => ({ id: report.id, reason: report.reason, handle: report.handle, createdAt: report.created_at, profile: reported.get(report.reported) ? adminRow(reported.get(report.reported)!) : null })),
+      profiles: profiles.map(adminRow),
+    }, 200, request)
+  }
+  if (path === '/api/admin/social/image' && request.method === 'GET') {
+    const owner = url.searchParams.get('user') || ''
+    const slot = url.searchParams.get('slot')
+    const token = url.searchParams.get('v') || ''
+    if (!isValidUUID(owner) || (slot !== 'picture' && slot !== 'background') || !/^[a-f0-9]{8,64}$/.test(token) || !ctx.env.USER_BOOKS) return reply({ error: 'Not found' }, 404, request)
+    const object = await ctx.env.USER_BOOKS.get(`profile/${owner}/${slot}-${token}`)
+    if (!object) return reply({ error: 'Not found' }, 404, request)
+    return new Response(object.body, { headers: { 'Content-Type': object.httpMetadata?.contentType || 'image/jpeg', 'Cache-Control': 'private, no-store', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex' } })
+  }
+  if (request.method !== 'POST') return reply({ error: 'Not found' }, 404, request)
+  const body = await readJson(request)
+  if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
+  if (path === '/api/admin/social/review') {
+    const id = String(body.userId || '')
+    const slot = body.slot
+    const decision = body.decision
+    if (!isValidUUID(id) || (slot !== 'picture' && slot !== 'background') || (decision !== 'approve' && decision !== 'decline')) return reply({ error: 'Invalid review' }, 400, request)
+    const row = await ctx.social.adminProfile(id)
+    if (!row) return reply({ error: 'Not found' }, 404, request)
+    const review = decision === 'approve' ? 'approved' : 'rejected'
+    await ctx.social.adminUpdate(id, slot === 'picture' ? { picture_review: review } : { background_review: review })
+    return reply({ ok: true, profile: adminRow({ ...row, ...(slot === 'picture' ? { picture_review: review } : { background_review: review }) }) }, 200, request)
+  }
+  if (path === '/api/admin/social/profile') {
+    const id = String(body.userId || '')
+    if (!isValidUUID(id)) return reply({ error: 'Invalid profile' }, 400, request)
+    const row = await ctx.social.adminProfile(id)
+    if (!row) return reply({ error: 'Not found' }, 404, request)
+    const patch: Parameters<SocialStore['adminUpdate']>[1] = {}
+    if ('name' in body) {
+      const name = cleanDisplayName(body.name)
+      if (!name) return reply({ error: 'Please choose another name.', field: 'name' }, 422, request)
+      patch.display_name = name
+    }
+    if ('handle' in body) {
+      const handle = normalizeHandle(String(body.handle ?? ''))
+      if (handle !== row.handle) {
+        const problem = handleProblem(handle, BOOK_IDS)
+        if (problem) return reply({ error: HANDLE_PROBLEM_COPY[problem], field: 'handle' }, 422, request)
+        if ((await ctx.profiles.takenHandles([handle])).has(handle)) return reply({ error: HANDLE_PROBLEM_COPY.taken, field: 'handle' }, 409, request)
+        patch.handle = handle
+      }
+    }
+    if ('hidden' in body) patch.hidden_at = body.hidden === true ? new Date(ctx.now).toISOString() : null
+    if (body.resetPicture === true) Object.assign(patch, { picture_kind: 'initial', picture_value: null, picture_review: 'none' })
+    if (body.resetBackground === true) Object.assign(patch, { background_kind: 'library', background_value: null, background_review: 'none' })
+    if (Object.keys(patch).length && (await ctx.social.adminUpdate(id, patch)) === 'taken') return reply({ error: HANDLE_PROBLEM_COPY.taken, field: 'handle' }, 409, request)
+    return reply({ ok: true, profile: adminRow({ ...row, ...patch } as AdminProfileRow) }, 200, request)
+  }
+  if (path === '/api/admin/social/report') {
+    const id = Number(body.id)
+    const resolution = String(body.resolution || 'dismissed')
+    if (!Number.isInteger(id) || id <= 0 || !['dismissed', 'renamed', 'hidden', 'picture-removed'].includes(resolution)) return reply({ error: 'Invalid report' }, 400, request)
+    await ctx.social.resolveReport(id, resolution)
+    return reply({ ok: true }, 200, request)
+  }
+  return reply({ error: 'Not found' }, 404, request)
+}
+
+// ===== Router =====
+
+async function targetId(ctx: Context, viewerId: string, body: Record<string, unknown> | null): Promise<string | null> {
+  const handle = normalizeHandle(String(body?.handle ?? ''))
+  if (handleProblem(handle) === 'format') return null
+  const card = await ctx.profiles.getCardByHandle(handle)
+  if (!card || card.id === viewerId) return null
+  // Only a profile this reader may see can be followed (never Only me, hidden, or across a block).
+  return (await viewFor(ctx.profiles, card.id, viewerId)) ? card.id : null
+}
+
+export async function handleSocial(request: Request, env: SocialEnv, deps: SocialDeps): Promise<Response> {
+  const url = new URL(request.url)
+  if (!socialFriendsOn(env)) return reply({ error: 'Not found' }, 404, request)
+  const ctx = context(env, deps)
+  try {
+    if (url.pathname === '/api/admin/social' || url.pathname.startsWith('/api/admin/social/')) return await handleAdmin(request, url, ctx)
+
+    const path = url.pathname.replace(/\/+$/, '')
+    const viewer = request.headers.get('authorization') ? await deps.verifyUser(request) : null
+    const viewerId = viewer && isValidUUID(viewer.id) ? viewer.id : null
+
+    if (path.startsWith('/api/social/profile/') && request.method === 'GET') {
+      const handle = normalizeHandle(decodeURIComponent(path.slice('/api/social/profile/'.length)))
+      const data = await buildProfile(ctx, handle, viewerId)
+      if (!data) return reply({ error: 'Not found' }, 404, request)
+      const response = reply({ profile: data }, 200, request)
+      response.headers.set('X-Robots-Tag', 'noindex, noarchive')
+      return response
+    }
+
+    if (!viewerId) return reply({ error: 'Authentication required' }, 401, request)
+
+    if (path === '/api/social/board' && request.method === 'GET') {
+      const tab: Board = url.searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
+      return reply(await buildBoard(ctx, viewerId, tab), 200, request)
+    }
+    if (path === '/api/social/rank' && request.method === 'GET') {
+      const board = await buildBoard(ctx, viewerId, 'friends')
+      return reply({ rank: board.me?.rank ?? null, total: board.total, seconds: board.me?.seconds ?? 0 }, 200, request)
+    }
+    if (path === '/api/social/find' && request.method === 'GET') {
+      return reply(await buildFind(ctx, viewerId, url.searchParams.has('q') ? url.searchParams.get('q') : null), 200, request)
+    }
+    if (path === '/api/social/blocked' && request.method === 'GET') {
+      const blocked = await ctx.social.blockedByMe(viewerId)
+      const rows = await Promise.all(blocked.slice(0, 200).map(async id => {
+        const row = await ctx.profiles.getOwn(id).catch(() => null)
+        return row ? { id, name: row.display_name, handle: row.handle } : { id, name: 'A reader', handle: null }
+      }))
+      return reply({ blocked: rows }, 200, request)
+    }
+    if (path === '/api/social/card' && request.method === 'POST') return await handleCard(request, ctx, viewerId)
+
+    if (request.method !== 'POST') return reply({ error: 'Not found' }, 404, request)
+    const body = await readJson(request)
+
+    if (path === '/api/social/unblock') {
+      const id = String(body?.id ?? '')
+      if (!isValidUUID(id)) return reply({ error: 'Invalid reader' }, 400, request)
+      await ctx.social.unblock(viewerId, id)
+      return reply({ ok: true }, 200, request)
+    }
+    if (path === '/api/social/report') {
+      const reason = body?.reason as ReportReason
+      if (!REPORT_REASONS.includes(reason)) return reply({ error: 'Choose a reason.' }, 422, request)
+      if (deps.checkRateLimit && !(await deps.checkRateLimit(`social-report:${viewerId}`, env.RATE_LIMIT, 10))) return reply({ error: 'rate_limited' }, 429, request)
+      const handle = normalizeHandle(String(body?.handle ?? ''))
+      const card = handleProblem(handle) === 'format' ? null : await ctx.profiles.getCardByHandle(handle)
+      if (!card || card.id === viewerId) return reply({ error: 'Not found' }, 404, request)
+      const result = await ctx.social.report({ reporter: viewerId, reported: card.id, handle: card.handle, reason })
+      return reply({ ok: true, duplicate: result === 'duplicate' }, 200, request)
+    }
+
+    const actions = ['/api/social/follow', '/api/social/unfollow', '/api/social/remove-follower', '/api/social/block']
+    if (actions.includes(path)) {
+      const id = await targetId(ctx, viewerId, body)
+      if (!id) return reply({ error: 'Not found' }, 404, request)
+      if (path === '/api/social/follow') {
+        if (deps.checkRateLimit && !(await deps.checkRateLimit(`social-follow:${viewerId}`, env.RATE_LIMIT, 60))) return reply({ error: 'rate_limited' }, 429, request)
+        await ctx.social.follow(viewerId, id)
+        deps.track?.('follow', viewerId)
+      } else if (path === '/api/social/unfollow') {
+        await ctx.social.unfollow(viewerId, id)
+        deps.track?.('unfollow', viewerId)
+      } else if (path === '/api/social/remove-follower') {
+        await ctx.social.unfollow(id, viewerId)
+      } else {
+        await ctx.social.block(viewerId, id)
+      }
+      const rel = await ctx.profiles.relation(viewerId, id)
+      return reply({ ok: true, relation: relationOf({ self: false, ...rel }), followsYou: rel.ownerFollowsViewer }, 200, request)
+    }
+    return reply({ error: 'Not found' }, 404, request)
+  } catch (error) {
+    if (error instanceof ProfilesUnavailable || error instanceof SocialUnavailable) {
+      console.warn(JSON.stringify({ event: 'social_unavailable', detail: error.message }))
+      return reply({ enabled: true, available: false }, 503, request)
+    }
+    throw error
+  }
+}
+
+/** The hourly rebuild, from the 10-minute cron (the run in minutes 0–9). */
+export async function runLeaderboardCron(env: SocialEnv, scheduledTime: number, store: SocialStore = supabaseSocialStore(env)): Promise<boolean> {
+  if (!socialFriendsOn(env)) return false
+  if (new Date(scheduledTime).getUTCMinutes() >= 10) return false
+  try {
+    await store.refreshBoard()
+    return true
+  } catch (error) {
+    console.warn(JSON.stringify({ event: 'leaderboard_refresh_failed', detail: error instanceof Error ? error.message : 'failed' }))
+    return false
+  }
+}
+
