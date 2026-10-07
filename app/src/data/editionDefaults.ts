@@ -78,3 +78,32 @@ export function savedPlaceFallbackEditionKey(bookId: string, editions: readonly 
     ?? defaultPrimaryEditionKey(bookId, editions)
     ?? editions[0]?.key
 }
+
+/**
+ * "New books open in: Human translations" (profiles, social ship 2, Anders
+ * 2026-10-07): a book written in English opens as written (its English
+ * original); a translated work opens in the easiest-to-read human English
+ * translation, by the reviewed difficulty ratings. The Bible keeps the BSB,
+ * and a book with no human English edition keeps the approved default.
+ * A reader's saved edition for a book always wins over this.
+ */
+export function humanPrimaryEditionKey(bookId: string, allEditions: readonly EditionLike[]): string | undefined {
+  const editions = allEditions.filter(edition => !editionHold(bookId, edition.key) && !isMachineMadeOriginal(bookId, edition.key))
+  if (bookId === 'bible') return defaultPrimaryEditionKey(bookId, allEditions)
+  const human = editions.filter(edition => edition.style !== 'modern' && edition.language === 'en')
+  const englishWork = !editions.some(edition => edition.style === 'original' && edition.language !== 'en')
+  const original = human.find(edition => edition.key === 'original-en') ?? human.find(edition => edition.style === 'original')
+  if (englishWork && original) return original.key
+  const rank = (edition: EditionLike) => {
+    const rated = editionDifficulty(bookId, edition as Edition)
+    return rated ? DIFFICULTY_RANK[rated] : DIFFICULTY_RANK.Medium
+  }
+  const easiest = human.map((edition, index) => ({ edition, index }))
+    .sort((a, b) => rank(a.edition) - rank(b.edition) || a.index - b.index)[0]?.edition
+  return easiest?.key ?? defaultPrimaryEditionKey(bookId, allEditions)
+}
+
+/** The edition a book opens in the first time, under the reader's "New books open in" choice. */
+export function newBookPrimaryEditionKey(bookId: string, editions: readonly EditionLike[], openIn: 'modern' | 'human' | null): string | undefined {
+  return openIn === 'human' ? humanPrimaryEditionKey(bookId, editions) : defaultPrimaryEditionKey(bookId, editions)
+}

@@ -12,6 +12,7 @@ import type { NarrationPilotInfo } from './labNarration'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
 import { LabAiUsageBar } from './LabAiUsageBar'
+import { LabProfileSheetHead, LabProfileSheetRows, useSheetProfile } from '../social/LabProfileSheet'
 import {
   labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   LAB_MAX_FONT_SIZE,
@@ -207,6 +208,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   // Reading time (social ship 1): 'off' until the Worker's switch says otherwise, and today's block then.
   const readingTime = useLabReadingTime(auth.user?.id ?? null, auth.user ? auth.session?.access_token ?? null : null, layer === 'account')
   const ledgerBlock = readingTime.mode === 'ledger' || readingTime.mode === 'loading' || readingTime.mode === 'device'
+  // Profiles (social ship 2): null while off, signed out or unavailable, and the sheet is as before.
+  const socialProfile = useSheetProfile(auth.user ? auth.session?.access_token ?? null : null, layer === 'account')
 
   useEffect(() => {
     if (!layer) return
@@ -249,7 +252,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   const head = layer === 'reading' || layer === 'account' || layer === 'editions'
     ? (
       <div className="lab-v2-head is-titled" data-reader-window-handle>
-        <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
+        <h2 className="lab-v2-title">{layer === 'account' && socialProfile ? 'Profile' : LAB_V2_SHEET_TITLES[layer]}</h2>
         <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
       </div>
     )
@@ -502,27 +505,38 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
 
           {layer === 'account' && (
             <>
+              {socialProfile ? <LabProfileSheetHead profile={socialProfile} token={auth.session?.access_token ?? ''} premium={balance.isSubscribed} /> : (
               <div className="lab-v2-account-card" data-testid="lab-v2-account-card">
                 <strong>{auth.user?.email || 'Reader account'}</strong>
                 <span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span>
               </div>
-              {ledgerBlock && <LabReadingTimeBlock state={readingTime} yourReadingHref={yourReadingUrl(returnTo)} />}
-              {/* The AI usage bar: renders only while the Worker's allowance switch is on. */}
-              <LabAiUsageBar token={auth.user ? auth.session?.access_token ?? null : null} />
-              {!ledgerBlock && (() => {
-                // Today's block. With reading time on but the ledger unavailable, time waiting on this device counts too.
-                const seconds = yearTotals.seconds + (readingTime.mode === 'fallback' ? readingTime.pendingSeconds : 0)
-                return (
-                  <div className="lab-v2-year">
-                    <p className="lab-v2-group-label">This year</p>
-                    <div className="lab-v2-year-stats">
-                      <span><strong>{seconds < 3600 ? '<1' : Math.round(seconds / 3600)}</strong> hours</span>
-                      <span><strong>{yearTotals.pages.toLocaleString('en-US')}</strong> pages</span>
-                      <span><strong>{yearTotals.books}</strong> books</span>
-                    </div>
-                  </div>
-                )
+              )}
+              {(() => {
+                const aiBar = <LabAiUsageBar token={auth.user ? auth.session?.access_token ?? null : null} />
+                const timeBlock = ledgerBlock
+                  ? <LabReadingTimeBlock state={readingTime} yourReadingHref={yourReadingUrl(returnTo)} />
+                  : (() => {
+                    // Today's block. With reading time on but the ledger unavailable, time waiting on this device counts too.
+                    const seconds = yearTotals.seconds + (readingTime.mode === 'fallback' ? readingTime.pendingSeconds : 0)
+                    return (
+                      <div className="lab-v2-year">
+                        <p className="lab-v2-group-label">This year</p>
+                        <div className="lab-v2-year-stats">
+                          <span><strong>{seconds < 3600 ? '<1' : Math.round(seconds / 3600)}</strong> hours</span>
+                          <span><strong>{yearTotals.pages.toLocaleString('en-US')}</strong> pages</span>
+                          <span><strong>{yearTotals.books}</strong> books</span>
+                        </div>
+                      </div>
+                    )
+                  })()
+                // Profiles on (flows.html "Profile sheet"): AI credits first, then the last 7 days, then You and Settings.
+                // Profiles off: ship 1's order (the 7-day block above the AI bar), or today's sheet with both switches off.
+                return socialProfile
+                  ? <>{aiBar}{timeBlock}</>
+                  : ledgerBlock ? <>{timeBlock}{aiBar}</> : <>{aiBar}{timeBlock}</>
               })()}
+              {socialProfile && <LabProfileSheetRows profile={socialProfile} returnTo={returnTo ?? '/library'} />}
+              {!socialProfile && (
               <div className="lab-v2-rows">
                 <a
                   className="lab-v2-row is-link"
@@ -548,6 +562,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   </button>
                 )}
               </div>
+              )}
               {resetStatus && <p className="lab-v2-note" role="status">{resetStatus}</p>}
             </>
           )}

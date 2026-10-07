@@ -66,6 +66,13 @@ bucket. It does not contain the files themselves. If the reader asks for the
 files, they can download each one from the Add-a-book page while signed in
 (`/lab/addbook/`, "Your books").
 
+`r2.profileImages` lists the reader's stored profile pictures and backgrounds
+(uploads and the copied Google photo, keys `profile/<id>/…` in the same private
+bucket), without the bytes. `supabase.reader_profiles`, `follows_following`,
+`follows_followers`, `blocks` (whom the reader blocked; never who blocked them)
+and `email_sends` come from the profiles and email-log migrations of
+2026-10-08; before those have run they export as `null` without an error.
+
 ## What deletion does, in order
 
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
@@ -76,7 +83,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    (legacy position record). Then **R2:** every object under `u/<id>/` in the
    private `tinct-user-books` bucket (the reader's own PDF/EPUB files,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
-   none remain.
+   none remain; then every object under `profile/<id>/` in the same bucket
+   (profile pictures and backgrounds, `app/src/worker/routes/profiles.ts`).
 3. **Rows that would otherwise survive as anonymous orphans** (`ON DELETE SET
    NULL`): anonymous `analytics_events` from the reader's devices (pre-sign-up
    history: rows with no user whose `device_id` appears on the reader's own
@@ -87,8 +95,9 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
 5. **Supabase auth user.** This cascades `profiles`, `user_data` (every
    per-user row, including synced highlights and notes, `lab-highlights:{bookId}`),
    `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions`,
-   `reading_time` (the reading-time ledger, once its migration has run) and
-   `site_admins`. It runs **only if every earlier step succeeded**, so the
+   `site_admins`, and (once their migrations have run) `reading_time` (the
+   reading-time ledger), `reader_profiles`, `follows` and `blocks` in both
+   directions, and `email_sends`. It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
 6. **Sweep and verify:** once sign-in is impossible, the Durable Object, KV
    and R2 steps run again, catching anything a still-open tab or an in-flight alarm

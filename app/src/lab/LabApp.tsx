@@ -187,6 +187,7 @@ import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
 import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { socialProfilesOn } from '../social/socialClient'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -4589,7 +4590,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
-      { id: 'account', label: 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'account', label: socialProfilesOn() ? 'Profile' : 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id)),
   })
