@@ -14,19 +14,12 @@
  * words as it always has — a slightly ragged page, never a wrong one.
  */
 
+import { HYPHEN_MIN_HEAD, dictionaryBreaks, type Hyphenator } from './labHyphenCore'
+
+// The rules themselves live in labHyphenCore (pure, also used by the Worker).
+export { HYPHEN_MIN_HEAD, HYPHEN_MIN_TAIL, HYPHEN_MIN_WORD } from './labHyphenCore'
+
 export type HyphenLang = 'en' | 'da'
-
-/**
- * Typographic minimums: never leave one letter stranded before the hyphen, nor
- * fewer than three after it. Below this a break costs more than the ragged line
- * it saves ("a-bundance", "multitud-es").
- */
-export const HYPHEN_MIN_HEAD = 2
-export const HYPHEN_MIN_TAIL = 3
-/** Shorter than this and a break is never worth it. */
-export const HYPHEN_MIN_WORD = HYPHEN_MIN_HEAD + HYPHEN_MIN_TAIL
-
-interface Hyphenator { hyphenate: (word: string) => string[] }
 
 const engines = new Map<HyphenLang, Hyphenator>()
 const loading = new Map<HyphenLang, Promise<void>>()
@@ -69,13 +62,6 @@ export function hyphenatorReady(lang: HyphenLang): boolean {
   return engines.has(lang)
 }
 
-/** Letters only: the alphabetic core of a token, and where it starts. */
-function core(token: string): { text: string; offset: number } | null {
-  const match = /^[^\p{L}]*(\p{L}[\p{L}’']*)/u.exec(token)
-  if (!match) return null
-  return { text: match[1], offset: match.index + match[0].length - match[1].length }
-}
-
 /**
  * Character offsets in `token` after which a hyphen may be drawn, ascending.
  * An offset of 3 on "multitudes" means "mul-" ends the line and "titudes"
@@ -88,34 +74,10 @@ function core(token: string): { text: string; offset: number } | null {
  */
 export function hyphenationBreaks(token: string, lang: HyphenLang, guess = false): number[] {
   const engine = engines.get(lang)
-  if (!engine || !token || /\d/.test(token)) return []
-  // A word that already contains a hyphen is left alone. Breaking "well-known"
-  // would put a discretionary hyphen beside a real one, and a reader cannot
-  // tell which belongs to the text — the one place a wrong break changes what
-  // the book says rather than only how it looks.
-  if (/[-\u2010\u2011\u2013\u2014]/.test(token)) return []
-  const piece = core(token)
-  if (!piece || piece.text.length < HYPHEN_MIN_WORD) return []
-  let parts: string[]
-  try { parts = engine.hyphenate(piece.text) } catch { return [] }
+  if (!engine) return []
   // With `guess` (the phone reader, which places its own hyphens), a word the
-  // patterns do not break at all (a name, often: "Zechariah", "Kutuzov") gets
-  // the rule-based guess instead, English only and held to stricter minimums
-  // (labSyllableFallback). A word they break is never guessed at. A
-  // possessive they leave whole is guessed on the bare name.
-  if (parts.length < 2) {
-    if (!guess || lang !== 'en' || !guessBreaks) return []
-    const bare = piece.text.replace(/['’]s$/, '')
-    return guessBreaks(bare).map(at => piece.offset + at)
-  }
-  const breaks: number[] = []
-  let head = 0
-  for (let index = 0; index < parts.length - 1; index += 1) {
-    head += parts[index].length
-    const tail = piece.text.length - head
-    if (head >= HYPHEN_MIN_HEAD && tail >= HYPHEN_MIN_TAIL) breaks.push(piece.offset + head)
-  }
-  return breaks
+  // patterns do not break at all gets labSyllableFallback's guess, English only.
+  return dictionaryBreaks(engine, token, guess && lang === 'en' ? guessBreaks : null)
 }
 
 /** A dash the book itself prints, after which any browser may end a line. */

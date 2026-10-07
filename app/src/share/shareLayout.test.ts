@@ -1,12 +1,22 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
+import { hyphenationBreaks, loadHyphenator } from '../lab/labHyphenate'
+import { PLAN_GAP_EM, PLAN_MAX_RUN, PLAN_SECOND_GAP_EM } from '../lab/labHyphenPlan'
 import { tokenizeWithEmphasis } from '../lab/labEmphasis'
 import { parseFontMetrics } from './fontMetrics'
+import { englishShareBreaks } from './shareHyphenate'
 import {
   QUOTE_CARDS,
+  SERIES_FLOOR_SIZE,
+  SERIES_MAX_CARDS,
+  SHARE_HYPHEN_GAP_EM,
+  SHARE_HYPHEN_MAX_RUN,
+  SHARE_HYPHEN_SECOND_GAP_EM,
   SHARE_ELLIPSIS,
+  SHARE_TAGLINE,
   buildPassage,
+  composeShareCards,
   composeSharePage,
   isValidShareRange,
   superscriptRuns,
@@ -16,7 +26,7 @@ import {
   type ShareOptions,
   type ShareRange,
 } from './shareLayout'
-import { renderShareSvg } from './shareSvg'
+import { SHARE_PALETTES, renderShareSvg } from './shareSvg'
 
 const root = resolve(__dirname, '../..')
 const font = (name: string) => parseFontMetrics(readFileSync(resolve(root, `public/fonts/share/${name}.ttf`)))
@@ -185,7 +195,9 @@ describe('share highlight: the quote card (surrounding text off)', () => {
     }
   })
 
-  it('hands a quote too long for the card to the page, which never loses more words', () => {
+  // One image only (composeSharePage). The share itself sets such a quote as a
+  // series of cards (composeShareCards, below); this page is its last resort.
+  it('as one image, hands a quote too long for the card to the page, which never loses more words', () => {
     // Desktop: the spread shows all of it, as before the card existed.
     const desktop = composeSharePage(content(LONG), options('desktop', { context: false }), fonts)
     expect(desktop.mode).toBe('spread')
@@ -307,5 +319,298 @@ describe('share highlight: verse numbers', () => {
       expect(Number(drawn![3])).toBeLessThan(page.layout.fontSize * 0.7)
       expect(textOf(svg)).toContain('The LORD\u2019s covenant')
     }
+  })
+})
+
+describe('share highlight: hyphenation (the phone reader plan)', () => {
+  const psalm: string[] = JSON.parse(readFileSync(resolve(root, 'public/data/editions/bible-webc-en.json'), 'utf8')).chapters.find((chapter: { number: number }) => chapter.number === 497).paragraphs
+  const psalmContent = (language: string | undefined, range: ShareRange): ShareContent => ({ bookTitle: 'The Bible', chapterLabel: 'Psalms 19', language, paragraphs: psalm, range })
+  const psalmPage = (range: ShareRange, language: string | undefined, extra: Partial<ShareOptions> = {}, hyphenate?: (word: string) => number[], format: ShareOptions['format'] = 'phone') => composeSharePage(
+    psalmContent(language, range), options(format, { tagline: false, ...extra }), fonts, hyphenate)
+  // Verse 7: the page opens on "…There is nothing hidden from its heat." (Anders's example).
+  const VERSE_7: ShareRange = { paragraphIndex: 2, fromWord: 0, endParagraphIndex: 2, toWord: 9 }
+  // "The LORD’s commandment is pure, enlightening the eyes." (verse 8)
+  const COMMANDMENT: ShareRange = { paragraphIndex: 2, fromWord: 27, endParagraphIndex: 2, toWord: 35 }
+  // Verses 1–11: long enough for the desktop spread.
+  const HEAVENS: ShareRange = { paragraphIndex: 1, fromWord: 0, endParagraphIndex: 2, toWord: tokenizeParagraph(psalm[2]).length }
+  const page = (language: string | undefined, extra: Partial<ShareOptions> = {}, hyphenate?: (word: string) => number[], format: ShareOptions['format'] = 'phone') => psalmPage(VERSE_7, language, extra, hyphenate, format)
+  // What the Worker uses; the same breaks as the phone reader's (checked below).
+  const breaks = englishShareBreaks
+  type Composed = ReturnType<typeof composeSharePage>
+  /** Widest gap between two words on each line, in ems. */
+  const widestGaps = (composed: Composed) => composed.layout.lines.map(line => {
+    let widest = 0
+    for (let k = 0; k + 1 < line.words.length; k++) widest = Math.max(widest, line.words[k + 1].x - line.words[k].x - line.words[k].width)
+    return widest / composed.layout.fontSize
+  })
+  const VERSE = /^[⁰¹²³⁴-⁹]+$/
+  const DASH = /[-‐‑–—]/
+  /** The placed words, each hyphenated head joined to its tail (a head the page ends on stays partial). */
+  const rejoined = (composed: Composed, only: (hl: boolean) => boolean = () => true) => {
+    const words: string[] = []
+    let head = ''
+    for (const line of composed.layout.lines) for (const word of line.words) {
+      if (!only(word.hl)) continue
+      if (word.hyphen) { head = word.text.slice(0, -1); continue }
+      words.push(head + word.text)
+      head = ''
+    }
+    return words
+  }
+  /** labHyphenPlan's rules, on one page: `before` is the same page unhyphenated. */
+  const expectReaderRules = (before: Composed, after: Composed) => {
+    const lines = after.layout.lines
+    // Never more than two hyphenated lines in a row.
+    let run = 0
+    for (const line of lines) { run = line.words[line.words.length - 1].hyphen ? run + 1 : 0; expect(run).toBeLessThanOrEqual(SHARE_HYPHEN_MAX_RUN) }
+    lines.forEach((line, index) => {
+      // Only a line's last word is ever a head, drawn with its hyphen.
+      expect(line.words.slice(0, -1).some(word => word.hyphen)).toBe(false)
+      const last = line.words[line.words.length - 1]
+      if (!last.hyphen) return
+      expect(last.text.endsWith('-')).toBe(true)
+      // Two letters before the break and three after; never in a number or a word with its own hyphen.
+      const head = last.text.slice(0, -1)
+      expect(head.replace(/^[^\p{L}]*/u, '').length).toBeGreaterThanOrEqual(2)
+      expect(/\d|[⁰¹²³⁴-⁹]/.test(head) || DASH.test(head)).toBe(false)
+      const tail = lines[index + 1]?.words[0]
+      if (tail) {
+        expect(tail.text.replace(/[^\p{L}’']+$/u, '').length).toBeGreaterThanOrEqual(3)
+        expect(/\d/.test(tail.text) || DASH.test(tail.text)).toBe(false)
+      }
+    })
+    // The words are the page's own, in order.
+    const plain = before.layout.lines.flatMap(line => line.words.map(word => word.text))
+    const words = rejoined(after)
+    const shared = Math.min(plain.length, words.length)
+    expect(shared).toBeGreaterThan(10)
+    expect(words.slice(0, shared)).toEqual(plain.slice(0, shared))
+    // A verse number never ends a line.
+    for (const composed of [before, after]) for (const line of composed.layout.lines.slice(0, -1)) {
+      expect(VERSE.test(line.words[line.words.length - 1].text)).toBe(false)
+    }
+  }
+
+  beforeAll(async () => { await loadHyphenator('en') })
+
+  it('breaks words exactly where the phone reader does (en-us patterns and the syllable fallback)', () => {
+    const words = new Set([...psalm, ...paragraphs].flatMap(paragraph => tokenizeParagraph(paragraph).map(token => token.text)))
+    for (const word of ['Zechariah', 'Kutuzov', 'Amariah’s', 'Gateshead', 'multitudes']) words.add(word)
+    let broken = 0
+    for (const word of words) {
+      const reader = hyphenationBreaks(word, 'en', true)
+      expect(englishShareBreaks(word), word).toEqual(reader)
+      if (reader.length) broken++
+    }
+    expect(broken).toBeGreaterThan(100)
+    // The fallback is in: a name the patterns leave whole is still broken.
+    expect(hyphenationBreaks('Zechariah', 'en', false)).toEqual([])
+    expect(englishShareBreaks('Zechariah').length).toBeGreaterThan(0)
+  })
+
+  it('follows the phone reader plan’s thresholds and break rules', () => {
+    expect(SHARE_HYPHEN_GAP_EM).toBe(PLAN_GAP_EM)
+    expect(SHARE_HYPHEN_SECOND_GAP_EM).toBe(PLAN_SECOND_GAP_EM)
+    expect(SHARE_HYPHEN_MAX_RUN).toBe(PLAN_MAX_RUN)
+    for (const word of ['¹⁰', '1000000', 'twenty-third', 'well-known']) expect(breaks(word)).toEqual([])
+    for (const word of ['enlightening', 'commandment', 'ordinances', 'righteous', 'honeycomb']) {
+      for (const at of breaks(word)) {
+        expect(at).toBeGreaterThanOrEqual(2)
+        expect(word.length - at).toBeGreaterThanOrEqual(3)
+      }
+    }
+  })
+
+  it('leaves fewer lines with a gap over 1.6× the font size on the Psalms 19 page', () => {
+    const wide = (composed: Composed) => widestGaps(composed).filter(gap => gap > 1.6).length
+    let widesBefore = 0
+    let widesAfter = 0
+    for (const range of [VERSE_7, COMMANDMENT]) {
+      const before = psalmPage(range, 'en')
+      const after = psalmPage(range, 'en', {}, breaks)
+      widesBefore += wide(before)
+      widesAfter += wide(after)
+      expect(wide(after)).toBeLessThanOrEqual(wide(before))
+      expectReaderRules(before, after)
+    }
+    // Before: "commandment is pure," spread across a whole phone line.
+    expect(wide(psalmPage(COMMANDMENT, 'en'))).toBeGreaterThanOrEqual(1)
+    expect(widesAfter).toBeLessThan(widesBefore)
+    expect(widesAfter).toBe(0)
+  })
+
+  it('hyphenates loose justified lines on the Psalms 19 page, as the phone reader does', () => {
+    const before = page('en')
+    const after = page('en', {}, breaks)
+    // Loose: a gap wider than the reader plan's threshold (0.55em, space included; a
+    // normal space in this face is 0.2em).
+    const loose = (composed: Composed) => widestGaps(composed).filter(gap => gap > SHARE_HYPHEN_GAP_EM).length
+    expect(loose(before)).toBeGreaterThanOrEqual(5)
+    expect(loose(after)).toBe(0)
+    expect(Math.max(...widestGaps(before))).toBeGreaterThan(1)
+    expect(Math.max(...widestGaps(after))).toBeLessThanOrEqual(SHARE_HYPHEN_GAP_EM)
+    expect(after.layout.lines.filter(line => line.words[line.words.length - 1].hyphen).length).toBeGreaterThanOrEqual(2)
+    expectReaderRules(before, after)
+    // The whole highlight is placed (its opening verse number is the page's own).
+    expect(rejoined(after, hl => hl)).toEqual(shareRangeText(psalm, VERSE_7).split(' '))
+  })
+
+  it('draws the hyphen at each break', () => {
+    const composed = page('en', {}, breaks)
+    const svg = renderShareSvg(composed, fonts)
+    const heads = composed.layout.lines.map(line => line.words[line.words.length - 1]).filter(word => word.hyphen)
+    expect(heads.length).toBeGreaterThan(0)
+    for (const head of heads) expect(svg).toContain(`>${head.text}</text>`)
+  })
+
+  it('hyphenates the desktop page and spread too, and leaves the quote card and other languages alone', () => {
+    const desktop = page('en', {}, breaks, 'desktop')
+    expect(desktop.mode).toBe('single')
+    expect(desktop.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(true)
+    expectReaderRules(page('en', {}, undefined, 'desktop'), desktop)
+    const spread = psalmPage(HEAVENS, 'en', {}, breaks, 'desktop')
+    expect(spread.mode).toBe('spread')
+    expect(spread.cut).toBe(false)
+    expect(spread.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(true)
+    expectReaderRules(psalmPage(HEAVENS, 'en', {}, undefined, 'desktop'), spread)
+    // The quote card, one or a series, stays ragged right and unhyphenated.
+    for (const format of ['phone', 'desktop'] as const) {
+      const card = page('en', { context: false }, breaks, format)
+      expect(card.mode).toBe('quote')
+      for (const composed of [card, ...composeShareCards(psalmContent('en', HEAVENS), options(format, { context: false }), fonts, breaks)]) {
+        expect(composed.mode).toBe('quote')
+        expect(composed.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(false)
+      }
+    }
+    for (const language of ['da', undefined]) {
+      expect(page(language, {}, breaks).layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(false)
+    }
+  })
+})
+
+describe('share highlight: a series of cards for a long quote', () => {
+  // Anders's example: Notes from Underground (Garnett 1918), Part 1, Chapter 8,
+  // "In short, one may say anything about the history of the world…" through "…piano-key!".
+  const notes: { title: string; paragraphs: string[] } = JSON.parse(readFileSync(resolve(root, 'public/data/editions/notes-from-underground-original-en.json'), 'utf8')).chapters.find((chapter: { number: number }) => chapter.number === 8)
+  const words = tokenizeParagraph(notes.paragraphs[3]).map(token => token.text)
+  const from = words.findIndex((word, index) => word === 'In' && words[index + 1] === 'short,')
+  const to = words.findIndex((word, index) => index > from && word === 'piano-key!') + 1
+  const NOTES: ShareRange = { paragraphIndex: 3, fromWord: from, endParagraphIndex: 3, toWord: to }
+  const notesContent: ShareContent = { bookTitle: 'Notes from Underground', chapterLabel: notes.title, language: 'en', paragraphs: notes.paragraphs, range: NOTES }
+  const cardWords = (page: ReturnType<typeof composeSharePage>) => page.layout.lines.flatMap(line => line.words.map(word => word.text))
+  const lastOf = (list: string[]) => list[list.length - 1]
+  /** A word without the "…" a split mid-sentence adds. */
+  const bare = (word: string) => word.replace(new RegExp(`^${SHARE_ELLIPSIS}|${SHARE_ELLIPSIS}$`, 'g'), '')
+
+  it('splits Anders’s long quote at sentences, losing no words, one size on every card', () => {
+    expect(notesContent.chapterLabel).toBe('Part 1, Chapter 8')
+    expect(words[to - 1]).toBe('piano-key!')
+    const quote = shareRangeText(notes.paragraphs, NOTES).split(' ')
+    expect(quote[0]).toBe('In')
+    for (const format of ['phone', 'desktop'] as const) for (const tagline of [false, true]) {
+      const cards = composeShareCards(notesContent, options(format, { look: 'night', context: false, tagline }), fonts)
+      expect(cards.length).toBeGreaterThanOrEqual(2)
+      expect(cards.length).toBeLessThanOrEqual(SERIES_MAX_CARDS)
+      // Readable: the card's own smallest size or larger, the same on every card.
+      expect(cards[0].layout.fontSize).toBeGreaterThanOrEqual(QUOTE_CARDS[format].minSize)
+      for (const card of cards) {
+        expect(card.mode).toBe('quote')
+        expect(card.layout.fontSize).toBe(cards[0].layout.fontSize)
+        expect(card.frame.canvas).toEqual(cards[0].frame.canvas)
+        expect(card.layout.fits).toBe(true)
+        expect(card.layout.usedHeight).toBeLessThanOrEqual(card.frame.text.height + 0.5)
+        expect(card.options.look).toBe('night')
+        expect(card.layout.lines.flatMap(line => line.words).every(word => word.hl)).toBe(true)
+      }
+      // Every word in order, none twice, unchanged; each card but the last ends on a sentence.
+      expect(cards.flatMap(cardWords)).toEqual(quote)
+      for (const card of cards.slice(0, -1)) expect(/[.!?]["”’)]*$/.test(lastOf(cardWords(card)))).toBe(true)
+      expect(cards.map(card => card.series)).toEqual(cards.map((_, k) => ({ index: k + 1, count: cards.length })))
+      // The credit on the last card only.
+      expect(cards.map(card => card.options.tagline)).toEqual(cards.map((_, k) => tagline && k === cards.length - 1))
+    }
+  })
+
+  it('draws book · chapter and a quiet counter in one place on every card, the credit on the last', () => {
+    const cards = composeShareCards(notesContent, options('phone', { look: 'night', context: false, tagline: true }), fonts)
+    const svgs = cards.map(card => renderShareSvg(card, fonts))
+    svgs.forEach((svg, k) => {
+      expect(svg).toContain('Notes from Underground')
+      expect(svg).toContain('Part 1, Chapter 8')
+      expect(svg).toContain(`>${k + 1}/${cards.length}</text>`)
+      expect(svg.includes(SHARE_TAGLINE)).toBe(k === cards.length - 1)
+      expect(svg).toContain(`fill="${SHARE_PALETTES.night.highlight}"`)
+      expect(svg).toContain(`fill="${SHARE_PALETTES.night.paper}"`)
+    })
+    // The header's right edge, on the header's baseline.
+    const place = (svg: string) => svg.match(/<text x="([\d.]+)" y="([\d.]+)"[^>]*>\d\/\d<\/text>/)!.slice(1)
+    for (const svg of svgs) expect(place(svg)).toEqual(place(svgs[0]))
+    expect(Number(place(svgs[0])[0])).toBeGreaterThan(cards[0].frame.canvas.width / 2)
+  })
+
+  it('shows no counter on a single card, and keeps the page and spread for surrounding text', () => {
+    const [card, ...rest] = composeShareCards(content(SHORT), options('phone', { context: false }), fonts)
+    expect(rest).toEqual([])
+    expect(card.series).toBeUndefined()
+    expect(renderShareSvg(card, fonts)).not.toMatch(/>\d\/\d<\/text>/)
+    expect(composeShareCards(content(LONG), options('desktop'), fonts).map(page => page.mode)).toEqual(['spread'])
+    expect(composeShareCards(content(SHORT), options('phone'), fonts).map(page => page.mode)).toEqual(['single'])
+    expect(composeShareCards(notesContent, options('phone'), fonts)).toHaveLength(1)
+  })
+
+  it('splits a sentence too long for one card at its clauses, still losing no words', () => {
+    // One sentence of 400 words, with commas but no full stop until the end.
+    const sentence = Array.from({ length: 40 }, (_, k) => `the ${k % 2 ? 'patient' : 'restless'} reader turned the page again and again,`).join(' ').replace(/,$/, '.')
+    const long: ShareContent = { bookTitle: 'Test', chapterLabel: 'One', language: 'en', paragraphs: [sentence], range: { paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: tokenizeParagraph(sentence).length } }
+    const cards = composeShareCards(long, options('phone', { context: false }), fonts)
+    expect(cards.length).toBeGreaterThan(1)
+    expect(cards.length).toBeLessThanOrEqual(SERIES_MAX_CARDS)
+    expect(cards.flatMap(cardWords).map(bare)).toEqual(sentence.split(' '))
+    cards.slice(0, -1).forEach((card, k) => {
+      // A clause ends the card, "…" says the sentence goes on, and the next card opens with "…".
+      expect(lastOf(cardWords(card)).endsWith(`,${SHARE_ELLIPSIS}`)).toBe(true)
+      expect(cardWords(cards[k + 1])[0].startsWith(SHARE_ELLIPSIS)).toBe(true)
+    })
+  })
+
+  it('caps a very long quote at four cards with smaller type; past the floor, the page takes it', () => {
+    // Frankenstein chapter 5, paragraphs 2–6 (about 740 words).
+    for (const format of ['phone', 'desktop'] as const) {
+      const cards = composeShareCards(content(OVER), options(format, { context: false }), fonts)
+      expect(cards.every(card => card.mode === 'quote')).toBe(true)
+      expect(cards.length).toBeGreaterThan(1)
+      expect(cards.length).toBeLessThanOrEqual(SERIES_MAX_CARDS)
+      expect(cards[0].layout.fontSize).toBeGreaterThanOrEqual(SERIES_FLOOR_SIZE[format])
+      expect(cards.flatMap(cardWords).map(bare)).toEqual(shareRangeText(paragraphs, OVER).split(' '))
+    }
+    // On the phone that is more than four cards at the card's smallest size: four, smaller.
+    const phone = composeShareCards(content(OVER), options('phone', { context: false }), fonts)
+    expect(phone).toHaveLength(SERIES_MAX_CARDS)
+    expect(phone[0].layout.fontSize).toBeLessThan(QUOTE_CARDS.phone.minSize)
+    // Far past four cards even at the floor: one image, the page with its 75% floor and sentence cut.
+    const all = paragraphs.slice(0, 12)
+    const huge: ShareContent = { bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5', paragraphs: all, range: { paragraphIndex: 0, fromWord: 0, endParagraphIndex: all.length - 1, toWord: tokenizeParagraph(all[all.length - 1]).length } }
+    const fallback = composeShareCards(huge, options('phone', { context: false }), fonts)
+    expect(fallback).toHaveLength(1)
+    expect(fallback[0].mode).toBe('single')
+    expect(fallback[0].cut).toBe(true)
+    expect(fallback[0].series).toBeUndefined()
+  })
+
+  it('opens the link preview on the first card’s text, ending in "…"', () => {
+    for (const format of ['phone', 'desktop'] as const) {
+      const [first] = composeShareCards(notesContent, options(format, { context: false }), fonts)
+      const og = composeSharePage(notesContent, options('og', { context: false, cardFormat: format }), fonts)
+      expect(og.frame.canvas).toEqual({ width: 1200, height: 630 })
+      const shown = cardWords(og)
+      const firstWords = cardWords(first)
+      expect(lastOf(shown).endsWith(SHARE_ELLIPSIS)).toBe(true)
+      expect(shown.length).toBeLessThanOrEqual(firstWords.length)
+      expect(shown.slice(0, -1)).toEqual(firstWords.slice(0, shown.length - 1))
+      expect(bare(lastOf(shown))).toBe(firstWords[shown.length - 1])
+    }
+    // A single card's preview is as before.
+    const single = composeSharePage(content(SHORT), options('og', { context: false, cardFormat: 'phone' }), fonts)
+    expect(cardWords(single)).toEqual(cardWords(composeSharePage(content(SHORT), options('og', { context: false }), fonts)))
   })
 })

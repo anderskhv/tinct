@@ -18,7 +18,7 @@ import { getBook } from '../../data/bookRegistry'
 import { editionHold, isBookTemporarilyHeld } from '../../data/editionAvailability'
 import { editionLicence, type EditionLicence } from '../../data/editionLicences'
 import { isEditionWithheld } from '../../data/withheldEditions'
-import { buildPassage, isValidShareRange, type ShareContent, type ShareFormat, type ShareLook, type ShareOptions, type ShareRange } from '../../share/shareLayout'
+import { SERIES_MAX_CARDS, buildPassage, isValidShareRange, type ShareContent, type ShareFormat, type ShareLook, type ShareOptions, type ShareRange } from '../../share/shareLayout'
 import type { Book } from '../../types'
 import { createBookRetrieval, type AssetsBinding } from '../lib/bookRetrieval'
 import { htmlEscape } from '../lib/html'
@@ -37,7 +37,7 @@ export interface ShareDeps {
 }
 
 /** Bump when the drawing changes, so cached images are redrawn. */
-export const SHARE_RENDER_VERSION = '5'
+export const SHARE_RENDER_VERSION = '6'
 export const SHARE_CREATE_PER_MINUTE = 10
 export const SHARE_PREVIEW_PER_MINUTE = 40
 const IMAGE_CACHE = 'public, max-age=86400'
@@ -106,32 +106,50 @@ export async function loadShareContent(env: ShareEnv, origin: string, input: Sha
     author: book.author,
     credit: editionCredit(edition),
     licence: editionLicence(book.id, edition.key),
-    content: { bookTitle: book.title, chapterLabel: chapter.title, paragraphs: chapter.paragraphs, range },
+    content: { bookTitle: book.title, chapterLabel: chapter.title, language: edition.language, paragraphs: chapter.paragraphs, range },
   }
 }
 
 function optionsOf(input: ShareRecordInput, format: ShareFormat): ShareOptions {
-  return { format, look: input.look, context: input.context, tagline: input.tagline }
+  const options: ShareOptions = { format, look: input.look, context: input.context, tagline: input.tagline }
+  // The link preview of a quote set as a series opens on its first card.
+  if (format === 'og' && !input.context) options.cardFormat = input.format
+  return options
 }
 
-async function pngResponse(env: ShareEnv, request: Request, ctx: ExecutionContext, cacheKey: string, draw: () => Promise<Uint8Array | null>): Promise<Response> {
+/** A share's cards are numbered 1 to SERIES_MAX_CARDS; anything else is card 1. */
+export function parseShareCard(value: string | null): number {
+  const card = value && /^[1-9]$/.test(value) ? Number(value) : 1
+  return card <= SERIES_MAX_CARDS ? card : 1
+}
+
+/** How many cards the share is, on every image response (the share sheet reads it). */
+export const SHARE_CARDS_HEADER = 'X-Share-Cards'
+
+async function pngResponse(env: ShareEnv, request: Request, ctx: ExecutionContext, cacheKey: string, draw: () => Promise<{ png: Uint8Array; cards: number } | null>): Promise<Response> {
   const cache = typeof caches !== 'undefined' ? (caches as unknown as { default: Cache }).default : null
   const key = new Request(cacheKey)
   const cached = await cache?.match(key)
   if (cached) return request.method === 'HEAD' ? new Response(null, { headers: cached.headers }) : cached
-  const png = await draw()
-  if (!png) return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'no-store', 'Content-Type': 'text/plain' } })
+  const drawn = await draw()
+  if (!drawn) return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'no-store', 'Content-Type': 'text/plain' } })
   // Public images: the Android app fetches them cross-origin to attach to a share.
-  const response = new Response(png as unknown as BodyInit, { headers: { 'Content-Type': 'image/png', 'Cache-Control': IMAGE_CACHE, 'X-Content-Type-Options': 'nosniff', 'Access-Control-Allow-Origin': '*' } })
+  const response = new Response(drawn.png as unknown as BodyInit, {
+    headers: {
+      'Content-Type': 'image/png', 'Cache-Control': IMAGE_CACHE, 'X-Content-Type-Options': 'nosniff',
+      'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': SHARE_CARDS_HEADER, [SHARE_CARDS_HEADER]: String(drawn.cards),
+    },
+  })
   if (cache) ctx.waitUntil(cache.put(key, response.clone()))
   return request.method === 'HEAD' ? new Response(null, { headers: response.headers }) : response
 }
 
-async function renderInput(env: ShareEnv, origin: string, input: ShareRecordInput, format: ShareFormat): Promise<Uint8Array | null> {
+async function renderInput(env: ShareEnv, origin: string, input: ShareRecordInput, format: ShareFormat, card = 1): Promise<{ png: Uint8Array; cards: number } | null> {
   const loaded = await loadShareContent(env, origin, input)
   if (!loaded) return null
   const { renderSharePng } = await import('../lib/shareRender')
-  return (await renderSharePng(env.ASSETS, origin, loaded.content, optionsOf(input, format))).png
+  const drawn = await renderSharePng(env.ASSETS, origin, loaded.content, optionsOf(input, format), card)
+  return { png: drawn.png, cards: drawn.cards ?? 1 }
 }
 
 function readerHref(record: Pick<ShareRecord, 'id' | 'bookId' | 'editionKey' | 'chapterNumber' | 'paragraphIndex' | 'fromWord'>): string {
@@ -149,7 +167,11 @@ function excerpt(text: string, max = 110): string {
   return `${(space > 60 ? cut.slice(0, space) : cut).replace(/[,;:.!?\u2014-]+$/, '')}\u2026`
 }
 
-export function shareLinkPage(input: { origin: string; record: ShareRecord; text: string; bookTitle: string; author: string; chapterLabel: string; credit?: string; licence?: EditionLicence | null }): string {
+/**
+ * The /q/{id} page. A quote set as a series of cards (`quote` given: its
+ * paragraphs) is shown in full as text rather than as its first card.
+ */
+export function shareLinkPage(input: { origin: string; record: ShareRecord; text: string; bookTitle: string; author: string; chapterLabel: string; credit?: string; licence?: EditionLicence | null; quote?: string[] }): string {
   const { origin, record } = input
   const url = `${origin}/q/${record.id}`
   // "…" only where the quote starts or stops mid-sentence, as on the image.
@@ -169,10 +191,12 @@ export function shareLinkPage(input: { origin: string; record: ShareRecord; text
     + `<meta property="og:image" content="${e(og)}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${e(title)}">`
     + `<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(title)}"><meta name="twitter:description" content="${e(description)}"><meta name="twitter:image" content="${e(og)}"><meta name="twitter:image:alt" content="${e(title)}">`
     + '<link rel="icon" href="/brand/20260921/favicon.svg" type="image/svg+xml">'
-    + '<style>body{margin:0;background:#ece7db;color:#0b0b0b;font:18px/1.5 "EB Garamond",Georgia,serif;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 16px}img{max-width:min(100%,540px);height:auto;box-shadow:0 2px 12px rgba(60,45,25,.15)}a{color:#1f4a5c}.credit{margin:0;max-width:540px;text-align:center;font-size:15px;color:#6a6256}</style>'
+    + '<style>body{margin:0;background:#ece7db;color:#0b0b0b;font:18px/1.5 "EB Garamond",Georgia,serif;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 16px}img{max-width:min(100%,540px);height:auto;box-shadow:0 2px 12px rgba(60,45,25,.15)}a{color:#1f4a5c}blockquote{margin:0;max-width:540px}blockquote p{margin:0 0 .8em}.credit{margin:0;max-width:540px;text-align:center;font-size:15px;color:#6a6256}</style>'
     + `<script src="/share-open.js" defer></script></head><body data-reader="${e(href)}">`
-    // The page image has a fixed size; the quote card's height follows its text.
-    + `<img src="${e(`${url}/image.png`)}" alt="${e(title)}"${record.context ? ` width="${record.format === 'phone' ? 1080 : 1600}" height="${record.format === 'phone' ? 1350 : 1000}"` : ''}>`
+    + (input.quote?.length
+      ? `<blockquote>${input.quote.map(paragraph => `<p>${e(paragraph)}</p>`).join('')}</blockquote>`
+      // The page image has a fixed size; the quote card's height follows its text.
+      : `<img src="${e(`${url}/image.png`)}" alt="${e(title)}"${record.context ? ` width="${record.format === 'phone' ? 1080 : 1600}" height="${record.format === 'phone' ? 1350 : 1000}"` : ''}>`)
     + `<a href="${e(href)}">${e(input.bookTitle)}</a>`
     + (input.credit || input.licence
       ? `<p class="credit">${e([input.author, input.chapterLabel, input.credit].filter(Boolean).join(' · '))}`
@@ -191,8 +215,9 @@ export async function handleShareApi(request: Request, env: ShareEnv, ctx: Execu
     const input = parseShareInput(Object.fromEntries(url.searchParams))
     if (!input) return jsonResponse({ error: 'invalid_share' }, 400, request)
     if (!(await deps.checkRateLimit(`share-preview:${clientKey(request)}`, undefined, SHARE_PREVIEW_PER_MINUTE))) return jsonResponse({ error: 'rate_limited' }, 429, request)
-    const key = `${url.origin}/__share-preview/v${SHARE_RENDER_VERSION}?${new URLSearchParams(Object.entries(input).map(([k, v]) => [k, String(v)]))}`
-    return pngResponse(env, request, ctx, key, () => renderInput(env, url.origin, input, input.format))
+    const card = parseShareCard(url.searchParams.get('card'))
+    const key = `${url.origin}/__share-preview/v${SHARE_RENDER_VERSION}?${new URLSearchParams([...Object.entries(input).map(([k, v]) => [k, String(v)]), ['card', String(card)]])}`
+    return pngResponse(env, request, ctx, key, () => renderInput(env, url.origin, input, input.format, card))
   }
 
   if (path === '/api/share') {
@@ -247,11 +272,19 @@ export async function handleSharePage(request: Request, env: ShareEnv, ctx: Exec
   }
   const loaded = await loadShareContent(env, url.origin, record)
   if (!loaded) return notFound()
+  const quote = buildPassage(loaded.content.paragraphs, loaded.content.range, false).map(paragraph => paragraph.tokens.map(token => token.text).join(' '))
+  // A quote set as a series of cards: the page shows all of it as text.
+  let series = false
+  if (!record.context) {
+    const { shareCardCount } = await import('../lib/shareRender')
+    series = await shareCardCount(env.ASSETS, url.origin, loaded.content, optionsOf(record, record.format)).then(count => count > 1, () => false)
+  }
   const html = shareLinkPage({
     origin: url.origin, record,
-    text: buildPassage(loaded.content.paragraphs, loaded.content.range, false).flatMap(paragraph => paragraph.tokens.map(token => token.text)).join(' '),
+    text: quote.join(' '),
     bookTitle: loaded.content.bookTitle, author: loaded.author, chapterLabel: loaded.content.chapterLabel,
     credit: loaded.credit, licence: loaded.licence,
+    quote: series ? quote : undefined,
   })
   return new Response(request.method === 'HEAD' ? null : html, {
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=300' },

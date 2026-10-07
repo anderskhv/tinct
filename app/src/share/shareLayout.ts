@@ -36,6 +36,8 @@ export interface ShareFonts {
 export interface ShareContent {
   bookTitle: string
   chapterLabel: string
+  /** The edition's language ("en", "da", …): justified pages are hyphenated in English only. */
+  language?: string
   paragraphs: string[]
   range: ShareRange
 }
@@ -45,8 +47,14 @@ export interface ShareOptions {
   look: ShareLook
   /** Show surrounding text (greyed). */
   context: boolean
-  /** Add "Read free at tinct.app". */
+  /** Add "Read free at tinct.app" (on a series of cards, the last card only). */
   tagline: boolean
+  /**
+   * The link preview (`og`) of a quote shown alone: the format of the shared
+   * card(s). When that quote is a series, the preview opens on the first
+   * card's text, ending in "…".
+   */
+  cardFormat?: 'phone' | 'desktop'
 }
 
 export const SHARE_TAGLINE = 'Read free at tinct.app'
@@ -108,6 +116,8 @@ export interface Token {
   lineBreakBefore: boolean
   /** Ends a sentence: a cut point for an over-long highlight. */
   sentenceEnd: boolean
+  /** The tail of a word hyphenated at the end of the line above (layout only). */
+  continued?: boolean
 }
 
 export interface Paragraph {
@@ -311,6 +321,8 @@ export interface PlacedWord {
   width: number
   style: 'regular' | 'semibold' | 'italic'
   hl: boolean
+  /** The head of a word hyphenated at the line end; `text` ends with the drawn "-". */
+  hyphen?: boolean
 }
 
 export interface PlacedLine {
@@ -358,7 +370,36 @@ function widthOf(fonts: ShareFonts, token: Token, size: number): number {
   return width
 }
 
-export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize: number, box: ColumnBox): ColumnLayout {
+// ---------------------------------------------------------------------------
+// Hyphenation (the phone reader's plan, labHyphenPlan.ts, applied while filling lines)
+
+/**
+ * Where a word may break: the reader's en-us patterns and syllable fallback
+ * (labHyphenate `hyphenationBreaks(word, 'en', true)`: two letters before a
+ * break and three after, nothing in digits or in a word that has its own
+ * hyphen). Given by the renderer, which loads the patterns.
+ */
+export type ShareHyphenate = (token: string) => number[]
+
+/** labHyphenPlan's thresholds: a line is loose past this gap (space included) in ems… */
+export const SHARE_HYPHEN_GAP_EM = 0.55
+/** …a second hyphenated line in a row needs this much… */
+export const SHARE_HYPHEN_SECOND_GAP_EM = 0.8
+/** …and never more than this many in a row. */
+export const SHARE_HYPHEN_MAX_RUN = 2
+
+/**
+ * Lay the passage out in the column(s). Justified lines (not the ragged quote
+ * card) are hyphenated as the phone reader plans them when `hyphenate` is
+ * given: a line is offered a hyphen only when justifying it whole would space
+ * its words beyond SHARE_HYPHEN_GAP_EM (SHARE_HYPHEN_SECOND_GAP_EM after a
+ * hyphenated line), never as the third hyphenated line in a row, and only at a
+ * break whose head and hyphen fit the room left. A verse number that would
+ * start the next line moves up only together with the head of its word. The
+ * words themselves are unchanged: the head is drawn with a hyphen, the tail
+ * starts the next line.
+ */
+export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize: number, box: ColumnBox, hyphenate?: ShareHyphenate): ColumnLayout {
   const lineHeight = fontSize * (box.leading ?? LINE_HEIGHT)
   const gapAfterParagraph = fontSize * PARAGRAPH_GAP
   const space = (fonts.regular.advance(32) / fonts.regular.unitsPerEm) * fontSize
@@ -369,6 +410,9 @@ export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize:
   let placedHl = 0
   let placedWords = 0
   let full = false
+  /** Hyphenated lines in a row so far. */
+  let run = 0
+  const planHyphens = Boolean(hyphenate) && !box.ragged
 
   const newLineFits = () => {
     if (y + lineHeight <= box.height + 0.5) return true
@@ -377,7 +421,8 @@ export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize:
   }
 
   for (let p = 0; p < passage.length && !full; p++) {
-    const tokens = passage[p].tokens
+    // A copy: a hyphenated word becomes its head and its tail in place.
+    const tokens = [...passage[p].tokens]
     if (p > 0 && y > 0) y += gapAfterParagraph
     let i = 0
     while (i < tokens.length) {
@@ -394,6 +439,38 @@ export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize:
         natural = next
         j++
       }
+      // A verse number never ends a line: it belongs with the word after it, as in the reader.
+      if (j < tokens.length && words.length > 1 && isVerseMarker(words[words.length - 1].token.text)) {
+        const marker = words.pop()!
+        natural -= space + marker.width
+        j--
+      }
+      let hyphenated = false
+      if (planHyphens && j < tokens.length && !tokens[j].lineBreakBefore && words.length >= 2 && run < SHARE_HYPHEN_MAX_RUN
+        && (space + (box.width - natural) / (words.length - 1)) / fontSize > (run > 0 ? SHARE_HYPHEN_SECOND_GAP_EM : SHARE_HYPHEN_GAP_EM)) {
+        const lead = isVerseMarker(tokens[j].text) && j + 1 < tokens.length && !tokens[j + 1].lineBreakBefore ? j : -1
+        const target = lead >= 0 ? j + 1 : j
+        const word = tokens[target]
+        const points = word.continued || isVerseMarker(word.text) ? [] : hyphenate!(word.text)
+        const leadWidth = lead >= 0 ? widthOf(fonts, tokens[lead], fontSize) + space : 0
+        for (let k = points.length - 1; k >= 0; k--) {
+          const head: Token = { ...word, text: `${word.text.slice(0, points[k])}-`, sentenceEnd: false }
+          const headWidth = widthOf(fonts, head, fontSize)
+          if (natural + space + leadWidth + headWidth > box.width) continue
+          const tail: Token = { ...word, text: word.text.slice(points[k]), lineBreakBefore: false, continued: true }
+          tokens.splice(target, 1, head, tail)
+          if (lead >= 0) {
+            const width = leadWidth - space
+            words.push({ token: tokens[lead], width })
+            natural += space + width
+          }
+          words.push({ token: head, width: headWidth })
+          natural += space + headWidth
+          j = target + 1
+          hyphenated = true
+          break
+        }
+      }
       if (!newLineFits()) { full = true; break }
       const lastOfParagraph = j >= tokens.length
       const forcedBreak = !lastOfParagraph && tokens[j].lineBreakBefore
@@ -401,14 +478,18 @@ export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize:
       const gap = justify ? space + (box.width - natural) / (words.length - 1) : space
       const offset = column * (box.width + box.gap)
       let x = 0
-      const placed: PlacedWord[] = words.map(({ token, width }) => {
+      const placed: PlacedWord[] = words.map(({ token, width }, index) => {
         const word: PlacedWord = { text: token.text, x: offset + x, width, style: styleOf(token), hl: token.hl }
+        if (hyphenated && index === words.length - 1) word.hyphen = true
         x += width + gap
         return word
       })
       lines.push({ column, top: y, words: placed })
-      placedHl += words.filter(word => word.token.hl).length
-      placedWords += words.length
+      // A hyphenated word counts once, as placed with its tail on the next line.
+      const whole = hyphenated ? words.slice(0, -1) : words
+      placedHl += whole.filter(word => word.token.hl).length
+      placedWords += whole.length
+      run = hyphenated ? run + 1 : 0
       y += lineHeight
       i = j
     }
@@ -495,6 +576,8 @@ export interface SharePage {
   offsetY: number
   /** Desktop page numbers under each column. */
   pageNumbers: number[]
+  /** One card of a series (1-based `index`), drawn with a quiet "index/count". */
+  series?: { index: number; count: number }
 }
 
 function steps(): number[] {
@@ -513,11 +596,18 @@ function boxFor(frame: ShareFrame, spread: boolean): ColumnBox {
  * Lay out the page, following the spec's fitting order. Deterministic: the
  * same record always yields the same image.
  */
-export function composeSharePage(content: ShareContent, options: ShareOptions, fonts: ShareFonts): SharePage {
-  const passage = buildPassage(content.paragraphs, content.range, options.context)
+export function composeSharePage(content: ShareContent, options: ShareOptions, fonts: ShareFonts, hyphenate?: ShareHyphenate): SharePage {
+  // English only, as in the reader; other languages stay unhyphenated.
+  const breaks = content.language === 'en' ? hyphenate : undefined
+  let passage = buildPassage(content.paragraphs, content.range, options.context)
   if (!options.context && options.format !== 'og') {
     const card = composeQuoteCard(content, options, fonts, passage)
     if (card) return card
+  }
+  if (!options.context && options.format === 'og' && options.cardFormat) {
+    // A series' link preview: the first card's words, then "…".
+    const plan = planQuoteSeries(options.cardFormat, options.tagline, fonts, passage)
+    if (plan && plan.chunks.length > 1) passage = withTrailingEllipsisOnce(plan.chunks[0])
   }
   const candidates: Array<{ frame: ShareFrame; spread: boolean; scales: number[] }> = options.format === 'desktop'
     ? [{ frame: desktopFrame(false), spread: false, scales: [1] }, { frame: desktopFrame(true), spread: true, scales: steps() }]
@@ -527,7 +617,7 @@ export function composeSharePage(content: ShareContent, options: ShareOptions, f
   for (const candidate of candidates) {
     const box = boxFor(candidate.frame, candidate.spread)
     for (const scale of candidate.scales) {
-      const layout = layoutColumns(passage, fonts, candidate.frame.baseSize * scale, box)
+      const layout = layoutColumns(passage, fonts, candidate.frame.baseSize * scale, box, breaks)
       if (layout.fits) { chosen = { ...candidate, scale, layout, cut: false }; break }
     }
     if (chosen) break
@@ -542,17 +632,17 @@ export function composeSharePage(content: ShareContent, options: ShareOptions, f
     let layout: ColumnLayout | null = null
     for (const keep of points) {
       if (keep >= total) continue
-      const attempt = layoutColumns(cutPassage(passage, keep), fonts, size, box)
+      const attempt = layoutColumns(cutPassage(passage, keep), fonts, size, box, breaks)
       if (attempt.fits) { layout = attempt; break }
     }
     if (!layout) {
       // Not even the first sentence fits: cut at the last whole word that does.
       let lo = 1
       let hi = total - 1
-      let best = layoutColumns(cutPassage(passage, 1), fonts, size, box)
+      let best = layoutColumns(cutPassage(passage, 1), fonts, size, box, breaks)
       while (lo <= hi) {
         const mid = (lo + hi) >> 1
-        const attempt = layoutColumns(cutPassage(passage, mid), fonts, size, box)
+        const attempt = layoutColumns(cutPassage(passage, mid), fonts, size, box, breaks)
         if (attempt.fits) { best = attempt; lo = mid + 1 } else hi = mid - 1
       }
       layout = best
@@ -646,6 +736,234 @@ function composeQuoteCard(content: ShareContent, options: ShareOptions, fonts: S
     offsetY: Math.max(0, (frame.text.height - layout.usedHeight) / 2),
     pageNumbers: [],
   }
+}
+
+// ---------------------------------------------------------------------------
+// A series of quote cards: a quote too long for one card (Anders, 7 Oct 2026)
+
+/** Never more cards than this: a post's gallery, not a chapter. */
+export const SERIES_MAX_CARDS = 4
+/**
+ * How small a series of SERIES_MAX_CARDS may set its type when the card's
+ * smallest size would need more cards. Four cards at this size still read
+ * larger on a phone than the page's 75% floor, and keep every word, which
+ * the page's sentence cut would not.
+ */
+export const SERIES_FLOOR_SIZE: Record<'phone' | 'desktop', number> = { phone: 36, desktop: 32 }
+
+/** A run of one paragraph's tokens after which a card may end. */
+interface SeriesUnit {
+  paragraph: number
+  tokens: Token[]
+  /** Ends a sentence or its paragraph: a card ending here needs no "…". */
+  clean: boolean
+}
+
+/** A clause ends after this token: a comma, semicolon, colon or dash, or the source's own line break. */
+function endsClause(tokens: Token[], index: number): boolean {
+  if (index + 1 < tokens.length && tokens[index + 1].lineBreakBefore) return true
+  return /([,;:]|[–—])["'”’)\]]*$/.test(tokens[index].text)
+}
+
+function splitAfter(tokens: Token[], at: (index: number) => boolean): Token[][] {
+  const out: Token[][] = []
+  let start = 0
+  for (let index = 0; index < tokens.length; index++) {
+    if (index === tokens.length - 1 || at(index)) { out.push(tokens.slice(start, index + 1)); start = index + 1 }
+  }
+  return out
+}
+
+/**
+ * The passage in the units a card may end after: sentences; for a sentence
+ * too long for one card, its clauses; for a clause too long, as many words
+ * as fit. A paragraph end always counts.
+ */
+function seriesUnits(passage: Paragraph[], fitsAlone: (tokens: Token[]) => boolean): SeriesUnit[] {
+  const units: SeriesUnit[] = []
+  passage.forEach((paragraph, p) => {
+    const tokens = paragraph.tokens
+    const sentences = splitAfter(tokens, index => tokens[index].sentenceEnd)
+    sentences.forEach((sentence, s) => {
+      const sentenceClean = s === sentences.length - 1 || sentence[sentence.length - 1].sentenceEnd
+      if (fitsAlone(sentence)) { units.push({ paragraph: p, tokens: sentence, clean: sentenceClean }); return }
+      const clauses = splitAfter(sentence, index => endsClause(sentence, index))
+      clauses.forEach((clause, c) => {
+        const clean = c === clauses.length - 1 && sentenceClean
+        if (fitsAlone(clause)) { units.push({ paragraph: p, tokens: clause, clean }); return }
+        let start = 0
+        while (start < clause.length) {
+          let end = start + 1
+          while (end < clause.length && fitsAlone(clause.slice(start, end + 1))) end++
+          units.push({ paragraph: p, tokens: clause.slice(start, end), clean: clean && end === clause.length })
+          start = end
+        }
+      })
+    })
+  })
+  return units
+}
+
+/**
+ * Units `from` to `to` (exclusive) as one card's passage, with "…" where the
+ * card starts or stops mid-sentence (the quote's own opening and closing "…"
+ * are already on its first and last words).
+ */
+function seriesChunk(units: SeriesUnit[], from: number, to: number): Paragraph[] {
+  const out: Paragraph[] = []
+  let paragraph = -1
+  for (let u = from; u < to; u++) {
+    if (units[u].paragraph !== paragraph) { out.push({ tokens: [] }); paragraph = units[u].paragraph }
+    out[out.length - 1].tokens.push(...units[u].tokens)
+  }
+  if (from > 0 && !units[from - 1].clean) out[0].tokens[0] = withLeadingEllipsis(out[0].tokens[0])
+  if (to < units.length && !units[to - 1].clean) {
+    const tokens = out[out.length - 1].tokens
+    tokens[tokens.length - 1] = withTrailingEllipsis(tokens[tokens.length - 1])
+  }
+  return out
+}
+
+function withTrailingEllipsisOnce(passage: Paragraph[]): Paragraph[] {
+  const out = passage.map(paragraph => ({ tokens: [...paragraph.tokens] }))
+  const tokens = out[out.length - 1].tokens
+  if (!tokens[tokens.length - 1].text.endsWith(SHARE_ELLIPSIS)) tokens[tokens.length - 1] = withTrailingEllipsis(tokens[tokens.length - 1])
+  return out
+}
+
+export interface SeriesPlan {
+  spec: QuoteCardSpec
+  size: number
+  /** Each card's passage. */
+  chunks: Paragraph[][]
+  layouts: ColumnLayout[]
+}
+
+/**
+ * Split a quote too long for one card into the fewest cards (2 to
+ * SERIES_MAX_CARDS) that hold it at the card's smallest size or larger, set
+ * it as large as that many cards allow (one size on every card), and balance
+ * the cards so none runs much longer than the others. Cards end between
+ * sentences where a sentence fits a card (else between clauses, else words);
+ * no word is dropped or changed. A quote that needs more cards than that at
+ * the smallest size is set smaller on SERIES_MAX_CARDS cards, down to
+ * SERIES_FLOOR_SIZE. Null when the quote fits one card, or does not fit even
+ * SERIES_MAX_CARDS at the floor (the page layout then takes it).
+ *
+ * With the credit on, every card is measured with room for it, so the last
+ * card (which carries it) never overflows.
+ */
+export function planQuoteSeries(format: 'phone' | 'desktop', tagline: boolean, fonts: ShareFonts, passage: Paragraph[]): SeriesPlan | null {
+  if (!passage.length) return null
+  const spec = QUOTE_CARDS[format]
+  const tallest = quoteFrame(spec, tagline, spec.maxHeight)
+  const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: true, leading: QUOTE_LEADING }
+  interface AtSize { units: SeriesUnit[]; layout: (from: number, to: number) => ColumnLayout }
+  const sizes = new Map<number, AtSize>()
+  const at = (size: number): AtSize => {
+    const known = sizes.get(size)
+    if (known) return known
+    const units = seriesUnits(passage, tokens => layoutColumns([{ tokens }], fonts, size, box).fits)
+    const layouts = new Map<number, ColumnLayout>()
+    const layout = (from: number, to: number) => {
+      const key = from * 65536 + to
+      let found = layouts.get(key)
+      if (!found) { found = layoutColumns(seriesChunk(units, from, to), fonts, size, box); layouts.set(key, found) }
+      return found
+    }
+    const entry = { units, layout }
+    sizes.set(size, entry)
+    return entry
+  }
+  /** Where each card starts when every card takes as much as `room` holds (the fewest cards). */
+  const pack = (size: number, room: number): number[] => {
+    const { units, layout } = at(size)
+    const height = (from: number, to: number) => { const found = layout(from, to); return found.fits ? found.usedHeight : Infinity }
+    const starts: number[] = []
+    let from = 0
+    while (from < units.length && starts.length <= SERIES_MAX_CARDS) {
+      starts.push(from)
+      let to = from + 1
+      while (to < units.length && height(from, to + 1) <= room) to++
+      from = to
+    }
+    return starts
+  }
+  const cardsAt = (size: number) => pack(size, box.height).length
+
+  const fewest = cardsAt(spec.minSize)
+  if (fewest <= 1) return null
+  // The largest whole size at which `cards` cards hold the quote (a binary
+  // search: larger type never needs fewer cards), or null below `floor`.
+  const largest = (cards: number, floor: number, ceiling: number): number | null => {
+    if (cardsAt(floor) > cards) return null
+    let lo = floor
+    let hi = ceiling
+    while (lo < hi) {
+      const mid = Math.ceil((lo + hi) / 2)
+      if (cardsAt(mid) <= cards) lo = mid
+      else hi = mid - 1
+    }
+    return lo
+  }
+  const size = fewest <= SERIES_MAX_CARDS
+    ? largest(fewest, spec.minSize, spec.maxSize)
+    : largest(SERIES_MAX_CARDS, SERIES_FLOOR_SIZE[format], spec.minSize - 1)
+  if (size === null) return null
+  const count = cardsAt(size)
+  // Balance: the least room per card that still needs no more cards.
+  let lo = 0
+  let hi = box.height
+  for (let step = 0; step < 14; step++) {
+    const mid = (lo + hi) / 2
+    if (pack(size, mid).length <= count) hi = mid
+    else lo = mid
+  }
+  const starts = pack(size, hi)
+  const { units, layout } = at(size)
+  const ends = [...starts.slice(1), units.length]
+  return {
+    spec,
+    size,
+    chunks: starts.map((from, k) => seriesChunk(units, from, ends[k])),
+    layouts: starts.map((from, k) => layout(from, ends[k])),
+  }
+}
+
+/**
+ * The image(s) for a share. One page or card; or, for a quote too long for
+ * one card, a series (planQuoteSeries): each card with the book and chapter
+ * and a quiet "1/3", the credit on the last only. The cards share one size,
+ * set by the longest card's text, and each card's text starts at the same
+ * place under the header.
+ */
+export function composeShareCards(content: ShareContent, options: ShareOptions, fonts: ShareFonts, hyphenate?: ShareHyphenate): SharePage[] {
+  if (options.context || options.format === 'og') return [composeSharePage(content, options, fonts, hyphenate)]
+  const passage = buildPassage(content.paragraphs, content.range, false)
+  const single = composeQuoteCard(content, options, fonts, passage)
+  if (single) return [single]
+  const plan = planQuoteSeries(options.format, options.tagline, fonts, passage)
+  if (!plan) return [composeSharePage(content, options, fonts, hyphenate)]
+  const { spec, layouts } = plan
+  const count = layouts.length
+  const chrome = spec.maxHeight - quoteFrame(spec, options.tagline, spec.maxHeight).text.height
+  const used = Math.max(...layouts.map(layout => layout.usedHeight))
+  const height = Math.ceil(Math.min(spec.maxHeight, Math.max(spec.minHeight, chrome + used)))
+  return layouts.map((layout, k): SharePage => {
+    const credit = options.tagline && k === count - 1
+    return {
+      options: { ...options, tagline: credit },
+      content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
+      frame: quoteFrame(spec, credit, height),
+      layout,
+      mode: 'quote',
+      scale: layout.fontSize / spec.maxSize,
+      cut: false,
+      offsetY: 0,
+      pageNumbers: [],
+      series: { index: k + 1, count },
+    }
+  })
 }
 
 /**

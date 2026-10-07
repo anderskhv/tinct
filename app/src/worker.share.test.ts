@@ -5,8 +5,11 @@ import { editionCredit, handleShareApi, handleSharePage, parseShareInput, type S
 import type { ShareRecord, ShareRecordInput } from './worker/shareRecord'
 import { getBook } from './data/bookRegistry'
 
-const render = vi.hoisted(() => vi.fn(async () => ({ png: new Uint8Array([137, 80, 78, 71]), page: {} })))
-vi.mock('./worker/lib/shareRender', () => ({ renderSharePng: render }))
+// The drawing is shareLayout's (tested there); here, how many cards a share is.
+const cards = vi.hoisted(() => ({ count: 1 }))
+const render = vi.hoisted(() => vi.fn(async (..._args: unknown[]) => ({ png: new Uint8Array([137, 80, 78, 71]), page: {}, cards: cards.count })))
+const cardCount = vi.hoisted(() => vi.fn(async (..._args: unknown[]) => cards.count))
+vi.mock('./worker/lib/shareRender', () => ({ renderSharePng: render, shareCardCount: cardCount }))
 
 const PARAGRAPHS = [
   'It was on a dreary night of November that I beheld the accomplishment of my toils.',
@@ -68,6 +71,8 @@ function post(body: unknown, headers: Record<string, string> = {}) {
 afterEach(() => {
   resetBookRetrievalCache()
   render.mockClear()
+  cardCount.mockClear()
+  cards.count = 1
 })
 
 describe('share links', () => {
@@ -131,6 +136,24 @@ describe('share links', () => {
     // The image carries no edition line.
     expect(content).not.toHaveProperty('credit')
     expect(options).toEqual({ format: 'phone', look: 'paper', context: true, tagline: true })
+    expect(response.headers.get('x-share-cards')).toBe('1')
+  })
+
+  it('serves each card of a series, saying how many there are', async () => {
+    const { env, deps, ctx, store } = setup()
+    cards.count = 3
+    const params = new URLSearchParams(Object.entries({ ...valid, context: false }).map(([k, v]) => [k, typeof v === 'boolean' ? (v ? '1' : '0') : String(v)]))
+    for (const [card, drawn] of [['', 1], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 1], ['0', 1], ['x', 1]] as const) {
+      render.mockClear()
+      const response = await handleShareApi(new Request(`https://tinct.app/api/share/preview?${params}${card ? `&card=${card}` : ''}`), env, ctx, deps)
+      expect(response.status).toBe(200)
+      // Readable cross-origin (the Android app): the count is exposed.
+      expect(response.headers.get('x-share-cards')).toBe('3')
+      expect(response.headers.get('access-control-expose-headers')).toBe('X-Share-Cards')
+      expect(render.mock.calls[0][4]).toBe(drawn)
+      expect(render.mock.calls[0][3]).toEqual({ format: 'phone', look: 'paper', context: false, tagline: true })
+    }
+    expect(store.rows.size).toBe(0)
   })
 })
 
@@ -168,6 +191,27 @@ describe('/q/{id}', () => {
     const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
     expect(html).toContain(`<img src="https://tinct.app/q/${id}/image.png" alt=`)
     expect(html).not.toMatch(/<img[^>]*height=/)
+    expect(html).not.toContain('<blockquote>')
+  })
+
+  it('shows a quote set as a series in full as text, and previews its first card', async () => {
+    const { env, deps, ctx } = setup()
+    cards.count = 3
+    const { id } = await (await handleShareApi(post({ ...valid, context: false, format: 'desktop' }), env, ctx, deps)).json() as { id: string }
+    const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
+    expect(cardCount).toHaveBeenCalledTimes(1)
+    expect((cardCount.mock.calls[0] as unknown[])[3]).toEqual({ format: 'desktop', look: 'paper', context: false, tagline: true })
+    expect(html).toContain('<blockquote><p>The different accidents of life are not so changeable as the feelings of human nature. I…</p></blockquote>')
+    expect(html).not.toContain('/image.png')
+    expect(html).toContain(`<meta property="og:image" content="https://tinct.app/q/${id}/og.png">`)
+    // The link preview is drawn from the series' first card.
+    await handleSharePage(new Request(`https://tinct.app/q/${id}/og.png`), env, ctx)
+    expect((render.mock.calls[0] as unknown[])[3]).toEqual({ format: 'og', look: 'paper', context: false, tagline: true, cardFormat: 'desktop' })
+    // With surrounding text there is no series to count.
+    cardCount.mockClear()
+    const page = await (await handleShareApi(post(valid), env, ctx, deps)).json() as { id: string }
+    expect(await (await handleSharePage(new Request(`https://tinct.app/q/${page.id}`), env, ctx))!.text()).toContain('/image.png')
+    expect(cardCount).not.toHaveBeenCalled()
   })
 
   it('serves the link preview and the shared image', async () => {
