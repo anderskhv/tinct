@@ -5,6 +5,12 @@ Anders assigns this to you (coding + release) on 7 October 2026. You remain the 
 **Read first (branch `claude/dreamy-faraday-30zl0v`):**
 - `docs/social/PROPOSAL.md`: the approved proposal. Build exactly that; Anders approved every decision in it.
 - `docs/social/mockup.html`: the approved look (open in a browser).
+- `docs/social/flows.html`: how readers get there, as storyboards. These are binding for navigation:
+  - **Library:** the library top bar shows your picture instead of "Account". It opens a **You** page with three tabs: Reading, Leaderboard and Profile. Profile also holds Followers and following, Premium, Email and password, and Sign out.
+  - **Reader:** the reader's t menu starts with your picture, name and last-7-days hours. That opens the Account sheet, whose rows open the matching tab. Back returns to the same page in the book.
+  - **After sign-up:** a one-time toast ("Your 1 h 05 m is saved. Find it under the t.").
+  - **Skipped profile step:** a reader who skipped it gets one "Join the leaderboard?" card on their first leaderboard visit.
+  - **Account prompt:** gains the line about saving reading time already built up. Use the copy in flows.html.
   - Account sheet and sign-up are in their current looks.
   - Your reading, the leaderboard and profiles are in the library look.
 

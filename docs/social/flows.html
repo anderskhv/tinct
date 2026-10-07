@@ -1,0 +1,395 @@
+<title>Tinct Profile Flows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400&family=Playfair+Display:wght@700;800&display=swap">
+<style>
+/* Layout: three storyboards, each a row of numbered phone screens joined by arrows. A pulsing gold ring marks what you tap to get to the next screen. Library screens use the library look, reader screens the reader look, sign-up the live sign-in card. */
+:root {
+  --bg: #10150f; --raised: #172015; --ink: #eee7d0; --sage: #b1bba4; --dim: #7f8a76; --gold: #c2aa74; --gold-hi: #e8d59e;
+  --line: rgba(238,231,208,.13); --glass: rgba(238,231,208,.08); --glass-line: rgba(238,231,208,.18);
+  --paper: #ece7db; --rink: #0b0b0b; --quiet: #675b4b; --hair: rgba(32,26,19,.12);
+  --title: Georgia, "Times New Roman", serif; --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --play: "Playfair Display", Georgia, serif; --gara: "EB Garamond", Georgia, serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--title); padding-block: 28px 80px; padding-inline: 16px; }
+.wrap { max-width: 1500px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+.intro h1 { font-weight: 400; letter-spacing: -.025em; font-size: clamp(2rem, 4vw, 2.7rem); margin: 0; }
+.intro p { margin: 8px 0 0; color: var(--sage); font-size: 1.1rem; max-width: 72ch; line-height: 1.5; }
+.flow > h2 { font-family: var(--sans); font-weight: 700; font-size: 1.4rem; margin: 0; }
+.flow > p { margin: 4px 0 0; color: var(--sage); font-style: italic; }
+.strip { display: flex; flex-wrap: wrap; row-gap: 30px; padding: 22px 0 18px; }
+.step { flex: none; width: 272px; display: flex; flex-direction: column; gap: 10px; scroll-snap-align: start; }
+.step .num { font-family: var(--sans); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-hi); }
+.step .cap { font-size: .98rem; line-height: 1.4; color: var(--sage); }
+.step .cap b { color: var(--ink); font-weight: 400; }
+.arrow { flex: none; width: 44px; display: grid; place-items: center; color: var(--gold-hi); font-family: var(--sans); font-size: 1.4rem; padding-top: 250px; align-self: start; }
+.ph { width: 272px; height: 560px; border-radius: 26px; overflow: hidden; position: relative; box-shadow: 0 0 0 1px var(--line), 0 18px 40px rgba(0,0,0,.45); background: var(--bg); isolation: isolate; }
+.tap { position: absolute; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 50%; border: 2px solid var(--gold-hi); box-shadow: 0 0 0 4px rgba(232,213,158,.25); pointer-events: none; z-index: 5; animation: pulse 1.8s ease-out infinite; }
+@keyframes pulse { 0% { transform: scale(.8); opacity: 1; } 100% { transform: scale(1.35); opacity: .2; } }
+@media (prefers-reduced-motion: reduce) { .tap { animation: none; } }
+
+/* library look */
+.L { color: var(--ink); font-family: var(--title); height: 100%; display: flex; flex-direction: column; }
+.L .top { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; font-size: 1.35rem; letter-spacing: -.04em; }
+.L .top .r { display: flex; gap: 12px; align-items: center; font-size: .95rem; letter-spacing: 0; }
+.L .top .back { font-family: var(--sans); font-size: 1.05rem; letter-spacing: 0; }
+.L .top .t { font-family: var(--sans); font-weight: 700; font-size: .95rem; letter-spacing: 0; }
+.av { --img: none; --pos: 50% 40%; width: 30px; height: 30px; border-radius: 50%; flex: none; background: var(--img) var(--pos) / 260% auto no-repeat, var(--raised); display: inline-grid; place-items: center; color: var(--gold-hi); font-size: .85rem; box-shadow: 0 0 0 1px var(--glass-line); }
+.av.init { background: linear-gradient(150deg, #2a3a2a, #18241a); }
+.me { --img: url('mockup-images/meditations.jpg'); --pos: 50% 34%; }
+.scene { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--bg) 22%, rgba(16,21,15,.25) 60%, rgba(16,21,15,.55)), url('mockup-images/table-night-wide.jpg') 70% center / cover; }
+.L .hero { margin-top: auto; padding: 0 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.L .hero small { color: var(--sage); font-size: .9rem; }
+.L .hero b { font-weight: 400; font-size: 2.1rem; letter-spacing: -.03em; line-height: 1; }
+.L .hero p { margin: 0; font-size: .95rem; }
+.L .chips { display: flex; gap: 6px; }
+.chip { font-family: var(--sans); font-size: .66rem; border: 1px solid var(--glass-line); border-radius: 999px; padding: 3px 8px; white-space: nowrap; }
+.pill { font-family: var(--sans); font-weight: 700; font-size: .85rem; background: var(--ink); color: #10150f; border-radius: 999px; padding: 9px 16px; align-self: flex-start; }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 14px; padding: 3px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-line); }
+.seg span { text-align: center; font-family: var(--sans); font-size: .74rem; padding: 6px 2px; border-radius: 999px; color: var(--sage); }
+.seg span.on { background: var(--ink); color: #10150f; font-weight: 700; }
+.body { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; flex: 1; min-height: 0; }
+.lbl { font-family: var(--sans); font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--sage); }
+.big { font-weight: 400; letter-spacing: -.035em; line-height: .9; font-size: 3.2rem; }
+.big small { font-size: .42em; color: var(--sage); }
+.sub { margin: 0; font-size: .88rem; color: var(--ink); }
+.sub em { color: var(--sage); }
+.bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; align-items: end; height: 54px; border-bottom: 1px solid var(--line); }
+.bars i { display: block; background: rgba(194,170,116,.55); border-radius: 2px 2px 0 0; }
+.bars i:last-child { background: var(--gold-hi); }
+.covers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.covers img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 2px; display: block; }
+.covers .m { font-size: .7rem; color: var(--sage); font-style: italic; margin-top: 3px; display: flex; justify-content: space-between; }
+.covers .m b { font-style: normal; font-weight: 400; color: var(--ink); }
+.lb .r { display: grid; grid-template-columns: 1rem auto 1fr auto; gap: 8px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); font-size: .9rem; }
+.lb .r .n { font-style: italic; color: var(--gold-hi); text-align: center; }
+.lb .r em { display: block; font-size: .72rem; color: var(--sage); }
+.lb .r.you { background: linear-gradient(90deg, rgba(232,213,158,.10), transparent); border-radius: 8px; padding-inline: 6px; margin-inline: -6px; }
+.lb .r .h { font-variant-numeric: tabular-nums; }
+.prof { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 26px 16px 8px; position: relative; isolation: isolate; }
+.prof::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--bg) 6%, rgba(16,21,15,.4)), var(--scene) center / cover; }
+.prof .av { width: 66px; height: 66px; font-size: 1.5rem; }
+.prof b { font-weight: 400; font-size: 1.55rem; letter-spacing: -.02em; }
+.prof em { color: var(--sage); font-size: .85rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; text-align: center; }
+.two div { border: 1px solid var(--line); border-radius: 12px; padding: 8px 4px; }
+.two strong { display: block; font-weight: 400; font-size: 1.4rem; }
+.rows { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.rows div { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.rows div span:last-child { color: var(--sage); font-family: var(--sans); font-size: .76rem; }
+.ghost { font-family: var(--sans); font-size: .8rem; border: 1px solid var(--glass-line); background: var(--glass); border-radius: 999px; padding: 8px 14px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field .in { background: var(--glass); border: 1px solid var(--glass-line); border-radius: 10px; padding: 8px 10px; font-size: .95rem; }
+.avs { display: flex; gap: 8px; }
+.avs .av { width: 40px; height: 40px; }
+.avs .av.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--gold-hi); }
+.who3 { display: grid; grid-template-columns: repeat(3, 1fr); border-radius: 10px; padding: 3px; background: var(--glass); border: 1px solid var(--glass-line); }
+.who3 span { text-align: center; font-family: var(--sans); font-size: .72rem; padding: 6px 2px; border-radius: 8px; color: var(--sage); }
+.who3 span.on { background: var(--ink); color: #10150f; font-weight: 700; }
+.sw { display: flex; justify-content: space-between; align-items: center; font-size: .88rem; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.sw i { width: 34px; height: 20px; border-radius: 999px; background: var(--gold); position: relative; }
+.sw i::after { content: ""; position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); }
+
+/* reader look (Paper) */
+.RD { background: var(--paper); color: var(--rink); height: 100%; position: relative; }
+.RD .rbar { display: flex; align-items: center; gap: 6px; padding: 16px 16px 10px; }
+.RD .rbar b { font-family: var(--play); font-weight: 800; font-size: 1rem; }
+.RD .rbar .pl { font-family: var(--gara); font-style: italic; color: var(--quiet); background: #e2d8c4; border-radius: 999px; padding: 2px 10px; font-size: .9rem; }
+.RD .rbar .ic { margin-left: auto; display: flex; gap: 16px; font-size: .95rem; }
+.RD .rbar .ic span:last-child { font-family: var(--play); font-weight: 800; font-style: italic; }
+.RD .txt { padding: 4px 16px; font-family: var(--gara); font-size: 1.12rem; line-height: 1.5; text-align: justify; hyphens: auto; }
+.RD .txt h3 { font-family: var(--play); font-weight: 800; font-size: 1.5rem; margin: 0 0 6px; text-align: left; }
+.RD .foot { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-family: var(--gara); font-size: .75rem; color: var(--quiet); }
+.RD .dim { position: absolute; inset: 0; background: rgba(28,24,18,.16); }
+.menu { position: absolute; top: 52px; right: 12px; width: 220px; background: rgba(250,247,239,.97); border-radius: 16px; box-shadow: 0 12px 30px rgba(28,24,18,.22); padding: 6px; font-family: var(--gara); }
+.menu div { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; font-size: .95rem; border-radius: 10px; }
+.menu div kbd { font-family: var(--mono); font-size: .62rem; color: var(--quiet); }
+.menu .you { gap: 8px; justify-content: flex-start; background: rgba(32,26,19,.05); }
+.menu .you span { display: flex; flex-direction: column; line-height: 1.15; }
+.menu .you em { font-size: .78rem; color: var(--quiet); }
+.menu hr { border: 0; border-top: 1px solid var(--hair); margin: 4px 6px; }
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(247,244,237,.98); border-radius: 22px 22px 0 0; box-shadow: 0 -14px 30px rgba(28,24,18,.16); padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 9px; font-family: var(--gara); }
+.sheet .hd { display: flex; justify-content: space-between; align-items: center; }
+.sheet .hd b { font-family: var(--play); font-weight: 800; font-size: 1.15rem; }
+.sheet .hd span { width: 26px; height: 26px; border-radius: 50%; background: rgba(32,26,19,.08); display: grid; place-items: center; font-family: var(--sans); font-size: .8rem; color: var(--quiet); }
+.sheet .card { display: flex; gap: 8px; align-items: center; background: rgba(251,248,242,.8); border-radius: 12px; padding: 7px 9px; box-shadow: 0 1px 0 var(--hair); }
+.sheet .card span.n { display: flex; flex-direction: column; flex: 1; line-height: 1.15; }
+.sheet .card em { font-size: .74rem; color: var(--quiet); }
+.sheet .card small { font-family: var(--mono); font-size: .56rem; color: var(--quiet); }
+.sheet .gl { font-family: var(--mono); font-size: .54rem; letter-spacing: .12em; text-transform: uppercase; color: var(--quiet); margin: 0; }
+.sheet .wk { display: flex; align-items: end; gap: 10px; }
+.sheet .wk b { font-family: var(--play); font-weight: 800; font-size: 1.9rem; line-height: .9; }
+.sheet .wk b small { font-size: .5em; color: var(--quiet); }
+.sheet .wk .d { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; align-items: end; height: 32px; }
+.sheet .wk .d i { background: rgba(32,26,19,.22); border-radius: 2px 2px 0 0; }
+.sheet .wk .d i:last-child { background: var(--rink); }
+.sheet .f { font-size: .8rem; color: var(--quiet); }
+.sheet .f b { color: var(--rink); font-weight: 500; }
+.sheet .rw { display: flex; flex-direction: column; border-top: 1px solid var(--hair); }
+.sheet .rw div { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--hair); font-size: .9rem; }
+.sheet .rw div span:last-child { font-family: var(--mono); font-size: .6rem; color: var(--quiet); }
+.toast { position: absolute; left: 12px; right: 12px; bottom: 34px; background: #1d1a16; color: #f4efe4; border-radius: 14px; padding: 10px 12px; display: flex; gap: 10px; align-items: center; font-family: var(--gara); font-size: .9rem; line-height: 1.3; box-shadow: 0 10px 24px rgba(0,0,0,.3); }
+.prompt { position: absolute; left: 10px; right: 10px; bottom: 14px; background: #f8f4ec; border-radius: 18px; padding: 16px 16px 14px; box-shadow: 0 14px 34px rgba(28,24,18,.25); display: flex; flex-direction: column; gap: 8px; font-family: var(--gara); }
+.prompt .e { font-family: var(--mono); font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; color: var(--quiet); }
+.prompt b { font-family: var(--play); font-weight: 800; font-size: 1.15rem; line-height: 1.15; }
+.prompt p { margin: 0; font-size: .9rem; color: var(--quiet); line-height: 1.35; }
+.prompt .p { background: #1d1a16; color: #f4efe4; border-radius: 999px; padding: 9px; text-align: center; font-family: var(--sans); font-size: .82rem; font-weight: 600; }
+.prompt .k { text-align: center; font-size: .85rem; color: var(--quiet); text-decoration: underline; }
+
+/* sign-in card */
+.A { height: 100%; background: radial-gradient(ellipse at 80% 0%, #1b3442, transparent 60%), linear-gradient(180deg, #07131c, #0d1e29); padding: 40px 12px 12px; }
+.A .t { position: absolute; top: 12px; left: 0; right: 0; text-align: center; font-size: 1.05rem; color: #eee7d0; }
+.A .c { background: #f6f1e6; color: #221e19; border-radius: 16px; padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 8px; font-family: var(--sans); }
+.A .k { font-size: .56rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6b6458; display: flex; justify-content: space-between; }
+.A h4 { font-family: var(--title); font-weight: 400; font-size: 1.35rem; margin: 0; letter-spacing: -.02em; line-height: 1.1; }
+.A .s { font-size: .72rem; color: #6b6458; line-height: 1.4; margin: 0; }
+.A .g { border: 1px solid #ddd4c3; background: #fffdf7; border-radius: 9px; padding: 7px; text-align: center; font-size: .76rem; }
+.A .or { font-size: .5rem; letter-spacing: .08em; text-transform: uppercase; color: #6b6458; text-align: center; }
+.A .f { font-size: .64rem; color: #6b6458; display: flex; flex-direction: column; gap: 3px; }
+.A .f span { background: #fffdf7; border: 1px solid #ddd4c3; border-radius: 9px; padding: 7px 8px; font-size: .78rem; color: #221e19; }
+.A .go { background: #332e27; color: #f6f1e6; border-radius: 9px; padding: 9px; text-align: center; font-size: .8rem; }
+.A .cb { display: grid; grid-template-columns: auto 1fr; gap: 7px; font-size: .64rem; color: #6b6458; line-height: 1.4; }
+.A .cb i { width: 12px; height: 12px; border: 1.5px solid #8a8274; border-radius: 3px; margin-top: 1px; }
+.A .avs .av { width: 34px; height: 34px; box-shadow: 0 0 0 1px #ddd4c3; }
+.A .avs .av.on { box-shadow: 0 0 0 2px #f6f1e6, 0 0 0 3.5px #332e27; }
+.A .w3 { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #ddd4c3; border-radius: 9px; padding: 2px; background: #fffdf7; }
+.A .w3 span { text-align: center; font-size: .66rem; padding: 5px 2px; border-radius: 7px; color: #6b6458; }
+.A .w3 span.on { background: #332e27; color: #f6f1e6; }
+.A .later { text-align: center; font-size: .7rem; color: #6b6458; text-decoration: underline; }
+
+/* email */
+.E { background: #f3f0ea; height: 100%; color: #1b1814; font-family: var(--title); }
+.E .mh { background: #fff; padding: 12px 14px; border-bottom: 1px solid #e5e0d6; font-family: var(--sans); font-size: .72rem; color: #555; line-height: 1.5; }
+.E .mh b { color: #111; }
+.E .mb { margin: 14px 12px; background: #fbf8f2; border-radius: 6px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; }
+.E .mb .k { font-family: "Courier New", monospace; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: #1f4a5c; }
+.E .mb h4 { font-weight: 400; font-size: 1.35rem; margin: 0; }
+.E .mb p { margin: 0; font-size: .86rem; line-height: 1.5; }
+.E .mb .btn { align-self: flex-start; background: #1f4a5c; color: #f7f3ea; font-family: "Courier New", monospace; font-size: .7rem; padding: 9px 14px; letter-spacing: .04em; }
+.E .mb small { font-size: .7rem; color: #6a6256; line-height: 1.5; }
+</style>
+
+<div class="wrap">
+  <section class="intro">
+    <h1>Getting to your profile, and signing up</h1>
+    <p>Storyboards of the approved design. A gold ring marks what you tap to reach the next screen. Library screens use the library look, reader screens the reader look, sign-up the live sign-in card. Example people and numbers.</p>
+  </section>
+
+  <!-- Flow 1 -->
+  <section class="flow" aria-label="From the library">
+    <h2>1 · Tapping your picture in the library</h2>
+    <p>Your picture replaces the word "Account" in the library's top bar. Everything about you sits behind it, in three tabs.</p>
+    <div class="strip">
+      <div class="step"><span class="num">Library</span>
+        <div class="ph"><div class="L"><div class="scene"></div>
+          <div class="top"><span>☰ &nbsp;tinct</span><span class="r"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="av me"></span></span></div>
+          <div class="hero"><small>Mary Shelley's</small><b>Frankenstein</b><p>What do we owe to the intelligence we create?</p><div class="chips"><span class="chip">Fiction</span><span class="chip">~6.5 hours</span></div><span class="pill">Continue →</span></div>
+        </div><span class="tap" style="left:241px;top:29px"></span></div>
+        <span class="cap"><b>Tap your picture</b> (top right). Signed out, it still says "Sign in".</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">You · Reading</span>
+        <div class="ph"><div class="L">
+          <div class="top"><span class="back">←</span><span class="t">You</span><span class="av me"></span></div>
+          <div class="seg"><span class="on">Reading</span><span>Leaderboard</span><span>Profile</span></div>
+          <div class="body">
+            <span class="lbl">Reading time since 14 July</span>
+            <div class="big">41<small>h</small> 20<small>m</small></div>
+            <p class="sub">reading and listening. <em>About six Frankensteins.</em></p>
+            <div class="bars"><i style="height:18%"></i><i style="height:30%"></i><i style="height:47%"></i><i style="height:37%"></i><i style="height:9%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:67%"></i><i style="height:46%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:95%"></i></div>
+            <span class="lbl">Reading now</span>
+            <div class="covers"><div><img src="mockup-images/frankenstein.jpg" alt="Frankenstein"><div class="m"><span>58%</span><b>4 h 10</b></div></div><div><img src="mockup-images/the-prince.jpg" alt="The Prince"><div class="m"><span>34%</span><b>1 h 05</b></div></div><div><img src="mockup-images/meditations.jpg" alt="Meditations"><div class="m"><span>done</span><b>5 h 40</b></div></div></div>
+          </div>
+        </div><span class="tap" style="left:136px;top:75px"></span></div>
+        <span class="cap"><b>Opens on Reading:</b> your hours, the 12-week chart, and hours per book. Tap <b>Leaderboard</b>.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">You · Leaderboard</span>
+        <div class="ph"><div class="L">
+          <div class="top"><span class="back">←</span><span class="t">You</span><span class="av me"></span></div>
+          <div class="seg"><span>Reading</span><span class="on">Leaderboard</span><span>Profile</span></div>
+          <div class="body">
+            <div class="two" style="grid-template-columns:1fr 1fr"><div style="padding:6px"><span class="lbl" style="color:var(--ink)">Friends</span></div><div style="padding:6px;opacity:.6"><span class="lbl">Everyone</span></div></div>
+            <span class="lbl">Last 7 days · updated hourly</span>
+            <div class="lb">
+              <div class="r"><span class="n">1</span><span class="av" style="--img:url('mockup-images/crime-and-punishment.jpg');--pos:50% 30%"></span><span>Sofie Berg<em>Crime and Punishment</em></span><span class="h">9 h 40</span></div>
+              <div class="r"><span class="n">2</span><span class="av init">J</span><span>Jonas Lund<em>The Odyssey</em></span><span class="h">7 h 15</span></div>
+              <div class="r you"><span class="n">3</span><span class="av me"></span><span>You<em>Frankenstein</em></span><span class="h">6 h 10</span></div>
+              <div class="r"><span class="n">4</span><span class="av" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span>Maja Holm<em>Pride and Prejudice</em></span><span class="h">4 h 50</span></div>
+              <div class="r"><span class="n">5</span><span class="av init">T</span><span>Thomas Krag<em>Meditations</em></span><span class="h">2 h 30</span></div>
+            </div>
+          </div>
+        </div><span class="tap" style="left:136px;top:338px"></span></div>
+        <span class="cap"><b>Friends first,</b> Everyone one tap away. Tap a reader, here <b>Maja</b>.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Maja's profile</span>
+        <div class="ph"><div class="L">
+          <div class="prof" style="--scene:url('mockup-images/pride-and-prejudice.jpg')"><div class="top" style="position:absolute;top:0;left:0;right:0"><span class="back">←</span><span class="lbl" style="color:var(--ink)">tinct.app/@maja</span><span></span></div><span style="height:22px"></span><span class="av" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><b>Maja Holm</b><em>@maja · friends</em></div>
+          <div class="body">
+            <div style="display:flex;gap:8px;justify-content:center"><span class="pill" style="align-self:center">Following</span></div>
+            <div class="two"><div><span class="lbl">Last 7 days</span><strong>4 h 50</strong></div><div><span class="lbl">This year</span><strong>96 h</strong></div></div>
+            <span class="lbl">Reading now</span>
+            <div class="covers"><div><img src="mockup-images/pride-and-prejudice.jpg" alt="Pride and Prejudice"><div class="m"><span>72%</span></div></div><div><img src="mockup-images/odyssey.jpg" alt="The Odyssey"><div class="m"><span>20%</span></div></div></div>
+          </div>
+        </div></div>
+        <span class="cap"><b>Her hours and books,</b> as far as she allows. Back, then tap <b>Profile</b>.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">You · Profile</span>
+        <div class="ph"><div class="L">
+          <div class="top"><span class="back">←</span><span class="t">You</span><span class="av me"></span></div>
+          <div class="seg"><span>Reading</span><span>Leaderboard</span><span class="on">Profile</span></div>
+          <div class="prof" style="--scene:url('mockup-images/meditations.jpg');padding-top:16px"><span class="av me"></span><b>Anders</b><em>@anders · friends can see you</em></div>
+          <div class="body" style="padding-top:4px">
+            <span class="ghost" style="align-self:center">Edit profile and privacy</span>
+            <div class="rows">
+              <div><span>Followers and following</span><span>12 ›</span></div>
+              <div><span>Premium</span><span>$5/month ›</span></div>
+              <div><span>Email and password</span><span>›</span></div>
+              <div><span>Sign out</span><span></span></div>
+            </div>
+          </div>
+        </div><span class="tap" style="left:136px;top:255px"></span></div>
+        <span class="cap"><b>Your profile as friends see it,</b> plus followers and the account itself (Premium, email, sign out). Tap <b>Edit</b>.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Edit profile and privacy</span>
+        <div class="ph"><div class="L">
+          <div class="top"><span class="back">←</span><span class="t">Profile and privacy</span><span></span></div>
+          <div class="body">
+            <div class="field"><span class="lbl">Picture</span><div class="avs"><span class="av me on"></span><span class="av" style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span class="av" style="--img:url('mockup-images/frankenstein.jpg');--pos:50% 55%"></span><span class="av init">A</span></div></div>
+            <div class="field"><span class="lbl">Name</span><span class="in">Anders</span></div>
+            <div class="field"><span class="lbl">Profile link</span><span class="in">tinct.app/@anders</span></div>
+            <div class="field"><span class="lbl">Who can see you</span><div class="who3"><span>Only me</span><span class="on">Friends</span><span>Everyone</span></div></div>
+            <div><div class="sw"><span>What I'm reading</span><i></i></div><div class="sw"><span>How much I read</span><i></i></div><div class="sw"><span>On the leaderboard</span><i></i></div></div>
+          </div>
+        </div></div>
+        <span class="cap"><b>Every choice in one place.</b> Highlights, notes and chats are never shown.</span></div>
+    </div>
+  </section>
+
+  <!-- Flow 2 -->
+  <section class="flow" aria-label="From inside a book">
+    <h2>2 · From inside a book</h2>
+    <p>The reader keeps its own look. Your picture leads the menu, and the Account sheet links into the same pages as flow 1.</p>
+    <div class="strip">
+      <div class="step"><span class="num">Reading</span>
+        <div class="ph"><div class="RD">
+          <div class="rbar"><b>Frankenstein</b><span class="pl">Ch. 14</span><span class="ic"><span>▶</span><span>t</span></span></div>
+          <div class="txt"><h3>Chapter 14</h3>Some time elapsed before I learned the history of my friends. It was one which could not fail to impress itself deeply on my mind, unfolding as it did a number of circumstances, each interesting and wonderful to one so utterly inexperienced as I was.</div>
+          <div class="foot">3 / 11 of chapter</div>
+        </div><span class="tap" style="left:254px;top:27px"></span></div>
+        <span class="cap"><b>Tap the t</b> (the reader's menu), as today.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Reader menu</span>
+        <div class="ph"><div class="RD">
+          <div class="rbar"><b>Frankenstein</b><span class="pl">Ch. 14</span><span class="ic"><span>▶</span><span>t</span></span></div>
+          <div class="txt">Some time elapsed before I learned the history of my friends. It was one which could not fail to impress itself deeply on my mind.</div>
+          <div class="dim"></div>
+          <div class="menu">
+            <div class="you"><span class="av me"></span><span>Anders<em>6 h 10 m · last 7 days</em></span></div>
+            <hr>
+            <div><span>Chat about this book</span><kbd>C</kbd></div>
+            <div><span>Contents and notes</span><kbd>I</kbd></div>
+            <div><span>Book editions</span><kbd>E</kbd></div>
+            <div><span>Switch book</span><kbd>B</kbd></div>
+            <div><span>Open the library</span><kbd>L</kbd></div>
+            <div><span>Reading settings</span><kbd>S</kbd></div>
+          </div>
+        </div><span class="tap" style="left:150px;top:82px"></span></div>
+        <span class="cap"><b>"Account" becomes your picture, name and hours</b> at the top of the menu. Tap it.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Account sheet</span>
+        <div class="ph"><div class="RD">
+          <div class="txt" style="padding-top:20px">Some time elapsed before I learned the history of my friends.</div>
+          <div class="sheet">
+            <div class="hd"><b>Account</b><span>×</span></div>
+            <div class="card"><span class="av me"></span><span class="n"><span>Anders</span><em>@anders · friends</em></span><small>Premium</small></div>
+            <p class="gl">Last 7 days</p>
+            <div class="wk"><b>6<small>h</small> 10<small>m</small></b><span class="d"><i style="height:30%"></i><i style="height:55%"></i><i style="height:20%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:100%"></i><i style="height:45%"></i></span></div>
+            <span class="f"><b>#3</b> among friends · <b>6-day</b> streak</span>
+            <div class="rw"><div><span>Your reading</span><span>›</span></div><div><span>Leaderboard</span><span>#3 ›</span></div><div><span>Profile and privacy</span><span>›</span></div><div><span>AI use</span><span>›</span></div><div><span>Manage account</span><span>›</span></div></div>
+          </div>
+        </div><span class="tap" style="left:136px;top:400px"></span></div>
+        <span class="cap"><b>Quick numbers in the reader's look.</b> Each row opens the matching tab from flow 1.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Same page as 1</span>
+        <div class="ph"><div class="L">
+          <div class="top"><span class="back">← Frankenstein</span><span class="t">You</span><span class="av me"></span></div>
+          <div class="seg"><span class="on">Reading</span><span>Leaderboard</span><span>Profile</span></div>
+          <div class="body"><span class="lbl">Reading time since 14 July</span><div class="big">41<small>h</small> 20<small>m</small></div><p class="sub">reading and listening.</p>
+            <div class="bars"><i style="height:18%"></i><i style="height:30%"></i><i style="height:47%"></i><i style="height:37%"></i><i style="height:9%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:67%"></i><i style="height:46%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:95%"></i></div>
+          </div>
+        </div></div>
+        <span class="cap"><b>Back returns to your page in the book,</b> never losing your place.</span></div>
+    </div>
+  </section>
+
+  <!-- Flow 3 -->
+  <section class="flow" aria-label="Onboarding">
+    <h2>3 · Signing up, in the future</h2>
+    <p>From the moment Tinct asks you to create an account to your first visit to the leaderboard.</p>
+    <div class="strip">
+      <div class="step"><span class="num">The ask</span>
+        <div class="ph"><div class="RD">
+          <div class="rbar"><b>Frankenstein</b><span class="pl">Ch. 2</span><span class="ic"><span>▶</span><span>t</span></span></div>
+          <div class="txt">No human being could have passed a happier childhood than myself. My parents were possessed by the very spirit of kindness and indulgence.</div>
+          <div class="dim"></div>
+          <div class="prompt"><span class="e">Free account</span><b>Keep your place and your reading time</b><p>You've read 1 h 05 m here. Save it, see it grow, and read with friends. Your first month of the companion and audiobooks is free.</p><span class="p">Create free account</span><span class="k">Keep reading</span></div>
+        </div><span class="tap" style="left:136px;top:492px"></span></div>
+        <span class="cap"><b>Today's prompt,</b> now also offering to save the reading time you've already built up.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Step 1 of 2</span>
+        <div class="ph"><div class="A"><span class="t">Tinct.</span><div class="c">
+          <div class="k"><span>Free account</span><span>1 of 2</span></div><h4>Create your account</h4>
+          <p class="s">Keep your place, highlights and reading time on every device.</p>
+          <div class="g">Continue with Google</div><div class="or">or with email</div>
+          <div class="f">Email<span>anders@example.com</span></div><div class="f">Password<span>••••••••••</span></div><div class="f">Confirm password<span>••••••••••</span></div>
+          <div class="go">Create account and keep reading</div>
+          <div class="cb"><i></i><span>Email me about my reading progress and ideas for what to read next. Stop any time.</span></div>
+        </div></div><span class="tap" style="left:136px;top:387px"></span></div>
+        <span class="cap"><b>Today's sign-up card</b> with the new consent line, unticked.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Step 2 of 2</span>
+        <div class="ph"><div class="A"><span class="t">Tinct.</span><div class="c">
+          <div class="k"><span>Your profile</span><span>2 of 2</span></div><h4>How other readers see you</h4>
+          <p class="s">For the leaderboard and reading with friends.</p>
+          <div class="avs"><span class="av me on"></span><span class="av" style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span class="av" style="--img:url('mockup-images/frankenstein.jpg');--pos:50% 55%"></span><span class="av init">A</span></div>
+          <div class="f">Name<span>Anders</span></div><div class="f">Profile link<span>tinct.app/@anders</span></div>
+          <div class="f">Who can see your reading<div class="w3"><span>Only me</span><span class="on">Friends</span><span>Everyone</span></div></div>
+          <div class="go">Start reading</div><span class="later">Skip for now</span>
+        </div></div><span class="tap" style="left:136px;top:389px"></span></div>
+        <span class="cap"><b>Replaces "Welcome to Tinct".</b> Skip keeps you private (Only me).</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Back in the book</span>
+        <div class="ph"><div class="RD">
+          <div class="rbar"><b>Frankenstein</b><span class="pl">Ch. 2</span><span class="ic"><span>▶</span><span>t</span></span></div>
+          <div class="txt">No human being could have passed a happier childhood than myself. My parents were possessed by the very spirit of kindness and indulgence. We felt that they were not the tyrants to rule our lot according to their caprice…</div>
+          <div class="toast"><span class="av me"></span><span>You're in, Anders. Your 1 h 05 m is saved. Find it under the t.</span></div>
+        </div></div>
+        <span class="cap"><b>Same page you left,</b> with a one-time note pointing to where your profile lives.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">Welcome email</span>
+        <div class="ph"><div class="E">
+          <div class="mh"><b>Anders at Tinct</b><br>Welcome to Tinct<br>to: anders@example.com</div>
+          <div class="mb"><span class="k">Welcome</span><h4>Welcome to Tinct</h4><p>Your place in <em>Frankenstein</em> is saved, along with the first hour you've spent in it.</p><p>One click confirms this is your address:</p><span class="btn">Confirm your email</span><small>Until you confirm, we won't send reading emails and your profile stays visible to friends only.</small></div>
+        </div><span class="tap" style="left:106px;top:303px"></span></div>
+        <span class="cap"><b>Sign-up never waits for this.</b> Confirming switches on reading emails (if ticked) and lets you go public.</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="num">First leaderboard visit</span>
+        <div class="ph"><div class="L">
+          <div class="top"><span class="back">←</span><span class="t">You</span><span class="av me"></span></div>
+          <div class="seg"><span>Reading</span><span class="on">Leaderboard</span><span>Profile</span></div>
+          <div class="body">
+            <span class="lbl">Last 7 days</span>
+            <div class="lb" style="opacity:.35"><div class="r"><span class="n">1</span><span class="av init">S</span><span>Sofie<em>Crime and Punishment</em></span><span class="h">9 h 40</span></div><div class="r"><span class="n">2</span><span class="av init">J</span><span>Jonas<em>The Odyssey</em></span><span class="h">7 h 15</span></div></div>
+            <div style="border:1px solid var(--glass-line);background:var(--raised);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px">
+              <b style="font-weight:400;font-size:1.25rem">Join the leaderboard?</b>
+              <span style="color:var(--sage);font-size:.85rem;line-height:1.4">You're private right now. Show your reading time and books to:</span>
+              <div class="who3"><span>Friends</span><span>Everyone</span><span class="on">Not now</span></div>
+              <span style="color:var(--dim);font-size:.75rem;font-style:italic">Only shown to readers who skipped step 2. Highlights and notes stay private.</span>
+            </div>
+          </div>
+        </div></div>
+        <span class="cap"><b>Readers who skipped get asked once more,</b> at the moment it matters.</span></div>
+    </div>
+  </section>
+</div>
