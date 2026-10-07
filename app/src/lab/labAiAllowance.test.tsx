@@ -9,7 +9,7 @@ const switchState = vi.hoisted(() => ({ on: false }))
 vi.mock('../aiAllowanceSwitch', () => ({ get AI_ALLOWANCE_ENFORCED() { return switchState.on } }))
 
 import { LabAiUsageBar } from './LabAiUsageBar'
-import { AI_USAGE_COPY, aiUsageNote, allowanceAuthHeaders, fetchAiAllowance, parseAiAllowance, parseTopUps, startTopUpCheckout } from './labAiAllowance'
+import { AI_USAGE_COPY, aiUsageNote, allowanceAuthHeaders, fetchAiAllowance, offersTopUps, parseAiAllowance, parseTopUps, startTopUpCheckout } from './labAiAllowance'
 
 beforeEach(() => { switchState.on = true })
 
@@ -48,6 +48,14 @@ describe('aiUsageNote', () => {
     expect(aiUsageNote(view({}))).toBe(AI_USAGE_COPY.usedUp)
     expect(aiUsageNote(view({ usedFraction: 0.85, state: 'low', resetsAt: '2026-10-20T12:00:00.000Z', hasTopUp: true })))
       .toBe(`${AI_USAGE_COPY.low} ${AI_USAGE_COPY.includesTopUp} ${AI_USAGE_COPY.resets('Oct 20')}.`)
+  })
+
+  it('offers top-ups when running low or at zero, never while plenty is left', () => {
+    const topUps = ['chat_pack_200' as const]
+    expect(offersTopUps(view({ state: 'used_up', topUps }))).toBe(true)
+    expect(offersTopUps(view({ state: 'low', topUps }))).toBe(true)
+    expect(offersTopUps(view({ state: 'ok', topUps }))).toBe(false)
+    expect(offersTopUps(view({ state: 'used_up', topUps: [] }))).toBe(false)
   })
 
   it('never shows a currency', () => {
@@ -136,6 +144,32 @@ describe('LabAiUsageBar', () => {
     render(<LabAiUsageBar token="tok" />)
     await screen.findByTestId('lab-v2-top-up')
     expect(screen.queryByTestId('lab-v2-top-up-more')).toBeNull()
+  })
+
+  it('shows the prices as pills, "$5" and "$10", named for what they do', async () => {
+    expect(AI_USAGE_COPY.topUp).toBe('$5')
+    expect(AI_USAGE_COPY.topUpMore).toBe('$10')
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json(bar({ usedFraction: 1, state: 'used_up' }))))
+    render(<LabAiUsageBar token="tok" />)
+    expect(await screen.findByRole('button', { name: 'Buy a $5 top-up' })).toBe(screen.getByTestId('lab-v2-top-up'))
+    expect(screen.getByRole('button', { name: 'Buy a $10 top-up' })).toBe(screen.getByTestId('lab-v2-top-up-more'))
+    expect(screen.getByTestId('lab-v2-top-up').textContent).toBe('$5')
+    expect(screen.getByTestId('lab-v2-top-up-more').textContent).toBe('$10')
+  })
+
+  it('offers the top-ups when running low too', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json(bar({ usedFraction: 0.85, state: 'low' }))))
+    render(<LabAiUsageBar token="tok" />)
+    await screen.findByTestId('lab-v2-top-up')
+    expect(screen.getByTestId('lab-v2-top-up-more')).toBeTruthy()
+  })
+
+  it('stands alone: its own classes only, nothing from the account sheet', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json(bar({ usedFraction: 0.85, state: 'low', hasTopUp: true }))))
+    const { container } = render(<LabAiUsageBar token="tok" />)
+    await screen.findByTestId('lab-v2-top-up')
+    const classes = new Set(Array.from(container.querySelectorAll('[class]')).flatMap(node => Array.from(node.classList)))
+    for (const name of classes) expect(name).toMatch(/^lab-ai-usage(-[a-z]+)?$/)
   })
 
   it('has no top-up button while allowance is left', async () => {

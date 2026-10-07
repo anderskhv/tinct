@@ -7,7 +7,7 @@
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { apiUrl } from '../utils/apiUrl'
 
-// DRAFT COPY — needs Anders's approval
+// Wording: Anders, 2026-10-07 (price pills).
 export const AI_USAGE_COPY = {
   label: 'AI use',
   resets: (date: string) => `Renews ${date}`,
@@ -15,8 +15,11 @@ export const AI_USAGE_COPY = {
   usedUp: 'AI features are paused. Reading and listening carry on.',
   usedUpUntil: (date: string) => `AI features are paused until ${date}. Reading and listening carry on.`,
   includesTopUp: 'Includes your top-up.',
-  topUp: 'Top up',
-  topUpMore: 'Bigger top-up',
+  /** The price pills; their accessible names say what they do. */
+  topUp: '$5',
+  topUpMore: '$10',
+  topUpAction: 'Buy a $5 top-up',
+  topUpMoreAction: 'Buy a $10 top-up',
   topUpFailed: 'Could not open checkout. Try again.',
 } as const
 
@@ -75,6 +78,11 @@ export function aiUsageNote(allowance: AiAllowance): string {
   if (allowance.hasTopUp) parts.push(AI_USAGE_COPY.includesTopUp)
   if (date) parts.push(`${AI_USAGE_COPY.resets(date)}.`)
   return parts.join(' ')
+}
+
+/** Top-ups are offered when running low and at zero, never while plenty is left. */
+export function offersTopUps(allowance: AiAllowance): boolean {
+  return allowance.state !== 'ok' && allowance.topUps.length > 0
 }
 
 type FetchLike = (input: string, init?: RequestInit) => Promise<Response>

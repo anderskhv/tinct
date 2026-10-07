@@ -7333,30 +7333,3 @@
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-character .popup-character-subtitle::first-letter { text-transform:uppercase; }
 .lab[data-chrome-version="v2"] .selection-popup.is-lab .popup-define .lab-person-actions { padding:10px 0 4px; }
 
-
-/* AI usage bar on the account sheet (LabAiUsageBar.tsx). Shown only while the
-   allowance is switched on. Same well and quiet type as the card above it. */
-.lab[data-chrome-version="v2"] .lab-v2-ai-usage {
-  margin: 10px 0 4px;
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-ai-usage-track {
-  display: block;
-  height: 6px;
-  margin: 4px 4px 0;
-  border-radius: 3px;
-  overflow: hidden;
-  background: var(--lab-v2-well);
-  box-shadow: inset 0 0 0 1px rgba(20, 15, 8, 0.08);
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-ai-usage-fill {
-  display: block;
-  height: 100%;
-  background: var(--lab-ink);
-  opacity: 0.55;
-}
-
-.lab[data-chrome-version="v2"] .lab-v2-ai-usage[data-state="used_up"] .lab-v2-ai-usage-fill {
-  opacity: 0.8;
-}
