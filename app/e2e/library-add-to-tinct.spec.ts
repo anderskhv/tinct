@@ -209,7 +209,7 @@ test.describe('My shelf', () => {
     await shot(page, 'myshelf-internal-on')
   })
 
-  test('only books being read can be removed; finished books cannot', async ({ page }) => {
+  test('books being read can be removed; finished books cannot', async ({ page }) => {
     // The sample returning reader: five books being read, two finished.
     await prepare(page, { internal: true, signedIn: true, query: 'demo=reading' })
     await openShelf(page)
@@ -222,9 +222,9 @@ test.describe('My shelf', () => {
     await expect(grid.locator('[data-shelf-group="finished"] .save-toggle, [data-shelf-group="finished"] [data-shelf-remove]')).toHaveCount(0)
   })
 
-  test('a finished book removed earlier is shown again; nothing stored is rewritten', async ({ page }) => {
-    // This device as a guest: Hamlet finished, then removed from My shelf (the old ×).
-    const removal = JSON.stringify({ items: { hamlet: { saved: false, at: Date.now() - 60_000 } }, pending: {} })
+  test('a finished book removed earlier is shown again; a book saved for later keeps its ×', async ({ page }) => {
+    // This device as a guest: Hamlet finished, then removed from My shelf (the old ×); the Odyssey saved for later.
+    const removal = JSON.stringify({ items: { hamlet: { saved: false, at: Date.now() - 60_000 }, odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
     await page.addInitScript(value => {
       try { localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ bookId: 'hamlet' })); localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ }
     }, removal)
@@ -233,6 +233,10 @@ test.describe('My shelf', () => {
     const finished = page.locator('#collection-books [data-shelf-group="finished"]')
     await expect(finished).toHaveCount(1, { timeout: 20_000 })
     await expect(finished.locator('h2')).toHaveText('Hamlet')
+    await expect(finished.locator('[data-shelf-remove], .save-toggle')).toHaveCount(0)
+    const saved = page.locator('#collection-books [data-shelf-group="want"]')
+    await expect(saved).toHaveCount(1)
+    await expect(saved.locator('[data-shelf-remove]')).toHaveAttribute('aria-label', 'Remove from My shelf: The Odyssey')
     expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
   })
 

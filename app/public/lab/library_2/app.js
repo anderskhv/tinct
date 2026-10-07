@@ -416,9 +416,9 @@ function renderMyBooks(){
   list.forEach(book=>{
    const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;
    const toggle=open.querySelector('.save-toggle');
-   // Only a book being read can be removed (Anders, 2026-10-07): finished books stay on the
-   // shelf, and saved books are kept or let go from the book itself.
-   if(toggle&&kind!=='reading')toggle.remove();
+   // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
+   // Books being read and books saved for later keep their ×.
+   if(toggle&&kind==='finished')toggle.remove();
    else if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
    if(kind==='reading'){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
