@@ -587,6 +587,10 @@ try {
     await two.ctx.close();
 
   }
+
+  // ---- A commercially made EPUB's figures, in Chromium and WebKit: added, reloaded, reopened, on a second device ----
+  const { ownFigureChecks } = await import('./own-figures.mjs');
+  await ownFigureChecks({ base: BASE, check });
 } catch (e) {
   check('run completed', false, String(e?.stack || e).slice(0, 600));
 } finally {

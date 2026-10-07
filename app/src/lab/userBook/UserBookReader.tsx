@@ -31,6 +31,9 @@ export function UserBookReader({ hex, owner, open = openUserBook }: {
       if (!live) return
       if (!result.ok) { setState({ status: 'failed', message: result.message }); return }
       registerUserBook(result.book.bookId, result.book.edition)
+      // The pictures are handed over before the reader draws its first page.
+      const images = result.book.images
+      registerFigureAssets(key => images.get(key) ?? null)
       setState({ status: 'ready', book: result.book })
     }).catch(() => {
       if (live) setState({ status: 'failed', message: 'This file could not be opened as an EPUB. Choose another file.' })
@@ -38,7 +41,8 @@ export function UserBookReader({ hex, owner, open = openUserBook }: {
     return () => { live = false }
   }, [hex, open, owner])
 
-  // The book's pictures are drawn from this device while it is open (labFigures).
+  // The book's pictures are drawn from this device while it is open (labFigures),
+  // from object URLs made in this page load from the bytes kept on the device.
   const images = state.status === 'ready' ? state.book.images : null
   useEffect(() => {
     if (!images) return

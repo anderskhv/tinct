@@ -1,19 +1,38 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
-import { acquireFigureUrl, figureAspect, figureLabel, figurePlacement, releaseFigureUrl, type LabFigure } from './labFigures'
+import { useEffect, useRef, useState, useSyncExternalStore, type PointerEvent as ReactPointerEvent } from 'react'
+import { dropFigureUrl, figureAspect, figureAssetGeneration, figureLabel, figurePlacement, holdFigureUrl, subscribeFigureAssets, type LabFigure } from './labFigures'
 import { useReaderWindow } from './useReaderWindow'
 import './labCatchUp.css'
 
-/** A figure's image, its URL held only while it is drawn (labFigures.ts). */
+/**
+ * A figure's image, its URL held only while it is drawn (labFigures.ts). It
+ * draws again whenever the book's pictures are handed over or renewed, and
+ * an image that fails to load is tried once more from a fresh URL; one that
+ * still cannot be drawn (or that the book could not provide) is a plain
+ * placeholder, never the browser's broken-image box.
+ */
 function FigureImage({ figure, className }: { figure: LabFigure; className?: string }) {
-  const [url, setUrl] = useState<string | null>(null)
+  const generation = useSyncExternalStore(subscribeFigureAssets, figureAssetGeneration, figureAssetGeneration)
+  const [shown, setShown] = useState<{ url: string | null; settled: boolean }>({ url: null, settled: false })
+  const [failed, setFailed] = useState(0)
+  useEffect(() => { setFailed(0) }, [figure.src, generation])
   useEffect(() => {
-    const next = acquireFigureUrl(figure.src)
-    setUrl(next)
-    return () => { if (next) releaseFigureUrl(figure.src) }
-  }, [figure.src])
-  return url
-    ? <img className={className} src={url} alt={figure.alt || figure.caption || ''} decoding="async" draggable={false} />
-    : null
+    const hold = failed > 1 ? null : holdFigureUrl(figure.src)
+    setShown({ url: hold?.url ?? null, settled: true })
+    return () => hold?.release()
+  }, [figure.src, generation, failed])
+  const { url } = shown
+  if (url && failed < 2) {
+    return <img className={className} src={url} alt={figure.alt || figure.caption || ''} decoding="async" draggable={false}
+      data-testid="lab-figure-img"
+      onError={() => { dropFigureUrl(figure.src, url); setFailed(count => count + 1) }} />
+  }
+  // Nothing to draw: the book's picture is missing, cannot be drawn here, or failed twice.
+  if (figure.unavailable || !figure.src || (shown.settled && !url)) {
+    return <span className={`lab-figure-missing${className ? ` ${className}` : ''}`} data-testid="lab-figure-missing" role="img" aria-label={figure.caption || figure.alt || `Figure ${figure.number}`}>
+      <span className="lab-figure-missing-label">Picture not available</span>
+    </span>
+  }
+  return null
 }
 
 /** A figure's small square picture (the Figures tab, a strip). */

@@ -4682,6 +4682,29 @@
   background: color-mix(in srgb, currentColor 8%, transparent);
 }
 .lab .lab-figure-thumb img { object-fit: cover; }
+/* A picture this device cannot draw: a quiet frame with a label, never a broken-image box. */
+.lab .lab-figure-missing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 3em;
+  box-sizing: border-box;
+  border: 1px dashed color-mix(in srgb, currentColor 28%, transparent);
+  border-radius: 2px;
+}
+.lab .lab-figure-missing-label {
+  font: 500 .56em/1.4 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .6;
+  text-align: center;
+  padding: 0 .6em;
+}
+.lab .lab-figure-thumb .lab-figure-missing { min-height: 0; }
+.lab .lab-figure-thumb .lab-figure-missing-label { display: none; }
+.lab .lab-figure-zoom .lab-figure-missing { min-height: 8em; }
 .lab .lab-figure-strip-text { display: flex; flex-direction: column; min-width: 0; }
 .lab .lab-figure-label,
 .lab .lab-figure-ref {

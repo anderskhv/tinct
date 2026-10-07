@@ -13,6 +13,7 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, type UserBookPlace } from './userBookPlace'
 import { usableUserEdition, type UserBookEdition } from './userEdition'
+import type { UserBookImage } from './epubEdition'
 
 const STORE = 'books'
 
@@ -25,8 +26,14 @@ interface UserBookRecord {
   owner: string
   bytes?: ArrayBuffer
   edition?: UserBookEdition
-  /** The book's pictures (figure id -> image), converted with the edition and kept beside it. */
-  figureImages?: Record<string, Blob>
+  /**
+   * The book's pictures (figure id -> type and bytes), converted with the
+   * edition and kept beside it. Bytes, never Blobs: a Blob kept in IndexedDB
+   * can come back unreadable on iOS Safari, drawing as a broken image.
+   */
+  figureData?: Record<string, UserBookImage>
+  /** Converter 4 and earlier kept Blobs here; such a record converts again. */
+  figureImages?: unknown
   [field: string]: unknown
 }
 
@@ -77,7 +84,7 @@ async function readRecord(key: string, owner: string): Promise<UserBookRecord | 
 }
 
 /** Keep the conversion and its pictures on the book's own record (read and written in one transaction). */
-async function keepEdition(key: string, owner: string, edition: UserBookEdition, images: Map<string, Blob>): Promise<void> {
+async function keepEdition(key: string, owner: string, edition: UserBookEdition, images: Map<string, UserBookImage>): Promise<void> {
   const db = await openDb()
   try {
     await new Promise<void>((resolve, reject) => {
@@ -86,7 +93,9 @@ async function keepEdition(key: string, owner: string, edition: UserBookEdition,
       const request = store.get(key)
       request.onsuccess = () => {
         const record = request.result as UserBookRecord | undefined
-        if (record && record.owner === owner) store.put({ ...record, edition, figureImages: Object.fromEntries(images) })
+        if (!record || record.owner !== owner) return
+        const { figureImages: _legacy, ...rest } = record
+        store.put({ ...rest, edition, figureData: Object.fromEntries(images) })
       }
       tx.oncomplete = () => resolve()
       tx.onerror = () => reject(tx.error)
@@ -111,7 +120,9 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   try { record = await readRecord(key, owner) } catch { return { ok: false, reason: 'storage', message: STORAGE_MESSAGE } }
   if (!record || record.kind !== 'epub') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
   let edition = usableUserEdition(record.edition) ? record.edition : null
-  let images = new Map<string, Blob>(Object.entries(record.figureImages ?? {}).filter((entry): entry is [string, Blob] => entry[1] instanceof Blob))
+  let data = storedImages(record.figureData)
+  // Every picture the edition shows must be on the record; one missing converts the book again.
+  if (edition && !edition.chapters.every(chapter => (chapter.figures ?? []).every(figure => !figure.src.startsWith('asset:') || data.has(figure.src.slice('asset:'.length))))) edition = null
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     try {
@@ -119,7 +130,7 @@ export async function openUserBook(hex: string, options: { owner?: string | null
       const { convertEpub } = await import('./epubEdition')
       const converted = await convertEpub(new Uint8Array(record.bytes), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, '') })
       edition = converted.edition
-      images = converted.images
+      data = converted.images
     } catch (error) {
       const code = (error as { code?: string } | null)?.code
       const message = code && ['drm', 'unsupported', 'bad_epub', 'not_zip'].includes(code) && error instanceof Error
@@ -128,7 +139,19 @@ export async function openUserBook(hex: string, options: { owner?: string | null
       return { ok: false, reason: 'unreadable', message }
     }
     // A browser that cannot keep it converts again next time; reading goes on.
-    await keepEdition(key, owner, edition, images).catch(() => {})
+    await keepEdition(key, owner, edition, data).catch(() => {})
   }
+  // Blobs made now, in memory, from the kept bytes: each reader load draws from fresh object URLs.
+  const images = new Map<string, Blob>([...data].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
   return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition) } }
+}
+
+function storedImages(value: unknown): Map<string, UserBookImage> {
+  const out = new Map<string, UserBookImage>()
+  if (!value || typeof value !== 'object') return out
+  for (const [id, image] of Object.entries(value as Record<string, unknown>)) {
+    const item = image as UserBookImage | null
+    if (item && typeof item.type === 'string' && Object.prototype.toString.call(item.data) === '[object ArrayBuffer]' && item.data.byteLength > 0) out.set(id, item)
+  }
+  return out
 }
