@@ -7,6 +7,7 @@ import {
   type AiAllowance,
   type TopUpPack,
 } from './labAiAllowance'
+import { LAB_COPY } from './labCopy'
 
 /**
  * The reader's AI usage bar on the account sheet. Renders nothing for a
@@ -73,4 +74,15 @@ export function LabAiUsageBar({ token }: { token: string | null }) {
       {failed && <p className="lab-v2-note" role="status">{AI_USAGE_COPY.topUpFailed}</p>}
     </div>
   )
+}
+
+/**
+ * The line a refused recap, chapter note or Catch me up entry shows at zero
+ * (LAB_COPY.balanceEmpty). With `onTopUp` (the reader opens its account
+ * sheet, where the usage bar offers the top-ups) the line is that link.
+ */
+export function LabBalanceEmptyLine({ onTopUp, testId }: { onTopUp?: () => void; testId: string }) {
+  return onTopUp
+    ? <button type="button" className="lab-catch-up-balance is-link" data-testid={testId} onClick={onTopUp}>{LAB_COPY.balanceEmpty}</button>
+    : <p className="lab-catch-up-balance" data-testid={testId}>{LAB_COPY.balanceEmpty}</p>
 }

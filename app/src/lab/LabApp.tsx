@@ -4930,6 +4930,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           readToken={readSupabaseAccessToken}
           onClose={() => setSuperSheet(null)}
           onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
+          onTopUp={() => setSuperSheet('account')}
         />
       )}
       {!frontispieceVisible && chapterNotes && (
@@ -4941,6 +4942,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
           onTalk={(title, beats) => continueChapterNotes('talk', title, beats)}
           readToken={readSupabaseAccessToken}
+          onTopUp={() => { setChapterNotes(null); setSuperSheet('account') }}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>

@@ -79,6 +79,25 @@ export function aiUsageNote(allowance: AiAllowance): string {
 
 type FetchLike = (input: string, init?: RequestInit) => Promise<Response>
 
+/** The Worker's refusal at zero: HTTP 402 { error: 'allowance_used' } (worker/lib/aiAllowance.ts). */
+export const ALLOWANCE_USED_ERROR = 'allowance_used'
+
+/**
+ * Whether a failed AI response is the allowance refusal, so the sheet shows
+ * LAB_COPY.balanceEmpty rather than only Retry. Always false while the switch
+ * is off: then nothing on screen changes. Reads the body; call it only on a
+ * response whose body has not been read.
+ */
+export async function isAllowanceUsedResponse(response: { status: number; json(): Promise<unknown> }, enforced: boolean = AI_ALLOWANCE_ENFORCED): Promise<boolean> {
+  if (!enforced || response.status !== 402) return false
+  try {
+    const data = await response.json() as { error?: unknown } | null
+    return data?.error === ALLOWANCE_USED_ERROR
+  } catch {
+    return false
+  }
+}
+
 /**
  * The reader's session for AI routes that also serve signed-out readers
  * (chapter notes, Catch me up), so the Worker can charge and gate a signed-in
