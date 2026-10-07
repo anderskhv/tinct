@@ -3,13 +3,13 @@
  * chapter-end summary and Primer (they used to stream a chat answer).
  *
  * The client names only the book, edition, chapter, kind and (for "so far")
- * the reader's paragraph. The Worker fetches the text itself, asks the fast
- * recap model for 2–4 titled beats as JSON, and caches the result: it depends
+ * the reader's paragraph. The Worker fetches the text itself, asks the model
+ * for that kind (CHAPTER_NOTES_MODEL) for 2–4 titled beats as JSON, and caches the result: it depends
  * only on the text, so every reader at the same place shares it. Generation
  * alone is rate-limited and reserved against the signed-out daily AI ceiling,
  * exactly as `/api/lab-catch-up`.
  */
-import { RECAP_FAST_MODEL } from '../../companionModel'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from '../../companionModel'
 import { recapCoverageThrough } from '../../recapSummary'
 import {
   CHAPTER_NOTES_CACHE_TTL_SECONDS,
@@ -41,8 +41,25 @@ export interface LabChapterNotesDeps {
   resolveUser?: (request: Request) => Promise<string | null>
 }
 
-// Four two-sentence "in brief" beats run to ~320 output tokens; the margin keeps the JSON whole.
-export const CHAPTER_NOTES_MAX_TOKENS = 480
+/**
+ * In brief and Primer are written once per book, edition and chapter and then
+ * served from the cache to every reader, so they use the companion's Sonnet
+ * model (Anders, 2026-10-07). "So far" depends on the reader's paragraph, is
+ * generated far more often and stays on the fast model.
+ */
+export const CHAPTER_NOTES_MODEL: Readonly<Record<ChapterNotesKind, string>> = Object.freeze({
+  sofar: RECAP_FAST_MODEL,
+  end: COMPANION_MODEL,
+  primer: COMPANION_MODEL,
+})
+
+// Four two-sentence beats run to ~320 output tokens; the margin keeps the JSON
+// whole, a little more for Sonnet, whose wording runs slightly longer.
+export const CHAPTER_NOTES_MAX_TOKENS: Readonly<Record<ChapterNotesKind, number>> = Object.freeze({
+  sofar: 480,
+  end: 600,
+  primer: 600,
+})
 export const CHAPTER_NOTES_MAX_PASSAGE_CHARS = 28_000
 export const CHAPTER_NOTES_LOOKUP_RATE_LIMIT_PER_MINUTE = 60
 export const CHAPTER_NOTES_GENERATE_RATE_LIMIT_PER_MINUTE = 10
@@ -65,24 +82,41 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
   ].join('\n'),
   // "<chapter> in brief". A list of "X is recorded" beats is accurate and
   // dull (Anders on Nehemiah 12, 2026-10-07): each beat says what happens and
-  // then notices one thing in the text worth seeing. Same JSON shape as the
-  // other kinds. Changing this text means bumping CHAPTER_NOTES_PROMPT_VERSIONS.end.
+  // then points to one thing in the text worth seeing. Prompt v3 was tested on
+  // Haiku and Sonnet; its example comes from no real book so it cannot leak
+  // into a card. Same JSON shape as the other kinds. Changing this text means
+  // bumping CHAPTER_NOTES_PROMPT_VERSIONS.end.
   end: [
     'You write a short card summing up a whole chapter for a reader, who may be anywhere in it.',
     'Give three or four beats, in order, covering the whole chapter below. Nothing from later chapters. Mention an earlier part of the book only when you are certain of it.',
+    'Never more than four beats.',
     SHARED_RULES[0],
-    'Each title is two to five words naming what is particular to that beat: a person, place, act or object from the text. Never a generic label such as "Priests Listed", "Households Recorded" or "Dedication Prepared". No quotation marks inside titles.',
-    'Each text is two plain sentences in the present tense, at most 40 words together. The first says what happens. The second notices one specific thing in the text that makes the beat worth reading: a telling detail, a tension, an irony, an absence, an unusual order, or an echo of something earlier.',
-    'Ground every observation in this chapter\'s own words, names, numbers or sequence. Do not invent facts, motives or symbolism. If a beat offers nothing more, point to its most concrete detail rather than a general comment.',
-    'Do not write flat record-keeping sentences such as "The names are recorded" or "The priests are listed"; say what the text does with them.',
+    'Each title is two to five words naming what is particular to that beat: a person, place, act or object from the text. Never a generic label such as "Priests Listed", "Records Kept" or "Dedication Prepared". No quotation marks inside titles.',
+    'Each text is two plain sentences in the present tense, at most 40 words together. The first says what happens. The second points out one specific thing in the text a reader would not get from a table of contents: a telling detail, a surprising number or name, a tension, an irony, something left out, an unusual order, or an echo of something earlier.',
+    'Ground every observation in this chapter\'s own words, names, numbers or sequence. Do not invent facts, motives or symbolism.',
+    'State only facts the text gives; when unsure of a name or number, leave it out.',
+    'Never use the verbs list, record, document, establish or detail to describe the text; say what the text actually shows.',
+    'For genealogies, rolls and other lists, the interesting thing is in the specifics: whose line runs longest, who is singled out, what the list\'s order or endpoint reveals, a name that recurs.',
     'Write declaratively. No praise, no advice, no morals or aphorisms, no "we" or "us", no rhetorical questions, no balanced flourishes such as "not X but Y".',
-    'For non-narrative text (proverbs, letters, essays, laws, poems, genealogies, lists) give the main points instead of events, and say what the passage is doing: who is included or left out, what is repeated, how it is ordered.',
-    'Example of one beat: {"title":"Two Choirs on the Wall","text":"Two thanksgiving choirs walk the rebuilt wall in opposite directions and meet at the temple. The joy of Jerusalem is heard far off, over a wall its builders once raised with swords at their sides."}',
+    'Example beat (from a different book, for tone only): {"title":"The Letter in the Drawer","text":"Anna finds her husband\'s unsent letter while looking for string. It is dated the morning of their wedding, and the only word crossed out is her name."}',
   ].join('\n'),
+  // Two beats since 2026-10-07 (the "And" beat is gone): where the story
+  // stands, then one or two concrete things to watch for, in the In brief
+  // voice and strictly spoiler-free. Bump CHAPTER_NOTES_PROMPT_VERSIONS.primer
+  // when this changes.
   primer: [
     'You write a spoiler-free primer a reader sees before starting a chapter.',
-    'Give exactly two or three beats. The first is titled "Where we are" and says, from the PREVIOUS chapter only, where the story stands. The next are titled "Watch for" and, if there is one, "And": what to notice in the coming chapter — themes, people introduced, questions raised — without revealing any event, outcome or turn from it.',
-    ...SHARED_RULES,
+    'Give exactly two beats, in this order. Never more than two beats.',
+    'The first is titled "Where we are" and says, from the PREVIOUS chapter only, where the story stands. If there is no previous chapter, it says where the book opens, from the coming chapter\'s first lines only.',
+    'The second is titled "Watch for" and gives one or two concrete pointers for the coming chapter: a person, object, place or question to keep an eye on, named specifically.',
+    'Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter. Point at what to notice, never at what happens to it. For example (another chapter, for tone only), write "Watch how the book closes on Mordecai\'s standing rather than Esther\'s", never "Mordecai\'s position is revealed".',
+    'Answer with JSON only, no prose around it: {"beats":[{"title":"Where we are","text":"…"},{"title":"Watch for","text":"…"}]}.',
+    'Each text is one or two plain sentences in the present tense, at most 40 words.',
+    'Ground both beats in the text given. Do not invent meaning, motives or symbolism.',
+    'State only facts the text gives; when unsure of a name or number, leave it out.',
+    'Never use the verbs list, record, document, establish, detail, reveal or examine to describe the text; say what the text actually shows.',
+    'Write declaratively. No praise, no advice, no morals or aphorisms, no "we" or "us" in the text, no rhetorical questions, no balanced flourishes such as "not X but Y".',
+    'For non-narrative text (proverbs, letters, essays, laws, poems) say where the argument or sequence stands, and what in the coming chapter to keep an eye on.',
   ].join('\n'),
 }
 
@@ -207,18 +241,22 @@ export async function handleLabChapterNotes(
   const where = parsed.bookTitle ? `${parsed.bookTitle}, ${chapter.title}` : chapter.title
   const content = `Location: ${where}.\n\n${passage}\n\nWrite the card as JSON.`
   const system = CHAPTER_NOTES_SYSTEM[parsed.kind]
-  const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens: CHAPTER_NOTES_MAX_TOKENS })
+  const model = CHAPTER_NOTES_MODEL[parsed.kind]
+  const maxTokens = CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
+  const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
   const meter = createAiMeter(env, ctx, {
     guest: ledgerGuestKey(request),
     resolveUser: deps.resolveUser ? () => deps.resolveUser!(request) : undefined,
-  }, { feature: 'chapter_notes', bookId: parsed.bookId, model: RECAP_FAST_MODEL })
+  }, { feature: 'chapter_notes', bookId: parsed.bookId, model })
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
-      model: RECAP_FAST_MODEL,
-      max_tokens: CHAPTER_NOTES_MAX_TOKENS,
+      model,
+      max_tokens: maxTokens,
       system,
       messages: [{ role: 'user', content }],
+      // Sonnet takes its depth from effort (as labRecap's summaries); Haiku takes none.
+      ...(model === RECAP_FAST_MODEL ? {} : { output_config: { effort: 'low' as const } }),
     }, apiKey)
     if (!response.ok) {
       if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)
