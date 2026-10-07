@@ -226,7 +226,7 @@ describe('share highlight: the quote card (surrounding text off)', () => {
 
 describe('share highlight: drawing', () => {
   it('draws the reader page with no user identity, in each look', () => {
-    for (const look of ['paper', 'night', 'eink'] as const) {
+    for (const look of ['paper', 'book', 'night', 'eink'] as const) {
       const svg = renderShareSvg(composeSharePage(content(SHORT), options('phone', { look }), fonts), fonts)
       expect(svg).toContain('Frankenstein')
       expect(svg).toContain('Read free at tinct.app')
@@ -241,6 +241,27 @@ describe('share highlight: drawing', () => {
   it('escapes text for SVG', () => {
     const svg = renderShareSvg(composeSharePage({ ...content(SHORT), bookTitle: 'A <b>&</b> "B"' }, options('og'), fonts), fonts)
     expect(svg).toContain('A &lt;b&gt;&amp;&lt;/b&gt; &quot;B&quot;')
+  })
+})
+
+describe('share highlight: colours follow the reader page', () => {
+  // Paper and highlight as the live reader paints them (lab.css, display-profile.css).
+  const PAGE = {
+    paper: { paper: '#ece7db', highlight: '#dcca98' },
+    book: { paper: '#e7dcc7', highlight: '#dcca98' },
+    night: { paper: '#171411', highlight: '#5c4a2e' },
+    eink: { paper: '#ffffff', highlight: '#dcca98' },
+  } as const
+
+  it('draws the card on the theme paper with the page highlight', () => {
+    for (const look of Object.keys(PAGE) as Array<keyof typeof PAGE>) {
+      for (const context of [false, true]) {
+        const svg = renderShareSvg(composeSharePage(content(SHORT), options('phone', { look, context }), fonts), fonts)
+        expect(svg).toContain(`<rect width="1080" height="`)
+        expect(svg).toMatch(new RegExp(`<rect width="1080" height="\\d+" fill="${PAGE[look].paper}"/>`))
+        expect(svg).toContain(`fill="${PAGE[look].highlight}"/>`)
+      }
+    }
   })
 })
 

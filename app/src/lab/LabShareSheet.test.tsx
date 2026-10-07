@@ -25,6 +25,7 @@ function mockFetch() {
 
 afterEach(() => {
   cleanup()
+  localStorage.clear()
   vi.unstubAllGlobals()
   vi.useRealTimers()
 })
@@ -72,6 +73,29 @@ describe('LabShareSheet', () => {
     expect(screen.queryByText(/remembered for next time/)).toBeNull()
     expect(screen.getByRole('checkbox', { name: 'Show surrounding text' })).toBeTruthy()
     expect(screen.getByRole('checkbox', { name: 'Add "Read free at tinct.app"' })).toBeTruthy()
+  })
+
+  it('leaves the tinct.app credit off until the reader turns it on, then remembers it', async () => {
+    const calls = mockFetch()
+    localStorage.clear()
+    render(<LabShareSheet target={target} look="book" format="phone" onClose={() => {}} />)
+    await settle()
+    const tagline = screen.getByRole('checkbox', { name: 'Add "Read free at tinct.app"' }) as HTMLInputElement
+    expect(tagline.checked).toBe(false)
+    expect((screen.getByRole('checkbox', { name: 'Show surrounding text' }) as HTMLInputElement).checked).toBe(true)
+    expect(calls.find(call => call.url.includes('/api/share/preview'))!.url).toMatch(/[?&]tagline=0(&|$)/)
+    expect(calls.find(call => call.url.includes('/api/share/preview'))!.url).toMatch(/[?&]look=book(&|$)/)
+    // The toggle is the reader's "t" mark, not a text label.
+    const chip = tagline.closest('label')!
+    expect(chip.textContent).toBe('')
+    expect(chip.querySelector('svg')).not.toBeNull()
+    expect(chip.getAttribute('title')).toBe('Add "Read free at tinct.app"')
+    fireEvent.click(tagline)
+    expect(JSON.parse(localStorage.getItem('tinct:share-prefs')!)).toEqual({ context: true, tagline: true })
+    cleanup()
+    render(<LabShareSheet target={target} look="book" format="phone" onClose={() => {}} />)
+    await settle()
+    expect((screen.getByRole('checkbox', { name: 'Add "Read free at tinct.app"' }) as HTMLInputElement).checked).toBe(true)
   })
 
   it('keeps Share on phone, beside Copy image and Download', async () => {

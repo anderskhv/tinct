@@ -3,6 +3,7 @@ import { apiUrl } from '../utils/apiUrl'
 import { trackFunnel } from '../utils/funnel'
 import { CopyIcon, ShareIcon } from '../components/reader/SelectionPopup'
 import { readSupabaseAccessToken } from './labAuth'
+import { LAB_TEE_REST } from './labSuperGlyph'
 import './labShare.css'
 
 /**
@@ -31,22 +32,37 @@ export interface LabShareTarget {
   toWord: number
 }
 
-export type LabShareLook = 'paper' | 'night' | 'eink'
+export type LabShareLook = 'paper' | 'book' | 'night' | 'eink'
 
 const PREFS_KEY = 'tinct:share-prefs'
 /** Before the image loads: the page's fixed size, or a typical quote card. */
 const DEFAULT_RATIO = { phone: { page: 1080 / 1350, quote: 1080 / 800 }, desktop: { page: 1600 / 1000, quote: 1600 / 800 } }
 
+/** The reader's "t" (the top bar's menu mark at rest), standing for the tinct.app credit. */
+function TinctMark() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <g transform={LAB_TEE_REST.rotateTransform}>
+        <g transform={LAB_TEE_REST.skewTransform}>
+          <path d={LAB_TEE_REST.stemPath} />
+          <path d={LAB_TEE_REST.barPath} />
+        </g>
+      </g>
+    </svg>
+  )
+}
+
 function DownloadIcon() {
   return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 9v4.5h10V9" /></svg>
 }
 
-function readPrefs(): { context: boolean; tagline: boolean } {
+/** Surrounding text starts on; the "Read free at tinct.app" credit starts off. */
+export function readSharePrefs(): { context: boolean; tagline: boolean } {
   try {
     const raw = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}') as { context?: unknown; tagline?: unknown }
-    return { context: raw.context !== false, tagline: raw.tagline !== false }
+    return { context: raw.context !== false, tagline: raw.tagline === true }
   } catch {
-    return { context: true, tagline: true }
+    return { context: true, tagline: false }
   }
 }
 
@@ -62,7 +78,7 @@ export function LabShareSheet({ target, look, format, onClose }: {
   format: 'phone' | 'desktop'
   onClose: () => void
 }) {
-  const [prefs, setPrefs] = useState(readPrefs)
+  const [prefs, setPrefs] = useState(readSharePrefs)
   const [status, setStatus] = useState('')
   const [created, setCreated] = useState<Created | null>(null)
   const [previewLoaded, setPreviewLoaded] = useState(false)
@@ -225,9 +241,9 @@ export function LabShareSheet({ target, look, format, onClose }: {
               <input type="checkbox" checked={prefs.context} onChange={toggle('context')} aria-label="Show surrounding text" data-testid="lab-share-context" />
               <span>Surrounding text</span>
             </label>
-            <label className="lab-share-chip" title='Add "Read free at tinct.app"'>
+            <label className="lab-share-chip is-icon" title='Add "Read free at tinct.app"'>
               <input type="checkbox" checked={prefs.tagline} onChange={toggle('tagline')} aria-label='Add "Read free at tinct.app"' data-testid="lab-share-tagline" />
-              <span>tinct.app</span>
+              <TinctMark />
             </label>
           </div>
           <div className="lab-share-actions">

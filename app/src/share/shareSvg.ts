@@ -1,7 +1,11 @@
 /**
  * Draw a composed share page (shareLayout.ts) as SVG for resvg. Colours are
- * the live reader's: Paper (lab.css), Night (`.lab.is-night`) and e-ink
- * (public/lab/display-profile.css).
+ * the live reader's, as measured on the page: Paper (lab.css `.lab`), Book
+ * (`.lab.is-book-theme`), Night (`.lab.is-night`) and e-ink
+ * (public/lab/display-profile.css). The highlight is the reader's gold
+ * highlight as it is painted on that page (`--highlight-gold` under chrome v2:
+ * #dcca98 on Paper, Book and e-ink, #5c4a2e at Night, full opacity), so the
+ * card reads as a piece of the page.
  */
 
 import type { FontMetrics } from './fontMetrics'
@@ -21,9 +25,10 @@ export interface SharePalette {
 }
 
 export const SHARE_PALETTES: Record<ShareLook, SharePalette> = {
-  paper: { paper: '#ece7db', ink: '#0b0b0b', muted: '#6a6256', faint: '#8b8275', context: '#a39a8c', highlight: '#f5e6c8', edge: 'rgba(60,45,25,0.10)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
+  paper: { paper: '#ece7db', ink: '#0b0b0b', muted: '#6a6256', faint: '#8b8275', context: '#a39a8c', highlight: '#dcca98', edge: 'rgba(60,45,25,0.10)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
+  book: { paper: '#e7dcc7', ink: '#201a13', muted: '#675b4b', faint: '#796c59', context: '#a3957f', highlight: '#dcca98', edge: 'rgba(60,45,25,0.12)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
   night: { paper: '#171411', ink: '#bdb3a7', muted: '#8f857a', faint: '#776e65', context: '#5f574e', highlight: '#5c4a2e', edge: 'rgba(255,240,220,0.08)', shadow: 'rgba(0,0,0,0.35)', fold: '0,0,0' },
-  eink: { paper: '#ffffff', ink: '#111111', muted: '#444444', faint: '#555555', context: '#9a9a9a', highlight: '#e2e2e2', edge: 'rgba(0,0,0,0.25)', shadow: 'rgba(0,0,0,0)', fold: '0,0,0' },
+  eink: { paper: '#ffffff', ink: '#111111', muted: '#444444', faint: '#555555', context: '#9a9a9a', highlight: '#dcca98', edge: 'rgba(0,0,0,0.25)', shadow: 'rgba(0,0,0,0)', fold: '0,0,0' },
 }
 
 const FAMILY = 'EB Garamond'

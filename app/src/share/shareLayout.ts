@@ -16,7 +16,7 @@
 import { stripUnderscoreEmphasis } from '../lab/emphasisText'
 import type { FontMetrics } from './fontMetrics'
 
-export type ShareLook = 'paper' | 'night' | 'eink'
+export type ShareLook = 'paper' | 'book' | 'night' | 'eink'
 export type ShareFormat = 'phone' | 'desktop' | 'og'
 
 export interface ShareRange {

@@ -1,17 +1,21 @@
 /* Share a highlight as an image (LabShareSheet.tsx; docs/share-quote/mockup.html). */
 .lab-share-layer { position: fixed; inset: 0; z-index: 400; display: flex; align-items: flex-end; justify-content: center; background: rgba(20, 16, 12, 0.32); padding: 16px; padding-bottom: max(16px, env(safe-area-inset-bottom, 0px)); }
 .lab.is-desktop .lab-share-layer, .lab-share-layer:has(.is-desktop) { align-items: center; }
-.lab-share-sheet { position: relative; width: min(100%, 380px); max-height: calc(100dvh - 32px); overflow: auto; display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: var(--lab-surface, #f4f0e7); color: var(--lab-ink); border: 1px solid var(--lab-border, #cfc6b5); box-shadow: 0 12px 40px rgba(20, 16, 12, 0.22); font-family: 'EB Garamond', Georgia, serif; outline: none; }
+.lab-share-sheet { position: relative; width: min(100%, 380px); max-height: calc(100dvh - 32px); overflow: auto; display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 16px; background: var(--lab-paper, #ece7db); color: var(--lab-ink); border: 1px solid var(--lab-border, #cfc6b5); box-shadow: 0 12px 40px rgba(20, 16, 12, 0.22); font-family: 'EB Garamond', Georgia, serif; outline: none; }
 .lab-share-sheet.is-desktop { width: min(100%, 560px); }
 .lab-share-close { position: absolute; top: 6px; right: 8px; z-index: 1; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--lab-ink-muted); font-size: 22px; line-height: 1; cursor: pointer; }
-/* The image's own shape (inline aspect-ratio): the quote card's height follows its text. */
-.lab-share-preview { border-radius: 8px; overflow: hidden; border: 1px solid var(--lab-border, #cfc6b5); background: var(--lab-paper); max-height: calc(100dvh - 180px); }
+/* The image's own shape (inline aspect-ratio): the quote card's height follows its text.
+   It is drawn on the same paper as the sheet, so only a hairline marks its edge. */
+.lab-share-preview { border-radius: 6px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--lab-border, #c8c0ae) 55%, transparent); background: var(--lab-paper); max-height: calc(100dvh - 180px); }
 .lab-share-preview img { display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .2s; }
 .lab-share-preview.is-loaded img { opacity: 1; }
 .lab-share-bar { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
 .lab-share-options { display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
 .lab-share-chip { position: relative; display: inline-flex; align-items: center; min-height: 32px; padding: 0 8px; border-radius: 999px; border: 1px solid var(--lab-border, #cfc6b5); color: var(--lab-ink-muted); font: 10.5px 'IBM Plex Mono', ui-monospace, monospace; cursor: pointer; user-select: none; }
 .lab-share-chip input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.lab-share-chip.is-icon { justify-content: center; width: 32px; padding: 0; }
+.lab-share-chip.is-icon svg { width: 20px; height: 20px; }
+.lab-share-chip.is-icon:not(:has(input:checked)) { border-style: dashed; opacity: .6; }
 .lab-share-chip:has(input:checked) { border-color: var(--accent, #1f4a5c); color: var(--lab-ink); background: color-mix(in srgb, var(--accent, #1f4a5c) 12%, transparent); }
 .lab-share-chip:has(input:focus-visible), .lab-share-actions button:focus-visible { outline: 2px solid var(--accent, #1f4a5c); outline-offset: 2px; }
 .lab-share-actions { display: flex; flex: none; gap: 2px; margin-left: auto; }
@@ -21,4 +25,6 @@
 .lab-share-actions button.is-primary { background: var(--accent, #1f4a5c); color: #f4f0e7; }
 .lab-share-status { margin: 0; font: 0.7rem/1.6 'IBM Plex Mono', ui-monospace, monospace; color: var(--lab-ink-muted); overflow-wrap: anywhere; }
 .lab-share-status:empty { display: none; }
+/* The preview is the image as shared: the e-ink profile greys other images, but the page itself shows this highlight in colour. */
+html[data-eink="true"] .lab-share-preview img { filter: none !important; }
 @media (prefers-reduced-motion: reduce) { .lab-share-preview img { transition: none; } }

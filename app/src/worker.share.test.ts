@@ -178,6 +178,8 @@ describe('share input and credit', () => {
   it('parses query-string and JSON shapes alike', () => {
     expect(parseShareInput({ ...valid, chapterNumber: '9', context: '0', tagline: '1' })).toMatchObject({ chapterNumber: 9, context: false, tagline: true })
     expect(parseShareInput({ ...valid, bookId: '../x' })).toBeNull()
+    expect(parseShareInput({ ...valid, look: 'book' })).toMatchObject({ look: 'book' })
+    expect(parseShareInput({ ...valid, look: 'sepia' })).toBeNull()
   })
 
   it('credits translators, Tinct modern editions and originals', () => {
