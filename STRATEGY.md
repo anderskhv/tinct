@@ -153,7 +153,7 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 ## 5. Revenue model
 
 **Free** — every book, every edition, cross-device sync, highlights, notes, reading journal.
-**Premium — $5/month** — AI companion (200 messages), audiobook, character tracker, journal export. First month free, no card required. Cancel anytime.
+**Premium — $5/month** — AI companion (200 messages), audiobook, adding any book (your own or from Gutenberg and other free libraries), character tracker, journal export. First month free, no card required. Cancel anytime.
 
 **Why $5 (was $3 until 2026-10-05):**
 - **Less than a cup of coffee** — positions the price as trivial in the reader's head
