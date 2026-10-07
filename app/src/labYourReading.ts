@@ -101,7 +101,7 @@ function message(main: HTMLElement, title: string, body: string, extra: Array<No
 }
 
 function safeReturn(value: string | null): string {
-  return value && /^\/(?:reader|library)(?:[/?#]|$)/.test(value) && !value.includes('\\') ? value : '/library'
+  return value && /^\/(?:reader|library|you)(?:[/?#]|$)/.test(value) && !value.includes('\\') ? value : '/library'
 }
 
 async function loadCatalogue(): Promise<Map<string, CatalogueEntry>> {

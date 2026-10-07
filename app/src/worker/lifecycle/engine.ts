@@ -369,7 +369,7 @@ export async function runWelcomeSweep(deps: LifecycleDeps, profiles: Profile[]):
     const user = await deps.authUser(profile.id)
     const confirmed = profileConfirmed(profile)
     let template: 'welcome' | 'welcome-google'
-    if (confirmed === true || (confirmed === null && user?.provider === 'google')) template = 'welcome-google'
+    if (confirmed === true || user?.provider === 'google') template = 'welcome-google'
     else if (confirmed === false && deps.linkSecret) template = 'welcome'
     else { count(result, confirmed === null ? 'awaiting-confirmed-column' : 'no-link-secret'); continue }
 

@@ -10,7 +10,10 @@
  *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others once approved and allowed
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
  *   GET  /api/profiles/{handle}       what this viewer may see of a profile (ship 3 builds the page on it)
- *   GET  /api/confirm-email?t=        the welcome email's one-click confirmation
+ *
+ * Email confirmation is not here: the welcome email's one link is ship 4's
+ * signed /confirm?t= (routes/emailLinks.ts, lifecycle/links.ts), which sets the
+ * same profiles.email_confirmed_at this module reads.
  *
  * Never returned to anyone: email, highlights, notes, chats, Talk.
  * Readers never write rows directly; this route writes only the caller's own.
@@ -47,8 +50,6 @@ export type ProfilesEnv = SupabaseEnv & {
   SOCIAL_PROFILES?: string
   /** Private bucket; profile photos live under profile/{userId}/ (purged with the account). */
   USER_BOOKS?: R2Bucket
-  /** Worker secret that signs the welcome email's confirm link (ship 4 sends it). */
-  EMAIL_LINK_SECRET?: string
 }
 
 /** The Supabase auth user, as /auth/v1/user returns it. */
@@ -73,7 +74,7 @@ export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
 
 /** Paths this module answers (only while the switch is on). */
 export function isProfileApiPath(pathname: string): boolean {
-  return pathname === '/api/profile' || pathname.startsWith('/api/profile/') || pathname.startsWith('/api/profiles/') || pathname === '/api/confirm-email'
+  return pathname === '/api/profile' || pathname.startsWith('/api/profile/') || pathname.startsWith('/api/profiles/')
 }
 
 const BOOK_IDS = Object.keys(GENERATED_BOOK_META)
@@ -338,93 +339,12 @@ async function storeImage(env: ProfilesEnv, store: ProfileStore, row: ReaderProf
   await deleteStoredImage(env, row.id, slot, previous)
 }
 
-// ===== Email confirmation (the welcome email's link; ship 4 sends it) =====
-
-const CONFIRM_TTL_SECONDS = 30 * 24 * 3600
-
-function base64url(bytes: Uint8Array): string {
-  let text = ''
-  for (const byte of bytes) text += String.fromCharCode(byte)
-  return btoa(text).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
-}
-
-async function hmac(secret: string, message: string): Promise<string> {
-  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
-  return base64url(new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(message))))
-}
-
-/**
- * A signed confirm token for one account and address. It is bound to the
- * address, so a changed email needs a new link, and it expires after 30 days.
- * Confirming twice is harmless (the first time is kept).
- */
-export async function createEmailConfirmToken(secret: string, userId: string, email: string, now = new Date()): Promise<string> {
-  const expires = Math.floor(now.getTime() / 1000) + CONFIRM_TTL_SECONDS
-  const signature = await hmac(secret, `confirm:${userId}:${email.trim().toLowerCase()}:${expires}`)
-  return `${userId}.${expires}.${signature}`
-}
-
-/**
- * SHIP 4 HOOK: the `{{confirm_url}}` for the welcome email
- * (docs/lifecycle-emails/templates/welcome.html). Null while EMAIL_LINK_SECRET
- * is unset. Ship 2 sends no email; nothing calls this yet outside tests.
- */
-export async function emailConfirmUrl(env: ProfilesEnv, user: { id: string; email?: string | null }, origin = 'https://tinct.app', now = new Date()): Promise<string | null> {
-  if (!env.EMAIL_LINK_SECRET || !user.email || !isValidUUID(user.id)) return null
-  return `${origin}/api/confirm-email?t=${encodeURIComponent(await createEmailConfirmToken(env.EMAIL_LINK_SECRET, user.id, user.email, now))}`
-}
-
-export async function verifyEmailConfirmToken(secret: string, token: string, email: string, now = new Date()): Promise<string | null> {
-  const [userId, expiresText, signature] = token.split('.')
-  if (!userId || !isValidUUID(userId) || !/^\d{6,12}$/.test(expiresText || '') || !signature) return null
-  if (Number(expiresText) < Math.floor(now.getTime() / 1000)) return null
-  const expected = await hmac(secret, `confirm:${userId}:${email.trim().toLowerCase()}:${expiresText}`)
-  if (expected.length !== signature.length) return null
-  let diff = 0
-  for (let i = 0; i < expected.length; i++) diff |= expected.charCodeAt(i) ^ signature.charCodeAt(i)
-  return diff === 0 ? userId : null
-}
-
-function confirmPage(title: string, line: string, status: number): Response {
-  const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, noarchive"><title>${title} · Tinct</title><link rel="stylesheet" href="/fonts/tinct-fonts.css"><style>body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#10150f;color:#eee7d0;font-family:'EB Garamond',Georgia,serif;text-align:center;padding:24px}h1{font-weight:400;font-size:clamp(30px,6vw,42px);margin:0 0 12px;letter-spacing:-.02em}p{color:#b1bba4;font-size:18px;margin:0 0 22px}a{display:inline-block;background:#eee7d0;color:#10150f;border-radius:999px;padding:11px 20px;font:600 15px system-ui,sans-serif;text-decoration:none}</style></head><body><main><h1>${title}</h1><p>${line}</p><a href="/library">Open the library</a></main></body></html>`
-  return new Response(html, { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, noarchive', 'Referrer-Policy': 'no-referrer' } })
-}
-
-async function handleConfirmEmail(request: Request, env: ProfilesEnv, store: ProfileStore, now: Date, authEmail: (userId: string) => Promise<string | null>): Promise<Response> {
-  if (request.method !== 'GET') return notFound(request)
-  if (!env.EMAIL_LINK_SECRET) return confirmPage('Not available yet', 'Please try the link again later.', 503)
-  const token = new URL(request.url).searchParams.get('t') || ''
-  const userId = token.split('.')[0]
-  if (!isValidUUID(userId || '')) return confirmPage('This link has expired', 'Sign in to Tinct to ask for a new one.', 400)
-  const email = await authEmail(userId)
-  const confirmed = email ? await verifyEmailConfirmToken(env.EMAIL_LINK_SECRET, token, email, now) : null
-  if (!confirmed) return confirmPage('This link has expired', 'Sign in to Tinct to ask for a new one.', 400)
-  try {
-    const account = await store.getAccount(confirmed)
-    if (!account) return confirmPage('This link has expired', 'Sign in to Tinct to ask for a new one.', 400)
-    if (!account.email_confirmed_at) await store.updateAccount(confirmed, { email_confirmed_at: now.toISOString() })
-  } catch {
-    return confirmPage('Not available yet', 'Please try the link again later.', 503)
-  }
-  return confirmPage('Your email is confirmed', 'Thank you. You can make your profile public whenever you like.', 200)
-}
-
-async function defaultAuthEmail(env: ProfilesEnv, userId: string): Promise<string | null> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
-  const res = await fetch(`${env.SUPABASE_URL}/auth/v1/admin/users/${encodeURIComponent(userId)}`, {
-    headers: { apikey: env.SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}` },
-  })
-  if (!res.ok) return null
-  const user = await res.json() as { email?: string | null }
-  return user.email || null
-}
-
 // ===== Router =====
 
 export async function handleProfiles(
   request: Request,
   env: ProfilesEnv,
-  deps: ProfileDeps & { authEmail?: (userId: string) => Promise<string | null> },
+  deps: ProfileDeps,
 ): Promise<Response> {
   if (!socialProfilesOn(env)) return notFound(request)
   const url = new URL(request.url)
@@ -433,9 +353,6 @@ export async function handleProfiles(
   const random = deps.random ?? Math.random
 
   try {
-    if (url.pathname === '/api/confirm-email') {
-      return await handleConfirmEmail(request, env, store, now, deps.authEmail ?? (id => defaultAuthEmail(env, id)))
-    }
     if (url.pathname.startsWith('/api/profiles/')) {
       return await handlePublicProfile(request, url, env, store, deps)
     }
@@ -471,10 +388,13 @@ export async function handleProfiles(
       if (leavingPicture) await deleteStoredImage(env, user.id, 'picture', row.picture_value)
       if (leavingBackground) await deleteStoredImage(env, user.id, 'background', row.background_value)
       // Reading emails: on records the current consent wording; off stops them at once.
+      // Same columns as ship 4's engine and its one-click unsubscribe (lifecycle/engine.ts
+      // profileOptedIn): email_opt_in, email_opt_in_at (newer than any opt-out resumes),
+      // email_opt_out_at, email_consent_version.
       const consent = body.consent as { optIn?: unknown; version?: unknown } | undefined
       const optIn = body.emailOptIn === true || (consent?.optIn === true && consent.version === EMAIL_CONSENT_VERSION)
       if (optIn) await store.updateAccount(user.id, { email_opt_in: true, email_opt_in_at: now.toISOString(), email_consent_version: EMAIL_CONSENT_VERSION })
-      else if (body.emailOptIn === false) await store.updateAccount(user.id, { email_opt_in: false })
+      else if (body.emailOptIn === false) await store.updateAccount(user.id, { email_opt_in: false, email_opt_out_at: now.toISOString() })
       const next = await store.getOwn(user.id) ?? { ...row, ...patch }
       const account = await accountState(store, user, now)
       return reply({ enabled: true, available: true, profile: selfView(next, account, user) }, 200, request)

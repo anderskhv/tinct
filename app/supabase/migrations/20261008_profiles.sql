@@ -36,6 +36,9 @@ update public.profiles
 
 -- The sign-up consent trigger also records the wording version the sign-up
 -- page sent (raw_user_meta_data.email_consent_version).
+-- A Google sign-up counts as confirmed from the start (Google verified the
+-- address), so the welcome email (ship 4) is welcome-google and reading emails
+-- need no click, even while SOCIAL_PROFILES is off.
 create or replace function public.record_email_consent()
 returns trigger as $$
 begin
@@ -46,11 +49,22 @@ begin
            email_consent_version = coalesce(nullif(left(new.raw_user_meta_data ->> 'email_consent_version', 40), ''), '2026-10-02')
      where id = new.id;
   end if;
+  if new.raw_app_meta_data ->> 'provider' = 'google' then
+    update public.profiles set email_confirmed_at = coalesce(email_confirmed_at, now()) where id = new.id;
+  end if;
   return new;
 end;
 $$ language plpgsql security definer set search_path = public;
 
 revoke execute on function public.record_email_consent() from public, anon, authenticated;
+
+-- Google accounts from before this ran.
+update public.profiles p
+   set email_confirmed_at = coalesce(u.created_at, now())
+  from auth.users u
+ where u.id = p.id
+   and p.email_confirmed_at is null
+   and u.raw_app_meta_data ->> 'provider' = 'google';
 
 -- 2. Reader profiles -------------------------------------------------------
 create table if not exists public.reader_profiles (

@@ -9,7 +9,9 @@
  *   (and run no script) cannot unsubscribe anyone.
  * - /confirm?t=…      One-click email confirmation from the welcome email:
  *   sets ship 2's profiles.email_confirmed_at once, for the address the link
- *   was sent to.
+ *   was sent to. POST confirms; GET answers with a page that posts itself (one
+ *   click for people, nothing for link scanners), as /unsubscribe does. This is
+ *   the only confirm route (ship 2's /api/confirm-email was folded into it).
  *
  * Handled only when EMAIL_LINK_SECRET is set and the URL carries `t`; without
  * the secret no such link was ever sent and the request falls through
@@ -88,6 +90,13 @@ export async function handleEmailLink(request: Request, env: EmailLinksEnv): Pro
   if (request.method !== 'GET' && request.method !== 'HEAD' && request.method !== 'POST') return new Response('Method not allowed', { status: 405 })
   const payload = await verifyLink(secret, token, 'c')
   if (!payload) return page('This link has expired', p('Confirmation links work for 30 days. Sign in to Tinct and we will send a new one.') + LIBRARY, 400)
+  if (request.method !== 'POST') {
+    // Like /unsubscribe: the page posts itself, so the reader's one click confirms
+    // while a link scanner that only fetches confirms nobody.
+    const action = escapeHtml(`/confirm?t=${encodeURIComponent(token!)}`)
+    return page('Confirm your email', `<form method="post" action="${action}" id="confirm">${p('One click confirms this address for Tinct.')}<button type="submit" style="${BUTTON}">Confirm my email</button></form>`
+      + `<script>document.getElementById('confirm').submit()</script>`)
+  }
   const profileRes = await fetch(`${env.SUPABASE_URL}/rest/v1/profiles?id=eq.${payload.u}&select=*&limit=1`, {
     headers: { apikey: env.SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}` },
   })

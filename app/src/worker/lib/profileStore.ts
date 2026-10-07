@@ -64,7 +64,7 @@ export interface ProfileStore {
   takenHandles(candidates: string[]): Promise<Set<string>>
   create(row: Omit<ReaderProfileRow, 'updated_at'>): Promise<WriteResult>
   update(id: string, patch: Partial<ReaderProfileRow>): Promise<WriteResult>
-  updateAccount(id: string, patch: Partial<AccountRow> & { email_opt_in_at?: string }): Promise<void>
+  updateAccount(id: string, patch: Partial<AccountRow> & { email_opt_in_at?: string; email_opt_out_at?: string }): Promise<void>
   /** Only rows the owner lets anyone see (never Only me). */
   getCardByHandle(handle: string): Promise<PublicCardRow | null>
   getCardById(id: string): Promise<PublicCardRow | null>

@@ -1,15 +1,16 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import worker from './worker'
 import {
-  createEmailConfirmToken,
-  emailConfirmUrl,
   handleProfiles,
+  isProfileApiPath,
   stripJpegMetadata,
   type ProfileAuthUser,
 } from './worker/routes/profiles'
 import { ProfilesUnavailable, type AccountRow, type ProfileStore, type PublicCardRow, type ReaderProfileRow } from './worker/lib/profileStore'
 import { SOCIAL_ENTRY_SCRIPT, SOCIAL_META, withSocialMarkers } from './worker/routes/socialPages'
 import { EMAIL_CONSENT_VERSION, effectiveVisibility } from './social/profileRules'
+import { confirmUrl } from './worker/lifecycle/links'
+import { handleEmailLink } from './worker/routes/emailLinks'
 
 const A = '11111111-1111-4111-8111-111111111111'
 const B = '22222222-2222-4222-8222-222222222222'
@@ -111,7 +112,7 @@ afterEach(() => {
 describe('switch off', () => {
   it('every profile route is a 404 and nothing is read', async () => {
     const store = new MemoryStore()
-    for (const path of ['/api/profile', '/api/profile/handle?h=anders', '/api/profiles/anders', '/api/confirm-email?t=x']) {
+    for (const path of ['/api/profile', '/api/profile/handle?h=anders', '/api/profiles/anders']) {
       const response = await call(store, path, { as: A }, { ...on, SOCIAL_PROFILES: '0' })
       expect(response.status).toBe(404)
     }
@@ -351,33 +352,33 @@ describe('uploads', () => {
   })
 })
 
-describe('email confirmation (the welcome email link; ship 4 sends it)', () => {
+describe('email confirmation (one route: ship 4\'s signed /confirm)', () => {
   const secret = 'test-secret'
-  it('one click confirms, the link is bound to the address, and expires', async () => {
-    const store = new MemoryStore(); seed(store)
-    const env = { ...on, EMAIL_LINK_SECRET: secret }
-    const url = (await emailConfirmUrl(env, { id: A, email: 'anders.h@example.com' }, 'https://tinct.app', new Date('2026-10-08T09:00:00Z')))!
-    expect(url).toMatch(/^https:\/\/tinct\.app\/api\/confirm-email\?t=/)
-    const path = url.replace('https://tinct.app', '')
-    const deps = (email: string | null) => ({
-      store, verifyUser: async () => null, now: () => new Date('2026-10-08T10:00:00Z'), authEmail: async () => email,
-    })
-    const wrongAddress = await handleProfiles(new Request(`https://tinct.app${path}`), env as never, deps('other@example.com'))
-    expect(wrongAddress.status).toBe(400)
-    expect(store.accounts.get(A)!.email_confirmed_at).toBeNull()
-    const ok = await handleProfiles(new Request(`https://tinct.app${path}`), env as never, deps('anders.h@example.com'))
-    expect(ok.status).toBe(200)
-    expect(await ok.text()).toContain('Your email is confirmed')
-    expect(store.accounts.get(A)!.email_confirmed_at).toBe('2026-10-08T10:00:00.000Z')
-    const tampered = path.slice(0, -2) + 'xx'
-    expect((await handleProfiles(new Request(`https://tinct.app${tampered}`), env as never, deps('anders.h@example.com'))).status).toBe(400)
-    const old = await createEmailConfirmToken(secret, A, 'anders.h@example.com', new Date('2026-08-01T00:00:00Z'))
-    expect((await handleProfiles(new Request(`https://tinct.app/api/confirm-email?t=${old}`), env as never, deps('anders.h@example.com'))).status).toBe(400)
+  it('profiles have no confirm route of their own', async () => {
+    expect(isProfileApiPath('/api/confirm-email')).toBe(false)
   })
 
-  it('without the secret nothing is confirmed and no link is made', async () => {
+  it('the welcome link confirms the address and profiles read the same email_confirmed_at', async () => {
     const store = new MemoryStore(); seed(store)
-    expect(await emailConfirmUrl(on, { id: A, email: 'a@example.com' })).toBeNull()
-    expect((await call(store, '/api/confirm-email?t=x')).status).toBe(503)
+    const url = await confirmUrl(secret, A, 'anders.h@example.com', Date.parse('2026-10-08T09:00:00Z'))
+    expect(url).toMatch(/^https:\/\/tinct\.app\/confirm\?t=/)
+    // The Worker's /confirm writes profiles.email_confirmed_at; route its PostgREST calls into the store.
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const target = new URL(String(input))
+      if (!init?.method || init.method === 'GET') return Response.json([{ id: A, email: 'anders.h@example.com', ...store.accounts.get(A) }])
+      Object.assign(store.accounts.get(A)!, JSON.parse(String(init.body)))
+      expect(target.searchParams.get('email_confirmed_at')).toBe('is.null')
+      return Response.json([{ id: A }])
+    }))
+    const env = { ...on, EMAIL_LINK_SECRET: secret }
+    const page = await handleEmailLink(new Request(url), env)
+    expect(await page.text()).toContain("document.getElementById('confirm').submit()")
+    expect(store.accounts.get(A)!.email_confirmed_at).toBeNull()
+    const ok = await handleEmailLink(new Request(url, { method: 'POST' }), env)
+    expect(ok.status).toBe(200)
+    expect(store.accounts.get(A)!.email_confirmed_at).toEqual(expect.any(String))
+    vi.unstubAllGlobals()
+    const profile = await (await call(store, '/api/profile', { as: A })).json() as { profile: { emailConfirmed: boolean } }
+    expect(profile.profile.emailConfirmed).toBe(true)
   })
 })

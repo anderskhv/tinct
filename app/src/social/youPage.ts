@@ -4,7 +4,8 @@
  * change picture and background), name and link, AI credits as their own
  * shelf, then Settings: Profile, Privacy, Reading, Emails, Account. Choices
  * open tick lists with one plain line each. No capitals-only labels, no pill
- * toggles. Friends and Your reading arrive with ships 3 and 1.
+ * toggles. Your reading (ship 1) is a shelf here while reading time is on,
+ * leading to /your-reading; Friends arrives with ship 3.
  *
  * Served only while SOCIAL_PROFILES is on; the page has no other entry.
  */
@@ -13,6 +14,8 @@ import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { clearSignedInCookie } from '../utils/authCookie'
 import { AI_USAGE_COPY, aiAllowanceDate, fetchAiAllowance } from '../lab/labAiAllowance'
+import { fetchReadingTime, readPending, readingTimeSwitch, withPending } from '../lab/labReadingTime'
+import { formatDayMonth, hoursMinutes, localDay, readingTimeStats } from '../readingTime/model'
 import {
   NEW_BOOKS_COPY,
   PICTURE_SETS,
@@ -45,6 +48,7 @@ const root = document.querySelector<HTMLElement>('#tinct-you')
 const params = new URLSearchParams(location.search)
 const returnTo = safeLabReturnTo(params.get('returnTo'))
 let token = ''
+let userId: string | null = null
 let profile: OwnProfile | null = null
 let status: { text: string; tone: 'error' | 'neutral' } | null = null
 
@@ -167,8 +171,36 @@ function viewYou(): Node[] {
         meter))
     credits.hidden = false
   })
+  // Your reading (ship 1), per flows.html: a shelf on You that leads to the full page. Only while reading time is on.
+  const reading = el('section', { className: 'shelf', hidden: true, dataset: { testid: 'you-reading' } })
+  main.append(reading)
+  void renderYourReadingShelf(reading)
   main.append(el('section', { className: 'shelf' }, el('div', { className: 'list' }, item('Settings', '', () => go('settings'), 'you-settings'))))
   return [...header(), main]
+}
+
+/** "Your reading  All ›", the total in large type, "since 14 July, reading and listening.", 12 weeks of bars. */
+async function renderYourReadingShelf(shelf: HTMLElement): Promise<void> {
+  if (!await readingTimeSwitch()) return
+  const ledger = await fetchReadingTime(token)
+  if (!ledger) return
+  const stats = readingTimeStats(withPending(ledger.rows, readPending(userId)), localDay())
+  const { hours, minutes } = hoursMinutes(stats.totalSeconds)
+  const all = el('a', { href: `/your-reading?return=${encodeURIComponent('/you')}`, className: 'all' }, 'All ›')
+  all.dataset.testid = 'you-reading-all'
+  const total = el('p', { className: 'total' })
+  total.append(...(hours > 0 ? [String(hours), el('small', {}, 'h'), ' '] : []), String(minutes), el('small', {}, 'm'))
+  const most = Math.max(1, ...stats.weeks.map(week => week.seconds))
+  const bars = el('div', { className: 'weeks', ariaHidden: 'true' })
+  stats.weeks.forEach((week, index) => {
+    const bar = el('i', { className: index === stats.weeks.length - 1 ? 'is-now' : '' })
+    bar.style.height = `${week.seconds > 0 ? Math.max(8, Math.round(week.seconds / most * 100)) : 4}%`
+    bars.append(bar)
+  })
+  shelf.append(el('h2', {}, 'Your reading', all), total,
+    el('p', { className: 'since' }, stats.firstDay ? `since ${formatDayMonth(stats.firstDay)}, reading and listening.` : 'Reading and listening.'),
+    bars)
+  shelf.hidden = false
 }
 
 function viewSettings(): Node[] {
@@ -368,6 +400,7 @@ async function initialize() {
       return
     }
     token = data.session.access_token
+    userId = data.session.user?.id ?? null
     const result = await fetchOwnProfile(token, currentBookHint())
     if (!result.ok) { unavailable('Profiles are not available right now. Your reading is safe.'); return }
     profile = result.profile

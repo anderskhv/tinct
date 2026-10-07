@@ -139,8 +139,6 @@ interface Env {
   SOCIAL_READING_TIME?: string
   /** "1": profiles (social ship 2). Off by default: no profile route, page or marker exists. */
   SOCIAL_PROFILES?: string
-  /** Signs the welcome email's confirm link (routes/profiles.ts emailConfirmUrl). Secret. */
-  EMAIL_LINK_SECRET?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
