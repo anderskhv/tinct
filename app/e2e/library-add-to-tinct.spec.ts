@@ -31,21 +31,25 @@ const OWN_BOOKS = [
   { key: 'pdf:bbbbbbbbbbbbbbbbbbbbbbbb', kind: 'pdf', title: 'Lecture notes, week 4', author: '', at: 2, readingAt: null, href: '/lab/addbook/#books' },
 ]
 
-async function prepare(page: Page, { internal, signedIn }: { internal: boolean; signedIn: boolean }) {
+const FAILING_IMPORT = `async()=>({ok:false,reason:'failed'})`
+/** A slow import: it reports each step when the page asks (window.__importStep()), then fails. */
+const SLOW_IMPORT = `async(id,options)=>{const stages=['download','convert','publish'];await new Promise(done=>{window.__importStep=()=>{const next=stages.shift();if(next)options?.onStage?.(next);else done();};});return {ok:false,reason:'failed'};}`
+
+async function prepare(page: Page, { internal, signedIn, importWork = FAILING_IMPORT, query = 'view=new' }: { internal: boolean; signedIn: boolean; importWork?: string; query?: string }) {
   // Only the local dev server: no outside service (accounts, fonts, analytics) is reached.
   await page.route(url => !['localhost', '127.0.0.1'].includes(url.hostname), route => route.abort())
   await page.route('**/api/public-books', route => route.fulfill({ json: { books: [ADDED] } }))
   await page.route('**/api/events**', route => route.fulfill({ status: 204, body: '' }))
   await page.route('**/lab/library-add.js**', route => route.fulfill({
     contentType: 'text/javascript',
-    body: `window.__tinctLibraryAdd={ownBooks:async()=>${JSON.stringify(OWN_BOOKS)},importWork:async()=>({ok:false,reason:'failed'})};`,
+    body: `window.__tinctLibraryAdd={ownBooks:async()=>${JSON.stringify(OWN_BOOKS)},importWork:${importWork}};`,
   }))
   await page.route('**/sign-in**', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Sign in</title><p>Sign in</p>' }))
   if (signedIn) {
-    await page.context().addCookies([{ name: 'tinct_auth', value: '1', url: 'http://localhost:5173' }])
+    await page.context().addCookies([{ name: 'tinct_auth', value: '1', url: process.env.BASE_URL || 'http://localhost:5173' }])
     await page.addInitScript(user => { try { localStorage.setItem('sb-local-auth-token', JSON.stringify({ user: { id: user, email: 'reader@example.com' } })) } catch { /* private */ } }, USER)
   }
-  await page.goto(`/library?view=new&internal=${internal ? 1 : 0}`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`/library?${query}&internal=${internal ? 1 : 0}`, { waitUntil: 'domcontentloaded' })
   await expect(page.locator('#search-toggle')).toBeVisible()
   // The flag is stored and stripped from the address straight away.
   await expect.poll(() => page.evaluate(() => localStorage.getItem('tinct:internal'))).toBe(internal ? '1' : null)
@@ -83,7 +87,7 @@ test.describe('library search', () => {
     await expect(rows.first().locator('.free-add')).toHaveText('Add')
     const file = results.locator('.file-box')
     await expect(file).toContainText('Have it as a file?')
-    await expect(file.locator('a')).toHaveAttribute('href', '/lab/addbook/')
+    await expect(file.locator('a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     await shot(page, 'search-internal-on')
     // Signed out, Add goes to sign-in and comes back to finish the add.
@@ -110,6 +114,63 @@ test.describe('library search', () => {
     await shot(page, 'search-faust')
   })
 
+  test('adding: the Add button is a spinner, the row dims and shows each step, then the existing error copy', async ({ page }) => {
+    await prepare(page, { internal: true, signedIn: true, importWork: SLOW_IMPORT })
+    await search(page, 'austen')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    const row = results.locator('.free-row').first()
+    const add = row.locator('.free-add')
+    const label = await add.getAttribute('aria-label')
+    const box = await add.boundingBox()
+    await add.click()
+    await expect(add).toHaveAttribute('aria-busy', 'true')
+    await expect(add).toBeDisabled()
+    await expect(add.locator('svg.add-spinner')).toBeVisible()
+    await expect(add).toHaveAttribute('aria-label', label!)
+    await expect(row).toHaveClass(/is-adding/)
+    // The button keeps its size; no new words appear on screen.
+    const busyBox = await add.boundingBox()
+    expect(Math.abs(busyBox!.width - box!.width)).toBeLessThan(1.5)
+    // "Adding…" (the existing copy) is there for screen readers only.
+    const spoken = add.locator('.sr-only')
+    await expect(spoken).toHaveText('Adding…')
+    expect((await spoken.boundingBox())!.width).toBeLessThanOrEqual(1)
+    const progress = row.locator('.free-progress')
+    const step = async (stage: string) => { await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep()); await expect(progress).toHaveAttribute('data-stage', stage) }
+    await step('download')
+    await step('convert')
+    await shot(page, 'add-in-progress')
+    // Every other Add waits while one book is being added.
+    await results.locator('.free-row').nth(1).locator('.free-add').click()
+    await expect(results.locator('.free-row.is-adding')).toHaveCount(1)
+    await step('publish')
+    await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep())
+    await expect(page.locator('#notice')).toHaveText('This book could not be added. Please try again.')
+    await expect(add).toHaveText('Add')
+    await expect(add).toBeEnabled()
+    await expect(add).not.toHaveAttribute('aria-busy', 'true')
+    await expect(row).not.toHaveClass(/is-adding/)
+    await expect(row.locator('.free-progress')).toHaveCount(0)
+  })
+
+  test('the + in the search field goes straight to the PDF or EPUB step, clear of Cancel', async ({ page }) => {
+    await prepare(page, { internal: true, signedIn: false })
+    await page.locator('#search-toggle').click()
+    const plus = page.locator('#search-add-file')
+    await expect(plus).toBeVisible()
+    await expect(plus).toHaveAttribute('aria-label', 'Add your own book (PDF or EPUB)')
+    await expect(plus).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    expect((await plus.innerText()).trim()).toBe('')
+    const a = (await plus.boundingBox())!, b = (await page.locator('#search-cancel').boundingBox())!, input = (await page.locator('#search-input').boundingBox())!
+    expect(a.x + a.width).toBeLessThanOrEqual(b.x)
+    expect(input.x + input.width).toBeLessThanOrEqual(a.x + 0.5)
+    expect(a.width).toBeGreaterThanOrEqual(40)
+    await page.locator('#search-input').fill('austen')
+    await expect(page.locator('.file-box a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    await shot(page, 'search-add-file')
+  })
+
   test('internal flag off: the search is the library as before', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
     await search(page, 'austen')
@@ -117,6 +178,7 @@ test.describe('library search', () => {
     await expect(results.locator('.search-result').first()).toBeVisible()
     await page.waitForTimeout(1500)
     await expect(results.locator('.search-group-head, .free-group, .file-box')).toHaveCount(0)
+    await expect(page.locator('#search-add-file')).toBeHidden()
     expect(await results.locator('.search-result span').allTextContents()).not.toContain('Emma')
     await shot(page, 'search-internal-off')
   })
@@ -129,7 +191,7 @@ test.describe('My shelf', () => {
     await expect(page.locator('#collection-title')).toHaveText('My shelf')
   }
 
-  test('internal flag on: own books under Currently reading and Your own books, ending with the + tile', async ({ page }) => {
+  test('internal flag on: the + tile first, own books under Currently reading and Your own books', async ({ page }) => {
     await prepare(page, { internal: true, signedIn: true })
     await openShelf(page)
     const grid = page.locator('#collection-books')
@@ -138,12 +200,44 @@ test.describe('My shelf', () => {
     const heads = await grid.locator('.my-books-head').allTextContents()
     expect(heads[0]).toBe('Currently reading')
     expect(heads.at(-1)).toBe('Your own books')
-    await expect(grid.locator('.collection-card').last()).toHaveClass(/add-file-card/)
-    await expect(grid.locator('.add-file-tile')).toHaveAttribute('href', '/lab/addbook/')
+    // The + is the first thing on My shelf and goes straight to the file step.
+    await expect(grid.locator(':scope > *').first()).toHaveClass(/add-file-card/)
+    await expect(grid.locator('.add-file-tile')).toHaveAttribute('href', '/lab/addbook/?mode=file')
     await expect(grid.locator('.add-file-tile')).toContainText('Add a PDF or EPUB')
     await expect(page.locator('#collection input, #collection [type="search"]')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     await shot(page, 'myshelf-internal-on')
+  })
+
+  test('books being read can be removed; finished books cannot', async ({ page }) => {
+    // The sample returning reader: five books being read, two finished.
+    await prepare(page, { internal: true, signedIn: true, query: 'demo=reading' })
+    await openShelf(page)
+    const grid = page.locator('#collection-books')
+    await expect(grid.locator('[data-shelf-group="finished"]')).toHaveCount(2)
+    const reading = grid.locator('[data-shelf-group="reading"]')
+    expect(await reading.count()).toBeGreaterThan(0)
+    await expect(reading.locator('[data-shelf-remove]')).toHaveCount(await reading.count())
+    await expect(reading.first().locator('[data-shelf-remove]')).toHaveAttribute('aria-label', /^Remove from My shelf: /)
+    await expect(grid.locator('[data-shelf-group="finished"] .save-toggle, [data-shelf-group="finished"] [data-shelf-remove]')).toHaveCount(0)
+  })
+
+  test('a finished book removed earlier is shown again; a book saved for later keeps its ×', async ({ page }) => {
+    // This device as a guest: Hamlet finished, then removed from My shelf (the old ×); the Odyssey saved for later.
+    const removal = JSON.stringify({ items: { hamlet: { saved: false, at: Date.now() - 60_000 }, odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
+    await page.addInitScript(value => {
+      try { localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ bookId: 'hamlet' })); localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ }
+    }, removal)
+    await prepare(page, { internal: false, signedIn: false })
+    await openShelf(page)
+    const finished = page.locator('#collection-books [data-shelf-group="finished"]')
+    await expect(finished).toHaveCount(1, { timeout: 20_000 })
+    await expect(finished.locator('h2')).toHaveText('Hamlet')
+    await expect(finished.locator('[data-shelf-remove], .save-toggle')).toHaveCount(0)
+    const saved = page.locator('#collection-books [data-shelf-group="want"]')
+    await expect(saved).toHaveCount(1)
+    await expect(saved.locator('[data-shelf-remove]')).toHaveAttribute('aria-label', 'Remove from My shelf: The Odyssey')
+    expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
   })
 
   test('internal flag off: My shelf as before', async ({ page }) => {

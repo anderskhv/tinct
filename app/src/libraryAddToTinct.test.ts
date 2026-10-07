@@ -182,7 +182,8 @@ describe('library search panel with the flag', () => {
     const file = box.querySelector('.file-box')!
     expect(box.lastElementChild).toBe(file)
     expect(file.querySelector('p')?.textContent).toBe('Have it as a file?')
-    expect(file.querySelector('a')?.getAttribute('href')).toBe('/lab/addbook/')
+    // Straight to Add a book's file step, never its free-book search (the library search above is that).
+    expect(file.querySelector('a')?.getAttribute('href')).toBe('/lab/addbook/?mode=file')
     expect(file.querySelector('a')?.textContent).toBe('Add a PDF or EPUB')
   })
 
@@ -200,6 +201,59 @@ describe('library search panel with the flag', () => {
     expect(FakeWorker.searches.slice(1).map(s => s.filters)).toEqual([{ language: 'de' }, {}])
     box.remove()
     FakeWorker.results = results
+  })
+
+  it('turns Add into a spinner while its import runs: busy, disabled, row dimmed, the step shown, then back', async () => {
+    FakeWorker.results = [work('pg:105', 'Persuasion', 'Jane Austen'), work('pg:121', 'Northanger Abbey', 'Jane Austen')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    const added: string[] = []
+    addToTinct.renderSearchGroups(box, { query: 'austen', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null })
+    await vi.waitFor(() => expect(box.querySelectorAll('.free-row')).toHaveLength(2))
+    const row = box.querySelector('.free-row') as HTMLElement
+    const button = row.querySelector('.free-add') as HTMLButtonElement
+    addToTinct.setAddBusy(button, 'start')
+    expect(button.disabled).toBe(true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button.querySelector('svg.add-spinner')).not.toBeNull()
+    // No new visible words: the spinner replaces "Add", the existing "Adding…" is for screen readers only.
+    expect(button.querySelector('.sr-only')?.textContent).toBe('Adding…')
+    expect(button.getAttribute('aria-label')).toBe('Add Persuasion to Tinct')
+    expect(row.classList.contains('is-adding')).toBe(true)
+    expect(row.getAttribute('aria-busy')).toBe('true')
+    const bar = () => row.querySelector('.free-progress') as HTMLElement
+    expect(bar().getAttribute('aria-hidden')).toBe('true')
+    const steps: string[] = []
+    for (const stage of ['download', 'convert', 'publish']) { addToTinct.setAddBusy(button, stage); steps.push(bar().style.getPropertyValue('--p')) }
+    expect(steps.map(Number)).toEqual([...steps.map(Number)].sort((a, b) => a - b))
+    expect(Number(steps[2])).toBeLessThan(1)
+    expect(row.querySelectorAll('.free-progress')).toHaveLength(1)
+    expect(button.querySelectorAll('svg')).toHaveLength(1)
+    // A disabled button cannot be clicked twice.
+    button.click()
+    expect(added).toEqual([])
+    addToTinct.setAddBusy(button, null)
+    expect(button.disabled).toBe(false)
+    expect(button.hasAttribute('aria-busy')).toBe(false)
+    expect(button.textContent).toBe('Add')
+    expect(row.classList.contains('is-adding')).toBe(false)
+    expect(row.querySelector('.free-progress')).toBeNull()
+    box.remove()
+  })
+
+  it('renders the row being added busy again when the results are drawn anew', async () => {
+    FakeWorker.results = [work('pg:105', 'Persuasion', 'Jane Austen'), work('pg:121', 'Northanger Abbey', 'Jane Austen')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    addToTinct.renderSearchGroups(box, { query: 'austen', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: 'pg:121', addingStage: 'convert' })
+    await vi.waitFor(() => expect(box.querySelectorAll('.free-row')).toHaveLength(2))
+    const [other, adding] = [...box.querySelectorAll('.free-add')] as HTMLButtonElement[]
+    expect(adding.getAttribute('aria-busy')).toBe('true')
+    expect(adding.disabled).toBe(true)
+    expect((adding.closest('.free-row')!.querySelector('.free-progress') as HTMLElement).dataset.stage).toBe('convert')
+    expect(other.disabled).toBe(false)
+    expect(other.textContent).toBe('Add')
+    box.remove()
   })
 
   it('shows only the library and the file box for an empty query', () => {
@@ -328,7 +382,7 @@ describe('My shelf groups', () => {
   afterEach(() => { vi.restoreAllMocks() })
   const own = (key: string, title: string, readingAt: number | null, kind = 'epub') => ({ key, kind, title, author: 'Me', at: 1, readingAt, href: kind === 'epub' ? `/reader?userBook=${key.slice(5)}` : '/lab/addbook/#books' })
 
-  it('puts own books being read under Currently reading, then Your own books ending with the + tile', () => {
+  it('opens My shelf with the + tile, puts own books being read under Currently reading, then Your own books', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Currently reading'))
     const library = el('article', 'collection-card'); library.dataset.shelfGroup = 'reading'; grid.append(library)
@@ -336,24 +390,40 @@ describe('My shelf groups', () => {
     const added = addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 5), own('pdf:bb', 'Slides', null, 'pdf'), own('epub:cc', 'Thesis', 9)], el)
     expect(added).toBe(6)
     const order = [...grid.children].map(child => child.classList.contains('my-books-head') ? `# ${child.textContent}` : child.querySelector('h2')?.textContent ?? (child.classList.contains('add-file-card') ? '+' : 'library'))
-    expect(order).toEqual(['# Currently reading', 'library', 'Thesis', 'Notes', '# Finished', '# Your own books', 'Notes', 'Slides', 'Thesis', '+'])
+    expect(order).toEqual(['+', '# Currently reading', 'library', 'Thesis', 'Notes', '# Finished', '# Your own books', 'Notes', 'Slides', 'Thesis'])
     const tile = grid.querySelector('.add-file-tile')!
-    expect(tile.getAttribute('href')).toBe('/lab/addbook/')
+    expect(grid.firstElementChild?.contains(tile)).toBe(true)
+    // The + goes straight to the file step (PDF or EPUB), not to a second free-book search.
+    expect(tile.getAttribute('href')).toBe('/lab/addbook/?mode=file')
     expect(tile.textContent).toBe('+Add a PDF or EPUB')
     const notes = grid.querySelector('.own-book a') as HTMLAnchorElement
     expect(notes.getAttribute('href')).toBe('/reader?userBook=cc')
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
   })
 
-  it('opens a Currently reading heading for own books when the library has none, and shows the + tile on an empty list', () => {
+  it('opens a Currently reading heading for own books when the library has none, and shows only the + tile on an empty list', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Saved for later'))
     addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 3)], el)
     expect([...grid.querySelectorAll('.my-books-head')].map(h => h.textContent)).toEqual(['Currently reading', 'Saved for later', 'Your own books'])
+    expect(grid.firstElementChild?.classList.contains('add-file-card')).toBe(true)
     const empty = document.createElement('div')
     expect(addToTinct.appendOwnShelf(empty, [], el)).toBe(1)
-    expect([...empty.children].map(c => c.className)).toEqual(['my-books-head', 'collection-card add-file-card'])
+    expect([...empty.children].map(c => c.className)).toEqual(['collection-card add-file-card'])
     expect(addToTinct.ownShelfGroups([own('epub:a', 'A', null), own('epub:b', 'B', 2), own('epub:c', 'C', 7)]).reading.map((b: { title: string }) => b.title)).toEqual(['C', 'B'])
+  })
+
+  it('offers the file step from the search field only where Add to Tinct is on', () => {
+    const link = document.createElement('a')
+    link.hidden = true
+    localStorage.setItem(INTERNAL_KEY, '1')
+    addToTinct.syncSearchAddFile(link)
+    expect(link.hidden).toBe(false)
+    expect(link.getAttribute('href')).toBe('/lab/addbook/?mode=file')
+    localStorage.removeItem(INTERNAL_KEY)
+    addToTinct.syncSearchAddFile(link)
+    expect(link.hidden).toBe(true)
+    addToTinct.syncSearchAddFile(null)
   })
 })
 

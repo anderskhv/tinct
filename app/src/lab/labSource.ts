@@ -18,6 +18,7 @@ import { registerChapterStructure } from './labParagraphStyle'
 import { bookFigures, type LabFigure } from './labFigures'
 import { isUserBookId } from './userBook/userBookId'
 import { loadUserBookSource } from './userBook/userBookSource'
+import { houseStyleChapters, houseStyleSource } from './labChapterTitles'
 
 export const LAB_BOOK_ID = 'bible'
 // New Bible readers start in the Berean Standard Bible; saved places keep their own edition.
@@ -516,7 +517,11 @@ async function applyVerseLines(
 
 export async function loadLabBookSource(input: LabBookSourceSelection): Promise<LabSource> {
   // A reader's own book is read from this device only (userBook/userBookSource.ts).
-  if (isUserBookId(input.bookId)) return loadUserBookSource(input)
+  // Chapter titles are shown in house style whatever the text writes (labChapterTitles.ts).
+  if (isUserBookId(input.bookId)) {
+    const source = await loadUserBookSource(input)
+    return houseStyleSource(source, source.editions?.[0]?.language)
+  }
   await ensureNativeBook(input.bookId, [input.primaryEditionKey, input.compareEditionKey].filter((key): key is string => !!key))
   // A public book readers added (pd-…) is registered from the server first.
   await ensurePublicBook(input.bookId)
@@ -603,7 +608,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
     : await supplement
 
-  return {
+  return houseStyleSource({
     bookId: registryBook.id,
     editions: registryBook.editions,
     bookTitle: registryBook.title,
@@ -631,7 +636,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     cast: supporting.cast,
     ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true } : {}),
     ...(selection.readingFirst ? { supplement } : {}),
-  }
+  }, primaryEdition.language)
 }
 
 /** Bible chapter titles and biblical-book sections, for reading-history summaries. */
@@ -642,10 +647,14 @@ export async function loadLabBibleOutline(editionKey = LAB_EDITION_KEY): Promise
 
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
-  if (isUserBookId(bookId)) return (await loadUserBookSource({ bookId })).chapters
+  if (isUserBookId(bookId)) {
+    const source = await loadUserBookSource({ bookId })
+    return houseStyleChapters(source.chapters, source.editions?.[0]?.language)
+  }
   await ensureNativeBook(bookId, [requestedEditionKey])
   await ensurePublicBook(bookId)
   const editionKey = migrateWithheldEdition(bookId, requestedEditionKey)
   if (bookId === 'bible') return (await loadBibleManifest(editionKey)).chapters
-  return loadEditionChapterList(bookId, editionKey)
+  const language = getBook(bookId)?.editions.find(edition => edition.key === editionKey)?.language
+  return houseStyleChapters(await loadEditionChapterList(bookId, editionKey), language)
 }

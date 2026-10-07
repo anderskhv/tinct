@@ -184,7 +184,7 @@ export function LabContentsV2(props: Props) {
       return <li key={node.id} data-id={node.id} data-chapter={node.chapter} className={[branch ? 'branch' : '', unfolded ? 'open' : '', reading ? 'reading' : '', onPath.has(node.id) ? 'on-path' : ''].join(' ')}>
         {parent && <span className="curve" />}
         <div className="node">
-          <button className="label" aria-expanded={branch ? unfolded : undefined} aria-current={reading ? 'page' : undefined} aria-label={branch ? label : label + (reading ? ', currently reading' : '') + ', ' + status} title={branch ? undefined : status}
+          <button className="label" aria-expanded={branch ? unfolded : undefined} aria-current={reading ? 'page' : undefined} aria-label={branch ? label : label + (reading ? ', currently reading' : '') + ', ' + status} title={branch || status === 'unread' ? undefined : status}
             data-testid={node.chapter == null ? undefined : 'lab-tree-chapter-' + node.chapter}
             onPointerEnter={() => { if (node.chapter != null) props.onWarmChapter(node.chapter) }}
             onClick={() => { if (branch) toggle(node.id); else if (node.chapter != null) props.onSelectChapter(node.chapter) }}>

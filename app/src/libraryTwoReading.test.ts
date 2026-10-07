@@ -320,6 +320,22 @@ it('returns a removed or desk-hidden book to Currently reading once it is read a
   expect(table.shelfReading?.map(book=>book.bookId)).toEqual(['confessions','crito'])
 })
 
+it('keeps finished books on the shelf: an earlier removal of a finished book is ignored, a removed book being read stays hidden', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+  calls.memory.mockResolvedValue(null)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  // Removed from My shelf at 150, after each was finished (100) or last read (100); one with an unknown removal time.
+  calls.membership.mockResolvedValue({removed:['hamlet','crito','frankenstein'],tableHidden:[],removedAt:{hamlet:150,crito:0,frankenstein:150},tableHiddenAt:{}})
+  const target={chapterNumber:1,pageIndex:0,paragraphIndex:0,wordIndex:0,editionKey:'original-en',chapterLabel:'Chapter 1',at:100}
+  calls.readingList.mockReturnValue({readingNow:[{bookId:'frankenstein',target,finishedChapters:[],progress:'middle',lastActiveAt:100,session:null}],finished:[{bookId:'hamlet',finishedAt:100},{bookId:'crito',finishedAt:100}]})
+  const books=['crito','hamlet','frankenstein'].map(id=>({id,title:id,author:'Author',defaultEditionKey:'original-en',editions:[{key:'original-en',language:'en',style:'original'}],readingStructure:{chapters:[{number:1,title:'Chapter 1',paragraphCount:40}]}}))
+  const {loadReadingTable}=await import('./libraryTwoReading')
+  const table=await loadReadingTable({catalogue:Promise.resolve({books})})
+  expect(table.finished.map(book=>book.bookId)).toEqual(['hamlet','crito'])
+  expect(table.reading.map(book=>book.bookId)).toEqual([])
+})
+
 it('paints each book with its stored summary so the desk never shows the position line first', async () => {
   calls.auth.mockResolvedValue({data:{session:null}})
   calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))

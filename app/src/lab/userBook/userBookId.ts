@@ -45,7 +45,7 @@ export function userBookReaderUrl(hex: string): string {
 }
 
 /** Where the reader's back arrow goes: Add a book, with Your books in view. */
-export const USER_BOOKS_SHELF_URL = '/lab/addbook/#books'
+export const USER_BOOKS_SHELF_URL = '/lab/addbook/?mode=file#books'
 
 /** True when any string anywhere in `value` names a user book (analytics guard). */
 export function mentionsUserBook(value: unknown, depth = 0): boolean {

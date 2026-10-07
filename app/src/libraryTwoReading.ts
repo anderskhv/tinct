@@ -381,8 +381,8 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     completedBookIds: completedBookIds(),
   })
   lastRows = new Map(list.readingNow.map(row => [row.bookId, row]))
-  // One rule for every removal (My shelf ×, desk × to Saved for later, the
-  // legacy desk hide stamp): it hides the book only while it is at least as
+  // One rule for every removal of a book being read (My shelf ×, desk × to Saved for
+  // later, the legacy desk hide stamp): it hides the book only while it is at least as
   // new as the book's latest reading. Reading the book again brings it back.
   // An unknown removal time (0) stays hidden, as before.
   const removedSince = (at: Record<string, number> | undefined, ids: string[], bookId: string, readAt: number | null | undefined) => {
@@ -411,7 +411,10 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         recap: row.recap,
       }
     }),
-    finished: list.finished.filter(row => !removedSince(membership.removedAt, membership.removed, row.bookId, row.finishedAt)).map(row => {
+    // Finished books stay: My shelf offers removal only for books being read (Anders,
+    // 2026-10-07), and older removals of finished books are ignored here, so they
+    // reappear without any stored removal being rewritten.
+    finished: list.finished.map(row => {
       const book = books.get(row.bookId)
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
     }),

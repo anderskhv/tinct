@@ -4,22 +4,22 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261007rank';
+import {mountBookshelf} from './bookshelf.js?v=20261007polish';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261007rank';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261007polish';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20260928covers';
-import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,ADD_PARAM} from './add-to-tinct.js?v=20261007rank';
+import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,ADD_PARAM} from './add-to-tinct.js?v=20261007polish';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
 let savedBooks=new Set(),savedReady=false;const pendingSaves=new Map();
-const iconPaths={readArrow:'<path d="M2 12h20m-6-6 6 6-6 6"/>',search:'<circle cx="10.8" cy="10.8" r="7.3"/><path d="m16 16 5 5"/>',play:'<path d="m6 3 15 9-15 9z"/>',minus:'<path d="M5 12h14"/>',mic:'<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-3 0h6"/>',mute:'<path d="m3 3 18 18M9 9v3a3 3 0 0 0 5 2M9 5a3 3 0 0 1 6 0v4M5 10v2a7 7 0 0 0 12 5M19 10v2M12 19v3"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z"/>',end:'<path d="m6 6 12 12M18 6 6 18"/>',send:'<path d="m22 2-7 20-4-9L2 9 22 2ZM11 13 22 2"/>'};
+const iconPaths={readArrow:'<path d="M2 12h20m-6-6 6 6-6 6"/>',search:'<circle cx="10.8" cy="10.8" r="7.3"/><path d="m16 16 5 5"/>',play:'<path d="m6 3 15 9-15 9z"/>',minus:'<path d="M5 12h14"/>',plus:'<path d="M12 5v14M5 12h14"/>',mic:'<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-3 0h6"/>',mute:'<path d="m3 3 18 18M9 9v3a3 3 0 0 0 5 2M9 5a3 3 0 0 1 6 0v4M5 10v2a7 7 0 0 0 12 5M19 10v2M12 19v3"/>',chat:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z"/>',end:'<path d="m6 6 12 12M18 6 6 18"/>',send:'<path d="m22 2-7 20-4-9L2 9 22 2ZM11 13 22 2"/>'};
 function icon(name){return `<svg viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name]||''}</svg>`;}
 all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
@@ -123,26 +123,32 @@ export function filterBooks(query){const words=query.toLocaleLowerCase().trim().
 function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?`${matches.length} ${matches.length===1?'book':'books'} found`:'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
  // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them.
- if(addEnabled()){const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults});if(q)$('search-label').textContent=`${shown.length} ${shown.length===1?'book':'books'} found`;return;}
+ if(addEnabled()){const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,addingStage,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults});if(q)$('search-label').textContent=`${shown.length} ${shown.length===1?'book':'books'} found`;return;}
  renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}
 const ADD_FAILURES={daily_limit:'You have added the most books you can today. Please try again tomorrow.',in_progress:'This book is being added. Please try again in a few minutes.',not_importable:'This book cannot be added to Tinct.',unreadable:'This book could not be read from its library.',failed:'This book could not be added. Please try again.'};
-let addingWork=null;
+let addingWork=null,addingStage=null;
+/** The Add button of the work being added, as rendered now (a new search re-renders the rows). */
+const addButton=id=>[...document.querySelectorAll('#search-results .free-add')].find(b=>b.dataset.work===id)||null;
 /** Add: import the work for everyone, then open it (Currently reading). Signed out: sign in first, then it continues here. */
 async function addWork(work,button){
  const signIn=()=>location.assign(`/sign-in?returnTo=${encodeURIComponent(`/library?${ADD_PARAM}=${encodeURIComponent(work.id)}`)}`);
  if(!document.documentElement.classList.contains('signed-in')){signIn();return;}
- if(addingWork)return;addingWork=work.id;if(button){button.disabled=true;button.textContent='Adding…';}
+ // One import at a time: while it runs its button is a spinner (setAddBusy) and every Add waits.
+ if(addingWork)return;addingWork=work.id;addingStage='start';setAddBusy(button,'start');
+ const step=stage=>{addingStage=stage;setAddBusy(addButton(work.id),stage);};
  try{
-  const result=await (await addEngine()).importWork(work.id);
+  const result=await (await addEngine()).importWork(work.id,{onStage:step});
   if(!result.ok){if(result.reason==='signed_out'){signIn();return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
   try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
   document.body.classList.add('leaving');location.assign(await readerDestination(book,null));
  }catch{document.body.classList.remove('leaving');notice(ADD_FAILURES.failed);}
- finally{addingWork=null;if(button?.isConnected){button.disabled=false;button.textContent='Add';}}
+ finally{if(!document.body.classList.contains('leaving'))setAddBusy(addButton(work.id),null);addingWork=null;addingStage=null;}
 }
+// Add your own book from the search field (Add to Tinct devices only): Add a book's file step.
+syncSearchAddFile($('search-add-file'));
 $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>setSearch(false);$('search-input').oninput=renderResults;
 
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
@@ -410,7 +416,10 @@ function renderMyBooks(){
   list.forEach(book=>{
    const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;
    const toggle=open.querySelector('.save-toggle');
-   if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
+   // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
+   // Books being read and books saved for later keep their ×.
+   if(toggle&&kind==='finished')toggle.remove();
+   else if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
    if(kind==='reading'){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
     b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});

@@ -21,6 +21,7 @@
  * codes and wording Add a book uses.
  */
 
+import { normalizeChapterTitle } from '../../../public/lab/chapter-title.js'
 import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
 import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
@@ -799,11 +800,18 @@ const largeSize = (size: { width: number; height: number }) => size.width * size
 /** A converted book and its pictures (figure id -> image), kept beside it on this device. */
 export interface EpubConversion { edition: UserBookEdition; images: Map<string, Blob> }
 
-export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: { fallbackTitle?: string } = {}): Promise<UserBookEdition> {
+/**
+ * `sourceTitles` keeps chapter titles exactly as the EPUB writes them (Add to Tinct:
+ * the Worker checks each title against the file, then sets it in house style itself).
+ * Otherwise titles are in Tinct's house style (public/lab/chapter-title.js).
+ */
+export interface EpubConvertOptions { fallbackTitle?: string; sourceTitles?: boolean }
+
+export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: EpubConvertOptions = {}): Promise<UserBookEdition> {
   return (await convertEpub(input, options)).edition
 }
 
-export async function convertEpub(input: ArrayBuffer | Uint8Array, options: { fallbackTitle?: string } = {}): Promise<EpubConversion> {
+export async function convertEpub(input: ArrayBuffer | Uint8Array, options: EpubConvertOptions = {}): Promise<EpubConversion> {
   const zip = openZip(input)
   if (zip.has('META-INF/rights.xml')) throw new EpubError('drm', DRM_MESSAGE)
   const encryption = await zip.readText('META-INF/encryption.xml')
@@ -978,7 +986,8 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: { fa
     const titled = piece.title || piece.blocks.find(block => block.heading)?.text.replace(/(^|\s)_|_(\s|$)/g, '$1$2') || `Section ${index + 1}`
     const opened = chapterOpening(piece.blocks, titled)
     const blocks = opened.length ? opened : piece.blocks
-    const chapter: UserBookChapter = { number: index + 1, title: clean(titled).slice(0, 200), paragraphs: blocks.map(block => block.text) }
+    const sourceTitle = clean(titled).slice(0, 200)
+    const chapter: UserBookChapter = { number: index + 1, title: options.sourceTitles ? sourceTitle : normalizeChapterTitle(sourceTitle, { language }), paragraphs: blocks.map(block => block.text) }
     if (blocks.some(block => block.kind)) chapter.kinds = blocks.map(block => block.kind ?? null)
     const links = blocks.flatMap((block, paragraph) => (block.links ?? []).map(([from, to, href]): [number, number, number, string] => [paragraph, from, to, href]))
     if (links.length) chapter.links = links

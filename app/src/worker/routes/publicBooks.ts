@@ -45,6 +45,7 @@ import {
   type CatalogueWork,
   type PublicPlacement,
 } from '../../../public/lab/public-books.js'
+import { normalizeChapterTitles } from '../../../public/lab/chapter-title.js'
 import type { Book, Edition } from '../../types'
 import { handleModernEdition, modernEditionChapter, serveModernEdition, type ModernDeps, type ModernEnv } from './publicBookModern'
 
@@ -419,8 +420,8 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   if (!chapters) return reply({ error: 'bad_edition' }, 422, request)
   let source: string
   try { source = await epubSourceLetters(sourceBytes) } catch { return reply({ error: 'not_epub' }, 422, request) }
-  const verified = verifyEditionAgainstSource(chapters, source)
-  if (!verified) return reply({ error: 'edition_mismatch' }, 422, request)
+  const checked = verifyEditionAgainstSource(chapters, source)
+  if (!checked) return reply({ error: 'edition_mismatch' }, 422, request)
   let work: CatalogueWork | null
   try { work = await lookupCatalogueWork(env.ASSETS, new URL(request.url).origin, workId) } catch { return reply({ error: 'catalogue_unavailable' }, 503, request) }
   if (!work || !importableWork(work)) return reply({ error: 'not_importable' }, 422, request)
@@ -428,6 +429,9 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   const classification = await classifyWork(work, chooser)
   const addedAt = (deps.now?.() ?? new Date()).toISOString()
   const index = await readJson<{ books?: unknown[] }>(bucket, INDEX_KEY)
+  // Titles were checked as the EPUB writes them; they are published in house style
+  // ("CHAPTER I—M. MYRIEL" -> "Chapter 1 — M. Myriel", public/lab/chapter-title.js).
+  const verified = { ...checked, chapters: normalizeChapterTitles(checked.chapters, { language: publicEditionKey(work).slice('original-'.length) }) }
   const { book, entry, editionKey } = publicRecords({ bookId, work, chapters: verified.chapters, classification, addedAt, catalogueIndex: 100_000 + (index?.books?.length ?? 0) })
   const editionData = { chapters: verified.chapters }
   await bucket.put(editionObjectKey(bookId, editionKey), JSON.stringify(editionData), { httpMetadata: { contentType: 'application/json' } })

@@ -8,6 +8,8 @@ import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOO
 
 export const enabled=()=>addToTinctEnabled();
 export const ADD_BOOK_PAGE='/lab/addbook/';
+/** Add a book's file step: "Your own book", a PDF or EPUB, without its free-book search (the library has its own). */
+export const ADD_FILE_PAGE='/lab/addbook/?mode=file';
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -49,7 +51,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261006add';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261007polish';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -152,7 +154,7 @@ export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
  * "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel,
  * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown.
  */
-export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,filterHost,onFilters}){
+export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters}){
  box.classList.add('has-groups');
  const head=text=>el('h2','search-group-head',text);
  const bar=syncSearchFilters(filterHost,{query,tinctBooks,el,onChange:onFilters});
@@ -172,16 +174,54 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
     const row=freeRow(work),item=el('li','free-row'),text=el('span','free-text');
     const line=el('span','free-line');line.append(el('b','',row.title));if(row.author)line.append(document.createTextNode(' · '+row.author));
     text.append(line,el('small','',row.source));
-    const add=el('button','free-add',addingWork===work.id?'Adding…':'Add');add.type='button';add.dataset.work=work.id;add.disabled=addingWork===work.id;add.setAttribute('aria-label',`Add ${row.title} to Tinct`);
+    const add=el('button','free-add','Add');add.type='button';add.dataset.work=work.id;add.setAttribute('aria-label',`Add ${row.title} to Tinct`);
     add.onclick=()=>onAdd(work,add);
     item.append(text,add);list.append(item);
+    if(addingWork===work.id)setAddBusy(add,addingStage||'start');
    }
    group.append(list);
   }).catch(()=>{group.dataset.freeGroup='0';});
  }else renderTinct(tinct);
  const file=el('div','file-box');file.append(el('p','','Have it as a file?'));
- const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_BOOK_PAGE;file.append(pick);box.append(file);
+ const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_FILE_PAGE;file.append(pick);box.append(file);
  return shown;
+}
+
+// ---- Adding a book: the Add button becomes a small spinner, the row dims, a hairline shows the steps ----
+/** importWork's steps (src/libraryAdd.ts onStage), in order; 'start' is before the first. */
+export const ADD_STEPS=['start','download','convert','publish'];
+/** How far along a step is, for the hairline under the row (never 0 or 1 while it runs). */
+export const addProgress=stage=>[.08,.34,.67,.9][Math.max(0,ADD_STEPS.indexOf(stage))];
+const SVG='http://www.w3.org/2000/svg';
+function spinner(){
+ const svg=document.createElementNS(SVG,'svg');svg.setAttribute('class','add-spinner');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','15');svg.setAttribute('height','15');svg.setAttribute('fill','none');svg.setAttribute('aria-hidden','true');
+ // The reader's loading arc (LoadingIcon in src/lab/LabReaderIcons.tsx).
+ const arc=document.createElementNS(SVG,'path');arc.setAttribute('d','M12 3a9 9 0 1 1-8.1 5.1');arc.setAttribute('stroke','currentColor');arc.setAttribute('stroke-width','2.4');arc.setAttribute('stroke-linecap','round');svg.append(arc);return svg;
+}
+/**
+ * One Add while its import runs (`stage` one of ADD_STEPS), or back to "Add" (`stage` null).
+ * Busy: a spinner in the button's own size, aria-busy, disabled, the row dimmed, and a hairline
+ * across the row's foot for the step it is on.
+ */
+export function setAddBusy(button,stage){
+ if(!button)return;
+ const row=button.closest('.free-row');
+ if(stage===null||stage===undefined){
+  button.disabled=false;button.removeAttribute('aria-busy');button.classList.remove('is-busy');button.style.removeProperty('width');button.textContent='Add';
+  if(row){row.classList.remove('is-adding');row.removeAttribute('aria-busy');row.querySelector(':scope > .free-progress')?.remove();}
+  return;
+ }
+ if(!button.classList.contains('is-busy')){
+  const width=button.offsetWidth;if(width)button.style.width=width+'px';
+  const label=document.createElement('span');label.className='sr-only';label.textContent='Adding…';
+  button.replaceChildren(spinner(),label);button.classList.add('is-busy');
+ }
+ button.disabled=true;button.setAttribute('aria-busy','true');
+ if(!row)return;
+ row.classList.add('is-adding');row.setAttribute('aria-busy','true');
+ let bar=row.querySelector(':scope > .free-progress');
+ if(!bar){bar=document.createElement('span');bar.className='free-progress';bar.setAttribute('aria-hidden','true');bar.append(document.createElement('i'));row.append(bar);}
+ bar.style.setProperty('--p',String(addProgress(stage)));bar.dataset.stage=stage;
 }
 
 /** My shelf's own-book card: a paper cover that opens the book. */
@@ -191,9 +231,9 @@ export function ownBookCard(book,el){
  const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';open.append(cover);
  card.append(open,el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
 }
-/** The dashed "+" tile that ends Your own books. */
+/** The dashed "+" tile that opens My shelf: straight to Add a book's file step. */
 export function addFileTile(el){
- const card=el('article','collection-card add-file-card');const tile=el('a','add-file-tile');tile.href=ADD_BOOK_PAGE;
+ const card=el('article','collection-card add-file-card');const tile=el('a','add-file-tile');tile.href=ADD_FILE_PAGE;
  tile.append(el('span','add-file-plus','+'),el('span','','Add a PDF or EPUB'));card.append(tile);return card;
 }
 
@@ -203,9 +243,10 @@ export function ownShelfGroups(list){
  return {reading:own.filter(book=>book.readingAt!==null&&book.readingAt!==undefined).sort((a,b)=>b.readingAt-a.readingAt),own};
 }
 /**
- * My shelf's additions (D1): own books being read join Currently reading (after the
- * library's own, or under a new heading at the top), then "Your own books" with every
- * own book and the dashed + tile. Returns how many cards were added.
+ * My shelf's additions (D1): the dashed + tile first, so adding your own book is the
+ * first thing on the shelf; own books being read join Currently reading (after the
+ * library's own, or under a new heading at the top); then "Your own books" with every
+ * own book. Returns how many cards were added.
  */
 export function appendOwnShelf(grid,list,el){
  const {reading,own}=ownShelfGroups(list);let added=0;
@@ -214,8 +255,16 @@ export function appendOwnShelf(grid,list,el){
   if(!after){after=el('h2','my-books-head','Currently reading');grid.prepend(after);}
   for(const book of reading){const card=ownBookCard(book,el);card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
  }
- grid.append(el('h2','my-books-head','Your own books'));
- for(const book of own){grid.append(ownBookCard(book,el));added++;}
- grid.append(addFileTile(el));
+ if(own.length){
+  grid.append(el('h2','my-books-head','Your own books'));
+  for(const book of own){grid.append(ownBookCard(book,el));added++;}
+ }
+ grid.prepend(addFileTile(el));
  return added+1;
+}
+
+/** The + at the right end of the library's search field: the same file step, where Add to Tinct is on. */
+export function syncSearchAddFile(link){
+ if(!link)return;
+ link.href=ADD_FILE_PAGE;link.hidden=!enabled();
 }
