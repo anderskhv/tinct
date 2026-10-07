@@ -25,9 +25,11 @@ const person = p => {
 };
 const nameOnly = p => ({ name: p.name });
 // Only what search ranks on and what a result card shows. Every edition except the
-// preferred one is dropped; translators and authors live on the work.
+// preferred one is dropped; translators and authors live on the work. The preferred edition
+// is the first with an EPUB (build-index puts those first), so a work Gutenberg has as an
+// EPUB never reaches the browser as a library page without one.
 export function slimWork(w) {
-  const e = w.editions[0] || {};
+  const e = w.editions.find(edition => edition.epubUrl) || w.editions[0] || {};
   const out = { id: w.id, title: w.title, language: w.language, popularity: w.popularity || 0, editions: [{ source: e.source, sourceUrl: e.sourceUrl || null, epubUrl: e.epubUrl || null, licence: e.licence || 'PD' }] };
   if (w.subtitle) out.subtitle = w.subtitle;
   if (w.altTitles?.length) out.altTitles = w.altTitles.slice(0, 4);
@@ -45,3 +47,11 @@ export function slimWork(w) {
 
 // Works a reader can actually get: an EPUB or a source page to download from.
 export const obtainable = w => w.editions?.some(e => e.epubUrl || e.sourceUrl);
+
+/**
+ * Works whose Gutenberg EPUB the slim catalogue would lose: a Gutenberg edition has an EPUB
+ * but the slim record has none. The build refuses a catalogue with any (2026-10-07).
+ */
+export function lostGutenbergEpubs(works) {
+  return works.filter(w => w.editions?.some(e => e.source === 'Gutenberg' && e.epubUrl) && !slimWork(w).editions[0].epubUrl);
+}

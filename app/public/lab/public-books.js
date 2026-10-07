@@ -135,13 +135,60 @@ export function titleAuthorKey(title, author) {
   return `${key}|${authorKey(author)}`
 }
 
+const PART = /\b(?:part|vol\.?|volume|book|tome)\s+(\d+|[ivx]+|one|two|three|four|five|six)\b/i
+const ROMAN = { i: '1', ii: '2', iii: '3', iv: '4', v: '5', vi: '6', vii: '7', viii: '8', ix: '9', x: '10' }
+/**
+ * A title as a copy of a book: `base` without its subtitle or a "The Tragedy of" opening, and
+ * the `part` or volume it names before any subtitle. "Moby-Dick; or, The Whale" → moby dick,
+ * "The Strange Case of Dr. Jekyll and Mr. Hyde" → dr jekyll and mr hyde, "Hamlet, Prince of
+ * Denmark" → hamlet, "The Divine Comedy, Volume 1, Hell" → divine comedy, part 1, "Henry IV,
+ * Part Two" → henry iv, part 2. "Faust: a Tragedy [part 1]" is faust with no part: a subtitle's
+ * part is not read.
+ */
+export function looseTitle(title) {
+  const text = String(title ?? '')
+  const subtitle = text.search(/[;:(\[—–]|\s+or,?\s+/i)
+  const [head, ...rest] = (subtitle > 0 ? text.slice(0, subtitle) : text).split(',')
+  const named = [head, ...rest].map(segment => segment.match(PART)).find(Boolean)
+  const number = named?.[1]?.toLowerCase()
+  const base = normalizeText(head.replace(PART, ' '))
+    .replace(/^(the )?((most|excellent|lamentable|tragical|famous|true|strange|tragic|comical|pleasant) )*(tragedy|tragedie|comedy|history|historie|life|case|chronicle history)( and death)? of (the )?/, '')
+  return { base, part: number ? (PART_NUMBERS[number] || ROMAN[number] || number) : null }
+}
+/** Is `work` a copy of the Tinct `book`: the same loose title by an author of the same surname, and the same part when the book is one. */
+function sameCopy(work, book) {
+  const a = looseTitle(work.title), b = looseTitle(book.title)
+  if (!a.base || a.base !== b.base || (b.part !== null && a.part !== b.part)) return false
+  const surname = authorKey(book.author)
+  return (work.authors?.length ? work.authors : [{ name: '' }]).some(person => sameSurname(authorKey(person.name), surname))
+}
+/** The same surname, or a respelling of a long one ("Dostoyevsky" for Dostoevsky): at most two edits, same first letter. */
+function sameSurname(a, b) {
+  if (a === b) return true
+  if (a.length < 6 || b.length < 6 || a[0] !== b[0] || Math.abs(a.length - b.length) > 2) return false
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i)
+  for (let i = 1; i <= a.length; i++) {
+    const row = [i]
+    for (let j = 1; j <= b.length; j++) row[j] = Math.min(row[j - 1] + 1, prev[j] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1))
+    prev = row
+  }
+  return prev[b.length] <= 2
+}
+/** The key two catalogue copies of one book share (loose title, part, first author's surname). */
+export function looseTitleAuthorKey(title, author) {
+  const { base, part } = looseTitle(title)
+  return `${base}|${part ?? ''}|${authorKey(author)}`
+}
+
 /** Gutenberg ebook numbers the registry names for its sources (bookRegistry.ts comments). */
 export const REGISTRY_GUTENBERG_IDS = { 'pg:44024': 'the-art-of-war', 'pg:15877': 'meditations', 'pg:14591': 'faust-part-1' }
 
 /**
  * Catalogue works that are already in Tinct: the catalogue's own match (`onTinct`),
- * the same title and author as a library book, a Gutenberg number the registry
- * names, or a public book already added (same work id).
+ * the same title and author as a library book, the same title once subtitles and a
+ * "The Tragedy of" opening are set aside (looseTitle) by an author of the same surname
+ * (a volume of a book Tinct has whole counts; a part Tinct has only by itself),
+ * a Gutenberg number the registry names, or a public book already added (same work id).
  */
 export function inTinct(work, tinctBooks) {
   if (work.onTinct || work.tinctIds?.length) return true
@@ -152,21 +199,25 @@ export function inTinct(work, tinctBooks) {
   for (const book of tinctBooks) {
     if (book.id === id || book.public?.workId === work.id) return true
     if (titleAuthorKey(book.title, book.author) === key) return true
+    if (sameCopy(work, book)) return true
   }
   return false
 }
 
 /**
  * The two search groups: "Available in Tinct" (the library's own matches, unchanged)
- * and "Not yet in Tinct" (importable catalogue works not already in Tinct).
+ * and "Not yet in Tinct" (importable catalogue works not already in Tinct, each book once:
+ * a second copy with the same loose title and author is left out).
  */
 export function groupSearchResults({ tinct, free, tinctBooks, limit = 8 }) {
   const seen = new Set()
   const notYet = []
   for (const work of free || []) {
     if (notYet.length >= limit) break
-    if (seen.has(work.id) || !importableWork(work) || inTinct(work, tinctBooks)) continue
+    const copy = looseTitleAuthorKey(work.title, work.authors?.[0]?.name || '')
+    if (seen.has(work.id) || seen.has(copy) || !importableWork(work) || inTinct(work, tinctBooks)) continue
     seen.add(work.id)
+    seen.add(copy)
     notYet.push(work)
   }
   return { available: tinct, notYet }

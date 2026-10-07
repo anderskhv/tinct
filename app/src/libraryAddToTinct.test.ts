@@ -168,7 +168,7 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261007search')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect([...box.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Available in Tinct', 'Not yet in Tinct'])

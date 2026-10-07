@@ -3,8 +3,8 @@ import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset } from './cover-assets.js?v=20260928covers';
-import { withPublicBooks } from './add-to-tinct.js?v=20261007polish';
-import { coverToneFor } from './spine.js?v=20261007spine';
+import { withPublicBooks } from './add-to-tinct.js?v=20261007search';
+import { coverToneFor } from './spine.js?v=20261007search';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;

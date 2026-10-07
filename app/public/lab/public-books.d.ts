@@ -40,6 +40,8 @@ export function importableWork(work: CatalogueWork | null | undefined): boolean
 export function publicBookId(workId: string): string | null
 export function normalizeText(value: unknown): string
 export function titleAuthorKey(title: string, author: string): string
+export function looseTitle(title: string): { base: string; part: string | null }
+export function looseTitleAuthorKey(title: string, author: string): string
 export const REGISTRY_GUTENBERG_IDS: Record<string, string>
 export function inTinct(work: CatalogueWork, tinctBooks: Array<{ id: string; title: string; author: string; public?: { workId?: string } }>): boolean
 export function groupSearchResults<T>(input: { tinct: T[]; free: CatalogueWork[]; tinctBooks: Array<{ id: string; title: string; author: string }>; limit?: number }): { available: T[]; notYet: CatalogueWork[] }

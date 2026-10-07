@@ -4,7 +4,7 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES} from '../public-books.js?v=20261007rank';
+import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261007search';
 
 export const enabled=()=>addToTinctEnabled();
 export const ADD_BOOK_PAGE='/lab/addbook/';
@@ -17,12 +17,13 @@ export const ADD_PARAM='add';
 let worker=null,ready=null,request=0;const waiting=new Map();
 export function warmFreeSearch(){
  if(worker||!enabled())return ready;
- try{worker=new Worker('/lab/addbook/js/search-worker.js',{type:'module'});}catch{worker=null;return null;}
+ try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261007search',{type:'module'});}catch{worker=null;return null;}
  ready=new Promise((resolve,reject)=>{
   worker.onmessage=({data})=>{
    if(data.type==='ready')resolve();
    else if(data.type==='error')reject(new Error(data.message));
    else if(data.type==='results'){const done=waiting.get(data.request);waiting.delete(data.request);done?.(data.results||[]);}
+   else if(data.type==='borrowed'){const done=waiting.get(data.request);waiting.delete(data.request);done?.(data.borrowed||{});}
   };
   worker.onerror=()=>reject(new Error('catalogue worker failed'));
  });
@@ -41,6 +42,24 @@ export async function searchFree(query,limit=40,{language=''}={}){
  const id=++request;
  const filters=language?{language}:{};
  return new Promise(resolve=>{waiting.set(id,resolve);worker.postMessage({type:'search',query,filters,limit,request:id});});
+}
+
+/**
+ * What the catalogue knows of the library's own books (search.js borrowFor), for ranking
+ * "Available in Tinct" with the same engine: asked once per book, when the catalogue has loaded.
+ * Resolves {} without Add to Tinct, or when every book was already asked about.
+ */
+const borrowAsked=new Set();
+export async function borrowFromCatalogue(books){
+ if(!enabled())return {};
+ const ask=(books||[]).filter(book=>book?.id&&!borrowAsked.has(book.id));
+ if(!ask.length)return {};
+ for(const book of ask)borrowAsked.add(book.id);
+ try{await warmFreeSearch();}catch{for(const book of ask)borrowAsked.delete(book.id);return {};}
+ const id=++request;
+ const workIds=book=>[...Object.entries(REGISTRY_GUTENBERG_IDS).filter(([,bookId])=>bookId===book.id).map(([workId])=>workId),...(book.public?.workId?[book.public.workId]:[])];
+ const list=ask.map(book=>({id:book.id,title:book.title,author:book.author,workIds:workIds(book)}));
+ return new Promise(resolve=>{waiting.set(id,resolve);worker.postMessage({type:'borrow',books:list,request:id});});
 }
 
 // ---- Added books in the library catalogue ----

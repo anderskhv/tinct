@@ -293,7 +293,10 @@ def group_editions(editions, report):
         grouped.setdefault(key, []).append(e)
     works = []
     for editions in grouped.values():
-        editions.sort(key=lambda e: (QUALITY_RANK.get(e['quality'], 3), -e['popularity'], e['source'] != 'Gutenberg', e['id']))
+        # An edition a reader can download as EPUB comes first: a proofread library page without
+        # an EPUB (Kalliope's selection of Leaves of Grass) must not hide Gutenberg's EPUB, since the
+        # slim catalogue and "Add to Tinct" keep only the preferred edition.
+        editions.sort(key=lambda e: (e['epubUrl'] is None, QUALITY_RANK.get(e['quality'], 3), -e['popularity'], e['source'] != 'Gutenberg', e['id']))
         preferred = editions[0]
         # Work ID anchored to smallest Gutenberg ID where possible, independent of popularity.
         pgids = [int(e['sourceId']) for e in editions if e['source'] == 'Gutenberg']

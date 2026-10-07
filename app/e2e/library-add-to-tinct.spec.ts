@@ -171,6 +171,18 @@ test.describe('library search', () => {
     await shot(page, 'search-add-file')
   })
 
+  test('a typo ("wuthering hights") finds the Tinct book first, and no catalogue copy of it is offered', async ({ page }) => {
+    await prepare(page, { internal: true, signedIn: false })
+    await search(page, 'wuthering hights')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.search-result').first()).toContainText('Wuthering Heights')
+    await expect(page.locator('#search-label')).toHaveText('1 book found')
+    await expect(results.locator('.free-group')).not.toHaveAttribute('data-free-group', 'pending', { timeout: 60_000 })
+    const lines = await results.locator('.free-row .free-line').allTextContents()
+    expect(lines.filter(line => /^(The )?Wuthering Heights\b.* · Emily Brontë$/.test(line))).toEqual([])
+    await shot(page, 'search-typo')
+  })
+
   test('internal flag off: the search is the library as before', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
     await search(page, 'austen')
