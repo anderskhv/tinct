@@ -66,6 +66,8 @@ export interface ProfileDeps {
   store?: ProfileStore
   now?: () => Date
   random?: () => number
+  /** Analytics (social ship 3's funnel events): profile_created, profile_skipped, visibility_changed. */
+  track?: (name: 'profile_created' | 'profile_skipped' | 'visibility_changed', userId: string, props?: Record<string, string>) => void
 }
 
 export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
@@ -115,7 +117,7 @@ function imageKey(userId: string, slot: 'picture' | 'background', token: string)
   return `profile/${userId}/${slot}-${token}`
 }
 
-function imageUrl(userId: string, slot: 'picture' | 'background', token: string | null): string | null {
+export function imageUrl(userId: string, slot: 'picture' | 'background', token: string | null): string | null {
   return token ? `/api/profile/image?user=${userId}&slot=${slot}&v=${encodeURIComponent(token)}` : null
 }
 
@@ -385,6 +387,11 @@ export async function handleProfiles(
         const result = await store.update(user.id, patch)
         if (result === 'taken') return reply({ error: HANDLE_PROBLEM_COPY.taken, field: 'handle' }, 409, request)
       }
+      if (deps.track) {
+        if (body.skip === true && !row.set_up_at) deps.track('profile_skipped', user.id)
+        else if (patch.set_up_at && !row.set_up_at) deps.track('profile_created', user.id, { visibility: patch.visibility ?? row.visibility })
+        if (patch.visibility && patch.visibility !== row.visibility) deps.track('visibility_changed', user.id, { from: row.visibility, to: patch.visibility })
+      }
       if (leavingPicture) await deleteStoredImage(env, user.id, 'picture', row.picture_value)
       if (leavingBackground) await deleteStoredImage(env, user.id, 'background', row.background_value)
       // Reading emails: on records the current consent wording; off stops them at once.
@@ -456,7 +463,7 @@ export async function handleProfiles(
 }
 
 /** The relationship-aware view of one profile (ship 3's page and lists use this). */
-async function viewFor(store: ProfileStore, ownerId: string, viewerId: string | null) {
+export async function viewFor(store: ProfileStore, ownerId: string, viewerId: string | null) {
   if (viewerId === ownerId) {
     const own = await store.getOwn(ownerId)
     if (!own) return null

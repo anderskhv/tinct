@@ -13,6 +13,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
 import { LabAiUsageBar } from './LabAiUsageBar'
 import { LabProfileSheetHead, LabProfileSheetRows, useSheetProfile } from '../social/LabProfileSheet'
+import { useFriendsRank } from '../social/useFriendsRank'
 import {
   labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   LAB_MAX_FONT_SIZE,
@@ -210,6 +211,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   const ledgerBlock = readingTime.mode === 'ledger' || readingTime.mode === 'loading' || readingTime.mode === 'device'
   // Profiles (social ship 2): null while off, signed out or unavailable, and the sheet is as before.
   const socialProfile = useSheetProfile(auth.user ? auth.session?.access_token ?? null : null, layer === 'account')
+  // Social ship 3: null (nothing shown, no request) unless SOCIAL_FRIENDS is on and a profile is there.
+  const friendsRank = useFriendsRank(auth.user ? auth.session?.access_token ?? null : null, layer === 'account' && Boolean(socialProfile), returnTo)
 
   useEffect(() => {
     if (!layer) return
@@ -514,7 +517,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
               {(() => {
                 const aiBar = <LabAiUsageBar token={auth.user ? auth.session?.access_token ?? null : null} />
                 const timeBlock = ledgerBlock
-                  ? <LabReadingTimeBlock state={readingTime} yourReadingHref={yourReadingUrl(returnTo)} />
+                  ? <LabReadingTimeBlock state={readingTime} yourReadingHref={yourReadingUrl(returnTo)} rank={friendsRank} />
                   : (() => {
                     // Today's block. With reading time on but the ledger unavailable, time waiting on this device counts too.
                     const seconds = yearTotals.seconds + (readingTime.mode === 'fallback' ? readingTime.pendingSeconds : 0)

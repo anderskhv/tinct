@@ -41,6 +41,11 @@
     // Profiles (social ship 2, src/worker/routes/profiles.ts). "1" turns them on, only after
     // supabase/migrations/20261008_profiles.sql has run. Off: no profile route, page or marker exists.
     "SOCIAL_PROFILES": "0",
+    // Social (ship 3, src/worker/routes/social.ts): follows, the Friends/Everyone leaderboard,
+    // tinct.app/@handle pages, Find, reports, the reading card and /admin/social. "1" turns it on
+    // only together with SOCIAL_PROFILES "1", and only after supabase/migrations/20261008_social.sql
+    // has run. Off: no route, page, marker or event exists.
+    "SOCIAL_FRIENDS": "0",
     // Lifecycle emails (src/worker/lifecycle, docs/lifecycle-emails/README.md). "1" turns the
     // engine on (welcome, keep-reading, next-book; replaces the 09:00 trial-day emails); only the
     // tinct{n}@fastmail.com test aliases receive anything while isLifecycleTestRecipient gates.

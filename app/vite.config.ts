@@ -96,6 +96,10 @@ export default defineConfig(({ mode, command }) => {
         // Profiles (social ship 2): the You page and the library's entry. Served only while SOCIAL_PROFILES is on.
         youPage: path.resolve(process.cwd(), 'src/social/youPage.ts'),
         librarySocialEntry: path.resolve(process.cwd(), 'src/social/librarySocialEntry.ts'),
+        // Social (ship 3): the Friends page, a profile page's script and the admin view. Served only while SOCIAL_FRIENDS is on.
+        friendsPage: path.resolve(process.cwd(), 'src/social/friendsPage.ts'),
+        profilePage: path.resolve(process.cwd(), 'src/social/profilePage.ts'),
+        adminSocialPage: path.resolve(process.cwd(), 'src/social/adminSocialPage.ts'),
       },
       output: {
         // Reserve index-* for the real reader entry. Native plugin entrypoints
@@ -120,6 +124,12 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/profile-runtime.js'
               : chunk.name === 'librarySocialEntry'
                 ? 'lab/social-entry.js'
+              : chunk.name === 'friendsPage'
+                ? 'lab/friends-runtime.js'
+              : chunk.name === 'profilePage'
+                ? 'lab/social-profile.js'
+              : chunk.name === 'adminSocialPage'
+                ? 'lab/admin-social-runtime.js'
               : 'assets/[name]-[hash].js',
       },
     },
@@ -223,6 +233,16 @@ export default defineConfig(({ mode, command }) => {
             next()
             return
           }
+          const socialRuntime: Record<string, string> = {
+            '/lab/friends-runtime.js': '/src/social/friendsPage.ts',
+            '/lab/social-profile.js': '/src/social/profilePage.ts',
+            '/lab/admin-social-runtime.js': '/src/social/adminSocialPage.ts',
+          }
+          if (socialRuntime[pathOnly]) {
+            req.url = `${socialRuntime[pathOnly]}${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/lab/library-add.js') {
             req.url = `/src/libraryAdd.ts${url.slice(pathOnly.length)}`
             next()
@@ -256,6 +276,10 @@ export default defineConfig(({ mode, command }) => {
             '/your-reading': '/lab/your-reading/index.html',
             '/your-reading/': '/lab/your-reading/index.html',
             '/you': '/lab/you/index.html',
+            // Social (ship 3): the Worker serves these only while SOCIAL_FRIENDS is on.
+            '/friends': '/lab/friends/index.html',
+            '/friends/': '/lab/friends/index.html',
+            '/admin/social': '/lab/admin-social/index.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`

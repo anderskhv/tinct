@@ -78,3 +78,63 @@ export async function renderReadingCardPng(assets: Assets, origin: string, stats
   const { renderSvgPng } = await import('./shareRender')
   return renderSvgPng(assets, origin, fonts => readingCardSvg(stats, fonts))
 }
+
+/**
+ * The finished-book card (social ship 3): "Finished Frankenstein · 6 h 20 m",
+ * offered at the end of a book. The book's painting on top, the reader's
+ * hours in that book large, and the link it carries (the reader's public
+ * profile, or the book). Drawn on request and never stored.
+ */
+export interface FinishedCardSvgInput { title: string; author: string; duration: string | null; link: string; cover: string | null }
+
+function wrapWords(text: string, max: number): string[] {
+  const lines: string[] = []
+  let line = ''
+  for (const word of text.split(/\s+/).filter(Boolean)) {
+    if (line && (line + ' ' + word).length > max) { lines.push(line); line = word } else line = line ? `${line} ${word}` : word
+  }
+  if (line) lines.push(line)
+  return lines
+}
+
+export function finishedCardSvg(input: FinishedCardSvgInput, fonts?: ShareFonts): string {
+  const { width: W, height: H } = READING_CARD_SIZE
+  const left = 96
+  const parts: string[] = []
+  parts.push(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`)
+  parts.push(`<defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${BG}" stop-opacity="0.15"/><stop offset="0.55" stop-color="${BG}" stop-opacity="0.35"/><stop offset="0.82" stop-color="${BG}" stop-opacity="1"/></linearGradient></defs>`)
+  parts.push(`<rect width="${W}" height="${H}" fill="${BG}"/>`)
+  if (input.cover) parts.push(`<image x="0" y="0" width="${W}" height="${Math.round(H * 0.78)}" preserveAspectRatio="xMidYMid slice" href="${esc(input.cover)}" xlink:href="${esc(input.cover)}"/>`)
+  parts.push(`<rect width="${W}" height="${H}" fill="url(#fade)"/>`)
+  parts.push(`<text x="${left}" y="150" font-family="${FAMILY}" font-size="58" letter-spacing="-2" fill="${CREAM}">tinct</text>`)
+
+  const titleLines = wrapWords(`Finished ${input.title}`, 30).slice(0, 2)
+  let y = input.duration ? 760 : 900
+  for (const line of titleLines) {
+    parts.push(`<text x="${left}" y="${y}" font-family="${FAMILY}" font-style="italic" font-size="50" fill="${GOLD}">${esc(line)}</text>`)
+    y += 62
+  }
+  if (input.duration) {
+    // "6 h 20 m": figures large, units small, as on Your reading.
+    let x = left
+    const baseline = y + 170
+    for (const token of input.duration.split(' ')) {
+      const unit = !/^\d+$/.test(token)
+      const size = unit ? 92 : 210
+      parts.push(`<text x="${x.toFixed(1)}" y="${baseline}" font-family="${FAMILY}" font-size="${size}" fill="${CREAM}">${esc(token)}</text>`)
+      x += width(fonts?.regular, token, size) + (unit ? 34 : 6)
+    }
+    y = baseline + 80
+  }
+  if (input.author) parts.push(`<text x="${left}" y="${y}" font-family="${FAMILY}" font-size="46" fill="${CREAM}">${esc(`with ${input.author}.`)}</text>`)
+  parts.push(`<line x1="${left}" y1="1196" x2="${W - left}" y2="1196" stroke="${LINE}" stroke-width="2"/>`)
+  parts.push(`<text x="${left}" y="1262" font-family="${FAMILY}" font-size="38" fill="${MUTED}">${esc(input.link.replace(/^https:\/\//, ''))}</text>`)
+  parts.push(`<text x="${W - left}" y="1262" text-anchor="end" font-family="${FAMILY}" font-style="italic" font-size="36" fill="${MUTED}">Read free at tinct.app</text>`)
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+export async function renderFinishedCardPng(assets: Assets, origin: string, input: FinishedCardSvgInput): Promise<Uint8Array> {
+  const { renderSvgPng } = await import('./shareRender')
+  return renderSvgPng(assets, origin, fonts => finishedCardSvg(input, fonts))
+}

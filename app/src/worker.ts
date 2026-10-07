@@ -29,7 +29,7 @@ import {
   handleWebhook,
 } from './worker/routes/billing'
 import { handleAdminIssues } from './worker/routes/adminIssues'
-import { handleEvents } from './worker/routes/events'
+import { handleEvents, recordServerEvent } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
 import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -61,7 +61,21 @@ import {
 import { handleApproveFix } from './worker/routes/issueReview'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
 import { handleProfiles, isProfileApiPath, socialProfilesOn, type ProfileAuthUser } from './worker/routes/profiles'
-import { isYouPath, serveYouPage, withSocialMarkers } from './worker/routes/socialPages'
+import { isYouAssetPage, isYouPath, serveYouPage, withSocialMarkers } from './worker/routes/socialPages'
+import {
+  ADMIN_SOCIAL_PATHS,
+  FRIENDS_META,
+  FRIENDS_PATHS,
+  handleSocial,
+  isSocialApiPath,
+  isSocialAssetPage,
+  profileHandleFromPath,
+  runLeaderboardCron,
+  serveProfilePage,
+  serveSocialAssetPage,
+  type SocialDeps,
+} from './worker/routes/social'
+import { socialFriendsOn } from './social/socialRules'
 import {
   YOUR_READING_PATHS,
   handleIndexNowVerification,
@@ -139,6 +153,8 @@ interface Env {
   SOCIAL_READING_TIME?: string
   /** "1": profiles (social ship 2). Off by default: no profile route, page or marker exists. */
   SOCIAL_PROFILES?: string
+  /** "1" (with SOCIAL_PROFILES "1"): social ship 3, follows, leaderboard, @profiles (routes/social.ts). Off by default. */
+  SOCIAL_FRIENDS?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -270,12 +286,40 @@ export default {
     }
     // Profiles (social ship 2): nothing here runs while SOCIAL_PROFILES is off.
     const social = socialProfilesOn(env)
+    // Social (ship 3): nothing here runs unless SOCIAL_FRIENDS and SOCIAL_PROFILES are both on.
+    const friends = socialFriendsOn(env)
+    const pageRequest = request.method === 'GET' || request.method === 'HEAD'
     if (social && isProfileApiPath(url.pathname)) {
-      return handleProfiles(request, env, { verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null> })
+      return handleProfiles(request, env, {
+        verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
+        // The brief's profile events land in the funnel while ship 3 is on.
+        track: friends ? (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }) : undefined,
+      })
     }
-    if (social && (request.method === 'GET' || request.method === 'HEAD') && isYouPath(url.pathname)) {
-      const you = await serveYouPage(request, env)
+    if (social && pageRequest && isYouPath(url.pathname)) {
+      const you = await serveYouPage(request, env, friends ? FRIENDS_META : '')
       if (you) return you
+    }
+    if (!social && pageRequest && isYouAssetPage(url.pathname)) return serveNotFoundPage(request, env)
+    if (friends) {
+      const socialDeps: SocialDeps = {
+        verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
+        verifySiteAdmin: req => verifySiteAdmin(env, req),
+        checkRateLimit,
+        track: (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }),
+      }
+      if (isSocialApiPath(url.pathname)) return handleSocial(request, env, socialDeps)
+      if (pageRequest) {
+        const handle = profileHandleFromPath(url.pathname)
+        if (handle) return serveProfilePage(request, env, socialDeps, handle)
+        const asset = FRIENDS_PATHS.has(url.pathname) ? '/lab/friends/' : ADMIN_SOCIAL_PATHS.has(url.pathname) ? '/lab/admin-social/' : null
+        if (asset) {
+          const page = await serveSocialAssetPage(request, env, asset)
+          if (page) return page
+        }
+      }
+    } else if (pageRequest && isSocialAssetPage(url.pathname)) {
+      return serveNotFoundPage(request, env)
     }
 
     if (url.pathname.startsWith('/api/narration/')) {
@@ -334,7 +378,7 @@ export default {
     }
 
     const page = await handleSeoAndStaticRequest(request, env, ctx)
-    return social ? withSocialMarkers(page, request) : page
+    return social ? withSocialMarkers(page, request, friends ? FRIENDS_META : '') : page
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
@@ -353,6 +397,8 @@ export default {
       // Lifecycle emails: welcome every run, reading/trial emails hourly
       // (no-op unless LIFECYCLE_EMAILS=1; only the test aliases while gated).
       if (env.LIFECYCLE_EMAILS === '1') ctx.waitUntil(runLifecycleCron(env, event.scheduledTime).catch(error => console.error('[lifecycle]', error)))
+      // The 7-day leaderboard, rebuilt hourly (no-op unless SOCIAL_FRIENDS and SOCIAL_PROFILES are on).
+      if (socialFriendsOn(env)) ctx.waitUntil(runLeaderboardCron(env, event.scheduledTime).catch(() => false))
     }
     else ctx.waitUntil(handleScheduled(env))
   },

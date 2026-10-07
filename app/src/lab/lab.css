@@ -6772,6 +6772,9 @@
   border-radius: 999px; padding: 2px 10px;
 }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-recap:hover > span { background: var(--lab-surface); }
+/* Social ship 3: the end of a book offers the "Finished {book}" reading card (only while SOCIAL_FRIENDS is on). */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions .lab-chapter-finished-card { color: var(--lab-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--lab-ink) 35%, transparent); }
+.lab[data-chrome-version="v2"] .lab-chapter-finished-note { margin: 0; font: italic 15px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-muted); }
 .lab[data-chrome-version="v2"] .lab-ask-notice .lab-text-btn { margin-left: 8px; text-decoration: underline; }
 
 

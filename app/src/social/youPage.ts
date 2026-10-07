@@ -16,6 +16,8 @@ import { clearSignedInCookie } from '../utils/authCookie'
 import { AI_USAGE_COPY, aiAllowanceDate, fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchReadingTime, readPending, readingTimeSwitch, withPending } from '../lab/labReadingTime'
 import { formatDayMonth, hoursMinutes, localDay, readingTimeStats } from '../readingTime/model'
+import { fetchBlocked, fetchRank, socialFriendsOn, unblockReader } from './friendsClient'
+import { rankOfLine } from './socialRules'
 import {
   NEW_BOOKS_COPY,
   PICTURE_SETS,
@@ -41,8 +43,8 @@ import {
   type ProfileResult,
 } from './socialClient'
 
-type View = 'you' | 'settings' | 'visibility' | 'showReading' | 'showTime' | 'onLeaderboard' | 'emails' | 'newBooks' | 'name' | 'handle'
-const VIEWS = new Set<View>(['you', 'settings', 'visibility', 'showReading', 'showTime', 'onLeaderboard', 'emails', 'newBooks', 'name', 'handle'])
+type View = 'you' | 'settings' | 'visibility' | 'showReading' | 'showTime' | 'onLeaderboard' | 'emails' | 'newBooks' | 'name' | 'handle' | 'blocked'
+const VIEWS = new Set<View>(['you', 'settings', 'visibility', 'showReading', 'showTime', 'onLeaderboard', 'emails', 'newBooks', 'name', 'handle', 'blocked'])
 
 const root = document.querySelector<HTMLElement>('#tinct-you')
 const params = new URLSearchParams(location.search)
@@ -152,6 +154,11 @@ function header(): HTMLElement[] {
 function viewYou(): Node[] {
   const p = profile!
   const main = el('main')
+  if (p.picture.review === 'rejected' || p.background.review === 'rejected') {
+    main.append(el('div', { className: 'quiet', dataset: { testid: 'you-declined' } },
+      el('b', {}, 'Your photo was not approved'),
+      'Others see your initial or a library scene instead. Choose another picture or background whenever you like.'))
+  }
   if (p.needsSetup) {
     main.append(el('div', { className: 'quiet', dataset: { testid: 'you-setup' } },
       el('b', {}, 'Your profile is private'),
@@ -175,6 +182,19 @@ function viewYou(): Node[] {
   const reading = el('section', { className: 'shelf', hidden: true, dataset: { testid: 'you-reading' } })
   main.append(reading)
   void renderYourReadingShelf(reading)
+  // Friends (ship 3), per flows.html: the rank line leads to the Friends page.
+  if (socialFriendsOn()) {
+    const friends = el('section', { className: 'shelf', dataset: { testid: 'you-friends' } })
+    const line = el('span', {}, 'Your friends', el('small', {}, 'last 7 days'))
+    const row = el('a', { className: 'item', href: `/friends?returnTo=${encodeURIComponent('/you')}` }, line, el('span', { className: 'value' }, '›'))
+    row.dataset.testid = 'you-friends-row'
+    friends.append(el('h2', {}, 'Friends'), el('div', { className: 'list' }, row))
+    main.append(friends)
+    void fetchRank(token).then(rank => {
+      const text = rank ? rankOfLine(rank.rank, rank.total) : null
+      if (text) line.firstChild!.textContent = text
+    })
+  }
   main.append(el('section', { className: 'shelf' }, el('div', { className: 'list' }, item('Settings', '', () => go('settings'), 'you-settings'))))
   return [...header(), main]
 }
@@ -227,7 +247,8 @@ function viewSettings(): Node[] {
       item('Who can see you', VISIBILITY_COPY[p.visibility].label, () => go('visibility'), 'settings-visibility'),
       item('Show what I’m reading', onOff(p.showReading), () => go('showReading')),
       item('Show my reading time', onOff(p.showTime), () => go('showTime')),
-      item('On the leaderboard', onOff(p.onLeaderboard), () => go('onLeaderboard'))),
+      item('On the leaderboard', onOff(p.onLeaderboard), () => go('onLeaderboard')),
+      socialFriendsOn() ? item('Blocked readers', '', () => go('blocked'), 'settings-blocked') : null),
     el('p', { className: 'group' }, 'Reading'),
     el('div', { className: 'list' }, item('New books open in', NEW_BOOKS_COPY[p.newBooksOpenIn].label, () => go('newBooks'), 'settings-new-books')),
     el('p', { className: 'group' }, 'Emails'),
@@ -235,6 +256,25 @@ function viewSettings(): Node[] {
     el('p', { className: 'group' }, 'Account'),
     el('div', { className: 'list' }, link('Premium', '', accountUrl), link('Email and password', '', accountUrl), signOut),
     statusLine())]
+}
+
+/** Readers you blocked (ship 3), each with Unblock. */
+function viewBlocked(): Node[] {
+  const list = el('div', { className: 'list' })
+  const page: Node[] = [topBar('Blocked readers'), el('main', {}, list,
+    el('p', { className: 'note' }, 'You and a reader you block do not see each other anywhere on Tinct. They are not told.'), statusLine())]
+  void fetchBlocked(token).then(data => {
+    const blocked = data?.blocked ?? []
+    if (!blocked.length) { list.replaceWith(el('p', { className: 'note' }, 'You have not blocked anyone.')); return }
+    for (const reader of blocked) {
+      const row = item(reader.name, 'Unblock', async () => {
+        if (await unblockReader(token, reader.id)) row.remove()
+      })
+      if (reader.handle) row.firstElementChild!.append(el('small', {}, `tinct.app/@${reader.handle}`))
+      list.append(row)
+    }
+  })
+  return page
 }
 
 function tickView<T extends string | boolean>(title: string, options: { value: T; label: string; line: string; disabled?: boolean }[], selected: T, choose: (value: T) => void, after: (Node | null)[] = []): Node[] {
@@ -378,6 +418,7 @@ function render() {
     : view === 'newBooks' ? viewNewBooks()
     : view === 'name' ? textView('Name', 'name')
     : view === 'handle' ? textView('Profile link', 'handle')
+    : view === 'blocked' ? viewBlocked()
     : viewYou()
   root.replaceChildren(...nodes)
   root.dataset.view = view

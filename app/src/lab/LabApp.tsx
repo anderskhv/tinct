@@ -18,6 +18,7 @@ import { LabFootnote, type OpenFootnote } from './LabFootnote'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
 import { LabChapterEnd } from './LabChapterEnd'
+import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
@@ -4528,6 +4529,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   useEffect(() => {
     if (finalPageReached && !temporaryHold && !finishedChapters.has(book.chapterNumber)) markChapterFinished(book.chapterNumber)
   }, [finalPageReached, temporaryHold, finishedChapters, book.chapterNumber, markChapterFinished])
+  // Social ship 3: the "Finished {book}" reading card at the end of a book (nothing while SOCIAL_FRIENDS is off).
+  const finishedCard = useFinishedCard({ bookId: book.bookId || 'bible', title: book.bookTitle || 'the book', signedIn, privateBook })
 
   const handleAskAbout = useCallback((name: string) => {
     const question = `Who is ${name} on this page?`
@@ -4927,6 +4930,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
               busy={false} onDiscuss={() => openChapterNotes('end')}
+              finishedCard={finishedCard}
             /> : undefined}
             desktopSpread={desktopSpread}
             selectionChapters={desktopSpread && !desktopCompareActive ? selectionChapters : undefined}

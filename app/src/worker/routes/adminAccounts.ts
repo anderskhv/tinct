@@ -82,6 +82,10 @@ const OPTIONAL_USER_TABLES: { key: string; table: string; column: string; order:
   { key: 'follows_followers', table: 'follows', column: 'followed', order: 'follower' },
   { key: 'blocks', table: 'blocks', column: 'blocker', order: 'blocked' },
   { key: 'email_log', table: 'email_log', column: 'user_id', order: 'sent_at,id' },
+  // Social (ship 3, 20261008_social.sql): this reader's cached 7-day total and the reports they filed.
+  // Reports about this reader go with the account (ON DELETE CASCADE); they name the reporter and are not exported.
+  { key: 'leaderboard_7d', table: 'leaderboard_7d', column: 'user_id', order: 'user_id' },
+  { key: 'profile_reports_filed', table: 'profile_reports', column: 'reporter', order: 'created_at,id' },
 ]
 
 /** ON DELETE SET NULL tables: rows must be deleted before the auth user goes. */

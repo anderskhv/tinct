@@ -71,7 +71,10 @@ files, they can download each one from the Add-a-book page while signed in
 bucket), without the bytes. `supabase.reader_profiles`, `follows_following`,
 `follows_followers`, `blocks` (whom the reader blocked; never who blocked them)
 and `email_log` (the lifecycle email send log) come from the profiles and email-log migrations of
-2026-10-08; before those have run they export as `null` without an error.
+2026-10-08, and `leaderboard_7d` (the reader's cached 7-day total) and
+`profile_reports_filed` (reports this reader filed) from the social migration;
+before those have run they export as `null` without an error. Reports *about*
+the reader name their reporter and are not exported; they go with the account.
 
 ## What deletion does, in order
 
@@ -97,7 +100,9 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions`,
    `site_admins`, and (once their migrations have run) `reading_time` (the
    reading-time ledger), `reader_profiles`, `follows` and `blocks` in both
-   directions, and the lifecycle email send log `email_log` (all exported too;
+   directions, the lifecycle email send log `email_log`, `leaderboard_7d` and
+   reports about the reader in `profile_reports` (reports the reader filed keep
+   no reporter: ON DELETE SET NULL) (all exported too;
    a not-yet-created table counts as empty). It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
 6. **Sweep and verify:** once sign-in is impossible, the Durable Object, KV

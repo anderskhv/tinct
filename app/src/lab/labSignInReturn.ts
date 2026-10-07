@@ -14,7 +14,7 @@ import { PAGE_HOME, legacyLabPageRedirect } from './labRoute'
  */
 export const LAB_DEFAULT_RETURN_TO = '/library'
 
-const LAUNCH_ROUTE = /^\/(?:library|reader|you|featured|your-reading|admin\/metrics|read\/[A-Za-z0-9_-]+(?:\/\d+)?)\/?$/
+const LAUNCH_ROUTE = /^\/(?:library|reader|you|friends|featured|your-reading|admin\/metrics|admin\/social|@[A-Za-z0-9_.]{3,20}|read\/[A-Za-z0-9_-]+(?:\/\d+)?)\/?$/
 const ADD_BOOK_PAGE = /^\/lab\/addbook(?:\/|\/index\.html)?$/
 
 export function safeLabReturnTo(value: string | null | undefined, origin: string = location.origin): string {

@@ -64,6 +64,18 @@ const FUNNEL_STEPS: Array<{ name: string; label: string }> = [
   { name: 'checkout_completed', label: 'Checkout completed' },
 ]
 
+/** Social (ship 3) events, in the order a reader meets them. Shown only once any has landed. */
+const SOCIAL_STEPS: Array<{ name: string; label: string }> = [
+  { name: 'profile_created', label: 'Profile created' },
+  { name: 'profile_skipped', label: 'Profile skipped' },
+  { name: 'visibility_changed', label: 'Visibility changed' },
+  { name: 'follow', label: 'Follow' },
+  { name: 'unfollow', label: 'Unfollow' },
+  { name: 'leaderboard_opened', label: 'Leaderboard opened' },
+  { name: 'profile_viewed', label: 'Profile viewed' },
+  { name: 'reading_card_shared', label: 'Reading card shared' },
+]
+
 function visitorKey(row: AnalyticsRow): string {
   const device = row.payload?.device_id
   return typeof device === 'string' && device ? device : row.session_id
@@ -261,6 +273,10 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       ...step,
       devices: unique(events.filter(r => eventName(r) === step.name).map(visitorKey)),
     }))
+    const social = SOCIAL_STEPS.map(step => {
+      const matching = events.filter(r => eventName(r) === step.name)
+      return { ...step, events: matching.length, readers: unique(matching.map(r => r.user_id || visitorKey(r))) }
+    })
     const funnelDuration = new Map<string, { ms: number; devices: Set<string> }>()
     for (const row of durations) {
       const surface = typeof row.payload?.surface === 'string' ? row.payload.surface : null
@@ -313,6 +329,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       aiOrAudioUsers: aiOrAudioSessions.size,
       checkoutStarts: checkoutEvents.length,
       funnel,
+      social: social.some(step => step.events > 0) ? social : [],
       timeOnSurface: [...funnelDuration.entries()].map(([surface, data]) => ({
         surface, devices: data.devices.size, minutes: Math.round((data.ms / 60000) * 10) / 10,
         avgMinutes: data.devices.size ? Math.round((data.ms / 60000 / data.devices.size) * 10) / 10 : 0,
@@ -416,6 +433,22 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
             </tbody>
           </table>
         </div>
+
+        {metrics.social.length > 0 && <div style={styles.panel}>
+          <h2 style={styles.heading}>Social</h2>
+          <table style={styles.table}>
+            <thead><tr><th>Event</th><th>Events</th><th>Readers</th></tr></thead>
+            <tbody>
+              {metrics.social.map(step => (
+                <tr key={step.name}>
+                  <td>{step.label}</td>
+                  <td>{step.events}</td>
+                  <td>{step.readers}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>}
 
         <div style={styles.panel}>
           <h2 style={styles.heading}>Time on page</h2>

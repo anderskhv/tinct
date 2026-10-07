@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, noarchive">
+  <meta name="theme-color" content="#10150f">
+  <title>Friends · Tinct</title>
+  <link rel="icon" href="/favicon.svg">
+  <style>
+    :root{color-scheme:dark;--bg:#10150f;--raised:#172015;--sheet:#1a2318;--ink:#eee7d0;--sage:#b1bba4;--dim:#7f8a76;--gold:#c2aa74;--gold-hi:#e8d59e;--line:rgba(238,231,208,.13);--glass:rgba(238,231,208,.07);--glass-line:rgba(238,231,208,.16);--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--serif)}button,input{font:inherit;color:inherit}a{color:inherit}
+    [hidden]{display:none!important}
+    .friends{max-width:620px;min-height:100dvh;margin:0 auto;padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+    .friends[data-ready=false] main{visibility:hidden}
+    .top{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;min-height:56px;padding:env(safe-area-inset-top) 8px 0}
+    .top .back{width:44px;height:44px;border:0;background:transparent;font:400 20px var(--sans);cursor:pointer;color:var(--ink);display:grid;place-items:center;text-decoration:none}
+    .top h1{margin:0;text-align:center;font:700 16px var(--sans)}
+    .tabs{display:flex;gap:24px;padding:0 16px;border-bottom:1px solid var(--line)}
+    .tabs button{border:0;background:transparent;padding:10px 0 9px;font:400 15px var(--sans);color:var(--sage);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+    .tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--gold-hi)}
+    main{padding:0 16px}
+    .board-head{display:flex;justify-content:space-between;align-items:baseline;margin:18px 0 12px}
+    .board-head h2{margin:0;font:700 17px var(--sans)}
+    .board-head span{color:var(--sage);font-size:14px;font-style:italic}
+    .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:end;margin:0 0 14px}
+    .podium .place{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px 10px;border-radius:14px 14px 4px 4px;background:var(--glass);border:1px solid var(--glass-line);text-decoration:none;color:var(--ink);min-width:0}
+    .podium .place[data-rank="1"]{padding-top:18px;background:rgba(232,213,158,.09)}
+    .podium .place .tinct-avatar{width:44px;height:44px}
+    .podium .place[data-rank="1"] .tinct-avatar{width:56px;height:56px;box-shadow:0 0 0 2px var(--gold-hi)}
+    .podium .name{font-size:16px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .podium .hours{color:var(--sage);font-size:13px;font-family:var(--sans)}
+    .podium .num{font-size:24px;font-style:italic;color:var(--gold-hi);margin-top:2px}
+    .podium .place.is-self{border-color:rgba(232,213,158,.45)}
+    .rows{display:flex;flex-direction:column}
+    .row{display:grid;grid-template-columns:26px 40px 1fr auto;gap:10px;align-items:center;min-height:58px;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+    .row:first-child{border-top:1px solid var(--line)}
+    .row .num{color:var(--sage);font-style:italic;font-size:16px;text-align:center}
+    .row .who{min-width:0}.row .who b{display:block;font-weight:400;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .row .who i{display:block;color:var(--sage);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .row .hours{font-size:16px;white-space:nowrap}
+    .row.is-self{background:linear-gradient(90deg,rgba(232,213,158,.08),transparent);margin:0 -8px;padding-left:8px;padding-right:8px;border-radius:8px}
+    .tinct-avatar{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background-color:var(--raised);background-repeat:no-repeat;color:var(--gold-hi);font:400 17px/1 var(--serif);box-shadow:0 0 0 1px var(--glass-line);overflow:hidden;flex:none}
+    .tinct-avatar[data-kind=initial]{background-image:linear-gradient(150deg,#2a3a2a,#18241a)}
+    .note{color:var(--sage);font-size:15px;font-style:italic;line-height:1.45;margin:16px 0 0;text-align:center}
+    .note a{color:var(--ink)}
+    .empty{margin:18px 0 0;padding:16px;border:1px solid var(--glass-line);border-radius:14px;background:var(--glass);font-size:17px;line-height:1.45;text-align:center}
+    .search{display:flex;align-items:center;gap:8px;margin:16px 0 0;padding:0 12px;border:1px solid var(--glass-line);border-radius:10px;background:var(--glass)}
+    .search svg{width:16px;height:16px;flex:none;color:var(--sage)}
+    .search input{flex:1;min-width:0;height:44px;border:0;background:transparent;outline:none;font:17px var(--serif)}
+    .search input::placeholder{color:var(--sage)}
+    .shelf{margin:22px 0 0}
+    .shelf>h2{margin:0 0 8px;font:700 17px var(--sans)}
+    .person{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;min-height:58px;padding:8px 0;border-bottom:1px solid var(--line)}
+    .person:first-of-type{border-top:1px solid var(--line)}
+    .person a.who{min-width:0;text-decoration:none}.person .who b{display:block;font-weight:400;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .person .who i{display:block;color:var(--sage);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .follow{min-height:34px;padding:0 16px;border-radius:999px;border:1px solid var(--glass-line);background:transparent;font:500 14px var(--sans);cursor:pointer;color:var(--ink)}
+    .follow[data-state=follow]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .follow:disabled{opacity:.6}
+    .item{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:52px;padding:10px 0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;text-decoration:none;font-size:17px;cursor:pointer;color:var(--ink)}
+    .item:first-of-type{border-top:1px solid var(--line)}
+    .item small{display:block;color:var(--sage);font-size:14px;font-style:italic;margin-top:2px}
+    .item .value{color:var(--sage);font:400 14px var(--sans);white-space:nowrap}
+    .muted{color:var(--sage);font-style:italic;font-size:16px;margin:4px 0 0}
+    .status{margin:14px 0 0;color:var(--gold-hi);font:400 14px var(--sans);text-align:center;min-height:1.2em}
+    @media(min-width:900px){.friends{padding-top:24px}.podium .place .tinct-avatar{width:52px;height:52px}.podium .place[data-rank="1"] .tinct-avatar{width:64px;height:64px}}
+  </style>
+  <script type="module" src="/lab/display-profile.js"></script>
+</head>
+<body>
+  <div id="tinct-friends" class="friends" data-ready="false">
+    <div class="top"><a class="back" href="/library" aria-label="Back" data-back>←</a><h1>Friends</h1><span></span></div>
+    <nav class="tabs" role="tablist" aria-label="Friends">
+      <button type="button" role="tab" data-tab="friends" aria-selected="true">Friends</button>
+      <button type="button" role="tab" data-tab="everyone" aria-selected="false">Everyone</button>
+      <button type="button" role="tab" data-tab="find" aria-selected="false">Find</button>
+    </nav>
+    <main data-main aria-live="polite"></main>
+  </div>
+  <script type="module" src="/lab/friends-runtime.js"></script>
+</body>
+</html>

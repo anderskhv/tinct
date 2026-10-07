@@ -29,7 +29,12 @@ function Hours({ seconds }: { seconds: number }) {
  * type with a 7-day bar, a facts line and the Your reading row; signed out,
  * the hours on this device and the invitation to keep them.
  */
-export function LabReadingTimeBlock({ state, yourReadingHref }: { state: SheetReadingTime; yourReadingHref: string }) {
+export function LabReadingTimeBlock({ state, yourReadingHref, rank = null }: {
+  state: SheetReadingTime
+  yourReadingHref: string
+  /** Social ship 3: "#3 among friends" leads the facts line, and a Leaderboard row follows Your reading. */
+  rank?: { line: string | null; leaderboardHref: string } | null
+}) {
   if (state.mode === 'device') {
     return (
       <div className="lab-v2-time" data-testid="lab-v2-reading-time" data-mode="device">
@@ -43,7 +48,7 @@ export function LabReadingTimeBlock({ state, yourReadingHref }: { state: SheetRe
   const stats = state.mode === 'ledger' ? state.stats : null
   const days = stats?.last7 ?? []
   const most = Math.max(1, ...days.map(day => day.seconds))
-  const facts = stats ? factsLine(stats) : ''
+  const facts = [rank?.line ?? null, stats ? factsLine(stats) : ''].filter(Boolean).join(' · ')
   return (
     <div className="lab-v2-time" data-testid="lab-v2-reading-time" data-mode={state.mode}>
       <p className="lab-v2-time-label">Last 7 days</p>
@@ -64,6 +69,12 @@ export function LabReadingTimeBlock({ state, yourReadingHref }: { state: SheetRe
           <span className="lab-v2-row-label">Your reading</span>
           <span className="lab-v2-value"><span className="lab-v2-value-chevron" aria-hidden="true">›</span></span>
         </a>
+        {rank && (
+          <a className="lab-v2-row is-link" data-testid="lab-v2-leaderboard" href={rank.leaderboardHref}>
+            <span className="lab-v2-row-label">Leaderboard</span>
+            <span className="lab-v2-value"><span className="lab-v2-value-chevron" aria-hidden="true">›</span></span>
+          </a>
+        )}
       </div>
     </div>
   )

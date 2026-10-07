@@ -89,6 +89,10 @@ create table if not exists public.reader_profiles (
   updated_at timestamptz not null default now()
 );
 
+-- Hidden by Tinct (the admin view, social ship 3): a hidden profile appears to
+-- nobody but its owner, like Only me. Null = not hidden.
+alter table public.reader_profiles add column if not exists hidden_at timestamptz;
+
 do $$
 begin
   if not exists (select 1 from pg_constraint where conname = 'reader_profiles_handle_format') then
@@ -175,7 +179,8 @@ grant all on public.blocks to service_role;
 -- Each reader's own choices, applied once, here:
 --   * Only me never appears;
 --   * Everyone counts as Friends until the email is confirmed;
---   * an uploaded picture or background appears only once approved.
+--   * an uploaded picture or background appears only once approved;
+--   * a profile hidden by Tinct (hidden_at, ship 3's admin view) never appears.
 -- The viewer's relationship (friend, follower, stranger, blocked) is applied
 -- by the Worker (app/src/social/profileRules.ts publicProfileView).
 drop view if exists public.public_profile_cards;
@@ -195,7 +200,8 @@ select
   rp.on_leaderboard
 from public.reader_profiles rp
 join public.profiles p on p.id = rp.id
-where rp.visibility <> 'only_me';
+where rp.visibility <> 'only_me'
+  and rp.hidden_at is null;
 
 revoke all on public.public_profile_cards from anon, authenticated;
 grant select on public.public_profile_cards to service_role;

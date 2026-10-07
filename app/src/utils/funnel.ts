@@ -25,6 +25,8 @@ export type FunnelEventName =
   | 'member_ai_use' | 'checkout_started' | 'checkout_completed'
   | 'share_sheet_opened' | 'share_created' | 'share_completed' | 'share_link_opened' | 'share_link_signup'
   | 'book_intro_viewed' | 'audio_failed' | 'talk_failed'
+  // Social (ship 3): sent by the Friends page, a profile page and the reader.
+  | 'leaderboard_opened' | 'profile_viewed' | 'reading_card_shared'
 
 type Wire = FunnelEventName | 'pageview' | 'page_duration'
 type Props = Record<string, string | number | boolean | null | undefined>
