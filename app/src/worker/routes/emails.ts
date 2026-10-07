@@ -1,3 +1,5 @@
+import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
+
 export type EmailEnv = {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
@@ -67,13 +69,26 @@ function isLifecycleTestRecipient(email: string): boolean {
   return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
 }
 
+// With the AI allowance on (src/aiAllowanceSwitch.ts), Premium is AI use:
+// narration, Cast and Feed stay open to every account, so the emails name
+// what Premium adds in the /about page's words, and the button opens the
+// account page where the plan is chosen (the old ?action=subscribe opened
+// nothing). Off, the emails are unchanged.
+const PREMIUM_FEATURES_LEGACY = 'AI companion, audiobook, Cast, and Feed'
+const PREMIUM_FEATURES_ALLOWANCE = 'AI chat, Talk and chapter recaps'
+const SUBSCRIBE_URL_LEGACY = 'https://tinct.app?action=subscribe'
+const SUBSCRIBE_URL_ALLOWANCE = 'https://tinct.app/sign-in?mode=account'
+
+const premiumFeatures = (allowanceOn: boolean) => (allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : PREMIUM_FEATURES_LEGACY)
+const subscribeUrl = (allowanceOn: boolean) => (allowanceOn ? SUBSCRIBE_URL_ALLOWANCE : SUBSCRIBE_URL_LEGACY)
+
 // Day 0 — welcome
-function welcomeEmail(): { subject: string; html: string } {
+export function welcomeEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): { subject: string; html: string } {
   return {
     subject: 'Welcome to Tinct',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">Welcome.</h2>
-      <p>You're in. For the next 30 days you have full Premium: AI companion, audiobook, Cast, and Feed. No card on file, no charges. On day 30 you roll into the free tier automatically. Reading stays free forever.</p>
+      <p>You're in. For the next 30 days you have full Premium: ${premiumFeatures(allowanceOn)}. No card on file, no charges. On day 30 you roll into the free tier automatically. Reading stays free forever.</p>
       <p style="margin: 22px 0;">
         <a href="https://tinct.app/read" style="${BTN_STYLE}">Open Tinct</a>
       </p>
@@ -96,14 +111,14 @@ function midTrialEmail(): { subject: string; html: string } {
 }
 
 // Day 27 — 3 days left, the single warning
-function threeDayEmail(): { subject: string; html: string } {
+export function threeDayEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): { subject: string; html: string } {
   return {
     subject: 'Your Tinct trial ends in 3 days',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">3 days left of Premium.</h2>
-      <p>Your free Premium trial ends in <strong>3 days</strong>. To keep the AI companion, audiobook, Cast, and Feed, subscribe for <strong>$5/month</strong>.</p>
+      <p>Your free Premium trial ends in <strong>3 days</strong>. To keep ${allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : `the ${PREMIUM_FEATURES_LEGACY}`}, subscribe for <strong>$5/month</strong>.</p>
       <p style="margin: 22px 0;">
-        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Keep Premium · $5/mo</a>
+        <a href="${subscribeUrl(allowanceOn)}" style="${BTN_STYLE}">Keep Premium · $5/mo</a>
       </p>
       <p style="color: #555; font-size: 14px;">Reading is always free. All your books, editions, highlights, and notes stay yours whether you subscribe or not.</p>
       <p style="color: #555; font-size: 14px;">Can't afford it? Reply to this email. We'll work something out.</p>
@@ -112,15 +127,15 @@ function threeDayEmail(): { subject: string; html: string } {
 }
 
 // Day 30 — trial ended
-function trialEndedEmail(): { subject: string; html: string } {
+export function trialEndedEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): { subject: string; html: string } {
   return {
     subject: 'Your Tinct trial has ended',
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">Your trial ended.</h2>
       <p>You're now on the free tier. Reading stays free: all the books, every edition, your highlights, your notes, your reading position across devices. Nothing you've already made is gone.</p>
-      <p>Premium features (AI companion, audiobook, Cast, Feed) have paused. $5/month brings them back whenever you want.</p>
+      <p>Premium features (${allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : 'AI companion, audiobook, Cast, Feed'}) have paused. $5/month brings them back whenever you want.</p>
       <p style="margin: 22px 0;">
-        <a href="https://tinct.app?action=subscribe" style="${BTN_STYLE}">Resubscribe · $5/mo</a>
+        <a href="${subscribeUrl(allowanceOn)}" style="${BTN_STYLE}">Resubscribe · $5/mo</a>
       </p>
       <p style="color: #555; font-size: 14px;">Or just keep reading for free. The books are still here.</p>
     `),
