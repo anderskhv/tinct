@@ -1,6 +1,6 @@
 // Catalogue search off the main thread. The ranking is the search engine's own
 // (addbooks/site/search.js, copied in at build time as ./search.js).
-import { createSearch, hydrate, borrowFor } from './search.js?v=20261007search';
+import { createSearch, hydrate, borrowFor } from './search.js?v=20261008rel4';
 let search = null, byId = null, catalogue = null;
 // The page shows a slim copy of each work; editions carry only what a result card needs.
 const slim = w => ({ id: w.id, page: w.page, title: w.title, subtitle: w.subtitle, authors: w.authors, translators: w.translators, language: w.language, onTinct: w.onTinct, tinctIds: w.tinctIds, firstPublishedYear: w.firstPublishedYear,

@@ -3,8 +3,8 @@ import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset } from './cover-assets.js?v=20260928covers';
-import { withPublicBooks } from './add-to-tinct.js?v=20261007signedin';
-import { coverToneFor } from './spine.js?v=20261007spine';
+import { withPublicBooks } from './add-to-tinct.js?v=20261008rel4';
+import { coverToneFor } from './spine.js?v=20261008rel4';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -89,7 +89,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261007signedin').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261008rel4').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });

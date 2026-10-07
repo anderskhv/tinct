@@ -5,7 +5,7 @@
 // What the catalogue knows of the same book (borrowFor: popularity, the author's other names,
 // other titles) is lent once the catalogue search has loaded; until then books rank on their own.
 // Approved by Anders, 2026-10-07 (library search quality).
-import {createSearch, hydrate} from '../addbook/js/search.js?v=20261007search';
+import {createSearch, hydrate} from '../addbook/js/search.js?v=20261008rel4';
 
 /** A Tinct book as a catalogue work the engine can rank (`book` keeps the library's own object). */
 export function tinctWork(book, borrowed = null) {
