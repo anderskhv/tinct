@@ -7,7 +7,7 @@
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { apiUrl } from '../utils/apiUrl'
 
-// DRAFT COPY — needs Anders's approval
+// Wording: Anders, 2026-10-07 (price pills).
 export const AI_USAGE_COPY = {
   label: 'AI use',
   resets: (date: string) => `Renews ${date}`,
@@ -15,8 +15,11 @@ export const AI_USAGE_COPY = {
   usedUp: 'AI features are paused. Reading and listening carry on.',
   usedUpUntil: (date: string) => `AI features are paused until ${date}. Reading and listening carry on.`,
   includesTopUp: 'Includes your top-up.',
-  topUp: 'Top up',
-  topUpMore: 'Bigger top-up',
+  /** The price pills; their accessible names say what they do. */
+  topUp: '$5',
+  topUpMore: '$10',
+  topUpAction: 'Buy a $5 top-up',
+  topUpMoreAction: 'Buy a $10 top-up',
   topUpFailed: 'Could not open checkout. Try again.',
 } as const
 
@@ -77,7 +80,31 @@ export function aiUsageNote(allowance: AiAllowance): string {
   return parts.join(' ')
 }
 
+/** Top-ups are offered when running low and at zero, never while plenty is left. */
+export function offersTopUps(allowance: AiAllowance): boolean {
+  return allowance.state !== 'ok' && allowance.topUps.length > 0
+}
+
 type FetchLike = (input: string, init?: RequestInit) => Promise<Response>
+
+/** The Worker's refusal at zero: HTTP 402 { error: 'allowance_used' } (worker/lib/aiAllowance.ts). */
+export const ALLOWANCE_USED_ERROR = 'allowance_used'
+
+/**
+ * Whether a failed AI response is the allowance refusal, so the sheet shows
+ * LAB_COPY.balanceEmpty rather than only Retry. Always false while the switch
+ * is off: then nothing on screen changes. Reads the body; call it only on a
+ * response whose body has not been read.
+ */
+export async function isAllowanceUsedResponse(response: { status: number; json(): Promise<unknown> }, enforced: boolean = AI_ALLOWANCE_ENFORCED): Promise<boolean> {
+  if (!enforced || response.status !== 402) return false
+  try {
+    const data = await response.json() as { error?: unknown } | null
+    return data?.error === ALLOWANCE_USED_ERROR
+  } catch {
+    return false
+  }
+}
 
 /**
  * The reader's session for AI routes that also serve signed-out readers

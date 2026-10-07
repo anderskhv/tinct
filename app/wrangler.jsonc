@@ -27,6 +27,10 @@
     "NARRATION_PROVIDER": "grok",
     "NARRATION_DAILY_BYTES": "2000000",
     "NARRATION_MONTHLY_BYTES": "10000000",
+    // Read-aloud of readers' own books (src/worker/routes/ownBookNarration.ts), Premium only.
+    // Own ceilings, never the shared ones above: $20 per account and $100 for all
+    // own books per UTC month (OWN_BOOK_NARRATION_MONTHLY_USD / _GLOBAL_MONTHLY_USD).
+    "OWN_BOOK_NARRATION": "1",
     // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
     "GUEST_AI_DAILY_CENTS": "500",
     // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.

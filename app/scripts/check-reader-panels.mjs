@@ -842,7 +842,10 @@ async function menuRedesign(engine,name,phone) {
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
     // Desktop: Library lives in the icon-only back arrow at the top left.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Catch me up','Book editions','Settings','Library','Account']:['Chat','Talk','Summarize','Catch me up','Book editions','Settings','Account'])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Librarian','Summarize','Catch me up','Book editions','Settings','Library','Account']:['Librarian','Summarize','Catch me up','Book editions','Settings','Account'])
+    // One Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button.
+    assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
+    assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
     if(!phone)assert.equal((await page.getByTestId('lab-library-back').innerText()).trim(),'')
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)

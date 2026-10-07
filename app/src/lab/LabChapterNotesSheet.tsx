@@ -4,6 +4,7 @@ import { chapterNotesPlainText, fetchChapterNotes, storedChapterNotes } from './
 import { RowIcon } from './LabSuperMenu.tsx'
 import { CopyIcon } from '../components/reader/SelectionPopup'
 import { useReaderWindow } from './useReaderWindow'
+import { LabBalanceEmptyLine } from './LabAiUsageBar'
 import './labCatchUp.css'
 
 export interface LabChapterNotesSheetProps {
@@ -14,6 +15,8 @@ export interface LabChapterNotesSheetProps {
   onTalk: (title: string, beats: ChapterNotesBeat[] | null) => void
   /** The reader's session, sent only while the AI allowance is on (labChapterNotes.ts). */
   readToken?: () => Promise<string | null>
+  /** Opens where the reader can top up (the account sheet); links the balance line shown at zero. */
+  onTopUp?: () => void
 }
 
 /**
@@ -21,9 +24,11 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp }: LabChapterNotesSheetProps) {
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
+  // Refused at zero (402 allowance_used, only while the AI allowance is on).
+  const [allowanceUsed, setAllowanceUsed] = useState(false)
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
   const mounted = useRef(true)
   // Set on every mount: React's development double mount runs the cleanup once.
@@ -53,7 +58,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
     setState('loading')
     void fetchChapterNotes(request, { readToken }).then(result => {
       if (!mounted.current) return
-      if (result.ok) { setBeats(result.beats); setState('ok') } else setState('error')
+      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setState('error') }
     })
   }, [request, readToken])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -83,6 +88,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
             )) : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
+                {allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-chapter-notes-balance" />}
                 <button type="button" className="lab-catch-up-retry" data-testid="lab-chapter-notes-retry" onClick={load}>Retry</button>
               </li>
             ) : [0, 1, 2].map(index => (

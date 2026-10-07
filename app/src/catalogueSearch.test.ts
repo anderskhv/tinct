@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 // @ts-expect-error -- plain module shared by Add a book, freepubs.fyi and the library's "Not yet in Tinct"
-import { createSearch, hydrate } from '../../addbooks/site/search.js'
+import { createSearch, hydrate, normalize, altTitlesFor } from '../../addbooks/site/search.js'
 
 // The catalogue search engine (addbooks/site/search.js, installed as public/lab/addbook/js/search.js)
 // over real records copied unchanged from public/lab/addbook/data/catalog.json.gz.
@@ -93,5 +93,71 @@ describe('catalogue search ranking', () => {
     expect(austen).toContain('pg:17797')
     expect(ids('odyssey')).toEqual(['pg:1727', 'pg:23731', 'pg:26275'])
     expect(ids('oddysey')[0]).toBe('pg:1727')
+  })
+})
+
+// Search quality (approved by Anders, 2026-10-07): spelling variants, apostrophes, other titles,
+// the author's name within a tier, and volumes.
+describe('catalogue search: variants, other titles, author words', () => {
+  it('"dr faustus" is "doctor faustus": Marlowe first', () => {
+    expect(normalize('Dr. Faustus')).toBe('doctor faustus')
+    expect(ids('dr faustus')[0]).toBe('pg:779')
+    expect(ids('dr faustus')).toEqual(ids('doctor faustus'))
+  })
+
+  it('"quran", "qur\'an" and "koran" find the Koran first; letters across an apostrophe are one word', () => {
+    expect(normalize("Qur'an")).toBe('quran')
+    expect(normalize('Qur’ān')).toBe('quran')
+    for (const query of ['quran', "qur'an", 'Qur’an', 'koran', 'the koran']) expect(ids(query)[0], query).toBe('pg:2800')
+    // The near spelling "Quan" (William Quan Judge) comes after the Koran and a title with "Quranic".
+    const list = ids('quran')
+    expect(rank(list, 'pg:2800')).toBeLessThan(rank(list, 'ws:en:Q19111885'))
+    expect(list.indexOf('pg:54268')).not.toBe(0)
+  })
+
+  it('"tolstoi" is Tolstoy: his own books before books about him', () => {
+    expect(normalize('Tolstoi')).toBe('tolstoy')
+    const list = ids('tolstoi')
+    expect(list[0]).toBe('pg:2600') // War and Peace
+    expect(rank(list, 'pg:2600')).toBeLessThan(rank(list, 'rb:jstolstoi')) // In the Land of Tolstoi
+    expect(ids('tolstoy')[0]).toBe('pg:2600')
+    // Other variants in the table.
+    expect(normalize('Chekov')).toBe('chekhov')
+    expect(normalize('Vergil')).toBe('virgil')
+    expect(normalize('Lao Tzu')).toBe('laozi')
+    expect(normalize('St. Augustine')).toBe('saint augustine')
+    expect(normalize('Around the World in 80 Days')).toBe('around the world in eighty days')
+    expect(normalize('drama')).toBe('drama') // whole words only
+  })
+
+  it('"shakespeare sonnets": the words found in the author\'s name rank his sonnets above other sonnets', () => {
+    const list = ids('shakespeare sonnets')
+    expect(list.slice(0, 2).sort()).toEqual(['pg:1041', 'pg:1105'])
+    expect(rank(list, 'pg:1105')).toBeLessThan(rank(list, 'pg:1050')) // Shaw's The Dark Lady of the Sonnets
+    expect(ids('sonnets shakespeare').slice(0, 2).sort()).toEqual(['pg:1041', 'pg:1105'])
+  })
+
+  it('"emma": Austen\'s Emma (an exact title) before authors called Emma', () => {
+    const list = ids('emma')
+    expect(list[0]).toBe('pg:158')
+    expect(rank(list, 'pg:158')).toBeLessThan(rank(list, 'pg:23789'))
+    expect(rank(list, 'pg:158')).toBeLessThan(rank(list, 'pg:2162'))
+  })
+
+  it('"hunchback of notre dame" finds Notre-Dame de Paris by Victor Hugo (a curated other title)', () => {
+    expect(altTitlesFor('Notre-Dame de Paris', 'Victor Hugo')).toEqual(['The Hunchback of Notre Dame'])
+    expect(altTitlesFor('Notre-Dame de Paris', 'Somebody Else')).toEqual([])
+    const list = ids('hunchback of notre dame')
+    expect(list[0]).toBe('pg:2610')
+    expect(list).not.toContain('pg:3480') // The Hunchback, by another author: no "notre dame"
+    expect(ids('the hunchback of notre dame')[0]).toBe('pg:2610')
+  })
+
+  it('the other titles cover the common names readers search for', () => {
+    expect(altTitlesFor('The Divine Comedy', 'Dante Alighieri')).toContain('Inferno')
+    expect(altTitlesFor('The Divine Comedy, Volume 2, Purgatory', 'Dante Alighieri')).toEqual([])
+    expect(altTitlesFor('The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata)', 'Edwin Arnold')).toEqual(['Bhagavad Gita'])
+    expect(altTitlesFor('The Tao Teh King, or the Tao and its Characteristics', 'Laozi')).toContain('Tao Te Ching')
+    expect(altTitlesFor("The Koran (Al-Qur'an)", '')).toContain('Quran')
   })
 })

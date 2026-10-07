@@ -216,6 +216,8 @@
       const r = await booksFetch('', { method: 'POST', body: file, headers: {
         'Content-Type': meta.kind === 'epub' ? 'application/epub+zip' : 'application/pdf',
         'X-Book-Name': enc(meta.name), 'X-Book-Title': enc(meta.title), 'X-Book-Author': enc(meta.author),
+        // The rights confirmation this account gave ({ at, v }), kept with the file.
+        ...(meta.rights?.v ? { 'X-Rights-Version': enc(meta.rights.v), 'X-Rights-At': enc(meta.rights.at) } : {}),
       } });
       return (await r.json()).book;
     },

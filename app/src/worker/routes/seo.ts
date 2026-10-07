@@ -95,9 +95,9 @@ const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.
 // still pass the asset allowlist so existing readers can recover their data.
 const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_EDITION_HOLDS).map(identity => identity.split('/')[0])])
 
-/** Static public pages (book pages, the hub, About, Privacy, Terms): short public cache. Per-user pages stay no-store. */
+/** Static public pages (book pages, the hub, About, Credits, Privacy, Terms): short public cache. Per-user pages stay no-store. */
 const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
-const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/'])
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/credits', '/credits/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/'])
 
 /**
  * The Terms of Service (public/terms.html) are published together with the AI

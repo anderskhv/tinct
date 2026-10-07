@@ -112,6 +112,11 @@ export interface Book {
   id: string
   title: string
   author: string
+  /**
+   * Other titles readers search for ("Enchiridion" for The Manual). The library search ranks
+   * them as titles; common ones for any copy live in addbooks/site/search.js ALT_TITLES.
+   */
+  altTitles?: string[]
   editions: Edition[]
   /** Short description for the store */
   description?: string

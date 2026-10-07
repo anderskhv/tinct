@@ -115,6 +115,15 @@ export function start(port = 4720) {
       });
       return;
     }
+    // The Tinct reader asks what narration offers. Answered like the Worker with the narration
+    // pilot off (app/src/worker/routes/narration.ts handleVoices; settings and versions left
+    // out): no Listen, and no own-book narration. own-narration-e2e.mjs mocks the "on" case.
+    if (req.method === 'GET' && url.pathname === '/api/narration/voices') {
+      const voice = (key, label, persona) => ({ key, label, persona, cacheIdentity: createHash('sha256').update('stand-in:' + key).digest('hex') });
+      res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+      res.end(JSON.stringify({ enabled: false, reason: 'pilot_off', provider: 'grok', model: 'grok-tts-v1', voices: [voice('f', 'Ara', 'female'), voice('m', 'Helios', 'male'), voice('orion', 'Orion', 'male'), voice('eve', 'Eve', 'female')], ownBooks: false }));
+      return;
+    }
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) return userBooks(req, res, url);
     if (url.pathname === '/__books') { sendJson(res, 200, { users: Object.fromEntries(Object.entries(books.users).map(([u, list]) => [u, list.map(({ bytes, ...b }) => b)])), log: books.log }); return }
     if (url.pathname === '/__requests') { res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(requests)); return }

@@ -146,6 +146,11 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
   book(userId, 2, 'Kapitel ø.epub', 20)
   book(userId, 3, 'Slides.pdf', 30)
   book(otherUser, 4, 'Theirs.pdf', 40)
+  // Own-book narration: recordings beside the files, and one spend object per account.
+  const ownNarration = { spend: [{ day: '2026-10-07', bytes: 1200 }] as { day: string; bytes: number }[], purged: [] as string[] }
+  const narrationObject = (owner: string, name: string, size: number) => userBooks.objects.set(`u/${owner}/narration/${'ab'.repeat(12)}/${name}`, {
+    key: `u/${owner}/narration/${'ab'.repeat(12)}/${name}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-07T00:00:00Z'), customMetadata: {},
+  })
   const env = {
     USER_BOOKS: userBooks.bucket,
     SUPABASE_URL: 'https://example.supabase.co',
@@ -154,6 +159,15 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
     RATE_LIMIT: kv,
     READER_POSITION: namespace('position'),
     RECAP_PREPARATION: namespace('recap'),
+    NARRATION_COORDINATOR: {
+      getByName: vi.fn((name: string) => {
+        expect(name).toBe(`own-user:${userId}`)
+        return {
+          usage: vi.fn(async () => ownNarration.spend),
+          purge: vi.fn(async () => { ownNarration.purged.push(name); ownNarration.spend = [] }),
+        }
+      }),
+    },
     SHARE_STORE: {
       getByName: vi.fn((name: string) => {
         expect(name).toBe('shares')
@@ -163,7 +177,7 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
   } as unknown as AdminAccountsEnv
   vi.stubGlobal('fetch', fetchMock)
   vi.spyOn(console, 'log').mockImplementation(() => {})
-  return { env, log, state, kvStore, doState, fetchMock, options, userBooks }
+  return { env, log, state, kvStore, doState, fetchMock, options, userBooks, ownNarration, narrationObject }
 }
 
 function post(path: string, body: unknown): Request {
@@ -368,6 +382,36 @@ describe('admin account routes', () => {
     expect(body.supabase.email_log).toBeNull()
     const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), missing.env, admin)).json() as { ok: boolean }
     expect(deleted.ok).toBe(true)
+  })
+
+  it('exports and deletes own-book narration: the recordings under u/{userId}/narration/ and the spend object', async () => {
+    const w = world()
+    w.narrationObject(userId, `${'c'.repeat(64)}.mp3`, 900)
+    w.narrationObject(userId, `${'c'.repeat(64)}.json`, 100)
+    w.narrationObject(otherUser, `${'d'.repeat(64)}.mp3`, 900)
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownBookNarration).toEqual({ objects: 2, bytes: 1000 })
+    expect(exported.ownBookNarrationSpend).toEqual([{ day: '2026-10-07', bytes: 1200 }])
+    // Recordings are not books: the file listing is unchanged.
+    expect(exported.r2.userBooks).toHaveLength(3)
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean; steps: { step: string; status: string }[] }
+    expect(deleted.ok).toBe(true)
+    expect(deleted.steps.find(s => s.step === 'do:own-book-narration')?.status).toBe('ok')
+    expect(w.ownNarration.purged).toContain(`own-user:${userId}`)
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    // Another reader's recordings stay.
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${otherUser}/narration/`))).toHaveLength(1)
+  })
+
+  it('keeps the auth user when the narration coordinator is not bound, so the spend record is never orphaned', async () => {
+    const w = world()
+    delete (w.env as { NARRATION_COORDINATOR?: unknown }).NARRATION_COORDINATOR
+    const res = await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)
+    const body = await res.json() as { ok: boolean; steps: { step: string; status: string; detail?: string }[] }
+    expect(body.ok).toBe(false)
+    expect(body.steps.find(s => s.step === 'do:own-book-narration')).toEqual({ step: 'do:own-book-narration', status: 'failed', detail: 'NARRATION_COORDINATOR binding missing' })
+    expect(w.state.authUser).not.toBeNull()
   })
 
   it('reports an unknown account as 404', async () => {

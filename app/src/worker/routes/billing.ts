@@ -18,8 +18,10 @@ export type BillingEnv = SupabaseEnv & {
   STRIPE_PRICE_CHAT_100?: string
   /** The $5 pack: messages while the allowance is off, an AI top-up once it is on. */
   STRIPE_PRICE_CHAT_200?: string
-  /** The $10 AI top-up (allowance on). Without it that top-up is not offered. */
+  /** The $10 AI top-up (allowance on). Without it (or STRIPE_PRICE_TOPUP_10) that top-up is not offered. */
   STRIPE_PRICE_TOP_UP_10?: string
+  /** The same $10 price under the name the Cloudflare secret was created with (Anders, 2026-10-07). */
+  STRIPE_PRICE_TOPUP_10?: string
   /** 'on' once Stripe Tax is set up: Checkout then works out VAT / sales tax from the billing address. */
   STRIPE_AUTOMATIC_TAX?: string
 }
@@ -41,9 +43,13 @@ export function availablePremiumIntervals(env: BillingEnv): BillingInterval[] {
   return (['month', 'year'] as const).filter(interval => premiumPriceFor(env, interval))
 }
 
-/** The Stripe price of a top-up, from the Worker's own secrets (never from the client). */
+/**
+ * The Stripe price of a top-up, from the Worker's own secrets (never from the
+ * client). The $10 price is read under either secret name. Checkout and the
+ * top-ups on sale (availableTopUps) both come through here.
+ */
 export function topUpPriceFor(env: BillingEnv, type: TopUpType): string | null {
-  return (type === 'chat_pack_200' ? env.STRIPE_PRICE_CHAT_200 : env.STRIPE_PRICE_TOP_UP_10) || null
+  return (type === 'chat_pack_200' ? env.STRIPE_PRICE_CHAT_200 : env.STRIPE_PRICE_TOP_UP_10 || env.STRIPE_PRICE_TOPUP_10) || null
 }
 
 /** The top-ups checkout can sell right now, in the order the usage bar offers them. */

@@ -24,7 +24,7 @@ You're responsible for keeping your login details safe and for everything that h
 ## 3. Subscriptions, AI use and payment
 Subscriptions are billed in advance through Stripe and renew automatically until you cancel.
 
-Premium includes a monthly amount of AI use, shown as a bar in the app. It resets on your billing date and doesn't roll over. When it runs out, your account works like a standard account until the next billing date: you can still read and listen, and AI chat, Talk and recaps pause. You can buy a top-up to keep using them; top-ups carry over while your subscription is active.
+Premium includes a monthly amount of AI use, shown as a bar in the app. It resets every month on the day your subscription started and doesn't roll over. When it runs out, your account works like a standard account until it resets: you can still read and listen, and AI chat, Talk and recaps pause. You can buy a top-up to keep using them. Top-ups don't expire and stay yours if you leave Premium.
 
 Top-ups have no cash value and can't be transferred or refunded, except where the law requires it.
 
@@ -37,7 +37,7 @@ EU right of withdrawal: you normally have 14 days to withdraw. When you start us
 
 **You own your content.** You give Tinct a limited licence to store and process it only so we can run the service for you. We don't use it to train AI models.
 
-**You are solely responsible for your content.** You confirm that you have every right needed to upload or submit it, including copyright and privacy rights, and that doing so doesn't break any law.
+**You are solely responsible for your content.** You confirm you have every right needed to upload it and to use it in Tinct, including copyright and privacy rights, and that doing so doesn't break any law. You are responsible for what you upload and for what you share from Tinct. Tinct stores your own files privately and only for you; to the fullest extent the law allows, Tinct is not liable for your content. We act on notices of infringing or unlawful content (see Reporting and removal below), and accounts that repeatedly upload such content are closed.
 
 Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.
 
@@ -48,6 +48,11 @@ A person at Tinct approves each picture and background you upload before other r
 You can block a reader, so that neither of you sees the other, and report a profile. See Reporting and removal.
 
 You agree to compensate Tinct for claims and reasonable costs that arise from your content or from your breach of these terms, as far as the law allows.
+
+### Reporting and removal
+To report content you believe infringes your rights or is unlawful, write to contact@tinct.app, or use the report link in the app where available. We review each report and may remove or restrict the content. If we do, we tell the person who uploaded it why, and they can reply to object. People, not automated systems, review reports and make these decisions.
+
+Our point of contact for authorities and users under the EU Digital Services Act is contact@tinct.app.
 
 ## 5. AI features: no guarantee of accuracy
 **AI answers can be wrong.** They may be inaccurate, incomplete or invented while sounding confident. This includes quotations, dates, translations and interpretations.

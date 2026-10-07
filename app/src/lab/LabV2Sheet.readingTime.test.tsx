@@ -19,7 +19,7 @@ vi.mock('../hooks/useAuth', () => ({
 }))
 vi.mock('../hooks/useBalance', () => ({ useBalance: () => ({ isSubscribed: false }) }))
 
-import { LabV2Sheet } from './LabV2Sheet'
+import { LabV2Sheet } from './LabV2Sheet.tsx'
 
 const signedIn = { user: { id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' }, session: { access_token: 'token' } }
 

@@ -3,7 +3,8 @@
  * reader's own PDF and EPUB files, so a book follows them across devices.
  *
  *   GET    /api/user-books            list the caller's books (metadata only)
- *   POST   /api/user-books            upload one file (raw body; metadata in headers)
+ *   POST   /api/user-books            upload one file (raw body; metadata in headers);
+ *                                     Premium or the 30-day trial only (402 otherwise)
  *   GET    /api/user-books/{fileId}   the file's bytes, to its owner only
  *   DELETE /api/user-books/{fileId}   delete it
  *
@@ -13,7 +14,8 @@
  * file or its name. Another account's file is therefore unreachable, and every
  * miss answers 404, never 403, so existence is not confirmed.
  *
- * Metadata (name, title, author, type, sha256, createdAt) lives in each
+ * Metadata (name, title, author, type, sha256, createdAt, and the rights
+ * confirmation's wording version and time) lives in each
  * object's R2 customMetadata rather than in a per-user index object: it is
  * written and deleted atomically with the bytes, and R2 listing is strongly
  * consistent, so there is no read-modify-write index to race or drift.
@@ -22,6 +24,11 @@
  * The same file uploaded twice by one account is stored once.
  * Account export lists these files and account deletion removes the whole
  * `u/{userId}/` prefix (routes/adminAccounts.ts).
+ *
+ * Narration of an own book (routes/ownBookNarration.ts) is stored beside the
+ * files, under `u/{userId}/narration/{bookHex}/`, where bookHex is the first 24
+ * hex digits of the file's SHA-256 (the reader's `userbook-` id). Deleting a
+ * book deletes that prefix too; account deletion takes it with the rest.
  */
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
@@ -55,6 +62,28 @@ export type UserBook = {
 
 export function userBooksPrefix(userId: string): string {
   return `u/${userId}/`
+}
+
+/** Hex digits of a file's SHA-256 that name it in the reader (`userbook-{hex}`). */
+export const USER_BOOK_HEX_LENGTH = 24
+
+/** Where one own book's narration lives: inside the owner's private prefix only. */
+export function ownNarrationPrefix(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}narration/${bookHex}/`
+}
+
+/** Every object under `prefix`, deleted page by page. Returns how many went. */
+export async function purgePrefix(bucket: R2Bucket, prefix: string): Promise<number> {
+  let removed = 0
+  for (let round = 0; round < 1000; round++) {
+    // Always re-list from the start: deleting shifts the listing under a cursor.
+    const page = await bucket.list({ prefix, limit: 1000 })
+    const keys = page.objects.map(object => object.key).filter(key => key.startsWith(prefix))
+    if (!keys.length) return removed
+    await bucket.delete(keys)
+    removed += keys.length
+  }
+  throw new Error('prefix purge did not finish')
 }
 
 function headers(request: Request, extra: Record<string, string> = {}): Record<string, string> {
@@ -97,6 +126,18 @@ function headerText(request: Request, name: string): string {
   try { return decodeURIComponent(value) } catch { return '' }
 }
 
+/**
+ * The rights confirmation the reader gave before adding the file (the Add a
+ * book checkbox): which wording (X-Rights-Version) and when (X-Rights-At),
+ * kept with the file as a record. Omitted when absent or malformed.
+ */
+export function rightsAttestation(request: Request): { rightsVersion?: string; rightsAt?: string } {
+  const version = headerText(request, 'x-rights-version')
+  if (!/^[0-9A-Za-z.-]{1,40}$/.test(version)) return {}
+  const at = Date.parse(headerText(request, 'x-rights-at'))
+  return { rightsVersion: version, ...(Number.isFinite(at) ? { rightsAt: new Date(at).toISOString() } : {}) }
+}
+
 export function bookFromObject(object: { key: string; size: number; uploaded: Date; customMetadata?: Record<string, string> }): UserBook | null {
   const id = object.key.split('/').pop() ?? ''
   const meta = object.customMetadata ?? {}
@@ -119,7 +160,9 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
   const books: UserBook[] = []
   let cursor: string | undefined
   do {
-    const page = await bucket.list({ prefix: userBooksPrefix(userId), cursor, limit: 1000, include: ['customMetadata'] })
+    // Files sit directly under the prefix; the delimiter keeps narration
+    // (u/{userId}/narration/…) out of the listing and the storage total.
+    const page = await bucket.list({ prefix: userBooksPrefix(userId), cursor, limit: 1000, include: ['customMetadata'], delimiter: '/' })
     for (const object of page.objects) {
       const book = bookFromObject(object)
       if (book) books.push(book)
@@ -129,18 +172,22 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
   return books.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
 }
 
-/** Deletes everything under `u/{userId}/`, page by page. Returns how many objects went. */
+/** Deletes everything under `u/{userId}/` (files and their narration), page by page. Returns how many objects went. */
 export async function purgeUserBooks(bucket: R2Bucket, userId: string): Promise<number> {
-  let removed = 0
-  for (let round = 0; round < 1000; round++) {
-    // Always re-list from the start: deleting shifts the listing under a cursor.
-    const page = await bucket.list({ prefix: userBooksPrefix(userId), limit: 1000 })
-    const keys = page.objects.map(object => object.key).filter(key => key.startsWith(userBooksPrefix(userId)))
-    if (!keys.length) return removed
-    await bucket.delete(keys)
-    removed += keys.length
-  }
-  throw new Error('user books purge did not finish')
+  return purgePrefix(bucket, userBooksPrefix(userId))
+}
+
+/**
+ * The canonical narration key of a book this account owns, or null. `hex` is
+ * the reader's `userbook-` hex; it must match the start of the SHA-256 of a
+ * file stored under the caller's own prefix (the same file uploaded by two
+ * accounts is two private copies, each found only by its owner).
+ */
+export async function ownedBookHex(bucket: R2Bucket, userId: string, hex: string): Promise<string | null> {
+  if (!/^[0-9a-f]{24,64}$/.test(hex)) return null
+  const books = await listUserBooks(bucket, userId)
+  const book = books.find(item => item.sha256 && item.sha256.startsWith(hex))
+  return book ? book.sha256.slice(0, USER_BOOK_HEX_LENGTH) : null
 }
 
 // ===== File checks =====
@@ -267,6 +314,7 @@ async function upload(request: Request, bucket: R2Bucket, userId: string, checkR
     type,
     sha256,
     createdAt: new Date().toISOString(),
+    ...rightsAttestation(request),
   }
   const stored = await bucket.put(`${userBooksPrefix(userId)}${id}`, bytes, {
     httpMetadata: { contentType: TYPES[type] },
@@ -293,15 +341,24 @@ async function download(request: Request, bucket: R2Bucket, userId: string, file
 
 async function remove(request: Request, bucket: R2Bucket, userId: string, fileId: string): Promise<Response> {
   const key = `${userBooksPrefix(userId)}${fileId}`
-  if (!await bucket.head(key)) return notFound(request)
+  const head = await bucket.head(key)
+  if (!head) return notFound(request)
   await bucket.delete(key)
+  // Its narration goes with it (the same file is stored once per account).
+  const sha256 = head.customMetadata?.sha256 ?? ''
+  if (/^[0-9a-f]{64}$/.test(sha256)) await purgePrefix(bucket, ownNarrationPrefix(userId, sha256.slice(0, USER_BOOK_HEX_LENGTH)))
   return reply({ ok: true }, 200, request)
 }
 
 export async function handleUserBooks(
   request: Request,
   env: UserBooksEnv,
-  deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
+  deps: {
+    verifyUser: (request: Request) => Promise<VerifiedUser | null>
+    checkRateLimit: CheckRateLimit
+    /** Premium or in the 30-day trial (lib/aiAllowance.ts loadPremiumAccess); null when unknown. Uploading is Premium only. */
+    premiumAccess: (userId: string) => Promise<boolean | null>
+  },
 ): Promise<Response> {
   const url = new URL(request.url)
   const rest = url.pathname.slice('/api/user-books'.length)
@@ -316,7 +373,13 @@ export async function handleUserBooks(
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
 
   if (fileId === null) {
-    if (request.method === 'POST') return upload(request, bucket, user.id, deps.checkRateLimit)
+    if (request.method === 'POST') {
+      // Adding a book is Premium (or the trial); listing, opening and deleting books already added never are.
+      const premium = await deps.premiumAccess(user.id).catch(() => null)
+      if (premium === null) return reply({ error: 'unavailable' }, 503, request)
+      if (!premium) return reply({ error: 'premium_required' }, 402, request)
+      return upload(request, bucket, user.id, deps.checkRateLimit)
+    }
     const books = await listUserBooks(bucket, user.id)
     return reply({
       books,

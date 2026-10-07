@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 /**
- * build-about-page.cjs — writes app/public/about.html (tinct.app/about).
+ * build-about-page.cjs — writes app/public/about.html (tinct.app/about) and
+ * app/public/credits.html (tinct.app/credits).
  *
  * The text is the approved About mockup (docs/about-mockup.html on
  * claude/gracious-mayer-t2imki, 2026-10-05) without its undecided parts:
- * no Terms, CVR, yearly plan, top-ups or credit figures yet. The image
- * credits come from the library's own credits data, so the two never drift.
+ * no Terms, CVR, yearly plan, top-ups or credit figures yet. Anders,
+ * 2026-10-07: no "Our team" section, and the credits live on their own page,
+ * linked from the /about footer. The image credits come from the library's
+ * own credits data, so the two never drift.
  *
  * Usage: node scripts/build-about-page.cjs
  */
@@ -15,6 +18,7 @@ const path = require('path')
 const APP_DIR = path.resolve(__dirname, '..')
 const IMAGES = path.join(APP_DIR, 'public/lab/library_2/author-images.json')
 const OUT = path.join(APP_DIR, 'public/about.html')
+const CREDITS_OUT = path.join(APP_DIR, 'public/credits.html')
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const link = (label, href) => href ? `<a href="${esc(href)}" rel="noopener noreferrer">${esc(label)}</a>` : esc(label)
@@ -23,27 +27,23 @@ function creditRows(images) {
   return images.map(image => `<tr><td>${esc(image.authorName)}</td><td>${esc(image.creator)}</td><td>${link(image.licence, image.licenceUrl)}</td><td>${link('Source', image.sourcePage)}${image.attributionRequired && image.changes ? `<br><span class="muted">${esc(image.changes)}</span>` : ''}</td></tr>`).join('\n')
 }
 
-function build() {
-  const images = JSON.parse(fs.readFileSync(IMAGES, 'utf8')).images || []
-  const byName = (a, b) => a.authorName.localeCompare(b.authorName)
-  const attributed = images.filter(image => image.attributionRequired).sort(byName)
-  const others = images.filter(image => !image.attributionRequired).sort(byName)
-  const table = rows => `<div class="table-scroll"><table class="credits"><thead><tr><th>Portrait</th><th>Creator</th><th>Licence</th><th></th></tr></thead><tbody>
-${rows}
-</tbody></table></div>`
-  return `<!doctype html>
+const ABOUT_DESCRIPTION = "Tinct's mission is to deliver the world's best reading experience. What Tinct costs, where its books come from and how it handles your data."
+const CREDITS_DESCRIPTION = "Where Tinct's original texts and author portraits come from."
+
+/** The page head and styles /about and /credits share, up to the opening <body>. */
+const head = ({ title, path, description }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Tinct</title>
-<meta name="description" content="Tinct's mission is to deliver the world's best reading experience. Who builds Tinct, what it costs, where its books come from and how it handles your data.">
-<link rel="canonical" href="https://tinct.app/about">
-<meta property="og:title" content="About Tinct">
-<meta property="og:url" content="https://tinct.app/about">
+<title>${title}</title>
+<meta name="description" content="${description}">
+<link rel="canonical" href="https://tinct.app${path}">
+<meta property="og:title" content="${title}">
+<meta property="og:url" content="https://tinct.app${path}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tinct">
-<meta property="og:description" content="Tinct's mission is to deliver the world's best reading experience. Who builds Tinct, what it costs, where its books come from and how it handles your data.">
+<meta property="og:description" content="${description}">
 <meta property="og:image" content="https://tinct.app/og-image-v2.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
@@ -79,19 +79,32 @@ details summary { cursor: pointer; color: var(--muted); font-size: 14px; margin:
 </style>
 </head>
 <body>
-<div class="page">
+`
+
+function creditsSection() {
+  const images = JSON.parse(fs.readFileSync(IMAGES, 'utf8')).images || []
+  const byName = (a, b) => a.authorName.localeCompare(b.authorName)
+  const attributed = images.filter(image => image.attributionRequired).sort(byName)
+  const others = images.filter(image => !image.attributionRequired).sort(byName)
+  const table = rows => `<div class="table-scroll"><table class="credits"><thead><tr><th>Portrait</th><th>Creator</th><th>Licence</th><th></th></tr></thead><tbody>
+${rows}
+</tbody></table></div>`
+  return `<p>Original texts come from Project Gutenberg, the Internet Archive and other public-domain archives. We're grateful to the volunteers who transcribed and checked them.</p>
+<p>Author portraits:</p>
+${table(creditRows(attributed))}
+<details><summary>Show all ${images.length} portraits</summary>
+${table(creditRows(others))}
+</details>
+`
+}
+
+function build() {
+  return `${head({ title: 'About Tinct', path: '/about', description: ABOUT_DESCRIPTION })}<div class="page">
 <a class="logo" href="/">tinct</a>
 <h1>About Tinct</h1>
 
 <h2>Our mission</h2>
 <p>Deliver the world's best reading experience.</p>
-
-<h2>Our team</h2>
-<div class="table-scroll"><table><tbody>
-<tr><td>Anders K. Hvelplund</td><td>Founder</td></tr>
-<tr><td>Claude</td><td>AI by Anthropic. Builds the app and prepares the editions</td></tr>
-<tr><td>Grok</td><td>AI by xAI. The voice of narration and Talk</td></tr>
-</tbody></table></div>
 
 <h2>Pricing</h2>
 <div class="table-scroll"><table>
@@ -100,7 +113,8 @@ details summary { cursor: pointer; color: var(--muted); font-size: 14px; margin:
 <tr><th>Price</th><td class="c">$0</td><td class="c">$5 / month</td></tr>
 <tr><td>Every book in Tinct's public library</td><td class="c">✓</td><td class="c">✓</td></tr>
 <tr><td>Original and modern editions, side by side</td><td class="c">✓</td><td class="c">✓</td></tr>
-<tr><td>AI chat, Talk and chapter recaps</td><td class="c">–</td><td class="c">✓</td></tr>
+<tr><td>AI chat, Talk, chapter recaps and audiobooks</td><td class="c">–</td><td class="c">✓</td></tr>
+<tr><td>Add any book: your own or from Gutenberg and other free libraries</td><td class="c">–</td><td class="c">✓</td></tr>
 </tbody></table></div>
 <p class="muted">Prices are in US dollars, and local taxes may apply. You can cancel any time and keep access until the end of the period you've paid for.</p>
 
@@ -123,15 +137,22 @@ details summary { cursor: pointer; color: var(--muted); font-size: 14px; margin:
 <tr><td>OpenAI</td><td>Source checks only</td></tr>
 </tbody></table></div>
 
-<h2>Credits</h2>
-<p>Original texts come from Project Gutenberg, the Internet Archive and other public-domain archives. We're grateful to the volunteers who transcribed and checked them.</p>
-<p>Author portraits:</p>
-${table(creditRows(attributed))}
-<details><summary>Show all ${images.length} portraits</summary>
-${table(creditRows(others))}
-</details>
 
-<p class="footer"><a href="/library">Library</a><a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
+<p class="footer"><a href="/library">Library</a><a href="/credits">Credits</a><a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
+</div>
+</body>
+</html>
+`
+}
+
+function buildCredits() {
+  return `${head({ title: 'Tinct credits', path: '/credits', description: CREDITS_DESCRIPTION })}<div class="page">
+<a class="logo" href="/">tinct</a>
+<h1>Tinct credits</h1>
+
+<h2>Credits</h2>
+${creditsSection()}
+<p class="footer"><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
 </div>
 </body>
 </html>
@@ -141,6 +162,8 @@ ${table(creditRows(others))}
 if (require.main === module) {
   fs.writeFileSync(OUT, build())
   console.log(`[about] Wrote ${path.relative(APP_DIR, OUT)}`)
+  fs.writeFileSync(CREDITS_OUT, buildCredits())
+  console.log(`[about] Wrote ${path.relative(APP_DIR, CREDITS_OUT)}`)
 }
 
-module.exports = { build }
+module.exports = { build, buildCredits }

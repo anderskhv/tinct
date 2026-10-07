@@ -90,7 +90,7 @@ npx wrangler secret put STRIPE_PRICE_PREMIUM
 npx wrangler secret put STRIPE_PRICE_PREMIUM_YEARLY   # optional; without it the yearly plan is hidden
 npx wrangler secret put STRIPE_PRICE_CHAT_100        # the $3 message pack, sold while the AI allowance is off
 npx wrangler secret put STRIPE_PRICE_CHAT_200        # the $5 pack: messages while off, AI top-up once on
-npx wrangler secret put STRIPE_PRICE_TOP_UP_10       # optional; the $10 AI top-up (allowance on), hidden without it
+npx wrangler secret put STRIPE_PRICE_TOP_UP_10       # optional; the $10 AI top-up (allowance on), hidden without it; STRIPE_PRICE_TOPUP_10 also works
 npx wrangler secret put INDEXNOW_KEY
 npx wrangler secret put BREVO_API_KEY
 ```

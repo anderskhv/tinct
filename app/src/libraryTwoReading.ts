@@ -132,7 +132,7 @@ async function loadCatalogue(provided?: Promise<{ books?: CatalogueBook[] }>): P
 
 /** Books readers added (public-books.js), merged in where the device sees them. */
 async function withPublicBooks(data: { books: CatalogueBook[] }): Promise<{ books: CatalogueBook[] }> {
-  if (!addToTinctEnabled()) return data
+  if (!addToTinctEnabled(undefined, document.documentElement.classList.contains('signed-in'))) return data
   try {
     const response = await fetch(PUBLIC_BOOKS_INDEX_URL)
     if (!response.ok) return data
@@ -568,6 +568,25 @@ export async function hideFromReadingNow(bookId: string): Promise<void> {
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
   lastRows.delete(bookId)
   if (auth.token && isOnline()) await putLabPositionCloud(auth.token, stored)
+}
+
+/**
+ * The library page's account state follows Supabase: its `signed-in` class (set by
+ * boot.js from the signed-in cookie before anything loads) is corrected when the
+ * session resolves and changes on sign-in or sign-out, and `library2:auth` tells
+ * the page, so Add to Tinct (add-to-tinct.js) appears or goes without a reload.
+ */
+export function syncLibraryAuth(signedIn: boolean, doc: Document = document): boolean {
+  const root = doc.documentElement
+  if (root.classList.contains('signed-in') === signedIn) return false
+  root.classList.toggle('signed-in', signedIn)
+  doc.defaultView?.dispatchEvent(new CustomEvent('library2:auth', { detail: { signedIn } }))
+  return true
+}
+if (supabase && typeof document !== 'undefined') {
+  try {
+    supabase.auth.onAuthStateChange?.((_event, session) => { syncLibraryAuth(Boolean(session?.user)) })
+  } catch { /* the boot-time class stays */ }
 }
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the

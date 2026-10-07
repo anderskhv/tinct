@@ -11,7 +11,7 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
 import { createGuestSpendReserver } from './worker/lib/aiSpend'
-import { createAllowanceGate, requestAllowsAiFeature } from './worker/lib/aiAllowance'
+import { createAllowanceGate, loadPremiumAccess, requestAllowsAiFeature } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
 import type { ShareStore } from './worker/shareStore'
@@ -20,6 +20,7 @@ import { isValidUUID } from './worker/lib/security'
 import { supabaseGet } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
 import { handleNarration } from './worker/routes/narration'
+import { handleOwnAudio, handleOwnEnsure } from './worker/routes/ownBookNarration'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -109,6 +110,8 @@ interface Env {
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
   STRIPE_PRICE_TOP_UP_10?: string
+  /** The $10 top-up under the name the Cloudflare secret was created with; read as STRIPE_PRICE_TOP_UP_10. */
+  STRIPE_PRICE_TOPUP_10?: string
   STRIPE_AUTOMATIC_TAX?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
@@ -131,6 +134,10 @@ interface Env {
   NARRATION_VOICE_B_LABEL?: string
   NARRATION_DAILY_BYTES?: string
   NARRATION_MONTHLY_BYTES?: string
+  /** "1": read-aloud of readers' own books (routes/ownBookNarration.ts). Off when absent. */
+  OWN_BOOK_NARRATION?: string
+  OWN_BOOK_NARRATION_MONTHLY_USD?: string
+  OWN_BOOK_NARRATION_GLOBAL_MONTHLY_USD?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
   /** Private bucket for readers' own PDF/EPUB files (routes/userBooks.ts). Never public. */
@@ -247,7 +254,7 @@ export default {
     if (sharePage) return sharePage
 
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
-      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
+      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit, premiumAccess: userId => loadPremiumAccess(env, userId) })
     }
 
     if (url.pathname === '/api/public-books' || url.pathname.startsWith('/api/public-books/')) {
@@ -258,6 +265,7 @@ export default {
         // Fail closed like the rate limiter: without the coordinator nothing is imported.
         countDaily: async (key, limit) => { try { return windows ? await windows.getByName(`rl:${key}`).hit(limit, 86_400_000) : false } catch { return false } },
         acquireLock: async bookId => { try { return windows ? await windows.getByName(`rl:public-book-lock:${bookId}`).hit(1, 600_000) : false } catch { return false } },
+        premiumAccess: userId => loadPremiumAccess(env, userId),
         waitUntil: promise => ctx.waitUntil(promise),
       })
     }
@@ -322,6 +330,9 @@ export default {
       return serveNotFoundPage(request, env)
     }
 
+    // Read-aloud of a reader's own book: separate routes, storage and budget (ownBookNarration.ts).
+    if (url.pathname === '/api/narration/own/ensure') return handleOwnEnsure(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
+    if (url.pathname === '/api/narration/own/audio') return handleOwnAudio(request, env, Date.now())
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     }

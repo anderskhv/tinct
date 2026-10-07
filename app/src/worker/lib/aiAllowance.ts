@@ -35,7 +35,7 @@ export const PREMIUM_AI_ALLOWANCE_USD = 3.00
  * The top-ups on sale: checkout type -> price and AI credit, in US dollars.
  * Approved by Anders, 2026-10-06: the $5 pack gives $3.50, the $10 pack $7.50.
  * `chat_pack_200` is the existing $5 Stripe price (STRIPE_PRICE_CHAT_200);
- * `top_up_10` is the $10 price (STRIPE_PRICE_TOP_UP_10), offered only once
+ * `top_up_10` is the $10 price (STRIPE_PRICE_TOP_UP_10, or STRIPE_PRICE_TOPUP_10), offered only once
  * that secret is set. The $3 `chat_pack_100` is no longer sold.
  */
 export const TOP_UPS = Object.freeze({
@@ -142,6 +142,30 @@ export function isSubscribed(profile: AllowanceProfile, now: Date): boolean {
 export function trialEndsAt(profile: AllowanceProfile): Date | null {
   const created = validDate(profile.created_at)
   return created ? new Date(created.getTime() + TRIAL_DAYS * DAY_MS) : null
+}
+
+/**
+ * Premium features that are not AI, such as adding books (a catalogue import or
+ * an own PDF/EPUB upload; Anders, 2026-10-07): subscribed, or within the
+ * account's 30-day trial. Books already added stay readable regardless.
+ */
+export function hasPremiumAccess(profile: AllowanceProfile, now: Date): boolean {
+  if (isSubscribed(profile, now)) return true
+  const end = trialEndsAt(profile)
+  return !!end && now.getTime() < end.getTime()
+}
+
+/** `hasPremiumAccess` for an account, from its profile; null when the profile cannot be read. Never throws. */
+export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<boolean | null> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  try {
+    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    if (!res.ok) return null
+    const profile = ((await res.json()) as AllowanceProfile[])?.[0]
+    return profile ? hasPremiumAccess(profile, now) : null
+  } catch {
+    return null
+  }
 }
 
 /**

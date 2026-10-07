@@ -8,7 +8,7 @@ import { cpSync, mkdirSync, rmSync, readFileSync, writeFileSync, existsSync, rea
 import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
-import { REPO, loadFullIndex, slimWork, obtainable } from './catalog.mjs';
+import { REPO, loadFullIndex, slimWork, obtainable, lostGutenbergEpubs } from './catalog.mjs';
 
 const WEB = join(REPO, 'addbooks/web');
 const OUT = join(WEB, 'dist/lab-addbook');
@@ -44,6 +44,9 @@ if (!opt('--catalog') && !existsSync(join(REPO, 'addbooks/site/data/index.json.g
   works = 'committed';
 } else {
   const full = loadFullIndex(opt('--catalog'));
+  // Every Gutenberg work keeps an EPUB edition (Add to Tinct imports only EPUBs).
+  const lost = lostGutenbergEpubs(full.works);
+  if (lost.length) throw new Error(`${lost.length} Gutenberg works would lose their EPUB edition (e.g. ${lost.slice(0, 3).map(w => w.id).join(', ')}). Rebuild the index with ./addbooks/scripts/build-index.`);
   const list = full.works.filter(obtainable).map(slimWork);
   works = list.length;
   const payload = JSON.stringify({ version: 1, builtAt: full.builtAt, works: list });

@@ -79,13 +79,14 @@ export function isLifecycleTestRecipient(email: string): boolean {
   return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
 }
 
-// With the AI allowance on (src/aiAllowanceSwitch.ts), Premium is AI use:
-// narration, Cast and Feed stay open to every account, so the emails name
-// what Premium adds in the /about page's words, and the button opens the
+// With the AI allowance on (src/aiAllowanceSwitch.ts), Premium is AI use plus
+// audiobooks and adding any book (Anders, 2026-10-07; narration is never
+// counted as AI use); Cast and Feed stay open to every account, so the emails
+// name what Premium adds in the /about page's words, and the button opens the
 // account page where the plan is chosen (the old ?action=subscribe opened
 // nothing). Off, the emails are unchanged.
-const PREMIUM_FEATURES_LEGACY = 'AI companion, audiobook, Cast, and Feed'
-const PREMIUM_FEATURES_ALLOWANCE = 'AI chat, Talk and chapter recaps'
+const PREMIUM_FEATURES_LEGACY = 'AI companion, audiobook, adding any book, Cast, and Feed'
+const PREMIUM_FEATURES_ALLOWANCE = 'AI chat, Talk, chapter recaps, audiobooks and adding any book'
 const SUBSCRIBE_URL_LEGACY = 'https://tinct.app?action=subscribe'
 const SUBSCRIBE_URL_ALLOWANCE = 'https://tinct.app/sign-in?mode=account'
 
@@ -143,7 +144,7 @@ export function trialEndedEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): {
     html: wrapEmail(`
       <h2 style="font-weight: 400; margin: 0 0 16px;">Your trial ended.</h2>
       <p>You're now on the free tier. Reading stays free: all the books, every edition, your highlights, your notes, your reading position across devices. Nothing you've already made is gone.</p>
-      <p>Premium features (${allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : 'AI companion, audiobook, Cast, Feed'}) have paused. $5/month brings them back whenever you want.</p>
+      <p>Premium features (${allowanceOn ? PREMIUM_FEATURES_ALLOWANCE : 'AI companion, audiobook, adding any book, Cast, Feed'}) have paused. $5/month brings them back whenever you want.</p>
       <p style="margin: 22px 0;">
         <a href="${subscribeUrl(allowanceOn)}" style="${BTN_STYLE}">Resubscribe · $5/mo</a>
       </p>

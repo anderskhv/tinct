@@ -70,7 +70,7 @@ async function saveToAccount(key, file, meta, { quiet = false } = {}) {
   if (file.size > window.TinctAI.books.maxBytes) { if (!quiet) toast('Kept on this device only: files over 50 MB are not saved to your account.'); return }
   cloud.busy.add(key);
   try {
-    const book = await window.TinctAI.books.upload(file, meta);
+    const book = await window.TinctAI.books.upload(file, Object.assign({ rights: store.get('rights:' + accountId()) }, meta));
     if (book?.sha256) cloud.get(key) || cloud.mine().set(cloud.keyOf(book), book);
     await library.touch(key, { cloudId: book?.id || null });
     if (!quiet) toast('Saved to your account.');
@@ -102,7 +102,10 @@ async function removeBook(key) {
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation is asked once per account, before its first file opens; the key
 // sits under tinct-addbook:, so signing out clears it with the rest.
-const RIGHTS_COPY = "I confirm I have the right to read this file in Tinct, and I'm responsible for it (Terms §4).";
+// RIGHTS_VERSION names this wording: a confirmation of an earlier wording is asked again,
+// and each upload records which wording was confirmed, and when, with the file.
+const RIGHTS_COPY = "I have the right to add this file and to read and listen to it in Tinct. I'm responsible for what I upload and share (Terms §4).";
+const RIGHTS_VERSION = '2026-10-08';
 const accountId = () => window.TinctAI?.session().userId || null;
 function needsAccount() {
   if (accountId()) return false;
@@ -139,9 +142,9 @@ async function chooseFile(file) {
   const bytes = new Uint8Array(await file.arrayBuffer());
   const key = kind + ':' + await digest(bytes);
   const rightsKey = 'rights:' + accountId();
-  if (!store.get(rightsKey)) {
+  if (store.get(rightsKey)?.v !== RIGHTS_VERSION) {
     if (!await attest(file.name)) return;
-    store.set(rightsKey, { at: new Date().toISOString() });
+    store.set(rightsKey, { at: new Date().toISOString(), v: RIGHTS_VERSION });
   }
   stopNarration();
   const now = Date.now();

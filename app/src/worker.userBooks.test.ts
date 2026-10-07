@@ -32,6 +32,9 @@ function limiter() {
 }
 
 function setup(options: { pageSize?: number } = {}) {
+  /** Premium or in trial per account (default true); false = free past trial, null = cannot be read. */
+  const access = new Map<string, boolean | null>()
+  const premiumAccess = async (id: string) => (access.has(id) ? access.get(id)! : true)
   const r2 = fakeUserBooksBucket(options)
   const checkRateLimit = limiter()
   const env = { USER_BOOKS: r2.bucket }
@@ -42,13 +45,13 @@ function setup(options: { pageSize?: number } = {}) {
   const call = (path: string, init: RequestInit & { token?: string } = {}) => {
     const headers = new Headers(init.headers)
     if (init.token) headers.set('Authorization', `Bearer ${init.token}`)
-    return handleUserBooks(new Request(`https://tinct.app${path}`, { ...init, headers }), env, { verifyUser, checkRateLimit })
+    return handleUserBooks(new Request(`https://tinct.app${path}`, { ...init, headers }), env, { verifyUser, checkRateLimit, premiumAccess })
   }
   const upload = (token: string, body: BodyInit, meta: Record<string, string> = {}) => call('/api/user-books', {
     method: 'POST', token, body,
     headers: Object.fromEntries(Object.entries(meta).map(([k, v]) => [`X-Book-${k}`, encodeURIComponent(v)])),
   })
-  return { r2, env, call, upload }
+  return { r2, env, call, upload, access }
 }
 
 describe('/api/user-books', () => {
@@ -100,6 +103,38 @@ describe('/api/user-books', () => {
     expect((await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }).books).toEqual([])
     expect((await call(`/api/user-books/${book.id}`, { token: 'token-a' })).status).toBe(404)
     expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(404)
+  })
+
+  it('keeps the rights confirmation (wording version and time) with the file, and drops a malformed one', async () => {
+    const { r2, call } = setup()
+    const post = (body: Uint8Array, headers: Record<string, string>) => call('/api/user-books', { method: 'POST', token: 'token-a', body, headers })
+    expect((await post(pdfBytes('attested'), { 'X-Rights-Version': '2026-10-08', 'X-Rights-At': encodeURIComponent('2026-10-08T09:30:00.000Z') })).status).toBe(201)
+    expect((await post(pdfBytes('bad version'), { 'X-Rights-Version': 'x y<z>', 'X-Rights-At': '2026-10-08T09:30:00.000Z' })).status).toBe(201)
+    expect((await post(pdfBytes('none'), {})).status).toBe(201)
+    const metas = [...r2.objects.values()].map(object => object.customMetadata)
+    expect(metas.filter(meta => meta.rightsVersion === '2026-10-08' && meta.rightsAt === '2026-10-08T09:30:00.000Z')).toHaveLength(1)
+    expect(metas.filter(meta => 'rightsVersion' in meta || 'rightsAt' in meta)).toHaveLength(1)
+  })
+
+  it('is Premium only to upload (trial counts); a free account past trial gets 402 and keeps the books it already added', async () => {
+    const { r2, call, upload, access } = setup()
+    // In trial or subscribed (the Worker's hasPremiumAccess): uploads.
+    const res = await upload('token-a', pdfBytes('mine'))
+    expect(res.status).toBe(201)
+    const { book } = await res.json() as { book: UserBook }
+    // The trial ends without a subscription: no new uploads, nothing stored.
+    access.set(A, false)
+    const refused = await upload('token-a', pdfBytes('another'))
+    expect(refused.status).toBe(402)
+    expect(await refused.json()).toEqual({ error: 'premium_required' })
+    expect(r2.objects.size).toBe(1)
+    // Never locked out of what is already there: list, open and delete still work.
+    expect((await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }).books.map(b => b.id)).toEqual([book.id])
+    expect((await call(`/api/user-books/${book.id}`, { token: 'token-a' })).status).toBe(200)
+    // Unknown account state: 503, not an upload.
+    access.set(B, null)
+    expect((await upload('token-b', pdfBytes('b'))).status).toBe(503)
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
   })
 
   it('keeps each account to its own files: another account gets 404 and an empty list', async () => {
@@ -222,7 +257,7 @@ describe('/api/user-books', () => {
     const { call } = setup()
     expect((await call('/api/user-books', { method: 'DELETE', token: 'token-a' })).status).toBe(405)
     expect((await call(`/api/user-books/${'a'.repeat(32)}`, { method: 'POST', token: 'token-a' })).status).toBe(405)
-    const res = await handleUserBooks(new Request('https://tinct.app/api/user-books', { headers: { Authorization: 'Bearer token-a' } }), {}, { verifyUser: async () => ({ id: A }), checkRateLimit: async () => true })
+    const res = await handleUserBooks(new Request('https://tinct.app/api/user-books', { headers: { Authorization: 'Bearer token-a' } }), {}, { verifyUser: async () => ({ id: A }), checkRateLimit: async () => true, premiumAccess: async () => true })
     expect(res.status).toBe(503)
   })
 
