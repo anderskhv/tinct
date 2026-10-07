@@ -33,6 +33,7 @@ import { handleEvents } from './worker/routes/events'
 import { handleAdminMetricsUsers } from './worker/routes/adminMetrics'
 import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/adminAccounts'
 import { handleChat, handleLabChat } from './worker/routes/chat'
+import { handleDictation } from './worker/routes/dictation'
 import { handleLabVoiceSession, handleVoiceSession, handleVoiceUsage } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
@@ -233,6 +234,7 @@ export default {
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx, allowanceGate)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit, allowanceGate)
       case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/dictation': return handleDictation(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
