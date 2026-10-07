@@ -97,7 +97,7 @@ describe('epubToEdition', () => {
     expect(edition.author).toBe('A. Writer, B. Editor')
     expect(edition.language).toBe('da')
     // A short title page and the part's title page both open the first chapter.
-    expect(edition.chapters.map(chapter => chapter.title)).toEqual(['Chapter I', 'Chapter II'])
+    expect(edition.chapters.map(chapter => chapter.title)).toEqual(['Chapter 1', 'Chapter 2'])
     expect(edition.chapters[0].paragraphs).toEqual([
       'Night Book',
       'A title page.',
@@ -165,7 +165,7 @@ describe('library matter', () => {
     // The title page (title and "by" author only) is left out too: the reader
     // opens the first chapter under the book's own title.
     expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
-      ['I. The Lamp', ['The lamp was lit.', 'The end.']],
+      ['1 — The Lamp', ['The lamp was lit.', 'The end.']],
     ])
   })
 
@@ -189,9 +189,26 @@ describe('library matter', () => {
     const edition = await epubToEdition(bytes)
     expect(JSON.stringify(edition.chapters)).not.toMatch(/Gutenberg|START OF|END OF|Updated editions/i)
     expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
-      ['Chapter I', ['Night Book', 'One.', 'Two.']],
-      ['Chapter II', ['Three.', 'Four.', 'Five.', 'Six.']],
+      ['Chapter 1', ['Night Book', 'One.', 'Two.']],
+      ['Chapter 2', ['Three.', 'Four.', 'Five.', 'Six.']],
     ])
+  })
+
+  it('sets chapter titles in house style, or as the file writes them with sourceTitles (Add to Tinct)', async () => {
+    const body = '<h2 id="c1">PREFACE</h2><p>A word first.</p><h2 id="c2">CHAPTER I—M. MYRIEL</h2><p>In 1815, M. Charles-François-Bienvenu Myriel was Bishop of D——.</p>'
+    const bytes = zip([
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', CONTAINER],
+      ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ['b', 'b.xhtml']], ['b'])],
+      ['OEBPS/toc.xhtml', nav([['b.xhtml#c1', 'PREFACE'], ['b.xhtml#c2', 'CHAPTER I—M. MYRIEL']])],
+      ['OEBPS/b.xhtml', xhtml(body)],
+    ])
+    const shown = await epubToEdition(bytes)
+    expect(shown.chapters.map(chapter => chapter.title)).toEqual(['Preface', 'Chapter 1 — M. Myriel'])
+    // The heading set in the text is still recognised as the title and not repeated as a paragraph.
+    expect(shown.chapters[1].paragraphs).toEqual(['In 1815, M. Charles-François-Bienvenu Myriel was Bishop of D——.'])
+    const source = await epubToEdition(bytes, { sourceTitles: true })
+    expect(source.chapters.map(chapter => chapter.title)).toEqual(['PREFACE', 'CHAPTER I—M. MYRIEL'])
   })
 
   it('leaves out Standard Ebooks’ imprint, colophon and uncopyright, and Wikisource’s own pages', async () => {

@@ -62,6 +62,9 @@ describe('Design 1 contents', () => {
     const p = props(); render(<LabContentsV2 {...p} currentPercent={68} />)
     expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')
     expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('title')).toBe('68% read')
+    // An unread row has no "unread" tooltip over its title; screen readers still hear it.
+    expect(screen.getByTestId('lab-tree-chapter-43').hasAttribute('title')).toBe(false)
+    expect(screen.getByTestId('lab-tree-chapter-43').getAttribute('aria-label')).toBe('Genesis 43, unread')
     fireEvent.click(screen.getByRole('button', { name: 'Psalms', exact: true }))
     expect(screen.getByTestId('lab-tree-chapter-53')).toBeTruthy()
     expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')

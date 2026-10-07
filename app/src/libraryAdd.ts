@@ -60,7 +60,8 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
     let chapters: Array<{ number: number; title: string; paragraphs: string[] }>
     try {
       const { epubToEdition } = await import('./lab/userBook/epubEdition')
-      chapters = (await epubToEdition(bytes)).chapters
+      // Titles as the file writes them: the Worker checks them against the EPUB, then sets them in house style.
+      chapters = (await epubToEdition(bytes, { sourceTitles: true })).chapters
     } catch {
       return { ok: false, reason: 'unreadable' }
     }

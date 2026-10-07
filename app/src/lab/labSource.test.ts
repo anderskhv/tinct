@@ -4,6 +4,7 @@ import {
   bibleFallbackSource,
   labHeaderLine,
   loadLabBookSource,
+  loadLabChapterList,
   loadLabSource,
   nextLabChapter,
   parseBibleChapterTitle,
@@ -130,6 +131,28 @@ describe('loadLabSource', () => {
     expect(paragraphKind('A listed point.')).toBe('item')
     expect(wordLink('See the full text online.', 2, 'full')).toMatchObject({ href: 'https://example.org/candide' })
     expect(wordLink('See the full text online.', 0, 'See')).toBeNull()
+  })
+
+  it('shows chapter titles in house style however the edition writes them, without rewriting the text', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('the-art-of-war-original-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'PRELIMINARY RECKONING', paragraphs: ['Sun Tzu said: The art of war is of vital importance to the State.'] },
+          { number: 2, title: 'CHAPTER II.—OPERATIONS OF WAR', paragraphs: ['In the operations of war.'] },
+        ], sections: [{ title: 'PART I', chapters: [1, 2] }] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({ bookId: 'the-art-of-war', primaryEditionKey: 'original-en', chapterNumber: 2, readingFirst: true })
+    expect(source.chapters.map(chapter => [chapter.number, chapter.title])).toEqual([[1, 'Preliminary Reckoning'], [2, 'Chapter 2 — Operations of War']])
+    expect([source.chapterTitle, source.chapterLabel, source.headerChapter]).toEqual(Array(3).fill('Chapter 2 — Operations of War'))
+    expect(source.sections).toEqual([{ title: 'Part 1', chapters: [1, 2] }])
+    expect(source.paragraphs).toEqual(['In the operations of war.'])
+    expect((await loadLabChapterList('the-art-of-war', 'original-en')).map(chapter => chapter.title)).toEqual(['Preliminary Reckoning', 'Chapter 2 — Operations of War'])
   })
 
   it('carries a built-in edition’s figures, as for a reader’s own book (fixture, never published)', async () => {

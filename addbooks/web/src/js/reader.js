@@ -1098,6 +1098,12 @@ async function headingEntries(pdf) {
   }
   return out.length >= 2 && out.length <= Math.max(12, pages.length * 4) ? out : null;
 }
+let chapterTitles = null;
+/** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
+function chapterTitleStyle() {
+  chapterTitles ??= import('/lab/chapter-title.js').then(m => label => m.normalizeChapterTitle(label)).catch(() => label => label);
+  return chapterTitles;
+}
 async function buildContents() {
   const token = state.token, key = 'toc:' + state.key;
   toc.ready = false; toc.entries = [];
@@ -1109,7 +1115,10 @@ async function buildContents() {
     if (token !== state.token) return;
     store.set(key, { v: 2, entries });
   }
-  toc.entries = entries.sort((a, b) => a.page - b.page);
+  // Shown in Tinct's house style: never ALL CAPS, never Roman numerals (app/public/lab/chapter-title.js).
+  const house = await chapterTitleStyle();
+  if (token !== state.token) return;
+  toc.entries = entries.map(e => ({ ...e, label: house(e.label) })).sort((a, b) => a.page - b.page);
   toc.ready = true;
   onScroll();
 }

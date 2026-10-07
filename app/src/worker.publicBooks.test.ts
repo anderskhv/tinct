@@ -57,15 +57,15 @@ const PARAGRAPHS = [
   ['It was a bright cold day in the old town, and the clocks were striking.', 'Mr. Gray walked to the river with his hat pulled low against the wind.', 'He had not seen his sister in eleven years, and he meant to change that tonight.'],
   ['The house on the hill stood dark; only one window held a lamp.', 'Margaret opened the door before he could knock, as if she had been waiting.', '“You came,” she said, and for a while neither of them said anything more.'],
 ]
-function bookEpub(): Uint8Array {
+function bookEpub(titles: [string, string] = ['Chapter One', 'Chapter Two']): Uint8Array {
   const doc = (title: string, paras: string[]) => `<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>${title}</title></head><body><h2>${title}</h2>${paras.map(p => `<p>${p.replace('Gray', '<i>Gray</i>').replace(/“|”/g, m => (m === '“' ? '&#8220;' : '&#8221;'))}</p>`).join('')}</body></html>`
   return zipFiles([
     ['mimetype', 'application/epub+zip'],
     ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'],
     ['OEBPS/content.opf', '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">x</dc:identifier><dc:title>The River House</dc:title><dc:creator>Ann Example</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="c1" href="c1.xhtml" media-type="application/xhtml+xml"/><item id="c2" href="c2.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="c1"/><itemref idref="c2"/></spine></package>'],
-    ['OEBPS/nav.xhtml', '<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><body><nav epub:type="toc"><ol><li><a href="c1.xhtml">Chapter One</a></li><li><a href="c2.xhtml">Chapter Two</a></li></ol></nav></body></html>'],
-    ['OEBPS/c1.xhtml', doc('Chapter One', PARAGRAPHS[0])],
-    ['OEBPS/c2.xhtml', doc('Chapter Two', PARAGRAPHS[1])],
+    ['OEBPS/nav.xhtml', `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><body><nav epub:type="toc"><ol><li><a href="c1.xhtml">${titles[0]}</a></li><li><a href="c2.xhtml">${titles[1]}</a></li></ol></nav></body></html>`],
+    ['OEBPS/c1.xhtml', doc(titles[0], PARAGRAPHS[0])],
+    ['OEBPS/c2.xhtml', doc(titles[1], PARAGRAPHS[1])],
   ])
 }
 
@@ -145,7 +145,8 @@ function setup(options: { works?: CatalogueWork[]; epub?: Uint8Array; source?: t
   const convertAndCommit = async (bookId: string, edit?: (chapters: Array<{ number: number; title: string; paragraphs: string[] }>) => void, token = 'a') => {
     const source = await call(`/api/public-books/import/${bookId}/source`, { token })
     expect(source.status).toBe(200)
-    const edition = await epubToEdition(new Uint8Array(await source.arrayBuffer()))
+    // As src/libraryAdd.ts converts: titles as the file writes them, for the Worker to check.
+    const edition = await epubToEdition(new Uint8Array(await source.arrayBuffer()), { sourceTitles: true })
     edit?.(edition.chapters)
     return call(`/api/public-books/import/${bookId}/commit`, { method: 'POST', token, body: JSON.stringify({ chapters: edition.chapters }) })
   }
@@ -173,7 +174,8 @@ describe('/api/public-books import', () => {
     const edition = await handlePublicEditionData(new Request('https://tinct.app/data/editions/pd-pg-99999-original-en.json?v=1'), t.env)
     expect(edition?.status).toBe(200)
     const data = await edition!.json() as { chapters: Array<{ title: string; paragraphs: string[] }> }
-    expect(data.chapters.map(c => c.title)).toEqual(['Chapter One', 'Chapter Two'])
+    // Published in house style: "Chapter One" in the file reads "Chapter 1" (public/lab/chapter-title.js).
+    expect(data.chapters.map(c => c.title)).toEqual(['Chapter 1', 'Chapter 2'])
     expect(data.chapters[0].paragraphs[1]).toBe('Mr. _Gray_ walked to the river with his hat pulled low against the wind.')
     const index = await (await t.call('/api/public-books')).json() as { books: Array<{ id: string }> }
     expect(index.books.map(b => b.id)).toEqual(['pd-pg-99999'])
@@ -288,6 +290,21 @@ describe('downloadEpub', () => {
     await expect(downloadEpub('Gutenberg', 'https://www.gutenberg.org/a.epub', hung)).rejects.toMatchObject({ code: 'source_unavailable' })
     expect(signal).toBeInstanceOf(AbortSignal)
     expect(DOWNLOAD_TIMEOUT_MS).toBeLessThanOrEqual(60_000)
+  })
+})
+
+describe('chapter titles of an added book', () => {
+  it('are checked as the EPUB writes them, then published in house style: never ALL CAPS, never Roman numerals', async () => {
+    const t = setup({ epub: bookEpub(['CHAPTER I—M. MYRIEL', 'CHAPTER V—MONSEIGNEUR BIENVENU MADE HIS CASSOCKS LAST TOO LONG']) })
+    await t.prepare('pg:99999')
+    const committed = await t.convertAndCommit('pd-pg-99999')
+    expect(committed.status).toBe(201)
+    const body = await committed.json() as { entry: { readingStructure: { chapters: Array<{ title: string }> } } }
+    const titles = ['Chapter 1 — M. Myriel', 'Chapter 5 — Monseigneur Bienvenu Made His Cassocks Last Too Long']
+    expect(body.entry.readingStructure.chapters.map(c => c.title)).toEqual(titles)
+    const data = await (await handlePublicEditionData(new Request('https://tinct.app/data/editions/pd-pg-99999-original-en.json'), t.env))!.json() as { chapters: Array<{ title: string }> }
+    // Not renamed "Section N": the check saw the file's own words.
+    expect(data.chapters.map(c => c.title)).toEqual(titles)
   })
 })
 
