@@ -100,6 +100,29 @@ export type NarrationEnv = SupabaseEnv & {
   /** Added public-domain books (`pd-*`): their text lives here, not in static assets (publicBooks.ts). */
   PUBLIC_BOOKS?: R2Bucket
   ASSETS?: { fetch: (request: Request) => Promise<Response> }
+  /** "1" turns read-aloud of readers' own books on (routes/ownBookNarration.ts). Absent or anything else: off. */
+  OWN_BOOK_NARRATION?: string
+  OWN_BOOK_NARRATION_MONTHLY_USD?: string
+  OWN_BOOK_NARRATION_GLOBAL_MONTHLY_USD?: string
+  /** Private bucket of readers' own files; own-book narration is stored there, never in AUDIO_BUCKET. */
+  USER_BOOKS?: R2Bucket
+  AI_LEDGER_SALT?: string
+}
+
+/** Key for own-book audio link signatures (domain-separated inside ownBookNarration.ts). */
+export function ownNarrationUrlSecret(env: NarrationEnv): string | null {
+  return env.AI_LEDGER_SALT || env.SUPABASE_SERVICE_ROLE_KEY || null
+}
+
+/**
+ * Whether readers' own books can be read aloud on this deployment. The reader
+ * shows Listen for an own book only when /api/narration/voices says so.
+ */
+export function ownBookNarrationAvailable(env: NarrationEnv): boolean {
+  if (env.OWN_BOOK_NARRATION !== '1') return false
+  const config = narrationConfig(env)
+  return config.enabled && config.provider === 'grok'
+    && Boolean(env.XAI_API_KEY && env.USER_BOOKS && env.NARRATION_COORDINATOR && ownNarrationUrlSecret(env))
 }
 
 export interface NarrationDeps {
@@ -275,7 +298,7 @@ async function handleVoices(request: Request, env: NarrationEnv): Promise<Respon
       config.provider, config.model, voice.id, config.settings,
     ])),
   })))
-  const response = jsonResponse({ ...info, voices }, 200, request)
+  const response = jsonResponse({ ...info, voices, ownBooks: ownBookNarrationAvailable(env) }, 200, request)
   response.headers.set('Cache-Control', 'no-store')
   return response
 }

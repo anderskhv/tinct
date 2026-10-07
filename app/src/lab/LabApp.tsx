@@ -24,6 +24,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, typ
 import {
   applyNarrationPilotFlag,
   ensureNarration,
+  ensureOwnNarration,
   fetchNarrationPilotInfo,
   initialNarrationPilotInfo,
   narrationPilotApplies,
@@ -187,7 +188,7 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
-import { USER_BOOKS_SHELF_URL } from './userBook/userBookId'
+import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { writeUserBookPlace } from './userBook/userBookPlace'
 import type { LoadedUserBook } from './userBook/userBookStore'
@@ -405,7 +406,7 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-/** Desktop commands that do not apply to a user book: one edition, no narration, Talk or book switching. */
+/** Desktop commands that do not apply to a user book: one edition, no Talk or book switching; Listen only when own-book narration is on. */
 const USER_BOOK_HIDDEN_COMMANDS = new Set(['talk', 'listen', 'editions', 'original', 'modern', 'compare', 'books'])
 
 /** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
@@ -580,7 +581,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
   useEffect(() => {
-    // A user book is never narrated: its text is not sent to the speech provider.
+    // A user book asks only once the reader is signed in (below).
     if (privateBook) return
     let cancelled = false
     void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
@@ -763,6 +764,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
   // Ten shared anonymous AI interactions; opening or reading books never prompts.
   const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
+  // A user book is read aloud only for its signed-in owner, and only when the
+  // server says own-book narration is on; the voices request names no book.
+  useEffect(() => {
+    if (!privateBook || !signedIn) return
+    let cancelled = false
+    void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
+    return () => { cancelled = true }
+  }, [privateBook, signedIn])
+  const ownNarration = privateBook && signedIn && narrationInfo?.enabled === true && narrationInfo.ownBooks === true
+    && narrationInfo.provider === 'grok' && narrationVoice != null && prefs.primaryEdition === 'own-en'
   const [accountPrompt, setAccountPrompt] = useState<LabAccountPromptRequest | null>(null)
   useEffect(() => {
     if (signedIn) {
@@ -1133,12 +1144,26 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     JSON.stringify([bookId, edition, chapter, voice])
   const narrationPrepared = useCallback(() => {
     const c = narrationContextRef.current
+    if (privateBook) return []
     return [...readNarrationReplay(c), ...(warmedNarrationRef.current.get(warmedNarrationKey(c.bookId, c.editionKey, c.chapter, c.voice)) ?? [])]
-  }, [])
+  }, [privateBook])
   const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const context = narrationContextRef.current
     if (!context.voice) return []
     const token = authToken ?? await readSupabaseAccessToken()
+    if (privateBook) {
+      // An own book: its text goes to the own-book route only, nothing is kept in the replay cache.
+      const bookHex = userBookHex(context.bookId)
+      if (!bookHex) return []
+      return ensureOwnNarration({
+        bookHex,
+        voice: context.voice,
+        paragraphs: indexes
+          .filter(index => index >= 0 && index < context.paragraphs.length)
+          .map(index => ({ index, text: context.paragraphs[index], fromChunk: fromChunks?.[index] })),
+        mode: mode ?? 'next',
+      }, { signal, authToken: token })
+    }
     const results = await ensureNarration({
       bookId: context.bookId,
       editionKey: context.editionKey,
@@ -1151,10 +1176,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }, { signal, authToken: token })
     if (!signal.aborted) storeNarrationReplay(context, results)
     return results
-  }, [authToken])
-  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok'
+  }, [authToken, privateBook])
+  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok' && !privateBook
     ? bibleBookTransition(listenSource.bookId, listenSource.chapters, listenSource.chapterNumber) : null,
-  [narrationInfo?.provider, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
+  [narrationInfo?.provider, privateBook, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
   const narrationEndingEnsure = useCallback(async (signal: AbortSignal, mode?: 'next' | 'all', fromChunk?: number) => {
     if (!bookTransition || !narrationVoice) return []
     const token = authToken ?? await readSupabaseAccessToken()
@@ -1167,19 +1192,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }, { signal, authToken: token })
   }, [bookTransition, narrationVoice, authToken, listenSource.bookId, listenSource.chapterNumber, prefs.primaryEdition])
   const narrationOption = useMemo(
-    () => (narrationApplies && narrationVoice ? {
+    () => ((narrationApplies || ownNarration) && narrationVoice ? {
       voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared,
       endingCue: bookTransition ? { text: bookTransition.text, ensure: narrationEndingEnsure } : undefined,
     } : null),
-    [narrationApplies, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
+    [narrationApplies, ownNarration, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
   )
   const listen = useLabListen({
     guardPlaybackRequests: true,
-    playbackUnavailable: privateBook || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
+    playbackUnavailable: (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
-    coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp`,
+    // An own book has no cover on the server; asking for one would name it.
+    coverSrc: privateBook ? undefined : `/covers/v2/${book.bookId || 'bible'}.webp`,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
@@ -1192,7 +1218,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
-  useLabListenReport(listen.playing, listenSource.bookId || book.bookId || 'bible')
+  // Listening to an own book is not reported: the report would carry its id.
+  useLabListenReport(listen.playing && !privateBook, listenSource.bookId || book.bookId || 'bible')
   useLabReadingYear({
     userId: authUser?.id ?? null,
     bookId: book.bookId || 'bible',
@@ -1209,7 +1236,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     ? listen.follow.paragraphIndex
     : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
   useNarrationPrefetch({
-    active: !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    // Never for an own book: it is narrated on demand only, nothing ahead.
+    active: !privateBook && !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
     voice: narrationVoice,
     bookId: book.bookId || 'bible',
     editionKey: prefs.primaryEdition,
@@ -3892,6 +3920,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
   const audioAccountRequiredRef = useRef(false)
+  // An own book read aloud needs Premium (trial included): the account sheet, with its Premium offer, says the rest.
+  const ownNarrationPremiumRequired = listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
+  useEffect(() => {
+    if (!ownNarrationPremiumRequired) return
+    listen.dismissNarration()
+    listen.pause()
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setChrome('reading')
+    setReturnTo('reading')
+    setSuperSheet('account')
+  }, [ownNarrationPremiumRequired, listen.dismissNarration, listen.pause])
   const narrationAccountRequired = listen.narration.status === 'error' && listen.narration.reason === 'unauthenticated'
   useEffect(() => {
     if (!narrationAccountRequired) return
@@ -4677,7 +4717,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
       { id: 'account', label: 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
-    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id)),
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration)),
   })
 
   if (temporaryHold && !holdRecovery) return (
@@ -4844,7 +4884,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
-              {!privateBook && <button
+              {(!privateBook || ownNarration) && <button
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
@@ -5230,11 +5270,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
-      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
+      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && listen.narration.reason !== 'own_book_premium' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
         <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
           ? listen.narration.message
           : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'
           : listen.narration.reason === 'text_mismatch' ? 'Passage changed. Reload to play.'
+          : listen.narration.reason === 'own_book_limit' || listen.narration.reason === 'own_book_unavailable' ? listen.narration.message
           : 'Audio couldn’t start.'}</span>
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>

@@ -22,6 +22,11 @@
  * The same file uploaded twice by one account is stored once.
  * Account export lists these files and account deletion removes the whole
  * `u/{userId}/` prefix (routes/adminAccounts.ts).
+ *
+ * Narration of an own book (routes/ownBookNarration.ts) is stored beside the
+ * files, under `u/{userId}/narration/{bookHex}/`, where bookHex is the first 24
+ * hex digits of the file's SHA-256 (the reader's `userbook-` id). Deleting a
+ * book deletes that prefix too; account deletion takes it with the rest.
  */
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
@@ -55,6 +60,28 @@ export type UserBook = {
 
 export function userBooksPrefix(userId: string): string {
   return `u/${userId}/`
+}
+
+/** Hex digits of a file's SHA-256 that name it in the reader (`userbook-{hex}`). */
+export const USER_BOOK_HEX_LENGTH = 24
+
+/** Where one own book's narration lives: inside the owner's private prefix only. */
+export function ownNarrationPrefix(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}narration/${bookHex}/`
+}
+
+/** Every object under `prefix`, deleted page by page. Returns how many went. */
+export async function purgePrefix(bucket: R2Bucket, prefix: string): Promise<number> {
+  let removed = 0
+  for (let round = 0; round < 1000; round++) {
+    // Always re-list from the start: deleting shifts the listing under a cursor.
+    const page = await bucket.list({ prefix, limit: 1000 })
+    const keys = page.objects.map(object => object.key).filter(key => key.startsWith(prefix))
+    if (!keys.length) return removed
+    await bucket.delete(keys)
+    removed += keys.length
+  }
+  throw new Error('prefix purge did not finish')
 }
 
 function headers(request: Request, extra: Record<string, string> = {}): Record<string, string> {
@@ -119,7 +146,9 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
   const books: UserBook[] = []
   let cursor: string | undefined
   do {
-    const page = await bucket.list({ prefix: userBooksPrefix(userId), cursor, limit: 1000, include: ['customMetadata'] })
+    // Files sit directly under the prefix; the delimiter keeps narration
+    // (u/{userId}/narration/…) out of the listing and the storage total.
+    const page = await bucket.list({ prefix: userBooksPrefix(userId), cursor, limit: 1000, include: ['customMetadata'], delimiter: '/' })
     for (const object of page.objects) {
       const book = bookFromObject(object)
       if (book) books.push(book)
@@ -129,18 +158,22 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
   return books.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
 }
 
-/** Deletes everything under `u/{userId}/`, page by page. Returns how many objects went. */
+/** Deletes everything under `u/{userId}/` (files and their narration), page by page. Returns how many objects went. */
 export async function purgeUserBooks(bucket: R2Bucket, userId: string): Promise<number> {
-  let removed = 0
-  for (let round = 0; round < 1000; round++) {
-    // Always re-list from the start: deleting shifts the listing under a cursor.
-    const page = await bucket.list({ prefix: userBooksPrefix(userId), limit: 1000 })
-    const keys = page.objects.map(object => object.key).filter(key => key.startsWith(userBooksPrefix(userId)))
-    if (!keys.length) return removed
-    await bucket.delete(keys)
-    removed += keys.length
-  }
-  throw new Error('user books purge did not finish')
+  return purgePrefix(bucket, userBooksPrefix(userId))
+}
+
+/**
+ * The canonical narration key of a book this account owns, or null. `hex` is
+ * the reader's `userbook-` hex; it must match the start of the SHA-256 of a
+ * file stored under the caller's own prefix (the same file uploaded by two
+ * accounts is two private copies, each found only by its owner).
+ */
+export async function ownedBookHex(bucket: R2Bucket, userId: string, hex: string): Promise<string | null> {
+  if (!/^[0-9a-f]{24,64}$/.test(hex)) return null
+  const books = await listUserBooks(bucket, userId)
+  const book = books.find(item => item.sha256 && item.sha256.startsWith(hex))
+  return book ? book.sha256.slice(0, USER_BOOK_HEX_LENGTH) : null
 }
 
 // ===== File checks =====
@@ -293,8 +326,12 @@ async function download(request: Request, bucket: R2Bucket, userId: string, file
 
 async function remove(request: Request, bucket: R2Bucket, userId: string, fileId: string): Promise<Response> {
   const key = `${userBooksPrefix(userId)}${fileId}`
-  if (!await bucket.head(key)) return notFound(request)
+  const head = await bucket.head(key)
+  if (!head) return notFound(request)
   await bucket.delete(key)
+  // Its narration goes with it (the same file is stored once per account).
+  const sha256 = head.customMetadata?.sha256 ?? ''
+  if (/^[0-9a-f]{64}$/.test(sha256)) await purgePrefix(bucket, ownNarrationPrefix(userId, sha256.slice(0, USER_BOOK_HEX_LENGTH)))
   return reply({ ok: true }, 200, request)
 }
 

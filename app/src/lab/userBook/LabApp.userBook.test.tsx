@@ -10,6 +10,7 @@ import type { UserBookEdition } from './userEdition'
 import { userBookId } from './userBookId'
 import { readUserBookPlace } from './userBookPlace'
 import { UserBookReader } from './UserBookReader'
+import { fetchNarrationPilotInfo, OWN_BOOK_NARRATION_UNAVAILABLE } from '../labNarration'
 import { USER_BOOK_CHAPTER_CHARS, USER_BOOK_PASSAGE_CHARS, chapterWindow, passageWindow } from './userBookContext'
 
 const leave = vi.hoisted(() => vi.fn())
@@ -194,6 +195,67 @@ describe('what of a user book reaches the companion', () => {
     const context = sent()[0].companion.context
     expect(size(context.paragraphs)).toBe(USER_BOOK_CHAPTER_CHARS)
     expect(context.paragraphs[0]).toBe(long[0])
+  })
+})
+
+describe('Listen for a user book', () => {
+  const voices = [{ key: 'f', label: 'Ara', persona: 'female' as const }, { key: 'm', label: 'Helios', persona: 'male' as const }]
+
+  it('stays hidden unless the server says own books can be read aloud', async () => {
+    vi.mocked(fetchNarrationPilotInfo).mockResolvedValue({ enabled: true, provider: 'grok', voices, ownBooks: false })
+    render(<LabApp pathname="/lab/desktop" authToken="token-a" userBook={loaded()} />)
+    await waitFor(() => expect(fetchNarrationPilotInfo).toHaveBeenCalled())
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(screen.queryByTestId('lab-v2-play')).toBeNull()
+  })
+
+  it('stays hidden for a signed-out reader, who never asks the server', async () => {
+    vi.mocked(fetchNarrationPilotInfo).mockClear()
+    vi.mocked(fetchNarrationPilotInfo).mockResolvedValue({ enabled: true, provider: 'grok', voices, ownBooks: true })
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(fetchNarrationPilotInfo).not.toHaveBeenCalled()
+    expect(screen.queryByTestId('lab-v2-play')).toBeNull()
+  })
+
+  it('sends the chapter text to the own-book route only, never the book id elsewhere, and shows why it cannot play', async () => {
+    vi.mocked(fetchNarrationPilotInfo).mockResolvedValue({ enabled: true, provider: 'grok', voices, ownBooks: true })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      let body: unknown = null
+      try { body = init?.body ? JSON.parse(String(init.body)) : null } catch { body = init?.body }
+      requests.push({ url, body })
+      if (url.endsWith('/api/narration/own/ensure')) return Response.json({ error: 'Narration limit reached', reason: 'own_book_cap' }, { status: 429 })
+      return new Response('{}', { status: 404 })
+    }))
+    render(<LabApp pathname="/lab/desktop" authToken="token-a" userBook={loaded()} />)
+    const play = await screen.findByTestId('lab-v2-play')
+    fireEvent.click(play)
+    await waitFor(() => expect(requests.some(request => request.url.endsWith('/api/narration/own/ensure'))).toBe(true))
+    const sent = requests.find(request => request.url.endsWith('/api/narration/own/ensure'))!.body as { book: string; voice: string; paragraphs: Array<{ index: number; text: string }> }
+    expect(sent.book).toBe(HEX)
+    expect(sent.paragraphs[0]).toMatchObject({ index: 0, text: edition().chapters[0].paragraphs[0] })
+    await waitFor(() => expect(document.body.textContent).toContain(OWN_BOOK_NARRATION_UNAVAILABLE))
+    // The id never travels: not to the shared narration routes, the listen report, covers or anywhere else.
+    expect(requests.filter(request => /\/api\/narration\/(ensure|listen|chapter|prepare)|\/covers\//.test(request.url))).toEqual([])
+    expect(requests.filter(request => request.url.includes('userbook-') || JSON.stringify(request.body ?? '').includes('userbook-'))).toEqual([])
+    expect(requests.filter(request => !request.url.endsWith('/api/narration/own/ensure') && JSON.stringify(request.body ?? '').includes(HEX))).toEqual([])
+  })
+})
+
+describe('Listen for a user book without Premium', () => {
+  it('opens the account sheet, with its Premium offer, when the server answers 402', async () => {
+    vi.mocked(fetchNarrationPilotInfo).mockResolvedValue({ enabled: true, provider: 'grok', voices: [{ key: 'f', label: 'Ara', persona: 'female' }], ownBooks: true })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requests.push({ url, body: null })
+      if (url.endsWith('/api/narration/own/ensure')) return Response.json({ error: 'Premium required', reason: 'premium_required' }, { status: 402 })
+      return new Response('{}', { status: 404 })
+    }))
+    render(<LabApp pathname="/lab/desktop" authToken="token-a" userBook={loaded()} />)
+    fireEvent.click(await screen.findByTestId('lab-v2-play'))
+    await waitFor(() => expect(screen.getByTestId('lab-v2-account-card')).toBeTruthy())
+    expect(screen.queryByTestId('lab-narration-error')).toBeNull()
   })
 })
 
