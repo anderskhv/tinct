@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { narrationCostUsd } from './worker/lib/aiUsage'
 import { handleNarration, narrationConfig, synthesizeWithGoogle, synthesizeWithGrok, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handleAudioFile } from './worker/routes/audio'
-import { NARRATION_CACHE_VERSION, chunkNarrationText, narrationBlobKeys, narrationCacheIdentity, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
+import { DEFAULT_NARRATION_SETTINGS, NARRATION_CACHE_VERSION, chunkNarrationText, narrationBlobKeys, narrationCacheIdentity, narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
 import { fishTimestampSseFor, syntheticMp3 } from './narration/narrationTestFixtures'
 
 const encoder = new TextEncoder()
@@ -936,5 +936,133 @@ describe('narration replay configuration identity', () => {
     expect(await identity({ NARRATION_VOICE_A_ID: 'replacement' })).not.toBe(base)
     expect(await identity({ NARRATION_MODEL: 'replacement' })).not.toBe(base)
     expect(await identity({ NARRATION_PROVIDER: 'grok', XAI_API_KEY: 'mock' })).not.toBe(base)
+  })
+})
+
+describe('recordings made before the dash rules keep playing', () => {
+  // Frankenstein, Letter 1: the opening line every guest hears first. Under
+  // the dash rules "17—." is read "17.", so this chunk's spoken text (and
+  // blob identity) differs from the one it was recorded under.
+  const SHORT_DASHED = 'St. Petersburgh, Dec. 11th, 17—. You will rejoice to hear it.'
+  const DASHED = 'St. Petersburgh, Dec. 11th, 17—. You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings.'
+
+  /**
+   * Turn the recordings ensure just made into the ones made before the dash
+   * rules: same audio and timings, addressed by (and describing) the spoken
+   * text of that time. This is the state of R2 for every dashed chunk.
+   */
+  async function rewindToPreDashRules(h: Harness, index: number, voiceId = 'voice-a-id', voiceKey = 'a', model = 's2.1-pro', provider: 'fish' | 'grok' = 'fish') {
+    const mapKey = narrationMapKey('odyssey', 'original-en', 1, voiceKey, index, provider)
+    const map = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: Array<{ index: number; hash: string }> }
+    const chunks = chunkNarrationText(h.paragraphs[index])
+    const rewound: string[] = []
+    for (const listed of map.chunks) {
+      const chunk = chunks[listed.index]
+      if (chunk.legacyText === undefined) continue
+      const legacy = (await narrationCacheIdentity({ provider, model, voiceId, text: chunk.legacyText, settings: DEFAULT_NARRATION_SETTINGS })).hash
+      const from = narrationBlobKeys(listed.hash, provider)
+      const to = narrationBlobKeys(legacy, provider)
+      const meta = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(from.meta)!))
+      h.env.AUDIO_BUCKET.store.set(to.audio, h.env.AUDIO_BUCKET.store.get(from.audio)!)
+      h.env.AUDIO_BUCKET.store.set(to.meta, encoder.encode(JSON.stringify({ ...meta, hash: legacy, text: chunk.legacyText })))
+      h.env.AUDIO_BUCKET.store.delete(from.audio)
+      h.env.AUDIO_BUCKET.store.delete(from.meta)
+      listed.hash = legacy
+      rewound.push(legacy)
+    }
+    h.env.AUDIO_BUCKET.store.set(mapKey, encoder.encode(JSON.stringify(map)))
+    return rewound
+  }
+
+  it('lists and serves the pre-rules recording of a dashed chunk without calling the provider', async () => {
+    const h = makeHarness()
+    h.paragraphs[0] = DASHED
+    expect((await ensure(h, { paragraphs: [{ index: 0 }], mode: 'all' })).json.paragraphs[0].status).toBe('ready')
+    const [legacy] = await rewindToPreDashRules(h, 0)
+    expect(legacy).toMatch(/^[0-9a-f]{64}$/)
+    const calls = h.fish.calls.length
+
+    // The public listing (what a guest sees) still reports the paragraph ready.
+    const listing = (await chapter(h)).json.paragraphs[0] as Result
+    expect(listing).toMatchObject({ status: 'ready', readyChunks: 1 })
+    expect(listing.chunks![0]).toMatchObject({ ready: true, hash: legacy })
+
+    const served = (await ensure(h, { paragraphs: [{ index: 0, textHash: await textHashOf(DASHED) }] })).json.paragraphs[0] as Result
+    expect(served).toMatchObject({ status: 'ready', readyChunks: 1, timingsUsable: true })
+    expect(served.chunks![0]).toMatchObject({ ready: true, hash: legacy })
+    expect(String(served.chunks![0].url)).toContain(legacy)
+    // The old recording's own word timings, as it always played.
+    const meta = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(narrationBlobKeys(legacy).meta)!)) as { words: unknown[] }
+    expect(served.words).toEqual(meta.words)
+    expect(h.fish.calls.length).toBe(calls)
+  })
+
+  it('finds the pre-rules recording by identity when the map does not list it, and keeps it listed', async () => {
+    const h = makeHarness()
+    h.paragraphs[0] = DASHED
+    await ensure(h, { paragraphs: [{ index: 0 }], mode: 'all' })
+    const [legacy] = await rewindToPreDashRules(h, 0)
+    const calls = h.fish.calls.length
+    const mapKey = narrationMapKey('odyssey', 'original-en', 1, 'a', 0)
+    const entry = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as Record<string, unknown>
+    await h.env.AUDIO_BUCKET.put(mapKey, JSON.stringify({ ...entry, chunks: [], complete: false }))
+
+    const again = (await ensure(h, { paragraphs: [{ index: 0 }], mode: 'next' })).json.paragraphs[0] as Result
+    expect(again).toMatchObject({ status: 'ready', probed: 1 })
+    expect(again.chunks![0].hash).toBe(legacy)
+    expect(h.fish.calls.length).toBe(calls)
+    const repaired = JSON.parse(decoder.decode(h.env.AUDIO_BUCKET.store.get(mapKey)!)) as { chunks: Array<{ hash: string }>; complete: boolean }
+    expect(repaired).toMatchObject({ complete: true, chunks: [{ hash: legacy }] })
+  })
+
+  it('leaves dash-free chunks on their one identity', async () => {
+    const h = makeHarness()
+    const first = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0] as Result
+    expect(chunkNarrationText(PARAGRAPHS[0])[0].legacyText).toBeUndefined()
+    expect(await rewindToPreDashRules(h, 0)).toEqual([])
+    const again = (await ensure(h, { paragraphs: [{ index: 0 }] })).json.paragraphs[0] as Result
+    expect(again.chunks![0].hash).toBe(first.chunks![0].hash)
+    expect(h.fish.calls.length).toBe(1)
+  })
+
+  it('never lends a pre-rules recording to genuinely edited words', async () => {
+    const h = makeHarness()
+    h.paragraphs[0] = DASHED
+    await ensure(h, { paragraphs: [{ index: 0 }], mode: 'all' })
+    const [legacy] = await rewindToPreDashRules(h, 0)
+    const calls = h.fish.calls.length
+
+    // Same dashes, one word changed: a different paragraph as far as audio goes.
+    h.paragraphs[0] = DASHED.replace('evil forebodings', 'grave forebodings')
+    expect((await chapter(h)).json.paragraphs[0]).toMatchObject({ status: 'stale' })
+    const edited = (await ensure(h, { paragraphs: [{ index: 0 }], mode: 'all' })).json.paragraphs[0] as Result
+    expect(edited).toMatchObject({ status: 'ready', source: 'generated' })
+    expect(edited.chunks![0].hash).not.toBe(legacy)
+    expect(h.fish.calls.length).toBe(calls + 1)
+    // New recordings are made from today's spoken text: no dash reaches the provider.
+    expect(JSON.parse(h.fish.calls[calls].body).text).toContain('17. You will rejoice')
+  })
+
+  it('lets a signed-out reader play the pre-rules recording (cache-only)', async () => {
+    const h = makeHarness({ NARRATION_PROVIDER: 'grok', XAI_API_KEY: 'grok-test',
+      NARRATION_COORDINATOR: { getByName: () => ({ claim: async () => true, release: async () => {}, reserve: async () => true, usage: async () => [] }) } as unknown as DurableObjectNamespace,
+    })
+    h.fish.respond = (({ body }: { body: string }) => {
+      const chars = Array.from(JSON.parse(body).text as string)
+      const duration = 5.224
+      return Response.json({ audio: btoa(String.fromCharCode(...syntheticMp3(200))), duration,
+        audio_timestamps: { graph_chars: chars, graph_times: chars.map((_, i) => [i * duration / chars.length, (i + 1) * duration / chars.length]) } })
+    }) as typeof h.fish.respond
+    h.paragraphs[0] = SHORT_DASHED
+    expect((await ensure(h, { voice: 'f', paragraphs: [{ index: 0 }], mode: 'all' })).json.paragraphs[0].status).toBe('ready')
+    const [legacy] = await rewindToPreDashRules(h, 0, 'ara', 'f', 'grok-tts-v1', 'grok')
+    const calls = h.fish.calls.length
+    h.deps.verifyUser = async () => null
+    const guest = await ensure(h, { voice: 'f', paragraphs: [{ index: 0, textHash: await textHashOf(SHORT_DASHED) }] })
+    expect(guest.status).toBe(200)
+    expect(guest.json.generated).toBe(0)
+    expect(guest.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    expect((guest.json.paragraphs[0] as Result).chunks![0].hash).toBe(legacy)
+    expect(h.fish.calls.length).toBe(calls)
   })
 })

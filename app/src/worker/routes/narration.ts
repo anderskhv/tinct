@@ -47,7 +47,7 @@ import {
   isPilotScope,
   narrationAudioPath,
   narrationBlobKeys,
-  narrationCacheIdentity,
+  narrationChunkTextCandidates,
   narrationMapKey,
   narrationMapPrefix,
   narrationTextForParagraph,
@@ -61,6 +61,7 @@ import {
   type AlignedWord,
   type NarrationBlobMeta,
   type NarrationChunk,
+  type NarrationChunkCandidate,
   type NarrationMapEntry,
   type NarrationSynthesisSettings,
   type NarrationProvider,
@@ -443,9 +444,23 @@ interface ParagraphState {
  * audio must agree with the live text hash, the chunk layout and each other.
  * The first chunk that fails ends the prefix; nothing past it is trusted.
  */
-/** Identity hashes for every chunk of a paragraph, computed once per request. */
-async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<string[]> {
-  return Promise.all(chunks.map(chunk => narrationCacheIdentity({ provider, model, voiceId, text: chunk.text, settings }).then(identity => identity.hash)))
+/**
+ * Recording candidates for every chunk of a paragraph, computed once per
+ * request: today's identity first, then the pre-dash-rules recording where
+ * the rules changed the chunk's spoken text (narrationChunkTextCandidates).
+ */
+async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<NarrationChunkCandidate[][]> {
+  return Promise.all(chunks.map(chunk => narrationChunkTextCandidates(chunk, { provider, model, voiceId, settings })))
+}
+
+/** The candidate a listed recording is, if any: only then is the listing trusted. */
+function listedCandidate(candidates: NarrationChunkCandidate[] | undefined, hash: string): NarrationChunkCandidate | undefined {
+  return candidates?.find(candidate => candidate.hash === hash)
+}
+
+/** The chunk as a given candidate recording was made: same words and range, that candidate's text. */
+function chunkAsRecorded(chunk: NarrationChunk, candidate: NarrationChunkCandidate): NarrationChunk {
+  return candidate.text === chunk.text ? chunk : { ...chunk, text: candidate.text }
 }
 
 /**
@@ -485,8 +500,9 @@ async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider,
   for (const listed of entry.chunks) {
     const position = listed.index
     const expected = chunks[position]
-    if (!expected || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo || listed.hash !== hashes[position]) continue
-    const ready = await readReadyChunk(bucket, provider, position, expected, listed.hash, textHash)
+    const candidate = listedCandidate(hashes[position], listed.hash)
+    if (!expected || !candidate || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo) continue
+    const ready = await readReadyChunk(bucket, provider, position, chunkAsRecorded(expected, candidate), listed.hash, textHash)
     if (ready) state.ready.push(ready)
   }
   state.ready.sort((a, b) => a.index - b.index)
@@ -500,12 +516,12 @@ async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider,
  * transient miss while validating one chunk must never drop the chunks after
  * it: readers validate on read and regenerate only the chunk that fails.
  */
-function listedChunksForMap(existing: NarrationMapEntry | null, ready: ReadyChunk[], chunks: NarrationChunk[], identities: string[], textHash: string, voiceId: string, model: string): NarrationMapEntry['chunks'] {
+function listedChunksForMap(existing: NarrationMapEntry | null, ready: ReadyChunk[], chunks: NarrationChunk[], identities: NarrationChunkCandidate[][], textHash: string, voiceId: string, model: string): NarrationMapEntry['chunks'] {
   const listed = new Map(ready.map(item => [item.index, { index: item.index, hash: item.hash, wordFrom: item.wordFrom, wordTo: item.wordTo }]))
   if (mapEntryMatches(existing, textHash, chunks.length, voiceId, model)) {
     for (const entry of existing.chunks) {
       const expected = chunks[entry.index]
-      if (expected && entry.hash === identities[entry.index] && entry.wordFrom === expected.wordFrom && entry.wordTo === expected.wordTo && !listed.has(entry.index)) listed.set(entry.index, entry)
+      if (expected && listedCandidate(identities[entry.index], entry.hash) && entry.wordFrom === expected.wordFrom && entry.wordTo === expected.wordTo && !listed.has(entry.index)) listed.set(entry.index, entry)
     }
   }
   return [...listed.values()].sort((a, b) => a.index - b.index)
@@ -1133,13 +1149,19 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       if (now() - requestStartedAt > REQUEST_TIME_BUDGET_MS) { generationDone = true; break }
       const chunk = chunks.find(item => item.index >= fromChunk && !state.ready.some(ready => ready.index === item.index))
       if (!chunk) break
-      const identity = { hash: identities[chunk.index] }
+      // New recordings are always made from today's spoken text.
+      const identity = { hash: identities[chunk.index][0].hash }
 
       // The map is an index, not the truth: keys are content-addressed, so
       // probe the recording itself before paying for a synthesis. A map that
       // lags its last write, or a miss while validating the prefix, would
-      // otherwise cost a synthesis of a chunk that already exists.
-      const present = await readReadyChunk(bucket, config.provider, chunk.index, chunk, identity.hash, textHash)
+      // otherwise cost a synthesis of a chunk that already exists. The
+      // pre-dash-rules recording is probed only when today's is missing.
+      let present: ReadyChunk | null = null
+      for (const candidate of identities[chunk.index]) {
+        present = await readReadyChunk(bucket, config.provider, chunk.index, chunkAsRecorded(chunk, candidate), candidate.hash, textHash)
+        if (present) break
+      }
       if (present) {
         state.ready.push(present)
         adoptedByProbe += 1

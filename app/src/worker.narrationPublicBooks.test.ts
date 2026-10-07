@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { handleNarration, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
 import { handlePublicEditionData } from './worker/routes/publicBooks'
-import { narrationMapKey, narrationTextForParagraph, sha256Hex } from './narration/narrationCore'
+import { narrationMapKey, narrationTextForParagraph, narrationTokens, sha256Hex, spokenText } from './narration/narrationCore'
 import { syntheticMp3 } from './narration/narrationTestFixtures'
 
 /**
@@ -160,8 +160,9 @@ describe('narration of added public-domain books (pd-*)', () => {
     expect(first.json.paragraphs.map(item => [item.paragraph, item.status])).toEqual([[0, 'ready'], [2, 'ready']])
     expect(first.json.paragraphs[0].textHash).toBe(await hashOf(reader[0]))
     expect(first.json.paragraphs[1].textHash).toBe(await hashOf(reader[2]))
-    // The provider was sent exactly the painted words: emphasis marks and extra spaces gone, nothing else.
-    expect(s.calls).toEqual([narrationTextForParagraph(reader[0]), narrationTextForParagraph(reader[2])])
+    // The provider was sent the painted words: emphasis marks and extra spaces gone, dashes read as pauses (speakableText).
+    expect(s.calls).toEqual([spokenText(narrationTokens(reader[0])), spokenText(narrationTokens(reader[2]))])
+    expect(s.calls[0]).toContain('Bishop of D, He was')
     expect(s.calls[1]).toContain('the Parliament of Aix; hence')
     expect(s.env.AUDIO_BUCKET.store.has(narrationMapKey(BOOK, 'original-en', 1, 'f', 2, 'grok'))).toBe(true)
     expect(s.assetFetches).toEqual([])

@@ -125,15 +125,84 @@ export function isSilentNarrationToken(token: string): boolean {
   return /^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/.test(token)
 }
 
-/** The spoken words of a token range: what the provider is sent. */
+// Figure dash, en dash, em dash, horizontal bar, two- and three-em dashes.
+const DASH_CHARS = '‒–—―⸺⸻'
+/** A numeric range: `1914–1918`, `1860-65`, `pp. 90–105`, `8:11–12`. Read "1914 to 1918". */
+const NUMBER_RANGE = /(\d)(?:\s*[‒–]\s*|-)(?=\d)/g
 /**
- * What the narrator is asked to read. Silent tokens (verse numbers) are
- * dropped. Square brackets are removed: Fish treats `[...]` as a
+ * A run of dashes as punctuation: any run containing a real dash, two or more
+ * hyphens (`--`, the elided `R-----`), or a hyphen standing alone between
+ * spaces. A single hyphen inside a word (`well-known`) is never matched.
+ */
+const DASH_RUN = new RegExp(`\\s*(?:-*[${DASH_CHARS}][${DASH_CHARS}-]*|-{2,}|(?<=\\s)-(?=\\s))\\s*`, 'g')
+const CLOSING_AFTER = /^(?:[.,;:!?…)\]}]|["'”’»](?![\p{L}\p{N}]))/u
+const OPENING_BEFORE = /(?:^|[([{“‘«]|(?:^|\s)["'])$/u
+const PAUSE_BEFORE = /[.,;:!?…][)\]}"'”’»]*$/u
+
+/** Private-use marker: remove the character before it (a doubled mark left by a dropped dash). */
+const DROP_PREVIOUS = '\uE000'
+
+function readRanges(text: string, joiner: string): string {
+  return text.replace(NUMBER_RANGE, `$1${joiner}to${joiner}`)
+}
+
+/**
+ * Text as the narrator should read it: dashes are never spoken.
+ *
+ *  - A numeric range reads as "to": `1914–1918` → `1914 to 1918`.
+ *  - Every other dash run (em/en dash, `--`, a spaced hyphen, an elided year
+ *    `17—`, a blank name `Mr. ——`, `D——`, `R-----`) becomes a pause, never a
+ *    word: it is dropped where punctuation already follows (`17—.` → `17.`,
+ *    `D——,` → `D,`) or where it opens a phrase (`“—and` → `“and`), becomes a
+ *    space after punctuation (`no!—not` → `no! not`), and a comma between
+ *    words (`St. Petersburgh—the` → `St. Petersburgh, the`, `K----- Boulevard`
+ *    → `K, Boulevard`). A blank name is read as a short pause rather than the
+ *    word "blank": the pause adds no word without a painted token, so the
+ *    highlight stays aligned.
+ *  - A hyphen inside a word (`well-known`, `twenty-one`) is untouched.
+ */
+export function speakableText(text: string): string {
+  const ranged = readRanges(text, ' ')
+  return ranged
+    .replace(DASH_RUN, (_match, offset: number, whole: string) => {
+      const before = whole.slice(0, offset)
+      const after = whole.slice(offset + _match.length)
+      if (after.length === 0 || CLOSING_AFTER.test(after)) {
+        // `Mr. ——.` reads `Mr.`, not `Mr..`: the sentence keeps its own mark.
+        return /[.,;:!?]$/.test(before) && !/\.\.$/.test(before) && before[before.length - 1] === after[0] ? DROP_PREVIOUS : ''
+      }
+      if (OPENING_BEFORE.test(before)) return ''
+      if (PAUSE_BEFORE.test(before)) return ' '
+      return ', '
+    })
+    .replace(new RegExp(`.${DROP_PREVIOUS}`, 'gu'), '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/**
+ * What the narrator is asked to read for a token range. Silent tokens (verse
+ * numbers) are dropped. Square brackets are removed: Fish treats `[...]` as a
  * paralinguistic tag rather than words, and Hamlet's "[Enter Ghost]" came
- * back as 0.8–12 s of audio with no spoken words. Display tokens keep their
- * brackets; the aligner ignores punctuation when it maps timings back.
+ * back as 0.8–12 s of audio with no spoken words. Dashes are rewritten by
+ * `speakableText` ("17—." was read "seventeen dash"). Display tokens keep
+ * their brackets and dashes; the aligner ignores punctuation when it maps
+ * timings back.
  */
 export function spokenText(tokens: string[], from = 0, to = tokens.length): string {
+  return speakableText(legacySpokenText(tokens, from, to))
+}
+
+/**
+ * The spoken text of a token range as it was before the dash rules
+ * (`speakableText`, 2026-10-06): the same display words with only verse
+ * numbers and brackets removed. Every recording made before the rules was
+ * made from, and is addressed by, this text. It is derived from the very same
+ * tokens as `spokenText`, so it can only ever name the same words with their
+ * dashes left in: the fallback in `narrationChunkTextCandidates` never reaches
+ * audio for different words.
+ */
+export function legacySpokenText(tokens: string[], from = 0, to = tokens.length): string {
   return tokens.slice(from, to)
     .filter(token => !isSilentNarrationToken(token))
     .map(token => token.replace(/[[\]]/g, ''))
@@ -183,6 +252,42 @@ export async function narrationCacheIdentity(input: NarrationIdentityInput): Pro
   })
   const [hash, textHash] = await Promise.all([sha256Hex(document), sha256Hex(input.text)])
   return { hash, textHash, document }
+}
+
+/**
+ * One way a chunk may have been recorded: the spoken text and the blob
+ * identity that addresses its recording.
+ */
+export interface NarrationChunkCandidate {
+  hash: string
+  text: string
+  /** True for the recording made before the dash rules (see `legacySpokenText`). */
+  legacy: boolean
+}
+
+/**
+ * The recordings that may stand for one chunk, in order of preference: the
+ * chunk as it is spoken today, then — only when the dash rules changed its
+ * spoken text — the recording made before them. This is the single place the
+ * pre-dash-rules fallback lives; the Worker matches map entries, validates
+ * blob metadata and probes R2 with these candidates, so a reader keeps the
+ * existing recording instead of losing it (guests play cached audio only)
+ * or paying to record it again.
+ *
+ * Safe by construction: both texts come from the same display tokens of the
+ * same chunk (`wordFrom`..`wordTo`) of a paragraph whose text hash already
+ * matched, so the fallback differs from today's text only by the dash rules.
+ * A genuinely edited paragraph changes its tokens, its text hash and both
+ * candidates, and matches neither.
+ */
+export async function narrationChunkTextCandidates(
+  chunk: NarrationChunk,
+  input: Omit<NarrationIdentityInput, 'text'>,
+): Promise<NarrationChunkCandidate[]> {
+  const texts = chunk.legacyText !== undefined && chunk.legacyText !== chunk.text
+    ? [{ text: chunk.text, legacy: false }, { text: chunk.legacyText, legacy: true }]
+    : [{ text: chunk.text, legacy: false }]
+  return Promise.all(texts.map(async item => ({ ...item, hash: (await narrationCacheIdentity({ ...input, text: item.text })).hash })))
 }
 
 /** R2 object keys for a cached recording and its explicit edition mapping. */
@@ -241,9 +346,13 @@ export interface TokenAlignment {
   alignment: TokenAlignmentStats
 }
 
-/** Letters and digits only, case-folded: `can’t` and `cant` compare equal. */
+/**
+ * Letters and digits only, case-folded: `can’t` and `cant` compare equal.
+ * A numeric range keys as it is read (`1914–1918` → `1914to1918`), so the
+ * painted token matches the three words the narrator speaks for it.
+ */
 export function alignmentKey(text: string): string {
-  return text.normalize('NFKC').toLocaleLowerCase().replace(/[^\p{L}\p{N}]/gu, '')
+  return readRanges(text.normalize('NFKC'), '').toLocaleLowerCase().replace(/[^\p{L}\p{N}]/gu, '')
 }
 
 const MAX_GLUE = 4
@@ -667,6 +776,12 @@ export interface NarrationChunk {
   wordTo: number
   /** Spoken text of the range — silent markers dropped — as sent to the provider and hashed. */
   text: string
+  /**
+   * The range's spoken text before the dash rules, present only when it
+   * differs from `text`: what a recording made before them was made from
+   * (see `narrationChunkTextCandidates`).
+   */
+  legacyText?: string
 }
 
 const ABBREVIATIONS = new Set(['mr', 'mrs', 'ms', 'dr', 'st', 'mt', 'no', 'vs', 'etc', 'ie', 'eg', 'jr', 'sr', 'prof', 'rev', 'gen', 'col', 'capt', 'lt', 'sgt', 'hon', 'messrs', 'esq', 'viz', 'cf', 'ch', 'vol', 'pp', 'op', 'bk'])
@@ -738,15 +853,17 @@ function packTokens(tokens: string[], max: number): string[][] {
  * ranges tile the paragraph.
  */
 export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX_CHARS): NarrationChunk[] {
-  if (tokens.length === 0 || tokens.every(isSilentNarrationToken)) return []
+  // Nothing to say: only verse markers, or only dashes (a `———————` rule).
+  const silent = (group: string[]) => spokenText(group).length === 0
+  if (tokens.length === 0 || silent(tokens)) return []
   let groups = packRuns(tokens, endsSentence, max, sentence => packRuns(sentence, endsClause, max, clause => packTokens(clause, max)))
-  // A group of only silent markers has nothing to say: it joins the next group.
+  // A group with nothing to say joins the next group.
   const merged: string[][] = []
   for (const group of groups) {
-    if (merged.length > 0 && merged[merged.length - 1].every(isSilentNarrationToken)) merged[merged.length - 1] = merged[merged.length - 1].concat(group)
+    if (merged.length > 0 && silent(merged[merged.length - 1])) merged[merged.length - 1] = merged[merged.length - 1].concat(group)
     else merged.push(group)
   }
-  if (merged.length > 1 && merged[merged.length - 1].every(isSilentNarrationToken)) {
+  if (merged.length > 1 && silent(merged[merged.length - 1])) {
     const tail = merged.pop() as string[]
     merged[merged.length - 1] = merged[merged.length - 1].concat(tail)
   }
@@ -761,7 +878,9 @@ export function chunkNarrationTokens(tokens: string[], max = NARRATION_CHUNK_MAX
   const chunks: NarrationChunk[] = []
   let cursor = 0
   groups.forEach((group, index) => {
-    chunks.push({ index, wordFrom: cursor, wordTo: cursor + group.length, text: spokenText(group) })
+    const text = spokenText(group)
+    const legacyText = legacySpokenText(group)
+    chunks.push(legacyText === text ? { index, wordFrom: cursor, wordTo: cursor + group.length, text } : { index, wordFrom: cursor, wordTo: cursor + group.length, text, legacyText })
     cursor += group.length
   })
   return chunks
