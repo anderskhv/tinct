@@ -5,7 +5,7 @@ Anders assigns this to you (coding + release) on 7 October 2026. You remain the 
 **Read first (branch `claude/dreamy-faraday-30zl0v`):**
 - `docs/social/PROPOSAL.md`: the approved proposal. Build exactly that; Anders approved every decision in it.
 - `docs/social/mockup.html`: the approved look (open in a browser).
-- `docs/social/flows.html` (fourth pass): how readers get there, as storyboards. **Binding for navigation, copy and look.** Where it differs from the proposal's earlier sections, follow it and the proposal's "Revision, 7 October" section: reader menu unchanged except Account → Profile (opens the Profile sheet with AI credits as their own shelf); You is one page of shelves with tap-picture-to-change and picture/background sets; Friends page with Friends / Everyone / Find; one grouped Settings page including "Start new books in"; three-step sign-up with one password field and the reading question; no all-caps labels, no pill toggles, no top-bar pictures except the library's.
+- `docs/social/flows.html` (fourth pass): how readers get there, as storyboards. **Binding for navigation, copy and look.** Where it differs from the proposal's earlier sections, follow it and the proposal's "Revision, 7 October" section: reader menu unchanged except Account → Profile (opens the Profile sheet with AI credits as their own shelf); You is one page of shelves with tap-picture-to-change and picture/background sets; Friends page with Friends / Everyone / Find; one grouped Settings page including "New books open in"; three-step sign-up with one password field and the reading question; no all-caps labels, no pill toggles, no top-bar pictures except the library's.
 
 Don't reopen the design. Ask Anders only where something is truly ambiguous. Ship in the order below; each ship is releasable on its own.
 
@@ -74,7 +74,7 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous. Shi
   - skip = Only me;
   - Everyone blocked until the email is confirmed.
 
-- **Reading default:** a profile setting "Start new books in" (Modern English / The original), asked in sign-up step 3; it picks the edition when a reader opens a book for the first time, and each book keeps the reader's own later switch. Respect existing default-edition rules where a book has no modern edition.
+- **Reading default:** a profile setting "New books open in" (Modern English / Human translations; books written in English open as written), asked in sign-up step 3; it picks the edition when a reader opens a book for the first time, and each book keeps the reader's own later switch. Respect existing default-edition rules where a book has no modern edition.
 
 ## SHIP 3: Social
 - **Find:** search public (Everyone) readers by name or link; "Also reading your books" lists Everyone readers who show what they read; Invite copies or shares your link.
