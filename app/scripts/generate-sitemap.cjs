@@ -8,8 +8,9 @@
  *   - app/public/read/{bookId}/    → which books have static SEO pages
  *   - app/public/data/editions/{bookId}-modern-en.json → chapter count
  *
- * The sitemap lists only real pages: /, /about, /privacy, /read/ and one
- * /read/{bookId} per public book. Each <lastmod> changes only when that
+ * The sitemap lists only real pages: /, /about, /story, /privacy, /terms
+ * (only while the AI allowance is on), /read/ and one /read/{bookId} per
+ * public book. Each <lastmod> changes only when that
  * page's content does (see sitemap-lastmod.json).
  *
  * Why static rather than worker-generated: keeping the sitemap in
@@ -22,6 +23,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { aiAllowanceEnforced } = require('./ai-allowance-switch.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const REGISTRY = path.join(APP_DIR, 'src/data/bookRegistry.ts')
@@ -583,7 +585,12 @@ function urlEntry(loc, opts = {}) {
   return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
 }
 
-function buildSitemap(books, state = loadLastmodState(), next = {}) {
+/**
+ * `termsPublished`: /terms is listed only while the Worker serves it, which is
+ * while the AI allowance is on (src/aiAllowanceSwitch.ts; its §3 describes the
+ * usage bar).
+ */
+function buildSitemap(books, state = loadLastmodState(), next = {}, { termsPublished = aiAllowanceEnforced() } = {}) {
   const lines = []
   const entry = (loc, opts, ...files) => lines.push(urlEntry(loc, { ...opts, lastmod: contentLastmod(state, next, loc, ...files) }))
   lines.push('<?xml version="1.0" encoding="UTF-8"?>')
@@ -592,6 +599,7 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
   entry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8 }, path.join(APP_DIR, 'public/about.html'))
   entry(`${ORIGIN}/story`, { changefreq: 'monthly', priority: 0.6 }, path.join(APP_DIR, 'public/story.html'))
   entry(`${ORIGIN}/privacy`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/privacy.html'))
+  if (termsPublished) entry(`${ORIGIN}/terms`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/terms.html'))
   entry(`${ORIGIN}/read/`, { changefreq: 'weekly', priority: 0.8 }, path.join(READ_DIR, 'index.html'))
   for (const b of books) {
     const page = path.join(READ_DIR, b.id, 'book.html')
