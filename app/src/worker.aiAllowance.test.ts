@@ -474,4 +474,30 @@ describe('top-up checkout', () => {
     expect(availableTopUps({ ...env, STRIPE_PRICE_TOP_UP_10: undefined })).toEqual(['chat_pack_200'])
     expect(availableTopUps({})).toEqual([])
   })
+
+  it('reads the $10 price under either secret name, STRIPE_PRICE_TOP_UP_10 first', async () => {
+    const named = (fields: Record<string, string | undefined>) => ({ ...env, STRIPE_PRICE_TOP_UP_10: undefined, ...fields })
+    for (const [fields, price] of [
+      [{ STRIPE_PRICE_TOP_UP_10: 'price_10' }, 'price_10'],
+      [{ STRIPE_PRICE_TOPUP_10: 'price_10_cf' }, 'price_10_cf'],
+      [{ STRIPE_PRICE_TOP_UP_10: 'price_10', STRIPE_PRICE_TOPUP_10: 'price_10_cf' }, 'price_10'],
+    ] as const) {
+      expect(availableTopUps(named(fields))).toEqual(['chat_pack_200', 'top_up_10'])
+      const sessions = stubStripe()
+      const response = await handleCreateCheckout(post('/api/create-checkout', { type: 'top_up_10' }), named(fields), reader, undefined, true)
+      expect(response.status).toBe(200)
+      expect(sessions[0].get('line_items[0][price]')).toBe(price)
+      expect(sessions[0].get('metadata[amount_cents]')).toBe('1000')
+    }
+    expect(availableTopUps(named({}))).toEqual(['chat_pack_200'])
+  })
+
+  it('leaves the $5 price on STRIPE_PRICE_CHAT_200 only', async () => {
+    const env5 = { ...env, STRIPE_PRICE_CHAT_200: undefined, STRIPE_PRICE_TOPUP_5: 'price_5_cf' }
+    expect(availableTopUps(env5)).toEqual(['top_up_10'])
+    const sessions = stubStripe()
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type: 'chat_pack_200' }), env5, reader, undefined, true)
+    expect(response.status).toBe(500)
+    expect(sessions).toEqual([])
+  })
 })

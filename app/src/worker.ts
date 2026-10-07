@@ -84,6 +84,8 @@ interface Env {
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
   STRIPE_PRICE_TOP_UP_10?: string
+  /** The $10 top-up under the name the Cloudflare secret was created with; read as STRIPE_PRICE_TOP_UP_10. */
+  STRIPE_PRICE_TOPUP_10?: string
   STRIPE_AUTOMATIC_TAX?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
