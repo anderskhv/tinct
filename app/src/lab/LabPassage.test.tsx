@@ -783,6 +783,58 @@ it('extends across a page only after a deliberate edge hold, retaining the origi
  } finally { vi.useRealTimers() }
 })
 
+it('never turns back a page when a selection starts on the first line and drags along it (Esther 10, 2026-10-07)', () => {
+ vi.useFakeTimers()
+ try {
+   const paragraphs = ['one two three four five six seven eight nine']
+   const select = vi.fn(), turn = vi.fn()
+   render(<LabPassage {...passageProps(paragraphs, { paragraphIndex: 0, from: 3, to: 9 })} onSelectRange={select} onPageTurn={turn} />)
+   const surface = screen.getByTestId('lab-book')
+   vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
+   const words = screen.getAllByTestId('lab-word')
+   // The page's first word sits inside the top page-turn zone.
+   fireEvent.pointerDown(words[0], { pointerType: 'touch', clientX: 60, clientY: 20 })
+   act(() => vi.advanceTimersByTime(170))
+   expect(words[0].classList.contains('is-selecting')).toBe(true)
+   for (const x of [70, 80, 90, 100, 140]) fireEvent.pointerMove(words[1], { pointerType: 'touch', clientX: x, clientY: 21 })
+   act(() => vi.advanceTimersByTime(LAB_EDGE_HOLD_MS * 4))
+   expect(turn).not.toHaveBeenCalled()
+   fireEvent.pointerUp(words[1], { pointerType: 'touch', clientX: 140, clientY: 21 })
+   expect(turn).not.toHaveBeenCalled()
+   expect(select).toHaveBeenCalledOnce()
+   expect(select.mock.calls[0][0].text).toBe('four five')
+   // A later selection that leaves the zone and comes back still reaches the previous page.
+   fireEvent.pointerDown(words[0], { pointerType: 'touch', clientX: 60, clientY: 20 })
+   act(() => vi.advanceTimersByTime(170))
+   fireEvent.pointerMove(words[1], { pointerType: 'touch', clientX: 100, clientY: 300 })
+   fireEvent.pointerMove(words[1], { pointerType: 'touch', clientX: 100, clientY: 10 })
+   act(() => vi.advanceTimersByTime(LAB_EDGE_HOLD_MS))
+   expect(turn).toHaveBeenCalledWith(-1)
+ } finally { vi.useRealTimers() }
+})
+
+it('does not swipe or edge-tap a page while a native selection is open inside the page', () => {
+  const turn = vi.fn()
+  render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })} onSelectRange={vi.fn()} onPageTurn={turn} tapZones="touch" />)
+  const surface = screen.getByTestId('lab-book')
+  vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
+  const range = document.createRange()
+  range.selectNodeContents(screen.getAllByTestId('lab-word')[1])
+  window.getSelection()!.removeAllRanges()
+  window.getSelection()!.addRange(range)
+  try {
+    fireEvent.pointerDown(surface, { pointerType: 'touch', clientX: 300, clientY: 400 })
+    fireEvent.pointerUp(surface, { pointerType: 'touch', clientX: 380, clientY: 402 })
+    fireEvent.pointerDown(surface, { pointerType: 'touch', clientX: 10, clientY: 400 })
+    fireEvent.pointerUp(surface, { pointerType: 'touch', clientX: 10, clientY: 400 })
+    expect(turn).not.toHaveBeenCalled()
+    window.getSelection()!.removeAllRanges()
+    fireEvent.pointerDown(surface, { pointerType: 'touch', clientX: 300, clientY: 400 })
+    fireEvent.pointerUp(surface, { pointerType: 'touch', clientX: 380, clientY: 402 })
+    expect(turn).toHaveBeenCalledWith(-1)
+  } finally { window.getSelection()!.removeAllRanges() }
+})
+
 it('paints the verse number\'s word under the fragment highlight so the band across a verse is one rectangle', () => {
   const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
   // The unit is an inline run, not its own box: each word paints on the line's box.
