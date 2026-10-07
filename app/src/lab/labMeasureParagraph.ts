@@ -118,8 +118,12 @@ export function labMeasureParagraphInto(
           return marker
         })()
       : (() => {
+          // A plain text node unless the word has a planned break: every page
+          // trial builds every word on the page.
+          const at = breakAt(index, word.text)
+          if (at == null) return document.createTextNode(word.text)
           const group = document.createDocumentFragment()
-          appendPlannedWord(group, word.text, breakAt(index, word.text))
+          appendPlannedWord(group, word.text, at)
           return group
         })()
     if (word.emphasis) {
