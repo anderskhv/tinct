@@ -1,5 +1,5 @@
 import {describe,expect,it} from 'vitest'
-import {TUCK,orbFrame,tuckAt,tuckDockX,tuckRelease,tuckRestY,tuckSettled,tuckShape,tuckSide,tuckStep} from '../public/lab/library_2/motion.js'
+import {TUCK,orbFrame,tuckAt,tuckDockX,tuckRelease,tuckRestY,tuckSettled,tuckShape,tuckSide,tuckStep,tuckCovers} from '../public/lab/library_2/motion.js'
 
 // A · Tuck: the library librarian docked as a capsule under a side wall.
 const W=390,H=844
@@ -153,4 +153,19 @@ describe('reduced motion',()=>{
 it('still tweens the orb into and out of the panel',()=>{
  expect(orbFrame({x:0,y:0,size:50},{x:100,y:200,size:240},1)).toEqual({x:100,y:200,size:240})
  expect(orbFrame({x:0,y:0,size:50},{x:100,y:200,size:240},0)).toEqual({x:0,y:0,size:50})
+})
+
+describe('search panel',()=>{
+ it('hides the capsule where it would cover the search results (phone), not where they stop short of it (desktop)',()=>{
+  // Phone: results run to 20 px from either wall.
+  expect(tuckCovers('right',390,{left:20,right:370})).toBe(true)
+  expect(tuckCovers('left',390,{left:20,right:370})).toBe(true)
+  // Desktop: a 1100 px column centred in 1440 px leaves the walls clear.
+  expect(tuckCovers('right',1440,{left:165,right:1265})).toBe(false)
+  expect(tuckCovers('left',1440,{left:165,right:1265})).toBe(false)
+  // Within the 8 px spare of the capsule's reach (46 - 6 = 40 px from the wall).
+  expect(tuckCovers('right',1000,{left:100,right:953})).toBe(true)
+  expect(tuckCovers('right',1000,{left:100,right:951})).toBe(false)
+  expect(tuckCovers('right',390,null)).toBe(false)
+ })
 })

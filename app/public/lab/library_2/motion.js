@@ -25,6 +25,9 @@ export function shelfMetrics(w){const gutter=w<700?20:Math.max(28,w*.025),gap=w<
 export const TUCK={dock:{w:46,h:88},scrollDock:{w:34,h:62},scrollIdle:300,free:{w:50,h:50},inset:-6,anchor:22,release:64,grab:26,settle:30,pull:.38,target:44,top:96,bottom:64,margin:40,orb:{docked:24,free:38},icon:{size:18,gap:9,from:64,to:80}};
 export const tuckSide=(x,w)=>x<w/2?'left':'right';
 export function tuckDockX(side,w,width=TUCK.dock.w){return side==='right'?w-width/2-TUCK.inset:width/2+TUCK.inset;}
+// Whether the docked capsule on `side` (wall width `w`) would cover a panel whose box is `rect`
+// ({left,right}), with `gap` px to spare. The search panel hides the capsule when it would.
+export function tuckCovers(side,w,rect,gap=8){if(!rect)return false;const reach=TUCK.dock.w+TUCK.inset+gap;return side==='right'?rect.right>w-reach:rect.left<reach;}
 export function tuckRestY(y,h){return clamp(y,Math.min(TUCK.top,h/2),Math.max(h-TUCK.bottom,h/2));}
 export function tuckAt(side,y,w,dock=TUCK.dock){return {side,x:tuckDockX(side,w,dock.w),y,vx:0,vy:0,w:dock.w,h:dock.h,wv:0,hv:0,attached:true,ar:TUCK.anchor,arv:0,ay:y,ayv:0,wob:0,wobv:0,event:null};}
 const spring=(v,vel,target,k,damp)=>{vel=(vel+(target-v)*k)*damp;return [v+vel,vel];};

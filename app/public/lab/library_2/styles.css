@@ -418,3 +418,8 @@ html #librarian.tuck,html #librarian.tuck[data-edge]{padding:0;border-radius:999
 #librarian-icon{display:none}
 #librarian.tuck #librarian-icon{display:block;position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;color:#eee7d0;pointer-events:none;transform:translate(var(--icon-dx,0px),var(--icon-dy,0px));opacity:var(--icon-opacity,1)}
 #librarian.tuck #librarian-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7}
+/* Search open (app.js syncLibrarianAway): the tucked capsule steps aside where it would cover results. */
+/* It fades out; it is back at once when search closes. */
+html.librarian-away #librarian.tuck,html.librarian-away #librarian-goo{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility 0s .18s}
+@media(prefers-reduced-motion:reduce){html.librarian-away #librarian.tuck,html.librarian-away #librarian-goo{transition:none}}
+html[data-eink=true].librarian-away #librarian.tuck,html[data-eink=true].librarian-away #librarian-goo{transition:none}
