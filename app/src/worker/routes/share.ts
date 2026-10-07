@@ -36,7 +36,7 @@ export interface ShareDeps {
 }
 
 /** Bump when the drawing changes, so cached images are redrawn. */
-export const SHARE_RENDER_VERSION = '2'
+export const SHARE_RENDER_VERSION = '3'
 export const SHARE_CREATE_PER_MINUTE = 10
 export const SHARE_PREVIEW_PER_MINUTE = 40
 const IMAGE_CACHE = 'public, max-age=86400'

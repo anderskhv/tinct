@@ -5,7 +5,7 @@
  */
 
 import type { FontMetrics } from './fontMetrics'
-import { SHARE_TAGLINE, type ShareFonts, type ShareLook, type SharePage } from './shareLayout'
+import { SHARE_TAGLINE, SUPERSCRIPT_RISE, SUPERSCRIPT_SCALE, superscriptRuns, type ShareFonts, type ShareLook, type SharePage } from './shareLayout'
 
 export interface SharePalette {
   paper: string
@@ -40,6 +40,16 @@ function textWidth(font: FontMetrics, text: string, size: number): number {
   let units = 0
   for (const char of text) units += font.advance(char.codePointAt(0) ?? 32)
   return (units / font.unitsPerEm) * size
+}
+
+/** A word's text: superscript digits become small raised regular digits. */
+function wordText(text: string, baseline: number, size: number): string {
+  const runs = superscriptRuns(text)
+  if (runs.length === 1 && !runs[0].sup) return esc(text)
+  const raised = n(baseline - size * SUPERSCRIPT_RISE)
+  return runs.map(run => run.sup
+    ? `<tspan y="${raised}" font-size="${n(size * SUPERSCRIPT_SCALE)}">${esc(run.text)}</tspan>`
+    : `<tspan y="${n(baseline)}">${esc(run.text)}</tspan>`).join('')
 }
 
 function italicRun(x: number, baseline: number, size: number, fill: string, text: string): string {
@@ -113,7 +123,7 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
       const weight = word.style === 'semibold' ? ' font-weight="600"' : ''
       const style = word.style === 'italic' ? ' font-style="italic"' : ''
       const fill = word.hl ? palette.ink : palette.context
-      parts.push(`<text x="${n(frame.text.x + word.x)}" y="${n(baseline)}" font-family="${FAMILY}" font-size="${n(size)}"${weight}${style} fill="${fill}">${esc(word.text)}</text>`)
+      parts.push(`<text x="${n(frame.text.x + word.x)}" y="${n(baseline)}" font-family="${FAMILY}" font-size="${n(size)}"${weight}${style} fill="${fill}">${wordText(word.text, baseline, size)}</text>`)
     }
   }
 

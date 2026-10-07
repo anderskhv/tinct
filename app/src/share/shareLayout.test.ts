@@ -9,6 +9,7 @@ import {
   buildPassage,
   composeSharePage,
   isValidShareRange,
+  superscriptRuns,
   shareRangeText,
   tokenizeParagraph,
   type ShareContent,
@@ -240,5 +241,53 @@ describe('share highlight: drawing', () => {
   it('escapes text for SVG', () => {
     const svg = renderShareSvg(composeSharePage({ ...content(SHORT), bookTitle: 'A <b>&</b> "B"' }, options('og'), fonts), fonts)
     expect(svg).toContain('A &lt;b&gt;&amp;&lt;/b&gt; &quot;B&quot;')
+  })
+})
+
+describe('share highlight: verse numbers', () => {
+  // Psalms 19 in the World English Bible, Catholic Edition: "⁷ The LORD’s law is perfect, …"
+  const psalm: string[] = JSON.parse(readFileSync(resolve(root, 'public/data/editions/bible-webc-en.json'), 'utf8')).chapters.find((chapter: { number: number }) => chapter.number === 497).paragraphs
+  const psalmContent = (range: ShareRange): ShareContent => ({ bookTitle: 'The Bible', chapterLabel: 'Psalms 19', credit: 'World English Bible, Catholic Edition', creditOnQuote: true, paragraphs: psalm, range })
+  const words = tokenizeParagraph(psalm[2]).map(token => token.text)
+  const SUPERSCRIPTS = /[\u2070\u00b9\u00b2\u00b3\u2074-\u2079]/
+  const textOf = (svg: string) => [...svg.matchAll(/<text[^>]*>(.*?)<\/text>/g)].map(match => match[1]).join(' ')
+
+  it('drops the verse number that opens a quote', () => {
+    expect(words.slice(0, 3)).toEqual(['\u2077', 'The', 'LORD\u2019s'])
+    const range: ShareRange = { paragraphIndex: 2, fromWord: 0, endParagraphIndex: 2, toWord: 9 }
+    for (const format of ['phone', 'desktop', 'og'] as const) {
+      const page = composeSharePage(psalmContent(range), options(format, { context: false }), fonts)
+      expect(placedHighlight(page)).toBe('The LORD\u2019s law is perfect, restoring the soul.')
+      const svg = renderShareSvg(page, fonts)
+      expect(SUPERSCRIPTS.test(svg)).toBe(false)
+      expect(svg).not.toContain('<tspan')
+    }
+    // Mid-verse quotes have no marker to drop, and the words are unchanged.
+    const mid = buildPassage(psalm, { paragraphIndex: 2, fromWord: 1, endParagraphIndex: 2, toWord: 9 }, false)
+    expect(mid[0].tokens[0].text).toBe('The')
+  })
+
+  it('draws verse numbers inside a quote as small raised regular digits', () => {
+    const from = words.indexOf('soul.') - 2
+    const to = words.indexOf('\u2078') + 3
+    const range: ShareRange = { paragraphIndex: 2, fromWord: from, endParagraphIndex: 2, toWord: to }
+    expect(words.slice(from, to).join(' ')).toContain('soul. The LORD\u2019s covenant is sure, making wise the simple. \u2078 The LORD\u2019s')
+    expect(superscriptRuns('\u00b9\u2070')).toEqual([{ text: '10', sup: true }])
+    for (const format of ['phone', 'desktop', 'og'] as const) for (const context of [false, true]) {
+      const page = composeSharePage(psalmContent(range), options(format, { context }), fonts)
+      const svg = renderShareSvg(page, fonts)
+      expect(SUPERSCRIPTS.test(svg)).toBe(false)
+      const marker = page.layout.lines.flatMap(line => line.words).find(word => word.text === '\u2078')!
+      expect(marker).toBeDefined()
+      // Narrower than the regular digit: drawn at the smaller size.
+      const eight = fonts.semibold.advance('8'.codePointAt(0)!) / fonts.semibold.unitsPerEm * page.layout.fontSize
+      expect(marker.width).toBeLessThan(eight * 0.7)
+      // Raised above the baseline of its own word (the <text> element's y), at the smaller size.
+      const drawn = svg.match(/<text x="[\d.]+" y="([\d.]+)"[^>]*><tspan y="([\d.]+)" font-size="([\d.]+)">8<\/tspan><\/text>/)
+      expect(drawn).not.toBeNull()
+      expect(Number(drawn![2])).toBeLessThan(Number(drawn![1]))
+      expect(Number(drawn![3])).toBeLessThan(page.layout.fontSize * 0.7)
+      expect(textOf(svg)).toContain('The LORD\u2019s covenant')
+    }
   })
 })

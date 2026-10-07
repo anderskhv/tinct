@@ -65,6 +65,49 @@ const PARAGRAPH_GAP = 0.55
 /** Following paragraphs laid out after the highlight; the page cuts them off. */
 const FOLLOWING_PARAGRAPHS = 8
 
+// ---------------------------------------------------------------------------
+// Superscript digits (Bible verse numbers, note markers)
+
+/**
+ * Superscript digits as the regular digits they stand for. The share fonts
+ * have no glyphs for U+2070 and U+2074–2079, so these are drawn as small
+ * raised regular digits instead (shareSvg.ts); ¹ ² ³ follow suit so a number
+ * like ¹⁰ is drawn in one style.
+ */
+const SUPERSCRIPT_DIGITS: Record<string, string> = {
+  '\u2070': '0', '\u00b9': '1', '\u00b2': '2', '\u00b3': '3', '\u2074': '4',
+  '\u2075': '5', '\u2076': '6', '\u2077': '7', '\u2078': '8', '\u2079': '9',
+}
+const SUPERSCRIPT_RE = /[\u2070\u00b9\u00b2\u00b3\u2074-\u2079]+/g
+/** Raised digits: size and rise as fractions of the body size. */
+export const SUPERSCRIPT_SCALE = 0.6
+export const SUPERSCRIPT_RISE = 0.34
+
+export interface TextRun {
+  text: string
+  /** Raised small digits (converted from superscript characters). */
+  sup: boolean
+}
+
+/** A word split into plain text and raised digits. */
+export function superscriptRuns(text: string): TextRun[] {
+  const runs: TextRun[] = []
+  let last = 0
+  for (const match of text.matchAll(SUPERSCRIPT_RE)) {
+    const index = match.index ?? 0
+    if (index > last) runs.push({ text: text.slice(last, index), sup: false })
+    runs.push({ text: [...match[0]].map(char => SUPERSCRIPT_DIGITS[char]).join(''), sup: true })
+    last = index + match[0].length
+  }
+  if (last < text.length) runs.push({ text: text.slice(last), sup: false })
+  return runs
+}
+
+/** A word that is only a verse (or note) number, such as "⁷" or "¹⁰". */
+export function isVerseMarker(text: string): boolean {
+  return /^[\u2070\u00b9\u00b2\u00b3\u2074-\u2079]+$/.test(text)
+}
+
 export interface Token {
   text: string
   italic: boolean
@@ -183,8 +226,17 @@ export function buildPassage(paragraphs: string[], range: ShareRange, context: b
       if (tokens.length) out.push({ tokens })
     }
     if (!out.length) return out
+    // A verse number opening the quote is dropped: the header says where it is from.
+    if (isVerseMarker(out[0].tokens[0].text) && (out[0].tokens.length > 1 || out.length > 1)) {
+      out[0].tokens.shift()
+      if (!out[0].tokens.length) out.shift()
+    }
     const first = out[0].tokens
-    if (sentenceStart(marked[range.paragraphIndex], range.fromWord) !== range.fromWord) first[0] = withLeadingEllipsis(first[0])
+    // A verse number before the sentence is not part of it ("⁷ The LORD’s…" from "The").
+    const opening = marked[range.paragraphIndex]
+    let start = sentenceStart(opening, range.fromWord)
+    while (start < range.fromWord && isVerseMarker(opening[start].text)) start++
+    if (start !== range.fromWord) first[0] = withLeadingEllipsis(first[0])
     const last = out[out.length - 1].tokens
     if (!last[last.length - 1].sentenceEnd) last[last.length - 1] = withTrailingEllipsis(last[last.length - 1])
     return out
@@ -305,9 +357,13 @@ function styleOf(token: Token): PlacedWord['style'] {
 
 function widthOf(fonts: ShareFonts, token: Token, size: number): number {
   const font = fonts[styleOf(token)]
-  let units = 0
-  for (const char of token.text) units += font.advance(char.codePointAt(0) ?? 32)
-  return (units / font.unitsPerEm) * size
+  let width = 0
+  for (const run of superscriptRuns(token.text)) {
+    let units = 0
+    for (const char of run.text) units += font.advance(char.codePointAt(0) ?? 32)
+    width += (units / font.unitsPerEm) * size * (run.sup ? SUPERSCRIPT_SCALE : 1)
+  }
+  return width
 }
 
 export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize: number, box: ColumnBox): ColumnLayout {
