@@ -41,7 +41,8 @@ export interface LabChapterNotesDeps {
   resolveUser?: (request: Request) => Promise<string | null>
 }
 
-export const CHAPTER_NOTES_MAX_TOKENS = 400
+// Four two-sentence "in brief" beats run to ~320 output tokens; the margin keeps the JSON whole.
+export const CHAPTER_NOTES_MAX_TOKENS = 480
 export const CHAPTER_NOTES_MAX_PASSAGE_CHARS = 28_000
 export const CHAPTER_NOTES_LOOKUP_RATE_LIMIT_PER_MINUTE = 60
 export const CHAPTER_NOTES_GENERATE_RATE_LIMIT_PER_MINUTE = 10
@@ -62,10 +63,21 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
     'Give two to four beats, in order, covering the passage below. It ends exactly where the reader stopped: nothing beyond it, no outcomes, no foreshadowing, nothing you know about this book from elsewhere.',
     ...SHARED_RULES,
   ].join('\n'),
+  // "<chapter> in brief". A list of "X is recorded" beats is accurate and
+  // dull (Anders on Nehemiah 12, 2026-10-07): each beat says what happens and
+  // then notices one thing in the text worth seeing. Same JSON shape as the
+  // other kinds. Changing this text means bumping CHAPTER_NOTES_PROMPT_VERSIONS.end.
   end: [
     'You write a short card summing up a whole chapter for a reader, who may be anywhere in it.',
-    'Give three or four beats, in order, covering the whole chapter below. Nothing beyond this chapter and nothing you know about the book from elsewhere.',
-    ...SHARED_RULES,
+    'Give three or four beats, in order, covering the whole chapter below. Nothing from later chapters. Mention an earlier part of the book only when you are certain of it.',
+    SHARED_RULES[0],
+    'Each title is two to five words naming what is particular to that beat: a person, place, act or object from the text. Never a generic label such as "Priests Listed", "Households Recorded" or "Dedication Prepared". No quotation marks inside titles.',
+    'Each text is two plain sentences in the present tense, at most 40 words together. The first says what happens. The second notices one specific thing in the text that makes the beat worth reading: a telling detail, a tension, an irony, an absence, an unusual order, or an echo of something earlier.',
+    'Ground every observation in this chapter\'s own words, names, numbers or sequence. Do not invent facts, motives or symbolism. If a beat offers nothing more, point to its most concrete detail rather than a general comment.',
+    'Do not write flat record-keeping sentences such as "The names are recorded" or "The priests are listed"; say what the text does with them.',
+    'Write declaratively. No praise, no advice, no morals or aphorisms, no "we" or "us", no rhetorical questions, no balanced flourishes such as "not X but Y".',
+    'For non-narrative text (proverbs, letters, essays, laws, poems, genealogies, lists) give the main points instead of events, and say what the passage is doing: who is included or left out, what is repeated, how it is ordered.',
+    'Example of one beat: {"title":"Two Choirs on the Wall","text":"Two thanksgiving choirs walk the rebuilt wall in opposite directions and meet at the temple. The joy of Jerusalem is heard far off, over a wall its builders once raised with swords at their sides."}',
   ].join('\n'),
   primer: [
     'You write a spoiler-free primer a reader sees before starting a chapter.',
