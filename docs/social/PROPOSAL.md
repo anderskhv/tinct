@@ -30,21 +30,23 @@ Reading time becomes the number Tinct is built around. Every reader sees their h
 
 ### 2. The account sheet becomes the doorway (reader look)
 Inside a book, everything stays in the reader's look (Paper, Night, e-ink). The sheet changes to:
-- **Header:** picture, name, "@handle · who can see you", Premium/Free. The email moves to Manage account.
+- **Header:** picture, name, "tinct.app/name · who can see you", Premium/Free, and right under it **AI credits** as a slim bar ("15% left · renews 5 Nov"). The email moves to Manage account. The reader's t menu shows the same: picture, last-7-days hours and AI credits in its first row.
 - **Last 7 days:** hours in large type, a 7-day bar, then "#3 among friends · 6-day streak · 41 h since July".
 - **Three new rows:** Your reading, Leaderboard, Profile and privacy. Then AI use and Manage account as today.
 - **Signed out:** hours on this device, and "Create a free account to keep your reading time and join the leaderboard."
 
 ### 3. Pages outside the book (library look)
-These open in the library's night-green look with its covers:
+These open in the library's night-green look with its covers. Your picture in the library top bar opens **You**, with two tabs (Reading, Profile) and AI credits at the top; the leaderboard is its own page, reached from a "#3 among friends ›" line on Reading, the sheet and the menu. Profile links are plain `tinct.app/anders`, without the @: handles can never match a book id or a route, and new books get ids that avoid taken handles (we choose book ids).
 - **Your reading:** total hours as the hero ("41 h 20 m … about six Frankensteins"), hours per week for 12 weeks, this week's change, rank among friends, streak; books finished, chapters, listening, longest streak; Reading now and Finished, each cover with the hours spent in that book. Share button.
-- **Leaderboard:** reading time (reading + listening) over the last 7 days, updated at least hourly. Tabs: **Friends** (people you follow who follow you back, plus you) and **Everyone** (public profiles that chose to appear). Your own row and rank always show, so it never looks empty. Tapping a reader opens their profile.
-- **A reader's profile** (`tinct.app/@handle`): picture, name, handle, Follow; hours in the last 7 days and this year; Reading now and Finished, as far as that reader allows.
+- **Leaderboard, a page of its own** (not a tab, so it has room): reading time (reading + listening) over the last 7 days, updated at least hourly; the top three on a podium, roomy rows below. Tabs: **Friends** (people you follow who follow you back, plus you) and **Everyone** (public profiles that chose to appear). Your own row and rank always show, so it never looks empty. Tapping a reader opens their profile.
+- **A reader's profile** (`tinct.app/name`): picture, name, handle, Follow; hours in the last 7 days and this year; Reading now and Finished, as far as that reader allows.
 - **Profile and privacy:** picture, name, link, who can see you, three switches (what I'm reading, how much I read, appear on the leaderboard). Also on the desktop account page.
 
 ### 4. Profiles and privacy
-- **Fields:** display name, unique handle (3–20 letters, digits, `_` or `.`; reserved words blocked), picture, visibility, three switches.
-- **Picture:** a detail from a library cover (no moderation needed), your initial, or your Google photo. Uploaded photos come later; they need moderation.
+- **Fields:** display name, unique handle (3–20 letters, digits, `_` or `.`; reserved words, routes and every book id blocked), picture, visibility, three switches.
+- **Picture:** a detail from a library cover, your initial, your Google photo, or an upload.
+- **Background:** every profile has a banner. Pick a library scene, or upload your own.
+- **Uploads** (picture and background) show to you at once and to others after a check: in v1 a small approval queue in the admin view (volume is tiny), later an automatic check. Images are resized and stripped of location data.
 - **Who can see you:** Only me / Friends / Everyone. **Default when the step is skipped: Only me.** Everyone needs an explicit tap and a confirmed email.
 - **Never shown:** highlights, notes, chats, Talk, email address.
 - **Follows:** one-way follow; "friends" are mutual follows. Unfollow, remove a follower and block are in v1. No reader search in v1: people find each other through profile links and the Everyone board.
@@ -69,7 +71,7 @@ The highlight renderer also makes a **reading card**: "Finished Frankenstein · 
 
 ## Data changes (need Anders's approval)
 1. `reading_time` (reader, day, book, read seconds, listen seconds) plus the Worker heartbeat route.
-2. Profile columns: display name, handle (unique), picture kind and value, visibility, three switches, email confirmed at, consent wording version.
+2. Profile columns: display name, handle (unique), picture kind and value, background kind and value, upload review state, visibility, three switches, email confirmed at, consent wording version.
 3. `follows` (follower, followed, created at) and `blocks`.
 Row-level security: readers write only their own rows; public data is served by the Worker from views that apply each reader's choices.
 
@@ -77,7 +79,7 @@ Row-level security: readers write only their own rows; public data is served by 
 1. **Reading time** (about a day): ledger and heartbeat, finished books, the new "Last 7 days" block in the sheet, the Your reading page. No social parts yet.
 2. **Profiles** (about a day): profile fields, sign-up step 2, Profile and privacy, soft email confirmation, new consent line.
 3. **Social** (one to two days): follows, Friends/Everyone leaderboard, public profile pages, the reading card.
-Later: reading a book together (friends' notes up to your page), photo uploads, reader search.
+Later: reading a book together (friends' notes up to your page), reader search, automatic upload checks.
 
 **Measure:** share of signed-in readers who open Your reading or the leaderboard weekly; week-2 and week-4 return rate for readers with at least one friend vs none; profiles created at sign-up vs skipped; share cards opened.
 

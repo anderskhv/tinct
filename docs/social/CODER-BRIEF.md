@@ -6,7 +6,7 @@ Anders assigns this to you (coding + release) on 7 October 2026. You remain the 
 - `docs/social/PROPOSAL.md`: the approved proposal. Build exactly that; Anders approved every decision in it.
 - `docs/social/mockup.html`: the approved look (open in a browser).
 - `docs/social/flows.html`: how readers get there, as storyboards. These are binding for navigation:
-  - **Library:** the library top bar shows your picture instead of "Account". It opens a **You** page with three tabs: Reading, Leaderboard and Profile. Profile also holds Followers and following, Premium, Email and password, and Sign out.
+  - **Library:** the library top bar shows your picture instead of "Account". It opens a **You** page with AI credits at the top and two tabs, Reading and Profile. The **leaderboard is its own page** (podium for the top three, roomy rows), reached from the "#3 among friends ›" line. Profile also holds Followers and following, Premium, Email and password, and Sign out.
   - **Reader:** the reader's t menu starts with your picture, name and last-7-days hours. That opens the Account sheet, whose rows open the matching tab. Back returns to the same page in the book.
   - **After sign-up:** a one-time toast ("Your 1 h 05 m is saved. Find it under the t.").
   - **Skipped profile step:** a reader who skipped it gets one "Join the leaderboard?" card on their first leaderboard visit.
@@ -64,13 +64,15 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous. Shi
 - **Fields:**
   - display name;
   - handle: 3–20 letters, digits, `_` or `.`; unique; reserved words blocked; word filter on names and handles;
-  - picture: a cover detail (book id + preset crop), initial or Google photo. No uploads;
+  - picture: a cover detail (book id + preset crop), initial, Google photo or upload;
+  - background banner: a library scene or upload;
+  - uploads: resized, location data stripped, stored in R2; visible to the owner at once and to others after approval in the admin view;
   - visibility: Only me / Friends / Everyone;
   - switches: what I'm reading, how much I read, appear on the leaderboard.
 - **Sign-up step 2:** replaces the "Welcome to Tinct" screen in `/sign-in`.
   - picture, name (prefilled), handle (suggested), who can see you (Friends preselected);
   - Start reading, or Skip for now (Only me).
-- **Profile and privacy:** reached from the sheet row and from the desktop account page. Account sheet header shows picture, name, "@handle · who can see you" and the tier. The email moves to Manage account.
+- **Profile and privacy:** reached from the sheet row and from the desktop account page. Account sheet header shows picture, name, "tinct.app/name · who can see you", the tier and an AI credits bar ("15% left · renews 5 Nov"); the t menu's first row shows picture, last-7-days hours and AI credits. The email moves to Manage account.
 - **Email confirmation:** add the one-click confirm link to the welcome email and the confirmed-at field. Reading emails require `email_opt_in` and a confirmed email.
 - **Never exposed:** highlights, notes, chats, Talk, email. Row-level security: readers write only their own rows. Public data is served by the Worker from views that apply each reader's choices.
 - **Tests:**
@@ -89,12 +91,12 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous. Shi
   - rolling 7 days, updated at least hourly (a cached view is fine);
   - your row and rank always visible; tap a reader to open their profile;
   - "#N among friends" in the sheet facts line, and a Leaderboard row.
-- **Public profile page** at `tinct.app/@handle` (Worker-rendered, noindex):
+- **Public profile page** at `tinct.app/{handle}` (Worker-rendered, noindex), with the reader's background banner:
   - picture, name, handle, Follow;
   - last 7 days and this year;
   - Reading now and Finished, as the reader allows;
   - Report link.
-  - `/@` must not clash with book routes.
+  - Handles can never equal a book id, an existing route or a reserved word; the book-id generator must skip taken handles. Book routes always win.
 - **Reading card:** "Finished {book} · {hours}" offered at the end of a book. It links to the public profile, else the book.
 - **Admin view:** rename or hide a profile; see reports.
 - **Analytics events:**
