@@ -36,8 +36,14 @@ export interface ShareFonts {
 export interface ShareContent {
   bookTitle: string
   chapterLabel: string
-  /** "tr. George Long", "Tinct Modern English", "Original (1831)": always shown. */
+  /** "tr. George Long", "Tinct Modern English", "Original (1831)": always shown on the page. */
   credit: string
+  /**
+   * The credit names a translation, a modern rewording or a Bible version, so
+   * the quote card keeps it too. False only for an author's own original text;
+   * missing counts as true.
+   */
+  creditOnQuote?: boolean
   paragraphs: string[]
   range: ShareRange
 }
@@ -275,6 +281,10 @@ export interface ColumnBox {
   height: number
   columns: number
   gap: number
+  /** Ragged right (the quote card). Default: justified, as in the reader. */
+  ragged?: boolean
+  /** Line height as a multiple of the size. Default: the reader's 1.52. */
+  leading?: number
 }
 
 export interface ColumnLayout {
@@ -301,7 +311,7 @@ function widthOf(fonts: ShareFonts, token: Token, size: number): number {
 }
 
 export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize: number, box: ColumnBox): ColumnLayout {
-  const lineHeight = fontSize * LINE_HEIGHT
+  const lineHeight = fontSize * (box.leading ?? LINE_HEIGHT)
   const gapAfterParagraph = fontSize * PARAGRAPH_GAP
   const space = (fonts.regular.advance(32) / fonts.regular.unitsPerEm) * fontSize
   const totalHl = highlightWordCount(passage)
@@ -339,7 +349,7 @@ export function layoutColumns(passage: Paragraph[], fonts: ShareFonts, fontSize:
       if (!newLineFits()) { full = true; break }
       const lastOfParagraph = j >= tokens.length
       const forcedBreak = !lastOfParagraph && tokens[j].lineBreakBefore
-      const justify = !lastOfParagraph && !forcedBreak && words.length > 1
+      const justify = !box.ragged && !lastOfParagraph && !forcedBreak && words.length > 1
       const gap = justify ? space + (box.width - natural) / (words.length - 1) : space
       const offset = column * (box.width + box.gap)
       let x = 0
@@ -370,7 +380,7 @@ export interface ShareFrame {
   canvas: ShareCanvas
   padding: { top: number; side: number; bottom: number }
   header: { size: number; align: 'left' | 'center'; boxHeight: number; gap: number }
-  footer: { size: number; padTop: number; boxHeight: number }
+  footer: { size: number; padTop: number; boxHeight: number; align?: 'left' | 'center' }
   /** Desktop: the paper page card(s) behind the text. */
   page?: { x: number; y: number; width: number; height: number; padTop: number; padSide: number; padBottom: number; numbers: { size: number; padTop: number; boxHeight: number } }
   text: { x: number; y: number; width: number; height: number }
@@ -427,7 +437,8 @@ export interface SharePage {
   content: Pick<ShareContent, 'bookTitle' | 'chapterLabel' | 'credit'>
   frame: ShareFrame
   layout: ColumnLayout
-  mode: 'single' | 'spread'
+  /** `quote`: the highlight alone on a card sized to it (phone and desktop images). */
+  mode: 'single' | 'spread' | 'quote'
   /** Body size as a fraction of the reader's size. */
   scale: number
   /** The highlight was cut at a sentence. */
@@ -456,6 +467,10 @@ function boxFor(frame: ShareFrame, spread: boolean): ColumnBox {
  */
 export function composeSharePage(content: ShareContent, options: ShareOptions, fonts: ShareFonts): SharePage {
   const passage = buildPassage(content.paragraphs, content.range, options.context)
+  if (!options.context && options.format !== 'og') {
+    const card = composeQuoteCard(content, options, fonts, passage)
+    if (card) return card
+  }
   const candidates: Array<{ frame: ShareFrame; spread: boolean; scales: number[] }> = options.format === 'desktop'
     ? [{ frame: desktopFrame(false), spread: false, scales: [1] }, { frame: desktopFrame(true), spread: true, scales: steps() }]
     : [{ frame: options.format === 'og' ? ogFrame() : phoneFrame(), spread: false, scales: steps() }]
@@ -510,6 +525,80 @@ export function composeSharePage(content: ShareContent, options: ShareOptions, f
     cut: chosen.cut,
     offsetY,
     pageNumbers,
+  }
+}
+
+// ---------------------------------------------------------------------------
+// The quote card: the highlight alone, without the page around it
+
+interface QuoteCardSpec {
+  width: number
+  margin: number
+  minHeight: number
+  maxHeight: number
+  /** Body size range in px: the largest that fits is used. */
+  maxSize: number
+  minSize: number
+  header: number
+  footer: number
+}
+
+/**
+ * Phone 1080 wide, from 5:3 up to 4:5; desktop 1600 wide, from 2:1 up to 5:4.
+ * The smallest phone size is the page's 75% floor; desktop stays above it.
+ */
+export const QUOTE_CARDS: Record<'phone' | 'desktop', QuoteCardSpec> = {
+  phone: { width: 1080, margin: 92, minHeight: 648, maxHeight: 1350, maxSize: 92, minSize: 48, header: 34, footer: 30 },
+  desktop: { width: 1600, margin: 128, minHeight: 800, maxHeight: 1280, maxSize: 88, minSize: 40, header: 34, footer: 28 },
+}
+
+/** Display leading: the highlight bands of consecutive lines almost meet. */
+const QUOTE_LEADING = 1.32
+
+function quoteFrame(spec: QuoteCardSpec, footer: boolean, height: number): ShareFrame {
+  const padding = { top: spec.margin * 0.8, side: spec.margin, bottom: spec.margin * 0.8 }
+  const header = { size: spec.header, align: 'left' as const, boxHeight: spec.header * NORMAL_LINE, gap: spec.margin * 0.45 }
+  const foot = { size: spec.footer, padTop: footer ? spec.margin * 0.45 : 0, boxHeight: footer ? spec.footer * NORMAL_LINE : 0, align: 'left' as const }
+  const top = padding.top + header.boxHeight + header.gap
+  const bottom = height - padding.bottom - foot.boxHeight - foot.padTop
+  return { canvas: { width: spec.width, height }, padding, header, footer: foot, text: { x: padding.side, y: top, width: spec.width - 2 * padding.side, height: bottom - top }, baseSize: spec.maxSize }
+}
+
+/**
+ * The highlight alone: the card's height follows the text, between the
+ * format's shortest and tallest card. The type is as large as fits (short
+ * quotes read large), down to the smallest size. No page, page number or
+ * surrounding text; the edition credit only when it names a translation or
+ * rewording. Null when the whole highlight does not fit even the tallest card
+ * at the smallest size: the page layout then takes it (the desktop spread, or
+ * the page's 75% floor and sentence cut), so a long quote never loses words
+ * that the page would have shown.
+ */
+function composeQuoteCard(content: ShareContent, options: ShareOptions, fonts: ShareFonts, passage: Paragraph[]): SharePage | null {
+  const spec = QUOTE_CARDS[options.format === 'desktop' ? 'desktop' : 'phone']
+  const credit = content.creditOnQuote === false ? '' : content.credit
+  const hasFooter = Boolean(credit) || options.tagline
+  const tallest = quoteFrame(spec, hasFooter, spec.maxHeight)
+  const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: true, leading: QUOTE_LEADING }
+  let layout: ColumnLayout | null = null
+  for (let size = spec.maxSize; size >= spec.minSize; size -= 1) {
+    const attempt = layoutColumns(passage, fonts, size, box)
+    if (attempt.fits) { layout = attempt; break }
+  }
+  if (!layout) return null
+  const chrome = spec.maxHeight - tallest.text.height
+  const height = Math.round(Math.min(spec.maxHeight, Math.max(spec.minHeight, chrome + layout.usedHeight)))
+  const frame = quoteFrame(spec, hasFooter, height)
+  return {
+    options,
+    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel, credit },
+    frame,
+    layout,
+    mode: 'quote',
+    scale: layout.fontSize / spec.maxSize,
+    cut: false,
+    offsetY: Math.max(0, (frame.text.height - layout.usedHeight) / 2),
+    pageNumbers: [],
   }
 }
 

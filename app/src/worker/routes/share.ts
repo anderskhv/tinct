@@ -36,7 +36,7 @@ export interface ShareDeps {
 }
 
 /** Bump when the drawing changes, so cached images are redrawn. */
-export const SHARE_RENDER_VERSION = '1'
+export const SHARE_RENDER_VERSION = '2'
 export const SHARE_CREATE_PER_MINUTE = 10
 export const SHARE_PREVIEW_PER_MINUTE = 40
 const IMAGE_CACHE = 'public, max-age=86400'
@@ -56,6 +56,18 @@ export function editionCredit(edition: Book['editions'][number]): string {
   if (edition.translator) return `tr. ${edition.translator}`
   if (edition.style === 'modern') return edition.language === 'en' ? 'Tinct Modern English' : `Tinct ${edition.label}`
   return edition.label
+}
+
+/**
+ * Whether the quote card (surrounding text off) keeps the credit: always,
+ * except for an author's own text labelled "Original (year)". Translations,
+ * Bible versions and Tinct's modern rewordings name whose words they are, and
+ * other labels ("Original (English)" for a translated Kierkegaard, "Benham
+ * (1886)") cannot be told apart from translations, so they keep it too.
+ */
+export function creditOnQuote(edition: Book['editions'][number]): boolean {
+  if (edition.translator || edition.style !== 'original') return true
+  return !/^Original \(\d{4}(?:[–-]\d{2,4})?\)$/.test(edition.label)
 }
 
 function asInt(value: unknown): number | null {
@@ -100,7 +112,7 @@ export async function loadShareContent(env: ShareEnv, origin: string, input: Sha
   if (!isValidShareRange(chapter.paragraphs, range)) return null
   return {
     author: book.author,
-    content: { bookTitle: book.title, chapterLabel: chapter.title, credit: editionCredit(edition), paragraphs: chapter.paragraphs, range },
+    content: { bookTitle: book.title, chapterLabel: chapter.title, credit: editionCredit(edition), creditOnQuote: creditOnQuote(edition), paragraphs: chapter.paragraphs, range },
   }
 }
 
@@ -162,7 +174,8 @@ export function shareLinkPage(input: { origin: string; record: ShareRecord; text
     + '<link rel="icon" href="/brand/20260921/favicon.svg" type="image/svg+xml">'
     + '<style>body{margin:0;background:#ece7db;color:#0b0b0b;font:18px/1.5 "EB Garamond",Georgia,serif;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 16px}img{max-width:min(100%,540px);height:auto;box-shadow:0 2px 12px rgba(60,45,25,.15)}a{color:#1f4a5c}</style>'
     + `<script src="/share-open.js" defer></script></head><body data-reader="${e(href)}">`
-    + `<img src="${e(`${url}/image.png`)}" alt="${e(title)}" width="${record.format === 'phone' ? 1080 : 1600}" height="${record.format === 'phone' ? 1350 : 1000}">`
+    // The page image has a fixed size; the quote card's height follows its text.
+    + `<img src="${e(`${url}/image.png`)}" alt="${e(title)}"${record.context ? ` width="${record.format === 'phone' ? 1080 : 1600}" height="${record.format === 'phone' ? 1350 : 1000}"` : ''}>`
     + `<a href="${e(href)}">${e(input.bookTitle)}</a>`
     + '</body></html>'
 }

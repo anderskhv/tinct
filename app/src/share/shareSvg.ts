@@ -142,7 +142,7 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
   const taglineWidth = tagline ? textWidth(fonts.italic, tagline, footer.size) : 0
   const creditWidth = credit ? textWidth(fonts.italic, credit, creditSize) : 0
   const between = tagline && credit ? footer.size * 0.9 : 0
-  let fx = (width - (taglineWidth + between + creditWidth)) / 2
+  let fx = footer.align === 'left' ? frame.padding.side : (width - (taglineWidth + between + creditWidth)) / 2
   if (tagline) { parts.push(italicRun(fx, footerBaseline, footer.size, palette.muted, tagline)); fx += taglineWidth + between }
   if (credit) parts.push(italicRun(fx, footerBaseline, creditSize, palette.faint, credit))
 

@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { tokenizeWithEmphasis } from '../lab/labEmphasis'
 import { parseFontMetrics } from './fontMetrics'
 import {
+  QUOTE_CARDS,
   SHARE_ELLIPSIS,
   buildPassage,
   composeSharePage,
@@ -112,13 +113,15 @@ describe('share highlight: fitting (SPEC.md order)', () => {
   })
 
   it('never shrinks the single desktop page; it goes to the spread instead', () => {
-    const page = composeSharePage(content(LONG), options('desktop', { context: false }), fonts)
+    const page = composeSharePage(content(LONG), options('desktop', { tagline: false }), fonts)
     expect(page.mode).toBe('spread')
+    expect(page.frame.canvas).toEqual({ width: 1600, height: 1000 })
   })
 
-  it('centres a quote shown alone', () => {
-    const page = composeSharePage(content(SHORT), options('phone', { context: false }), fonts)
-    expect(page.offsetY).toBeGreaterThan(100)
+  it('centres a quote shown alone in the link preview', () => {
+    const page = composeSharePage(content(SHORT), options('og', { context: false }), fonts)
+    expect(page.frame.canvas).toEqual({ width: 1200, height: 630 })
+    expect(page.offsetY).toBeGreaterThan(20)
     expect(page.layout.lines.flatMap(line => line.words).every(word => word.hl)).toBe(true)
   })
 
@@ -130,6 +133,93 @@ describe('share highlight: fitting (SPEC.md order)', () => {
       const last = line.words[line.words.length - 1]
       expect(Math.abs(last.x + last.width - width)).toBeLessThan(0.5)
     }
+  })
+})
+
+describe('share highlight: the quote card (surrounding text off)', () => {
+  const TINY: ShareRange = { paragraphIndex: 2, fromWord: wordAt(2, 'the beauty of the dream'), endParagraphIndex: 2, toWord: wordAt(2, 'the beauty of the dream') + 5 }
+  const MEDIUM: ShareRange = { paragraphIndex: 3, fromWord: 0, endParagraphIndex: 3, toWord: tokenizeParagraph(paragraphs[3]).length }
+
+  it('sizes the card to the quote: its height follows the text', () => {
+    for (const format of ['phone', 'desktop'] as const) {
+      const spec = QUOTE_CARDS[format]
+      const short = composeSharePage(content(SHORT), options(format, { context: false }), fonts)
+      const long = composeSharePage(content(MEDIUM), options(format, { context: false }), fonts)
+      for (const page of [short, long]) {
+        expect(page.mode).toBe('quote')
+        expect(page.frame.canvas.width).toBe(spec.width)
+        // The card is the text plus fixed margins, header and footer, within the format's range.
+        const chrome = page.frame.canvas.height - page.frame.text.height
+        expect(page.frame.canvas.height).toBeGreaterThanOrEqual(spec.minHeight)
+        expect(page.frame.canvas.height).toBeLessThanOrEqual(spec.maxHeight)
+        if (page.frame.canvas.height > spec.minHeight) expect(Math.abs(page.frame.canvas.height - (chrome + page.layout.usedHeight))).toBeLessThanOrEqual(1)
+        expect(page.offsetY).toBeLessThanOrEqual(page.frame.text.height / 2)
+        expect(page.frame.page).toBeUndefined()
+        expect(page.pageNumbers).toEqual([])
+        expect(page.cut).toBe(false)
+      }
+      expect(placedHighlight(short)).toBe(`${SHARE_ELLIPSIS}${shareRangeText(paragraphs, SHORT)}`)
+      expect(placedHighlight(long)).toBe(shareRangeText(paragraphs, MEDIUM))
+      expect(long.frame.canvas.height).toBeGreaterThan(short.frame.canvas.height)
+      expect(long.layout.lines.length).toBeGreaterThan(short.layout.lines.length)
+    }
+  })
+
+  it('reads a short quote large and shrinks a long one, never below the smallest size', () => {
+    for (const format of ['phone', 'desktop'] as const) {
+      const spec = QUOTE_CARDS[format]
+      const tiny = composeSharePage(content(TINY), options(format, { context: false }), fonts)
+      const long = composeSharePage(content(MEDIUM), options(format, { context: false }), fonts)
+      expect(tiny.layout.fontSize).toBe(spec.maxSize)
+      expect(long.layout.fontSize).toBeLessThan(spec.maxSize)
+      expect(long.layout.fontSize).toBeGreaterThanOrEqual(spec.minSize)
+      // A quote shorter than the smallest card is centred in it.
+      expect(tiny.frame.canvas.height).toBe(spec.minHeight)
+      expect(tiny.offsetY).toBeGreaterThan(0)
+      // Every line stays inside the margins.
+      for (const line of [...tiny.layout.lines, ...long.layout.lines]) {
+        const last = line.words[line.words.length - 1]
+        expect(last.x + last.width).toBeLessThanOrEqual(long.frame.text.width + 0.5)
+      }
+    }
+  })
+
+  it('hands a quote too long for the card to the page, which never loses more words', () => {
+    // Desktop: the spread shows all of it, as before the card existed.
+    const desktop = composeSharePage(content(LONG), options('desktop', { context: false }), fonts)
+    expect(desktop.mode).toBe('spread')
+    expect(desktop.cut).toBe(false)
+    expect(placedHighlight(desktop)).toBe(shareRangeText(paragraphs, LONG))
+    // Over-long anywhere: the page's 75% floor and sentence cut.
+    for (const format of ['phone', 'desktop'] as const) {
+      const page = composeSharePage(content(OVER), options(format, { context: false }), fonts)
+      expect(page.mode).not.toBe('quote')
+      expect(page.cut).toBe(true)
+      expect(page.scale).toBe(0.75)
+      const shown = placedHighlight(page)
+      expect(shown.endsWith(SHARE_ELLIPSIS)).toBe(true)
+      expect(shareRangeText(paragraphs, OVER).startsWith(shown.slice(0, -1))).toBe(true)
+      expect(/[.!?]["”’)]*$/.test(shown.slice(0, -1))).toBe(true)
+    }
+  })
+
+  it('keeps attribution small: book and chapter, the credit only for a translation, no page number', () => {
+    const own = renderShareSvg(composeSharePage({ ...content(SHORT), creditOnQuote: false }, options('desktop', { context: false }), fonts), fonts)
+    expect(own).toContain('Frankenstein')
+    expect(own).toContain('Chapter 5')
+    expect(own).toContain('Read free at tinct.app')
+    expect(own).not.toContain('Original (1831)')
+    expect(own).not.toContain('>1</text>')
+    const translated = composeSharePage({ ...content(SHORT), credit: 'World English Bible, Catholic Edition', creditOnQuote: true }, options('phone', { context: false, tagline: false }), fonts)
+    const svg = renderShareSvg(translated, fonts)
+    expect(svg).toContain('World English Bible, Catholic Edition')
+    expect(svg).not.toContain('Read free at tinct.app')
+    expect(translated.frame.header.size).toBeLessThan(translated.layout.fontSize / 2)
+    // The page (surrounding text on) always carries the credit.
+    expect(renderShareSvg(composeSharePage({ ...content(SHORT), creditOnQuote: false }, options('desktop'), fonts), fonts)).toContain('Original (1831)')
+    // With neither tagline nor credit, the card has no footer.
+    const bare = composeSharePage({ ...content(SHORT), creditOnQuote: false }, options('phone', { context: false, tagline: false }), fonts)
+    expect(bare.frame.footer.boxHeight).toBe(0)
   })
 })
 

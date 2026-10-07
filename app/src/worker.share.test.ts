@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { resetBookRetrievalCache } from './worker/lib/bookRetrieval'
-import { editionCredit, handleShareApi, handleSharePage, parseShareInput, type ShareEnv } from './worker/routes/share'
+import { creditOnQuote, editionCredit, handleShareApi, handleSharePage, parseShareInput, type ShareEnv } from './worker/routes/share'
 import type { ShareRecord, ShareRecordInput } from './worker/shareRecord'
 import { getBook } from './data/bookRegistry'
 
@@ -125,7 +125,7 @@ describe('share links', () => {
     expect(store.rows.size).toBe(0)
     expect(render).toHaveBeenCalledTimes(1)
     const [, , content, options] = render.mock.calls[0] as unknown as [unknown, unknown, { bookTitle: string; chapterLabel: string; credit: string }, { format: string; look: string; context: boolean; tagline: boolean }]
-    expect(content).toMatchObject({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5', credit: 'Original (1831)' })
+    expect(content).toMatchObject({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5', credit: 'Original (1831)', creditOnQuote: false })
     expect(options).toEqual({ format: 'phone', look: 'paper', context: true, tagline: true })
   })
 })
@@ -144,6 +144,15 @@ describe('/q/{id}', () => {
     expect(html).toContain(`data-reader="/reader?book=frankenstein&amp;edition=original-en&amp;chapter=9&amp;paragraph=1&amp;word=0&amp;share=${id}"`)
     expect(html).not.toContain('user-3')
     expect(html).not.toContain('secret@example.com')
+    expect(html).toContain('width="1080" height="1350"')
+  })
+
+  it('gives the quote card no fixed size on the link page (its height follows the text)', async () => {
+    const { env, deps, ctx } = setup()
+    const { id } = await (await handleShareApi(post({ ...valid, context: false }), env, ctx, deps)).json() as { id: string }
+    const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
+    expect(html).toContain(`<img src="https://tinct.app/q/${id}/image.png" alt=`)
+    expect(html).not.toMatch(/<img[^>]*height=/)
   })
 
   it('serves the link preview and the shared image', async () => {
@@ -176,5 +185,17 @@ describe('share input and credit', () => {
     expect(editionCredit(meditations.editions.find(e => e.key === 'original-en')!)).toBe('tr. George Long')
     expect(editionCredit(meditations.editions.find(e => e.key === 'modern-en')!)).toBe('Tinct Modern English')
     expect(editionCredit(getBook('frankenstein')!.editions.find(e => e.key === 'original-en')!)).toBe('Original (1831)')
+  })
+
+  it('keeps the credit on the quote card unless it is the author\'s own original', () => {
+    const edition = (book: string, key: string) => getBook(book)!.editions.find(e => e.key === key)!
+    expect(creditOnQuote(edition('bible', 'webc-en'))).toBe(true)
+    expect(creditOnQuote(edition('bible', 'kjv-en'))).toBe(true)
+    expect(creditOnQuote(edition('meditations', 'original-en'))).toBe(true)
+    expect(creditOnQuote(edition('meditations', 'modern-en'))).toBe(true)
+    // A translation labelled "Original (English)", and a translator only in the label.
+    expect(creditOnQuote(edition('fear-and-trembling', 'original-en'))).toBe(true)
+    expect(creditOnQuote(edition('frankenstein', 'original-en'))).toBe(false)
+    expect(creditOnQuote(edition('middlemarch', 'original-en'))).toBe(false)
   })
 })

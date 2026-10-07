@@ -1,19 +1,23 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { apiUrl } from '../utils/apiUrl'
 import { trackFunnel } from '../utils/funnel'
+import { CopyIcon, ShareIcon } from '../components/reader/SelectionPopup'
 import { readSupabaseAccessToken } from './labAuth'
 import './labShare.css'
 
 /**
  * Share a highlight as an image (docs/share-quote/SPEC.md): a preview, two
- * remembered toggles, Share… and Copy link; desktop also Copy image and
- * Download. The image is drawn by the Worker (/api/share/preview, then
- * /q/{id}/image.png) in the reader's own edition and look.
+ * remembered toggles and icon buttons. Phone: Share, Copy image and Download.
+ * Desktop: Copy image and Download only. The image is drawn by the Worker
+ * (/api/share/preview, then /q/{id}/image.png) in the reader's own edition and
+ * look; with surrounding text off it is a card sized to the quote.
  *
- * Nothing is stored until the reader taps Share… or Copy link (privacy
- * notice: "When you share a highlight, we store…"). The preview image is
- * fetched when the sheet opens, which writes nothing, so Share… can attach it
- * and Copy image and Download never create a link.
+ * Nothing is stored until the reader taps Share (privacy notice: "When you
+ * share a highlight, we store…"); where the browser has no share sheet, Share
+ * copies the link instead, which also stores it. The preview image is fetched
+ * when the sheet opens, which writes nothing, so Share can attach it and Copy
+ * image and Download never create a link. Desktop therefore never stores
+ * anything.
  */
 
 export interface LabShareTarget {
@@ -30,7 +34,12 @@ export interface LabShareTarget {
 export type LabShareLook = 'paper' | 'night' | 'eink'
 
 const PREFS_KEY = 'tinct:share-prefs'
-const LOOK_NAMES: Record<LabShareLook, string> = { paper: 'Paper', night: 'Night', eink: 'e-ink' }
+/** Before the image loads: the page's fixed size, or a typical quote card. */
+const DEFAULT_RATIO = { phone: { page: 1080 / 1350, quote: 1080 / 800 }, desktop: { page: 1600 / 1000, quote: 1600 / 800 } }
+
+function DownloadIcon() {
+  return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 9v4.5h10V9" /></svg>
+}
 
 function readPrefs(): { context: boolean; tagline: boolean } {
   try {
@@ -57,6 +66,8 @@ export function LabShareSheet({ target, look, format, onClose }: {
   const [status, setStatus] = useState('')
   const [created, setCreated] = useState<Created | null>(null)
   const [previewLoaded, setPreviewLoaded] = useState(false)
+  // The loaded image's shape, per mode: the quote card's height follows the text.
+  const [ratio, setRatio] = useState<{ context: boolean; value: number } | null>(null)
   const [preview, setPreview] = useState<{ src: string; blob: Blob } | null>(null)
   const pending = useRef<Promise<Created | null> | null>(null)
   const dialog = useRef<HTMLDivElement>(null)
@@ -143,7 +154,7 @@ export function LabShareSheet({ target, look, format, onClose }: {
     void create().then(next => {
       if (!next) { setStatus('Could not create the link. Try again.'); return }
       return openShareSheet(next).catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === 'NotAllowedError') setStatus('The link is ready. Tap Share… again.')
+        if (error instanceof DOMException && error.name === 'NotAllowedError') setStatus('The link is ready. Tap Share again.')
       })
     })
   }
@@ -194,28 +205,40 @@ export function LabShareSheet({ target, look, format, onClose }: {
     trackFunnel('share_completed', { method: 'download', book_id: target.bookId })
   }
 
+  const previewRatio = ratio?.context === prefs.context ? ratio.value : DEFAULT_RATIO[format][prefs.context ? 'page' : 'quote']
+  const onPreviewLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget
+    if (naturalWidth > 0 && naturalHeight > 0) setRatio({ context: prefs.context, value: naturalWidth / naturalHeight })
+    setPreviewLoaded(true)
+  }
+
   return (
     <div className="lab-share-layer" data-testid="lab-share-sheet" onClick={event => { if (event.target === event.currentTarget) onClose() }}>
       <div className={`lab-share-sheet is-${format}`} role="dialog" aria-modal="true" aria-label="Share highlight" tabIndex={-1} ref={dialog}>
-        <button type="button" className="lab-share-close" aria-label="Close" onClick={onClose}>×</button>
-        <div className={`lab-share-preview is-${format}${previewLoaded ? ' is-loaded' : ''}`}>
-          <img src={previewSrc} alt="Preview of the image" data-testid="lab-share-preview" onLoad={() => setPreviewLoaded(true)} />
+        <button type="button" className="lab-share-close" aria-label="Close" title="Close" onClick={onClose}>×</button>
+        <div className={`lab-share-preview${previewLoaded ? ' is-loaded' : ''}`} style={{ aspectRatio: String(previewRatio) }}>
+          <img src={previewSrc} alt="Preview of the image" data-testid="lab-share-preview" onLoad={onPreviewLoad} />
         </div>
-        <label className="lab-share-toggle">Show surrounding text<input type="checkbox" checked={prefs.context} onChange={toggle('context')} data-testid="lab-share-context" /><span aria-hidden="true" /></label>
-        <label className="lab-share-toggle">Add &quot;Read free at tinct.app&quot;<input type="checkbox" checked={prefs.tagline} onChange={toggle('tagline')} data-testid="lab-share-tagline" /><span aria-hidden="true" /></label>
-        <div className="lab-share-buttons">
-          <button type="button" className="is-primary" onClick={onShare} data-testid="lab-share-native">Share…</button>
-          <button type="button" onClick={() => void copyLink()} data-testid="lab-share-copy-link">Copy link</button>
-        </div>
-        {format === 'desktop' && (
-          <div className="lab-share-buttons">
-            <button type="button" onClick={() => void copyImage()} data-testid="lab-share-copy-image">Copy image</button>
-            <button type="button" onClick={download} data-testid="lab-share-download">Download</button>
+        <div className="lab-share-bar">
+          <div className="lab-share-options">
+            <label className="lab-share-chip" title="Show surrounding text">
+              <input type="checkbox" checked={prefs.context} onChange={toggle('context')} aria-label="Show surrounding text" data-testid="lab-share-context" />
+              <span>Surrounding text</span>
+            </label>
+            <label className="lab-share-chip" title='Add "Read free at tinct.app"'>
+              <input type="checkbox" checked={prefs.tagline} onChange={toggle('tagline')} aria-label='Add "Read free at tinct.app"' data-testid="lab-share-tagline" />
+              <span>tinct.app</span>
+            </label>
           </div>
-        )}
-        <p className="lab-share-status" role="status" aria-live="polite" data-testid="lab-share-status">
-          {status || `Uses your edition (${target.editionLabel.replace(/[()]/g, '')}) and look (${LOOK_NAMES[look]}). Both settings are remembered for next time.`}
-        </p>
+          <div className="lab-share-actions">
+            {format === 'phone' && (
+              <button type="button" className="is-primary" onClick={onShare} aria-label="Share" title="Share" data-testid="lab-share-native"><ShareIcon /></button>
+            )}
+            <button type="button" onClick={() => void copyImage()} aria-label="Copy image" title="Copy image" data-testid="lab-share-copy-image"><CopyIcon /></button>
+            <button type="button" onClick={download} aria-label="Download image" title="Download image" data-testid="lab-share-download"><DownloadIcon /></button>
+          </div>
+        </div>
+        <p className="lab-share-status" role="status" aria-live="polite" data-testid="lab-share-status">{status}</p>
       </div>
     </div>
   )
