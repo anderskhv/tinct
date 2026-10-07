@@ -946,6 +946,54 @@ export function labSwipeCompareSwap(
   return Math.abs(deltaY) > Math.abs(deltaX) * 1.2
 }
 
+/**
+ * The page-turn zone a selection drag is in: the outer horizontal edges of a
+ * desktop spread, the top and bottom of a phone page. Holding the finger there
+ * extends the selection across the page.
+ */
+export function labSelectionEdgeDirection(
+  clientX: number,
+  clientY: number,
+  bounds: { left: number, right: number, top: number, bottom: number },
+  spread: boolean,
+  zonePx: number,
+): LabPageTurnDirection | null {
+  if (spread) return clientX >= bounds.right - zonePx ? 1 : clientX <= bounds.left + zonePx ? -1 : null
+  return clientY >= bounds.bottom - zonePx ? 1 : clientY <= bounds.top + zonePx ? -1 : null
+}
+
+/**
+ * Whether a selection that starts at this point may turn the page by holding
+ * at an edge straight away. Not when it starts inside a zone: the first line
+ * of a phone page sits in the top zone, so long-pressing its first word and
+ * dragging along the line turned back a page mid-selection (Anders,
+ * 2026-10-07, Esther 10). The finger must leave the zone first; coming back
+ * to it is then a deliberate reach for the next page.
+ */
+export function labSelectionEdgeArmedAt(
+  clientX: number,
+  clientY: number,
+  bounds: { left: number, right: number, top: number, bottom: number },
+  spread: boolean,
+  zonePx: number,
+): boolean {
+  return labSelectionEdgeDirection(clientX, clientY, bounds, spread, zonePx) == null
+}
+
+/**
+ * A finger swipe or edge tap turns the page only while nothing is selected.
+ * The reader's own selection is tracked in state; a native browser selection
+ * inside the page (an iOS long-press the page did not catch) counts too, so a
+ * drag that extends it is never read as a swipe.
+ */
+export function labNativeSelectionBlocksTurn(
+  selection: Pick<Selection, 'isCollapsed' | 'rangeCount' | 'anchorNode' | 'focusNode'> | null | undefined,
+  surface: Pick<Node, 'contains'> | null | undefined,
+): boolean {
+  if (!selection || !surface || selection.isCollapsed || selection.rangeCount === 0) return false
+  return surface.contains(selection.anchorNode) || surface.contains(selection.focusNode)
+}
+
 /** Short taps in the outer thirds turn pages; the centre remains selection-safe. */
 export function labTapPageDirection(
   clientX: number,

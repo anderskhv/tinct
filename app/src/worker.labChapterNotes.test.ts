@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { RECAP_FAST_MODEL } from './companionModel'
-import { CHAPTER_NOTES_PROMPT_VERSION, parseChapterNotesBeats } from './chapterNotes'
+import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
+import { CHAPTER_NOTES_PROMPT_VERSIONS, chapterNotesCacheKey, parseChapterNotesBeats } from './chapterNotes'
 import { resetBookRetrievalCache, type ChapterText } from './worker/lib/bookRetrieval'
-import { CHAPTER_NOTES_MAX_TOKENS, handleLabChapterNotes, parseChapterNotesRequest } from './worker/routes/labChapterNotes'
+import { CHAPTER_NOTES_MAX_TOKENS, CHAPTER_NOTES_MODEL, CHAPTER_NOTES_SYSTEM, handleLabChapterNotes, parseChapterNotesRequest } from './worker/routes/labChapterNotes'
 import type { RecapCache } from './worker/routes/labRecap'
 
 const chapters: Record<number, ChapterText> = {
@@ -43,12 +43,13 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(response.status).toBe(200)
     expect(await response.json()).toMatchObject({ kind: 'sofar', source: 'model', beats: [{ title: 'The creature wakes' }, { title: 'Flight' }] })
     const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
-    expect(payload).toMatchObject({ model: RECAP_FAST_MODEL, max_tokens: CHAPTER_NOTES_MAX_TOKENS })
+    expect(payload).toMatchObject({ model: RECAP_FAST_MODEL, max_tokens: CHAPTER_NOTES_MAX_TOKENS.sofar })
+    expect(payload).not.toHaveProperty('output_config')
     const user = (payload.messages as Array<{ content: string }>)[0].content
     expect(user).toContain('Victor flees.')
     expect(user).not.toContain('A LATER SECRET')
     await Promise.all(pending)
-    expect([...cache.entries.keys()][0]).toContain(`/__lab-chapter-notes/${CHAPTER_NOTES_PROMPT_VERSION}/frank/original-en/2/sofar/`)
+    expect([...cache.entries.keys()][0]).toContain(`/__lab-chapter-notes/${CHAPTER_NOTES_PROMPT_VERSIONS.sofar}/frank/original-en/2/sofar/`)
     const again = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'sofar', paragraphIndex: 1 }), env, ctx().ctx, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
     expect(await again.json()).toMatchObject({ source: 'cache' })
     expect(fetchAnthropic).toHaveBeenCalledTimes(1)
@@ -63,6 +64,29 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(user).toContain('Victor studies.')
     expect(user).toContain('never reveal its events')
     expect(String(payload.system)).toMatch(/spoiler-free/)
+    expect(payload).toMatchObject({ model: COMPANION_MODEL, max_tokens: CHAPTER_NOTES_MAX_TOKENS.primer, output_config: { effort: 'low' } })
+  })
+
+  it('a primer is two beats, "Where we are" then "Watch for", in the In brief voice and spoiler-free', () => {
+    const primer = CHAPTER_NOTES_SYSTEM.primer
+    expect(primer).toMatch(/Give exactly two beats, in this order\. Never more than two beats\./)
+    expect(primer).toMatch(/titled "Where we are" and says, from the PREVIOUS chapter only, where the story stands/)
+    expect(primer).toMatch(/titled "Watch for" and gives one or two concrete pointers for the coming chapter: a person, object, place or question to keep an eye on, named specifically/)
+    expect(primer).toContain('{"beats":[{"title":"Where we are","text":"…"},{"title":"Watch for","text":"…"}]}')
+    expect(primer).toMatch(/one or two plain sentences/)
+    expect(primer).toMatch(/Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter/)
+    expect(primer).toContain('"Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed"')
+    expect(primer).toMatch(/Never use the verbs list, record, document, establish, detail, reveal or examine/)
+    expect(primer).toMatch(/Do not invent meaning, motives or symbolism/)
+    expect(primer).toMatch(/State only facts the text gives; when unsure of a name or number, leave it out\./)
+    expect(primer).toMatch(/no morals or aphorisms, no "we" or "us" in the text/)
+    expect(primer).not.toMatch(/"And"/)
+    expect(primer).not.toMatch(/two or three beats/)
+  })
+
+  it('the sheet takes a two-beat primer as it comes', () => {
+    const two = { beats: [{ title: 'Where we are', text: 'Victor has fled the room.' }, { title: 'Watch for', text: 'Watch Clerval at the coach.' }] }
+    expect(parseChapterNotesBeats(two)).toEqual(two.beats)
   })
 
   it('malformed model output is a 502, never cached; no spend reservation is a calm 503', async () => {
@@ -72,6 +96,61 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(cache.entries.size).toBe(0)
     const resting = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, ctx().ctx, allow, { cache, fetchAnthropic: anthropic(), reserveGuestSpend: async () => false })
     expect(resting.status).toBe(503)
+  })
+
+  it('"in brief" asks each beat for what happens plus one text-grounded observation, in the same JSON shape', () => {
+    const end = CHAPTER_NOTES_SYSTEM.end
+    expect(end).toContain('{"beats":[{"title":"…","text":"…"}]}')
+    expect(end).toMatch(/Give three or four beats, in order/)
+    expect(end).toMatch(/Never more than four beats\./)
+    expect(end).toMatch(/Never a generic label such as "Priests Listed", "Records Kept"/)
+    expect(end).toMatch(/The first says what happens\. The second points out one specific thing in the text a reader would not get from a table of contents/)
+    expect(end).toMatch(/telling detail, a surprising number or name, a tension, an irony, something left out/)
+    expect(end).toMatch(/echo of something earlier/)
+    expect(end).toMatch(/Do not invent facts, motives or symbolism/)
+    expect(end).toMatch(/State only facts the text gives; when unsure of a name or number, leave it out\./)
+    expect(end).toMatch(/Never use the verbs list, record, document, establish or detail/)
+    expect(end).toMatch(/For genealogies, rolls and other lists, the interesting thing is in the specifics/)
+    expect(end).toMatch(/Nothing from later chapters/)
+    expect(end).toMatch(/no morals or aphorisms, no "we" or "us"/)
+    expect(end).toMatch(/not X but Y/)
+    // The example is invented, from no real book, so it cannot leak into a card.
+    expect(end).toMatch(/Example beat \(from a different book, for tone only\)/)
+    expect(end).not.toMatch(/Nehemiah|Jerusalem|Choirs/)
+    // The bland-summary rule belongs to "so far" only.
+    expect(end).not.toMatch(/no interpretation/)
+    expect(CHAPTER_NOTES_SYSTEM.sofar).toMatch(/No praise, no interpretation/)
+    // The example beat itself fits the parser's bounds untouched.
+    const example = JSON.parse(end.slice(end.lastIndexOf('{"title"'), end.lastIndexOf('}') + 1))
+    expect(example.title).toBe('The Letter in the Drawer')
+    expect(parseChapterNotesBeats({ beats: [example] })).toEqual([example])
+  })
+
+  it('In brief and Primer use the companion Sonnet model, "so far" stays on the fast model', async () => {
+    expect(CHAPTER_NOTES_MODEL).toEqual({ sofar: RECAP_FAST_MODEL, end: COMPANION_MODEL, primer: COMPANION_MODEL })
+    const fetchAnthropic = anthropic()
+    await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, ctx().ctx, allow, { cache: null, fetchAnthropic, reserveGuestSpend: spend })
+    const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+    expect(payload).toMatchObject({ model: COMPANION_MODEL, max_tokens: CHAPTER_NOTES_MAX_TOKENS.end, output_config: { effort: 'low' } })
+    expect(CHAPTER_NOTES_MAX_TOKENS.end).toBeGreaterThanOrEqual(CHAPTER_NOTES_MAX_TOKENS.sofar)
+  })
+
+  it('new prompts are new cache versions: old In brief and three-beat primers are never served', async () => {
+    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v1', end: 'notes-v3', primer: 'notes-v2' })
+    const base = { bookId: 'bible', editionKey: 'original-en', chapterNumber: 12 }
+    expect(chapterNotesCacheKey({ ...base, kind: 'end' })).toBe('notes-v3/bible/original-en/12/end/all')
+    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v2/bible/original-en/12/primer/all')
+    const threeBeatPrimer = JSON.stringify({ beats: [{ title: 'Where we are', text: 'a' }, { title: 'Watch for', text: 'b' }, { title: 'And', text: 'c' }] })
+    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2']], ['primer', ['notes-v1']]] as const) {
+      const cache = fakeCache(); const fetchAnthropic = anthropic(); const { ctx: c, pending } = ctx()
+      for (const version of old) cache.entries.set(`https://tinct.app/__lab-chapter-notes/${version}/frank/original-en/2/${kind}/all`, kind === 'primer' ? threeBeatPrimer : beatsJson)
+      const response = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind }), env, c, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
+      expect(await response.json()).toMatchObject({ kind, source: 'model', beats: JSON.parse(beatsJson).beats })
+      const [payload] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>]
+      expect(payload.system).toBe(CHAPTER_NOTES_SYSTEM[kind])
+      await Promise.all(pending)
+      expect(cache.entries.has(`https://tinct.app/__lab-chapter-notes/${CHAPTER_NOTES_PROMPT_VERSIONS[kind]}/frank/original-en/2/${kind}/all`)).toBe(true)
+    }
   })
 
   it('bounds beats: at most four, each title and text trimmed and non-empty', () => {

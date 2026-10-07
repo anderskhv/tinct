@@ -63,3 +63,8 @@ export function saveExplanation(entry: Omit<StoredExplanation, 'at'>, now = Date
 export function chapterNotesText(title: string, beats: ChapterNotesBeat[]): string {
   return [title, ...beats.map(beat => `${beat.title}: ${beat.text}`)].join('\n')
 }
+
+/** The card as plain text for Copy: its title, then each beat's title and text, blocks separated by blank lines. */
+export function chapterNotesPlainText(title: string, beats: ChapterNotesBeat[]): string {
+  return [title, ...beats.map(beat => `${beat.title}\n${beat.text}`)].join('\n\n')
+}

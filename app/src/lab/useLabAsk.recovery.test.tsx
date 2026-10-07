@@ -298,7 +298,9 @@ it('reuses speculative explanations and imports their context only on explicit C
   expect(result.current.turns.map(turn => turn.role)).toEqual(['user', 'assistant'])
   await act(async () => { await result.current.sendTyped('Go deeper') })
   const body = JSON.parse(fetcher.mock.calls[1][1].body)
-  expect(body.messages.some((message: { role: string; content: string }) => message.role === 'assistant' && message.content === answer)).toBe(true)
+  // The explanation travels as context the reader was shown, never as the companion's own turn.
+  expect(body.messages.some((message: { role: string; content: string }) => message.role === 'assistant' && message.content === answer)).toBe(false)
+  expect(body.companion.shownExplanations).toEqual([{ passage: input.text, text: answer }])
 })
 
 it('never spends guest allowance or opens an account prompt during speculation', async () => {
@@ -345,8 +347,61 @@ it('records a displayed explanation once and sends it as context for the next qu
  await act(async () => { await result.current.sendTyped('Why did you say that?') })
  const bodies = fetcher.mock.calls.filter(([, init]) => init?.body).map(([, init]) => JSON.parse(init.body))
  const chat = bodies.find(body => body.messages)
- expect(JSON.stringify(chat.messages)).toContain('A specific explanation of this passage.')
- expect(JSON.stringify(chat.messages)).toContain('Selected passage')
+ expect(chat.companion.shownExplanations).toEqual([{ passage: 'Selected passage', text: 'A specific explanation of this passage.' }])
+ const system = buildCompanionSystem(parseCompanionRequest(chat.companion)!)
+ expect(system).toContain('A specific explanation of this passage.')
+ expect(system).toContain('Passage: "Selected passage"')
+})
+
+it('frames a kept explanation as unverified and to be corrected gently, while chat still shows it', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const { result } = renderHook(() => useLabAsk(base))
+ await act(async () => { await result.current.sendTyped('Who is Ammon?') })
+ act(() => result.current.keepExplanation('Of the children of Ammon.', 'Ammon was a city in Egypt.', 0))
+ // Visible thread unchanged: the prompt line and the explanation as before.
+ expect(result.current.turns.slice(-2).map(turn => [turn.role, turn.content])).toEqual([['user', 'Explain this passage.'], ['assistant', 'Ammon was a city in Egypt.']])
+ await act(async () => { await result.current.sendTyped('Tell me more') })
+ const body = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+ // The ordinary conversation stays as it was, alternating, minus the explanation pair.
+ expect(body.messages.map((message: { role: string }) => message.role)).toEqual(['user', 'assistant', 'user'])
+ expect(JSON.stringify(body.messages)).not.toContain('Ammon was a city in Egypt.')
+ expect(JSON.stringify(body.messages)).not.toContain('Explain this passage.')
+ expect(body.companion).toMatchObject({ intent: 'ask', shownExplanations: [{ passage: 'Of the children of Ammon.', text: 'Ammon was a city in Egypt.' }] })
+ expect(body.system).toBeUndefined()
+ const system = buildCompanionSystem(parseCompanionRequest(body.companion)!)
+ expect(system).toContain('Explanation shown: Ammon was a city in Egypt.')
+ expect(system).toMatch(/A quicker model wrote them .* not your earlier answers\. Treat them as unverified\./)
+ expect(system).toMatch(/correct it gently in your next answer/)
+ expect(system).toContain('One nuance to add to that short explanation')
+ expect(system).toMatch(/Never contradict it silently and never ignore an error in it\./)
+})
+
+it('the flag survives a reload of the stored history', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const first = renderHook(() => useLabAsk(base))
+ act(() => first.result.current.keepExplanation('Of the children of Ammon.', 'An oracle against Ammon.', 0))
+ first.unmount()
+ const second = renderHook(() => useLabAsk(base))
+ expect(second.result.current.turns.filter(turn => turn.shownExplanation).map(turn => turn.role)).toEqual(['user', 'assistant'])
+ await act(async () => { await second.result.current.sendTyped('And then?') })
+ const body = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+ expect(body.companion.shownExplanations).toEqual([{ passage: 'Of the children of Ammon.', text: 'An oracle against Ammon.' }])
+ expect(body.messages).toHaveLength(1)
+})
+
+it('a normal chat sends no shown explanations and the system prompt has no such block', async () => {
+ const fetcher = vi.fn().mockResolvedValue(ok())
+ vi.stubGlobal('fetch', fetcher)
+ const { result } = renderHook(() => useLabAsk(base))
+ await act(async () => { await result.current.sendTyped('Who is Kedar?') })
+ await act(async () => { await result.current.sendTyped('And Hazor?') })
+ const body = JSON.parse(fetcher.mock.calls.at(-1)![1].body)
+ expect(body.companion).not.toHaveProperty('shownExplanations')
+ expect(body.messages.map((message: { role: string }) => message.role)).toEqual(['user', 'assistant', 'user'])
+ expect(body.messages[1].content).toContain('Jeremiah 49 collects oracles')
+ expect(buildCompanionSystem(parseCompanionRequest(body.companion)!)).not.toMatch(/Explanations the reader was shown|Explanation shown|quicker model/)
 })
 
 it('requests a fresh explanation after remount', async () => {

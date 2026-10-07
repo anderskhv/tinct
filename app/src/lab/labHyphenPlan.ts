@@ -13,7 +13,8 @@
  * column, and walked line by line. A line is offered a hyphen only when
  * justifying it without one would space its words beyond `PLAN_GAP_EM`, never
  * as the third hyphenated line in a row, and only at a dictionary break whose
- * head (with its hyphen) actually fits the room the line has. The chosen
+ * head (with its hyphen) actually fits the room the line has; a verse number
+ * that starts the next line moves up only with the head of its word. The chosen
  * break becomes a discretionary hyphen inside that one word, drawn as CSS
  * generated content (`.lab-syl::after`), so a word's text, a copy, a
  * selection, a highlight and every word index are exactly as before. The
@@ -260,12 +261,20 @@ export function planParagraph(
     // the allowance is kept for the worst lines rather than spent on the first.
     if (!line.endsSplit && line.items >= 2 && run < PLAN_MAX_RUN && !next.startsSplit && !plan.has(next.first)
       && (space + room / (line.items - 1)) / fontSize > (run > 0 ? secondGapEm : gapEm)) {
-      const wordIndex = next.first
+      // A verse number is welded to the word after it (a no-break space, in
+      // one `.lab-verse-unit`), so a line that ends before "⁶ Shemaiah" can
+      // only take the number together with the head of that word ("⁶ She-"),
+      // measured from the number; never the number alone (Nehemiah 12,
+      // Anders, iPhone, Oct 2026).
+      const lead = isLabVerseMarker(words[next.first]?.text ?? '') && next.first + 1 < words.length ? next.first : -1
+      const wordIndex = lead >= 0 ? lead + 1 : next.first
       const span = lines.spans()[wordIndex]
-      const node = span && wordTextNode(span, words[wordIndex]?.text ?? '')
-      const points = node ? breaksOf(wordIndex) : []
+      const leadSpan = lead >= 0 ? lines.spans()[lead] : undefined
+      const node = span && (lead < 0 || leadSpan) ? wordTextNode(span, words[wordIndex]?.text ?? '') : null
+      const points = node && !plan.has(wordIndex) ? breaksOf(wordIndex) : []
       for (let at = points.length - 1; at >= 0; at -= 1) {
-        range.setStart(node!, 0)
+        if (leadSpan) range.setStartBefore(leadSpan)
+        else range.setStart(node!, 0)
         range.setEnd(node!, points[at])
         if (space + range.getBoundingClientRect().width + hyphen > room) continue
         plan.set(wordIndex, points[at])
@@ -315,7 +324,7 @@ export function planHyphenation(
       if (!plannable(text, words)) continue
       // Never inside a verse number or a link (a link paints its own label).
       const breaksOf = (index: number) => isLabVerseMarker(words[index].text) || wordLink(text, index, words[index].text)
-        ? [] : hyphenationBreaks(words[index].text, lang)
+        ? [] : hyphenationBreaks(words[index].text, lang, true)
       // The first layout is painted whole; each break after it is drawn in place.
       metrics ??= faceMetrics(p, parseFloat(style.fontSize) || 16)
       const plan = planParagraph(p, words, breaksOf, (current, changed) => {

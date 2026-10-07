@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -168,6 +168,35 @@ describe('lab settled page geometry', () => {
     expect(labPageGeometryChanged(settled, { width: 390, height: 720 })).toBe(true)
     expect(labPageGeometryChanged(settled, { width: 390.5, height: 843.5 })).toBe(false)
     expect(labPageGeometryChanged(null, settled)).toBe(false)
+  })
+})
+
+describe('selection drags never turn the page by accident', () => {
+  const page = { left: 0, right: 390, top: 100, bottom: 800 }
+  it('finds the phone page-turn zones at the top and bottom, the spread zones at the outer sides', () => {
+    expect(labSelectionEdgeDirection(200, 110, page, false, 32)).toBe(-1)
+    expect(labSelectionEdgeDirection(200, 790, page, false, 32)).toBe(1)
+    expect(labSelectionEdgeDirection(5, 400, page, false, 32)).toBeNull()
+    expect(labSelectionEdgeDirection(5, 400, page, true, 32)).toBe(-1)
+    expect(labSelectionEdgeDirection(385, 110, page, true, 32)).toBe(1)
+  })
+  it('does not arm the edge hold for a selection that starts inside a page-turn zone', () => {
+    // Esther 10, 2026-10-07: long-press on the page's first word, drag right.
+    expect(labSelectionEdgeArmedAt(80, 110, page, false, 32)).toBe(false)
+    expect(labSelectionEdgeArmedAt(80, 790, page, false, 32)).toBe(false)
+    expect(labSelectionEdgeArmedAt(80, 400, page, false, 32)).toBe(true)
+    expect(labSelectionEdgeArmedAt(5, 400, page, true, 32)).toBe(false)
+  })
+  it('treats a native selection inside the page as a selection, and nothing else', () => {
+    const inside = {} as Node, outside = {} as Node
+    const surface = { contains: (node: Node | null) => node === inside }
+    const sel = (over: Partial<Selection>) => ({ isCollapsed: false, rangeCount: 1, anchorNode: inside, focusNode: inside, ...over }) as Selection
+    expect(labNativeSelectionBlocksTurn(sel({}), surface)).toBe(true)
+    expect(labNativeSelectionBlocksTurn(sel({ anchorNode: outside }), surface)).toBe(true)
+    expect(labNativeSelectionBlocksTurn(sel({ isCollapsed: true }), surface)).toBe(false)
+    expect(labNativeSelectionBlocksTurn(sel({ rangeCount: 0 }), surface)).toBe(false)
+    expect(labNativeSelectionBlocksTurn(sel({ anchorNode: outside, focusNode: outside }), surface)).toBe(false)
+    expect(labNativeSelectionBlocksTurn(null, surface)).toBe(false)
   })
 })
 

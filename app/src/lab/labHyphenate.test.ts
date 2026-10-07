@@ -8,6 +8,7 @@ import {
   hyphenatorReady,
   loadHyphenator,
   longestBreakWithin,
+  pageEdgeBreaks,
 } from './labHyphenate'
 
 /** Render a token with a break applied, the way a page edge shows it. */
@@ -91,6 +92,43 @@ describe('English breaks', () => {
 
   it('keeps an apostrophised word in one piece it can still break', () => {
     expect(hyphenationBreaks("heaven's", 'en').every(at => at > 0)).toBe(true)
+  })
+})
+
+describe('guessed breaks for words the patterns leave whole (phone reader)', () => {
+  beforeAll(async () => { await loadHyphenator('en') })
+
+  it('breaks the Nehemiah 12 names the dictionary leaves whole, only when asked to guess', () => {
+    for (const name of ['Amariah', 'Zechariah', 'Hilkiah']) {
+      expect(hyphenationBreaks(name, 'en')).toEqual([])
+    }
+    expect(hyphenationBreaks('Zechariah', 'en', true).map(at => split('Zechariah', at))).toEqual(['Zech-|ariah', 'Zecha-|riah'])
+    expect(hyphenationBreaks('Amariah,', 'en', true).map(at => split('Amariah,', at))).toEqual(['Ama-|riah,'])
+    expect(hyphenationBreaks('Hilkiah', 'en', true).map(at => split('Hilkiah', at))).toEqual(['Hil-|kiah'])
+    // The patterns already break a possessive ("Zechari-ah’s"), so the guess never touches it.
+    expect(hyphenationBreaks('Zechariah’s', 'en', true)).toEqual(hyphenationBreaks('Zechariah’s', 'en'))
+    // Desktop (no guess) and the page edge without it are unchanged.
+    expect(pageEdgeBreaks('Zechariah', 'en')).toEqual([])
+    expect(pageEdgeBreaks('Zechariah', 'en', true)).toEqual([4, 5])
+  })
+
+  it('never changes a word the dictionary breaks', () => {
+    for (const word of ['Shemaiah', 'Jeremiah', 'Zerubbabel', 'Nebuchadnezzar', 'multitudes', 'conspired', 'abundance', 'understanding', 'firmament', 'Israel', 'Jehohanan', 'Nehemiah', '“multitudes']) {
+      expect(hyphenationBreaks(word, 'en', true)).toEqual(hyphenationBreaks(word, 'en'))
+    }
+  })
+
+  it('never guesses for common English words the dictionary leaves whole on purpose', () => {
+    for (const word of ['whether', 'brother', 'started', 'thought', 'through', 'evening', 'changed', 'thereby', 'strength']) {
+      expect(hyphenationBreaks(word, 'en', true)).toEqual([])
+    }
+  })
+
+  it('never guesses in Danish, nor in an all-caps word, a hyphenated one or a verse number', () => {
+    expect(hyphenationBreaks('Zechariah', 'da', true)).toEqual([])
+    expect(hyphenationBreaks('ZECHARIAH', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('Zech-ariah', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('⁶', 'en', true)).toEqual([])
   })
 })
 

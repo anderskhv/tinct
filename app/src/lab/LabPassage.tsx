@@ -27,7 +27,7 @@ import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, i
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
-import { labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
+import { labNativeSelectionBlocksTurn, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
  *  that turns it, and how long the finger rests there first. 24px / 700ms
@@ -752,6 +752,9 @@ export function LabPassage({
       seek,
     }
     dragRef.current = drag
+    // A selection that starts inside a page-turn zone (the first line of a
+    // phone page) must leave the zone before holding there can turn a page.
+    edgeArmedRef.current = labSelectionEdgeArmedAt(event.clientX, event.clientY, event.currentTarget.getBoundingClientRect(), !!desktopSpread, LAB_EDGE_ZONE_PX)
     if (touchSelection && selectionPlace) {
       longPressRef.current = setTimeout(() => {
         if (dragRef.current !== drag) return
@@ -801,9 +804,7 @@ export function LabPassage({
     const bounds = event.currentTarget.getBoundingClientRect()
     // Desktop turns at the outer horizontal edges. Crossing the gutter from
     // the bottom of the left leaf to the top of the right must not turn.
-    const direction = desktopSpread
-      ? event.clientX >= bounds.right - LAB_EDGE_ZONE_PX ? 1 : event.clientX <= bounds.left + LAB_EDGE_ZONE_PX ? -1 : null
-      : event.clientY >= bounds.bottom - LAB_EDGE_ZONE_PX ? 1 : event.clientY <= bounds.top + LAB_EDGE_ZONE_PX ? -1 : null
+    const direction = labSelectionEdgeDirection(event.clientX, event.clientY, bounds, !!desktopSpread, LAB_EDGE_ZONE_PX)
     if (!direction) edgeArmedRef.current = true
     if (direction !== edgeDirectionRef.current) cancelEdge()
     if (direction && edgeArmedRef.current && !edgeTimerRef.current && pageTurnRef.current && !drag.comparison) {
@@ -899,6 +900,10 @@ export function LabPassage({
       onSeekToWord(drag.seek.paragraphIndex, drag.seek.wordIndex)
       return
     }
+    // A native selection inside the page (iOS can start one under a long
+    // press) is a selection too: lifting the finger from it never turns.
+    const nativeSelecting = drag.pointerType !== 'mouse'
+      && labNativeSelectionBlocksTurn(typeof window.getSelection === 'function' ? window.getSelection() : null, articleRef.current)
     const visibleHighlights = drag.comparison ? compareHighlights : highlights
     const savedHighlight = visibleHighlights.find(mark => mark.id === drag.highlightId && mark.chapterNumber === chapterNumber)
       ?? (drag.start ? highlightAt(visibleHighlights, chapterNumber, drag.start.paragraphIndex, drag.start.wordIndex) : undefined)
@@ -913,6 +918,7 @@ export function LabPassage({
       && labTapTurnAllowed(tapZones, drag.pointerType)
       && !selectingRange
       && !drag.selecting
+      && !nativeSelecting
       && Math.abs(deltaX) <= 10
       && Math.abs(deltaY) <= 10
       && duration <= 500
@@ -938,6 +944,7 @@ export function LabPassage({
       && drag.pointerType !== 'mouse'
       && !selectingRange
       && !drag.selecting
+      && !nativeSelecting
       && labSwipeCompareSwap(deltaX, deltaY)
     ) {
       dragRef.current = null
@@ -945,7 +952,7 @@ export function LabPassage({
       onCompareSwap()
       return
     }
-    const swipe = onPageTurn && !selectingRange && !drag.selecting
+    const swipe = onPageTurn && !selectingRange && !drag.selecting && !nativeSelecting
       ? labSwipePageDirection(deltaX, deltaY)
       : null
     const direction = swipe ?? tap

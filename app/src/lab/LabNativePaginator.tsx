@@ -441,7 +441,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         const breakLang = hyphenLang && hyphensReady ? hyphenLang : null
         // A heading, list item or index line is never hyphenated: at a page edge only its own dashes break.
         const wordBreaks = (paragraphIndex: number, wordIndex: number) => pageEdgeBreaks(
-          sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', paragraphKind(paragraphs[paragraphIndex]) ? null : breakLang,
+          sourceWords[paragraphIndex]?.[wordIndex]?.text ?? '', paragraphKind(paragraphs[paragraphIndex]) ? null : breakLang, true,
         )
         const end = surface.querySelector<HTMLElement>('.lab-chapter-end')
         // The block holding the last segment's words in the latest trial.

@@ -28,6 +28,7 @@ import {
   labTypedResume,
   labTypedSkip,
   labTypedSpeed,
+  separateShownExplanations,
   type AssistantPace,
   type LabAskContext,
   type LabAskTurn,
@@ -639,8 +640,12 @@ export function useLabAsk(options: UseLabAskOptions) {
       // move or resume marker it might still emit for that turn.
       const lookupConsent = affirmativeAnswersLookupOffer(text, previousAssistant)
       // The companion's window stays the last 20 turns; only the displayed history grew.
-      const history = [...(chapterRequest && chapterRequest.action.kind !== 'discuss' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
+      const windowTurns = [...(chapterRequest && chapterRequest.action.kind !== 'discuss' ? [] : contextTurns.filter(turn => turn.id !== userTurn.id)), userTurn]
         .slice(-20)
+      // A kept quick-model explanation goes to typed chat as unverified
+      // context the reader was shown, not as the companion's own answer.
+      const shownSplit = chapterRequest ? null : separateShownExplanations(windowTurns)
+      const history = (shownSplit ? shownSplit.turns : windowTurns)
         .map(turn => {
           const historicalLocation = turn.id !== userTurn.id && turn.chapterNumber != null && turn.chapterNumber !== requestChapter
             ? `\n\n[Historical message location, not the current reading position: chapter ${turn.chapterNumber}.]` : ''
@@ -672,7 +677,11 @@ export function useLabAsk(options: UseLabAskOptions) {
               ...(chapterRequest.activity ? { activity: chapterRequest.activity } : {}),
             },
           }
-        : { intent: 'ask', context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) } }
+        : {
+            intent: 'ask',
+            context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) },
+            ...(shownSplit?.shown.length ? { shownExplanations: shownSplit.shown } : {}),
+          }
       const messages: Array<{ role: string; content: string | unknown[] }> = history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message)
       // A figure asked about goes with the question, signed in only (the
       // Worker's picture path: images in the latest user turn; chatImages.ts).
@@ -840,8 +849,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     recordedExplanationsRef.current.add(identity)
     const timestamp = Date.now()
     const added: LabAskTurn[] = [
-      { id: nextId(), bookId, chapterNumber, paragraphIndex, timestamp, role: 'user', source: 'typed', content: 'Explain this passage.', highlightedText: passage },
-      { id: nextId(), bookId, chapterNumber, paragraphIndex, timestamp: timestamp + 1, role: 'assistant', source: 'typed', content: answer },
+      { id: nextId(), bookId, chapterNumber, paragraphIndex, timestamp, role: 'user', source: 'typed', content: 'Explain this passage.', highlightedText: passage, shownExplanation: true },
+      { id: nextId(), bookId, chapterNumber, paragraphIndex, timestamp: timestamp + 1, role: 'assistant', source: 'typed', content: answer, shownExplanation: true },
     ]
     setTurns(current => [...current, ...added])
     for (const turn of added) recordTurn({ ...turn, timestamp: turn.timestamp!, source: 'text', isComplete: true }, chapterNumber, paragraphIndex)

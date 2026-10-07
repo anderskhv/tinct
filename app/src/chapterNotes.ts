@@ -7,10 +7,22 @@
  * the chat feed).
  */
 export const CHAPTER_NOTES_ROUTE = '/api/lab-chapter-notes'
-export const CHAPTER_NOTES_PROMPT_VERSION = 'notes-v1'
 export const CHAPTER_NOTES_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 
 export type ChapterNotesKind = 'sofar' | 'end' | 'primer'
+
+/**
+ * Prompt version per kind, the first segment of every cache key (Worker and
+ * device). Bump a kind's version when its prompt changes so cards written by
+ * the old prompt are never served again; the other kinds keep their caches.
+ * 2026-10-07: `end` v2 adds one text-grounded observation per beat, v3 is the
+ * tested prompt on Sonnet; `primer` v2 is two beats on Sonnet (no "And").
+ */
+export const CHAPTER_NOTES_PROMPT_VERSIONS: Readonly<Record<ChapterNotesKind, string>> = Object.freeze({
+  sofar: 'notes-v1',
+  end: 'notes-v3',
+  primer: 'notes-v2',
+})
 export interface ChapterNotesBeat { title: string; text: string }
 
 export interface ChapterNotesRequest {
@@ -52,5 +64,5 @@ export function parseChapterNotesBeats(raw: unknown): ChapterNotesBeat[] | null 
 }
 
 export function chapterNotesCacheKey(input: { bookId: string; editionKey: string; chapterNumber: number; kind: ChapterNotesKind; through?: number | null }): string {
-  return `${CHAPTER_NOTES_PROMPT_VERSION}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${input.kind}/${input.through ?? 'all'}`
+  return `${CHAPTER_NOTES_PROMPT_VERSIONS[input.kind]}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${input.kind}/${input.through ?? 'all'}`
 }

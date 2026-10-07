@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
-import { fetchChapterNotes, storedChapterNotes } from './labChapterNotes'
+import { chapterNotesPlainText, fetchChapterNotes, storedChapterNotes } from './labChapterNotes'
 import { RowIcon } from './LabSuperMenu.tsx'
+import { CopyIcon } from '../components/reader/SelectionPopup'
 import { useReaderWindow } from './useReaderWindow'
 import './labCatchUp.css'
 
@@ -23,7 +24,28 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk }
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
   const mounted = useRef(true)
-  useEffect(() => () => { mounted.current = false }, [])
+  // Set on every mount: React's development double mount runs the cleanup once.
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
+  const [copied, setCopied] = useState(false)
+  const copiedTimer = useRef<number | undefined>(undefined)
+  useEffect(() => () => window.clearTimeout(copiedTimer.current), [])
+
+  // The clipboard write starts inside the tap itself: iOS Safari grants
+  // clipboard access only during the gesture. Nothing here touches the page
+  // behind the sheet, so the reading place stays where it was.
+  const copy = () => {
+    if (!beats) return
+    const text = chapterNotesPlainText(title, beats)
+    const confirm = () => {
+      if (!mounted.current) return
+      setCopied(true)
+      window.clearTimeout(copiedTimer.current)
+      copiedTimer.current = window.setTimeout(() => { if (mounted.current) setCopied(false) }, 2000)
+    }
+    if (navigator.clipboard?.writeText) {
+      void navigator.clipboard.writeText(text).then(confirm, () => { if (copyBySelection(text)) confirm() })
+    } else if (copyBySelection(text)) confirm()
+  }
 
   const load = useCallback(() => {
     setState('loading')
@@ -73,8 +95,35 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk }
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-chat" aria-label="Chat" onClick={() => onChat(title, beats)}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-talk" aria-label="Talk" onClick={() => onTalk(title, beats)}><RowIcon id="talk" /></button>
+          {state === 'ok' && beats && (
+            <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-copy" aria-label={copied ? 'Copied' : 'Copy'} onClick={copy}>
+              {copied ? <span aria-hidden="true">✓</span> : <CopyIcon />}
+            </button>
+          )}
         </div>
       </section>
     </div>
   )
+}
+
+/** Older browsers without the async clipboard: copy from an off-screen field
+ *  that never scrolls the page. */
+function copyBySelection(text: string): boolean {
+  if (typeof document === 'undefined' || typeof document.execCommand !== 'function') return false
+  const active = document.activeElement instanceof HTMLElement ? document.activeElement : null
+  const field = document.createElement('textarea')
+  field.value = text
+  field.setAttribute('readonly', '')
+  field.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;'
+  document.body.appendChild(field)
+  try {
+    field.focus({ preventScroll: true })
+    field.setSelectionRange(0, text.length)
+    return document.execCommand('copy')
+  } catch {
+    return false
+  } finally {
+    field.remove()
+    active?.focus({ preventScroll: true })
+  }
 }

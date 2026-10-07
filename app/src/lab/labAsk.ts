@@ -22,6 +22,34 @@ export interface LabAskTurn {
   /** Passage the reader attached to this question. Kept separate from the visible question. */
   highlightedText?: string
   cancelled?: boolean
+  /** A quick-model explanation (Explain, or a chapter-notes card) carried into
+   *  the conversation. Shown as before; the companion receives it as unverified
+   *  context, never as its own earlier answer (see separateShownExplanations). */
+  shownExplanation?: boolean
+}
+
+/**
+ * Splits the explanation turns `keepExplanation` inserted out of the
+ * conversation sent to the companion. Their prompt line ("Explain this
+ * passage.") is dropped and each explanation travels on its own, with the
+ * passage it explained, so the Worker can frame it as something the reader
+ * was shown rather than something the companion said.
+ */
+export function separateShownExplanations<T extends Pick<LabAskTurn, 'role' | 'content' | 'highlightedText' | 'shownExplanation' | 'cancelled'>>(turns: T[]): {
+  turns: T[]
+  shown: Array<{ passage?: string; text: string }>
+} {
+  const kept: T[] = []
+  const shown: Array<{ passage?: string; text: string }> = []
+  let passage: string | undefined
+  for (const turn of turns) {
+    if (!turn.shownExplanation) { kept.push(turn); passage = undefined; continue }
+    if (turn.role === 'user') { passage = turn.highlightedText?.trim() || undefined; continue }
+    const text = turn.content.trim()
+    if (text && !turn.cancelled) shown.push({ ...(passage ? { passage } : {}), text })
+    passage = undefined
+  }
+  return { turns: kept, shown }
 }
 
 const LAB_GREETING_LINE = "I'm listening."

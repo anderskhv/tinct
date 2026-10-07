@@ -30,6 +30,8 @@ interface Hyphenator { hyphenate: (word: string) => string[] }
 
 const engines = new Map<HyphenLang, Hyphenator>()
 const loading = new Map<HyphenLang, Promise<void>>()
+/** labSyllableFallback's guess, loaded with the English patterns (not in the first bytes). */
+let guessBreaks: ((word: string) => number[]) | null = null
 
 /** The reading language of an edition key such as `modern-da` / `original-en`. */
 export function hyphenLangForEdition(editionKey: string | null | undefined): HyphenLang | null {
@@ -49,10 +51,12 @@ export function loadHyphenator(lang: HyphenLang): Promise<void> {
   const existing = loading.get(lang)
   if (existing) return existing
   const task = (async () => {
-    const [{ default: Hypher }, patterns] = await Promise.all([
+    const [{ default: Hypher }, patterns, fallback] = await Promise.all([
       import('hypher'),
       lang === 'da' ? import('hyphenation.da') : import('hyphenation.en-us'),
+      lang === 'en' ? import('./labSyllableFallback') : null,
     ])
+    if (fallback) guessBreaks = fallback.fallbackBreaks
     const Engine = Hypher as unknown as new (p: unknown) => Hyphenator
     engines.set(lang, new Engine((patterns as { default: unknown }).default ?? patterns))
   })().catch(() => { /* stay unhyphenated rather than break the reader */ })
@@ -77,11 +81,12 @@ function core(token: string): { text: string; offset: number } | null {
  * An offset of 3 on "multitudes" means "mul-" ends the line and "titudes"
  * begins the next.
  *
- * Returns nothing — never a guess — for anything a break would damage: a token
- * with digits (verse numbers), one too short to split, a language whose
- * patterns have not loaded, or a word the patterns decline to break.
+ * Returns nothing for anything a break would damage: a token with digits
+ * (verse numbers), one too short to split, a language whose patterns have
+ * not loaded. A word the patterns decline to break gets only the cautious
+ * rule-based guess of labSyllableFallback (English), and only with `guess`.
  */
-export function hyphenationBreaks(token: string, lang: HyphenLang): number[] {
+export function hyphenationBreaks(token: string, lang: HyphenLang, guess = false): number[] {
   const engine = engines.get(lang)
   if (!engine || !token || /\d/.test(token)) return []
   // A word that already contains a hyphen is left alone. Breaking "well-known"
@@ -93,7 +98,16 @@ export function hyphenationBreaks(token: string, lang: HyphenLang): number[] {
   if (!piece || piece.text.length < HYPHEN_MIN_WORD) return []
   let parts: string[]
   try { parts = engine.hyphenate(piece.text) } catch { return [] }
-  if (parts.length < 2) return []
+  // With `guess` (the phone reader, which places its own hyphens), a word the
+  // patterns do not break at all (a name, often: "Zechariah", "Kutuzov") gets
+  // the rule-based guess instead, English only and held to stricter minimums
+  // (labSyllableFallback). A word they break is never guessed at. A
+  // possessive they leave whole is guessed on the bare name.
+  if (parts.length < 2) {
+    if (!guess || lang !== 'en' || !guessBreaks) return []
+    const bare = piece.text.replace(/['’]s$/, '')
+    return guessBreaks(bare).map(at => piece.offset + at)
+  }
   const breaks: number[] = []
   let head = 0
   for (let index = 0; index < parts.length - 1; index += 1) {
@@ -135,11 +149,13 @@ export function hardBreaks(token: string): number[] {
 
 /**
  * Every break a page edge may use, ascending: the book's own dashes always,
- * and dictionary hyphenation once a language's patterns are in memory.
+ * and dictionary hyphenation once a language's patterns are in memory
+ * (with `guess`, as the phone reader asks, also labSyllableFallback's guess
+ * for a word the patterns leave whole; desktop keeps the dictionary only).
  */
-export function pageEdgeBreaks(token: string, lang: HyphenLang | null): number[] {
+export function pageEdgeBreaks(token: string, lang: HyphenLang | null, guess = false): number[] {
   const hard = hardBreaks(token)
-  const soft = lang ? hyphenationBreaks(token, lang) : []
+  const soft = lang ? hyphenationBreaks(token, lang, guess) : []
   if (hard.length === 0) return soft
   return [...new Set([...hard, ...soft])].sort((a, b) => a - b)
 }
