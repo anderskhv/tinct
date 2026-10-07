@@ -177,7 +177,17 @@ describe('readerBootTheme', () => {
   })
 
   it('paints LabApp’s own paper colours', () => {
-    expect(LAB_THEME_PAPER).toEqual({ light: '#f2eee4', book: '#e7dcc7', dark: '#171411' })
+    expect(LAB_THEME_PAPER).toEqual({ light: '#ece7db', book: '#e7dcc7', dark: '#171411' })
+  })
+
+  // The status bar of a home-screen app takes this colour, so it must be the
+  // page's own paper, not a near match.
+  it('matches the reader page’s paper in every theme', () => {
+    const css = fs.readFileSync(path.join(__dirname, 'lab.css'), 'utf8')
+    const paper = (selector: string) => css.match(new RegExp(`^${selector.replace(/\./g, '\\.')} \\{\\s*--lab-paper: (#[0-9a-f]{6});`, 'm'))?.[1]
+    expect(paper('.lab')).toBe(LAB_THEME_PAPER.light)
+    expect(paper('.lab.is-book-theme')).toBe(LAB_THEME_PAPER.book)
+    expect(paper('.lab.is-night')).toBe(LAB_THEME_PAPER.dark)
   })
 })
 

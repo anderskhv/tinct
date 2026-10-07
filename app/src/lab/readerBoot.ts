@@ -22,7 +22,7 @@ export const READER_BOOT_BIBLE_ID = 'bible'
 
 /** Paper colours per resolved theme; LabApp paints the same values. */
 export const LAB_THEME_PAPER = {
-  light: '#f2eee4',
+  light: '#ece7db',
   book: '#e7dcc7',
   dark: '#171411',
 } as const
