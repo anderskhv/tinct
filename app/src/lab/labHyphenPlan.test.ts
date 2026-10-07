@@ -140,4 +140,78 @@ describe('choosing hyphens line by line', () => {
       p.remove()
     }
   })
+
+  it('moves a verse number up with the head of its word, never alone (Nehemiah 12:6, “⁶ She-”)', () => {
+    // A fake column as above, but word 3 is a verse number welded to word 4
+    // the way the reader paints it: "⁶", then a no-break space inside the
+    // next word's span, then the word. The pair moves as one unless word 4
+    // has a planned break whose head fits.
+    const words = ['aaaaa', 'bbbbb', 'cc', '⁶', 'dddddddddd', 'ee', 'ff']
+    const p = document.createElement('p')
+    document.body.append(p)
+    const W = 200
+    p.getBoundingClientRect = () => ({ left: 0, right: W, top: 0, bottom: 0, width: W, height: 0, x: 0, y: 0, toJSON: () => ({}) }) as DOMRect
+    const rect = (left: number, w: number, l: number) => ({ left, right: left + w, top: l * 30, bottom: l * 30 + 20, width: w, height: 20 })
+    const render = (plan: Map<number, number>) => {
+      p.replaceChildren()
+      let x = 0, line = 0
+      for (let index = 0; index < words.length; index += 1) {
+        const start = x === 0 ? 0 : x + 10
+        if (index === 3) {
+          const mark = document.createElement('span')
+          mark.className = 'lab-hearing-word'
+          mark.textContent = words[3]
+          const word = document.createElement('span')
+          word.className = 'lab-hearing-word'
+          word.append(document.createTextNode(' '), document.createTextNode(words[4]))
+          p.append(mark, word)
+          const whole = 20 + words[4].length * 10
+          const at = plan.get(4)
+          let markRect, wordRects
+          if (start + whole <= W) { markRect = rect(start, 10, line); wordRects = [rect(start + 10, whole - 10, line)]; x = start + whole }
+          else if (at != null && start + 20 + at * 10 + 10 <= W) {
+            markRect = rect(start, 10, line)
+            wordRects = [rect(start + 10, 10 + at * 10 + 10, line), rect(0, (words[4].length - at) * 10, line + 1)]
+            line += 1; x = (words[4].length - at) * 10
+          } else { line += 1; markRect = rect(0, 10, line); wordRects = [rect(10, whole - 10, line)]; x = whole }
+          mark.getClientRects = () => [markRect] as unknown as DOMRectList
+          word.getClientRects = () => wordRects as unknown as DOMRectList
+          index += 1
+          continue
+        }
+        const span = document.createElement('span')
+        span.className = 'lab-hearing-word'
+        span.textContent = words[index]
+        p.append(span)
+        const width = words[index].length * 10
+        let rects: ReturnType<typeof rect>[]
+        if (start + width <= W) { rects = [rect(start, width, line)]; x = start + width }
+        else { line += 1; rects = [rect(0, width, line)]; x = width }
+        span.getClientRects = () => rects as unknown as DOMRectList
+      }
+    }
+    const range = Document.prototype.createRange
+    const box = HTMLElement.prototype.getBoundingClientRect
+    HTMLElement.prototype.getBoundingClientRect = function (this: HTMLElement) { return { width: (this.textContent || '').length * 10 } as DOMRect }
+    // A range from before the verse number covers it (10px) and the no-break space (10px).
+    document.createRange = () => {
+      const r = range.call(document)
+      r.getBoundingClientRect = () => ({ width: r.startContainer === p ? 20 + r.endOffset * 10 : (r.endOffset - r.startOffset) * 10 }) as DOMRect
+      return r
+    }
+    const asked: number[] = []
+    try {
+      const plan = planParagraph(p, words.map(text => ({ text })), index => { asked.push(index); return index === 4 ? [2, 3, 6] : [] }, render, 0.55, 0.8)
+      // Room 60px after "cc": " ⁶ dd-" is 10 + 20 + 20 + 10. " ⁶ ddd-" is not.
+      expect([...plan]).toEqual([[4, 2]])
+      expect(asked).not.toContain(3)
+      // The verse number moved up with the head: it is never left alone at a line end.
+      expect(p.querySelectorAll('.lab-hearing-word')[3].getClientRects()[0].top).toBe(0)
+      expect(p.querySelectorAll('.lab-hearing-word')[4].getClientRects()[0].top).toBe(0)
+    } finally {
+      document.createRange = range
+      HTMLElement.prototype.getBoundingClientRect = box
+      p.remove()
+    }
+  })
 })

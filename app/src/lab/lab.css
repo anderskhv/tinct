@@ -4759,6 +4759,10 @@
   hyphens: manual !important;
 }
 .lab .lab-syl::after { content: '\00AD'; }
+/* A planned break in the word welded to a verse number ("⁶ She-|maiah"): the
+   unit is nowrap, so the word holding the break wraps normally. The number
+   and the word's head stay together through the no-break space between them. */
+.lab .lab-verse-unit .lab-hearing-word:has(.lab-syl) { white-space: normal; }
 /* The planning copy is laid out ragged: its room per line is what it measures. */
 .lab .lab-hearing-line.is-hyphen-planning {
   text-align: left !important;
