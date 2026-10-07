@@ -226,6 +226,10 @@ export function normalizeChapterTitle(title, options = {}) {
   const original = title.replace(/\s+/g, ' ').trim()
   if (!original) return title
   const shouting = !hasLower(original)
+  // A title already in mixed case keeps its own words and punctuation: only number labels
+  // change ("Book I: Miss Brooke — Chapter II" -> "Book 1: Miss Brooke — Chapter 2",
+  // "II. He Gets Rid…" -> "2. He Gets Rid…"), and an ALL CAPS stretch inside it is cased.
+  if (!shouting) return keepPunctuation(original, english)
   const { head, rest } = readHead(original, english)
   let tail = convertLabels(rest, english)
   if (head) {
@@ -244,6 +248,19 @@ export function normalizeChapterTitle(title, options = {}) {
     return caps ? dropFullStop(cased) : cased
   }).join('')
   return out.trim() || original
+}
+
+/** Numbers and capitals only, for a title in mixed case; separators and full stops stay as written. */
+function keepPunctuation(original, english) {
+  let out = convertLabels(original, english)
+  // A bare Roman numeral before the name keeps its own mark: "II. Elders" -> "2. Elders".
+  const bare = out.match(/^([IVXLC]+)(\s*(?:[.:)]|[—–]|\s-))(\s*)(\S.*)$/u)
+  if (bare && smallRoman(bare[1]) && !/^\p{L}\.(\s|$)/u.test(bare[4])) out = String(romanValue(bare[1])) + bare[2] + bare[3] + bare[4]
+  const parts = out.split(/(\s*[—–:]\s*|\s+-\s+)/u)
+  return parts.map((part, index) => {
+    if (index % 2 === 1 || !part.trim()) return part
+    return !hasLower(part) && letterCount(part) >= 4 ? caseSegment(part, english) : part
+  }).join('')
 }
 
 /** `normalizeChapterTitle` over a list of chapters, returning new objects only where a title changed. */

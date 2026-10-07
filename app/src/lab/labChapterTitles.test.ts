@@ -25,11 +25,25 @@ describe('normalizeChapterTitle: never ALL CAPS, never Roman numerals', () => {
     expect(n('CANTO XXXIV')).toBe('Canto 34')
     expect(n('SECTION IX: OF THE REASON OF ANIMALS.')).toBe('Section 9 — Of the Reason of Animals')
     expect(n('Chapter i')).toBe('Chapter 1')
-    expect(n('Chap. iv.')).toBe('Chapter 4')
+    expect(n('Chap. iv.')).toBe('Chapter 4.')
     expect(n('Chapter I')).toBe('Chapter 1')
-    expect(n('Book I: Miss Brooke — Chapter II')).toBe('Book 1 — Miss Brooke — Chapter 2')
-    expect(n('Chapter 1. In which Phileas Fogg and Passepartout Accept each Other')).toBe('Chapter 1 — In which Phileas Fogg and Passepartout Accept each Other')
-    expect(n('PART ONE--The Old Buccaneer')).toBe('Part 1 — The Old Buccaneer')
+    expect(n('Book I: Miss Brooke — Chapter II')).toBe('Book 1: Miss Brooke — Chapter 2')
+    expect(n('Chapter 1. In which Phileas Fogg and Passepartout Accept each Other')).toBe('Chapter 1. In which Phileas Fogg and Passepartout Accept each Other')
+    expect(n('PART ONE--The Old Buccaneer')).toBe('Part 1--The Old Buccaneer')
+  })
+
+  it('keeps the punctuation of a title already in mixed case: only number labels and ALL CAPS stretches change', () => {
+    // Middlemarch keeps its colon and its one em dash.
+    expect(n('Book I: Miss Brooke — Chapter I')).toBe('Book 1: Miss Brooke — Chapter 1')
+    expect(n('Book VIII: Sunset And Sunrise — Chapter LXXII')).toBe('Book 8: Sunset And Sunrise — Chapter 72')
+    // The Brothers Karamazov keeps its own full stop.
+    expect(n('I. Fyodor Pavlovitch Karamazov')).toBe('1. Fyodor Pavlovitch Karamazov')
+    expect(n('XI. There Was No Money. There Was No Robbery')).toBe('11. There Was No Money. There Was No Robbery')
+    expect(n('V. So Be It! So Be It!')).toBe('5. So Be It! So Be It!')
+    // Hume: the capitals are cased, the colon and full stop stay.
+    expect(n('Section 4: SCEPTICAL DOUBTS CONCERNING THE OPERATIONS OF THE UNDERSTANDING. — Part 1')).toBe('Section 4: Sceptical Doubts Concerning the Operations of the Understanding. — Part 1')
+    expect(n('Fitt XXXIV — Beowulf Seeks the Dragon — Beowulf\'s Reminiscences')).toBe('Fitt 34 — Beowulf Seeks the Dragon — Beowulf\'s Reminiscences')
+    expect(n('Chapter 2. Of Imagination')).toBe('Chapter 2. Of Imagination')
   })
 
   it('turns ordinal and number words into numbers ("Book 1", never "Book One")', () => {
@@ -42,7 +56,7 @@ describe('normalizeChapterTitle: never ALL CAPS, never Roman numerals', () => {
 
   it('numbers a bare leading numeral', () => {
     expect(n('I. THE OLD MAN')).toBe('1 — The Old Man')
-    expect(n('II. He Gets Rid Of His Eldest Son')).toBe('2 — He Gets Rid Of His Eldest Son')
+    expect(n('II. He Gets Rid Of His Eldest Son')).toBe('2. He Gets Rid Of His Eldest Son')
     expect(n('XLII')).toBe('42')
   })
 
@@ -76,7 +90,7 @@ describe('normalizeChapterTitle: never ALL CAPS, never Roman numerals', () => {
   it('uses gentle casing outside English: sentence case, initials and names after them kept', () => {
     expect(n('CHAPITRE I — M. MYRIEL', 'fr')).toBe('Chapitre 1 — M. Myriel')
     expect(n('LIVRE PREMIER — UN JUSTE', 'fr')).toBe('Livre premier — Un juste')
-    expect(n('Kapitel 1. Om sansningen', 'da')).toBe('Kapitel 1 — Om sansningen')
+    expect(n('Kapitel 1. Om sansningen', 'da')).toBe('Kapitel 1. Om sansningen')
     expect(n('Fitt I — Scyldes liv og død', 'da')).toBe('Fitt 1 — Scyldes liv og død')
   })
 
@@ -102,6 +116,25 @@ describe('normalizeChapterTitle: never ALL CAPS, never Roman numerals', () => {
     expect(romanValue('IIII')).toBeNull()
     expect(romanValue('CIVIL')).toBeNull()
     expect(romanValue('Xiv')).toBeNull()
+  })
+
+  it('never gives a mixed-case built-in title a second em dash or takes away its colon', () => {
+    const dir = join(process.cwd(), 'public/data/editions')
+    const count = (text: string, mark: string) => text.split(mark).length - 1
+    let mixed = 0
+    for (const file of readdirSync(dir).filter(name => /-(original|modern)-[a-z]{2}\.json$/.test(name))) {
+      let data: { chapters?: Array<{ title?: string }> }
+      try { data = JSON.parse(readFileSync(join(dir, file), 'utf8')) } catch { continue }
+      const language = file.match(/-([a-z]{2})\.json$/)![1]
+      for (const chapter of data.chapters ?? []) {
+        if (typeof chapter.title !== 'string' || !/\p{Ll}/u.test(chapter.title)) continue
+        mixed++
+        const shown = n(chapter.title, language)
+        expect(count(shown, '—'), `${file}: ${chapter.title}`).toBe(count(chapter.title, '—'))
+        expect(count(shown, ':'), `${file}: ${chapter.title}`).toBe(count(chapter.title, ':'))
+      }
+    }
+    expect(mixed).toBeGreaterThan(10000)
   })
 
   it('leaves no built-in edition title in ALL CAPS or with a Roman label number', () => {

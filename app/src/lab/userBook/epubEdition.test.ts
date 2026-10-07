@@ -165,7 +165,7 @@ describe('library matter', () => {
     // The title page (title and "by" author only) is left out too: the reader
     // opens the first chapter under the book's own title.
     expect(edition.chapters.map(chapter => [chapter.title, chapter.paragraphs])).toEqual([
-      ['1 — The Lamp', ['The lamp was lit.', 'The end.']],
+      ['1. The Lamp', ['The lamp was lit.', 'The end.']],
     ])
   })
 
