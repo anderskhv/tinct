@@ -623,6 +623,12 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   }
 }
 
+/** Bible chapter titles and biblical-book sections, for reading-history summaries. */
+export async function loadLabBibleOutline(editionKey = LAB_EDITION_KEY): Promise<{ chapters: LabChapter[]; sections?: Section[] }> {
+  const manifest = await loadBibleManifest(migrateWithheldEdition('bible', editionKey))
+  return { chapters: manifest.chapters, sections: manifest.sections }
+}
+
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
   if (isUserBookId(bookId)) return (await loadUserBookSource({ bookId })).chapters
