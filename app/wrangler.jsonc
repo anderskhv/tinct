@@ -28,7 +28,13 @@
     "NARRATION_DAILY_BYTES": "2000000",
     "NARRATION_MONTHLY_BYTES": "10000000",
     // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
-    "GUEST_AI_DAILY_CENTS": "500"
+    "GUEST_AI_DAILY_CENTS": "500",
+    // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.
+    // Paid Modern English editions: offers checkout and runs xAI generation (prices are
+    // STRIPE_PRICE_MODERN_T1..T4 secrets). The client still shows the offer to internal devices only.
+    "PUBLIC_BOOK_MODERN_EDITIONS": "1",
+    // Painted covers (xAI image, about $0.04 each, once per book). Paper cover until one exists.
+    "PUBLIC_BOOK_PAINTED_COVERS": "1"
   },
   "kv_namespaces": [
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }

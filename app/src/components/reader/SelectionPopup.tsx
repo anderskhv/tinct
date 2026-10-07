@@ -79,7 +79,7 @@ function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
   return selection.homeMode ?? defaultPopupMode(selection.text, selection.existingHighlightId)
 }
 
-function ShareIcon() {
+export function ShareIcon() {
   return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 10V2M5 5l3-3 3 3M3 9v4.5h10V9" /></svg>
 }
 

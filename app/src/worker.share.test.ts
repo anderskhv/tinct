@@ -1,11 +1,15 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { resetBookRetrievalCache } from './worker/lib/bookRetrieval'
+import { editionLicence } from './data/editionLicences'
 import { editionCredit, handleShareApi, handleSharePage, parseShareInput, type ShareEnv } from './worker/routes/share'
 import type { ShareRecord, ShareRecordInput } from './worker/shareRecord'
 import { getBook } from './data/bookRegistry'
 
-const render = vi.hoisted(() => vi.fn(async () => ({ png: new Uint8Array([137, 80, 78, 71]), page: {} })))
-vi.mock('./worker/lib/shareRender', () => ({ renderSharePng: render }))
+// The drawing is shareLayout's (tested there); here, how many cards a share is.
+const cards = vi.hoisted(() => ({ count: 1 }))
+const render = vi.hoisted(() => vi.fn(async (..._args: unknown[]) => ({ png: new Uint8Array([137, 80, 78, 71]), page: {}, cards: cards.count })))
+const cardCount = vi.hoisted(() => vi.fn(async (..._args: unknown[]) => cards.count))
+vi.mock('./worker/lib/shareRender', () => ({ renderSharePng: render, shareCardCount: cardCount }))
 
 const PARAGRAPHS = [
   'It was on a dreary night of November that I beheld the accomplishment of my toils.',
@@ -16,8 +20,9 @@ function fakeAssets() {
   return {
     fetch: async (request: Request) => {
       const path = new URL(request.url).pathname
-      if (path === '/data/editions-chapters/frankenstein-original-en/manifest.json') return Response.json({ chapters: [{ number: 9, title: 'Chapter 5', path: 'ch0009.json' }] })
-      if (path === '/data/editions-chapters/frankenstein-original-en/ch0009.json') return Response.json({ number: 9, title: 'Chapter 5', paragraphs: PARAGRAPHS })
+      const match = path.match(/^\/data\/editions-chapters\/(frankenstein|medea)-original-en\/(manifest|ch0009)\.json$/)
+      if (match?.[2] === 'manifest') return Response.json({ chapters: [{ number: 9, title: 'Chapter 5', path: 'ch0009.json' }] })
+      if (match?.[2] === 'ch0009') return Response.json({ number: 9, title: 'Chapter 5', paragraphs: PARAGRAPHS })
       return new Response('not found', { status: 404 })
     },
   }
@@ -66,6 +71,8 @@ function post(body: unknown, headers: Record<string, string> = {}) {
 afterEach(() => {
   resetBookRetrievalCache()
   render.mockClear()
+  cardCount.mockClear()
+  cards.count = 1
 })
 
 describe('share links', () => {
@@ -124,9 +131,29 @@ describe('share links', () => {
     expect(response.headers.get('content-type')).toBe('image/png')
     expect(store.rows.size).toBe(0)
     expect(render).toHaveBeenCalledTimes(1)
-    const [, , content, options] = render.mock.calls[0] as unknown as [unknown, unknown, { bookTitle: string; chapterLabel: string; credit: string }, { format: string; look: string; context: boolean; tagline: boolean }]
-    expect(content).toMatchObject({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5', credit: 'Original (1831)' })
+    const [, , content, options] = render.mock.calls[0] as unknown as [unknown, unknown, Record<string, unknown>, { format: string; look: string; context: boolean; tagline: boolean }]
+    expect(content).toMatchObject({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5' })
+    // The image carries no edition line.
+    expect(content).not.toHaveProperty('credit')
     expect(options).toEqual({ format: 'phone', look: 'paper', context: true, tagline: true })
+    expect(response.headers.get('x-share-cards')).toBe('1')
+  })
+
+  it('serves each card of a series, saying how many there are', async () => {
+    const { env, deps, ctx, store } = setup()
+    cards.count = 3
+    const params = new URLSearchParams(Object.entries({ ...valid, context: false }).map(([k, v]) => [k, typeof v === 'boolean' ? (v ? '1' : '0') : String(v)]))
+    for (const [card, drawn] of [['', 1], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 1], ['0', 1], ['x', 1]] as const) {
+      render.mockClear()
+      const response = await handleShareApi(new Request(`https://tinct.app/api/share/preview?${params}${card ? `&card=${card}` : ''}`), env, ctx, deps)
+      expect(response.status).toBe(200)
+      // Readable cross-origin (the Android app): the count is exposed.
+      expect(response.headers.get('x-share-cards')).toBe('3')
+      expect(response.headers.get('access-control-expose-headers')).toBe('X-Share-Cards')
+      expect(render.mock.calls[0][4]).toBe(drawn)
+      expect(render.mock.calls[0][3]).toEqual({ format: 'phone', look: 'paper', context: false, tagline: true })
+    }
+    expect(store.rows.size).toBe(0)
   })
 })
 
@@ -144,6 +171,47 @@ describe('/q/{id}', () => {
     expect(html).toContain(`data-reader="/reader?book=frankenstein&amp;edition=original-en&amp;chapter=9&amp;paragraph=1&amp;word=0&amp;share=${id}"`)
     expect(html).not.toContain('user-3')
     expect(html).not.toContain('secret@example.com')
+    expect(html).toContain('width="1080" height="1350"')
+    // The page names the edition, which the image no longer carries.
+    expect(html).toContain('<p class="credit">Mary Shelley · Chapter 5 · Original (1831)</p>')
+    expect(html).not.toContain('CC BY-SA')
+  })
+
+  it('names the edition and its licence where the text needs attribution (Wikisource, CC BY-SA)', async () => {
+    const { env, deps, ctx } = setup()
+    const { id } = await (await handleShareApi(post({ ...valid, bookId: 'medea' }), env, ctx, deps)).json() as { id: string }
+    const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
+    expect(html).toContain('Euripides · Chapter 5 · tr. Arthur S. Way<br>Text: Wikisource contributors, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">CC BY-SA 4.0</a>')
+    expect(html).toContain('<meta property="og:description" content="Medea, Euripides · Chapter 5 · Text: Wikisource contributors, CC BY-SA 4.0">')
+  })
+
+  it('gives the quote card no fixed size on the link page (its height follows the text)', async () => {
+    const { env, deps, ctx } = setup()
+    const { id } = await (await handleShareApi(post({ ...valid, context: false }), env, ctx, deps)).json() as { id: string }
+    const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
+    expect(html).toContain(`<img src="https://tinct.app/q/${id}/image.png" alt=`)
+    expect(html).not.toMatch(/<img[^>]*height=/)
+    expect(html).not.toContain('<blockquote>')
+  })
+
+  it('shows a quote set as a series in full as text, and previews its first card', async () => {
+    const { env, deps, ctx } = setup()
+    cards.count = 3
+    const { id } = await (await handleShareApi(post({ ...valid, context: false, format: 'desktop' }), env, ctx, deps)).json() as { id: string }
+    const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
+    expect(cardCount).toHaveBeenCalledTimes(1)
+    expect((cardCount.mock.calls[0] as unknown[])[3]).toEqual({ format: 'desktop', look: 'paper', context: false, tagline: true })
+    expect(html).toContain('<blockquote><p>The different accidents of life are not so changeable as the feelings of human nature. I…</p></blockquote>')
+    expect(html).not.toContain('/image.png')
+    expect(html).toContain(`<meta property="og:image" content="https://tinct.app/q/${id}/og.png">`)
+    // The link preview is drawn from the series' first card.
+    await handleSharePage(new Request(`https://tinct.app/q/${id}/og.png`), env, ctx)
+    expect((render.mock.calls[0] as unknown[])[3]).toEqual({ format: 'og', look: 'paper', context: false, tagline: true, cardFormat: 'desktop' })
+    // With surrounding text there is no series to count.
+    cardCount.mockClear()
+    const page = await (await handleShareApi(post(valid), env, ctx, deps)).json() as { id: string }
+    expect(await (await handleSharePage(new Request(`https://tinct.app/q/${page.id}`), env, ctx))!.text()).toContain('/image.png')
+    expect(cardCount).not.toHaveBeenCalled()
   })
 
   it('serves the link preview and the shared image', async () => {
@@ -169,6 +237,8 @@ describe('share input and credit', () => {
   it('parses query-string and JSON shapes alike', () => {
     expect(parseShareInput({ ...valid, chapterNumber: '9', context: '0', tagline: '1' })).toMatchObject({ chapterNumber: 9, context: false, tagline: true })
     expect(parseShareInput({ ...valid, bookId: '../x' })).toBeNull()
+    expect(parseShareInput({ ...valid, look: 'book' })).toMatchObject({ look: 'book' })
+    expect(parseShareInput({ ...valid, look: 'sepia' })).toBeNull()
   })
 
   it('credits translators, Tinct modern editions and originals', () => {
@@ -176,5 +246,27 @@ describe('share input and credit', () => {
     expect(editionCredit(meditations.editions.find(e => e.key === 'original-en')!)).toBe('tr. George Long')
     expect(editionCredit(meditations.editions.find(e => e.key === 'modern-en')!)).toBe('Tinct Modern English')
     expect(editionCredit(getBook('frankenstein')!.editions.find(e => e.key === 'original-en')!)).toBe('Original (1831)')
+  })
+
+  it('lists every edition the registry marks as CC BY-SA, and only those', async () => {
+    const { readFileSync } = await import('node:fs')
+    const source = readFileSync(new URL('./data/bookRegistry.ts', import.meta.url), 'utf8')
+    const marked: string[] = []
+    for (const block of source.split(/\nexport const /).slice(1)) {
+      const id = block.match(/\bid: '([a-z0-9-]+)'/)?.[1]
+      if (!id || !/CC BY-SA/.test(block)) continue
+      // The licence comment sits in an edition; Tinct's modern rendering shares it ("under the same licence").
+      for (const edition of block.split(/\n    \{\n/).slice(1)) {
+        const key = edition.match(/key: '([a-z0-9-]+)'/)?.[1]
+        if (key && (/CC BY-SA/.test(edition) || (/same licence/.test(block) && /style: 'modern'/.test(edition) && /language: 'en'/.test(edition)))) marked.push(`${id}/${key}`)
+      }
+    }
+    expect(marked.sort()).toEqual(['bacchae/modern-en', 'bacchae/original-en', 'medea/modern-en', 'medea/original-en'])
+    for (const entry of marked) {
+      const [book, key] = entry.split('/')
+      expect(editionLicence(book, key)).toMatchObject({ licence: 'CC BY-SA 4.0' })
+    }
+    expect(editionLicence('frankenstein', 'original-en')).toBeNull()
+    expect(editionLicence('bible', 'webc-en')).toBeNull()
   })
 })

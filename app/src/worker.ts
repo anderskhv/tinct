@@ -40,7 +40,7 @@ import { handleLabRecap } from './worker/routes/labRecap'
 import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
 import { handleUserBooks } from './worker/routes/userBooks'
-import { handlePublicBooks, handlePublicEditionData, runPublicCoverJobs } from './worker/routes/publicBooks'
+import { COVER_RUN_LIMIT, handlePublicBooks, handlePublicEditionData, runPublicCoverJobs } from './worker/routes/publicBooks'
 import { MODERN_EDITION_CRON, grantModernEdition, runModernEditionJobs } from './worker/routes/publicBookModern'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
@@ -282,10 +282,15 @@ export default {
     if (event.cron === RETENTION_CRON) {
       ctx.waitUntil(runRetentionCleanup(env))
       // Painted covers for added public books (no-op unless PUBLIC_BOOK_PAINTED_COVERS=1).
-      ctx.waitUntil(runPublicCoverJobs(env, { limit: 5 }).catch(() => null))
+      ctx.waitUntil(runPublicCoverJobs(env, { limit: COVER_RUN_LIMIT, backfill: true }).catch(() => null))
     }
-    // Modern English editions still being written (no-op unless PUBLIC_BOOK_MODERN_EDITIONS=1).
-    else if (event.cron === MODERN_EDITION_CRON) ctx.waitUntil(runModernEditionJobs(env, { budgetMs: 8 * 60_000 }).catch(() => 0))
+    else if (event.cron === MODERN_EDITION_CRON) {
+      // Modern English editions still being written (no-op unless PUBLIC_BOOK_MODERN_EDITIONS=1).
+      ctx.waitUntil(runModernEditionJobs(env, { budgetMs: 8 * 60_000 }).catch(() => 0))
+      // Painted covers too, so a new book is not left with a paper cover until 03:17
+      // (no-op unless PUBLIC_BOOK_PAINTED_COVERS=1). A short budget: about 15 s per painting.
+      ctx.waitUntil(runPublicCoverJobs(env, { limit: COVER_RUN_LIMIT, backfill: true, budgetMs: 60_000 }).catch(() => null))
+    }
     else ctx.waitUntil(handleScheduled(env))
   },
 }

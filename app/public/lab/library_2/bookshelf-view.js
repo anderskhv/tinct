@@ -1,6 +1,7 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261006filters';
+import { bindingFor } from './reading-table.js?v=20261007rank';
+import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261007spine';
 
 export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
 root.innerHTML=bookshelfMarkup;
@@ -45,8 +46,9 @@ function renderShelf(key){
   const b=books[id],height=hero?240-i%3*4:key==='finished'?182-i%3*5:190-i%3*4;
   const words=Number(b.wordCount)||70000,depth=Math.round(Math.max(14,Math.min(hero?44:32,10+Math.sqrt(words/1000)*1.1)));
   const measure=document.createElement('canvas').getContext('2d');measure.font='16px Georgia';
+  const paper=hasPaperSpine(id,b.cover);
   const spineFont=Math.min(hero?14:11,16*(height*.62)/(measure.measureText(b.title.toUpperCase()).width+b.title.length*.8));
-  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:url('${ASSETS}spines/spine-${b.binding}.jpg');--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span>${escapeText(b.title)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
+  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:${paper?`${PAPER_SPINE.edge},linear-gradient(${PAPER_SPINE.colour},${PAPER_SPINE.colour})`:`url('${ASSETS}spines/spine-${b.binding}.jpg')`};--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span${paper?` style="color:${PAPER_SPINE.ink};text-shadow:none"`:''}>${escapeText(b.title)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
  }).join('') || '<p class=empty-bay>A little room for a new book</p>';
  $('count-'+key).textContent=shelves[key].length;
  $('shelf-'+key).querySelectorAll('[data-cover]').forEach(canvas=>{prepareCover(canvas.dataset.cover,canvas).catch(()=>{});});

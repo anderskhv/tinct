@@ -1,11 +1,15 @@
 /**
  * Draw a composed share page (shareLayout.ts) as SVG for resvg. Colours are
- * the live reader's: Paper (lab.css), Night (`.lab.is-night`) and e-ink
- * (public/lab/display-profile.css).
+ * the live reader's, as measured on the page: Paper (lab.css `.lab`), Book
+ * (`.lab.is-book-theme`), Night (`.lab.is-night`) and e-ink
+ * (public/lab/display-profile.css). The highlight is the reader's gold
+ * highlight as it is painted on that page (`--highlight-gold` under chrome v2:
+ * #dcca98 on Paper, Book and e-ink, #5c4a2e at Night, full opacity), so the
+ * card reads as a piece of the page.
  */
 
 import type { FontMetrics } from './fontMetrics'
-import { SHARE_TAGLINE, type ShareFonts, type ShareLook, type SharePage } from './shareLayout'
+import { SHARE_TAGLINE, SUPERSCRIPT_RISE, SUPERSCRIPT_SCALE, superscriptRuns, type ShareFonts, type ShareLook, type SharePage } from './shareLayout'
 
 export interface SharePalette {
   paper: string
@@ -21,9 +25,10 @@ export interface SharePalette {
 }
 
 export const SHARE_PALETTES: Record<ShareLook, SharePalette> = {
-  paper: { paper: '#ece7db', ink: '#0b0b0b', muted: '#6a6256', faint: '#8b8275', context: '#a39a8c', highlight: '#f5e6c8', edge: 'rgba(60,45,25,0.10)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
+  paper: { paper: '#ece7db', ink: '#0b0b0b', muted: '#6a6256', faint: '#8b8275', context: '#a39a8c', highlight: '#dcca98', edge: 'rgba(60,45,25,0.10)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
+  book: { paper: '#e7dcc7', ink: '#201a13', muted: '#675b4b', faint: '#796c59', context: '#a3957f', highlight: '#dcca98', edge: 'rgba(60,45,25,0.12)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
   night: { paper: '#171411', ink: '#bdb3a7', muted: '#8f857a', faint: '#776e65', context: '#5f574e', highlight: '#5c4a2e', edge: 'rgba(255,240,220,0.08)', shadow: 'rgba(0,0,0,0.35)', fold: '0,0,0' },
-  eink: { paper: '#ffffff', ink: '#111111', muted: '#444444', faint: '#555555', context: '#9a9a9a', highlight: '#e2e2e2', edge: 'rgba(0,0,0,0.25)', shadow: 'rgba(0,0,0,0)', fold: '0,0,0' },
+  eink: { paper: '#ffffff', ink: '#111111', muted: '#444444', faint: '#555555', context: '#9a9a9a', highlight: '#dcca98', edge: 'rgba(0,0,0,0.25)', shadow: 'rgba(0,0,0,0)', fold: '0,0,0' },
 }
 
 const FAMILY = 'EB Garamond'
@@ -40,6 +45,16 @@ function textWidth(font: FontMetrics, text: string, size: number): number {
   let units = 0
   for (const char of text) units += font.advance(char.codePointAt(0) ?? 32)
   return (units / font.unitsPerEm) * size
+}
+
+/** A word's text: superscript digits become small raised regular digits. */
+function wordText(text: string, baseline: number, size: number): string {
+  const runs = superscriptRuns(text)
+  if (runs.length === 1 && !runs[0].sup) return esc(text)
+  const raised = n(baseline - size * SUPERSCRIPT_RISE)
+  return runs.map(run => run.sup
+    ? `<tspan y="${raised}" font-size="${n(size * SUPERSCRIPT_SCALE)}">${esc(run.text)}</tspan>`
+    : `<tspan y="${n(baseline)}">${esc(run.text)}</tspan>`).join('')
 }
 
 function italicRun(x: number, baseline: number, size: number, fill: string, text: string): string {
@@ -88,6 +103,13 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
     hx += dotWidth + dotGap
     parts.push(italicRun(hx, headerBaseline, header.size, palette.muted, chapter))
   }
+  // A card of a series: a quiet "1/3" at the header's right edge, on every card.
+  if (page.series && page.series.count > 1) {
+    const label = `${page.series.index}/${page.series.count}`
+    const size = header.size * 0.9
+    const x = width - frame.padding.side - textWidth(fonts.regular, label, size)
+    parts.push(`<text x="${n(x)}" y="${n(headerBaseline)}" font-family="${FAMILY}" font-size="${n(size)}" fill="${palette.faint}">${esc(label)}</text>`)
+  }
 
   // Body.
   const size = layout.fontSize
@@ -113,7 +135,7 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
       const weight = word.style === 'semibold' ? ' font-weight="600"' : ''
       const style = word.style === 'italic' ? ' font-style="italic"' : ''
       const fill = word.hl ? palette.ink : palette.context
-      parts.push(`<text x="${n(frame.text.x + word.x)}" y="${n(baseline)}" font-family="${FAMILY}" font-size="${n(size)}"${weight}${style} fill="${fill}">${esc(word.text)}</text>`)
+      parts.push(`<text x="${n(frame.text.x + word.x)}" y="${n(baseline)}" font-family="${FAMILY}" font-size="${n(size)}"${weight}${style} fill="${fill}">${wordText(word.text, baseline, size)}</text>`)
     }
   }
 
@@ -132,19 +154,16 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
     })
   }
 
-  // Footer: tagline (optional) and the edition credit (always), muted italic.
-  const footer = frame.footer
-  const footerTop = height - frame.padding.bottom - footer.boxHeight
-  const footerBaseline = footerTop + (footer.boxHeight - (ascent + descent) * footer.size) / 2 + ascent * footer.size
-  const creditSize = footer.size * 0.78
-  const credit = page.content.credit
-  const tagline = page.options.tagline ? SHARE_TAGLINE : ''
-  const taglineWidth = tagline ? textWidth(fonts.italic, tagline, footer.size) : 0
-  const creditWidth = credit ? textWidth(fonts.italic, credit, creditSize) : 0
-  const between = tagline && credit ? footer.size * 0.9 : 0
-  let fx = (width - (taglineWidth + between + creditWidth)) / 2
-  if (tagline) { parts.push(italicRun(fx, footerBaseline, footer.size, palette.muted, tagline)); fx += taglineWidth + between }
-  if (credit) parts.push(italicRun(fx, footerBaseline, creditSize, palette.faint, credit))
+  // Footer: the tagline, when chosen, muted italic. The edition credit is not
+  // drawn: the /q/{id} page names the edition (and any licence).
+  if (page.options.tagline) {
+    const footer = frame.footer
+    const footerTop = height - frame.padding.bottom - footer.boxHeight
+    const footerBaseline = footerTop + (footer.boxHeight - (ascent + descent) * footer.size) / 2 + ascent * footer.size
+    const taglineWidth = textWidth(fonts.italic, SHARE_TAGLINE, footer.size)
+    const fx = footer.align === 'left' ? frame.padding.side : (width - taglineWidth) / 2
+    parts.push(italicRun(fx, footerBaseline, footer.size, palette.muted, SHARE_TAGLINE))
+  }
 
   parts.push('</svg>')
   return parts.join('')

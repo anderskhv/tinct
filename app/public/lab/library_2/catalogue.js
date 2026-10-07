@@ -3,7 +3,8 @@ import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
 import { coverAsset } from './cover-assets.js?v=20260928covers';
-import { withPublicBooks } from './add-to-tinct.js?v=20261006filters';
+import { withPublicBooks } from './add-to-tinct.js?v=20261007rank';
+import { coverToneFor } from './spine.js?v=20261007spine';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;
@@ -48,7 +49,8 @@ export function libraryBook(entry) {
     title: entry.title,
     author: entry.author,
     cover: coverAsset(entry.id, entry.art?.src || null),
-    coverTone: entry.cover?.background || '#1b231c',
+    // An added book's paper cover opens on paper boards, not a dark binding.
+    coverTone: coverToneFor(entry),
     summary: entry.summary || entry.blurb || '',
     preface: null,
     characters: null,

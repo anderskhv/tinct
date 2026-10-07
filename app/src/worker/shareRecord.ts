@@ -8,7 +8,7 @@ export interface ShareRecordInput {
   fromWord: number
   endParagraphIndex: number
   toWord: number
-  look: 'paper' | 'night' | 'eink'
+  look: 'paper' | 'book' | 'night' | 'eink'
   format: 'phone' | 'desktop'
   context: boolean
   tagline: boolean

@@ -128,13 +128,15 @@ function authorKey(value) {
   const words = normalizeText(String(value ?? '').split(/[,;&]| and /)[0]).split(' ').filter(Boolean)
   return words[words.length - 1] || ''
 }
-/** "pride and prejudice|austen": the key a catalogue work and a Tinct book share. */
+const PART_NUMBERS = { one: '1', two: '2', three: '3', four: '4', five: '5', six: '6' }
+/** "pride and prejudice|austen": the key a catalogue work and a Tinct book share ("Part One" = "Part 1"). */
 export function titleAuthorKey(title, author) {
-  return `${normalizeText(title)}|${authorKey(author)}`
+  const key = normalizeText(title).replace(/\bpart (one|two|three|four|five|six)\b/g, (_, n) => `part ${PART_NUMBERS[n]}`)
+  return `${key}|${authorKey(author)}`
 }
 
 /** Gutenberg ebook numbers the registry names for its sources (bookRegistry.ts comments). */
-export const REGISTRY_GUTENBERG_IDS = { 'pg:44024': 'the-art-of-war', 'pg:15877': 'meditations' }
+export const REGISTRY_GUTENBERG_IDS = { 'pg:44024': 'the-art-of-war', 'pg:15877': 'meditations', 'pg:14591': 'faust-part-1' }
 
 /**
  * Catalogue works that are already in Tinct: the catalogue's own match (`onTinct`),

@@ -4,7 +4,7 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL} from '../public-books.js?v=20261006add';
+import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES} from '../public-books.js?v=20261007rank';
 
 export const enabled=()=>addToTinctEnabled();
 export const ADD_BOOK_PAGE='/lab/addbook/';
@@ -28,12 +28,17 @@ export function warmFreeSearch(){
  worker.postMessage({type:'load'});
  return ready;
 }
-/** Catalogue works for a query (more than are shown: works already in Tinct are dropped). */
-export async function searchFree(query,limit=40){
+/**
+ * Catalogue works for a query (more than are shown: works already in Tinct are dropped),
+ * in the engine's ranking (addbooks/site/search.js). A `language` searches only that
+ * language; without one, English ranks first within each tier.
+ */
+export async function searchFree(query,limit=40,{language=''}={}){
  if(!query.trim()||!enabled())return [];
  await warmFreeSearch();
  const id=++request;
- return new Promise(resolve=>{waiting.set(id,resolve);worker.postMessage({type:'search',query,filters:{},limit,request:id});});
+ const filters=language?{language}:{};
+ return new Promise(resolve=>{waiting.set(id,resolve);worker.postMessage({type:'search',query,filters,limit,request:id});});
 }
 
 // ---- Added books in the library catalogue ----
@@ -95,6 +100,12 @@ export function filterAvailable(books,f=filters){
  if(!filtersActive(f))return books;
  return books.filter(book=>{const facts=bookFacts(book);return(!f.modern||facts.modern)&&(!f.audio||facts.audio)&&(!f.language||facts.languages.includes(f.language));});
 }
+/**
+ * The language "Not yet in Tinct" searches in when the reader chose none: the one language
+ * books can be added in (IMPORT_LANGUAGES), so works in other languages, which could not be
+ * added, do not take the places of addable ones.
+ */
+export const notYetLanguage=()=>IMPORT_LANGUAGES.length===1?IMPORT_LANGUAGES[0]:'';
 /** "Not yet in Tinct" works the filters keep: none with Modern English or Audio, those in the language otherwise. */
 export function filterNotYet(works,f=filters){
  if(f?.modern||f?.audio)return [];
@@ -152,7 +163,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
   if(shown.length)renderTinct(shown);else box.append(el('p','search-none','Try another title or author.'));
   const group=el('section','free-group');group.dataset.freeGroup='pending';box.append(group);
   if(f.modern||f.audio)group.dataset.freeGroup='0';
-  else void searchFree(query).then(free=>{
+  else void searchFree(query,40,{language:f.language||notYetLanguage()}).then(free=>{
    if(!group.isConnected)return;
    const {notYet}=groupSearchResults({tinct,free:filterNotYet(free,f),tinctBooks});group.dataset.freeGroup=String(notYet.length);
    if(!notYet.length)return;
