@@ -4181,6 +4181,25 @@
 .lab .lab-ask-input::placeholder {
   color: var(--lab-ink-muted);
 }
+/* An added book's Modern English chapter still being written: one quiet line
+   over the page while its original text is shown (labModernEdition.ts). */
+.lab-modern-status {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 2rem);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font: 400 11px/1.4 'IBM Plex Mono', monospace;
+  color: color-mix(in srgb, var(--lab-ink, #211d18) 60%, transparent);
+  text-align: center;
+  pointer-events: none;
+}
+
 .lab-reader-load-error {
   position: absolute;
   z-index: 8;

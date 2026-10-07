@@ -12,7 +12,7 @@ import { BOOKS } from '../data/bookRegistry'
 import { PRE_READER_CATALOGUE, type PreReaderBookViewModel } from '../preReader/catalogue'
 import type { Book, Edition } from '../types'
 import { apiUrl } from './apiUrl'
-import { isPublicBookId, PUBLIC_BOOKS_INDEX_URL } from '../../public/lab/public-books.js'
+import { isPublicBookId, modernEditionsEnabled, PUBLIC_BOOKS_INDEX_URL } from '../../public/lab/public-books.js'
 
 export { isPublicBookId }
 
@@ -54,6 +54,12 @@ export function bookFromEntry(entry: PublicEntry): Book {
 /** Adds (or refreshes) one public book in the registry and the pre-reader catalogue. */
 export function registerPublicBook(book: Book, entry?: unknown): void {
   if (!isPublicBookId(book.id) || book.id !== book.id.trim()) return
+  // A paid Modern English edition is offered only where the device sees the feature.
+  if (!modernEditionsEnabled() && book.editions.some(edition => edition.key === 'modern-en')) {
+    book = { ...book, editions: book.editions.filter(edition => edition.key !== 'modern-en') }
+    const editions = (entry as { editions?: Array<{ key?: string }> } | undefined)?.editions
+    if (Array.isArray(editions)) entry = { ...(entry as object), editions: editions.filter(edition => edition?.key !== 'modern-en') }
+  }
   const existing = BOOKS.find(item => item.id === book.id)
   if (existing) Object.assign(existing, book)
   else BOOKS.push(book)
@@ -68,17 +74,26 @@ export function registerPublicBook(book: Book, entry?: unknown): void {
 
 const pending = new Map<string, Promise<void>>()
 
+async function fetchAndRegister(bookId: string, fetchImpl: typeof fetch): Promise<void> {
+  const response = await fetchImpl(apiUrl(`/api/public-books/${encodeURIComponent(bookId)}`))
+  if (!response.ok) throw new Error(`public book ${response.status}`)
+  const data = await response.json() as { book?: Book; entry?: unknown }
+  if (!data.book || data.book.id !== bookId) throw new Error('public book malformed')
+  registerPublicBook(data.book, data.entry)
+}
+
+/** Registers a public book again from the server (its editions changed, e.g. a Modern English edition was bought). */
+export function refreshPublicBook(bookId: string, fetchImpl: typeof fetch = fetch): Promise<void> {
+  if (!isPublicBookId(bookId)) return Promise.resolve()
+  return fetchAndRegister(bookId, fetchImpl)
+}
+
 /** Makes sure a `pd-` book is registered; registry books and other ids return at once. */
 export function ensurePublicBook(bookId: string, fetchImpl: typeof fetch = fetch): Promise<void> {
   if (!isPublicBookId(bookId) || BOOKS.some(book => book.id === bookId)) return Promise.resolve()
   let job = pending.get(bookId)
   if (!job) {
-    job = fetchImpl(apiUrl(`/api/public-books/${encodeURIComponent(bookId)}`)).then(async response => {
-      if (!response.ok) throw new Error(`public book ${response.status}`)
-      const data = await response.json() as { book?: Book; entry?: unknown }
-      if (!data.book || data.book.id !== bookId) throw new Error('public book malformed')
-      registerPublicBook(data.book, data.entry)
-    }).finally(() => pending.delete(bookId))
+    job = fetchAndRegister(bookId, fetchImpl).finally(() => pending.delete(bookId))
     pending.set(bookId, job)
   }
   return job

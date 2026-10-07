@@ -21,6 +21,8 @@ interface Props {
   figures?: LabFigure[]
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
+  /** While an added book's Modern English edition is being written: each chapter's state (labModernEdition.ts). */
+  modernStates?: Record<string, 'ready' | 'preparing' | 'queued'>
   onSwitchBook?: () => void
   /** The book's introduction (in the library). Omitted when there is none to open. */
   onOpenIntroduction?: () => void
@@ -45,6 +47,7 @@ function ProgressPie({ percent }: { percent: number }) {
   const x = 8 + 7 * Math.cos(angle), y = 8 + 7 * Math.sin(angle)
   return <svg className="progress-pie" viewBox="0 0 16 16" aria-hidden="true"><title>{percent}% read</title><circle className="track" cx="8" cy="8" r="7" />{percent === 100 ? <circle className="fill" cx="8" cy="8" r="7" /> : <path className="fill" d={`M8 8 L8 1 A7 7 0 ${percent > 50 ? 1 : 0} 1 ${x} ${y} Z`} />}</svg>
 }
+const MODERN_STATE_LABEL = { ready: 'Ready', preparing: 'Preparing', queued: 'Queued' } as const
 const date = (timestamp: number) => Number.isFinite(timestamp) ? new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', year: 'numeric' }).format(timestamp) : ''
 
 /** Design 1's final tree; browsing and overlays never commit a reading tuple. */
@@ -185,7 +188,9 @@ export function LabContentsV2(props: Props) {
             data-testid={node.chapter == null ? undefined : 'lab-tree-chapter-' + node.chapter}
             onPointerEnter={() => { if (node.chapter != null) props.onWarmChapter(node.chapter) }}
             onClick={() => { if (branch) toggle(node.id); else if (node.chapter != null) props.onSelectChapter(node.chapter) }}>
-            <span className="text">{node.label}</span>{branch ? <Icon name="next" /> : percent != null && percent > 0 ? <ProgressPie percent={percent} /> : null}
+            <span className="text">{node.label}</span>
+            {!branch && node.chapter != null && props.modernStates?.[node.chapter] && <span className="modern-state" data-testid={'lab-tree-modern-' + node.chapter}>{MODERN_STATE_LABEL[props.modernStates[node.chapter]]}</span>}
+            {branch ? <Icon name="next" /> : percent != null && percent > 0 ? <ProgressPie percent={percent} /> : null}
           </button>
           {(cs.length > 0 || hs.length > 0) && <span className="tags">
             {hs.length > 0 && <button aria-label={hs.length + ' highlights in ' + label} onClick={() => showOverlay('highlights', node.chapter!)}><Icon name="highlight" />{hs.length}</button>}

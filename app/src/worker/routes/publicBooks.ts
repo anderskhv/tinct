@@ -9,6 +9,7 @@
  *   GET  /api/public-books/import/{bookId}/source  the downloaded EPUB, for conversion (signed in)
  *   POST /api/public-books/import/{bookId}/commit  { chapters } → imported (signed in)
  *   GET  /data/editions/{bookId}-{editionKey}.json the edition text, like any registry edition
+ *   …/{bookId}/modern-en[/checkout|/priority]     the paid Modern English edition (publicBookModern.ts)
  *
  * Why two steps: the edition must come from the reader's own converter
  * (lab/userBook/epubEdition.ts), which needs a DOM the Worker does not have.
@@ -45,6 +46,7 @@ import {
   type PublicPlacement,
 } from '../../../public/lab/public-books.js'
 import type { Book, Edition } from '../../types'
+import { handleModernEdition, serveModernEdition, type ModernDeps, type ModernEnv } from './publicBookModern'
 
 export const PREFIX = 'public-books/'
 export const INDEX_KEY = PREFIX + 'index.json'
@@ -84,6 +86,8 @@ export interface PublicBooksDeps {
   coverFetch?: CoverFetch
   waitUntil?: (promise: Promise<unknown>) => void
   now?: () => Date
+  /** Overrides for the Modern English routes (tests: generator, Stripe, customer). */
+  modern?: Partial<ModernDeps>
 }
 
 export interface PublicCatalogueEntry {
@@ -114,11 +118,11 @@ export interface PublicCatalogueEntry {
   public: { workId: string; source: string; sourceName: string; sourceUrl: string | null; licence: string; addedAt: string }
 }
 
-interface StoredMeta { version: 1; book: Book; entry: PublicCatalogueEntry; editionKey: string; sha256: string; classification: Classification; verification: { checked: number; removed: number; renamed: number } }
+export interface StoredMeta { version: 1; book: Book; entry: PublicCatalogueEntry; editionKey: string; sha256: string; classification: Classification; verification: { checked: number; removed: number; renamed: number } }
 
-const bucketOf = (env: PublicBooksEnv) => env.PUBLIC_BOOKS ?? env.AUDIO_BUCKET ?? null
-const metaKey = (bookId: string) => `${PREFIX}${bookId}/meta.json`
-const editionObjectKey = (bookId: string, editionKey: string) => `${PREFIX}${bookId}/${editionKey}.json`
+export const bucketOf = (env: PublicBooksEnv) => env.PUBLIC_BOOKS ?? env.AUDIO_BUCKET ?? null
+export const metaKey = (bookId: string) => `${PREFIX}${bookId}/meta.json`
+export const editionObjectKey = (bookId: string, editionKey: string) => `${PREFIX}${bookId}/${editionKey}.json`
 const coverKey = (bookId: string) => `${PREFIX}${bookId}/cover`
 const stagingKey = (bookId: string) => `${PREFIX}staging/${bookId}.epub`
 
@@ -129,7 +133,7 @@ function reply(data: unknown, status: number, request: Request, cache?: string):
   return Response.json(data, { status, headers: headers(request, cache ? { 'Cache-Control': cache } : {}) })
 }
 
-async function readJson<T>(bucket: R2Bucket, key: string): Promise<T | null> {
+export async function readJson<T>(bucket: R2Bucket, key: string): Promise<T | null> {
   const object = await bucket.get(key)
   if (!object) return null
   try { return JSON.parse(await new Response(object.body).text()) as T } catch { return null }
@@ -459,8 +463,9 @@ export async function runPublicCoverJobs(env: PublicBooksEnv, options: { limit: 
 
 /** `/data/editions/pd-…-original-xx.json`: an added book's edition, served like a registry edition. */
 export async function handlePublicEditionData(request: Request, env: PublicBooksEnv): Promise<Response | null> {
-  const match = new URL(request.url).pathname.match(/^\/data\/editions\/(pd-[a-z0-9-]+?)-(original-[a-z]{2})\.json$/)
+  const match = new URL(request.url).pathname.match(/^\/data\/editions\/(pd-[a-z0-9-]+?)-(original-[a-z]{2}|modern-en)\.json$/)
   if (!match || !isPublicBookId(match[1])) return null
+  if (match[2] === 'modern-en') return serveModernEdition(request, env as ModernEnv, match[1])
   const bucket = bucketOf(env)
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
   const object = await bucket.get(editionObjectKey(match[1], match[2]))
@@ -477,6 +482,11 @@ export async function handlePublicBooks(request: Request, env: PublicBooksEnv, d
   if (request.method === 'GET' && parts.length === 0) return serveIndex(request, bucket)
   if (request.method === 'GET' && parts.length === 1 && isPublicBookId(parts[0])) return serveBook(request, bucket, parts[0])
   if (request.method === 'GET' && parts.length === 2 && parts[1] === 'cover' && isPublicBookId(parts[0])) return serveCover(request, bucket, parts[0])
+  if (parts.length >= 2 && parts[1] === 'modern-en' && isPublicBookId(parts[0])) {
+    return handleModernEdition(request, env as ModernEnv, parts[0], parts.slice(2), {
+      verifyUser: deps.verifyUser, checkRateLimit: deps.checkRateLimit, waitUntil: deps.waitUntil, ...deps.modern,
+    })
+  }
   if (parts[0] !== 'import') return reply({ error: 'Not found' }, 404, request)
 
   const isPrepare = parts.length === 1 && request.method === 'POST'

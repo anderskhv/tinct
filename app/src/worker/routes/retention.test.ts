@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import worker from '../../worker'
+import { MODERN_EDITION_CRON } from './publicBookModern'
 import {
   RETENTION_BATCH,
   RETENTION_CRON,
@@ -178,7 +179,7 @@ describe('retention cron wiring', () => {
   it('is declared in wrangler.jsonc next to the email cron', () => {
     const config = readFileSync(fileURLToPath(new URL('../../../wrangler.jsonc', import.meta.url)), 'utf8')
     const crons = /"crons":\s*(\[[^\]]*\])/.exec(config)?.[1]
-    expect(JSON.parse(crons!)).toEqual(['0 9 * * *', RETENTION_CRON])
+    expect(JSON.parse(crons!)).toEqual(['0 9 * * *', RETENTION_CRON, MODERN_EDITION_CRON])
   })
 
   async function runCron(cron: string) {
@@ -197,6 +198,11 @@ describe('retention cron wiring', () => {
     const urls = await runCron(RETENTION_CRON)
     expect(urls).toHaveLength(RETENTION_TABLES.length)
     expect(urls.every(url => url.includes('created_at=lt.'))).toBe(true)
+  })
+
+  it('the Modern English cron runs neither the cleanup nor the emails (and nothing while its switch is off)', async () => {
+    const urls = await runCron(MODERN_EDITION_CRON)
+    expect(urls).toEqual([])
   })
 
   it('the email cron does not run the cleanup', async () => {

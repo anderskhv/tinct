@@ -25,6 +25,8 @@ export interface PublicPlacement {
 
 export const ADD_TO_TINCT_FOR_EVERYONE: boolean
 export function addToTinctEnabled(storage?: KeyStore): boolean
+export const MODERN_EDITIONS_FOR_EVERYONE: boolean
+export function modernEditionsEnabled(storage?: KeyStore): boolean
 export const PUBLIC_BOOK_PREFIX: string
 export const PUBLIC_BOOK_ID: RegExp
 export function isPublicBookId(id: unknown): id is string

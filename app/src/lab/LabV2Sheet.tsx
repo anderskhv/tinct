@@ -57,6 +57,11 @@ export interface LabV2SheetProps {
    * `?narration=fish` (docs/fish-audio-pilot-2026-09-18.md).
    */
   narrationPilot?: { info: NarrationPilotInfo | null; voice: string | null } | null
+  /**
+   * An added public-domain book's Modern English edition, offered for purchase
+   * under the main-version choices (labModernEdition.ts). Absent when not offered.
+   */
+  modernOffer?: { price: string; busy?: boolean; onBuy: () => void }
   /** Current reader path; the sign-in page returns here. */
   returnTo?: string
 }
@@ -180,7 +185,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo, modernOffer }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -395,6 +400,15 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   <span className="lab-v2-edition-check" aria-hidden="true">{selected === edition.key ? '✓' : ''}</span>
                 </button>
               })}
+              {layer === 'mainEdition' && modernOffer && (
+                <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-modern-offer"
+                  disabled={modernOffer.busy} onClick={modernOffer.onBuy}>
+                  <span className="lab-v2-edition-name">Tinct Modern English
+                    <span className="lab-v2-difficulty">{modernOffer.price}</span>
+                  </span>
+                  <span className="lab-v2-edition-check" aria-hidden="true" />
+                </button>
+              )}
             </div>
           )}
 

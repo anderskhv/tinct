@@ -123,7 +123,7 @@
     <p class="eyebrow">Tinct · tinct.app</p>
     <h1>Privacy Policy</h1>
     <p class="lede">This policy explains what data Tinct collects, why it is collected, how it is stored, and the rights you have over it.</p>
-    <p class="updated">Last updated: 6 October 2026</p>
+    <p class="updated">Last updated: 7 October 2026</p>
 
     <ul class="toc" aria-label="Sections">
       <li><a href="#overview">Overview</a></li>
@@ -157,7 +157,7 @@
       <h3>Shared highlights</h3>
       <p>When you share a highlight, we store the passage (book, edition and position in the text) and how the image was drawn, so the link and its image work for anyone who has the link. The link, its page and its image do not show who shared it. We keep which account created the link, privately, to count how shares are used; that link to your account is removed when you delete your account.</p>
       <h3>Payment data</h3>
-      <p>Payments are processed by Stripe. Tinct does not store card numbers. We give Stripe your email address, your account identifier and, if known, the link or campaign that brought you to Tinct, and Stripe provides us with a customer identifier and transaction records for your subscription. To charge the right VAT or sales tax, Stripe asks for your billing address at checkout; Tinct does not store it.</p>
+      <p>Payments are processed by Stripe. Tinct does not store card numbers. We give Stripe your email address, your account identifier and, if known, the link or campaign that brought you to Tinct, and Stripe provides us with a customer identifier and transaction records for your subscription and any one-time purchases. To charge the right VAT or sales tax, Stripe asks for your billing address at checkout; Tinct does not store it.</p>
       <h3>Product analytics</h3>
       <p>Tinct records first-party usage events to understand whether the product is useful and where readers get stuck. These events include the page viewed, book and chapter identifiers, time spent reading, your browser's user agent (browser, operating system and device type), the referring page, the link or campaign that brought you (including campaign and ad-click parameters, if present in the link), feature use such as chat, audio and checkout, and timestamps. Events carry a random identifier for your device. It stays the same until you sign out, which gives a fresh one; if you create an account, events from that device before sign-up become linked to your account.</p>
       <p>When you are signed in, events are associated with your user ID and account email, so that we can see how individual readers use Tinct and help them during the beta period. We also record, per reader, how much each AI and audio feature is used and what it costs us (for example tokens, seconds of audio, model and provider), without the content of your messages; for readers who are not signed in, this is recorded under a code derived from your IP address rather than the address itself.</p>
@@ -171,7 +171,7 @@
         <li><strong>To run the service</strong>: account data, reading data and browser storage are used to sign you in, keep your place, and synchronise your reading across devices.</li>
         <li><strong>To answer questions about a text</strong>: when you use the AI reading features, the relevant passage, your messages and, where it helps the answer, your recent reading history are sent to the AI provider that powers that feature (see below).</li>
         <li><strong>To read books aloud</strong>: book text is sent to our speech provider to produce narration. No personal data is included.</li>
-        <li><strong>To bill subscriptions</strong>: payment data is used to manage your Premium subscription and to issue receipts.</li>
+        <li><strong>To bill subscriptions and purchases</strong>: payment data is used to manage your Premium subscription, to process one-time purchases such as a Modern English edition, and to issue receipts.</li>
         <li><strong>To help readers and improve the product</strong>: analytics and issue reports are used to fix errors, to understand how features are used, and to see how individual signed-in readers are getting on so that we can help them. Account-level analytics and the database are accessible only to the site administrator.</li>
         <li><strong>To email you, if you agreed</strong>: when you create an account you can choose, unticked by default, to receive occasional email about your reading and Tinct. We email only readers who agreed. You can withdraw at any time by replying to such an email or writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>. Account and service emails, such as password resets and issue-report replies, are sent regardless.</li>
       </ul>
@@ -192,9 +192,9 @@
         <li><strong>Supabase</strong>: authentication and database (PostgreSQL), hosted in the European Union (Ireland). Supabase also sends account emails, such as sign-up confirmations and password resets. Row-level security limits each reader to their own data.</li>
         <li><strong>Cloudflare</strong>: application hosting (Workers), storage of synchronised chat history and reading positions, and file storage (R2) for audio and for the PDF and EPUB files signed-in readers add, on a global network.</li>
         <li><strong>Anthropic</strong>: the AI companion, recaps, chapter notes and the review of issue reports are powered by Anthropic's Claude. Your messages, the relevant text and any pictures you attach or snip in the companion chat, or a figure you ask about, are sent to Anthropic's API. Anthropic does not use API data to train its models. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a>.</li>
-        <li><strong>xAI</strong>: Talk (spoken conversation) is powered by xAI's Grok. While a conversation is open, your voice, the relevant text and your recent conversation are sent to xAI. xAI also produces the narration voices, from book text only. Tinct uses xAI with Zero Data Retention: xAI does not store what Tinct sends or receives and does not train on it. See <a href="https://x.ai/legal/privacy-policy">xAI's privacy policy</a>.</li>
+        <li><strong>xAI</strong>: Talk (spoken conversation) is powered by xAI's Grok. While a conversation is open, your voice, the relevant text and your recent conversation are sent to xAI. xAI also produces the narration voices and writes Modern English editions of public-domain books, from book text only. Tinct uses xAI with Zero Data Retention: xAI does not store what Tinct sends or receives and does not train on it. See <a href="https://x.ai/legal/privacy-policy">xAI's privacy policy</a>.</li>
         <li><strong>OpenAI</strong>: when you ask the companion to check sources, your recent questions are sent to OpenAI to run a web search. OpenAI is asked not to store them. See <a href="https://openai.com/policies/privacy-policy">OpenAI's privacy policy</a>.</li>
-        <li><strong>Stripe</strong>: payment processing for Premium subscriptions.</li>
+        <li><strong>Stripe</strong>: payment processing for Premium subscriptions and one-time purchases.</li>
         <li><strong>Brevo</strong>: sending Tinct's own email: issue-report notices and replies, and the occasional emails you agreed to.</li>
         <li><strong>Google</strong>: optional sign-in. If you sign in with Google, Google provides your email address and name.</li>
       </ul>

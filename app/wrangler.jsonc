@@ -43,6 +43,6 @@
   "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }, { "tag": "usage-coordinator-v1", "new_sqlite_classes": ["UsageCoordinator"] }, { "tag": "share-store-v1", "new_sqlite_classes": ["ShareStore"] }],
   "triggers": {
     // 09:00 lifecycle emails; 03:17 retention cleanup (src/worker/routes/retention.ts RETENTION_CRON).
-    "crons": ["0 9 * * *", "17 3 * * *"]
+    "crons": ["0 9 * * *", "17 3 * * *", "*/10 * * * *"]
   }
 }
