@@ -31,18 +31,22 @@ const OWN_BOOKS = [
   { key: 'pdf:bbbbbbbbbbbbbbbbbbbbbbbb', kind: 'pdf', title: 'Lecture notes, week 4', author: '', at: 2, readingAt: null, href: '/lab/addbook/#books' },
 ]
 
-async function prepare(page: Page, { internal, signedIn }: { internal: boolean; signedIn: boolean }) {
+const FAILING_IMPORT = `async()=>({ok:false,reason:'failed'})`
+/** A slow import: it reports each step when the page asks (window.__importStep()), then fails. */
+const SLOW_IMPORT = `async(id,options)=>{const stages=['download','convert','publish'];await new Promise(done=>{window.__importStep=()=>{const next=stages.shift();if(next)options?.onStage?.(next);else done();};});return {ok:false,reason:'failed'};}`
+
+async function prepare(page: Page, { internal, signedIn, importWork = FAILING_IMPORT }: { internal: boolean; signedIn: boolean; importWork?: string }) {
   // Only the local dev server: no outside service (accounts, fonts, analytics) is reached.
   await page.route(url => !['localhost', '127.0.0.1'].includes(url.hostname), route => route.abort())
   await page.route('**/api/public-books', route => route.fulfill({ json: { books: [ADDED] } }))
   await page.route('**/api/events**', route => route.fulfill({ status: 204, body: '' }))
   await page.route('**/lab/library-add.js**', route => route.fulfill({
     contentType: 'text/javascript',
-    body: `window.__tinctLibraryAdd={ownBooks:async()=>${JSON.stringify(OWN_BOOKS)},importWork:async()=>({ok:false,reason:'failed'})};`,
+    body: `window.__tinctLibraryAdd={ownBooks:async()=>${JSON.stringify(OWN_BOOKS)},importWork:${importWork}};`,
   }))
   await page.route('**/sign-in**', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Sign in</title><p>Sign in</p>' }))
   if (signedIn) {
-    await page.context().addCookies([{ name: 'tinct_auth', value: '1', url: 'http://localhost:5173' }])
+    await page.context().addCookies([{ name: 'tinct_auth', value: '1', url: process.env.BASE_URL || 'http://localhost:5173' }])
     await page.addInitScript(user => { try { localStorage.setItem('sb-local-auth-token', JSON.stringify({ user: { id: user, email: 'reader@example.com' } })) } catch { /* private */ } }, USER)
   }
   await page.goto(`/library?view=new&internal=${internal ? 1 : 0}`, { waitUntil: 'domcontentloaded' })
@@ -108,6 +112,46 @@ test.describe('library search', () => {
     // Tinct's own Faust, Part One (Bayard Taylor, Gutenberg 14591) is not offered again.
     expect(lines.filter(line => /^Faust \[part 1\]\. Translated Into English in the Original Metres/.test(line) || /^Faust — Part 1 ·/.test(line))).toEqual([])
     await shot(page, 'search-faust')
+  })
+
+  test('adding: the Add button is a spinner, the row dims and shows each step, then the existing error copy', async ({ page }) => {
+    await prepare(page, { internal: true, signedIn: true, importWork: SLOW_IMPORT })
+    await search(page, 'austen')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    const row = results.locator('.free-row').first()
+    const add = row.locator('.free-add')
+    const label = await add.getAttribute('aria-label')
+    const box = await add.boundingBox()
+    await add.click()
+    await expect(add).toHaveAttribute('aria-busy', 'true')
+    await expect(add).toBeDisabled()
+    await expect(add.locator('svg.add-spinner')).toBeVisible()
+    await expect(add).toHaveAttribute('aria-label', label!)
+    await expect(row).toHaveClass(/is-adding/)
+    // The button keeps its size; no new words appear on screen.
+    const busyBox = await add.boundingBox()
+    expect(Math.abs(busyBox!.width - box!.width)).toBeLessThan(1.5)
+    // "Adding…" (the existing copy) is there for screen readers only.
+    const spoken = add.locator('.sr-only')
+    await expect(spoken).toHaveText('Adding…')
+    expect((await spoken.boundingBox())!.width).toBeLessThanOrEqual(1)
+    const progress = row.locator('.free-progress')
+    const step = async (stage: string) => { await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep()); await expect(progress).toHaveAttribute('data-stage', stage) }
+    await step('download')
+    await step('convert')
+    await shot(page, 'add-in-progress')
+    // Every other Add waits while one book is being added.
+    await results.locator('.free-row').nth(1).locator('.free-add').click()
+    await expect(results.locator('.free-row.is-adding')).toHaveCount(1)
+    await step('publish')
+    await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep())
+    await expect(page.locator('#notice')).toHaveText('This book could not be added. Please try again.')
+    await expect(add).toHaveText('Add')
+    await expect(add).toBeEnabled()
+    await expect(add).not.toHaveAttribute('aria-busy', 'true')
+    await expect(row).not.toHaveClass(/is-adding/)
+    await expect(row.locator('.free-progress')).toHaveCount(0)
   })
 
   test('internal flag off: the search is the library as before', async ({ page }) => {

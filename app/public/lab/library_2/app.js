@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261007rank';
+import {mountBookshelf} from './bookshelf.js?v=20261007polish';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261007rank';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261007polish';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20260928covers';
-import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,ADD_PARAM} from './add-to-tinct.js?v=20261007rank';
+import {enabled as addEnabled,warmFreeSearch,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,ADD_PARAM} from './add-to-tinct.js?v=20261007polish';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -123,25 +123,29 @@ export function filterBooks(query){const words=query.toLocaleLowerCase().trim().
 function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?`${matches.length} ${matches.length===1?'book':'books'} found`:'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
  // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them.
- if(addEnabled()){const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults});if(q)$('search-label').textContent=`${shown.length} ${shown.length===1?'book':'books'} found`;return;}
+ if(addEnabled()){const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,addingStage,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults});if(q)$('search-label').textContent=`${shown.length} ${shown.length===1?'book':'books'} found`;return;}
  renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}
 const ADD_FAILURES={daily_limit:'You have added the most books you can today. Please try again tomorrow.',in_progress:'This book is being added. Please try again in a few minutes.',not_importable:'This book cannot be added to Tinct.',unreadable:'This book could not be read from its library.',failed:'This book could not be added. Please try again.'};
-let addingWork=null;
+let addingWork=null,addingStage=null;
+/** The Add button of the work being added, as rendered now (a new search re-renders the rows). */
+const addButton=id=>[...document.querySelectorAll('#search-results .free-add')].find(b=>b.dataset.work===id)||null;
 /** Add: import the work for everyone, then open it (Currently reading). Signed out: sign in first, then it continues here. */
 async function addWork(work,button){
  const signIn=()=>location.assign(`/sign-in?returnTo=${encodeURIComponent(`/library?${ADD_PARAM}=${encodeURIComponent(work.id)}`)}`);
  if(!document.documentElement.classList.contains('signed-in')){signIn();return;}
- if(addingWork)return;addingWork=work.id;if(button){button.disabled=true;button.textContent='Adding…';}
+ // One import at a time: while it runs its button is a spinner (setAddBusy) and every Add waits.
+ if(addingWork)return;addingWork=work.id;addingStage='start';setAddBusy(button,'start');
+ const step=stage=>{addingStage=stage;setAddBusy(addButton(work.id),stage);};
  try{
-  const result=await (await addEngine()).importWork(work.id);
+  const result=await (await addEngine()).importWork(work.id,{onStage:step});
   if(!result.ok){if(result.reason==='signed_out'){signIn();return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
   try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
   document.body.classList.add('leaving');location.assign(await readerDestination(book,null));
  }catch{document.body.classList.remove('leaving');notice(ADD_FAILURES.failed);}
- finally{addingWork=null;if(button?.isConnected){button.disabled=false;button.textContent='Add';}}
+ finally{if(!document.body.classList.contains('leaving'))setAddBusy(addButton(work.id),null);addingWork=null;addingStage=null;}
 }
 $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>setSearch(false);$('search-input').oninput=renderResults;
 

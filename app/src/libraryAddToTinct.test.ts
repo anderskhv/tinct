@@ -202,6 +202,59 @@ describe('library search panel with the flag', () => {
     FakeWorker.results = results
   })
 
+  it('turns Add into a spinner while its import runs: busy, disabled, row dimmed, the step shown, then back', async () => {
+    FakeWorker.results = [work('pg:105', 'Persuasion', 'Jane Austen'), work('pg:121', 'Northanger Abbey', 'Jane Austen')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    const added: string[] = []
+    addToTinct.renderSearchGroups(box, { query: 'austen', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null })
+    await vi.waitFor(() => expect(box.querySelectorAll('.free-row')).toHaveLength(2))
+    const row = box.querySelector('.free-row') as HTMLElement
+    const button = row.querySelector('.free-add') as HTMLButtonElement
+    addToTinct.setAddBusy(button, 'start')
+    expect(button.disabled).toBe(true)
+    expect(button.getAttribute('aria-busy')).toBe('true')
+    expect(button.querySelector('svg.add-spinner')).not.toBeNull()
+    // No new visible words: the spinner replaces "Add", the existing "Adding…" is for screen readers only.
+    expect(button.querySelector('.sr-only')?.textContent).toBe('Adding…')
+    expect(button.getAttribute('aria-label')).toBe('Add Persuasion to Tinct')
+    expect(row.classList.contains('is-adding')).toBe(true)
+    expect(row.getAttribute('aria-busy')).toBe('true')
+    const bar = () => row.querySelector('.free-progress') as HTMLElement
+    expect(bar().getAttribute('aria-hidden')).toBe('true')
+    const steps: string[] = []
+    for (const stage of ['download', 'convert', 'publish']) { addToTinct.setAddBusy(button, stage); steps.push(bar().style.getPropertyValue('--p')) }
+    expect(steps.map(Number)).toEqual([...steps.map(Number)].sort((a, b) => a - b))
+    expect(Number(steps[2])).toBeLessThan(1)
+    expect(row.querySelectorAll('.free-progress')).toHaveLength(1)
+    expect(button.querySelectorAll('svg')).toHaveLength(1)
+    // A disabled button cannot be clicked twice.
+    button.click()
+    expect(added).toEqual([])
+    addToTinct.setAddBusy(button, null)
+    expect(button.disabled).toBe(false)
+    expect(button.hasAttribute('aria-busy')).toBe(false)
+    expect(button.textContent).toBe('Add')
+    expect(row.classList.contains('is-adding')).toBe(false)
+    expect(row.querySelector('.free-progress')).toBeNull()
+    box.remove()
+  })
+
+  it('renders the row being added busy again when the results are drawn anew', async () => {
+    FakeWorker.results = [work('pg:105', 'Persuasion', 'Jane Austen'), work('pg:121', 'Northanger Abbey', 'Jane Austen')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    addToTinct.renderSearchGroups(box, { query: 'austen', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: 'pg:121', addingStage: 'convert' })
+    await vi.waitFor(() => expect(box.querySelectorAll('.free-row')).toHaveLength(2))
+    const [other, adding] = [...box.querySelectorAll('.free-add')] as HTMLButtonElement[]
+    expect(adding.getAttribute('aria-busy')).toBe('true')
+    expect(adding.disabled).toBe(true)
+    expect((adding.closest('.free-row')!.querySelector('.free-progress') as HTMLElement).dataset.stage).toBe('convert')
+    expect(other.disabled).toBe(false)
+    expect(other.textContent).toBe('Add')
+    box.remove()
+  })
+
   it('shows only the library and the file box for an empty query', () => {
     const box = document.createElement('div')
     addToTinct.renderSearchGroups(box, { query: '', tinct: [{ title: 'A' }], tinctBooks: [], renderTinct: (list: Array<{ title: string }>) => list.forEach(b => box.append(el('button', 'search-result', b.title))), el, onAdd: () => {}, addingWork: null })

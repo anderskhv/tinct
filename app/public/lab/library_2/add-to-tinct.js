@@ -49,7 +49,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261006add';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261007polish';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -152,7 +152,7 @@ export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
  * "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel,
  * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown.
  */
-export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,filterHost,onFilters}){
+export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters}){
  box.classList.add('has-groups');
  const head=text=>el('h2','search-group-head',text);
  const bar=syncSearchFilters(filterHost,{query,tinctBooks,el,onChange:onFilters});
@@ -172,9 +172,10 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
     const row=freeRow(work),item=el('li','free-row'),text=el('span','free-text');
     const line=el('span','free-line');line.append(el('b','',row.title));if(row.author)line.append(document.createTextNode(' · '+row.author));
     text.append(line,el('small','',row.source));
-    const add=el('button','free-add',addingWork===work.id?'Adding…':'Add');add.type='button';add.dataset.work=work.id;add.disabled=addingWork===work.id;add.setAttribute('aria-label',`Add ${row.title} to Tinct`);
+    const add=el('button','free-add','Add');add.type='button';add.dataset.work=work.id;add.setAttribute('aria-label',`Add ${row.title} to Tinct`);
     add.onclick=()=>onAdd(work,add);
     item.append(text,add);list.append(item);
+    if(addingWork===work.id)setAddBusy(add,addingStage||'start');
    }
    group.append(list);
   }).catch(()=>{group.dataset.freeGroup='0';});
@@ -182,6 +183,43 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
  const file=el('div','file-box');file.append(el('p','','Have it as a file?'));
  const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_BOOK_PAGE;file.append(pick);box.append(file);
  return shown;
+}
+
+// ---- Adding a book: the Add button becomes a small spinner, the row dims, a hairline shows the steps ----
+/** importWork's steps (src/libraryAdd.ts onStage), in order; 'start' is before the first. */
+export const ADD_STEPS=['start','download','convert','publish'];
+/** How far along a step is, for the hairline under the row (never 0 or 1 while it runs). */
+export const addProgress=stage=>[.08,.34,.67,.9][Math.max(0,ADD_STEPS.indexOf(stage))];
+const SVG='http://www.w3.org/2000/svg';
+function spinner(){
+ const svg=document.createElementNS(SVG,'svg');svg.setAttribute('class','add-spinner');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','15');svg.setAttribute('height','15');svg.setAttribute('fill','none');svg.setAttribute('aria-hidden','true');
+ // The reader's loading arc (LoadingIcon in src/lab/LabReaderIcons.tsx).
+ const arc=document.createElementNS(SVG,'path');arc.setAttribute('d','M12 3a9 9 0 1 1-8.1 5.1');arc.setAttribute('stroke','currentColor');arc.setAttribute('stroke-width','2.4');arc.setAttribute('stroke-linecap','round');svg.append(arc);return svg;
+}
+/**
+ * One Add while its import runs (`stage` one of ADD_STEPS), or back to "Add" (`stage` null).
+ * Busy: a spinner in the button's own size, aria-busy, disabled, the row dimmed, and a hairline
+ * across the row's foot for the step it is on.
+ */
+export function setAddBusy(button,stage){
+ if(!button)return;
+ const row=button.closest('.free-row');
+ if(stage===null||stage===undefined){
+  button.disabled=false;button.removeAttribute('aria-busy');button.classList.remove('is-busy');button.style.removeProperty('width');button.textContent='Add';
+  if(row){row.classList.remove('is-adding');row.removeAttribute('aria-busy');row.querySelector(':scope > .free-progress')?.remove();}
+  return;
+ }
+ if(!button.classList.contains('is-busy')){
+  const width=button.offsetWidth;if(width)button.style.width=width+'px';
+  const label=document.createElement('span');label.className='sr-only';label.textContent='Adding…';
+  button.replaceChildren(spinner(),label);button.classList.add('is-busy');
+ }
+ button.disabled=true;button.setAttribute('aria-busy','true');
+ if(!row)return;
+ row.classList.add('is-adding');row.setAttribute('aria-busy','true');
+ let bar=row.querySelector(':scope > .free-progress');
+ if(!bar){bar=document.createElement('span');bar.className='free-progress';bar.setAttribute('aria-hidden','true');bar.append(document.createElement('i'));row.append(bar);}
+ bar.style.setProperty('--p',String(addProgress(stage)));bar.dataset.stage=stage;
 }
 
 /** My shelf's own-book card: a paper cover that opens the book. */

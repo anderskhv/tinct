@@ -384,6 +384,14 @@ html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pendin
 .free-add,.file-add{flex:none;border:1px solid #eee7d099;border-radius:999px;padding:8px 18px;font:600 13px/1 system-ui,sans-serif;color:var(--cream);background:none;text-decoration:none;cursor:pointer}
 .free-add:hover,.file-add:hover{background:#eee7d014}
 .free-add:disabled{opacity:.6;cursor:default}
+.free-row{position:relative}
+.free-row.is-adding .free-text{opacity:.5;transition:opacity .2s}
+.free-add.is-busy,.free-add.is-busy:disabled{display:inline-grid;place-items:center;opacity:1}
+.free-add .add-spinner{width:15px;height:15px;animation:add-spin .9s linear infinite}
+@keyframes add-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.free-add .add-spinner{animation:none}}
+.free-progress{position:absolute;left:0;right:0;bottom:-1px;height:1px;overflow:hidden;pointer-events:none}
+.free-progress i{display:block;height:100%;background:var(--cream);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s ease}
 .file-box{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;border:1.5px dashed #eee7d059;border-radius:12px;padding:18px 20px;margin-top:4px}
 .file-box p{margin:0;font:17px/1.35 Georgia,serif}
 .own-cover{display:block;width:100%;aspect-ratio:2/3}
