@@ -75,7 +75,7 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(primer).toContain('{"beats":[{"title":"Where we are","text":"…"},{"title":"Watch for","text":"…"}]}')
     expect(primer).toMatch(/one or two plain sentences/)
     expect(primer).toMatch(/Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter/)
-    expect(primer).toContain('"Watch how the book closes on Mordecai\'s standing rather than Esther\'s", never "Mordecai\'s position is revealed"')
+    expect(primer).toContain('"Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed"')
     expect(primer).toMatch(/Never use the verbs list, record, document, establish, detail, reveal or examine/)
     expect(primer).toMatch(/Do not invent meaning, motives or symbolism/)
     expect(primer).toMatch(/State only facts the text gives; when unsure of a name or number, leave it out\./)

@@ -109,7 +109,7 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
     'Give exactly two beats, in this order. Never more than two beats.',
     'The first is titled "Where we are" and says, from the PREVIOUS chapter only, where the story stands. If there is no previous chapter, it says where the book opens, from the coming chapter\'s first lines only.',
     'The second is titled "Watch for" and gives one or two concrete pointers for the coming chapter: a person, object, place or question to keep an eye on, named specifically.',
-    'Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter. Point at what to notice, never at what happens to it. For example (another chapter, for tone only), write "Watch how the book closes on Mordecai\'s standing rather than Esther\'s", never "Mordecai\'s position is revealed".',
+    'Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter. Point at what to notice, never at what happens to it. For example (from a different book, for tone only), write "Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed".',
     'Answer with JSON only, no prose around it: {"beats":[{"title":"Where we are","text":"…"},{"title":"Watch for","text":"…"}]}.',
     'Each text is one or two plain sentences in the present tense, at most 40 words.',
     'Ground both beats in the text given. Do not invent meaning, motives or symbolism.',
