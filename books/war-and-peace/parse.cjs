@@ -93,6 +93,15 @@ for (let i = 0; i < lines.length; i++) {
   // Check for book header
   const bookMatch = trimmed.match(bookPattern)
   if (bookMatch) {
+    // Save the previous Book's last chapter under that Book before switching
+    // to the new header. Without this, the closing chapter of every Book was
+    // filed under the following Book (fixed 2026-10-07).
+    if (pendingChapterRoman) {
+      flushChapter(pendingChapterRoman)
+      pendingChapterRoman = null
+      currentChapterLines = []
+    }
+
     // Extract book name and year
     const parts = trimmed.split(':')
     const bookKey = parts[0].trim()
@@ -153,7 +162,12 @@ console.log(`Total words: ${totalWords.toLocaleString()}`)
 
 // Write JSON
 const output = { chapters }
-const outputPath = path.join(__dirname, '..', '..', 'tinct', 'src', 'data', 'editions', 'war-and-peace-original-en.json')
+// OUT_DIR redirects both outputs (edition JSON and CHAPTERS.md), e.g. to a
+// temp folder for checking the parse without touching tracked files.
+const outDir = process.env.OUT_DIR ? path.resolve(process.env.OUT_DIR) : null
+const outputPath = outDir
+  ? path.join(outDir, 'war-and-peace-original-en.json')
+  : path.join(__dirname, '..', '..', 'tinct', 'src', 'data', 'editions', 'war-and-peace-original-en.json')
 fs.writeFileSync(outputPath, JSON.stringify(output, null, 2))
 console.log(`Written to ${outputPath}`)
 
@@ -172,5 +186,5 @@ for (const ch of chapters) {
   md += `| ${ch.number} | ${ch.title} | ${ch.paragraphs.length} | ${words} | ${firstLine} |\n`
 }
 
-fs.writeFileSync(path.join(__dirname, 'CHAPTERS.md'), md)
+fs.writeFileSync(path.join(outDir || __dirname, 'CHAPTERS.md'), md)
 console.log('Written CHAPTERS.md for editorial review')
