@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Section } from '../types'
-import { catchUpPlan, catchUpUnits, type CatchUpEntry } from '../catchUp'
+import { catchUpPlan, catchUpSeparateWorks, catchUpUnits, type CatchUpEntry } from '../catchUp'
 import type { LabChapter } from './labSource'
 import { useReaderWindow } from './useReaderWindow'
 import {
@@ -28,8 +28,8 @@ export interface LabCatchUpSheetProps {
   completed: boolean
   /** The current chapter's paragraphs in `editionKey`; with them, a "so far" entry is only asked for once there is narrative to summarise. */
   paragraphs?: readonly string[]
-  /** Bible only, read once at open: chapters the reader has a record of reading; earlier biblical books without one are left out. */
-  readChapters?: () => ReadonlySet<number> | null
+  /** The book's library form (`libraryTaxonomy.ts`); a collection of separate works is recapped one work at a time. */
+  form?: string | null
   readToken?: () => Promise<string | null>
   onClose: () => void
   onDiscuss: () => void
@@ -38,20 +38,20 @@ export interface LabCatchUpSheetProps {
 interface EntryState { state: CatchUpLoadState; summary?: string }
 
 /**
- * "Catch me up": a timeline of what has been read in this book, oldest at the
- * top, ending at "You are here". It is an overlay only — it reads the place
+ * "Catch me up": a timeline of what has been read, oldest at the top, ending
+ * at "You are here" (scope: `catchUp.ts`). It is an overlay only — it reads the place
  * it was opened at and never writes one, so opening and closing it cannot
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, readChapters, readToken, onClose, onDiscuss } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onDiscuss } = props
   // The place is captured once, when the sheet opens.
   const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
     bookId, editionKey, bookTitle,
     units: catchUpUnits({ title: bookTitle || bookId, chapters, sections, bible: bookId === 'bible' }),
     chapters, chapterNumber, paragraphIndex, completed,
     currentParagraphs: paragraphs ?? null,
-    readChapters: bookId === 'bible' ? readChapters?.() ?? null : null,
+    separateWorks: catchUpSeparateWorks({ bookId, form }),
   }))
   const keys = useMemo(() => entries.map(entry => entry.key), [entries])
   const [states, setStates] = useState<Record<string, EntryState>>(() => {
@@ -64,6 +64,13 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
   })
   const [wanted, setWanted] = useState<Set<string>>(() => new Set(keys.slice(0, CATCH_UP_INITIAL_WANTED)))
   const [coolUntil, setCoolUntil] = useState(0)
+  // Earlier parts start folded to one line; a tap opens one.
+  const [open, setOpen] = useState<ReadonlySet<string>>(() => new Set())
+  const toggle = useCallback((key: string) => setOpen(prev => {
+    const next = new Set(prev)
+    if (!next.delete(key)) next.add(key)
+    return next
+  }), [])
   const bodyRef = useRef<HTMLDivElement>(null)
   const windowRef = useReaderWindow<HTMLElement>('catchup', true)
   const tokenRef = useRef<Promise<string | null> | null>(null)
@@ -148,13 +155,22 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
               const status = states[entry.key]
               // Nothing to summarise there: no entry, never the model's words about it.
               if (status?.state === 'empty') return null
+              const folded = entry.kind === 'unit' && entry.folded === true
+              const expanded = folded && open.has(entry.key)
               return (
-                <li key={entry.key} className={`lab-catch-up-entry is-${entry.kind}`} data-key={entry.key}
-                  data-state={status?.state ?? 'idle'} data-testid="lab-catch-up-entry">
+                <li key={entry.key} className={`lab-catch-up-entry is-${entry.kind}${folded ? ' is-folded' : ''}`} data-key={entry.key}
+                  data-state={status?.state ?? 'idle'} data-testid="lab-catch-up-entry"
+                  {...(folded ? { 'data-expanded': expanded ? 'true' : 'false' } : {})}>
                   <span className="lab-catch-up-dot" aria-hidden="true" />
-                  <h3 className="lab-catch-up-title">{entry.title}</h3>
+                  <h3 className="lab-catch-up-title">{folded ? (
+                    <button type="button" className="lab-catch-up-fold" data-testid="lab-catch-up-fold" aria-expanded={expanded}
+                      onClick={() => toggle(entry.key)}>{entry.title}</button>
+                  ) : entry.title}</h3>
                   {status?.state === 'ok' ? (
-                    <p className="lab-catch-up-text">{status.summary}</p>
+                    folded && !expanded
+                      // One line: the part's recap, cut to fit; the tap opens it.
+                      ? <p className="lab-catch-up-text is-line" onClick={() => toggle(entry.key)}>{status.summary}</p>
+                      : <p className="lab-catch-up-text">{status.summary}</p>
                   ) : status?.state === 'error' ? (
                     <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={() => { setCoolUntil(0); load(entry) }}>Retry</button>
                   ) : (

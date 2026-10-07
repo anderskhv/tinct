@@ -70,6 +70,45 @@
   color: inherit;
 }
 
+/* An earlier part: one line until tapped. The title is the toggle and keeps
+   the title's look; a small chevron says it opens. */
+.lab[data-chrome-version="v2"] .lab-catch-up-fold {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-fold::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 5px;
+  height: 5px;
+  border-right: 1.4px solid currentColor;
+  border-bottom: 1.4px solid currentColor;
+  opacity: 0.5;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-fold[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+.lab[data-chrome-version="v2"] .lab-catch-up-fold:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-text.is-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded { contain-intrinsic-size: auto 48px; }
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded[data-expanded="false"] .lab-catch-up-placeholder i:nth-child(n+2) { display: none; }
+
 /* Quiet placeholders: three faint lines where the recap will be. */
 .lab[data-chrome-version="v2"] .lab-catch-up-placeholder {
   display: grid;

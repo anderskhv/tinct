@@ -25,6 +25,7 @@ import {
   catchUpCacheKey,
   catchUpStaticKey,
   catchUpStaticPath,
+  catchUpFindUnit,
   catchUpUnits,
   type CatchUpResponse,
   type CatchUpUnit,
@@ -212,7 +213,8 @@ export async function handleLabCatchUp(
   const index = await retrieval.editionIndex()
   if (!index || index.chapters.length === 0) return jsonResponse({ error: 'Edition not available' }, 404, request)
   const units = catchUpUnits({ title: parsed.bookTitle ?? parsed.bookId, chapters: index.chapters, sections: index.sections as Section[] | undefined, bible: parsed.bookId === 'bible' })
-  const unit = units.find(item => item.id === parsed!.unitId)
+  // A biblical book, a part, a chapter unit, or one chapter inside a part (`ch-<n>`).
+  const unit = catchUpFindUnit(units, index.chapters, parsed.unitId)
   if (!unit) return jsonResponse({ error: 'Unknown unit' }, 400, request)
   const coverage = catchUpCoverage(unit, parsed.throughChapter)
   if (!coverage) return jsonResponse({ error: 'Chapter not in unit' }, 400, request)
