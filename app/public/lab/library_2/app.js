@@ -12,7 +12,7 @@ import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduc
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY} from './motion.js?v=20261007tuck';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20260928covers';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261007signedin';
 import {librarySearch} from './library-search.js?v=20261007search';
@@ -274,13 +274,40 @@ $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
 // One persistent particle sphere follows a single interpolated position. There
 // is no second orb to cross-fade, and chat never lays it over its controls.
 let mode='minimized',orbMotion=null,drag=null;
-let dock={x:innerWidth-52,y:innerHeight*.43,size:52,edge:'right'},orbPosition={...dock};
-function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(mode==='minimized')magnet();if(reduced.matches)drawOrb(0);}
+// Minimized, the librarian is "tucked" (A · Tuck): a capsule half under the left
+// or right wall, drawn by the #librarian-goo SVG and joined to the wall by goo.
+// The button is then only its pointer target. It docks on the sides only and
+// slides along them; `dock` is where it rests, kept for the whole visit.
+// The right wall is the edge of the fixed layer (inside the scrollbar gutter); measured once per size.
+let wallWidth=0;const wallW=()=>wallWidth||(wallWidth=$('librarian-goo').getBoundingClientRect().width||innerWidth);
+// While the page scrolls the docked capsule shrinks to TUCK.scrollDock (the icon
+// fades), and grows back TUCK.scrollIdle ms after the last scroll event.
+let scrolling=false,scrollTimer=0;const dockSize=()=>scrolling?TUCK.scrollDock:TUCK.dock;
+addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>{scrolling=false;if(isTucked())runTuck();},TUCK.scrollIdle);if(!scrolling){scrolling=true;if(isTucked())runTuck();}},{passive:true});
+let dock={side:'right',y:tuckRestY(innerHeight*.43+26,innerHeight)},orbPosition={x:0,y:0,size:52};
+let tuck=tuckAt(dock.side,dock.y,wallW(),dockSize()),tuckFrame=0,tuckLast=0;
+// goo-face is an unfiltered copy of the body drawn over the goo, so the capsule
+// edge stays crisp and the dot stays visible if a browser drops the SVG filter.
+const goo={svg:$('librarian-goo'),body:$('goo-body'),face:$('goo-face'),anchor:$('goo-anchor'),necks:['goo-n1','goo-n2','goo-n3'].map($)};
+function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(reduced.matches)drawOrb(0);}
+const isTucked=()=>mode==='minimized'&&$('librarian').classList.contains('tuck');
+function renderTuck(){const s=tuckShape(tuck,wallW()),b=$('librarian'),set=(e,a)=>{for(const k in a)e.setAttribute(k,a[k].toFixed(2));};const body={x:s.body.x,y:s.body.y,width:s.body.w,height:s.body.h,rx:s.body.r};set(goo.body,body);set(goo.face,body);set(goo.anchor,{cx:s.anchor.cx,cy:s.anchor.cy,r:s.anchor.r});s.necks.forEach((n,i)=>set(goo.necks[i],n));b.style.width=s.hit.w+'px';b.style.height=s.hit.h+'px';b.style.transform=`translate3d(${s.hit.x}px,${s.hit.y}px,0)`;const vars={'--orb-scale':(s.orb.size/TUCK.orb.free).toFixed(3),'--orb-room':s.orb.opacity.toFixed(3),'--orb-dx':s.orb.dx.toFixed(2)+'px','--orb-dy':s.orb.dy.toFixed(2)+'px','--icon-opacity':s.icon.opacity.toFixed(3),'--icon-dx':s.icon.dx.toFixed(2)+'px','--icon-dy':s.icon.dy.toFixed(2)+'px'};for(const k in vars)b.style.setProperty(k,vars[k]);b.dataset.edge=tuck.attached?tuck.side:'none';if(reduced.matches)drawOrb(0);}
+// Fixed 60 Hz steps, so the springs feel the same on 120 Hz screens.
+function tuckTick(now){tuckFrame=0;if(!isTucked())return;const held=drag?.active&&drag.moved?{x:drag.p.x-drag.off.x,y:drag.p.y-drag.off.y}:null;const steps=reduced.matches?1:clamp(Math.round((now-tuckLast)/16.7),1,4);tuckLast=now;for(let i=0;i<steps;i++)tuck=tuckStep(tuck,{W:wallW(),H:innerHeight,drag:held,restY:dock.y,reduced:reduced.matches,dock:dockSize()});if(!held&&tuckSettled(tuck,wallW(),dock.y,dockSize()))tuck=tuckAt(tuck.side,dock.y,wallW(),dockSize());else if(held||!reduced.matches)tuckFrame=requestAnimationFrame(tuckTick);if(!held&&tuck.attached)dock.side=tuck.side;renderTuck();}
+function runTuck(){if(!tuckFrame){tuckLast=performance.now()-16.7;tuckFrame=requestAnimationFrame(tuckTick);}}
+function stopTuck(){cancelAnimationFrame(tuckFrame);tuckFrame=0;}
+function showGoo(on){goo.svg.classList.toggle('off',!on);}
+// Put it back at rest without motion (first paint, layout and resize).
+function snapTuck(){if(!isTucked()||drag?.active)return;stopTuck();tuck=tuckAt(dock.side,dock.y,wallW(),dockSize());renderTuck();}
+// The orb leaves the panel as a free dot beside its wall, then the springs draw
+// it in, so it re-attaches with the same squash as a hand release.
+function tuckReturnTarget(){const r=TUCK.free.w/2,cx=dock.side==="right"?wallW()-r-36:r+36;return {x:cx-r,y:dock.y-r,size:TUCK.free.w};}
+function enterTuck(){const b=$('librarian'),r=orbPosition.size/2,cx=orbPosition.x+r,inward=dock.side==='right'?3:-3;b.classList.add('tuck');tuck={...tuckAt(dock.side,dock.y,wallW(),dockSize()),attached:false,x:cx,y:orbPosition.y+r,w:TUCK.free.w,h:TUCK.free.h,ar:0,vx:inward};tuck.ay=tuck.y;showGoo(true);renderTuck();runTuck();}
 function orbTarget(){const space=$(`librarian-${mode}`).querySelector('.orb-space').getBoundingClientRect();const size=Math.min(space.height,space.width,240);return {x:space.x+(space.width-size)/2,y:space.y+(space.height-size)/2,size};}
 function moveOrb(target,done){if(orbMotion)cancelAnimationFrame(orbMotion);const from={...orbPosition},start=performance.now();function frame(now){const t=reduced.matches?1:clamp((now-start)/450,0,1);placeOrb(orbFrame(from,target,t));if(t<1)orbMotion=requestAnimationFrame(frame);else{orbMotion=null;done?.();}}orbMotion=requestAnimationFrame(frame);}
 function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';}
 let panelLastRect={x:20,y:80};
-function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;if(next!=='minimized')$('librarian').classList.add('expanded');$('librarian').dataset.edge='none';if(next!=='minimized'){$('librarian').dataset.magnet='none';$('librarian').style.borderRadius='50%';}syncLock();if(next==='minimized'){$('librarian').classList.add('returning');const finish=()=>{$('librarian').classList.remove('expanded','returning');$('librarian').dataset.edge=dock.edge;};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(dock,finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrb(orbTarget()));}updateLibrarianContext();}
+function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;const b=$('librarian');if(next!=='minimized'){if(b.classList.contains('tuck')){stopTuck();drag=null;const s=Math.min(tuck.w,tuck.h);b.classList.remove('tuck');placeOrb({x:tuck.x-s/2,y:tuck.y-s/2,size:s});}showGoo(false);b.classList.remove('returning');b.classList.add('expanded');b.dataset.edge='none';}syncLock();if(next==='minimized'&&!b.classList.contains('tuck')){b.classList.add('returning');b.dataset.edge='none';const finish=()=>{b.classList.remove('expanded','returning');enterTuck();};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(tuckReturnTarget(),finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrb(orbTarget()));}updateLibrarianContext();}
 let assistant=null,assistantLoading=null;
 const ASSISTANT_MODULE='/lab/library-2-assistant.js?v=20261001shelf';
 // Fetch the librarian's code while the page is idle, so Chat and Talk open without that wait.
@@ -310,12 +337,15 @@ function openLibrarian(){setMode('welcome');$('minimize').focus({preventScroll:t
 function minimize(){if(assistant&&(mode==='talk'||mode==='chat'))assistant.close();else{setMode('minimized');$('librarian').focus({preventScroll:true});}}
 $('minimize').onclick=minimize;
 $('librarian').onclick=e=>{if(drag?.moved){drag=null;e.preventDefault();return;}if(mode==='minimized')openLibrarian();};
-function magnet(){const b=$('librarian'),p=orbPosition,size=p.size;const gaps=[p.x,innerWidth-p.x-size,p.y,innerHeight-p.y-size],distance=Math.max(0,Math.min(...gaps)),edge=['left','right','top','bottom'][gaps.indexOf(Math.min(...gaps))];const strength=1-ease(clamp(distance/72,0,1)),round=50*(1-strength);const radii={left:[round,50,50,round],right:[50,round,round,50],top:[round,round,50,50],bottom:[50,50,round,round]};b.style.borderRadius=(radii[edge]||[50,50,50,50]).map(n=>n+'%').join(' ');b.dataset.magnet=distance<72?edge:'none';b.style.setProperty('--tail-size',distance+'px');b.style.setProperty('--tail-opacity',String(strength));}
-$('librarian').onpointerdown=e=>{if(mode!=='minimized')return;if(orbMotion)cancelAnimationFrame(orbMotion);drag={x:e.clientX,y:e.clientY,start:{...orbPosition},moved:false};$('librarian').setPointerCapture(e.pointerId);};
-$('librarian').onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.hypot(dx,dy)>5){drag.moved=true;movedLibrarian=true;}if(!drag.moved)return;placeOrb({x:clamp(drag.start.x+dx,0,innerWidth-52),y:clamp(drag.start.y+dy,0,innerHeight-52),size:52});$('librarian').dataset.edge='none';magnet();};
-$('librarian').onpointerup=()=>{if(!drag)return;if(drag.moved){dock=dockPosition(orbPosition.x,orbPosition.y,innerWidth,innerHeight);moveOrb(dock,()=>{$('librarian').dataset.edge=dock.edge;});}else drag=null;};
-$('librarian').onpointercancel=()=>{drag=null;dock=dockPosition(orbPosition.x,orbPosition.y,innerWidth,innerHeight);moveOrb(dock,()=>{$('librarian').dataset.edge=dock.edge;});};
-$('librarian').onkeydown=e=>{if(mode!=='minimized'||!e.key.startsWith('Arrow'))return;e.preventDefault();const step=e.shiftKey?40:10;dock=dockPosition(dock.x+(e.key==='ArrowRight'?step:e.key==='ArrowLeft'?-step:0),dock.y+(e.key==='ArrowDown'?step:e.key==='ArrowUp'?-step:0),innerWidth,innerHeight);$('librarian').dataset.edge=dock.edge;moveOrb(dock);};
+// A tap opens the librarian; a drag pulls it off its wall. Pointer capture keeps
+// the move events coming while the shape trails the finger.
+$('librarian').onpointerdown=e=>{if(!isTucked())return;drag={p0:{x:e.clientX,y:e.clientY},p:{x:e.clientX,y:e.clientY},off:{x:e.clientX-tuck.x,y:e.clientY-tuck.y},moved:false,active:true};$('librarian').setPointerCapture(e.pointerId);};
+$('librarian').onpointermove=e=>{if(!drag?.active)return;drag.p={x:e.clientX,y:e.clientY};if(!drag.moved&&Math.hypot(drag.p.x-drag.p0.x,drag.p.y-drag.p0.y)>5){drag.moved=true;movedLibrarian=true;}if(drag.moved)runTuck();};
+function releaseTuck(cancel){if(!drag)return;drag.active=false;if(!drag.moved&&!cancel){drag=null;return;}if(cancel)drag=null;tuck=tuckRelease(tuck,wallW());dock={side:tuck.side,y:tuckRestY(tuck.y,innerHeight)};runTuck();}
+$('librarian').onpointerup=()=>releaseTuck(false);
+$('librarian').onpointercancel=()=>releaseTuck(true);
+// Up and down slide it along its wall; left and right send it across to the other wall.
+$('librarian').onkeydown=e=>{if(!isTucked()||!e.key.startsWith('Arrow'))return;e.preventDefault();const step=e.shiftKey?40:10;movedLibrarian=true;if(e.key==='ArrowUp'||e.key==='ArrowDown')dock.y=tuckRestY(dock.y+(e.key==='ArrowDown'?step:-step),innerHeight);else{const side=e.key==='ArrowLeft'?'left':'right';if(side!==tuck.side){dock.side=side;tuck={...tuck,side,attached:false};}}runTuck();};
 function startAssistant(next){
  if(!assistant){void loadAssistant();return;}
  setMode(next);assistant.open(next);
@@ -350,14 +380,13 @@ function refreshAmbient(){cancelAnimationFrame(ambientFrame);ambientFrame=reques
 addEventListener('tinct:display-profile',refreshAmbient);
 motionPreference.addEventListener('change',refreshAmbient);
 document.addEventListener('visibilitychange',refreshAmbient);
-placeOrb(dock);$('librarian').dataset.edge=dock.edge;refreshAmbient();
+snapTuck();refreshAmbient();
 let movedLibrarian=false;
 // Phone landing height is frozen per width so collapsing browser bars do not shift the hero.
 // iPhone browsers float the bottom toolbar over the page; cover tops start at its top edge.
-function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();if(document.documentElement.classList.contains('returning')){dock={x:innerWidth-52,y:innerHeight*.68,size:52,edge:'right'};placeOrb(dock);return;}dock={x:innerWidth-52,y:clamp(r.top+scrollY+r.height/2-26,70,innerHeight-65),size:52,edge:'right'};placeOrb(dock);}}
+function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitHero);observer.observe(document.querySelector('.hero-copy'));observer.observe($('hero'));}fitHero();
-let previousWidth=innerWidth,previousHeight=innerHeight;
-addEventListener('resize',()=>{fitHero();const free=dock.edge==='none';dock=dockPosition(free?dock.x/Math.max(1,previousWidth-52)*(innerWidth-52):dock.edge==='right'?innerWidth-52:dock.x,free?dock.y/Math.max(1,previousHeight-52)*(innerHeight-52):dock.edge==='bottom'?innerHeight-52:dock.y,innerWidth,innerHeight);previousWidth=innerWidth;previousHeight=innerHeight;if(mode==='minimized')placeOrb(dock);else if(mode==='welcome')requestAnimationFrame(()=>moveOrb(orbTarget()));if(activeBook){if(bookProgress===1)drawBook(1);else{sourceRect=rectOf(sourceCanvas);drawBook(bookProgress);}}drawScene(performance.now());});
+addEventListener('resize',()=>{wallWidth=0;fitHero();dock.y=tuckRestY(dock.y,innerHeight);if(mode==='minimized')snapTuck();else if(mode==='welcome')requestAnimationFrame(()=>moveOrb(orbTarget()));if(activeBook){if(bookProgress===1)drawBook(1);else{sourceRect=rectOf(sourceCanvas);drawBook(bookProgress);}}drawScene(performance.now());});
 addEventListener('keydown',e=>{if(e.defaultPrevented||document.documentElement.dataset.tinctCommandsOpen==='true')return;if(e.key==='Tab')document.documentElement.classList.add('keyboard-nav');if(e.key==='Escape'){if(mode!=='minimized')minimize();else if(activeBook){if(reading)$('reader-back').click();else closeBook();}else if(searchOpen)setSearch(false);else if(menuOpen)setMenu(false);}if(e.key==='Tab'){const modal=mode!=='minimized'?$('librarian-panel'):activeBook&&bookProgress===1?(destination(innerWidth,innerHeight,matchMedia('(pointer:coarse)').matches).tour&&tourProgress===0?$('book-overlay'):reading?$('reader'):$('intro')):searchOpen?$('search-panel'):menuOpen?$('library-menu'):null;if(!modal)return;const items=[...modal.querySelectorAll('button,input,select,[tabindex="0"]')].filter(x=>!x.hidden&&!x.disabled&&!x.closest('[aria-hidden="true"]')&&x.getClientRects().length);if(!items.length)return;const i=items.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();items.at(-1).focus();}else if(!e.shiftKey&&i===items.length-1){e.preventDefault();items[0].focus();}}});
 addEventListener('pointerdown',()=>document.documentElement.classList.remove('keyboard-nav'),true);
 function fitKeyboard(){const viewport=window.visualViewport;document.documentElement.classList.toggle('vv-keyboard',!!viewport&&innerHeight-viewport.height>120);document.documentElement.style.setProperty('--visual-height',(viewport?.height||innerHeight)+'px');document.documentElement.style.setProperty('--visual-top',(viewport?.offsetTop||0)+'px');}
