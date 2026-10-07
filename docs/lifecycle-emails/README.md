@@ -46,7 +46,7 @@ Escape every variable as HTML, except `opening_line` and `books_phrase`, which c
 | `reason` | next-book | `pairings.json` |
 | `classic_quote`, `classic_source`, `classic_context` | next-book | From the onboarding `acclaim` entry named in `pairings.json` |
 | `hours_total`, `hours_reading`, `hours_listening`, `chapters`, `questions`, `talk_minutes`, `books_phrase` | keep-companion | First-month totals, pre-formatted ("6 hours", "40 minutes"). Round to the nearest half hour; use minutes below 1 hour |
-| `trial_end_date`, `checkout_url` | trial emails | Local date ("30 October"); a link that opens the working $3 checkout |
+| `trial_end_date`, `checkout_url` | trial emails | Local date ("30 October"); a link that opens the working $5 checkout |
 
 ## Sending checklist (for the coding agent)
 1. Headers: `List-Unsubscribe: <{{unsubscribe_url}}>, <mailto:…>` and `List-Unsubscribe-Post: List-Unsubscribe=One-Click` (Gmail and Yahoo requirements for bulk senders). Brevo accepts these as custom headers.
