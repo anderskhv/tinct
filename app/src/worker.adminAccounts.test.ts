@@ -295,7 +295,7 @@ describe('admin account routes', () => {
     expect(body.userId).toBe(userId)
     expect(body.auth).toMatchObject({ id: userId, created_at: '2026-01-01T00:00:00Z', last_sign_in_at: '2026-09-01T00:00:00Z', user_metadata: { name: 'R' } })
     expect(Object.keys(body.supabase).sort()).toEqual([
-      'ai_usage_events', 'analytics_events', 'analytics_events_device_anonymous', 'issue_reports', 'payments', 'profiles',
+      'ai_usage_events', 'analytics_events', 'analytics_events_device_anonymous', 'email_log', 'issue_reports', 'payments', 'profiles',
       'reading_memory_sessions', 'site_admins', 'token_usage', 'user_data', 'user_data_audit',
     ])
     expect(body.supabase.user_data).toEqual([{ user_id: userId, key: 'tinct:highlights', value: { a: 1 } }])
@@ -327,6 +327,24 @@ describe('admin account routes', () => {
     const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
     expect(deleted.ok).toBe(true)
     expect(w.state.tables.user_data).toEqual([someoneElse])
+  })
+
+  it('exports the email send log, and treats a not-yet-created email_log table as empty', async () => {
+    const w = world()
+    w.state.tables.email_log = [{ id: 1, user_id: userId, template: 'welcome', dedupe_key: 'welcome:-' }, { id: 2, user_id: otherUser, template: 'welcome', dedupe_key: 'welcome:-' }]
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.supabase.email_log).toEqual([{ id: 1, user_id: userId, template: 'welcome', dedupe_key: 'welcome:-' }])
+
+    const missing = world()
+    const inner = globalThis.fetch
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) =>
+      String(input).includes('/rest/v1/email_log') ? json({ code: 'PGRST205' }, 404) : inner(input, init)))
+    const body = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), missing.env, admin)).json() as Record<string, any>
+    expect(body.complete).toBe(true)
+    expect(body.errors).toEqual([])
+    expect(body.supabase.email_log).toBeNull()
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), missing.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
   })
 
   it('reports an unknown account as 404', async () => {

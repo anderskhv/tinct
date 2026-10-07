@@ -63,6 +63,16 @@ const USER_TABLES: { table: string; column: string; order: string }[] = [
   { table: 'site_admins', column: 'user_id', order: 'user_id' },
 ]
 
+/**
+ * Tables that may not exist yet (their migration can run after the Worker
+ * ships). Exported and checked like USER_TABLES, but a missing table is
+ * recorded as null instead of failing the export or the deletion check.
+ * email_log (20261008_email_log.sql) goes with the auth user (ON DELETE CASCADE).
+ */
+const OPTIONAL_USER_TABLES: { table: string; column: string; order: string }[] = [
+  { table: 'email_log', column: 'user_id', order: 'sent_at,id' },
+]
+
 /** ON DELETE SET NULL tables: rows must be deleted before the auth user goes. */
 const SET_NULL_TABLES = ['analytics_events', 'issue_reports', 'ai_usage_events'] as const
 
@@ -253,6 +263,12 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
 
   const supabase: Record<string, unknown> = {}
   for (const { table, column, order } of USER_TABLES) {
+    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order))
+    supabase[table] = result?.rows ?? null
+    if (result?.truncated) truncated.push(table)
+  }
+  for (const { table, column, order } of OPTIONAL_USER_TABLES) {
+    if ((await supabaseGet(env, `${table}?select=${column}&limit=0`)).status === 404) { supabase[table] = null; continue }
     const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order))
     supabase[table] = result?.rows ?? null
     if (result?.truncated) truncated.push(table)
@@ -455,6 +471,12 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
       const leftovers: string[] = []
       for (const { table, column } of USER_TABLES) {
         const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
+        if ((await res.json() as unknown[]).length) leftovers.push(table)
+      }
+      for (const { table, column } of OPTIONAL_USER_TABLES) {
+        const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (res.status === 404) continue
         if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
         if ((await res.json() as unknown[]).length) leftovers.push(table)
       }

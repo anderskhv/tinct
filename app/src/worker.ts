@@ -44,6 +44,9 @@ import { COVER_RUN_LIMIT, handlePublicBooks, handlePublicEditionData, runPublicC
 import { MODERN_EDITION_CRON, grantModernEdition, runModernEditionJobs } from './worker/routes/publicBookModern'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
+import { handleEmailLink, isEmailLinkRequest } from './worker/routes/emailLinks'
+import { handleAdminAnnounceEmail } from './worker/routes/adminAnnounce'
+import { runLifecycleCron } from './worker/lifecycle/runtime'
 import { RETENTION_CRON, runRetentionCleanup } from './worker/routes/retention'
 import {
   changedSegment,
@@ -87,6 +90,14 @@ interface Env {
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
+  /** "1": lifecycle emails (src/worker/lifecycle/runtime.ts). Off by default. */
+  LIFECYCLE_EMAILS?: string
+  /** "1": the trial-ending / trial-ended notices. Off until checkout is confirmed. */
+  LIFECYCLE_TRIAL_NOTICES?: string
+  /** Secret: signs one-click unsubscribe and confirm links in lifecycle emails. */
+  EMAIL_LINK_SECRET?: string
+  /** Optional Reply-To for lifecycle emails (Anders's inbox). */
+  LIFECYCLE_REPLY_TO?: string
   /** Fish Audio narration pilot (docs/fish-audio-pilot-2026-09-18.md). Secret; never sent to clients. */
   FISH_AUDIO_API_KEY?: string
   NARRATION_PILOT?: string
@@ -196,6 +207,10 @@ export default {
     const allowanceGate = createAllowanceGate(env)
     const allowsAi = (feature: 'recap' | 'chapter_notes' | 'catch_up') => (req: Request) => requestAllowsAiFeature(allowanceGate, ledgerUser(env), req, feature)
 
+    // Signed unsubscribe / confirm links from lifecycle emails. Without
+    // EMAIL_LINK_SECRET (no such link was ever sent) this never matches.
+    if (isEmailLinkRequest(url, env)) return handleEmailLink(request, env)
+
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
     }
@@ -268,6 +283,8 @@ export default {
       case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env, verifySiteAdmin)
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
+      case '/api/admin/announce-email': if (env.LIFECYCLE_EMAILS === '1') return handleAdminAnnounceEmail(request, env, verifySiteAdmin)
+        break
       case '/api/fixes-count': return handleFixesCount(request, env, verifyUser)
       case '/api/edition-patches': return handleEditionPatches(request, env, checkRateLimit)
       case '/api/audio-manifest': return handleAudioManifest(request, env)
@@ -290,6 +307,9 @@ export default {
       // Painted covers too, so a new book is not left with a paper cover until 03:17
       // (no-op unless PUBLIC_BOOK_PAINTED_COVERS=1). A short budget: about 15 s per painting.
       ctx.waitUntil(runPublicCoverJobs(env, { limit: COVER_RUN_LIMIT, backfill: true, budgetMs: 60_000 }).catch(() => null))
+      // Lifecycle emails: welcome every run, reading/trial emails hourly
+      // (no-op unless LIFECYCLE_EMAILS=1; only the test aliases while gated).
+      if (env.LIFECYCLE_EMAILS === '1') ctx.waitUntil(runLifecycleCron(env, event.scheduledTime).catch(error => console.error('[lifecycle]', error)))
     }
     else ctx.waitUntil(handleScheduled(env))
   },

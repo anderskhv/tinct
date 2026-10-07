@@ -81,8 +81,9 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    live subscriptions cancelled, customer deleted.
 5. **Supabase auth user.** This cascades `profiles`, `user_data` (every
    per-user row, including synced highlights and notes, `lab-highlights:{bookId}`),
-   `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions` and
-   `site_admins`. It runs **only if every earlier step succeeded**, so the
+   `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions`,
+   `site_admins` and the lifecycle email send log `email_log` (exported too;
+   a not-yet-created `email_log` table counts as empty). It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
 6. **Sweep and verify:** once sign-in is impossible, the Durable Object, KV
    and R2 steps run again, catching anything a still-open tab or an in-flight alarm

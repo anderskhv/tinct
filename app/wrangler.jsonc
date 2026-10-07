@@ -34,7 +34,14 @@
     // STRIPE_PRICE_MODERN_T1..T4 secrets). The client still shows the offer to internal devices only.
     "PUBLIC_BOOK_MODERN_EDITIONS": "1",
     // Painted covers (xAI image, about $0.04 each, once per book). Paper cover until one exists.
-    "PUBLIC_BOOK_PAINTED_COVERS": "1"
+    "PUBLIC_BOOK_PAINTED_COVERS": "1",
+    // Lifecycle emails (src/worker/lifecycle, docs/lifecycle-emails/README.md). "1" turns the
+    // engine on (welcome, keep-reading, next-book; replaces the 09:00 trial-day emails); only the
+    // tinct{n}@fastmail.com test aliases receive anything while isLifecycleTestRecipient gates.
+    // Needs the EMAIL_LINK_SECRET secret (optional LIFECYCLE_REPLY_TO) and migration 20261008_email_log.sql.
+    "LIFECYCLE_EMAILS": "0",
+    // trial-ending / trial-ended notices. Keep "0" until checkout is confirmed working.
+    "LIFECYCLE_TRIAL_NOTICES": "0"
   },
   "kv_namespaces": [
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }
