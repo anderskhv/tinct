@@ -3,6 +3,7 @@ import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
 import { isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
+import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 
 type VerifiedUser = { id: string; email: string }
 type VerifyUser = (env: BillingEnv, request: Request) => Promise<VerifiedUser | null>
@@ -13,11 +14,11 @@ export type BillingEnv = SupabaseEnv & {
   STRIPE_PRICE_PREMIUM?: string
   /** The yearly Premium price. Without it the yearly plan is not offered. */
   STRIPE_PRICE_PREMIUM_YEARLY?: string
-  /** The retired $3 chat pack; no longer sold (lib/aiAllowance.ts TOP_UPS). */
+  /** The $3 message pack; sold only while the AI allowance is off. */
   STRIPE_PRICE_CHAT_100?: string
-  /** The $5 top-up. */
+  /** The $5 pack: messages while the allowance is off, an AI top-up once it is on. */
   STRIPE_PRICE_CHAT_200?: string
-  /** The $10 top-up. Without it that top-up is not offered. */
+  /** The $10 AI top-up (allowance on). Without it that top-up is not offered. */
   STRIPE_PRICE_TOP_UP_10?: string
   /** 'on' once Stripe Tax is set up: Checkout then works out VAT / sales tax from the billing address. */
   STRIPE_AUTOMATIC_TAX?: string
@@ -123,7 +124,13 @@ export async function ensureStripeCustomer(env: BillingEnv, user: VerifiedUser):
   return { id: customerData.id }
 }
 
-export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser, ctx?: ExecutionContext): Promise<Response> {
+/**
+ * `allowanceOn` (src/aiAllowanceSwitch.ts) decides what a pack is sold as.
+ * Off: the message packs exactly as before (chat_pack_100 $3 / chat_pack_200
+ * $5, `message_count` metadata, messages credited). On: AI top-ups
+ * (chat_pack_200 $5 / top_up_10 $10, `checkout_type` metadata, AI credit).
+ */
+export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser, ctx?: ExecutionContext, allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
@@ -179,9 +186,25 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('metadata[interval]', interval)
       params.set('subscription_data[metadata][supabase_user_id]', user.id)
       params.set('subscription_data[metadata][interval]', interval)
-    } else if (isTopUpType(body.type)) {
+    } else if (!allowanceOn && body.type === 'chat_pack_100') {
+      if (!env.STRIPE_PRICE_CHAT_100) return jsonResponse({ error: 'Service unavailable' }, 500, request)
+      params.set('mode', 'payment')
+      params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_100)
+      params.set('line_items[0][quantity]', '1')
+      params.set('metadata[type]', 'chat_pack')
+      params.set('metadata[message_count]', '100')
+      params.set('metadata[amount_cents]', '300')
+    } else if (!allowanceOn && body.type === 'chat_pack_200') {
+      if (!env.STRIPE_PRICE_CHAT_200) return jsonResponse({ error: 'Service unavailable' }, 500, request)
+      params.set('mode', 'payment')
+      params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_200)
+      params.set('line_items[0][quantity]', '1')
+      params.set('metadata[type]', 'chat_pack')
+      params.set('metadata[message_count]', '200')
+      params.set('metadata[amount_cents]', '500')
+    } else if (allowanceOn && isTopUpType(body.type)) {
       // A top-up ($5 or $10). The webhook credits AI credit by checkout type
-      // (lib/aiAllowance.ts TOP_UPS); the retired $3 pack is not a top-up type.
+      // (lib/aiAllowance.ts TOP_UPS); the $3 pack is not a top-up type.
       const price = topUpPriceFor(env, body.type)
       if (!price) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
@@ -226,15 +249,16 @@ export interface WebhookHooks {
 }
 
 /**
- * The chat-pack checkout type a completed session was created with. Sessions
- * created before `checkout_type` was stored are read from their message count.
- * Metadata is written by handleCreateCheckout and arrives in a signed event.
+ * What a completed pack session was sold as, from its own metadata (written
+ * by handleCreateCheckout, arriving in a signed event), not from the switch
+ * at delivery time: a session created with `checkout_type` is an AI top-up;
+ * one created with `message_count` (switch off) is a message pack. So a
+ * purchase made just before a flip still gets what was sold.
  */
-export function chatPackCheckoutType(metadata: Record<string, string> | undefined): string | null {
+export function chatPackSale(metadata: Record<string, string> | undefined): { kind: 'top_up'; checkoutType: string } | { kind: 'messages' } | null {
   if (!metadata) return null
-  if (metadata.checkout_type) return metadata.checkout_type
-  if (metadata.message_count === '100') return 'chat_pack_100'
-  if (metadata.message_count === '200') return 'chat_pack_200'
+  if (metadata.checkout_type) return { kind: 'top_up', checkoutType: metadata.checkout_type }
+  if (metadata.message_count) return { kind: 'messages' }
   return null
 }
 
@@ -299,10 +323,25 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
             })
           }
         }
+      } else if (type === 'chat_pack' && chatPackSale(obj.metadata)?.kind !== 'top_up') {
+        // A message pack (sold while the AI allowance is off): exactly as before.
+        const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
+        if (messageCount <= 0 || messageCount > 1000) break
+        const paymentRes = await supabaseInsert(env, 'payments', {
+          user_id: userId, stripe_session_id: obj.id,
+          amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
+          type: type || 'unknown', status: 'completed',
+        })
+        if (paymentRes.status === 409) break
+        if (!paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
+        await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
+        break
       } else if (type === 'chat_pack') {
-        // A top-up adds AI credit (lib/aiAllowance.ts). The amount comes from
-        // the configured map by checkout type, never from the client.
-        const micros = topUpCreditMicros(chatPackCheckoutType(obj.metadata))
+        // An AI top-up (sold while the allowance is on) adds AI credit
+        // (lib/aiAllowance.ts). The amount comes from the configured map by
+        // checkout type, never from the client.
+        const sale = chatPackSale(obj.metadata)
+        const micros = sale?.kind === 'top_up' ? topUpCreditMicros(sale.checkoutType) : null
         if (micros === null) break
         // Records the payment and the credit in one transaction; a replayed
         // event (same session id) credits nothing. A failure answers 500 so

@@ -2,7 +2,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
 import type { AllowanceGate, AllowanceView } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
-import { availableTopUps, chatPackCheckoutType, handleCreateCheckout, handleWebhook } from './worker/routes/billing'
+import { availableTopUps, chatPackSale, handleCreateCheckout, handleWebhook } from './worker/routes/billing'
+import { AI_ALLOWANCE_ENFORCED } from './aiAllowanceSwitch'
 import { handleChat } from './worker/routes/chat'
 import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
@@ -288,19 +289,78 @@ describe('Stripe webhook top-up credit', () => {
     expect(rpcBodies).toEqual([{ fn: 'credit_ai_topup', body: { p_user_id: userId, p_stripe_session_id: 'cs_test_1', p_micros: micros, p_amount_cents: Number(amountCents) } }])
   })
 
-  it('reads sessions created before checkout_type was stored by their message count', async () => {
-    const { rpcBodies } = stubSupabase()
-    await handleWebhook(await signed(completed({ message_count: '200', amount_cents: '500' })), env)
-    expect(rpcBodies[0].body.p_micros).toBe(3_500_000)
-    expect(chatPackCheckoutType({ message_count: '100' })).toBe('chat_pack_100')
-    expect(chatPackCheckoutType({ message_count: '999' })).toBeNull()
+  it.each([
+    ['100', '300'],
+    ['200', '500'],
+  ])('a message pack (%s messages, sold while the switch is off) adds messages exactly as on main', async (messageCount, amountCents) => {
+    const inserts: Array<{ table: string; body: Record<string, unknown> }> = []
+    const { rpcBodies, fetchMock } = stubSupabase()
+    fetchMock.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      const rpc = /\/rpc\/([a-z_]+)$/.exec(url)
+      if (rpc) { rpcBodies.push({ fn: rpc[1], body: JSON.parse(String(init?.body)) }); return Response.json(true) }
+      const table = /\/rest\/v1\/([a-z_]+)/.exec(url)?.[1]
+      if (table && init?.method === 'POST') inserts.push({ table, body: JSON.parse(String(init.body)) })
+      return Response.json({}, { status: 201 })
+    })
+    const response = await handleWebhook(await signed(completed({ message_count: messageCount, amount_cents: amountCents })), env)
+    expect(response.status).toBe(200)
+    expect(inserts).toEqual([{ table: 'payments', body: { user_id: userId, stripe_session_id: 'cs_test_1', amount_cents: Number(amountCents), type: 'chat_pack', status: 'completed' } }])
+    expect(rpcBodies).toEqual([{ fn: 'credit_messages', body: { p_user_id: userId, p_count: Number(messageCount) } }])
   })
 
-  it('ignores amounts in the metadata and unknown pack types, and no longer credits messages', async () => {
+  it('a replayed message pack is not credited twice (payments conflict), as on main', async () => {
+    const { rpcBodies, fetchMock } = stubSupabase()
+    fetchMock.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (/\/rpc\//.test(url)) { rpcBodies.push({ fn: url, body: JSON.parse(String(init?.body)) }); return Response.json(true) }
+      return Response.json({ code: '23505' }, { status: 409 })
+    })
+    const response = await handleWebhook(await signed(completed({ message_count: '200', amount_cents: '500' })), env)
+    expect(response.status).toBe(200)
+    expect(rpcBodies).toEqual([])
+  })
+
+  it('credits by what the session was sold as, not by the switch at delivery', () => {
+    expect(chatPackSale({ message_count: '100' })).toEqual({ kind: 'messages' })
+    expect(chatPackSale({ message_count: '200', amount_cents: '500' })).toEqual({ kind: 'messages' })
+    expect(chatPackSale({ checkout_type: 'top_up_10' })).toEqual({ kind: 'top_up', checkoutType: 'top_up_10' })
+    expect(chatPackSale({})).toBeNull()
+    expect(chatPackSale(undefined)).toBeNull()
+  })
+
+  it('mixed flip: a message pack bought before and a top-up bought after the flip each get what was sold', async () => {
+    const { rpcBodies } = stubSupabase()
+    const checkoutEnv = { STRIPE_SECRET_KEY: 'sk_test', STRIPE_PRICE_CHAT_200: 'price_5', ...supabaseEnv }
+    const metadataOf = async (allowanceOn: boolean) => {
+      const sessions: URLSearchParams[] = []
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+        if (String(input).includes('/rest/v1/profiles')) return Response.json([{ stripe_customer_id: 'cus_1' }])
+        if (String(input) === 'https://api.stripe.com/v1/checkout/sessions') sessions.push(new URLSearchParams(String(init?.body)))
+        return Response.json({ url: 'https://checkout.stripe.com/c/pay' })
+      }))
+      await handleCreateCheckout(post('/api/create-checkout', { type: 'chat_pack_200' }), checkoutEnv, reader, undefined, allowanceOn)
+      return Object.fromEntries([...sessions[0].entries()].filter(([key]) => key.startsWith('metadata[') && key !== 'metadata[supabase_user_id]').map(([key, value]) => [key.slice(9, -1), value]))
+    }
+    const beforeFlip = await metadataOf(false)
+    const afterFlip = await metadataOf(true)
+    expect(beforeFlip).toEqual({ type: 'chat_pack', message_count: '200', amount_cents: '500' })
+    expect(afterFlip).toEqual({ type: 'chat_pack', checkout_type: 'chat_pack_200', amount_cents: '500' })
+    // Both webhooks arrive after the flip (or both before: the webhook does not read the switch).
+    const { rpcBodies: delivered } = stubSupabase()
+    await handleWebhook(await signed(completed(beforeFlip)), env)
+    await handleWebhook(await signed(completed(afterFlip)), env)
+    expect(delivered.map(entry => entry.fn)).toEqual(['credit_messages', 'credit_ai_topup'])
+    expect(delivered[0].body).toEqual({ p_user_id: userId, p_count: 200 })
+    expect(delivered[1].body).toMatchObject({ p_micros: 3_500_000, p_amount_cents: 500 })
+    expect(rpcBodies).toEqual([])
+  })
+
+  it('ignores amounts in the metadata and unknown top-up types', async () => {
     const { rpcBodies } = stubSupabase()
     await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_9000', credit_usd: '500', message_count: '1000' })), env)
     expect(rpcBodies).toEqual([])
-    // The retired $3 pack is not a top-up: no credit, no messages.
+    // The $3 pack is never a top-up: no credit.
     await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_100', message_count: '100' })), env)
     expect(rpcBodies).toEqual([])
     await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_200', credit_usd: '500', micros: '999999999' })), env)
@@ -358,22 +418,55 @@ describe('top-up checkout', () => {
   it.each([
     ['chat_pack_200', 'price_5', '500'],
     ['top_up_10', 'price_10', '1000'],
-  ])('sells %s at its own price with its checkout type', async (type, price, cents) => {
+  ])('switch on: sells %s at its own price with its checkout type', async (type, price, cents) => {
     const sessions = stubStripe()
-    const response = await handleCreateCheckout(post('/api/create-checkout', { type }), env, reader)
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type }), env, reader, undefined, true)
     expect(response.status).toBe(200)
     expect(sessions[0].get('mode')).toBe('payment')
     expect(sessions[0].get('line_items[0][price]')).toBe(price)
     expect(sessions[0].get('metadata[type]')).toBe('chat_pack')
     expect(sessions[0].get('metadata[checkout_type]')).toBe(type)
+    expect(sessions[0].get('metadata[message_count]')).toBeNull()
     expect(sessions[0].get('metadata[amount_cents]')).toBe(cents)
   })
 
-  it('no longer sells the retired $3 pack', async () => {
+  it('switch on: no longer sells the $3 pack', async () => {
     const sessions = stubStripe()
-    const response = await handleCreateCheckout(post('/api/create-checkout', { type: 'chat_pack_100' }), env, reader)
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type: 'chat_pack_100' }), env, reader, undefined, true)
     expect(response.status).toBe(400)
     expect(sessions).toEqual([])
+  })
+
+  it.each([
+    ['chat_pack_100', 'price_3', '100', '300'],
+    ['chat_pack_200', 'price_5', '200', '500'],
+  ])('switch off: sells %s exactly as on main', async (type, price, messages, cents) => {
+    const sessions = stubStripe()
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type }), env, reader, undefined, false)
+    expect(response.status).toBe(200)
+    const metadata = [...sessions[0].entries()].filter(([key]) => key.startsWith('metadata['))
+    expect(metadata).toEqual([
+      ['metadata[supabase_user_id]', userId],
+      ['metadata[type]', 'chat_pack'],
+      ['metadata[message_count]', messages],
+      ['metadata[amount_cents]', cents],
+    ])
+    expect(sessions[0].get('mode')).toBe('payment')
+    expect(sessions[0].get('line_items[0][price]')).toBe(price)
+    expect(sessions[0].get('line_items[0][quantity]')).toBe('1')
+  })
+
+  it('switch off: the $10 top-up is not on sale', async () => {
+    const sessions = stubStripe()
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type: 'top_up_10' }), env, reader, undefined, false)
+    expect(response.status).toBe(400)
+    expect(sessions).toEqual([])
+  })
+
+  it('follows the shipped switch by default (off: message packs)', async () => {
+    const sessions = stubStripe()
+    await handleCreateCheckout(post('/api/create-checkout', { type: 'chat_pack_200' }), env, reader)
+    expect(sessions[0].get('metadata[message_count]')).toBe(AI_ALLOWANCE_ENFORCED ? null : '200')
   })
 
   it('offers the $10 top-up only once its price is set', () => {

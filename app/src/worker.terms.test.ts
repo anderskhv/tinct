@@ -43,12 +43,20 @@ const footer = (html: string) => html.slice(html.lastIndexOf('<footer') >= 0 ? h
 afterEach(() => { switchState.on = false })
 
 describe('/terms while the AI allowance is off', () => {
-  it.each(['/terms', '/terms/', '/terms.html'])('%s is a 404 and the file is never read', async pathname => {
+  it.each(['/terms', '/terms/', '/terms.html'])('%s answers exactly as when no terms.html existed, and the file is never read', async pathname => {
     const target = env()
     const response = await get(pathname, target)
-    expect(response.status).toBe(404)
-    expect(await response.text()).not.toContain('Terms of Service')
     expect(target.asked.some(path => path.startsWith('/terms'))).toBe(false)
+    // The same request against assets without terms.html (main before this branch).
+    const withoutFile = env()
+    const missing = { ...withoutFile, ASSETS: { fetch: async (request: Request) => new URL(request.url).pathname.startsWith('/terms') ? new Response('nf', { status: 404 }) : withoutFile.ASSETS.fetch(request) } }
+    const expected = await get(pathname, missing as never)
+    expect(response.status).toBe(404)
+    expect(response.status).toBe(expected.status)
+    expect([...response.headers.entries()].sort()).toEqual([...expected.headers.entries()].sort())
+    const body = await response.text()
+    expect(body).toBe(await expected.text())
+    expect(body).not.toContain('Terms of Service')
   })
 
   it('is linked from nowhere: /about and /privacy keep their footers', async () => {

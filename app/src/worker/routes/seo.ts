@@ -165,6 +165,18 @@ const INLINE_NOT_FOUND_HTML = `<!doctype html><html lang="en"><head><meta charse
   + `<h1>This page isn\u2019t on the shelf.</h1>`
   + `<p><a href="/library">Browse the library</a></p></main></body></html>`
 
+/** A request for a missing file (image, script, manifest) stays a plain 404. */
+function missingFileResponse(requestMethod: string): Response {
+  return new Response(requestMethod === 'HEAD' ? null : 'Not found', {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'no-store',
+      'X-Robots-Tag': 'noindex, noarchive',
+    },
+  })
+}
+
 async function serveNotFound(
   requestMethod: string,
   url: URL,
@@ -686,7 +698,11 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     }
 
     // Unpublished Terms: the file ships with the assets but is not served.
-    if (TERMS_PATHS.has(url.pathname) && !termsPublished()) return serveNotFound(request.method, url, env)
+    // Answered exactly as a missing asset is below (as before terms.html existed).
+    if (TERMS_PATHS.has(url.pathname) && !termsPublished()) {
+      if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) return missingFileResponse(request.method)
+      return serveNotFound(request.method, url, env)
+    }
 
     // Fall through to static assets
     const response = await env.ASSETS.fetch(request)
@@ -710,16 +726,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // A request for a missing file (image, script, manifest) should stay a
       // plain 404; only navigations get the HTML page.
       const looksLikeFile = /\.[a-z0-9]{1,8}$/i.test(url.pathname)
-      if (looksLikeFile) {
-        return new Response(request.method === 'HEAD' ? null : 'Not found', {
-          status: 404,
-          headers: {
-            'Content-Type': 'text/plain; charset=utf-8',
-            'Cache-Control': 'no-store',
-            'X-Robots-Tag': 'noindex, noarchive',
-          },
-        })
-      }
+      if (looksLikeFile) return missingFileResponse(request.method)
       return serveNotFound(request.method, url, env)
     }
 
