@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Tinct</title>
+  <meta name="description" content="The terms for using Tinct: who can use it, subscriptions and payment, your content, AI features, the public library and your rights.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tinct.app/terms">
+  <meta name="theme-color" content="#ece7db">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" href="/fonts/f6667783-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/9947e6f6-SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fdd6c391-nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
+  <style>
+    /* Tinct marketing-site design system (landing.html / about.html): paper, ink, deep-teal accent;
+       Playfair Display for headlines, EB Garamond for body, IBM Plex Mono for chrome. One look, light. */
+    :root {
+      --paper: #ece7db;
+      --paper-alt: #dfd8c4;
+      --ink: #0b0b0b;
+      --accent: #1f4a5c;
+      --dim: #6a6555;
+      --rule: rgba(11, 11, 11, 0.14);
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 19px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-inline: clamp(16px, 5vw, 48px);
+    }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.35); transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* Header: the landing page's wordmark and mono nav. */
+    .site-header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-block: 26px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .wordmark { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; color: var(--ink); border: 0; }
+    .wordmark .dot { color: var(--accent); }
+    .site-nav { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .site-nav a { color: var(--ink); border: 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.15s; }
+    .site-nav a:hover { color: var(--accent); }
+
+    /* Document */
+    .policy { max-width: 680px; margin: 0 auto; padding-block: 56px 72px; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin: 0 0 14px; }
+    h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1; letter-spacing: -0.025em; margin: 0 0 18px; }
+    .lede { font-size: 1.15em; line-height: 1.45; margin: 0 0 12px; }
+    .updated { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin: 0; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+    .toc { margin: 24px 0 8px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .toc a { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); border: 0; }
+    .toc a:hover { color: var(--accent); }
+    section { padding-top: 34px; }
+    h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 1.55rem; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 12px; scroll-margin-top: 24px; }
+    h3 { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 500; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin: 24px 0 6px; }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 14px; padding-left: 1.2em; }
+    li { margin-bottom: 6px; }
+    li::marker { color: var(--accent); }
+    strong { font-weight: 600; }
+    code { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8em; background: var(--paper-alt); padding: 1px 6px; border-radius: 3px; }
+    .contact-card { margin-top: 8px; padding: 22px 24px; border: 1px solid var(--rule); border-radius: 4px; background: rgba(255, 253, 245, 0.55); }
+    .contact-card p { margin: 0; }
+    .contact-card a { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.85em; letter-spacing: 0.04em; }
+
+    /* Footer: the About page's mark-and-links footer, in the paper palette. */
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      border-top: 1px solid var(--rule);
+      padding-block: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px 32px;
+      font-size: 15px;
+      color: var(--dim);
+    }
+    .site-footer-mark { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; }
+    .site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-left: auto; }
+    .site-footer a { color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+    .site-footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    @media (max-width: 600px) {
+      body { font-size: 18px; }
+      .site-header { padding-block: 20px 6px; }
+      .wordmark { font-size: 28px; }
+      .site-nav { gap: 14px; }
+      .site-nav a { font-size: 10px; }
+      .site-nav a.nav-secondary { display: none; }
+      .policy { padding-block: 40px 56px; }
+      section { padding-top: 28px; }
+      .site-footer nav { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="wordmark">Tinct<span class="dot">.</span></a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/about" class="nav-secondary">About</a>
+      <a href="/app?view=library" class="nav-secondary">Library</a>
+      <a href="/read">Start reading</a>
+    </nav>
+  </header>
+
+  <main class="policy">
+    <p class="eyebrow">Tinct · tinct.app</p>
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: 6 October 2026</p>
+
+    <section id="section-1">
+      <h2>1. The service</h2>
+      <p>Tinct is a reading platform for classic and public-domain literature, operated by Anders K. Hvelplund, Copenhagen, Denmark (contact@tinct.app). It offers editions of texts, audio narration, reading tools and AI features: a reading companion you can chat with, and Talk, a voice conversation. We may change features over time. If a change materially reduces what you've paid for, we'll tell you in advance and you may cancel.</p>
+    </section>
+
+    <section id="section-2">
+      <h2>2. Who can use Tinct</h2>
+      <p>Anyone can read the public library, at any age, without an account.</p>
+      <p><strong>Accounts:</strong> you need to be at least 13 to create an account. If you're under 18, a parent or guardian must agree to these terms with you.</p>
+      <p><strong>Paying:</strong> only an adult can buy a subscription or a top-up. A parent or guardian can pay for a younger reader's account.</p>
+      <p><strong>AI features:</strong> chat, Talk, explanations and recaps are for readers aged 18 and over. Tinct's AI providers set their own rules for younger users, and we follow the strictest of them.</p>
+      <p>You're responsible for keeping your login details safe and for everything that happens under your account. A parent or guardian is responsible for how a younger reader uses Tinct.</p>
+    </section>
+
+    <section id="section-3">
+      <h2>3. Subscriptions, AI use and payment</h2>
+      <p>Subscriptions are billed in advance through Stripe and renew automatically until you cancel.</p>
+      <p>Premium includes a monthly amount of AI use, shown as a bar in the app. It resets on your billing date and doesn't roll over. When it runs out, your account works like a standard account until the next billing date: you can still read and listen, and AI chat, Talk and recaps pause. You can buy a top-up to keep using them; top-ups carry over while your subscription is active.</p>
+      <p>Top-ups have no cash value and can't be transferred or refunded, except where the law requires it.</p>
+      <p>We'll give at least 30 days' notice by email before a price change.</p>
+      <p>EU right of withdrawal: you normally have 14 days to withdraw. When you start using Premium or a top-up, you ask us to begin providing it straight away. You lose the right of withdrawal for content that has been fully delivered, and a withdrawal from a service already in progress may be reduced in proportion to what you've used.</p>
+    </section>
+
+    <section id="section-4">
+      <h2>4. Your content and your responsibility for it</h2>
+      <p>"Your content" means anything you put into Tinct: notes, highlights, journal entries, messages and voice input to the AI features, and any text or file you upload or import.</p>
+      <p><strong>You own your content.</strong> You give Tinct a limited licence to store and process it only so we can run the service for you. We don't use it to train AI models.</p>
+      <p><strong>You are solely responsible for your content.</strong> You confirm that you have every right needed to upload or submit it, including copyright and privacy rights, and that doing so doesn't break any law.</p>
+      <p>Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.</p>
+      <p>You agree to compensate Tinct for claims and reasonable costs that arise from your content or from your breach of these terms, as far as the law allows.</p>
+    </section>
+
+    <section id="section-5">
+      <h2>5. AI features: no guarantee of accuracy</h2>
+      <p><strong>AI answers can be wrong.</strong> They may be inaccurate, incomplete or invented while sounding confident. This includes quotations, dates, translations and interpretations.</p>
+      <p><strong>Tinct is not responsible for the content or accuracy of AI answers.</strong> They come from third-party AI models, and they aren't Tinct's statements or views.</p>
+      <p>They aren't medical, legal, financial, psychological, religious or any other professional advice.</p>
+      <p>Check anything that matters against the text and reliable sources. You are responsible for how you use AI answers, including under your school's rules on AI.</p>
+    </section>
+
+    <section id="section-6">
+      <h2>6. The public library and Tinct's materials</h2>
+      <p>If you're reading from outside the US and EU, you're responsible for checking that a text is in the public domain where you are. Tinct's modern editions, introductions, narration, design and software belong to Tinct. You may use them for your own reading, but you may not copy, scrape, redistribute or resell them, or use them to train AI models. Modern editions and narration are prepared with AI and editorial review, so they may contain errors. Please report any you find.</p>
+    </section>
+
+    <section id="section-7">
+      <h2>7. Acceptable use</h2>
+      <p>Don't share or resell your account, use bots or scrapers, get around usage limits or payment, or use the AI features to produce unlawful or harmful content.</p>
+    </section>
+
+    <section id="section-8">
+      <h2>8. Suspension and termination</h2>
+      <p>You can delete your account at any time. We may suspend or close an account that seriously or repeatedly breaks these terms, with a warning first where that's reasonable.</p>
+    </section>
+
+    <section id="section-9">
+      <h2>9. Disclaimers and limitation of liability</h2>
+      <p>The service is provided "as is". As far as the law allows, Tinct isn't liable for indirect losses or for losses that result from relying on AI answers or on your own content, and our total liability is limited to what you paid us in the past 12 months. Nothing here limits liability that the law doesn't allow us to limit, or your mandatory rights as a consumer.</p>
+    </section>
+
+    <section id="section-10">
+      <h2>10. Changes, law and disputes</h2>
+      <p>We'll email you at least 30 days before material changes to these terms. Danish law applies. EU consumers keep the protection of their own country's mandatory laws, and can complain to Nævnenes Hus or through the EU's online dispute resolution platform.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer-mark">Tinct</span>
+    <nav aria-label="Footer">
+      <a href="/read">Start reading</a>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+      <a href="mailto:contact@tinct.app">Contact</a>
+    </nav>
+  </footer>
+</body>
+</html>

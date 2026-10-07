@@ -12,6 +12,8 @@ export interface LabChapterNotesSheetProps {
   onClose: () => void
   onChat: (title: string, beats: ChapterNotesBeat[] | null) => void
   onTalk: (title: string, beats: ChapterNotesBeat[] | null) => void
+  /** The reader's session, sent only while the AI allowance is on (labChapterNotes.ts). */
+  readToken?: () => Promise<string | null>
 }
 
 /**
@@ -19,7 +21,7 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken }: LabChapterNotesSheetProps) {
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
@@ -49,11 +51,11 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk }
 
   const load = useCallback(() => {
     setState('loading')
-    void fetchChapterNotes(request).then(result => {
+    void fetchChapterNotes(request, { readToken }).then(result => {
       if (!mounted.current) return
       if (result.ok) { setBeats(result.beats); setState('ok') } else setState('error')
     })
-  }, [request])
+  }, [request, readToken])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

@@ -11,6 +11,8 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
 import { createGuestSpendReserver } from './worker/lib/aiSpend'
+import { createAllowanceGate, requestAllowsAiFeature } from './worker/lib/aiAllowance'
+import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
 import type { ShareStore } from './worker/shareStore'
 import { handleShareApi, handleSharePage } from './worker/routes/share'
@@ -80,6 +82,7 @@ interface Env {
   STRIPE_PRICE_PREMIUM_YEARLY?: string
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
+  STRIPE_PRICE_TOP_UP_10?: string
   STRIPE_AUTOMATIC_TAX?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
@@ -189,6 +192,9 @@ export default {
     // Atomic and fail-closed (see lib/rateLimit.ts).
     const checkRateLimit = createRateLimiter(env)
     const reserveGuestSpend = createGuestSpendReserver(env)
+    // The AI allowance (lib/aiAllowance.ts); with the switch off it reads nothing.
+    const allowanceGate = createAllowanceGate(env)
+    const allowsAi = (feature: 'recap' | 'chapter_notes' | 'catch_up') => (req: Request) => requestAllowsAiFeature(allowanceGate, ledgerUser(env), req, feature)
 
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })
@@ -222,23 +228,23 @@ export default {
 
     switch (url.pathname) {
       case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
-      case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit, { allowanceGate })
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend)
-      case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx)
-      case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit)
+      case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx, allowanceGate)
+      case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit, allowanceGate)
       case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
       case '/api/recap-preparation': return handleRecapPreparation(request, env, verifyUser)
-      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env), prepared: async target => {
+      case '/api/lab-recap': return handleLabRecap(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env), allowsAi: allowsAi('recap'), prepared: async target => {
         if (!env.RECAP_PREPARATION) return null
         const user = await verifyUser(env, request)
         return user && isValidUUID(user.id) ? env.RECAP_PREPARATION.getByName(user.id).lookup(target) : null
       } })
-      case '/api/lab-catch-up': return handleLabCatchUp(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env) })
-      case '/api/lab-chapter-notes': return handleLabChapterNotes(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env) })
+      case '/api/lab-catch-up': return handleLabCatchUp(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env), allowsAi: allowsAi('catch_up') })
+      case '/api/lab-chapter-notes': return handleLabChapterNotes(request, env, ctx, checkRateLimit, { reserveGuestSpend, resolveUser: ledgerUser(env), allowsAi: allowsAi('chapter_notes') })
       case '/api/balance': return handleBalance(request, env, verifyUser)
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser, ctx)
       case '/api/webhook': return handleWebhook(request, env, ctx, {
@@ -247,6 +253,7 @@ export default {
       case '/api/create-portal': return handleCreatePortal(request, env, verifyUser)
       case '/api/cancel-subscription': return handleCancelSubscription(request, env, verifyUser)
       case '/api/subscription-info': return handleSubscriptionInfo(request, env, verifyUser)
+      case '/api/ai-allowance': return handleAiAllowance(request, env, verifyUser, allowanceGate)
       case '/api/report-issue': return handleReportIssue(request, env, ctx, verifyUser, sendEmail, { checkRateLimit, reserveGuestSpend })
       case '/api/report-status': return handleReportStatus(request, env)
       case '/api/approve-fix': return handleApproveFix(request, env, {

@@ -3,6 +3,7 @@ import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
+import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 
 export type SeoEnv = {
@@ -94,9 +95,35 @@ const PUBLIC_BOOK_IDS = new Set([...Object.keys(GENERATED_BOOK_META), ...Object.
 // still pass the asset allowlist so existing readers can recover their data.
 const CONTENT_BOOK_IDS = new Set([...PUBLIC_BOOK_IDS, ...Object.keys(TEMPORARY_EDITION_HOLDS).map(identity => identity.split('/')[0])])
 
-/** Static public pages (book pages, the hub, About, Privacy): short public cache. Per-user pages stay no-store. */
+/** Static public pages (book pages, the hub, About, Privacy, Terms): short public cache. Per-user pages stay no-store. */
 const PUBLIC_PAGE_CACHE = 'public, max-age=300, stale-while-revalidate=86400'
-const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/story', '/story/', '/privacy', '/privacy/'])
+const PUBLIC_STATIC_PAGES = new Set(['/about', '/about/', '/story', '/story/', '/privacy', '/privacy/', '/terms', '/terms/'])
+
+/**
+ * The Terms of Service (public/terms.html) are published together with the AI
+ * allowance, whose usage bar their §3 describes (Anders, 2026-10-06). While the
+ * switch (src/aiAllowanceSwitch.ts) is off, /terms is a 404 and nothing links
+ * to it; on, /about and /privacy get a Terms link in their footers. Read at
+ * request time so the one switch decides.
+ */
+const TERMS_PATHS = new Set(['/terms', '/terms/', '/terms.html'])
+
+export function termsPublished(): boolean {
+  return AI_ALLOWANCE_ENFORCED
+}
+
+/** The footer Terms link for /about and /privacy, added only while /terms is published. */
+export function withTermsLink(html: string, pathname: string, published = termsPublished()): string {
+  if (!published) return html
+  const page = pathname.replace(/(\.html|\/)$/, '')
+  if (page === '/about') {
+    return html.replace('<a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">', '<a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">')
+  }
+  if (page === '/privacy') {
+    return html.replace(/(<a href="\/about">About<\/a>)(\s*)(<a href="mailto:contact@tinct\.app">Contact<\/a>)/, '$1$2<a href="/terms">Terms</a>$2$3')
+  }
+  return html
+}
 
 async function serveStaticHtml(
   requestMethod: string,
@@ -137,6 +164,18 @@ const INLINE_NOT_FOUND_HTML = `<!doctype html><html lang="en"><head><meta charse
   + `a{color:#f4eddf}</style></head><body><main><p>Tinct.</p>`
   + `<h1>This page isn\u2019t on the shelf.</h1>`
   + `<p><a href="/library">Browse the library</a></p></main></body></html>`
+
+/** A request for a missing file (image, script, manifest) stays a plain 404. */
+function missingFileResponse(requestMethod: string): Response {
+  return new Response(requestMethod === 'HEAD' ? null : 'Not found', {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'no-store',
+      'X-Robots-Tag': 'noindex, noarchive',
+    },
+  })
+}
 
 async function serveNotFound(
   requestMethod: string,
@@ -658,6 +697,13 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
     }
 
+    // Unpublished Terms: the file ships with the assets but is not served.
+    // Answered exactly as a missing asset is below (as before terms.html existed).
+    if (TERMS_PATHS.has(url.pathname) && !termsPublished()) {
+      if (/\.[a-z0-9]{1,8}$/i.test(url.pathname)) return missingFileResponse(request.method)
+      return serveNotFound(request.method, url, env)
+    }
+
     // Fall through to static assets
     const response = await env.ASSETS.fetch(request)
 
@@ -680,22 +726,13 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // A request for a missing file (image, script, manifest) should stay a
       // plain 404; only navigations get the HTML page.
       const looksLikeFile = /\.[a-z0-9]{1,8}$/i.test(url.pathname)
-      if (looksLikeFile) {
-        return new Response(request.method === 'HEAD' ? null : 'Not found', {
-          status: 404,
-          headers: {
-            'Content-Type': 'text/plain; charset=utf-8',
-            'Cache-Control': 'no-store',
-            'X-Robots-Tag': 'noindex, noarchive',
-          },
-        })
-      }
+      if (looksLikeFile) return missingFileResponse(request.method)
       return serveNotFound(request.method, url, env)
     }
 
     const contentType = response.headers.get('content-type') || ''
     if (contentType.includes('text/html')) {
-      const newResponse = new Response(request.method === 'HEAD' ? null : brandedHtml(await response.text(), url.searchParams.get('book') || undefined, true), response)
+      const newResponse = new Response(request.method === 'HEAD' ? null : withTermsLink(brandedHtml(await response.text(), url.searchParams.get('book') || undefined, true), url.pathname), response)
   for (const header of ['Content-Length','Content-Encoding','ETag']) newResponse.headers.delete(header)
       // Static public pages get a short public cache; other HTML is never
       // edge-cached — see the SPA fallback comment above.

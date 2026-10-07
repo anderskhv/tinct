@@ -2,6 +2,8 @@ import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
+import { isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
+import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 
 type VerifiedUser = { id: string; email: string }
 type VerifyUser = (env: BillingEnv, request: Request) => Promise<VerifiedUser | null>
@@ -12,8 +14,12 @@ export type BillingEnv = SupabaseEnv & {
   STRIPE_PRICE_PREMIUM?: string
   /** The yearly Premium price. Without it the yearly plan is not offered. */
   STRIPE_PRICE_PREMIUM_YEARLY?: string
+  /** The $3 message pack; sold only while the AI allowance is off. */
   STRIPE_PRICE_CHAT_100?: string
+  /** The $5 pack: messages while the allowance is off, an AI top-up once it is on. */
   STRIPE_PRICE_CHAT_200?: string
+  /** The $10 AI top-up (allowance on). Without it that top-up is not offered. */
+  STRIPE_PRICE_TOP_UP_10?: string
   /** 'on' once Stripe Tax is set up: Checkout then works out VAT / sales tax from the billing address. */
   STRIPE_AUTOMATIC_TAX?: string
 }
@@ -33,6 +39,16 @@ export function premiumPriceFor(env: BillingEnv, interval: BillingInterval): str
 /** The intervals checkout can sell right now: monthly and, once its price is set, yearly. */
 export function availablePremiumIntervals(env: BillingEnv): BillingInterval[] {
   return (['month', 'year'] as const).filter(interval => premiumPriceFor(env, interval))
+}
+
+/** The Stripe price of a top-up, from the Worker's own secrets (never from the client). */
+export function topUpPriceFor(env: BillingEnv, type: TopUpType): string | null {
+  return (type === 'chat_pack_200' ? env.STRIPE_PRICE_CHAT_200 : env.STRIPE_PRICE_TOP_UP_10) || null
+}
+
+/** The top-ups checkout can sell right now, in the order the usage bar offers them. */
+export function availableTopUps(env: BillingEnv): TopUpType[] {
+  return TOP_UP_TYPES.filter(type => topUpPriceFor(env, type))
 }
 
 /** The only fields a checkout request may carry. Anything else (a price id above all) is refused. */
@@ -108,7 +124,13 @@ export async function ensureStripeCustomer(env: BillingEnv, user: VerifiedUser):
   return { id: customerData.id }
 }
 
-export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser, ctx?: ExecutionContext): Promise<Response> {
+/**
+ * `allowanceOn` (src/aiAllowanceSwitch.ts) decides what a pack is sold as.
+ * Off: the message packs exactly as before (chat_pack_100 $3 / chat_pack_200
+ * $5, `message_count` metadata, messages credited). On: AI top-ups
+ * (chat_pack_200 $5 / top_up_10 $10, `checkout_type` metadata, AI credit).
+ */
+export async function handleCreateCheckout(request: Request, env: BillingEnv, verifyUser: VerifyUser, ctx?: ExecutionContext, allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (!env.STRIPE_SECRET_KEY) return jsonResponse({ error: 'Service unavailable' }, 500, request)
 
@@ -164,7 +186,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('metadata[interval]', interval)
       params.set('subscription_data[metadata][supabase_user_id]', user.id)
       params.set('subscription_data[metadata][interval]', interval)
-    } else if (body.type === 'chat_pack_100') {
+    } else if (!allowanceOn && body.type === 'chat_pack_100') {
       if (!env.STRIPE_PRICE_CHAT_100) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
       params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_100)
@@ -172,7 +194,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('metadata[type]', 'chat_pack')
       params.set('metadata[message_count]', '100')
       params.set('metadata[amount_cents]', '300')
-    } else if (body.type === 'chat_pack_200') {
+    } else if (!allowanceOn && body.type === 'chat_pack_200') {
       if (!env.STRIPE_PRICE_CHAT_200) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
       params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_200)
@@ -180,6 +202,17 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('metadata[type]', 'chat_pack')
       params.set('metadata[message_count]', '200')
       params.set('metadata[amount_cents]', '500')
+    } else if (allowanceOn && isTopUpType(body.type)) {
+      // A top-up ($5 or $10). The webhook credits AI credit by checkout type
+      // (lib/aiAllowance.ts TOP_UPS); the $3 pack is not a top-up type.
+      const price = topUpPriceFor(env, body.type)
+      if (!price) return jsonResponse({ error: 'Service unavailable' }, 500, request)
+      params.set('mode', 'payment')
+      params.set('line_items[0][price]', price)
+      params.set('line_items[0][quantity]', '1')
+      params.set('metadata[type]', 'chat_pack')
+      params.set('metadata[checkout_type]', body.type)
+      params.set('metadata[amount_cents]', String(TOP_UPS[body.type].priceCents))
     } else {
       return jsonResponse({ error: 'Invalid checkout type' }, 400, request)
     }
@@ -213,6 +246,20 @@ export type CheckoutSessionObject = { id: string; metadata?: Record<string, stri
 export interface WebhookHooks {
   /** A paid Modern English edition (routes/publicBookModern.ts). 'refunded': the book was already paid for, so this payment was refunded. */
   modernEdition?: (session: CheckoutSessionObject) => Promise<{ outcome: 'granted' | 'already' | 'refunded' | 'invalid'; amountCents: number }>
+}
+
+/**
+ * What a completed pack session was sold as, from its own metadata (written
+ * by handleCreateCheckout, arriving in a signed event), not from the switch
+ * at delivery time: a session created with `checkout_type` is an AI top-up;
+ * one created with `message_count` (switch off) is a message pack. So a
+ * purchase made just before a flip still gets what was sold.
+ */
+export function chatPackSale(metadata: Record<string, string> | undefined): { kind: 'top_up'; checkoutType: string } | { kind: 'messages' } | null {
+  if (!metadata) return null
+  if (metadata.checkout_type) return { kind: 'top_up', checkoutType: metadata.checkout_type }
+  if (metadata.message_count) return { kind: 'messages' }
+  return null
 }
 
 export async function handleWebhook(request: Request, env: BillingEnv, ctx?: ExecutionContext, hooks: WebhookHooks = {}): Promise<Response> {
@@ -276,7 +323,8 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
             })
           }
         }
-      } else if (type === 'chat_pack') {
+      } else if (type === 'chat_pack' && chatPackSale(obj.metadata)?.kind !== 'top_up') {
+        // A message pack (sold while the AI allowance is off): exactly as before.
         const messageCount = parseInt(obj.metadata?.message_count || '0', 10)
         if (messageCount <= 0 || messageCount > 1000) break
         const paymentRes = await supabaseInsert(env, 'payments', {
@@ -287,6 +335,24 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
         if (paymentRes.status === 409) break
         if (!paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
         await supabaseRpc(env, 'credit_messages', { p_user_id: userId, p_count: messageCount })
+        break
+      } else if (type === 'chat_pack') {
+        // An AI top-up (sold while the allowance is on) adds AI credit
+        // (lib/aiAllowance.ts). The amount comes from the configured map by
+        // checkout type, never from the client.
+        const sale = chatPackSale(obj.metadata)
+        const micros = sale?.kind === 'top_up' ? topUpCreditMicros(sale.checkoutType) : null
+        if (micros === null) break
+        // Records the payment and the credit in one transaction; a replayed
+        // event (same session id) credits nothing. A failure answers 500 so
+        // Stripe retries (also before the allowance migration has run).
+        const creditRes = await supabaseRpc(env, 'credit_ai_topup', {
+          p_user_id: userId,
+          p_stripe_session_id: obj.id,
+          p_micros: micros,
+          p_amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10) || 0,
+        })
+        if (!creditRes.ok) return new Response('Top-up credit failed', { status: 500 })
         break
       } else if (type === 'modern_edition') {
         // Without the grant wired in, fail so Stripe redelivers once it is.

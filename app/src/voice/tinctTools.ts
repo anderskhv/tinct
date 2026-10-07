@@ -1,6 +1,18 @@
 import { FONT_SIZE_MAX, FONT_SIZE_MIN, FONT_SIZE_STEP } from '../types'
 import type { ReadingHistoryPeriod } from './readingMemory'
 import type { VoiceApplicationToolResult } from './types'
+import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
+
+/**
+ * What Talk says about pricing (get_tinct_info 'pricing'). With the AI
+ * allowance on (src/aiAllowanceSwitch.ts) there are no message counts:
+ * Premium includes a monthly amount of AI use, in the words of Terms §3.
+ */
+export function tinctPricingFact(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): string {
+  return allowanceOn
+    ? 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes a monthly amount of AI use, shown as a bar in the app. When it runs out, you can still read and listen.'
+    : 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes 100 AI messages per month, audiobook, Cast, offline mode, export, and the reading journal.'
+}
 
 export type VoiceTinctView = 'read' | 'library' | 'reading_history' | 'pricing' | 'settings' | 'chat' | 'cast'
 export type VoiceTinctTheme = 'light' | 'dark'
@@ -280,7 +292,7 @@ export class TinctVoiceToolController<ViewSnapshot = unknown> {
       const topic = stringArg(args, 'topic')
       const facts: Record<string, string> = {
         library: 'The Library is opened from the book/library control; voice can open it directly.',
-        pricing: 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes 100 AI messages per month, audiobook, Cast, offline mode, export, and the reading journal.',
+        pricing: tinctPricingFact(),
         reading_history: 'The Reading Feed shows chapter activity for the current book. Voice can also recall the last session, today, yesterday, or the day before yesterday across the library.',
         voice_controls: 'Voice can open Tinct screens, change light or dark mode, adjust reader font size and audiobook speed, look up reading history, and undo the last voice-made change.',
       }

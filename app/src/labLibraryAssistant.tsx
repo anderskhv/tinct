@@ -313,8 +313,9 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
           showAccount('chat', text)
           throw new Error('account')
         }
-        const detail = response.status === 402 ? ((await response.json().catch(() => null)) as { error?: string } | null)?.error : null
-        throw new Error(response.status === 402 ? `allowance:${detail || 'No messages remaining.'}` : 'session')
+        // A 402 is the AI allowance at zero ({ error: 'allowance_used' }): the
+        // same line as the reader's chat, never the Worker's error code.
+        throw new Error(response.status === 402 ? `allowance:${LAB_COPY.balanceEmpty}` : 'session')
       }
       if (!response.ok) throw new LabChatError(await labChatErrorType(response))
       const answer = await readAnthropicResponse(response, accumulated => {

@@ -4833,6 +4833,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           onClose={() => setChapterNotes(null)}
           onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
           onTalk={(title, beats) => continueChapterNotes('talk', title, beats)}
+          readToken={readSupabaseAccessToken}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>

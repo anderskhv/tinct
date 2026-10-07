@@ -3,6 +3,7 @@ import { COMPANION_LOOKUP_MODEL, COMPANION_MAX_TOKENS, COMPANION_NEARBY_PARAGRAP
 import { buildLabAskInstructions } from './companion/labAskPrompt'
 import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { handleChat, handleLabChat, resetLibraryCatalogueCacheForTest } from './worker/routes/chat'
+import { createAllowanceGate } from './worker/lib/aiAllowance'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const context = {
@@ -216,7 +217,8 @@ describe('signed-in companion route', () => {
     const { ctx: executionContext, pending } = ctx()
     const response = await handleChat(post({ system: 'ignored', max_tokens: 4000, companion: { intent: 'explain', context, selection: 'Athena spoke.' } }),
       { ANTHROPIC_API_KEY: 'k', SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'srk' }, executionContext,
-      async () => ({ id: userId, email: 'reader@example.com' }), async () => true)
+      // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with (worker.aiAllowance.test.ts covers it on).
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true, { allowanceGate: createAllowanceGate({}, false) })
     await Promise.all(pending)
     expect(response.status).toBe(200)
     expect(bodies[0].max_tokens).toBe(COMPANION_MAX_TOKENS.explain)

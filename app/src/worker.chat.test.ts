@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
 import { handleChat, handleLabChat as handleLabChatRoute, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS } from './worker/routes/chat'
 import { CHAT_STREAM_IDLE_MS } from './worker/lib/chatUpstream'
+import { createAllowanceGate } from './worker/lib/aiAllowance'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const env = {
@@ -128,11 +129,14 @@ describe('chat route', () => {
         expect(key).toBe(`chat:${userId}`)
         return false
       },
+      // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with.
+      { allowanceGate: createAllowanceGate(env, false) },
     )
 
     expect(response.status).toBe(429)
     expect(await response.json()).toEqual({ error: 'Rate limit exceeded. Try again in a minute.' })
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    // The AI allowance switch is off: no account read happens at all.
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 
   it('allows trial users and caps the Anthropic request payload', async () => {
