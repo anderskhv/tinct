@@ -17,7 +17,7 @@ permissions:
 jobs:
   all-shakespeare:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 75
     env:
       CI: true
     defaults:
@@ -47,7 +47,7 @@ jobs:
             if (!response.ok) throw Error(`GitHub release check: HTTP ${response.status}`)
             return response.json()
           }
-          for (let attempt = 0; attempt < 60; attempt++) {
+          for (let attempt = 0; attempt < 360; attempt++) {
             const data = await get(`/actions/runs?head_sha=${process.env.GITHUB_SHA}&event=push&per_page=30`)
             const release = data.workflow_runs.find(run => run.path === '.github/workflows/deploy.yml')
             if (release) {
@@ -56,6 +56,7 @@ jobs:
                 console.log(`Matching release ${release.id} verified its exact deployed bundle and passed smoke`)
                 process.exit(0)
               }
+              if (release.status === 'completed') throw new Error(`Release ${release.id} finished (${release.conclusion}) without a passing production smoke`)
             }
             await new Promise(resolve => setTimeout(resolve, 10000))
           }

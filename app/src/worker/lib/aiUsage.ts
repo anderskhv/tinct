@@ -23,6 +23,8 @@ import { supabaseInsertMinimal, type SupabaseEnv } from './supabase'
  *  - xAI Text to Speech: $15.00 per 1M characters (same page). VERIFIED. This is
  *    the rate for `grok-tts-v1`; narration.ts's own ceilings are in UTF-8 bytes
  *    (for English text bytes ~= characters).
+ *  - xAI Speech to Text, REST (grok-voice-transcribe-2.0): $0.10 per hour of
+ *    audio, docs.x.ai/docs/models fetched 2026-10-07. VERIFIED. Chat dictation.
  *  - OpenAI, developers.openai.com/api/docs/pricing: gpt-4.1 $2.00/MTok input,
  *    $0.50 cached input, $8.00 output; web search tool $10.00 per 1,000 calls for
  *    non-reasoning models, search content tokens free. VERIFIED.
@@ -48,6 +50,7 @@ export const AI_PRICING = {
   xai: {
     voicePerMinute: 0.08,
     ttsPerMChars: 15,
+    sttPerHour: 0.1,
   },
   openai: {
     'gpt-4.1': { inputPerMTok: 2, cachedInputPerMTok: 0.5, outputPerMTok: 8 },
@@ -57,7 +60,7 @@ export const AI_PRICING = {
 
 export type AiFeature =
   | 'chat' | 'explain' | 'librarian' | 'recap' | 'chapter_notes' | 'catch_up' | 'lab_chat' | 'talk'
-  | 'narration_generate' | 'narration_listen' | 'source_search'
+  | 'narration_generate' | 'narration_listen' | 'source_search' | 'dictation'
 export type AiProvider = 'anthropic' | 'xai' | 'openai'
 
 export interface AnthropicUsage {
@@ -86,6 +89,11 @@ export function talkCostUsd(seconds: number): number {
 
 export function narrationCostUsd(chars: number): number {
   return round5(Math.max(0, chars) / 1_000_000 * AI_PRICING.xai.ttsPerMChars)
+}
+
+/** Chat dictation (xAI REST speech-to-text), by seconds of audio. Never part of an AI allowance. */
+export function dictationCostUsd(seconds: number): number {
+  return round5(Math.max(0, seconds) / 3600 * AI_PRICING.xai.sttPerHour)
 }
 
 export interface OpenAiUsage { input_tokens?: number; output_tokens?: number; input_tokens_details?: { cached_tokens?: number } }

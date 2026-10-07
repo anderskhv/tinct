@@ -11,7 +11,7 @@ interface LabAskPaneProps {
   conversationState: LabConversationState
   focusTurnId?: string | null
   onBackToContents?: () => void
-  dictationState?: 'idle' | 'starting' | 'listening'
+  dictationState?: 'idle' | 'starting' | 'listening' | 'transcribing'
   onStopVoice?: () => void
   voiceActive: boolean
   typedLoading: boolean
@@ -392,7 +392,7 @@ export function LabAskPane({
   )
   const dictationNode = dictationState !== 'idle' && (
     <p className="lab-ask-voice-status" role="status" data-testid="lab-dictation-status">
-      {dictationState === 'starting' ? 'Starting microphone…' : 'Listening — tap stop to finish'}
+      {dictationState === 'starting' ? 'Starting microphone…' : dictationState === 'transcribing' ? 'Writing down what you said…' : 'Listening — tap stop to finish'}
     </p>
   )
   const statusNode = conversationState !== 'idle' && (
@@ -474,7 +474,7 @@ export function LabAskPane({
         onClick={onMic}
         aria-label={dictationState === 'idle' ? 'Dictate a question' : 'Stop dictation'}
         aria-pressed={dictationState !== 'idle'}
-        disabled={conversationState !== 'idle'}
+        disabled={conversationState !== 'idle' || dictationState === 'transcribing'}
         data-testid="lab-ask-mic"
       >
         {dictationState !== 'idle' ? (

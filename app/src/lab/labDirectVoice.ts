@@ -1,3 +1,4 @@
+import { editionNumberingNote } from '../companion/editionNotes'
 import { loadEditionWindow } from '../data/editionLoader'
 import type { VoiceApplicationToolResult } from '../voice/types'
 import type { LabAskContext } from './labAsk'
@@ -44,6 +45,7 @@ export function buildLabTalkReference(
         content: turn.content.replace(/\s+/g, ' ').trim().slice(0, 1200),
       }]
     })
+  const numberingNote = editionNumberingNote(context.bookId, context.editionKey)
   return JSON.stringify({
     book: context.bookTitle,
     author: context.bookAuthor,
@@ -53,6 +55,7 @@ export function buildLabTalkReference(
     ...(context.pageNumber ? { page: `${context.pageNumber}${context.totalPages ? ` of ${context.totalPages}` : ''}` } : {}),
     paragraphIndex: index,
     ...(context.readingAngle ? { readingAngle: context.readingAngle.slice(0, 240) } : {}),
+    ...(numberingNote ? { editionNote: numberingNote } : {}),
     excerpt,
     ...(recentConversation.length ? { recentConversation } : {}),
   })

@@ -4,6 +4,7 @@
  * context with these functions; the client uses them only for display and
  * tests. Pure: no browser or Worker APIs.
  */
+import { editionNumberingNote } from './editionNotes'
 import type { LabReadingTrailEntry } from '../lab/labReadingTrail'
 
 export interface LabAskContext {
@@ -173,6 +174,8 @@ export function buildLabAskInstructions(input: LabAskContext, options: { nearby?
     `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
   )
+  const numberingNote = editionNumberingNote(input.bookId, input.editionKey)
+  if (numberingNote) lines.push(numberingNote)
 
   if (input.readingAngle) {
     lines.push(`Reading angle: ${input.readingAngle}`)
