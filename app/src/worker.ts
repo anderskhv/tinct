@@ -56,6 +56,8 @@ import {
 } from './worker/routes/issueReports'
 import { handleApproveFix } from './worker/routes/issueReview'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
+import { handleProfiles, isProfileApiPath, socialProfilesOn, type ProfileAuthUser } from './worker/routes/profiles'
+import { isYouPath, serveYouPage, withSocialMarkers } from './worker/routes/socialPages'
 import {
   handleIndexNowVerification,
   handleSeoAndStaticRequest,
@@ -115,6 +117,10 @@ interface Env {
   STRIPE_PRICE_MODERN_T2?: string
   STRIPE_PRICE_MODERN_T3?: string
   STRIPE_PRICE_MODERN_T4?: string
+  /** "1": profiles (social ship 2). Off by default: no profile route, page or marker exists. */
+  SOCIAL_PROFILES?: string
+  /** Signs the welcome email's confirm link (routes/profiles.ts emailConfirmUrl). Secret. */
+  EMAIL_LINK_SECRET?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -222,6 +228,16 @@ export default {
       if (edition) return edition
     }
 
+    // Profiles (social ship 2): nothing here runs while SOCIAL_PROFILES is off.
+    const social = socialProfilesOn(env)
+    if (social && isProfileApiPath(url.pathname)) {
+      return handleProfiles(request, env, { verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null> })
+    }
+    if (social && (request.method === 'GET' || request.method === 'HEAD') && isYouPath(url.pathname)) {
+      const you = await serveYouPage(request, env)
+      if (you) return you
+    }
+
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     }
@@ -274,7 +290,8 @@ export default {
       case '/api/audio-file': return handleAudioFile(request, env)
     }
 
-    return handleSeoAndStaticRequest(request, env, ctx)
+    const page = await handleSeoAndStaticRequest(request, env, ctx)
+    return social ? withSocialMarkers(page, request) : page
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {

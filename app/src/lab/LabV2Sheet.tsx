@@ -10,6 +10,7 @@ import type { NarrationPilotInfo } from './labNarration'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
 import { LabAiUsageBar } from './LabAiUsageBar'
+import { LabProfileSheetHead, LabProfileSheetRows, useSheetProfile } from '../social/LabProfileSheet'
 import {
   labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   LAB_MAX_FONT_SIZE,
@@ -202,6 +203,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   })
   const [resetStatus, setResetStatus] = useState('')
   const yearTotals = useReadingYearTotals(auth.user?.id ?? null, layer === 'account')
+  // Profiles (social ship 2): null while off, signed out or unavailable, and the sheet is as before.
+  const socialProfile = useSheetProfile(auth.user ? auth.session?.access_token ?? null : null, layer === 'account')
 
   useEffect(() => {
     if (!layer) return
@@ -244,7 +247,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   const head = layer === 'reading' || layer === 'account' || layer === 'editions'
     ? (
       <div className="lab-v2-head is-titled" data-reader-window-handle>
-        <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
+        <h2 className="lab-v2-title">{layer === 'account' && socialProfile ? 'Profile' : LAB_V2_SHEET_TITLES[layer]}</h2>
         <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
       </div>
     )
@@ -497,10 +500,12 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
 
           {layer === 'account' && (
             <>
+              {socialProfile ? <LabProfileSheetHead profile={socialProfile} token={auth.session?.access_token ?? ''} premium={balance.isSubscribed} /> : (
               <div className="lab-v2-account-card" data-testid="lab-v2-account-card">
                 <strong>{auth.user?.email || 'Reader account'}</strong>
                 <span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span>
               </div>
+              )}
               {/* The AI usage bar: renders only while the Worker's allowance switch is on. */}
               <LabAiUsageBar token={auth.user ? auth.session?.access_token ?? null : null} />
               <div className="lab-v2-year">
@@ -511,6 +516,8 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   <span><strong>{yearTotals.books}</strong> books</span>
                 </div>
               </div>
+              {socialProfile && <LabProfileSheetRows profile={socialProfile} returnTo={returnTo ?? '/library'} />}
+              {!socialProfile && (
               <div className="lab-v2-rows">
                 <a
                   className="lab-v2-row is-link"
@@ -536,6 +543,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   </button>
                 )}
               </div>
+              )}
               {resetStatus && <p className="lab-v2-note" role="status">{resetStatus}</p>}
             </>
           )}

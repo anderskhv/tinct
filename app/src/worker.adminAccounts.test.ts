@@ -295,7 +295,8 @@ describe('admin account routes', () => {
     expect(body.userId).toBe(userId)
     expect(body.auth).toMatchObject({ id: userId, created_at: '2026-01-01T00:00:00Z', last_sign_in_at: '2026-09-01T00:00:00Z', user_metadata: { name: 'R' } })
     expect(Object.keys(body.supabase).sort()).toEqual([
-      'ai_usage_events', 'analytics_events', 'analytics_events_device_anonymous', 'issue_reports', 'payments', 'profiles',
+      'ai_usage_events', 'analytics_events', 'analytics_events_device_anonymous', 'blocks', 'email_sends', 'follows_followers',
+      'follows_following', 'issue_reports', 'payments', 'profiles', 'reader_profiles',
       'reading_memory_sessions', 'site_admins', 'token_usage', 'user_data', 'user_data_audit',
     ])
     expect(body.supabase.user_data).toEqual([{ user_id: userId, key: 'tinct:highlights', value: { a: 1 } }])

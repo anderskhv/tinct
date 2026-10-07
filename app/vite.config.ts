@@ -92,6 +92,9 @@ export default defineConfig(({ mode, command }) => {
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
         libraryAdd: path.resolve(process.cwd(), 'src/libraryAdd.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
+        // Profiles (social ship 2): the You page and the library's entry. Served only while SOCIAL_PROFILES is on.
+        youPage: path.resolve(process.cwd(), 'src/social/youPage.ts'),
+        librarySocialEntry: path.resolve(process.cwd(), 'src/social/librarySocialEntry.ts'),
       },
       output: {
         // Reserve index-* for the real reader entry. Native plugin entrypoints
@@ -110,6 +113,10 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/library-2-reading.js'
               : chunk.name === 'libraryAdd'
                 ? 'lab/library-add.js'
+              : chunk.name === 'youPage'
+                ? 'lab/profile-runtime.js'
+              : chunk.name === 'librarySocialEntry'
+                ? 'lab/social-entry.js'
               : 'assets/[name]-[hash].js',
       },
     },
@@ -203,6 +210,16 @@ export default defineConfig(({ mode, command }) => {
             next()
             return
           }
+          if (pathOnly === '/lab/profile-runtime.js') {
+            req.url = `/src/social/youPage.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
+          if (pathOnly === '/lab/social-entry.js') {
+            req.url = `/src/social/librarySocialEntry.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           if (pathOnly === '/lab/library-add.js') {
             req.url = `/src/libraryAdd.ts${url.slice(pathOnly.length)}`
             next()
@@ -227,6 +244,7 @@ export default defineConfig(({ mode, command }) => {
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
+            '/you': '/lab/you/index.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`

@@ -20,8 +20,10 @@ import { supabase } from './services/supabase'
 import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
 import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
 import { fetchSubscriptionInfo, premiumOfferIntervals, startPremiumCheckout, type PremiumInterval } from './lab/labPremiumOffer'
+import { enhanceSignInPage, rememberSignupConsent, startProfileSteps, updateStepCounter } from './social/signUpSteps'
+import { EMAIL_CONSENT_VERSION } from './social/profileRules'
 
-type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account' | 'welcome'
+type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account' | 'welcome' | 'profile' | 'reading'
 
 const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')
 const form = root?.querySelector<HTMLFormElement>('[data-auth-form]')
@@ -31,13 +33,15 @@ const email = root?.querySelector<HTMLInputElement>('[name=email]')
 const password = root?.querySelector<HTMLInputElement>('[name=password]')
 const confirmPassword = root?.querySelector<HTMLInputElement>('[name=confirmPassword]')
 const emailOptIn = root?.querySelector<HTMLInputElement>('[name=emailOptIn]')
-const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'account', 'welcome'])
 const initialParams = new URLSearchParams(location.search)
+const returnTo = safeLabReturnTo(initialParams.get('returnTo'))
+// Profiles (social ship 2): only when the Worker marks the page; otherwise nothing changes.
+const social = enhanceSignInPage(root ?? null, returnTo)
+const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'account', 'welcome', ...(social ? ['profile', 'reading'] as Mode[] : [])])
 let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
   ? initialParams.get('mode') as Mode
   : 'signin'
 
-const returnTo = safeLabReturnTo(initialParams.get('returnTo'))
 const callback = initialParams.get('callback')
 const nativeNotice = consumeNativeAuthNotice()
 const returnedError = labOAuthReturnError(location.search, location.hash)
@@ -71,6 +75,7 @@ function setMode(next: Mode) {
   // Consent to occasional email is asked only when creating an account, never pre-ticked.
   emailOptIn?.closest<HTMLElement>('[data-email-optin-field]')?.toggleAttribute('hidden', mode !== 'create')
   if (submit) submit.hidden = mode === 'account' || mode === 'welcome'
+  if (social) updateStepCounter(root, mode)
   setStatus()
   const url = new URL(location.href)
   if (mode === 'signin') url.searchParams.delete('mode')
@@ -144,8 +149,23 @@ function completeSignIn(session: Session, newAccount = false) {
   const clean = new URL(withoutOAuthReturnParams(location.href), location.origin)
   clean.searchParams.delete('callback')
   history.replaceState(null, '', clean)
-  if (newAccount || isInitialAccountSession(session.user)) { setFunnelToken(session.access_token); trackSignupCompleted(session.user.id, method); setMode('welcome') }
+  if (newAccount || isInitialAccountSession(session.user)) {
+    setFunnelToken(session.access_token)
+    trackSignupCompleted(session.user.id, method)
+    if (social && root) void startSocialSteps(session.access_token)
+    else setMode('welcome')
+  }
   else returnToLibrary()
+}
+
+/** Sign-up steps 2 and 3 (social ship 2); today's welcome screen if profiles cannot be reached. */
+function startSocialSteps(token: string) {
+  return startProfileSteps(root!, token, {
+    setMode: next => setMode(next as Mode),
+    setStatus,
+    finish: returnToLibrary,
+    fallbackWelcome: () => setMode('welcome'),
+  })
 }
 
 function credentials() {
@@ -169,12 +189,15 @@ async function submitAuth(event: SubmitEvent) {
       completeSignIn(data.session)
     } else if (mode === 'create') {
       trackFunnel('signup_started', { method: 'email' })
+      if (social) rememberSignupConsent(root ?? null)
       const { data, error } = await supabase.auth.signUp({
         ...values,
         options: {
           emailRedirectTo: await authRedirectTo(supabase, returnTo, 'signup', `${location.origin}${LAB_AUTH_CALLBACK_PATH}?callback=signup&returnTo=${encodeURIComponent(returnTo)}`),
           // Recorded on the profile by the email-consent trigger (supabase/migrations/20261002_privacy_consent.sql).
-          data: { email_opt_in: emailOptIn?.checked === true },
+          data: social
+            ? { email_opt_in: emailOptIn?.checked === true, email_consent_version: EMAIL_CONSENT_VERSION }
+            : { email_opt_in: emailOptIn?.checked === true },
         },
       })
       if (error) throw error
@@ -272,6 +295,7 @@ async function signInWithProvider(button: HTMLElement) {
   setStatus()
   rememberPendingProvider(provider)
   if (mode === 'create') trackFunnel('signup_started', { method: provider || 'oauth' })
+  if (mode === 'create' && social) rememberSignupConsent(root ?? null)
   let failure: unknown = null
   try {
     if (await startNativeOAuth(supabase, provider, returnTo)) { setBusy(false); return }
@@ -351,13 +375,14 @@ async function initialize() {
       setSignedInCookie()
       if (mode === 'reset') setMode('reset')
       else if (authReturn) completeSignIn(data.session, callback === 'signup')
+      else if (social && (mode === 'profile' || mode === 'reading')) void startSocialSteps(data.session.access_token)
       else {
         setMode(mode === 'welcome' ? 'welcome' : 'account')
         if (mode === 'account') void showPremiumOffer(data.session.access_token)
       }
       rememberPendingProvider(null)
     } else {
-      setMode(mode === 'welcome' || mode === 'account' ? 'signin' : mode)
+      setMode(mode === 'welcome' || mode === 'account' || mode === 'profile' || mode === 'reading' ? 'signin' : mode)
       reportProviderReturnError()
     }
   } catch (error) {

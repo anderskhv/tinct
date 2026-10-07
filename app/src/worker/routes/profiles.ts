@@ -1,0 +1,651 @@
+/**
+ * Profiles (social ship 2). Everything here answers only while the Worker var
+ * SOCIAL_PROFILES is "1"; off, every route is a plain 404, exactly as before
+ * the routes existed.
+ *
+ *   GET  /api/profile                 the reader's own profile (created private on first read)
+ *   POST /api/profile                 change it (name, link, picture, who can see you, switches, reading default, emails)
+ *   GET  /api/profile/handle?h=       is this link free and allowed?
+ *   POST /api/profile/image?slot=     upload a picture or background (JPEG, resized in the browser)
+ *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others once approved and allowed
+ *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
+ *   GET  /api/profiles/{handle}       what this viewer may see of a profile (ship 3 builds the page on it)
+ *   GET  /api/confirm-email?t=        the welcome email's one-click confirmation
+ *
+ * Never returned to anyone: email, highlights, notes, chats, Talk.
+ * Readers never write rows directly; this route writes only the caller's own.
+ */
+import {
+  EMAIL_CONSENT_VERSION,
+  HANDLE_PROBLEM_COPY,
+  PICTURE_SETS,
+  COVER_BOOK_IDS,
+  VISIBILITIES,
+  cleanDisplayName,
+  effectiveVisibility,
+  handleBase,
+  handleCandidates,
+  handleProblem,
+  normalizeHandle,
+  pictureForBook,
+  profileLinkText,
+  publicProfileView,
+  relationOf,
+  suggestedName,
+  uniqueHandle,
+  type ProfileCard,
+  type Visibility,
+} from '../../social/profileRules'
+import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
+import { corsHeaders } from '../lib/responses'
+import { isValidUUID } from '../lib/security'
+import { ProfilesUnavailable, supabaseProfileStore, type ProfileStore, type ReaderProfileRow } from '../lib/profileStore'
+import type { SupabaseEnv } from '../lib/supabase'
+
+export type ProfilesEnv = SupabaseEnv & {
+  /** "1" turns profiles on. Anything else: every profile route is a 404 and no page changes. */
+  SOCIAL_PROFILES?: string
+  /** Private bucket; profile photos live under profile/{userId}/ (purged with the account). */
+  USER_BOOKS?: R2Bucket
+  /** Worker secret that signs the welcome email's confirm link (ship 4 sends it). */
+  EMAIL_LINK_SECRET?: string
+}
+
+/** The Supabase auth user, as /auth/v1/user returns it. */
+export interface ProfileAuthUser {
+  id: string
+  email?: string | null
+  app_metadata?: { provider?: string; providers?: string[] } & Record<string, unknown>
+  user_metadata?: Record<string, unknown>
+  identities?: { provider?: string }[]
+}
+
+export interface ProfileDeps {
+  verifyUser: (request: Request) => Promise<ProfileAuthUser | null>
+  store?: ProfileStore
+  now?: () => Date
+  random?: () => number
+}
+
+export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
+  return env.SOCIAL_PROFILES === '1'
+}
+
+/** Paths this module answers (only while the switch is on). */
+export function isProfileApiPath(pathname: string): boolean {
+  return pathname === '/api/profile' || pathname.startsWith('/api/profile/') || pathname.startsWith('/api/profiles/') || pathname === '/api/confirm-email'
+}
+
+const BOOK_IDS = Object.keys(GENERATED_BOOK_META)
+const MAX_IMAGE_BYTES = 2_000_000
+const MAX_IMAGE_SIDE = 2400
+
+function reply(data: unknown, status: number, request: Request): Response {
+  return Response.json(data, { status, headers: { ...corsHeaders(request), 'Cache-Control': 'no-store' } })
+}
+
+function notFound(request: Request): Response {
+  return reply({ error: 'Not found' }, 404, request)
+}
+
+export function isGoogleAccount(user: ProfileAuthUser): boolean {
+  const meta = user.app_metadata || {}
+  return meta.provider === 'google'
+    || (Array.isArray(meta.providers) && meta.providers.includes('google'))
+    || (user.identities || []).some(identity => identity.provider === 'google')
+}
+
+function googlePhotoUrl(user: ProfileAuthUser): string | null {
+  const meta = user.user_metadata || {}
+  const raw = typeof meta.avatar_url === 'string' ? meta.avatar_url : typeof meta.picture === 'string' ? meta.picture : null
+  if (!raw || !isGoogleAccount(user)) return null
+  try {
+    const url = new URL(raw)
+    if (url.protocol !== 'https:' || !/(^|\.)googleusercontent\.com$/.test(url.hostname)) return null
+    // Ask for a 512 px square instead of the default 96 px.
+    url.pathname = url.pathname.replace(/=s\d+(-c)?$/, '=s512-c')
+    return url.toString()
+  } catch {
+    return null
+  }
+}
+
+function imageKey(userId: string, slot: 'picture' | 'background', token: string): string {
+  return `profile/${userId}/${slot}-${token}`
+}
+
+function imageUrl(userId: string, slot: 'picture' | 'background', token: string | null): string | null {
+  return token ? `/api/profile/image?user=${userId}&slot=${slot}&v=${encodeURIComponent(token)}` : null
+}
+
+/** The reader's own profile as the client sees it. */
+function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser) {
+  const stored = row.picture_kind === 'upload' || row.picture_kind === 'google'
+  return {
+    handle: row.handle,
+    link: profileLinkText(row.handle),
+    name: row.display_name,
+    picture: { kind: row.picture_kind, value: stored ? null : row.picture_value, url: stored ? imageUrl(row.id, 'picture', row.picture_value) : null, review: row.picture_review },
+    background: { kind: row.background_kind, value: row.background_kind === 'upload' ? null : row.background_value, url: row.background_kind === 'upload' ? imageUrl(row.id, 'background', row.background_value) : null, review: row.background_review },
+    visibility: row.visibility,
+    effectiveVisibility: effectiveVisibility(row.visibility, account.emailConfirmed),
+    showReading: row.show_reading,
+    showTime: row.show_time,
+    onLeaderboard: row.on_leaderboard,
+    newBooksOpenIn: row.new_books_open_in,
+    setUp: Boolean(row.set_up_at),
+    /** An account from before profiles that has not chosen anything yet. */
+    needsSetup: row.auto_created && !row.set_up_at,
+    /** The one gentle prompt: offered once, outside a book. */
+    shouldPrompt: row.auto_created && !row.set_up_at && !row.prompted_at,
+    emailConfirmed: account.emailConfirmed,
+    emailOptIn: account.emailOptIn,
+    googlePhoto: Boolean(googlePhotoUrl(user)),
+  }
+}
+
+async function accountState(store: ProfileStore, user: ProfileAuthUser, now: Date): Promise<{ emailConfirmed: boolean; emailOptIn: boolean }> {
+  const account = await store.getAccount(user.id)
+  let confirmed = Boolean(account?.email_confirmed_at)
+  // Google sign-ups count as confirmed (Google verified the address).
+  if (!confirmed && account && isGoogleAccount(user)) {
+    await store.updateAccount(user.id, { email_confirmed_at: now.toISOString() })
+    confirmed = true
+  }
+  return { emailConfirmed: confirmed, emailOptIn: Boolean(account?.email_opt_in) }
+}
+
+/**
+ * The reader's row, created private on first read: name from Google or the
+ * email, a unique handle made from it, the picture of the book they are
+ * reading (else the initial), Only me. Nobody becomes visible to others
+ * without choosing to.
+ */
+async function ownProfile(store: ProfileStore, user: ProfileAuthUser, bookHint: string | null, random: () => number): Promise<ReaderProfileRow> {
+  const existing = await store.getOwn(user.id)
+  if (existing) return existing
+  const meta = user.user_metadata || {}
+  const name = suggestedName(meta.full_name ?? meta.name, user.email)
+  const base = handleBase(isGoogleAccount(user) ? name : String(user.email || '').split('@')[0] || name)
+  const start = pictureForBook(bookHint)
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const taken = await store.takenHandles(handleCandidates(base))
+    const handle = uniqueHandle(base, taken, BOOK_IDS, random)
+    const row: Omit<ReaderProfileRow, 'updated_at'> = {
+      id: user.id,
+      display_name: name,
+      handle,
+      picture_kind: start.kind,
+      picture_value: start.value,
+      picture_review: 'none',
+      background_kind: start.background.kind,
+      background_value: start.background.value,
+      background_review: 'none',
+      visibility: 'only_me',
+      show_reading: true,
+      show_time: true,
+      on_leaderboard: false,
+      new_books_open_in: 'modern',
+      auto_created: true,
+      set_up_at: null,
+      prompted_at: null,
+    }
+    const result = await store.create(row)
+    if (result === 'ok') return { ...row }
+    // Taken by someone else meanwhile, or this reader's row was created by a parallel request.
+    const raced = await store.getOwn(user.id)
+    if (raced) return raced
+  }
+  throw new ProfilesUnavailable('could not create profile')
+}
+
+async function readJson(request: Request): Promise<Record<string, unknown> | null> {
+  try {
+    const body = await request.json()
+    return body && typeof body === 'object' && !Array.isArray(body) ? body as Record<string, unknown> : null
+  } catch {
+    return null
+  }
+}
+
+type Patch = Partial<ReaderProfileRow>
+
+/** Validate a change request. Returns the patch, or the problem to show. */
+async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Record<string, unknown>, now: Date): Promise<{ patch: Patch } | { error: string; field: string; status: number }> {
+  const patch: Patch = {}
+  if ('name' in body) {
+    const name = cleanDisplayName(body.name)
+    if (!name) return { error: 'Please choose another name.', field: 'name', status: 422 }
+    patch.display_name = name
+  }
+  if ('handle' in body) {
+    const handle = normalizeHandle(String(body.handle ?? ''))
+    if (handle !== row.handle) {
+      const problem = handleProblem(handle, BOOK_IDS)
+      if (problem) return { error: HANDLE_PROBLEM_COPY[problem], field: 'handle', status: 422 }
+      if ((await store.takenHandles([handle])).has(handle)) return { error: HANDLE_PROBLEM_COPY.taken, field: 'handle', status: 409 }
+      patch.handle = handle
+    }
+  }
+  if ('picture' in body) {
+    const picture = body.picture as { kind?: unknown; value?: unknown } | null
+    const kind = picture?.kind
+    if (kind === 'set' && PICTURE_SETS.some(set => set.id === picture?.value)) Object.assign(patch, { picture_kind: 'set', picture_value: picture!.value as string, picture_review: 'none' })
+    else if (kind === 'cover' && COVER_BOOK_IDS.includes(String(picture?.value))) Object.assign(patch, { picture_kind: 'cover', picture_value: String(picture!.value), picture_review: 'none' })
+    else if (kind === 'initial') Object.assign(patch, { picture_kind: 'initial', picture_value: null, picture_review: 'none' })
+    else return { error: 'Choose a picture.', field: 'picture', status: 422 }
+  }
+  if ('background' in body) {
+    const background = body.background as { kind?: unknown; value?: unknown } | null
+    if (background?.kind === 'set' && PICTURE_SETS.some(set => set.id === background.value)) Object.assign(patch, { background_kind: 'set', background_value: background.value as string, background_review: 'none' })
+    else if (background?.kind === 'library') Object.assign(patch, { background_kind: 'library', background_value: null, background_review: 'none' })
+    else return { error: 'Choose a background.', field: 'background', status: 422 }
+  }
+  if ('visibility' in body) {
+    if (!VISIBILITIES.includes(body.visibility as Visibility)) return { error: 'Choose who can see you.', field: 'visibility', status: 422 }
+    // Everyone is stored as chosen; it counts as Friends until the email is confirmed (effectiveVisibility).
+    patch.visibility = body.visibility as Visibility
+  }
+  for (const [field, column] of [['showReading', 'show_reading'], ['showTime', 'show_time'], ['onLeaderboard', 'on_leaderboard']] as const) {
+    if (field in body) {
+      if (typeof body[field] !== 'boolean') return { error: 'Choose on or off.', field, status: 422 }
+      patch[column] = body[field] as boolean
+    }
+  }
+  if ('newBooksOpenIn' in body) {
+    if (body.newBooksOpenIn !== 'modern' && body.newBooksOpenIn !== 'human') return { error: 'Choose a version.', field: 'newBooksOpenIn', status: 422 }
+    patch.new_books_open_in = body.newBooksOpenIn
+  }
+  // Skip for now = Only me, and the reader has made their choice.
+  if (body.skip === true) {
+    patch.visibility = 'only_me'
+    patch.set_up_at = row.set_up_at ?? now.toISOString()
+  }
+  if (body.setUp === true) patch.set_up_at = row.set_up_at ?? now.toISOString()
+  if (body.prompted === true) patch.prompted_at = row.prompted_at ?? now.toISOString()
+  return { patch }
+}
+
+async function deleteStoredImage(env: ProfilesEnv, userId: string, slot: 'picture' | 'background', token: string | null) {
+  if (!token || !env.USER_BOOKS) return
+  try { await env.USER_BOOKS.delete(imageKey(userId, slot, token)) } catch { /* the account purge removes leftovers */ }
+}
+
+// ===== Images =====
+
+/**
+ * Keep a JPEG's picture and drop everything else: EXIF (location, camera),
+ * XMP, ICC and comments live in APP1–APP15 and COM segments. Returns null for
+ * anything that is not a well-formed baseline/progressive JPEG.
+ */
+export function stripJpegMetadata(bytes: Uint8Array): { bytes: Uint8Array; width: number; height: number } | null {
+  if (bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8) return null
+  const parts: Uint8Array[] = [bytes.subarray(0, 2)]
+  let width = 0
+  let height = 0
+  let i = 2
+  while (i + 4 <= bytes.length) {
+    if (bytes[i] !== 0xff) return null
+    const marker = bytes[i + 1]
+    if (marker === 0xd9) { parts.push(bytes.subarray(i, i + 2)); break }
+    const length = (bytes[i + 2] << 8) | bytes[i + 3]
+    if (length < 2 || i + 2 + length > bytes.length) return null
+    if ((marker >= 0xc0 && marker <= 0xc3) || (marker >= 0xc5 && marker <= 0xc7) || (marker >= 0xc9 && marker <= 0xcb) || (marker >= 0xcd && marker <= 0xcf)) {
+      height = (bytes[i + 5] << 8) | bytes[i + 6]
+      width = (bytes[i + 7] << 8) | bytes[i + 8]
+    }
+    const metadata = (marker >= 0xe1 && marker <= 0xef) || marker === 0xfe
+    if (!metadata) parts.push(bytes.subarray(i, i + 2 + length))
+    if (marker === 0xda) {
+      // Start of scan: the rest is image data up to the end marker.
+      parts.push(bytes.subarray(i + 2 + length))
+      break
+    }
+    i += 2 + length
+  }
+  if (!width || !height) return null
+  const total = parts.reduce((sum, part) => sum + part.length, 0)
+  const out = new Uint8Array(total)
+  let offset = 0
+  for (const part of parts) { out.set(part, offset); offset += part.length }
+  return { bytes: out, width, height }
+}
+
+function sniffImage(bytes: Uint8Array): 'image/jpeg' | 'image/png' | 'image/webp' | null {
+  if (bytes[0] === 0xff && bytes[1] === 0xd8) return 'image/jpeg'
+  if (bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4e && bytes[3] === 0x47) return 'image/png'
+  if (bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[8] === 0x57 && bytes[9] === 0x45) return 'image/webp'
+  return null
+}
+
+function randomToken(random: () => number): string {
+  const values = new Uint8Array(9)
+  if (globalThis.crypto?.getRandomValues) globalThis.crypto.getRandomValues(values)
+  else for (let i = 0; i < values.length; i++) values[i] = Math.floor(random() * 256)
+  return [...values].map(value => value.toString(16).padStart(2, '0')).join('')
+}
+
+async function storeImage(env: ProfilesEnv, store: ProfileStore, row: ReaderProfileRow, slot: 'picture' | 'background', bytes: Uint8Array, type: string, kind: 'upload' | 'google', random: () => number): Promise<void> {
+  const token = randomToken(random)
+  await env.USER_BOOKS!.put(imageKey(row.id, slot, token), bytes, { httpMetadata: { contentType: type, cacheControl: 'private, max-age=300' } })
+  const previous = slot === 'picture'
+    ? (row.picture_kind === 'upload' || row.picture_kind === 'google' ? row.picture_value : null)
+    : (row.background_kind === 'upload' ? row.background_value : null)
+  const patch: Patch = slot === 'picture'
+    ? { picture_kind: kind, picture_value: token, picture_review: 'pending' }
+    : { background_kind: 'upload', background_value: token, background_review: 'pending' }
+  await store.update(row.id, patch)
+  await deleteStoredImage(env, row.id, slot, previous)
+}
+
+// ===== Email confirmation (the welcome email's link; ship 4 sends it) =====
+
+const CONFIRM_TTL_SECONDS = 30 * 24 * 3600
+
+function base64url(bytes: Uint8Array): string {
+  let text = ''
+  for (const byte of bytes) text += String.fromCharCode(byte)
+  return btoa(text).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+}
+
+async function hmac(secret: string, message: string): Promise<string> {
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
+  return base64url(new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(message))))
+}
+
+/**
+ * A signed confirm token for one account and address. It is bound to the
+ * address, so a changed email needs a new link, and it expires after 30 days.
+ * Confirming twice is harmless (the first time is kept).
+ */
+export async function createEmailConfirmToken(secret: string, userId: string, email: string, now = new Date()): Promise<string> {
+  const expires = Math.floor(now.getTime() / 1000) + CONFIRM_TTL_SECONDS
+  const signature = await hmac(secret, `confirm:${userId}:${email.trim().toLowerCase()}:${expires}`)
+  return `${userId}.${expires}.${signature}`
+}
+
+/**
+ * SHIP 4 HOOK: the `{{confirm_url}}` for the welcome email
+ * (docs/lifecycle-emails/templates/welcome.html). Null while EMAIL_LINK_SECRET
+ * is unset. Ship 2 sends no email; nothing calls this yet outside tests.
+ */
+export async function emailConfirmUrl(env: ProfilesEnv, user: { id: string; email?: string | null }, origin = 'https://tinct.app', now = new Date()): Promise<string | null> {
+  if (!env.EMAIL_LINK_SECRET || !user.email || !isValidUUID(user.id)) return null
+  return `${origin}/api/confirm-email?t=${encodeURIComponent(await createEmailConfirmToken(env.EMAIL_LINK_SECRET, user.id, user.email, now))}`
+}
+
+export async function verifyEmailConfirmToken(secret: string, token: string, email: string, now = new Date()): Promise<string | null> {
+  const [userId, expiresText, signature] = token.split('.')
+  if (!userId || !isValidUUID(userId) || !/^\d{6,12}$/.test(expiresText || '') || !signature) return null
+  if (Number(expiresText) < Math.floor(now.getTime() / 1000)) return null
+  const expected = await hmac(secret, `confirm:${userId}:${email.trim().toLowerCase()}:${expiresText}`)
+  if (expected.length !== signature.length) return null
+  let diff = 0
+  for (let i = 0; i < expected.length; i++) diff |= expected.charCodeAt(i) ^ signature.charCodeAt(i)
+  return diff === 0 ? userId : null
+}
+
+function confirmPage(title: string, line: string, status: number): Response {
+  const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, noarchive"><title>${title} · Tinct</title><link rel="stylesheet" href="/fonts/tinct-fonts.css"><style>body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#10150f;color:#eee7d0;font-family:'EB Garamond',Georgia,serif;text-align:center;padding:24px}h1{font-weight:400;font-size:clamp(30px,6vw,42px);margin:0 0 12px;letter-spacing:-.02em}p{color:#b1bba4;font-size:18px;margin:0 0 22px}a{display:inline-block;background:#eee7d0;color:#10150f;border-radius:999px;padding:11px 20px;font:600 15px system-ui,sans-serif;text-decoration:none}</style></head><body><main><h1>${title}</h1><p>${line}</p><a href="/library">Open the library</a></main></body></html>`
+  return new Response(html, { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, noarchive', 'Referrer-Policy': 'no-referrer' } })
+}
+
+async function handleConfirmEmail(request: Request, env: ProfilesEnv, store: ProfileStore, now: Date, authEmail: (userId: string) => Promise<string | null>): Promise<Response> {
+  if (request.method !== 'GET') return notFound(request)
+  if (!env.EMAIL_LINK_SECRET) return confirmPage('Not available yet', 'Please try the link again later.', 503)
+  const token = new URL(request.url).searchParams.get('t') || ''
+  const userId = token.split('.')[0]
+  if (!isValidUUID(userId || '')) return confirmPage('This link has expired', 'Sign in to Tinct to ask for a new one.', 400)
+  const email = await authEmail(userId)
+  const confirmed = email ? await verifyEmailConfirmToken(env.EMAIL_LINK_SECRET, token, email, now) : null
+  if (!confirmed) return confirmPage('This link has expired', 'Sign in to Tinct to ask for a new one.', 400)
+  try {
+    const account = await store.getAccount(confirmed)
+    if (!account) return confirmPage('This link has expired', 'Sign in to Tinct to ask for a new one.', 400)
+    if (!account.email_confirmed_at) await store.updateAccount(confirmed, { email_confirmed_at: now.toISOString() })
+  } catch {
+    return confirmPage('Not available yet', 'Please try the link again later.', 503)
+  }
+  return confirmPage('Your email is confirmed', 'Thank you. You can make your profile public whenever you like.', 200)
+}
+
+async function defaultAuthEmail(env: ProfilesEnv, userId: string): Promise<string | null> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  const res = await fetch(`${env.SUPABASE_URL}/auth/v1/admin/users/${encodeURIComponent(userId)}`, {
+    headers: { apikey: env.SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}` },
+  })
+  if (!res.ok) return null
+  const user = await res.json() as { email?: string | null }
+  return user.email || null
+}
+
+// ===== Router =====
+
+export async function handleProfiles(
+  request: Request,
+  env: ProfilesEnv,
+  deps: ProfileDeps & { authEmail?: (userId: string) => Promise<string | null> },
+): Promise<Response> {
+  if (!socialProfilesOn(env)) return notFound(request)
+  const url = new URL(request.url)
+  const store = deps.store ?? supabaseProfileStore(env)
+  const now = deps.now?.() ?? new Date()
+  const random = deps.random ?? Math.random
+
+  try {
+    if (url.pathname === '/api/confirm-email') {
+      return await handleConfirmEmail(request, env, store, now, deps.authEmail ?? (id => defaultAuthEmail(env, id)))
+    }
+    if (url.pathname.startsWith('/api/profiles/')) {
+      return await handlePublicProfile(request, url, env, store, deps)
+    }
+    if (url.pathname === '/api/profile/image' && request.method === 'GET') {
+      return await serveImage(request, url, env, store, deps)
+    }
+
+    const user = await deps.verifyUser(request)
+    if (!user) return reply({ error: 'Authentication required' }, 401, request)
+    if (!isValidUUID(user.id)) return reply({ error: 'Invalid user' }, 400, request)
+
+    if (url.pathname === '/api/profile' && request.method === 'GET') {
+      const bookHint = url.searchParams.get('book')
+      const row = await ownProfile(store, user, bookHint && /^[a-z0-9-]{1,80}$/.test(bookHint) ? bookHint : null, random)
+      const account = await accountState(store, user, now)
+      return reply({ enabled: true, available: true, profile: selfView(row, account, user) }, 200, request)
+    }
+
+    if (url.pathname === '/api/profile' && request.method === 'POST') {
+      const body = await readJson(request)
+      if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
+      const row = await ownProfile(store, user, null, random)
+      const built = await buildPatch(store, row, body, now)
+      if ('error' in built) return reply({ error: built.error, field: built.field }, built.status, request)
+      const { patch } = built
+      // Leaving a stored photo removes it (nothing is kept that is not shown).
+      const leavingPicture = patch.picture_kind && patch.picture_kind !== row.picture_kind && (row.picture_kind === 'upload' || row.picture_kind === 'google')
+      const leavingBackground = patch.background_kind && patch.background_kind !== row.background_kind && row.background_kind === 'upload'
+      if (Object.keys(patch).length) {
+        const result = await store.update(user.id, patch)
+        if (result === 'taken') return reply({ error: HANDLE_PROBLEM_COPY.taken, field: 'handle' }, 409, request)
+      }
+      if (leavingPicture) await deleteStoredImage(env, user.id, 'picture', row.picture_value)
+      if (leavingBackground) await deleteStoredImage(env, user.id, 'background', row.background_value)
+      // Reading emails: on records the current consent wording; off stops them at once.
+      const consent = body.consent as { optIn?: unknown; version?: unknown } | undefined
+      const optIn = body.emailOptIn === true || (consent?.optIn === true && consent.version === EMAIL_CONSENT_VERSION)
+      if (optIn) await store.updateAccount(user.id, { email_opt_in: true, email_opt_in_at: now.toISOString(), email_consent_version: EMAIL_CONSENT_VERSION })
+      else if (body.emailOptIn === false) await store.updateAccount(user.id, { email_opt_in: false })
+      const next = await store.getOwn(user.id) ?? { ...row, ...patch }
+      const account = await accountState(store, user, now)
+      return reply({ enabled: true, available: true, profile: selfView(next, account, user) }, 200, request)
+    }
+
+    if (url.pathname === '/api/profile/handle' && request.method === 'GET') {
+      const handle = normalizeHandle(url.searchParams.get('h') || '')
+      const own = await store.getOwn(user.id)
+      if (own?.handle === handle) return reply({ ok: true, handle, link: profileLinkText(handle) }, 200, request)
+      const problem = handleProblem(handle, BOOK_IDS)
+      if (problem) return reply({ ok: false, reason: problem, message: HANDLE_PROBLEM_COPY[problem] }, 200, request)
+      if ((await store.takenHandles([handle])).has(handle)) return reply({ ok: false, reason: 'taken', message: HANDLE_PROBLEM_COPY.taken }, 200, request)
+      return reply({ ok: true, handle, link: profileLinkText(handle) }, 200, request)
+    }
+
+    if (url.pathname === '/api/profile/image' && request.method === 'POST') {
+      const slot = url.searchParams.get('slot')
+      if (slot !== 'picture' && slot !== 'background') return reply({ error: 'Unknown slot' }, 400, request)
+      if (!env.USER_BOOKS) return reply({ error: 'Uploads are unavailable' }, 503, request)
+      const declared = Number(request.headers.get('content-length') || 0)
+      if (declared > MAX_IMAGE_BYTES) return reply({ error: 'That picture is too large.' }, 413, request)
+      const bytes = new Uint8Array(await request.arrayBuffer())
+      if (bytes.length > MAX_IMAGE_BYTES) return reply({ error: 'That picture is too large.' }, 413, request)
+      const jpeg = stripJpegMetadata(bytes)
+      if (!jpeg || jpeg.width > MAX_IMAGE_SIDE || jpeg.height > MAX_IMAGE_SIDE) return reply({ error: 'Please choose a JPEG, PNG or WebP photo.' }, 415, request)
+      const row = await ownProfile(store, user, null, random)
+      await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
+      const next = await store.getOwn(user.id) ?? row
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user) }, 200, request)
+    }
+
+    if (url.pathname === '/api/profile/google-photo' && request.method === 'POST') {
+      const source = googlePhotoUrl(user)
+      if (!source) return reply({ error: 'No Google photo on this account.' }, 404, request)
+      if (!env.USER_BOOKS) return reply({ error: 'Uploads are unavailable' }, 503, request)
+      const res = await fetch(source)
+      if (!res.ok) return reply({ error: 'Google photo could not be read.' }, 502, request)
+      const raw = new Uint8Array(await res.arrayBuffer())
+      if (raw.length > MAX_IMAGE_BYTES) return reply({ error: 'Google photo could not be read.' }, 502, request)
+      const type = sniffImage(raw)
+      if (!type) return reply({ error: 'Google photo could not be read.' }, 502, request)
+      const bytes = type === 'image/jpeg' ? stripJpegMetadata(raw)?.bytes ?? null : raw
+      if (!bytes) return reply({ error: 'Google photo could not be read.' }, 502, request)
+      const row = await ownProfile(store, user, null, random)
+      await storeImage(env, store, row, 'picture', bytes, type, 'google', random)
+      const next = await store.getOwn(user.id) ?? row
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user) }, 200, request)
+    }
+
+    return notFound(request)
+  } catch (error) {
+    if (error instanceof ProfilesUnavailable) {
+      // The SQL has not run (or the database is down): say so; pages keep today's behaviour.
+      console.warn(JSON.stringify({ event: 'profiles_unavailable', detail: error.message }))
+      return reply({ enabled: true, available: false }, url.pathname === '/api/profile' && request.method === 'GET' ? 200 : 503, request)
+    }
+    throw error
+  }
+}
+
+/** The relationship-aware view of one profile (ship 3's page and lists use this). */
+async function viewFor(store: ProfileStore, ownerId: string, viewerId: string | null) {
+  if (viewerId === ownerId) {
+    const own = await store.getOwn(ownerId)
+    if (!own) return null
+    const account = await store.getAccount(ownerId)
+    return publicProfileView(cardFromOwn(own, Boolean(account?.email_confirmed_at)), 'self')
+  }
+  const card = await store.getCardById(ownerId)
+  if (!card) return null
+  const relation = viewerId ? relationOf({ self: false, ...(await store.relation(viewerId, ownerId)) }) : 'stranger'
+  return publicProfileView(cardFromPublic(card), relation)
+}
+
+function cardFromOwn(row: ReaderProfileRow, emailConfirmed: boolean): ProfileCard {
+  return {
+    handle: row.handle, displayName: row.display_name,
+    pictureKind: row.picture_kind, pictureValue: row.picture_value, pictureReview: row.picture_review,
+    backgroundKind: row.background_kind, backgroundValue: row.background_value, backgroundReview: row.background_review,
+    visibility: row.visibility, emailConfirmed,
+    showReading: row.show_reading, showTime: row.show_time, onLeaderboard: row.on_leaderboard,
+  }
+}
+
+/** The view already applied the owner's choices; reviews there are approved or replaced. */
+function cardFromPublic(row: { handle: string; display_name: string; picture_kind: ProfileCard['pictureKind']; picture_value: string | null; background_kind: ProfileCard['backgroundKind']; background_value: string | null; visibility: Visibility; show_reading: boolean; show_time: boolean; on_leaderboard: boolean }): ProfileCard {
+  return {
+    handle: row.handle, displayName: row.display_name,
+    pictureKind: row.picture_kind, pictureValue: row.picture_value, pictureReview: 'approved',
+    backgroundKind: row.background_kind, backgroundValue: row.background_value, backgroundReview: 'approved',
+    visibility: row.visibility, emailConfirmed: true,
+    showReading: row.show_reading, showTime: row.show_time, onLeaderboard: row.on_leaderboard,
+  }
+}
+
+async function optionalViewer(request: Request, deps: ProfileDeps): Promise<string | null> {
+  if (!request.headers.get('authorization')) return null
+  const user = await deps.verifyUser(request)
+  return user && isValidUUID(user.id) ? user.id : null
+}
+
+async function handlePublicProfile(request: Request, url: URL, env: ProfilesEnv, store: ProfileStore, deps: ProfileDeps): Promise<Response> {
+  if (request.method !== 'GET') return notFound(request)
+  const handle = normalizeHandle(decodeURIComponent(url.pathname.slice('/api/profiles/'.length)))
+  if (handleProblem(handle) === 'format') return notFound(request)
+  const viewer = await optionalViewer(request, deps)
+  let ownerId: string | null = null
+  if (viewer) {
+    const own = await store.getOwn(viewer)
+    if (own?.handle === handle) ownerId = viewer
+  }
+  if (!ownerId) ownerId = (await store.getCardByHandle(handle))?.id ?? null
+  if (!ownerId) return notFound(request)
+  const view = await viewFor(store, ownerId, viewer)
+  if (!view) return notFound(request)
+  const stored = view.picture.kind === 'upload' || view.picture.kind === 'google'
+  const response = reply({
+    profile: {
+      ...view,
+      link: profileLinkText(view.handle),
+      picture: { kind: view.picture.kind, value: stored ? null : view.picture.value, url: stored ? imageUrl(ownerId, 'picture', view.picture.value) : null },
+      background: view.background && { kind: view.background.kind, value: view.background.kind === 'upload' ? null : view.background.value, url: view.background.kind === 'upload' ? imageUrl(ownerId, 'background', view.background.value) : null },
+    },
+  }, 200, request)
+  response.headers.set('X-Robots-Tag', 'noindex, noarchive')
+  return response
+}
+
+async function serveImage(request: Request, url: URL, env: ProfilesEnv, store: ProfileStore, deps: ProfileDeps): Promise<Response> {
+  const owner = url.searchParams.get('user') || ''
+  const slot = url.searchParams.get('slot')
+  const token = url.searchParams.get('v') || ''
+  if (!isValidUUID(owner) || (slot !== 'picture' && slot !== 'background') || !/^[a-f0-9]{8,64}$/.test(token) || !env.USER_BOOKS) return notFound(request)
+  const viewer = await optionalViewer(request, deps)
+  const view = await viewFor(store, owner, viewer)
+  if (!view) return notFound(request)
+  // Only the photo currently shown to this viewer: for others that means approved.
+  const shown = slot === 'picture'
+    ? (view.picture.kind === 'upload' || view.picture.kind === 'google') && view.picture.value === token
+    : view.background?.kind === 'upload' && view.background.value === token
+  if (!shown) return notFound(request)
+  const object = await env.USER_BOOKS.get(imageKey(owner, slot, token))
+  if (!object) return notFound(request)
+  return new Response(object.body, {
+    headers: {
+      ...corsHeaders(request),
+      'Content-Type': object.httpMetadata?.contentType || 'image/jpeg',
+      'Cache-Control': 'private, max-age=300',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Robots-Tag': 'noindex, noarchive',
+    },
+  })
+}
+
+/** Account deletion and export (routes/adminAccounts.ts): every stored photo of one reader. */
+export const PROFILE_IMAGE_PREFIX = (userId: string) => `profile/${userId}/`
+
+/** Every stored profile photo of one reader (picture, background, Google copy). */
+export async function listProfileImages(bucket: R2Bucket, userId: string): Promise<{ key: string; size: number; uploaded: string }[]> {
+  const page = await bucket.list({ prefix: PROFILE_IMAGE_PREFIX(userId), limit: 1000 })
+  return page.objects.map((object: { key: string; size: number; uploaded: Date }) => ({ key: object.key, size: object.size, uploaded: object.uploaded.toISOString() }))
+}
+
+export async function purgeProfileImages(bucket: R2Bucket, userId: string): Promise<number> {
+  let removed = 0
+  for (let round = 0; round < 100; round++) {
+    const page = await bucket.list({ prefix: PROFILE_IMAGE_PREFIX(userId), limit: 1000 })
+    const keys = page.objects.map((object: { key: string }) => object.key).filter((key: string) => key.startsWith(PROFILE_IMAGE_PREFIX(userId)))
+    if (!keys.length) return removed
+    await bucket.delete(keys)
+    removed += keys.length
+  }
+  throw new Error('profile images purge did not finish')
+}

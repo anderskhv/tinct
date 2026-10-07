@@ -23,7 +23,7 @@ const INDEXNOW_KEY_RE = /^[A-Za-z0-9-]{8,128}$/
 // (object URLs, app/src/lab/labFigures.ts); nothing is fetched for them.
 // Omarchy exposes only its read-only palette at this exact loopback port/path.
 // Keep browser local-network permission and the bridge's Host/Origin checks.
-const SECURITY_HEADERS: Record<string, string> = {
+export const SECURITY_HEADERS: Record<string, string> = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'SAMEORIGIN',
   'Referrer-Policy': 'strict-origin-when-cross-origin',

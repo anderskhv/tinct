@@ -16,6 +16,7 @@ import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } 
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
 import { listUserBooks, purgeUserBooks } from './userBooks'
+import { listProfileImages, purgeProfileImages } from './profiles'
 
 export type AdminAccountsEnv = SupabaseEnv & {
   STRIPE_SECRET_KEY?: string
@@ -61,6 +62,21 @@ const USER_TABLES: { table: string; column: string; order: string }[] = [
   { table: 'issue_reports', column: 'user_id', order: 'created_at,id' },
   { table: 'ai_usage_events', column: 'user_id', order: 'id' },
   { table: 'site_admins', column: 'user_id', order: 'user_id' },
+]
+
+/**
+ * Profiles (social ship 2) and the email send log (ship 4). Created by
+ * 20261008_profiles.sql / 20261008_email_log.sql, which Anders runs after the
+ * deploy: until then a missing table (404) exports as null, not as an error.
+ * Every row here is removed by ON DELETE CASCADE when the auth user goes.
+ * Who blocked this reader is someone else's choice and is not exported.
+ */
+const OPTIONAL_USER_TABLES: { key: string; table: string; column: string; order: string }[] = [
+  { key: 'reader_profiles', table: 'reader_profiles', column: 'id', order: 'id' },
+  { key: 'follows_following', table: 'follows', column: 'follower', order: 'followed' },
+  { key: 'follows_followers', table: 'follows', column: 'followed', order: 'follower' },
+  { key: 'blocks', table: 'blocks', column: 'blocker', order: 'blocked' },
+  { key: 'email_sends', table: 'email_sends', column: 'user_id', order: 'id' },
 ]
 
 /** ON DELETE SET NULL tables: rows must be deleted before the auth user goes. */
@@ -257,6 +273,17 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     supabase[table] = result?.rows ?? null
     if (result?.truncated) truncated.push(table)
   }
+  for (const { key, table, column, order } of OPTIONAL_USER_TABLES) {
+    try {
+      const result = await getAll(env, table, `${column}=eq.${account.userId}`, order)
+      supabase[key] = result.rows
+      if (result.truncated) truncated.push(key)
+    } catch (error) {
+      const missing = error instanceof Error && /\(404\)/.test(error.message)
+      supabase[key] = null
+      if (!missing) errors.push(`${key}: ${error instanceof Error ? error.message : 'failed'}`)
+    }
+  }
   const devices = deviceIdsFrom((supabase.analytics_events as Record<string, unknown>[] | null) ?? [])
   const anonymousRows: Record<string, unknown>[] = []
   for (const group of chunks(devices, 50)) {
@@ -290,6 +317,10 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
         id: book.id, name: book.name, title: book.title, author: book.author, type: book.type, size: book.size, createdAt: book.createdAt,
       })))
       : (errors.push('r2: USER_BOOKS binding missing'), null),
+    // Profile pictures and backgrounds (routes/profiles.ts): listed, never the bytes.
+    profileImages: env.USER_BOOKS
+      ? await attempt('r2 profile-images', () => listProfileImages(env.USER_BOOKS!, account.userId))
+      : null,
   }
 
   const stripeSummary = await attempt('stripe', () => exportStripe(env, account))
@@ -357,6 +388,11 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
     [`${prefix}r2:user-books`, async () => {
       if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
       await purgeUserBooks(env.USER_BOOKS, userId)
+    }],
+    // Profile pictures and backgrounds: every object under profile/{userId}/.
+    [`${prefix}r2:profile-images`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      await purgeProfileImages(env.USER_BOOKS, userId)
     }],
   ]
 }
