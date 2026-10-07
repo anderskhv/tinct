@@ -102,6 +102,17 @@ describe('/api/user-books', () => {
     expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(404)
   })
 
+  it('keeps the rights confirmation (wording version and time) with the file, and drops a malformed one', async () => {
+    const { r2, call } = setup()
+    const post = (body: Uint8Array, headers: Record<string, string>) => call('/api/user-books', { method: 'POST', token: 'token-a', body, headers })
+    expect((await post(pdfBytes('attested'), { 'X-Rights-Version': '2026-10-08', 'X-Rights-At': encodeURIComponent('2026-10-08T09:30:00.000Z') })).status).toBe(201)
+    expect((await post(pdfBytes('bad version'), { 'X-Rights-Version': 'x y<z>', 'X-Rights-At': '2026-10-08T09:30:00.000Z' })).status).toBe(201)
+    expect((await post(pdfBytes('none'), {})).status).toBe(201)
+    const metas = [...r2.objects.values()].map(object => object.customMetadata)
+    expect(metas.filter(meta => meta.rightsVersion === '2026-10-08' && meta.rightsAt === '2026-10-08T09:30:00.000Z')).toHaveLength(1)
+    expect(metas.filter(meta => 'rightsVersion' in meta || 'rightsAt' in meta)).toHaveLength(1)
+  })
+
   it('keeps each account to its own files: another account gets 404 and an empty list', async () => {
     const { r2, call, upload } = setup()
     const { book } = await (await upload('token-a', epubBytes(), { Name: 'mine.epub' })).json() as { book: UserBook }

@@ -82,7 +82,7 @@ async function run(browser, { ownBooks }) {
   await Promise.race([p.waitForSelector('#attestBox', { timeout: 30000 }), p.waitForURL(READER_URL, { timeout: 30000 })]);
   if (!READER_URL.test(p.url()) && await p.$('#attestBox')) {
     const copy = await p.evaluate(() => document.querySelector('#attestBox').closest('label').textContent.trim());
-    if (ownBooks) check('the rights checkbox covers listening and responsibility', /upload, read and listen/.test(copy) && /full responsibility/.test(copy), { copy });
+    if (ownBooks) check('the rights checkbox covers listening and responsibility', /read and listen to it in Tinct/.test(copy) && /responsible for what I upload and share/.test(copy), { copy });
     await p.check('#attestBox'); await p.click('#attestOk');
   }
   await p.waitForURL(READER_URL, { timeout: 30000 });

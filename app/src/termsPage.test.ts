@@ -16,9 +16,9 @@ const text = (s: string) => decode(s.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' 
 const approved = draft.split('\n---\n')[1]
   .split('\n')
   .filter(line => line.trim() && !line.startsWith('**Terms of Service**') && !line.startsWith('Last updated'))
-  .map(line => line.replace(/^## /, '').replace(/\*\*/g, '').trim())
+  .map(line => line.replace(/^#{2,3} /, '').replace(/\*\*/g, '').trim())
 const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'))
-const published = [...main.matchAll(/<(h2|p)\b[^>]*>([\s\S]*?)<\/\1>/g)]
+const published = [...main.matchAll(/<(h2|h3|p)\b[^>]*>([\s\S]*?)<\/\1>/g)]
   .filter(match => !/class="(eyebrow|updated)"/.test(match[0]))
   .map(match => text(match[2]))
 
@@ -37,6 +37,10 @@ describe('/terms', () => {
     const ids = [...main.matchAll(/<section id="(section-\d+)">\s*<h2>(\d+)\./g)].map(match => [match[1], match[2]])
     expect(ids).toEqual(Array.from({ length: 10 }, (_, i) => [`section-${i + 1}`, String(i + 1)]))
     expect(main).toMatch(/<section id="section-4">\s*<h2>4\. Your content and your responsibility for it<\/h2>/)
+    // Reporting and removal: a subsection of §4, anchored under it and linked from it.
+    const section4 = main.slice(main.indexOf('<section id="section-4">'), main.indexOf('<section id="section-5">'))
+    expect(section4).toContain('<h3 id="section-4-reporting">Reporting and removal</h3>')
+    expect(section4).toContain('href="#section-4-reporting"')
   })
 
   it('uses the privacy page design: same stylesheet, fonts, header and footer', () => {

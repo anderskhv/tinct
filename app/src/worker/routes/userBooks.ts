@@ -13,7 +13,8 @@
  * file or its name. Another account's file is therefore unreachable, and every
  * miss answers 404, never 403, so existence is not confirmed.
  *
- * Metadata (name, title, author, type, sha256, createdAt) lives in each
+ * Metadata (name, title, author, type, sha256, createdAt, and the rights
+ * confirmation's wording version and time) lives in each
  * object's R2 customMetadata rather than in a per-user index object: it is
  * written and deleted atomically with the bytes, and R2 listing is strongly
  * consistent, so there is no read-modify-write index to race or drift.
@@ -122,6 +123,18 @@ function headerText(request: Request, name: string): string {
   const value = request.headers.get(name)
   if (!value) return ''
   try { return decodeURIComponent(value) } catch { return '' }
+}
+
+/**
+ * The rights confirmation the reader gave before adding the file (the Add a
+ * book checkbox): which wording (X-Rights-Version) and when (X-Rights-At),
+ * kept with the file as a record. Omitted when absent or malformed.
+ */
+export function rightsAttestation(request: Request): { rightsVersion?: string; rightsAt?: string } {
+  const version = headerText(request, 'x-rights-version')
+  if (!/^[0-9A-Za-z.-]{1,40}$/.test(version)) return {}
+  const at = Date.parse(headerText(request, 'x-rights-at'))
+  return { rightsVersion: version, ...(Number.isFinite(at) ? { rightsAt: new Date(at).toISOString() } : {}) }
 }
 
 export function bookFromObject(object: { key: string; size: number; uploaded: Date; customMetadata?: Record<string, string> }): UserBook | null {
@@ -300,6 +313,7 @@ async function upload(request: Request, bucket: R2Bucket, userId: string, checkR
     type,
     sha256,
     createdAt: new Date().toISOString(),
+    ...rightsAttestation(request),
   }
   const stored = await bucket.put(`${userBooksPrefix(userId)}${id}`, bytes, {
     httpMetadata: { contentType: TYPES[type] },
