@@ -111,6 +111,15 @@ describe('narration API client', () => {
     await expect(ensureNarration(request, { fetchImpl: offline })).rejects.toBeInstanceOf(NarrationEnsureError)
   })
 
+  it('reports a Modern English chapter still in its original text as modern_pending, with its own copy', async () => {
+    const request = { bookId: 'pd-pg-135', editionKey: 'modern-en', chapter: 3, voice: 'a', paragraphs: [{ index: 0, text: 'x' }] }
+    const pending = (async () => Response.json({ error: 'Modern English text not ready', reason: 'modern_pending' }, { status: 409 })) as unknown as typeof fetch
+    await expect(ensureNarration(request, { fetchImpl: pending })).rejects.toMatchObject({ code: 'modern_pending', status: 409 })
+    const otherConflict = (async () => new Response('', { status: 409 })) as unknown as typeof fetch
+    await expect(ensureNarration(request, { fetchImpl: otherConflict })).rejects.toMatchObject({ code: 'http', status: 409 })
+    expect(narrationFailureMessage('modern_pending')).toMatch(/Modern English/)
+  })
+
   it('reads the pilot info defensively', async () => {
     const ok = (async () => Response.json({ enabled: true, provider: 'fish', model: 's2.1-pro', voices: [{ key: 'a', label: 'Nathan' }, { bad: true }] })) as unknown as typeof fetch
     expect(await fetchNarrationPilotInfo(ok)).toEqual({ enabled: true, reason: undefined, provider: 'fish', model: 's2.1-pro', voices: [{ key: 'a', label: 'Nathan' }] })

@@ -317,7 +317,7 @@ export async function releaseHold(bucket: R2Like, bookId: string, holdId: string
   await bucket.delete(jobKey(bookId))
 }
 
-interface SourceChapter { number: number; title: string; paragraphs: string[] }
+export interface SourceChapter { number: number; title: string; paragraphs: string[] }
 
 /**
  * One step of work on a book: claim the next chapter, write one chunk, save
@@ -400,10 +400,17 @@ async function finishEdition(bucket: R2Like, bookId: string, source: SourceChapt
  */
 export async function assembleEdition(bucket: R2Like, bookId: string, original: SourceChapter[], job: ModernJob | null, now: number): Promise<{ chapters: SourceChapter[]; modern: { complete: boolean; chapters: Record<string, PublicChapterState> } }> {
   const states = publicChapterStates(job, now)
-  const chapters = await Promise.all(original.map(async c => {
-    if (states[c.number] !== 'ready') return c
-    const ready = await readJson<SourceChapter>(bucket, chapterKey(bookId, c.number))
-    return ready && ready.value.paragraphs.length === c.paragraphs.length ? { number: c.number, title: c.title, paragraphs: ready.value.paragraphs } : c
-  }))
+  const chapters = await Promise.all(original.map(c => assembleChapter(bucket, bookId, c, states[c.number])))
   return { chapters, modern: { complete: jobComplete(job), chapters: states } }
+}
+
+/**
+ * One chapter exactly as assembleEdition serves it: the Modern English text
+ * once ready and whole, else the original. Narration loads a single chapter
+ * through this so its paragraphs are the reader's paragraphs.
+ */
+export async function assembleChapter(bucket: R2Like, bookId: string, c: SourceChapter, state: PublicChapterState | undefined): Promise<SourceChapter> {
+  if (state !== 'ready') return c
+  const ready = await readJson<SourceChapter>(bucket, chapterKey(bookId, c.number))
+  return ready && ready.value.paragraphs.length === c.paragraphs.length ? { number: c.number, title: c.title, paragraphs: ready.value.paragraphs } : c
 }

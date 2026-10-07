@@ -46,7 +46,7 @@ import {
   type PublicPlacement,
 } from '../../../public/lab/public-books.js'
 import type { Book, Edition } from '../../types'
-import { handleModernEdition, serveModernEdition, type ModernDeps, type ModernEnv } from './publicBookModern'
+import { handleModernEdition, modernEditionChapter, serveModernEdition, type ModernDeps, type ModernEnv } from './publicBookModern'
 
 export const PREFIX = 'public-books/'
 export const INDEX_KEY = PREFIX + 'index.json'
@@ -120,7 +120,7 @@ export interface PublicCatalogueEntry {
 
 export interface StoredMeta { version: 1; book: Book; entry: PublicCatalogueEntry; editionKey: string; sha256: string; classification: Classification; verification: { checked: number; removed: number; renamed: number } }
 
-export const bucketOf = (env: PublicBooksEnv) => env.PUBLIC_BOOKS ?? env.AUDIO_BUCKET ?? null
+export const bucketOf = (env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'>) => env.PUBLIC_BOOKS ?? env.AUDIO_BUCKET ?? null
 export const metaKey = (bookId: string) => `${PREFIX}${bookId}/meta.json`
 export const editionObjectKey = (bookId: string, editionKey: string) => `${PREFIX}${bookId}/${editionKey}.json`
 const coverKey = (bookId: string) => `${PREFIX}${bookId}/cover`
@@ -471,6 +471,34 @@ export async function handlePublicEditionData(request: Request, env: PublicBooks
   const object = await bucket.get(editionObjectKey(match[1], match[2]))
   if (!object) return reply({ error: 'Not found' }, 404, request)
   return new Response(object.body, { status: 200, headers: headers(request, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300' }) })
+}
+
+type EditionChapter = { number: number; title: string; paragraphs: string[] }
+
+/** A chapter of an edition file by number, as narration has always picked it (the n-th entry if no number matches). */
+export function editionChapter<T extends { number?: number }>(chapters: T[] | undefined, chapterNumber: number): T | null {
+  if (!Array.isArray(chapters)) return null
+  return chapters.find(item => item.number === chapterNumber) ?? chapters[chapterNumber - 1] ?? null
+}
+
+/**
+ * One chapter of an added book, read from the same objects
+ * handlePublicEditionData serves, so narration's paragraphs and their indices
+ * are the reader's. `modernPending`: a Modern English chapter still served in
+ * its original text. Null for anything the data route would not serve.
+ */
+export async function publicEditionChapter(env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'>, bookId: string, editionKey: string, chapterNumber: number, now?: number): Promise<(EditionChapter & { modernPending: boolean }) | null> {
+  if (!isPublicBookId(bookId)) return null
+  if (editionKey === 'modern-en') {
+    const chapter = await modernEditionChapter(env, bookId, chapterNumber, now)
+    return chapter ? { number: chapter.number, title: chapter.title, paragraphs: chapter.paragraphs, modernPending: chapter.pending } : null
+  }
+  if (!/^original-[a-z]{2}$/.test(editionKey)) return null
+  const bucket = bucketOf(env)
+  if (!bucket) return null
+  const edition = await readJson<{ chapters?: EditionChapter[] }>(bucket, editionObjectKey(bookId, editionKey))
+  const chapter = editionChapter(edition?.chapters, chapterNumber)
+  return chapter ? { ...chapter, modernPending: false } : null
 }
 
 export async function handlePublicBooks(request: Request, env: PublicBooksEnv, deps: PublicBooksDeps): Promise<Response> {
