@@ -1,7 +1,7 @@
 /**
- * "Catch me up": a recap of everything read so far in the current book,
- * oldest first, ending where the reader is. Shared by the Worker route
- * (`/api/lab-catch-up`) and the reader's sheet.
+ * "Catch me up": a recap of what has been read so far, oldest first, ending
+ * where the reader is. Shared by the Worker route (`/api/lab-catch-up`) and
+ * the reader's sheet.
  *
  * Units follow the book's top-level contents structure, never a per-book rule:
  *  - the Bible: one unit per biblical book (`contentsBooks`, the same grouping
@@ -12,9 +12,14 @@
  *    run of chapters sharing that part;
  *  - everything else: one unit per chapter.
  *
- * Truth rule (as `recapSummary.ts`): a unit the reader has fully passed gets a
- * full recap; the unit they are in is recapped only up to where they are —
- * its earlier chapters as one entry, then the current chapter through their
+ * Scope (`catchUpPlan`):
+ *  - a collection of separate works (the Bible, a short-story collection;
+ *    `catchUpSeparateWorks`): only the work the reader is in, chapter by
+ *    chapter. Earlier works are other books and are never recapped;
+ *  - a book with parts: every earlier part as one folded entry, then the
+ *    current part chapter by chapter;
+ *  - everything else: every earlier chapter.
+ * The timeline always ends with the current chapter through the reader's
  * paragraph via `/api/lab-recap`. Nothing past the reader's place is ever
  * requested.
  */
@@ -131,17 +136,44 @@ export function catchUpUnits(input: { title: string; chapters: CatchUpChapter[];
 }
 
 export type CatchUpEntry =
-  | { key: string; kind: 'unit'; title: string; request: CatchUpRequest; chapters: number[] }
+  /** `folded`: an earlier part, shown as one line that opens on tap. */
+  | { key: string; kind: 'unit'; title: string; request: CatchUpRequest; chapters: number[]; folded?: boolean }
   | { key: string; kind: 'current'; title: string; request: LabRecapRequest }
 
+/** Library forms whose chapters are separate works (`libraryTaxonomy.ts`). */
+const SEPARATE_WORK_FORMS = new Set(['short-stories'])
+
 /**
- * The timeline, oldest first. Units wholly before the reader's chapter are
- * complete entries; the unit they are in contributes its earlier chapters (if
- * any) as a partial entry, then the current chapter through their paragraph.
- *
- * `readChapters`, when given, keeps only earlier units the reader has a record
- * of reading (the Bible is an anthology: opening it at John is not reading
- * Genesis to Malachi). The unit they are in is always kept.
+ * Whether the book is a collection of separate works, so Catch me up stays
+ * inside the work the reader is in. The Bible always is (each biblical book is
+ * a work); otherwise the library form says so.
+ */
+export function catchUpSeparateWorks(input: { bookId: string; form?: string | null }): boolean {
+  return input.bookId === 'bible' || (!!input.form && SEPARATE_WORK_FORMS.has(input.form))
+}
+
+/** The id a single chapter is asked for by when it is not a unit of its own (a chapter inside a part or a biblical book). */
+export function catchUpChapterUnitId(chapterNumber: number): string {
+  return `ch-${chapterNumber}`
+}
+
+/**
+ * The unit a request names: one of the book's units, or a single chapter by
+ * `ch-<number>`. The Worker and the client resolve ids the same way.
+ */
+export function catchUpFindUnit(units: CatchUpUnit[], chapters: CatchUpChapter[], unitId: string): CatchUpUnit | null {
+  const unit = units.find(item => item.id === unitId)
+  if (unit) return unit
+  const match = /^ch-(\d+)$/.exec(unitId)
+  if (!match) return null
+  const chapter = chapters.find(item => item.number === Number(match[1]))
+  return chapter ? { id: unitId, kind: 'chapter', title: chapter.title, chapters: [chapter.number] } : null
+}
+
+/**
+ * The timeline, oldest first (scope: see the header). The unit the reader is
+ * in contributes each of its earlier chapters as its own entry, then the
+ * current chapter through their paragraph.
  */
 export function catchUpPlan(input: {
   bookId: string
@@ -152,7 +184,8 @@ export function catchUpPlan(input: {
   chapterNumber: number
   paragraphIndex: number
   completed: boolean
-  readChapters?: ReadonlySet<number> | null
+  /** A collection of separate works (`catchUpSeparateWorks`): nothing before the current work. */
+  separateWorks?: boolean
   /**
    * The current chapter's paragraphs, when loaded. With them, the "so far"
    * entry is left out until the reader has read enough narrative to summarise
@@ -165,21 +198,30 @@ export function catchUpPlan(input: {
   const here = order.get(input.chapterNumber)
   if (here === undefined) return []
   const base = { bookId: input.bookId, editionKey: input.editionKey, ...(input.bookTitle ? { bookTitle: input.bookTitle } : {}) }
+  const hasParts = input.units.some(unit => unit.kind === 'part')
+  const titles = new Map(input.chapters.map(chapter => [chapter.number, chapter.title]))
   const entries: CatchUpEntry[] = []
   for (const unit of input.units) {
     const before = unit.chapters.filter(n => (order.get(n) ?? Infinity) < here)
     if (!before.length) continue
-    const containsHere = unit.chapters.includes(input.chapterNumber)
-    const whole = !containsHere && before.length === unit.chapters.length
-    if (!containsHere && !whole) continue
-    if (!containsHere && input.readChapters && !unit.chapters.some(n => input.readChapters!.has(n))) continue
-    const through = before[before.length - 1]
+    if (unit.chapters.includes(input.chapterNumber)) {
+      // The unit the reader is in: chapter by chapter up to their chapter.
+      for (const n of before) {
+        const unitId = catchUpChapterUnitId(n)
+        entries.push({ key: unitId, kind: 'unit', title: titles.get(n) ?? unit.title, chapters: [n], request: { ...base, unitId } })
+      }
+      continue
+    }
+    // Earlier works of a collection are other books, never recapped here.
+    if (input.separateWorks) continue
+    if (before.length !== unit.chapters.length) continue
     entries.push({
-      key: whole ? unit.id : `${unit.id}@${through}`,
+      key: unit.id,
       kind: 'unit',
       title: unit.title,
       chapters: before,
-      request: whole ? { ...base, unitId: unit.id } : { ...base, unitId: unit.id, throughChapter: through },
+      request: { ...base, unitId: unit.id },
+      ...(hasParts ? { folded: true } : {}),
     })
   }
   const current = input.chapters[here]

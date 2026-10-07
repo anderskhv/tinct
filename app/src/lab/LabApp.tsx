@@ -88,6 +88,7 @@ import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { getLibraryMeta } from '../data/libraryTaxonomy'
 import { LabFigureCard } from './LabFigure'
 import { figureReadingText, type LabFigure } from './labFigures'
 import { figureImageBlock } from './labFigureImage'
@@ -4782,10 +4783,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           chapters={book.chapters} sections={book.sections}
           chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
           completed={finishedChapters.has(book.chapterNumber)}
-          readChapters={() => new Set(labChapterStatuses({
-            bookId: book.bookId || 'bible', chapterNumbers: book.chapters.map(chapter => chapter.number), finished: finishedChapters,
-            memory: readDeviceReadingMemory(), position: readPositionState(), viewer: authUser?.id ?? null, conversations: readLabBookChat(book.bookId || 'bible'),
-          }).keys())}
+          form={getLibraryMeta(book.bookId || 'bible')?.form ?? null}
           readToken={readSupabaseAccessToken}
           onClose={() => setSuperSheet(null)}
           onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}

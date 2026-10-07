@@ -167,6 +167,24 @@ describe('POST /api/lab-catch-up', () => {
     expect([...cache.entries.keys()][0]).toMatch(/part-part-2\/4$/)
   })
 
+  it('one chapter inside a part (`ch-<n>`) covers that chapter only, with its own cache entry; an unknown chapter is refused', async () => {
+    const { ctx, pending } = makeContext()
+    const cache = fakeCache()
+    const fetchAnthropic = anthropicOk('Vronsky falls from his horse.')
+    const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+    const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-4' }), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+    expect(await response.json()).toMatchObject({ unitId: 'ch-4', title: 'Part 2, Chapter 2', chapters: [4], complete: true })
+    const content = ((fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>])[0].messages as Array<{ content: string }>)[0].content
+    expect(content).toContain('Vronsky falls')
+    expect(content).not.toContain('races')
+    expect(content).not.toContain('LATER SECRET')
+    expect(env.ASSETS.fetched.some(path => path.endsWith('ch0003.json') || path.endsWith('ch0005.json'))).toBe(false)
+    await Promise.all(pending)
+    expect([...cache.entries.keys()]).toEqual([`https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/ch-4/end`])
+    expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-99' }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic })).status).toBe(400)
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+  })
+
   it('a through chapter that ends the unit is the whole unit (one cache entry)', async () => {
     const { ctx } = makeContext()
     const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }

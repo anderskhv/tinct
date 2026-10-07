@@ -133,18 +133,55 @@ describe('LabCatchUpSheet', () => {
     expect(calls.length).toBeLessThanOrEqual(CATCH_UP_CONCURRENCY)
   })
 
-  it('the Bible: earlier books come from reading records, the current book is split at the reader\'s chapter', async () => {
+  it('the Bible: only the biblical book the reader is in, chapter by chapter; earlier books are never asked for', async () => {
     const calls = stubFetch(okBodies)
     const bible = [
       ...Array.from({ length: 3 }, (_, i) => ({ number: i + 1, title: `Ezra ${i + 1}` })),
       ...Array.from({ length: 5 }, (_, i) => ({ number: i + 4, title: `Job ${i + 1}` })),
       ...Array.from({ length: 4 }, (_, i) => ({ number: i + 9, title: `Psalms ${i + 1}` })),
     ]
-    renderSheet({ bookId: 'bible', editionKey: 'kjv-en', bookTitle: 'The Bible', chapters: bible, chapterNumber: 11, paragraphIndex: 2, readChapters: () => new Set([2]) })
+    renderSheet({ bookId: 'bible', editionKey: 'kjv-en', bookTitle: 'The Bible', chapters: bible, chapterNumber: 11, paragraphIndex: 2 })
     const titles = screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)
-    expect(titles).toEqual(['Ezra', 'Psalms', 'Psalms 3'])
+    expect(titles).toEqual(['Psalms 1', 'Psalms 2', 'Psalms 3'])
+    expect(screen.queryByTestId('lab-catch-up-fold')).toBeNull()
     await waitFor(() => expect(calls).toHaveLength(3), slow)
-    expect(calls.find(call => call.body.unitId === 'book-psalms')?.body.throughChapter).toBe(10)
+    expect(calls.filter(call => call.url === CATCH_UP_ROUTE).map(call => call.body.unitId)).toEqual(['ch-9', 'ch-10'])
+    expect(calls.every(call => !('throughChapter' in call.body))).toBe(true)
+  })
+
+  it('a short-story collection (library form): only the story the reader is in', async () => {
+    const calls = stubFetch(okBodies)
+    const stories = ['A Scandal in Bohemia', 'The Red-Headed League', 'A Case of Identity'].map((title, i) => ({ number: i + 1, title }))
+    renderSheet({ bookId: 'stories', bookTitle: 'Stories', chapters: stories, chapterNumber: 3, form: 'short-stories' })
+    expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)).toEqual(['A Case of Identity'])
+    await waitFor(() => expect(calls).toHaveLength(1), slow)
+    expect(calls[0].url).toBe(LAB_RECAP_ROUTE)
+  })
+
+  it('a novel with parts: earlier parts are one folded line each that opens on tap; the current part is chapter by chapter', async () => {
+    const calls = stubFetch(okBodies)
+    const parts = [
+      ...[1, 2, 3].map(n => ({ number: n, title: `Book One — Chapter ${n}` })),
+      ...[1, 2, 3].map(n => ({ number: n + 3, title: `Book Two — Chapter ${n}` })),
+      ...[1, 2, 3].map(n => ({ number: n + 6, title: `Book Three — Chapter ${n}` })),
+    ]
+    renderSheet({ bookId: 'novel', bookTitle: 'Novel', chapters: parts, chapterNumber: 9, paragraphIndex: 3 })
+    const entries = () => screen.getAllByTestId('lab-catch-up-entry')
+    expect(entries().map(node => node.querySelector('h3')?.textContent)).toEqual(['Book One', 'Book Two', 'Book Three — Chapter 1', 'Book Three — Chapter 2', 'Book Three — Chapter 3'])
+    const folds = screen.getAllByTestId('lab-catch-up-fold')
+    expect(folds.map(node => node.textContent)).toEqual(['Book One', 'Book Two'])
+    expect(folds.every(node => node.getAttribute('aria-expanded') === 'false')).toBe(true)
+    await waitFor(() => expect(screen.getByText('Recap of part-book-one.')).toBeTruthy(), slow)
+    expect(screen.getByText('Recap of part-book-one.').classList.contains('is-line')).toBe(true)
+    expect(screen.getByText('Recap of part-book-one.').closest('li')?.getAttribute('data-expanded')).toBe('false')
+    fireEvent.click(folds[0])
+    expect(folds[0].getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByText('Recap of part-book-one.').classList.contains('is-line')).toBe(false)
+    expect(folds[1].getAttribute('aria-expanded')).toBe('false')
+    fireEvent.click(folds[0])
+    expect(folds[0].getAttribute('aria-expanded')).toBe('false')
+    await waitFor(() => expect(calls).toHaveLength(5), slow)
+    expect(calls.filter(call => call.url === CATCH_UP_ROUTE).map(call => call.body.unitId)).toEqual(['part-book-one', 'part-book-two', 'ch-7', 'ch-8'])
   })
 
   it('Discuss hands over to chapter chat; close and Escape close; a reopen is served from memory', async () => {

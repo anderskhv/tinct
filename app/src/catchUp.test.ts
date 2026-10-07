@@ -6,7 +6,9 @@ import {
   CATCH_UP_PROMPT_VERSION,
   CATCH_UP_UNIT_ID_PATTERN,
   catchUpCacheKey,
+  catchUpFindUnit,
   catchUpPlan,
+  catchUpSeparateWorks,
   catchUpStaticKey,
   catchUpUnits,
   chapterTitlePart,
@@ -20,6 +22,7 @@ function manifest(id: string): { chapters: CatchUpChapter[]; sections?: Section[
 const bible = manifest('bible-kjv-en')
 const warAndPeace = manifest('war-and-peace-modern-en')
 const lighthouse = manifest('to-the-lighthouse-modern-en')
+const sherlock = manifest('adventures-of-sherlock-holmes-original-en')
 const plain: CatchUpChapter[] = Array.from({ length: 64 }, (_, i) => ({ number: i + 1, title: `Chapter ${i + 1}` }))
 
 /** Every chapter an entry asks the model about, across the whole plan. */
@@ -74,41 +77,83 @@ describe('catchUpUnits', () => {
 })
 
 describe('catchUpPlan', () => {
-  it('Bible, mid-2 Kings: earlier books the reader has read, then 2 Kings so far, then the current chapter to the paragraph', () => {
+  it('Bible at Nehemiah 12: only Nehemiah 1–11, chapter by chapter, then chapter 12 to the paragraph; no earlier biblical book', () => {
     const units = catchUpUnits({ title: 'The Bible', chapters: bible.chapters, sections: bible.sections, bible: true })
-    const read = new Set([1, 2, 3, 300, 313, 314, 320])
-    const plan = catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: 325, paragraphIndex: 2, completed: false, readChapters: read })
-    expect(plan.map(entry => entry.title)).toEqual(['Genesis', '1 Kings', '2 Kings', '2 Kings 12'])
-    expect(plan[0]).toMatchObject({ kind: 'unit', key: 'book-genesis', request: { bookId: 'bible', editionKey: 'kjv-en', unitId: 'book-genesis' } })
-    expect(plan[0].request).not.toHaveProperty('throughChapter')
-    expect(plan[2]).toMatchObject({ kind: 'unit', key: 'book-2-kings@324', request: { unitId: 'book-2-kings', throughChapter: 324 } })
-    expect(plan[2].kind === 'unit' && plan[2].chapters).toEqual(Array.from({ length: 11 }, (_, i) => 314 + i))
-    expect(plan[3]).toMatchObject({ kind: 'current', request: { chapterNumber: 325, paragraphIndex: 2, completed: false } })
+    const at = bible.chapters.find(chapter => chapter.title === 'Nehemiah 12')!.number
+    const plan = catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: at, paragraphIndex: 2, completed: false, separateWorks: true })
+    expect(plan.map(entry => entry.title)).toEqual([...Array.from({ length: 11 }, (_, i) => `Nehemiah ${i + 1}`), 'Nehemiah 12'])
+    expect(plan[0]).toMatchObject({ kind: 'unit', key: `ch-${at - 11}`, chapters: [at - 11], request: { bookId: 'bible', editionKey: 'kjv-en', unitId: `ch-${at - 11}` } })
+    for (const entry of plan.slice(0, 11)) {
+      expect(entry.kind).toBe('unit')
+      expect(entry.request).not.toHaveProperty('throughChapter')
+      expect(entry.kind === 'unit' && entry.folded).toBeFalsy()
+    }
+    expect(plan.at(-1)).toMatchObject({ kind: 'current', request: { chapterNumber: at, paragraphIndex: 2, completed: false } })
   })
 
-  it('War and Peace in Book Two: Book One whole, Book Two up to the chapter before, then the chapter so far', () => {
+  it('Bible: the separate-works scope holds whatever the reader read before (Genesis, Ezra are never in a Nehemiah recap)', () => {
+    const units = catchUpUnits({ title: 'The Bible', chapters: bible.chapters, sections: bible.sections, bible: true })
+    const plan = catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: 425, paragraphIndex: 0, completed: false, separateWorks: true })
+    const nehemiah = units.find(unit => unit.title === 'Nehemiah')!
+    expect(plan.flatMap(entry => entry.kind === 'unit' ? entry.chapters : [entry.request.chapterNumber]).every(n => nehemiah.chapters.includes(n))).toBe(true)
+  })
+
+  it('War and Peace in Book Two: Book One folded to one entry, Book Two chapter by chapter, then the chapter so far', () => {
     const units = catchUpUnits({ title: 'War and Peace', chapters: warAndPeace.chapters, bible: false })
     const bookTwo = units[1]
     const current = bookTwo.chapters[4]
     const plan = catchUpPlan({ bookId: 'war-and-peace', editionKey: 'modern-en', units, chapters: warAndPeace.chapters, chapterNumber: current, paragraphIndex: 7, completed: false })
-    expect(plan.map(entry => entry.kind)).toEqual(['unit', 'unit', 'current'])
-    expect(plan[0]).toMatchObject({ title: 'Book One (1805)', request: { unitId: 'part-book-one-1805' } })
-    expect(plan[1]).toMatchObject({ title: 'Book Two (1805)', request: { unitId: bookTwo.id, throughChapter: current - 1 } })
-    expect(plan[2]).toMatchObject({ title: 'Book Two (1805) — Chapter 5', request: { chapterNumber: current, paragraphIndex: 7 } })
+    expect(plan.map(entry => entry.title)).toEqual(['Book One (1805)', ...[1, 2, 3, 4].map(n => `Book Two (1805) — Chapter ${n}`), 'Book Two (1805) — Chapter 5'])
+    expect(plan[0]).toMatchObject({ kind: 'unit', folded: true, request: { unitId: 'part-book-one-1805' } })
+    expect(plan[0].request).not.toHaveProperty('throughChapter')
+    for (const [i, entry] of plan.slice(1, 5).entries()) {
+      expect(entry).toMatchObject({ kind: 'unit', chapters: [bookTwo.chapters[i]], request: { unitId: `ch-${bookTwo.chapters[i]}` } })
+      expect(entry.kind === 'unit' && entry.folded).toBeFalsy()
+    }
+    expect(plan[5]).toMatchObject({ kind: 'current', request: { chapterNumber: current, paragraphIndex: 7 } })
   })
 
-  it('a plain book: one entry per earlier chapter and the current chapter truncated at the paragraph; no partial unit', () => {
+  it('War and Peace late in the book: one folded entry per earlier part, in order', () => {
+    const units = catchUpUnits({ title: 'War and Peace', chapters: warAndPeace.chapters, bible: false })
+    const currentPart = units[5]
+    const plan = catchUpPlan({ bookId: 'war-and-peace', editionKey: 'modern-en', units, chapters: warAndPeace.chapters, chapterNumber: currentPart.chapters[2], paragraphIndex: 3, completed: false })
+    const folded = plan.filter(entry => entry.kind === 'unit' && entry.folded)
+    expect(folded.map(entry => entry.title)).toEqual(units.slice(0, 5).map(unit => unit.title))
+    expect(plan.filter(entry => entry.kind === 'unit' && !entry.folded).map(entry => entry.chapters)).toEqual([[currentPart.chapters[0]], [currentPart.chapters[1]]])
+  })
+
+  it('a book whose sections name parts (To the Lighthouse): earlier parts folded, the current part chapter by chapter', () => {
+    const units = catchUpUnits({ title: 'To the Lighthouse', chapters: lighthouse.chapters, sections: lighthouse.sections, bible: false })
+    const at = units[1].chapters[2]
+    const plan = catchUpPlan({ bookId: 'to-the-lighthouse', editionKey: 'modern-en', units, chapters: lighthouse.chapters, chapterNumber: at, paragraphIndex: 1, completed: false })
+    expect(plan[0]).toMatchObject({ title: 'Part I — The Window', folded: true })
+    expect(plan.slice(1, 3).map(entry => entry.kind === 'unit' && entry.chapters)).toEqual([[units[1].chapters[0]], [units[1].chapters[1]]])
+    expect(plan).toHaveLength(4)
+  })
+
+  it('a plain book (unchanged): one entry per earlier chapter and the current chapter truncated at the paragraph; nothing folded', () => {
     const units = catchUpUnits({ title: 'Plain', chapters: plain, bible: false })
     const plan = catchUpPlan({ bookId: 'plain', editionKey: 'original-en', units, chapters: plain, chapterNumber: 61, paragraphIndex: 4, completed: false })
     expect(plan).toHaveLength(61)
-    expect(plan.slice(0, 60).every(entry => entry.kind === 'unit' && !('throughChapter' in entry.request))).toBe(true)
+    expect(plan.slice(0, 60).every(entry => entry.kind === 'unit' && !('throughChapter' in entry.request) && !entry.folded)).toBe(true)
+    expect(plan.slice(0, 60).map(entry => entry.kind === 'unit' && entry.request.unitId)).toEqual(Array.from({ length: 60 }, (_, i) => `ch-${i + 1}`))
     expect(plan.at(-1)).toMatchObject({ kind: 'current', title: 'Chapter 61', request: { chapterNumber: 61, paragraphIndex: 4 } })
   })
 
-  it('the first chapter of a unit has no partial entry, only the so-far entry', () => {
+  it('the first chapter of a work: only the so-far entry, no earlier work', () => {
     const units = catchUpUnits({ title: 'The Bible', chapters: bible.chapters, sections: bible.sections, bible: true })
-    const plan = catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: 314, paragraphIndex: 0, completed: false, readChapters: new Set() })
+    const plan = catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: 314, paragraphIndex: 0, completed: false, separateWorks: true })
     expect(plan.map(entry => entry.title)).toEqual(['2 Kings 1'])
+    // Before any narrative is read there: the timeline is empty, only "You are here".
+    const opening = ['THE SECOND BOOK OF THE KINGS', 'COMMONLY CALLED, THE FOURTH BOOK OF THE KINGS.', 'Then Moab rebelled against Israel after the death of Ahab.']
+    expect(catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: 314, paragraphIndex: 0, completed: false, separateWorks: true, currentParagraphs: opening })).toEqual([])
+  })
+
+  it('a short-story collection: only the current story, never the earlier ones', () => {
+    const units = catchUpUnits({ title: 'The Adventures of Sherlock Holmes', chapters: sherlock.chapters, sections: sherlock.sections, bible: false })
+    const plan = catchUpPlan({ bookId: 'adventures-of-sherlock-holmes', editionKey: 'original-en', units, chapters: sherlock.chapters, chapterNumber: 5, paragraphIndex: 9, completed: false, separateWorks: true })
+    expect(plan.map(entry => entry.title)).toEqual(['The Five Orange Pips'])
+    expect(plan[0].kind).toBe('current')
   })
 
   it('spoiler rule: nothing at or past the reader\'s chapter is requested as a unit, and the current chapter only to the paragraph', () => {
@@ -120,12 +165,13 @@ describe('catchUpPlan', () => {
     ]
     for (const { chapters, units, at } of cases) {
       const order = new Map(chapters.map((chapter, index) => [chapter.number, index]))
-      const plan = catchUpPlan({ bookId: 'b', editionKey: 'e', units, chapters, chapterNumber: at, paragraphIndex: 3, completed: false })
+      for (const separateWorks of [false, true]) {
+      const plan = catchUpPlan({ bookId: 'b', editionKey: 'e', units, chapters, chapterNumber: at, paragraphIndex: 3, completed: false, separateWorks })
       const unitChapters = plan.flatMap(entry => entry.kind === 'unit' ? entry.chapters : [])
       expect(unitChapters.every(n => order.get(n)! < order.get(at)!)).toBe(true)
       for (const entry of plan) {
         if (entry.kind !== 'unit') continue
-        const unit = units.find(item => item.id === entry.request.unitId)!
+        const unit = catchUpFindUnit(units, chapters, entry.request.unitId)!
         const through = entry.request.throughChapter ?? unit.chapters.at(-1)!
         expect(order.get(through)!).toBeLessThan(order.get(at)!)
       }
@@ -133,14 +179,16 @@ describe('catchUpPlan', () => {
       expect(current).toHaveLength(1)
       expect(current[0].request).toMatchObject({ chapterNumber: at, paragraphIndex: 3, completed: false })
       expect(requestedChapters(plan).filter(n => n === at)).toHaveLength(1)
+      }
     }
   })
 
-  it('Bible: an earlier book without a reading record is left out; outside the Bible the order is the book\'s', () => {
-    const units = catchUpUnits({ title: 'The Bible', chapters: bible.chapters, sections: bible.sections, bible: true })
-    const plan = catchUpPlan({ bookId: 'bible', editionKey: 'kjv-en', units, chapters: bible.chapters, chapterNumber: 1000, paragraphIndex: 0, completed: false, readChapters: new Set([51]) })
-    expect(plan.map(entry => entry.title)).toContain('Exodus')
-    expect(plan.map(entry => entry.title)).not.toContain('Genesis')
+  it('which books are collections of separate works', () => {
+    expect(catchUpSeparateWorks({ bookId: 'bible' })).toBe(true)
+    expect(catchUpSeparateWorks({ bookId: 'adventures-of-sherlock-holmes', form: 'short-stories' })).toBe(true)
+    expect(catchUpSeparateWorks({ bookId: 'war-and-peace', form: 'novel' })).toBe(false)
+    expect(catchUpSeparateWorks({ bookId: 'imitation-of-christ', form: 'scripture' })).toBe(false)
+    expect(catchUpSeparateWorks({ bookId: 'user-abc', form: null })).toBe(false)
   })
 
   it('leaves out the "so far" entry until the reader has read narrative in the current chapter (Frankenstein, Letter 4)', () => {
@@ -163,6 +211,16 @@ describe('catchUpPlan', () => {
 
   it('an unknown chapter yields an empty plan', () => {
     expect(catchUpPlan({ bookId: 'p', editionKey: 'e', units: [], chapters: plain, chapterNumber: 999, paragraphIndex: 0, completed: false })).toEqual([])
+  })
+})
+
+describe('catchUpFindUnit', () => {
+  it('finds a unit by id, or one chapter by ch-<number>; anything else is unknown', () => {
+    const units = catchUpUnits({ title: 'War and Peace', chapters: warAndPeace.chapters, bible: false })
+    expect(catchUpFindUnit(units, warAndPeace.chapters, 'part-book-one-1805')).toBe(units[0])
+    expect(catchUpFindUnit(units, warAndPeace.chapters, 'ch-30')).toEqual({ id: 'ch-30', kind: 'chapter', title: warAndPeace.chapters.find(ch => ch.number === 30)!.title, chapters: [30] })
+    expect(catchUpFindUnit(units, warAndPeace.chapters, 'ch-999999')).toBeNull()
+    expect(catchUpFindUnit(units, warAndPeace.chapters, 'part-nope')).toBeNull()
   })
 })
 
