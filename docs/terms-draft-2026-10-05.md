@@ -24,7 +24,7 @@ You're responsible for keeping your login details safe and for everything that h
 ## 3. Subscriptions, AI use and payment
 Subscriptions are billed in advance through Stripe and renew automatically until you cancel.
 
-Premium includes a monthly amount of AI use, shown as a bar in the app. It resets on your billing date and doesn't roll over. When it runs out, your account works like a standard account until the next billing date: you can still read and listen, and AI chat, Talk and recaps pause. You can buy a top-up to keep using them; top-ups carry over while your subscription is active.
+Premium includes a monthly amount of AI use, shown as a bar in the app. It resets every month on the day your subscription started and doesn't roll over. When it runs out, your account works like a standard account until it resets: you can still read and listen, and AI chat, Talk and recaps pause. You can buy a top-up to keep using them. Top-ups don't expire and stay yours if you leave Premium.
 
 Top-ups have no cash value and can't be transferred or refunded, except where the law requires it.
 
