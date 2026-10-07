@@ -66,7 +66,7 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous. Shi
   - picture, name (prefilled), handle (suggested), who can see you (Friends preselected);
   - Start reading, or Skip for now (Only me).
 - **Profile and privacy:** reached from the sheet row and from the desktop account page. Account sheet header shows picture, name, "tinct.app/name · who can see you", the tier and an AI credits bar ("15% left · renews 5 Nov"); the t menu's first row shows picture, last-7-days hours and AI credits. The email moves to Manage account.
-- **Email confirmation:** add the one-click confirm link to the welcome email and the confirmed-at field. Reading emails require `email_opt_in` and a confirmed email.
+- **Email confirmation and welcome email:** send `docs/lifecycle-emails/templates/welcome.html` (email sign-ups, with the one-click `{{confirm_url}}`) or `welcome-google.html` (Google sign-ups, already confirmed), HTML + text, in the new design; add the confirmed-at field. The welcome email's art is the book the reader was in, as a 1200 × 600 landscape crop. Reading emails require `email_opt_in` and a confirmed email.
 - **Never exposed:** highlights, notes, chats, Talk, email. Row-level security: readers write only their own rows. Public data is served by the Worker from views that apply each reader's choices.
 - **Tests:**
   - handle rules and uniqueness;
