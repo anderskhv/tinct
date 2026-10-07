@@ -51,8 +51,8 @@ How it fits the app:
   counts as the account (its files are tagged with it); the companion then uses the
   guest route until the reader signs in again on tinct.app.
 - **Rights confirmation:** once per account, before its first file opens: a checkbox
-  ("I confirm I have the right to read this file in Tinct, and I'm responsible for it
-  (Terms §4).") and Continue. Kept in localStorage `tinct-addbook:rights:<user id>`.
+  ("I confirm I have the right to upload, read and listen to this file in Tinct, and I
+  take full responsibility for what I upload, read, listen to and share (Terms §4).") and Continue. Kept in localStorage `tinct-addbook:rights:<user id>`.
 - **Companion:** signed in → `POST /api/chat` with the Bearer token,
   using the user's normal allowance. Signed out or expired → `POST /api/lab-chat`
   (guest, per-IP, daily ceiling). Request shape: `companion.intent: 'ask'` with the

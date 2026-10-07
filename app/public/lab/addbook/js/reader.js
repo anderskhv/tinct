@@ -102,7 +102,7 @@ async function removeBook(key) {
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation is asked once per account, before its first file opens; the key
 // sits under tinct-addbook:, so signing out clears it with the rest.
-const RIGHTS_COPY = "I confirm I have the right to read this file in Tinct, and I'm responsible for it (Terms §4).";
+const RIGHTS_COPY = "I confirm I have the right to upload, read and listen to this file in Tinct, and I take full responsibility for what I upload, read, listen to and share (Terms §4).";
 const accountId = () => window.TinctAI?.session().userId || null;
 function needsAccount() {
   if (accountId()) return false;

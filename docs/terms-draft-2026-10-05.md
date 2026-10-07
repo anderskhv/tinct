@@ -37,7 +37,7 @@ EU right of withdrawal: you normally have 14 days to withdraw. When you start us
 
 **You own your content.** You give Tinct a limited licence to store and process it only so we can run the service for you. We don't use it to train AI models.
 
-**You are solely responsible for your content.** You confirm that you have every right needed to upload or submit it, including copyright and privacy rights, and that doing so doesn't break any law.
+**You are solely responsible for your content.** You confirm that you have every right needed to upload or submit it, and to read and listen to it in Tinct, including copyright and privacy rights, and that doing so doesn't break any law. You take full responsibility for what you upload, read, listen to and share. To the fullest extent the law allows, Tinct is not liable for your content or for what you do with it.
 
 Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.
 

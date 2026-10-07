@@ -30,7 +30,7 @@ describe('/terms', () => {
 
   it('carries none of the draft-only notes', () => {
     expect(main).not.toMatch(/draft|for Anders|Not live|\[date|mockup|Changes from the mockup/i)
-    expect(html).toContain('Last updated: 6 October 2026')
+    expect(html).toContain('Last updated: 8 October 2026')
   })
 
   it('numbers the sections 1-10 and anchors each one, so "Terms §4" can link to #section-4', () => {

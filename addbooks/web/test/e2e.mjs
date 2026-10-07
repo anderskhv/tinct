@@ -18,7 +18,7 @@ const FIX = join(HERE, 'fixtures');
 const PORT = 4721, BASE = `http://127.0.0.1:${PORT}/lab/addbook/`;
 // CHROMIUM_PATH picks a browser binary; otherwise the shared cloud install, else Playwright's own.
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
-const RIGHTS = "I confirm I have the right to read this file in Tinct, and I'm responsible for it (Terms §4).";
+const RIGHTS = "I confirm I have the right to upload, read and listen to this file in Tinct, and I take full responsibility for what I upload, read, listen to and share (Terms §4).";
 const SESSION_KEY = 'sb-yazjyiqsxjystvpkyouk-auth-token';
 // An EPUB opens in the Tinct reader: /reader?userBook=<the first 24 hex digits of its SHA-256>.
 const READER_URL = /\/reader\?userBook=[0-9a-f]{24}$/;
