@@ -108,7 +108,8 @@ describe('dictation route (xAI speech-to-text)', () => {
     const keyterms = sent.getAll('keyterm')
     expect(keyterms).toHaveLength(100)
     expect(keyterms.slice(0, 3)).toEqual(['Zerubbabel', 'Ezra', 'Term0'])
-    expect([...sent.keys()].at(-1)).toBe('file')
+    const fieldNames = [...sent.keys()]
+    expect(fieldNames[fieldNames.length - 1]).toBe('file')
     expect((sent.get('file') as File).name).toBe('dictation.webm')
 
     await Promise.all(pending)

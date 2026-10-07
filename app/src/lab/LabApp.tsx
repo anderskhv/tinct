@@ -133,6 +133,7 @@ import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
 import { useLabDictation } from './useLabDictation'
+import { buildDictationKeyterms } from './labDictationKeyterms'
 import { LabAskPane } from './LabAskPane'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
 import { LabChapterCover } from './LabChapterCover'
@@ -3994,7 +3995,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     startHearing()
   }, [chrome, listen, peekBook, startHearing])
 
-  const dictation = useLabDictation(book.bookId || 'bible', setDraft)
+  // Vocabulary hints are read when a clip is sent, so they follow the open
+  // chapter. A reader's own file sends none: its names stay on the device.
+  const dictationBookRef = useRef(book)
+  dictationBookRef.current = book
+  const dictation = useLabDictation(book.bookId || 'bible', setDraft, {
+    signedIn,
+    getAuthToken: () => authToken ?? readSupabaseAccessToken(),
+    getKeyterms: () => {
+      const current = dictationBookRef.current
+      return privateBook ? [] : buildDictationKeyterms({
+        bookId: current.bookId || 'bible',
+        chapters: current.chapters,
+        paragraphs: current.paragraphs,
+        cast: current.cast,
+        chapterTitle: current.chapterTitle,
+      })
+    },
+    language: allBookEditions.find(edition => edition.key === prefs.primaryEdition)?.language || 'en',
+  })
 
   const handleMic = useCallback(() => {
     dictation.toggle(draft)
