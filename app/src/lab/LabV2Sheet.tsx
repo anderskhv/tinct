@@ -32,7 +32,7 @@ import {
   type LabV2SheetLayer,
 } from './labV2Sheet'
 import { getBook } from '../data/bookRegistry'
-import { LibrarianSegment } from './LabLibrarianTab'
+import { LibrarianSegment } from './LabLibrarianTab.tsx'
 
 export interface LabV2SheetProps {
   bookId?: string

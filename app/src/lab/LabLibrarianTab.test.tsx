@@ -3,7 +3,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { LabLibrarianTab, LabLibrarianTabNote, LabLibrarianTabSettings, measureLibrarianTabFrame, type LabLibrarianTabProps } from './LabLibrarianTab'
+import { LabLibrarianTab, LabLibrarianTabNote, LabLibrarianTabSettings, measureLibrarianTabFrame, type LabLibrarianTabProps } from './LabLibrarianTab.tsx'
 import { LabSuperMenu } from './LabSuperMenu'
 import { LabAskPane } from './LabAskPane'
 import { LIBRARIAN_TAB_LONG_PRESS_MS, LIBRARIAN_TAB_PEEK_DELAY_MS, LIBRARIAN_TAB_PEEK_MS } from './labLibrarianTab'
