@@ -80,8 +80,11 @@ describe('a user book in the Tinct reader', () => {
     expect(screen.queryByTestId('lab-v2-play')).toBeNull()
     expect(document.title).toBe('My Own Notebook · Tinct')
     fireEvent.click(screen.getByTestId('lab-super'))
-    const rows = [...document.querySelectorAll('[data-testid^="lab-super-row-"]')].map(row => row.getAttribute('data-row'))
-    expect(rows).toEqual(['chat', 'summarize', 'settings', 'account'])
+    const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
+    expect(rows).toEqual(['librarian', 'summarize', 'settings', 'account'])
+    // The Librarian row offers Chat only: no Talk for a reader's own book.
+    expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
+    expect(screen.queryByTestId('lab-super-row-talk')).toBeNull()
   })
 
   it('keeps its place on this device only and loads chapters without fetching', async () => {

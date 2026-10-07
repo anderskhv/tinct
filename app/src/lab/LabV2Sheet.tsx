@@ -32,6 +32,7 @@ import {
   type LabV2SheetLayer,
 } from './labV2Sheet'
 import { getBook } from '../data/bookRegistry'
+import { LibrarianSegment } from './LabLibrarianTab'
 
 export interface LabV2SheetProps {
   bookId?: string
@@ -65,6 +66,11 @@ export interface LabV2SheetProps {
   modernOffer?: { price: string; busy?: boolean; onBuy: () => void }
   /** Current reader path; the sign-in page returns here. */
   returnTo?: string
+  /**
+   * The Librarian section (the margin tab's settings). Present for readers
+   * the tab is offered to; `talk` false for a reader's own book.
+   */
+  librarian?: { talk: boolean } | null
 }
 
 /** A row's value and chevron, right-aligned in the mono the canvas uses. */
@@ -186,7 +192,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo, modernOffer }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo, modernOffer, librarian = null }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -339,6 +345,27 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
                   onChange={value => onPrefs({ ...prefs, audioSpeed: Number(value) })} />
               </div>
+              {librarian && (
+                <Group label="Librarian">
+                  <button type="button" className="lab-v2-row is-toggle" role="switch" aria-checked={prefs.librarianTab}
+                    data-testid="lab-v2-librarian-show" onClick={() => onPrefs({ ...prefs, librarianTab: !prefs.librarianTab })}>
+                    <span className="lab-v2-row-label">Show tab</span>
+                    <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
+                  </button>
+                  <div className="lab-v2-row">
+                    <span className="lab-v2-row-label">Tab opens</span>
+                    <LibrarianSegment label="Tab opens" testId="lab-v2-librarian-opens" value={prefs.librarianTabOpens}
+                      options={[{ value: 'chat', label: 'Chat' }, { value: 'talk', label: 'Talk', disabled: !librarian.talk }]}
+                      onChange={value => onPrefs({ ...prefs, librarianTabOpens: value })} />
+                  </div>
+                  <div className="lab-v2-row">
+                    <span className="lab-v2-row-label">Long press</span>
+                    <LibrarianSegment label="Long press" testId="lab-v2-librarian-long-press" value={prefs.librarianTabLongPress ? 'other' : 'off'}
+                      options={[{ value: 'off', label: 'Off' }, { value: 'other', label: 'Other', disabled: !librarian.talk }]}
+                      onChange={value => onPrefs({ ...prefs, librarianTabLongPress: value === 'other' })} />
+                  </div>
+                </Group>
+              )}
               <div className="lab-v2-foot">
                 <button
                   type="button"

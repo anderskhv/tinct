@@ -88,7 +88,38 @@ export interface LabAppearancePrefs {
   margins: LabMargins
   paragraphSpacing: LabParagraphSpacing
   progressDisplay: ProgressDisplay
+  /**
+   * Where the librarian tab sits on this layout's reader edge: the side and
+   * the height of its centre as a share of the page (0–1). Omitted until the
+   * reader drags it, so the stored shape of every other reader is unchanged.
+   */
+  librarianTabDock?: LabLibrarianTabDock
 }
+
+export type LabLibrarianTabMode = 'chat' | 'talk'
+export interface LabLibrarianTabDock { side: 'left' | 'right'; y: number }
+
+/**
+ * The librarian tab in the reader margin (approved 2026-10-07). Shared across
+ * layouts. Stored only when a reader changes them, so the stored shape of
+ * prefs that never touched the tab stays exactly as it was.
+ */
+export interface LabLibrarianTabPrefs {
+  /** Shown or hidden by the reader. */
+  librarianTab: boolean
+  /** What a tap opens. */
+  librarianTabOpens: LabLibrarianTabMode
+  /** Long press opens the other mode. Off by default. */
+  librarianTabLongPress: boolean
+}
+
+export const DEFAULT_LIBRARIAN_TAB_PREFS: LabLibrarianTabPrefs = {
+  librarianTab: true,
+  librarianTabOpens: 'chat',
+  librarianTabLongPress: false,
+}
+
+export const DEFAULT_LIBRARIAN_TAB_DOCK: LabLibrarianTabDock = { side: 'right', y: 0.62 }
 
 export interface LabSharedPrefs {
   primaryEdition: string
@@ -124,9 +155,11 @@ export interface LabSharedPrefs {
   voicePersonaChosen?: boolean
 }
 
+type LabStoredShared = LabSharedPrefs & Partial<LabLibrarianTabPrefs>
+
 export interface LabStoredPrefs {
   version: 2
-  shared: LabSharedPrefs
+  shared: LabStoredShared
   phone: LabAppearancePrefs
   desktop: LabAppearancePrefs
   /**
@@ -173,7 +206,7 @@ export function markLabSeenOnce(what: string, accountId: string | null | undefin
   }
 }
 
-export interface LabPrefs extends LabSharedPrefs, LabAppearancePrefs {
+export interface LabPrefs extends LabSharedPrefs, LabAppearancePrefs, LabLibrarianTabPrefs {
   /** Runtime compatibility mirror. The stored source of truth is `theme`. */
   darkMode: boolean
 }
@@ -197,6 +230,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   progressDisplay: { metric: 'page', scope: 'chapter' },
   compareOpen: true,
   voicePersona: 'male',
+  ...DEFAULT_LIBRARIAN_TAB_PREFS,
 }
 
 /**
@@ -333,7 +367,31 @@ function parseAppearance(
       metric: isMetric(pd.metric) ? pd.metric : fallback.progressDisplay.metric,
       scope: isScope(pd.scope) ? pd.scope : fallback.progressDisplay.scope,
     },
+    ...parseLibrarianTabDock(src.librarianTabDock),
   }
+}
+
+function parseLibrarianTabDock(raw: unknown): { librarianTabDock?: LabLibrarianTabDock } {
+  if (!raw || typeof raw !== 'object') return {}
+  const dock = raw as Record<string, unknown>
+  if (dock.side !== 'left' && dock.side !== 'right') return {}
+  if (typeof dock.y !== 'number' || !Number.isFinite(dock.y)) return {}
+  return { librarianTabDock: { side: dock.side, y: Math.max(0, Math.min(1, dock.y)) } }
+}
+
+/** Stored librarian-tab keys: only the ones that differ from the defaults. */
+function parseLibrarianTab(src: Record<string, unknown>): Partial<LabLibrarianTabPrefs> {
+  return {
+    ...(src.librarianTab === false ? { librarianTab: false } : {}),
+    ...(src.librarianTabOpens === 'talk' ? { librarianTabOpens: 'talk' as const } : {}),
+    ...(src.librarianTabLongPress === true ? { librarianTabLongPress: true } : {}),
+  }
+}
+
+/** The librarian-tab prefs a stored record means, defaults filled in. */
+export function labLibrarianTabPrefs(raw: unknown): LabLibrarianTabPrefs {
+  const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
+  return { ...DEFAULT_LIBRARIAN_TAB_PREFS, ...parseLibrarianTab(src) }
 }
 
 function parseSeenOnce(raw: unknown): Record<string, boolean> {
@@ -345,7 +403,7 @@ function parseSeenOnce(raw: unknown): Record<string, boolean> {
   return seen
 }
 
-function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
+function parseShared(raw: unknown, fallback: LabSharedPrefs): LabStoredShared {
   const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
   const parsedSpeed = typeof src.audioSpeed === 'number' && Number.isFinite(src.audioSpeed)
     ? Math.max(0.5, Math.min(3, Math.round(src.audioSpeed * 100) / 100))
@@ -375,6 +433,7 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabSharedPrefs {
     // stored shape of every other reader's prefs is unchanged.
     ...(src.narrationProvider === 'fish' ? { narrationProvider: 'fish' as const } : {}),
     ...(typeof src.narrationVoice === 'string' && /^[a-z]$/.test(src.narrationVoice) ? { narrationVoice: src.narrationVoice } : {}),
+    ...parseLibrarianTab(src),
   }
 }
 
@@ -427,6 +486,7 @@ function runtimeLabPrefs(stored: LabStoredPrefs, profile: LabAppearanceProfile):
   const appearance = stored[profile]
   return {
     ...stored.shared,
+    ...labLibrarianTabPrefs(stored.shared),
     ...appearance,
     progressDisplay: { ...appearance.progressDisplay },
     darkMode: appearance.theme === 'dark',
@@ -467,6 +527,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       margins: prefs.margins,
       paragraphSpacing: prefs.paragraphSpacing,
       progressDisplay: { ...prefs.progressDisplay },
+      ...parseLibrarianTabDock(prefs.librarianTabDock),
     }
     const next: LabStoredPrefs = {
       version: 2,

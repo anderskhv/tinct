@@ -8,6 +8,18 @@ export interface LabSuperMenuProps {
   privateBook?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
+  /** What the Librarian row's body opens: the reader's "Tab opens" choice. */
+  librarianMode?: 'chat' | 'talk'
+}
+
+/** The mic, as on the librarian tab: Talk in the Librarian row. */
+function MicIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="9" y="3" width="6" height="11" rx="3" />
+      <path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" />
+    </svg>
+  )
 }
 
 /** The monoline icons from the canvas, all on the same 22 px, 1.6 weight. */
@@ -27,6 +39,17 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
         <rect x="4.2" y="9" width="2.6" height="6" rx="1.1" />
         <rect x="10.7" y="5" width="2.6" height="14" rx="1.1" />
         <rect x="17.2" y="8" width="2.6" height="8" rx="1.1" />
+      </svg>
+    )
+  }
+  if (id === 'librarian') {
+    // The librarian's dotted orb, reduced to a monoline glyph.
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6">
+        <circle cx="12" cy="12" r="7.5" />
+        <circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none" />
+        <circle cx="8.6" cy="10.4" r="1" fill="currentColor" stroke="none" />
+        <circle cx="15.4" cy="13.6" r="1" fill="currentColor" stroke="none" />
       </svg>
     )
   }
@@ -74,7 +97,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose, librarianMode = 'chat' }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -113,7 +136,34 @@ export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: La
         onClick={onClose}
       />
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
-        {rows.map(row => (
+        {rows.map(row => row.modes ? (
+          <div key={row.id} className={`lab-super-row is-librarian${row.ruleBefore ? ' has-rule' : ''}`} data-row={row.id} role="group" aria-label={row.label}>
+            <button
+              type="button"
+              className="lab-super-row-main"
+              data-testid={`lab-super-row-${row.id}`}
+              onClick={() => onSelect(row.modes!.includes(librarianMode) ? librarianMode : row.modes![0])}
+            >
+              <span className="lab-super-row-icon" aria-hidden="true"><RowIcon id={row.id} /></span>
+              <span className="lab-super-row-label">{row.label}</span>
+            </button>
+            {row.modes.map(mode => (
+              <button
+                key={mode}
+                type="button"
+                className="lab-super-row-mode"
+                aria-label={mode === 'chat' ? 'Chat' : 'Talk'}
+                title={mode === 'chat' ? 'Chat' : 'Talk'}
+                data-mode={mode}
+                data-default={mode === librarianMode ? 'true' : undefined}
+                data-testid={`lab-super-row-${mode}`}
+                onClick={() => onSelect(mode)}
+              >
+                {mode === 'chat' ? <RowIcon id="chat" /> : <MicIcon />}
+              </button>
+            ))}
+          </div>
+        ) : (
           <button
             key={row.id}
             type="button"

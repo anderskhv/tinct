@@ -251,12 +251,15 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Chat, Talk, Library, Reading settings and Account — and no Play row', () => {
+  it('lists Librarian (Chat and Talk), Library, Reading settings and Account — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Library', 'Account'])
+    expect(labels).toEqual(['Librarian', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Library', 'Account'])
+    // Chat and Talk are labelled icon buttons inside the Librarian row.
+    expect(screen.getByTestId('lab-super-row-chat').getAttribute('aria-label')).toBe('Chat')
+    expect(screen.getByTestId('lab-super-row-talk').getAttribute('aria-label')).toBe('Talk')
     expect(labels).not.toContain('Play')
     // No section headers and no sub-labels: a row is an icon and a word.
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
@@ -264,7 +267,7 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['chat', 'talk', 'summarize', 'catchup', 'editions', 'settings', 'library', 'account'])
+      .toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
