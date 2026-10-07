@@ -5,10 +5,11 @@
  * `userbook-` id to `loadUserBookSource` here; nothing about a user book is
  * ever fetched.
  */
-import type { Edition, Language } from '../../types'
+import type { Edition } from '../../types'
 import type { LabSource } from '../labSource'
 import type { UserBookEdition } from './userEdition'
 import { isUserBookId } from './userBookId'
+import { userBookLanguage } from './userBookLanguage'
 import { registerBookOpening, registerChapterStructure } from '../labParagraphStyle'
 import { bookFigures } from '../labFigures'
 
@@ -30,21 +31,22 @@ function chapterList(edition: UserBookEdition): LabSource['chapters'] {
   return list
 }
 
-/** The reader's own copy is one edition. Its key carries the language, which turns on hyphenation where Tinct has patterns. */
-export function userBookEditionKey(edition: Pick<UserBookEdition, 'language'>): string {
-  const lang = (edition.language || '').toLowerCase().split(/[-_]/)[0]
+/**
+ * The reader's own copy is one edition. Its key carries the language
+ * (userBookLanguage: the book's tag normalised, or English text untagged),
+ * which turns on hyphenation where Tinct has patterns.
+ */
+export function userBookEditionKey(edition: Pick<UserBookEdition, 'language' | 'chapters'>): string {
+  const lang = userBookLanguage(edition)
   return lang === 'en' || lang === 'da' ? `own-${lang}` : 'own'
 }
-
-const LANGUAGES = new Set<Language>(['en', 'da', 'de', 'fr', 'it', 'ru'])
 
 export function userBookEditions(edition: UserBookEdition): Edition[] {
   const key = userBookEditionKey(edition)
   const cacheKey = `${key}/${edition.title}`
   const cached = editionLists.get(cacheKey)
   if (cached) return cached
-  const lang = (edition.language || '').toLowerCase().split(/[-_]/)[0] as Language
-  const list: Edition[] = [{ key, language: LANGUAGES.has(lang) ? lang : 'en', style: 'original', label: 'EPUB', aligned: false, hasAudio: false }]
+  const list: Edition[] = [{ key, language: userBookLanguage(edition) ?? 'en', style: 'original', label: 'EPUB', aligned: false, hasAudio: false }]
   editionLists.set(cacheKey, list)
   return list
 }

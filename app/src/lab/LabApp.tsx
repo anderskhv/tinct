@@ -190,6 +190,7 @@ import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
+import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { writeUserBookPlace } from './userBook/userBookPlace'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
@@ -4748,7 +4749,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   return (
     <div
       ref={labRootRef}
-      lang={userBook ? (userBook.edition.language || 'en') : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      lang={userBook ? userBookLangAttribute(userBook.edition) : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
