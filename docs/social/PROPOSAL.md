@@ -94,3 +94,13 @@ Later: reading a book together (friends' notes up to your page), reader search, 
 
 ## Also fixed in this pass
 The approved lifecycle templates said $3 a month; they now say $5 a month, matching the live price (#320, #336).
+
+## Revision, 7 October 2026 (Anders's review of the storyboards)
+`flows.html` (fourth pass) supersedes the earlier navigation and look details above where they differ.
+- **Reader menu unchanged.** No picture or numbers in it; its "Account" row is renamed **Profile** and opens the Profile sheet: picture, name and link; **AI credits as their own shelf** (percent left, bar, renewal date, See what you used, Top up); last 7 days with rank; two rows, You and friends, and Settings.
+- **You** (from the library picture) is one page in shelves, like the library: AI credits, Your reading, Friends (rank line), Settings. **Tap your picture to change it**: a sheet with **sets** (a picture and background from the same book, e.g. Stoic, At sea, Florence), upload a photo, upload a background, Google photo, initial.
+- **Friends** page with underlined tabs: Friends (podium leaderboard), Everyone, **Find**. Find = search public readers by name or tinct.app link, "Also reading your books" (public readers who show what they read), and Invite (copy link, share). Search and "also reading" only ever show readers set to Everyone; Friends-only readers are reached by their link.
+- **Settings** is one page, grouped: Profile, Privacy, **Reading** (Start new books in: Modern English or The original; Narrator), Emails (reading emails on/off), Account (Premium, email and password, sign out). Choices open tick lists with one plain line each.
+- **Sign-up is three steps:** account (one password field with show/hide, no confirm field; the unticked consent line), profile (picture from a set or upload, name, who can see your reading), and **"How do you like to read old books?"** (Modern English / The original), which sets "Start new books in"; each book remembers its own switch. Then back on the same page with "Welcome, Anders. Your place is saved." The account prompt in the reader becomes "Save your place".
+- **House rules:** no all-capitals labels; no pill toggles (tick lists, and underlined words for tabs); no pictures in top bars except the library's, which is the way in; plain wording.
+- **Emails get the library look:** the book's painting on top, a serif title, one dark rounded button, no monospace. The PM session redoes the templates in `docs/lifecycle-emails/` to match.

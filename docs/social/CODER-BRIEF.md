@@ -5,14 +5,7 @@ Anders assigns this to you (coding + release) on 7 October 2026. You remain the 
 **Read first (branch `claude/dreamy-faraday-30zl0v`):**
 - `docs/social/PROPOSAL.md`: the approved proposal. Build exactly that; Anders approved every decision in it.
 - `docs/social/mockup.html`: the approved look (open in a browser).
-- `docs/social/flows.html`: how readers get there, as storyboards. These are binding for navigation:
-  - **Library:** the library top bar shows your picture instead of "Account". It opens a **You** page with AI credits at the top and two tabs, Reading and Profile. The **leaderboard is its own page** (podium for the top three, roomy rows), reached from the "#3 among friends ›" line. Profile also holds Followers and following, Premium, Email and password, and Sign out.
-  - **Reader:** the reader's t menu starts with your picture, name and last-7-days hours. That opens the Account sheet, whose rows open the matching tab. Back returns to the same page in the book.
-  - **After sign-up:** a one-time toast ("Your 1 h 05 m is saved. Find it under the t.").
-  - **Skipped profile step:** a reader who skipped it gets one "Join the leaderboard?" card on their first leaderboard visit.
-  - **Account prompt:** gains the line about saving reading time already built up. Use the copy in flows.html.
-  - Account sheet and sign-up are in their current looks.
-  - Your reading, the leaderboard and profiles are in the library look.
+- `docs/social/flows.html` (fourth pass): how readers get there, as storyboards. **Binding for navigation, copy and look.** Where it differs from the proposal's earlier sections, follow it and the proposal's "Revision, 7 October" section: reader menu unchanged except Account → Profile (opens the Profile sheet with AI credits as their own shelf); You is one page of shelves with tap-picture-to-change and picture/background sets; Friends page with Friends / Everyone / Find; one grouped Settings page including "Start new books in"; three-step sign-up with one password field and the reading question; no all-caps labels, no pill toggles, no top-bar pictures except the library's.
 
 Don't reopen the design. Ask Anders only where something is truly ambiguous. Ship in the order below; each ship is releasable on its own.
 
@@ -64,7 +57,7 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous. Shi
 - **Fields:**
   - display name;
   - handle: 3–20 letters, digits, `_` or `.`; unique; reserved words blocked; word filter on names and handles;
-  - picture: a cover detail (book id + preset crop), initial, Google photo or upload;
+  - picture: a set (picture + background from one book), cover detail, initial, Google photo or upload;
   - background banner: a library scene or upload;
   - uploads: resized, location data stripped, stored in R2; visible to the owner at once and to others after approval in the admin view;
   - visibility: Only me / Friends / Everyone;
@@ -81,7 +74,10 @@ Don't reopen the design. Ask Anders only where something is truly ambiguous. Shi
   - skip = Only me;
   - Everyone blocked until the email is confirmed.
 
+- **Reading default:** a profile setting "Start new books in" (Modern English / The original), asked in sign-up step 3; it picks the edition when a reader opens a book for the first time, and each book keeps the reader's own later switch. Respect existing default-edition rules where a book has no modern edition.
+
 ## SHIP 3: Social
+- **Find:** search public (Everyone) readers by name or link; "Also reading your books" lists Everyone readers who show what they read; Invite copies or shares your link.
 - **Follows:**
   - follow and unfollow, remove follower, block;
   - friends = mutual follows;
