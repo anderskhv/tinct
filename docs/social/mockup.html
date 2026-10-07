@@ -238,7 +238,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold-hi); o
     <ul>
       <li><b>Where it lives:</b> sign-up gets a profile step, and the reader's Account sheet becomes the doorway to it all.</li>
       <li><b>Hours are the hero:</b> one big number, a week-by-week chart, and hours on every book.</li>
-      <li><b>Leaderboard soon:</b> this week's reading time, for friends and for everyone who chose to be public.</li>
+      <li><b>Leaderboard soon:</b> reading time over the last 7 days, for friends and for everyone who chose to be public.</li>
       <li><b>Profiles and pictures:</b> each reader decides whether their profile, what they read and how much are public, friends-only or private.</li>
       <li><b>Dropped:</b> the reader-profile personality page.</li>
     </ul>
@@ -294,14 +294,14 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold-hi); o
   <!-- 0. bridge from today's Account sheet -->
   <section aria-label="From the Account sheet">
     <h2 class="sh">From today's Account sheet</h2>
-    <p class="sub">The same sheet in the reader, in the reader's own look. It gains your picture, this week's hours and three new rows that open the pages below.</p>
+    <p class="sub">The same sheet in the reader, in the reader's own look. It gains your picture, the last 7 days' hours and three new rows that open the pages below.</p>
     <div class="bridge">
       <div class="rd">
         <div class="pagetext"><div class="rb"><b>The Bible</b><span>Genesis 1</span></div><sup>1</sup> In the beginning God created the heaven and the earth. <sup>2</sup> And the earth was without form, and void; and darkness was upon the face of the deep.</div>
         <div class="sheet">
           <div class="hd"><b>Account</b><span aria-hidden="true">×</span></div>
           <div class="card"><span class="av" style="--img:url('mockup-images/meditations.jpg');--pos:50% 34%"></span><span class="nm"><b>Anders</b><em>@anders · friends can see you</em></span><span class="tier">Premium</span></div>
-          <p class="gl">This week</p>
+          <p class="gl">Last 7 days</p>
           <div class="wk"><span class="n">6<small>h</small> 10<small>m</small></span><div class="days" aria-hidden="true"><i style="height:30%"></i><i style="height:55%"></i><i style="height:20%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:100%"></i><i class="t" style="height:45%"></i></div></div>
           <div class="dl"><span style="visibility:hidden">6 h 10 m</span><span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></span></div>
           <div class="facts2"><b>#3</b> among friends · <b>6-day</b> streak · <b>41 h</b> since July</div>
@@ -319,7 +319,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold-hi); o
         <ol>
           <li><b>Inside a book, everything stays in the reader's look</b> (Paper, Night or e-ink): the sheet, and quick numbers in it.</li>
           <li><b>Pages that leave the book open in the library's look:</b> Your reading, the leaderboard and profiles, the same night-green world as the library, with its covers.</li>
-          <li><b>What changes in the sheet:</b> your picture and name replace the email (it moves to Manage account); "This year: &lt;1 hours, 0 pages, 0 books" becomes this week's hours with a 7-day bar, your rank and streak; three rows open the new pages.</li>
+          <li><b>What changes in the sheet:</b> your picture and name replace the email (it moves to Manage account); "This year: &lt;1 hours, 0 pages, 0 books" becomes the last 7 days' hours with a 7-day bar, your rank and streak; three rows open the new pages.</li>
           <li><b>Signed out:</b> the same block shows hours read on this device and "Create a free account to keep your reading time and join the leaderboard."</li>
         </ol>
       </div>
@@ -338,7 +338,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold-hi); o
           <span class="lbl">Reading time since 14 July</span>
           <div class="hours">41<small>h</small> 20<small>m</small></div>
           <p class="what">reading and listening. <em>About six Frankensteins, start to finish.</em></p>
-          <div class="chips"><span class="chip up">↑ 6 h 10 m this week</span><span class="chip">#3 among friends</span><span class="chip">6-day streak</span></div>
+          <div class="chips"><span class="chip up">↑ 6 h 10 m in the last 7 days</span><span class="chip">#3 among friends</span><span class="chip">6-day streak</span></div>
           <div class="act"><button type="button" class="pill">Share <span aria-hidden="true">↗</span></button><button type="button" class="ghost glass">Leaderboard</button></div>
         </div>
         <div class="chart" aria-label="Hours per week, last 12 weeks">
@@ -377,11 +377,11 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold-hi); o
     <p class="sub">Phone. Tap Friends or Everyone; tap the switches.</p>
     <div class="phones" style="margin-top:22px">
       <div class="ph">
-        <div class="cap"><b>Weekly leaderboard</b><span>Reading and listening time, Monday to Sunday.</span></div>
+        <div class="cap"><b>Weekly leaderboard</b><span>Reading and listening time over the last 7 days, updated through the day.</span></div>
         <div class="screen">
           <div class="bar"><span class="back">←</span><span class="t">Leaderboard</span><span class="av init me" style="width:28px;height:28px;font-size:.8rem">A</span></div>
           <div class="seg glass" role="group" aria-label="Who to show"><button type="button" aria-pressed="true" data-lb="friends">Friends</button><button type="button" aria-pressed="false" data-lb="all">Everyone</button></div>
-          <div class="lbhead"><h3>This week</h3><span class="lbl">3 days left</span></div>
+          <div class="lbhead"><h3>Last 7 days</h3><span class="lbl">Updated hourly</span></div>
           <div class="lb" id="lb"></div>
           <p class="note" id="lbnote"></p>
         </div>
@@ -398,7 +398,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--gold-hi); o
           </div>
           <div class="act2"><button type="button" class="pill">Follow</button><button type="button" class="ghost glass">Read together</button></div>
           <div class="big2">
-            <div><span class="lbl">This week</span><strong>4 h 50</strong></div>
+            <div><span class="lbl">Last 7 days</span><strong>4 h 50</strong></div>
             <div><span class="lbl">This year</span><strong>96 h</strong></div>
           </div>
           <span class="lbl">Reading now</span>
