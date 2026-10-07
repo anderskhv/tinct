@@ -45,6 +45,10 @@ export const FALLBACK_MIN_SIDE = 3
 export const SYLLABLE_EXCEPTIONS: Readonly<Record<string, string>> = {
   // A compound the rules read as "Gate-shead" (Jane Eyre).
   gateshead: 'gates-head',
+  // Wrong guesses from the common-word check: no break, or the right one.
+  valiant: 'valiant',
+  colonel: 'colonel',
+  chivalry: 'chiv-al-ry',
 }
 
 const DIGRAPHS = new Set(['ch', 'sh', 'th', 'ph', 'gh', 'zh', 'kh', 'ck', 'qu'])
