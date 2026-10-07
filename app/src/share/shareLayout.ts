@@ -36,14 +36,6 @@ export interface ShareFonts {
 export interface ShareContent {
   bookTitle: string
   chapterLabel: string
-  /** "tr. George Long", "Tinct Modern English", "Original (1831)": always shown on the page. */
-  credit: string
-  /**
-   * The credit names a translation, a modern rewording or a Bible version, so
-   * the quote card keeps it too. False only for an author's own original text;
-   * missing counts as true.
-   */
-  creditOnQuote?: boolean
   paragraphs: string[]
   range: ShareRange
 }
@@ -490,7 +482,7 @@ function ogFrame(): ShareFrame {
 
 export interface SharePage {
   options: ShareOptions
-  content: Pick<ShareContent, 'bookTitle' | 'chapterLabel' | 'credit'>
+  content: Pick<ShareContent, 'bookTitle' | 'chapterLabel'>
   frame: ShareFrame
   layout: ColumnLayout
   /** `quote`: the highlight alone on a card sized to it (phone and desktop images). */
@@ -573,7 +565,7 @@ export function composeSharePage(content: ShareContent, options: ShareOptions, f
   const pageNumbers = options.format === 'desktop' ? estimatePageNumbers(content, chosen.spread) : []
   return {
     options,
-    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel, credit: content.credit },
+    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
     frame: chosen.frame,
     layout: chosen.layout,
     mode: chosen.spread ? 'spread' : 'single',
@@ -624,16 +616,14 @@ function quoteFrame(spec: QuoteCardSpec, footer: boolean, height: number): Share
  * The highlight alone: the card's height follows the text, between the
  * format's shortest and tallest card. The type is as large as fits (short
  * quotes read large), down to the smallest size. No page, page number or
- * surrounding text; the edition credit only when it names a translation or
- * rewording. Null when the whole highlight does not fit even the tallest card
+ * surrounding text. Null when the whole highlight does not fit even the tallest card
  * at the smallest size: the page layout then takes it (the desktop spread, or
  * the page's 75% floor and sentence cut), so a long quote never loses words
  * that the page would have shown.
  */
 function composeQuoteCard(content: ShareContent, options: ShareOptions, fonts: ShareFonts, passage: Paragraph[]): SharePage | null {
   const spec = QUOTE_CARDS[options.format === 'desktop' ? 'desktop' : 'phone']
-  const credit = content.creditOnQuote === false ? '' : content.credit
-  const hasFooter = Boolean(credit) || options.tagline
+  const hasFooter = options.tagline
   const tallest = quoteFrame(spec, hasFooter, spec.maxHeight)
   const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: true, leading: QUOTE_LEADING }
   let layout: ColumnLayout | null = null
@@ -647,7 +637,7 @@ function composeQuoteCard(content: ShareContent, options: ShareOptions, fonts: S
   const frame = quoteFrame(spec, hasFooter, height)
   return {
     options,
-    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel, credit },
+    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
     frame,
     layout,
     mode: 'quote',

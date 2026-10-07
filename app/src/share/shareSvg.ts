@@ -147,19 +147,16 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
     })
   }
 
-  // Footer: tagline (optional) and the edition credit (always), muted italic.
-  const footer = frame.footer
-  const footerTop = height - frame.padding.bottom - footer.boxHeight
-  const footerBaseline = footerTop + (footer.boxHeight - (ascent + descent) * footer.size) / 2 + ascent * footer.size
-  const creditSize = footer.size * 0.78
-  const credit = page.content.credit
-  const tagline = page.options.tagline ? SHARE_TAGLINE : ''
-  const taglineWidth = tagline ? textWidth(fonts.italic, tagline, footer.size) : 0
-  const creditWidth = credit ? textWidth(fonts.italic, credit, creditSize) : 0
-  const between = tagline && credit ? footer.size * 0.9 : 0
-  let fx = footer.align === 'left' ? frame.padding.side : (width - (taglineWidth + between + creditWidth)) / 2
-  if (tagline) { parts.push(italicRun(fx, footerBaseline, footer.size, palette.muted, tagline)); fx += taglineWidth + between }
-  if (credit) parts.push(italicRun(fx, footerBaseline, creditSize, palette.faint, credit))
+  // Footer: the tagline, when chosen, muted italic. The edition credit is not
+  // drawn: the /q/{id} page names the edition (and any licence).
+  if (page.options.tagline) {
+    const footer = frame.footer
+    const footerTop = height - frame.padding.bottom - footer.boxHeight
+    const footerBaseline = footerTop + (footer.boxHeight - (ascent + descent) * footer.size) / 2 + ascent * footer.size
+    const taglineWidth = textWidth(fonts.italic, SHARE_TAGLINE, footer.size)
+    const fx = footer.align === 'left' ? frame.padding.side : (width - taglineWidth) / 2
+    parts.push(italicRun(fx, footerBaseline, footer.size, palette.muted, SHARE_TAGLINE))
+  }
 
   parts.push('</svg>')
   return parts.join('')

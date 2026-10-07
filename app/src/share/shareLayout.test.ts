@@ -36,7 +36,7 @@ const SHORT: ShareRange = { paragraphIndex: 2, fromWord: wordAt(2, 'the beauty o
 const LONG: ShareRange = { paragraphIndex: 1, fromWord: 0, endParagraphIndex: 2, toWord: wordAt(2, 'monster whom I had created.') + 5 }
 const OVER: ShareRange = { paragraphIndex: 1, fromWord: 0, endParagraphIndex: 5, toWord: tokenizeParagraph(paragraphs[5]).length }
 
-const content = (range: ShareRange): ShareContent => ({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5', credit: 'Original (1831)', paragraphs, range })
+const content = (range: ShareRange): ShareContent => ({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5', paragraphs, range })
 const options = (format: ShareOptions['format'], extra: Partial<ShareOptions> = {}): ShareOptions => ({ format, look: 'paper', context: true, tagline: true, ...extra })
 
 function placedHighlight(page: ReturnType<typeof composeSharePage>): string {
@@ -204,38 +204,35 @@ describe('share highlight: the quote card (surrounding text off)', () => {
     }
   })
 
-  it('keeps attribution small: book and chapter, the credit only for a translation, no page number', () => {
-    const own = renderShareSvg(composeSharePage({ ...content(SHORT), creditOnQuote: false }, options('desktop', { context: false }), fonts), fonts)
+  it('keeps attribution small: book and chapter only, no page number', () => {
+    const own = renderShareSvg(composeSharePage(content(SHORT), options('desktop', { context: false }), fonts), fonts)
     expect(own).toContain('Frankenstein')
     expect(own).toContain('Chapter 5')
     expect(own).toContain('Read free at tinct.app')
-    expect(own).not.toContain('Original (1831)')
     expect(own).not.toContain('>1</text>')
-    const translated = composeSharePage({ ...content(SHORT), credit: 'World English Bible, Catholic Edition', creditOnQuote: true }, options('phone', { context: false, tagline: false }), fonts)
-    const svg = renderShareSvg(translated, fonts)
-    expect(svg).toContain('World English Bible, Catholic Edition')
-    expect(svg).not.toContain('Read free at tinct.app')
-    expect(translated.frame.header.size).toBeLessThan(translated.layout.fontSize / 2)
-    // The page (surrounding text on) always carries the credit.
-    expect(renderShareSvg(composeSharePage({ ...content(SHORT), creditOnQuote: false }, options('desktop'), fonts), fonts)).toContain('Original (1831)')
-    // With neither tagline nor credit, the card has no footer.
-    const bare = composeSharePage({ ...content(SHORT), creditOnQuote: false }, options('phone', { context: false, tagline: false }), fonts)
-    expect(bare.frame.footer.boxHeight).toBe(0)
+    const card = composeSharePage(content(SHORT), options('phone', { context: false, tagline: false }), fonts)
+    expect(renderShareSvg(card, fonts)).not.toContain('Read free at tinct.app')
+    expect(card.frame.header.size).toBeLessThan(card.layout.fontSize / 2)
+    // Without the tagline, the card has no footer.
+    expect(card.frame.footer.boxHeight).toBe(0)
   })
 })
 
 describe('share highlight: drawing', () => {
-  it('draws the reader page with no user identity, in each look', () => {
+  it('draws the reader page with no user identity and no edition line, in each look', () => {
     for (const look of ['paper', 'book', 'night', 'eink'] as const) {
-      const svg = renderShareSvg(composeSharePage(content(SHORT), options('phone', { look }), fonts), fonts)
-      expect(svg).toContain('Frankenstein')
-      expect(svg).toContain('Read free at tinct.app')
-      expect(svg).toContain('Original (1831)')
-      expect(svg).toContain('font-weight="600"')
+      for (const context of [true, false]) for (const format of ['phone', 'desktop', 'og'] as const) {
+        const svg = renderShareSvg(composeSharePage(content(SHORT), options(format, { look, context }), fonts), fonts)
+        expect(svg).toContain('Frankenstein')
+        expect(svg).toContain('Chapter 5')
+        expect(svg).toContain('Read free at tinct.app')
+        expect(svg).toContain('font-weight="600"')
+        expect(svg).not.toContain('Original (1831)')
+      }
     }
     const noTag = renderShareSvg(composeSharePage(content(SHORT), options('phone', { tagline: false }), fonts), fonts)
     expect(noTag).not.toContain('Read free at tinct.app')
-    expect(noTag).toContain('Original (1831)')
+    expect(noTag).toContain('Frankenstein')
   })
 
   it('escapes text for SVG', () => {
@@ -268,7 +265,7 @@ describe('share highlight: colours follow the reader page', () => {
 describe('share highlight: verse numbers', () => {
   // Psalms 19 in the World English Bible, Catholic Edition: "⁷ The LORD’s law is perfect, …"
   const psalm: string[] = JSON.parse(readFileSync(resolve(root, 'public/data/editions/bible-webc-en.json'), 'utf8')).chapters.find((chapter: { number: number }) => chapter.number === 497).paragraphs
-  const psalmContent = (range: ShareRange): ShareContent => ({ bookTitle: 'The Bible', chapterLabel: 'Psalms 19', credit: 'World English Bible, Catholic Edition', creditOnQuote: true, paragraphs: psalm, range })
+  const psalmContent = (range: ShareRange): ShareContent => ({ bookTitle: 'The Bible', chapterLabel: 'Psalms 19', paragraphs: psalm, range })
   const words = tokenizeParagraph(psalm[2]).map(token => token.text)
   const SUPERSCRIPTS = /[\u2070\u00b9\u00b2\u00b3\u2074-\u2079]/
   const textOf = (svg: string) => [...svg.matchAll(/<text[^>]*>(.*?)<\/text>/g)].map(match => match[1]).join(' ')
