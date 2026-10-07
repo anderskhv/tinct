@@ -5,8 +5,8 @@
  * for the WASM module.
  */
 
-import { initWasm, Resvg } from '@resvg/resvg-wasm'
-import resvgWasm from '@resvg/resvg-wasm/index_bg.wasm'
+import { Resvg } from '@resvg/resvg-wasm'
+import { ensureResvg } from './resvgWasm'
 import { parseFontMetrics } from '../../share/fontMetrics'
 import { composeShareCards, type ShareContent, type ShareFonts, type ShareOptions, type SharePage } from '../../share/shareLayout'
 import { englishShareBreaks } from '../../share/shareHyphenate'
@@ -17,7 +17,6 @@ type Assets = { fetch: (request: Request) => Promise<Response> }
 const FONT_FILES = ['EBGaramond-Regular', 'EBGaramond-SemiBold', 'EBGaramond-Italic'] as const
 
 let fontsReady: Promise<{ fonts: ShareFonts; buffers: Uint8Array[] }> | null = null
-let wasmReady: Promise<void> | null = null
 
 function loadFonts(assets: Assets, origin: string) {
   if (!fontsReady) {
@@ -37,14 +36,6 @@ function loadFonts(assets: Assets, origin: string) {
   return fontsReady
 }
 
-function loadWasm() {
-  if (!wasmReady) {
-    wasmReady = initWasm(resvgWasm)
-    wasmReady.catch(() => { wasmReady = null })
-  }
-  return wasmReady
-}
-
 async function compose(assets: Assets, origin: string, content: ShareContent, options: ShareOptions) {
   const loaded = await loadFonts(assets, origin)
   // Justified pages are hyphenated as the phone reader's (English only; shareLayout decides where).
@@ -58,7 +49,7 @@ export async function shareCardCount(assets: Assets, origin: string, content: Sh
 
 /** Card `card` (1-based, clamped) of the share as PNG, and how many cards the share has. */
 export async function renderSharePng(assets: Assets, origin: string, content: ShareContent, options: ShareOptions, card = 1): Promise<{ png: Uint8Array; page: SharePage; cards: number }> {
-  const [{ fonts, buffers, pages }] = await Promise.all([compose(assets, origin, content, options), loadWasm()])
+  const [{ fonts, buffers, pages }] = await Promise.all([compose(assets, origin, content, options), ensureResvg()])
   const page = pages[Math.min(Math.max(1, card), pages.length) - 1]
   const svg = renderShareSvg(page, fonts)
   const resvg = new Resvg(svg, { font: { fontBuffers: buffers, defaultFontFamily: 'EB Garamond', loadSystemFonts: false } })

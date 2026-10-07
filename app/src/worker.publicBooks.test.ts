@@ -19,7 +19,9 @@ import {
 import { findWorkInStream, objectEnd, resetCatalogueLookupCache } from './worker/lib/publicBookCatalogue'
 import { classifyByRules, classifyWork, eraOf, HOUSES, SHELVES } from './worker/lib/publicBookClassify'
 import { documentLetters, epubSourceLetters, letters, verifyEditionAgainstSource } from './worker/lib/epubSource'
-import { coverPrompt } from './worker/lib/publicBookCovers'
+import { COVER_CLAIM_MS, XAI_IMAGE_MODEL, XAI_IMAGE_OPTIONS, coverContentType, coverPrompt, processCoverJobs, spineToneFromPixels } from './worker/lib/publicBookCovers'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { LIBRARY_HOUSES, LIBRARY_SHELVES } from './data/libraryTaxonomy'
 import type { CatalogueWork } from '../public/lab/public-books.js'
 
@@ -399,13 +401,17 @@ describe('index and covers', () => {
     const calls: Array<{ url: string; body: { prompt: string; response_format: string } }> = []
     const jpeg = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3])
     const coverFetch = async (url: string, init: RequestInit) => { calls.push({ url, body: JSON.parse(String(init.body)) }); return Response.json({ data: [{ b64_json: Buffer.from(jpeg).toString('base64') }] }) }
-    const deps = { ...t2.deps, coverFetch, waitUntil: () => {} }
+    const background: Promise<unknown>[] = []
+    const deps = { ...t2.deps, coverFetch, waitUntil: (p: Promise<unknown>) => { background.push(p) } }
     await handlePublicBooks(new Request('https://tinct.app/api/public-books/import', { method: 'POST', headers: { Authorization: 'Bearer a' }, body: '{"workId":"pg:99999"}' }), env, deps)
     const source = await handlePublicBooks(new Request('https://tinct.app/api/public-books/import/pd-pg-99999/source', { headers: { Authorization: 'Bearer a' } }), env, deps)
     const edition = await epubToEdition(new Uint8Array(await source.arrayBuffer()))
     await handlePublicBooks(new Request('https://tinct.app/api/public-books/import/pd-pg-99999/commit', { method: 'POST', headers: { Authorization: 'Bearer a' }, body: JSON.stringify({ chapters: edition.chapters }) }), env, deps)
     expect(t2.r2.objects.has('public-books/cover-jobs/pd-pg-99999.json')).toBe(true)
-    expect(await runPublicCoverJobs(env, { limit: 5, fetchImpl: coverFetch })).toEqual({ painted: 1, failed: 0 })
+    // The import's own run (after its response) paints it; a cron run at the same moment does not paint it again.
+    const cron = runPublicCoverJobs(env, { limit: 5, fetchImpl: coverFetch })
+    expect(await Promise.all([...background, cron])).toEqual([{ painted: 1, failed: 0, queued: [] }, { painted: 0, failed: 0, queued: [] }])
+    expect(calls).toHaveLength(1)
     expect(calls[0].url).toBe('https://api.x.ai/v1/images/generations')
     expect(calls[0].body.response_format).toBe('b64_json')
     expect(calls[0].body.prompt).toContain("exact title 'THE RIVER HOUSE'")
@@ -413,5 +419,182 @@ describe('index and covers', () => {
     const meta = await (await handlePublicBooks(new Request('https://tinct.app/api/public-books/pd-pg-99999'), env, deps)).json() as { entry: { art: { src: string } } }
     expect(meta.entry.art.src).toBe('/api/public-books/pd-pg-99999/cover')
     expect(coverPrompt({ title: 'Iliad', author: 'Homer', year: -750 })).toContain('750 BC')
+  })
+})
+
+describe('painted covers: backfill, claims, spines and switches', () => {
+  type Entry = Parameters<typeof upsertIndexEntry>[1]
+  const entry = (id: string, patch: Record<string, unknown> = {}) => ({ id, title: `Book ${id}`, author: 'A. Writer', year: 1862, art: null, cover: { kind: 'generated', background: '#33241c', accent: '#e9dfc4' }, ...patch }) as unknown as Entry
+  async function seeded(ids: string[], patches: Record<string, Record<string, unknown>> = {}) {
+    const r2 = fakeBucket()
+    for (const id of ids) {
+      const e = entry(id, patches[id])
+      await upsertIndexEntry(r2.bucket, e)
+      await r2.bucket.put(`public-books/${id}/meta.json`, JSON.stringify({ version: 1, book: { id, title: e.title, author: e.author, coverColor: '#33241c', editions: [] }, entry: e, editionKey: 'original-en' }))
+    }
+    const env = { AUDIO_BUCKET: r2.bucket, ASSETS: { fetch: async () => new Response('') }, PUBLIC_BOOK_PAINTED_COVERS: '1' as string | undefined, XAI_API_KEY: 'test-key' as string | undefined }
+    return { r2, env }
+  }
+  const jpeg = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3])
+  function painter() {
+    const prompts: string[] = []
+    const bodies: Array<Record<string, unknown>> = []
+    const fetchImpl = async (_url: string, init: RequestInit) => {
+      const body = JSON.parse(String(init.body)) as Record<string, unknown>
+      bodies.push(body); prompts.push(String(body.prompt))
+      await new Promise(resolve => setTimeout(resolve, 5))
+      return Response.json({ data: [{ b64_json: Buffer.from(jpeg).toString('base64') }] })
+    }
+    return { prompts, bodies, fetchImpl }
+  }
+  const jobKeys = (objects: Map<string, unknown>) => [...objects.keys()].filter(key => key.startsWith('public-books/cover-jobs/')).sort()
+  const readEntry = async (bucket: R2Bucket, id: string) => (JSON.parse(new TextDecoder().decode(new Uint8Array(await (await bucket.get(INDEX_KEY))!.arrayBuffer()))) as { books: Array<{ id: string; art: { src: string } | null; cover: { background: string; spine?: string } }> }).books.find(b => b.id === id)!
+  const spineTone = async () => '#262420'
+  const failing = async () => new Response('busy', { status: 503 })
+
+  it('backfills books added while the switch was off: idempotent, within the per-run limit, skipping painted, queued and given-up books', async () => {
+    const ids = ['pd-pg-1', 'pd-pg-2', 'pd-pg-3', 'pd-pg-4', 'pd-pg-5', 'pd-pg-6', 'pd-pg-7', 'pd-pg-8']
+    const { r2, env } = await seeded(ids, { 'pd-pg-2': { art: { src: '/api/public-books/pd-pg-2/cover', srcSet: '' } } })
+    await r2.bucket.put('public-books/cover-jobs/pd-pg-3.json', JSON.stringify({ bookId: 'pd-pg-3', title: 'x', author: '', year: null, queuedAt: 'then', attempts: 0, claimedUntil: Date.now() + 60_000 }))
+    await r2.bucket.put('public-books/pd-pg-5/cover-gave-up', 'then')
+    // A registry book in the index is never a candidate.
+    await upsertIndexEntry(r2.bucket, entry('frankenstein'))
+    const first = await runPublicCoverJobs(env, { limit: 3, backfill: true, budgetMs: 0, fetchImpl: failing, spineTone })
+    expect(first!.queued).toEqual(['pd-pg-1', 'pd-pg-4', 'pd-pg-6'])
+    // The job already queued for pd-pg-3 is the same job, never reset.
+    expect(JSON.parse(new TextDecoder().decode(r2.objects.get('public-books/cover-jobs/pd-pg-3.json')!.bytes)).queuedAt).toBe('then')
+    const second = await runPublicCoverJobs(env, { limit: 3, backfill: true, budgetMs: 0, fetchImpl: failing, spineTone })
+    expect(second!.queued).toEqual(['pd-pg-7', 'pd-pg-8'])
+    const third = await runPublicCoverJobs(env, { limit: 3, backfill: true, budgetMs: 0, fetchImpl: failing, spineTone })
+    expect(third!.queued).toEqual([])
+    expect(jobKeys(r2.objects)).toEqual(['pd-pg-1', 'pd-pg-3', 'pd-pg-4', 'pd-pg-6', 'pd-pg-7', 'pd-pg-8'].map(id => `public-books/cover-jobs/${id}.json`))
+  })
+
+  it('is off without the switch or the key', async () => {
+    const { env } = await seeded(['pd-pg-1'])
+    expect(await runPublicCoverJobs({ ...env, PUBLIC_BOOK_PAINTED_COVERS: undefined }, { limit: 5, backfill: true })).toBeNull()
+    expect(await runPublicCoverJobs({ ...env, XAI_API_KEY: undefined }, { limit: 5, backfill: true })).toBeNull()
+  })
+
+  it('paints each book once, with the current model, and saves the spine tone with the book record', async () => {
+    const { r2, env } = await seeded(['pd-pg-1', 'pd-pg-2'], { 'pd-pg-2': { art: { src: '/x', srcSet: '' } } })
+    const { prompts, bodies, fetchImpl } = painter()
+    expect(await runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl, spineTone })).toEqual({ painted: 1, failed: 0, queued: ['pd-pg-1'] })
+    expect(await runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl, spineTone })).toEqual({ painted: 0, failed: 0, queued: [] })
+    expect(prompts).toHaveLength(1)
+    expect(bodies[0]).toMatchObject({ model: 'grok-imagine-image-2.0', response_format: 'b64_json', aspect_ratio: '2:3', resolution: '1k', n: 1 })
+    const painted = await readEntry(r2.bucket, 'pd-pg-1')
+    expect(painted.art!.src).toBe('/api/public-books/pd-pg-1/cover')
+    expect(painted.cover).toMatchObject({ spine: '#262420', background: '#262420' })
+    const meta = JSON.parse(new TextDecoder().decode(r2.objects.get('public-books/pd-pg-1/meta.json')!.bytes))
+    expect(meta.book.coverColor).toBe('#262420')
+    expect(meta.entry.cover.spine).toBe('#262420')
+    expect(jobKeys(r2.objects)).toEqual([])
+  })
+
+  it('never paints one book twice: concurrent runs claim the job, a claimed job is left alone, a stored painting ends the job', async () => {
+    const { r2, env } = await seeded(['pd-pg-1'])
+    const { prompts, fetchImpl } = painter()
+    await runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl: failing, spineTone })
+    expect(jobKeys(r2.objects)).toEqual(['public-books/cover-jobs/pd-pg-1.json'])
+    const results = await Promise.all([1, 2, 3].map(() => runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl, spineTone })))
+    expect(results.reduce((sum, r) => sum + r!.painted, 0)).toBe(1)
+    expect(prompts).toHaveLength(1)
+
+    // Another runner holds the job: nothing is painted until its claim lapses.
+    const t = await seeded(['pd-pg-9'])
+    let clock = 1_000_000
+    await t.r2.bucket.put('public-books/cover-jobs/pd-pg-9.json', JSON.stringify({ bookId: 'pd-pg-9', title: 'x', author: '', year: null, queuedAt: 'then', attempts: 0, claimedUntil: clock + 1000 }))
+    const second = painter()
+    expect(await runPublicCoverJobs(t.env, { limit: 5, fetchImpl: second.fetchImpl, spineTone, now: () => clock })).toMatchObject({ painted: 0 })
+    clock += COVER_CLAIM_MS
+    expect(await runPublicCoverJobs(t.env, { limit: 5, fetchImpl: second.fetchImpl, spineTone, now: () => clock })).toMatchObject({ painted: 1 })
+    expect(second.prompts).toHaveLength(1)
+
+    // A job for a book whose painting is already stored is dropped without a request.
+    const t3 = await seeded(['pd-pg-7'])
+    await t3.r2.bucket.put('public-books/pd-pg-7/cover', jpeg)
+    await t3.r2.bucket.put('public-books/cover-jobs/pd-pg-7.json', JSON.stringify({ bookId: 'pd-pg-7', title: 'x', author: '', year: null, queuedAt: 'then', attempts: 0 }))
+    const third = painter()
+    expect(await processCoverJobs(t3.r2.bucket, { apiKey: 'k', limit: 5, fetchImpl: third.fetchImpl, onPainted: async () => {} })).toEqual({ painted: 0, failed: 0 })
+    expect(third.prompts).toHaveLength(0)
+    expect(jobKeys(t3.r2.objects)).toEqual([])
+  })
+
+  it('links a stored painting that was never linked, without painting again', async () => {
+    const { r2, env } = await seeded(['pd-pg-4'])
+    await r2.bucket.put('public-books/pd-pg-4/cover', jpeg)
+    const { prompts, fetchImpl } = painter()
+    // Its edge cannot be read here: the spine falls back to a dark neutral, never the import's random tone.
+    expect(await runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl, spineTone: async () => null })).toEqual({ painted: 0, failed: 0, queued: [] })
+    expect(prompts).toHaveLength(0)
+    const linked = await readEntry(r2.bucket, 'pd-pg-4')
+    expect(linked.art!.src).toBe('/api/public-books/pd-pg-4/cover')
+    expect(linked.cover).toMatchObject({ spine: '#26241f', background: '#26241f' })
+  })
+
+  it('gives up after three failed attempts, and the backfill does not queue the book again', async () => {
+    const { r2, env } = await seeded(['pd-pg-5'])
+    for (let i = 0; i < 3; i++) await runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl: failing, spineTone })
+    expect(r2.objects.has('public-books/pd-pg-5/cover-gave-up')).toBe(true)
+    expect(jobKeys(r2.objects)).toEqual([])
+    expect((await runPublicCoverJobs(env, { limit: 5, backfill: true, fetchImpl: failing, spineTone }))!.queued).toEqual([])
+  })
+
+  it('stops starting paintings when the time budget is spent', async () => {
+    const { env } = await seeded(['pd-pg-1', 'pd-pg-2'])
+    let clock = 0
+    const calls: string[] = []
+    const fetchImpl = async () => { calls.push('x'); clock += 20_000; return Response.json({ data: [{ b64_json: Buffer.from(jpeg).toString('base64') }] }) }
+    expect(await runPublicCoverJobs(env, { limit: 5, backfill: true, budgetMs: 15_000, fetchImpl, spineTone, now: () => clock })).toMatchObject({ painted: 1, queued: ['pd-pg-1', 'pd-pg-2'] })
+    expect(calls).toHaveLength(1)
+  })
+
+  it('chooses a dark spine tone from the painting’s left edge', () => {
+    const pixels = (rgb: [number, number, number], alpha = 255) => new Uint8Array(Array.from({ length: 16 }, () => [...rgb, alpha]).flat())
+    const channels = (hex: string) => [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16))
+    const lightness = (hex: string) => { const n = channels(hex).map(v => v / 255); return (Math.max(...n) + Math.min(...n)) / 2 }
+    // Les Misérables' painted edge (near-black, warm) stays a near-black warm tone.
+    const lesMis = spineToneFromPixels(pixels([22, 20, 17]))!
+    expect(lightness(lesMis)).toBeGreaterThanOrEqual(0.09)
+    expect(lightness(lesMis)).toBeLessThanOrEqual(0.27)
+    expect(channels(lesMis)[0]).toBeGreaterThanOrEqual(channels(lesMis)[2])
+    // A bright red edge becomes a deep red, never a bright one.
+    const red = spineToneFromPixels(pixels([220, 40, 30]))!
+    expect(lightness(red)).toBeLessThanOrEqual(0.27)
+    const [r, g, b] = channels(red)
+    expect(r).toBeGreaterThan(g)
+    expect(r).toBeGreaterThan(b)
+    // A pale sky edge becomes a dark blue.
+    const sky = spineToneFromPixels(pixels([170, 200, 235]))!
+    expect(lightness(sky)).toBeLessThanOrEqual(0.27)
+    expect(channels(sky)[2]).toBeGreaterThan(channels(sky)[0])
+    expect(spineToneFromPixels(pixels([0, 0, 0], 0))).toBeNull()
+    expect(spineToneFromPixels(new Uint8Array())).toBeNull()
+  })
+
+  it('asks for the current model in the series shape and accepts JPEG, PNG and WebP', () => {
+    expect(XAI_IMAGE_MODEL).toBe('grok-imagine-image-2.0')
+    expect(XAI_IMAGE_OPTIONS).toEqual({ aspect_ratio: '2:3', resolution: '1k' })
+    expect(coverContentType(jpeg)).toBe('image/jpeg')
+    expect(coverContentType(new Uint8Array([0x89, 0x50, 0x4e, 0x47]))).toBe('image/png')
+    expect(coverContentType(new TextEncoder().encode('RIFF\0\0\0\0WEBPVP8 '))).toBe('image/webp')
+  })
+
+  it('switches: Modern English and painted covers on in wrangler.jsonc, AI classification left off; the client stays internal-only', async () => {
+    // jsdom gives import.meta.url no file scheme here; vitest runs from app/.
+    const source = readFileSync(resolve(process.cwd(), 'wrangler.jsonc'), 'utf8')
+    const config = JSON.parse(source.split('\n').filter(line => !/^\s*\/\//.test(line)).join('\n')) as { vars: Record<string, string>; triggers: { crons: string[] } }
+    expect(config.vars.PUBLIC_BOOK_MODERN_EDITIONS).toBe('1')
+    expect(config.vars.PUBLIC_BOOK_PAINTED_COVERS).toBe('1')
+    expect(config.vars.PUBLIC_BOOK_AI_CLASSIFY).toBeUndefined()
+    expect(config.triggers.crons).toContain('*/10 * * * *')
+    const client = await import('../public/lab/public-books.js')
+    expect(client.MODERN_EDITIONS_FOR_EVERYONE).toBe(false)
+    expect(client.ADD_TO_TINCT_FOR_EVERYONE).toBe(false)
+    const store = (internal: boolean) => ({ getItem: (key: string) => (internal && key === 'tinct:internal' ? '1' : null), setItem: () => {}, removeItem: () => {} })
+    expect(client.modernEditionsEnabled(store(false))).toBe(false)
+    expect(client.modernEditionsEnabled(store(true))).toBe(true)
+    expect(client.addToTinctEnabled(store(false))).toBe(false)
   })
 })

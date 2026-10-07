@@ -34,7 +34,7 @@ import { sniffBookType } from './userBooks'
 import { epubSourceLetters, verifyEditionAgainstSource, type EditionChapterInput } from '../lib/epubSource'
 import { lookupCatalogueWork } from '../lib/publicBookCatalogue'
 import { anthropicShelfChooser, classifyWork, placementFor, type Classification, type ShelfChooser } from '../lib/publicBookClassify'
-import { coverContentType, processCoverJobs, queueCoverJob, type CoverFetch } from '../lib/publicBookCovers'
+import { backfillCoverJobs, coverContentType, coverObjectKey, paintingSpineTone, processCoverJobs, queueCoverJob, type CoverFetch } from '../lib/publicBookCovers'
 import {
   WORK_ID,
   allowedSourceUrl,
@@ -98,7 +98,8 @@ export interface PublicCatalogueEntry {
   blurb: string
   displayYear: string
   wordCount: number | null
-  cover: { kind: 'generated'; background: string; accent: string }
+  /** `spine`: the painting's spine tone, set with `art` once a painting exists (lib/publicBookCovers.ts). */
+  cover: { kind: 'generated'; background: string; accent: string; spine?: string }
   art: { src: string; srcSet: string } | null
   paper: true
   shelfIds: string[]
@@ -123,7 +124,7 @@ export interface StoredMeta { version: 1; book: Book; entry: PublicCatalogueEntr
 export const bucketOf = (env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'>) => env.PUBLIC_BOOKS ?? env.AUDIO_BUCKET ?? null
 export const metaKey = (bookId: string) => `${PREFIX}${bookId}/meta.json`
 export const editionObjectKey = (bookId: string, editionKey: string) => `${PREFIX}${bookId}/${editionKey}.json`
-const coverKey = (bookId: string) => `${PREFIX}${bookId}/cover`
+const coverKey = coverObjectKey
 const stagingKey = (bookId: string) => `${PREFIX}staging/${bookId}.epub`
 
 function headers(request: Request, extra: Record<string, string> = {}): Record<string, string> {
@@ -441,24 +442,68 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   return reply({ status: 'imported', bookId, book, entry }, 201, request)
 }
 
-/** Paint queued covers (switch and key required). Stores the bytes and points the book at them. */
-export async function runPublicCoverJobs(env: PublicBooksEnv, options: { limit: number; fetchImpl?: CoverFetch }): Promise<{ painted: number; failed: number } | null> {
+/** Per-run limit for cover jobs (and for the backfill that queues them). */
+export const COVER_RUN_LIMIT = 5
+/** A dark neutral spine for a painting whose edge could not be read (it suits any of the series' paintings). */
+export const PAINTED_SPINE_FALLBACK = '#26241f'
+
+/**
+ * Paint queued covers (switch and key required). Stores the bytes and points the
+ * book at them, with the painting's spine tone. With `backfill`, first queues a
+ * job for added books that have neither a painting nor a job (books added while
+ * the switch was off). `budgetMs` stops starting new paintings after that long.
+ */
+export async function runPublicCoverJobs(
+  env: PublicBooksEnv,
+  options: { limit: number; fetchImpl?: CoverFetch; backfill?: boolean; budgetMs?: number; now?: () => number; spineTone?: (bytes: Uint8Array) => Promise<string | null> },
+): Promise<{ painted: number; failed: number; queued: string[] } | null> {
   const bucket = bucketOf(env)
   if (env.PUBLIC_BOOK_PAINTED_COVERS !== '1' || !env.XAI_API_KEY || !bucket) return null
-  return processCoverJobs(bucket, {
+  const now = options.now ?? Date.now
+  const deadline = options.budgetMs !== undefined ? now() + options.budgetMs : undefined
+  const spineTone = options.spineTone ?? paintingSpineTone
+  /** Points the book at its stored painting, with the painting's spine tone. */
+  const link = async (bookId: string, bytes: Uint8Array) => {
+    const src = `/api/public-books/${bookId}/cover`
+    const spine = (await spineTone(bytes).catch(() => null)) ?? PAINTED_SPINE_FALLBACK
+    // Conditional, like the Modern English grant's own meta update, so neither drops the other's change.
+    for (let attempt = 0; attempt < 5; attempt++) {
+      const object = await bucket.get(metaKey(bookId))
+      if (!object) return
+      const meta = JSON.parse(await new Response(object.body).text()) as StoredMeta
+      meta.entry = { ...meta.entry, art: { src, srcSet: `${src} 1x` }, cover: { ...meta.entry.cover, background: spine, spine } }
+      meta.book = { ...meta.book, coverColor: spine }
+      const put = await bucket.put(metaKey(bookId), JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' }, onlyIf: { etagMatches: object.etag } })
+      if (put) { await upsertIndexEntry(bucket, meta.entry); return }
+    }
+    throw new Error('meta update contended')
+  }
+  let queued: string[] = []
+  if (options.backfill) {
+    const index = await readJson<{ books?: PublicCatalogueEntry[] }>(bucket, INDEX_KEY)
+    const books = (index?.books ?? []).map(entry => ({ id: entry.id, title: entry.title, author: entry.author, year: entry.year ?? null, art: entry.art }))
+    queued = await backfillCoverJobs(bucket, books, {
+      limit: options.limit,
+      isAdded: isPublicBookId,
+      now: new Date(now()),
+      relink: async bookId => {
+        const stored = await bucket.get(coverKey(bookId))
+        if (stored) await link(bookId, new Uint8Array(await new Response(stored.body).arrayBuffer()))
+      },
+    })
+  }
+  const result = await processCoverJobs(bucket, {
     apiKey: env.XAI_API_KEY,
     limit: options.limit,
     fetchImpl: options.fetchImpl,
+    now,
+    deadline,
     onPainted: async (bookId, bytes) => {
       await bucket.put(coverKey(bookId), bytes, { httpMetadata: { contentType: coverContentType(bytes) } })
-      const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
-      if (!meta) return
-      const src = `/api/public-books/${bookId}/cover`
-      meta.entry = { ...meta.entry, art: { src, srcSet: `${src} 1x` } }
-      await bucket.put(metaKey(bookId), JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
-      await upsertIndexEntry(bucket, meta.entry)
+      await link(bookId, bytes)
     },
   })
+  return { ...result, queued }
 }
 
 /** `/data/editions/pd-…-original-xx.json`: an added book's edition, served like a registry edition. */
