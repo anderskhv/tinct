@@ -22,6 +22,8 @@ import { summaryMatchesSession, visibleToViewer, type ReadingMemoryState, type R
 import { READING_SESSION_GAP_MS } from '../readingMemory/recorder'
 import { biblicalBookId, parseBiblicalPlaceTitle } from '../lab/labPosition'
 import type { LabBookPlace, LabPositionState } from '../lab/labPosition'
+import { normalizeChapterTitle } from '../../public/lab/chapter-title.js'
+import { isPublicBookId } from '../../public/lab/public-books.js'
 import { chapterProgress, includesPreviousChapter, positionLine, type ChapterProgress } from './recapPosition'
 
 export type LibraryMode = 'new' | 'returning'
@@ -115,9 +117,20 @@ export function recapEyebrow(lastReadAt: number | null | undefined, now = Date.n
   return `Last time you read: ${days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`}`
 }
 
-/** "Chapter 1 — Loomings" → "Chapter 1"; labels the reader already shows, unchanged otherwise. */
-export function compactChapterTitle(title: string | null | undefined, fallback: string): string {
-  return String(title || fallback).split(/\s+[—–-]\s+/)[0].trim() || fallback
+/**
+ * "Chapter 1 — Loomings" → "Chapter 1"; labels the reader already shows, unchanged otherwise.
+ * In house style first (public/lab/chapter-title.js), so an added book's recorded
+ * "CHAPTER I—M. MYRIEL" reads "Chapter 1" like every other book; built-in, Bible
+ * and Shakespeare labels are already house style and pass through as they are.
+ */
+export function compactChapterTitle(title: string | null | undefined, fallback: string, editionKey?: string | null): string {
+  return normalizeChapterTitle(String(title || fallback), { language: editionLanguage(editionKey) }).split(/\s+[—–-]\s+/)[0].trim() || fallback
+}
+
+/** "modern-en" → "en"; the reader's house style casing is per language (labChapterTitles.ts). */
+function editionLanguage(editionKey: string | null | undefined): string | null {
+  const language = editionKey?.split('-').pop()
+  return language && /^[a-z]{2,3}$/.test(language) ? language : null
 }
 
 function newer(a: ReadingSession, b: ReadingSession): boolean {
@@ -148,7 +161,8 @@ export function catalogueBookIdForPlace(
   bibleChapters: readonly LibraryChapterRef[] = [],
 ): string | null {
   if (books.has(place.bookId)) return place.bookId
-  if (!books.has('bible')) return null
+  // An added book (`pd-…`) the catalogue does not list is never a biblical pin.
+  if (!books.has('bible') || isPublicBookId(place.bookId)) return null
   // Without the Bible's chapter list there is nothing to check against, so the
   // historical assumption stands: an unknown id is a biblical pin.
   if (bibleChapters.length === 0) return 'bible'
@@ -195,7 +209,7 @@ function placeLabel(book: LibraryBookInfo | undefined, place: LabBookPlace): str
   const bibleScoped = book?.id === 'bible' && place.bookId !== 'bible'
   if (bibleScoped) return `${place.headerBook} ${place.chapterNumber}`
   const chapter = book?.chapters.find(item => item.number === place.sequentialChapter)
-  return compactChapterTitle(chapter?.title, `Chapter ${place.sequentialChapter}`)
+  return compactChapterTitle(chapter?.title, `Chapter ${place.sequentialChapter}`, place.primaryEditionKey)
 }
 
 /**
@@ -241,7 +255,7 @@ export function continueTargetFor(input: {
     bookId,
     editionKey: session.anchor.editionKey,
     chapterNumber: session.anchor.chapterNumber,
-    chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`),
+    chapterLabel: compactChapterTitle(session.anchor.chapterLabel, `Chapter ${session.anchor.chapterNumber}`, session.anchor.editionKey),
     pageIndex: Math.max(0, session.anchor.page - 1),
     paragraphIndex: session.anchor.paragraphIndex,
     wordIndex: session.anchor.wordIndex,

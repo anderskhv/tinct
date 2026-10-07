@@ -1,8 +1,22 @@
 import { useEffect, useRef, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import type { QuickBookRow } from '../preReader/quickBookSwitcher'
 
+/**
+ * The book's cover, or — for a book without art yet (an added book before its
+ * painting exists) — the bordered fallback in the generated cover's ground.
+ */
+function SwitcherCover({ src, srcSet, tone }: { src: string | null; srcSet?: string | null; tone?: string | null }) {
+  return <span
+    className={`lab-book-switcher-cover${src ? '' : ' is-fallback'}`}
+    style={!src && tone ? { background: tone } : undefined}
+    aria-hidden="true"
+  >
+    {src && <img src={src} srcSet={srcSet || undefined} alt="" decoding="async" />}
+  </span>
+}
+
 interface LabBookSwitcherProps {
-  current: { bookId: string; title: string; chapterLabel: string; coverSrc: string }
+  current: { bookId: string; title: string; chapterLabel: string; coverSrc: string; coverTone?: string | null }
   rows: QuickBookRow[]
   loading: boolean
   error: string
@@ -54,7 +68,7 @@ export function LabBookSwitcher({ current, rows, loading, error, onClose, onSele
           aria-current="true"
           onClick={onClose}
         >
-          <span className="lab-book-switcher-cover" aria-hidden="true"><img src={current.coverSrc} alt="" decoding="async" /></span>
+          <SwitcherCover src={current.coverSrc || null} tone={current.coverTone} />
           <span className="lab-book-switcher-copy"><strong>{current.title}</strong><small>{current.chapterLabel}</small></span>
           <span className="lab-book-switcher-check" aria-hidden="true">✓</span>
         </button>}
@@ -68,9 +82,7 @@ export function LabBookSwitcher({ current, rows, loading, error, onClose, onSele
             aria-current={isActive ? 'true' : undefined}
             onClick={() => isActive ? onClose() : onSelect(row)}
           >
-            <span className={`lab-book-switcher-cover${row.coverSrc ? '' : ' is-fallback'}`} aria-hidden="true">
-              {row.coverSrc && <img src={row.coverSrc} srcSet={row.coverSrcSet || undefined} alt="" decoding="async" />}
-            </span>
+            <SwitcherCover src={row.coverSrc} srcSet={row.coverSrcSet} tone={row.coverTone} />
             <span className="lab-book-switcher-copy"><strong>{row.title}</strong><small>{row.chapterLabel}</small></span>
             {isActive && <span className="lab-book-switcher-check" aria-hidden="true">✓</span>}
           </button>

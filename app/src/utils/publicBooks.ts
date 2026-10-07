@@ -10,6 +10,7 @@
  */
 import { BOOKS } from '../data/bookRegistry'
 import { PRE_READER_CATALOGUE, type PreReaderBookViewModel } from '../preReader/catalogue'
+import type { QuickBookCatalogueEntry } from '../preReader/quickBookSwitcher'
 import type { Book, Edition } from '../types'
 import { apiUrl } from './apiUrl'
 import { isPublicBookId, modernEditionsEnabled, PUBLIC_BOOKS_INDEX_URL } from '../../public/lab/public-books.js'
@@ -97,6 +98,55 @@ export function ensurePublicBook(bookId: string, fetchImpl: typeof fetch = fetch
     pending.set(bookId, job)
   }
   return job
+}
+
+/** A cover served by the Worker (`/api/public-books/{id}/cover`) needs the API host in the Android app. */
+function coverUrl(src: string): string {
+  return src.startsWith('/api/') ? apiUrl(src) : src
+}
+
+/**
+ * An added book's entry as the reader's Reading now sheet uses it: title,
+ * painted art (absent until one is painted), the generated cover's tone and
+ * its chapter list. Null for anything that is not a `pd-` entry with a title.
+ */
+export function quickPublicEntry(raw: unknown): QuickBookCatalogueEntry | null {
+  const entry = raw as Partial<QuickBookCatalogueEntry> | null
+  if (!entry || !isPublicBookId(entry.id) || typeof entry.title !== 'string' || !entry.title.trim()) return null
+  const art = entry.art && typeof entry.art.src === 'string' && entry.art.src
+    ? { src: coverUrl(entry.art.src), ...(entry.art.srcSet ? { srcSet: entry.art.srcSet.split(',').map(part => coverUrl(part.trim())).join(', ') } : {}) }
+    : null
+  return {
+    id: entry.id,
+    title: entry.title.trim(),
+    art,
+    cover: entry.cover?.background ? { background: entry.cover.background } : null,
+    readingStructure: entry.readingStructure ?? null,
+  }
+}
+
+/** Every added book registered on this page (the current one, and any a saved place named). */
+export function registeredPublicEntries(): QuickBookCatalogueEntry[] {
+  return PRE_READER_CATALOGUE.books.flatMap(book => quickPublicEntry(book) ?? [])
+}
+
+/** The painted cover of a registered added book, or null (no painting yet, or not registered). */
+export function registeredPublicCover(bookId: string): string | null {
+  if (!isPublicBookId(bookId)) return null
+  return quickPublicEntry((PRE_READER_CATALOGUE.booksById as Map<string, unknown>).get(bookId))?.art?.src ?? null
+}
+
+/** The whole public-books index as Reading now entries, or null when it could not be read. */
+export async function fetchPublicBooksIndex(fetchImpl: typeof fetch = fetch): Promise<QuickBookCatalogueEntry[] | null> {
+  try {
+    const response = await fetchImpl(apiUrl(PUBLIC_BOOKS_INDEX_URL))
+    if (!response.ok) return null
+    const data = await response.json() as { books?: unknown }
+    if (!Array.isArray(data.books)) return null
+    return data.books.flatMap(entry => quickPublicEntry(entry) ?? [])
+  } catch {
+    return null
+  }
 }
 
 /** True when stored reader state (hand-off, saved places) names a public book. */
