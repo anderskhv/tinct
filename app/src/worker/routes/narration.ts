@@ -68,6 +68,9 @@ import {
   type TokenAlignmentStats,
 } from '../../narration/narrationCore'
 import { usesRetainedBella } from '../../narration/bellaRetention'
+import { editionChapter, publicEditionChapter } from './publicBooks'
+import { USER_BOOK_PREFIX } from '../../lab/userBook/userBookId'
+import { isPublicBookId } from '../../../public/lab/public-books.js'
 
 export type NarrationEnv = SupabaseEnv & {
   FISH_AUDIO_API_KEY?: string
@@ -93,6 +96,8 @@ export type NarrationEnv = SupabaseEnv & {
   NARRATION_ADMIN_TOKEN?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
+  /** Added public-domain books (`pd-*`): their text lives here, not in static assets (publicBooks.ts). */
+  PUBLIC_BOOKS?: R2Bucket
   ASSETS?: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -278,22 +283,44 @@ async function handleVoices(request: Request, env: NarrationEnv): Promise<Respon
 
 interface ChapterText {
   paragraphs: string[]
+  /**
+   * A Modern English chapter of an added book whose modern text is not
+   * written yet: the reader shows the original words and swaps the modern
+   * text in place when it lands, so these words are about to change under
+   * the listener. Never narrated (see modernPendingResponse).
+   */
+  modernPending?: boolean
 }
 
+/**
+ * The chapter's paragraphs exactly as the reader shows them. Registry books
+ * come from static assets; added public-domain books (`pd-*`) from the
+ * public-books store that `/data/editions/pd-…` serves the reader from.
+ */
 async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId: string, editionKey: string, chapter: number, transitionTo?: number): Promise<ChapterText | null> {
-  if (!env.ASSETS) return null
-  const asset = await env.ASSETS.fetch(new Request(new URL(`/data/editions/${bookId}-${editionKey}.json`, request.url)))
-  if (!asset.ok) return null
-  let data: { chapters?: Array<{ number?: number; title?: string; paragraphs?: string[] }> }
-  try { data = await asset.json() as typeof data } catch { return null }
-  const chapters = data.chapters || []
-  if (transitionTo !== undefined) {
-    const cue = bibleBookTransition(bookId, chapters, chapter)
-    return cue && cue.nextChapter === transitionTo ? { paragraphs: [cue.text] } : null
+  let entry: { paragraphs?: unknown } | null
+  if (isPublicBookId(bookId)) {
+    // Book transitions are biblical-book cues; an added book has none.
+    if (transitionTo !== undefined) return null
+    const added = await publicEditionChapter(env, bookId, editionKey, chapter)
+    if (!added) return null
+    if (added.modernPending) return { paragraphs: [], modernPending: true }
+    entry = added
+  } else {
+    if (!env.ASSETS) return null
+    const asset = await env.ASSETS.fetch(new Request(new URL(`/data/editions/${bookId}-${editionKey}.json`, request.url)))
+    if (!asset.ok) return null
+    let data: { chapters?: Array<{ number?: number; title?: string; paragraphs?: string[] }> }
+    try { data = await asset.json() as typeof data } catch { return null }
+    const chapters = data.chapters || []
+    if (transitionTo !== undefined) {
+      const cue = bibleBookTransition(bookId, chapters, chapter)
+      return cue && cue.nextChapter === transitionTo ? { paragraphs: [cue.text] } : null
+    }
+    entry = editionChapter(chapters, chapter)
   }
-  const entry = chapters.find(item => item.number === chapter) ?? chapters[chapter - 1]
   if (!entry || !Array.isArray(entry.paragraphs)) return null
-  const paragraphs = entry.paragraphs.map(item => (typeof item === 'string' ? item : ''))
+  const paragraphs = (entry.paragraphs as unknown[]).map(item => (typeof item === 'string' ? item : ''))
   // Reader-visible text corrections are applied the same way editionLoader does
   // (a patch shorter than half the paragraph is ignored as truncated).
   if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -312,6 +339,13 @@ async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId
     } catch { /* patches are optional; unpatched text still hashes consistently with an unpatched reader */ }
   }
   return { paragraphs }
+}
+
+/** A reader's own uploaded book: never sent to the speech provider (read-aloud for own books is not approved). */
+const isPrivateBook = (bookId: string) => bookId.startsWith(USER_BOOK_PREFIX)
+
+function modernPendingResponse(request: Request): Response {
+  return jsonResponse({ error: 'Modern English text not ready', reason: 'modern_pending' }, 409, request)
 }
 
 function parseScope(url: URL): { bookId: string; editionKey: string; chapter: number; voiceKey: string } | null {
@@ -552,11 +586,12 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
-  if (!isPilotScope(scope.bookId, scope.editionKey, scope.chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
+  if (isPrivateBook(scope.bookId) || !isPilotScope(scope.bookId, scope.editionKey, scope.chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
   const voice = config.voices.find(item => item.key === scope.voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   const text = await loadChapterParagraphs(request, env, scope.bookId, scope.editionKey, scope.chapter)
   if (!text) return jsonResponse({ error: 'Chapter text unavailable' }, 404, request)
+  if (text.modernPending) return modernPendingResponse(request)
 
   const bucket = env.AUDIO_BUCKET
   const listed = await bucket.list({ prefix: narrationMapPrefix(scope.bookId, scope.editionKey, scope.chapter, voice.key, config.provider) })
@@ -995,7 +1030,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Invalid scope' }, 400, request)
   }
   if (editionHold(bookId, editionKey)) return heldNarrationResponse(request)
-  if (isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
+  if (isPrivateBook(bookId) || isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
@@ -1013,6 +1048,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
 
   const text = await loadChapterParagraphs(request, env, bookId, editionKey, chapter, bookTransition ? body.nextChapter : undefined)
   if (!text) return jsonResponse({ error: bookTransition ? 'Book transition unavailable' : 'Chapter text unavailable' }, 404, request)
+  if (text.modernPending) return modernPendingResponse(request)
 
   const now = deps.now || Date.now
   const sleep = deps.sleep || ((ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms)))

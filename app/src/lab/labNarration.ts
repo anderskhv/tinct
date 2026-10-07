@@ -155,7 +155,7 @@ export interface NarrationEnsureRequest {
 export const NARRATION_ENSURE_TIMEOUT_MS = 70_000
 
 export class NarrationEnsureError extends Error {
-  constructor(message: string, readonly code: 'unauthenticated' | 'not_configured' | 'rate_limited' | 'network' | 'http', readonly status?: number) {
+  constructor(message: string, readonly code: 'unauthenticated' | 'not_configured' | 'rate_limited' | 'modern_pending' | 'network' | 'http', readonly status?: number) {
     super(message)
   }
 }
@@ -202,6 +202,11 @@ export async function ensureNarration(
   if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
   if (response.status === 503) throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
   if (response.status === 429) throw new NarrationEnsureError('Too many requests', 'rate_limited', 429)
+  if (response.status === 409) {
+    // A Modern English chapter still shown in its original text: its words are about to be replaced.
+    const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
+    if (reason === 'modern_pending') throw new NarrationEnsureError('Modern English text not ready', 'modern_pending', 409)
+  }
   if (!response.ok) throw new NarrationEnsureError(`HTTP ${response.status}`, 'http', response.status)
   const json = await response.json() as { paragraphs?: NarrationParagraphResult[] }
   return Array.isArray(json.paragraphs) ? json.paragraphs : []
@@ -220,6 +225,7 @@ export function narrationFailureMessage(reason: string | undefined): string {
     case 'unavailable': return 'This passage has no narration yet. Try again.'
     case 'validation_failed': return 'The narration came back damaged and was not saved. Try again.'
     case 'rate_limited': return 'Too many narration requests. Wait a moment and try again.'
+    case 'modern_pending': return 'This chapter can be narrated once its Modern English text is ready.'
     default: return 'Narration could not be prepared. Try again.'
   }
 }

@@ -18,13 +18,14 @@ import { corsHeaders, getAllowedOrigin } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
 import { ensureStripeCustomer, type BillingEnv, type CheckoutSessionObject } from './billing'
-import { bucketOf, editionObjectKey, metaKey, readJson, upsertIndexEntry, type PublicBooksEnv, type StoredMeta } from './publicBooks'
+import { bucketOf, editionChapter, editionObjectKey, metaKey, readJson, upsertIndexEntry, type PublicBooksEnv, type StoredMeta } from './publicBooks'
 import {
   HOLD_MS,
   MAX_PARALLEL,
   MODERN_JOB_PREFIX,
   MODERN_KEY,
   SESSION_EXPIRES_S,
+  assembleChapter,
   assembleEdition,
   holdLive,
   jobComplete,
@@ -44,6 +45,7 @@ import {
   type ModernGenerator,
   type ModernJob,
   type ModernTier,
+  type SourceChapter,
 } from '../lib/modernEdition'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
 
@@ -356,4 +358,29 @@ export async function serveModernEdition(request: Request, env: ModernEnv, bookI
   const original = await readJson<{ chapters: Array<{ number: number; title: string; paragraphs: string[] }> }>(bucket, editionObjectKey(bookId, meta.editionKey))
   if (!original?.chapters?.length) return reply({ error: 'Not found' }, 404, request)
   return new Response(JSON.stringify(await assembleEdition(bucket, bookId, original.chapters, job, now)), { status: 200, headers: headers('no-store') })
+}
+
+/**
+ * One chapter of the Modern English edition exactly as serveModernEdition
+ * hands it to the reader, without assembling every other chapter (narration
+ * asks for one chapter per request). `pending` is the reader's own rule
+ * (labModernEdition.ts modernChapterPending): the chapter came in its
+ * original text because its Modern English text is not written yet.
+ */
+export async function modernEditionChapter(env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'>, bookId: string, chapterNumber: number, now = Date.now()): Promise<(SourceChapter & { pending: boolean }) | null> {
+  const bucket = bucketOf(env)
+  if (!bucket) return null
+  const whole = await readJson<{ chapters?: SourceChapter[] }>(bucket, wholeKey(bookId))
+  if (whole) {
+    const chapter = editionChapter(whole.chapters, chapterNumber)
+    return chapter ? { ...chapter, pending: false } : null
+  }
+  const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
+  const job = (await readJob(bucket, bookId))?.job ?? null
+  if (!modernEligible(meta) || job?.state !== 'paid') return null
+  const original = await readJson<{ chapters?: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey))
+  const source = editionChapter(original?.chapters, chapterNumber)
+  if (!source) return null
+  const state = publicChapterStates(job, now)[source.number]
+  return { ...await assembleChapter(bucket, bookId, source, state), pending: state !== 'ready' }
 }
