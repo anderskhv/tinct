@@ -101,7 +101,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'anna-karenina': { editions: EN, revision: '2026-09-12.1' },
   'brothers-karamazov': { editions: EN, revision: '2026-09-12.1' },
   'don-quixote': { editions: EN, revision: '2026-09-12.1' },
-  'war-and-peace': { editions: EN, revision: '2026-09-12.1' },
+  'war-and-peace': { editions: EN, revision: 'text-2026-10-07.1' },
   ulysses: { editions: EN, revision: '2026-09-12.1' },
   'niels-lyhne': { editions: EN, revision: '2026-10-01.1' },
   walden: { editions: EN, revision: 'text-2026-10-01.1' },
