@@ -1,8 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import {
-  acquireFigureUrl,
   bookFigures,
   figureElement,
   figureFor,
@@ -12,7 +11,8 @@ import {
   readableParagraph,
   registerFigureAssets,
   registerFigures,
-  releaseFigureUrl,
+  holdFigureUrl,
+  refreshFigureUrls,
   resetFigures,
   setFigureLayout,
 } from './labFigures'
@@ -21,11 +21,12 @@ import { chapterPageSegments, chapterPagesCover, pageIndexForPlace } from './lab
 import { labMeasureParagraphInto } from './labMeasureParagraph'
 import { tokenizeHearingWords } from './labHearing'
 import { LabPassage } from './LabPassage'
+import { LabFigureView } from './LabFigure'
 import { registerChapterStructure } from './labParagraphStyle'
 import fixture from './__fixtures__/figure-edition.json'
 import type { Chapter } from '../types'
 
-afterEach(resetFigures)
+afterEach(() => { cleanup(); resetFigures() })
 
 const PHONE = { columnWidth: 340, pageHeight: 620 }
 
@@ -124,17 +125,62 @@ describe('a reader’s own pictures', () => {
     vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: create, revokeObjectURL: revoke }))
     const blob = new Blob(['x'], { type: 'image/png' })
     registerFigureAssets(key => (key === 'f1' ? blob : null))
-    expect(acquireFigureUrl('asset:f1')).toBe('blob:tinct/1')
-    expect(acquireFigureUrl('asset:f1')).toBe('blob:tinct/1')
+    const one = holdFigureUrl('asset:f1')!
+    const two = holdFigureUrl('asset:f1')!
+    expect([one.url, two.url]).toEqual(['blob:tinct/1', 'blob:tinct/1'])
     expect(create).toHaveBeenCalledTimes(1)
-    releaseFigureUrl('asset:f1')
+    one.release()
+    one.release()
     expect(revoke).not.toHaveBeenCalled()
-    releaseFigureUrl('asset:f1')
+    two.release()
     expect(revoke).toHaveBeenCalledWith('blob:tinct/1')
-    expect(acquireFigureUrl('asset:missing')).toBeNull()
+    expect(holdFigureUrl('asset:missing')).toBeNull()
+    expect(holdFigureUrl('')).toBeNull()
     // A built-in edition names a same-origin path; nothing else is drawn.
-    expect(acquireFigureUrl('/data/figures/x.png')).toBe('/data/figures/x.png')
-    expect(acquireFigureUrl('https://example.org/x.png')).toBeNull()
+    expect(holdFigureUrl('/data/figures/x.png')?.url).toBe('/data/figures/x.png')
+    expect(holdFigureUrl('https://example.org/x.png')).toBeNull()
     vi.unstubAllGlobals()
+  })
+
+  it('draw once the book hands its pictures over, even when the page was drawn first, and again from fresh URLs when renewed', () => {
+    let n = 0
+    const create = vi.fn(() => `blob:tinct/${++n}`)
+    const revoke = vi.fn()
+    vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: create, revokeObjectURL: revoke }))
+    const figure = { id: 'f1', number: 1, src: 'asset:f1', caption: 'Figure 1: Double slit experiment.', alt: 'Image', width: 400, height: 300 }
+    render(<LabFigureView figure={figure} />)
+    // Drawn before the pictures were handed over: nothing broken, then the picture.
+    expect(screen.queryByTestId('lab-figure-img')).toBeNull()
+    const blob = new Blob(['x'], { type: 'image/png' })
+    act(() => registerFigureAssets(key => (key === 'f1' ? blob : null)))
+    expect(screen.getByTestId('lab-figure-img').getAttribute('src')).toBe('blob:tinct/1')
+    // The page came back from the browser's cache: a fresh URL, the old one revoked.
+    act(() => refreshFigureUrls())
+    expect(screen.getByTestId('lab-figure-img').getAttribute('src')).toBe('blob:tinct/2')
+    expect(revoke).toHaveBeenCalledWith('blob:tinct/1')
+    vi.unstubAllGlobals()
+  })
+
+  it('that fail to load are tried once from a fresh URL, then shown as a placeholder with the caption, never a broken image', () => {
+    let n = 0
+    vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: vi.fn(() => `blob:tinct/${++n}`), revokeObjectURL: vi.fn() }))
+    const blob = new Blob(['x'], { type: 'image/png' })
+    registerFigureAssets(() => blob)
+    const figure = { id: 'f1', number: 1, src: 'asset:f1', caption: 'Figure 1: Double slit experiment.', alt: 'Image', width: 400, height: 300 }
+    render(<LabFigureView figure={figure} />)
+    fireEvent.error(screen.getByTestId('lab-figure-img'))
+    expect(screen.getByTestId('lab-figure-img').getAttribute('src')).toBe('blob:tinct/2')
+    fireEvent.error(screen.getByTestId('lab-figure-img'))
+    expect(screen.queryByTestId('lab-figure-img')).toBeNull()
+    expect(screen.getByTestId('lab-figure-missing').textContent).toMatch(/Picture not available/)
+    expect(screen.getByTestId('lab-figure').textContent).toMatch(/Double slit experiment/)
+    vi.unstubAllGlobals()
+  })
+
+  it('that the book could not provide show the caption and a placeholder', () => {
+    render(<LabFigureView figure={{ id: 'f2', number: 2, src: '', unavailable: true, caption: 'Figure 2: A TIFF this browser cannot draw.' }} />)
+    expect(screen.queryByTestId('lab-figure-img')).toBeNull()
+    expect(screen.getByTestId('lab-figure-missing')).toBeTruthy()
+    expect(screen.getByTestId('lab-figure').textContent).toMatch(/A TIFF this browser cannot draw/)
   })
 })

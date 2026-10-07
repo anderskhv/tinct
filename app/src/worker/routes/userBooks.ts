@@ -29,6 +29,10 @@
  * files, under `u/{userId}/narration/{bookHex}/`, where bookHex is the first 24
  * hex digits of the file's SHA-256 (the reader's `userbook-` id). Deleting a
  * book deletes that prefix too; account deletion takes it with the rest.
+ *
+ * Catch me up on an own book (routes/ownCatchUp.ts) keeps its cumulative
+ * recap the same way, under `u/{userId}/recaps/{bookHex}/`: deleted with the
+ * book and with the account, never shared between accounts.
  */
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
@@ -70,6 +74,11 @@ export const USER_BOOK_HEX_LENGTH = 24
 /** Where one own book's narration lives: inside the owner's private prefix only. */
 export function ownNarrationPrefix(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}narration/${bookHex}/`
+}
+
+/** Where one own book's Catch me up recap lives: inside the owner's private prefix only. */
+export function ownRecapPrefix(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}recaps/${bookHex}/`
 }
 
 /** Every object under `prefix`, deleted page by page. Returns how many went. */
@@ -161,7 +170,7 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
   let cursor: string | undefined
   do {
     // Files sit directly under the prefix; the delimiter keeps narration
-    // (u/{userId}/narration/…) out of the listing and the storage total.
+    // (u/{userId}/narration/…) and recaps (u/{userId}/recaps/…) out of the listing and the storage total.
     const page = await bucket.list({ prefix: userBooksPrefix(userId), cursor, limit: 1000, include: ['customMetadata'], delimiter: '/' })
     for (const object of page.objects) {
       const book = bookFromObject(object)
@@ -172,7 +181,7 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
   return books.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
 }
 
-/** Deletes everything under `u/{userId}/` (files and their narration), page by page. Returns how many objects went. */
+/** Deletes everything under `u/{userId}/` (files, their narration and recaps), page by page. Returns how many objects went. */
 export async function purgeUserBooks(bucket: R2Bucket, userId: string): Promise<number> {
   return purgePrefix(bucket, userBooksPrefix(userId))
 }
@@ -344,9 +353,13 @@ async function remove(request: Request, bucket: R2Bucket, userId: string, fileId
   const head = await bucket.head(key)
   if (!head) return notFound(request)
   await bucket.delete(key)
-  // Its narration goes with it (the same file is stored once per account).
+  // Its narration and its Catch me up recap go with it (the same file is stored once per account).
   const sha256 = head.customMetadata?.sha256 ?? ''
-  if (/^[0-9a-f]{64}$/.test(sha256)) await purgePrefix(bucket, ownNarrationPrefix(userId, sha256.slice(0, USER_BOOK_HEX_LENGTH)))
+  if (/^[0-9a-f]{64}$/.test(sha256)) {
+    const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
+    await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
+    await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
+  }
   return reply({ ok: true }, 200, request)
 }
 

@@ -39,15 +39,15 @@ export function labSuperMenuRows({ phone = false, privateBook = false }: { phone
     ...(phone ? [{ id: 'library' as const, label: 'Library', ruleBefore: true }] : []),
     { id: 'account', label: 'Account', chevron: true, ruleBefore: !phone },
   ]
-  // A reader's own book (userBook/): no Talk, no Catch me up (it reads earlier
-  // chapters on the server), and one edition. Library returns to Your books.
+  // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
+  // book (2026-10-08; its recap is built from this device's text, one chapter
+  // at a time), but one edition. Library returns to Your books.
   return privateBook
-    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id)).map(row => row.id === 'library' ? { ...row, label: 'Your books' }
-      : row.id === 'librarian' ? { ...row, modes: ['chat' as const] } : row)
+    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id)).map(row => row.id === 'library' ? { ...row, label: 'Your books' } : row)
     : rows
 }
 
-const USER_BOOK_HIDDEN_ROWS = new Set<LabSuperMenuId>(['catchup', 'editions'])
+const USER_BOOK_HIDDEN_ROWS = new Set<LabSuperMenuId>(['editions'])
 
 /**
  * The surface. Genuinely see-through: a fill of the paper colour over a blur

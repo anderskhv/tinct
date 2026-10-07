@@ -25,7 +25,7 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
-  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, and their narration under u/{userId}/narration/ (routes/userBooks.ts). */
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/ and Catch me up recaps under u/{userId}/recaps/ (routes/userBooks.ts). */
   USER_BOOKS?: R2Bucket
   /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
   NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
@@ -34,9 +34,8 @@ export type AdminAccountsEnv = SupabaseEnv & {
 /** The account's own-book narration spend object. */
 export const ownNarrationSpendName = (userId: string) => `own-user:${userId}`
 
-/** Count and size of the account's own-book recordings (never the audio itself). */
-async function ownNarrationSummary(bucket: R2Bucket, userId: string): Promise<{ objects: number; bytes: number }> {
-  const prefix = `u/${userId}/narration/`
+/** Count and size of the objects under one of the account's private own-book prefixes (never their content). */
+async function prefixSummary(bucket: R2Bucket, prefix: string): Promise<{ objects: number; bytes: number }> {
   let objects = 0
   let bytes = 0
   let cursor: string | undefined
@@ -358,7 +357,11 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
       : null,
     // Recordings made when the reader chose Listen on an own book: counted, never the audio.
     ownBookNarration: env.USER_BOOKS
-      ? await attempt('r2 own-book narration', () => ownNarrationSummary(env.USER_BOOKS!, account.userId))
+      ? await attempt('r2 own-book narration', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/narration/`))
+      : null,
+    // Catch me up recaps of own books (one object per finished chapter, one for the chapter in progress): counted, never the text.
+    ownBookRecaps: env.USER_BOOKS
+      ? await attempt('r2 own-book recaps', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/recaps/`))
       : null,
   }
 
@@ -433,7 +436,7 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
       if (!env.NARRATION_COORDINATOR) throw new Error('NARRATION_COORDINATOR binding missing')
       await env.NARRATION_COORDINATOR.getByName(ownNarrationSpendName(userId)).purge()
     }],
-    // The reader's own PDF/EPUB files and their narration: every object under u/{userId}/.
+    // The reader's own PDF/EPUB files, their narration and recaps: every object under u/{userId}/.
     [`${prefix}r2:user-books`, async () => {
       if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
       await purgeUserBooks(env.USER_BOOKS, userId)

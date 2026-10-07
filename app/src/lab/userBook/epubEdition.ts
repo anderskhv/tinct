@@ -8,7 +8,8 @@
  * kept. Reading order is the spine; chapter boundaries and titles come from
  * the table of contents (EPUB 3 nav, else the EPUB 2 NCX), falling back to one
  * chapter per spine document. Italics survive as the editions' `_..._`
- * emphasis markup; images, styles and scripts are dropped.
+ * emphasis markup; styles and scripts are dropped, and pictures become
+ * figures kept beside the text (epubPictures.ts makes each one drawable).
  *
  * Structure survives beside the text, never in it: subheadings, table labels,
  * list items and a chapter's subtitle and byline are listed per paragraph
@@ -25,6 +26,9 @@ import { normalizeChapterTitle } from '../../../public/lab/chapter-title.js'
 import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
 import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
+import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture } from './epubPictures'
+
+export { imageSize }
 
 export { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition }
 
@@ -66,6 +70,7 @@ export function openZip(input: ArrayBuffer | Uint8Array) {
   const entries = new Map<string, ZipEntry>()
   const utf8 = new TextDecoder('utf-8')
   const latin1 = new TextDecoder('latin1')
+  const strictUtf8 = new TextDecoder('utf-8', { fatal: true })
   let p = cdOffset
   for (let n = 0; n < count; n++) {
     if (p + 46 > bytes.length || view.getUint32(p, true) !== 0x02014b50) throw new EpubError('bad_zip', 'This EPUB is damaged (its file list is unreadable).')
@@ -76,7 +81,11 @@ export function openZip(input: ArrayBuffer | Uint8Array) {
     const extraLen = view.getUint16(p + 30, true)
     const commentLen = view.getUint16(p + 32, true)
     const local = view.getUint32(p + 42, true)
-    const name = ((flags & 0x800) ? utf8 : latin1).decode(bytes.subarray(p + 46, p + 46 + nameLen))
+    const raw = bytes.subarray(p + 46, p + 46 + nameLen)
+    // Many zip tools write UTF-8 names without setting the flag that says so.
+    let name: string
+    if (flags & 0x800) name = utf8.decode(raw)
+    else { try { name = strictUtf8.decode(raw) } catch { name = latin1.decode(raw) } }
     entries.set(name, { name, method, compSize, local, encrypted: (flags & 1) === 1 })
     p += 46 + nameLen + extraLen + commentLen
   }
@@ -92,7 +101,24 @@ export function openZip(input: ArrayBuffer | Uint8Array) {
     throw new EpubError('bad_zip', 'This EPUB uses an unsupported compression method.')
   }
   const readText = async (name: string) => { const data = await read(name); return data ? utf8.decode(data) : null }
-  return { entries, read, readText, has: (name: string) => entries.has(name) }
+  // A file named loosely: the case, Unicode form or URL-escaping differs between the
+  // reference and the archive (made on a case-insensitive disk, or by a careless tool).
+  let loose: Map<string, string> | null = null
+  const looseKey = (name: string) => {
+    let out = name
+    try { out = decodeURIComponent(out) } catch { /* keep as written */ }
+    return out.normalize('NFC').toLowerCase()
+  }
+  function find(name: string): string | null {
+    if (!name) return null
+    if (entries.has(name)) return name
+    if (!loose) {
+      loose = new Map()
+      for (const key of entries.keys()) if (!loose.has(looseKey(key))) loose.set(looseKey(key), key)
+    }
+    return loose.get(looseKey(name)) ?? null
+  }
+  return { entries, read, readText, find, has: (name: string) => entries.has(name) }
 }
 
 /* ---------- Paths and XML ---------- */
@@ -156,6 +182,10 @@ interface Block {
 interface Picture {
   /** Its file in the EPUB, or an inline SVG drawing. */
   href?: string
+  /** Other files the source names for it (data-src, srcset), tried when `href` cannot be read. */
+  alternates?: string[]
+  /** The picture written into the page itself (a data: URL). */
+  data?: string
   svg?: string
   alt: string
   caption?: string
@@ -212,6 +242,16 @@ const PICTURE = new Set(['img', 'svg', 'image', 'picture'])
 const EMPHASIS = new Set(['em', 'i'])
 const STRONG = new Set(['strong', 'b'])
 const NOTE_MARKER = /^[[(]?(\d{1,3}|[*†‡§¶]+)[\])]?$/
+/** Where lazy-loading pages keep a picture's real file while `src` holds a placeholder. */
+const LAZY_SRC = ['data-src', 'data-original', 'data-lazy-src', 'data-full-src', 'data-hi-res-src']
+/** The files a srcset names, the widest first. */
+function srcsetFiles(srcset: string | null): string[] {
+  if (!srcset) return []
+  return srcset.split(/,\s+/).map(part => {
+    const [url, size = ''] = part.trim().split(/\s+/)
+    return { url, rank: parseFloat(size) || 1 }
+  }).filter(item => item.url).sort((a, b) => b.rank - a.rank).map(item => item.url)
+}
 
 /** Class names publishers give a paragraph that is set as a heading. */
 const HEADING_CLASS = /^(h[1-6]|head(ing)?|sub-?head(ing)?|cht|chtitle|ct|cn|fmh|fmt|bmh|bmt|chapter-?title|chap-?title|part-?title|section-?title|title)[-_]?\d*$/i
@@ -328,13 +368,19 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
       if (!/xmlns=/.test(svg.slice(0, 200))) svg = svg.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"')
       return svg.length < 2_000_000 ? { svg, alt: clean(el.getAttribute('aria-label') || byLocal(el, 'title')[0]?.textContent) } : null
     }
-    const href = name === 'img'
-      ? el.getAttribute('src') || ''
-      : el.getAttribute('href') || el.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || el.getAttribute('xlink:href') || ''
-    if (!href || /^[a-z][a-z0-9+.-]*:/i.test(href)) return null
-    const file = href.split(/[?#]/)[0].split('/').pop() || ''
-    if (DECORATION.test(file) || [...classTokens(el), el.getAttribute('id') || ''].some(token => DECORATION.test(token))) return null
-    return { href: resolveHref(base, href.split('#')[0]), alt: clean(el.getAttribute('alt') || el.getAttribute('title')) }
+    // Every file the element names for its picture, the one it shows first: its src
+    // (or an SVG image's href), then what a lazy-loading or responsive page names.
+    const named = name === 'img'
+      ? [el.getAttribute('src'), ...LAZY_SRC.map(attr => el.getAttribute(attr)), ...srcsetFiles(el.getAttribute('srcset')), ...srcsetFiles(el.getAttribute('data-srcset'))]
+      : [el.getAttribute('href'), el.getAttributeNS('http://www.w3.org/1999/xlink', 'href'), el.getAttribute('xlink:href')]
+    const candidates = named.map(value => (value || '').trim()).filter(Boolean)
+    const data = candidates.find(value => /^data:image\//i.test(value))
+    const files = [...new Set(candidates.filter(value => !/^[a-z][a-z0-9+.-]*:/i.test(value)).map(value => resolveHref(base, value.split('#')[0].split('?')[0])).filter(Boolean))]
+    if (!files.length && !data) return null
+    // A lazy page's placeholder ("spacer.gif") does not make its real picture decoration.
+    if ((files.length && files.every(path => DECORATION.test(path.split('/').pop() || ''))) || [...classTokens(el), el.getAttribute('id') || ''].some(token => DECORATION.test(token))) return null
+    const alt = clean(el.getAttribute('alt') || el.getAttribute('title'))
+    return { ...(files[0] ? { href: files[0] } : {}), ...(files.length > 1 ? { alternates: files.slice(1) } : {}), ...(data && !files.length ? { data } : {}), alt }
   }
   const pictureBlock = (figure: Picture): Block => ({ text: PICTURE_PLACEHOLDER, heading: false, figure })
 
@@ -751,64 +797,102 @@ function subtitleOf(meta: Element): string {
 
 /* ---------- Pictures ---------- */
 
-const IMAGE_TYPES: Record<string, string> = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp', svg: 'image/svg+xml', avif: 'image/avif', bmp: 'image/bmp' }
-/** A picture larger than this is not kept. */
-const MAX_PICTURE_BYTES = 8_000_000
-
-/** Pixel size from an image's own header (PNG, GIF, JPEG, WebP) or an SVG's attributes; null when it cannot say. */
-export function imageSize(bytes: Uint8Array, type: string): { width: number; height: number } | null {
-  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
-  const at = (i: number) => bytes[i]
-  try {
-    if (type === 'image/svg+xml') {
-      const head = new TextDecoder().decode(bytes.subarray(0, 4000))
-      const tag = /<svg\b[^>]*>/i.exec(head)?.[0] || ''
-      const num = (name: string) => { const m = new RegExp(`\\b${name}\\s*=\\s*["']\\s*([\\d.]+)(px)?\\s*["']`, 'i').exec(tag); return m ? parseFloat(m[1]) : NaN }
-      let width = num('width'), height = num('height')
-      const box = /\bviewBox\s*=\s*["']\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)/i.exec(tag)
-      if (!(width > 0 && height > 0) && box) { width = parseFloat(box[1]); height = parseFloat(box[2]) }
-      return width > 0 && height > 0 ? { width: Math.round(width), height: Math.round(height) } : null
-    }
-    if (at(0) === 0x89 && at(1) === 0x50 && at(2) === 0x4e && at(3) === 0x47) return { width: view.getUint32(16), height: view.getUint32(20) }
-    if (at(0) === 0x47 && at(1) === 0x49 && at(2) === 0x46) return { width: view.getUint16(6, true), height: view.getUint16(8, true) }
-    if (at(0) === 0xff && at(1) === 0xd8) {
-      let i = 2
-      while (i + 9 < bytes.length) {
-        if (at(i) !== 0xff) { i += 1; continue }
-        const marker = at(i + 1)
-        const length = view.getUint16(i + 2)
-        if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) return { width: view.getUint16(i + 7), height: view.getUint16(i + 5) }
-        i += 2 + length
-      }
-      return null
-    }
-    if (at(0) === 0x52 && at(1) === 0x49 && at(2) === 0x46 && at(3) === 0x46 && at(8) === 0x57 && at(9) === 0x45) {
-      const chunk = String.fromCharCode(at(12), at(13), at(14), at(15))
-      if (chunk === 'VP8 ') return { width: view.getUint16(26, true) & 0x3fff, height: view.getUint16(28, true) & 0x3fff }
-      if (chunk === 'VP8L') { const b = view.getUint32(21, true); return { width: (b & 0x3fff) + 1, height: ((b >> 14) & 0x3fff) + 1 } }
-      if (chunk === 'VP8X') return { width: 1 + (at(24) | at(25) << 8 | at(26) << 16), height: 1 + (at(27) | at(28) << 8 | at(29) << 16) }
-    }
-  } catch { /* a damaged header: no size */ }
-  return null
-}
+/** A picture file larger than this is not read (prepared pictures are smaller: epubPictures.ts). */
+const MAX_PICTURE_BYTES = 40_000_000
 
 /** Too small to be a figure: an ornament, a logo, a glyph set as a picture. */
 const decorativeSize = (size: { width: number; height: number }) => size.width < 100 || size.height < 50 || size.width * size.height < 15_000
 /** Large or detailed: shown as a strip that opens the full image. */
 const largeSize = (size: { width: number; height: number }) => size.width * size.height >= 1_500_000 || (size.width >= 1400 && size.height >= 1000) || size.height / size.width > 2.2
 
+/**
+ * A picture's bytes, type and size from the file: the first of the files it
+ * names that the archive holds (matched loosely: case, escaping, Unicode form)
+ * and that is not an ornament, or its own data: URL. 'decoration' when it is
+ * only an ornament; null when the book does not hold it.
+ */
+async function readPicture(zip: ReturnType<typeof openZip>, picture: Picture, declaredType: (path: string) => string):
+  Promise<{ bytes: Uint8Array; type: string; size: { width: number; height: number } | null } | 'decoration' | null> {
+  if (picture.svg) {
+    const bytes = new TextEncoder().encode(picture.svg)
+    return { bytes, type: 'image/svg+xml', size: imageSize(bytes, 'image/svg+xml') }
+  }
+  let decoration = false
+  for (const href of [picture.href, ...(picture.alternates ?? [])]) {
+    const path = href ? zip.find(href) : null
+    if (!path) continue
+    const bytes = await zip.read(path).catch(() => null)
+    if (!bytes || !bytes.length || bytes.length > MAX_PICTURE_BYTES) continue
+    const type = pictureType(bytes, declaredType(path), path)
+    if (!/^image\//.test(type)) continue
+    const size = imageSize(bytes, type)
+    // A lazy page's placeholder (a 1-pixel GIF) before the real file: try the next.
+    if (size && decorativeSize(size)) { decoration = true; continue }
+    if (type === 'image/svg+xml') return { bytes: await inlineSvgImages(bytes, path, zip), type, size }
+    return { bytes, type, size }
+  }
+  if (picture.data) {
+    const match = /^data:([^;,]*)(;base64)?,(.*)$/is.exec(picture.data)
+    if (match) {
+      let bytes: Uint8Array | null = null
+      try {
+        bytes = match[2] ? Uint8Array.from(atob(match[3].replace(/\s+/g, '')), char => char.charCodeAt(0)) : new TextEncoder().encode(decodeURIComponent(match[3]))
+      } catch { bytes = null }
+      if (bytes && bytes.length && bytes.length <= MAX_PICTURE_BYTES) {
+        const type = pictureType(bytes, match[1], '')
+        const size = /^image\//.test(type) ? imageSize(bytes, type) : null
+        if (size && decorativeSize(size)) return 'decoration'
+        if (/^image\//.test(type)) return { bytes, type, size }
+      }
+    }
+  }
+  return decoration ? 'decoration' : null
+}
+
+/**
+ * An SVG file drawn as an <img> loads nothing beside it: the pictures it
+ * places from the book (<image href="photo.jpg"/>) are written into it.
+ */
+async function inlineSvgImages(bytes: Uint8Array, path: string, zip: ReturnType<typeof openZip>): Promise<Uint8Array> {
+  const text = new TextDecoder().decode(bytes)
+  if (!/<image\b/i.test(text)) return bytes
+  const pattern = /(<image\b[^>]*?\s(?:xlink:)?href\s*=\s*)(["'])([^"']*)\2/gi
+  const found = new Map<string, string>()
+  for (const match of text.matchAll(pattern)) {
+    const href = match[3]
+    if (!href || /^[a-z][a-z0-9+.-]*:/i.test(href) || href.startsWith('#') || found.has(href)) continue
+    const file = zip.find(resolveHref(path, href.split('#')[0]))
+    const data = file ? await zip.read(file).catch(() => null) : null
+    const type = data ? pictureType(data, '', file || '') : ''
+    if (!data || !/^image\/(png|jpeg|gif|webp)$/.test(type) || data.length > 8_000_000) continue
+    let binary = ''
+    for (let i = 0; i < data.length; i += 0x8000) binary += String.fromCharCode(...data.subarray(i, i + 0x8000))
+    found.set(href, `data:${type};base64,${btoa(binary)}`)
+  }
+  if (!found.size) return bytes
+  return new TextEncoder().encode(text.replace(pattern, (whole, lead: string, quote: string, href: string) => found.has(href) ? `${lead}${quote}${found.get(href)}${quote}` : whole))
+}
+
+/** A figure's picture, as bytes: kept so on the device (never as a Blob, which iOS Safari's IndexedDB can lose). */
+export interface UserBookImage { type: string; data: ArrayBuffer }
+
 /** A converted book and its pictures (figure id -> image), kept beside it on this device. */
-export interface EpubConversion { edition: UserBookEdition; images: Map<string, Blob> }
+export interface EpubConversion { edition: UserBookEdition; images: Map<string, UserBookImage> }
 
 /**
  * `sourceTitles` keeps chapter titles exactly as the EPUB writes them (Add to Tinct:
  * the Worker checks each title against the file, then sets it in house style itself).
  * Otherwise titles are in Tinct's house style (public/lab/chapter-title.js).
  */
-export interface EpubConvertOptions { fallbackTitle?: string; sourceTitles?: boolean }
+export interface EpubConvertOptions {
+  fallbackTitle?: string
+  sourceTitles?: boolean
+  /** False when only the text is wanted: pictures are sized but not decoded or kept. */
+  images?: boolean
+}
 
 export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: EpubConvertOptions = {}): Promise<UserBookEdition> {
-  return (await convertEpub(input, options)).edition
+  return (await convertEpub(input, { images: false, ...options })).edition
 }
 
 export async function convertEpub(input: ArrayBuffer | Uint8Array, options: EpubConvertOptions = {}): Promise<EpubConversion> {
@@ -846,6 +930,8 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   // The cover picture is the book's cover (Add a book shows it), never a figure.
   const coverId = byLocal(meta, 'meta').find(item => item.getAttribute('name') === 'cover')?.getAttribute('content') || ''
   const coverHref = ([...manifest.values()].find(item => item.props.includes('cover-image')) || manifest.get(coverId))?.href || ''
+  const coverPath = coverHref ? zip.find(coverHref) : null
+  const isCover = (href: string | undefined) => !!href && !!coverPath && zip.find(href) === coverPath
   const tocLabelOf = new Map<string, string>()
   for (const entry of toc) if (!tocLabelOf.has(entry.path)) tocLabelOf.set(entry.path, entry.label)
   const tocLabels = new Set(toc.map(entry => titleKey(entry.label)).filter(Boolean))
@@ -869,7 +955,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     const pictures = parsed.blocks.filter(block => block.figure)
     if (pictures.length && pictures.length === parsed.blocks.length && !stream.some(block => !block.figure)
       && (/\b(cover|titlepage|halftitle)\b/.test(parsed.docType) || COVER_LABEL.test(norm(tocLabelOf.get(item.href) || ''))
-        || pictures.every(block => block.figure!.href === coverHref || /(cover|title)/i.test((block.figure!.href || '').split('/').pop() || '')))) {
+        || pictures.every(block => isCover(block.figure!.href) || /(cover|title)/i.test((block.figure!.href || '').split('/').pop() || '')))) {
       droppedPlaces.add(item.href)
       droppedImages += pictures.length
       continue
@@ -946,35 +1032,39 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   }
   // Every picture read once: decoration, the cover and what cannot be read are
   // left out; the rest are numbered in reading order and kept beside the book.
-  const images = new Map<string, Blob>()
-  const typeOf = (href: string) => [...manifest.values()].find(item => item.href === href)?.type || IMAGE_TYPES[(href.split('.').pop() || '').toLowerCase()] || ''
+  // A captioned picture this device cannot draw (missing from the file, a format
+  // it does not decode) keeps its place and caption, drawn as a placeholder.
+  const images = new Map<string, UserBookImage>()
+  const declaredType = (path: string) => [...manifest.values()].find(item => item.href === path || zip.find(item.href) === path)?.type || ''
+  const check = options.images !== false
   let figureCount = 0
   for (const piece of pieces) {
     const kept: Block[] = []
     for (const block of piece.blocks) {
       if (!block.figure) { kept.push(block); continue }
       const picture = block.figure
-      let bytes: Uint8Array | null = null
-      let type = 'image/svg+xml'
-      if (picture.svg) bytes = new TextEncoder().encode(picture.svg)
-      else if (picture.href && picture.href !== coverHref) {
-        type = typeOf(picture.href)
-        bytes = /^image\//.test(type) ? await zip.read(picture.href).catch(() => null) : null
-      }
-      const size = bytes ? imageSize(bytes, type) : null
-      if (!bytes || bytes.length > MAX_PICTURE_BYTES || (size && decorativeSize(size))) { droppedImages += 1; continue }
+      if (isCover(picture.href)) { droppedImages += 1; continue }
+      const found = await readPicture(zip, picture, declaredType)
+      if (found === 'decoration') { droppedImages += 1; continue }
+      const prepared = found ? await preparePicture(found.bytes, found.type, { check }).catch(() => null) : null
+      const usable = prepared && prepared.bytes.length <= MAX_STORED_PICTURE_BYTES ? prepared : null
+      if (!usable && !picture.caption) { droppedImages += 1; continue }
       figureCount += 1
       const id = `f${figureCount}`
-      images.set(id, new Blob([bytes as BlobPart], { type }))
+      // The size the book drew it at decides its layout; a picture redrawn smaller keeps its shape.
+      const size = found?.size ?? usable?.size ?? null
+      const shown = usable?.size ?? size
+      if (usable && check) images.set(id, { type: usable.type, data: usable.bytes.slice().buffer as ArrayBuffer })
       kept.push({
         text: figureToken(id),
         heading: false,
         figure: picture,
         meta: {
-          id, number: figureCount, src: `asset:${id}`,
+          id, number: figureCount, src: usable ? `asset:${id}` : '',
+          ...(usable ? {} : { unavailable: true }),
           ...(picture.caption ? { caption: picture.caption.slice(0, 600) } : {}),
           ...(picture.alt ? { alt: picture.alt.slice(0, 300) } : {}),
-          ...(size ? { width: size.width, height: size.height } : {}),
+          ...(shown ? { width: shown.width, height: shown.height } : {}),
           ...(size && largeSize(size) ? { large: true } : {}),
         },
       })

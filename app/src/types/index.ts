@@ -69,6 +69,8 @@ export interface ChapterFigure {
   height?: number
   /** A large or detailed image (a map, a plate): always shown as a strip that opens the full image. */
   large?: boolean
+  /** The book names a picture here that this device cannot draw: its caption stands with a placeholder (`src` is empty). */
+  unavailable?: boolean
 }
 
 export interface Chapter {

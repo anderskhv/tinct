@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent, type RefObject } from 'react'
 import { VoiceOrb } from './VoiceOrb'
+import { ChatIcon } from './LabReaderIcons'
 import './labLibrarianTab.css'
 import type { LabLibrarianTabDock, LabLibrarianTabMode } from './labPrefs'
 import {
@@ -65,7 +66,7 @@ export function measureLibrarianTabFrame(wrap: HTMLElement | null): { frame: Lib
 
 export function LibrarianTabIcon({ mode, size }: { mode: LabLibrarianTabMode; size: number }) {
   return mode === 'chat'
-    ? <svg className="lab-librarian-tab-icon" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" data-mode="chat"><path d="M4 5.5h16v10H9l-5 4z" /></svg>
+    ? <ChatIcon className="lab-librarian-tab-icon" size={size} data-mode="chat" />
     : <svg className="lab-librarian-tab-icon" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" data-mode="talk"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" /></svg>
 }
 

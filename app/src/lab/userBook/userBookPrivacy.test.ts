@@ -51,11 +51,11 @@ describe('a user book stays on this device', () => {
     expect(withholdAnalytics({ book_id: 'bible' })).toBe(true)
   })
 
-  it('menu: Talk, Catch me up and editions are not offered; Library is Your books', () => {
+  it('menu: Talk and Catch me up are offered, editions are not; Library is Your books', () => {
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
-      ['librarian', 'Librarian'], ['summarize', 'Summarize'], ['settings', 'Settings'], ['library', 'Your books'], ['account', 'Account'],
+      ['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['settings', 'Settings'], ['library', 'Your books'], ['account', 'Account'],
     ])
-    expect(labSuperMenuRows({ phone: true, privateBook: true })[0].modes).toEqual(['chat'])
+    expect(labSuperMenuRows({ phone: true, privateBook: true })[0].modes).toEqual(['chat', 'talk'])
     expect(labSuperMenuRows({ phone: true })[0].modes).toContain('talk')
   })
 })

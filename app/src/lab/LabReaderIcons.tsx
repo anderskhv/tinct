@@ -1,3 +1,5 @@
+import type { SVGProps } from 'react'
+
 export function ReadIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -7,21 +9,37 @@ export function ReadIcon({ size = 20 }: { size?: number }) {
 }
 
 
-export function ChatIcon() {
+type LabActionIconProps = Omit<SVGProps<SVGSVGElement>, 'children'> & { size?: number }
+
+/**
+ * Chat: the one chat icon in the reader. The selection menu, the Explain card,
+ * the Librarian row, the margin tab, the phone bar and Contents all draw this
+ * glyph, so Chat always looks the same. Stroke sits on the root so a surface
+ * (the margin tab) can set its own weight from CSS.
+ */
+export const CHAT_ICON_PATHS = [
+  'M4.4 10.8c0-3.1 2.9-5.6 6.5-5.6s6.5 2.5 6.5 5.6-2.9 5.6-6.5 5.6c-.7 0-1.4-.1-2.1-.3L5 17.6l.5-2.8c-.7-1.1-1.1-2.5-1.1-4Z',
+  'M11.2 16.6c.6.2 1.3.4 2.1.4 3.6 0 6.5-2.2 6.5-5 0-1.1-.5-2.2-1.2-3',
+] as const
+
+export function ChatIcon({ size = 20, ...rest }: LabActionIconProps) {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M4.4 10.8c0-3.1 2.9-5.6 6.5-5.6s6.5 2.5 6.5 5.6-2.9 5.6-6.5 5.6c-.7 0-1.4-.1-2.1-.3L5 17.6l.5-2.8c-.7-1.1-1.1-2.5-1.1-4Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M11.2 16.6c.6.2 1.3.4 2.1.4 3.6 0 6.5-2.2 6.5-5 0-1.1-.5-2.2-1.2-3"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-icon="chat" {...rest}>
+      {CHAT_ICON_PATHS.map(d => <path key={d} d={d} />)}
+    </svg>
+  )
+}
+
+/** Highlight: the one highlighter icon, as Contents shows highlights. */
+export const HIGHLIGHT_ICON_PATHS = [
+  'm9 11-6 6v3h9l3-3',
+  'm22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4',
+] as const
+
+export function HighlightIcon({ size = 20, ...rest }: LabActionIconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" data-icon="highlight" {...rest}>
+      {HIGHLIGHT_ICON_PATHS.map(d => <path key={d} d={d} />)}
     </svg>
   )
 }

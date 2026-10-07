@@ -8,6 +8,7 @@ import { contentsExcerpt, contentsQuestion, contentsQuote, searchContents, type 
 import './labContentsV2.css'
 import type { LabFigure } from './labFigures'
 import { LabFigureThumb } from './LabFigure'
+import { ChatIcon, HighlightIcon } from './LabReaderIcons'
 
 import { contentsTree, flattenContents, contentsPercent, type ContentsNode } from './labContentsTree'
 
@@ -29,11 +30,11 @@ interface Props {
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
   onOpenPassage: (place: ContentsPlace) => void; onContinueConversation: (conversation: ChatConversation) => void
 }
-function Icon({ name }: { name: 'search' | 'next' | 'highlight' | 'chat' | 'close' }) {
+/** Chat and Highlight come from LabReaderIcons, the reader's one icon for each. */
+function Icon({ name }: { name: 'search' | 'next' | 'close' }) {
   const paths = {
     search: 'm21 21-4.34-4.34M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
-    next: 'm9 18 6-6-6-6', chat: 'M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z',
-    highlight: 'm9 11-6 6v3h9l3-3 M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4',
+    next: 'm9 18 6-6-6-6',
     close: 'm18 6-12 12M6 6l12 12',
   }
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>
@@ -193,8 +194,8 @@ export function LabContentsV2(props: Props) {
             {branch ? <Icon name="next" /> : percent != null && percent > 0 ? <ProgressPie percent={percent} /> : null}
           </button>
           {(cs.length > 0 || hs.length > 0) && <span className="tags">
-            {hs.length > 0 && <button aria-label={hs.length + ' highlights in ' + label} onClick={() => showOverlay('highlights', node.chapter!)}><Icon name="highlight" />{hs.length}</button>}
-            {cs.length > 0 && <button aria-label={cs.length + ' chats in ' + label} onClick={() => showOverlay('chats', node.chapter!)}><Icon name="chat" />{cs.length}</button>}
+            {hs.length > 0 && <button aria-label={hs.length + ' highlights in ' + label} onClick={() => showOverlay('highlights', node.chapter!)}><HighlightIcon size={16} />{hs.length}</button>}
+            {cs.length > 0 && <button aria-label={cs.length + ' chats in ' + label} onClick={() => showOverlay('chats', node.chapter!)}><ChatIcon size={16} />{cs.length}</button>}
           </span>}
         </div>
         {branch && unfolded && tree(node.children!, node)}
@@ -221,7 +222,7 @@ export function LabContentsV2(props: Props) {
     <div className="menu" role="dialog" aria-modal="true" aria-label="Contents and conversations" ref={panelRef} data-testid="lab-contents-v2">
       <header inert={view ? true : undefined}>
         <button className="title" aria-label={'Switch books, currently ' + title} onClick={props.onSwitchBook}>{title}</button>
-        <div className="actions"><button onClick={() => showOverlay('search')} aria-label="Search contents" disabled={!props.chaptersReady}><Icon name="search" /></button><button onClick={() => showOverlay('highlights')} aria-label="Highlights" disabled={!props.chaptersReady}><Icon name="highlight" /></button><button onClick={onClose} aria-label="Back to book"><Icon name="close" /></button></div>
+        <div className="actions"><button onClick={() => showOverlay('search')} aria-label="Search contents" disabled={!props.chaptersReady}><Icon name="search" /></button><button onClick={() => showOverlay('highlights')} aria-label="Highlights" disabled={!props.chaptersReady}><HighlightIcon size={16} /></button><button onClick={onClose} aria-label="Back to book"><Icon name="close" /></button></div>
       </header>
       {figures.length > 0 && <nav className="tabs" aria-label="Contents" inert={view ? true : undefined}>
         <button aria-pressed={tab === 'chapters'} data-testid="lab-contents-tab-chapters" onClick={() => setTab('chapters')}>Chapters</button>

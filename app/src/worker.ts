@@ -21,6 +21,7 @@ import { supabaseGet } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
 import { handleNarration } from './worker/routes/narration'
 import { handleOwnAudio, handleOwnEnsure } from './worker/routes/ownBookNarration'
+import { handleOwnCatchUp } from './worker/routes/ownCatchUp'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -333,6 +334,8 @@ export default {
     // Read-aloud of a reader's own book: separate routes, storage and budget (ownBookNarration.ts).
     if (url.pathname === '/api/narration/own/ensure') return handleOwnEnsure(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     if (url.pathname === '/api/narration/own/audio') return handleOwnAudio(request, env, Date.now())
+    // Catch me up on a reader's own book: one chapter per request, recap kept privately (ownCatchUp.ts).
+    if (url.pathname === '/api/own-catch-up') return handleOwnCatchUp(request, env, ctx, { verifyUser, checkRateLimit, reserveGuestSpend, allowsAi: allowsAi('catch_up') })
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     }

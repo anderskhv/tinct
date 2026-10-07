@@ -18,7 +18,7 @@ const FIX = join(HERE, 'fixtures');
 const PORT = 4721, BASE = `http://127.0.0.1:${PORT}/lab/addbook/`;
 // CHROMIUM_PATH picks a browser binary; otherwise the shared cloud install, else Playwright's own.
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
-const RIGHTS = "I have the right to add this file and to read and listen to it in Tinct. I'm responsible for what I upload and share (Terms §4).";
+const RIGHTS = "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).";
 const SESSION_KEY = 'sb-yazjyiqsxjystvpkyouk-auth-token';
 // An EPUB opens in the Tinct reader: /reader?userBook=<the first 24 hex digits of its SHA-256>.
 const READER_URL = /\/reader\?userBook=[0-9a-f]{24}$/;
@@ -587,6 +587,10 @@ try {
     await two.ctx.close();
 
   }
+
+  // ---- A commercially made EPUB's figures, in Chromium and WebKit: added, reloaded, reopened, on a second device ----
+  const { ownFigureChecks } = await import('./own-figures.mjs');
+  await ownFigureChecks({ base: BASE, check });
 } catch (e) {
   check('run completed', false, String(e?.stack || e).slice(0, 600));
 } finally {

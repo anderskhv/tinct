@@ -166,7 +166,7 @@ async function openAskAbout(page) {
   await page.locator('.selection-popup').waitFor()
   const more = page.getByRole('button', { name: 'More actions', exact: true })
   if (await more.isVisible()) await more.click()
-  await page.locator('.popup-menu-action', { hasText: /^Ask$/ }).click()
+  await page.locator('.popup-menu-action', { hasText: /^Chat$/ }).click()
   await page.getByTestId('lab-ask-pane').waitFor()
   await page.waitForTimeout(400)
 }

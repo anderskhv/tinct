@@ -90,6 +90,7 @@ import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { LabOwnCatchUpSheet } from './userBook/LabOwnCatchUpSheet'
 import { getLibraryMeta } from '../data/libraryTaxonomy'
 import { LabFigureCard } from './LabFigure'
 import { figureReadingText, type LabFigure } from './labFigures'
@@ -191,6 +192,7 @@ import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
+import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { writeUserBookPlace } from './userBook/userBookPlace'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
@@ -411,7 +413,7 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
 }
 
 /** Desktop commands that do not apply to a user book: one edition, no Talk or book switching; Listen only when own-book narration is on. */
-const USER_BOOK_HIDDEN_COMMANDS = new Set(['talk', 'listen', 'editions', 'original', 'modern', 'compare', 'books'])
+const USER_BOOK_HIDDEN_COMMANDS = new Set(['listen', 'editions', 'original', 'modern', 'compare', 'books'])
 
 /** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
 function userBookPrefs(prefs: LabPrefs, editionKey: string): LabPrefs {
@@ -1181,6 +1183,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (!signal.aborted) storeNarrationReplay(context, results)
     return results
   }, [authToken, privateBook])
+  /** The session for an own book's Catch me up (signed-in only, like its narration). */
+  const ownCatchUpToken = useCallback(async () => authToken !== undefined ? authToken : await readSupabaseAccessToken(), [authToken])
   const bookTransition = useMemo(() => narrationInfo?.provider === 'grok' && !privateBook
     ? bibleBookTransition(listenSource.bookId, listenSource.chapters, listenSource.chapterNumber) : null,
   [narrationInfo?.provider, privateBook, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
@@ -2956,18 +2960,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     const session = readerMediaSession()
     if (!session) return
     const title = book.bookTitle || 'Tinct'
-    const artwork = [{ src: new URL(`/covers/v2/${book.bookId || 'bible'}.webp`, window.location.href).href, sizes: '540x810', type: 'image/webp' }]
+    // A reader's own book has no cover: its id never goes into an artwork URL.
+    const artwork = privateBook ? [] : [{ src: new URL(`/covers/v2/${book.bookId || 'bible'}.webp`, window.location.href).href, sizes: '540x810', type: 'image/webp' }]
     try {
       session.metadata = readerMediaMetadata({ title: `Talking about ${title}`, artist: 'Tinct', album: title, artwork })
       session.playbackState = 'playing'
     } catch { /* unsupported */ }
     return () => {
       try {
-        session.metadata = readerMediaMetadata({ title: book.chapterTitle || title, artist: title, album: title, artwork })
+        session.metadata = readerMediaMetadata({ title: book.chapterTitle || title, artist: `${title} · ${LAB_COPY.aiNarration}`, album: title, artwork })
         session.playbackState = 'paused'
       } catch { /* unsupported */ }
     }
-  }, [callOpen, book.bookId, book.bookTitle, book.chapterTitle])
+  }, [callOpen, book.bookId, book.bookTitle, book.chapterTitle, privateBook])
   // Durable reading memory: a read-only observer of the rendered tuple. It
   // records sessions for the library recap and never touches position logic.
   useLabReadingMemory({
@@ -4144,8 +4149,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [ask])
 
   const handleTalk = useCallback(() => {
-    // Talk is not offered for a user book (its text would go to the voice provider).
-    if (privateBook) return
+    // A reader's own book too (2026-10-08): the session hears the passage on
+    // screen and the recent conversation, never the chapter (useLabAsk).
     setCallStartedAt(Date.now())
     dictation.stop()
     setTocOpen(false)
@@ -4161,7 +4166,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setCallParagraph(focusParagraph ?? placeRef.current.paragraphIndex)
     setCallOpen(true)
     startCallVoice()
-  }, [captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, startCallVoice, privateBook])
+  }, [captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, startCallVoice])
 
   // A move the conversation makes (a jump to a paragraph) moves the tint.
   useEffect(() => {
@@ -4542,8 +4547,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
     if (id === 'chat' || id === 'librarian') { handleChat(); return }
     if (privateBook) {
-      // Back to Add a book's Your books; Talk, Catch me up and editions are not offered.
-      if (id === 'summarize') openChapterNotes('end')
+      // Back to Add a book's Your books; one edition, so no editions layer.
+      // Catch me up builds its recap from this device's text, signed in only.
+      if (id === 'talk') handleTalk()
+      else if (id === 'catchup') { if (signedIn) setSuperSheet('catchup'); else setAccountPrompt({ action: 'chat' }) }
+      else if (id === 'summarize') openChapterNotes('end')
       else if (id === 'settings') setSuperSheet('reading')
       else if (id === 'account') setSuperSheet('account')
       else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(USER_BOOKS_SHELF_URL)
@@ -4560,7 +4568,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`)
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, openChapterNotes])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, openChapterNotes, signedIn])
 
   // Contents -> Introduction opens the book's introduction in the library.
   // The navigation waits for the commit that closes Contents: writes are
@@ -4659,7 +4667,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     const timer = window.setTimeout(() => setLibrarianSettled(true), 500)
     return () => window.clearTimeout(timer)
   }, [readerReady, librarianSettled])
-  const librarianTalk = !privateBook
+  // Talk is offered for every book, a reader's own included (2026-10-08).
+  const librarianTalk = true
   const librarianOffered = signedIn
   const desktopChatInFront = !showPhoneChrome && desktopAskOpen && !desktopChatMinimized
   const librarianTabVisible = librarianTabShown({
@@ -4752,7 +4761,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   return (
     <div
       ref={labRootRef}
-      lang={userBook ? (userBook.edition.language || 'en') : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
+      lang={userBook ? userBookLangAttribute(userBook.edition) : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen ? ' has-phone-ask' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
@@ -4947,7 +4956,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           privateBook={privateBook}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
-          librarianMode={librarianTabTapMode(prefs, !privateBook)}
+          librarianMode={librarianTabTapMode(prefs, librarianTalk)}
         />
       )}
       {!frontispieceVisible && (
@@ -4978,7 +4987,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <LabFigureCard figure={figureCard} onClose={() => setFigureCard(null)}
           onExplain={explainFigure} onAsk={askAboutFigure} />
       )}
-      {!frontispieceVisible && superSheet === 'catchup' && !book.chaptersProvisional && (
+      {!frontispieceVisible && superSheet === 'catchup' && userBook && (
+        // A reader's own book: one cumulative recap, built from this device's text a chapter at a time.
+        <LabOwnCatchUpSheet
+          bookHex={userBook.hex} bookTitle={book.bookTitle}
+          chapters={userBook.edition.chapters}
+          chapterNumber={book.chapterNumber} paragraphIndex={Math.max(0, placeRef.current.paragraphIndex)}
+          completed={finishedChapters.has(book.chapterNumber)}
+          readToken={ownCatchUpToken}
+          onClose={() => setSuperSheet(null)}
+          onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
+          onTopUp={() => setSuperSheet('account')}
+        />
+      )}
+      {!frontispieceVisible && superSheet === 'catchup' && !userBook && !book.chaptersProvisional && (
         // Read-only over the reader: it takes the place once, at open, and never writes one.
         <LabCatchUpSheet
           bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle}
@@ -5268,7 +5290,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             onDraftChange={(text) => { dictation.stop(); setDraft(text) }}
             onSubmit={(text) => { dictation.stop(); handleAsk(text) }}
             onMic={handleMic}
-            onVoiceMode={privateBook ? undefined : () => {
+            onVoiceMode={() => {
               dictation.stop()
               handleTalk()
             }}
@@ -5385,7 +5407,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
-            <span>{editionLabelFor(narrationOption || retainedBella ? prefs.primaryEdition : audioEditionKey, bookEditions)}</span>
+            {/* Every Tinct voice is synthetic: the dock says so beside the edition (AI Act art. 50). */}
+            <span data-testid="lab-audio-ai-label">{`${editionLabelFor(narrationOption || retainedBella ? prefs.primaryEdition : audioEditionKey, bookEditions)} · ${LAB_COPY.aiNarration}`}</span>
             <i
               role="slider"
               tabIndex={0}
@@ -5705,7 +5728,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             setAskAttachment({ bookId: book.bookId, text })
             setDraft('')
           }}
-          onTalkExplanation={privateBook ? undefined : (answer) => {
+          onTalkExplanation={(answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
             // Let the explanation enter the hook's context before starting voice.

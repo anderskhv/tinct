@@ -41,13 +41,15 @@ EU right of withdrawal: you normally have 14 days to withdraw. When you start us
 
 Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.
 
+If you add your own books, the AI features process their text on your instruction and only for you. Keep a lawful copy of any book you add.
+
 **Your profile.** You are solely responsible for the name, handle, picture and background on your profile. Don't pretend to be someone else, use other people's images or personal data, or choose anything hateful or sexual.
 
 A person at Tinct approves each picture and background you upload before other readers can see it. Moderation is done by people, not by automated decisions. We may decline a picture, or rename or hide a profile, that breaks these rules.
 
 You can block a reader, so that neither of you sees the other, and report a profile. See Reporting and removal.
 
-You agree to compensate Tinct for claims and reasonable costs that arise from your content or from your breach of these terms, as far as the law allows.
+You agree to compensate Tinct for losses caused by your breach of this section, as far as the law allows.
 
 ### Reporting and removal
 To report content you believe infringes your rights or is unlawful, write to contact@tinct.app, or use the report link in the app where available. We review each report and may remove or restrict the content. If we do, we tell the person who uploaded it why, and they can reply to object. People, not automated systems, review reports and make these decisions.

@@ -13,8 +13,15 @@ describe('labSuperMenuRows', () => {
     expect(labSuperMenuRows().map(row => row.id)).toEqual(desktop.map(row => row.id))
   })
 
-  it('offers Chat and Talk in one Librarian row, Chat only for a reader’s own book', () => {
+  it('offers Chat and Talk in one Librarian row, a reader’s own book included', () => {
     expect(labSuperMenuRows({ phone: true })[0]).toEqual({ id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] })
-    expect(labSuperMenuRows({ phone: true, privateBook: true })[0]).toEqual({ id: 'librarian', label: 'Librarian', modes: ['chat'] })
+    expect(labSuperMenuRows({ phone: true, privateBook: true })[0]).toEqual({ id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] })
+  })
+
+  it('gives a reader’s own book Catch me up but no editions, and Your books for Library', () => {
+    expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'settings', 'library', 'account'])
+    expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'settings', 'account'])
+    // Built-in books keep every row.
+    expect(labSuperMenuRows({ phone: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'library', 'account'])
   })
 })
