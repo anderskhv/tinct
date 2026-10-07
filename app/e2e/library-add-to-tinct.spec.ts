@@ -94,6 +94,22 @@ test.describe('library search', () => {
     expect(returnTo).toBe(`/library?add=${encodeURIComponent(work!)}`)
   })
 
+  test('"faust": Goethe and Marlowe, no Max Brand westerns, and not the Faust already in Tinct', async ({ page }) => {
+    await prepare(page, { internal: true, signedIn: false })
+    await search(page, 'faust')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    expect(await results.locator('.search-result span').allTextContents()).toContain('Faust, Part One')
+    const lines = await results.locator('.free-row .free-line').allTextContents()
+    expect(lines.length).toBeGreaterThan(0)
+    expect(lines.filter(line => /Max Brand/.test(line))).toEqual([])
+    expect(lines).toContain('The Tragical History of Doctor Faustus · Christopher Marlowe')
+    expect(lines.some(line => /^Faust\b.* · Johann Wolfgang von Goethe$/.test(line))).toBe(true)
+    // Tinct's own Faust, Part One (Bayard Taylor, Gutenberg 14591) is not offered again.
+    expect(lines.filter(line => /^Faust \[part 1\]\. Translated Into English in the Original Metres/.test(line) || /^Faust — Part 1 ·/.test(line))).toEqual([])
+    await shot(page, 'search-faust')
+  })
+
   test('internal flag off: the search is the library as before', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
     await search(page, 'austen')

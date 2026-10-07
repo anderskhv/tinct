@@ -110,6 +110,19 @@ describe('search grouping and dedupe', () => {
     expect(inTinct(work('pg:3', 'Moby Dick', 'Herman Melville'), tinctBooks)).toBe(true)
   })
 
+  it("leaves out Goethe's Faust, Part One: its Gutenberg source and the same title with the part as a numeral", () => {
+    const library = [{ id: 'faust-part-1', title: 'Faust, Part One', author: 'Johann Wolfgang von Goethe' }]
+    const goethe = 'Johann Wolfgang von Goethe'
+    expect(inTinct(work('pg:14591', 'Faust [part 1]. Translated Into English in the Original Metres', goethe), library)).toBe(true)
+    expect(inTinct(work('pg:3023', 'Faust — Part 1', goethe), library)).toBe(true)
+    expect(titleAuthorKey('Faust, Part One', goethe)).toBe(titleAuthorKey('Faust — Part 1', goethe))
+    expect(titleAuthorKey('Henry IV, Part Two', 'Shakespeare')).not.toBe(titleAuthorKey('Henry IV, Part 1', 'Shakespeare'))
+    // Other translations and Marlowe stay addable.
+    const free = [work('pg:14591', 'Faust [part 1]. Translated Into English in the Original Metres', goethe), work('pg:3023', 'Faust — Part 1', goethe),
+      work('pg:14460', 'Faust: a Tragedy [part 1], Translated from the German of Goethe', goethe), work('pg:779', 'The Tragical History of Doctor Faustus', 'Christopher Marlowe')]
+    expect(groupSearchResults({ tinct: [], free, tinctBooks: library }).notYet.map(w => w.id)).toEqual(['pg:14460', 'pg:779'])
+  })
+
   it('adds added books to the library catalogue on their shelves, creating a shelf the registry leaves empty', () => {
     const catalogue = { books: [{ id: 'odyssey' }], houses: [{ id: 'novel', title: 'Fiction', subtitle: '', hue: 25, shelves: [{ id: 'english-novels', title: 'E', subtitle: '', hue: 1, bookIds: ['jane-eyre'] }] }] }
     const merged = mergePublicBooks(catalogue, [
@@ -132,7 +145,9 @@ describe('library search panel with the flag', () => {
     constructor(public url: string) { FakeWorker.last = this }
     static last: FakeWorker | null = null
     static results: CatalogueWork[] = []
-    postMessage(message: { type: string; request?: number }) {
+    static searches: Array<{ query: string; filters: unknown; limit: number }> = []
+    postMessage(message: { type: string; request?: number; query?: string; filters?: unknown; limit?: number }) {
+      if (message.type === 'search') FakeWorker.searches.push({ query: message.query!, filters: message.filters, limit: message.limit! })
       queueMicrotask(() => {
         if (message.type === 'load') this.onmessage?.({ data: { type: 'ready', total: 3, sources: 1 } })
         if (message.type === 'search') this.onmessage?.({ data: { type: 'results', request: message.request, total: FakeWorker.results.length, results: FakeWorker.results } })
@@ -169,6 +184,22 @@ describe('library search panel with the flag', () => {
     expect(file.querySelector('p')?.textContent).toBe('Have it as a file?')
     expect(file.querySelector('a')?.getAttribute('href')).toBe('/lab/addbook/')
     expect(file.querySelector('a')?.textContent).toBe('Add a PDF or EPUB')
+  })
+
+  it('asks the catalogue for the language books can be added in, or the one the reader chose', async () => {
+    const results = FakeWorker.results // the page's one worker keeps answering later tests with these
+    FakeWorker.results = []
+    FakeWorker.searches = []
+    const box = document.createElement('div')
+    document.body.append(box)
+    addToTinct.renderSearchGroups(box, { query: 'faust', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null })
+    await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('0'))
+    expect(FakeWorker.searches).toEqual([{ query: 'faust', filters: { language: 'en' }, limit: 40 }])
+    await addToTinct.searchFree('faust', 40, { language: 'de' })
+    await addToTinct.searchFree('faust')
+    expect(FakeWorker.searches.slice(1).map(s => s.filters)).toEqual([{ language: 'de' }, {}])
+    box.remove()
+    FakeWorker.results = results
   })
 
   it('shows only the library and the file box for an empty query', () => {

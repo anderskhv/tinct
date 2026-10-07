@@ -11,7 +11,6 @@ const tokens = value => normalize(value).split(' ').filter(Boolean);
 // Exact-title ranking ignores a leading article in any catalogue language ("The Odyssey" = "Odyssey").
 const ARTICLE = /^(the|a|an|le|la|les|l|un|une|der|die|das|ein|eine|el|los|las|il|lo|gli|o|os|as|de|het|een|den|det|en|et|ett) /;
 const core = value => value.replace(ARTICLE, '');
-const personText = p => [p.name, ...(p.aliases || [])].join(' ');
 export function near(a, b, limit = 1) {
   if (Math.abs(a.length - b.length) > limit) return false;
   // Bounded Damerau-Levenshtein, including an adjacent transposition.
@@ -42,47 +41,92 @@ export function hydrate(works) {
   }
   return works;
 }
+// Ranking (Anders, 2026-10-07): tiers first, then popularity within a tier.
+//   1  the title starts with the query, or a title word is a query word; and, when the query
+//      is an author's name ("dostoevsky", "jane austen", see authorQuery), that author's books
+//   2  a title word starts with a query word ("faust" -> "Faustus")   2.5 a title word is a near spelling
+//   3  the author's own name has the word, or a word starting with it   3.5 a near spelling
+//   4  a translator, the subtitle, a subject or a bookshelf             4.5 a near spelling
+//   5  only another name of an author or translator ("Faust, Frederick Schiller" for Max Brand).
+//      Counted only when that one name holds at least two of a query's words ("frederick faust"):
+//      a single word found only there is dropped, so "faust" does not list Max Brand's westerns.
+// Every query word must be found somewhere; a work's tier is that of its best-placed word.
+// Within a tier: English first when no language is chosen, then a score of popularity plus
+// the share of the query's words the title holds and a bonus when a title is exactly the query
+// (an author's own book, for their name, counts as both),
+// so "meditations marcus" puts Meditations by Marcus Aurelius above small editions titled "Marcus Aurelius".
+const TITLE = 1, AUTHOR = 2, OTHER = 3;
+// [exact word, word starting with it, near spelling] for each field.
+const TIER = {[TITLE]: [1, 2, 2.5], [AUTHOR]: [3, 3, 3.5], [OTHER]: [4, 4, 4.5]};
+const EXACT = 0, PREFIX = 1, NEAR = 2;
+const TITLE_COVER = [1, 0.75, 0.6];
+const ALIAS_TIER = 5, INDEX_TIER = 4.9;
+// A title that is exactly the query ("La divina commedia") outweighs a 10,000-fold popularity gap.
+const EXACT_TITLE = 4;
 export function createSearch(works) {
   const inverted = new Map(), vocabByLength = new Map();
-  const docs = works.map((w, id) => {
-    const fields = [[...w.editions.map(e => e.title), ...(w.altTitles || [])].join(' '),
-      w.editions.flatMap(e => e.authors).map(personText).join(' '),
-      w.editions.flatMap(e => e.translators).map(personText).join(' '),
-      [w.subtitle || '', ...w.subjects, ...w.bookshelves].join(' ')].map(tokens);
-    const weights = new Map();
-    fields.forEach((field, f) => field.forEach(t => weights.set(t, Math.max(weights.get(t) || 0, [12, 10, 7, 2][f]))));
-    for (const token of weights.keys()) {
-      if (!inverted.has(token)) {
-        inverted.set(token, []);
-        if (!vocabByLength.has(token.length)) vocabByLength.set(token.length, []);
-        vocabByLength.get(token.length).push(token);
-      }
-      inverted.get(token).push(id);
+  const add = (token, id) => {
+    let ids = inverted.get(token);
+    if (!ids) {
+      inverted.set(token, ids = []);
+      if (!vocabByLength.has(token.length)) vocabByLength.set(token.length, []);
+      vocabByLength.get(token.length).push(token);
     }
-    return {weights, title: core(normalize(w.title)), author: new Set(fields[1]), titleTerms: new Set(tokens(w.title).filter(t => !STOP.has(t)))};
+    ids.push(id);
+  };
+  const people = w => [...w.editions.flatMap(e => e.authors), ...w.editions.flatMap(e => e.translators)];
+  const docs = works.map((w, id) => {
+    // Each word with the best field it appears in.
+    const field = new Map();
+    const put = (text, f) => { for (const t of tokens(text || '')) if (!(field.get(t) <= f)) field.set(t, f); };
+    const titles = [w.title, ...w.editions.map(e => e.title), ...(w.altTitles || [])];
+    titles.forEach(t => put(t, TITLE));
+    const authors = w.editions.flatMap(e => e.authors);
+    authors.forEach(p => put(p.name, AUTHOR));
+    w.editions.flatMap(e => e.translators).forEach(p => put(p.name, OTHER));
+    [w.subtitle, ...w.subjects, ...w.bookshelves].forEach(t => put(t, OTHER));
+    for (const t of field.keys()) add(t, id);
+    // Other names are indexed so a multi-word query can find them; their words rank only as tier 5.
+    const aliasWords = new Set();
+    for (const p of people(w)) for (const a of p.aliases || []) for (const t of tokens(a)) if (!field.has(t)) aliasWords.add(t);
+    for (const t of aliasWords) add(t, id);
+    const title = core(normalize(w.title));
+    return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(normalize(t))))],
+      author: new Set(authors.flatMap(p => tokens(p.name))), index: /^index of (the )?project gutenberg/.test(title)};
   });
   const expansionCache = new Map();
   function expand(term) {
     if (expansionCache.has(term)) return expansionCache.get(term);
     const matches = new Map();
-    if (inverted.has(term)) matches.set(term, 1);
+    if (inverted.has(term)) matches.set(term, EXACT);
     const limit = term.length >= 7 ? 2 : 1;
     // Prefixes allow incremental typing. Never turn short words into fuzzy noise.
     for (let length = term.length; length <= term.length + 8; length++) {
       for (const word of vocabByLength.get(length) || []) {
-        if (term.length >= 3 && word !== term && word.startsWith(term)) matches.set(word, 0.74);
+        if (term.length >= 3 && word !== term && word.startsWith(term)) matches.set(word, PREFIX);
       }
     }
     if (term.length >= 4) {
       for (let length = term.length - limit; length <= term.length + limit; length++) {
         for (const word of vocabByLength.get(length) || []) {
-          if (!matches.has(word) && near(term, word, limit)) matches.set(word, 0.58);
+          if (!matches.has(word) && near(term, word, limit)) matches.set(word, NEAR);
         }
       }
     }
     if (expansionCache.size > 150) expansionCache.clear();
     expansionCache.set(term, matches);
     return matches;
+  }
+  // Tier 5: one other name of the work's people that holds at least two query words,
+  // including every word `missing` (found nowhere else). Infinity when there is none.
+  function aliasTier(w, expansions, missing) {
+    if (expansions.length < 2) return Infinity;
+    for (const p of people(w)) for (const a of p.aliases || []) {
+      const words = new Set(tokens(a));
+      const holds = expansions.map(expansion => [...expansion.keys()].some(t => words.has(t)));
+      if (holds.filter(Boolean).length >= 2 && missing.every(i => holds[i])) return ALIAS_TIER;
+    }
+    return Infinity;
   }
   return function search(query, filters = {}, limit = 24) {
     const started = performance.now();
@@ -91,6 +135,7 @@ export function createSearch(works) {
     const meaningful = allTokens.filter(t => !STOP.has(t));
     const terms = meaningful.length ? meaningful : allTokens;
     const expansions = terms.map(expand);
+    const preferEnglish = !filters.language;
     let candidates;
     if (terms.length) {
       const sets = expansions.map(expansion => {
@@ -107,23 +152,45 @@ export function createSearch(works) {
       if (filters.standardOnly && w.quality !== 'clean') continue;
       if (filters.source && !w.editions.some(e => e.source === filters.source)) continue;
       if (filters.subject && ![...w.subjects, ...w.bookshelves].includes(filters.subject)) continue;
-      let score = 0;
       const doc = docs[id];
-      for (const expansion of expansions) {
-        let best = 0;
-        for (const [token, factor] of expansion) best = Math.max(best, (doc.weights.get(token) || 0) * factor);
-        score += best;
+      let tier = terms.length ? Infinity : 1, cover = 0;
+      const missing = [];
+      expansions.forEach((expansion, i) => {
+        let best = Infinity, inTitle = 0;
+        for (const [token, kind] of expansion) {
+          const f = doc.field.get(token);
+          if (!f) continue;
+          best = Math.min(best, TIER[f][kind]);
+          if (f === TITLE) inTitle = Math.max(inTitle, TITLE_COVER[kind]);
+        }
+        if (best === Infinity) missing.push(i);
+        tier = Math.min(tier, best);
+        cover += inTitle;
+      });
+      if (missing.length) {
+        const alias = aliasTier(w, expansions, missing);
+        if (alias === Infinity) continue;
+        tier = Math.min(tier, alias);
       }
-      if (terms.length && terms.every(t => doc.author.has(t))) score += 55;
-      if (terms.length) score += 15 * terms.filter(t => doc.titleTerms.has(t)).length / Math.max(1, doc.titleTerms.size);
-      if (/^index of (the )?project gutenberg/.test(doc.title)) score -= 45;
-      if (normalized && doc.title === normalized) score += 30;
-      else if (normalized && doc.title.includes(normalized)) score += 15;
-      // Popularity is bounded so an unrelated popular subject match cannot win.
-      score += Math.log10(1 + w.popularity) * 1.4 + (w.quality === 'clean' ? 0.4 : 0);
-      ranked.push({id, score});
+      const exact = !!normalized && doc.titles.includes(normalized);
+      if (exact || (normalized && doc.titles.some(t => t.startsWith(normalized + ' ')))) tier = 1;
+      const byAuthor = terms.length > 0 && terms.every(t => doc.author.has(t));
+      ranked.push({id, tier, cover, exact, byAuthor, index: doc.index});
     }
-    ranked.sort((a, b) => b.score - a.score || works[a.id].title.localeCompare(works[b.id].title) || works[a.id].id.localeCompare(works[b.id].id));
+    // The query is an author's name when more matching works carry it as their author's own
+    // name than as a title ("dostoevsky", "jane austen"; not "faust"): then the author's books
+    // rank with the title matches, as if their titles were the query.
+    const titled = ranked.filter(r => r.tier === 1 && !r.byAuthor).length;
+    const authorQuery = ranked.filter(r => r.byAuthor).length > titled;
+    for (const r of ranked) {
+      if (authorQuery && r.byAuthor) { r.tier = 1; r.cover = terms.length; r.exact = true; }
+      if (r.index) r.tier = Math.max(r.tier, INDEX_TIER);
+      const w = works[r.id];
+      r.english = preferEnglish && w.language.includes('en') ? 1 : 0;
+      r.score = 3 * r.cover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : 0) + Math.log10(1 + w.popularity) + (w.quality === 'clean' ? 0.4 : 0);
+    }
+    ranked.sort((a, b) => a.tier - b.tier || b.english - a.english || b.score - a.score
+      || works[a.id].title.localeCompare(works[b.id].title) || works[a.id].id.localeCompare(works[b.id].id));
     return {total: ranked.length, results: ranked.slice(0, limit).map(({id}) => works[id]), elapsedMs: Math.round((performance.now() - started) * 10) / 10};
   };
 }
