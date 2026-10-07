@@ -77,6 +77,7 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
     ...(typeof src.highlightedText === 'string' && src.highlightedText ? { highlightedText: src.highlightedText.slice(0, MAX_CONTENT) } : {}),
     ...(src.isComplete === false ? { isComplete: false } : src.isComplete === true ? { isComplete: true } : {}),
     ...(source ? { source } : {}),
+    ...(src.shownExplanation === true ? { shownExplanation: true } : {}),
   }
 }
 
@@ -213,6 +214,7 @@ export function turnsFromConversations(conversations: ChatConversation[]): LabAs
     paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
     highlightedText: message.highlightedText,
     cancelled: message.isComplete === false,
+    ...(message.shownExplanation ? { shownExplanation: true } : {}),
   })))
 }
 

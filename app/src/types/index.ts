@@ -167,6 +167,8 @@ export interface ChatMessage {
   isComplete?: boolean
   /** Spoken turns from the audiobook voice session */
   source?: 'text' | 'voice'
+  /** Lab: a quick-model explanation kept in the chat (and its prompt line); sent to the companion as unverified context. */
+  shownExplanation?: boolean
 }
 
 /** A group of chat messages from a single session/chapter */

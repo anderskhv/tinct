@@ -68,6 +68,34 @@ describe('structured companion requests', () => {
     expect(ask).toContain('[1] Paragraph text 1.')
     expect(ask).toContain('[40] Paragraph text 40.')
   })
+
+  it('frames explanations the reader was shown as unverified, to be corrected gently; bounded, ask only', () => {
+    const shownExplanations = [
+      { passage: 'Athena spoke.', text: 'Athena is the goddess of the sea.' },
+      { text: 'x'.repeat(9_000), passage: 'p'.repeat(5_000) },
+      { text: '' }, 'junk', null,
+      { passage: 'Tell me, O muse', text: 'An invocation.' },
+      { passage: 'Newest', text: 'The newest explanation.' },
+    ]
+    const parsed = parseCompanionRequest({ intent: 'ask', context, shownExplanations })!
+    expect(parsed.shownExplanations).toHaveLength(3)
+    expect(parsed.shownExplanations![0].text).toHaveLength(4_000)
+    expect(parsed.shownExplanations![0].passage).toHaveLength(1_200)
+    expect(parsed.shownExplanations!.at(-1)).toEqual({ passage: 'Newest', text: 'The newest explanation.' })
+    const system = buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context, shownExplanations: shownExplanations.slice(0, 1) })!)
+    expect(system).toContain('[Explanations the reader was shown: unverified')
+    expect(system).toContain('Passage: "Athena spoke."\nExplanation shown: Athena is the goddess of the sea.')
+    expect(system).toMatch(/not your earlier answers\. Treat them as unverified\. Build on what is right in them\./)
+    expect(system).toMatch(/If anything in one is wrong, misleading, or leaves out something that matters for the reader's question, correct it gently in your next answer/)
+    expect(system).toContain('"One nuance to add to that short explanation: …"')
+    expect(system).toMatch(/Never contradict it silently and never ignore an error in it\./)
+    // Before the chapter, so the chapter trim keeps the whole prompt under the cap.
+    expect(system.indexOf('Explanation shown:')).toBeLessThan(system.indexOf('Full current chapter'))
+    // Without it, the prompt is exactly what it was.
+    expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context, shownExplanations: [] })!)).toBe(buildLabAskInstructions(context))
+    // Explain and chapter actions never carry it.
+    expect(parseCompanionRequest({ intent: 'explain', context, selection: 'Athena', shownExplanations })).not.toHaveProperty('shownExplanations')
+  })
 })
 
 describe('signed-out companion route', () => {

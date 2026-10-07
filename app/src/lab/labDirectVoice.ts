@@ -12,6 +12,9 @@ export const BOOK_PASSAGE_TOOL = {
   }, additionalProperties: false },
 } as const
 
+/** How Talk's reference describes a kept explanation. Descriptive data: Talk's instructions stay in grokConfig.ts. */
+export const SHOWN_EXPLANATION_LABEL = 'Brief explanation the reader was shown, written by a quicker model. Unverified: not your earlier answer, and it may need a gentle correction.'
+
 /**
  * Reference material for Talk: the reader's position, the passage around it and
  * the latest conversation (including an Explain quote and its explanation).
@@ -19,19 +22,28 @@ export const BOOK_PASSAGE_TOOL = {
  */
 export function buildLabTalkReference(
   context: LabAskContext,
-  turns: Array<{ role: string; content: string; highlightedText?: string; cancelled?: boolean }>,
+  turns: Array<{ role: string; content: string; highlightedText?: string; cancelled?: boolean; shownExplanation?: boolean }>,
 ): string {
   const index = Math.max(0, Math.min(context.paragraphIndex, Math.max(0, context.paragraphs.length - 1)))
   const from = Math.max(0, index - 1)
   const excerpt = context.paragraphs.slice(from, index + 2).map((text, i) => ({ paragraphIndex: from + i, text: text.slice(0, 1200) }))
+  // A kept quick-model explanation is labelled as what it is, as in typed
+  // chat: something the reader was shown, unverified, not the companion's turn.
   const recentConversation = turns
     .filter(turn => !turn.cancelled && turn.content.trim())
     .slice(-4)
-    .map(turn => ({
-      role: turn.role,
-      ...(turn.highlightedText ? { quote: turn.highlightedText.slice(0, 1200) } : {}),
-      content: turn.content.replace(/\s+/g, ' ').trim().slice(0, 1200),
-    }))
+    .flatMap((turn, index, list) => {
+      if (turn.shownExplanation && turn.role === 'user') return []
+      const quote = turn.shownExplanation
+        ? (list[index - 1]?.shownExplanation && list[index - 1]?.role === 'user' ? list[index - 1].highlightedText : undefined)
+        : turn.highlightedText
+      return [{
+        role: turn.shownExplanation ? 'shown_explanation' : turn.role,
+        ...(turn.shownExplanation ? { about: SHOWN_EXPLANATION_LABEL } : {}),
+        ...(quote ? { quote: quote.slice(0, 1200) } : {}),
+        content: turn.content.replace(/\s+/g, ' ').trim().slice(0, 1200),
+      }]
+    })
   return JSON.stringify({
     book: context.bookTitle,
     author: context.bookAuthor,

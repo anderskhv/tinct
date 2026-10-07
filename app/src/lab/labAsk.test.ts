@@ -499,3 +499,23 @@ describe('typedTextAsksToMove', () => {
   })
 })
 
+describe('separateShownExplanations', () => {
+  it('moves kept explanations out of the conversation with their passages; other turns keep their order', async () => {
+    const { separateShownExplanations } = await import('./labAsk')
+    const turns = [
+      { role: 'user' as const, content: 'Who is Kedar?' },
+      { role: 'assistant' as const, content: 'A tribe.' },
+      { role: 'user' as const, content: 'Explain this passage.', highlightedText: ' Of Kedar ', shownExplanation: true },
+      { role: 'assistant' as const, content: ' A quick note. ', shownExplanation: true },
+      { role: 'assistant' as const, content: 'Orphan explanation.', shownExplanation: true },
+      { role: 'assistant' as const, content: 'Cut off.', shownExplanation: true, cancelled: true },
+      { role: 'user' as const, content: 'And Hazor?' },
+    ]
+    expect(separateShownExplanations(turns)).toEqual({
+      turns: [turns[0], turns[1], turns[6]],
+      shown: [{ passage: 'Of Kedar', text: 'A quick note.' }, { text: 'Orphan explanation.' }],
+    })
+    expect(separateShownExplanations([turns[0], turns[1]])).toEqual({ turns: [turns[0], turns[1]], shown: [] })
+  })
+})
+

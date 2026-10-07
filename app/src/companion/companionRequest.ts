@@ -10,7 +10,7 @@ import { COMPANION_EFFORT_TYPED, COMPANION_EFFORT_VOICE, type CompanionEffort } 
 import { libraryAssistantSystem, type LibraryCatalogue, type LibraryShelf } from '../lab/libraryLibrarian'
 import type { ChapterChatAction } from '../types'
 import { buildChapterChatInstructions, parseChapterChatAction } from './chapterChatPrompt'
-import { buildLabAskInstructions, type LabAskContext } from './labAskPrompt'
+import { buildLabAskInstructions, type LabAskContext, type ShownExplanation } from './labAskPrompt'
 
 export type CompanionIntent = 'ask' | 'explain' | 'define' | 'chapter' | 'library'
 
@@ -28,6 +28,8 @@ export interface CompanionRequest {
   }
   /** Library librarian: the book whose preparation pages are open, if any. */
   library?: { contextBookId?: string | null; shelf?: LibraryShelf | null }
+  /** Ask only: quick-model explanations the reader was shown, framed as unverified context. */
+  shownExplanations?: ShownExplanation[]
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -140,6 +142,24 @@ function parseContext(raw: unknown): LabAskContext | null {
   }
 }
 
+const SHOWN_EXPLANATIONS = 3
+const SHOWN_PASSAGE_CHARS = 1_200
+const SHOWN_TEXT_CHARS = 4_000
+
+/** The newest few, bounded; malformed entries are dropped, never an error. */
+function parseShownExplanations(value: unknown): ShownExplanation[] | undefined {
+  if (!Array.isArray(value)) return undefined
+  const items = value.flatMap(entry => {
+    if (!entry || typeof entry !== 'object') return []
+    const e = entry as Record<string, unknown>
+    const body = text(e.text, SHOWN_TEXT_CHARS)
+    if (!body) return []
+    const passage = text(e.passage, SHOWN_PASSAGE_CHARS)
+    return [{ ...(passage ? { passage } : {}), text: body }]
+  }).slice(-SHOWN_EXPLANATIONS)
+  return items.length ? items : undefined
+}
+
 function stringItems(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string').slice(-ACTIVITY_ITEMS) : []
 }
@@ -188,7 +208,8 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     const activity = rawActivity ? { questions: stringItems(rawActivity.questions), highlights: stringItems(rawActivity.highlights) } : undefined
     return { intent, context, chapter: { action, ...(target ? { target } : {}), ...(activity ? { activity } : {}) } }
   }
-  return { intent, context }
+  const shownExplanations = parseShownExplanations(r.shownExplanations)
+  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}) }
 }
 
 /** The system prompt for a parsed request. `catalogue` is required for `library`. */
@@ -206,7 +227,7 @@ export function buildCompanionSystem(request: CompanionRequest, extras: { catalo
     case 'define':
       return buildLabAskInstructions(request.context!, { nearby: COMPANION_NEARBY_PARAGRAPHS })
     default:
-      return buildLabAskInstructions(request.context!)
+      return buildLabAskInstructions(request.context!, { shownExplanations: request.shownExplanations })
   }
 }
 

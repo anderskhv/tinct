@@ -405,3 +405,15 @@ describe('chat refresh races', () => {
     expect(cloud.commit).not.toHaveBeenCalled()
   })
 })
+
+describe('shown explanation flag', () => {
+  afterEach(() => localStorage.clear())
+  it('is stored with the turn and read back; anything but true is dropped', () => {
+    appendLabChatTurn('bible', { id: 'e1', role: 'user', content: 'Explain this passage.', highlightedText: 'In the beginning', timestamp: 1_000, shownExplanation: true }, 1)
+    appendLabChatTurn('bible', { id: 'e2', role: 'assistant', content: 'A quick note.', timestamp: 1_001, shownExplanation: true }, 1)
+    appendLabChatTurn('bible', { id: 'q1', role: 'user', content: 'Why?', timestamp: 1_002, shownExplanation: 'yes' as unknown as boolean }, 1)
+    const stored = readLabBookChat('bible')
+    expect(stored.flatMap(conversation => conversation.messages).map(message => [message.id, message.shownExplanation])).toEqual([['e1', true], ['e2', true], ['q1', undefined]])
+    expect(turnsFromConversations(stored).map(turn => turn.shownExplanation)).toEqual([true, true, undefined])
+  })
+})
