@@ -856,8 +856,13 @@ function toast(text) {
   clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true }, 4000);
 }
 
+/* The reader's one Chat and one Highlight icon, the same glyphs as
+   src/lab/LabReaderIcons.tsx (ChatIcon, HighlightIcon). */
+const CHAT_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="chat"><path d="M4.4 10.8c0-3.1 2.9-5.6 6.5-5.6s6.5 2.5 6.5 5.6-2.9 5.6-6.5 5.6c-.7 0-1.4-.1-2.1-.3L5 17.6l.5-2.8c-.7-1.1-1.1-2.5-1.1-4Z"></path><path d="M11.2 16.6c.6.2 1.3.4 2.1.4 3.6 0 6.5-2.2 6.5-5 0-1.1-.5-2.2-1.2-3"></path></svg>';
+const HIGHLIGHT_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="highlight"><path d="m9 11-6 6v3h9l3-3"></path><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"></path></svg>';
+
 const ICON = {
-  chat: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5A1.5 1.5 0 0 1 19 17H11l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 5 5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>',
+  chat: CHAT_SVG,
   talk: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="4.2" y="9" width="2.6" height="6" rx="1.1"></rect><rect x="10.7" y="5" width="2.6" height="14" rx="1.1"></rect><rect x="17.2" y="8" width="2.6" height="8" rx="1.1"></rect></svg>',
   summarize: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M3 6h.1M3 12h.1M3 18h.1"></path></svg>',
   catchup: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6.6v3M6 12.6v3.2"></path><circle cx="6" cy="5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="6" cy="11" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="6" cy="18" r="2.2"></circle><path d="M11 5h9M11 11h9M11 18h5"></path></svg>',
@@ -1336,7 +1341,7 @@ async function contextText(from, to, budget) {
 }
 const bookLine = () => `The reader is reading their own copy of ${isEpub() ? 'an EPUB' : 'a PDF'} titled "${state.title}"${state.author ? ' by ' + state.author : ''}. They have confirmed they are entitled to use it.`;
 
-/* ---------- Selection: Explain / Ask / Copy ---------- */
+/* ---------- Selection: Explain / Chat / Copy ---------- */
 let sel = null;
 function selectionInfo() {
   const s = getSelection();
@@ -1382,8 +1387,8 @@ function showSelection(existing) {
   pop.dataset.popupMode = 'main';
   pop.innerHTML = `${existing ? paletteHtml(highlights().find(x => x.id === existing.id)?.color || 'gold') : ''}<div class="popup-compact-menu">
     <button type="button" class="popup-menu-action" data-a="explain" data-dock="1"><span class="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-    <button type="button" class="popup-menu-action" data-a="ask"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3h11v7.5H8L5 13v-2.5H2.5z"></path></svg><span>Ask</span></button>
-    ${existing ? '<button type="button" class="popup-menu-action" data-a="unhighlight"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><path d="m5 5 6 6M11 5l-6 6"></path></svg><span>Remove highlight</span></button>' : '<button type="button" class="popup-menu-action" data-a="highlight"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><line x1="5" y1="5" x2="11" y2="5"></line><line x1="5" y1="8" x2="11" y2="8"></line><line x1="5" y1="11" x2="8" y2="11"></line></svg><span>Highlight</span></button>'}
+    <button type="button" class="popup-menu-action" data-a="ask">${CHAT_SVG}<span>Chat</span></button>
+    ${existing ?'<button type="button" class="popup-menu-action" data-a="unhighlight"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><path d="m5 5 6 6M11 5l-6 6"></path></svg><span>Remove highlight</span></button>' : '<button type="button" class="popup-menu-action" data-a="highlight">' + HIGHLIGHT_SVG + '<span>Highlight</span></button>'}
     <button type="button" class="popup-menu-action" data-a="copy"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="9" height="9" rx="1"></rect><path d="M11 5V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2"></path></svg><span>Copy</span></button></div>`;
   root.appendChild(pop);
   placePopup(pop, sel.box, 220);
@@ -1636,8 +1641,8 @@ async function copyImage(item) {
   toast('Copying images is not allowed in this browser, so the image was saved as a file instead.');
 }
 const ACT = {
-  ask: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3h11v7.5H8L5 13v-2.5H2.5z"></path></svg>',
-  highlight: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><line x1="5" y1="5" x2="11" y2="5"></line><line x1="5" y1="8" x2="11" y2="8"></line><line x1="5" y1="11" x2="8" y2="11"></line></svg>',
+  ask: CHAT_SVG,
+  highlight: HIGHLIGHT_SVG,
   copy: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="9" height="9" rx="1"></rect><path d="M11 5V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2"></path></svg>',
 };
 async function regionPopup(box, item) {
@@ -1648,7 +1653,7 @@ async function regionPopup(box, item) {
   const url = item.blob ? await blobToDataUrl(item.blob) : '';
   pop.innerHTML = `${url ? `<div class="byob-snip-thumb"><img src="${url}" alt="The captured area"><span>${KIND[item.kind] || 'Snip'} · p. ${item.page}</span></div>` : ''}<div class="popup-compact-menu">
     <button type="button" class="popup-menu-action" data-a="explain"><span class="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-    <button type="button" class="popup-menu-action" data-a="ask">${ACT.ask}<span>Ask</span></button>
+    <button type="button" class="popup-menu-action" data-a="ask">${ACT.ask}<span>Chat</span></button>
     <button type="button" class="popup-menu-action" data-a="highlight">${ACT.highlight}<span>Highlight</span></button>
     <button type="button" class="popup-menu-action" data-a="copy">${ACT.copy}<span>Copy image</span></button></div>`;
   root.appendChild(pop); placePopup(pop, box, 230); pop.addEventListener('mousedown', e => e.preventDefault());
@@ -1714,7 +1719,7 @@ function showHot(reg, sticky) {
   Object.assign(el.style, { left: reg.f.x * 100 + '%', top: reg.f.y * 100 + '%', width: reg.f.w * 100 + '%', height: reg.f.h * 100 + '%' });
   el.innerHTML = `<div class="byob-hot-chip" role="toolbar" aria-label="${KIND[reg.kind]} actions">
     <button type="button" data-a="explain" title="Explain this ${reg.kind} in chat"><span class="byob-hot-sym" aria-hidden="true">✧</span>Explain</button>
-    <button type="button" data-a="ask" title="Ask a question about this ${reg.kind}">${ACT.ask}Ask</button>
+    <button type="button" data-a="ask" title="Chat about this ${reg.kind}">${ACT.ask}Chat</button>
     <button type="button" data-a="highlight" title="Highlight this ${reg.kind}">${ACT.highlight}Highlight</button>
     <button type="button" data-a="copy" title="Copy this ${reg.kind} as an image">${ACT.copy}Copy</button></div>`;
   const chip = el.querySelector('.byob-hot-chip');
@@ -1854,7 +1859,7 @@ function openChat(opts = {}) {
   loadTurns();
   if (!chat.el) {
     const el = document.createElement('aside');
-    el.setAttribute('aria-label', 'Ask');
+    el.setAttribute('aria-label', 'Chat');
     el.innerHTML = `<div class="lab-desktop-companion-head"><strong id="chatTitle">Chat</strong><button type="button" aria-label="Minimize chat" data-min>−</button><button type="button" aria-label="Close chat" data-x>×</button></div>
       <div class="lab-ask-thread" id="thread"></div>
       <p class="lab-ask-greeting" id="greeting">Ask about this page.</p>
@@ -2178,7 +2183,7 @@ async function seekChapter(frac) {
   jumpNarration(page, Math.floor((exact - page) * prep.sentences.length));
 }
 $('playBtn').onclick = togglePlay;
-// Clicking a saved highlight offers Explain, Ask, Remove highlight and Copy.
+// Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.
 document.addEventListener('click', e => {
   if (!getSelection().isCollapsed || narr.active || e.target.closest('.selection-popup, .lab-ask, .lab-header')) return;
   const h = highlightAt(e.clientX, e.clientY), open = document.querySelector('.selection-popup[data-popup-mode="highlight"]');

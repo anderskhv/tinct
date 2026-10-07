@@ -289,7 +289,7 @@ export class LabChatError extends Error {
     super(type === AI_RESTING_ERROR_TYPE
       ? LAB_COPY.aiResting
       : type === 'rate_limit_error'
-      ? 'Ask is busy. Please try again in a minute.'
+      ? 'Chat is busy. Please try again in a minute.'
       : type === 'overloaded_error'
         ? 'The answer service is busy. Please try again shortly.'
         : type === 'authentication_error' || type === 'permission_error'

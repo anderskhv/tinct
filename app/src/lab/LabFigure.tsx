@@ -58,7 +58,7 @@ const MAX_ZOOM = 5
 
 /**
  * The figure card: the image large (pinch or double-tap to zoom, drag when
- * zoomed), its caption, and Explain / Ask, in the Catch me up sheet. An
+ * zoomed), its caption, and Explain / Chat, in the Catch me up sheet. An
  * overlay only: opening and closing it never moves the reader.
  */
 export function LabFigureCard({ figure, onClose, onExplain, onAsk }: {
@@ -133,7 +133,7 @@ export function LabFigureCard({ figure, onClose, onExplain, onAsk }: {
         </div>
         {(onExplain || onAsk) && <div className="lab-catch-up-foot lab-figure-card-foot">
           {onExplain && <button type="button" className="lab-catch-up-discuss" data-testid="lab-figure-explain" onClick={() => onExplain(figure)}>✧ Explain</button>}
-          {onAsk && <button type="button" className="lab-catch-up-discuss" data-testid="lab-figure-ask" onClick={() => onAsk(figure)}>Ask</button>}
+          {onAsk && <button type="button" className="lab-catch-up-discuss" data-testid="lab-figure-ask" onClick={() => onAsk(figure)}>Chat</button>}
         </div>}
       </section>
     </div>

@@ -64,10 +64,10 @@ export const LAB_COPY = {
   voiceStartFailed: "Couldn't start voice. Type a question instead.",
   signInAsk: 'Sign in to ask about this page.',
   balanceEmpty: 'Your AI chat balance is empty. Top up to continue.',
-  askUnavailable: 'Ask is unavailable right now.',
+  askUnavailable: 'Chat is unavailable right now.',
   /** A daily ceiling or a provider limit was reached; reading is unaffected. */
   aiResting: 'AI is resting — try again later.',
-  offlineCast: 'You can read this introduction now. Ask needs a connection.',
+  offlineCast: 'You can read this introduction now. Chat needs a connection.',
   markAction: 'Keep this passage',
   labNote: 'Private lab for the new reading chrome.',
   accountEyebrow: 'Free account',

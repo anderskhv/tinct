@@ -10,6 +10,7 @@ import { DefinitionFallback } from './DefinitionFallback'
 import { useReaderWindow } from '../../lab/useReaderWindow'
 import { ContextualExplainCard } from './ContextualExplainCard'
 import { useReaderSelectionCopy } from './useReaderSelectionCopy'
+import { ChatIcon, HighlightIcon } from '../../lab/LabReaderIcons'
 
 export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery' | 'explain'
 
@@ -123,13 +124,6 @@ function MoreIcon() {
   )
 }
 
-function ChatIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 10a2 2 0 0 1-2 2H5l-3 3V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6z" />
-    </svg>
-  )
-}
 
 
 
@@ -516,17 +510,17 @@ export function SelectionPopup({
             <>
               {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
               <button type="button" className="popup-menu-action" onClick={openContextualExplanation}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-              <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
-              <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><NoteIcon /><span>Highlight</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
+              <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><HighlightIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
               {selection.existingHighlightId && onShareHighlight && <button type="button" className="popup-menu-action" data-testid="popup-share-highlight" onClick={() => onShareHighlight(selection.existingHighlightId!)}><ShareIcon /><span>Share</span></button>}
             </>
           ) : <>
           {selection.existingHighlightId ? <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Remove highlight</span></button>
-            : <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="m3 10 7-7 3 3-7 7H3zM2 15h12" /></svg><span>Highlight</span></button>}
+            : <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><HighlightIcon /><span>Highlight</span></button>}
           {(popupMode === 'colors' || selection.existingHighlightId) && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}</div>}
           <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
-          <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Ask</span></button>
+          <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
           <button type="button" className="popup-menu-action" onClick={() => requestNote()}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
           {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
           </>}
