@@ -2,15 +2,17 @@
  * GET /api/ai-allowance (signed-in): the reader's own usage bar.
  *
  * Switch off: `{ enabled: false }` and nothing is read, so the client shows
- * no bar. On: `{ enabled: true, usedFraction, state, resetsAt, hasTopUp }`.
- * Never a currency or an amount.
+ * no bar. On: `{ enabled: true, usedFraction, state, resetsAt, hasTopUp,
+ * topUps }`, where topUps names the top-ups checkout can sell now ($5 first,
+ * then $10 once its price is set). Never a currency or an amount.
  */
 import { createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { SupabaseEnv } from '../lib/supabase'
+import { availableTopUps, type BillingEnv } from './billing'
 
-export async function handleAiAllowance<E extends SupabaseEnv>(
+export async function handleAiAllowance<E extends SupabaseEnv & BillingEnv>(
   request: Request,
   env: E,
   verifyUser: (env: E, request: Request) => Promise<{ id: string } | null>,
@@ -23,13 +25,14 @@ export async function handleAiAllowance<E extends SupabaseEnv>(
   if (!gate.enforced) return noStore(jsonResponse({ enabled: false }, 200, request))
   const view = await gate.load(user.id)
   if (!view) return jsonResponse({ error: 'Usage unavailable' }, 503, request)
-  // Whitelisted copy: only these four fields ever leave the Worker.
+  // Whitelisted copy: only these fields ever leave the Worker.
   return noStore(jsonResponse({
     enabled: true,
     usedFraction: view.usedFraction,
     state: view.state,
     resetsAt: view.resetsAt,
     hasTopUp: view.hasTopUp,
+    topUps: availableTopUps(env),
   }, 200, request))
 }
 

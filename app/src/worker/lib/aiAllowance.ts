@@ -5,41 +5,58 @@
  * fraction used, a state and the reset time.
  *
  * Spend is the cost ledger (ai_usage_events, see aiUsage.ts) summed since the
- * period start, narration excluded. Top-up credit is drawn only by spend beyond
+ * period start, narration and dictation excluded. Top-up credit is drawn only by spend beyond
  * the period's allowance; the database settles that atomically
  * (ai_allowance_settle in app/supabase/migrations/20261005_ai_allowance.sql).
  *
  * At zero, the reader keeps reading and listening; only the paid AI features
  * stop. Explain and Define are never blocked, but their cost counts.
  */
+import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 import type { AiFeature } from './aiUsage'
 import { supabaseGet, supabaseRpc, type SupabaseEnv } from './supabase'
 
 /**
- * Master switch. Off: nothing is gated, nothing extra is read or written, and
- * the client shows no usage bar. Anders runs the migration
- * (20261005_ai_allowance.sql) before turning it on.
+ * Master switch, defined once in src/aiAllowanceSwitch.ts (shared with the
+ * reader bundle and the build scripts). Off: nothing is gated, nothing extra
+ * is read or written, and the client shows no usage bar. The migrations
+ * 20261005_ai_allowance.sql (run by Anders) and
+ * 20261007_ai_allowance_never_charged.sql must have run before it is turned on.
  */
-export const AI_ALLOWANCE_ENFORCED = false
+export { AI_ALLOWANCE_ENFORCED }
 
 /**
- * Monthly AI allowance for Premium and the trial, in US dollars of our real AI
- * cost ("at cost after VAT and Stripe" on the $5 plan).
- * AWAITS ANDERS'S CONFIRMATION of the amount.
+ * Monthly AI allowance for Premium (monthly and yearly plans) and the trial,
+ * in US dollars of our real AI cost. Approved by Anders, 2026-10-06.
  */
 export const PREMIUM_AI_ALLOWANCE_USD = 3.00
 
 /**
- * Top-up credit per chat-pack checkout type, in US dollars of AI cost.
- * Placeholders ≈ the pack price after VAT and Stripe fees.
- * AWAITS ANDERS'S CONFIRMATION of both amounts.
+ * The top-ups on sale: checkout type -> price and AI credit, in US dollars.
+ * Approved by Anders, 2026-10-06: the $5 pack gives $3.50, the $10 pack $7.50.
+ * `chat_pack_200` is the existing $5 Stripe price (STRIPE_PRICE_CHAT_200);
+ * `top_up_10` is the $10 price (STRIPE_PRICE_TOP_UP_10), offered only once
+ * that secret is set. The $3 `chat_pack_100` is no longer sold.
  */
-export const TOP_UP_CREDIT_USD: Readonly<Record<'chat_pack_100' | 'chat_pack_200', number>> = Object.freeze({
-  chat_pack_100: 2.10,
-  chat_pack_200: 3.50,
+export const TOP_UPS = Object.freeze({
+  chat_pack_200: Object.freeze({ priceCents: 500, creditUsd: 3.50 }),
+  top_up_10: Object.freeze({ priceCents: 1000, creditUsd: 7.50 }),
 })
 
-export type TopUpType = keyof typeof TOP_UP_CREDIT_USD
+export type TopUpType = keyof typeof TOP_UPS
+
+/** Top-ups in the order the usage bar offers them. */
+export const TOP_UP_TYPES: readonly TopUpType[] = Object.freeze(['chat_pack_200', 'top_up_10'] as const)
+
+/** Credit per checkout type, in US dollars of AI cost. */
+export const TOP_UP_CREDIT_USD: Readonly<Record<TopUpType, number>> = Object.freeze({
+  chat_pack_200: TOP_UPS.chat_pack_200.creditUsd,
+  top_up_10: TOP_UPS.top_up_10.creditUsd,
+})
+
+export function isTopUpType(type: unknown): type is TopUpType {
+  return typeof type === 'string' && Object.prototype.hasOwnProperty.call(TOP_UPS, type)
+}
 
 export const TRIAL_DAYS = 30
 /** At or above this fraction used, the bar reads "low". */
@@ -57,9 +74,7 @@ export function usdToMicros(usd: number): number {
 }
 
 export function topUpCreditMicros(type: unknown): number | null {
-  return typeof type === 'string' && Object.prototype.hasOwnProperty.call(TOP_UP_CREDIT_USD, type)
-    ? usdToMicros(TOP_UP_CREDIT_USD[type as TopUpType])
-    : null
+  return isTopUpType(type) ? usdToMicros(TOP_UP_CREDIT_USD[type]) : null
 }
 
 // ===== Period math =====
@@ -96,12 +111,22 @@ export function addMonthsUtc(date: Date, months: number): Date {
   return result
 }
 
-/** The monthly window, anchored at `anchor`, that contains `now`. */
-function monthlyWindow(anchor: Date, now: Date): { start: Date; end: Date } {
-  if (now.getTime() < anchor.getTime()) return { start: anchor, end: addMonthsUtc(anchor, 1) }
+/**
+ * The window of whole calendar months counted from `anchor`, backwards or
+ * forwards, that contains `now`. Every boundary is computed from the anchor
+ * itself, so a day clamped in a short month never drifts the next one.
+ */
+export function monthWindowAround(anchor: Date, now: Date): { start: Date; end: Date } {
   let months = (now.getUTCFullYear() - anchor.getUTCFullYear()) * 12 + (now.getUTCMonth() - anchor.getUTCMonth())
   if (addMonthsUtc(anchor, months).getTime() > now.getTime()) months -= 1
+  else if (addMonthsUtc(anchor, months + 1).getTime() <= now.getTime()) months += 1
   return { start: addMonthsUtc(anchor, months), end: addMonthsUtc(anchor, months + 1) }
+}
+
+/** The monthly window, anchored at `anchor`, that contains `now` (the first one while `now` is before it). */
+function monthlyWindow(anchor: Date, now: Date): { start: Date; end: Date } {
+  if (now.getTime() < anchor.getTime()) return { start: anchor, end: addMonthsUtc(anchor, 1) }
+  return monthWindowAround(anchor, now)
 }
 
 /**
@@ -121,9 +146,13 @@ export function trialEndsAt(profile: AllowanceProfile): Date | null {
 
 /**
  * The reader's current billing period and its allowance.
- *  - Subscription: Stripe's period end minus one month, to that end. An
- *    active subscription whose stored end has passed (a missed webhook) rolls
- *    forward month by month.
+ *  - Subscription, monthly or yearly: the calendar month, counted from
+ *    Stripe's period end, that contains now. Stripe keeps the period end on
+ *    the subscription's start day and time, so this is a monthly reset
+ *    anchored to the subscription start: for a monthly plan it is exactly
+ *    the billing period, and a yearly plan resets every month (Anders,
+ *    2026-10-06) instead of once a year. An active subscription whose stored
+ *    end has passed (a missed webhook) keeps rolling forward month by month.
  *  - Trial (the first 30 days of an account): one window from created_at, so a
  *    trial never spans two allowances.
  *  - Standard: monthly windows from the trial's end, with no allowance; only
@@ -133,11 +162,7 @@ export function billingPeriod(profile: AllowanceProfile, now: Date, allowanceUsd
   const allowanceMicros = usdToMicros(allowanceUsd)
   const periodEnd = validDate(profile.subscription_period_end)
   if (isSubscribed(profile, now)) {
-    if (periodEnd) {
-      let end = periodEnd
-      for (let guard = 0; end.getTime() <= now.getTime() && guard < 240; guard += 1) end = addMonthsUtc(end, 1)
-      return { kind: 'subscription', start: addMonthsUtc(end, -1), end, allowanceMicros }
-    }
+    if (periodEnd) return { kind: 'subscription', ...monthWindowAround(periodEnd, now), allowanceMicros }
     // Active with no known period end: calendar months from the account's creation.
     const anchor = validDate(profile.created_at) ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
     return { kind: 'subscription', ...monthlyWindow(anchor, now), allowanceMicros }
@@ -201,12 +226,26 @@ export function allowanceView(ledger: AllowanceLedger, resetsAt: Date | null): A
 // ===== Gate =====
 
 /**
- * Never blocked: Explain and Define (metered as 'explain') and narration.
- * Their cost still counts toward the bar (narration excepted).
+ * Chat dictation (xAI speech-to-text), metered as 'dictation' once that
+ * branch lands; named here so it is never gated or charged.
  */
-const FREE_AI_FEATURES: ReadonlySet<AiFeature> = new Set<AiFeature>(['explain', 'narration_generate', 'narration_listen'])
+export type GatedAiFeature = AiFeature | 'dictation'
 
-export function isPaidAiFeature(feature: AiFeature): boolean {
+/**
+ * Never charged (Anders, 2026-10-06): their cost stays out of the allowance.
+ * Narration (generating and listening) and chat dictation. The SQL spend sum
+ * excludes exactly these (ai_spend_micros in
+ * 20261007_ai_allowance_never_charged.sql; a test keeps the two equal).
+ */
+export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation'] as const)
+
+/**
+ * Never blocked: the never-charged features, plus Explain and Define (metered
+ * as 'explain'), whose cost still counts toward the bar.
+ */
+const FREE_AI_FEATURES: ReadonlySet<GatedAiFeature> = new Set<GatedAiFeature>(['explain', ...NEVER_CHARGED_AI_FEATURES])
+
+export function isPaidAiFeature(feature: GatedAiFeature): boolean {
   return !FREE_AI_FEATURES.has(feature)
 }
 
@@ -214,7 +253,7 @@ export function isPaidAiFeature(feature: AiFeature): boolean {
  * Switch off: always allowed. On: paid features are refused at zero. An
  * unreadable allowance (null) fails open, like the message model did.
  */
-export function allowsAiFeature(enforced: boolean, feature: AiFeature, view: AllowanceView | null): boolean {
+export function allowsAiFeature(enforced: boolean, feature: GatedAiFeature, view: AllowanceView | null): boolean {
   if (!enforced || !isPaidAiFeature(feature) || !view) return true
   return view.state !== 'used_up'
 }

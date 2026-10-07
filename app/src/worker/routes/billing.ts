@@ -2,7 +2,7 @@ import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
-import { topUpCreditMicros } from '../lib/aiAllowance'
+import { isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
 
 type VerifiedUser = { id: string; email: string }
 type VerifyUser = (env: BillingEnv, request: Request) => Promise<VerifiedUser | null>
@@ -13,8 +13,12 @@ export type BillingEnv = SupabaseEnv & {
   STRIPE_PRICE_PREMIUM?: string
   /** The yearly Premium price. Without it the yearly plan is not offered. */
   STRIPE_PRICE_PREMIUM_YEARLY?: string
+  /** The retired $3 chat pack; no longer sold (lib/aiAllowance.ts TOP_UPS). */
   STRIPE_PRICE_CHAT_100?: string
+  /** The $5 top-up. */
   STRIPE_PRICE_CHAT_200?: string
+  /** The $10 top-up. Without it that top-up is not offered. */
+  STRIPE_PRICE_TOP_UP_10?: string
   /** 'on' once Stripe Tax is set up: Checkout then works out VAT / sales tax from the billing address. */
   STRIPE_AUTOMATIC_TAX?: string
 }
@@ -34,6 +38,16 @@ export function premiumPriceFor(env: BillingEnv, interval: BillingInterval): str
 /** The intervals checkout can sell right now: monthly and, once its price is set, yearly. */
 export function availablePremiumIntervals(env: BillingEnv): BillingInterval[] {
   return (['month', 'year'] as const).filter(interval => premiumPriceFor(env, interval))
+}
+
+/** The Stripe price of a top-up, from the Worker's own secrets (never from the client). */
+export function topUpPriceFor(env: BillingEnv, type: TopUpType): string | null {
+  return (type === 'chat_pack_200' ? env.STRIPE_PRICE_CHAT_200 : env.STRIPE_PRICE_TOP_UP_10) || null
+}
+
+/** The top-ups checkout can sell right now, in the order the usage bar offers them. */
+export function availableTopUps(env: BillingEnv): TopUpType[] {
+  return TOP_UP_TYPES.filter(type => topUpPriceFor(env, type))
 }
 
 /** The only fields a checkout request may carry. Anything else (a price id above all) is refused. */
@@ -165,24 +179,17 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
       params.set('metadata[interval]', interval)
       params.set('subscription_data[metadata][supabase_user_id]', user.id)
       params.set('subscription_data[metadata][interval]', interval)
-    } else if (body.type === 'chat_pack_100') {
-      if (!env.STRIPE_PRICE_CHAT_100) return jsonResponse({ error: 'Service unavailable' }, 500, request)
+    } else if (isTopUpType(body.type)) {
+      // A top-up ($5 or $10). The webhook credits AI credit by checkout type
+      // (lib/aiAllowance.ts TOP_UPS); the retired $3 pack is not a top-up type.
+      const price = topUpPriceFor(env, body.type)
+      if (!price) return jsonResponse({ error: 'Service unavailable' }, 500, request)
       params.set('mode', 'payment')
-      params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_100)
+      params.set('line_items[0][price]', price)
       params.set('line_items[0][quantity]', '1')
       params.set('metadata[type]', 'chat_pack')
-      params.set('metadata[message_count]', '100')
-      params.set('metadata[checkout_type]', 'chat_pack_100')
-      params.set('metadata[amount_cents]', '300')
-    } else if (body.type === 'chat_pack_200') {
-      if (!env.STRIPE_PRICE_CHAT_200) return jsonResponse({ error: 'Service unavailable' }, 500, request)
-      params.set('mode', 'payment')
-      params.set('line_items[0][price]', env.STRIPE_PRICE_CHAT_200)
-      params.set('line_items[0][quantity]', '1')
-      params.set('metadata[type]', 'chat_pack')
-      params.set('metadata[message_count]', '200')
-      params.set('metadata[checkout_type]', 'chat_pack_200')
-      params.set('metadata[amount_cents]', '500')
+      params.set('metadata[checkout_type]', body.type)
+      params.set('metadata[amount_cents]', String(TOP_UPS[body.type].priceCents))
     } else {
       return jsonResponse({ error: 'Invalid checkout type' }, 400, request)
     }

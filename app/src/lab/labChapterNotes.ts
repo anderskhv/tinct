@@ -6,6 +6,8 @@
  */
 import { CHAPTER_NOTES_ROUTE, chapterNotesCacheKey, parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesRequest } from '../chapterNotes'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
+import { allowanceAuthHeaders } from './labAiAllowance'
 
 export const CHAPTER_NOTES_STORAGE_KEY = 'tinct:chapter-notes'
 export const EXPLANATIONS_STORAGE_KEY = 'tinct:explanations'
@@ -31,13 +33,15 @@ export function storedChapterNotes(request: ChapterNotesRequest): ChapterNotesBe
   return entry ? parseChapterNotesBeats(entry) : null
 }
 
-export async function fetchChapterNotes(request: ChapterNotesRequest, options: { fetchImpl?: FetchLike } = {}): Promise<{ ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number }> {
+export async function fetchChapterNotes(request: ChapterNotesRequest, options: { fetchImpl?: FetchLike; readToken?: () => Promise<string | null> } = {}): Promise<{ ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number }> {
   const stored = storedChapterNotes(request)
   if (stored) return { ok: true, beats: stored }
   const fetchImpl = options.fetchImpl ?? (typeof fetch === 'function' ? (url: string, init: RequestInit) => fetch(url, init) : null)
   if (!fetchImpl) return { ok: false, status: 0 }
   try {
-    const response = await fetchImpl(CHAPTER_NOTES_ROUTE, { method: 'POST', headers: { 'Content-Type': 'application/json', ...internalTrafficHeaders() }, body: JSON.stringify(request) })
+    // The session goes along only while the AI allowance is on (labAiAllowance.ts).
+    const token = AI_ALLOWANCE_ENFORCED && options.readToken ? await options.readToken().catch(() => null) : null
+    const response = await fetchImpl(CHAPTER_NOTES_ROUTE, { method: 'POST', headers: { 'Content-Type': 'application/json', ...allowanceAuthHeaders(token), ...internalTrafficHeaders() }, body: JSON.stringify(request) })
     if (!response.ok) return { ok: false, status: response.status }
     const beats = parseChapterNotesBeats(await response.json())
     if (!beats) return { ok: false, status: response.status }

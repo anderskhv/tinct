@@ -13,6 +13,7 @@ import {
   type CatchUpLoadState,
 } from './labCatchUp'
 import './labCatchUp.css'
+import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 
 export const CATCH_UP_TITLE = 'Catch me up'
 
@@ -111,7 +112,8 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     setStates(prev => ({ ...prev, [entry.key]: { state: 'loading' } }))
     void (async () => {
       let token: string | null = null
-      if (entry.kind === 'current' && readToken) {
+      // Earlier units carry the session only while the AI allowance is on (labAiAllowance.ts).
+      if ((entry.kind === 'current' || AI_ALLOWANCE_ENFORCED) && readToken) {
         tokenRef.current ??= readToken().catch(() => null)
         token = await tokenRef.current
       }

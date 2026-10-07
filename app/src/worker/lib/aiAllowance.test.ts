@@ -1,10 +1,17 @@
+import { readFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { AI_ALLOWANCE_ENFORCED as SHARED_SWITCH } from '../../aiAllowanceSwitch'
 import {
   AI_ALLOWANCE_ENFORCED,
   ALLOWANCE_USED_ERROR,
+  NEVER_CHARGED_AI_FEATURES,
   PREMIUM_AI_ALLOWANCE_USD,
+  TOP_UPS,
   TOP_UP_CREDIT_USD,
+  TOP_UP_TYPES,
   addMonthsUtc,
+  monthWindowAround,
   allowanceUsedBody,
   allowanceView,
   allowsAiFeature,
@@ -20,6 +27,7 @@ import {
 } from './aiAllowance'
 import type { AiFeature } from './aiUsage'
 
+const require = createRequire(import.meta.url)
 const now = new Date('2026-10-05T12:00:00Z')
 const iso = (value: string) => new Date(value).toISOString()
 const usedUp: AllowanceView = { usedFraction: 1, state: 'used_up', resetsAt: null, hasTopUp: false }
@@ -32,17 +40,39 @@ describe('configuration', () => {
     expect(AI_ALLOWANCE_ENFORCED).toBe(false)
   })
 
-  it('uses the configured placeholders', () => {
+  it('has one switch, shared with the reader bundle and the build scripts', () => {
+    expect(AI_ALLOWANCE_ENFORCED).toBe(SHARED_SWITCH)
+    const script = require('../../../scripts/ai-allowance-switch.cjs') as { aiAllowanceEnforced(): boolean; parseAiAllowanceSwitch(source: string): boolean }
+    expect(script.aiAllowanceEnforced()).toBe(AI_ALLOWANCE_ENFORCED)
+    expect(script.parseAiAllowanceSwitch('export const AI_ALLOWANCE_ENFORCED = true\n')).toBe(true)
+    expect(script.parseAiAllowanceSwitch('export const AI_ALLOWANCE_ENFORCED = false\n')).toBe(false)
+    expect(() => script.parseAiAllowanceSwitch('export const AI_ALLOWANCE_ENFORCED = process.env.X === "1"\n')).toThrow()
+  })
+
+  it('uses the approved amounts: $3.00 a month, $5 pack $3.50, $10 pack $7.50', () => {
     expect(PREMIUM_AI_ALLOWANCE_USD).toBe(3)
-    expect(TOP_UP_CREDIT_USD).toEqual({ chat_pack_100: 2.10, chat_pack_200: 3.50 })
+    expect(TOP_UP_CREDIT_USD).toEqual({ chat_pack_200: 3.50, top_up_10: 7.50 })
+    expect(TOP_UPS).toEqual({ chat_pack_200: { priceCents: 500, creditUsd: 3.50 }, top_up_10: { priceCents: 1000, creditUsd: 7.50 } })
+    expect(TOP_UP_TYPES).toEqual(['chat_pack_200', 'top_up_10'])
   })
 
   it('credits top-ups by checkout type only', () => {
-    expect(topUpCreditMicros('chat_pack_100')).toBe(2_100_000)
     expect(topUpCreditMicros('chat_pack_200')).toBe(3_500_000)
+    expect(topUpCreditMicros('top_up_10')).toBe(7_500_000)
+    // The retired $3 pack is not a top-up.
+    expect(topUpCreditMicros('chat_pack_100')).toBeNull()
     expect(topUpCreditMicros('subscription')).toBeNull()
     expect(topUpCreditMicros('toString')).toBeNull()
     expect(topUpCreditMicros(undefined)).toBeNull()
+  })
+
+  it('leaves out of the SQL spend exactly the features that are never charged', () => {
+    const sql = readFileSync(new URL('../../../supabase/migrations/20261007_ai_allowance_never_charged.sql', import.meta.url), 'utf8')
+    const excluded = /e\.feature not in \(([^)]*)\)/.exec(sql)?.[1].split(',').map(name => name.trim().replace(/'/g, '')) ?? []
+    expect([...excluded].sort()).toEqual([...NEVER_CHARGED_AI_FEATURES].sort())
+    expect(NEVER_CHARGED_AI_FEATURES).toEqual(expect.arrayContaining(['narration_listen', 'narration_generate', 'dictation']))
+    // Same function signature as the migration already run, so it replaces it in place.
+    expect(sql).toContain('create or replace function public.ai_spend_micros(p_user uuid, p_since timestamptz, p_until timestamptz default null)')
   })
 })
 
@@ -80,6 +110,60 @@ describe('period math', () => {
     const period = billingPeriod({ subscription_status: 'active', subscription_period_end: '2026-08-20T00:00:00Z', created_at: null }, now)
     expect(period.start.toISOString()).toBe(iso('2026-09-20T00:00:00Z'))
     expect(period.end.toISOString()).toBe(iso('2026-10-20T00:00:00Z'))
+  })
+
+  it('resets a yearly plan every month, anchored to the subscription start', () => {
+    // Subscribed 2026-03-14 09:30 on the yearly plan: Stripe's period end is 2027-03-14 09:30.
+    const yearly = { subscription_status: 'active', subscription_period_end: '2027-03-14T09:30:00Z', created_at: '2026-01-01T00:00:00Z' }
+    const at = (when: string) => billingPeriod(yearly, new Date(when))
+    expect(at('2026-03-20T00:00:00Z')).toMatchObject({ kind: 'subscription', start: new Date('2026-03-14T09:30:00Z'), end: new Date('2026-04-14T09:30:00Z'), allowanceMicros: 3_000_000 })
+    expect(at('2026-10-05T12:00:00Z')).toMatchObject({ start: new Date('2026-09-14T09:30:00Z'), end: new Date('2026-10-14T09:30:00Z'), allowanceMicros: 3_000_000 })
+    // The boundary itself opens the next month.
+    expect(at('2026-10-14T09:30:00Z')).toMatchObject({ start: new Date('2026-10-14T09:30:00Z'), end: new Date('2026-11-14T09:30:00Z') })
+    expect(at('2027-03-01T00:00:00Z')).toMatchObject({ start: new Date('2027-02-14T09:30:00Z'), end: new Date('2027-03-14T09:30:00Z') })
+    // Twelve monthly allowances in the paid year, each one month long.
+    const starts = new Set<string>()
+    for (let day = new Date('2026-03-14T09:30:00Z'); day < new Date('2027-03-14T09:30:00Z'); day = new Date(day.getTime() + 86_400_000)) {
+      const period = billingPeriod(yearly, day)
+      expect(addMonthsUtc(period.start, 1).getTime()).toBe(period.end.getTime())
+      expect(period.start.getTime()).toBeLessThanOrEqual(day.getTime())
+      expect(period.end.getTime()).toBeGreaterThan(day.getTime())
+      starts.add(period.start.toISOString())
+    }
+    expect(starts.size).toBe(12)
+  })
+
+  it('keeps a yearly plan started on the 31st on month ends without drifting', () => {
+    const yearly = { subscription_status: 'active', subscription_period_end: '2027-01-31T00:00:00Z', created_at: null }
+    expect(billingPeriod(yearly, new Date('2026-03-05T00:00:00Z'))).toMatchObject({ start: new Date('2026-02-28T00:00:00Z'), end: new Date('2026-03-31T00:00:00Z') })
+    expect(billingPeriod(yearly, new Date('2026-05-05T00:00:00Z'))).toMatchObject({ start: new Date('2026-04-30T00:00:00Z'), end: new Date('2026-05-31T00:00:00Z') })
+    expect(billingPeriod(yearly, new Date('2026-08-31T00:00:00Z'))).toMatchObject({ start: new Date('2026-08-31T00:00:00Z'), end: new Date('2026-09-30T00:00:00Z') })
+  })
+
+  it('keeps a canceled yearly plan monthly until its paid year ends, then standard', () => {
+    const canceled = { subscription_status: 'canceled', subscription_period_end: '2027-03-14T09:30:00Z', created_at: '2026-01-01T00:00:00Z' }
+    expect(billingPeriod(canceled, now)).toMatchObject({ kind: 'subscription', start: new Date('2026-09-14T09:30:00Z'), allowanceMicros: 3_000_000 })
+    expect(billingPeriod(canceled, new Date('2027-03-20T00:00:00Z'))).toMatchObject({ kind: 'standard', allowanceMicros: 0 })
+  })
+
+  it('gives a monthly plan exactly its Stripe billing period', () => {
+    const monthly = { subscription_status: 'active', subscription_period_end: '2026-10-20T08:00:00Z', created_at: '2025-01-01T00:00:00Z' }
+    expect(billingPeriod(monthly, new Date('2026-09-20T08:00:00Z'))).toMatchObject({ start: new Date('2026-09-20T08:00:00Z'), end: new Date('2026-10-20T08:00:00Z') })
+    expect(billingPeriod(monthly, new Date('2026-10-20T07:59:59Z'))).toMatchObject({ start: new Date('2026-09-20T08:00:00Z'), end: new Date('2026-10-20T08:00:00Z') })
+  })
+
+  it('finds the month around an anchor in either direction', () => {
+    const anchor = new Date('2026-06-10T00:00:00Z')
+    expect(monthWindowAround(anchor, new Date('2026-06-10T00:00:00Z'))).toEqual({ start: anchor, end: new Date('2026-07-10T00:00:00Z') })
+    expect(monthWindowAround(anchor, new Date('2026-06-09T23:59:59Z'))).toEqual({ start: new Date('2026-05-10T00:00:00Z'), end: anchor })
+    expect(monthWindowAround(anchor, new Date('2025-12-31T00:00:00Z'))).toEqual({ start: new Date('2025-12-10T00:00:00Z'), end: new Date('2026-01-10T00:00:00Z') })
+    expect(monthWindowAround(anchor, new Date('2027-02-28T00:00:00Z'))).toEqual({ start: new Date('2027-02-10T00:00:00Z'), end: new Date('2027-03-10T00:00:00Z') })
+  })
+
+  it('moves a trial reader who subscribes onto the subscription month', () => {
+    // Created 2026-09-20 (trial to 10-20), subscribed monthly on 10-01: period end 11-01.
+    const period = billingPeriod({ subscription_status: 'active', subscription_period_end: '2026-11-01T10:00:00Z', created_at: '2026-09-20T09:00:00Z' }, now)
+    expect(period).toMatchObject({ kind: 'subscription', start: new Date('2026-10-01T10:00:00Z'), end: new Date('2026-11-01T10:00:00Z'), allowanceMicros: 3_000_000 })
   })
 
   it('gives a new account one trial period from creation with the same allowance', () => {
@@ -167,6 +251,17 @@ describe('gate', () => {
       expect(isPaidAiFeature(feature)).toBe(false)
       expect(allowsAiFeature(true, feature, usedUp)).toBe(true)
     }
+  })
+
+  it('never blocks dictation, which is never charged either', () => {
+    expect(isPaidAiFeature('dictation')).toBe(false)
+    expect(allowsAiFeature(true, 'dictation', usedUp)).toBe(true)
+    expect(NEVER_CHARGED_AI_FEATURES).toContain('dictation')
+  })
+
+  it('charges neither narration nor dictation, but does count Explain', () => {
+    expect([...NEVER_CHARGED_AI_FEATURES].sort()).toEqual(['dictation', 'narration_generate', 'narration_listen'])
+    expect(NEVER_CHARGED_AI_FEATURES).not.toContain('explain')
   })
 
   it('fails open when the allowance cannot be read', () => {

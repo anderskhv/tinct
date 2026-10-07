@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
 import type { AllowanceGate, AllowanceView } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
-import { chatPackCheckoutType, handleWebhook } from './worker/routes/billing'
+import { availableTopUps, chatPackCheckoutType, handleCreateCheckout, handleWebhook } from './worker/routes/billing'
 import { handleChat } from './worker/routes/chat'
 import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
@@ -66,9 +66,17 @@ describe('GET /api/ai-allowance', () => {
     expect(response.status).toBe(200)
     expect(response.headers.get('Cache-Control')).toBe('no-store')
     const body = await response.json() as Record<string, unknown>
-    expect(Object.keys(body).sort()).toEqual(['enabled', 'hasTopUp', 'resetsAt', 'state', 'usedFraction'])
-    expect(body).toEqual({ enabled: true, usedFraction: 0.25, state: 'ok', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: true })
+    expect(Object.keys(body).sort()).toEqual(['enabled', 'hasTopUp', 'resetsAt', 'state', 'topUps', 'usedFraction'])
+    expect(body).toEqual({ enabled: true, usedFraction: 0.25, state: 'ok', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: true, topUps: [] })
     expect(JSON.stringify(body)).not.toMatch(/usd|micros|cents|credit|spend|\$/i)
+  })
+
+  it('names the top-ups on sale, never their prices or credit', async () => {
+    const env = { ...supabaseEnv, STRIPE_PRICE_CHAT_200: 'price_5', STRIPE_PRICE_TOP_UP_10: 'price_10' }
+    const response = await handleAiAllowance(new Request('https://tinct.app/api/ai-allowance'), env, reader, gate(usedUp))
+    const body = await response.json() as Record<string, unknown>
+    expect(body.topUps).toEqual(['chat_pack_200', 'top_up_10'])
+    expect(JSON.stringify(body)).not.toMatch(/price_|usd|micros|cents|credit|spend|\$/i)
   })
 
   it('answers 503 when the usage cannot be read', async () => {
@@ -181,6 +189,55 @@ describe('recap, chapter notes and Catch me up gates', () => {
     expect(anthropic).not.toHaveBeenCalled()
   })
 
+  it('chapter notes on Sonnet charge only the reader whose request generates them; cached copies are free for everyone', async () => {
+    // A shared cache, as caches.default: the first reader's request writes it.
+    const store = new Map<string, Response>()
+    const cache = {
+      match: vi.fn(async (key: Request) => store.get(key.url)?.clone()),
+      put: vi.fn(async (key: Request, value: Response) => { store.set(key.url, value) }),
+    }
+    const ledgerRows: Array<Record<string, unknown>> = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).endsWith('/rest/v1/ai_usage_events')) ledgerRows.push(JSON.parse(String(init?.body)))
+      return new Response(null, { status: 201 })
+    }))
+    const anthropic = vi.fn(async (_payload: Record<string, unknown>, _apiKey: string) => Response.json({ stop_reason: 'end_turn', content: [{ type: 'text', text: '{"beats":[{"title":"Where we are","text":"Anna arrives."},{"title":"Watch for","text":"Snow."}]}' }], usage: { input_tokens: 1000, output_tokens: 200 } }))
+    const ledgerEnv = { ...env, ...supabaseEnv }
+    const body = { bookId: 'anna', editionKey: 'original-en', chapterNumber: 2, kind: 'primer' }
+    const firstReader = '22222222-2222-4222-8222-222222222222'
+    const secondReader = '33333333-3333-4333-8333-333333333333'
+    const allowsAi = vi.fn(async () => true)
+
+    const first = context()
+    const generated = await handleLabChapterNotes(post('/api/lab-chapter-notes', body), ledgerEnv, first.ctx, allow, { reserveGuestSpend: allow, cache, fetchAnthropic: anthropic, allowsAi, resolveUser: async () => firstReader })
+    await Promise.all(first.pending)
+    expect(await generated.json()).toMatchObject({ source: 'model' })
+    expect(anthropic).toHaveBeenCalledTimes(1)
+    expect(anthropic.mock.calls[0][0]).toMatchObject({ model: COMPANION_MODEL })
+    expect(ledgerRows).toHaveLength(1)
+    expect(ledgerRows[0]).toMatchObject({ user_id: firstReader, guest_key: null, feature: 'chapter_notes', model: COMPANION_MODEL })
+    expect(Number(ledgerRows[0].cost_usd)).toBeGreaterThan(0)
+
+    const second = context()
+    const resolveSecond = vi.fn(async () => secondReader)
+    const served = await handleLabChapterNotes(post('/api/lab-chapter-notes', body), ledgerEnv, second.ctx, allow, { reserveGuestSpend: allow, cache, fetchAnthropic: anthropic, allowsAi, resolveUser: resolveSecond })
+    await Promise.all(second.pending)
+    expect(await served.json()).toMatchObject({ source: 'cache' })
+    expect(anthropic).toHaveBeenCalledTimes(1)
+    expect(ledgerRows).toHaveLength(1)
+    // The cached copy neither checks nor charges the second reader.
+    expect(allowsAi).toHaveBeenCalledTimes(1)
+    expect(resolveSecond).not.toHaveBeenCalled()
+  })
+
+  it('a cached chapter note is served even at zero', async () => {
+    const cache = { match: vi.fn(async () => Response.json({ beats: [{ title: 'Where we are', text: 'Anna arrives.' }] })), put: vi.fn(async () => {}) }
+    const allowsAi = vi.fn(refused)
+    const response = await handleLabChapterNotes(post('/api/lab-chapter-notes', { bookId: 'anna', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, context().ctx, allow, { reserveGuestSpend: allow, cache, fetchAnthropic: fetchAnthropic(), allowsAi })
+    expect(response.status).toBe(200)
+    expect(allowsAi).not.toHaveBeenCalled()
+  })
+
   it('Catch me up refuses generation at zero', async () => {
     const anthropic = fetchAnthropic()
     const response = await handleLabCatchUp(post('/api/lab-catch-up', { bookId: 'anna', editionKey: 'original-en', unitId: 'ch-1', bookTitle: 'Anna' }), env, context().ctx, allow, { reserveGuestSpend: allow, cache: null, fetchAnthropic: anthropic, allowsAi: refused })
@@ -222,13 +279,13 @@ describe('Stripe webhook top-up credit', () => {
   }
 
   it.each([
-    ['chat_pack_100', '100', 2_100_000],
-    ['chat_pack_200', '200', 3_500_000],
-  ])('credits %s from the configured map', async (checkoutType, messageCount, micros) => {
+    ['chat_pack_200', '500', 3_500_000],
+    ['top_up_10', '1000', 7_500_000],
+  ])('credits %s from the configured map', async (checkoutType, amountCents, micros) => {
     const { rpcBodies } = stubSupabase()
-    const response = await handleWebhook(await signed(completed({ checkout_type: checkoutType, message_count: messageCount, amount_cents: '300' })), env)
+    const response = await handleWebhook(await signed(completed({ checkout_type: checkoutType, amount_cents: amountCents })), env)
     expect(response.status).toBe(200)
-    expect(rpcBodies).toEqual([{ fn: 'credit_ai_topup', body: { p_user_id: userId, p_stripe_session_id: 'cs_test_1', p_micros: micros, p_amount_cents: 300 } }])
+    expect(rpcBodies).toEqual([{ fn: 'credit_ai_topup', body: { p_user_id: userId, p_stripe_session_id: 'cs_test_1', p_micros: micros, p_amount_cents: Number(amountCents) } }])
   })
 
   it('reads sessions created before checkout_type was stored by their message count', async () => {
@@ -243,14 +300,85 @@ describe('Stripe webhook top-up credit', () => {
     const { rpcBodies } = stubSupabase()
     await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_9000', credit_usd: '500', message_count: '1000' })), env)
     expect(rpcBodies).toEqual([])
-    await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_100', credit_usd: '500', micros: '999999999' })), env)
+    // The retired $3 pack is not a top-up: no credit, no messages.
+    await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_100', message_count: '100' })), env)
+    expect(rpcBodies).toEqual([])
+    await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_200', credit_usd: '500', micros: '999999999' })), env)
     expect(rpcBodies.map(entry => entry.fn)).toEqual(['credit_ai_topup'])
-    expect(rpcBodies[0].body.p_micros).toBe(2_100_000)
+    expect(rpcBodies[0].body.p_micros).toBe(3_500_000)
+  })
+
+  it('hands every delivery of one session to the database under the same session id, so a replay credits once', async () => {
+    // credit_ai_topup inserts the payment ON CONFLICT (stripe_session_id) DO NOTHING
+    // and adds credit only when the row was new; a replay returns false.
+    const rpcBodies: Array<Record<string, unknown>> = []
+    let seen = false
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).endsWith('/rpc/credit_ai_topup')) {
+        rpcBodies.push(JSON.parse(String(init?.body)))
+        const first = !seen
+        seen = true
+        return Response.json(first)
+      }
+      return Response.json({})
+    }))
+    const event = completed({ checkout_type: 'top_up_10', amount_cents: '1000' })
+    const first = await handleWebhook(await signed(event), env)
+    const replay = await handleWebhook(await signed(event), env)
+    expect([first.status, replay.status]).toEqual([200, 200])
+    expect(rpcBodies).toHaveLength(2)
+    expect(rpcBodies[0]).toEqual(rpcBodies[1])
+    expect(rpcBodies[0]).toMatchObject({ p_stripe_session_id: 'cs_test_1', p_micros: 7_500_000 })
   })
 
   it('answers 500 so Stripe retries when the credit cannot be written', async () => {
     stubSupabase(404)
-    const response = await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_100' })), env)
+    const response = await handleWebhook(await signed(completed({ checkout_type: 'chat_pack_200' })), env)
     expect(response.status).toBe(500)
+  })
+})
+
+describe('top-up checkout', () => {
+  const env = { STRIPE_SECRET_KEY: 'sk_test', STRIPE_PRICE_CHAT_100: 'price_3', STRIPE_PRICE_CHAT_200: 'price_5', STRIPE_PRICE_TOP_UP_10: 'price_10', ...supabaseEnv }
+
+  function stubStripe() {
+    const sessions: URLSearchParams[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) return Response.json([{ stripe_customer_id: 'cus_1' }])
+      if (url === 'https://api.stripe.com/v1/checkout/sessions') {
+        sessions.push(new URLSearchParams(String(init?.body)))
+        return Response.json({ url: 'https://checkout.stripe.com/c/pay' })
+      }
+      return Response.json({})
+    }))
+    return sessions
+  }
+
+  it.each([
+    ['chat_pack_200', 'price_5', '500'],
+    ['top_up_10', 'price_10', '1000'],
+  ])('sells %s at its own price with its checkout type', async (type, price, cents) => {
+    const sessions = stubStripe()
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type }), env, reader)
+    expect(response.status).toBe(200)
+    expect(sessions[0].get('mode')).toBe('payment')
+    expect(sessions[0].get('line_items[0][price]')).toBe(price)
+    expect(sessions[0].get('metadata[type]')).toBe('chat_pack')
+    expect(sessions[0].get('metadata[checkout_type]')).toBe(type)
+    expect(sessions[0].get('metadata[amount_cents]')).toBe(cents)
+  })
+
+  it('no longer sells the retired $3 pack', async () => {
+    const sessions = stubStripe()
+    const response = await handleCreateCheckout(post('/api/create-checkout', { type: 'chat_pack_100' }), env, reader)
+    expect(response.status).toBe(400)
+    expect(sessions).toEqual([])
+  })
+
+  it('offers the $10 top-up only once its price is set', () => {
+    expect(availableTopUps(env)).toEqual(['chat_pack_200', 'top_up_10'])
+    expect(availableTopUps({ ...env, STRIPE_PRICE_TOP_UP_10: undefined })).toEqual(['chat_pack_200'])
+    expect(availableTopUps({})).toEqual([])
   })
 })

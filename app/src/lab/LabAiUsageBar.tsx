@@ -55,14 +55,19 @@ export function LabAiUsageBar({ token }: { token: string | null }) {
         <span className="lab-v2-ai-usage-fill" style={{ width: `${percent}%` }} />
       </div>
       <p className="lab-v2-note" data-testid="lab-v2-ai-usage-note">{aiUsageNote(allowance)}</p>
-      {allowance.state === 'used_up' && (
+      {allowance.state === 'used_up' && allowance.topUps.length > 0 && (
         <div className="lab-v2-rows">
-          <button type="button" className="lab-v2-row is-link" data-testid="lab-v2-top-up" disabled={busy} onClick={() => void topUp('chat_pack_100')}>
-            <span className="lab-v2-row-label">{AI_USAGE_COPY.topUp}</span>
-          </button>
-          <button type="button" className="lab-v2-row is-link" data-testid="lab-v2-top-up-more" disabled={busy} onClick={() => void topUp('chat_pack_200')}>
-            <span className="lab-v2-row-label">{AI_USAGE_COPY.topUpMore}</span>
-          </button>
+          {/* $5 pack: "Top up"; $10 pack: "Bigger top-up". Each only while the Worker sells it. */}
+          {allowance.topUps.includes('chat_pack_200') && (
+            <button type="button" className="lab-v2-row is-link" data-testid="lab-v2-top-up" disabled={busy} onClick={() => void topUp('chat_pack_200')}>
+              <span className="lab-v2-row-label">{AI_USAGE_COPY.topUp}</span>
+            </button>
+          )}
+          {allowance.topUps.includes('top_up_10') && (
+            <button type="button" className="lab-v2-row is-link" data-testid="lab-v2-top-up-more" disabled={busy} onClick={() => void topUp('top_up_10')}>
+              <span className="lab-v2-row-label">{AI_USAGE_COPY.topUpMore}</span>
+            </button>
+          )}
         </div>
       )}
       {failed && <p className="lab-v2-note" role="status">{AI_USAGE_COPY.topUpFailed}</p>}
