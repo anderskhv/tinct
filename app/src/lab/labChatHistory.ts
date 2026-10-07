@@ -416,6 +416,69 @@ function markLegacyCloudMigrated(userId: string): void {
 // ---------------------------------------------------------------------------
 // Cloud: the same versioned `user_data` row the classic reader writes.
 
+/**
+ * Longest a chat row read or commit may take before this device gives up on
+ * it. A request that never settles (an iPhone page suspended mid-request, a
+ * stalled auth refresh) otherwise holds the refresh guard and the writer's
+ * in-flight slot for the rest of the page's life: no later refresh runs and
+ * no later turn is uploaded. An abandoned commit that did land is harmless:
+ * the next one carries a stale rev, conflicts and merges.
+ */
+export const LAB_CHAT_CLOUD_TIMEOUT_MS = 15_000
+
+function withCloudTimeout<T>(run: (signal: AbortSignal | undefined) => PromiseLike<T>, label: string): Promise<T> {
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      controller?.abort()
+      reject(new Error(`${label} timed out`))
+    }, LAB_CHAT_CLOUD_TIMEOUT_MS)
+  })
+  return Promise.race([Promise.resolve(run(controller?.signal)), timeout]).finally(() => clearTimeout(timer))
+}
+
+/**
+ * Postgres JSONB refuses a string holding U+0000 or half of a UTF-16
+ * surrogate pair (a preview or passage cut through an emoji), and refuses it
+ * for the whole row: one such character made every later commit of that
+ * book's thread fail. Strip NUL and replace unpaired surrogates with U+FFFD
+ * in everything the row sends.
+ */
+export function cleanChatValueForCloud<T>(value: T): T {
+  if (typeof value === 'string') {
+    return value.replace(/\u0000/g, '').replace(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g, '\uFFFD') as T
+  }
+  if (Array.isArray(value)) return value.map(item => cleanChatValueForCloud(item)) as T
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {}
+    for (const [key, item] of Object.entries(value as Record<string, unknown>)) out[key] = cleanChatValueForCloud(item)
+    return out as T
+  }
+  return value
+}
+
+/**
+ * Every cloud call the sync and the writer make, bounded in time and with the
+ * value cleaned for JSONB. Applies to any `LabChatHistoryCloud`, so a hung or
+ * poisoned call can never pin the refresh guard or the writer's queue.
+ */
+function guardedCloud(cloud: LabChatHistoryCloud): LabChatHistoryCloud {
+  return {
+    read: bookId => withCloudTimeout(() => cloud.read(bookId), 'chat history read'),
+    commit: (bookId, conversations, expectedRev) => withCloudTimeout(
+      () => cloud.commit(bookId, cleanChatValueForCloud(conversations), expectedRev),
+      'chat history commit',
+    ),
+  }
+}
+
+type AbortableQuery<T> = PromiseLike<T> & { abortSignal?: (signal: AbortSignal) => PromiseLike<T> }
+
+function abortable<T>(query: AbortableQuery<T>, signal: AbortSignal | undefined): PromiseLike<T> {
+  return signal && typeof query.abortSignal === 'function' ? query.abortSignal(signal) : query
+}
+
 export interface LabChatCloudRow {
   conversations: ChatConversation[]
   rev: number
@@ -445,23 +508,23 @@ export function createLabChatHistoryCloud(userId: string, client: SupabaseLike |
   if (!client || !userId) return null
   return {
     async read(bookId) {
-      const { data, error } = await client
+      const { data, error } = await withCloudTimeout(signal => abortable(client
         .from('user_data')
         .select('key, value, rev')
         .eq('user_id', userId)
         .eq('key', labChatHistoryKey(bookId))
-        .maybeSingle()
+        .maybeSingle(), signal), 'chat history read')
       if (error) throw new Error(error.message)
       if (!data) return null
       return rowFromVersioned(data as VersionedStorageRow, bookId)
     },
     async commit(bookId, conversations, expectedRev) {
-      const { data, error } = await client.rpc('commit_user_data', {
+      const { data, error } = await withCloudTimeout(signal => abortable(client.rpc('commit_user_data', {
         p_user_id: userId,
         p_key: labChatHistoryKey(bookId),
-        p_value: conversations,
+        p_value: cleanChatValueForCloud(conversations),
         p_expected_rev: expectedRev ?? null,
-      })
+      }), signal), 'chat history commit')
       if (error) throw new Error(error.message)
       const row = (Array.isArray(data) ? data[0] : data) as VersionedStorageRow | undefined
       const applied = versionedWriteApplied(row)
@@ -489,7 +552,8 @@ export async function syncLabBookChatWithCloud(input: {
   onUnavailable?: () => void
   isCurrent?: () => boolean
 }): Promise<ChatConversation[]> {
-  const { bookId, cloud } = input
+  const { bookId } = input
+  const cloud = guardedCloud(input.cloud)
   const local = readLabBookChat(bookId)
   try {
     let row = await cloud.read(bookId)
@@ -502,7 +566,9 @@ export async function syncLabBookChatWithCloud(input: {
         input.revs?.set(bookId, row.rev)
         return merged
       }
-      const result = await cloud.commit(bookId, merged, row?.rev ?? null)
+      // No row yet: expect rev 0 (insert only). NULL would overwrite a row
+      // another device created meanwhile instead of conflicting.
+      const result = await cloud.commit(bookId, merged, row?.rev ?? 0)
       if (input.isCurrent?.() === false) return local
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
@@ -514,7 +580,10 @@ export async function syncLabBookChatWithCloud(input: {
     return readLabBookChat(bookId)
   } catch {
     input.onUnavailable?.()
-    return local
+    if (input.isCurrent?.() === false) return local
+    // The merge may already be in the local mirror (only the commit failed):
+    // show that, not the copy from before the read.
+    return readLabBookChat(bookId)
   }
 }
 
@@ -524,7 +593,8 @@ export async function syncLabBookChatWithCloud(input: {
  * Offline or failed writes stay in the local mirror and are folded in by the
  * next `syncLabBookChatWithCloud` on open or reconnect.
  */
-export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<string, number> = new Map()) {
+export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Map<string, number> = new Map()) {
+  const cloud = guardedCloud(rawCloud)
   const queued = new Map<string, ChatConversation[]>()
   const inFlight = new Set<string>()
   let dirty = false
@@ -536,14 +606,20 @@ export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<s
         const value = queued.get(bookId) as ChatConversation[]
         queued.delete(bookId)
         try {
-          const result = await cloud.commit(bookId, value, revs.get(bookId) ?? null)
+          // A rev this device has not seen yet is 0, never NULL: NULL makes
+          // commit_user_data overwrite the row, dropping turns another device
+          // committed (Invariant 9). 0 conflicts with any existing row and the
+          // conflict path below merges.
+          const result = await cloud.commit(bookId, value, revs.get(bookId) ?? 0)
           if (result.applied) {
             if (result.row) revs.set(bookId, result.row.rev)
             dirty = false
             continue
           }
           if (result.conflict && result.row) {
-            const merged = mergeChatConversations(result.row.conversations, readLabBookChat(bookId))
+            // The queued value too: when the local mirror could not be written
+            // (a full localStorage on a phone) it is the only copy of the turn.
+            const merged = mergeChatConversations(result.row.conversations, mergeChatConversations(readLabBookChat(bookId), value))
             writeLabBookChat(bookId, merged)
             revs.set(bookId, result.row.rev)
             const retry = await cloud.commit(bookId, merged, result.row.rev)
@@ -574,7 +650,7 @@ export function createLabChatCloudWriter(cloud: LabChatHistoryCloud, revs: Map<s
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
     sync(bookId: string, onUnavailable?: () => void, isCurrent?: () => boolean) {
       if (isUserBookId(bookId)) return Promise.resolve(readLabBookChat(bookId))
-      return syncLabBookChatWithCloud({ bookId, cloud, revs, onUnavailable, isCurrent })
+      return syncLabBookChatWithCloud({ bookId, cloud: rawCloud, revs, onUnavailable, isCurrent })
     },
     isDirty: () => dirty,
     revs,

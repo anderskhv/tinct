@@ -69,6 +69,9 @@ import { isUserBookId } from './userBook/userBookId'
 import { chapterWindow, passageWindow } from './userBook/userBookContext'
 
 let labAskId = 0
+/** Visible + focus fire together on a tab switch; one refresh serves both. */
+export const LAB_CHAT_REFRESH_DEBOUNCE_MS = 400
+
 function nextId() {
   return `lab_ask_${Date.now()}_${++labAskId}`
 }
@@ -279,13 +282,21 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [])
 
   // Open / sign-in / book change: fold the retired KV blob in once per
-  // account, then merge this book's cloud row with the local mirror.
+  // account, then merge this book's cloud row with the local mirror. The
+  // same refresh runs again whenever the tab comes back (visible, focus,
+  // online), so turns another device committed meanwhile appear without a
+  // reload. Bursts of those events coalesce into one refresh; one arriving
+  // while a refresh is in flight runs once more after it. Every cloud call
+  // is time-bounded (labChatHistory.ts), so the guard can never stick.
   useEffect(() => {
     if (!viewerId || !cloudWriter || !chatBookId) { setHistoryStatus('ready'); return }
     let cancelled = false
     let running = false
-    const run = async () => {
-      if (running || cancelled) return
+    let again = false
+    let debounce: ReturnType<typeof setTimeout> | undefined
+    const run = async (): Promise<void> => {
+      if (cancelled) return
+      if (running) { again = true; return }
       running = true
       try {
       setHistoryStatus('loading')
@@ -308,19 +319,28 @@ export function useLabAsk(options: UseLabAskOptions) {
         dumpLabTalkTurns(next)
         return next
       })
-      } finally { running = false }
+      } finally {
+        running = false
+        if (again && !cancelled) { again = false; void run().catch(failed) }
+      }
     }
     const failed = () => { if (!cancelled) setHistoryStatus('unavailable') }
     void run().catch(failed)
-    const onOnline = () => { void run().catch(failed) }
+    const onOnline = () => {
+      clearTimeout(debounce)
+      debounce = setTimeout(() => { void run().catch(failed) }, LAB_CHAT_REFRESH_DEBOUNCE_MS)
+    }
     const onVisible = () => { if (document.visibilityState === 'visible') onOnline() }
     window.addEventListener('online', onOnline)
     window.addEventListener('focus', onVisible)
+    window.addEventListener('pageshow', onVisible)
     document.addEventListener('visibilitychange', onVisible)
     return () => {
       cancelled = true
+      clearTimeout(debounce)
       window.removeEventListener('online', onOnline)
       window.removeEventListener('focus', onVisible)
+      window.removeEventListener('pageshow', onVisible)
       document.removeEventListener('visibilitychange', onVisible)
     }
     // liveToken only feeds the one-time legacy fetch; a token refresh must not re-sync.
