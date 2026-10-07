@@ -7343,3 +7343,95 @@
 .lab[data-chrome-version="v2"] .lab-v2-ai-usage[data-state="used_up"] .lab-v2-ai-usage-fill {
   opacity: 0.8;
 }
+
+/* Reading time on the account sheet (LabReadingTimeBlock.tsx, social ship 1).
+   Shown only while the Worker's SOCIAL_READING_TIME switch is on. Sentence-case
+   serif label, the hours in large type, a quiet 7-day bar with today darkest. */
+.lab[data-chrome-version="v2"] .lab-v2-time {
+  margin: 12px 0 2px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-label {
+  margin: 0 0 4px 4px;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--lab-ink);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-figure {
+  flex: 0 0 auto;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  color: var(--lab-ink);
+  white-space: nowrap;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-figure small {
+  font-size: 0.5em;
+  margin-left: 1px;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bars {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  height: 46px;
+  max-width: 220px;
+  margin-left: auto;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  height: 100%;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar-track {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar-fill {
+  display: block;
+  border-radius: 2px;
+  background: var(--lab-ink);
+  opacity: 0.22;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar.is-today .lab-v2-time-bar-fill {
+  opacity: 0.85;
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-bar-day {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  height: 11px;
+  text-align: center;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 10.5px;
+  line-height: 11px;
+  color: var(--lab-v2-faint);
+}
+
+.lab[data-chrome-version="v2"] .lab-v2-time-facts {
+  margin: 8px 4px 6px;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--lab-v2-quiet);
+}

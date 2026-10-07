@@ -57,10 +57,16 @@ import {
 import { handleApproveFix } from './worker/routes/issueReview'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
 import {
+  YOUR_READING_PATHS,
   handleIndexNowVerification,
   handleSeoAndStaticRequest,
   isBlockedBot,
+  isYourReadingAssetPage,
+  serveNotFoundPage,
+  serveYourReadingPage,
 } from './worker/routes/seo'
+import { handleReadingTime, readingTimeEnabled } from './worker/routes/readingTime'
+import { BEAT_MIN_GAP_MS } from './readingTime/model'
 
 
 interface Env {
@@ -115,6 +121,8 @@ interface Env {
   STRIPE_PRICE_MODERN_T2?: string
   STRIPE_PRICE_MODERN_T3?: string
   STRIPE_PRICE_MODERN_T4?: string
+  /** "1": reading time ledger, the new account-sheet block and Your reading (routes/readingTime.ts). Off by default. */
+  SOCIAL_READING_TIME?: string
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
@@ -220,6 +228,25 @@ export default {
     if (url.pathname.startsWith('/data/editions/pd-')) {
       const edition = await handlePublicEditionData(request, env)
       if (edition) return edition
+    }
+
+    if (url.pathname === '/api/reading-time' || url.pathname.startsWith('/api/reading-time/')) {
+      const windows = env.USAGE_COORDINATOR
+      // Atomic and fail-closed, like the rate limiter: no coordinator, no credit.
+      const once = async (key: string, windowMs: number) => { try { return windows ? await windows.getByName(`rl:${key}`).hit(1, windowMs) : false } catch { return false } }
+      return handleReadingTime(request, env, {
+        verifyUser: req => verifyUser(env, req),
+        beatGate: userId => once(`reading-beat:${userId}`, BEAT_MIN_GAP_MS),
+        flushOnce: (userId, flushId) => once(`reading-flush:${userId}:${flushId}`, 30 * 86_400_000),
+        checkRateLimit,
+      })
+    }
+    // Your reading: a page only while reading time is switched on.
+    if ((request.method === 'GET' || request.method === 'HEAD') && readingTimeEnabled(env) && YOUR_READING_PATHS.has(url.pathname)) {
+      return serveYourReadingPage(request, env)
+    }
+    if ((request.method === 'GET' || request.method === 'HEAD') && !readingTimeEnabled(env) && isYourReadingAssetPage(url.pathname)) {
+      return serveNotFoundPage(request, env)
     }
 
     if (url.pathname.startsWith('/api/narration/')) {

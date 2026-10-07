@@ -55,6 +55,11 @@ curl -sS -X POST https://tinct.app/api/admin/delete-user \
 The export response has `complete: true` when every store was read in full;
 otherwise `errors` and `truncated` say what is missing. Re-run in that case.
 
+`supabase.reading_time` is the reading-time ledger (seconds read and listened
+per day and book; `app/supabase/migrations/20261008_reading_time.sql`). Until
+that migration has run the table does not exist; export and deletion then
+treat it as empty instead of failing.
+
 `r2.userBooks` lists the reader's own uploaded PDF/EPUB files (id, file name,
 title, author, type, size, upload date) from the private `tinct-user-books`
 bucket. It does not contain the files themselves. If the reader asks for the
@@ -81,7 +86,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    live subscriptions cancelled, customer deleted.
 5. **Supabase auth user.** This cascades `profiles`, `user_data` (every
    per-user row, including synced highlights and notes, `lab-highlights:{bookId}`),
-   `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions` and
+   `user_data_audit`, `token_usage`, `payments`, `reading_memory_sessions`,
+   `reading_time` (the reading-time ledger, once its migration has run) and
    `site_admins`. It runs **only if every earlier step succeeded**, so the
    account and its email check survive for a re-run.
 6. **Sweep and verify:** once sign-in is impossible, the Durable Object, KV

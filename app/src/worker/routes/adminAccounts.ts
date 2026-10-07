@@ -50,7 +50,7 @@ type Profile = Record<string, unknown> & { id: string; email?: string | null; st
 type Account = { userId: string; email: string | null; authUser: AuthUser | null; profile: Profile | null }
 
 /** Every Supabase table holding rows for one account, with a stable page order. */
-const USER_TABLES: { table: string; column: string; order: string }[] = [
+const USER_TABLES: { table: string; column: string; order: string; optional?: true }[] = [
   { table: 'profiles', column: 'id', order: 'id' },
   { table: 'user_data', column: 'user_id', order: 'key' },
   { table: 'user_data_audit', column: 'user_id', order: 'created_at,id' },
@@ -60,6 +60,9 @@ const USER_TABLES: { table: string; column: string; order: string }[] = [
   { table: 'analytics_events', column: 'user_id', order: 'created_at,id' },
   { table: 'issue_reports', column: 'user_id', order: 'created_at,id' },
   { table: 'ai_usage_events', column: 'user_id', order: 'id' },
+  // Reading time ledger (migrations/20261008_reading_time.sql). Optional: the
+  // Worker may run before the migration, and a missing table holds no rows.
+  { table: 'reading_time', column: 'user_id', order: 'day,book_id', optional: true },
   { table: 'site_admins', column: 'user_id', order: 'user_id' },
 ]
 
@@ -96,10 +99,16 @@ async function readBody(request: Request): Promise<Record<string, unknown> | nul
   }
 }
 
-async function getAll(env: AdminAccountsEnv, table: string, filter: string, order: string, select = '*'): Promise<{ rows: Record<string, unknown>[]; truncated: boolean }> {
+/** PostgREST's answer for a table that does not exist (yet): 404 / PGRST205. */
+function missingTable(res: Response): boolean {
+  return res.status === 404
+}
+
+async function getAll(env: AdminAccountsEnv, table: string, filter: string, order: string, select = '*', optional = false): Promise<{ rows: Record<string, unknown>[]; truncated: boolean }> {
   const rows: Record<string, unknown>[] = []
   for (let page = 0; page < MAX_PAGES; page++) {
     const res = await supabaseGet(env, `${table}?${filter}&select=${select}&order=${order}&limit=${PAGE}&offset=${page * PAGE}`)
+    if (optional && missingTable(res)) return { rows, truncated: false }
     if (!res.ok) throw new Error(`${table} read failed (${res.status})`)
     const batch = await res.json() as Record<string, unknown>[]
     rows.push(...batch)
@@ -252,8 +261,8 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
   }
 
   const supabase: Record<string, unknown> = {}
-  for (const { table, column, order } of USER_TABLES) {
-    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order))
+  for (const { table, column, order, optional } of USER_TABLES) {
+    const result = await attempt(table, () => getAll(env, table, `${column}=eq.${account.userId}`, order, '*', optional))
     supabase[table] = result?.rows ?? null
     if (result?.truncated) truncated.push(table)
   }
@@ -453,8 +462,9 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
     for (const [name, run] of purgeAndKvSteps(env, userId, 'sweep:')) await step(name, run)
     await step('verify:cascade', async () => {
       const leftovers: string[] = []
-      for (const { table, column } of USER_TABLES) {
+      for (const { table, column, optional } of USER_TABLES) {
         const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (optional && missingTable(res)) continue
         if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
         if ((await res.json() as unknown[]).length) leftovers.push(table)
       }

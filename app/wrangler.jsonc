@@ -35,6 +35,9 @@
     "PUBLIC_BOOK_MODERN_EDITIONS": "1",
     // Painted covers (xAI image, about $0.04 each, once per book). Paper cover until one exists.
     "PUBLIC_BOOK_PAINTED_COVERS": "1"
+    // Reading time (social ship 1, src/worker/routes/readingTime.ts): add
+    // "SOCIAL_READING_TIME": "1" here to turn it on, after running
+    // supabase/migrations/20261008_reading_time.sql. Absent = off.
   },
   "kv_namespaces": [
     { "binding": "RATE_LIMIT", "id": "a050ad22456246a7a2c2507ed8948e62" }

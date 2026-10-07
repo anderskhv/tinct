@@ -256,6 +256,24 @@ async function serveLabPreReader(
   return newResp
 }
 
+/**
+ * Your reading (social ship 1) at its public URL, from the static page
+ * `/lab/your-reading/`. worker.ts calls this only while the Worker var
+ * SOCIAL_READING_TIME is on; off, the URL is left to the usual handling.
+ */
+export const YOUR_READING_PATHS = new Set(['/your-reading', '/your-reading/'])
+export async function serveYourReadingPage(request: Request, env: SeoEnv): Promise<Response> {
+  const url = new URL(request.url)
+  return (await serveLabPreReader(request.method, url, env, '/lab/your-reading/')) ?? serveNotFound(request.method, url, env)
+}
+/** The asset folder behind it is not a page while the switch is off. */
+export function isYourReadingAssetPage(pathname: string): boolean {
+  return /^\/lab\/your-reading(?:\/(?:index\.html)?)?$/.test(pathname)
+}
+export function serveNotFoundPage(request: Request, env: SeoEnv): Promise<Response> {
+  return serveNotFound(request.method, new URL(request.url), env)
+}
+
 /** The generated book page's hero, search tags and text, when the book has one. */
 async function loadGeneratedBookPage(url: URL, env: SeoEnv, bookId: string): Promise<GeneratedBookPage | null> {
   if (!/^[a-z0-9-]{1,80}$/.test(bookId) || !PUBLIC_BOOK_IDS.has(bookId)) return null

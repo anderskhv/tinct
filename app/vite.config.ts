@@ -91,6 +91,7 @@ export default defineConfig(({ mode, command }) => {
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
         libraryAdd: path.resolve(process.cwd(), 'src/libraryAdd.ts'),
+        labYourReading: path.resolve(process.cwd(), 'src/labYourReading.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
       },
       output: {
@@ -110,6 +111,8 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/library-2-reading.js'
               : chunk.name === 'libraryAdd'
                 ? 'lab/library-add.js'
+              : chunk.name === 'labYourReading'
+                ? 'lab/your-reading-runtime.js'
               : 'assets/[name]-[hash].js',
       },
     },
@@ -208,6 +211,11 @@ export default defineConfig(({ mode, command }) => {
             next()
             return
           }
+          if (pathOnly === '/lab/your-reading-runtime.js') {
+            req.url = `/src/labYourReading.ts${url.slice(pathOnly.length)}`
+            next()
+            return
+          }
           // Old /lab page URLs redirect to the canonical page, as in the Worker.
           const legacyTarget = req.method === 'GET' || req.method === 'HEAD'
             ? legacyLabPageRedirect(pathOnly, url.slice(pathOnly.length))
@@ -227,6 +235,9 @@ export default defineConfig(({ mode, command }) => {
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
+            // Your reading: the Worker serves it only while SOCIAL_READING_TIME is on.
+            '/your-reading': '/lab/your-reading/index.html',
+            '/your-reading/': '/lab/your-reading/index.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`
