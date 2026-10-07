@@ -83,7 +83,9 @@ const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 scene.environmentIntensity = 0.9;
 
-const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 500);
+// near = 2 cm: the screen sits microns above the glass, and a 0.1 near plane left too
+// little depth precision at 50 cm, so the glass z-fought through the screen (flicker).
+const camera = new THREE.PerspectiveCamera(30, W / H, 2, 400);
 
 const key = new THREE.DirectionalLight(0xfff4e6, 2.2);
 key.position.set(-14, 30, -10);
@@ -139,22 +141,22 @@ phone.add(glass);
 const SCREEN_PX_W = 1170, SCREEN_PX_H = 2532;
 const screenCanvas = document.createElement('canvas');
 screenCanvas.width = SCREEN_PX_W; screenCanvas.height = SCREEN_PX_H;
-const sctx = screenCanvas.getContext('2d');
+const sctx = screenCanvas.getContext('2d', { willReadFrequently: true }); // CPU-backed: a GPU canvas can be uploaded to WebGL half-drawn (flicker)
 const screenTex = new THREE.CanvasTexture(screenCanvas);
 screenTex.colorSpace = THREE.SRGBColorSpace;
-screenTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+screenTex.anisotropy = Number(params.get('aniso') ?? renderer.capabilities.getMaxAnisotropy());
 screenTex.generateMipmaps = true;
 screenTex.minFilter = THREE.LinearMipmapLinearFilter;
 const screen = new THREE.Mesh(
   planarUV(new THREE.ShapeGeometry(roundedRect(SW, SH, SR), 48), SW, SH),
-  new THREE.MeshBasicMaterial({ map: screenTex, toneMapped: false })
+  new THREE.MeshBasicMaterial({ map: screenTex, toneMapped: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -4 })
 );
 screen.position.z = frontZ + 0.002;
 phone.add(screen);
 
 const island = new THREE.Mesh(
   new THREE.ShapeGeometry(roundedRect(2.05, 0.6, 0.3), 24),
-  new THREE.MeshBasicMaterial({ color: 0x000000 })
+  new THREE.MeshBasicMaterial({ color: 0x000000, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -8 })
 );
 island.position.set(0, SH / 2 - 0.5, frontZ + 0.006);
 phone.add(island);
