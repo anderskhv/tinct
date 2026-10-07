@@ -123,7 +123,7 @@
     <p class="eyebrow">Tinct · tinct.app</p>
     <h1>Privacy Policy</h1>
     <p class="lede">This policy explains what data Tinct collects, why it is collected, how it is stored, and the rights you have over it.</p>
-    <p class="updated">Last updated: 7 October 2026</p>
+    <p class="updated">Last updated: 8 October 2026</p>
 
     <ul class="toc" aria-label="Sections">
       <li><a href="#overview">Overview</a></li>
@@ -145,9 +145,12 @@
     <section id="collect">
       <h2>What we collect</h2>
       <h3>Account data</h3>
-      <p>If you create an account, your email address and authentication credentials are stored with Supabase, our database and authentication provider. Passwords are hashed by Supabase and are never stored in plain text. If you sign in with Google, Google provides us with your email address and name. When you create an account we also record whether you agreed to receive occasional email (see below), and which link or campaign brought you to Tinct, if any.</p>
+      <p>If you create an account, your email address and authentication credentials are stored with Supabase, our database and authentication provider. Passwords are hashed by Supabase and are never stored in plain text. If you sign in with Google, Google provides us with your email address, name and profile photo. When you create an account we also record whether you agreed to receive reading emails (see below) and the version of the wording you agreed to, whether and when you confirmed your email address, and which link or campaign brought you to Tinct, if any. Signing in with Google counts as a confirmed address.</p>
       <h3>Reading data</h3>
       <p>Your reading position, preferences, highlights, notes, reading history, chat history and other reading-state data are stored so that the service can keep your place and synchronise it across your devices. If you are signed in, this data is associated with your account and stored with Supabase and Cloudflare. If you are not signed in, it is kept in your browser, except where a feature needs our servers: questions you ask the AI companion, chapter recaps and notes, and narration are processed on our servers and by the providers below even when you are not signed in.</p>
+      <h3>Your profile</h3>
+      <p>Every account has a profile: a display name, a profile link (tinct.app/@name), a picture, a background, who can see you (Only me, Friends or Everyone), whether you appear on the leaderboard, whether others see what you are reading and how long you read, and which version new books open in. A new profile is set to Only me, so nobody else sees it until you choose otherwise. Friends are readers you follow who follow you back. Everyone means anyone with your link, and applies only once your email address is confirmed; until then, only friends can see you. You appear on the leaderboard only if you switch it on. Your email address, highlights, notes, chats and Talk conversations are never shown to other readers.</p>
+      <p>Your picture can be a detail from a library painting, your initial, your Google photo or a photo you upload; your background can be a library scene or a photo you upload. Photos are resized on your device before upload, which removes location and camera data, and are stored privately with Cloudflare (R2). If you choose your Google photo, a copy is stored the same way. You see a photo at once; other readers see it only after a person at Tinct has approved it. Choosing another picture or background deletes the stored photo. Your profile and its photos are deleted with your account.</p>
       <h3>Your own books and pictures</h3>
       <p>A PDF or EPUB you open from your own device is kept in your browser (IndexedDB). If you are signed in, a private copy of the file is also stored in your account with Cloudflare (R2) so you can open it on your other devices. Only you can access it; it is never shared with other readers, searched or indexed. You can remove it from your books at any time, and it is deleted when your account is deleted. Only the passages you ask about are sent to the AI companion, as with any question. If you are signed in, pictures you attach or snip in the companion chat, and a book's figure you ask about with Explain or Ask, are sent to Anthropic with your message so it can answer; Tinct does not store them beyond the chat. Signing out removes these books from the browser; the copies in your account remain until you remove them. If you believe a file stored in Tinct infringes your rights, write to <a href="mailto:contact@tinct.app">contact@tinct.app</a> and we will remove it.</p>
       <h3>Voice</h3>
@@ -162,7 +165,7 @@
       <p>Tinct records first-party usage events to understand whether the product is useful and where readers get stuck. These events include the page viewed, book and chapter identifiers, time spent reading, your browser's user agent (browser, operating system and device type), the referring page, the link or campaign that brought you (including campaign and ad-click parameters, if present in the link), feature use such as chat, audio and checkout, and timestamps. Events carry a random identifier for your device. It stays the same until you sign out, which gives a fresh one; if you create an account, events from that device before sign-up become linked to your account.</p>
       <p>When you are signed in, events are associated with your user ID and account email, so that we can see how individual readers use Tinct and help them during the beta period. We also record, per reader, how much each AI and audio feature is used and what it costs us (for example tokens, seconds of audio, model and provider), without the content of your messages; for readers who are not signed in, this is recorded under a code derived from your IP address rather than the address itself.</p>
       <h3>What we do not collect</h3>
-      <p>Tinct does not collect your precise location, contacts, photos, or camera. We do not record your microphone outside an open Talk conversation.</p>
+      <p>Tinct does not collect your precise location or contacts, and does not access your camera or photo library. A photo reaches Tinct only when you choose one for your profile, without its location data. We do not record your microphone outside an open Talk conversation.</p>
     </section>
 
     <section id="use">
@@ -173,7 +176,8 @@
         <li><strong>To read books aloud</strong>: book text is sent to our speech provider to produce narration. No personal data is included.</li>
         <li><strong>To bill subscriptions and purchases</strong>: payment data is used to manage your Premium subscription, to process one-time purchases such as a Modern English edition, and to issue receipts.</li>
         <li><strong>To help readers and improve the product</strong>: analytics and issue reports are used to fix errors, to understand how features are used, and to see how individual signed-in readers are getting on so that we can help them. Account-level analytics and the database are accessible only to the site administrator.</li>
-        <li><strong>To email you, if you agreed</strong>: when you create an account you can choose, unticked by default, to receive occasional email about your reading and Tinct. We email only readers who agreed. You can withdraw at any time by replying to such an email or writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>. Account and service emails, such as password resets and issue-report replies, are sent regardless.</li>
+        <li><strong>To show your profile</strong>: your name, link, picture, background and, as your choices allow, what you are reading and how long you read are shown to the readers your choices allow, so that readers can find and follow each other. We do this to provide a feature you turn on; your profile stays Only me until you change it.</li>
+        <li><strong>To email you, if you agreed</strong>: when you create an account you can choose, unticked by default, to receive email about your reading progress and ideas for what to read next. We record your choice with the version of the wording you agreed to, and send these emails only to readers who agreed and have confirmed their email address. You can switch them off at any time in Settings, by replying to such an email or by writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>. Account and service emails, such as password resets and issue-report replies, are sent regardless.</li>
       </ul>
       <p>Tinct does not use your content, messages or reading data to train AI models.</p>
     </section>
@@ -190,13 +194,13 @@
       <p>Tinct relies on the following providers to operate the service. Each processes data only as needed to provide its function.</p>
       <ul>
         <li><strong>Supabase</strong>: authentication and database (PostgreSQL), hosted in the European Union (Ireland). Supabase also sends account emails, such as sign-up confirmations and password resets. Row-level security limits each reader to their own data.</li>
-        <li><strong>Cloudflare</strong>: application hosting (Workers), storage of synchronised chat history and reading positions, and file storage (R2) for audio and for the PDF and EPUB files signed-in readers add, on a global network.</li>
+        <li><strong>Cloudflare</strong>: application hosting (Workers), storage of synchronised chat history and reading positions, and file storage (R2) for audio, for the PDF and EPUB files signed-in readers add and for profile photos, on a global network.</li>
         <li><strong>Anthropic</strong>: the AI companion, recaps, chapter notes and the review of issue reports are powered by Anthropic's Claude. Your messages, the relevant text and any pictures you attach or snip in the companion chat, or a figure you ask about, are sent to Anthropic's API. Anthropic does not use API data to train its models. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a>.</li>
         <li><strong>xAI</strong>: Talk (spoken conversation) is powered by xAI's Grok. While a conversation is open, your voice, the relevant text and your recent conversation are sent to xAI. xAI also produces the narration voices and writes Modern English editions of public-domain books, from book text only. Tinct uses xAI with Zero Data Retention: xAI does not store what Tinct sends or receives and does not train on it. See <a href="https://x.ai/legal/privacy-policy">xAI's privacy policy</a>.</li>
         <li><strong>OpenAI</strong>: when you ask the companion to check sources, your recent questions are sent to OpenAI to run a web search. OpenAI is asked not to store them. See <a href="https://openai.com/policies/privacy-policy">OpenAI's privacy policy</a>.</li>
         <li><strong>Stripe</strong>: payment processing for Premium subscriptions and one-time purchases.</li>
         <li><strong>Brevo</strong>: sending Tinct's own email: issue-report notices and replies, and the occasional emails you agreed to.</li>
-        <li><strong>Google</strong>: optional sign-in. If you sign in with Google, Google provides your email address and name.</li>
+        <li><strong>Google</strong>: optional sign-in. If you sign in with Google, Google provides your email address, name and profile photo. Tinct stores a copy of the photo only if you choose it as your profile picture.</li>
       </ul>
       <p>Some of these providers process data outside the European Union, including in the United States. All connections to Tinct and to these providers are encrypted in transit (HTTPS).</p>
     </section>
@@ -204,7 +208,7 @@
     <section id="retention">
       <h2>Data retention and deletion</h2>
       <p>Account and reading data are kept for as long as your account exists. Analytics events and usage records are kept for 24 months and then deleted automatically. Data stored in your browser remains on your device until you sign out or clear your browser storage.</p>
-      <p>You may request deletion of your account and all associated data by writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>. Deletion is completed within 30 days of the request and covers your account, reading data, chat history, the PDF and EPUB files you added, analytics and usage records, issue reports and your Stripe customer record. Copies that providers keep for their own legal or security purposes are governed by their policies.</p>
+      <p>You may request deletion of your account and all associated data by writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>. Deletion is completed within 30 days of the request and covers your account, your profile and its photos, reading data, chat history, the PDF and EPUB files you added, analytics and usage records, issue reports and your Stripe customer record. Copies that providers keep for their own legal or security purposes are governed by their policies.</p>
     </section>
 
     <section id="rights">

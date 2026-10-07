@@ -33,13 +33,19 @@ We'll give at least 30 days' notice by email before a price change.
 EU right of withdrawal: you normally have 14 days to withdraw. When you start using Premium or a top-up, you ask us to begin providing it straight away. You lose the right of withdrawal for content that has been fully delivered, and a withdrawal from a service already in progress may be reduced in proportion to what you've used.
 
 ## 4. Your content and your responsibility for it
-"Your content" means anything you put into Tinct: notes, highlights, journal entries, messages and voice input to the AI features, and any text or file you upload or import.
+"Your content" means anything you put into Tinct: notes, highlights, journal entries, messages and voice input to the AI features, any text or file you upload or import, and any name, handle, image or background you set on your profile.
 
 **You own your content.** You give Tinct a limited licence to store and process it only so we can run the service for you. We don't use it to train AI models.
 
 **You are solely responsible for your content.** You confirm that you have every right needed to upload or submit it, including copyright and privacy rights, and that doing so doesn't break any law.
 
 Don't upload content that infringes someone else's rights, is unlawful, contains other people's personal data without a lawful basis, or tries to attack the service or its AI features.
+
+**Your profile.** You are solely responsible for the name, handle, picture and background on your profile. Don't pretend to be someone else, use other people's images or personal data, or choose anything hateful or sexual.
+
+A person at Tinct approves each picture and background you upload before other readers can see it. Moderation is done by people, not by automated decisions. We may decline a picture, or rename or hide a profile, that breaks these rules.
+
+You can block a reader, so that neither of you sees the other, and report a profile. See Reporting and removal.
 
 You agree to compensate Tinct for claims and reasonable costs that arise from your content or from your breach of these terms, as far as the law allows.
 
@@ -62,7 +68,7 @@ Don't share or resell your account, use bots or scrapers, get around usage limit
 You can delete your account at any time. We may suspend or close an account that seriously or repeatedly breaks these terms, with a warning first where that's reasonable.
 
 ## 9. Disclaimers and limitation of liability
-The service is provided "as is". As far as the law allows, Tinct isn't liable for indirect losses or for losses that result from relying on AI answers or on your own content, and our total liability is limited to what you paid us in the past 12 months. Nothing here limits liability that the law doesn't allow us to limit, or your mandatory rights as a consumer.
+The service is provided "as is". As far as the law allows, Tinct isn't liable for indirect losses or for losses that result from relying on AI answers, from your own content or from content other readers add, such as their profiles, and our total liability is limited to what you paid us in the past 12 months. Nothing here limits liability that the law doesn't allow us to limit, or your mandatory rights as a consumer.
 
 ## 10. Changes, law and disputes
 We'll email you at least 30 days before material changes to these terms. Danish law applies. EU consumers keep the protection of their own country's mandatory laws, and can complain to Nævnenes Hus or through the EU's online dispute resolution platform.
