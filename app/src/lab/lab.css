@@ -2542,10 +2542,23 @@
 .lab.is-phone .lab-hearing-stage {
   justify-content: flex-start;
   align-content: flex-start;
-  overflow-x: hidden;
   min-width: 0;
   max-width: 100%;
   padding: 0.15rem 0 0.35rem;
+  /* Ink may overhang a glyph's advance width: the hook of a line-final "f"
+     ("company of", Nehemiah 12) or an italic's lean at line start. The
+     stage used to clip at its content edge (overflow-x: hidden), cutting
+     that ink with a straight vertical edge. Clip with clip-path instead:
+     the same top and bottom edges, but the sides extend into the passage's
+     side padding, which is empty and itself clipped by the passage. Paint
+     only: the stage is a flex box under a block, so its overflow never
+     changed its size, its lines or the page map (measured in the hidden
+     native flow, where the stage is display: contents). iOS Safari has no
+     overflow-clip-margin; clip-path inset with negative sides works in
+     every engine. The visible stage holds only the current page's words,
+     so no neighbouring page can show through. */
+  overflow: visible;
+  clip-path: inset(0 calc(-1 * var(--lab-ink-overhang, 0.75rem)));
 }
 
 .lab.is-phone .lab-hearing-line {
