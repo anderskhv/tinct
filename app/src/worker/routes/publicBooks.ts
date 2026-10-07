@@ -8,6 +8,7 @@
  *   POST /api/public-books/import                { workId } → exists | convert (signed in)
  *   GET  /api/public-books/import/{bookId}/source  the downloaded EPUB, for conversion (signed in)
  *   POST /api/public-books/import/{bookId}/commit  { chapters } → imported (signed in)
+ *   GET  /api/public-books/import/access         { canAdd } for the signed-in caller
  *   GET  /data/editions/{bookId}-{editionKey}.json the edition text, like any registry edition
  *   …/{bookId}/modern-en[/checkout|/priority]     the paid Modern English edition (publicBookModern.ts)
  *
@@ -18,6 +19,10 @@
  * back, and the Worker publishes only text it finds in the downloaded EPUB
  * (lib/epubSource.ts). Title, author and source come from the catalogue on
  * the server, never from the browser.
+ *
+ * Who may add: a signed-in account that is subscribed or within its 30-day
+ * trial (lib/aiAllowance.ts hasPremiumAccess); others get 402 before anything is
+ * counted or downloaded. Reading added books needs no account.
  *
  * Abuse limits: per account per day and a global daily ceiling; the same work
  * is one import (its id is derived from the work id, and an existing book is
@@ -58,6 +63,8 @@ export const MAX_REDIRECTS = 3
 export const IMPORTS_PER_DAY = 10
 export const IMPORTS_PER_DAY_ALL = 300
 export const REQUESTS_PER_MINUTE = 20
+/** 402 body for a signed-in account that is neither subscribed nor in its trial (here and routes/userBooks.ts). */
+export const PREMIUM_REQUIRED = 'premium_required'
 export const LOCK_MS = 10 * 60_000
 export const LIMITS = { chapters: 3000, paragraphsPerChapter: 20_000, paragraphChars: 60_000, titleChars: 200, totalParagraphs: 200_000 }
 
@@ -82,6 +89,8 @@ export interface PublicBooksDeps {
   countDaily: (key: string, limit: number) => Promise<boolean>
   /** True for the first caller in a LOCK_MS window for this book. */
   acquireLock: (bookId: string) => Promise<boolean>
+  /** Premium or in the 30-day trial (lib/aiAllowance.ts loadPremiumAccess); null when unknown. Adding is Premium only. */
+  premiumAccess: (userId: string) => Promise<boolean | null>
   fetchSource?: typeof fetch
   chooser?: ShelfChooser | null
   coverFetch?: CoverFetch
@@ -569,10 +578,16 @@ export async function handlePublicBooks(request: Request, env: PublicBooksEnv, d
   const isPrepare = parts.length === 1 && request.method === 'POST'
   const isSource = parts.length === 3 && parts[2] === 'source' && request.method === 'GET' && isPublicBookId(parts[1])
   const isCommit = parts.length === 3 && parts[2] === 'commit' && request.method === 'POST' && isPublicBookId(parts[1])
-  if (!isPrepare && !isSource && !isCommit) return reply({ error: 'Not found' }, 404, request)
+  const isAccess = parts.length === 2 && parts[1] === 'access' && request.method === 'GET'
+  if (!isPrepare && !isSource && !isCommit && !isAccess) return reply({ error: 'Not found' }, 404, request)
   const user = await deps.verifyUser(request)
   if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
   if (!await deps.checkRateLimit(`public-books:${user.id}`, undefined, REQUESTS_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+  // Adding books is Premium (or the 30-day trial): checked before any count, lock or download.
+  const premium = await deps.premiumAccess(user.id).catch(() => null)
+  if (isAccess) return premium === null ? reply({ error: 'unavailable' }, 503, request) : reply({ canAdd: premium }, 200, request)
+  if (premium === null) return reply({ error: 'unavailable' }, 503, request)
+  if (!premium) return reply({ error: PREMIUM_REQUIRED }, 402, request)
   if (isPrepare) return prepare(request, env, bucket, user, deps)
   if (isSource) return staged(request, bucket, parts[1])
   return commit(request, env, bucket, parts[1], deps, deps.waitUntil)

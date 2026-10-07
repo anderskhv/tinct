@@ -17,7 +17,7 @@ import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { ADD_BOOK_IDB_NAME } from './services/storage'
 import { userBookReaderUrl, USER_BOOKS_SHELF_URL } from './lab/userBook/userBookId'
 
-export type ImportFailure = 'signed_out' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
+export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
 export type ImportResult =
   | { ok: true; bookId: string; entry: Record<string, unknown> & { id: string }; existed: boolean }
   | { ok: false; reason: ImportFailure }
@@ -34,6 +34,7 @@ async function token(): Promise<string | null> {
 
 const failureFor = (status: number, code: string | undefined): ImportFailure =>
   status === 401 ? 'signed_out'
+    : status === 402 ? 'premium_required'
     : code === 'daily_limit' ? 'daily_limit'
       : code === 'in_progress' ? 'in_progress'
         : code === 'not_importable' || code === 'not_found' || code === 'source_not_allowed' ? 'not_importable'
@@ -72,6 +73,23 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
     return { ok: true, bookId: done.bookId, entry: done.entry, existed: committed.status === 200 }
   } catch {
     return { ok: false, reason: 'failed' }
+  }
+}
+
+/**
+ * Whether this account may add books (Premium or its 30-day trial; the Worker's
+ * hasPremiumAccess). False signed out; null when it cannot be told.
+ */
+export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean | null> {
+  const auth = await token()
+  if (!auth) return false
+  try {
+    const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store' })
+    if (!response.ok) return response.status === 401 ? false : null
+    const body = await response.json() as { canAdd?: unknown }
+    return typeof body.canAdd === 'boolean' ? body.canAdd : null
+  } catch {
+    return null
   }
 }
 
@@ -167,4 +185,4 @@ export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook
   return out.sort((a, b) => b.at - a.at)
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks }
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd }

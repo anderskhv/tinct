@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { PRE_READER_CATALOGUE } from '../preReader/catalogue'
-import { bookFromEntry, ensurePublicBook, mentionsPublicBook, preloadPublicBooksForReader, registerPublicBook, type PublicEntry } from './publicBooks'
+import { bookFromEntry, ensurePublicBook, fetchPublicBooksIndex, mentionsPublicBook, preloadPublicBooksForReader, quickPublicEntry, registeredPublicCover, registeredPublicEntries, registerPublicBook, type PublicEntry } from './publicBooks'
 
 const entry = (id: string): PublicEntry => ({
   id, title: 'The River House', author: 'Ann Example', summary: 'Public-domain text from Project Gutenberg.', year: 1871, wordCount: 1200,
@@ -50,5 +50,32 @@ describe('public books in the reader', () => {
     expect(getBook('pd-pg-79')?.editions[0].key).toBe('original-en')
     expect(mentionsPublicBook(null, '"pd-ws-da-q1-abc"')).toBe(true)
     expect(mentionsPublicBook('{"bookId":"pride-and-prejudice"}')).toBe(false)
+  })
+
+  it('gives the Reading now sheet an added book’s title, painted cover, tone and chapters', async () => {
+    const painted = { ...entry('pd-pg-135'), title: 'Les Misérables', art: { src: '/api/public-books/pd-pg-135/cover', srcSet: '/api/public-books/pd-pg-135/cover 1x' }, readingStructure: { chapters: [{ number: 1, title: 'Chapter 1 — M. Myriel', paragraphCount: 30 }] } }
+    expect(quickPublicEntry(painted)).toEqual({
+      id: 'pd-pg-135',
+      title: 'Les Misérables',
+      art: { src: '/api/public-books/pd-pg-135/cover', srcSet: '/api/public-books/pd-pg-135/cover 1x' },
+      cover: { background: '#2c2417' },
+      readingStructure: { chapters: [{ number: 1, title: 'Chapter 1 — M. Myriel', paragraphCount: 30 }] },
+    })
+    // Not painted yet: no art, the generated cover's tone stays.
+    expect(quickPublicEntry({ ...entry('pd-pg-136'), art: null })).toMatchObject({ id: 'pd-pg-136', art: null, cover: { background: '#2c2417' } })
+    for (const bad of [null, { id: 'odyssey', title: 'The Odyssey' }, { id: 'pd-pg-137', title: '' }]) expect(quickPublicEntry(bad)).toBeNull()
+
+    registerPublicBook(bookFromEntry(painted), painted)
+    expect(registeredPublicEntries().map(book => book.id)).toContain('pd-pg-135')
+    expect(registeredPublicCover('pd-pg-135')).toBe('/api/public-books/pd-pg-135/cover')
+    expect(registeredPublicCover('odyssey')).toBeNull()
+
+    const ok = vi.fn(async () => Response.json({ books: [painted, { id: 'odyssey', title: 'x' }] }))
+    expect((await fetchPublicBooksIndex(ok as unknown as typeof fetch))?.map(book => book.id)).toEqual(['pd-pg-135'])
+    expect(ok).toHaveBeenCalledWith('/api/public-books')
+    const unavailable = async () => new Response('', { status: 503 })
+    expect(await fetchPublicBooksIndex(unavailable as unknown as typeof fetch)).toBeNull()
+    const offline = async () => Promise.reject(new Error('offline'))
+    expect(await fetchPublicBooksIndex(offline as unknown as typeof fetch)).toBeNull()
   })
 })

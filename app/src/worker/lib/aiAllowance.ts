@@ -145,6 +145,30 @@ export function trialEndsAt(profile: AllowanceProfile): Date | null {
 }
 
 /**
+ * Premium features that are not AI, such as adding books (a catalogue import or
+ * an own PDF/EPUB upload; Anders, 2026-10-07): subscribed, or within the
+ * account's 30-day trial. Books already added stay readable regardless.
+ */
+export function hasPremiumAccess(profile: AllowanceProfile, now: Date): boolean {
+  if (isSubscribed(profile, now)) return true
+  const end = trialEndsAt(profile)
+  return !!end && now.getTime() < end.getTime()
+}
+
+/** `hasPremiumAccess` for an account, from its profile; null when the profile cannot be read. Never throws. */
+export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<boolean | null> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  try {
+    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    if (!res.ok) return null
+    const profile = ((await res.json()) as AllowanceProfile[])?.[0]
+    return profile ? hasPremiumAccess(profile, now) : null
+  } catch {
+    return null
+  }
+}
+
+/**
  * The reader's current billing period and its allowance.
  *  - Subscription, monthly or yearly: the calendar month, counted from
  *    Stripe's period end, that contains now. Stripe keeps the period end on

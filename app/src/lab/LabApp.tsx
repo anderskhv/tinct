@@ -194,7 +194,8 @@ import { writeUserBookPlace } from './userBook/userBookPlace'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
-import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -394,9 +395,10 @@ function readOnline(override?: boolean): boolean {
   return navigator.onLine
 }
 
+/** Built-in books only: added books (`pd-…`) have no `/covers/v2` art and come with their own entries (registeredPublicEntries). */
 function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   const currentBookId = current.bookId || 'bible'
-  return BOOKS.map(book => ({
+  return BOOKS.filter(book => !isPublicBookId(book.id)).map(book => ({
     id: book.id,
     title: book.title,
     art: { src: `/covers/v2/${book.id}.webp` },
@@ -1409,7 +1411,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }
   }, [])
 
-  const rowsForQuickCatalogue = useCallback((catalogue: QuickBookCatalogueEntry[]) => {
+  const rowsForQuickCatalogue = useCallback((catalogue: QuickBookCatalogueEntry[], added: QuickAddedBooks) => {
     try {
       const viewer = authToken !== undefined
         ? (authToken ? (authUser?.id ?? null) : null)
@@ -1422,6 +1424,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         memory: readDeviceReadingMemory(),
         viewer,
         completedBookIds: quickBookCompletedIds(localStorage),
+        added,
       })
     } catch {
       return []
@@ -1440,14 +1443,26 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setBookSwitcherError('')
     setBookSwitcherOpen(true)
     const fallback = quickCatalogueFallback(book)
-    setBookSwitcherRows(rowsForQuickCatalogue(fallback))
+    // The built catalogue never lists books added from the public catalogue
+    // (`pd-…`): their titles, painted covers and chapters come from the books
+    // registered on this page and, when the reading history names an added
+    // book, the public-books index (the library merges the same index).
+    const registered: QuickAddedBooks = { entries: registeredPublicEntries(), complete: false }
+    let historyNamesAddedBook = false
+    try { historyNamesAddedBook = mentionsPublicBook(localStorage.getItem('tinct-lab-position'), JSON.stringify(readDeviceReadingMemory())) } catch { /* registered books still apply */ }
+    const addedReady: Promise<QuickAddedBooks> = historyNamesAddedBook
+      ? fetchPublicBooksIndex().then(index => index
+        ? { entries: [...registered.entries, ...index], complete: true }
+        : registered)
+      : Promise.resolve(registered)
+    setBookSwitcherRows(rowsForQuickCatalogue(fallback, registered))
     setBookSwitcherLoading(true)
     void fetch('/lab/catalogue.json')
       .then(async response => {
         if (!response.ok) throw new Error(String(response.status))
         const payload = await response.json() as { books?: QuickBookCatalogueEntry[] }
         if (!Array.isArray(payload.books)) throw new Error('Invalid catalogue')
-        setBookSwitcherRows(rowsForQuickCatalogue(payload.books))
+        setBookSwitcherRows(rowsForQuickCatalogue(payload.books, await addedReady))
       })
       .catch(() => setBookSwitcherError('Showing books saved on this device.'))
       .finally(() => setBookSwitcherLoading(false))
@@ -4913,7 +4928,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         </p>
       </header>}
       {bookSwitcherOpen && !frontispieceVisible && <LabBookSwitcher
-        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp` }}
+        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: isPublicBookId(book.bookId) ? registeredPublicCover(book.bookId) ?? '' : `/covers/v2/${book.bookId || 'bible'}.webp`, coverTone: getBook(book.bookId || 'bible')?.coverColor ?? null }}
         rows={bookSwitcherRows}
         loading={bookSwitcherLoading}
         error={bookSwitcherError}

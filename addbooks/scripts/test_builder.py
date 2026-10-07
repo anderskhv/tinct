@@ -79,6 +79,22 @@ class BuilderTests(unittest.TestCase):
         self.assertIsNone(reason)
         self.assertIsNone(e['epubUrl'])
 
+    def test_epub_edition_preferred_over_proofread_page_without_epub(self):
+        # Leaves of Grass: Kalliope's proofread selection has no EPUB; Gutenberg's edition does.
+        pg = self.edition(title='Leaves of Grass', authors=[b.person('Whitman, Walt')], popularity=12000)
+        pg['authors'][0].update(birthYear=1819, deathYear=1892)
+        kal = self.edition(id='kal:whitman/1891', source='Kalliope', sourceId='whitman/1891', title='Leaves of Grass', subtitle='Udvalg',
+                           quality='proofread', epubUrl=None, popularity=0, authors=[dict(pg['authors'][0])])
+        works = b.group_editions([kal, pg], {})
+        self.assertEqual(len(works), 1)
+        self.assertEqual(works[0]['id'], 'pg:123')
+        self.assertEqual(works[0]['editions'][0]['source'], 'Gutenberg')
+        self.assertIsNotNone(works[0]['editions'][0]['epubUrl'])
+        self.assertIsNone(works[0]['subtitle'])
+        # Without any EPUB, quality still decides.
+        works = b.group_editions([kal, dict(pg, epubUrl=None)], {})
+        self.assertEqual(works[0]['editions'][0]['source'], 'Kalliope')
+
     def test_registry_ignores_staged_books_and_comments(self):
         source = """export const LIVE: Book = {
   id: 'live', title: 'The Odyssey', author: 'Homer', year: -800,

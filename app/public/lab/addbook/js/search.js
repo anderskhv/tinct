@@ -2,10 +2,65 @@
 const STOP = new Set(['a', 'an', 'the', 'of', 'and', 'in', 'to', 'by', 'for']);
 // Letters NFKD does not decompose, so "Kobenhavn" finds "København" and "strasse" finds "Straße".
 const FOLD = {'ø':'o','æ':'ae','œ':'oe','ß':'ss','ł':'l','đ':'d','ð':'d','þ':'th','ı':'i'};
+// Spellings and abbreviations that mean the same name or title, applied to the index and the
+// query alike, after folding (whole words only): "tolstoi" finds Tolstoy, "dr faustus" Doctor Faustus.
+const VARIANTS = [
+  ['tolstoi|tolstoj', 'tolstoy'],
+  ['tchekhov|tchekoff|tchehov|tchekov|chekov|chekhoff|cechov', 'chekhov'],
+  ['vergil', 'virgil'],
+  ['koran|kuran', 'quran'],
+  ['dr', 'doctor'],
+  ['st', 'saint'],
+  ['lao tzu|lao tse|lao tsze|lao tseu|laotse|laotzu|lao zi', 'laozi'],
+  ['tao teh king|tao te king|tao teh ching', 'tao te ching'],
+  ['80', 'eighty'],
+  ['20 000|20000', 'twenty thousand'],
+  ['1001', 'thousand and one'],
+  ['goncharoff', 'goncharov'],
+  ['tourgenieff|turgenieff|turgeniev', 'turgenev'],
+  ['bhagavadgita', 'bhagavad gita'],
+  ['mobydick', 'moby dick'],
+];
+const VARIANT_OF = new Map(VARIANTS.flatMap(([from, to]) => from.split('|').map(f => [f, to])));
+// One pass for the whole table; longer spellings first, so "tao teh king" wins over a shorter one.
+const VARIANT = new RegExp(`(?<=^| )(?:${[...VARIANT_OF.keys()].sort((a, b) => b.length - a.length).join('|')})(?= |$)`, 'g');
 export function normalize(value) {
-  return value.toLowerCase().replace(/[øæœßłđðþı]/g, c => FOLD[c]).normalize('NFKD').replace(/\p{M}/gu, '')
+  let out = value.toLowerCase().replace(/[øæœßłđðþı]/g, c => FOLD[c]).normalize('NFKD').replace(/\p{M}/gu, '')
+    // A letter on each side of an apostrophe is one word: "Qur'an" is "quran", "Gulliver's" "gullivers".
+    .replace(/(\p{L})['’ʼ](\p{L})/gu, '$1$2')
     .replace(/dostoyevsky|dostoievski|dostoievsky|dostoevskii|dostoyevski/g, 'dostoevsky')
     .replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  return out.replace(VARIANT, word => VARIANT_OF.get(word));
+}
+// Other titles readers know a work by (hand-checked; title and author tested after normalize).
+// They rank as titles, in the catalogue and for Tinct's own books alike. A Tinct registry book
+// can carry its own as `altTitles`.
+export const ALT_TITLES = [
+  [/^notre dame de paris\b/, /hugo/, ['The Hunchback of Notre Dame']],
+  [/^(the )?divine comedy\b(?!.*\b(purgatorio|purgatory|paradiso|paradise)\b)|^dantes inferno|^the vision of hell/, /dante/, ['Inferno', "Dante's Inferno"]],
+  [/^capital( a critique|$)/, /marx/, ['Das Kapital']],
+  [/^the song celestial/, /(?:)/, ['Bhagavad Gita']],
+  [/^(the )?quran\b/, /(?:)/, ['Quran', 'Holy Quran']],
+  [/^the (holy )?bible\b|^the king james (version of the )?bible/, /various|anonymous|^$/, ['King James Bible', 'Holy Bible', 'KJV']],
+  [/^(the )?confessions$/, /augustine/, ['The Confessions of Saint Augustine']],
+  [/^les miserables/, /hugo/, ['Les Mis']],
+  [/^(the )?adventures of huckleberry finn/, /twain|clemens/, ['Huck Finn']],
+  [/^thus spake zarathustra/, /nietzsche/, ['Thus Spoke Zarathustra']],
+  [/^(the )?tao te ching/, /laozi/, ['Tao Te Ching', 'Daodejing']],
+  [/^(the )?communist manifesto|^manifesto of the communist party/, /marx/, ['The Communist Manifesto']],
+  [/^on the origin of species/, /darwin/, ['The Origin of Species']],
+  [/^oedipus (rex|tyrannus|the king|king of thebes)$/, /sophocles/, ['Oedipus Rex', 'Oedipus the King', 'Oedipus Tyrannus']],
+  [/^(the )?(manual|enchiridion|handbook)$/, /epictetus/, ['Enchiridion', 'The Handbook']],
+  [/^the federalist( papers)?$/, /hamilton|madison|publius|various/, ['The Federalist Papers', 'The Federalist']],
+];
+/** The curated other titles of a work, from its title and author names. */
+const ANY_ALT_TITLE = new RegExp(ALT_TITLES.map(([titleRe]) => titleRe.source).join('|'));
+export function altTitlesFor(title, authors, norm = normalize) {
+  const t = norm(title || '');
+  if (!ANY_ALT_TITLE.test(t)) return [];
+  const found = ALT_TITLES.filter(([titleRe]) => titleRe.test(t));
+  const a = norm(authors || '');
+  return found.filter(([, authorRe]) => authorRe.test(a)).flatMap(entry => entry[2]);
 }
 const tokens = value => normalize(value).split(' ').filter(Boolean);
 // Exact-title ranking ignores a leading article in any catalogue language ("The Odyssey" = "Odyssey").
@@ -41,6 +96,48 @@ export function hydrate(works) {
   }
   return works;
 }
+/**
+ * What Tinct's own books borrow from the catalogue works that are the same book, so the
+ * library ranks them with this engine as the catalogue would: the best-read copy's popularity,
+ * the authors' other names ("Samuel Langhorne Clemens"), the works' other titles and translators.
+ * A work is the same book when the catalogue matched it (`tinctIds`), when the book names its
+ * id (`workIds`), or when it has the same title (without a leading article) by an author of that
+ * surname. `books`: [{id, title, author, workIds?}]. Returns {[book id]: borrowed}.
+ */
+export function borrowFor(books, works) {
+  const key = title => core(normalize(title || ''));
+  const surname = author => normalize(String(author || '').split(/[,;&(]| and /)[0]).split(' ').filter(Boolean).pop() || '';
+  const byTitle = new Map(), byWork = new Map(), byTinct = new Map();
+  for (const b of books) {
+    const k = key(b.title);
+    if (!byTitle.has(k)) byTitle.set(k, []);
+    byTitle.get(k).push(b);
+    for (const id of b.workIds || []) byWork.set(id, b);
+    byTinct.set(b.id, b);
+  }
+  const found = new Map();
+  for (const w of works) {
+    const matches = new Set([...(w.tinctIds || []).map(id => byTinct.get(id)), byWork.get(w.id)].filter(Boolean));
+    const sameTitle = byTitle.get(key(w.title));
+    if (sameTitle) {
+      const names = new Set((w.authors || []).flatMap(p => [p.name, ...(p.aliases || [])]).flatMap(n => normalize(n).split(' ')));
+      for (const b of sameTitle) if (names.has(surname(b.author))) matches.add(b);
+    }
+    for (const b of matches) { if (!found.has(b.id)) found.set(b.id, []); found.get(b.id).push(w); }
+  }
+  const out = {};
+  for (const [id, list] of found) {
+    const book = byTinct.get(id);
+    const unique = values => [...new Set(values.filter(Boolean))];
+    out[id] = {
+      popularity: Math.max(...list.map(w => w.popularity || 0)),
+      aliases: unique(list.flatMap(w => (w.authors || []).flatMap(p => [p.name, ...(p.aliases || [])]))).filter(n => n !== book.author),
+      titles: unique(list.flatMap(w => [w.title, ...(w.altTitles || [])])).filter(t => t !== book.title),
+      translators: unique(list.flatMap(w => (w.translators || []).map(p => p.name))),
+    };
+  }
+  return out;
+}
 // Ranking (Anders, 2026-10-07): tiers first, then popularity within a tier.
 //   1  the title starts with the query, or a title word is a query word; and, when the query
 //      is an author's name ("dostoevsky", "jane austen", see authorQuery), that author's books
@@ -52,17 +149,24 @@ export function hydrate(works) {
 //      a single word found only there is dropped, so "faust" does not list Max Brand's westerns.
 // Every query word must be found somewhere; a work's tier is that of its best-placed word.
 // Within a tier: English first when no language is chosen, then a score of popularity plus
-// the share of the query's words the title holds and a bonus when a title is exactly the query
-// (an author's own book, for their name, counts as both),
+// the share of the query's words the title holds, the share found in the author's own name
+// ("shakespeare sonnets" puts Shakespeare's Sonnets above other sonnets), and a bonus when a
+// title is exactly the query (an author's own book, for their name, counts as title and exact),
 // so "meditations marcus" puts Meditations by Marcus Aurelius above small editions titled "Marcus Aurelius".
+// A volume or part ("Vol. 2 (of 6)", "Part 3") loses a little unless the query asks for one.
+// A respelling of a person's own name among their other names ("Tchekhov" for Anton Chekhov,
+// a near spelling of the name) counts as their name; a pen name stays tier 5.
 const TITLE = 1, AUTHOR = 2, OTHER = 3;
 // [exact word, word starting with it, near spelling] for each field.
 const TIER = {[TITLE]: [1, 2, 2.5], [AUTHOR]: [3, 3, 3.5], [OTHER]: [4, 4, 4.5]};
 const EXACT = 0, PREFIX = 1, NEAR = 2;
 const TITLE_COVER = [1, 0.75, 0.6];
 const ALIAS_TIER = 5, INDEX_TIER = 4.9;
-// A title that is exactly the query ("La divina commedia") outweighs a 10,000-fold popularity gap.
-const EXACT_TITLE = 4;
+// A title that is exactly the query ("La divina commedia") outweighs a 300-fold popularity gap.
+const EXACT_TITLE = 2.5;
+const AUTHOR_COVER = 3, VOLUME_PENALTY = 1.5;
+const VOLUME = /\b(vol(ume)?s?\.?|part|book|tome|chapters?|series)\s+([0-9]+|[ivxlc]+|one|two|three|four|five)\b|\(of \d+\)/i;
+const ASKS_FOR_VOLUME = /\b(vol|volume|part|book|tome|chapter|series|\d+)\b/;
 export function createSearch(works) {
   const inverted = new Map(), vocabByLength = new Map();
   const add = (token, id) => {
@@ -75,11 +179,22 @@ export function createSearch(works) {
     ids.push(id);
   };
   const people = w => [...w.editions.flatMap(e => e.authors), ...w.editions.flatMap(e => e.translators)];
+  // Names, subjects and shelves repeat across thousands of works: normalize each text once while indexing.
+  const normCache = new Map(), spelling = new Map();
+  const norm = text => { let out = normCache.get(text); if (out === undefined) normCache.set(text, out = normalize(text)); return out; };
+  const words = text => text ? norm(text).split(' ').filter(Boolean) : [];
+  // Is alias word `t` a near spelling of one of this person's own name words?
+  const respelled = (own, t) => {
+    const key = own.join(' ') + '|' + t;
+    let out = spelling.get(key);
+    if (out === undefined) spelling.set(key, out = t.length >= 4 && own.some(o => o[0] === t[0] && near(o, t, 2)));
+    return out;
+  };
   const docs = works.map((w, id) => {
     // Each word with the best field it appears in.
     const field = new Map();
-    const put = (text, f) => { for (const t of tokens(text || '')) if (!(field.get(t) <= f)) field.set(t, f); };
-    const titles = [w.title, ...w.editions.map(e => e.title), ...(w.altTitles || [])];
+    const put = (text, f) => { for (const t of words(text)) if (!(field.get(t) <= f)) field.set(t, f); };
+    const titles = [w.title, ...w.editions.map(e => e.title), ...(w.altTitles || []), ...altTitlesFor(w.title, (w.authors || []).map(p => p.name).join(' '), norm)];
     titles.forEach(t => put(t, TITLE));
     const authors = w.editions.flatMap(e => e.authors);
     authors.forEach(p => put(p.name, AUTHOR));
@@ -87,13 +202,22 @@ export function createSearch(works) {
     [w.subtitle, ...w.subjects, ...w.bookshelves].forEach(t => put(t, OTHER));
     for (const t of field.keys()) add(t, id);
     // Other names are indexed so a multi-word query can find them; their words rank only as tier 5.
-    const aliasWords = new Set();
-    for (const p of people(w)) for (const a of p.aliases || []) for (const t of tokens(a)) if (!field.has(t)) aliasWords.add(t);
+    const aliasWords = new Set(), spelled = new Set();
+    for (const p of people(w)) {
+      const own = authors.includes(p) ? words(p.name).filter(t => t.length >= 4) : [];
+      for (const a of p.aliases || []) for (const t of words(a)) {
+        if (field.has(t)) continue;
+        if (own.length && respelled(own, t)) { field.set(t, AUTHOR); spelled.add(t); }
+        else aliasWords.add(t);
+      }
+    }
     for (const t of aliasWords) add(t, id);
-    const title = core(normalize(w.title));
-    return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(normalize(t))))],
-      author: new Set(authors.flatMap(p => tokens(p.name))), index: /^index of (the )?project gutenberg/.test(title)};
+    for (const t of spelled) add(t, id);
+    const title = core(norm(w.title || ''));
+    return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(norm(t))))],
+      author: new Set([...authors.flatMap(p => words(p.name)), ...spelled]), volume: VOLUME.test(w.title), index: /^index of (the )?project gutenberg/.test(title)};
   });
+  normCache.clear(); spelling.clear();
   const expansionCache = new Map();
   function expand(term) {
     if (expansionCache.has(term)) return expansionCache.get(term);
@@ -131,6 +255,7 @@ export function createSearch(works) {
   return function search(query, filters = {}, limit = 24) {
     const started = performance.now();
     const normalized = core(normalize(query));
+    const askedVolume = ASKS_FOR_VOLUME.test(normalized);
     const allTokens = [...new Set(tokens(query))];
     const meaningful = allTokens.filter(t => !STOP.has(t));
     const terms = meaningful.length ? meaningful : allTokens;
@@ -153,19 +278,20 @@ export function createSearch(works) {
       if (filters.source && !w.editions.some(e => e.source === filters.source)) continue;
       if (filters.subject && ![...w.subjects, ...w.bookshelves].includes(filters.subject)) continue;
       const doc = docs[id];
-      let tier = terms.length ? Infinity : 1, cover = 0;
+      let tier = terms.length ? Infinity : 1, cover = 0, authorCover = 0;
       const missing = [];
       expansions.forEach((expansion, i) => {
-        let best = Infinity, inTitle = 0;
+        let best = Infinity, inTitle = 0, inAuthor = 0;
         for (const [token, kind] of expansion) {
           const f = doc.field.get(token);
           if (!f) continue;
           best = Math.min(best, TIER[f][kind]);
           if (f === TITLE) inTitle = Math.max(inTitle, TITLE_COVER[kind]);
+          if (f === AUTHOR) inAuthor = Math.max(inAuthor, TITLE_COVER[kind]);
         }
         if (best === Infinity) missing.push(i);
         tier = Math.min(tier, best);
-        cover += inTitle;
+        cover += inTitle; authorCover += inAuthor;
       });
       if (missing.length) {
         const alias = aliasTier(w, expansions, missing);
@@ -175,7 +301,7 @@ export function createSearch(works) {
       const exact = !!normalized && doc.titles.includes(normalized);
       if (exact || (normalized && doc.titles.some(t => t.startsWith(normalized + ' ')))) tier = 1;
       const byAuthor = terms.length > 0 && terms.every(t => doc.author.has(t));
-      ranked.push({id, tier, cover, exact, byAuthor, index: doc.index});
+      ranked.push({id, tier, cover, authorCover, exact, byAuthor, index: doc.index, volume: doc.volume});
     }
     // The query is an author's name when more matching works carry it as their author's own
     // name than as a title ("dostoevsky", "jane austen"; not "faust"): then the author's books
@@ -183,11 +309,12 @@ export function createSearch(works) {
     const titled = ranked.filter(r => r.tier === 1 && !r.byAuthor).length;
     const authorQuery = ranked.filter(r => r.byAuthor).length > titled;
     for (const r of ranked) {
-      if (authorQuery && r.byAuthor) { r.tier = 1; r.cover = terms.length; r.exact = true; }
+      if (authorQuery && r.byAuthor) { r.tier = 1; r.cover = terms.length; r.exact = true; r.authorCover = 0; }
       if (r.index) r.tier = Math.max(r.tier, INDEX_TIER);
       const w = works[r.id];
       r.english = preferEnglish && w.language.includes('en') ? 1 : 0;
-      r.score = 3 * r.cover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : 0) + Math.log10(1 + w.popularity) + (w.quality === 'clean' ? 0.4 : 0);
+      r.score = 3 * r.cover / Math.max(1, terms.length) + AUTHOR_COVER * r.authorCover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : 0)
+        - (r.volume && !askedVolume ? VOLUME_PENALTY : 0) + Math.log10(1 + w.popularity) + (w.quality === 'clean' ? 0.4 : 0);
     }
     ranked.sort((a, b) => a.tier - b.tier || b.english - a.english || b.score - a.score
       || works[a.id].title.localeCompare(works[b.id].title) || works[a.id].id.localeCompare(works[b.id].id));

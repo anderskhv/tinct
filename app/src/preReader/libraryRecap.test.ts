@@ -81,7 +81,11 @@ describe('library recap helpers', () => {
       expect(recapEyebrow(value, T0)).toBe('Last time you read: —')
     }
     expect(compactChapterTitle('Chapter 1 — Loomings', 'Chapter 1')).toBe('Chapter 1')
-    expect(compactChapterTitle('Book II — The Just City', 'x')).toBe('Book II')
+    // In house style, as the reader shows the chapter (public/lab/chapter-title.js).
+    expect(compactChapterTitle('Book II — The Just City', 'x')).toBe('Book 2')
+    expect(compactChapterTitle('CHAPTER I—M. MYRIEL', 'Chapter 1', 'original-en')).toBe('Chapter 1')
+    expect(compactChapterTitle('Fitt XII', 'x')).toBe('Fitt 12')
+    for (const label of ['Proverbs 17', '1 Kings 3', 'Psalms 19', 'Act 1, Scene 2', 'Henry V', 'Book 4']) expect(compactChapterTitle(label, 'x')).toBe(label)
     expect(compactChapterTitle('', 'Chapter 4')).toBe('Chapter 4')
     expect(compactChapterTitle(undefined, 'Chapter 4')).toBe('Chapter 4')
   })
@@ -168,6 +172,9 @@ describe('library recap helpers', () => {
     expect(catalogueBookIdForPlace({ bookId: 'a-book-we-dropped' }, books, bible)).toBeNull()
     // No chapter list to check against: the historical assumption stands.
     expect(catalogueBookIdForPlace({ bookId: 'a-book-we-dropped' }, books)).toBe('bible')
+    // An added book the catalogue does not list is never a biblical pin.
+    expect(catalogueBookIdForPlace({ bookId: 'pd-pg-135' }, books)).toBeNull()
+    expect(catalogueBookIdForPlace({ bookId: 'pd-pg-135' }, books, bible)).toBeNull()
 
     const daniel = place({ bookId: 'daniel', headerBook: 'Daniel', chapterNumber: 7, sequentialChapter: 857, updatedAt: T0 + 1_000 })
     const droppedOld = place({ bookId: 'a-book-we-dropped', headerBook: 'Dropped', chapterNumber: 2, sequentialChapter: 2, updatedAt: T0 + 2_000 })
@@ -220,7 +227,7 @@ describe('library recap helpers', () => {
   it('uses the position store alone for a book with no memory session, with the catalogue chapter label', () => {
     const republic = place({ bookId: 'plato-republic', headerBook: 'The Republic', chapterNumber: 2, sequentialChapter: 2, paragraphIndex: 4, pageIndex: 3, primaryEditionKey: 'modern-en', updatedAt: T0 + 5_000 })
     const target = continueTargetFor({ book: books.get('plato-republic'), session: null, place: republic })
-    expect(target).toMatchObject({ bookId: 'plato-republic', editionKey: 'modern-en', chapterNumber: 2, chapterLabel: 'Book II', pageIndex: 3, paragraphIndex: 4, source: 'position' })
+    expect(target).toMatchObject({ bookId: 'plato-republic', editionKey: 'modern-en', chapterNumber: 2, chapterLabel: 'Book 2', pageIndex: 3, paragraphIndex: 4, source: 'position' })
     const unknown = place({ bookId: 'hamlet', headerBook: 'Hamlet', chapterNumber: 3, sequentialChapter: 3, updatedAt: T0 })
     expect(continueTargetFor({ book: undefined, session: null, place: unknown })).toBeNull()
     expect(continueTargetFor({ book: books.get('hamlet'), session: null, place: null })).toBeNull()
@@ -240,8 +247,8 @@ describe('library recap helpers', () => {
       ['plato-republic', 'memory'],
     ])
     expect(list.readingNow[0].target.chapterLabel).toBe('Book 2')
-    expect(list.readingNow[3].target.chapterLabel).toBe('Book I')
-    expect(inProgressLabel(list.readingNow[3])).toBe('Last time · Book I')
+    expect(list.readingNow[3].target.chapterLabel).toBe('Book 1')
+    expect(inProgressLabel(list.readingNow[3])).toBe('Last time · Book 1')
     expect(list.finished).toEqual([])
   })
 
@@ -259,7 +266,7 @@ describe('library recap helpers', () => {
     expect(list.readingNow.map(row => row.bookId)).toEqual(['plato-republic'])
     expect(list.finished.map(row => [row.bookId, row.finishedAt])).toEqual([['bible', T0 + 7_000], ['hamlet', T0 + 2_000]])
     expect(list.readingNow[0].progress).toBe('finished')
-    expect(heroHeadline(list.readingNow[0])).toBe('You finished Book I')
+    expect(heroHeadline(list.readingNow[0])).toBe('You finished Book 1')
 
     const readingAgain = place({ bookId: 'revelation', headerBook: 'Revelation', chapterNumber: 1, sequentialChapter: 1170, updatedAt: T0 + 20_000 })
     const again = readingList({ memory: memoryOf(finishedRevelation), viewer: null, positions: positions([readingAgain], 'revelation'), books })

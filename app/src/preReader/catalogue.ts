@@ -117,6 +117,8 @@ export interface PreReaderBookViewModel {
   id: string
   title: string
   author: string
+  /** Other titles readers know the book by (registry `altTitles`), searched as titles in the library. */
+  altTitles?: string[]
   summary: string
   /** One-line description from the library taxonomy (falls back to the first sentence of the summary). */
   blurb: string
@@ -338,6 +340,7 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     id: book.id,
     title: book.title.trim(),
     author: book.author.trim(),
+    ...(book.altTitles?.length ? { altTitles: book.altTitles.map(title => title.trim()) } : {}),
     summary,
     blurb,
     displayYear: getBookDisplayYear(book, meta),

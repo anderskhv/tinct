@@ -55,6 +55,8 @@ for (const w of works) {
   assert.ok(w.editions.filter(e=>['Gutenberg','Standard Ebooks'].includes(e.source)).every(e=>e.rights.startsWith('Public domain in the USA')));
   assert.ok(w.editions.every(e=>e.epubUrl === null || e.epubUrl.startsWith('https://')));
   if(w.editions.some(e=>e.source==='Standard Ebooks')) assert.equal(w.quality,'clean');
+  // A work Gutenberg has as an EPUB keeps an EPUB as its preferred edition (Kalliope's page has none).
+  if(w.editions.some(e=>e.source==='Gutenberg'&&e.epubUrl)) assert.ok(w.editions[0].epubUrl, w.id+' preferred edition has no EPUB');
 }
 fs.writeFileSync(new URL('../qa/search-results.json', import.meta.url),JSON.stringify(results,null,2)+'\n');
 console.log(JSON.stringify(results,null,2));

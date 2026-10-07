@@ -11,7 +11,7 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
 import { createGuestSpendReserver } from './worker/lib/aiSpend'
-import { createAllowanceGate, requestAllowsAiFeature } from './worker/lib/aiAllowance'
+import { createAllowanceGate, loadPremiumAccess, requestAllowsAiFeature } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
 import type { ShareStore } from './worker/shareStore'
@@ -211,7 +211,7 @@ export default {
     if (sharePage) return sharePage
 
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
-      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
+      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit, premiumAccess: userId => loadPremiumAccess(env, userId) })
     }
 
     if (url.pathname === '/api/public-books' || url.pathname.startsWith('/api/public-books/')) {
@@ -222,6 +222,7 @@ export default {
         // Fail closed like the rate limiter: without the coordinator nothing is imported.
         countDaily: async (key, limit) => { try { return windows ? await windows.getByName(`rl:${key}`).hit(limit, 86_400_000) : false } catch { return false } },
         acquireLock: async bookId => { try { return windows ? await windows.getByName(`rl:public-book-lock:${bookId}`).hit(1, 600_000) : false } catch { return false } },
+        premiumAccess: userId => loadPremiumAccess(env, userId),
         waitUntil: promise => ctx.waitUntil(promise),
       })
     }

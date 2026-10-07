@@ -5,8 +5,12 @@ import { join } from 'node:path'
 /**
  * Add to Tinct (approved D1/D2, 2026-10-06) in the library: the search's
  * "Available in Tinct" / "Not yet in Tinct" groups with Add and the file box,
- * and My shelf's "Your own books" with the + tile. Internal flag on: shown;
- * off: the library exactly as before. The catalogue search is the real Add a
+ * and My shelf's "Your own books" with "+ Add a book" and the + tile. Signed in
+ * (any account) or the internal flag: shown; signed out: the library exactly as
+ * before, with no Add and no sign-in prompt for it. The session is mocked (the
+ * signed-in cookie and a cached Supabase user); the page's sign-in and sign-out
+ * without a reload is the reading bridge's `library2:auth` event, dispatched
+ * here as the bridge does. The catalogue search is the real Add a
  * book worker and catalogue; the added-book index and the add engine
  * (/lab/library-add.js) are stubs, so nothing is imported or uploaded.
  *
@@ -31,23 +35,32 @@ const OWN_BOOKS = [
   { key: 'pdf:bbbbbbbbbbbbbbbbbbbbbbbb', kind: 'pdf', title: 'Lecture notes, week 4', author: '', at: 2, readingAt: null, href: '/lab/addbook/#books' },
 ]
 
-const FAILING_IMPORT = `async()=>({ok:false,reason:'failed'})`
-/** A slow import: it reports each step when the page asks (window.__importStep()), then fails. */
-const SLOW_IMPORT = `async(id,options)=>{const stages=['download','convert','publish'];await new Promise(done=>{window.__importStep=()=>{const next=stages.shift();if(next)options?.onStage?.(next);else done();};});return {ok:false,reason:'failed'};}`
 
-async function prepare(page: Page, { internal, signedIn, importWork = FAILING_IMPORT, query = 'view=new' }: { internal: boolean; signedIn: boolean; importWork?: string; query?: string }) {
+/** An import that fails at once (the add engine is a stub); each call is counted in window.__imports. */
+const FAILING_IMPORT = `async()=>{window.__imports=(window.__imports||0)+1;return {ok:false,reason:'failed'};}`
+/** A slow import: it reports each step when the page asks (window.__importStep()), then fails. */
+const SLOW_IMPORT = `async(id,options)=>{window.__imports=(window.__imports||0)+1;const stages=['download','convert','publish'];await new Promise(done=>{window.__importStep=()=>{const next=stages.shift();if(next)options?.onStage?.(next);else done();};});return {ok:false,reason:'failed'};}`
+
+async function prepare(page: Page, { internal, signedIn, premium = true, importWork = FAILING_IMPORT, query = 'view=new' }: { internal: boolean; signedIn: boolean; premium?: boolean; importWork?: string; query?: string }) {
   // Only the local dev server: no outside service (accounts, fonts, analytics) is reached.
   await page.route(url => !['localhost', '127.0.0.1'].includes(url.hostname), route => route.abort())
   await page.route('**/api/public-books', route => route.fulfill({ json: { books: [ADDED] } }))
   await page.route('**/api/events**', route => route.fulfill({ status: 204, body: '' }))
   await page.route('**/lab/library-add.js**', route => route.fulfill({
     contentType: 'text/javascript',
-    body: `window.__tinctLibraryAdd={ownBooks:async()=>${JSON.stringify(OWN_BOOKS)},importWork:${importWork}};`,
+    body: `window.__tinctLibraryAdd={ownBooks:async()=>${JSON.stringify(OWN_BOOKS)},canAdd:async()=>${premium},importWork:${importWork}};`,
   }))
   await page.route('**/sign-in**', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Sign in</title><p>Sign in</p>' }))
   if (signedIn) {
-    await page.context().addCookies([{ name: 'tinct_auth', value: '1', url: process.env.BASE_URL || 'http://localhost:5173' }])
-    await page.addInitScript(user => { try { localStorage.setItem('sb-local-auth-token', JSON.stringify({ user: { id: user, email: 'reader@example.com' } })) } catch { /* private */ } }, USER)
+    await page.context().addCookies([{ name: 'tinct_auth', value: '1', url: test.info().project.use.baseURL || process.env.BASE_URL || 'http://localhost:5173' }])
+    // A stored session Supabase accepts without a network call (when the dev server has a
+    // project configured, the reading bridge reads it and keeps the page signed in).
+    const project = process.env.VITE_SUPABASE_URL ? new URL(process.env.VITE_SUPABASE_URL).hostname.split('.')[0] : 'local'
+    const exp = Math.floor(Date.now() / 1000) + 3600
+    const b64 = (value: object) => Buffer.from(JSON.stringify(value)).toString('base64url')
+    const user = { id: USER, aud: 'authenticated', role: 'authenticated', email: 'reader@example.com', app_metadata: {}, user_metadata: {}, created_at: '2026-10-01T00:00:00Z' }
+    const session = { access_token: `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub: USER, exp, role: 'authenticated' })}.fixture`, refresh_token: 'fixture', token_type: 'bearer', expires_in: 3600, expires_at: exp, user }
+    await page.addInitScript(({ key, session }) => { try { localStorage.setItem(key, JSON.stringify(session)) } catch { /* private */ } }, { key: `sb-${project}-auth-token`, session })
   }
   await page.goto(`/library?${query}&internal=${internal ? 1 : 0}`, { waitUntil: 'domcontentloaded' })
   await expect(page.locator('#search-toggle')).toBeVisible()
@@ -67,9 +80,28 @@ async function search(page: Page, query: string) {
   await page.locator('#search-input').fill(query)
 }
 
+/** As the reading bridge does when Supabase signs the reader in or out on this page. */
+async function setAuth(page: Page, signedIn: boolean) {
+  await page.evaluate(value => {
+    document.documentElement.classList.toggle('signed-in', value)
+    dispatchEvent(new CustomEvent('library2:auth', { detail: { signedIn: value } }))
+  }, signedIn)
+}
+
+async function expectNoAddToTinct(page: Page) {
+  const results = page.locator('#search-results')
+  await expect(results.locator('.search-result').first()).toBeVisible()
+  await page.waitForTimeout(1500)
+  await expect(results.locator('.search-group-head, .free-group, .free-add, .file-box, .file-add')).toHaveCount(0)
+  await expect(page.locator('#search-add-file')).toBeHidden()
+  await expect(page.locator('#search-panel')).not.toContainText('Not yet in Tinct')
+  await expect(page.locator('#search-panel')).not.toContainText(/sign in/i)
+  expect(await results.locator('.search-result span').allTextContents()).not.toContain('Emma')
+}
+
 test.describe('library search', () => {
-  test('internal flag on: Available in Tinct, Not yet in Tinct with Add, and the file box', async ({ page }) => {
-    await prepare(page, { internal: true, signedIn: false })
+  test('signed in: Available in Tinct, Not yet in Tinct with Add, and the file box', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
     await search(page, 'austen')
     const results = page.locator('#search-results')
     await expect(results.locator('.search-group-head').first()).toHaveText('Available in Tinct')
@@ -89,17 +121,16 @@ test.describe('library search', () => {
     await expect(file).toContainText('Have it as a file?')
     await expect(file.locator('a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
-    await shot(page, 'search-internal-on')
-    // Signed out, Add goes to sign-in and comes back to finish the add.
-    const work = await rows.first().locator('.free-add').getAttribute('data-work')
+    await shot(page, 'search-signed-in')
+    // Add runs the add engine (stubbed to fail here): no sign-in detour for a signed-in reader.
     await rows.first().locator('.free-add').click()
-    await page.waitForURL(/\/sign-in/)
-    const returnTo = new URL(page.url()).searchParams.get('returnTo')
-    expect(returnTo).toBe(`/library?add=${encodeURIComponent(work!)}`)
+    await expect(page.locator('#notice')).toHaveText('This book could not be added. Please try again.')
+    expect(page.url()).not.toContain('/sign-in')
+    expect(await page.evaluate(() => (window as unknown as { __imports?: number }).__imports)).toBe(1)
   })
 
   test('"faust": Goethe and Marlowe, no Max Brand westerns, and not the Faust already in Tinct', async ({ page }) => {
-    await prepare(page, { internal: true, signedIn: false })
+    await prepare(page, { internal: false, signedIn: true })
     await search(page, 'faust')
     const results = page.locator('#search-results')
     await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
@@ -115,7 +146,7 @@ test.describe('library search', () => {
   })
 
   test('adding: the Add button is a spinner, the row dims and shows each step, then the existing error copy', async ({ page }) => {
-    await prepare(page, { internal: true, signedIn: true, importWork: SLOW_IMPORT })
+    await prepare(page, { internal: false, signedIn: true, importWork: SLOW_IMPORT })
     await search(page, 'austen')
     const results = page.locator('#search-results')
     await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
@@ -137,6 +168,8 @@ test.describe('library search', () => {
     await expect(spoken).toHaveText('Adding…')
     expect((await spoken.boundingBox())!.width).toBeLessThanOrEqual(1)
     const progress = row.locator('.free-progress')
+    // The Premium check comes first; the import starts once it has answered.
+    await expect.poll(() => page.evaluate(() => typeof (window as unknown as { __importStep?: unknown }).__importStep)).toBe('function')
     const step = async (stage: string) => { await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep()); await expect(progress).toHaveAttribute('data-stage', stage) }
     await step('download')
     await step('convert')
@@ -155,7 +188,8 @@ test.describe('library search', () => {
   })
 
   test('the + in the search field goes straight to the PDF or EPUB step, clear of Cancel', async ({ page }) => {
-    await prepare(page, { internal: true, signedIn: false })
+    await prepare(page, { internal: false, signedIn: true })
+    await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
     await page.locator('#search-toggle').click()
     const plus = page.locator('#search-add-file')
     await expect(plus).toBeVisible()
@@ -169,18 +203,144 @@ test.describe('library search', () => {
     await page.locator('#search-input').fill('austen')
     await expect(page.locator('.file-box a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
     await shot(page, 'search-add-file')
+    await plus.click()
+    await page.waitForURL(/\/lab\/addbook\/\?mode=file$/)
   })
 
-  test('internal flag off: the search is the library as before', async ({ page }) => {
+  test('the librarian capsule steps aside while search is open wherever it would cover the results', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
+    const capsule = page.locator('#librarian')
+    await expect(capsule).toBeVisible()
+    await search(page, 'austen')
+    await expect(page.locator('#search-results .free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    const phone = (page.viewportSize()?.width ?? 0) < 700
+    if (phone) {
+      await expect(capsule).toBeHidden()
+      await expect(page.locator('#librarian-goo')).toBeHidden()
+      await expect(capsule).toHaveAttribute('tabindex', '-1')
+      // Nothing of it is left over the Add buttons.
+      const add = (await page.locator('.free-row .free-add').first().boundingBox())!
+      expect(await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.closest('.free-add') !== null, [add.x + add.width - 2, add.y + add.height / 2])).toBe(true)
+      await shot(page, 'search-capsule-away')
+    } else {
+      // Desktop: the results stop well short of the wall, so the capsule stays.
+      await expect(capsule).toBeVisible()
+      const results = (await page.locator('#search-panel .search-content').boundingBox())!, box = (await capsule.boundingBox())!
+      expect(results.x + results.width).toBeLessThan(box.x)
+    }
+    await page.locator('#search-cancel').click()
+    await expect(capsule).toBeVisible()
+    await expect(capsule).not.toHaveAttribute('tabindex', '-1')
+    await expect(capsule).not.toHaveAttribute('aria-hidden', 'true')
+  })
+
+  test('a typo ("wuthering hights") finds the Tinct book first, and no catalogue copy of it is offered', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
+    await search(page, 'wuthering hights')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.search-result').first()).toContainText('Wuthering Heights')
+    await expect(page.locator('#search-label')).toHaveText('1 book found')
+    await expect(results.locator('.free-group')).not.toHaveAttribute('data-free-group', 'pending', { timeout: 60_000 })
+    const lines = await results.locator('.free-row .free-line').allTextContents()
+    expect(lines.filter(line => /^(The )?Wuthering Heights\b.* · Emily Brontë$/.test(line))).toEqual([])
+    await shot(page, 'search-typo')
+  })
+
+  test('signed out: the search is the library as before, with no Add and no sign-in prompt', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
     await search(page, 'austen')
+    await expectNoAddToTinct(page)
+    await shot(page, 'search-signed-out')
+  })
+
+  test('signed out: a typo still finds the Tinct book, with no "Not yet in Tinct"', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: false })
+    await search(page, 'wuthering hights')
+    await expect(page.locator('#search-results .search-result').first()).toContainText('Wuthering Heights')
+    await expectNoAddToTinct(page)
+    await shot(page, 'search-signed-out-typo')
+  })
+
+  test('signed out with the internal flag: shown for Tinct\'s own testing', async ({ page }) => {
+    await prepare(page, { internal: true, signedIn: false })
+    await search(page, 'austen')
+    await expect(page.locator('#search-results .free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    await expect(page.locator('#search-results .file-box')).toBeVisible()
+    await expect(page.locator('#search-add-file')).toBeVisible()
+  })
+
+  test('signing in and out on the page updates the open search without a reload', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: false })
+    await search(page, 'austen')
+    await expectNoAddToTinct(page)
     const results = page.locator('#search-results')
-    await expect(results.locator('.search-result').first()).toBeVisible()
-    await page.waitForTimeout(1500)
+    await setAuth(page, true)
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    await expect(results.locator('.file-box')).toBeVisible()
+    await expect(page.locator('#search-add-file')).toBeVisible()
+    await expect(page.locator('#sign-in')).toHaveText('Account')
+    await setAuth(page, false)
     await expect(results.locator('.search-group-head, .free-group, .file-box')).toHaveCount(0)
     await expect(page.locator('#search-add-file')).toBeHidden()
-    expect(await results.locator('.search-result span').allTextContents()).not.toContain('Emma')
-    await shot(page, 'search-internal-off')
+    await expect(page.locator('#sign-in')).toHaveText('Sign in')
+  })
+})
+
+test.describe('librarian capsule', () => {
+  test('a book\'s introduction: the capsule steps aside on a phone, where it would cover Begin reading, and is back in the library', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: false })
+    const capsule = page.locator('#librarian')
+    await expect(capsule).toBeVisible()
+    await page.waitForTimeout(1500)
+    await page.locator('#shelves button.cover-button').nth(2).click()
+    await expect(page.locator('#book-overlay')).toBeVisible()
+    // Phone: the tour slip comes first; Continue to the introduction.
+    await page.waitForTimeout(2500)
+    for (let i = 0; i < 6 && await page.locator('#slip-next').isVisible(); i++) { await page.locator('#slip-next').click(); await page.waitForTimeout(900) }
+    await expect(page.locator('#slip-next')).toBeHidden()
+    await expect(page.locator('#begin-reading')).toBeVisible()
+    const phone = (page.viewportSize()?.width ?? 0) < 700
+    if (phone) {
+      await expect(capsule).toBeHidden()
+      await expect(capsule).toHaveAttribute('tabindex', '-1')
+      await shot(page, 'intro-capsule-away')
+    } else {
+      await expect(capsule).toBeVisible()
+    }
+    await page.keyboard.press('Escape')
+    await expect(page.locator('#book-overlay')).toBeHidden({ timeout: 15_000 })
+    await expect(capsule).toBeVisible()
+  })
+})
+
+test.describe('Premium (adding books is Premium or the 30-day trial)', () => {
+  test('free account past its trial: sees Not yet in Tinct, but Add and the file entries lead to the Premium offer, never an import', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true, premium: false })
+    await search(page, 'austen')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    await shot(page, 'search-free-account')
+    await results.locator('.free-row .free-add').first().click()
+    await page.waitForURL(/\/sign-in\?mode=account/)
+    expect(new URL(page.url()).searchParams.get('returnTo')).toBe('/library')
+    // The file box leads there too.
+    await page.goBack()
+    await search(page, 'austen')
+    await page.locator('#search-results .file-box a').click()
+    await page.waitForURL(/\/sign-in\?mode=account/)
+    // And the + in the search field.
+    await page.goBack()
+    await page.locator('#search-toggle').click()
+    await page.locator('#search-add-file').click()
+    await page.waitForURL(/\/sign-in\?mode=account/)
+  })
+
+  test('Premium or trial: the file box opens Add a book\'s file step', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true, premium: true })
+    await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
+    await page.locator('#search-toggle').click()
+    await page.locator('#search-results .file-box a').click()
+    await page.waitForURL(/\/lab\/addbook\/\?mode=file$/)
   })
 })
 
@@ -191,8 +351,8 @@ test.describe('My shelf', () => {
     await expect(page.locator('#collection-title')).toHaveText('My shelf')
   }
 
-  test('internal flag on: the + tile first, own books under Currently reading and Your own books', async ({ page }) => {
-    await prepare(page, { internal: true, signedIn: true })
+  test('signed in: + Add a book and the + file tile first, then own books under Currently reading and Your own books', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
     await openShelf(page)
     const grid = page.locator('#collection-books')
     await expect(grid.locator('.my-books-head', { hasText: 'Your own books' })).toBeVisible()
@@ -200,18 +360,39 @@ test.describe('My shelf', () => {
     const heads = await grid.locator('.my-books-head').allTextContents()
     expect(heads[0]).toBe('Currently reading')
     expect(heads.at(-1)).toBe('Your own books')
-    // The + is the first thing on My shelf and goes straight to the file step.
-    await expect(grid.locator(':scope > *').first()).toHaveClass(/add-file-card/)
-    await expect(grid.locator('.add-file-tile')).toHaveAttribute('href', '/lab/addbook/?mode=file')
-    await expect(grid.locator('.add-file-tile')).toContainText('Add a PDF or EPUB')
+    // The add tiles are the first things on My shelf: + Add a book, then the file step.
+    await expect(grid.locator(':scope > *').nth(0)).toHaveClass(/add-book-card/)
+    await expect(grid.locator(':scope > *').nth(1)).toHaveClass(/add-file-card/)
+    await expect(grid.locator('.add-file-card .add-file-tile')).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    await expect(grid.locator('.add-file-card .add-file-tile')).toContainText('Add a PDF or EPUB')
+    // The reader's own EPUB opens in the reader.
+    await expect(grid.locator('.own-book a').first()).toHaveAttribute('href', '/reader?userBook=aaaaaaaaaaaaaaaaaaaaaaaa')
+    const addBook = grid.locator('.add-book-tile')
+    await expect(addBook).toHaveText('+Add a book')
     await expect(page.locator('#collection input, #collection [type="search"]')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
-    await shot(page, 'myshelf-internal-on')
+    await shot(page, 'myshelf-signed-in')
+    // + Add a book opens the library search, with the file box.
+    await addBook.click()
+    await expect(page.locator('#search-panel')).toBeVisible()
+    await expect(page.locator('#search-results .file-box')).toContainText('Have it as a file?')
+    await expect(page.locator('#search-input')).toBeFocused()
+    await shot(page, 'myshelf-add-a-book-search')
+  })
+
+  test('free account past its trial: own books still open in the reader; the + file tile leads to the Premium offer', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true, premium: false })
+    await openShelf(page)
+    const grid = page.locator('#collection-books')
+    await expect(grid.locator('.own-book')).toHaveCount(3)
+    await expect(grid.locator('.own-book a').first()).toHaveAttribute('href', '/reader?userBook=aaaaaaaaaaaaaaaaaaaaaaaa')
+    await grid.locator('.add-file-card .add-file-tile').click()
+    await page.waitForURL(/\/sign-in\?mode=account/)
   })
 
   test('books being read can be removed; finished books cannot', async ({ page }) => {
     // The sample returning reader: five books being read, two finished.
-    await prepare(page, { internal: true, signedIn: true, query: 'demo=reading' })
+    await prepare(page, { internal: false, signedIn: true, query: 'demo=reading' })
     await openShelf(page)
     const grid = page.locator('#collection-books')
     await expect(grid.locator('[data-shelf-group="finished"]')).toHaveCount(2)
@@ -240,12 +421,12 @@ test.describe('My shelf', () => {
     expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
   })
 
-  test('internal flag off: My shelf as before', async ({ page }) => {
-    await prepare(page, { internal: false, signedIn: true })
+  test('signed out: My shelf as before', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: false })
     await openShelf(page)
     await page.waitForTimeout(1000)
-    await expect(page.locator('#collection-books .own-book, #collection-books .add-file-card')).toHaveCount(0)
+    await expect(page.locator('#collection-books .own-book, #collection-books .add-file-card, #collection-books .add-book-card')).toHaveCount(0)
     await expect(page.locator('#collection-books .my-books-head', { hasText: 'Your own books' })).toHaveCount(0)
-    await shot(page, 'myshelf-internal-off')
+    await shot(page, 'myshelf-signed-out')
   })
 })

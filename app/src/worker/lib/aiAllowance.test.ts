@@ -17,6 +17,8 @@ import {
   allowsAiFeature,
   billingPeriod,
   createAllowanceGate,
+  hasPremiumAccess,
+  loadPremiumAccess,
   isPaidAiFeature,
   isSubscribed,
   loadAllowanceView,
@@ -297,8 +299,31 @@ describe('gate', () => {
   })
 })
 
-describe('loadAllowanceView', () => {
+describe('hasPremiumAccess (adding books)', () => {
+  const now = new Date('2026-10-07T12:00:00Z')
   const env = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }
+  afterEach(() => vi.unstubAllGlobals())
+
+  it('allows subscribed accounts and the 30-day trial; refuses free accounts past it', () => {
+    expect(hasPremiumAccess({ subscription_status: 'active', subscription_period_end: null, created_at: '2025-01-01T00:00:00Z' }, now)).toBe(true)
+    expect(hasPremiumAccess({ subscription_status: 'canceled', subscription_period_end: '2026-10-20T00:00:00Z', created_at: '2025-01-01T00:00:00Z' }, now)).toBe(true)
+    expect(hasPremiumAccess({ subscription_status: null, subscription_period_end: null, created_at: '2026-09-20T00:00:00Z' }, now)).toBe(true) // in trial
+    expect(hasPremiumAccess({ subscription_status: null, subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' }, now)).toBe(false) // trial over
+    expect(hasPremiumAccess({ subscription_status: 'canceled', subscription_period_end: '2026-10-01T00:00:00Z', created_at: '2025-01-01T00:00:00Z' }, now)).toBe(false)
+    expect(hasPremiumAccess({ subscription_status: 'past_due', subscription_period_end: null, created_at: null }, now)).toBe(false)
+  })
+
+  it('reads the profile, and is null when it cannot', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json([{ subscription_status: null, subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' }])))
+    expect(await loadPremiumAccess(env, 'u', now)).toBe(false)
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('down', { status: 500 })))
+    expect(await loadPremiumAccess(env, 'u', now)).toBeNull()
+    expect(await loadPremiumAccess({}, 'u', now)).toBeNull()
+  })
+})
+
+describe('loadAllowanceView', () => {
+  const env ={ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }
   const userId = '11111111-1111-4111-8111-111111111111'
 
   it('settles the current period with the configured allowance', async () => {
