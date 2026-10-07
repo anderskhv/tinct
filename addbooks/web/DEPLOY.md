@@ -27,7 +27,7 @@ creator died more than 70 years ago, or the text is anonymous and from before 19
 
 ```sh
 node addbooks/web/scripts/build.mjs      # -> addbooks/web/dist/lab-addbook (catalogue ≈ 5 MB gzip)
-node addbooks/web/test/e2e.mjs           # 72 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
+node addbooks/web/test/e2e.mjs           # 80 browser checks under production CSP, chat and user-books APIs mocked (needs app/dist)
 node addbooks/web/scripts/install.mjs    # copies into app/public/lab/addbook
 ```
 
@@ -146,6 +146,10 @@ is `404`.
 - **Free books:** the page links to the source library's EPUB. The user downloads it,
   then opens it here (CSP blocks fetching other origins, by design). `?q=` and
   `?work=<id>` deep-link into search; freepubs.fyi uses `?work=`.
+- **`?mode=file`:** the file step only ("Your own book": a PDF or EPUB), without the free-book
+  door or its catalogue. The library's entries (My shelf's + tile, the + in the search field,
+  "Add a PDF or EPUB") and the reader's way back from a user book (`/lab/addbook/?mode=file#books`)
+  use it, since the library search already finds free books. Sign-in returns to it.
 
 ### Images to the companion (signed in only)
 

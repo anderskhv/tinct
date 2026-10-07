@@ -4,6 +4,10 @@
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const params = new URLSearchParams(location.search);
+// ?mode=file (the library's + entries, and back from a book): straight to "Your own book",
+// a PDF or EPUB. The library's own search finds free books, so that door is not offered here.
+const fileOnly = params.get('mode') === 'file';
+if (fileOnly) { document.body.dataset.mode = 'file'; $('doorFree').hidden = true; document.querySelector('.ab-lede').hidden = true; $('abResults').hidden = true }
 const LANG = { en: 'English', da: 'Danish', sv: 'Swedish', no: 'Norwegian', nb: 'Norwegian', fi: 'Finnish', de: 'German', nl: 'Dutch', fr: 'French', it: 'Italian', es: 'Spanish', pt: 'Portuguese', pl: 'Polish', la: 'Latin', el: 'Greek', hu: 'Hungarian', is: 'Icelandic' };
 const SOURCE = { Gutenberg: 'Project Gutenberg', 'Standard Ebooks': 'Standard Ebooks' };
 const sourceName = s => SOURCE[s] || s;
@@ -163,6 +167,8 @@ function boot() {
   const toShelf = location.hash === '#books';
   if (toShelf) history.replaceState(null, '', location.pathname + location.search);
   renderAccount(); renderShelf({ reveal: toShelf });
+  // The file step: the file picker (or, signed out, the account gate) has the focus; no catalogue is loaded.
+  if (fileOnly) { if (!toShelf) ($('abDrop').hidden ? $('abCreate') : $('abDrop')).focus({ preventScroll: true }); return }
   const q = params.get('q');
   if (q) { $('abQuery').value = q; runSearch(q) } else if (params.get('work')) { startWorker(); $('abResults').hidden = false; $('abResults').innerHTML = '<p class="ab-status">Finding the book…</p>' }
   else if ('requestIdleCallback' in window) requestIdleCallback(startWorker, { timeout: 4000 }); else setTimeout(startWorker, 1500);

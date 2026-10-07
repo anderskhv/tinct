@@ -164,6 +164,29 @@ try {
   const epub = await ensureFixture('pg35.epub', 'https://www.gutenberg.org/ebooks/35.epub3.images');
   const pdf = process.env.PDF_FIXTURE || (existsSync('/tmp/claude-0/pdf/sample.pdf') ? '/tmp/claude-0/pdf/sample.pdf' : await samplePdf(browser));
 
+  // ---- The library's + (?mode=file): straight to "Your own book", no free-book search ----
+  for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+    const f = await page(browser, viewport);
+    const worker = [];
+    f.p.on('request', r => { if (/search-worker\.js|catalog\.json/.test(r.url())) worker.push(r.url()) });
+    await f.p.goto(BASE + '?mode=file');
+    await f.p.waitForSelector('#doorOwn');
+    await f.p.waitForTimeout(600);
+    const shown = await f.p.evaluate(() => ({ own: !!document.getElementById('doorOwn').offsetParent, free: !!document.getElementById('doorFree').offsetParent, lede: !!document.querySelector('.ab-lede').offsetParent, results: !!document.getElementById('abResults').offsetParent,
+      focus: document.activeElement?.id, create: document.getElementById('abCreate').getAttribute('href'), wide: document.documentElement.scrollWidth <= innerWidth }));
+    const size = viewport.width < 700 ? 'phone' : 'desktop';
+    check(`${size} ?mode=file: only "Your own book", no free-book search, no catalogue loaded`, shown.own && !shown.free && !shown.lede && !shown.results && worker.length === 0 && shown.wide, { shown, worker });
+    check(`${size} ?mode=file signed out: the account gate has the focus and sign-in returns to the file step`, shown.focus === 'abCreate' && shown.create === '/sign-in?mode=create&returnTo=%2Flab%2Faddbook%2F%3Fmode%3Dfile', shown);
+    await f.p.screenshot({ path: join(OUT, `${size}-file-step.png`) });
+    await signIn(f.p);
+    const chooser = f.p.waitForEvent('filechooser', { timeout: 3000 }).catch(() => null);
+    const focused = await f.p.evaluate(() => document.activeElement?.id);
+    await f.p.click('#abDrop');
+    check(`${size} ?mode=file signed in: the PDF/EPUB picker is the step`, focused === 'abDrop' && !!(await chooser) && !(await f.p.isVisible('#doorFree')), focused);
+    check(`${size} ?mode=file: no page errors`, !f.problems.length, f.problems.slice(0, 6));
+    await f.ctx.close();
+  }
+
   // ---- Desktop: start page, search, EPUB, PDF ----
   const { ctx, p, problems } = await page(browser, { width: 1440, height: 900 });
   await p.goto(BASE);
@@ -269,7 +292,8 @@ try {
 
   // The back arrow returns to Add a book, with the book on "Your books".
   await p.click('[data-testid="lab-library-back"]');
-  await p.waitForURL(/\/lab\/addbook\/$/, { timeout: 10000 });
+  // Back to the file step (?mode=file), never the free-book search the library already has.
+  await p.waitForURL(/\/lab\/addbook\/\?mode=file$/, { timeout: 10000 });
   await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
   check('back arrow returns to Your books', /time machine/i.test(await p.textContent('#abBooks')) && await p.isVisible('#abShelf'), p.url());
   await p.screenshot({ path: join(OUT, 'desktop-shelf.png') });

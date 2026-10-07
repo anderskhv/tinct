@@ -75,8 +75,8 @@ describe('ownBooks (My shelf: Your own books)', () => {
     ] })) as unknown as typeof fetch
     const list = await ownBooks(fetchImpl)
     expect(list.map(b => [b.title, b.kind, b.href, b.readingAt])).toEqual([
-      ['My novel', 'epub', '/lab/addbook/#books', null],
-      ['Lecture notes', 'pdf', '/lab/addbook/#books', null],
+      ['My novel', 'epub', '/lab/addbook/?mode=file#books', null],
+      ['Lecture notes', 'pdf', '/lab/addbook/?mode=file#books', null],
     ])
   })
 

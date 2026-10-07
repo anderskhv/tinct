@@ -182,7 +182,8 @@ describe('library search panel with the flag', () => {
     const file = box.querySelector('.file-box')!
     expect(box.lastElementChild).toBe(file)
     expect(file.querySelector('p')?.textContent).toBe('Have it as a file?')
-    expect(file.querySelector('a')?.getAttribute('href')).toBe('/lab/addbook/')
+    // Straight to Add a book's file step, never its free-book search (the library search above is that).
+    expect(file.querySelector('a')?.getAttribute('href')).toBe('/lab/addbook/?mode=file')
     expect(file.querySelector('a')?.textContent).toBe('Add a PDF or EPUB')
   })
 
@@ -381,7 +382,7 @@ describe('My shelf groups', () => {
   afterEach(() => { vi.restoreAllMocks() })
   const own = (key: string, title: string, readingAt: number | null, kind = 'epub') => ({ key, kind, title, author: 'Me', at: 1, readingAt, href: kind === 'epub' ? `/reader?userBook=${key.slice(5)}` : '/lab/addbook/#books' })
 
-  it('puts own books being read under Currently reading, then Your own books ending with the + tile', () => {
+  it('opens My shelf with the + tile, puts own books being read under Currently reading, then Your own books', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Currently reading'))
     const library = el('article', 'collection-card'); library.dataset.shelfGroup = 'reading'; grid.append(library)
@@ -389,24 +390,40 @@ describe('My shelf groups', () => {
     const added = addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 5), own('pdf:bb', 'Slides', null, 'pdf'), own('epub:cc', 'Thesis', 9)], el)
     expect(added).toBe(6)
     const order = [...grid.children].map(child => child.classList.contains('my-books-head') ? `# ${child.textContent}` : child.querySelector('h2')?.textContent ?? (child.classList.contains('add-file-card') ? '+' : 'library'))
-    expect(order).toEqual(['# Currently reading', 'library', 'Thesis', 'Notes', '# Finished', '# Your own books', 'Notes', 'Slides', 'Thesis', '+'])
+    expect(order).toEqual(['+', '# Currently reading', 'library', 'Thesis', 'Notes', '# Finished', '# Your own books', 'Notes', 'Slides', 'Thesis'])
     const tile = grid.querySelector('.add-file-tile')!
-    expect(tile.getAttribute('href')).toBe('/lab/addbook/')
+    expect(grid.firstElementChild?.contains(tile)).toBe(true)
+    // The + goes straight to the file step (PDF or EPUB), not to a second free-book search.
+    expect(tile.getAttribute('href')).toBe('/lab/addbook/?mode=file')
     expect(tile.textContent).toBe('+Add a PDF or EPUB')
     const notes = grid.querySelector('.own-book a') as HTMLAnchorElement
     expect(notes.getAttribute('href')).toBe('/reader?userBook=cc')
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
   })
 
-  it('opens a Currently reading heading for own books when the library has none, and shows the + tile on an empty list', () => {
+  it('opens a Currently reading heading for own books when the library has none, and shows only the + tile on an empty list', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Saved for later'))
     addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 3)], el)
     expect([...grid.querySelectorAll('.my-books-head')].map(h => h.textContent)).toEqual(['Currently reading', 'Saved for later', 'Your own books'])
+    expect(grid.firstElementChild?.classList.contains('add-file-card')).toBe(true)
     const empty = document.createElement('div')
     expect(addToTinct.appendOwnShelf(empty, [], el)).toBe(1)
-    expect([...empty.children].map(c => c.className)).toEqual(['my-books-head', 'collection-card add-file-card'])
+    expect([...empty.children].map(c => c.className)).toEqual(['collection-card add-file-card'])
     expect(addToTinct.ownShelfGroups([own('epub:a', 'A', null), own('epub:b', 'B', 2), own('epub:c', 'C', 7)]).reading.map((b: { title: string }) => b.title)).toEqual(['C', 'B'])
+  })
+
+  it('offers the file step from the search field only where Add to Tinct is on', () => {
+    const link = document.createElement('a')
+    link.hidden = true
+    localStorage.setItem(INTERNAL_KEY, '1')
+    addToTinct.syncSearchAddFile(link)
+    expect(link.hidden).toBe(false)
+    expect(link.getAttribute('href')).toBe('/lab/addbook/?mode=file')
+    localStorage.removeItem(INTERNAL_KEY)
+    addToTinct.syncSearchAddFile(link)
+    expect(link.hidden).toBe(true)
+    addToTinct.syncSearchAddFile(null)
   })
 })
 

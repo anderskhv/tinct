@@ -8,6 +8,8 @@ import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOO
 
 export const enabled=()=>addToTinctEnabled();
 export const ADD_BOOK_PAGE='/lab/addbook/';
+/** Add a book's file step: "Your own book", a PDF or EPUB, without its free-book search (the library has its own). */
+export const ADD_FILE_PAGE='/lab/addbook/?mode=file';
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -181,7 +183,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
   }).catch(()=>{group.dataset.freeGroup='0';});
  }else renderTinct(tinct);
  const file=el('div','file-box');file.append(el('p','','Have it as a file?'));
- const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_BOOK_PAGE;file.append(pick);box.append(file);
+ const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_FILE_PAGE;file.append(pick);box.append(file);
  return shown;
 }
 
@@ -229,9 +231,9 @@ export function ownBookCard(book,el){
  const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';open.append(cover);
  card.append(open,el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
 }
-/** The dashed "+" tile that ends Your own books. */
+/** The dashed "+" tile that opens My shelf: straight to Add a book's file step. */
 export function addFileTile(el){
- const card=el('article','collection-card add-file-card');const tile=el('a','add-file-tile');tile.href=ADD_BOOK_PAGE;
+ const card=el('article','collection-card add-file-card');const tile=el('a','add-file-tile');tile.href=ADD_FILE_PAGE;
  tile.append(el('span','add-file-plus','+'),el('span','','Add a PDF or EPUB'));card.append(tile);return card;
 }
 
@@ -241,9 +243,10 @@ export function ownShelfGroups(list){
  return {reading:own.filter(book=>book.readingAt!==null&&book.readingAt!==undefined).sort((a,b)=>b.readingAt-a.readingAt),own};
 }
 /**
- * My shelf's additions (D1): own books being read join Currently reading (after the
- * library's own, or under a new heading at the top), then "Your own books" with every
- * own book and the dashed + tile. Returns how many cards were added.
+ * My shelf's additions (D1): the dashed + tile first, so adding your own book is the
+ * first thing on the shelf; own books being read join Currently reading (after the
+ * library's own, or under a new heading at the top); then "Your own books" with every
+ * own book. Returns how many cards were added.
  */
 export function appendOwnShelf(grid,list,el){
  const {reading,own}=ownShelfGroups(list);let added=0;
@@ -252,8 +255,16 @@ export function appendOwnShelf(grid,list,el){
   if(!after){after=el('h2','my-books-head','Currently reading');grid.prepend(after);}
   for(const book of reading){const card=ownBookCard(book,el);card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
  }
- grid.append(el('h2','my-books-head','Your own books'));
- for(const book of own){grid.append(ownBookCard(book,el));added++;}
- grid.append(addFileTile(el));
+ if(own.length){
+  grid.append(el('h2','my-books-head','Your own books'));
+  for(const book of own){grid.append(ownBookCard(book,el));added++;}
+ }
+ grid.prepend(addFileTile(el));
  return added+1;
+}
+
+/** The + at the right end of the library's search field: the same file step, where Add to Tinct is on. */
+export function syncSearchAddFile(link){
+ if(!link)return;
+ link.href=ADD_FILE_PAGE;link.hidden=!enabled();
 }

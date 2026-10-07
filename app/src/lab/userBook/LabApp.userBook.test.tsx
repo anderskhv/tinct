@@ -138,7 +138,7 @@ describe('a user book in the Tinct reader', () => {
     const back = screen.getByTestId('lab-library-back')
     expect(back.getAttribute('aria-label')).toBe('Back to your books')
     fireEvent.click(back)
-    expect(leave).toHaveBeenCalledWith('/lab/addbook/#books')
+    expect(leave).toHaveBeenCalledWith('/lab/addbook/?mode=file#books')
   })
 
   it('names its chapters and text only from this device', async () => {
@@ -198,7 +198,7 @@ describe('UserBookReader', () => {
   it('says why a book cannot be opened and links back to Your books', async () => {
     render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} />)
     await waitFor(() => expect(screen.getByRole('alert').textContent).toContain('no longer on this device'))
-    expect(screen.getByRole('link').getAttribute('href')).toBe('/lab/addbook/#books')
+    expect(screen.getByRole('link').getAttribute('href')).toBe('/lab/addbook/?mode=file#books')
   })
 
   it('opens the reader once the book is ready', async () => {
