@@ -61,6 +61,12 @@ bucket. It does not contain the files themselves. If the reader asks for the
 files, they can download each one from the Add-a-book page while signed in
 (`/lab/addbook/`, "Your books").
 
+`r2.ownBookNarration` counts the recordings made when the reader chose Listen
+on one of their own books (objects and bytes under `u/<id>/narration/`), never
+the audio. `ownBookNarrationSpend` is the daily byte count of own-book
+narration from the account's spend object (`own-user:<id>` in the
+`NARRATION_COORDINATOR` Durable Object, routes/ownBookNarration.ts).
+
 ## What deletion does, in order
 
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
@@ -68,8 +74,10 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
 1. **Durable Objects:** recap preparation, then reader position (alarm and all
    storage). Recap goes first because its alarm reads the position object.
 2. **KV:** `lab-chat-history:<id>` (Talk/chat history) and `lab-position:<id>`
-   (legacy position record). Then **R2:** every object under `u/<id>/` in the
-   private `tinct-user-books` bucket (the reader's own PDF/EPUB files,
+   (legacy position record). The own-book narration spend object
+   (`own-user:<id>`, purged). Then **R2:** every object under `u/<id>/` in the
+   private `tinct-user-books` bucket (the reader's own PDF/EPUB files and their
+   narration under `u/<id>/narration/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain.
 3. **Rows that would otherwise survive as anonymous orphans** (`ON DELETE SET

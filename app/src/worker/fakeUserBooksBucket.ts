@@ -22,7 +22,7 @@ export function fakeUserBooksBucket(options: { pageSize?: number; log?: string[]
     async get(key: string) {
       const s = objects.get(key)
       if (!s) return null
-      return { ...head(s), body: new Response(s.bytes).body, arrayBuffer: async () => s.bytes.slice().buffer }
+      return { ...head(s), body: new Response(s.bytes).body, arrayBuffer: async () => s.bytes.slice().buffer, json: async () => JSON.parse(new TextDecoder().decode(s.bytes)) }
     },
     async head(key: string) {
       const s = objects.get(key)
@@ -36,7 +36,11 @@ export function fakeUserBooksBucket(options: { pageSize?: number; log?: string[]
     async list(opts: R2ListOptions = {}) {
       calls.list++
       const prefix = opts.prefix ?? ''
-      const all = [...objects.keys()].filter(key => key.startsWith(prefix)).sort()
+      const matching = [...objects.keys()].filter(key => key.startsWith(prefix)).sort()
+      // R2's delimiter: keys with another delimiter after the prefix roll up into delimitedPrefixes.
+      const delimiter = opts.delimiter
+      const all = delimiter ? matching.filter(key => !key.slice(prefix.length).includes(delimiter)) : matching
+      const rolled = delimiter ? [...new Set(matching.filter(key => key.slice(prefix.length).includes(delimiter)).map(key => prefix + key.slice(prefix.length).split(delimiter)[0] + delimiter))] : []
       const start = opts.cursor ? Number(opts.cursor) : 0
       const size = Math.min(pageSize, opts.limit ?? 1000)
       const slice = all.slice(start, start + size)
@@ -49,7 +53,7 @@ export function fakeUserBooksBucket(options: { pageSize?: number; log?: string[]
         }),
         truncated,
         cursor: truncated ? String(start + size) : undefined,
-        delimitedPrefixes: [],
+        delimitedPrefixes: rolled,
       }
     },
   }

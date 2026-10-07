@@ -3,6 +3,7 @@ import type { Section } from '../types'
 import { catchUpPlan, catchUpSeparateWorks, catchUpUnits, type CatchUpEntry } from '../catchUp'
 import type { LabChapter } from './labSource'
 import { useReaderWindow } from './useReaderWindow'
+import { LabBalanceEmptyLine } from './LabAiUsageBar'
 import {
   CATCH_UP_COOLDOWN_MS,
   CATCH_UP_INITIAL_WANTED,
@@ -34,9 +35,12 @@ export interface LabCatchUpSheetProps {
   readToken?: () => Promise<string | null>
   onClose: () => void
   onDiscuss: () => void
+  /** Opens where the reader can top up (the account sheet); links the balance line shown at zero. */
+  onTopUp?: () => void
 }
 
-interface EntryState { state: CatchUpLoadState; summary?: string }
+/** `allowanceUsed`: refused at zero (402 allowance_used, only while the AI allowance is on). */
+interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?: true }
 
 /**
  * "Catch me up": a timeline of what has been read, oldest at the top, ending
@@ -45,7 +49,7 @@ interface EntryState { state: CatchUpLoadState; summary?: string }
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onDiscuss } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onDiscuss, onTopUp } = props
   // The place is captured once, when the sheet opens.
   const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
     bookId, editionKey, bookTitle,
@@ -123,7 +127,8 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
       if (!result.ok && catchUpShouldCoolDown(result.status)) setCoolUntil(Date.now() + CATCH_UP_COOLDOWN_MS)
       setStates(prev => ({
         ...prev,
-        [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : result.empty ? { state: 'empty' } : { state: 'error' },
+        [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : result.empty ? { state: 'empty' }
+          : result.allowanceUsed ? { state: 'error', allowanceUsed: true } : { state: 'error' },
       }))
     })()
   }, [readToken])
@@ -173,9 +178,10 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
                       // One line: the part's recap, cut to fit; the tap opens it.
                       ? <p className="lab-catch-up-text is-line" onClick={() => toggle(entry.key)}>{status.summary}</p>
                       : <p className="lab-catch-up-text">{status.summary}</p>
-                  ) : status?.state === 'error' ? (
+                  ) : status?.state === 'error' ? (<>
+                    {status.allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-catch-up-balance" />}
                     <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={() => { setCoolUntil(0); load(entry) }}>Retry</button>
-                  ) : (
+                  </>) : (
                     <span className="lab-catch-up-placeholder" aria-hidden="true"><i /><i /><i /></span>
                   )}
                 </li>

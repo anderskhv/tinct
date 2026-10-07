@@ -8,7 +8,7 @@
  *   - app/public/read/{bookId}/    → which books have static SEO pages
  *   - app/public/data/editions/{bookId}-modern-en.json → chapter count
  *
- * The sitemap lists only real pages: /, /about, /story, /privacy, /terms
+ * The sitemap lists only real pages: /, /about, /credits, /story, /privacy, /terms
  * (only while the AI allowance is on), /read/ and one /read/{bookId} per
  * public book. Each <lastmod> changes only when that
  * page's content does (see sitemap-lastmod.json).
@@ -597,6 +597,7 @@ function buildSitemap(books, state = loadLastmodState(), next = {}, { termsPubli
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
   entry(`${ORIGIN}/`, { changefreq: 'weekly', priority: 1.0 }, path.join(APP_DIR, 'public/landing.html'))
   entry(`${ORIGIN}/about`, { changefreq: 'monthly', priority: 0.8 }, path.join(APP_DIR, 'public/about.html'))
+  entry(`${ORIGIN}/credits`, { changefreq: 'monthly', priority: 0.3 }, path.join(APP_DIR, 'public/credits.html'))
   entry(`${ORIGIN}/story`, { changefreq: 'monthly', priority: 0.6 }, path.join(APP_DIR, 'public/story.html'))
   entry(`${ORIGIN}/privacy`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/privacy.html'))
   if (termsPublished) entry(`${ORIGIN}/terms`, { changefreq: 'yearly', priority: 0.3 }, path.join(APP_DIR, 'public/terms.html'))

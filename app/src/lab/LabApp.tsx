@@ -24,6 +24,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, typ
 import {
   applyNarrationPilotFlag,
   ensureNarration,
+  ensureOwnNarration,
   fetchNarrationPilotInfo,
   initialNarrationPilotInfo,
   narrationPilotApplies,
@@ -125,6 +126,11 @@ import {
   effectiveLabAudioEdition,
   migrateLabPrefsEditions,
   selectableLabEditions,
+  labSeenOnce,
+  markLabSeenOnce,
+  DEFAULT_LIBRARIAN_TAB_DOCK,
+  type LabLibrarianTabDock,
+  type LabLibrarianTabMode,
   type LabPrefs,
   type LabAppearanceProfile,
   type LabReaderProgressMode,
@@ -135,6 +141,8 @@ import { labLayoutOverride } from './labRoute'
 import { useLabDictation } from './useLabDictation'
 import { buildDictationKeyterms } from './labDictationKeyterms'
 import { LabAskPane } from './LabAskPane'
+import { LabLibrarianTab, LabLibrarianTabNote, LabLibrarianTabSettings } from './LabLibrarianTab.tsx'
+import { LIBRARIAN_TAB_PEEK_SEEN, LIBRARIAN_TAB_UNDO_MS, librarianTabLongPressMode, librarianTabShown, librarianTabTapMode } from './labLibrarianTab'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
@@ -180,7 +188,7 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
-import { USER_BOOKS_SHELF_URL } from './userBook/userBookId'
+import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { writeUserBookPlace } from './userBook/userBookPlace'
 import type { LoadedUserBook } from './userBook/userBookStore'
@@ -398,7 +406,7 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-/** Desktop commands that do not apply to a user book: one edition, no narration, Talk or book switching. */
+/** Desktop commands that do not apply to a user book: one edition, no Talk or book switching; Listen only when own-book narration is on. */
 const USER_BOOK_HIDDEN_COMMANDS = new Set(['talk', 'listen', 'editions', 'original', 'modern', 'compare', 'books'])
 
 /** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
@@ -573,7 +581,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
   useEffect(() => {
-    // A user book is never narrated: its text is not sent to the speech provider.
+    // A user book asks only once the reader is signed in (below).
     if (privateBook) return
     let cancelled = false
     void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
@@ -756,6 +764,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
   // Ten shared anonymous AI interactions; opening or reading books never prompts.
   const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
+  // A user book is read aloud only for its signed-in owner, and only when the
+  // server says own-book narration is on; the voices request names no book.
+  useEffect(() => {
+    if (!privateBook || !signedIn) return
+    let cancelled = false
+    void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
+    return () => { cancelled = true }
+  }, [privateBook, signedIn])
+  const ownNarration = privateBook && signedIn && narrationInfo?.enabled === true && narrationInfo.ownBooks === true
+    && narrationInfo.provider === 'grok' && narrationVoice != null && prefs.primaryEdition === 'own-en'
   const [accountPrompt, setAccountPrompt] = useState<LabAccountPromptRequest | null>(null)
   useEffect(() => {
     if (signedIn) {
@@ -1126,12 +1144,26 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     JSON.stringify([bookId, edition, chapter, voice])
   const narrationPrepared = useCallback(() => {
     const c = narrationContextRef.current
+    if (privateBook) return []
     return [...readNarrationReplay(c), ...(warmedNarrationRef.current.get(warmedNarrationKey(c.bookId, c.editionKey, c.chapter, c.voice)) ?? [])]
-  }, [])
+  }, [privateBook])
   const narrationEnsure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const context = narrationContextRef.current
     if (!context.voice) return []
     const token = authToken ?? await readSupabaseAccessToken()
+    if (privateBook) {
+      // An own book: its text goes to the own-book route only, nothing is kept in the replay cache.
+      const bookHex = userBookHex(context.bookId)
+      if (!bookHex) return []
+      return ensureOwnNarration({
+        bookHex,
+        voice: context.voice,
+        paragraphs: indexes
+          .filter(index => index >= 0 && index < context.paragraphs.length)
+          .map(index => ({ index, text: context.paragraphs[index], fromChunk: fromChunks?.[index] })),
+        mode: mode ?? 'next',
+      }, { signal, authToken: token })
+    }
     const results = await ensureNarration({
       bookId: context.bookId,
       editionKey: context.editionKey,
@@ -1144,10 +1176,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }, { signal, authToken: token })
     if (!signal.aborted) storeNarrationReplay(context, results)
     return results
-  }, [authToken])
-  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok'
+  }, [authToken, privateBook])
+  const bookTransition = useMemo(() => narrationInfo?.provider === 'grok' && !privateBook
     ? bibleBookTransition(listenSource.bookId, listenSource.chapters, listenSource.chapterNumber) : null,
-  [narrationInfo?.provider, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
+  [narrationInfo?.provider, privateBook, listenSource.bookId, listenSource.chapters, listenSource.chapterNumber])
   const narrationEndingEnsure = useCallback(async (signal: AbortSignal, mode?: 'next' | 'all', fromChunk?: number) => {
     if (!bookTransition || !narrationVoice) return []
     const token = authToken ?? await readSupabaseAccessToken()
@@ -1160,19 +1192,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }, { signal, authToken: token })
   }, [bookTransition, narrationVoice, authToken, listenSource.bookId, listenSource.chapterNumber, prefs.primaryEdition])
   const narrationOption = useMemo(
-    () => (narrationApplies && narrationVoice ? {
+    () => ((narrationApplies || ownNarration) && narrationVoice ? {
       voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared,
       endingCue: bookTransition ? { text: bookTransition.text, ensure: narrationEndingEnsure } : undefined,
     } : null),
-    [narrationApplies, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
+    [narrationApplies, ownNarration, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
   )
   const listen = useLabListen({
     guardPlaybackRequests: true,
-    playbackUnavailable: privateBook || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
+    playbackUnavailable: (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
-    coverSrc: `/covers/v2/${book.bookId || 'bible'}.webp`,
+    // An own book has no cover on the server; asking for one would name it.
+    coverSrc: privateBook ? undefined : `/covers/v2/${book.bookId || 'bible'}.webp`,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
@@ -1185,7 +1218,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
-  useLabListenReport(listen.playing, listenSource.bookId || book.bookId || 'bible')
+  // Listening to an own book is not reported: the report would carry its id.
+  useLabListenReport(listen.playing && !privateBook, listenSource.bookId || book.bookId || 'bible')
   useLabReadingYear({
     userId: authUser?.id ?? null,
     bookId: book.bookId || 'bible',
@@ -1202,7 +1236,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     ? listen.follow.paragraphIndex
     : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
   useNarrationPrefetch({
-    active: !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    // Never for an own book: it is narrated on demand only, nothing ahead.
+    active: !privateBook && !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
     voice: narrationVoice,
     bookId: book.bookId || 'bible',
     editionKey: prefs.primaryEdition,
@@ -3885,6 +3920,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
   const audioAccountRequiredRef = useRef(false)
+  // An own book read aloud needs Premium (trial included): the account sheet, with its Premium offer, says the rest.
+  const ownNarrationPremiumRequired = listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
+  useEffect(() => {
+    if (!ownNarrationPremiumRequired) return
+    listen.dismissNarration()
+    listen.pause()
+    browseWhileListeningRef.current = false
+    setBrowseWhileListening(false)
+    setChrome('reading')
+    setReturnTo('reading')
+    setSuperSheet('account')
+  }, [ownNarrationPremiumRequired, listen.dismissNarration, listen.pause])
   const narrationAccountRequired = listen.narration.status === 'error' && listen.narration.reason === 'unauthenticated'
   useEffect(() => {
     if (!narrationAccountRequired) return
@@ -4475,7 +4522,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
-    if (id === 'chat') { handleChat(); return }
+    // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
+    if (id === 'chat' || id === 'librarian') { handleChat(); return }
     if (privateBook) {
       // Back to Add a book's Your books; Talk, Catch me up and editions are not offered.
       if (id === 'summarize') openChapterNotes('end')
@@ -4567,6 +4615,84 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const commandOverlay = tocOpen || inTheBookOpen || speedPopoverOpen
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
   const canReadCommand = () => !initialResolving && !frontispieceVisible && !temporaryHold
+
+  // The librarian tab (approved 2026-10-07): a small pull tab in the page
+  // margin that opens Chat or Talk. Shown to signed-in readers, as the mock
+  // specifies; anonymous readers keep the controls they have (their ten
+  // shared AI actions are still reached from the menu). On the desktop it
+  // stands in for the minimized chat's orb.
+  const [desktopChatMinimized, setDesktopChatMinimized] = useState(false)
+  useEffect(() => { if (!desktopAskOpen) setDesktopChatMinimized(false) }, [desktopAskOpen])
+  const [librarianSettingsOpen, setLibrarianSettingsOpen] = useState(false)
+  const [librarianNote, setLibrarianNote] = useState(0)
+  const [eink, setEink] = useState(() => typeof document !== 'undefined' && document.documentElement.dataset.eink === 'true')
+  useEffect(() => {
+    const update = () => setEink(document.documentElement.dataset.eink === 'true')
+    window.addEventListener('tinct:display-profile', update)
+    return () => window.removeEventListener('tinct:display-profile', update)
+  }, [])
+  // The tab arrives once the first page has held still, and then stays
+  // through chapter loads: readiness blinks while the opening place resolves,
+  // and a tab that blinked with it would repaint for nothing.
+  const [librarianSettled, setLibrarianSettled] = useState(false)
+  useEffect(() => {
+    if (!readerReady || librarianSettled) return
+    const timer = window.setTimeout(() => setLibrarianSettled(true), 500)
+    return () => window.clearTimeout(timer)
+  }, [readerReady, librarianSettled])
+  const librarianTalk = !privateBook
+  const librarianOffered = signedIn
+  const desktopChatInFront = !showPhoneChrome && desktopAskOpen && !desktopChatMinimized
+  const librarianTabVisible = librarianTabShown({
+    enabled: prefs.librarianTab,
+    signedIn: librarianOffered,
+    readerReady: librarianSettled && !frontispieceVisible && !readerLoadError && !temporaryHold,
+    conversationOpen: phoneAsk || desktopChatInFront || callOpen || ask.voiceActive,
+    overlayOpen: commandOverlay || librarianSettingsOpen || chapterNotes !== null || figureCard !== null
+      || openFootnote !== null || contentsConversation !== null,
+  })
+  const [librarianPeek, setLibrarianPeek] = useState(false)
+  useEffect(() => {
+    if (librarianTabVisible && !labSeenOnce(LIBRARIAN_TAB_PEEK_SEEN, null)) setLibrarianPeek(true)
+  }, [librarianTabVisible])
+  const endLibrarianPeek = useCallback(() => {
+    markLabSeenOnce(LIBRARIAN_TAB_PEEK_SEEN, null)
+    setLibrarianPeek(false)
+  }, [])
+  const prefsRef = useRef(prefs)
+  prefsRef.current = prefs
+  const updateLibrarianPrefs = useCallback((patch: Partial<LabPrefs>) => {
+    updatePrefs({ ...prefsRef.current, ...patch })
+  }, [updatePrefs])
+  const openLibrarian = useCallback((mode: LabLibrarianTabMode) => {
+    // A minimized desktop chat is restored, not replaced.
+    if (!showPhoneChrome && desktopAskOpen && desktopChatMinimized) { setDesktopChatMinimized(false); return }
+    if (mode === 'talk' && librarianTalk) handleTalk()
+    else handleChat()
+  }, [desktopAskOpen, desktopChatMinimized, handleChat, handleTalk, librarianTalk, showPhoneChrome])
+  const hideLibrarianTab = useCallback(() => {
+    setLibrarianSettingsOpen(false)
+    updateLibrarianPrefs({ librarianTab: false })
+    setLibrarianNote(Date.now())
+  }, [updateLibrarianPrefs])
+  const undoLibrarianHide = useCallback(() => {
+    setLibrarianNote(0)
+    updateLibrarianPrefs({ librarianTab: true })
+  }, [updateLibrarianPrefs])
+  useEffect(() => {
+    if (!librarianNote) return
+    const timer = window.setTimeout(() => setLibrarianNote(0), LIBRARIAN_TAB_UNDO_MS)
+    return () => window.clearTimeout(timer)
+  }, [librarianNote])
+  // Shown again from Reader settings: the note has nothing left to undo.
+  useEffect(() => { if (prefs.librarianTab) setLibrarianNote(0) }, [prefs.librarianTab])
+  // The tab's settings belong to the chat they were opened from.
+  useEffect(() => { if (!phoneAsk && !desktopAskOpen) setLibrarianSettingsOpen(false) }, [phoneAsk, desktopAskOpen])
+  const librarianDock = prefs.librarianTabDock ?? DEFAULT_LIBRARIAN_TAB_DOCK
+  const dockLibrarianTab = useCallback((dock: LabLibrarianTabDock) => {
+    updateLibrarianPrefs({ librarianTabDock: dock })
+  }, [updateLibrarianPrefs])
+  const librarianMeasureKey = [showPhoneChrome ? 'phone' : 'desktop', String(prefs.margins), String(prefs.fontSize), desktopCompareActive, mobileCompareActive, fullscreen, book.bookId, book.chapterNumber].join('|')
   const canTurnCommand = () => !initialResolving && !temporaryHold && !phoneAskOpen && !desktopAskOpen && !callOpen
   const editionCommand = (kind: string) => bookEditions.find(e => e.key === `${kind}-en`)
   useDesktopCommands({
@@ -4591,7 +4717,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
       { id: 'account', label: 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
-    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id)),
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration)),
   })
 
   if (temporaryHold && !holdRecovery) return (
@@ -4758,7 +4884,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
-              {!privateBook && <button
+              {(!privateBook || ownNarration) && <button
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
@@ -4802,6 +4928,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           privateBook={privateBook}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
+          librarianMode={librarianTabTapMode(prefs, !privateBook)}
         />
       )}
       {!frontispieceVisible && (
@@ -4822,6 +4949,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={signInReturnTo}
+          librarian={librarianOffered ? { talk: librarianTalk } : null}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}
@@ -4842,6 +4970,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           readToken={readSupabaseAccessToken}
           onClose={() => setSuperSheet(null)}
           onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
+          onTopUp={() => setSuperSheet('account')}
         />
       )}
       {!frontispieceVisible && chapterNotes && (
@@ -4853,6 +4982,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
           onTalk={(title, beats) => continueChapterNotes('talk', title, beats)}
           readToken={readSupabaseAccessToken}
+          onTopUp={() => { setChapterNotes(null); setSuperSheet('account') }}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
@@ -5130,17 +5260,22 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             onKeyboardOpenChange={setPhoneKeyboardOpen}
             inputRef={askInputRef}
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
+            onTabSettings={librarianOffered ? () => setLibrarianSettingsOpen(true) : undefined}
+            minimized={!showPhoneChrome ? desktopChatMinimized : undefined}
+            onMinimizedChange={!showPhoneChrome ? setDesktopChatMinimized : undefined}
+            minimizedOrb={!(librarianOffered && prefs.librarianTab)}
           />
         )}
       </div>
 
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
-      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
+      {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && listen.narration.reason !== 'own_book_premium' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
         <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
           ? listen.narration.message
           : listen.narration.reason === 'budget_exhausted' ? 'Daily narration limit reached.'
           : listen.narration.reason === 'text_mismatch' ? 'Passage changed. Reload to play.'
+          : listen.narration.reason === 'own_book_limit' || listen.narration.reason === 'own_book_unavailable' ? listen.narration.message
           : 'Audio couldn’t start.'}</span>
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
@@ -5606,6 +5741,34 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       )}
 
       {openFootnote && <LabFootnote open={openFootnote} onClose={() => setOpenFootnote(null)} />}
+      {librarianTabVisible && (
+        <LabLibrarianTab
+          surfaceRef={pageWrapRef}
+          measureKey={librarianMeasureKey}
+          dock={librarianDock}
+          mode={librarianTabTapMode(prefs, librarianTalk)}
+          longPressMode={librarianTabLongPressMode(prefs, librarianTalk)}
+          peek={librarianPeek}
+          reducedMotion={reducedMotion}
+          eink={eink}
+          onOpen={openLibrarian}
+          onDock={dockLibrarianTab}
+          onHide={hideLibrarianTab}
+          onPeekEnd={endLibrarianPeek}
+        />
+      )}
+      {librarianSettingsOpen && (
+        <LabLibrarianTabSettings
+          mode={librarianTabTapMode(prefs, librarianTalk)}
+          longPress={prefs.librarianTabLongPress}
+          talkAvailable={librarianTalk}
+          onMode={librarianTabOpens => updateLibrarianPrefs({ librarianTabOpens })}
+          onLongPress={librarianTabLongPress => updateLibrarianPrefs({ librarianTabLongPress })}
+          onHide={hideLibrarianTab}
+          onClose={() => setLibrarianSettingsOpen(false)}
+        />
+      )}
+      {librarianNote > 0 && !prefs.librarianTab && <LabLibrarianTabNote onUndo={undoLibrarianHide} />}
 
       {shareTarget && (
         <LabShareSheet

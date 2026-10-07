@@ -30,12 +30,13 @@ export type LabAccountAction = LabAiAction | 'audio'
 /**
  * What Premium covers after the trial. `true` = paid after the trial (decided),
  * `null` = the owner has not decided. Not enforced anywhere yet.
+ * Audiobooks are Premium only, included in the 30-day trial (Anders, 2026-10-07).
  */
 export const LAB_PAID_FEATURES = Object.freeze({
   chat: true,
   voice: true,
   recap: true,
-  audiobook: null,
+  audiobook: true,
   compare: null,
 }) satisfies Readonly<Record<string, boolean | null>>
 

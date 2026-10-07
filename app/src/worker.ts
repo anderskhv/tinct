@@ -20,6 +20,7 @@ import { isValidUUID } from './worker/lib/security'
 import { supabaseGet } from './worker/lib/supabase'
 import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/routes/audio'
 import { handleNarration } from './worker/routes/narration'
+import { handleOwnAudio, handleOwnEnsure } from './worker/routes/ownBookNarration'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -84,6 +85,8 @@ interface Env {
   STRIPE_PRICE_CHAT_100?: string
   STRIPE_PRICE_CHAT_200?: string
   STRIPE_PRICE_TOP_UP_10?: string
+  /** The $10 top-up under the name the Cloudflare secret was created with; read as STRIPE_PRICE_TOP_UP_10. */
+  STRIPE_PRICE_TOPUP_10?: string
   STRIPE_AUTOMATIC_TAX?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
@@ -98,6 +101,10 @@ interface Env {
   NARRATION_VOICE_B_LABEL?: string
   NARRATION_DAILY_BYTES?: string
   NARRATION_MONTHLY_BYTES?: string
+  /** "1": read-aloud of readers' own books (routes/ownBookNarration.ts). Off when absent. */
+  OWN_BOOK_NARRATION?: string
+  OWN_BOOK_NARRATION_MONTHLY_USD?: string
+  OWN_BOOK_NARRATION_GLOBAL_MONTHLY_USD?: string
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
   /** Private bucket for readers' own PDF/EPUB files (routes/userBooks.ts). Never public. */
@@ -223,6 +230,9 @@ export default {
       if (edition) return edition
     }
 
+    // Read-aloud of a reader's own book: separate routes, storage and budget (ownBookNarration.ts).
+    if (url.pathname === '/api/narration/own/ensure') return handleOwnEnsure(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
+    if (url.pathname === '/api/narration/own/audio') return handleOwnAudio(request, env, Date.now())
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
     }

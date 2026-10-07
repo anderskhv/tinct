@@ -1,0 +1,124 @@
+/* The librarian tab (LabLibrarianTab.tsx): a small pull tab flush against
+   the reader's edge, in the page margin, never over the text. Its band is
+   the 40px tap target; only the pill inside it is painted. Theme tokens give
+   a dark pill on light and book paper and a light one at night. */
+.lab .lab-librarian-tab-band {
+  position: fixed; left: 0; top: 0; z-index: 180;
+  touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent; cursor: pointer; outline: none;
+  contain: layout style;
+  transition: transform 340ms cubic-bezier(.2, 1.45, .4, 1);
+}
+.lab .lab-librarian-tab-band.is-dragging { transition: none; cursor: grabbing; }
+.lab .lab-librarian-tab {
+  position: absolute; display: flex; align-items: center; justify-content: center;
+  box-sizing: border-box; background: var(--lab-ink); color: var(--lab-paper);
+  opacity: .9; box-shadow: 0 2px 10px rgba(20, 15, 8, .16);
+  transition: width 340ms cubic-bezier(.2, 1.45, .4, 1), height 420ms ease, top 420ms ease, box-shadow 420ms ease, opacity 160ms ease;
+}
+.lab .lab-librarian-tab-band.is-right .lab-librarian-tab { right: 0; border-radius: 20px 0 0 20px; }
+.lab .lab-librarian-tab-band.is-left .lab-librarian-tab { left: 0; border-radius: 0 20px 20px 0; }
+.lab .lab-librarian-tab-band.is-dragging .lab-librarian-tab { transition: height 420ms ease, top 420ms ease; opacity: 1; }
+.lab .lab-librarian-tab-band.is-free .lab-librarian-tab { opacity: 0; }
+.lab .lab-librarian-tab-band:focus-visible .lab-librarian-tab { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: 2px; }
+.lab .lab-librarian-tab-band.is-peeking .lab-librarian-tab {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--lab-accent, #1f4a5c) 25%, transparent), 0 2px 10px rgba(20, 15, 8, .16);
+}
+.lab .lab-librarian-tab-icon { flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* Long press: a ring fills around the tab over 450ms. */
+.lab .lab-librarian-tab-ring {
+  position: absolute; top: 50%; width: 36px; height: 36px; margin-top: -18px; pointer-events: none;
+  overflow: visible; transform: rotate(-90deg);
+}
+.lab .lab-librarian-tab-ring circle {
+  fill: none; stroke: var(--lab-accent, #1f4a5c); stroke-width: 2.2; stroke-linecap: round;
+  stroke-dasharray: 100; stroke-dashoffset: 100; animation: lab-librarian-ring 450ms linear forwards;
+}
+@keyframes lab-librarian-ring { to { stroke-dashoffset: 0; } }
+.lab .lab-librarian-tab-orb {
+  position: fixed; left: 0; top: 0; z-index: 181; pointer-events: none;
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--lab-ink); color: var(--lab-paper); box-shadow: 0 4px 16px rgba(20, 15, 8, .2);
+}
+.lab[data-chrome-version="v2"] .lab-librarian-tab-orb .lab-voice-orb { color: var(--lab-paper); }
+.lab .lab-librarian-tab-orb > * { animation: lab-librarian-orb-in 220ms cubic-bezier(.2, 1.5, .4, 1); }
+@keyframes lab-librarian-orb-in { from { transform: scale(.5); } }
+.lab .lab-librarian-tab-target {
+  position: fixed; left: 50%; bottom: 34px; z-index: 179; width: 52px; height: 52px; margin-left: -26px;
+  box-sizing: border-box; border-radius: 50%; border: 1.5px dashed var(--lab-ink-muted);
+  display: grid; place-items: center; pointer-events: none;
+  font: 24px/1 'IBM Plex Mono', ui-monospace, Menlo, monospace; color: var(--lab-ink-muted);
+  background: color-mix(in srgb, var(--lab-paper) 80%, transparent);
+  animation: lab-librarian-target-in 200ms ease;
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.lab .lab-librarian-tab-target.is-active { transform: scale(1.12); border-color: var(--lab-accent, #1f4a5c); color: var(--lab-accent, #1f4a5c); border-style: solid; }
+@keyframes lab-librarian-target-in { from { opacity: 0; transform: scale(.8); } }
+/* Still: reduced motion and e-ink. No springs and no fades. */
+.lab .lab-librarian-tab-band.is-still,
+.lab .lab-librarian-tab-band.is-still .lab-librarian-tab { transition: none; }
+.lab .lab-librarian-tab-band.is-still ~ .lab-librarian-tab-orb > *,
+.lab .lab-librarian-tab-band.is-still ~ .lab-librarian-tab-target { animation: none; transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .lab .lab-librarian-tab-band, .lab .lab-librarian-tab, .lab .lab-librarian-tab-orb > *, .lab .lab-librarian-tab-target { transition: none; animation: none; }
+}
+/* E-ink: solid ink, no transparency, no shadow. */
+[data-eink] .lab .lab-librarian-tab { opacity: 1; box-shadow: none; background: var(--lab-ink); color: var(--lab-paper); }
+[data-eink] .lab .lab-librarian-tab-band.is-peeking .lab-librarian-tab { box-shadow: 0 0 0 3px var(--lab-ink); }
+[data-eink] .lab .lab-librarian-tab-orb { box-shadow: none; background: var(--lab-ink); color: var(--lab-paper); }
+[data-eink] .lab .lab-librarian-tab-target { background: var(--lab-paper); border-color: var(--lab-ink); color: var(--lab-ink); }
+
+/* ⋯ in the chat header: the tab's settings. */
+.lab .lab-ask-tab-settings {
+  min-width: 44px; min-height: 44px; padding: 0 6px; border: 0; background: transparent; color: inherit;
+  font: 20px/1 'IBM Plex Mono', ui-monospace, Menlo, monospace; letter-spacing: .05em; cursor: pointer;
+}
+.lab .lab-desktop-companion-head .lab-ask-tab-settings {
+  min-width: 28px; min-height: 28px; width: 28px; height: 28px; padding: 0; border-radius: 50%;
+  background: rgba(130, 116, 95, .1); font-size: 15px; letter-spacing: 0;
+}
+.lab .lab-ask-toolbar.has-tab-settings { align-items: center; }
+.lab .lab-ask-toolbar .lab-ask-tab-settings { margin-left: auto; }
+
+/* "Librarian tab": the small settings sheet over the chat. */
+.lab .lab-librarian-settings-layer { position: fixed; inset: 0; z-index: 360; }
+.lab .lab-librarian-settings-scrim { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(20, 15, 8, .18); cursor: default; }
+.lab .lab-librarian-settings {
+  position: absolute; left: 8px; right: 8px; bottom: max(8px, env(safe-area-inset-bottom, 0px));
+  max-width: 420px; margin: 0 auto; box-sizing: border-box;
+  border-radius: 20px; padding: 6px 16px 6px; background: var(--lab-paper); color: var(--lab-ink);
+  border: 1px solid var(--lab-border); box-shadow: 0 -6px 30px rgba(20, 15, 8, .14);
+}
+.lab.is-desktop .lab-librarian-settings { left: auto; right: 24px; bottom: 24px; width: 360px; }
+.lab .lab-librarian-settings-head { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+.lab .lab-librarian-settings-head h2 { margin: 0; font: 500 11px/1.4 'IBM Plex Mono', ui-monospace, Menlo, monospace; letter-spacing: .04em; color: var(--lab-ink-muted); }
+.lab .lab-librarian-settings-close { min-width: 44px; min-height: 44px; margin-right: -12px; border: 0; background: transparent; color: var(--lab-ink-muted); font-size: 22px; line-height: 1; cursor: pointer; }
+.lab .lab-librarian-settings-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 48px;
+  padding: 0; border: 0; border-top: 1px solid var(--lab-border); background: transparent; color: inherit;
+  font: 17px/1.3 'EB Garamond', Georgia, serif; text-align: left; white-space: nowrap;
+}
+.lab .lab-librarian-settings-row.is-hide { cursor: pointer; color: #9a3a2a; }
+.lab.is-night .lab-librarian-settings-row.is-hide { color: #e08a77; }
+.lab .lab-librarian-segment { display: inline-flex; flex: 0 0 auto; gap: 2px; padding: 2px; border: 1px solid var(--lab-border); border-radius: 999px; }
+.lab .lab-librarian-segment button {
+  min-height: 32px; min-width: 52px; padding: 0 12px; border: 0; border-radius: 999px; background: transparent;
+  color: var(--lab-ink-muted); font: 15px/1 'EB Garamond', Georgia, serif; cursor: pointer;
+}
+.lab .lab-librarian-segment button[aria-pressed="true"] { background: var(--lab-ink); color: var(--lab-paper); }
+.lab .lab-librarian-segment button:disabled { opacity: .4; cursor: default; }
+[data-eink] .lab .lab-librarian-settings { box-shadow: none; }
+
+/* "Librarian tab hidden · Undo", six seconds. */
+.lab .lab-librarian-note {
+  position: fixed; left: 12px; right: 12px; bottom: max(18px, calc(env(safe-area-inset-bottom, 0px) + 12px)); z-index: 350;
+  max-width: 420px; margin: 0 auto; box-sizing: border-box;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 2px 4px 2px 16px; border-radius: 12px; background: var(--lab-ink); color: var(--lab-paper);
+  font: 15px/1.3 'EB Garamond', Georgia, serif; box-shadow: 0 4px 18px rgba(20, 15, 8, .2);
+}
+.lab .lab-librarian-note button {
+  min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: inherit;
+  font: 500 15px/1 'EB Garamond', Georgia, serif; cursor: pointer;
+}
+[data-eink] .lab .lab-librarian-note { box-shadow: none; background: var(--lab-ink); color: var(--lab-paper); }

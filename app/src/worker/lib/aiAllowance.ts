@@ -35,7 +35,7 @@ export const PREMIUM_AI_ALLOWANCE_USD = 3.00
  * The top-ups on sale: checkout type -> price and AI credit, in US dollars.
  * Approved by Anders, 2026-10-06: the $5 pack gives $3.50, the $10 pack $7.50.
  * `chat_pack_200` is the existing $5 Stripe price (STRIPE_PRICE_CHAT_200);
- * `top_up_10` is the $10 price (STRIPE_PRICE_TOP_UP_10), offered only once
+ * `top_up_10` is the $10 price (STRIPE_PRICE_TOP_UP_10, or STRIPE_PRICE_TOPUP_10), offered only once
  * that secret is set. The $3 `chat_pack_100` is no longer sold.
  */
 export const TOP_UPS = Object.freeze({

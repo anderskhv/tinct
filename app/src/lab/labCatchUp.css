@@ -209,3 +209,25 @@
 }
 .lab[data-chrome-version="v2"] .lab-chapter-notes-tool svg { width: 18px; height: 18px; }
 .lab[data-chrome-version="v2"] .lab-chapter-notes-tool:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* AI allowance at zero: the balance line above the quiet Retry; a link to the
+   account sheet's top-ups when the reader offers them. */
+.lab[data-chrome-version="v2"] .lab-catch-up-balance {
+  display: block;
+  margin: 0 0 2px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+  text-align: left;
+}
+.lab[data-chrome-version="v2"] .lab-catch-up-balance.is-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"] .lab-catch-up-balance.is-link:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

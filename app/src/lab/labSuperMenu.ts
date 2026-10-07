@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'account'
+export type LabSuperMenuId = 'librarian' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -15,6 +15,11 @@ export interface LabSuperMenuRow {
   chevron?: boolean
   /** The rule that separates what is in this book from what is around it. */
   ruleBefore?: boolean
+  /**
+   * The Librarian row only: the modes it offers as icons of their own. The
+   * row's body opens the reader's default mode (the tab's "Tab opens").
+   */
+  modes?: Array<'chat' | 'talk'>
 }
 
 /**
@@ -23,8 +28,9 @@ export interface LabSuperMenuRow {
  */
 export function labSuperMenuRows({ phone = false, privateBook = false }: { phone?: boolean; privateBook?: boolean } = {}): LabSuperMenuRow[] {
   const rows: LabSuperMenuRow[] = [
-    { id: 'chat', label: 'Chat' },
-    { id: 'talk', label: 'Talk' },
+    // One row for both conversations (Anders, 2026-10-07): always here, so
+    // hiding the margin tab never takes the librarian away.
+    { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
     { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
@@ -36,11 +42,12 @@ export function labSuperMenuRows({ phone = false, privateBook = false }: { phone
   // A reader's own book (userBook/): no Talk, no Catch me up (it reads earlier
   // chapters on the server), and one edition. Library returns to Your books.
   return privateBook
-    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id)).map(row => row.id === 'library' ? { ...row, label: 'Your books' } : row)
+    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id)).map(row => row.id === 'library' ? { ...row, label: 'Your books' }
+      : row.id === 'librarian' ? { ...row, modes: ['chat' as const] } : row)
     : rows
 }
 
-const USER_BOOK_HIDDEN_ROWS = new Set<LabSuperMenuId>(['talk', 'catchup', 'editions'])
+const USER_BOOK_HIDDEN_ROWS = new Set<LabSuperMenuId>(['catchup', 'editions'])
 
 /**
  * The surface. Genuinely see-through: a fill of the paper colour over a blur

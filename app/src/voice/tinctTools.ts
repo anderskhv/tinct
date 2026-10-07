@@ -6,12 +6,13 @@ import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 /**
  * What Talk says about pricing (get_tinct_info 'pricing'). With the AI
  * allowance on (src/aiAllowanceSwitch.ts) there are no message counts:
- * Premium includes a monthly amount of AI use, in the words of Terms §3.
+ * Premium includes a monthly amount of AI use, in the words of Terms §3,
+ * plus audiobooks and adding any book (Anders, 2026-10-07).
  */
 export function tinctPricingFact(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): string {
   return allowanceOn
-    ? 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes a monthly amount of AI use, shown as a bar in the app. When it runs out, you can still read and listen.'
-    : 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes 100 AI messages per month, audiobook, Cast, offline mode, export, and the reading journal.'
+    ? 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes audiobooks, adding any book and a monthly amount of AI use, shown as a bar in the app. When it runs out, you can still read and listen.'
+    : 'Reading without an account is free. A free account includes a 30-day Premium trial. Premium is $5 per month and includes 100 AI messages per month, audiobook, adding any book, Cast, offline mode, export, and the reading journal.'
 }
 
 export type VoiceTinctView = 'read' | 'library' | 'reading_history' | 'pricing' | 'settings' | 'chat' | 'cast'

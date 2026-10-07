@@ -10,6 +10,7 @@
 import type { ReaderPositionCoordinator } from '../readerPositionCoordinator'
 import type { RecapPreparationCoordinator } from '../recapPreparationCoordinator'
 import type { ShareStore } from '../shareStore'
+import type { NarrationCoordinator } from '../narrationCoordinator'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
@@ -23,8 +24,27 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
-  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId} (routes/userBooks.ts). */
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, and their narration under u/{userId}/narration/ (routes/userBooks.ts). */
   USER_BOOKS?: R2Bucket
+  /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
+  NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
+}
+
+/** The account's own-book narration spend object. */
+export const ownNarrationSpendName = (userId: string) => `own-user:${userId}`
+
+/** Count and size of the account's own-book recordings (never the audio itself). */
+async function ownNarrationSummary(bucket: R2Bucket, userId: string): Promise<{ objects: number; bytes: number }> {
+  const prefix = `u/${userId}/narration/`
+  let objects = 0
+  let bytes = 0
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    for (const object of page.objects) { objects += 1; bytes += object.size }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return { objects, bytes }
 }
 
 type VerifySiteAdmin = (env: AdminAccountsEnv, request: Request) => Promise<boolean>
@@ -290,7 +310,16 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
         id: book.id, name: book.name, title: book.title, author: book.author, type: book.type, size: book.size, createdAt: book.createdAt,
       })))
       : (errors.push('r2: USER_BOOKS binding missing'), null),
+    // Recordings made when the reader chose Listen on an own book: counted, never the audio.
+    ownBookNarration: env.USER_BOOKS
+      ? await attempt('r2 own-book narration', () => ownNarrationSummary(env.USER_BOOKS!, account.userId))
+      : null,
   }
+
+  // Own-book narration spend: daily byte counts of the last two months, nothing else.
+  const ownBookNarrationSpend = env.NARRATION_COORDINATOR
+    ? await attempt('do own-book narration', async () => env.NARRATION_COORDINATOR!.getByName(ownNarrationSpendName(account.userId)).usage())
+    : (errors.push('do: NARRATION_COORDINATOR binding missing'), null)
 
   const stripeSummary = await attempt('stripe', () => exportStripe(env, account))
 
@@ -306,6 +335,7 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     kv,
     durableObjects,
     r2,
+    ownBookNarrationSpend,
     stripe: stripeSummary,
   }, 200, request)
 }
@@ -353,7 +383,11 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
       if (!env.RATE_LIMIT) throw new Error('RATE_LIMIT binding missing')
       await env.RATE_LIMIT.delete(positionKvKey(userId))
     }],
-    // The reader's own PDF/EPUB files: every object under u/{userId}/.
+    [`${prefix}do:own-book-narration`, async () => {
+      if (!env.NARRATION_COORDINATOR) throw new Error('NARRATION_COORDINATOR binding missing')
+      await env.NARRATION_COORDINATOR.getByName(ownNarrationSpendName(userId)).purge()
+    }],
+    // The reader's own PDF/EPUB files and their narration: every object under u/{userId}/.
     [`${prefix}r2:user-books`, async () => {
       if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
       await purgeUserBooks(env.USER_BOOKS, userId)

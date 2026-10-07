@@ -40,6 +40,16 @@ interface LabAskPaneProps {
    * date when the newer turns were had on another device.
    */
   historyStatus?: 'loading' | 'ready' | 'unavailable'
+  /** ⋯ in the header: the librarian tab's settings. Absent: no button. */
+  onTabSettings?: () => void
+  /**
+   * Desktop minimize, held by the host when it passes these (the librarian
+   * tab restores a minimized chat). Uncontrolled otherwise.
+   */
+  minimized?: boolean
+  onMinimizedChange?: (minimized: boolean) => void
+  /** False: a minimized desktop chat draws no orb (the librarian tab stands in for it). */
+  minimizedOrb?: boolean
 }
 
 /** Within this many pixels of the bottom counts as "at the bottom". */
@@ -133,8 +143,18 @@ export function LabAskPane({
   chapterLabels = {},
   desktopCompanion,
   historyStatus = 'ready',
+  onTabSettings,
+  minimized: minimizedProp,
+  onMinimizedChange,
+  minimizedOrb = true,
 }: LabAskPaneProps) {
-  const [minimized, setMinimized] = useState(false)
+  const [minimizedOwn, setMinimizedOwn] = useState(false)
+  const minimized = minimizedProp ?? minimizedOwn
+  const setMinimized = (next: boolean | ((value: boolean) => boolean)) => {
+    const value = typeof next === 'function' ? next(minimized) : next
+    if (minimizedProp === undefined) setMinimizedOwn(value)
+    onMinimizedChange?.(value)
+  }
   const windowRef = useReaderWindow<HTMLElement>('chat', !!desktopCompanion && !minimized)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
@@ -528,7 +548,7 @@ export function LabAskPane({
   )
   return (
     <>
-    {minimized && desktopCompanion && <LabCompanionOrb busy={typedLoading} onRestore={() => setMinimized(false)} />}
+    {minimized && desktopCompanion && minimizedOrb && <LabCompanionOrb busy={typedLoading} onRestore={() => setMinimized(false)} />}
     <aside
       style={minimized && desktopCompanion ? { display: 'none' } : undefined}
       ref={windowRef}
@@ -543,12 +563,13 @@ export function LabAskPane({
         <div className="lab-desktop-companion-head" data-reader-window-handle>
           {desktopCompanion === 'talk' && <span className="lab-desktop-companion-mark" aria-hidden="true"><VoiceIcon /></span>}
           <strong>{desktopCompanion === 'talk' ? LAB_COPY.talk : LAB_COPY.chat}</strong>
+          {onTabSettings && <button type="button" className="lab-ask-tab-settings" aria-label="Librarian tab" aria-haspopup="dialog" data-testid="lab-ask-tab-settings" onClick={onTabSettings}>⋯</button>}
           <button type="button" aria-label={minimized ? "Restore chat" : "Minimize chat"} onClick={() => setMinimized(value => !value)}>{minimized ? "↗" : "−"}</button>
           <button type="button" onClick={onDone} aria-label={`Close ${desktopCompanion}`} data-testid="lab-desktop-companion-close">×</button>
         </div>
       )}
       {onDone && !desktopCompanion && (
-        <div className="lab-ask-toolbar">
+        <div className={`lab-ask-toolbar${onTabSettings ? ' has-tab-settings' : ''}`}>
           <button
             type="button"
             className="lab-ask-done"
@@ -565,6 +586,13 @@ export function LabAskPane({
           >
             ← Back to book
           </button>
+          {onTabSettings && (
+            <button type="button" className="lab-ask-tab-settings" aria-label="Librarian tab" aria-haspopup="dialog"
+              data-testid="lab-ask-tab-settings"
+              onPointerDown={(event) => event.preventDefault()}
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={() => { textareaRef.current?.blur(); onKeyboardOpenChange?.(false); onTabSettings() }}>⋯</button>
+          )}
         </div>
       )}
       {onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
