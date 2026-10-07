@@ -68,18 +68,20 @@ const USER_TABLES: { table: string; column: string; order: string; optional?: tr
 ]
 
 /**
- * Profiles (social ship 2) and the email send log (ship 4). Created by
- * 20261008_profiles.sql / 20261008_email_log.sql, which Anders runs after the
- * deploy: until then a missing table (404) exports as null, not as an error.
- * Every row here is removed by ON DELETE CASCADE when the auth user goes.
- * Who blocked this reader is someone else's choice and is not exported.
+ * Tables that may not exist yet (their migration can run after the Worker
+ * ships): profiles (social ship 2, 20261008_profiles.sql) and the lifecycle
+ * email send log (ship 4, 20261008_email_log.sql). Exported and checked like
+ * USER_TABLES, but a missing table (404) exports as null, not as an error, and
+ * does not fail the deletion check. Every row here is removed by ON DELETE
+ * CASCADE when the auth user goes. Who blocked this reader is someone else's
+ * choice and is not exported.
  */
 const OPTIONAL_USER_TABLES: { key: string; table: string; column: string; order: string }[] = [
   { key: 'reader_profiles', table: 'reader_profiles', column: 'id', order: 'id' },
   { key: 'follows_following', table: 'follows', column: 'follower', order: 'followed' },
   { key: 'follows_followers', table: 'follows', column: 'followed', order: 'follower' },
   { key: 'blocks', table: 'blocks', column: 'blocker', order: 'blocked' },
-  { key: 'email_sends', table: 'email_sends', column: 'user_id', order: 'id' },
+  { key: 'email_log', table: 'email_log', column: 'user_id', order: 'sent_at,id' },
 ]
 
 /** ON DELETE SET NULL tables: rows must be deleted before the auth user goes. */
@@ -501,6 +503,12 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
       for (const { table, column, optional } of USER_TABLES) {
         const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
         if (optional && missingTable(res)) continue
+        if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
+        if ((await res.json() as unknown[]).length) leftovers.push(table)
+      }
+      for (const { table, column } of OPTIONAL_USER_TABLES) {
+        const res = await supabaseGet(env, `${table}?${column}=eq.${userId}&select=${column}&limit=1`)
+        if (res.status === 404) continue
         if (!res.ok) throw new Error(`${table} check failed (${res.status})`)
         if ((await res.json() as unknown[]).length) leftovers.push(table)
       }

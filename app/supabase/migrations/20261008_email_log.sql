@@ -1,37 +1,48 @@
--- Reading-email opt-out flag and email send log (approved by Anders for
--- social ship 4, created now so ship 4 needs no further SQL).
+-- Lifecycle emails (social brief, ship 4; schema approved by Anders 2026-10-07):
+-- an email send log and an opt-out flag on the profile.
 --
--- ANDERS RUNS THIS BY HAND, any time after 20261008_profiles.sql. Nothing in
--- ship 2 reads or writes these objects; ship 4 sends the welcome and reading
--- emails and records every send here (docs/lifecycle-emails/README.md:
--- "log every send (user, template, book, sent_at) and never send the same
--- template/book pair twice").
+-- 1. public.email_log: one row per email the Worker sends from the lifecycle
+--    engine (docs/lifecycle-emails/README.md): who, which template, which book,
+--    when. It is the idempotency record ("never send the same template/book
+--    pair twice"), the frequency record ("at most one lifecycle email every
+--    3 days") and the "ignored keep-reading" record. The Worker reserves a
+--    row BEFORE it sends (unique per reader + dedupe_key, so two cron runs can
+--    never both send) and removes the reservation if Brevo refuses the email.
+--    No email body, address or reading content is stored.
+-- 2. public.profiles.email_opt_out_at: set by the one-click unsubscribe link
+--    and the List-Unsubscribe-Post header. Unsubscribing also clears
+--    email_opt_in (20261002_privacy_consent.sql); an opt-in given later than
+--    the opt-out (from account settings) switches reading emails back on.
 --
--- Idempotent: safe to run more than once.
+-- Rows go with the account (ON DELETE CASCADE). Only the service role reads or
+-- writes the log (RLS on, no policies); readers never see it.
+-- Self-contained and idempotent: safe to run twice. The Worker treats a missing
+-- table as "lifecycle emails unavailable" and sends nothing from the engine,
+-- so the code may be deployed before this runs.
 
--- One-click "Stop reading emails": the time the reader opted out. Opting out
--- also sets email_opt_in = false; this column keeps when it happened.
-alter table public.profiles add column if not exists email_unsubscribed_at timestamptz;
-
-create table if not exists public.email_sends (
-  id bigserial primary key,
+create table if not exists public.email_log (
+  id bigint generated always as identity primary key,
   user_id uuid not null references auth.users(id) on delete cascade,
-  template text not null,
-  book_id text,
+  -- welcome, welcome-google, keep-reading, keep-reading-with-question,
+  -- next-book, next-book-classic-lead, trial-ending, trial-ended, announce.
+  template text not null check (template ~ '^[a-z][a-z0-9-]{1,40}$'),
+  -- The book the email is about (keep-reading: the book; next-book: the book
+  -- the reader finished or stalled in). NULL for emails about no book.
+  book_id text check (book_id is null or book_id ~ '^[a-z0-9-]{1,80}$'),
+  -- Idempotency key, unique per reader: "<template family>:<book or ->[:<episode>]".
+  dedupe_key text not null check (char_length(dedupe_key) <= 200),
   sent_at timestamptz not null default now(),
-  provider_message_id text
+  -- Small non-personal facts about the send (e.g. the next-book target id,
+  -- the finished/stalled opening, the announcement campaign).
+  meta jsonb not null default '{}'::jsonb,
+  unique (user_id, dedupe_key)
 );
 
--- Never the same template/book pair twice for one reader.
-create unique index if not exists email_sends_once
-  on public.email_sends (user_id, template, coalesce(book_id, ''));
-create index if not exists email_sends_recent on public.email_sends (user_id, sent_at desc);
+create index if not exists email_log_user_sent_idx
+  on public.email_log (user_id, sent_at desc);
 
-alter table public.email_sends enable row level security;
-drop policy if exists email_sends_select_own on public.email_sends;
-create policy email_sends_select_own on public.email_sends
-  for select to authenticated using (auth.uid() = user_id);
-revoke all on public.email_sends from anon, authenticated;
-grant select on public.email_sends to authenticated;
-grant all on public.email_sends to service_role;
-grant usage, select on sequence public.email_sends_id_seq to service_role;
+alter table public.email_log enable row level security;
+-- No policies: only the service role (which bypasses RLS) reads or writes.
+revoke all on public.email_log from anon, authenticated;
+
+alter table public.profiles add column if not exists email_opt_out_at timestamptz;

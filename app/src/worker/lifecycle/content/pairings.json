@@ -1,0 +1,363 @@
+{
+  "package": "reader-acclaim",
+  "version": 1,
+  "created": "2026-09-30",
+  "rules": [
+    "Recommend only live books with no whole-book hold.",
+    "Skip a target the reader has already opened.",
+    "Use the first eligible target in order; fall back to the next.",
+    "Send only when every card used has recheck == 'verified'; if the lead card is not verified, the email may lead with the classic acclaim quote instead.",
+    "Subjects must match the lead card actually used; rewrite if the lead falls back to the classic quote."
+  ],
+  "gaps": [
+    "jungle-book",
+    "heart-of-darkness",
+    "jerusalem",
+    "niels-lyhne",
+    "kant-groundwork",
+    "to-the-lighthouse",
+    "confessions",
+    "the-prince",
+    "walden",
+    "werther",
+    "odyssey (as a target: only list selections, no quote)"
+  ],
+  "pairings": [
+    {
+      "after": "meditations",
+      "next": [
+        {
+          "book_id": "nicomachean-ethics",
+          "lead_card": "C04",
+          "reason": "Marcus Aurelius reminds himself each morning what a good man should do. Aristotle asks how a person becomes good in the first place, and his answer is habit and practice.",
+          "subject": "Ryan Holiday on the Ethics: \"cannot recommend highly enough\""
+        },
+        {
+          "book_id": "essays-montaigne",
+          "lead_card": "C16",
+          "reason": "Montaigne, like Marcus, writes to himself about himself. He brings more doubt and humour to it, and far more detail about ordinary days.",
+          "second_card": "C17",
+          "classic_acclaim": {
+            "source": "Ralph Waldo Emerson",
+            "from": "app/public/data/onboarding/essays-montaigne.json#acclaim"
+          },
+          "subject": "Emerson on Montaigne: \"the delight and wonder\""
+        }
+      ]
+    },
+    {
+      "after": "the-manual",
+      "next": [
+        {
+          "book_id": "meditations",
+          "lead_card": "C01",
+          "reason": "Marcus Aurelius read Epictetus closely. Meditations shows the same ideas tested by a man who ruled an empire and wrote only for himself.",
+          "second_card": "C02",
+          "classic_acclaim": {
+            "source": "Matthew Arnold",
+            "from": "app/public/data/onboarding/meditations.json#acclaim"
+          },
+          "subject": "Naval on Meditations: \"it will change your world view\""
+        }
+      ]
+    },
+    {
+      "after": "odyssey",
+      "next": [
+        {
+          "book_id": "iliad",
+          "lead_card": "C09",
+          "reason": "The Iliad covers a few weeks in the war that the Odyssey looks back on. It follows the anger of Achilles and what that anger costs both armies.",
+          "second_card": "C10",
+          "classic_acclaim": {
+            "source": "Simone Weil",
+            "from": "app/public/data/onboarding/iliad.json#acclaim"
+          },
+          "subject": "Helen Keller: \"the Iliad made Greece my paradise\""
+        }
+      ]
+    },
+    {
+      "after": "iliad",
+      "next": [
+        {
+          "book_id": "peloponnesian-war",
+          "lead_card": "C06",
+          "reason": "Thucydides writes about a real war between Greek cities, and he asks why powers slide into a conflict that none of them can stop.",
+          "classic_acclaim": {
+            "source": "Thomas Hobbes",
+            "from": "app/public/data/onboarding/peloponnesian-war.json#acclaim"
+          },
+          "subject": "Matt Mullenweg: \"I really loved Thucydides\""
+        },
+        {
+          "book_id": "gilgamesh",
+          "lead_card": "C05",
+          "reason": "Gilgamesh is centuries older than Homer and deals with the same questions of friendship, fame and death.",
+          "classic_acclaim": {
+            "source": "Rainer Maria Rilke",
+            "from": "app/public/data/onboarding/gilgamesh.json#acclaim"
+          },
+          "subject": "Ryan Holiday on the oldest epic: \"timeless and universal\""
+        }
+      ]
+    },
+    {
+      "after": "the-aeneid",
+      "next": [
+        {
+          "book_id": "iliad",
+          "lead_card": "C09",
+          "reason": "Virgil built the Aeneid on Homer. The Iliad tells the war in which Aeneas first appears, seen from both the Greek and the Trojan camps.",
+          "second_card": "C10",
+          "classic_acclaim": {
+            "source": "Simone Weil",
+            "from": "app/public/data/onboarding/iliad.json#acclaim"
+          },
+          "subject": "Helen Keller: \"the Iliad made Greece my paradise\""
+        }
+      ]
+    },
+    {
+      "after": "beowulf",
+      "next": [
+        {
+          "book_id": "gilgamesh",
+          "lead_card": "C05",
+          "reason": "Gilgamesh is the oldest surviving story of a hero. Like Beowulf, it asks what a person can leave behind.",
+          "classic_acclaim": {
+            "source": "Rainer Maria Rilke",
+            "from": "app/public/data/onboarding/gilgamesh.json#acclaim"
+          },
+          "subject": "Ryan Holiday on Gilgamesh: \"timeless and universal\""
+        }
+      ]
+    },
+    {
+      "after": "the-republic",
+      "next": [
+        {
+          "book_id": "democracy-in-america",
+          "lead_card": "C07",
+          "reason": "Tocqueville travelled through the young United States to see what equality does to a society in practice, the question the Republic argues about in theory.",
+          "classic_acclaim": {
+            "source": "John Stuart Mill",
+            "from": "app/public/data/onboarding/democracy-in-america.json#acclaim"
+          },
+          "subject": "Patrick Collison rates it \"particularly great\": Democracy in America"
+        },
+        {
+          "book_id": "nicomachean-ethics",
+          "lead_card": "C04",
+          "reason": "Aristotle studied under Plato and approaches the Republic's question about justice from the other end, starting with a single human life.",
+          "subject": "Ryan Holiday on the Ethics: \"cannot recommend highly enough\""
+        }
+      ]
+    },
+    {
+      "after": "the-histories",
+      "next": [
+        {
+          "book_id": "peloponnesian-war",
+          "lead_card": "C06",
+          "reason": "Thucydides picks up where Herodotus leaves off and holds himself to a stricter rule about evidence.",
+          "classic_acclaim": {
+            "source": "Thomas Hobbes",
+            "from": "app/public/data/onboarding/peloponnesian-war.json#acclaim"
+          },
+          "subject": "Matt Mullenweg: \"I really loved Thucydides\""
+        }
+      ]
+    },
+    {
+      "after": "pride-and-prejudice",
+      "next": [
+        {
+          "book_id": "anna-karenina",
+          "lead_card": null,
+          "reason": "Tolstoy follows several courtships and marriages across Russian society, with Austen's attention to what people want and what their families expect of them.",
+          "classic_acclaim": {
+            "source": "William Faulkner",
+            "from": "app/public/data/onboarding/anna-karenina.json#acclaim"
+          },
+          "subject": "Faulkner on Anna Karenina: \"The best ever written.\""
+        }
+      ]
+    },
+    {
+      "after": "frankenstein",
+      "next": [
+        {
+          "book_id": "paradise-lost",
+          "lead_card": "C15",
+          "reason": "The creature learns what he is by reading Paradise Lost. Milton's poem is the story he measures himself against.",
+          "classic_acclaim": {
+            "source": "William Blake",
+            "from": "app/public/data/onboarding/paradise-lost.json#acclaim"
+          },
+          "subject": "The book Frankenstein's creature learned from"
+        },
+        {
+          "book_id": "notes-from-underground",
+          "lead_card": "C03",
+          "reason": "Dostoevsky's narrator, like the creature, is an outsider who argues with the world that shut him out.",
+          "classic_acclaim": {
+            "source": "Friedrich Nietzsche",
+            "from": "app/public/data/onboarding/notes-from-underground.json#acclaim"
+          },
+          "subject": "DHH on Notes from Underground: \"I can't recommend it highly enough\""
+        }
+      ]
+    },
+    {
+      "after": "paradise-lost",
+      "next": [
+        {
+          "book_id": "frankenstein",
+          "lead_card": "C18",
+          "reason": "Mary Shelley put Paradise Lost into her creature's hands. Frankenstein asks what a maker owes the life he makes.",
+          "second_card": "C19",
+          "classic_acclaim": {
+            "source": "Sir Walter Scott",
+            "from": "app/public/data/onboarding/frankenstein.json#acclaim"
+          },
+          "subject": "Jeanette Winterson on Frankenstein: \"contemporary reality\""
+        }
+      ]
+    },
+    {
+      "after": "jekyll-and-hyde",
+      "next": [
+        {
+          "book_id": "frankenstein",
+          "lead_card": "C18",
+          "reason": "Frankenstein is the earlier story of a scientist whose experiment escapes him, told in part by the one he made.",
+          "second_card": "C19",
+          "classic_acclaim": {
+            "source": "Sir Walter Scott",
+            "from": "app/public/data/onboarding/frankenstein.json#acclaim"
+          },
+          "subject": "Jeanette Winterson on Frankenstein: \"contemporary reality\""
+        }
+      ]
+    },
+    {
+      "after": "notes-from-underground",
+      "next": [
+        {
+          "book_id": "brothers-karamazov",
+          "lead_card": null,
+          "reason": "Dostoevsky's last novel takes the questions the underground man raises and gives them to three brothers who answer them very differently.",
+          "second_card": "C20",
+          "classic_acclaim": {
+            "source": "Sigmund Freud",
+            "from": "app/public/data/onboarding/brothers-karamazov.json#acclaim"
+          },
+          "subject": "Freud on The Brothers Karamazov: \"the most magnificent novel ever written\""
+        }
+      ]
+    },
+    {
+      "after": "anna-karenina",
+      "next": [
+        {
+          "book_id": "brothers-karamazov",
+          "lead_card": null,
+          "reason": "Dostoevsky, Tolstoy's great contemporary, writes about three brothers pulled apart by money, faith and a father who failed every one of them.",
+          "second_card": "C20",
+          "classic_acclaim": {
+            "source": "Sigmund Freud",
+            "from": "app/public/data/onboarding/brothers-karamazov.json#acclaim"
+          },
+          "subject": "Freud on The Brothers Karamazov: \"the most magnificent novel ever written\""
+        }
+      ]
+    },
+    {
+      "after": "war-and-peace",
+      "next": [
+        {
+          "book_id": "anna-karenina",
+          "lead_card": null,
+          "reason": "Tolstoy's other great novel moves from the battlefield to the drawing room and follows people deciding whom to love and how to live.",
+          "classic_acclaim": {
+            "source": "William Faulkner",
+            "from": "app/public/data/onboarding/anna-karenina.json#acclaim"
+          },
+          "subject": "Faulkner on Anna Karenina: \"The best ever written.\""
+        }
+      ]
+    },
+    {
+      "after": "hamlet",
+      "next": [
+        {
+          "book_id": "macbeth",
+          "lead_card": "C12",
+          "reason": "Macbeth is Shakespeare's shortest tragedy. It follows what a prophecy does to a man who wants to believe it.",
+          "classic_acclaim": {
+            "source": "Samuel Taylor Coleridge",
+            "from": "app/public/data/onboarding/macbeth.json#acclaim"
+          },
+          "blocked_until": "Macbeth whole-book hold lifted (docs/edition-holds-2026-09-25.md)",
+          "subject": "Lincoln on Macbeth: \"I think nothing equals Macbeth.\""
+        },
+        {
+          "book_id": "king-lear",
+          "lead_card": "C13",
+          "reason": "King Lear is the other great tragedy about a family and a crown. It asks what love is worth when it has to be proved.",
+          "classic_acclaim": {
+            "source": "William Hazlitt",
+            "from": "app/public/data/onboarding/king-lear.json#acclaim"
+          },
+          "subject": "Lincoln reread it as often as Hamlet: King Lear"
+        }
+      ]
+    },
+    {
+      "after": "macbeth",
+      "next": [
+        {
+          "book_id": "hamlet",
+          "lead_card": "C14",
+          "reason": "Hamlet opens after a king has been murdered, and its hero hesitates at every step Macbeth would take at once.",
+          "classic_acclaim": {
+            "source": "Samuel Taylor Coleridge",
+            "from": "app/public/data/onboarding/hamlet.json#acclaim"
+          },
+          "subject": "Ryan Holiday on Hamlet: \"Philosophy runs through this play\""
+        }
+      ]
+    },
+    {
+      "after": "bible",
+      "next": [
+        {
+          "book_id": "paradise-lost",
+          "lead_card": "C15",
+          "reason": "Milton retells the opening chapters of Genesis at full length, from the war in heaven to the loss of Eden.",
+          "classic_acclaim": {
+            "source": "William Blake",
+            "from": "app/public/data/onboarding/paradise-lost.json#acclaim"
+          },
+          "subject": "Darwin's chief favourite on the Beagle: Paradise Lost"
+        }
+      ]
+    },
+    {
+      "after": "wealth-of-nations",
+      "next": [
+        {
+          "book_id": "democracy-in-america",
+          "lead_card": "C07",
+          "reason": "Tocqueville watched a commercial, equal society in action and asked what it does to the people living in it.",
+          "classic_acclaim": {
+            "source": "John Stuart Mill",
+            "from": "app/public/data/onboarding/democracy-in-america.json#acclaim"
+          },
+          "subject": "Patrick Collison rates it \"particularly great\": Democracy in America"
+        }
+      ]
+    }
+  ]
+}
