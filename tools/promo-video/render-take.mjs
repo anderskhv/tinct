@@ -40,7 +40,13 @@ const srcDur = srcCount / 60;
 const srcFrame = (s) => `/out/${take.dir || 'take'}/frames/f${String(Math.min(srcCount, Math.max(1, Math.round(s * 60) + 1))).padStart(5, '0')}.jpg`;
 
 // ---- timeline ----
-const total = srcDur + take.endHold;
+// skips: [{from, to, fade}] (recording seconds): jump ahead in the recording while the
+// camera keeps moving; the screen cross-fades over `fade` seconds so there is no cut.
+const skips = (take.skips || []).slice().sort((a, b) => a.from - b.from);
+const skipped = skips.reduce((n, k) => n + (k.to - k.from), 0);
+const toSource = (t) => { let s = t; for (const k of skips) if (s >= k.from) s += k.to - k.from; return s; };
+const toOutput = (s) => { let t = s; for (const k of skips) { if (s >= k.to) t -= k.to - k.from; else if (s > k.from) return null; } return t; };
+const total = srcDur - skipped + take.endHold;
 const frameCount = Math.round(total * FPS);
 // --from 38 --to 48: render only that slice of the timeline (quick iteration samples).
 const SLICE = [Math.round(Number(arg('--from', 0)) * FPS), Math.min(frameCount, Math.round(Number(arg('--to', total)) * FPS))];
@@ -51,7 +57,9 @@ const smooth = (x) => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 *
 // fov: lens (smaller = longer lens), shift: vertical framing offset, dof: lens blur
 // strength (0 = none), fz: focus point along the phone (defaults to the look-at point).
 const DEFAULTS = { lx: 0, lz: 0, fov: 30, shift: 0.045, dof: 0 };
-const keys = take.camera.map((k) => ({ ...DEFAULTS, fz: k.lz ?? 0, ...k, t: k.t === 'end' ? total : k.t }));
+// Camera keys are given in recording time; keys inside a skipped stretch are dropped.
+const keys = take.camera.map((k) => ({ ...DEFAULTS, fz: k.lz ?? 0, ...k, t: k.t === 'end' ? total : toOutput(k.t) }))
+  .filter((k) => k.t !== null);
 const PARAMS = ['az', 'el', 'd', 'lx', 'lz', 'fov', 'shift', 'dof', 'fz'];
 function camAt(t) {
   t = Math.max(keys[0].t, Math.min(keys.at(-1).t, t));
@@ -94,13 +102,53 @@ function touchesAt(s) {
   return out;
 }
 
+// ---- smooth scrolls ----
+// smoothScrolls: [{from, to}] (recording seconds). Inside each, the recording is
+// retimed so the content's scroll position follows one ease-in-out glide instead of
+// the finger's stop-start: for every moment we pick the real frame whose measured
+// position (scroll60.json, from scroll.py) matches the eased target position.
+const s60Path = path.join(DIR, 'scroll60.json');
+const s60 = fs.existsSync(s60Path) ? JSON.parse(fs.readFileSync(s60Path, 'utf8')) : [];
+const glides = (take.smoothScrolls || []).map(({ from, to, top = 176, bottom = 2556 }) => {
+  const f0 = Math.round(from * 60), f1 = Math.round(to * 60);
+  const pos = [0];
+  for (let f = f0 + 1; f <= f1; f++) pos.push(pos.at(-1) + (s60[f] || 0));
+  const dir = Math.sign(pos.at(-1)) || 1;
+  const mono = []; let m = 0; // running max along the scroll direction: never step backwards
+  for (const p of pos) mono.push((m = Math.max(m, p * dir)));
+  return { from, to, f0, mono, dir, D: mono.at(-1), top, bottom };
+});
+// Returns the source time of the frame just before the eased target position, plus
+// the residual shift that puts the content exactly on target (see drawGlide in stage).
+const PX = 1170 / 1180; // recording px -> screen canvas px
+function retime(s) {
+  const g = glides.find((g) => s > g.from && s < g.to);
+  if (!g || g.D <= 0) return { s };
+  const u = (s - g.from) / (g.to - g.from);
+  const target = g.D * (u < 0.5 ? 4 * u ** 3 : 1 - (-2 * u + 2) ** 3 / 2); // ease-in-out cubic
+  let j = g.mono.findIndex((p) => p > target);
+  if (j <= 0) return { s: (g.f0 + g.mono.length - 1) / 60 };
+  const a = g.mono[j - 1], b = g.mono[j], r = target - a;
+  const f = g.f0 + j - 1;
+  return { s: f / 60, glide: r > 0.05 ? { next: srcFrame((f + 1) / 60), dy: +(g.dir * r * PX).toFixed(2),
+    dyNext: +(-g.dir * (b - a - r) * PX).toFixed(2), top: Math.round(g.top * PX), bottom: Math.round(g.bottom * PX) } : null };
+}
+
 function frameParams(i) {
   const t = i / FPS;
-  const s = Math.min(t, srcDur - 1 / 60);
+  const rt = retime(toSource(t));
+  const s = Math.min(rt.s, srcDur - 1 / 60);
+  // Skips cross-fade from the frames just before the jump to those just after it.
+  let jump = null;
+  for (const k of skips) {
+    const t0 = toOutput(k.to) ?? 0, f = k.fade ?? 0.5;
+    if (Math.abs(t - t0) < f / 2) jump = { a: k.from + (t - t0), b: k.to + (t - t0), mix: smooth((t - t0 + f / 2) / f) };
+  }
   // Blank moments in the recording (page loads) dissolve from the last good frame to the next.
   const blank = take.dissolve.find(([a, b]) => s > a && s < b);
-  const screen = blank ? { screenSrc: srcFrame(blank[0]), screenSrcB: srcFrame(blank[1]), mix: smooth((s - blank[0]) / (blank[1] - blank[0])) }
-    : { screenSrc: srcFrame(s) };
+  const screen = jump ? { screenSrc: srcFrame(jump.a), screenSrcB: srcFrame(jump.b), mix: jump.mix }
+    : blank ? { screenSrc: srcFrame(blank[0]), screenSrcB: srcFrame(blank[1]), mix: smooth((s - blank[0]) / (blank[1] - blank[0])) }
+    : { screenSrc: srcFrame(s), glide: rt.glide ?? null };
   const cap = (take.captions || []).find((c) => t >= c.from && t <= c.to);
   return {
     ...screen,

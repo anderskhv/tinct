@@ -1,5 +1,5 @@
 {
- "_doc": "Product-only continuous take of the 2026-10-06 15:26 recording: no text, no captions, no end card, silent. Raised phone, long lens, tap indicators on buttons only. Times are seconds in the recording (real speed); lz < 0 frames towards the top of the screen. Short dissolves soften the app's instant screen swaps. Iterate with --from/--to slices.",
+ "_doc": "Product-only continuous take of the 2026-10-06 15:26 recording: no text, no captions, no end card, silent. Raised phone, long lens, tap indicators on buttons only. Times are seconds in the recording (real speed); lz < 0 frames towards the top of the screen. Short dissolves soften the app's instant screen swaps. Iterate with --from/--to slices. smoothScrolls retimes finger scrolls into eased glides (needs scroll60.json from scroll.py); skips jump ahead in the recording with a short screen cross-fade while the camera keeps moving.",
  "dir": "take3",
  "audio": false,
  "endHold": 0,
@@ -219,5 +219,30 @@
     "_": "End talk"
    }
   ]
- }
+ },
+ "smoothScrolls": [
+  {
+   "from": 2.4,
+   "to": 6.2,
+   "top": 368
+  },
+  {
+   "from": 10.0,
+   "to": 12.4,
+   "top": 368
+  },
+  {
+   "from": 24.3,
+   "to": 26.05,
+   "top": 728,
+   "bottom": 2164
+  }
+ ],
+ "skips": [
+  {
+   "from": 54.2,
+   "to": 66.4,
+   "fade": 0.5
+  }
+ ]
 }

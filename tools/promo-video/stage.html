@@ -307,8 +307,19 @@ function drawTouches(touches) {
     sctx.restore();
   }
 }
+// Sub-frame scroll positioning (smooth scrolls): inside the clip band [top, bottom),
+// frame `img` is shifted by dy and the next frame by dyNext to fill the gap it leaves.
+// Scrolling content moves as one sheet, so the two stitch together seamlessly.
+async function drawGlide(img, g) {
+  const next = await loadImage(g.next);
+  sctx.save();
+  sctx.beginPath(); sctx.rect(0, g.top, SCREEN_PX_W, g.bottom - g.top); sctx.clip();
+  sctx.drawImage(next, 0, -g.dyNext, SCREEN_PX_W, SCREEN_PX_H);
+  sctx.drawImage(img, 0, -g.dy, SCREEN_PX_W, SCREEN_PX_H);
+  sctx.restore();
+}
 // Draws app frame `src`, optionally dissolving towards `srcB` by `mix` (0..1).
-async function setScreen(src, srcB = null, mix = 0, touches = []) {
+async function setScreen(src, srcB = null, mix = 0, touches = [], glide = null) {
   const img = await loadImage(src);
   const imgB = srcB && mix > 0 ? await loadImage(srcB) : null;
   const top = edgeColor(img, false), bot = edgeColor(img, true);
@@ -317,6 +328,7 @@ async function setScreen(src, srcB = null, mix = 0, touches = []) {
   sctx.fillStyle = `rgb(${bot.map(Math.round).join(',')})`;
   sctx.fillRect(0, 0, SCREEN_PX_W, SCREEN_PX_H);
   drawApp(img);
+  if (glide) await drawGlide(img, glide);
   if (imgB) drawApp(imgB, mix);
   drawTouches(touches);
   drawStatusBar(top.map(Math.round), isNative(img) ? NATIVE_STATUS_H : STATUS_H);
@@ -445,9 +457,9 @@ function composite(dof, fz) {
 
 // ---------- frame API (driven by render.mjs) ----------
 let lastScreen = null;
-window.renderFrame = async ({ screenSrc, screenSrcB = null, mix = 0, touches = [], shot, p, cam, caption = '', captionOpacity = 0, endcard = 0 }) => {
-  const key = `${screenSrc}|${mix > 0 ? screenSrcB + '|' + mix.toFixed(3) : ''}|${JSON.stringify(touches)}`;
-  if (screenSrc && key !== lastScreen) { await setScreen(screenSrc, screenSrcB, mix, touches); lastScreen = key; }
+window.renderFrame = async ({ screenSrc, screenSrcB = null, mix = 0, touches = [], glide = null, shot, p, cam, caption = '', captionOpacity = 0, endcard = 0 }) => {
+  const key = `${screenSrc}|${mix > 0 ? screenSrcB + '|' + mix.toFixed(3) : ''}|${JSON.stringify(touches)}|${JSON.stringify(glide)}`;
+  if (screenSrc && key !== lastScreen) { await setScreen(screenSrc, screenSrcB, mix, touches, glide); lastScreen = key; }
   if (cam) orbit(cam); else setCamera(shot, p);
   renderer.render(scene, camera);
   composite(cam?.dof ?? 0, cam?.fz ?? cam?.lz ?? 0);
