@@ -121,6 +121,7 @@ function setup(options: { switchOn?: boolean; prices?: Record<string, string>; n
     checkRateLimit: async () => true,
     countDaily: async () => true,
     acquireLock: async () => true,
+    premiumAccess: async () => true,
     waitUntil: promise => { waits.push(promise) },
     modern,
   }

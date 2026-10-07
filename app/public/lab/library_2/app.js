@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261007search';
+import {mountBookshelf} from './bookshelf.js?v=20261007signedin';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261007search';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261007signedin';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20260928covers';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,dockPosition,sceneCrop,panelBounds} from './motion.js?v=20260928covers';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20260928covers';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,ADD_PARAM} from './add-to-tinct.js?v=20261007search';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261007signedin';
 import {librarySearch} from './library-search.js?v=20261007search';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
@@ -81,7 +81,8 @@ async function openFeatured(){if(window.__library2Reading?.reading.some(b=>b.boo
 $('hero-book').onclick=$('read-featured').onclick=openFeatured;
 addEventListener('library2:reading',updateHeroAction);
 // Signed in: Account; signed out: Sign in. Both go to the production account page and come back here.
-{const signedIn=document.documentElement.classList.contains('signed-in');$('sign-in').textContent=signedIn?'Account':'Sign in';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/library')}`);}
+function syncAccountButton(){const signedIn=document.documentElement.classList.contains('signed-in');$('sign-in').textContent=signedIn?'Account':'Sign in';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/library')}`);}
+syncAccountButton();
 $('header').querySelector('.logo').onclick=e=>{e.preventDefault();if(activeBook)closeBook();else selectCollection('home');};
 addEventListener('scroll',()=>$('header').classList.toggle('scrolled',scrollY>20),{passive:true});
 
@@ -137,7 +138,7 @@ const ADD_FAILURES={daily_limit:'You have added the most books you can today. Pl
 let addingWork=null,addingStage=null;
 /** The Add button of the work being added, as rendered now (a new search re-renders the rows). */
 const addButton=id=>[...document.querySelectorAll('#search-results .free-add')].find(b=>b.dataset.work===id)||null;
-/** Add: import the work for everyone, then open it (Currently reading). Signed out: sign in first, then it continues here. */
+/** Add: import the work for everyone, then open it (Currently reading). Signed out: sign in first, then it continues here. A free account past its trial: the Premium offer, never an import (the Worker answers 402 first). */
 async function addWork(work,button){
  const signIn=()=>location.assign(`/sign-in?returnTo=${encodeURIComponent(`/library?${ADD_PARAM}=${encodeURIComponent(work.id)}`)}`);
  if(!document.documentElement.classList.contains('signed-in')){signIn();return;}
@@ -145,8 +146,9 @@ async function addWork(work,button){
  if(addingWork)return;addingWork=work.id;addingStage='start';setAddBusy(button,'start');
  const step=stage=>{addingStage=stage;setAddBusy(addButton(work.id),stage);};
  try{
+  if((await canAdd())===false){location.assign(PREMIUM_PAGE);return;}
   const result=await (await addEngine()).importWork(work.id,{onStage:step});
-  if(!result.ok){if(result.reason==='signed_out'){signIn();return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
+  if(!result.ok){if(result.reason==='signed_out'){signIn();return;}if(result.reason==='premium_required'){location.assign(PREMIUM_PAGE);return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
   try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
   document.body.classList.add('leaving');location.assign(await readerDestination(book,null));
@@ -408,7 +410,7 @@ async function removeFromMyShelf(id){
  }catch{notice('Your shelf could not be saved. Please try again.');}
 }
 let ownShelf=null,ownShelfLoading=null;
-function loadOwnShelf(){if(!ownShelfLoading)ownShelfLoading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});return ownShelfLoading;}
+function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 function renderMyBooks(){
  $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
  const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
@@ -436,11 +438,13 @@ function renderMyBooks(){
  // Your own books: this account's PDFs and EPUBs from Add a book, then the + tile.
  if(addEnabled()){
   if(ownShelf===null)void loadOwnShelf();
-  total+=appendOwnShelf(grid,ownShelf||[],el);
+  total+=appendOwnShelf(grid,ownShelf||[],el,()=>setSearch(true));
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
+// Signed in or out on this page (the reading bridge's library2:auth): Add to Tinct appears or goes without a reload.
+addEventListener('library2:auth',()=>{syncAccountButton();resetAddAccess();syncSearchAddFile($('search-add-file'));ownShelf=null;ownShelfLoading=null;if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice==='saved')renderMyBooks();});
 function collectionCard(book){
  const card=el('article','collection-card');
  card.append(coverButton(book),el('h2','',book.title),el('p','',book.author));

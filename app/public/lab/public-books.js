@@ -4,16 +4,26 @@
 // (src/worker/routes/publicBooks.ts), like internal-traffic.js. No browser APIs at import time.
 import { isInternal } from './internal-traffic.js'
 
-/**
- * The one-line switch. While false, the new search groups, Add and the My shelf
- * additions show only on devices with the internal flag (`?internal=1`); everyone
- * else sees the library as before. Set to true to open the feature to every reader.
- */
-export const ADD_TO_TINCT_FOR_EVERYONE = false
+/** Whether the cookie that marks a signed-in browser is set (src/utils/authCookie.ts). Read only when asked. */
+export function signedInCookie(cookie) {
+  try {
+    const value = cookie ?? (typeof document !== 'undefined' ? document.cookie : '')
+    return String(value || '').split(';').some(part => part.trim() === 'tinct_auth=1')
+  } catch {
+    return false
+  }
+}
 
-/** Whether this device sees "Not yet in Tinct", Add and the My shelf additions. */
-export function addToTinctEnabled(storage) {
-  return ADD_TO_TINCT_FOR_EVERYONE || isInternal(storage)
+/**
+ * Whether this reader sees "Not yet in Tinct", Add and the My shelf additions:
+ * every signed-in account (free, trial and Premium) and devices with the internal
+ * flag (`?internal=1`). Signed-out visitors see the library as before: no Add, no
+ * "Not yet in Tinct" and no prompt to sign in for it (Anders, 2026-10-07).
+ * `signedIn` is the page's own account state; without it, the signed-in cookie.
+ * The Worker still requires an account for every import step.
+ */
+export function addToTinctEnabled(storage, signedIn) {
+  return (signedIn ?? signedInCookie()) === true || isInternal(storage)
 }
 
 /**

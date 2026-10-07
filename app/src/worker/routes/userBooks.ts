@@ -3,7 +3,8 @@
  * reader's own PDF and EPUB files, so a book follows them across devices.
  *
  *   GET    /api/user-books            list the caller's books (metadata only)
- *   POST   /api/user-books            upload one file (raw body; metadata in headers)
+ *   POST   /api/user-books            upload one file (raw body; metadata in headers);
+ *                                     Premium or the 30-day trial only (402 otherwise)
  *   GET    /api/user-books/{fileId}   the file's bytes, to its owner only
  *   DELETE /api/user-books/{fileId}   delete it
  *
@@ -352,7 +353,12 @@ async function remove(request: Request, bucket: R2Bucket, userId: string, fileId
 export async function handleUserBooks(
   request: Request,
   env: UserBooksEnv,
-  deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
+  deps: {
+    verifyUser: (request: Request) => Promise<VerifiedUser | null>
+    checkRateLimit: CheckRateLimit
+    /** Premium or in the 30-day trial (lib/aiAllowance.ts loadPremiumAccess); null when unknown. Uploading is Premium only. */
+    premiumAccess: (userId: string) => Promise<boolean | null>
+  },
 ): Promise<Response> {
   const url = new URL(request.url)
   const rest = url.pathname.slice('/api/user-books'.length)
@@ -367,7 +373,13 @@ export async function handleUserBooks(
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
 
   if (fileId === null) {
-    if (request.method === 'POST') return upload(request, bucket, user.id, deps.checkRateLimit)
+    if (request.method === 'POST') {
+      // Adding a book is Premium (or the trial); listing, opening and deleting books already added never are.
+      const premium = await deps.premiumAccess(user.id).catch(() => null)
+      if (premium === null) return reply({ error: 'unavailable' }, 503, request)
+      if (!premium) return reply({ error: 'premium_required' }, 402, request)
+      return upload(request, bucket, user.id, deps.checkRateLimit)
+    }
     const books = await listUserBooks(bucket, user.id)
     return reply({
       books,

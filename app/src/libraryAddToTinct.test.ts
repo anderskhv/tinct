@@ -1,7 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
-  ADD_TO_TINCT_FOR_EVERYONE,
   EXCLUDED_SOURCES,
   IMPORT_SOURCES,
   addToTinctEnabled,
@@ -12,6 +11,7 @@ import {
   isPublicBookId,
   mergePublicBooks,
   publicBookId,
+  signedInCookie,
   titleAuthorKey,
   type CatalogueWork,
 } from '../public/lab/public-books.js'
@@ -31,17 +31,38 @@ const memoryStore = (internal: boolean) => {
 }
 const el = (tag: string, cls?: string, text?: string) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e }
 
-describe('internal-flag gating', () => {
-  it('shows Add to Tinct only on internal devices until the one-line switch opens it', () => {
-    expect(ADD_TO_TINCT_FOR_EVERYONE).toBe(false)
-    expect(addToTinctEnabled(memoryStore(false))).toBe(false)
+describe('signed-in gating', () => {
+  afterEach(() => { document.documentElement.classList.remove('signed-in'); document.cookie = 'tinct_auth=; Max-Age=0; Path=/' })
+
+  it('shows Add to Tinct to every signed-in reader and internal devices, never to signed-out visitors', () => {
+    expect(addToTinctEnabled(memoryStore(false), false)).toBe(false)
+    expect(addToTinctEnabled(memoryStore(false), true)).toBe(true)
+    expect(addToTinctEnabled(memoryStore(true), false)).toBe(true)
     expect(addToTinctEnabled(memoryStore(true))).toBe(true)
   })
 
-  it('leaves the library search and catalogue untouched without the flag', async () => {
+  it('falls back to the signed-in cookie when the page gives no account state', () => {
+    expect(signedInCookie('a=1; tinct_auth=1; b=2')).toBe(true)
+    expect(signedInCookie('tinct_auth=0')).toBe(false)
+    expect(signedInCookie('')).toBe(false)
+    expect(addToTinctEnabled(memoryStore(false))).toBe(false)
+    document.cookie = 'tinct_auth=1; Path=/'
+    expect(addToTinctEnabled(memoryStore(false))).toBe(true)
+    // The page's own state wins over a stale cookie.
+    expect(addToTinctEnabled(memoryStore(false), false)).toBe(false)
+  })
+
+  it('follows the library page: signed in shows it, signed out (even with a stale cookie) does not', () => {
+    localStorage.removeItem(INTERNAL_KEY)
+    document.cookie = 'tinct_auth=1; Path=/'
+    expect(addToTinct.enabled()).toBe(false)
+    document.documentElement.classList.add('signed-in')
+    expect(addToTinct.enabled()).toBe(true)
+  })
+
+  it('leaves the library search and catalogue untouched for a signed-out visitor', async () => {
     localStorage.removeItem(INTERNAL_KEY)
     expect(addToTinctEnabled()).toBe(false)
-    expect(addToTinctEnabled === addToTinctEnabled).toBe(true)
     expect(addToTinct.enabled()).toBe(false)
     expect(await addToTinct.searchFree('pride')).toEqual([])
     const catalogue = { books: [{ id: 'odyssey' }], houses: [] }
@@ -424,6 +445,23 @@ describe('My shelf groups', () => {
     addToTinct.syncSearchAddFile(link)
     expect(link.hidden).toBe(true)
     addToTinct.syncSearchAddFile(null)
+  })
+
+  it('opens with "+ Add a book", which opens the library search, before the file tile', () => {
+    const grid = document.createElement('div')
+    const open = vi.fn()
+    expect(addToTinct.appendOwnShelf(grid, [], el, open)).toBe(2)
+    expect([...grid.children].map(c => c.className)).toEqual(['collection-card add-book-card', 'collection-card add-file-card'])
+    const shelf = document.createElement('div')
+    shelf.append(el('h2', 'my-books-head', 'Currently reading'))
+    addToTinct.appendOwnShelf(shelf, [own('epub:aa', 'Notes', null)], el, open)
+    expect([...shelf.children].map(c => c.classList.contains('my-books-head') ? `# ${c.textContent}` : c.className)).toEqual(['collection-card add-book-card', 'collection-card add-file-card', '# Currently reading', '# Your own books', 'collection-card own-book'])
+    const tile = grid.querySelector('.add-book-tile') as HTMLButtonElement
+    expect(tile.tagName).toBe('BUTTON')
+    expect(tile.textContent).toBe('+Add a book')
+    expect(tile.getAttribute('href')).toBeNull()
+    tile.click()
+    expect(open).toHaveBeenCalledTimes(1)
   })
 })
 

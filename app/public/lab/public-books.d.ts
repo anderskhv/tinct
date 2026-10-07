@@ -23,8 +23,8 @@ export interface PublicPlacement {
   shelfId: string; shelfTitle: string; shelfSubtitle: string; shelfHue: number
 }
 
-export const ADD_TO_TINCT_FOR_EVERYONE: boolean
-export function addToTinctEnabled(storage?: KeyStore): boolean
+export function signedInCookie(cookie?: string): boolean
+export function addToTinctEnabled(storage?: KeyStore, signedIn?: boolean): boolean
 export const MODERN_EDITIONS_FOR_EVERYONE: boolean
 export function modernEditionsEnabled(storage?: KeyStore): boolean
 export const PUBLIC_BOOK_PREFIX: string

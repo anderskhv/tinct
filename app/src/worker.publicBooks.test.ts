@@ -115,7 +115,7 @@ function catalogueAssets(works: CatalogueWork[]) {
   }
 }
 
-function setup(options: { works?: CatalogueWork[]; epub?: Uint8Array; source?: typeof fetch; daily?: number; chooser?: PublicBooksDeps['chooser'] } = {}) {
+function setup(options: { works?: CatalogueWork[]; epub?: Uint8Array; source?: typeof fetch; daily?: number; chooser?: PublicBooksDeps['chooser']; premium?: (userId: string) => boolean | null } = {}) {
   resetCatalogueLookupCache()
   const r2 = fakeBucket()
   const { assets, requests } = catalogueAssets(options.works ?? [WORK])
@@ -132,6 +132,7 @@ function setup(options: { works?: CatalogueWork[]; epub?: Uint8Array; source?: t
     checkRateLimit: async () => true,
     countDaily: async (key, limit) => { const n = (counts.get(key) ?? 0) + 1; counts.set(key, n); return n <= (options.daily ?? limit) },
     acquireLock: async bookId => { if (locks.has(bookId)) return false; locks.add(bookId); return true },
+    premiumAccess: async userId => (options.premium ? options.premium(userId) : true),
     fetchSource: options.source ?? (async (url: string | URL | Request) => { downloads.push(String(url)); return new Response(epub, { headers: { 'content-length': String(epub.byteLength) } }) }) as typeof fetch,
     chooser: options.chooser ?? null,
   }
@@ -233,6 +234,33 @@ describe('/api/public-books import', () => {
     expect((await t.call('/api/public-books/import/pd-pg-99999/commit', { method: 'POST', body: '{}' })).status).toBe(401)
     expect((await t.call('/api/public-books')).status).toBe(200)
     expect((await t.call('/api/public-books/pd-pg-1')).status).toBe(404)
+  })
+
+  it('is Premium only: a free account past its trial gets 402 at every step, before any count or download; Premium and trial add', async () => {
+    // USER: Premium or in trial; OTHER: free past trial (lib/aiAllowance.ts hasPremiumAccess decides in the Worker).
+    const t = setup({ premium: id => id === USER })
+    expect((await t.prepare('pg:99999', 'b')).status).toBe(402)
+    expect(await (await t.prepare('pg:99999', 'b')).json()).toEqual({ error: 'premium_required' })
+    expect((await t.call('/api/public-books/import/pd-pg-99999/source', { token: 'b' })).status).toBe(402)
+    expect((await t.call('/api/public-books/import/pd-pg-99999/commit', { method: 'POST', token: 'b', body: '{}' })).status).toBe(402)
+    expect(t.downloads).toEqual([])
+    expect([...t.counts.keys()]).toEqual([])
+    expect(t.locks.size).toBe(0)
+    expect(await (await t.call('/api/public-books/import/access', { token: 'b' })).json()).toEqual({ canAdd: false })
+    expect(await (await t.call('/api/public-books/import/access', { token: 'a' })).json()).toEqual({ canAdd: true })
+    expect((await t.call('/api/public-books/import/access')).status).toBe(401)
+    // Premium (or trial) adds as before; the book it added stays readable for everyone, free accounts included.
+    expect((await t.prepare('pg:99999', 'a')).status).toBe(200)
+    expect((await t.convertAndCommit('pd-pg-99999')).status).toBe(201)
+    expect((await t.call('/api/public-books/pd-pg-99999', { token: 'b' })).status).toBe(200)
+    expect((await handlePublicEditionData(new Request('https://tinct.app/data/editions/pd-pg-99999-original-en.json'), t.env))?.status).toBe(200)
+  })
+
+  it('answers 503, never an import, when the account cannot be checked', async () => {
+    const t = setup({ premium: () => null })
+    expect((await t.prepare('pg:99999')).status).toBe(503)
+    expect((await t.call('/api/public-books/import/access', { token: 'a' })).status).toBe(503)
+    expect(t.downloads).toEqual([])
   })
 
   it('refuses works it cannot import: unknown, wrong language, no EPUB, a library off the allowlist', async () => {
@@ -598,7 +626,7 @@ describe('painted covers: backfill, claims, spines and switches', () => {
     expect(coverContentType(new TextEncoder().encode('RIFF\0\0\0\0WEBPVP8 '))).toBe('image/webp')
   })
 
-  it('switches: Modern English and painted covers on in wrangler.jsonc, AI classification left off; the client stays internal-only', async () => {
+  it('switches: Modern English and painted covers on in wrangler.jsonc, AI classification left off; Modern English stays internal-only, Add to Tinct is for signed-in readers', async () => {
     // jsdom gives import.meta.url no file scheme here; vitest runs from app/.
     const source = readFileSync(resolve(process.cwd(), 'wrangler.jsonc'), 'utf8')
     const config = JSON.parse(source.split('\n').filter(line => !/^\s*\/\//.test(line)).join('\n')) as { vars: Record<string, string>; triggers: { crons: string[] } }
@@ -608,10 +636,13 @@ describe('painted covers: backfill, claims, spines and switches', () => {
     expect(config.triggers.crons).toContain('*/10 * * * *')
     const client = await import('../public/lab/public-books.js')
     expect(client.MODERN_EDITIONS_FOR_EVERYONE).toBe(false)
-    expect(client.ADD_TO_TINCT_FOR_EVERYONE).toBe(false)
+    expect('ADD_TO_TINCT_FOR_EVERYONE' in client).toBe(false) // a signed-in gate, not a switch
     const store = (internal: boolean) => ({ getItem: (key: string) => (internal && key === 'tinct:internal' ? '1' : null), setItem: () => {}, removeItem: () => {} })
     expect(client.modernEditionsEnabled(store(false))).toBe(false)
     expect(client.modernEditionsEnabled(store(true))).toBe(true)
-    expect(client.addToTinctEnabled(store(false))).toBe(false)
+    expect(client.addToTinctEnabled(store(false), false)).toBe(false)
+    // Signed-in readers get Add to Tinct; Modern English stays internal-only.
+    expect(client.addToTinctEnabled(store(false), true)).toBe(true)
+    expect(client.modernEditionsEnabled(store(false))).toBe(false)
   })
 })

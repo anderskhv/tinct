@@ -7,12 +7,12 @@ const calls = vi.hoisted(() => ({
   membership: vi.fn(), saved: vi.fn(),
   auth: vi.fn(), memory: vi.fn(), localPositions: vi.fn(), cloudPositions: vi.fn(),
   completions: vi.fn(), readingList: vi.fn(), readMemory: vi.fn(),
-  readPosition: vi.fn(), writePosition: vi.fn(), putPosition: vi.fn(),
+  readPosition: vi.fn(), writePosition: vi.fn(), putPosition: vi.fn(), onAuth: vi.fn(),
 }))
 vi.mock('./libraryTwoSaved', () => ({ loadShelfMembership: calls.membership, setSavedBook: calls.saved, loadSavedBooks: vi.fn() }))
 vi.mock('./services/supabase', () => ({
   supabase: {
-    auth: { getSession: calls.auth },
+    auth: { getSession: calls.auth, onAuthStateChange: calls.onAuth },
     from: () => ({ select: () => ({ eq: () => ({ or: calls.completions }) }) }),
   },
   isSupabaseConfigured: () => true,
@@ -408,4 +408,26 @@ it('an edition picked in the introduction wins over the saved one, keeps the pla
   await api.readerDestination('frankenstein','modern-en',{compare:null,explicit:true,compareExplicit:true})
   expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!)).toMatchObject({primaryEditionKey:'modern-en',compareChosen:true})
   expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).compareEditionKey).toBeUndefined()
+})
+
+it('keeps the library page signed-in class in step with Supabase and tells the page (Add to Tinct without a reload)', async () => {
+  document.documentElement.classList.add('signed-in') // boot.js, from a stale cookie
+  await import('./libraryTwoReading')
+  expect(calls.onAuth).toHaveBeenCalledTimes(1)
+  const onChange = calls.onAuth.mock.calls[0][0] as (event: string, session: unknown) => void
+  const events: boolean[] = []
+  const listener = (event: Event) => events.push((event as CustomEvent<{ signedIn: boolean }>).detail.signedIn)
+  addEventListener('library2:auth', listener)
+  try {
+    onChange('INITIAL_SESSION', null)
+    expect(document.documentElement.classList.contains('signed-in')).toBe(false)
+    onChange('SIGNED_OUT', null) // no change, no event
+    onChange('SIGNED_IN', { user: { id: 'u1' } })
+    expect(document.documentElement.classList.contains('signed-in')).toBe(true)
+    onChange('TOKEN_REFRESHED', { user: { id: 'u1' } })
+    expect(events).toEqual([false, true])
+  } finally {
+    removeEventListener('library2:auth', listener)
+    document.documentElement.classList.remove('signed-in')
+  }
 })

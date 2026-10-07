@@ -402,6 +402,7 @@ html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pendin
 .search-add-file:hover{color:var(--cream);background:#eee7d00f}
 .search-add-file svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
 @media(max-width:699px){.search-add-file{width:40px;height:40px}.search-add-file svg{width:20px;height:20px}}
+.add-book-tile{background:none;cursor:pointer;-webkit-appearance:none;appearance:none}
 @media(max-width:699px){.free-line{font-size:15px}.free-add{padding:7px 14px}.file-box{padding:14px 16px}.file-box p{font-size:15px}}
 /* Search filters (add-to-tinct.js): chips in the scene-pill style (.room-preview), under the search field. */
 .search-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}

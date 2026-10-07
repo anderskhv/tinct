@@ -1,12 +1,16 @@
 // "Add to Tinct" in the library (approved designs D1/D2, 2026-10-06): the search's
 // "Not yet in Tinct" group, the "Have it as a file?" box, and My shelf's
-// "Your own books". Only where public-books.js addToTinctEnabled() allows; elsewhere
+// "Your own books". Only where public-books.js addToTinctEnabled() allows (signed-in
+// readers and internal devices; the page's signed-in class, kept live by the
+// reading bridge, is the account state); elsewhere
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261007search';
+import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261007signedin';
 
-export const enabled=()=>addToTinctEnabled();
+/** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
+export const signedIn=()=>document.documentElement.classList.contains('signed-in');
+export const enabled=()=>addToTinctEnabled(undefined,signedIn());
 export const ADD_BOOK_PAGE='/lab/addbook/';
 /** Add a book's file step: "Your own book", a PDF or EPUB, without its free-book search (the library has its own). */
 export const ADD_FILE_PAGE='/lab/addbook/?mode=file';
@@ -70,11 +74,33 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261007polish';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261007signedin';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
  return engine;
+}
+
+// ---- Premium: adding books (Add, a PDF or EPUB) is Premium or the 30-day trial (Anders, 2026-10-07) ----
+/** The account page with its Premium offer: where a free account's Add and file entries lead. */
+export const PREMIUM_PAGE=`/sign-in?mode=account&returnTo=${encodeURIComponent('/library')}`;
+let access=null;
+/** Whether this account may add books: true, false, or null when it cannot be told (asked once per account). */
+export function canAdd(){
+ if(!access){access=addEngine().then(api=>api.canAdd?api.canAdd():null).catch(()=>null);access.then(value=>{if(value===null)access=null;});}
+ return access;
+}
+/** Forget the answer (the reader signed in or out). */
+export function resetAddAccess(){access=null;}
+/** A file entry opens Add a book for Premium and trial, the Premium offer for a free account. */
+function fileEntry(link){
+ if(link.dataset.fileEntry)return link;link.dataset.fileEntry='1';
+ link.addEventListener('click',async event=>{
+  if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  event.preventDefault();
+  location.assign((await canAdd())===false?PREMIUM_PAGE:link.href);
+ });
+ return link;
 }
 
 // ---- Paper covers ----
@@ -202,7 +228,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
   }).catch(()=>{group.dataset.freeGroup='0';});
  }else renderTinct(tinct);
  const file=el('div','file-box');file.append(el('p','','Have it as a file?'));
- const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_FILE_PAGE;file.append(pick);box.append(file);
+ const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_FILE_PAGE;file.append(fileEntry(pick));box.append(file);
  return shown;
 }
 
@@ -253,7 +279,13 @@ export function ownBookCard(book,el){
 /** The dashed "+" tile that opens My shelf: straight to Add a book's file step. */
 export function addFileTile(el){
  const card=el('article','collection-card add-file-card');const tile=el('a','add-file-tile');tile.href=ADD_FILE_PAGE;
- tile.append(el('span','add-file-plus','+'),el('span','','Add a PDF or EPUB'));card.append(tile);return card;
+ tile.append(el('span','add-file-plus','+'),el('span','','Add a PDF or EPUB'));card.append(fileEntry(tile));return card;
+}
+
+/** My shelf's "+ Add a book" tile: opens the library search, with "Not yet in Tinct" and the file box. */
+export function addBookTile(el,onOpen){
+ const card=el('article','collection-card add-book-card');const tile=el('button','add-file-tile add-book-tile');tile.type='button';tile.onclick=()=>onOpen();
+ tile.append(el('span','add-file-plus','+'),el('span','','Add a book'));card.append(tile);return card;
 }
 
 /** Own books under Currently reading (those with a saved place, latest first) and the rest of "Your own books". */
@@ -262,12 +294,13 @@ export function ownShelfGroups(list){
  return {reading:own.filter(book=>book.readingAt!==null&&book.readingAt!==undefined).sort((a,b)=>b.readingAt-a.readingAt),own};
 }
 /**
- * My shelf's additions (D1): the dashed + tile first, so adding your own book is the
- * first thing on the shelf; own books being read join Currently reading (after the
- * library's own, or under a new heading at the top); then "Your own books" with every
- * own book. Returns how many cards were added.
+ * My shelf's additions (D1): the add tiles first, so adding a book is the first thing on
+ * the shelf: "+ Add a book" (when `onAddBook` is given; it opens the library search), then
+ * the dashed + tile for a PDF or EPUB. Own books being read join Currently reading (after
+ * the library's own, or under a new heading at the top); then "Your own books" with every
+ * own book, when there are any. Returns how many cards were added.
  */
-export function appendOwnShelf(grid,list,el){
+export function appendOwnShelf(grid,list,el,onAddBook){
  const {reading,own}=ownShelfGroups(list);let added=0;
  if(reading.length){
   let after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop()||null;
@@ -279,11 +312,12 @@ export function appendOwnShelf(grid,list,el){
   for(const book of own){grid.append(ownBookCard(book,el));added++;}
  }
  grid.prepend(addFileTile(el));
+ if(onAddBook){grid.prepend(addBookTile(el,onAddBook));added++;}
  return added+1;
 }
 
-/** The + at the right end of the library's search field: the same file step, where Add to Tinct is on. */
+/** The + at the right end of the library's search field: the same file step, where Add to Tinct is on (a free account past its trial: the Premium offer). */
 export function syncSearchAddFile(link){
  if(!link)return;
- link.href=ADD_FILE_PAGE;link.hidden=!enabled();
+ link.href=ADD_FILE_PAGE;link.hidden=!enabled();fileEntry(link);
 }

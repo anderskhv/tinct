@@ -23,6 +23,22 @@ beforeEach(() => {
 })
 afterEach(() => { vi.unstubAllGlobals(); session.current = null })
 
+describe('canAdd (adding books is Premium or the trial)', () => {
+  it('asks the Worker for the signed-in account; false signed out, null when it cannot tell', async () => {
+    const { canAdd } = await import('./libraryAdd')
+    const never = vi.fn()
+    expect(await canAdd(never as unknown as typeof fetch)).toBe(false)
+    expect(never).not.toHaveBeenCalled()
+    session.current = { access_token: 'tok' }
+    const seen: string[] = []
+    const reply = (status: number, body: unknown) => (async (url: string) => { seen.push(url); return Response.json(body, { status }) }) as unknown as typeof fetch
+    expect(await canAdd(reply(200, { canAdd: true }))).toBe(true)
+    expect(await canAdd(reply(200, { canAdd: false }))).toBe(false)
+    expect(await canAdd(reply(503, { error: 'unavailable' }))).toBeNull()
+    expect(seen[0]).toBe('/api/public-books/import/access')
+  })
+})
+
 describe('importWork (the browser half of Add)', () => {
   it('is signed out without a session and never calls the Worker', async () => {
     const { importWork } = await import('./libraryAdd')
@@ -57,6 +73,7 @@ describe('importWork (the browser half of Add)', () => {
     const reply = (status: number, body: unknown) => (async () => Response.json(body, { status })) as unknown as typeof fetch
     expect(await importWork('pg:1', { fetchImpl: reply(200, { status: 'exists', bookId: 'pd-pg-1', entry: { id: 'pd-pg-1' } }) })).toMatchObject({ ok: true, existed: true })
     expect(await importWork('pg:1', { fetchImpl: reply(429, { error: 'daily_limit' }) })).toEqual({ ok: false, reason: 'daily_limit' })
+    expect(await importWork('pg:1', { fetchImpl: reply(402, { error: 'premium_required' }) })).toEqual({ ok: false, reason: 'premium_required' })
     expect(await importWork('pg:1', { fetchImpl: reply(409, { error: 'in_progress' }) })).toEqual({ ok: false, reason: 'in_progress' })
     expect(await importWork('pg:1', { fetchImpl: reply(422, { error: 'not_importable' }) })).toEqual({ ok: false, reason: 'not_importable' })
     expect(await importWork('pg:1', { fetchImpl: reply(401, { error: 'Unauthorized' }) })).toEqual({ ok: false, reason: 'signed_out' })
