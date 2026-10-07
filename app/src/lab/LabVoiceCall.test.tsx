@@ -34,6 +34,20 @@ function renderCall(input: Partial<LabCallInput> = {}, props: Record<string, unk
 const circle = () => screen.getByTestId('lab-call-circle')
 
 describe('the call surface', () => {
+  it('says the AI line from the start of every conversation, above the orb, without blocking anything', () => {
+    for (const activity of ['listening', 'speaking'] as const) {
+      const { unmount } = renderCall({ connection: 'connecting', activity })
+      const line = screen.getByTestId('lab-call-ai')
+      expect(line.textContent).toBe("You're talking to an AI.")
+      expect(line.tagName).toBe('P')
+      // First in the stage, before the orb and the status word; not a dialog or a button.
+      expect(line.parentElement?.className).toBe('lab-call-stage')
+      expect(line.parentElement?.firstElementChild).toBe(line)
+      expect(line.querySelector('button')).toBeNull()
+      unmount()
+    }
+  })
+
   it('breathes and says Listening once the microphone is live', () => {
     renderCall()
     expect(screen.getByTestId('lab-call-status').textContent).toBe('Listening.')

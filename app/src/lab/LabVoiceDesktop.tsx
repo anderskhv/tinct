@@ -164,6 +164,8 @@ export function LabVoiceDesktopPanel({
         {notice && <p className="lab-voice-panel-line" data-testid="lab-voice-panel-notice">{notice}</p>}
       </div>
       <div className="lab-voice-panel-thread" data-testid="lab-voice-panel-thread" ref={threadRef} onScroll={onScroll}>
+        {/* The conversation's first line, above every turn (AI Act art. 50). */}
+        <p className="lab-voice-panel-ai" data-testid="lab-voice-panel-ai">{LAB_CALL_COPY.aiDisclosure}</p>
         {turns.length === 0 && (
           <p className="lab-voice-panel-empty" data-testid="lab-voice-panel-empty">{LAB_CALL_COPY.askAboutPage}</p>
         )}

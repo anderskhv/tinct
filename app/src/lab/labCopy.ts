@@ -64,6 +64,8 @@ export const LAB_COPY = {
   voiceStartFailed: "Couldn't start voice. Type a question instead.",
   signInAsk: 'Sign in to ask about this page.',
   balanceEmpty: 'Your AI chat balance is empty. Top up to continue.',
+  /** Beside the narrated book's details (AI Act art. 50: the voice is synthetic). */
+  aiNarration: 'AI narration',
   askUnavailable: 'Chat is unavailable right now.',
   /** A daily ceiling or a provider limit was reached; reading is unaffected. */
   aiResting: 'AI is resting — try again later.',

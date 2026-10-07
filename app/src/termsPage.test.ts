@@ -75,3 +75,22 @@ describe('/terms', () => {
     if (!AI_ALLOWANCE_ENFORCED) expect(readFileSync('public/sitemap.xml', 'utf8')).not.toContain('/terms')
   })
 })
+
+// Talk and Catch me up on a reader's own book (2026-10-08, after legal review).
+describe('own books and the AI features', () => {
+  const privacyText = text(privacy)
+  it('privacy: names what of an own book each AI feature sends, where the recap is kept, and no training', () => {
+    expect(privacyText).not.toContain('Only the passages you ask about are sent to the AI companion, as with any question.')
+    expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
+    // The rest of the own-books paragraph stays.
+    expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
+    expect(privacy).toContain('Last updated: 8 October 2026')
+  })
+
+  it('terms §4: own books are processed on the reader’s instruction; the indemnity covers breaches of §4 only', () => {
+    const section4 = published.slice(published.indexOf('4. Your content and your responsibility for it'), published.indexOf('Reporting and removal'))
+    expect(section4).toContain('If you add your own books, the AI features process their text on your instruction and only for you. Keep a lawful copy of any book you add.')
+    expect(section4).toContain('You agree to compensate Tinct for losses caused by your breach of this section, as far as the law allows.')
+    expect(published.join(' ')).not.toContain('arise from your content or from your breach of these terms')
+  })
+})

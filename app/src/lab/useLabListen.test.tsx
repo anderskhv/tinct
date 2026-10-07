@@ -136,5 +136,7 @@ it('reports and seeks the whole chapter timeline to Media Session', async () => 
   expect(h.result.current.clipIndex).toBe(1)
   expect(h.audio.currentTime).toBe(2)
   expect(setPositionState).toHaveBeenCalledWith(expect.objectContaining({ duration: 10 }))
+  // The now-playing details name the voice as synthetic (AI Act art. 50).
+  expect((navigator.mediaSession as unknown as { metadata: { artist: string } }).metadata.artist).toBe('bible · AI narration')
   Reflect.deleteProperty(navigator, 'mediaSession')
 })

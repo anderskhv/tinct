@@ -231,3 +231,12 @@
   cursor: pointer;
 }
 .lab[data-chrome-version="v2"] .lab-catch-up-balance.is-link:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* An own book's recap is built a chapter at a time: a quiet count under the placeholder. */
+.lab[data-chrome-version="v2"] .lab-catch-up-progress {
+  margin: 6px 0 0;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--lab-v2-quiet);
+}

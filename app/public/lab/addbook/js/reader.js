@@ -104,8 +104,8 @@ async function removeBook(key) {
 // sits under tinct-addbook:, so signing out clears it with the rest.
 // RIGHTS_VERSION names this wording: a confirmation of an earlier wording is asked again,
 // and each upload records which wording was confirmed, and when, with the file.
-const RIGHTS_COPY = "I have the right to add this file and to read and listen to it in Tinct. I'm responsible for what I upload and share (Terms §4).";
-const RIGHTS_VERSION = '2026-10-08';
+const RIGHTS_COPY = "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).";
+const RIGHTS_VERSION = '2026-10-08.2';
 const accountId = () => window.TinctAI?.session().userId || null;
 function needsAccount() {
   if (accountId()) return false;
