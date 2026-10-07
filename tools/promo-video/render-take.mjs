@@ -132,17 +132,27 @@ if (arg('--stills')) {
 }
 
 // ---- render ----
-// Frames are rendered in short chunks, each its own finished MP4, so an interrupted
-// run resumes where it stopped. Chunks are keyed by a hash of everything that
-// affects the picture (take, stage, size), so editing either starts fresh.
+// Frames are rendered in short chunks, each its own finished MP4. A chunk is cached
+// under a hash of exactly what it shows (stage, size, pose and every frame's
+// parameters), so an interrupted run resumes, and an edit re-renders only the
+// chunks it actually changes.
 const CHUNK = 240; // frames
-const key = crypto.createHash('sha1')
-  .update(JSON.stringify(take)).update(fs.readFileSync(path.join(ROOT, 'stage.html')))
-  .update(`${W}x${H}@${FPS}ss${SS}n${srcCount}`).digest('hex').slice(0, 10);
-const tmp = path.join(OUT, 'chunks', key);
-fs.mkdirSync(tmp, { recursive: true });
-const chunkPath = (c) => path.join(tmp, `c${String(c).padStart(4, '0')}.mp4`);
+const stageHash = crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'stage.html'))).digest('hex');
 const chunks = Array.from({ length: Math.ceil(frameCount / CHUNK) }, (_, c) => c);
+const chunkKey = (c) => {
+  const h = crypto.createHash('sha1').update(stageHash).update(`${W}x${H}@${FPS}ss${SS}`).update(JSON.stringify(take.phone || {}));
+  for (let i = c * CHUNK; i < Math.min(frameCount, (c + 1) * CHUNK); i++) h.update(JSON.stringify(frameParams(i)));
+  return h.digest('hex').slice(0, 16);
+};
+const tmp = path.join(OUT, 'chunks', 'by-content');
+fs.mkdirSync(tmp, { recursive: true });
+const chunkKeys = chunks.map(chunkKey);
+const chunkPath = (c) => path.join(tmp, `${chunkKeys[c]}.mp4`);
+// --adopt DIR: take over chunks rendered by an older version (cNNNN.mp4) for this exact take.
+if (arg('--adopt')) for (const c of chunks) {
+  const old = path.join(arg('--adopt'), `c${String(c).padStart(4, '0')}.mp4`);
+  if (fs.existsSync(old) && !fs.existsSync(chunkPath(c))) fs.renameSync(old, chunkPath(c));
+}
 const todo = chunks.filter((c) => !fs.existsSync(chunkPath(c)));
 console.log(`${chunks.length - todo.length}/${chunks.length} chunks already rendered (${path.relative(ROOT, tmp)})`);
 const { server, url } = await serve();
