@@ -1,5 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest'
 import { handleVoiceResearch } from './worker/routes/voiceResearch'
+import { createAllowanceGate } from './worker/lib/aiAllowance'
 const env = { OPENAI_API_KEY: 'test-key', SUPABASE_URL: 'https://example.test', SUPABASE_SERVICE_ROLE_KEY: 'test-service' }
 const user = async () => ({ id: '11111111-1111-4111-8111-111111111111' })
 const request = () => new Request('https://tinct.app/api/voice-research', { method: 'POST', body: JSON.stringify({ query: 'Tim Keller on Genesis 1' }) })
@@ -12,7 +13,8 @@ it('requires authentication before any paid request', async () => {
 it('returns bounded cited evidence using server-owned search settings', async () => {
   const fetcher = vi.fn().mockResolvedValueOnce(Response.json([{ message_balance: 100 }])).mockResolvedValueOnce(Response.json({ status: 'completed', output: [{ type: 'message', content: [{ text: 'A sourced research note.', annotations: [{ type: 'url_citation', url: 'https://gospelinlife.com/example', title: 'Sermon archive' }] }] }] }))
   vi.stubGlobal('fetch', fetcher)
-  const response = await handleVoiceResearch(request(), env, user, async () => true)
+  // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with (worker.aiAllowance.test.ts covers it on).
+  const response = await handleVoiceResearch(request(), env, user, async () => true, undefined, createAllowanceGate(env, false))
   expect(await response.json()).toMatchObject({ ok: true, sources: [{ url: 'https://gospelinlife.com/example' }] })
   const sent = JSON.parse(fetcher.mock.calls[1][1].body)
   expect(sent).toMatchObject({ store: false, tool_choice: 'required', input: 'Tim Keller on Genesis 1', tools: [{ type: 'web_search' }] })

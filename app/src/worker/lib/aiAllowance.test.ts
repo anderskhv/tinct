@@ -36,8 +36,11 @@ const ok: AllowanceView = { usedFraction: 0.2, state: 'ok', resetsAt: null, hasT
 afterEach(() => vi.unstubAllGlobals())
 
 describe('configuration', () => {
+  // The guard against an accidental flip. Turning the allowance on means
+  // changing src/aiAllowanceSwitch.ts and this expectation together.
   it('ships with the allowance switched off', () => {
     expect(AI_ALLOWANCE_ENFORCED).toBe(false)
+    expect(createAllowanceGate({}).enforced).toBe(AI_ALLOWANCE_ENFORCED)
   })
 
   it('has one switch, shared with the reader bundle and the build scripts', () => {
@@ -276,7 +279,7 @@ describe('gate', () => {
   it('reads nothing while the switch is off', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
-    const gate = createAllowanceGate({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' })
+    const gate = createAllowanceGate({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' }, false)
     expect(gate.enforced).toBe(false)
     expect(await gate.load('11111111-1111-4111-8111-111111111111')).toBeNull()
     const resolveUser = vi.fn(async () => 'u')
