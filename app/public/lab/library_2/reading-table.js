@@ -10,6 +10,7 @@ import { readingApi, loadCatalogueData } from './catalogue.js?v=20261007rank';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
 import {renderBookMetadata} from './book-metadata.js?v=20260928covers';
+import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261007spine';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -112,7 +113,8 @@ function prepareArtwork(book) {
     const texture = prepareTexture(estimatedName);
     const ready = (async () => {
       if (cover) { img.src = cover; try { await img.decode(); } catch {} }
-      const tone = img.naturalWidth ? coverTone(img) : null;
+      // An added book's painting has its spine tone stored with it (its left edge); others are sampled here.
+      const tone = hasStoredSpineTone(book) ? book.tone : img.naturalWidth ? coverTone(img) : null;
       const [name, colour] = bindingFor(tone ? { ...book, tone } : book);
       await (name === estimatedName ? texture : prepareTexture(name));
       return { img, name, colour };
@@ -137,12 +139,22 @@ function writeCache(table) {
   } catch { /* private mode */ }
 }
 
-function bookMarkup(b, i) {
-  const cover = coverAsset(b.bookId, b.cover);
+/** The spine's look: the leather binding, or (an added book's paper cover) the same paper. */
+function spineStyle(b) {
+  if (hasPaperSpine(b.bookId, b.cover)) {
+    return { name: 'paper', colour: PAPER_SPINE.colour, textured: false, spine: `${PAPER_SPINE.edge},${PAPER_SPINE.colour}`, reflection: PAPER_SPINE.colour,
+      title: ` style="color:${PAPER_SPINE.ink};text-shadow:none"`, gilt: ' style="visibility:hidden"' };
+  }
   const [name, colour] = bindingFor(b);
   const texture = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
+  return { name, colour, textured: SPINE_TEXTURES, spine: `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}${colour}`, reflection: `${texture}${colour}`, title: '', gilt: '' };
+}
+
+function bookMarkup(b, i) {
+  const cover = coverAsset(b.bookId, b.cover);
+  const s = spineStyle(b);
   return `
-    <button class="rt-b${b.linked ? ' is-linked' : ''}" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
+    <button class="rt-b${b.linked ? ' is-linked' : ''}" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${s.colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
       <span class="rt-shadow" aria-hidden="true"></span>
       <span class="rt-cast" aria-hidden="true"></span>
       <span class="rt-f rt-back"></span>
@@ -150,8 +162,8 @@ function bookMarkup(b, i) {
       <span class="rt-f rt-head"></span>
       <span class="rt-mark" aria-hidden="true"><i></i></span>
       <span class="rt-f rt-refl rt-refl-front"></span>
-      <span class="rt-f rt-refl rt-refl-spine" style="background:${texture}var(--binding)"></span>
-      <span class="rt-f rt-spine${SPINE_TEXTURES ? ' is-textured' : ''}" data-binding="${name}" style="background:linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}var(--binding)"><i class="rt-gilt"></i><em>${esc(b.title)}</em><i class="rt-gilt"></i></span>
+      <span class="rt-f rt-refl rt-refl-spine" style="background:${s.reflection}"></span>
+      <span class="rt-f rt-spine${s.textured ? ' is-textured' : ''}" data-binding="${s.name}" style="background:${s.spine}"><i class="rt-gilt"${s.gilt}></i><em${s.title}>${esc(b.title)}</em><i class="rt-gilt"${s.gilt}></i></span>
       <span class="rt-f rt-front"><img src="${esc(cover)}" alt="" decoding="async" fetchpriority="${i === 0 ? 'high' : 'auto'}" draggable="false"></span>
     </button>`;
 }
@@ -467,6 +479,8 @@ function wire(view, table, demo, keepBookId, options={}) {
       prepareArtwork(table.reading[i]),
       img.decode().catch(() => {}),
     ]);
+    // The paper cover's spine is already drawn, as paper (spineStyle).
+    if (hasPaperSpine(table.reading[i].bookId, table.reading[i].cover)) return;
     book.style.setProperty('--binding', colour);
     const tex = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
     book.querySelector('.rt-spine').dataset.binding = name;
