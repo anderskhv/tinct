@@ -1,8 +1,8 @@
 {
- "_doc": "Raised-phone continuous take (Grids-style) of the 2026-10-06 15:26 recording, silent, all sharp. The phone floats tilted up (phone.tilt/lift); long lens; touch indicators on button taps only. Times are seconds in the recording (real speed). lz < 0 frames towards the top of the screen. Short dissolves soften the app's instant screen swaps. See take.json for field docs.",
+ "_doc": "Product-only continuous take of the 2026-10-06 15:26 recording: no text, no captions, no end card, silent. Raised phone, long lens, tap indicators on buttons only. Times are seconds in the recording (real speed); lz < 0 frames towards the top of the screen. Short dissolves soften the app's instant screen swaps. Iterate with --from/--to slices.",
  "dir": "take3",
  "audio": false,
- "endHold": 4.8,
+ "endHold": 0,
  "dissolve": [
   [
    28.98,
@@ -156,43 +156,8 @@
    "fov": 17,
    "shift": 0,
    "lz": -0.4
-  },
-  {
-   "t": "end",
-   "az": -6,
-   "el": 32,
-   "d": 80,
-   "fov": 20,
-   "shift": 0,
-   "lz": 0.2
   }
  ],
- "captions": [
-  {
-   "from": 21.0,
-   "to": 28.0,
-   "text": "Meet the cast before you begin"
-  },
-  {
-   "from": 34.6,
-   "to": 40.6,
-   "text": "A primer before every chapter"
-  },
-  {
-   "from": 43.2,
-   "to": 66.4,
-   "text": "Listen as every word lights up"
-  },
-  {
-   "from": 69.0,
-   "to": 82.6,
-   "text": "Talk it through with your librarian"
-  }
- ],
- "endcard": {
-  "from": 99.0,
-  "to": 100.4
- },
  "phone": {
   "tilt": 35,
   "lift": 2

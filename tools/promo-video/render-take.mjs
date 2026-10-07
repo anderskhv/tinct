@@ -42,6 +42,8 @@ const srcFrame = (s) => `/out/${take.dir || 'take'}/frames/f${String(Math.min(sr
 // ---- timeline ----
 const total = srcDur + take.endHold;
 const frameCount = Math.round(total * FPS);
+// --from 38 --to 48: render only that slice of the timeline (quick iteration samples).
+const SLICE = [Math.round(Number(arg('--from', 0)) * FPS), Math.min(frameCount, Math.round(Number(arg('--to', total)) * FPS))];
 const smooth = (x) => { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); };
 
 // Camera: cubic Hermite through keyframes with Catmull-Rom tangents (time-aware), so
@@ -99,14 +101,14 @@ function frameParams(i) {
   const blank = take.dissolve.find(([a, b]) => s > a && s < b);
   const screen = blank ? { screenSrc: srcFrame(blank[0]), screenSrcB: srcFrame(blank[1]), mix: smooth((s - blank[0]) / (blank[1] - blank[0])) }
     : { screenSrc: srcFrame(s) };
-  const cap = take.captions.find((c) => t >= c.from && t <= c.to);
+  const cap = (take.captions || []).find((c) => t >= c.from && t <= c.to);
   return {
     ...screen,
     touches: touchesAt(s),
     cam: camAt(t),
     caption: cap?.text || '',
     captionOpacity: cap ? Math.min(smooth((t - cap.from) / 0.5), smooth((cap.to - t) / 0.5)) : 0,
-    endcard: smooth((t - take.endcard.from) / (take.endcard.to - take.endcard.from)),
+    endcard: take.endcard ? smooth((t - take.endcard.from) / (take.endcard.to - take.endcard.from)) : 0,
   };
 }
 console.log(`One take: ${total.toFixed(1)}s, ${frameCount} frames at ${W}x${H}@${FPS} (supersample ${SS}x)`);
@@ -138,7 +140,8 @@ if (arg('--stills')) {
 // chunks it actually changes.
 const CHUNK = 240; // frames
 const stageHash = crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'stage.html'))).digest('hex');
-const chunks = Array.from({ length: Math.ceil(frameCount / CHUNK) }, (_, c) => c);
+const chunks = Array.from({ length: Math.ceil(frameCount / CHUNK) }, (_, c) => c)
+  .filter((c) => (c + 1) * CHUNK > SLICE[0] && c * CHUNK < SLICE[1]);
 const chunkKey = (c) => {
   const h = crypto.createHash('sha1').update(stageHash).update(`${W}x${H}@${FPS}ss${SS}`).update(JSON.stringify(take.phone || {}));
   for (let i = c * CHUNK; i < Math.min(frameCount, (c + 1) * CHUNK); i++) h.update(JSON.stringify(frameParams(i)));
@@ -146,7 +149,7 @@ const chunkKey = (c) => {
 };
 const tmp = path.join(OUT, 'chunks', 'by-content');
 fs.mkdirSync(tmp, { recursive: true });
-const chunkKeys = chunks.map(chunkKey);
+const chunkKeys = Object.fromEntries(chunks.map((c) => [c, chunkKey(c)]));
 const chunkPath = (c) => path.join(tmp, `${chunkKeys[c]}.mp4`);
 // --adopt DIR: take over chunks rendered by an older version (cNNNN.mp4) for this exact take.
 if (arg('--adopt')) for (const c of chunks) {
@@ -197,7 +200,13 @@ fs.writeFileSync(list, segs.map((s) => `file '${s}'`).join('\n'));
 // "audio": false in the take leaves the soundtrack out.
 const audio = take.audio === false ? ['-an'] : ['-i', SRC, '-map', '0:v', '-map', '1:a?', '-c:a', 'aac', '-b:a', '160k',
   '-af', `apad,afade=t=out:st=${(total - 1.5).toFixed(2)}:d=1.5`];
-const r = spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, ...audio,
-  '-c:v', 'copy', '-t', total.toFixed(3), '-movflags', '+faststart', out], { stdio: 'inherit' });
+const sliced = SLICE[0] > 0 || SLICE[1] < frameCount;
+const r = sliced
+  // A slice is cut frame-exactly from its chunks (re-encoded; samples are short).
+  ? spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, '-an',
+    '-ss', ((SLICE[0] - chunks[0] * CHUNK) / FPS).toFixed(4), '-t', ((SLICE[1] - SLICE[0]) / FPS).toFixed(4),
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], { stdio: 'inherit' })
+  : spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, ...audio,
+    '-c:v', 'copy', '-t', total.toFixed(3), '-movflags', '+faststart', out], { stdio: 'inherit' });
 if (r.status) process.exit(r.status);
 console.log(`\nWrote ${out}`);
