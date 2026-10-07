@@ -22,7 +22,9 @@
  * expected it.
  *
  * Plans are kept per paragraph text for the column they were made in (width,
- * font, spacing); a different column makes new ones. A paragraph with a plan
+ * font, spacing, which of the reading face's files have loaded); a different
+ * column makes new ones, and the last few columns' plans are kept for a return
+ * to them. A paragraph with a plan
  * paints with `has-hyphen-plan` (`hyphens: manual`) in the measured and the
  * visible page alike; one without (Compare, a paragraph set as a heading or a
  * list, a book whose language has no patterns) keeps the browser's own.
@@ -47,22 +49,51 @@ export const PLAN_MAX_RUN = 2
 export type HyphenPlan = ReadonlyMap<number, number>
 
 const EMPTY: HyphenPlan = new Map()
-let activeKey = ''
-const plans = new Map<string, HyphenPlan>()
-/** Each planned paragraph's words, so a break is drawn only in the whole word it was planned for. */
-const planWords = new Map<string, readonly string[]>()
 
-if (typeof document !== 'undefined') {
-  // A face that arrives after a plan was made changes every width it measured:
-  // the next measurement plans afresh. The plans stay until then, because a
-  // page already laid out with them must keep painting with them (a render
-  // in between, such as Play, must never move a word).
-  document.fonts?.addEventListener?.('loadingdone', () => { activeKey = '' })
+/**
+ * Plans for one layout: the column's width and face, and how much of the
+ * reading face has loaded (layoutKey). A plan is a pure function of its
+ * paragraph and its layout, so it is made once per layout and kept: going
+ * back to a layout (Compare off, narration's paint, the other edition on
+ * standby) reuses it rather than planning the chapter again.
+ */
+interface PlanSet {
+  plans: Map<string, HyphenPlan>
+  /** Each planned paragraph's words, so a break is drawn only in the whole word it was planned for. */
+  words: Map<string, readonly string[]>
+}
+
+/** Layouts kept, most recent last. A few cover a phone's rotations and Compare. */
+const MAX_LAYOUTS = 4
+const layouts = new Map<string, PlanSet>()
+/** The layout the reading page was last measured in: what paints read. */
+let active: PlanSet = { plans: new Map(), words: new Map() }
+
+function planSetFor(key: string): PlanSet {
+  let set = layouts.get(key)
+  if (set) layouts.delete(key)
+  else set = { plans: new Map(), words: new Map() }
+  layouts.set(key, set)
+  while (layouts.size > MAX_LAYOUTS) layouts.delete(layouts.keys().next().value!)
+  return set
+}
+
+/**
+ * The reading face's loaded faces, counted: a face that arrives after a plan
+ * was made changes every width it measured, so it is part of the layout.
+ * A toolbar face (Plex Mono, Inter) loading later changes nothing.
+ */
+function faceState(fontFamily: string): string {
+  const family = fontFamily.split(',')[0]?.trim().replace(/^["']|["']$/g, '').toLowerCase()
+  if (!family || typeof document === 'undefined' || !document.fonts) return ''
+  let loaded = 0
+  document.fonts.forEach(face => { if (face.status === 'loaded' && face.family.replace(/^["']|["']$/g, '').toLowerCase() === family) loaded += 1 })
+  return String(loaded)
 }
 
 /** The plan for a paragraph in the current column, or null when it has none (the browser hyphenates). */
 export function hyphenPlanFor(text: string | undefined): HyphenPlan | null {
-  return text ? plans.get(text) ?? null : null
+  return text ? active.plans.get(text) ?? null : null
 }
 
 /**
@@ -73,7 +104,7 @@ export function hyphenPlanFor(text: string | undefined): HyphenPlan | null {
  */
 export function plannedBreak(text: string | undefined, wordIndex: number, shown: string): number | undefined {
   const at = hyphenPlanFor(text)?.get(wordIndex)
-  return at != null && planWords.get(text!)?.[wordIndex] === shown ? at : undefined
+  return at != null && active.words.get(text!)?.[wordIndex] === shown ? at : undefined
 }
 
 /** ` has-hyphen-plan` for a paragraph painted with its plan, else ''. */
@@ -83,15 +114,14 @@ export function hyphenPlanClass(text: string | undefined, usePlans = true): stri
 
 /** Test seam. */
 export function resetHyphenPlans(): void {
-  activeKey = ''
-  plans.clear()
-  planWords.clear()
+  layouts.clear()
+  active = { plans: new Map(), words: new Map() }
 }
 
 /** Test seam: install a plan directly. */
 export function setHyphenPlanForTest(text: string, plan: Map<number, number>): void {
-  plans.set(text, plan)
-  planWords.set(text, tokenizeHearingWords(text).map(word => word.text))
+  active.plans.set(text, plan)
+  active.words.set(text, tokenizeHearingWords(text).map(word => word.text))
 }
 
 /** Prose a plan can be made for: no kind (an index line is one), no verse lineation. */
@@ -100,30 +130,60 @@ export function plannable(text: string, words: Array<{ text: string }>): boolean
   return !presentationLineRanges(text, 0, words.length)
 }
 
-interface PlacedLine { first: number; last: number; right: number; items: number; endsSplit: boolean; startsSplit: boolean }
+interface PlacedLine { first: number; last: number; right: number; top: number; items: number; endsSplit: boolean; startsSplit: boolean }
 
-/** The painted lines of a measured paragraph, from its word spans' rects. */
-function readLines(p: HTMLElement): PlacedLine[] {
-  const lines: PlacedLine[] = []
-  let top = -Infinity
-  let lineHeight = parseFloat(getComputedStyle(p).lineHeight) || 0
-  p.querySelectorAll<HTMLElement>('.lab-hearing-word').forEach((span, wordIndex) => {
-    const rects = [...span.getClientRects()].filter(rect => rect.width > 0 && rect.height > 0)
+/**
+ * The painted lines of a measured paragraph, read from its word spans' rects
+ * only as far as planning asks: a line and the start of the next. Reading the
+ * whole paragraph again after every break, each read forcing a layout, made
+ * planning one chapter cost a second or more on a phone.
+ */
+function lineReader(p: HTMLElement) {
+  let spans = [...p.querySelectorAll<HTMLElement>('.lab-hearing-word')]
+  const lineHeight = parseFloat(getComputedStyle(p).lineHeight) || 0
+  let lines: PlacedLine[] = []
+  /** The next word to read. */
+  let word = 0
+  const readWord = () => {
+    const above = lines[lines.length - 1]
+    const rects = [...spans[word].getClientRects()].filter(rect => rect.width > 0 && rect.height > 0)
     rects.forEach((rect, part) => {
-      if (!lineHeight) lineHeight = rect.height
-      if (rect.top > top + lineHeight / 2) {
-        lines.push({ first: wordIndex, last: wordIndex, right: rect.right, items: 1, endsSplit: false, startsSplit: part > 0 })
-        top = rect.top
+      const last = lines[lines.length - 1]
+      if (!last || rect.top > last.top + (lineHeight || rect.height) / 2) {
+        lines.push({ first: word, last: word, right: rect.right, top: rect.top, items: 1, endsSplit: false, startsSplit: part > 0 })
+      } else if (last === above && last.last === word) {
+        // The head of a split word, already read with the line above.
+        return
       } else {
-        const line = lines[lines.length - 1]
-        line.last = wordIndex
-        line.right = Math.max(line.right, rect.right)
-        line.items += 1
+        last.last = word
+        last.right = Math.max(last.right, rect.right)
+        last.items += 1
       }
       lines[lines.length - 1].endsSplit = part < rects.length - 1
     })
-  })
-  return lines
+    word += 1
+  }
+  return {
+    /** Line `index`, read through the start of the line after it; undefined past the end. */
+    line(index: number): PlacedLine | undefined {
+      while (word < spans.length && lines.length <= index + 1) readWord()
+      return lines[index]
+    },
+    spans: () => spans,
+    /** Lines from `index` on may have moved; those above are unchanged. */
+    invalidateFrom(index: number) {
+      if (spans.length && !spans[0].isConnected) {
+        // The paragraph was painted afresh: read it all again.
+        spans = [...p.querySelectorAll<HTMLElement>('.lab-hearing-word')]
+        lines = []
+        word = 0
+        return
+      }
+      if (index >= lines.length) return
+      word = lines[index].first
+      lines = lines.slice(0, index)
+    },
+  }
 }
 
 /** The text node holding a word's own letters, with the offset of its first. */
@@ -135,70 +195,90 @@ function wordTextNode(span: HTMLElement, word: string): Text | null {
 }
 
 /**
+ * Draw one planned break into a laid-out paragraph in place, exactly as the
+ * paint draws it (appendPlannedWord: the head in a `lab-syl` span, then the
+ * tail), so only the lines after it lay out again. False if it cannot.
+ */
+export function splitWordInPlace(node: Text, at: number): boolean {
+  if (at <= 0 || at >= node.data.length || !node.parentNode) return false
+  const tail = node.splitText(at)
+  const head = document.createElement('span')
+  head.className = 'lab-syl'
+  node.parentNode.insertBefore(head, tail)
+  head.appendChild(node)
+  return true
+}
+
+/** A space and a hyphen in `p`'s face, measured with a probe in it. */
+function faceMetrics(p: HTMLElement, fontSize: number): { space: number; hyphen: number } {
+  const probe = document.createElement('span')
+  probe.textContent = '-'
+  p.append(probe)
+  const hyphen = probe.getBoundingClientRect().width
+  probe.textContent = ' '
+  const space = probe.getBoundingClientRect().width || fontSize / 4
+  probe.remove()
+  return { space, hyphen }
+}
+
+/**
  * Plan one paragraph in `p` (already in the column). `render` lays the
- * paragraph out with a given plan. Exported for tests.
+ * paragraph out with a given plan; given `changed` (the one break just added,
+ * in the word's own text node) it may draw that break in place instead.
+ * `metrics` (a space and a hyphen in this face) is measured when not given.
+ * Exported for tests.
  */
 export function planParagraph(
   p: HTMLElement,
   words: Array<{ text: string }>,
   breaksOf: (wordIndex: number) => number[],
-  render: (plan: Map<number, number>) => void,
+  render: (plan: Map<number, number>, changed?: { wordIndex: number; node: Text; at: number }) => void,
   gapEm = PLAN_GAP_EM,
   secondGapEm = PLAN_SECOND_GAP_EM,
+  metrics?: { space: number; hyphen: number },
 ): Map<number, number> {
   const plan = new Map<number, number>()
   const style = getComputedStyle(p)
   const fontSize = parseFloat(style.fontSize) || 16
-  const box = () => p.getBoundingClientRect()
-  const contentRight = () => box().right - (parseFloat(style.paddingRight) || 0)
-  // A space and a hyphen in this paragraph's face.
-  const probe = document.createElement('span')
-  probe.textContent = '-'
-  p.append(probe)
-  const hyphen = probe.getBoundingClientRect().width
-  probe.textContent = ' '
-  const space = probe.getBoundingClientRect().width || fontSize / 4
-  probe.remove()
+  const { space, hyphen } = metrics ?? faceMetrics(p, fontSize)
   render(plan)
-  let from = 0
-  for (let guard = 0; guard < 400; guard += 1) {
-    const lines = readLines(p)
-    const right = contentRight()
-    const spans = [...p.querySelectorAll<HTMLElement>('.lab-hearing-word')]
-    let changed = false
-    for (let index = from; index < lines.length - 1; index += 1) {
-      const line = lines[index]
-      if (line.endsSplit || line.items < 2) continue
-      let run = 0
-      for (let back = index - 1; back >= 0 && lines[back].endsSplit; back -= 1) run += 1
-      if (run >= PLAN_MAX_RUN) continue
-      const room = right - line.right
-      // A second hyphen in a row only for a line that would be clearly loose:
-      // the allowance is kept for the worst lines rather than spent on the first.
-      if ((space + room / (line.items - 1)) / fontSize <= (run > 0 ? secondGapEm : gapEm)) continue
-      const next = lines[index + 1]
-      if (next.startsSplit) continue
+  const right = p.getBoundingClientRect().right - (parseFloat(style.paddingRight) || 0)
+  const lines = lineReader(p)
+  // One Range per paragraph, not per candidate: every live Range is updated on
+  // every DOM change in the document, so hundreds of them (alive until
+  // collected) slowed every later page trial.
+  const range = document.createRange()
+  for (let index = 0; ;) {
+    const line = lines.line(index)
+    const next = lines.line(index + 1)
+    if (!line || !next) break
+    let planned = false
+    let run = 0
+    for (let back = index - 1; back >= 0 && lines.line(back)!.endsSplit; back -= 1) run += 1
+    const room = right - line.right
+    // A second hyphen in a row only for a line that would be clearly loose:
+    // the allowance is kept for the worst lines rather than spent on the first.
+    if (!line.endsSplit && line.items >= 2 && run < PLAN_MAX_RUN && !next.startsSplit && !plan.has(next.first)
+      && (space + room / (line.items - 1)) / fontSize > (run > 0 ? secondGapEm : gapEm)) {
       const wordIndex = next.first
-      const token = words[wordIndex]?.text ?? ''
-      const node = spans[wordIndex] && wordTextNode(spans[wordIndex], token)
-      if (!node) continue
-      const points = breaksOf(wordIndex)
-      const range = document.createRange()
+      const span = lines.spans()[wordIndex]
+      const node = span && wordTextNode(span, words[wordIndex]?.text ?? '')
+      const points = node ? breaksOf(wordIndex) : []
       for (let at = points.length - 1; at >= 0; at -= 1) {
-        range.setStart(node, 0)
-        range.setEnd(node, points[at])
+        range.setStart(node!, 0)
+        range.setEnd(node!, points[at])
         if (space + range.getBoundingClientRect().width + hyphen > room) continue
         plan.set(wordIndex, points[at])
-        render(plan)
-        // Lines before this one are unchanged; read again from here.
-        from = index
-        changed = true
+        render(plan, { wordIndex, node: node!, at: points[at] })
+        // Lines above this one are unchanged; this one is read again.
+        lines.invalidateFrom(index)
+        planned = true
         break
       }
-      if (changed) break
     }
-    if (!changed) break
+    if (!planned) index += 1
   }
+  range.detach()
   return plan
 }
 
@@ -207,24 +287,28 @@ export function planParagraph(
  * (a measuring stage of the reading width). `paint` builds a paragraph's
  * measurement markup with a plan (labMeasureParagraphInto). Without loaded
  * patterns nothing is planned and every paragraph keeps the browser's own
- * hyphenation, exactly as before.
+ * hyphenation, exactly as before. Returns the layout the plans belong to
+ * ('' when nothing was planned), so a measurement can be keyed by it.
  */
 export function planHyphenation(
   host: HTMLElement,
   paragraphs: string[],
   lang: HyphenLang | null,
   paint: (p: HTMLElement, words: Array<{ text: string; emphasis?: boolean }>, text: string, plan: Map<number, number>) => void,
-): void {
-  if (!lang || !hyphenatorReady(lang) || typeof document === 'undefined') return
+): string {
+  if (!lang || !hyphenatorReady(lang) || typeof document === 'undefined') return ''
   const p = document.createElement('p')
   p.className = 'lab-hearing-line has-hyphen-plan is-hyphen-planning'
   host.append(p)
   try {
     const style = getComputedStyle(p)
     const width = p.getBoundingClientRect().width
-    if (!(width > 0)) return
-    const key = [lang, Math.round(width * 10), style.fontFamily, style.fontSize, style.fontWeight, style.wordSpacing, style.letterSpacing, style.paddingLeft, style.paddingRight].join('|')
-    if (key !== activeKey) { activeKey = key; plans.clear(); planWords.clear() }
+    if (!(width > 0)) return ''
+    const key = [lang, Math.round(width * 10), style.fontFamily, faceState(style.fontFamily), style.fontSize, style.fontWeight, style.wordSpacing, style.letterSpacing, style.paddingLeft, style.paddingRight].join('|')
+    active = planSetFor(key)
+    const { plans, words: planWords } = active
+    // Every paragraph is planned in this one face: measure its space and hyphen once.
+    let metrics: { space: number; hyphen: number } | undefined
     for (const text of paragraphs) {
       if (plans.has(text)) continue
       const words = tokenizeHearingWords(text)
@@ -232,10 +316,15 @@ export function planHyphenation(
       // Never inside a verse number or a link (a link paints its own label).
       const breaksOf = (index: number) => isLabVerseMarker(words[index].text) || wordLink(text, index, words[index].text)
         ? [] : hyphenationBreaks(words[index].text, lang)
-      const plan = planParagraph(p, words, breaksOf, current => paint(p, words, text, current))
+      // The first layout is painted whole; each break after it is drawn in place.
+      metrics ??= faceMetrics(p, parseFloat(style.fontSize) || 16)
+      const plan = planParagraph(p, words, breaksOf, (current, changed) => {
+        if (!changed || !splitWordInPlace(changed.node, changed.at)) paint(p, words, text, current)
+      }, PLAN_GAP_EM, PLAN_SECOND_GAP_EM, metrics)
       plans.set(text, plan.size ? plan : EMPTY)
       planWords.set(text, words.map(word => word.text))
     }
+    return key
   } finally {
     p.remove()
   }

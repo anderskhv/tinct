@@ -116,4 +116,28 @@ describe('choosing hyphens line by line', () => {
       p.remove()
     }
   })
+
+  it('reads on after each break: a second loose line in a row is hyphenated, never a third', () => {
+    // Unplanned: "aaaa bbbb cccc" | "dddddddddddd eeee" | "gggggggggggg hhhh" | "iiiiiiiiiiii jj".
+    const words = ['aaaa', 'bbbb', 'cccc', 'dddddddddddd', 'eeee', 'gggggggggggg', 'hhhh', 'iiiiiiiiiiii', 'jj']
+    const { p, render } = column(words)
+    const range = Document.prototype.createRange
+    const box = HTMLElement.prototype.getBoundingClientRect
+    HTMLElement.prototype.getBoundingClientRect = function (this: HTMLElement) { return { width: (this.textContent || '').length * 10 } as DOMRect }
+    document.createRange = () => {
+      const r = range.call(document)
+      r.getBoundingClientRect = () => ({ width: (r.endOffset - r.startOffset) * 10 }) as DOMRect
+      return r
+    }
+    try {
+      const plan = planParagraph(p, words.map(text => ({ text })), index => ([3, 5, 7].includes(index) ? [3, 6, 9] : []), render, 0.55, 0.8)
+      // "ddd-" closes the first line, "ggg-" the second (its tail line is
+      // looser than 0.8em); the third line is as loose but would be a third in a row.
+      expect([...plan]).toEqual([[3, 3], [5, 3]])
+    } finally {
+      document.createRange = range
+      HTMLElement.prototype.getBoundingClientRect = box
+      p.remove()
+    }
+  })
 })
