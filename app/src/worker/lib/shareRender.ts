@@ -47,6 +47,20 @@ export async function shareCardCount(assets: Assets, origin: string, content: Sh
   return (await compose(assets, origin, content, options)).pages.length
 }
 
+/**
+ * Any SVG drawn with the share fonts (EB Garamond) as PNG: the reading card
+ * (readingCard.ts) uses the same fonts and rasteriser as the highlight cards.
+ */
+export async function renderSvgPng(assets: Assets, origin: string, draw: (fonts: ShareFonts) => string): Promise<Uint8Array> {
+  const [{ fonts, buffers }] = await Promise.all([loadFonts(assets, origin), ensureResvg()])
+  const resvg = new Resvg(draw(fonts), { font: { fontBuffers: buffers, defaultFontFamily: 'EB Garamond', loadSystemFonts: false } })
+  try {
+    return resvg.render().asPng()
+  } finally {
+    resvg.free()
+  }
+}
+
 /** Card `card` (1-based, clamped) of the share as PNG, and how many cards the share has. */
 export async function renderSharePng(assets: Assets, origin: string, content: ShareContent, options: ShareOptions, card = 1): Promise<{ png: Uint8Array; page: SharePage; cards: number }> {
   const [{ fonts, buffers, pages }] = await Promise.all([compose(assets, origin, content, options), ensureResvg()])

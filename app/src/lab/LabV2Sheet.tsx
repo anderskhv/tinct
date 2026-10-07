@@ -1,5 +1,7 @@
 import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
 import { useReadingYearTotals } from './useLabReadingYear'
+import { useLabReadingTime } from './useLabReadingTime'
+import { LabReadingTimeBlock, yourReadingUrl } from './LabReadingTimeBlock'
 import { useEffect, useState, type ReactNode } from 'react'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
@@ -202,6 +204,9 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
   })
   const [resetStatus, setResetStatus] = useState('')
   const yearTotals = useReadingYearTotals(auth.user?.id ?? null, layer === 'account')
+  // Reading time (social ship 1): 'off' until the Worker's switch says otherwise, and today's block then.
+  const readingTime = useLabReadingTime(auth.user?.id ?? null, auth.user ? auth.session?.access_token ?? null : null, layer === 'account')
+  const ledgerBlock = readingTime.mode === 'ledger' || readingTime.mode === 'loading' || readingTime.mode === 'device'
 
   useEffect(() => {
     if (!layer) return
@@ -501,16 +506,23 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                 <strong>{auth.user?.email || 'Reader account'}</strong>
                 <span>{auth.user ? (balance.isSubscribed ? 'Premium account' : 'Free account') : 'Reading locally'}</span>
               </div>
+              {ledgerBlock && <LabReadingTimeBlock state={readingTime} yourReadingHref={yourReadingUrl(returnTo)} />}
               {/* The AI usage bar: renders only while the Worker's allowance switch is on. */}
               <LabAiUsageBar token={auth.user ? auth.session?.access_token ?? null : null} />
-              <div className="lab-v2-year">
-                <p className="lab-v2-group-label">This year</p>
-                <div className="lab-v2-year-stats">
-                  <span><strong>{yearTotals.seconds < 3600 ? '<1' : Math.round(yearTotals.seconds / 3600)}</strong> hours</span>
-                  <span><strong>{yearTotals.pages.toLocaleString('en-US')}</strong> pages</span>
-                  <span><strong>{yearTotals.books}</strong> books</span>
-                </div>
-              </div>
+              {!ledgerBlock && (() => {
+                // Today's block. With reading time on but the ledger unavailable, time waiting on this device counts too.
+                const seconds = yearTotals.seconds + (readingTime.mode === 'fallback' ? readingTime.pendingSeconds : 0)
+                return (
+                  <div className="lab-v2-year">
+                    <p className="lab-v2-group-label">This year</p>
+                    <div className="lab-v2-year-stats">
+                      <span><strong>{seconds < 3600 ? '<1' : Math.round(seconds / 3600)}</strong> hours</span>
+                      <span><strong>{yearTotals.pages.toLocaleString('en-US')}</strong> pages</span>
+                      <span><strong>{yearTotals.books}</strong> books</span>
+                    </div>
+                  </div>
+                )
+              })()}
               <div className="lab-v2-rows">
                 <a
                   className="lab-v2-row is-link"
