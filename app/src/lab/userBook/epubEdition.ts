@@ -22,18 +22,19 @@
  * codes and wording Add a book uses.
  */
 
-import { normalizeChapterTitles } from '../../../public/lab/chapter-title.js'
+import { normalizeChapterTitles, romanValue } from '../../../public/lab/chapter-title.js'
 import { dropPrintedContents } from '../../../public/lab/printed-contents.js'
-import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
+import { LEGACY_EDITION_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_CONVERTERS, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
 import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
-import { bylineName, chapterAuthors, nameLike, type AuthorCandidate, type BookCreators } from './chapterAuthors'
+import { isPlayText } from '../labVerseLines'
+import { bylineName, chapterAuthors, nameLike, personName, sameWriter, type AuthorCandidate, type BookCreators } from './chapterAuthors'
 import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture, sniffImageType } from './epubPictures'
 
 export { imageSize }
 export { bylineName, sameWriter } from './chapterAuthors'
 
-export { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition }
+export { LEGACY_EDITION_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition }
 
 export type EpubErrorCode = 'unsupported' | 'not_zip' | 'zip64' | 'bad_zip' | 'drm' | 'bad_epub'
 
@@ -207,6 +208,8 @@ interface DocumentBlocks {
   images: number
   /** The document's own epub:type / role (body and its first section): cover, titlepage, toc, … */
   docType: string
+  /** Rules 6: the document carries Wikisource's export stamp (its title page). */
+  wikisourceStamp?: boolean
 }
 
 /** Decoration, not a figure: ornaments, dividers, logos, icons (by file name, class or id). */
@@ -223,11 +226,13 @@ const PICTURE_PLACEHOLDER = '\uFFFC'
  * and footer (licence) blocks, Standard Ebooks' imprint, colophon and
  * uncopyright sections.
  */
-function libraryMatter(el: Element): boolean {
+function libraryMatter(el: Element, v6 = false): boolean {
   const id = (el.getAttribute('id') || '').toLowerCase()
   if (id === 'pg-header' || id === 'pg-footer') return true
   const cls = (el.getAttribute('class') || '').toLowerCase()
   if (/(^|\s)(pg-boilerplate|pgheader|pgfooter)(\s|$)/.test(cls)) return true
+  // Rules 6: Wikisource's licence banner ("This work is in the public domain in the United States …").
+  if (v6 && /(^|\s)(licensecontainer|licencecontainer|ws-noexport)(\s|$)/.test(cls)) return true
   return /(^|\s)(imprint|colophon|copyright-page)(\s|$)/.test(epubType(el))
 }
 
@@ -247,6 +252,27 @@ const PICTURE = new Set(['img', 'svg', 'image', 'picture'])
 const EMPHASIS = new Set(['em', 'i'])
 const STRONG = new Set(['strong', 'b'])
 const NOTE_MARKER = /^[[(]?(\d{1,3}|[*†‡§¶]+)[\])]?$/
+/** Rules 6: a lettered call too ("2a", Gibbon's editor's notes). */
+const NOTE_MARKER_6 = /^[[(]?(\d{1,3}[a-z]?|[*†‡§¶]+)[\])]?$/
+/** A footnote's way back to its call ("101 (return)", "↩", "[back]"): never the note's text. */
+const NOTE_BACKLINK = /^[[(]?\d{0,4}[a-z]?[\])]?\s*[[(]?\s*(?:return|back|↩︎?|↑)\s*[\])]?\.?$/i
+/** Wikisource's export stamp on its title page. */
+const WIKISOURCE_STAMP = /^exported from wikisource on\b/i
+/** Project Gutenberg's line naming the ebook, set right after its header ("The Project Gutenberg eBook of Poems 1817, by John Keats"). */
+const PG_TITLE_LINE = /^the project gutenberg'?s? e-?book,? of\b/i
+
+/** An inline font size set larger than the text (`font-size: large`, `144%`, `1.5em`), smaller, or neither (undefined). */
+function inlineFontLarge(el: Element): boolean | undefined {
+  const match = /(?:^|;)\s*font-size\s*:\s*([^;]+)/i.exec(el.getAttribute('style') || '')
+  if (!match) return undefined
+  const value = match[1].trim().toLowerCase()
+  if (/^(larger|large|x-large|xx-large|xxx-large)$/.test(value)) return true
+  const percent = /^([\d.]+)%$/.exec(value)
+  if (percent) return Number(percent[1]) >= 120
+  const em = /^([\d.]+)r?em$/.exec(value)
+  if (em) return Number(em[1]) >= 1.2
+  return false
+}
 /** Where lazy-loading pages keep a picture's real file while `src` holds a placeholder. */
 const LAZY_SRC = ['data-src', 'data-original', 'data-lazy-src', 'data-full-src', 'data-hi-res-src']
 /** The files a srcset names, the widest first. */
@@ -276,7 +302,19 @@ const HEADING_MAX_WORDS = 14
 const LINK_START = '\uE000'
 const LINK_END = '\uE001'
 
-interface Segment { text: string; em: boolean; strong?: boolean; link?: number; br?: true }
+interface Segment { text: string; em: boolean; strong?: boolean; link?: number; br?: true; large?: boolean }
+
+/** The share of a run's letters set in a larger inline font size. */
+function largeShare(segments: Segment[]): number {
+  let large = 0
+  let all = 0
+  for (const segment of segments) {
+    const count = segment.text.replace(/[^\p{L}\p{N}]/gu, '').length
+    all += count
+    if (segment.large) large += count
+  }
+  return all ? large / all : 0
+}
 
 /**
  * Join a paragraph's text runs, marking italic runs `_like this_` where the
@@ -336,7 +374,8 @@ function opensOnName(line: string): boolean {
   return !!match && !VERSE_OPENERS.has(match[1].toLowerCase())
 }
 
-function documentBlocks(source: string, base = ''): DocumentBlocks {
+function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
+  let wikisourceStamp = false
   let doc = new DOMParser().parseFromString(source, 'application/xhtml+xml')
   if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(source, 'text/html')
   const body = byLocal(doc, 'body')[0] || doc.documentElement
@@ -409,6 +448,12 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
       emit(gathered)
       return
     }
+    // Rules 6: a title set in a larger type over its lines ("XI.<br/>On first looking
+    // into Chapman's Homer.", "SPECIMEN<br/>OF AN<br/>INDUCTION TO A POEM.") is one title.
+    if (v6 && wordCount(text) <= HEADING_MAX_WORDS && !/[,;:]$/.test(text) && largeShare(gathered) >= 0.6) {
+      emit(gathered.map(segment => segment.br ? { ...segment, br: undefined } : segment))
+      return
+    }
     // Lines set apart by breaks (a poem, an address, centred credits) are lines, not justified prose.
     const runs: Segment[][] = [[]]
     for (const segment of gathered) {
@@ -472,6 +517,16 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
     }
     text = text.replace(INVISIBLE, '').replace(/\s+/g, ' ').trim()
     if (EMPTY_PARAGRAPH.test(text)) return
+    if (v6) {
+      // A footnote's backlink ("101 (return)") and Wikisource's export stamp are not the book's text.
+      if (NOTE_BACKLINK.test(plain(text))) return
+      if (WIKISOURCE_STAMP.test(plain(text))) { wikisourceStamp = true; return }
+      // A note that opens on its way back ("↑ Corsica."): the note alone.
+      if (/^[↑↩]︎?\s+\S/.test(text)) {
+        text = text.replace(/^[↑↩]︎?\s+/, '')
+        for (const link of links) { link[0] = Math.max(0, link[0] - 1); link[1] = Math.max(link[0] + 1, link[1] - 1) }
+      }
+    }
     // A picture's caption set as the paragraph after it.
     const previous = blocks[blocks.length - 1]
     if (previous?.figure && !previous.figure.caption && wordCount(text) <= 80
@@ -501,6 +556,10 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
     } else if (top && short && (allStrong || tokens.some(token => HEADING_CLASS.test(token)))) {
       block.kind = 'heading'
       block.heading = true
+    } else if (v6 && top && wordCount(text) <= HEADING_MAX_WORDS && !/[,;:]$/.test(text) && /\p{L}/u.test(text) && largeShare(segments) >= 0.6) {
+      // Rules 6: a line set in a larger type is a heading (an old table-set poem's title).
+      block.kind = 'heading'
+      block.heading = true
     } else if (allStrong && wordCount(text) <= 8 && /:$/.test(text)) {
       // A bold line that introduces what follows ("About the hosts:", "Homepage:").
       block.kind = 'label'
@@ -511,19 +570,21 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
     blocks.push(block)
   }
 
-  const walk = (node: Node, em: boolean, inHeading: boolean, strong: boolean, link: number | undefined) => {
+  const walk = (node: Node, em: boolean, inHeading: boolean, strong: boolean, link: number | undefined, large = false) => {
     for (const child of [...node.childNodes]) {
       if (child.nodeType === 3 || child.nodeType === 4) {
         if (segments.length === 0 && !(child.nodeValue || '').trim()) continue
         if (segments.length === 0) heading = inHeading
-        segments.push({ text: child.nodeValue || '', em, strong, link })
+        segments.push({ text: child.nodeValue || '', em, strong, link, ...(large ? { large } : {}) })
         continue
       }
       if (child.nodeType !== 1) continue
       const el = child as Element
       const name = el.localName.toLowerCase()
       if (DROP.has(name)) continue
-      if (libraryMatter(el)) {
+      // Rules 6: text set in a larger type than the page's (only inline sizes are read).
+      const big = v6 ? inlineFontLarge(el) ?? large : false
+      if (libraryMatter(el, v6)) {
         libraryMatterSeen = true
         for (const inner of [el, ...el.getElementsByTagName('*')]) { const id = inner.getAttribute('id'); if (id) dropped.add(id) }
         continue
@@ -561,7 +622,7 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
         const href = el.getAttribute('href') || el.querySelector?.('a')?.getAttribute('href') || ''
         // A number linking to a print page ("107" in an index) is the book's text, not a note.
         const toPage = /#(page|pg|p)[_-]?[\divxlc]+$/i.test(href)
-        if (/noteref/.test(type) || role === 'doc-noteref' || (href && !toPage && !/^[a-z][a-z0-9+.-]*:/i.test(href) && NOTE_MARKER.test(clean(el.textContent)))) continue
+        if (/noteref/.test(type) || role === 'doc-noteref' || (href && !toPage && !/^[a-z][a-z0-9+.-]*:/i.test(href) && (v6 ? NOTE_MARKER_6 : NOTE_MARKER).test(clean(el.textContent)))) continue
       }
       // Only web links are kept; a link within the book, or any other scheme, is its text.
       let inner = link
@@ -575,13 +636,13 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
           // A cell's text runs on with its row's, unless the cell holds paragraphs of its own.
           if (segments.length) segments.push({ text: ' ', em: false })
           open.push(el)
-          walk(el, em, inHeading, strong || name === 'th', inner)
+          walk(el, em, inHeading, strong || name === 'th', inner, big)
           open.pop()
           continue
         }
         flush()
         open.push(el)
-        walk(el, em, inHeading || /^h[1-6]$/.test(name), strong, inner)
+        walk(el, em, inHeading || /^h[1-6]$/.test(name), strong, inner, big)
         flush()
         open.pop()
         continue
@@ -592,14 +653,15 @@ function documentBlocks(source: string, base = ''): DocumentBlocks {
         segments.push({ text, em, strong, link })
         continue
       }
-      walk(el, em || EMPHASIS.has(name), inHeading, strong || STRONG.has(name), inner)
+      walk(el, em || EMPHASIS.has(name), inHeading, strong || STRONG.has(name), inner, big)
     }
   }
 
   walk(body, false, false, false, undefined)
   flush()
   dropLinkLabels(blocks, anchors)
-  return { blocks, anchors, dropped, libraryOnly: libraryMatterSeen && blocks.length === 0, images, docType }
+  if (v6) markVerse(blocks)
+  return { blocks, anchors, dropped, libraryOnly: libraryMatterSeen && blocks.length === 0, images, docType, ...(wikisourceStamp ? { wikisourceStamp } : {}) }
 }
 
 /** Every word of a block is a web link (a bare address, or linked text). */
@@ -618,6 +680,41 @@ function dropLinkLabels(blocks: Block[], anchors: Map<string, number>): void {
     blocks.splice(index, 1)
     for (const [id, at] of anchors) if (at > index) anchors.set(id, at - 1)
   }
+}
+
+/** A line that ends a sentence: verse mostly does not. */
+const SENTENCE_END = /[.!?]["”’)\]_]*$/
+/** A poem's number set on its own line ("VI.", "12."). */
+const POEM_NUMBER = /^(?:[IVXLC]{1,7}|\d{1,3})\.?$/
+/** Short enough to be a line of verse. */
+const VERSE_LINE_WORDS = 12
+
+/**
+ * Rules 6: verse set one line to a paragraph (each line its own <div> or <p>)
+ * is verse, not short prose: a run of four lines or more, every one short and
+ * most not ending a sentence, become lines. A poem's number standing alone
+ * above its lines ("VI.") is its heading. Kinds only; the text is unchanged.
+ */
+function markVerse(blocks: Block[]): void {
+  const candidate = (block: Block) => !block.kind && !block.heading && !block.figure && !block.lead
+    && wordCount(block.text) <= VERSE_LINE_WORDS && /\p{L}/u.test(block.text) && !POEM_NUMBER.test(plain(block.text))
+  // Lines a line break already set apart run on with them ("We play at paste,<p>Till qualified<br/>for pearl").
+  const verse = (block: Block) => candidate(block) || (block.kind === 'line' && wordCount(block.text) <= VERSE_LINE_WORDS)
+  let start = 0
+  while (start < blocks.length) {
+    if (!verse(blocks[start])) { start += 1; continue }
+    let end = start
+    while (end < blocks.length && verse(blocks[end])) end += 1
+    const run = blocks.slice(start, end)
+    const sentences = run.filter(block => SENTENCE_END.test(plain(block.text))).length
+    const words = run.reduce((sum, block) => sum + wordCount(block.text), 0)
+    if (run.length >= 4 && sentences / run.length <= 0.34 && words / run.length >= 3) for (const block of run) if (!block.kind) block.kind = 'line'
+    start = end
+  }
+  blocks.forEach((block, index) => {
+    if (block.kind || block.heading || !POEM_NUMBER.test(plain(block.text))) return
+    if (blocks[index + 1]?.kind === 'line' && blocks[index + 2]?.kind === 'line') block.kind = 'heading'
+  })
 }
 
 /* ---------- Contents ---------- */
@@ -743,6 +840,276 @@ function chapterOpening(blocks: Block[], title: string): Block[] {
     at += 1
   }
   return out
+}
+
+/* ---------- Rules 6: chapter titles from the contents' structure ---------- */
+
+const LABEL_WORDS = 'chapter|chap|book|part|volume|vol|act|scene|canto|letter|section|stave|fitt|episode|tablet'
+const NUMBER_WORDS = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth|eighteenth|nineteenth|twentieth|last|final'
+const LABEL_THEN_NUMBER = new RegExp(`^(?:${LABEL_WORDS})\\.?\\s+(?:the\\s+)?(\\S+?)(?=$|[\\s.,:;!?)\\]—–-])`, 'iu')
+const NUMBER_THEN_LABEL = new RegExp(`^(?:${NUMBER_WORDS})\\s+(?:${LABEL_WORDS})(?=$|[\\s.,:;!?)\\]—–-])`, 'iu')
+const NUMBER_WORD = new RegExp(`^(?:${NUMBER_WORDS})(?:-(?:${NUMBER_WORDS}))?$`, 'iu')
+const GENERIC_LABEL = new RegExp(`^(?:${LABEL_WORDS})\\.?$`, 'iu')
+/** A credit set on a title page, never a chapter's name. */
+const CREDIT_LINE = /^(?:translated|edited|compiled|selected|arranged|introduced|illustrated|done into english|with an? (?:introduction|preface|notes?|memoir)|by)\b/i
+
+/** "BOOK ONE: 1805" → head "BOOK ONE", named; "LETTER I" → head "LETTER I"; "FIRST ACT" → head "FIRST ACT". */
+function labelHead(text: string): { head: string; named: boolean } | null {
+  const line = plain(text)
+  let head = ''
+  const labelled = LABEL_THEN_NUMBER.exec(line)
+  if (labelled) {
+    const number = labelled[1]
+    if (/^\d{1,4}$/.test(number) || romanValue(number) !== null || NUMBER_WORD.test(number)) head = labelled[0]
+  }
+  if (!head) head = NUMBER_THEN_LABEL.exec(line)?.[0] ?? ''
+  if (!head) return null
+  const rest = line.slice(head.length).replace(/^[\s.,:;!?)\]—–-]+/u, '')
+  return { head, named: /\p{L}{2}|\d{3}/u.test(rest) }
+}
+
+/** A title that is only a number ("I", "XII.", "3"), as the number, else null. */
+function bareNumeral(text: string): string | null {
+  const match = /^\s*(\d{1,4}|[IVXLCivxlc]{1,8})\s*\.?\s*$/.exec(plain(text))
+  if (!match) return null
+  return /^\d/.test(match[1]) || romanValue(match[1]) !== null ? match[1] : null
+}
+const numeralValue = (text: string) => /^\d+$/.test(text) ? Number(text) : romanValue(text)
+
+/** A title without punctuation at its end ("PART II." → "PART II"). */
+const trimTitle = (text: string) => clean(text).replace(/[\s.,;:]+$/u, '')
+const bookKey = (text: string) => titleKey(text).replace(/^(?:the|a|an)\s+/, '')
+/** A book's title without its long subtitle ("A Modest Proposal / For preventing …" → "A Modest Proposal"). */
+const shortTitle = (text: string) => (clean(text).split(/\s+\/\s+|:\s+|;\s+/)[0] || clean(text)).slice(0, 200)
+
+/** The book's own title, or its first words ("CLARISSA HARLOWE" of "Clarissa Harlowe; or the History of a Young Lady"). */
+function namesBook(label: string, bookTitle: string): boolean {
+  const key = bookKey(label)
+  const book = bookKey(bookTitle)
+  return key.length >= 3 && (book === key || book.startsWith(key + ' '))
+}
+
+/**
+ * The title of a chapter where a contents entry stands over another one (a
+ * part over its first chapter, an act over its scene): the outer entry's name
+ * is kept wherever the inner one says less. "FIRST ACT" over "SCENE" is the
+ * act; "LETTER I" over "MISS HOWE, TO MISS HARLOWE" is both; a story over its
+ * part "I." is the story; a numbered chapter's name over a subheading is the
+ * chapter. A numbered inner entry ("CHAPTER I") keeps its own title: when
+ * chapters are named alike in several parts, each gets its part afterwards
+ * ("BOOK ONE, CHAPTER I", piecesFromContents).
+ */
+function combineTitles(outer: string, inner: string, bookTitle: string): string {
+  if (!clean(inner) || GENERIC_LABEL.test(plain(inner))) return outer || inner
+  if (!clean(outer) || GENERIC_LABEL.test(plain(outer)) || namesBook(outer, bookTitle) || CREDIT_LINE.test(plain(outer))) return inner
+  if (bareNumeral(inner)) return outer
+  const head = labelHead(outer)
+  // A numbered chapter keeps its own title; chapters named alike in several parts get their part later.
+  if (labelHead(inner)) return inner
+  if (head && !head.named) return `${trimTitle(outer)} — ${clean(inner)}`
+  if (head) return outer
+  return inner
+}
+
+/** A chapter title under its part ("PART II" and "DEFINITIONS" → "PART II — DEFINITIONS"). */
+function underPart(context: string, title: string): string {
+  return `${trimTitle(context)}${labelHead(title) ? ', ' : ' — '}${clean(title)}`
+}
+
+/** A speaker's name set on its own line above the speech ("NORA.", "MRS LINDE.", "LADY BRACKNELL."). */
+const SPEAKER_LINE = /^\p{Lu}[\p{Lu}’'-]*\.?(?:\s+(?:\p{Lu}[\p{Lu}’'.-]*|and|&))*\.$/u
+const NOT_SPEAKER = /^(?:act|scene|curtain|end|the|finis|chapter|part|book|enter|exit|exeunt|preface|contents|notes?|introduction|epilogue|prologue|dedication|appendix|index|poems?|sonnets?|song|letter|postscript|tableau|proof|corollary|scholium|lemma|definition|axiom|postulate|explanation|remark|fig|figure|plate)\b/i
+
+/**
+ * Rules 6: a play whose speakers stand on their own lines, above each speech:
+ * each name is joined to its speech ("NORA. Hide the Christmas Tree …"), the
+ * way Tinct's own plays are set, so the reader can set the name as a label.
+ * Only names that recur, in a book where they do at least twenty times. Returns
+ * the speeches joined away (their text is in the name's block now).
+ */
+function joinSpeakers(stream: Block[]): Set<number> {
+  const joined = new Set<number>()
+  const label = (block: Block) => !block.figure && !block.heading && (!block.kind || block.kind === 'line') && wordCount(block.text) <= 4
+    && SPEAKER_LINE.test(plain(block.text)) && !NOT_SPEAKER.test(plain(block.text)) && romanValue(plain(block.text).replace(/\.$/, '')) === null
+  const counts = new Map<string, number>()
+  for (const block of stream) if (label(block)) counts.set(plain(block.text), (counts.get(plain(block.text)) ?? 0) + 1)
+  const recurring = [...counts].filter(([, count]) => count >= 3)
+  if (recurring.length < 3 || recurring.reduce((sum, [, count]) => sum + count, 0) < 20) return joined
+  // A play, then: every name set this way is a speaker, the porter who speaks once too.
+  const speakers = new Set(counts.keys())
+  for (let i = 0; i < stream.length - 1; i++) {
+    const block = stream[i]
+    const next = stream[i + 1]
+    if (!label(block) || !speakers.has(plain(block.text)) || next.figure || next.heading || next.kind === 'heading' || (label(next) && speakers.has(plain(next.text)))) continue
+    const shift = wordCount(block.text)
+    stream[i] = {
+      text: `${block.text} ${next.text}`,
+      heading: false,
+      ...(next.links ? { links: next.links.map(([from, to, href]): [number, number, string] => [from + shift, to + shift, href]) } : {}),
+      ...(block.writer ? { writer: block.writer } : {}),
+    }
+    joined.add(i + 1)
+    i += 1
+  }
+  return joined
+}
+
+/** A contents entry at its place in the book, with the entries it stands under (nearest last). */
+interface PlacedEntry { label: string; depth: number; at: number; ancestors: string[] }
+
+interface Piece {
+  title: string
+  blocks: Block[]
+  /** Rules 6: the chapter's own contents entry, when its title says more ("CHAPTER II" of "BOOK ONE, CHAPTER II"): its heading in the text is the title repeated. */
+  alias?: string
+}
+
+/**
+ * Rules 6: the book cut into chapters at its contents' entries, titled from
+ * the contents' structure. A part or act title page (a piece of headings
+ * only) still opens the chapter after it, but its name is kept in that
+ * chapter's title; chapters named alike in several parts ("CHAPTER I",
+ * "DEFINITIONS") carry their part; a bare number takes the name printed
+ * under it, or "Chapter" in a chapter document; a story's numbered parts
+ * carry the story; an epigraph set before its essay's own heading joins the
+ * essay; and a book without a usable contents is cut at its own headings.
+ */
+function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<{ at: number; title: string; docType: string }>, book: { title: string; author: string }): Piece[] {
+  const starts = new Map<number, PlacedEntry[]>()
+  for (const entry of placed) starts.set(entry.at, [...(starts.get(entry.at) ?? []), entry])
+  if (starts.size < 2) {
+    starts.clear()
+    for (const doc of docs) if (doc.at < stream.length && !starts.has(doc.at)) starts.set(doc.at, [{ label: doc.title, depth: 0, at: doc.at, ancestors: [] }])
+  }
+  const frontMatter = !starts.has(0)
+  if (frontMatter) starts.set(0, [{ label: docs.find(doc => doc.at === 0)?.title || book.title, depth: 0, at: 0, ancestors: [] }])
+  const cuts = [...starts.keys()].sort((a, b) => a - b)
+  interface Raw extends Piece { at: number; labels: string[]; entry: PlacedEntry; context?: string }
+  let raw: Raw[] = cuts.map((at, index) => {
+    const entries = starts.get(at)!
+    return {
+      at,
+      title: entries.slice(1).reduce((title, entry) => combineTitles(title, entry.label, book.title), entries[0].label),
+      labels: entries.map(entry => entry.label),
+      entry: entries[entries.length - 1],
+      alias: entries[entries.length - 1].label,
+      blocks: stream.slice(at, cuts[index + 1] ?? stream.length),
+    }
+  })
+  // No contents to speak of (one piece, or a front and one piece): the book's own headings cut it.
+  if (raw.filter((piece, index) => !(frontMatter && index === 0)).length <= 1) {
+    const split = splitAtHeadings(stream, book)
+    if (split) raw = split.map(piece => ({ ...piece, labels: [piece.title], entry: { label: piece.title, depth: 0, at: piece.at, ancestors: [] } }))
+  }
+  const front = frontMatter ? raw[0] : null
+  const docTypeAt = (at: number) => [...docs].reverse().find(doc => doc.at <= at)?.docType ?? ''
+
+  // A piece that is only headings (a part title page) joins the next piece, its name kept in the title.
+  const merged: Raw[] = []
+  let group: Raw[] = []
+  // In a contents without depth, the last part title page is what the chapters after it stand under.
+  let lastPart: string | undefined
+  for (let i = 0; i < raw.length; i++) {
+    const piece = raw[i]
+    const next = raw[i + 1]
+    if (next && piece.blocks.length && piece.blocks.every(block => block.heading)) { group.push(piece); continue }
+    if (group.length) {
+      const head = labelHead(group[0].title)
+      lastPart = group[0].title && !namesBook(group[0].title, book.title) ? (head ? head.head : group[0].title) : undefined
+      piece.blocks = [...group.flatMap(item => item.blocks.filter(block => norm(block.text) !== norm(piece.title))), ...piece.blocks]
+      piece.title = [...group.slice(1).map(item => item.title), piece.title].reduce((title, inner) => combineTitles(title, inner, book.title), group[0].title)
+      piece.labels = [...group.flatMap(item => item.labels), ...piece.labels]
+      piece.at = group[0].at
+      group = []
+    }
+    piece.context = lastPart
+    merged.push(piece)
+  }
+  const pieces = merged.filter(piece => piece.blocks.length > 0)
+  // An epigraph set apart before the essay's own heading ("I. HISTORY", then "HISTORY"): one chapter.
+  for (let i = pieces.length - 2; i >= 0; i--) {
+    const [a, b] = [pieces[i], pieces[i + 1]]
+    const key = (text: string) => titleKey(text).replace(/^[ivxlc]+\s+/, '')
+    if (!key(b.title) || key(a.title) !== key(b.title) || blockWords(a.blocks) >= 600) continue
+    a.blocks = [...a.blocks, ...b.blocks.filter((block, index) => !(index === 0 && key(block.text) === key(b.title)))]
+    pieces.splice(i + 1, 1)
+  }
+  // A short front matter is the first chapter's opening, not a chapter of its own.
+  if (front && pieces[0] === front && pieces.length > 1 && blockWords(front.blocks) < FRONT_MATTER_WORDS) {
+    pieces[1].blocks = [...front.blocks, ...pieces[1].blocks]
+    pieces.shift()
+  }
+  const counts = new Map<string, number>()
+  for (const piece of pieces) counts.set(titleKey(piece.title), (counts.get(titleKey(piece.title)) ?? 0) + 1)
+  pieces.forEach((piece, index) => {
+    const ancestors = piece.entry.ancestors.filter(label => clean(label) && !namesBook(label, book.title) && !GENERIC_LABEL.test(plain(label))
+      && !CREDIT_LINE.test(plain(label)) && !(book.author && book.author.split(/,\s*/).some(name => sameWriter(name, plain(label).replace(/^by\s+/i, '')))))
+    const numeral = bareNumeral(piece.title)
+    if (numeral) {
+      // The name printed under the number ("II" over "THE MACHINE").
+      const at = piece.blocks.slice(0, 4).findIndex(block => numeralValue(bareNumeral(block.text) ?? '') === numeralValue(numeral))
+      const name = at >= 0 ? piece.blocks[at + 1] : undefined
+      if (name && !name.figure && wordCount(name.text) <= 10 && /\p{L}{2}/u.test(name.text) && !SENTENCE_END.test(plain(name.text).replace(/\.$/, ''))
+        && (!/\p{Ll}/u.test(plain(name.text)) || name.heading || name.kind === 'heading') && !namesBook(name.text, book.title)) {
+        piece.title = `${numeral}. ${plain(name.text)}`
+        piece.blocks = piece.blocks.filter((_, index) => index !== at && index !== at + 1)
+      } else if (ancestors.length) {
+        // A story's numbered part: the story, and which part.
+        const story = ancestors[ancestors.length - 1]
+        piece.title = `${trimTitle(story)}, ${/\p{Ll}/u.test(story) ? 'Part' : 'PART'} ${numeral}`
+      } else if (/\bchapter\b/.test(docTypeAt(piece.at))) piece.title = `Chapter ${numeral}`
+    } else if ((counts.get(titleKey(piece.title)) ?? 0) >= 2) {
+      // Chapters named alike in several parts carry their part.
+      // The part title page read last, when it names a part ("PART V:"); else the entries the chapter stands under.
+      const part = (piece.context && labelHead(piece.context) ? piece.context : undefined)
+        ?? [...ancestors].reverse().find(label => labelHead(label)) ?? ancestors[ancestors.length - 1] ?? piece.context
+      const context = part ? (labelHead(part)?.head ?? part) : ''
+      if (context && !titleKey(piece.title).startsWith(titleKey(context))) piece.title = underPart(context, piece.title)
+    }
+    // The book's opening: its title page's entries name the book, or a credit line ("Translated from the Latin …").
+    if (index === 0) {
+      const named = piece.entry.depth > 0 ? piece.labels.findIndex(label => namesBook(label, book.title)) : -1
+      if (named >= 0) {
+        let title = clean(piece.labels[named])
+        for (const label of piece.labels.slice(named + 1)) {
+          const longer = `${title} ${clean(label)}`
+          if (!bookKey(book.title).startsWith(bookKey(longer))) break
+          title = longer
+        }
+        piece.title = title
+      } else if (CREDIT_LINE.test(plain(piece.title))) piece.title = book.title
+    }
+  })
+  return pieces
+}
+
+/**
+ * A book without a usable contents, cut at its own headings (an old
+ * table-set poetry book with its poems' titles in a larger type). Only when it
+ * has three or more; the book's title and author set as headings are not
+ * cuts, and a heading with almost nothing under it opens the next piece.
+ */
+function splitAtHeadings(stream: Block[], book: { title: string; author: string }): Array<Piece & { at: number }> | null {
+  const titled = (block: Block | undefined) => !!block?.heading
+    && !namesBook(block.text, book.title) && !(book.author && norm(block.text).replace(/^by\s+/, '') === norm(book.author))
+  // A run of headings is one cut, at its first.
+  const cuts = stream.map((block, index) => titled(block) && !titled(stream[index - 1]) ? index : -1).filter(index => index > 0)
+  if (cuts.length < 3) return null
+  const at = [0, ...cuts]
+  const pieces: Array<Piece & { at: number }> = []
+  at.forEach((start, index) => {
+    const blocks = stream.slice(start, at[index + 1] ?? stream.length)
+    const headings = blocks.slice(0, 2).filter(block => block.heading).map(block => plain(block.text))
+    const title = index === 0 ? book.title : bareNumeral(headings[0] ?? '') && headings[1] ? `${headings[0]} ${headings[1]}` : headings[0] ?? ''
+    pieces.push({ at: start, title, blocks })
+  })
+  // A title with almost nothing under it ("POEMS." over an epigraph) opens the piece after it.
+  for (let i = pieces.length - 2; i >= 1; i--) {
+    if (blockWords(pieces[i].blocks.filter(block => !block.heading)) >= 25) continue
+    pieces[i + 1] = { ...pieces[i + 1], at: pieces[i].at, blocks: [...pieces[i].blocks, ...pieces[i + 1].blocks] }
+    pieces.splice(i, 1)
+  }
+  return pieces
 }
 
 /* ---------- Authorship ---------- */
@@ -940,6 +1307,13 @@ export interface EpubConvertOptions {
   sourceTitles?: boolean
   /** False when only the text is wanted: pictures are sized but not decoded or kept. */
   images?: boolean
+  /**
+   * The conversion rules (userEdition.ts USER_EDITION_CONVERTERS), the current
+   * ones by default. A book converted before is converted again under its own
+   * rules, so its chapters and paragraphs, and every place in them, come out
+   * exactly as they were.
+   */
+  rules?: number
 }
 
 /**
@@ -986,8 +1360,11 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   if (!opfText) throw new EpubError('bad_epub', 'This EPUB is damaged (its package file is missing).')
   const opf = parseXml(opfText)
   const meta = byLocal(opf, 'metadata')[0] || opf
+  const rules = USER_EDITION_CONVERTERS.includes(options.rules ?? USER_EDITION_CONVERTER) ? options.rules ?? USER_EDITION_CONVERTER : USER_EDITION_CONVERTER
+  const v6 = rules >= 6
   const title = textOf(meta, 'title') || clean(options.fallbackTitle) || 'Untitled book'
-  const author = byLocal(meta, 'creator').map(creator => clean(creator.textContent)).filter(Boolean).join(', ')
+  // Rules 6: a creator as readers know them ("graf Leo Tolstoy" is Leo Tolstoy).
+  const author = byLocal(meta, 'creator').map(creator => clean(creator.textContent)).filter(Boolean).map(name => v6 ? personName(name) : name).join(', ')
   const creators = creatorsOf(meta)
   const language = textOf(meta, 'language')
   const subtitle = subtitleOf(meta)
@@ -1018,15 +1395,17 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const docWords = new Map<string, number>()
   const docStart = new Map<string, number>()
   const anchorAt = new Map<string, number>()
-  const docTitles: Array<{ at: number; title: string }> = []
+  const docTitles: Array<{ at: number; title: string; docType: string }> = []
   // Contents entries into the library's own matter (a licence, credits) name no chapter.
   const droppedPlaces = new Set<string>()
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
-    const parsed = documentBlocks(source || '', item.href)
+    const parsed = documentBlocks(source || '', item.href, v6)
     for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
     if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
+    // Rules 6: Wikisource's title page (title, author, year and its export stamp).
+    if (v6 && parsed.wikisourceStamp && blockWords(parsed.blocks) <= 40) { droppedPlaces.add(item.href); continue }
     // A page of nothing but a picture before the book's text begins: the cover,
     // a title page set as an image. The book opens with its own title instead.
     const pictures = parsed.blocks.filter(block => block.figure)
@@ -1047,7 +1426,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     docStart.set(item.href, stream.length)
     for (const [id, index] of parsed.anchors) anchorAt.set(`${item.href}#${id}`, stream.length + index)
     const firstHeading = parsed.blocks.find(block => block.heading)?.text
-    docTitles.push({ at: stream.length, title: firstHeading ? clean(firstHeading.replace(/(^|\s)_|_(\s|$)/g, '$1$2')) : '' })
+    docTitles.push({ at: stream.length, title: firstHeading ? clean(firstHeading.replace(/(^|\s)_|_(\s|$)/g, '$1$2')) : '', docType: parsed.docType })
     stream.push(...parsed.blocks)
     droppedImages += parsed.images
   }
@@ -1067,47 +1446,89 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   }
   if (!stream.length) throw new EpubError('bad_epub', 'This EPUB has no readable chapters.')
 
-  // Chapter starts: the contents' entries in reading order, else every document.
-  const starts = new Map<number, string>()
-  for (const entry of toc) {
-    const docAt = docStart.get(entry.path)
-    if (docAt === undefined || droppedPlaces.has(entry.path) || droppedPlaces.has(`${entry.path}#${entry.anchor}`)) continue
-    // "Cover" or "Title Page" naming a picture: no chapter of that name.
-    if (COVER_LABEL.test(norm(entry.label)) && (docWords.get(entry.path) ?? 0) < 10) continue
-    const at = entry.anchor ? anchorAt.get(`${entry.path}#${entry.anchor}`) ?? docAt : docAt
-    if (at < 0 || at >= stream.length) continue
-    // Two entries at one place (a part and its first chapter): the deeper names it.
-    if (!starts.has(at) || entry.depth > 0) starts.set(at, entry.label)
+  /**
+   * Take blocks out of the stream, keeping every place pointing at one: a place at a
+   * removed block moves to the block before it (`back`: the block it was joined to)
+   * or the one after it.
+   */
+  const removeBlocks = (removed: Set<number>, back: boolean) => {
+    if (!removed.size) return
+    const sorted = [...removed].sort((a, b) => a - b)
+    const before = (at: number) => { let n = 0; while (n < sorted.length && sorted[n] < at) n += 1; return n }
+    const move = (at: number) => at < 0 ? at : Math.max(0, at - before(at) - (back && removed.has(at) ? 1 : 0))
+    for (let i = sorted.length - 1; i >= 0; i--) stream.splice(sorted[i], 1)
+    for (const [key, at] of docStart) docStart.set(key, move(at))
+    for (const [key, at] of anchorAt) anchorAt.set(key, move(at))
+    for (const doc of docTitles) doc.at = move(doc.at)
   }
-  if (starts.size < 2) {
-    starts.clear()
-    for (const doc of docTitles) if (doc.at < stream.length && !starts.has(doc.at)) starts.set(doc.at, doc.title)
+  if (v6) {
+    // Rules 6: drop Project Gutenberg's line naming the ebook, and set a play's speeches on their speakers.
+    removeBlocks(new Set(stream.slice(0, 8).flatMap((block, index) => PG_TITLE_LINE.test(plain(block.text)) ? [index] : [])), false)
+    removeBlocks(joinSpeakers(stream), true)
   }
-  const frontMatter = !starts.has(0)
-  if (frontMatter) {
-    // Text before the first contents entry (a title page, a library's header) opens the book.
-    const first = docTitles.find(doc => doc.at === 0)?.title
-    starts.set(0, first || title)
-  }
-  const cuts = [...starts.keys()].sort((a, b) => a - b)
-  let pieces = cuts.map((at, index) => ({ title: starts.get(at) || '', blocks: stream.slice(at, cuts[index + 1] ?? stream.length) }))
-  const front = frontMatter ? pieces[0] : null
-  // A piece that is only headings (a part title page) joins the next piece.
-  const merged: typeof pieces = []
-  for (let i = 0; i < pieces.length; i++) {
-    const piece = pieces[i]
-    const next = pieces[i + 1]
-    if (next && piece.blocks.every(block => block.heading)) {
-      next.blocks = [...piece.blocks.filter(block => norm(block.text) !== norm(next.title)), ...next.blocks]
-      continue
+  let pieces: Piece[]
+  // Where each contents entry stands, and the entries it stands under.
+  const placedEntries = (): PlacedEntry[] => {
+    const out: PlacedEntry[] = []
+    const open: TocEntry[] = []
+    for (const entry of toc) {
+      while (open.length && open[open.length - 1].depth >= entry.depth) open.pop()
+      const ancestors = open.map(item => item.label)
+      open.push(entry)
+      const docAt = docStart.get(entry.path)
+      if (docAt === undefined || droppedPlaces.has(entry.path) || droppedPlaces.has(`${entry.path}#${entry.anchor}`)) continue
+      if (COVER_LABEL.test(norm(entry.label)) && (docWords.get(entry.path) ?? 0) < 10) continue
+      const at = entry.anchor ? anchorAt.get(`${entry.path}#${entry.anchor}`) ?? docAt : docAt
+      if (at < 0 || at >= stream.length) continue
+      out.push({ label: entry.label, depth: entry.depth, at, ancestors })
     }
-    merged.push(piece)
+    return out
   }
-  pieces = merged.filter(piece => piece.blocks.length > 0)
-  // A short front matter is the first chapter's opening, not a chapter of its own.
-  if (front && pieces[0] === front && pieces.length > 1 && front.blocks.map(block => block.text).join(' ').split(/\s+/).length < FRONT_MATTER_WORDS) {
-    pieces[1].blocks = [...front.blocks, ...pieces[1].blocks]
-    pieces.shift()
+  if (v6) pieces = piecesFromContents(stream, placedEntries(), docTitles, { title, author })
+  else {
+    // Chapter starts: the contents' entries in reading order, else every document.
+    const starts = new Map<number, string>()
+    for (const entry of toc) {
+      const docAt = docStart.get(entry.path)
+      if (docAt === undefined || droppedPlaces.has(entry.path) || droppedPlaces.has(`${entry.path}#${entry.anchor}`)) continue
+      // "Cover" or "Title Page" naming a picture: no chapter of that name.
+      if (COVER_LABEL.test(norm(entry.label)) && (docWords.get(entry.path) ?? 0) < 10) continue
+      const at = entry.anchor ? anchorAt.get(`${entry.path}#${entry.anchor}`) ?? docAt : docAt
+      if (at < 0 || at >= stream.length) continue
+      // Two entries at one place (a part and its first chapter): the deeper names it.
+      if (!starts.has(at) || entry.depth > 0) starts.set(at, entry.label)
+    }
+    if (starts.size < 2) {
+      starts.clear()
+      for (const doc of docTitles) if (doc.at < stream.length && !starts.has(doc.at)) starts.set(doc.at, doc.title)
+    }
+    const frontMatter = !starts.has(0)
+    if (frontMatter) {
+      // Text before the first contents entry (a title page, a library's header) opens the book.
+      const first = docTitles.find(doc => doc.at === 0)?.title
+      starts.set(0, first || title)
+    }
+    const cuts = [...starts.keys()].sort((a, b) => a - b)
+    let cut: Piece[] = cuts.map((at, index) => ({ title: starts.get(at) || '', blocks: stream.slice(at, cuts[index + 1] ?? stream.length) }))
+    const front = frontMatter ? cut[0] : null
+    // A piece that is only headings (a part title page) joins the next piece.
+    const merged: Piece[] = []
+    for (let i = 0; i < cut.length; i++) {
+      const piece = cut[i]
+      const next = cut[i + 1]
+      if (next && piece.blocks.every(block => block.heading)) {
+        next.blocks = [...piece.blocks.filter(block => norm(block.text) !== norm(next.title)), ...next.blocks]
+        continue
+      }
+      merged.push(piece)
+    }
+    cut = merged.filter(piece => piece.blocks.length > 0)
+    // A short front matter is the first chapter's opening, not a chapter of its own.
+    if (front && cut[0] === front && cut.length > 1 && front.blocks.map(block => block.text).join(' ').split(/\s+/).length < FRONT_MATTER_WORDS) {
+      cut[1].blocks = [...front.blocks, ...cut[1].blocks]
+      cut.shift()
+    }
+    pieces = cut
   }
   // Every picture read once: decoration, the cover and what cannot be read are
   // left out; the rest are numbered in reading order and kept beside the book.
@@ -1155,7 +1576,18 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const converted: UserBookChapter[] = pieces.map((piece, index) => {
     const titled = piece.title || piece.blocks.find(block => block.heading)?.text.replace(/(^|\s)_|_(\s|$)/g, '$1$2') || `Section ${index + 1}`
     // The heading repeated under the title is found without the title's footnote call ("PAULINUS.[1] OF …").
-    const opened = chapterOpening(piece.blocks, titled.replace(/(?<=\S)\[\d{1,3}\]/g, ''))
+    let opened = chapterOpening(piece.blocks, titled.replace(/(?<=\S)\[\d{1,3}\]/g, ''))
+    // Rules 6: or as the chapter's own entry names it ("CHAPTER II" under "BOOK ONE, CHAPTER II").
+    if (v6 && piece.alias && titleKey(piece.alias) !== titleKey(titled) && opened.length === piece.blocks.length) {
+      const again = chapterOpening(piece.blocks, piece.alias.replace(/(?<=\S)\[\d{1,3}\]/g, ''))
+      if (again.length < piece.blocks.length) opened = again
+    }
+    // Rules 6: a story's first part keeps no "I." of its own under the story's title.
+    const partNumber = v6 && piece.alias && titleKey(piece.alias) !== titleKey(titled) ? bareNumeral(piece.alias) : null
+    if (partNumber) {
+      const at = opened.slice(0, 3).findIndex(block => bareNumeral(block.text) === partNumber)
+      if (at >= 0) opened = opened.filter((_, index) => index !== at)
+    }
     const blocks = opened.length ? opened : piece.blocks
     const sourceTitle = clean(titled).slice(0, 200)
     const chapter: UserBookChapter = { number: index + 1, title: sourceTitle, paragraphs: blocks.map(block => block.text) }
@@ -1173,7 +1605,11 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   // The book's own printed contents ("CONTENTS / PAGE / Of Providence 1 …") is left out like
   // its contents page (public/lab/printed-contents.js); the reader has its own chapter menu.
   const kept = dropPrintedContents(converted)
+  // Rules 6: a book of one chapter without a title of its own (an essay, a pamphlet) reads under the book's, never "Section 1".
+  if (v6 && kept.length === 1 && /^section \d+$/i.test(kept[0].title)) kept[0] = { ...kept[0], title: shortTitle(title) }
   // Titles are read together, so boilerplate shared by a book's headings is left out (chapter-title.js).
   const chapters = options.sourceTitles ? kept : normalizeChapterTitles(kept, { language })
-  return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, ...(collection ? { collection: true as const } : {}), bylines: true, language, chapters, droppedImages }, images }
+  // Rules 6: a play whose speeches open on their speakers ("NORA. …"): the reader sets them as labels.
+  const speakers = v6 && isPlayText(chapters.flatMap(chapter => chapter.paragraphs))
+  return { edition: { format: USER_EDITION_FORMAT, converter: rules, title, ...(subtitle ? { subtitle } : {}), author, ...(collection ? { collection: true as const } : {}), ...(speakers ? { speakers: true as const } : {}), bylines: true, language, chapters, droppedImages }, images }
 }

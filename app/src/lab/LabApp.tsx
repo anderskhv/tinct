@@ -1414,6 +1414,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       paragraphIndex: at?.paragraphIndex ?? placeRef.current.paragraphIndex,
       wordIndex: at?.wordIndex ?? placeRef.current.wordIndex,
       updatedAt: Date.now(),
+      // The rules of the conversion this place is in: converted again, the book keeps its words where they were.
+      converter: userBook.edition.converter,
     })
   // positionSync.notePlace is the stable callback the hook returns.
   // eslint-disable-next-line react-hooks/exhaustive-deps

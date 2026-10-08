@@ -36,7 +36,8 @@ import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
 import { sniffBookType } from './userBooks'
-import { epubSourceLetters, verifyEditionAgainstSource, type EditionChapterInput } from '../lib/epubSource'
+import { epubSourceLetters, verifyEditionAgainstSource, type EditionChapterInput, type EditionParagraphKind } from '../lib/epubSource'
+import { isPlayText } from '../../lab/labVerseLines'
 import { lookupCatalogueWork } from '../lib/publicBookCatalogue'
 import { anthropicShelfChooser, classifyWork, placementFor, type Classification, type ShelfChooser } from '../lib/publicBookClassify'
 import { backfillCoverJobs, coverContentType, coverObjectKey, paintingSpineTone, processCoverJobs, queueCoverJob, type CoverFetch } from '../lib/publicBookCovers'
@@ -242,6 +243,18 @@ export function publicCollection(work: Pick<CatalogueWork, 'authors'>, chapters:
     || names.some(name => /^various( authors)?$/i.test(name) || /\(eds?\.?\)$|,\s*eds?\.?$|\beditor\b/i.test(name))
 }
 
+const PARAGRAPH_KINDS = new Set<EditionParagraphKind>(['heading', 'label', 'item', 'subtitle', 'byline', 'line'])
+/** A picture's place in the text (labFigures.ts): an added book shows no pictures, so it is not text. */
+const FIGURE_TOKEN = /^\uFFFC\S*$/
+
+/**
+ * A play whose speeches open on their speaker ("NORA. Hide the Christmas Tree…"),
+ * the way Tinct's own plays are set (EditionData.speakers; lab/labVerseLines.ts isPlayText).
+ */
+export function publicSpeakers(chapters: Array<{ paragraphs: string[] }>): boolean {
+  return isPlayText(chapters.flatMap(chapter => chapter.paragraphs))
+}
+
 /** The chapters the browser sent, if they have the converter's shape and fit the limits. */
 export function parseChapters(value: unknown): EditionChapterInput[] | null {
   const chapters = (value as { chapters?: unknown } | null)?.chapters
@@ -249,7 +262,7 @@ export function parseChapters(value: unknown): EditionChapterInput[] | null {
   let total = 0
   const out: EditionChapterInput[] = []
   for (const chapter of chapters) {
-    const c = chapter as { title?: unknown; paragraphs?: unknown; author?: unknown }
+    const c = chapter as { title?: unknown; paragraphs?: unknown; author?: unknown; kinds?: unknown }
     if (typeof c?.title !== 'string' || !Array.isArray(c.paragraphs) || c.paragraphs.length > LIMITS.paragraphsPerChapter) return null
     if (c.paragraphs.some(p => typeof p !== 'string' || p.length > LIMITS.paragraphChars)) return null
     total += c.paragraphs.length
@@ -257,7 +270,19 @@ export function parseChapters(value: unknown): EditionChapterInput[] | null {
     // Text only: the reader renders paragraphs as text, but nothing tag-like is kept either way.
     // A chapter's own writer (an essay collection's byline): a short name, checked against the source like titles.
     const author = typeof c.author === 'string' ? c.author.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, CHAPTER_AUTHOR_CHARS) : ''
-    out.push({ number: out.length + 1, title: c.title.replace(/[<>]/g, '').slice(0, LIMITS.titleChars), paragraphs: (c.paragraphs as string[]).map(p => p.replace(/[<>]/g, '')), ...(author ? { author } : {}) })
+    // What each paragraph is (verse lines, a poem's title), when the converter says: one of the reader's kinds, in step.
+    const sent = Array.isArray(c.kinds) && c.kinds.length === c.paragraphs.length
+      && c.kinds.every(kind => kind === null || PARAGRAPH_KINDS.has(kind as EditionParagraphKind)) ? c.kinds as Array<EditionParagraphKind | null> : null
+    const paragraphs: string[] = []
+    const kinds: Array<EditionParagraphKind | null> = []
+    ;(c.paragraphs as string[]).forEach((p, index) => {
+      // A picture's place (an older converter sent them): no picture is published, so neither is its place.
+      if (FIGURE_TOKEN.test(p)) return
+      paragraphs.push(p.replace(/[<>]/g, ''))
+      kinds.push(sent?.[index] ?? null)
+    })
+    if (!paragraphs.length) continue
+    out.push({ number: out.length + 1, title: c.title.replace(/[<>]/g, '').slice(0, LIMITS.titleChars), paragraphs, ...(sent && kinds.some(Boolean) ? { kinds } : {}), ...(author ? { author } : {}) })
   }
   return out
 }
@@ -465,7 +490,7 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   // and an older converter's upload is held to the same rule (public/lab/printed-contents.js).
   const verified = { ...checked, chapters: normalizeChapterTitles(dropPrintedContents(checked.chapters), { language: publicEditionKey(work).slice('original-'.length) }) }
   const { book, entry, editionKey } = publicRecords({ bookId, work, chapters: verified.chapters, classification, addedAt, catalogueIndex: 100_000 + (index?.books?.length ?? 0) })
-  const editionData = { chapters: verified.chapters, ...(publicCollection(work, verified.chapters) ? { collection: true } : {}) }
+  const editionData = { chapters: verified.chapters, ...(publicCollection(work, verified.chapters) ? { collection: true } : {}), ...(publicSpeakers(verified.chapters) ? { speakers: true } : {}) }
   await bucket.put(editionObjectKey(bookId, editionKey), JSON.stringify(editionData), { httpMetadata: { contentType: 'application/json' } })
   const meta: StoredMeta = { version: 1, book, entry, editionKey, sha256: stagedObject.customMetadata?.sha256 || '', classification, verification: { checked: verified.checkedParagraphs, removed: verified.removedParagraphs, renamed: verified.renamedChapters } }
   await bucket.put(metaKey(bookId), JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })

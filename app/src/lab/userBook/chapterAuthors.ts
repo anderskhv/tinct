@@ -3,8 +3,9 @@
  * byline, and whether a book is a collection (EditionData.collection). The
  * EPUB converter (epubEdition.ts) uses these at conversion; a reader's own book
  * converted before bylines were read is healed from its stored text
- * (`healChapterAuthors`) without converting it again, so its chapters, their
- * numbers and every reading place stay exactly as they are. Pure; small.
+ * (`healChapterAuthors`, with the other in-memory heals in `healUserEdition`)
+ * without converting it again, so its chapters, their numbers and every
+ * reading place stay exactly as they are. Pure; small.
  */
 import type { UserBookEdition } from './userEdition'
 
@@ -88,6 +89,36 @@ export function chapterAuthors(candidates: Array<AuthorCandidate | null>, creato
   })
   const collection = authors.some(Boolean) || creators.edited || creators.names.length >= 3
   return { authors, collection }
+}
+
+/**
+ * A person's name as readers know it: a library's catalogue form that opens on
+ * a lower-case title of nobility ("graf Leo Tolstoy", "comte de Lautréamont"
+ * stays a name with its particle) is the name alone ("Leo Tolstoy").
+ */
+export function personName(name: string): string {
+  const out = clean(name).replace(/^(?:graf|gräfin|grafin|freiherr|freifrau|baron|baronin|count|countess|comte|comtesse|conde|condesa|marquis|marquise|duc|duchesse|knyaz|knyaginya)\s+(?=\p{Lu})/u, '')
+  return out || clean(name)
+}
+
+/** "Section 1", "Section 2": the converter's name for a chapter without a title of its own. */
+const GENERATED_TITLE = /^section \d+$/i
+
+/**
+ * What a reader's own book shows, healed in memory from its stored conversion
+ * without converting it again, so its chapters, paragraphs and every reading
+ * place stay exactly as they are: bylines (`healChapterAuthors`), the author
+ * as readers know them (`personName`), and a book of one chapter titled by the
+ * converter ("Section 1") reads under its own title. Titles and credits only.
+ */
+export function healUserEdition(edition: UserBookEdition): UserBookEdition {
+  let out = healChapterAuthors(edition)
+  const author = out.author.split(/,\s*/).map(personName).join(', ')
+  if (author !== out.author) out = { ...out, author }
+  if (out.chapters.length === 1 && GENERATED_TITLE.test(out.chapters[0].title.trim()) && out.title.trim()) {
+    out = { ...out, chapters: [{ ...out.chapters[0], title: out.title.trim().slice(0, 200) }] }
+  }
+  return out
 }
 
 /** A chapter opening is this many paragraphs at most: the byline sits right under the title. */
