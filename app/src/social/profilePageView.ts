@@ -102,9 +102,9 @@ export function profileMainHtml(data: ProfilePageData): string {
   if (data.relation === 'friend') parts.push('<p class="note">Friends: you follow each other.</p>')
   else if (data.relation === 'followed') parts.push(`<p class="note">${esc(data.name)} follows you.</p>`)
   parts.push('</div>')
-  if (data.limited) {
-    parts.push(`<p class="quiet" data-testid="profile-limited">${esc(data.name)} shares their reading with friends. Friends are people who follow each other.</p>`)
-  } else {
+  // The follower view (a reader who follows you, whose profile you may not otherwise
+  // see) is the name and link alone: it says nothing about what they share.
+  if (!data.limited) {
     if (data.time) {
       parts.push(`<div class="stats" data-testid="profile-time"><div><span>Last 7 days</span><strong>${esc(data.time.last7)}</strong></div><div><span>This year</span><strong>${esc(data.time.year)}</strong></div></div>`)
     }
@@ -208,7 +208,14 @@ ${body}
 </html>`
 }
 
-/** The page for a handle nobody may see (missing, Only me, hidden or blocked): the same as a missing one. */
-export function profileMissingHtml(): string {
-  return '<section class="missing" data-testid="profile-missing"><h1>No profile here</h1><p>This link does not lead to a profile you can see.</p><a class="primary" href="/library">Open the library</a></section>'
+/**
+ * The page for a handle nobody may see (missing, Only me, a Friends profile to
+ * a non-friend, hidden or blocked): the same in every case. With `follow` (the
+ * Follow button for a well-formed link) a reader can follow from a link they
+ * were given; the button is the same whoever, if anyone, has the link, and a
+ * Friends profile opens once they follow each other.
+ */
+export function profileMissingHtml(follow?: string): string {
+  const actions = follow ? `<div class="actions" data-actions>${follow}</div>` : ''
+  return `<section class="missing" data-testid="profile-missing"><h1>No profile here</h1><p>This link does not lead to a profile you can see.</p>${actions}<a class="primary" href="/library">Open the library</a><p class="status" role="status" data-status></p></section>`
 }

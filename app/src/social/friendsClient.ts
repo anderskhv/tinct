@@ -16,15 +16,14 @@ export function socialFriendsOn(doc: Document | null = typeof document === 'unde
     && doc?.querySelector('meta[name="tinct-social"]')?.getAttribute('content') === '1'
 }
 
+/** A leaderboard row: name, picture and reading time only (privacy notice), and `me` for your own. */
 export interface BoardEntry {
   rank: number
-  handle: string
   name: string
   picture: ProfilePicture
   seconds: number
   duration: string
-  book: string | null
-  self: boolean
+  me: boolean
 }
 
 export interface BoardData {
@@ -82,6 +81,13 @@ export const fetchProfile = (token: string | null, handle: string, fetchImpl?: F
 export const fetchBlocked = (token: string, fetchImpl?: FetchLike) => getJson<{ blocked: Array<{ id: string; name: string; handle: string | null }> }>('/api/social/blocked', token, fetchImpl)
 
 export type SocialAction = 'follow' | 'unfollow' | 'remove-follower' | 'block'
+
+/** The relation a follow (true) or unfollow (false) leads to: what a Follow button shows while it waits. */
+export function followingAfter(relation: Relation | null, follow: boolean): Relation {
+  const followsYou = relation === 'friend' || relation === 'followed'
+  if (follow) return followsYou ? 'friend' : 'follower'
+  return followsYou ? 'followed' : 'stranger'
+}
 
 export async function socialAction(token: string, action: SocialAction, handle: string, fetchImpl?: FetchLike): Promise<{ ok: boolean; relation?: Relation; followsYou?: boolean }> {
   const result = await postJson<{ relation?: Relation; followsYou?: boolean }>(`/api/social/${action}`, token, { handle }, fetchImpl)

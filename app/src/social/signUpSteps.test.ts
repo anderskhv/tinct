@@ -125,8 +125,9 @@ describe('sign-up with profiles on', () => {
     expect(document.querySelector('.social-step input[type=file]')).toBeNull()
     expect(document.querySelector('[data-mode-copy="profile"]')!.textContent).not.toMatch(/upload/i)
     expect(document.querySelectorAll('.social-pictures button').length).toBe(4)
-    // Friends is preselected.
-    expect(document.querySelector('.social-tick[data-value="friends"]')!.getAttribute('aria-checked')).toBe('true')
+    // Only me is preselected: a new profile is Only me until the reader changes it (privacy notice).
+    expect(document.querySelector('.social-tick[data-value="only_me"]')!.getAttribute('aria-checked')).toBe('true')
+    expect(document.querySelector('.social-tick[data-value="friends"]')!.getAttribute('aria-checked')).toBe('false')
     document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
     await flush()
     expect(posts[0]).toEqual({ consent: { optIn: true, version: EMAIL_CONSENT_VERSION }, skip: true })
@@ -149,8 +150,20 @@ describe('sign-up with profiles on', () => {
     document.querySelector<HTMLInputElement>('[name=profileName]')!.value = 'Newton'
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
-    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'friends', setUp: true, picture: { kind: 'set' } })
+    // Continue without a choice keeps Only me.
+    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'only_me', setUp: true, picture: { kind: 'set' } })
     expect(mode()).toBe('reading')
+  })
+
+  it('Friends is saved only when the reader chooses it', async () => {
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    document.querySelector<HTMLButtonElement>('.social-tick[data-value="friends"]')!.click()
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(posts[0]).toMatchObject({ visibility: 'friends', setUp: true })
   })
 
   it('falls back to today’s welcome when profiles are unavailable', async () => {

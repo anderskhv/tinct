@@ -119,11 +119,17 @@ export function normalizeHandle(raw: string): string {
   return String(raw || '').trim().replace(/^@/, '').toLowerCase()
 }
 
+/**
+ * Reserved and taken read the same, neutral line: "taken" would tell anyone
+ * checking a link that a profile (perhaps an Only me one) sits behind it.
+ */
+const HANDLE_UNAVAILABLE = 'Please choose another link.'
+
 export const HANDLE_PROBLEM_COPY: Record<HandleProblem | 'taken', string> = {
   format: 'Use 3 to 20 letters, digits, _ or .',
-  reserved: 'That link is reserved. Try another.',
-  filtered: 'Please choose another link.',
-  taken: 'That link is taken. Try another.',
+  reserved: HANDLE_UNAVAILABLE,
+  filtered: HANDLE_UNAVAILABLE,
+  taken: HANDLE_UNAVAILABLE,
 }
 
 /**
@@ -319,7 +325,10 @@ export interface PublicProfileView {
   name: string
   picture: { kind: PictureKind; value: string | null }
   background: { kind: BackgroundKind; value: string | null } | null
-  /** True when the viewer sees only the card (name, link, picture): Friends-only to a non-friend. */
+  /**
+   * True for the follower view: a reader who follows the viewer, whose profile
+   * the viewer may not otherwise see. Name and link only, with the initial.
+   */
   limited: boolean
   /** What the owner lets this viewer see (filled with numbers from ship 1 and 3). */
   shows: { reading: boolean; time: boolean; leaderboard: boolean }
@@ -327,12 +336,18 @@ export interface PublicProfileView {
 
 /**
  * What one viewer may see of one profile, or null for nothing (Not found).
+ * The privacy notice ("Your profile") binds this: Friends means friends
+ * (mutual follows) only, and a new profile is Only me.
  *
  * - blocked either way: nothing;
+ * - Everyone (confirmed email): everyone sees the profile with the switches;
+ * - Friends: friends see the profile with the switches; anyone else, signed
+ *   in or out, gets nothing, exactly as for Only me;
  * - Only me: nothing (the owner sees everything);
- * - Friends: friends see the profile with the owner's switches; anyone else
- *   with the link sees only the card (name, link, picture) so they can follow;
- * - Everyone (confirmed email): everyone sees the profile with the switches.
+ * - one exception, whatever the visibility: a reader who follows the viewer
+ *   reached out to them, so the viewer (only the viewer) sees that follower's
+ *   name and link with the initial (no photo, banner or reading): enough to
+ *   follow back, remove them or block them. This is `limited`.
  * - Uploaded pictures and backgrounds (and the Google photo) appear to others
  *   only once approved; until then others see the initial / library scene.
  */
@@ -340,15 +355,16 @@ export function publicProfileView(card: ProfileCard, relation: Relation): Public
   if (relation === 'blocked') return null
   const self = relation === 'self'
   const visibility = effectiveVisibility(card.visibility, card.emailConfirmed)
-  if (!self && visibility === 'only_me') return null
+  const full = self || visibility === 'everyone' || (visibility === 'friends' && relation === 'friend')
+  if (!full) {
+    // Only the owner's own follow opens anything, and only to the reader they follow.
+    if (relation !== 'followed' && relation !== 'friend') return null
+    return { handle: card.handle, name: card.displayName, picture: { kind: 'initial', value: null }, background: null, limited: true, shows: { reading: false, time: false, leaderboard: false } }
+  }
   const pictureHidden = !self && (card.pictureKind === 'upload' || card.pictureKind === 'google') && card.pictureReview !== 'approved'
   const backgroundHidden = !self && card.backgroundKind === 'upload' && card.backgroundReview !== 'approved'
   const picture = pictureHidden ? { kind: 'initial' as const, value: null } : { kind: card.pictureKind, value: card.pictureValue }
   const background = backgroundHidden ? { kind: 'library' as const, value: null } : { kind: card.backgroundKind, value: card.backgroundValue }
-  const full = self || visibility === 'everyone' || relation === 'friend'
-  if (!full) {
-    return { handle: card.handle, name: card.displayName, picture, background: null, limited: true, shows: { reading: false, time: false, leaderboard: false } }
-  }
   return {
     handle: card.handle,
     name: card.displayName,

@@ -208,7 +208,12 @@ export const REPORT_REASON_COPY: Record<ReportReason, string> = {
 
 // ===== The reading card =====
 
-/** "Finished Frankenstein · 6 h 20 m" (the hours left out below a minute). */
-export function finishedCardLine(title: string, duration: string | null): string {
-  return duration ? `Finished ${title} · ${duration}` : `Finished ${title}`
+/**
+ * "Finished Frankenstein · 6 h 20 m" (the hours left out below a minute).
+ * "Finished" only when the book is finished (its last chapter done); else the
+ * title alone, so the card never claims a finish that did not happen.
+ */
+export function finishedCardLine(title: string, duration: string | null, finished = true): string {
+  const head = finished ? `Finished ${title}` : title
+  return duration ? `${head} · ${duration}` : head
 }

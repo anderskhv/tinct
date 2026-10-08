@@ -444,8 +444,9 @@ export async function handleProfiles(
       const own = await store.getOwn(user.id)
       if (own?.handle === handle) return reply({ ok: true, handle, link: profileLinkText(handle) }, 200, request)
       const problem = handleProblem(handle, BOOK_IDS)
-      if (problem) return reply({ ok: false, reason: problem, message: HANDLE_PROBLEM_COPY[problem] }, 200, request)
-      if ((await store.takenHandles([handle])).has(handle)) return reply({ ok: false, reason: 'taken', message: HANDLE_PROBLEM_COPY.taken }, 200, request)
+      // Reserved and taken answer alike ("unavailable"), so the check does not say a profile is there.
+      if (problem) return reply({ ok: false, reason: problem === 'format' ? 'format' : 'unavailable', message: HANDLE_PROBLEM_COPY[problem] }, 200, request)
+      if ((await store.takenHandles([handle])).has(handle)) return reply({ ok: false, reason: 'unavailable', message: HANDLE_PROBLEM_COPY.taken }, 200, request)
       return reply({ ok: true, handle, link: profileLinkText(handle) }, 200, request)
     }
 
@@ -503,9 +504,15 @@ export async function viewFor(store: ProfileStore, ownerId: string, viewerId: st
     return publicProfileView(cardFromOwn(own, Boolean(account?.email_confirmed_at)), 'self')
   }
   const card = await store.getCardById(ownerId)
-  if (!card) return null
-  const relation = viewerId ? relationOf({ self: false, ...(await store.relation(viewerId, ownerId)) }) : 'stranger'
-  return publicProfileView(cardFromPublic(card), relation)
+  if (!card && !viewerId) return null
+  const rel = viewerId ? await store.relation(viewerId, ownerId) : null
+  const relation = rel ? relationOf({ self: false, ...rel }) : 'stranger'
+  if (card) return publicProfileView(cardFromPublic(card), relation)
+  // No public card (Only me, or hidden): only a reader who follows the viewer
+  // shows, as the follower view (name and link), so the viewer can remove or block them.
+  if (!rel || rel.blocked || !rel.ownerFollowsViewer) return null
+  const own = await store.getOwn(ownerId)
+  return own ? publicProfileView({ ...cardFromOwn(own, false), visibility: 'only_me' }, relation) : null
 }
 
 function cardFromOwn(row: ReaderProfileRow, emailConfirmed: boolean): ProfileCard {
