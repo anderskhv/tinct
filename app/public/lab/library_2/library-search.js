@@ -50,6 +50,8 @@ export function librarySearch(books) {
       if (!engine || now !== key) { engine = createLibrarySearch(list(), borrowed); key = now; }
       return engine(query);
     },
+    /** The other titles a book borrowed from the catalogue (borrowFor), for "also known as". */
+    titlesFor(id) { return borrowed[id]?.titles || []; },
     lend(map) {
       const fresh = Object.keys(map || {}).filter(id => !borrowed[id]);
       if (!fresh.length) return false;

@@ -14,7 +14,7 @@
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
-import { USER_BOOKS_SHELF_URL } from './lab/userBook/userBookId'
+import { ownBookOpenUrl } from './lab/userBook/userBookId'
 import { readOwnShelf } from './lab/userBook/ownShelf'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 
@@ -150,7 +150,7 @@ export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook
         const key = `${book.type}:${String(book.sha256 || '').slice(0, 24)}`
         if (!book.sha256 || here.has(key)) continue
         here.add(key)
-        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', cover: null, at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: USER_BOOKS_SHELF_URL })
+        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', cover: null, at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: ownBookOpenUrl(key) })
       }
     } catch { /* this device's books still show */ }
   }

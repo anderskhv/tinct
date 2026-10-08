@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Add a book · Tinct</title>
 <meta name="description" content="Read your own PDF or EPUB in Tinct, or find a free public-domain book, with an AI reading companion.">
+<script src="js/route.js?v=20261008lib"></script>
 <script type="module" src="/lab/internal-traffic.js"></script>
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
 <link rel="stylesheet" href="css/tinct-app.css">
@@ -13,54 +14,7 @@
 <link rel="stylesheet" href="css/addbook.css">
 </head>
 <body data-view="start">
-<main id="start" class="ab" aria-labelledby="ab-title">
-  <header class="ab-top">
-    <a class="ab-brand" href="/library" aria-label="Tinct library">tinct</a>
-    <span class="ab-account" id="abAccount"></span>
-  </header>
-  <section class="ab-hero">
-    <p class="ab-eyebrow">My shelf</p>
-    <h1 id="ab-title">Add a book</h1>
-    <p class="ab-lede">Read a book you have, or find one of tens of thousands of free classics. Explain, Chat, highlights and notes work in both.</p>
-  </section>
-  <section class="ab-doors" aria-label="Two ways to add a book">
-    <article class="ab-door ab-door-own" id="doorOwn">
-      <div class="ab-door-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 17v-6m-3 3 3-3 3 3"/></svg></div>
-      <h2>Your own book</h2>
-      <p>Open a <strong>PDF</strong> or <strong>EPUB</strong> from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.</p>
-      <div class="ab-drop" id="abDrop" tabindex="0" role="button" aria-label="Choose a PDF or EPUB file" hidden>
-        <span class="ab-drop-main">Choose a PDF or EPUB</span>
-        <span class="ab-drop-sub">or drop it here</span>
-      </div>
-      <div class="ab-gate" id="abGate">
-        <p class="ab-gate-copy">Add books to your shelf with a free account.</p>
-        <div class="ab-gate-acts"><a class="ab-btn is-go" id="abCreate" href="/sign-in?mode=create&amp;returnTo=%2Flab%2Faddbook%2F">Create account</a><a class="ab-btn" id="abSignIn" href="/sign-in?returnTo=%2Flab%2Faddbook%2F">Sign in</a></div>
-      </div>
-      <p class="ab-fine">Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.</p>
-    </article>
-    <article class="ab-door ab-door-free" id="doorFree">
-      <div class="ab-door-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></div>
-      <h2>Find a free book</h2>
-      <p>Search public-domain classics from Project Gutenberg, Wikisource and libraries across Europe. Download the free EPUB, then open it here.</p>
-      <form class="ab-search" id="abSearch" role="search">
-        <label class="ab-visually-hidden" for="abQuery">Search free books</label>
-        <input id="abQuery" type="search" placeholder="Title, author or subject" autocomplete="off" enterkeyhint="search">
-        <button type="submit">Search</button>
-      </form>
-      <div class="ab-chips" id="abChips"></div>
-      <p class="ab-fine" id="abCatalogStatus">Loading the catalogue…</p>
-    </article>
-  </section>
-  <section class="ab-results" id="abResults" hidden aria-live="polite"></section>
-  <section class="ab-shelf" id="abShelf" hidden aria-labelledby="ab-shelf-title">
-    <h2 id="ab-shelf-title">Your books</h2>
-    <ul class="ab-books" id="abBooks"></ul>
-  </section>
-  <footer class="ab-foot">
-    <p>Your files are kept in this browser and privately in your Tinct account, never shared. Explain, Chat, Summarize and Catch me up send only the text each one needs to Tinct’s reading companion, on your Tinct account if you are signed in. Free books link to their source library, where you download them.</p>
-    <p class="ab-build">Add a book · 2026-10-07 · 83a45e73e7</p>
-  </footer>
-</main>
+<main id="start" hidden></main>
 
 <div id="root" hidden>
 <div lang="en" class="lab is-desktop has-page-buttons byob" data-testid="lab-root" data-page-turn-zones="none" data-theme="light" data-lab-layout="desktop" data-chrome-state="reading" data-phone-bar="none" data-reader-ready="true" data-position-resolving="false" data-playing="false" data-fullscreen="false" data-reader-controls="visible" data-compare-active="false" data-desktop-paging="true" data-desktop-view="read" data-desktop-panel="none" data-voice-surface="read" data-voice-version="v2" data-chrome-version="v2" data-transport="closed" data-super-menu="closed" data-super-sheet="closed" style="--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.3; --lab-line-height: 1.48;">
@@ -86,7 +40,8 @@
 <script src="vendor/pdfjs/pdf.min.js"></script>
 <script src="js/tinct-api.js"></script>
 <script src="js/epub.js"></script>
-<script src="js/reader.js"></script>
-<script type="module" src="js/start.js?v=20261008rel7"></script>
+<script src="js/add-engine.js?v=20261008rel8"></script>
+<script src="js/reader.js?v=20261008rel8"></script>
+<script type="module" src="js/start.js?v=20261008rel8"></script>
 </body>
 </html>

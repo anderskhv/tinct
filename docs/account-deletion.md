@@ -63,8 +63,9 @@ treat it as empty instead of failing.
 `r2.userBooks` lists the reader's own uploaded PDF/EPUB files (id, file name,
 title, author, type, size, upload date) from the private `tinct-user-books`
 bucket. It does not contain the files themselves. If the reader asks for the
-files, they can download each one from the Add-a-book page while signed in
-(`/lab/addbook/`, "Your books").
+files, they can open each one from My shelf in the library while signed in
+(`/library#my-shelf`, "My private uploads"), which downloads the account copy
+to that device.
 
 `r2.profileImages` lists the reader's stored profile pictures and backgrounds
 (uploads and the copied Google photo, keys `profile/<id>/…` in the same private

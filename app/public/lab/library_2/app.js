@@ -4,18 +4,18 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261008rel7';
-import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261008rel7';
+import {mountBookshelf} from './bookshelf.js?v=20261008rel8';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261008rel8';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel7';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel8';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel7';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel7';
-import {librarySearch} from './library-search.js?v=20261008rel7';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel8';
+import {librarySearch} from './library-search.js?v=20261008rel8';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -133,7 +133,7 @@ function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden
 const tinctSearch=librarySearch(searchPool);
 export function filterBooks(query){return String(query||'').trim()?tinctSearch.filter(query):books.slice();}
 const foundLabel=n=>`${n} ${n===1?'book':'books'} found`;
-function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>{if(q.trim()&&addEnabled()){const rows=el('ol','tinct-list');list.forEach(book=>rows.append(tinctRow(book,{el,cover:rowCover(book),onOpen:openBook,length:readingTime(book),query:q})));box.append(rows);return;}list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});};
+function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>{if(q.trim()&&addEnabled()){const rows=el('ol','tinct-list');list.forEach(book=>rows.append(tinctRow(book,{el,cover:rowCover(book),onOpen:openBook,length:readingTime(book),query:q,otherTitles:tinctSearch.titlesFor(book.id)})));box.append(rows);return;}list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});};
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
  // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them,
  // and counts the "Not yet in Tinct" rows too once they are drawn (every book the panel lists).
@@ -457,16 +457,47 @@ function selectCollection(value){const fromHome=collectionChoice==='home';const 
 async function removeFromMyShelf(id){
  try{
   const api=await readingApi();
-  const result=await api.setSavedBook(id,false);
+  // Off My shelf, with the desk's fast-paint snapshot (so a refresh cannot paint it back), for every kind of book.
+  const result=await (api.removeFromShelf?api.removeFromShelf(id):api.setSavedBook(id,false));
   receiveSaved(result.ids);
-  const table=window.__library2Reading;
-  if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
-  dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
+  dropFromReading(id);
   renderMyBooks();
   if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
  }catch{notice('Your shelf could not be saved. Please try again.');}
 }
 let ownShelf=null,ownShelfLoading=null;
+/** Forget the listed own books (their covers, places and membership changed) and list them again. */
+function refreshOwnShelf(change){if(ownShelf&&change)ownShelf=change(ownShelf);ownShelfLoading=null;if(collectionChoice==='saved')renderMyBooks();void loadOwnShelf();}
+/** Drop a book from the desk's lists here and tell the desk (bookshelf.js reloads the account's). */
+function dropFromReading(id){
+ const table=window.__library2Reading;
+ if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
+ dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
+}
+/** An own book's × under Currently reading: off Currently reading, as the desk's × does (its place is kept; it stays in My private uploads). */
+async function removeOwnFromReading(book){
+ const id=ownTableId(book.key);
+ try{const api=await readingApi();await api.hideFromReadingNow(id);dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null}:own));}
+ catch{notice('Your shelf could not be saved. Please try again.');}
+}
+/** An own book's × under My private uploads: confirmed, then Add a book's own delete (this device and the account). */
+async function deleteOwnBook(book,from){
+ if(!await confirmDeleteUpload(book,{from}))return;
+ try{
+  const gone=await deleteUpload(book);
+  if(!gone)notice('Removed from this device, but not from your account. Try again.');
+  dropFromReading(ownTableId(book.key));refreshOwnShelf(list=>list.filter(own=>own.key!==book.key));
+ }catch{notice('This book could not be removed. Please try again.');}
+}
+/** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
+function readingRowCard(row){
+ const card=el('article','collection-card');card.dataset.shelfGroup='reading';card.dataset.rowBook=row.bookId;
+ const wrap=el('div','card-wrap');const open=el('button','book-card cover-button');open.type='button';open.setAttribute('aria-label',`Open ${row.title}${row.author?', by '+row.author:''}`);
+ if(row.cover){const img=el('img','cover');img.src=row.cover;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
+ open.onclick=async()=>{document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination({id:row.bookId},null),new Promise(r=>setTimeout(r,240))]);location.assign(href);};
+ const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=row.title;x.setAttribute('aria-label','Remove from My shelf: '+row.title);x.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(row.bookId);};
+ wrap.append(open,x);card.append(wrap,el('h2','',row.title),el('p','',row.author||''));return card;
+}
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 function renderMyBooks(){
  $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
@@ -492,14 +523,22 @@ function renderMyBooks(){
    card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);
   });
  });
- // Your own books: this account's PDFs and EPUBs from Add a book, then the + tile.
+ // A book being read that the library's list does not hold yet (an added book before the catalogue
+ // arrives): its own card from the reading row, with the same × as the others.
+ reading.filter(r=>!r.own&&!byId(r.bookId)).forEach(row=>{const after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop();const card=readingRowCard(row);if(after)after.after(card);else{const head=el('h2','my-books-head','Currently reading');grid.prepend(head);head.after(card);}total++;});
+ // My private uploads: this account's PDFs and EPUBs. Adding one is the + beside My shelf's heading.
+ syncShelfAdd(document.querySelector('#collection>header'),()=>setSearch(true));
  if(addEnabled()){
   if(ownShelf===null)void loadOwnShelf();
-  total+=appendOwnShelf(grid,ownShelf||[],el,()=>setSearch(true));
+  // The reading table's own rows carry each cover at full size (read fresh with the table).
+  const covers=new Map(reading.filter(r=>r.own&&r.cover).map(r=>[r.bookId,r.cover]));
+  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,onRemoveReading:book=>void removeOwnFromReading(book),onDelete:(book,from)=>void deleteOwnBook(book,from)});
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
+// Back from a book (the page restored as it was left): its cover or place may have changed since.
+addEventListener('pageshow',event=>{if(event.persisted){ownShelf=null;ownShelfLoading=null;}});
 // Signed in or out on this page (the reading bridge's library2:auth): Add to Tinct appears or goes without a reload.
 addEventListener('library2:auth',()=>{syncAccountButton();resetAddAccess();syncSearchAddFile($('search-add-file'));syncLibraryAdd($('library-add'));ownShelf=null;ownShelfLoading=null;if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice==='saved')renderMyBooks();});
 function collectionCard(book){
@@ -510,6 +549,7 @@ function collectionCard(book){
 function renderCollection(){
  const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
  if(kind==='saved'){renderMyBooks();return;}
+ const shelfAdd=document.querySelector('#collection .shelf-add');if(shelfAdd)shelfAdd.hidden=true;
  if(kind==='credits'){$('collection-title').textContent='Image credits';const grid=$('collection-books');grid.classList.remove('has-collection-reels');$('collection-empty').hidden=true;void renderImageCredits(grid).catch(()=>{grid.textContent='Image credits could not load. Please try again.';});return;}
  if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}
  if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
@@ -626,3 +666,6 @@ registerCommands({
 const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;if(commandsEnabled)$('search-toggle').before(commandsButton);
 // Back from sign-in after a signed-out Add (/library?add=<work id>): the add continues once.
 {const params=new URLSearchParams(location.search),pendingAdd=params.get(ADD_PARAM);if(pendingAdd!==null){params.delete(ADD_PARAM);const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}if(addEnabled()&&document.documentElement.classList.contains('signed-in')&&/^[a-z]{2,4}:\S{1,200}$/.test(pendingAdd)){notice('Adding to Tinct…');void addWork({id:pendingAdd},null);}}}
+// /library#my-shelf (the reader's way back to your own books, and Add a book's old links): My shelf.
+function openMyShelfFromHash(){if(location.hash!=='#my-shelf')return;try{history.replaceState(history.state,'',location.pathname+location.search);}catch{}if(collectionChoice!=='saved')selectCollection('saved');}
+openMyShelfFromHash();addEventListener('hashchange',openMyShelfFromHash);

@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -7,6 +8,8 @@ import { groupSearchResults, importableWork, inTinct, REGISTRY_GUTENBERG_IDS, ti
 import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, includedWork } from '../../addbooks/site/search.js'
 // @ts-expect-error -- plain browser module of the library page
 import { createLibrarySearch } from '../public/lab/library_2/library-search.js'
+// @ts-expect-error -- plain browser module of the library page
+import { freeRowFacts, resultRow } from '../public/lab/library_2/add-to-tinct.js'
 // @ts-expect-error -- plain browser module of the library page
 import { books as starterBooks } from '../public/lab/library_2/books.js'
 import { serializePreReaderCatalogue } from './preReader/catalogue'
@@ -118,6 +121,22 @@ describe('library search: fame, own books, other titles, one row per work', () =
 
   it('"letters from a stoic", "moral epistles" and "epistulae morales ad lucilium" find the Moral Letters first', () => {
     for (const query of ['letters from a stoic', 'Letters from a Stoic', 'moral epistles', 'epistulae morales ad lucilium', 'moral letters to lucilius']) expect(ids(query)[0], query).toBe('ws:en:Q97452599')
+  })
+
+  it('"seneca letters from a stoic": the Moral Letters first, its row saying "Seneca · also known as Letters from a Stoic" (owner, 2026-10-08)', () => {
+    const query = 'seneca letters from a stoic'
+    const [first] = searchPanel().notYet(query)
+    expect(first.id).toBe('ws:en:Q97452599')
+    expect(first.title).toMatch(/^Moral letters to Lucilius/i)
+    const facts = freeRowFacts(first, query)
+    expect(facts.aka).toBe('Letters from a Stoic')
+    const el = (tag: string, cls?: string, text?: string) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e }
+    const row = resultRow({ el, facts, action: el('button'), key: 'work:' + first.id, className: 'free-row' })
+    expect(row.querySelector('.row-author')?.textContent).toBe('Seneca · also known as Letters from a Stoic')
+    // Found by its own title (or by the author alone), no "also known as".
+    expect(freeRowFacts(first, 'moral letters to lucilius').aka).toBe('')
+    expect(freeRowFacts(first, 'seneca').aka).toBe('')
+    expect(freeRowFacts(first, 'letters from a sto').aka).toBe('Letters from a Stoic')
   })
 
   it('"confessions": Tinct\'s Confessions, and no catalogue copy of it ("The Confessions of St. Augustine")', () => {

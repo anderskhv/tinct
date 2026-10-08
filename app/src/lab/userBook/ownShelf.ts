@@ -10,7 +10,7 @@
  */
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
 import { chapterProgress, conciseChapterLabel, positionLine } from '../../preReader/recapPosition'
-import { userBookId, userBookReaderUrl, USER_BOOKS_SHELF_URL } from './userBookId'
+import { ownBookOpenUrl, userBookId, userBookReaderUrl } from './userBookId'
 import type { UserBookChapter } from './userEdition'
 
 /** A cover is kept up to this many pixels wide (the reading table draws it up to ~530 px at 2x). */
@@ -134,7 +134,7 @@ function summarize(record: StoredRecord): OwnShelfBook | null {
     key, kind, hex, title, author,
     cover: typeof record.cover === 'string' && COVER_RE.test(record.cover) ? record.cover : null,
     at,
-    href: kind === 'epub' ? userBookReaderUrl(hex) : USER_BOOKS_SHELF_URL,
+    href: kind === 'epub' ? userBookReaderUrl(hex) : ownBookOpenUrl(key),
     reading: kind === 'epub' ? ownReading(hex, chapters, at) : null,
   }
 }

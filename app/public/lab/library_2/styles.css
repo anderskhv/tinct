@@ -390,14 +390,10 @@ html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pendin
 .file-box{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;border:1.5px dashed #eee7d059;border-radius:12px;padding:18px 20px;margin-top:4px}
 .file-box p{margin:0;font:17px/1.35 Georgia,serif}
 .own-cover{display:block;width:100%;aspect-ratio:2/3}.own-cover-image{object-fit:cover}
-.add-file-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;aspect-ratio:2/3;border:1.5px dashed #eee7d066;border-radius:4px;color:var(--cream);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;text-align:center;padding:12px;box-sizing:border-box}
-.add-file-tile:hover{background:#eee7d00f}
-.add-file-plus{font:300 42px/1 system-ui,sans-serif}
 .search-add-file{flex:none;color:var(--muted);text-decoration:none}
 .search-add-file:hover{color:var(--cream);background:#eee7d00f}
 .search-add-file svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
 @media(max-width:699px){.search-add-file{width:40px;height:40px}.search-add-file svg{width:20px;height:20px}}
-.add-book-tile{background:none;cursor:pointer;-webkit-appearance:none;appearance:none}
 @media(max-width:699px){.free-add{padding:7px 14px}.file-box{padding:14px 16px}.file-box p{font-size:15px}}
 /* Search filters (add-to-tinct.js): chips in the scene-pill style (.room-preview), under the search field. */
 .search-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
@@ -432,7 +428,15 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 /* The top bar's + beside search (Add to Tinct only): the add-a-book flow. */
 #header nav .library-add{margin-left:-16px;color:var(--cream)}
 @media(max-width:699px){#header nav .library-add{margin-left:-4px;width:40px;height:40px}#header nav .library-add svg{width:20px;height:20px}}
-/* "Your own book": Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/.tui-btn); no local styles. */
+/* "Your own book": Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/.tui-btn/.tui-check);
+   only the adding step's status line and hairline (as an Add row's) are drawn here. */
+.own-file-status{display:flex;align-items:center;gap:10px}
+.own-file-progress{display:block;height:2px;margin:4px 0 14px;border-radius:2px;background:var(--tui-line,#eee7d02e);overflow:hidden}
+.own-file-progress i{display:block;height:100%;background:var(--tui-ink,var(--cream));transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s ease}
+.own-file-note:empty{display:none}
+/* My shelf's + beside its heading (Add to Tinct only): the same pop-up as the top bar's +. */
+#collection>header .shelf-add{margin:0 auto 0 -6px;color:var(--cream)}
+#collection>header .shelf-add[hidden]{display:none}
 /* Search layout (approved 2026-10-08): rows in both groups, details in place, the author card, the search close ×. */
 .search-close{flex:none;margin-left:-12px;font:30px/1 system-ui,sans-serif;color:var(--cream)}
 .tinct-list,.author-slot,.search-empty,.author-card{grid-column:1/-1;min-width:0}
@@ -473,4 +477,8 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 .author-work{border:1px solid #eee7d040;border-radius:999px;padding:7px 13px;min-height:34px;font:14px/1.3 Georgia,serif;color:var(--cream);background:none;cursor:pointer;text-align:left}
 .author-work:hover{background:#eee7d014}
 @media(max-width:699px){.search-close{margin-left:-8px;width:40px;height:40px;font-size:28px}.row-title{font-size:15px}.row-author{font-size:12px}.result-row{column-gap:10px}.tinct-open{padding:7px 14px}.source-pill{padding:2px 7px;font-size:10.5px}.row-cover,.row-cover .cover{width:32px}.tinct-row .row-details{padding-left:0}.tinct-row{grid-template-columns:minmax(0,1fr) auto}.tinct-row>.row-pills{grid-column:1;grid-row:2;justify-content:flex-start;margin:-4px 0 10px;padding-left:46px}.tinct-row>.tinct-open{grid-column:2}.row-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.author-card{padding:14px}.author-portrait{width:48px;height:48px}.author-name{font-size:22px}.author-work{font-size:13px;padding:6px 11px}}
-.row-includes{color:#eee7d0cc}
+.row-includes,.row-aka{color:#eee7d0cc}
+/* Books beyond the table's window (reading-table.js tableWindow) step out of sight; the dots reach them. */
+.rt-b.is-away{opacity:0;visibility:hidden;pointer-events:none;transition:transform .72s cubic-bezier(.22,.8,.24,1),opacity .3s ease,visibility 0s linear .3s}
+.rt-b:not(.is-away){transition:transform .72s cubic-bezier(.22,.8,.24,1),opacity .3s ease .15s}
+@media(max-width:899px){.reading-table.has-many .rt-stage{margin-bottom:26px}.reading-table.has-many .rt-dots{display:flex;bottom:-30px;gap:0}.reading-table.has-many .rt-dots button{padding:8px 4px}.reading-table.has-many .rt-dots button::after{width:6px;height:6px}}

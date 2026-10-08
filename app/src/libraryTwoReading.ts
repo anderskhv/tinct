@@ -609,6 +609,19 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
   return outcome
 }
 
+/**
+ * My shelf's × on a book being read or saved: off My shelf, its place kept. The viewer's
+ * fast-paint snapshot is dropped with it, so the next refresh cannot paint the book back
+ * before the account's membership is read (an added book's catalogue arrives later still).
+ */
+export async function removeFromShelf(bookId: string) {
+  const auth = await readAuth()
+  const result = await setSavedBook(bookId, false)
+  storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  lastRows.delete(bookId)
+  return result
+}
+
 /** Explicit shelf action: only a hide timestamp changes; saved places stay intact. */
 export async function hideFromReadingNow(bookId: string): Promise<void> {
   if (!bookId || bookId.length > 80) throw new Error('Invalid book')
@@ -652,4 +665,4 @@ if (supabase && typeof document !== 'undefined') {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress, addCatalogueBook }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }
