@@ -426,14 +426,4 @@ html[data-eink=true].librarian-away #librarian.tuck,html[data-eink=true].librari
 /* The top bar's + beside search (Add to Tinct only): the add-a-book flow. */
 #header nav .library-add{margin-left:-16px;color:var(--cream)}
 @media(max-width:699px){#header nav .library-add{margin-left:-4px;width:40px;height:40px}#header nav .library-add svg{width:20px;height:20px}}
-/* "Your own book": a short pop-up over the library, then the file picker (add-to-tinct.js openFileDialog). */
-.own-file-layer{position:fixed;inset:0;z-index:140;display:flex;align-items:center;justify-content:center;padding:20px;background:#05080699}
-.own-file-dialog{width:min(100%,440px);border:1px solid var(--line);border-radius:14px;background:#151b14;color:var(--cream);padding:24px 24px 20px;box-shadow:0 18px 50px #0009}
-.own-file-dialog h2{margin:0 0 10px;font:400 26px/1.2 Georgia,serif}
-.own-file-lede{margin:0 0 12px;font:17px/1.45 Georgia,serif}
-.own-file-fine{margin:0 0 20px;font:13px/1.5 system-ui,sans-serif;color:var(--muted)}
-.own-file-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
-.own-file-actions button{border-radius:999px;padding:10px 18px;font:600 14px/1 system-ui,sans-serif}
-.own-file-actions .own-file-cancel{border:1px solid #eee7d059}
-.own-file-actions .own-file-choose{background:var(--cream);color:#222b20}
-@media(max-width:699px){.own-file-layer{align-items:flex-end;padding:16px 16px max(16px,env(safe-area-inset-bottom))}.own-file-dialog{padding:20px 18px 16px}.own-file-dialog h2{font-size:23px}.own-file-lede{font-size:16px}}
+/* "Your own book": Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/.tui-btn); no local styles. */

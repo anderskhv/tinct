@@ -293,6 +293,7 @@ For non-trivial bugs:
 ## Product And UX Notes
 
 - Tinct should feel warm, literary, clean, and focused.
+- Design system: build UI from `app/public/lab/tinct-ui.css` (`tui-` classes, `--tui-*` tokens); rules in `docs/design-system.md`, live reference at `/lab/design-system.html`.
 - Anders prefers faithful previews of the actual result. Before presenting a
   faithful design preview, inspect the current phone and desktop components,
   styles and relevant state; preserve their surrounding copy, controls and
