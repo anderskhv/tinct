@@ -2688,6 +2688,10 @@
 .lab-book-switcher {
   width: min(390px, calc(100vw - 32px));
   max-height: min(68vh, 560px);
+  /* Head and the Library row stay put; only the book list scrolls, so the
+     way back to the library is visible however many books are listed. */
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--lab-border);
   border-radius: 18px;
@@ -2717,7 +2721,8 @@
   cursor: pointer;
 }
 .lab-book-switcher-head button:hover { background: var(--lab-surface); }
-.lab-book-switcher-list { max-height: min(58vh, 480px); overflow-y: auto; padding: 0 8px 10px; overscroll-behavior: contain; }
+.lab-book-switcher-head, .lab-book-switcher-library { flex: none; }
+.lab-book-switcher-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 8px 10px; overscroll-behavior: contain; }
 .lab-book-switcher-row {
   width: 100%;
   min-height: 60px;
@@ -2750,7 +2755,6 @@
 @media (max-width: 700px) {
   .lab-book-switcher-backdrop { align-items: flex-end; padding: 16px 10px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(14, 12, 10, 0.24); }
   .lab-book-switcher { width: 100%; max-height: min(72vh, 620px); border-radius: 20px; }
-  .lab-book-switcher-list { max-height: min(62vh, 530px); }
 }
 
 .lab-header-chapter {
