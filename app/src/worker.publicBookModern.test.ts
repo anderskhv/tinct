@@ -17,6 +17,8 @@ import {
   nextChunk,
   publicProgress,
   writtenRanges,
+  echoesSource,
+  xaiModernGenerator,
   MODERN_TIERS,
   modernStep,
   modernTierCents,
@@ -564,8 +566,10 @@ describe('generation', () => {
     const src = ['one two three four five six seven eight nine ten eleven twelve thirteen', 'b']
     expect(validChunk(src, ['x'])).toBeNull()
     expect(validChunk(src, ['one two', 'b'])).toBeNull()
-    expect(validChunk(src, [src[0], ''])).toBeNull()
-    expect(validChunk(src, [src[0], 'B <i>'])).toEqual([src[0], 'B i'])
+    expect(validChunk(src, [`[m] ${src[0]}`, ''])).toBeNull()
+    // Tags are stripped (the long paragraph is rewritten: the source handed back is an echo, see below).
+    expect(validChunk(src, [`[m] ${src[0]}`, 'B <i>'])).toEqual([`[m] ${src[0]}`, 'B i'])
+    expect(validChunk(src, [src[0], 'B <i>'])).toBeNull()
   })
 
   it('retries a failed chapter and leaves it in the original text after MAX_ATTEMPTS', async () => {
@@ -820,5 +824,127 @@ describe('long chapters', () => {
       chapters: { 1: { done: 0, total: 126, ranges: [], startsIn: null, eta: null }, 2: { done: 0, total: 1119, ranges: [], startsIn: null, eta: null } },
       wordsPerMinute: null,
     })
+  })
+})
+
+// ===== 2026-10-08: Gorgias went 'complete' with the original (Jowett) text =====
+
+describe('never the original text as Modern English', () => {
+  /** A model that hands its input back unchanged. */
+  const echo: ModernGenerator = async input => input.paragraphs
+
+  it('rejects a chunk that is mostly the source handed back; short lines may stay as they are', () => {
+    const src = [LONG[0], LONG[1], 'Yes.', 'CALLICLES: True.']
+    expect(echoesSource(src, src)).toBe(true)
+    expect(validChunk(src, src)).toBeNull()
+    expect(validChunk(src, [`[m] ${LONG[0]}`, `[m] ${LONG[1]}`, 'Yes.', 'CALLICLES: True.'])).not.toBeNull()
+    // One long paragraph of three kept word for word is not an echo of the chunk.
+    expect(echoesSource([LONG[0], LONG[1], LONG[2]], [LONG[0], 'x', 'y'])).toBe(false)
+    // Only short lines: nothing to judge.
+    expect(echoesSource(['Yes.', 'No.'], ['Yes.', 'No.'])).toBe(false)
+  })
+
+  it('a model that hands the source back never makes a chapter ready, and nothing is served as Modern English', async () => {
+    const t = setup({ generator: echo, switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    const results: string[] = []
+    for (let i = 0; i < MAX_ATTEMPTS + 2; i++) results.push(await stepOf(t, 'runner-a', echo))
+    expect(results).not.toContain('chapter-ready')
+    expect(results).not.toContain('complete')
+    expect(results).not.toContain('progress')
+    const job = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!
+    expect(job.state).toBe('failed')
+    expect(job.ranges).toBeUndefined()
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.json`)).toBe(false)
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.part.json`)).toBe(false)
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(false)
+    const data = await edition(t)
+    expect(data.modern.complete).toBe(false)
+    expect(data.modern.chapters[3]).toBeUndefined()
+    expect(data.modern.written[3]).toBeUndefined()
+  })
+
+  it('asks the model with the source under its own key, and never takes the source handed back for an answer', async () => {
+    const bodies: string[] = []
+    const reply = (content: unknown) => (async (_url: string | URL | Request, init?: RequestInit) => {
+      bodies.push(String(init?.body))
+      return Response.json({ choices: [{ message: { content: JSON.stringify(content) } }] })
+    }) as typeof fetch
+    const input = { title: 'Gorgias', author: 'Plato', chapterTitle: 'Gorgias', paragraphs: [LONG[0]] }
+    expect(await xaiModernGenerator('k', { fetchImpl: reply({ source: [LONG[0]] }) })(input)).toBeNull()
+    expect(await xaiModernGenerator('k', { fetchImpl: reply({ paragraphs: ['[m]'] }) })(input)).toEqual(['[m]'])
+    const user = JSON.parse(bodies[0]).messages[1].content as string
+    expect(user).toContain(JSON.stringify({ source: [LONG[0]] }))
+    expect(user).not.toContain('{"paragraphs"')
+  })
+
+  /** A paid job as the pipeline left it before the check: every chapter ready, the whole edition written. */
+  async function finishedBefore(t: ReturnType<typeof setup>, text: (p: string) => string) {
+    useLong(t)
+    await grantQuiet(t)
+    for (const c of longSource()) {
+      await t.r2.bucket.put(`public-books/${BOOK}/modern-en/ch-${c.number}.json`, JSON.stringify({ number: c.number, title: c.title, paragraphs: c.paragraphs.map(text) }))
+    }
+    await t.r2.bucket.put(`public-books/${BOOK}/modern-en.json`, JSON.stringify({ chapters: longSource().map(c => ({ ...c, paragraphs: c.paragraphs.map(text) })) }))
+    await t.r2.bucket.delete(`public-books/modern-jobs/${BOOK}`)
+    await updateJob(t.r2.bucket, BOOK, job => {
+      if (!job) return null
+      const { audit: _audit, ...legacy } = job
+      return { ...legacy, completedAt: t.clock.t, chapters: job.chapters.map(c => ({ ...c, state: 'ready' as const })) }
+    })
+  }
+
+  it('an edition already finished with the source text is discarded on first read and written again', async () => {
+    const t = setup({ switchOn: false })
+    await finishedBefore(t, p => p)
+    // Gorgias: the status said complete and the whole object was the original.
+    const status = await t.status()
+    expect(status.state).toBe('paid')
+    expect(Object.values(status.chapters)).toEqual(['queued', 'queued', 'queued', 'queued', 'queued'])
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(false)
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.json`)).toBe(false)
+    expect(t.r2.objects.has(`public-books/modern-jobs/${BOOK}`)).toBe(true)
+    const data = await edition(t)
+    expect(data.modern.complete).toBe(false)
+    // Written again, for real, by the cron.
+    const ticking = { t: t.clock.t + LEASE_MS + 1 }
+    t.env.PUBLIC_BOOK_MODERN_EDITIONS = '1'
+    for (let i = 0; i < 5 && (await t.status()).state !== 'complete'; i++) await runModernEditionJobs(t.env, { budgetMs: 60_000, generator: modernise, now: () => ticking.t++ })
+    expect((await t.status()).state).toBe('complete')
+    const whole = await edition(t)
+    expect(whole.chapters.every(c => c.paragraphs.every(p => p.startsWith('[m] ')))).toBe(true)
+  })
+
+  it('the finished object itself is checked before it is served', async () => {
+    const t = setup({ switchOn: false })
+    await finishedBefore(t, p => p)
+    const data = await edition(t)
+    expect(data.modern?.complete).toBe(false)
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(false)
+  })
+
+  it('a genuine edition finished before the check is kept, and checked only once', async () => {
+    const t = setup({ switchOn: false })
+    await finishedBefore(t, p => `[m] ${p}`)
+    expect((await t.status()).state).toBe('complete')
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(true)
+    expect((await readJob(t.r2.bucket, BOOK))!.job.audit).toBe(1)
+  })
+
+  it('a part file holding the source handed back is discarded too', async () => {
+    const t = setup({ switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await t.r2.bucket.put(`public-books/${BOOK}/modern-en/ch-3.part.json`, JSON.stringify({ paragraphs: LONG.slice(0, 20) }))
+    await updateJob(t.r2.bucket, BOOK, job => {
+      if (!job) return null
+      const { audit: _audit, ...legacy } = job
+      return { ...legacy, chapters: job.chapters.map(c => c.number === 3 ? { ...c, ranges: [[0, 20]] as Array<[number, number]> } : c) }
+    })
+    await t.status()
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.part.json`)).toBe(false)
+    expect((await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!.ranges).toBeUndefined()
   })
 })
