@@ -19,6 +19,8 @@ export interface UseVoiceSessionOptions {
   bookId: string
   bookTitle: string
   bookAuthor: string
+  /** An essay collection or anthology: who wrote the current chapter (companion/authorship.ts). */
+  authorship?: VoiceReaderContext['authorship']
   editionKey?: string
   editionLabel?: string
   chapterNumber: number
@@ -131,6 +133,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       bookId: opts.bookId,
       bookTitle: opts.bookTitle,
       bookAuthor: opts.bookAuthor,
+      ...(opts.authorship ? { authorship: opts.authorship } : {}),
       editionKey: opts.editionKey,
       editionLabel: opts.editionLabel,
       chapterNumber: opts.chapterNumber,

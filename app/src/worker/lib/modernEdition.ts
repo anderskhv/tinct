@@ -317,7 +317,13 @@ export async function releaseHold(bucket: R2Like, bookId: string, holdId: string
   await bucket.delete(jobKey(bookId))
 }
 
-export interface SourceChapter { number: number; title: string; paragraphs: string[] }
+export interface SourceChapter {
+  number: number
+  title: string
+  paragraphs: string[]
+  /** The chapter's own writer in an essay collection (types/index.ts Chapter.author); carried into Modern English. */
+  author?: string
+}
 
 /**
  * One step of work on a book: claim the next chapter, write one chunk, save
@@ -349,7 +355,7 @@ export async function modernStep(
     chunk = nextChunk(chapter.paragraphs, part.length)
     if (chunk.length) {
       let raw: unknown = null
-      try { raw = await input.generate({ title: input.title, author: input.author, chapterTitle: chapter.title, paragraphs: chunk }) } catch { raw = null }
+      try { raw = await input.generate({ title: input.title, author: chapter.author || input.author, chapterTitle: chapter.title, paragraphs: chunk }) } catch { raw = null }
       output = validChunk(chunk, raw)
     } else {
       output = []
@@ -386,9 +392,9 @@ async function finishEdition(bucket: R2Like, bookId: string, source: SourceChapt
   for (const c of source) {
     const ready = await readJson<SourceChapter>(bucket, chapterKey(bookId, c.number))
     if (!ready) return
-    chapters.push({ number: c.number, title: c.title, paragraphs: ready.value.paragraphs })
+    chapters.push({ ...c, paragraphs: ready.value.paragraphs })
   }
-  await bucket.put(wholeKey(bookId), JSON.stringify({ chapters }), JSON_META)
+  await bucket.put(wholeKey(bookId), JSON.stringify({ chapters, ...(chapters.some(c => c.author) ? { collection: true } : {}) }), JSON_META)
   await updateJob(bucket, bookId, job => job && !job.completedAt ? { ...job, completedAt: now, updatedAt: now } : null)
   await bucket.delete(markerKey(bookId))
 }
@@ -398,10 +404,10 @@ async function finishEdition(bucket: R2Like, bookId: string, source: SourceChapt
  * rest in the original text (same paragraph count, so a reading place carries
  * over when a chapter is swapped in), with each chapter's state.
  */
-export async function assembleEdition(bucket: R2Like, bookId: string, original: SourceChapter[], job: ModernJob | null, now: number): Promise<{ chapters: SourceChapter[]; modern: { complete: boolean; chapters: Record<string, PublicChapterState> } }> {
+export async function assembleEdition(bucket: R2Like, bookId: string, original: SourceChapter[], job: ModernJob | null, now: number, collection = false): Promise<{ chapters: SourceChapter[]; collection?: true; modern: { complete: boolean; chapters: Record<string, PublicChapterState> } }> {
   const states = publicChapterStates(job, now)
   const chapters = await Promise.all(original.map(c => assembleChapter(bucket, bookId, c, states[c.number])))
-  return { chapters, modern: { complete: jobComplete(job), chapters: states } }
+  return { chapters, ...(collection ? { collection: true as const } : {}), modern: { complete: jobComplete(job), chapters: states } }
 }
 
 /**
@@ -412,5 +418,5 @@ export async function assembleEdition(bucket: R2Like, bookId: string, original: 
 export async function assembleChapter(bucket: R2Like, bookId: string, c: SourceChapter, state: PublicChapterState | undefined): Promise<SourceChapter> {
   if (state !== 'ready') return c
   const ready = await readJson<SourceChapter>(bucket, chapterKey(bookId, c.number))
-  return ready && ready.value.paragraphs.length === c.paragraphs.length ? { number: c.number, title: c.title, paragraphs: ready.value.paragraphs } : c
+  return ready && ready.value.paragraphs.length === c.paragraphs.length ? { ...c, paragraphs: ready.value.paragraphs } : c
 }

@@ -12,6 +12,7 @@ import {
   handlePublicBooks,
   handlePublicEditionData,
   parseChapters,
+  publicCollection,
   runPublicCoverJobs,
   upsertIndexEntry,
   type PublicBooksDeps,
@@ -400,6 +401,26 @@ describe('verification against the downloaded EPUB', () => {
     expect(parseChapters({ chapters: [{ title: 'x', paragraphs: [1] }] })).toBeNull()
     expect(parseChapters({ chapters: [{ title: 'x', paragraphs: ['a'.repeat(60_001)] }] })).toBeNull()
     expect(parseChapters({ chapters: [{ title: '<b>x</b>', paragraphs: ['<img src=x>y'] }] })).toEqual([{ number: 1, title: 'bx/b', paragraphs: ['img src=xy'] }])
+  })
+
+  it('publishes a chapter’s own writer only when the source names them, and marks a collection', () => {
+    const parsed = parseChapters({ chapters: [
+      { title: 'Chapter One', paragraphs: PARAGRAPHS[0], author: ' <i>Jo</i>   Smith ' },
+      { title: 'Chapter Two', paragraphs: ['x'], author: 42 },
+    ] })!
+    expect(parsed[0].author).toBe('iJo/i Smith')
+    expect(parsed[1]).not.toHaveProperty('author')
+    const source = letters(`${PARAGRAPHS[0].join(' ')} by Ann Lee`)
+    const checked = verifyEditionAgainstSource([
+      { number: 1, title: 'Chapter One', paragraphs: PARAGRAPHS[0], author: 'Ann Lee' },
+      { number: 2, title: 'Chapter One', paragraphs: PARAGRAPHS[0], author: 'Someone Invented' },
+    ], source)!
+    expect(checked.chapters.map(chapter => chapter.author)).toEqual(['Ann Lee', undefined])
+    expect(publicCollection({ authors: [{ name: 'Sam Kuypers' }] }, checked.chapters)).toBe(true)
+    expect(publicCollection({ authors: [{ name: 'Sam Kuypers' }] }, [{ number: 1, title: 'x', paragraphs: [] }])).toBe(false)
+    expect(publicCollection({ authors: [{ name: 'Karl Marx' }, { name: 'Friedrich Engels' }] }, [])).toBe(false)
+    expect(publicCollection({ authors: [{ name: 'A B' }, { name: 'C D' }, { name: 'E F' }] }, [])).toBe(true)
+    expect(publicCollection({ authors: [{ name: 'Various' }] }, [])).toBe(true)
   })
 })
 

@@ -25,6 +25,7 @@ function chapterList(edition: UserBookEdition): LabSource['chapters'] {
       title: item.title,
       wordCount: item.paragraphs.join(' ').split(/\s+/).filter(Boolean).length,
       paragraphCount: item.paragraphs.length,
+      ...(item.author ? { author: item.author } : {}),
     }))
     chapterLists.set(edition, list)
   }
@@ -74,6 +75,7 @@ export function userBookLabSource(bookId: string, edition: UserBookEdition, chap
     editions: list,
     bookTitle: edition.title,
     bookAuthor: edition.author,
+    ...(edition.collection || edition.chapters.some(item => item.author) ? { collection: true as const } : {}),
     editionLabel: list[0].label,
     chapterLabel: chapter.title,
     chapterTitle: chapter.title,

@@ -8,8 +8,8 @@ export const USER_EDITION_CONVERTER = 5
 /** The general paragraph kinds every edition may carry (types/index.ts). */
 export type UserBookParagraphKind = ParagraphKind
 
-/** A chapter exactly as a built-in edition's chapter JSON has it: text, kinds, links and figures. */
-export type UserBookChapter = Pick<Chapter, 'number' | 'title' | 'paragraphs' | 'kinds' | 'links' | 'figures'>
+/** A chapter exactly as a built-in edition's chapter JSON has it: text, kinds, links, figures and its own writer. */
+export type UserBookChapter = Pick<Chapter, 'number' | 'title' | 'paragraphs' | 'kinds' | 'links' | 'figures' | 'author'>
 
 export interface UserBookEdition {
   format: typeof USER_EDITION_FORMAT
@@ -18,6 +18,15 @@ export interface UserBookEdition {
   /** The book's subtitle from its metadata, if it names one. */
   subtitle?: string
   author: string
+  /** Writing by several authors (an essay collection, an anthology): see `EditionData.collection`. */
+  collection?: true
+  /**
+   * Chapter bylines were read at conversion. An older conversion without it
+   * is healed from its stored text (chapterAuthors.ts healChapterAuthors), never
+   * converted again for them: converting again can change its chapters and so
+   * move a reader's place.
+   */
+  bylines?: true
   /** The book's own language tag (`dc:language`), possibly empty. */
   language: string
   chapters: UserBookChapter[]

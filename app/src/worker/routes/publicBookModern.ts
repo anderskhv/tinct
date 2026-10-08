@@ -158,7 +158,7 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
   const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
   if (!modernEligible(meta)) return
   let source: Promise<Array<{ number: number; title: string; paragraphs: string[] }>> | null = null
-  const loadSource = () => source ??= readJson<{ chapters: Array<{ number: number; title: string; paragraphs: string[] }> }>(bucket, editionObjectKey(bookId, meta.editionKey)).then(data => data?.chapters ?? [])
+  const loadSource = () => source ??= readJson<{ chapters: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)).then(data => data?.chapters ?? [])
   const worker = async () => {
     let failures = 0
     while (now() < options.deadline) {
@@ -435,9 +435,9 @@ export async function serveModernEdition(request: Request, env: ModernEnv, bookI
   const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
   const job = (await readJob(bucket, bookId))?.job ?? null
   if (!modernEligible(meta) || job?.state !== 'paid') return reply({ error: 'Not found' }, 404, request)
-  const original = await readJson<{ chapters: Array<{ number: number; title: string; paragraphs: string[] }> }>(bucket, editionObjectKey(bookId, meta.editionKey))
+  const original = await readJson<{ chapters: SourceChapter[]; collection?: boolean }>(bucket, editionObjectKey(bookId, meta.editionKey))
   if (!original?.chapters?.length) return reply({ error: 'Not found' }, 404, request)
-  return new Response(JSON.stringify(await assembleEdition(bucket, bookId, original.chapters, job, now)), { status: 200, headers: headers('no-store') })
+  return new Response(JSON.stringify(await assembleEdition(bucket, bookId, original.chapters, job, now, original.collection === true)), { status: 200, headers: headers('no-store') })
 }
 
 /**

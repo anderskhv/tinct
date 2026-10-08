@@ -121,7 +121,13 @@ export async function epubSourceLetters(bytes: Uint8Array): Promise<string> {
   return pieces.join('')
 }
 
-export interface EditionChapterInput { number: number; title: string; paragraphs: string[] }
+export interface EditionChapterInput {
+  number: number
+  title: string
+  paragraphs: string[]
+  /** The chapter's own writer (an essay collection's byline), kept only when the source names them. */
+  author?: string
+}
 
 export interface VerifiedEdition {
   chapters: EditionChapterInput[]
@@ -169,7 +175,10 @@ export function verifyEditionAgainstSource(chapters: EditionChapterInput[], sour
     const generated = /^section \d+$/i.test(chapter.title.trim())
     const title = !titleLetters || generated || source.includes(titleLetters) ? chapter.title : `Section ${out.length + 1}`
     if (title !== chapter.title) renamed++
-    if (kept.length) out.push({ number: out.length + 1, title, paragraphs: kept })
+    // A chapter's writer is published only as the source names them (its byline, its contents entry).
+    const authorLetters = chapter.author ? letters(chapter.author) : ''
+    const author = authorLetters.length >= 4 && source.includes(authorLetters) ? chapter.author : undefined
+    if (kept.length) out.push({ number: out.length + 1, title, paragraphs: kept, ...(author ? { author } : {}) })
   }
   if (!out.length) return null
   return { chapters: out, checkedParagraphs: checked, removedParagraphs: removed, renamedChapters: renamed }

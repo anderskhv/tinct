@@ -229,6 +229,19 @@ export async function downloadEpub(source: string, url: string, fetchImpl: typeo
 
 // ===== The uploaded conversion =====
 
+const CHAPTER_AUTHOR_CHARS = 120
+
+/**
+ * Writing by several authors: a chapter names its own writer, or the catalogue
+ * credits three or more people, "Various", or an editor. A chapter without a
+ * byline is then by an unnamed writer, never the book's credit (EditionData.collection).
+ */
+export function publicCollection(work: Pick<CatalogueWork, 'authors'>, chapters: EditionChapterInput[]): boolean {
+  const names = (work.authors || []).map(person => person.name?.trim()).filter(Boolean) as string[]
+  return chapters.some(chapter => chapter.author) || names.length >= 3
+    || names.some(name => /^various( authors)?$/i.test(name) || /\(eds?\.?\)$|,\s*eds?\.?$|\beditor\b/i.test(name))
+}
+
 /** The chapters the browser sent, if they have the converter's shape and fit the limits. */
 export function parseChapters(value: unknown): EditionChapterInput[] | null {
   const chapters = (value as { chapters?: unknown } | null)?.chapters
@@ -236,13 +249,15 @@ export function parseChapters(value: unknown): EditionChapterInput[] | null {
   let total = 0
   const out: EditionChapterInput[] = []
   for (const chapter of chapters) {
-    const c = chapter as { title?: unknown; paragraphs?: unknown }
+    const c = chapter as { title?: unknown; paragraphs?: unknown; author?: unknown }
     if (typeof c?.title !== 'string' || !Array.isArray(c.paragraphs) || c.paragraphs.length > LIMITS.paragraphsPerChapter) return null
     if (c.paragraphs.some(p => typeof p !== 'string' || p.length > LIMITS.paragraphChars)) return null
     total += c.paragraphs.length
     if (total > LIMITS.totalParagraphs) return null
     // Text only: the reader renders paragraphs as text, but nothing tag-like is kept either way.
-    out.push({ number: out.length + 1, title: c.title.replace(/[<>]/g, '').slice(0, LIMITS.titleChars), paragraphs: (c.paragraphs as string[]).map(p => p.replace(/[<>]/g, '')) })
+    // A chapter's own writer (an essay collection's byline): a short name, checked against the source like titles.
+    const author = typeof c.author === 'string' ? c.author.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, CHAPTER_AUTHOR_CHARS) : ''
+    out.push({ number: out.length + 1, title: c.title.replace(/[<>]/g, '').slice(0, LIMITS.titleChars), paragraphs: (c.paragraphs as string[]).map(p => p.replace(/[<>]/g, '')), ...(author ? { author } : {}) })
   }
   return out
 }
@@ -450,7 +465,7 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   // and an older converter's upload is held to the same rule (public/lab/printed-contents.js).
   const verified = { ...checked, chapters: normalizeChapterTitles(dropPrintedContents(checked.chapters), { language: publicEditionKey(work).slice('original-'.length) }) }
   const { book, entry, editionKey } = publicRecords({ bookId, work, chapters: verified.chapters, classification, addedAt, catalogueIndex: 100_000 + (index?.books?.length ?? 0) })
-  const editionData = { chapters: verified.chapters }
+  const editionData = { chapters: verified.chapters, ...(publicCollection(work, verified.chapters) ? { collection: true } : {}) }
   await bucket.put(editionObjectKey(bookId, editionKey), JSON.stringify(editionData), { httpMetadata: { contentType: 'application/json' } })
   const meta: StoredMeta = { version: 1, book, entry, editionKey, sha256: stagedObject.customMetadata?.sha256 || '', classification, verification: { checked: verified.checkedParagraphs, removed: verified.removedParagraphs, renamed: verified.renamedChapters } }
   await bucket.put(metaKey(bookId), JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
