@@ -27,7 +27,7 @@ for(const engine of [chromium,webkit]){
    await page.addInitScript(()=>{
     if(sessionStorage.getItem('cross-seeded'))return
     sessionStorage.setItem('cross-seeded','1')
-    localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:1.3,theme:'book',compareOpen:false}))
+    localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:1.3,fontSizeExplicit:true,theme:'book',compareOpen:false}))
     sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',savedPlace:{bookId:'bible',chapterNumber:595,paragraphIndex:0,wordIndex:0,page:0}}))
    })
    await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})

@@ -46,7 +46,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     return route.continue()
   })
   await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({theme: fixture.theme, fontSize:fixture.fontSize, primaryEdition:edition}))
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({theme: fixture.theme, fontSize:fixture.fontSize, fontSizeExplicit:true, primaryEdition:edition}))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
     if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })

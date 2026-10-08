@@ -34,7 +34,7 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
  })
  await page.addInitScript(({chapter,paragraph}) => {
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'bsb-en',savedPlace:{bookId:'bible',chapterNumber:chapter,paragraphIndex:paragraph,wordIndex:0,page:0}}))
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'dark',fontFamily:'garamond',fontSize:1.2,alignment:'justify',alignmentExplicit:true}))
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'dark',fontFamily:'garamond',fontSize:1.2,fontSizeExplicit:true,alignment:'justify',alignmentExplicit:true}))
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices) navigator.mediaDevices.getUserMedia=async()=>{throw Error('Microphone disabled')}
  },{chapter,paragraph})

@@ -66,7 +66,7 @@ for(const config of configs){
   await p.addInitScript(({config,highlight})=>{
    if(sessionStorage.getItem('chapter-preview-seeded'))return
    sessionStorage.setItem('chapter-preview-seeded','1')
-   localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:config.fontSize,theme:config.theme,compareOpen:false}))
+   localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:config.fontSize,fontSizeExplicit:true,theme:config.theme,compareOpen:false}))
    sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',...(config.compare?{compareEditionKey:'web-en'}:{}),savedPlace:{bookId:'bible',chapterNumber:config.chapter,paragraphIndex:0,wordIndex:0,page:0}}))
    localStorage.setItem('tinct-lab-highlights',JSON.stringify([highlight]))
   },{config,highlight})

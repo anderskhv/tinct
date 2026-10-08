@@ -40,7 +40,7 @@ async function main() {
       await page.addInitScript(() => {
         if (localStorage.getItem('feedback-fixture')) return
         localStorage.setItem('feedback-fixture', '1')
-        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ fontFamily: 'garamond', fontSize: 1.3, theme: 'dark', compareOpen: true }))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ fontFamily: 'garamond', fontSize: 1.3, fontSizeExplicit: true, theme: 'dark', compareOpen: true }))
         sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'the-republic', primaryEditionKey: 'original-en', savedPlace: { bookId: 'the-republic', chapterNumber: 1, paragraphIndex: 0, page: 0 } }))
       })
       await page.goto(origin + '/reader')

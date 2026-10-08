@@ -32,7 +32,7 @@ for(const {fontSize,chapter,height} of [
  const note=JSON.stringify([{id:'spread-note',bookId:'bible',editionKey:'web-en',chapterNumber:chapter,paragraphIndex:0,fromWord:1,endParagraphIndex:0,toWord:3,color:'blue',note:'Preserve exactly: æ — 123.',text:'fixture'}]);
  await context.addInitScript(({chapter,fontSize,note})=>{
   HTMLMediaElement.prototype.play=async()=>{};if(sessionStorage.getItem('spread-seeded'))return;sessionStorage.setItem('spread-seeded','1');
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize,theme:'dark',compareOpen:false}));
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize,fontSizeExplicit:true,theme:'dark',compareOpen:false}));
   localStorage.setItem('tinct-lab-highlights',note);
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:chapter,paragraphIndex:0,wordIndex:0,page:0}}));
  },{chapter,fontSize,note});
@@ -80,7 +80,7 @@ for(const {fontSize,chapter,height} of [
  const context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height:813}});
  if(built)await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));return f.startsWith(path.resolve('dist')+'/')&&fs.existsSync(f)&&fs.statSync(f).isFile()?r.fulfill({path:f}):r.fulfill({status:404,body:'{}'});});
  await context.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}));await context.route('**/*supabase.co/**',r=>r.abort());
- await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});
+ await context.addInitScript(()=>{HTMLMediaElement.prototype.play=async()=>{};localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark'}));sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'to-the-lighthouse',primaryEditionKey:'original-en',savedPlace:{bookId:'to-the-lighthouse',chapterNumber:1,paragraphIndex:3,wordIndex:145,page:0}}));});
  const p=await context.newPage();await p.goto(origin+'/reader');await ready(p);
  await p.screenshot({path:path.join(out,engine.name()+'-lighthouse.png')});
  const evidence=await p.evaluate(()=>{
