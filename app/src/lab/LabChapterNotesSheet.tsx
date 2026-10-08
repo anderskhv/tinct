@@ -5,6 +5,7 @@ import { RowIcon } from './LabSuperMenu.tsx'
 import { CopyIcon } from '../components/reader/SelectionPopup'
 import { useReaderWindow } from './useReaderWindow'
 import { LabBalanceEmptyLine } from './LabAiUsageBar'
+import { LAB_COPY } from './labCopy'
 import './labCatchUp.css'
 
 export interface LabChapterNotesSheetProps {
@@ -29,6 +30,8 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   // Refused at zero (402 allowance_used, only while the AI allowance is on).
   const [allowanceUsed, setAllowanceUsed] = useState(false)
+  // The daily AI ceiling or a provider limit (503 ai_resting): said above Retry.
+  const [resting, setResting] = useState(false)
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
   const mounted = useRef(true)
   // Set on every mount: React's development double mount runs the cleanup once.
@@ -58,7 +61,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
     setState('loading')
     void fetchChapterNotes(request, { readToken }).then(result => {
       if (!mounted.current) return
-      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setState('error') }
+      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setState('error') }
     })
   }, [request, readToken])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -89,6 +92,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
                 {allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-chapter-notes-balance" />}
+                {resting && <p className="lab-catch-up-balance" data-testid="lab-chapter-notes-resting">{LAB_COPY.aiResting}</p>}
                 <button type="button" className="lab-catch-up-retry" data-testid="lab-chapter-notes-retry" onClick={load}>Retry</button>
               </li>
             ) : [0, 1, 2].map(index => (

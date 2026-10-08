@@ -8,6 +8,7 @@ import { LabCatchUpSheet } from './LabCatchUpSheet'
 import { CATCH_UP_CONCURRENCY, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
 import { CATCH_UP_ROUTE } from '../catchUp'
 import { LAB_RECAP_ROUTE } from '../recapSummary'
+import { LAB_COPY } from './labCopy'
 
 const chapters = Array.from({ length: 64 }, (_, i) => ({ number: i + 1, title: `Chapter ${i + 1}` }))
 
@@ -124,6 +125,17 @@ describe('LabCatchUpSheet', () => {
     await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-retry').length).toBeGreaterThan(0), slow)
     await new Promise(resolve => setTimeout(resolve, 30))
     expect(calls.length).toBeLessThanOrEqual(CATCH_UP_CONCURRENCY)
+  })
+
+  it('a resting AI (503 ai_resting) says so above Retry, in the existing copy; any other failure is Retry alone', async () => {
+    stubFetch(call => call.body.unitId === 'ch-59'
+      ? { status: 503, body: { type: 'error', error: { type: 'ai_resting', message: 'AI is resting — try again later.' } } }
+      : { status: 404, body: { error: 'Chapter not available' } })
+    renderSheet()
+    const resting = await screen.findByTestId('lab-catch-up-resting', {}, slow)
+    expect(resting.textContent).toBe(LAB_COPY.aiResting)
+    await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-retry').length).toBe(screen.getAllByTestId('lab-catch-up-entry').length), slow)
+    expect(screen.getAllByTestId('lab-catch-up-resting')).toHaveLength(1)
   })
 
   it('the Bible: only the biblical book the reader is in; earlier books are never asked for', async () => {

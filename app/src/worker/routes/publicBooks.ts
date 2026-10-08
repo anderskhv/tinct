@@ -539,6 +539,28 @@ export async function handlePublicEditionData(request: Request, env: PublicBooks
   return new Response(object.body, { status: 200, headers: headers(request, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300' }) })
 }
 
+/**
+ * The asset binding as the Worker's own book routes see it: an added book's
+ * edition (`/data/editions/pd-…`) comes from R2 through
+ * handlePublicEditionData, exactly as the reader loads it; everything else
+ * from the static assets. `env.ASSETS.fetch` alone never reaches a Worker
+ * route, so server-side readers of book text (Primer and chapter notes,
+ * Recap, Catch me up, Prepare, the companion's read_chapter / find_in_book)
+ * take their binding from here, or an added book has no text for them.
+ */
+export function bookAssets(env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'> & { ASSETS?: PublicBooksEnv['ASSETS'] }): PublicBooksEnv['ASSETS'] {
+  return {
+    fetch: async (request: Request) => {
+      if (new URL(request.url).pathname.startsWith('/data/editions/pd-')) {
+        const edition = await handlePublicEditionData(new Request(request.url), env as PublicBooksEnv)
+        if (edition) return edition
+      }
+      if (!env.ASSETS) return new Response('Not found', { status: 404 })
+      return env.ASSETS.fetch(request)
+    },
+  }
+}
+
 type EditionChapter = { number: number; title: string; paragraphs: string[] }
 
 /** A chapter of an edition file by number, as narration has always picked it (the n-th entry if no number matches). */

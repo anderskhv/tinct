@@ -29,6 +29,7 @@ import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/li
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, type ChatUserBlock } from '../lib/chatImages'
+import { bookAssets } from './publicBooks'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -36,6 +37,9 @@ export type ChatEnv = SupabaseEnv & {
   RATE_LIMIT?: KVNamespace
   /** Static assets; present in production, optional so older tests keep working. */
   ASSETS?: AssetsBinding
+  /** Added (`pd-`) books' editions live here (publicBooks.ts bookAssets). */
+  PUBLIC_BOOKS?: R2Bucket
+  AUDIO_BUCKET?: R2Bucket
 }
 
 type VerifiedUser = { id: string; email: string }
@@ -1022,7 +1026,7 @@ async function handleBookGroundedChat(input: {
 }): Promise<Response> {
   const { request, env, ctx } = input
   const retrieval = createBookRetrieval({
-    assets: env.ASSETS as AssetsBinding,
+    assets: bookAssets(env),
     origin: new URL(request.url).origin,
     book: input.book,
     trailChapters: input.trailChapters,

@@ -8,6 +8,7 @@ import { isUsableRecapSummary } from '../recapSummary'
 import { requestLabRecapSummary } from '../preReader/recapSummaryClient'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 import { allowanceAuthHeaders, isAllowanceUsedResponse } from './labAiAllowance'
+import { AI_RESTING_ERROR_TYPE, labChatErrorType } from './labCompanion'
 
 /** Requests in flight at once. The oldest entries go first, in reading order. */
 export const CATCH_UP_CONCURRENCY = 3
@@ -21,8 +22,9 @@ export type CatchUpEntryResult =
   /**
    * `empty`: nothing to summarise there yet; the sheet leaves the entry out instead of offering Retry.
    * `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on).
+   * `resting`: the daily AI ceiling or a provider limit (503 `ai_resting`); the entry says so above Retry.
    */
-  | { ok: false; status: number; empty?: boolean; allowanceUsed?: true }
+  | { ok: false; status: number; empty?: boolean; allowanceUsed?: true; resting?: true }
 
 type FetchLike = (input: string, init: RequestInit) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>
 
@@ -52,6 +54,13 @@ function remember(entry: CatchUpEntry, summary: string): void {
   memory.set(catchUpMemoryKey(entry), summary)
 }
 
+/** Why a refused entry was refused, read from its (still unread) body. */
+async function refusal(response: Awaited<ReturnType<FetchLike>>): Promise<CatchUpEntryResult> {
+  if (await isAllowanceUsedResponse(response)) return { ok: false, status: response.status, allowanceUsed: true }
+  if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
+  return { ok: false, status: response.status }
+}
+
 /**
  * One entry. A passed unit (or the passed part of the current one) goes to
  * `/api/lab-catch-up`; the current chapter through the reader's paragraph goes
@@ -68,7 +77,7 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
     if (!result.ok) {
       if (result.empty) return { ok: false, status, empty: true }
       // A refused recap's body is still unread (requestLabRecapSummary reads only a 2xx).
-      return seen.response && await isAllowanceUsedResponse(seen.response) ? { ok: false, status, allowanceUsed: true } : { ok: false, status }
+      return seen.response ? await refusal(seen.response) : { ok: false, status }
     }
     remember(entry, result.response.summary)
     return { ok: true, summary: result.response.summary }
@@ -79,7 +88,7 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
       headers: { 'Content-Type': 'application/json', ...allowanceAuthHeaders(options.token), ...internalTrafficHeaders() },
       body: JSON.stringify(entry.request),
     })
-    if (!response.ok) return await isAllowanceUsedResponse(response) ? { ok: false, status: response.status, allowanceUsed: true } : { ok: false, status: response.status }
+    if (!response.ok) return await refusal(response)
     const data = await response.json() as Partial<CatchUpResponse> | null
     const summary = typeof data?.summary === 'string' ? data.summary.trim() : ''
     if (data?.empty === true || (summary && !isUsableRecapSummary(summary))) return { ok: false, status: response.status, empty: true }
