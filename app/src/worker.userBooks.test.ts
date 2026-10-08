@@ -273,3 +273,80 @@ describe('/api/user-books', () => {
     expect(encodeMeta('a\u0000b\nc', 50)).toBe('a%20b%20c')
   })
 })
+
+describe('/api/user-books/places', () => {
+  const put = (call: ReturnType<typeof setup>['call'], token: string, hex: string, body: unknown) =>
+    call(`/api/user-books/places/${hex}`, { method: 'PUT', token, body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
+  const place = (chapterNumber: number, updatedAt = 1_000) => ({ chapterNumber, paragraphIndex: 4, wordIndex: 2, updatedAt, percent: 13.27 })
+
+  async function withBook() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', epubBytes(), { Title: 'Private title' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+
+  it('keeps one versioned place per owned book, in the owner\'s prefix, without the title', async () => {
+    const { r2, call, hex } = await withBook()
+    const first = await put(call, 'token-a', hex, { place: place(3), rev: 0 })
+    expect(first.status).toBe(200)
+    expect(await first.json()).toEqual({ place: { ...place(3), percent: 13.3, rev: 1 } })
+    const second = await put(call, 'token-a', hex, { place: place(4, 2_000), rev: 1 })
+    expect((await second.json() as { place: { rev: number } }).place.rev).toBe(2)
+    const listed = await (await call('/api/user-books/places', { token: 'token-a' })).json()
+    expect(listed).toEqual({ places: { [hex]: { ...place(4, 2_000), percent: 13.3, rev: 2 } } })
+    const key = `u/${A}/places/${hex}`
+    expect(r2.objects.get(key)?.bytes.byteLength).toBe(0)
+    expect(JSON.stringify(r2.objects.get(key)?.customMetadata)).not.toContain('Private')
+    // The book list is unchanged by places beside it.
+    const books = await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }
+    expect(books.books).toHaveLength(1)
+  })
+
+  it('keeps the conversion rules a place was read under, and drops a malformed one', async () => {
+    const { call, hex } = await withBook()
+    await put(call, 'token-a', hex, { place: { ...place(3), converter: 6 }, rev: 0 })
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: { [hex]: { ...place(3), percent: 13.3, converter: 6, rev: 1 } } })
+    await put(call, 'token-a', hex, { place: { ...place(4, 2_000), converter: 'six' }, rev: 1 })
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: { [hex]: { ...place(4, 2_000), percent: 13.3, rev: 2 } } })
+  })
+
+  it('refuses a stale revision with the stored place, and a lost conditional put the same way', async () => {
+    const { r2, call, hex } = await withBook()
+    await put(call, 'token-a', hex, { place: place(3), rev: 0 })
+    const stale = await put(call, 'token-a', hex, { place: place(1, 5_000), rev: 0 })
+    expect(stale.status).toBe(409)
+    expect(await stale.json()).toEqual({ error: 'conflict', place: { ...place(3), percent: 13.3, rev: 1 } })
+    // Another write landing between the read and the put: the etag no longer matches.
+    const original = r2.bucket.head.bind(r2.bucket)
+    let raced = false
+    ;(r2.bucket as unknown as { head: typeof original }).head = async key => {
+      const head = await original(key)
+      if (!raced && key.includes('/places/')) { raced = true; await r2.bucket.put(key, '', { customMetadata: { ...head!.customMetadata, chapterNumber: '9', rev: '2' } }) }
+      return head
+    }
+    const lost = await put(call, 'token-a', hex, { place: place(5, 6_000), rev: 1 })
+    expect(lost.status).toBe(409)
+    expect((await lost.json() as { place: { chapterNumber: number; rev: number } }).place).toMatchObject({ chapterNumber: 9, rev: 2 })
+  })
+
+  it('has no place for a book the account does not own, another account\'s, or a malformed one', async () => {
+    const { call, hex } = await withBook()
+    expect((await put(call, 'token-b', hex, { place: place(3), rev: 0 })).status).toBe(404)
+    expect((await put(call, 'token-a', 'f'.repeat(24), { place: place(3), rev: 0 })).status).toBe(404)
+    expect((await put(call, 'token-a', 'nothex', { place: place(3), rev: 0 })).status).toBe(404)
+    expect((await put(call, 'token-a', hex, { place: { ...place(3), chapterNumber: 0 }, rev: 0 })).status).toBe(400)
+    expect((await put(call, 'token-a', hex, { place: place(3) })).status).toBe(400)
+    expect((await call(`/api/user-books/places/${hex}`, { method: 'PUT', token: 'token-a', body: 'nope' })).status).toBe(400)
+    expect((await call(`/api/user-books/places/${hex}`, { method: 'PUT', body: '{}' })).status).toBe(401)
+    expect((await call('/api/user-books/places', { method: 'POST', token: 'token-a' })).status).toBe(405)
+    expect(await (await call('/api/user-books/places', { token: 'token-b' })).json()).toEqual({ places: {} })
+  })
+
+  it('deletes the place with the book', async () => {
+    const { r2, call, book, hex } = await withBook()
+    await put(call, 'token-a', hex, { place: place(3), rev: 0 })
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/places/${hex}`)).toBe(false)
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: {} })
+  })
+})

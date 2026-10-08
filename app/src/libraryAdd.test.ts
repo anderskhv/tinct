@@ -86,7 +86,7 @@ describe('importWork (the browser half of Add)', () => {
 })
 
 describe('ownBooks (My shelf: Your own books)', () => {
-  it('lists the account copies (this device has no IndexedDB here), newest first, each opening by its own key (a PDF in Add a book\'s PDF reader, never the old start page)', async () => {
+  it('lists the account copies (this device has no IndexedDB here), newest first, each opening by its own key (an EPUB in the reader, which downloads it; a PDF in Add a book\'s PDF reader, never the old start page)', async () => {
     session.current = { access_token: 'tok' }
     const { ownBooks } = await import('./libraryAdd')
     const fetchImpl = (async () => Response.json({ books: [
@@ -96,7 +96,7 @@ describe('ownBooks (My shelf: Your own books)', () => {
     ] })) as unknown as typeof fetch
     const list = await ownBooks(fetchImpl)
     expect(list.map(b => [b.title, b.kind, b.href, b.readingAt])).toEqual([
-      ['My novel', 'epub', '/lab/addbook/?userBook=' + 'b'.repeat(24), null],
+      ['My novel', 'epub', '/reader?userBook=' + 'b'.repeat(24), null],
       ['Lecture notes', 'pdf', '/lab/addbook/?userBook=' + 'a'.repeat(24), null],
     ])
   })

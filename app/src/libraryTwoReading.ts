@@ -41,6 +41,7 @@ import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryMod
 import { conciseChapterLabel } from './preReader/recapPosition'
 import { hideOwnFromReadingTable, ownReadingNow, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
 import { isUserBookId, userBookHex, userBookReaderUrl } from './lab/userBook/userBookId'
+import { ownShelfWithAccount } from './lab/userBook/ownSync'
 
 interface CatalogueBook {
   id: string
@@ -76,7 +77,8 @@ export interface ReadingTableBook {
   recap: string | null
   /**
    * A reader's own book (`userbook-<hex>`, userBook/ownShelf.ts): read from this
-   * device only, its cover a data: URL kept on it, never sent anywhere.
+   * device and the reader's private account copies and places (userBook/ownSync.ts),
+   * its cover a data: URL kept on this device, never sent anywhere.
    */
   own?: boolean
   /** When the reader last read it: own books and Tinct's share one order. */
@@ -364,8 +366,10 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   // Independent account reads start together; reconcile every mirror before
   // deriving the shelf, so slower memory/completion reads cannot paint stale data.
   const membershipReady = loadShelfMembership()
-  // The reader's own books being read (this device only), shelved with Tinct's.
-  const ownReady = auth.userId ? readOwnShelf(auth.userId).catch(() => [] as OwnShelfBook[]) : Promise.resolve([] as OwnShelfBook[])
+  // The reader's own books being read, shelved with Tinct's: this device's, and
+  // the account's private copies and places (a book read on another device;
+  // one removed there leaves here), userBook/ownSync.ts.
+  const ownReady = auth.userId ? ownShelfWithAccount(auth.userId, { token: auth.token }).catch(() => readOwnShelf(auth.userId).catch(() => [] as OwnShelfBook[])) : Promise.resolve([] as OwnShelfBook[])
   const positionsReady = loadPositions(auth, warmArtwork)
   const memoryReady = loadRecap({
     auth: readAuth,

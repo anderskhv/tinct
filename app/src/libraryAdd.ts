@@ -10,12 +10,13 @@
  *
  * Your own books: the files Add a book keeps on this device (IndexedDB
  * `tinct-addbook`, this account's records only) and in the account
- * (`/api/user-books`), listed for My shelf. Nothing is uploaded here.
+ * (`/api/user-books`), listed for My shelf, with the places read on the
+ * account's other devices (`/api/user-books/places`). Nothing is uploaded here.
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
-import { ownBookOpenUrl } from './lab/userBook/userBookId'
-import { readOwnShelf } from './lab/userBook/ownShelf'
+import type { OwnShelfBook } from './lab/userBook/ownShelf'
+import { ownShelfWithAccount } from './lab/userBook/ownSync'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
 
@@ -130,35 +131,28 @@ export interface OwnBook {
   cover: string | null
   /** Last opened (or added) on this device or in the account. */
   at: number
-  /** The reader has a saved place in it on this device: it is being read. */
+  /** The reader has a saved place in it (on this device, or read on another device of the account): it is being read. */
   readingAt: number | null
+  /** How far through it the reader is (0–100), when known. */
+  percent: number | null
   href: string
 }
 
-/** This account's own books, this device's first, then the account's copies not on it. */
+const ownBook = (book: OwnShelfBook): OwnBook => ({
+  key: book.key, kind: book.kind, title: book.title, author: book.author, cover: book.cover, at: book.at,
+  readingAt: book.reading?.lastActiveAt ?? null, percent: book.reading?.percent ?? null, href: book.href,
+})
+
+/**
+ * This account's own books, this device's first, then the account's copies
+ * not on it. The account's list is read first: a book removed on another
+ * device leaves this device too, and places read on other devices are taken
+ * (userBook/ownSync.ts), so Currently reading and its progress match there.
+ */
 export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook[]> {
   const owner = readCachedSupabaseUser()?.id
   if (!owner) return []
-  const out: OwnBook[] = []
-  const here = new Set<string>()
-  for (const book of await readOwnShelf(owner)) {
-    here.add(book.key)
-    out.push({ key: book.key, kind: book.kind, title: book.title, author: book.author, cover: book.cover, at: book.at, readingAt: book.reading?.lastActiveAt ?? null, href: book.href })
-  }
-  const auth = await token()
-  if (auth) {
-    try {
-      const response = await fetchImpl('/api/user-books', { headers: { Authorization: `Bearer ${auth}` } })
-      const data = response.ok ? await response.json() as { books?: Array<{ type: 'pdf' | 'epub'; sha256?: string; title?: string; name?: string; author?: string; createdAt?: string }> } : { books: [] }
-      for (const book of data.books ?? []) {
-        const key = `${book.type}:${String(book.sha256 || '').slice(0, 24)}`
-        if (!book.sha256 || here.has(key)) continue
-        here.add(key)
-        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', cover: null, at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: ownBookOpenUrl(String(book.sha256).slice(0, 24)) })
-      }
-    } catch { /* this device's books still show */ }
-  }
-  return out.sort((a, b) => b.at - a.at)
+  return (await ownShelfWithAccount(owner, { token: await token(), fetchImpl })).map(ownBook)
 }
 
 /**

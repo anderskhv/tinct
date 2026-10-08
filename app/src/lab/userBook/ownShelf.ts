@@ -71,7 +71,7 @@ interface StoredRecord {
   edition?: { title?: unknown; author?: unknown; chapters?: unknown } | null
 }
 
-interface RawPlace { chapterNumber?: unknown; paragraphIndex?: unknown; wordIndex?: unknown; updatedAt?: unknown }
+interface RawPlace { chapterNumber?: unknown; paragraphIndex?: unknown; wordIndex?: unknown; updatedAt?: unknown; percent?: unknown }
 
 function readJson<T>(key: string): T | null {
   try { return JSON.parse(localStorage.getItem(key) || 'null') as T | null } catch { return null }
@@ -79,7 +79,29 @@ function readJson<T>(key: string): T | null {
 
 const words = (text: string) => text.split(/\s+/).filter(Boolean).length
 
-/** The place, chapter and progress of an EPUB with a saved place; null when it has none. */
+/** Whole-book progress (0–100) at a place, by words; null when the chapters have no words. */
+export function placePercent(chapters: readonly UserBookChapter[], place: { chapterNumber: number; paragraphIndex: number; wordIndex: number }): number | null {
+  const list = chapters.filter(chapter => chapter && Array.isArray(chapter.paragraphs))
+  const at = list.findIndex(chapter => chapter.number === place.chapterNumber)
+  let total = 0
+  let before = 0
+  list.forEach((item, index) => {
+    item.paragraphs.forEach((paragraph, p) => {
+      const count = words(paragraph)
+      total += count
+      if (at < 0) return
+      if (index < at || (index === at && p < place.paragraphIndex)) before += count
+      else if (index === at && p === place.paragraphIndex) before += Math.min(place.wordIndex, count)
+    })
+  })
+  return total > 0 && at >= 0 ? Math.max(0, Math.min(100, (before / total) * 100)) : null
+}
+
+/**
+ * The place, chapter and progress of an EPUB with a saved place; null when it
+ * has none. Without the text on this device (a book read on another device of
+ * the account), the progress is the percent that device kept with the place.
+ */
 export function ownReading(hex: string, chapters: UserBookChapter[] | null, openedAt: number, read: (key: string) => unknown = readJson): OwnShelfReading | null {
   const raw = read(PLACE_PREFIX + hex) as RawPlace | null
   if (!raw || typeof raw !== 'object') return null
@@ -93,21 +115,13 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
     // The text is not on this device (or the place is outside it): the book opens at its start.
     const first = list[0]
     const label = first?.title || ''
-    return { bookId, chapterNumber: first?.number ?? 1, chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : null, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt }
+    const kept = !list.length && typeof raw.percent === 'number' && Number.isFinite(raw.percent) ? Math.max(0, Math.min(100, raw.percent)) : null
+    return { bookId, chapterNumber: first?.number ?? (Number.isInteger(raw.chapterNumber) ? raw.chapterNumber as number : 1), chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : kept, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt }
   }
   const chapter = list[at]
   const paragraphIndex = Number.isInteger(raw.paragraphIndex) ? Math.max(0, Math.min(chapter.paragraphs.length - 1, raw.paragraphIndex as number)) : 0
   const wordIndex = Number.isInteger(raw.wordIndex) ? Math.max(0, raw.wordIndex as number) : 0
-  let total = 0
-  let before = 0
-  list.forEach((item, index) => {
-    item.paragraphs.forEach((paragraph, p) => {
-      const count = words(paragraph)
-      total += count
-      if (index < at || (index === at && p < paragraphIndex)) before += count
-      else if (index === at && p === paragraphIndex) before += Math.min(wordIndex, count)
-    })
-  })
+  const total = list.reduce((sum, item) => sum + item.paragraphs.reduce((n, p) => n + words(p), 0), 0)
   const label = chapter.title || ''
   const progress = chapterProgress({ paragraphIndex, paragraphCount: chapter.paragraphs.length, finished: false })
   return {
@@ -115,7 +129,7 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
     chapterNumber: chapter.number,
     chapterLabel: label,
     headline: label ? positionLine(progress, conciseChapterLabel(label)) : '',
-    percent: total > 0 ? Math.max(0, Math.min(100, (before / total) * 100)) : null,
+    percent: placePercent(list, { chapterNumber: chapter.number, paragraphIndex, wordIndex }),
     wordCount: total > 0 ? total : null,
     lastActiveAt: updatedAt,
   }
@@ -219,6 +233,61 @@ export async function readOwnShelf(owner: string | null | undefined): Promise<Ow
   } catch {
     return []
   }
+}
+
+/**
+ * Forget, on this device, this account's books that were saved to the account
+ * (a record with a `cloudId`) and are no longer in it: removed on another
+ * device. `inAccount` holds the keys (`epub:<hex>`, `pdf:<hex>`) of the
+ * account's list, read just now. A record never saved to the account (kept
+ * here only, or its copy still being sent) is kept. The kept file, its
+ * conversion, its place and its reading-table mark go. Returns the keys forgotten.
+ */
+export async function forgetRemovedOwnBooks(owner: string | null | undefined, inAccount: ReadonlySet<string>): Promise<string[]> {
+  if (!owner || typeof indexedDB === 'undefined') return []
+  try {
+    const list = await (indexedDB as IDBFactory & { databases?: () => Promise<Array<{ name?: string }>> }).databases?.()
+    if (list && !list.some(db => db.name === ADD_BOOK_IDB_NAME)) return []
+  } catch { /* older browsers: open below */ }
+  let gone: string[] = []
+  try {
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open(ADD_BOOK_IDB_NAME, 1)
+      request.onupgradeneeded = () => { if (!request.result.objectStoreNames.contains('books')) request.result.createObjectStore('books', { keyPath: 'key' }) }
+      request.onsuccess = () => resolve(request.result)
+      request.onerror = () => reject(request.error)
+    })
+    try {
+      gone = await new Promise<string[]>((resolve, reject) => {
+        const removed: string[] = []
+        const tx = db.transaction('books', 'readwrite')
+        const request = tx.objectStore('books').openCursor()
+        request.onsuccess = () => {
+          const cursor = request.result
+          if (!cursor) return
+          const record = cursor.value as StoredRecord & { cloudId?: unknown }
+          const key = typeof record?.key === 'string' ? record.key : ''
+          if (record && record.owner === owner && typeof record.cloudId === 'string' && record.cloudId && /^(epub|pdf):/.test(key) && !inAccount.has(key)) {
+            cursor.delete()
+            removed.push(key)
+          }
+          cursor.continue()
+        }
+        tx.oncomplete = () => resolve(removed)
+        tx.onerror = () => reject(tx.error)
+        tx.onabort = () => reject(tx.error)
+      })
+    } finally { db.close() }
+  } catch {
+    return []
+  }
+  for (const key of gone) {
+    const hex = key.slice(key.indexOf(':') + 1)
+    for (const item of [PLACE_PREFIX + hex, PDF_PLACE_PREFIX + hex, OWN_TABLE_HIDDEN_PREFIX + hex]) {
+      try { localStorage.removeItem(item) } catch { /* private */ }
+    }
+  }
+  return gone
 }
 
 /** Own books being read (EPUBs and PDFs), most recently read first. */

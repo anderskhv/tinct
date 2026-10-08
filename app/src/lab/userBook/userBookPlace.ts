@@ -58,6 +58,16 @@ export function storedPlaceConverter(hex: string): number | null | undefined {
   }
 }
 
+/**
+ * Keep a new place, with the conversion rules it was read under (`converter`).
+ * The account revision this device last saw for the book (`rev`, ownSync.ts)
+ * stays with it, so saving it to the account names that revision.
+ */
 export function writeUserBookPlace(hex: string, place: UserBookPlace): void {
-  try { localStorage.setItem(PLACE_PREFIX + hex, JSON.stringify(place)) } catch { /* full or private */ }
+  try {
+    let rev: unknown
+    try { rev = (JSON.parse(localStorage.getItem(PLACE_PREFIX + hex) || 'null') as { rev?: unknown } | null)?.rev } catch { rev = undefined }
+    const { chapterNumber, paragraphIndex, wordIndex, updatedAt, converter } = place
+    localStorage.setItem(PLACE_PREFIX + hex, JSON.stringify({ chapterNumber, paragraphIndex, wordIndex, updatedAt, ...(typeof converter === 'number' ? { converter } : {}), ...(Number.isInteger(rev) ? { rev } : {}) }))
+  } catch { /* full or private */ }
 }

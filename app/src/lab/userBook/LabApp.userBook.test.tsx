@@ -8,7 +8,7 @@ import { loadLabBookSource } from '../labSource'
 import { loadChapterText } from '../../readingMemory'
 import type { UserBookEdition } from './userEdition'
 import { userBookId } from './userBookId'
-import { readUserBookPlace } from './userBookPlace'
+import { readUserBookPlace, writeUserBookPlace } from './userBookPlace'
 import { UserBookReader } from './UserBookReader'
 import { fetchNarrationPilotInfo, OWN_BOOK_NARRATION_UNAVAILABLE } from '../labNarration'
 import { USER_BOOK_CHAPTER_CHARS, USER_BOOK_PASSAGE_CHARS, chapterWindow, passageWindow } from './userBookContext'
@@ -25,6 +25,10 @@ vi.mock('../labNarration', async importOriginal => ({
   initialNarrationPilotInfo: () => null,
   fetchNarrationPilotInfo: vi.fn(async () => ({ enabled: false, provider: 'google', voices: [] })),
 }))
+
+// Saving a place to the reader's private account copy (ownSync.ts, tested there): watched here.
+const ownSync = vi.hoisted(() => ({ note: vi.fn(), flush: vi.fn() }))
+vi.mock('./ownSync', async importOriginal => ({ ...await importOriginal<typeof import('./ownSync')>(), noteOwnPlace: ownSync.note, flushOwnPlaces: ownSync.flush }))
 
 const HEX = 'ab12cd34ef56ab12cd34ef56'
 const BOOK_ID = userBookId(HEX)
@@ -143,6 +147,32 @@ describe('a user book in the Tinct reader', () => {
     // The account's position record never holds a user book.
     expect(Object.keys(readLabPositionLocal().books)).toEqual([])
     expect(requests.filter(request => /userbook|\/data\/|lab-position|narration|catalogue/.test(request.url))).toEqual([])
+  })
+
+  it('hands each place it keeps to the account sync (its private copy), and sends what waits when the page is hidden', async () => {
+    ownSync.note.mockClear(); ownSync.flush.mockClear()
+    const book = loaded({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={book} />)
+    const root = screen.getByTestId('lab-root')
+    for (let i = 0; i < 10 && root.getAttribute('data-chapter') !== '2'; i++) {
+      const next = screen.queryByTestId('lab-page-next')
+      if (next) fireEvent.click(next)
+      else fireEvent.keyDown(document.body, { key: 'ArrowRight' })
+      await new Promise(resolve => setTimeout(resolve, 0))
+    }
+    await waitFor(() => expect(readUserBookPlace(HEX, edition())?.chapterNumber).toBe(2))
+    expect(ownSync.note).toHaveBeenCalledWith(HEX, book.edition.chapters)
+    Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'hidden' })
+    document.dispatchEvent(new Event('visibilitychange'))
+    Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'visible' })
+    await waitFor(() => expect(ownSync.flush).toHaveBeenCalled())
+  })
+
+  it('opened without a saved place, joins Currently reading from its start, a mark never sent to the account', async () => {
+    ownSync.note.mockClear()
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
+    await waitFor(() => expect(JSON.parse(localStorage.getItem(`tinct-addbook:place:${HEX}`) || 'null')).toEqual({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 0 }))
+    expect(ownSync.note).not.toHaveBeenCalled()
   })
 
   it('asks the companion with the chapter text and without the book id', async () => {
@@ -309,6 +339,18 @@ describe('UserBookReader', () => {
     const forward = vi.fn()
     render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} forward={forward} />)
     await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
+  })
+
+  it('opens at the place read later on another device of the account, taken before the first page is drawn', async () => {
+    const reconcile = vi.fn(async (hex: string) => { writeUserBookPlace(hex, { chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, updatedAt: 9_000 }) })
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: { ...loaded({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }), images: new Map() } })} reconcile={reconcile} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+    expect(reconcile).toHaveBeenCalledWith(HEX, expect.objectContaining({ hex: HEX }))
+  })
+
+  it('opens at this device\'s place when the account cannot be asked', async () => {
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: { ...loaded({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 }), images: new Map() } })} reconcile={async () => { throw new Error('offline') }} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
   })
 
   it('opens the reader once the book is ready', async () => {
