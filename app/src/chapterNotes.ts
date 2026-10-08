@@ -17,11 +17,13 @@ export type ChapterNotesKind = 'sofar' | 'end' | 'primer'
  * the old prompt are never served again; the other kinds keep their caches.
  * 2026-10-07: `end` v2 adds one text-grounded observation per beat, v3 is the
  * tested prompt on Sonnet; `primer` v2 is two beats on Sonnet (no "And").
+ * 2026-10-08: `primer` v3 prepares the reader (why the chapter is interesting,
+ * what to expect, what to watch for), at most one line on what came before.
  */
 export const CHAPTER_NOTES_PROMPT_VERSIONS: Readonly<Record<ChapterNotesKind, string>> = Object.freeze({
   sofar: 'notes-v1',
   end: 'notes-v3',
-  primer: 'notes-v2',
+  primer: 'notes-v3',
 })
 export interface ChapterNotesBeat { title: string; text: string }
 

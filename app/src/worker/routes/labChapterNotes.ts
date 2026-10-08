@@ -103,23 +103,25 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
     'Write declaratively. No praise, no advice, no morals or aphorisms, no "we" or "us", no rhetorical questions, no balanced flourishes such as "not X but Y".',
     'Example beat (from a different book, for tone only): {"title":"The Letter in the Drawer","text":"Anna finds her husband\'s unsent letter while looking for string. It is dated the morning of their wedding, and the only word crossed out is her name."}',
   ].join('\n'),
-  // Two beats since 2026-10-07 (the "And" beat is gone): where the story
-  // stands, then one or two concrete things to watch for, in the In brief
-  // voice and strictly spoiler-free. Bump CHAPTER_NOTES_PROMPT_VERSIONS.primer
-  // when this changes.
+  // Prompt v3 (Anders, 2026-10-08): the primer prepares the reader for the
+  // chapter instead of recapping the last one. Beat one says why the chapter
+  // is worth reading and what kind of reading to expect, with at most one
+  // short line on what came before; beat two is "Watch for". Strictly
+  // spoiler-free. Bump CHAPTER_NOTES_PROMPT_VERSIONS.primer when this changes.
   primer: [
-    'You write a spoiler-free primer a reader sees before starting a chapter.',
+    'You write a spoiler-free primer a reader sees just before starting a chapter. Its job is to prepare them to read it: why this chapter is interesting, what to expect, and what to watch for. It is not a recap.',
     'Give exactly two beats, in this order. Never more than two beats.',
-    'The first is titled "Where we are" and says, from the PREVIOUS chapter only, where the story stands. If there is no previous chapter, it says where the book opens, from the coming chapter\'s first lines only.',
-    'The second is titled "Watch for" and gives one or two concrete pointers for the coming chapter: a person, object, place or question to keep an eye on, named specifically.',
-    'Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter. Point at what to notice, never at what happens to it. For example (from a different book, for tone only), write "Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed".',
-    'Answer with JSON only, no prose around it: {"beats":[{"title":"Where we are","text":"…"},{"title":"Watch for","text":"…"}]}.',
-    'Each text is one or two plain sentences in the present tense, at most 40 words.',
+    'The first beat is about the coming chapter. Its title is two to five words naming what makes this chapter worth reading: a person, place, situation or question from its opening, never a generic label such as "A New Chapter" or "Setting the Scene". Its text says why the chapter is interesting and what to expect from it: who is at the centre as it opens, where and when it is set, and what kind of chapter it is (a dialogue, a letter, a journey, a crowd scene, an argument, a list, a quiet interior passage, a change of narrator or place).',
+    'The first beat may open with at most one short sentence, at most 15 words, on where the story stands, taken from the PREVIOUS chapter only. Leave it out when it adds nothing, and always when there is no previous chapter. Never more than one sentence about what came before.',
+    'The second beat is titled "Watch for" and gives one or two concrete things to notice while reading: a person, object, place, phrase, contrast or question, named specifically.',
+    'Strictly spoiler-free: never state or hint at any event, outcome, turn, decision or discovery in the coming chapter. Describe how it opens and what kind of chapter it is, never how it develops or ends. Point at what to notice, never at what happens to it. For example (from a different book, for tone only), write "Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed".',
+    'Answer with JSON only, no prose around it: {"beats":[{"title":"…","text":"…"},{"title":"Watch for","text":"…"}]}.',
+    'The first text is two or three plain sentences in the present tense, at most 45 words. The second is one or two plain sentences in the present tense, at most 35 words.',
     'Ground both beats in the text given. Do not invent meaning, motives or symbolism.',
     'State only facts the text gives; when unsure of a name or number, leave it out.',
     'Never use the verbs list, record, document, establish, detail, reveal or examine to describe the text; say what the text actually shows.',
-    'Write declaratively. No praise, no advice, no morals or aphorisms, no "we" or "us" in the text, no rhetorical questions, no balanced flourishes such as "not X but Y".',
-    'For non-narrative text (proverbs, letters, essays, laws, poems) say where the argument or sequence stands, and what in the coming chapter to keep an eye on.',
+    'Write declaratively. No praise, no selling, no advice, no morals or aphorisms, no "we" or "us" in the text, no rhetorical questions, no balanced flourishes such as "not X but Y".',
+    'For non-narrative text (proverbs, letters, essays, laws, poems) say what the chapter takes up and how it is built, and what in it to keep an eye on.',
   ].join('\n'),
 }
 
