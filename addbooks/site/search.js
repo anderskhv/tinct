@@ -1,5 +1,6 @@
 // Shared by the worker and the standalone Node verification. No app dependencies.
-const STOP = new Set(['a', 'an', 'the', 'of', 'and', 'in', 'to', 'by', 'for']);
+// "on" too: "seneca on anger" finds L'Estrange's "...Benefits, Anger and Clemency" (an exact title still counts it).
+const STOP = new Set(['a', 'an', 'the', 'of', 'and', 'in', 'to', 'by', 'for', 'on']);
 // Letters NFKD does not decompose, so "Kobenhavn" finds "København" and "strasse" finds "Straße".
 const FOLD = {'ø':'o','æ':'ae','œ':'oe','ß':'ss','ł':'l','đ':'d','ð':'d','þ':'th','ı':'i'};
 // Spellings and abbreviations that mean the same name or title, applied to the index and the
@@ -54,7 +55,12 @@ export const ALT_TITLES = [
   [/^the federalist( papers)?$/, /hamilton|madison|publius|various/, ['The Federalist Papers', 'The Federalist']],
   // Seneca's letters: Penguin's selection is "Letters from a Stoic"; the Latin and the older English names.
   [/^(moral letters to lucilius|epistulae morales( ad lucilium)?|(the )?epistles of (lucius annaeus )?seneca|letters to lucilius)\b/, /seneca/,
-    ['Letters from a Stoic', 'Moral Letters to Lucilius', 'Epistulae Morales ad Lucilium', 'Moral Epistles', 'Letters to Lucilius']],
+    ['Letters from a Stoic', 'Moral Letters to Lucilius', 'Epistulae Morales ad Lucilium', 'Moral Epistles', 'Letters to Lucilius', 'Letters on Ethics']],
+  // Seneca's dialogues printed by themselves, under their English or Latin names.
+  [/^((on|of) the shortness of life|de brevitate vitae)$/, /seneca/, ['On the Shortness of Life', 'De Brevitate Vitae']],
+  [/^((on|of) anger|de ira)$/, /seneca/, ['On Anger', 'De Ira']],
+  [/^((of )?peace of mind|(on|of) (the )?tranquillity of (the )?mind|de tranquillitate animi)$/, /seneca/, ['Peace of Mind', 'On the Tranquillity of the Mind', 'De Tranquillitate Animi']],
+  [/^((on|of) (a |the )?happy life|de vita beata)$/, /seneca/, ['On the Happy Life', 'De Vita Beata']],
   [/^((the )?meditations|(the )?thoughts)( of( the emperor)? marcus( aurelius)?( antoninus)?)?$|^marcus aurelius$/, /marcus aurelius/, ['Meditations', 'To Himself']],
   [/^(on|of) the nature of things$|^de rerum natura$/, /lucretius/, ['On the Nature of Things', 'De Rerum Natura']],
   [/^(the )?city of god\b|^de civitate dei\b/, /augustin/, ['The City of God', 'De Civitate Dei']],
@@ -68,6 +74,72 @@ export const ALT_TITLES = [
   [/^(a )?discourse (on|of) (the )?method\b|^discours de la methode\b/, /descartes/, ['Discourse on the Method', 'Discours de la méthode']],
   [/^(the )?social contract$|^du contrat social\b/, /rousseau/, ['The Social Contract', 'Du contrat social']],
 ];
+/**
+ * Works printed inside a collection, from its table of contents (checked against the Gutenberg
+ * text, 2026-10-08): [title, author, [[name, Wikidata work or null, other names]]]. A query for one
+ * finds the collection (its words rank as title words) and the row says "Includes <name>"
+ * (includedWork). The Wikidata work lends its fame (sitelinks, from the work priors) to the
+ * author card's best-known works. Hand-checked; add a collection only from its own contents.
+ */
+export const CONTAINED_WORKS = [
+  // Gutenberg 64576, Aubrey Stewart (1889).
+  [/^minor dialogues\b/, /seneca/, [
+    ['On Providence', 'Q2264770', ['Of Providence', 'De Providentia']],
+    ['On the Firmness of the Wise Man', 'Q16548949', ['On Constancy', 'De Constantia Sapientis']],
+    ['On Anger', 'Q3704115', ['Of Anger', 'De Ira']],
+    ['To Marcia, On Consolation', null, ['Of Consolation to Marcia', 'Ad Marciam']],
+    ['On the Happy Life', 'Q1180753', ['Of a Happy Life', 'On a Happy Life', 'De Vita Beata']],
+    ['On Leisure', 'Q1180722', ['Of Leisure', 'De Otio']],
+    ['Peace of Mind', 'Q3704175', ['Of Peace of Mind', 'On the Tranquillity of the Mind', 'On Tranquillity of Mind', 'De Tranquillitate Animi']],
+    ['On the Shortness of Life', 'Q1180596', ['Of the Shortness of Life', 'De Brevitate Vitae']],
+    ['To Helvia, On Consolation', 'Q11862232', ['Of Consolation to Helvia', 'To Mother Helvia', 'Ad Helviam']],
+    ['To Polybius, On Consolation', 'Q2879649', ['Of Consolation to Polybius', 'Ad Polybium']],
+    ['On Clemency', null, ['Of Clemency', 'De Clementia']],
+  ]],
+  // Gutenberg 56075, Roger L'Estrange's abstract (1882): its title names its four parts (an
+  // abstract, so not under their Latin names: "de ira" finds the whole dialogue in Minor Dialogues).
+  [/^senecas morals of a happy life benefits anger and clemency$/, /seneca/, [
+    ['On the Happy Life', 'Q1180753', ['Of a Happy Life', 'On a Happy Life']],
+    ['On Benefits', null, ['Of Benefits']],
+    ['On Anger', 'Q3704115', ['Of Anger']],
+    ['On Clemency', null, ['Of Clemency']],
+  ]],
+  // Gutenberg 57999, Frank Justus Miller (1907).
+  [/^(the )?tragedies of seneca$/, /seneca/, [
+    ['Oedipus', null, []], ['Phoenissae', null, ['The Phoenician Women']], ['Medea', null, []],
+    ['Hercules Furens', null, ['Mad Hercules', 'The Madness of Hercules']], ['Phaedra', null, ['Hippolytus', 'Phaedra or Hippolytus']],
+    ['Hercules Oetaeus', null, ['Hercules on Oeta']], ['Thyestes', 'Q3990982', []], ['Troades', null, ['The Trojan Women', 'The Daughters of Troy']],
+    ['Agamemnon', 'Q15059087', []], ['Octavia', null, []],
+  ]],
+  // Gutenberg 46058, Ella Isabel Harris (1899): its subtitle names both.
+  [/^two tragedies of seneca$/, /seneca/, [['Medea', null, []], ['The Daughters of Troy', null, ['Troades', 'The Trojan Women']]]],
+];
+const ANY_CONTAINED = new RegExp(CONTAINED_WORKS.map(([titleRe]) => titleRe.source).join('|'));
+/** The works printed inside a collection: [{title, wikidata, aliases}], from its title and author names. */
+export function containedWorksFor(title, authors, norm = normalize) {
+  const t = norm(title || '');
+  if (!ANY_CONTAINED.test(t)) return [];
+  const a = norm(authors || '');
+  return CONTAINED_WORKS.filter(([titleRe, authorRe]) => titleRe.test(t) && authorRe.test(a))
+    .flatMap(entry => entry[2].map(([name, wikidata, aliases]) => ({title: name, wikidata, aliases})));
+}
+/**
+ * The work inside a collection a query asks for ("seneca on anger" in Minor Dialogues: "On Anger"),
+ * or '': every query word that is not the author's (or a stop word) is a word of one of the
+ * contained work's names (the last may be the start of one), and the collection's own title
+ * does not already hold them all.
+ */
+export function includedWork(title, authors, query) {
+  const contained = containedWorksFor(title, authors);
+  if (!contained.length) return '';
+  const author = new Set(tokens(authors || ''));
+  const terms = [...new Set(tokens(query || ''))].filter(t => !STOP.has(t) && !author.has(t));
+  if (!terms.length) return '';
+  const own = new Set(tokens(title || ''));
+  if (terms.every(t => own.has(t))) return '';
+  const holds = names => names.some(name => { const list = tokens(name); return terms.every((t, i) => list.includes(t) || (i === terms.length - 1 && t.length >= 3 && list.some(w => w.startsWith(t)))); });
+  return contained.find(work => holds([work.title, ...work.aliases]))?.title || '';
+}
 /** The curated other titles of a work, from its title and author names. */
 const ANY_ALT_TITLE = new RegExp(ALT_TITLES.map(([titleRe]) => titleRe.source).join('|'));
 export function altTitlesFor(title, authors, norm = normalize) {
@@ -209,6 +281,9 @@ const TITLE_COVER = [1, 0.75, 0.6];
 const ALIAS_TIER = 5, INDEX_TIER = 4.9;
 // A title that is exactly the query ("La divina commedia") outweighs a 300-fold popularity gap.
 const EXACT_TITLE = 2.5;
+// A work a collection holds that is exactly the query ("on the shortness of life" in Minor Dialogues):
+// less than a title of its own, so Euripides' "Medea" stays above Seneca's tragedies for "medea".
+const INSIDE_EXACT = 1.5;
 const AUTHOR_COVER = 3, VOLUME_PENALTY = 1.5;
 // For an author's name, a book several authors share (an anthology, a selection with commentary,
 // an adaptation) ranks below the author's own books.
@@ -252,8 +327,12 @@ export function createSearch(works) {
     // Each word with the best field it appears in.
     const field = new Map();
     const put = (text, f) => { for (const t of words(text)) if (!(field.get(t) <= f)) field.set(t, f); };
-    const titles = [w.title, ...w.editions.map(e => e.title), ...(w.altTitles || []), ...altTitlesFor(w.title, (w.authors || []).map(p => p.name).join(' '), norm)];
+    const names = (w.authors || []).map(p => p.name).join(' ');
+    const titles = [w.title, ...w.editions.map(e => e.title), ...(w.altTitles || []), ...altTitlesFor(w.title, names, norm)];
     titles.forEach(t => put(t, TITLE));
+    // The works a collection holds (CONTAINED_WORKS) rank as its title words.
+    const inside = containedWorksFor(w.title, names, norm).flatMap(c => [c.title, ...c.aliases]);
+    inside.forEach(t => put(t, TITLE));
     const authors = w.editions.flatMap(e => e.authors);
     authors.forEach(p => put(p.name, AUTHOR));
     w.editions.flatMap(e => e.translators).forEach(p => put(p.name, OTHER));
@@ -272,7 +351,7 @@ export function createSearch(works) {
     for (const t of aliasWords) add(t, id);
     for (const t of spelled) add(t, id);
     const title = core(norm(w.title || ''));
-    return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(norm(t))))],
+    return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(norm(t))))], inside: [...new Set(inside.map(t => core(norm(t))))], own: new Set(words(w.title)),
       author: new Set([...authors.flatMap(p => words(p.name)), ...spelled]), volume: VOLUME.test(w.title), index: INDEX.test(title),
       shared: new Set(authors.map(p => p.name)).size > 1, ownName: new Set([...authors.flatMap(p => nameEnds(words(p.name))), ...spelled])};
   });
@@ -357,12 +436,18 @@ export function createSearch(works) {
         if (alias === Infinity) continue;
         tier = Math.min(tier, alias);
       }
-      const exact = !!normalized && doc.titles.includes(normalized);
+      let exact = !!normalized && doc.titles.includes(normalized);
       if (exact || (normalized && doc.titles.some(t => t.startsWith(normalized + ' ')))) tier = 1;
+      // The query less the work's author's words ("seneca letters from a stoic", "medea seneca"):
+      // a title that is the rest counts as exact; a work the collection holds, a little less.
+      const rest = core(allTokens.filter(t => !doc.author.has(t)).join(' '));
+      if (!exact && rest && rest !== normalized && doc.titles.includes(rest)) exact = true;
+      // (Only for a work the title does not already name: "...Benefits, Anger and Clemency" is a title match.)
+      const insideExact = !exact && !!rest && doc.inside.includes(rest) && !rest.split(' ').every(t => STOP.has(t) || doc.own.has(t));
       const byAuthor = terms.length > 0 && terms.every(t => doc.author.has(t));
       // A book by someone the query only names in passing (a middle name) is not the author's own.
       const ownName = byAuthor && terms.some(t => doc.ownName.has(t));
-      ranked.push({id, tier, cover, authorCover, exact, byAuthor, ownName, index: doc.index, volume: doc.volume, shared: doc.shared});
+      ranked.push({id, tier, cover, authorCover, exact, insideExact, byAuthor, ownName, index: doc.index, volume: doc.volume, shared: doc.shared});
     }
     // The query is an author's name when more matching works carry it as their author's own
     // name than as a title ("dostoevsky", "jane austen"; not "faust"): then the author's books
@@ -374,7 +459,7 @@ export function createSearch(works) {
       if (r.index) r.tier = Math.max(r.tier, INDEX_TIER);
       const w = works[r.id];
       r.english = preferEnglish && w.language.includes('en') ? 1 : 0;
-      r.score = 3 * r.cover / Math.max(1, terms.length) + AUTHOR_COVER * r.authorCover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : 0)
+      r.score = 3 * r.cover / Math.max(1, terms.length) + AUTHOR_COVER * r.authorCover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : r.insideExact ? INSIDE_EXACT : 0)
         - (r.volume && !askedVolume ? VOLUME_PENALTY : 0) - (authorQuery && r.byAuthor && (r.shared || !r.ownName) ? SHARED_PENALTY : 0)
         + fame(w) + (w.quality === 'clean' ? 0.4 : 0);
     }

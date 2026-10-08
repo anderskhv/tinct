@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { gunzipSync } from 'node:zlib'
 import { groupSearchResults, importableWork, inTinct, REGISTRY_GUTENBERG_IDS, titleAuthorKey, type CatalogueWork } from '../public/lab/public-books.js'
 // @ts-expect-error -- plain module shared by Add a book, freepubs.fyi and the library
-import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor } from '../../addbooks/site/search.js'
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, includedWork } from '../../addbooks/site/search.js'
 // @ts-expect-error -- plain browser module of the library page
 import { createLibrarySearch } from '../public/lab/library_2/library-search.js'
 // @ts-expect-error -- plain browser module of the library page
@@ -137,6 +137,35 @@ describe('library search: fame, own books, other titles, one row per work', () =
     expect(list[0]).toBe('pg:3600')
     expect(at(list, 'pg:3600')).toBeLessThan(at(list, 'pg:5637')) // Literary and Philosophical Essays, seven authors
     for (const selection of ['pg:7551', 'pg:3661']) expect(list.slice(0, 8)).not.toContain(selection) // Quotes and Images…, Widger's Quotations…
+  })
+
+  it('Seneca by author and title in any order, and the works inside his collections (owner\'s cases, 2026-10-08)', () => {
+    const top = (query: string) => ids(query)[0]
+    for (const query of ['seneca letters from a stoic', 'letters from a stoic seneca', 'seneca letters on ethics']) expect(top(query), query).toBe('ws:en:Q97452599')
+    for (const query of ['seneca on the shortness of life', 'on the shortness of life', 'de brevitate vitae', 'seneca on anger', 'peace of mind seneca', 'seneca de tranquillitate animi', 'de ira seneca']) expect(top(query), query).toBe('pg:64576') // Minor Dialogues
+    expect(ids('seneca on anger').slice(0, 2)).toEqual(['pg:64576', 'pg:56075']) // and L'Estrange's "…Benefits, Anger and Clemency"
+    expect(ids('seneca tragedies').slice(0, 2)).toEqual(['pg:57999', 'pg:46058'])
+    expect(ids('seneca medea').slice(0, 2)).toEqual(['pg:57999', 'pg:46058'])
+    for (const query of ['thyestes', 'seneca phaedra', 'seneca hippolytus']) expect(top(query), query).toBe('pg:57999')
+    expect(top('medea')).toBe('medea') // Tinct's Medea (Euripides) stays first
+  })
+
+  it('"Includes <work>": the worker names the work a query asks for inside a collection, also once the collection is in Tinct', () => {
+    const dialogues = 'Minor Dialogues, Together With the Dialogue on Clemency'
+    expect(includedWork(dialogues, 'Lucius Annaeus Seneca', 'seneca on anger')).toBe('On Anger')
+    expect(includedWork(dialogues, 'Lucius Annaeus Seneca', 'de brevitate vitae')).toBe('On the Shortness of Life')
+    expect(includedWork(dialogues, 'Lucius Annaeus Seneca', 'peace of mind seneca')).toBe('Peace of Mind')
+    expect(includedWork(dialogues, 'Lucius Annaeus Seneca', 'seneca')).toBe('') // the author alone asks for no work
+    expect(includedWork(dialogues, 'Lucius Annaeus Seneca', 'minor dialogues')).toBe('') // the title itself says it
+    expect(includedWork('The Tragedies of Seneca', 'Lucius Annaeus Seneca', 'seneca medea')).toBe('Medea')
+    expect(includedWork('The Tragedies of Seneca', 'Lucius Annaeus Seneca', 'hippolytus')).toBe('Phaedra')
+    expect(includedWork('Some Other Dialogues', 'Lucius Annaeus Seneca', 'on anger')).toBe('')
+    // A reader added Minor Dialogues: it is "Available in Tinct" for its works' names, first.
+    const added = { id: 'pd-pg-64576', title: dialogues, author: 'Lucius Annaeus Seneca', public: { workId: 'pg:64576' } }
+    const library = createLibrarySearch([...searchPanel().tinctBooks, added], {})
+    for (const query of ['seneca on anger', 'on the shortness of life', 'peace of mind seneca']) expect((library(query) as Book[])[0]?.id, query).toBe('pd-pg-64576')
+    expect(searchPanel().notYet('seneca on anger').map(w => w.id)).toContain('pg:64576') // not added in the panel's own library
+    expect(groupSearchResults({ tinct: [], free: [{ id: 'pg:64576', title: dialogues, authors: [{ name: 'Lucius Annaeus Seneca' }], language: ['en'], editions: [{ source: 'Gutenberg', epubUrl: 'https://www.gutenberg.org/ebooks/64576.epub3.images' }] }] as unknown as CatalogueWork[], tinctBooks: [added] }).notYet).toEqual([])
   })
 
   it('"marcus aurelius": no catalogue copy of Tinct\'s Meditations under its other titles', () => {
