@@ -4206,24 +4206,149 @@
 .lab .lab-ask-input::placeholder {
   color: var(--lab-ink-muted);
 }
-/* An added book's Modern English chapter still being written: one quiet line
-   over the page while its original text is shown (labModernEdition.ts). */
-.lab-modern-status {
+/* An added book's Modern English edition being written (LabModernWait.tsx).
+   Both pieces are placed over the page, never in its flow, so the page keeps
+   its size and pagination. Two families, like the reader around it: EB Garamond
+   for all text and buttons, Playfair for the one title; pills; no mono. */
+.lab-modern-wait {
   position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: calc(100% - 2rem);
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  background: var(--lab-paper, #ece7db);
+  color: var(--lab-ink, #0b0b0b);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  text-align: center;
+}
+.lab-modern-wait__inner {
+  width: min(24rem, 100%);
+}
+.lab-modern-wait__eyebrow {
+  margin: 0 0 10px;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 15px;
+  line-height: 1.3;
+}
+.lab-modern-wait__title {
   margin: 0;
+  font: 600 clamp(28px, 7vw, 40px)/1.1 'Playfair Display', Georgia, serif;
+  overflow-wrap: anywhere;
+}
+.lab-modern-wait__chapter {
+  margin: 8px 0 0;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 17px;
+  line-height: 1.35;
+}
+.lab-modern-wait__line {
+  margin: 28px 0 0;
+  font-size: 19px;
+  line-height: 1.45;
+}
+.lab-modern-wait__progress {
+  margin: 14px auto 0;
+  width: min(16rem, 100%);
+}
+.lab-modern-wait__bar {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--lab-ink, #0b0b0b) 12%, transparent);
+}
+.lab-modern-wait__bar > span {
+  display: block;
+  height: 100%;
+  min-width: 3px;
+  border-radius: inherit;
+  background: var(--lab-ink, #0b0b0b);
+  transition: width 600ms cubic-bezier(.2, .8, .2, 1);
+}
+.lab-modern-wait__meta {
+  margin: 10px 0 0;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 15px;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+.lab-modern-wait__original {
+  margin-top: 32px;
+}
+.lab-modern-wait__button,
+.lab-modern-ready__switch {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lab-ink, #0b0b0b);
+  color: var(--lab-paper, #ece7db);
+  font: 500 17px/1 'EB Garamond', Georgia, 'Times New Roman', serif;
+  cursor: pointer;
+}
+.lab-modern-wait__button:focus-visible,
+.lab-modern-ready__switch:focus-visible,
+.lab-modern-ready__close:focus-visible {
+  outline: 2px solid var(--lab-accent, #1f4a5c);
+  outline-offset: 2px;
+}
+.lab-modern-wait__fine {
+  margin: 10px 0 0;
+  color: var(--lab-ink-muted, #6a6256);
+  font-size: 15px;
+  line-height: 1.4;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-modern-wait__bar > span { transition: none; }
+}
+
+/* Modern English is ready where the reader is: one notice, one tap. */
+.lab-modern-ready {
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  padding: 4px 4px 4px 18px;
+  border: 1px solid var(--lab-border, #c8c0ae);
+  border-radius: 999px;
+  background: var(--lab-paper, #ece7db);
+  color: var(--lab-ink, #0b0b0b);
+  box-shadow: 0 8px 30px rgba(20, 15, 8, .14);
+  font: 400 17px/1.3 'EB Garamond', Georgia, 'Times New Roman', serif;
   white-space: nowrap;
+}
+.lab-modern-ready > span {
   overflow: hidden;
   text-overflow: ellipsis;
-  font: 400 11px/1.4 'IBM Plex Mono', monospace;
-  color: color-mix(in srgb, var(--lab-ink, #211d18) 60%, transparent);
-  text-align: center;
-  pointer-events: none;
 }
+.lab-modern-ready__switch {
+  flex: none;
+  min-height: 44px;
+  padding: 0 16px;
+}
+.lab-modern-ready__close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink-muted, #6a6256);
+  font: inherit;
+  cursor: pointer;
+}
+html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 
 .lab-reader-load-error {
   position: absolute;

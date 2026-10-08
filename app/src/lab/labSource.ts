@@ -3,7 +3,7 @@ import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
 import { ensurePublicBook, isPublicBookId } from '../utils/publicBooks'
-import { loadPublicModernEdition, modernChapterPending, MODERN_EDITION_KEY } from './labModernEdition'
+import { loadPublicModernEdition, modernChapterPending, modernChapterWritten, MODERN_EDITION_KEY } from './labModernEdition'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
@@ -84,10 +84,13 @@ export interface LabSource {
   /** The book's figures, in reading order (those of the chapters loaded, for a windowed edition). */
   figures?: LabFigure[]
   /**
-   * An added book's Modern English chapter that is not written yet, served in
-   * its original text (labModernEdition.ts). The paragraphs match one to one.
+   * An added book's Modern English chapter that is not all written yet: its
+   * unwritten paragraphs are served in the original text (labModernEdition.ts).
+   * The paragraphs match one to one.
    */
   modernPending?: boolean
+  /** With modernPending: the paragraphs that are Modern English, as [start, end) runs. Nothing else is shown. */
+  modernWritten?: Array<[number, number]>
   /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
   supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
 }
@@ -645,7 +648,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     })),
     sections: primaryData.sections,
     cast: supporting.cast,
-    ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true } : {}),
+    ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true, modernWritten: modernChapterWritten(primaryData, entry.number) } : {}),
     ...(selection.readingFirst ? { supplement } : {}),
   }, primaryEdition.language)
 }
