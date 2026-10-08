@@ -2,7 +2,7 @@
 import { useRef } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { highlightRows, highlightSeams, useTextRangeHighlights } from './useTextRangeHighlights'
+import { generatedHyphenRects, highlightRows, highlightSeams, useTextRangeHighlights } from './useTextRangeHighlights'
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 function Passage() {
   const ref = useRef<HTMLElement>(null)
@@ -101,4 +101,27 @@ it('paints only the looked-up lexeme inside an unchanged audio token', () => {
   view.rerender(<Lookup word="a" />)
   expect([...registry.values()].flatMap(h=>h.ranges).map(r=>r.toString())).toEqual(['a'])
   expect(view.container.textContent).toBe('Sherebiah—a')
+})
+
+it('paints the generated hyphen of a highlighted page-edge fragment or planned break, not of a word outside the range', () => {
+  // Owner report (8 Oct 2026): a highlight running over a page break stopped
+  // just before the "-" of "ratio-": the hyphen is ::after content, outside
+  // any Range's rects. The covered elements' own boxes include it.
+  document.body.innerHTML = '<p class="lab-hearing-line"><span id="a" class="is-hl-sage">the</span> <span id="b" class="is-hl-sage"><span class="lab-syl">ra</span>tio</span> <span id="f" class="lab-word-fragment is-hl-sage">ratio</span> <span id="c"><span class="lab-syl">out</span>side</span></p>'
+  const boxes = new Map<Element, DOMRect[]>()
+  for (const el of document.querySelectorAll('.lab-syl, .lab-word-fragment')) {
+    const rect = { left: 1, right: 2, top: 0, bottom: 30, width: 1, height: 30, x: 1, y: 0, toJSON: () => ({}) } as DOMRect
+    boxes.set(el, [rect])
+    ;(el as HTMLElement).getClientRects = () => boxes.get(el) as unknown as DOMRectList
+  }
+  const line = document.querySelector('.lab-hearing-line')!
+  const range = document.createRange()
+  range.setStart(document.getElementById('a')!, 0)
+  const fragment = document.getElementById('f')!
+  range.setEnd(fragment, fragment.childNodes.length)
+  const rects = generatedHyphenRects(line, range)
+  const covered = [document.querySelector('#b .lab-syl')!, fragment].flatMap(el => boxes.get(el)!)
+  expect(rects).toEqual(covered)
+  expect(rects).not.toContain(boxes.get(document.querySelector('#c .lab-syl')!)![0])
+  document.body.innerHTML = ''
 })
