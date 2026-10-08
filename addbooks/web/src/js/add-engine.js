@@ -58,7 +58,13 @@
       await library.touch(key, { cloudId: book?.id || null });
       if (!silent) notify('Saved to your account.');
     } catch (e) {
-      if (!silent && e?.code === 'account_full') notify('Kept on this device only: your account’s storage for books is full.');
+      // Not saved: the copy is sent again on the book's next open. Said in the words the reader already knows.
+      const why = e?.code === 'account_full' ? 'Kept on this device only: your account’s storage for books is full.'
+        : e?.code === 'file_too_large' || e?.status === 413 ? 'Kept on this device only: files over 50 MB are not saved to your account.'
+        : e?.code === 'offline' ? 'No connection. Check your internet and try again.'
+        : e?.code === 'signed_out' || e?.status === 401 ? 'Your Tinct sign-in has expired. Sign in again on tinct.app, then try again.'
+        : null;
+      if (!silent && why) notify(why);
     } finally { cloud.busy.delete(key) }
   }
   // Every book on the shelf: this device's, plus the account's copies not yet on it.
@@ -99,6 +105,40 @@
     catch { return String(bytes.byteLength) }
   }
   const MAX_BYTES = 300 * 1024 * 1024;
+  // A PDF is opened once before it is kept, so a damaged or password-locked file is refused in
+  // the pop-up (with the reader's own words) and never lands on My shelf as a book that cannot
+  // open. pdf.js is the viewer's own (vendor/pdfjs beside this script), loaded on first use
+  // where the page has not loaded it.
+  const PDF_LOCKED = 'This PDF is password-protected, so it cannot be opened here.';
+  const PDF_BROKEN = 'This file could not be opened as a PDF. Choose another file.';
+  const engineSrc = global.document?.currentScript?.src || '';
+  let pdfjsLoading = null;
+  function pdfjs() {
+    if (global.pdfjsLib) return Promise.resolve(global.pdfjsLib);
+    if (!engineSrc) return Promise.resolve(null);
+    pdfjsLoading ??= new Promise(resolve => {
+      const script = document.createElement('script');
+      script.src = new URL('../vendor/pdfjs/pdf.min.js', engineSrc).href;
+      script.onload = () => resolve(global.pdfjsLib || null);
+      script.onerror = () => resolve(null);
+      document.head.append(script);
+    }).then(lib => {
+      if (!lib) { pdfjsLoading = null; return null }
+      if (!lib.GlobalWorkerOptions.workerSrc) lib.GlobalWorkerOptions.workerSrc = new URL('../vendor/pdfjs/pdf.worker.min.js', engineSrc).href;
+      return lib;
+    });
+    return pdfjsLoading;
+  }
+  /** Why a PDF cannot be opened (the reader-facing message), or null when it opens (or cannot be checked here). */
+  async function pdfProblem(bytes) {
+    if (!String.fromCharCode(...bytes.subarray(0, 1024)).includes('%PDF')) return PDF_BROKEN;
+    const lib = await pdfjs();
+    if (!lib) return null;
+    let doc = null;
+    try { doc = await lib.getDocument({ data: bytes.slice(), isEvalSupported: false }).promise; await doc.getPage(1); return null }
+    catch (e) { return e?.name === 'PasswordException' ? PDF_LOCKED : PDF_BROKEN }
+    finally { try { doc?.destroy() } catch {} }
+  }
   // As reader.js names a file it opens.
   const nameTitle = name => String(name || '').replace(/\.(pdf|epub)$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || String(name || '');
   /** A chosen file read for keeping: {kind, bytes, key}, or {error} with the reader-facing message. */
@@ -107,6 +147,7 @@
     if (!kind) return { error: 'Choose a PDF or EPUB file.' };
     if (file.size > MAX_BYTES) return { error: 'That file is larger than 300 MB, too big to open here.' };
     const bytes = new Uint8Array(await file.arrayBuffer());
+    if (kind === 'pdf') { const problem = await pdfProblem(bytes); if (problem) return { error: problem } }
     return { kind, bytes, key: kind + ':' + await digest(bytes) };
   }
   /** Keep the file in this browser, opened now. Resolves true when it is kept. */
@@ -149,6 +190,6 @@
   global.TinctAddEngine = {
     store, owner, library, cloud, saveToAccount, shelf, removeBook,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
-    kindOf, digest, MAX_BYTES, nameTitle, readFile, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
+    kindOf, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
   };
 })(window);

@@ -85,6 +85,8 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* Back to library: icon-only arrow at the left of the top bar, as in Tinct's reader */
 .lab.byob .lab-v2-library-back { flex: 0 0 34px; width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 999px; background: transparent; box-shadow: none; color: inherit; cursor: pointer; }
 .lab.byob .lab-v2-library-back:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
+/* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
+.lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
 /* The phone keeps "Your books" in the t menu, as Tinct's reader keeps Library there. */
 .lab.byob.is-phone .lab-v2-library-back { display: none; }
 /* The rights sheet over the start page */

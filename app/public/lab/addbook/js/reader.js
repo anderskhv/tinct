@@ -737,7 +737,9 @@ function releasePage(p) {
 
 /* ---------- Place ---------- */
 function currentPlace() {
-  const top = $('scroll').getBoundingClientRect().top;
+  const s = $('scroll'), top = s.getBoundingClientRect().top;
+  // Scrolled to the very end: the last page is read through (100%), though its top is still in view.
+  if (state.pages.length && s.scrollHeight - s.clientHeight > 2 && s.scrollTop >= s.scrollHeight - s.clientHeight - 2) return { page: state.pages.length, frac: 1 };
   for (const p of state.pages) {
     const r = p.sheet.getBoundingClientRect();
     if (r.bottom > top + 1) return { page: p.n, frac: Math.max(0, Math.min(1, (top - r.top) / r.height)) };
@@ -894,8 +896,9 @@ function openMenu() {
   closeAllPopups();
   const layer = document.createElement('div');
   layer.className = 'lab-super-layer';
+  const textless = hasNoText();
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close menu"></button><nav class="lab-super-panel" aria-label="Menu">${menuItems().map(([id, label, rule, chevron]) =>
-    `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${label}</span>${chevron ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}</nav>`;
+    `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${label}</span>${chevron ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}</nav>`;
   layer.querySelector('.lab-super-scrim').onclick = closeMenu;
   layer.querySelectorAll('.lab-super-row').forEach(b => b.onclick = () => { closeMenu(); menuAction(b.dataset.row) });
   root.appendChild(layer);
@@ -912,6 +915,7 @@ function menuAction(id) {
   if (id === 'library') { leaveToShelf(); return }
   if (!hasBook() && id !== 'open' && id !== 'settings') { toast('Open a book first.'); return }
   if (id === 'librarian') return openChat();
+  if ((id === 'summarize' || id === 'catchup') && hasNoText()) return;
   if (id === 'summarize') return summarize();
   if (id === 'catchup') return catchUp();
   if (id === 'snip') return startSnip();
@@ -944,7 +948,7 @@ const toggleRow = (id, label, on, hidden) => `<button type="button" class="lab-v
 const selectRow = (id, label, value, options) => `<div class="lab-v2-row is-select"><span class="lab-v2-row-label">${label}</span><span class="lab-v2-value"><span data-value="${id}">${esc((options.find(o => o[0] === value) || options[0])[1])}</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></span><select class="lab-v2-row-select" id="${id}" aria-label="${label}">${options.map(([v, l]) => `<option value="${esc(v)}"${v === value ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select></div>`;
 function openSettings() {
   closeAllPopups();
-  const voices = speechSynthesis?.getVoices?.().filter(v => /^en/i.test(v.lang)) || [];
+  const voices = bookVoices();
   const eink = pageTheme === 'eink';
   const rates = [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.rate])].sort((a, b) => a - b);
   const layer = document.createElement('div');
@@ -999,7 +1003,7 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js').then(m => label => m.normalizeChapterTitle(label)).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
@@ -1023,16 +1027,30 @@ async function buildContents() {
     // Shown in Tinct's house style: never ALL CAPS, never Roman numerals (app/public/lab/chapter-title.js).
     const house = await chapterTitleStyle();
     if (token !== state.token) return;
-    scan = { ...scan, entries: scan.entries.map(e => ({ ...e, label: house(e.label) })) };
+    // In the document's own language: "CHAPITRE XII." -> "Chapitre 12", "II." -> "2".
+    scan = { ...scan, entries: scan.entries.map(e => ({ ...e, label: house(e.label, scan.language) })) };
     state.scan = scan;
     if (scan.v) await library.touch(key, { title: scan.title, author: scan.author, pages: scan.pages, scan });
     store.del('toc:' + key);
   }
   setBookTitle(scan.title, scan.author);
+  applyBookLanguage();
   toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
   toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
   onScroll();
+}
+// The document's language (the scan's), for read-aloud's voice and the pages' text; English when unknown.
+const bookLang = () => (isEpub() ? state.epub?.language : state.scan?.language) || 'en';
+// A scan without a text layer (no scanned page has text): read aloud, Summarize and Catch me up
+// have nothing to read, so they are switched off rather than run over empty pages.
+const hasNoText = () => !isEpub() && state.scan?.textPages === 0;
+function applyBookLanguage() {
+  const lang = bookLang();
+  for (const p of state.pages) if (p.kind !== 'epub') p.pg.lang = lang;
+  const off = hasNoText();
+  $('playBtn').disabled = off;
+  if (off) $('playBtn').setAttribute('aria-disabled', 'true'); else $('playBtn').removeAttribute('aria-disabled');
 }
 const leafEntries = () => toc.entries.filter(e => e.kind !== 'part' || !toc.entries.some(c => c.parent === e.id));
 function chapterAt(page) {
@@ -2041,30 +2059,63 @@ async function catchUp() {
 
 /* ---------- Read aloud: streamed by the device, nothing stored ---------- */
 const narr = { active: false, page: 1, sentences: [], index: 0, spans: [], word: null, gen: 0 };
+// A voice for the book's language: the chosen one when it speaks it, else the device's own for it.
+const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === lang;
+function bookVoices() {
+  const vs = speechSynthesis?.getVoices?.() || [], fits = vs.filter(speaks(bookLang()));
+  return fits.length ? fits : vs.filter(speaks('en'));
+}
 function pickVoice() {
-  const vs = speechSynthesis.getVoices();
-  return vs.find(v => v.name === prefs.voice) || vs.find(v => /^en/i.test(v.lang) && v.default) || vs.find(v => /^en/i.test(v.lang)) || null;
+  const vs = speechSynthesis.getVoices(), fits = speaks(bookLang());
+  const chosen = vs.find(v => v.name === prefs.voice);
+  return (chosen && fits(chosen) ? chosen : null) || vs.find(v => fits(v) && v.default) || vs.find(fits) || chosen || null;
 }
 const furniture = new Map();
+// A line's text with its numbers as one mark: "Page 3 of 7" and "Page 4 of 7" are the same footer.
+const numberless = s => s.replace(/\d+/g, '#');
 async function isFurniture(n, str) {
-  // Running heads, banners and page numbers repeat on neighbouring pages; read-aloud skips them.
+  // Running heads, banners and page numbers ("12", "Page 3 of 7") repeat on neighbouring pages; read-aloud skips them.
   const s = str.trim();
   if (!s) return true;
-  if (/^\d{1,4}$/.test(s)) return true;
+  // Numbered only: a lone "Il" or "I" is a word, not a Roman page number.
+  if (/^\d{1,4}$/.test(s) || (/\d/.test(s) && TinctPdfScan.isPageNumber(s))) return true;
   if (s.length < 6) return false;
+  const numbered = /\d/.test(s) && s.length <= 80;
   for (const m of [n - 1, n + 1, n - 2, n + 2]) {
     if (m < 1 || m > state.pages.length) continue;
-    if (!furniture.has(m)) furniture.set(m, new Set((await pageText(m)).items.map(i => i.str.trim())));
-    if (furniture.get(m).has(s)) return true;
+    if (!furniture.has(m)) { const strs = (await pageText(m)).items.map(i => i.str.trim()); furniture.set(m, { exact: new Set(strs), numberless: new Set(strs.filter(t => /\d/.test(t)).map(numberless)) }) }
+    const f = furniture.get(m);
+    if (f.exact.has(s) || (numbered && f.numberless.has(numberless(s)))) return true;
   }
   return false;
+}
+// What goes between two text items read in a row: nothing inside a word (pdf.js splits words at
+// ligatures and font changes: "a" "ff" "air"), a space between words, and a word broken over a
+// line end by a hyphen is joined again ("pro-" "fession" -> "profession").
+function joinItems(text, prev, it) {
+  if (!prev) return { text, join: '' };
+  if (/\s$/.test(text) || /^\s/.test(it.str)) return { text, join: '' };
+  const [, , , pd, px, py] = prev.transform, [, , , d, x, y] = it.transform;
+  const size = Math.abs(pd) || prev.height || 10;
+  const sameLine = !prev.hasEOL && Math.abs(y - py) < size * 0.5 && Math.abs(d) > 0;
+  if (sameLine) return { text, join: x - (px + (prev.width || 0)) > size * 0.12 ? ' ' : '' };
+  if (/\p{L}-$/u.test(text) && /^\p{Ll}/u.test(it.str)) return { text: text.slice(0, -1), join: '' };
+  return { text, join: ' ' };
 }
 async function preparePage(n) {
   const { items } = await pageText(n);
   const skip = await Promise.all(items.map(it => isFurniture(n, it.str)));
   // One string per page with each item's offsets, split into sentences.
-  let text = '', offsets = [];
-  items.forEach((it, i) => { if (!it.str || skip[i]) return; offsets.push({ i, from: text.length, to: text.length + it.str.length }); text += it.str + (it.hasEOL ? ' ' : (/\s$/.test(it.str) ? '' : ' ')) });
+  let text = '', offsets = [], prev = null;
+  items.forEach((it, i) => {
+    if (!it.str || skip[i]) { if (it.hasEOL && prev) prev = { ...prev, hasEOL: true }; return }
+    const j = joinItems(text, prev, it);
+    if (j.text.length < text.length && offsets.length) offsets.at(-1).to = j.text.length;
+    text = j.text + j.join;
+    offsets.push({ i, from: text.length, to: text.length + it.str.length });
+    text += it.str; prev = it;
+  });
+  text += ' ';
   const sentences = [];
   // A sentence ends at . ! or ? followed by a space (so 2.5 and e.g. stay whole), or at the end of the page.
   const re = /[\s\S]+?(?:[.!?]+["’”)\]]*(?=\s+[^a-z0-9\s])|$)/g; let m;
@@ -2101,7 +2152,7 @@ async function startNarration() {
     paintNarration();
     const ok = await new Promise(resolve => {
       const u = new SpeechSynthesisUtterance(s.text);
-      u.rate = prefs.rate; const v = pickVoice(); if (v) u.voice = v;
+      u.rate = prefs.rate; u.lang = bookLang(); const v = pickVoice(); if (v) u.voice = v;
       const offsetInText = narr.prep.text.slice(s.from, s.to).indexOf(s.text[0]);
       u.onboundary = e => { if (gen === narr.gen) paintNarration(e.charIndex + Math.max(0, offsetInText)) };
       u.onend = () => resolve(true); u.onerror = () => resolve(false);
@@ -2118,6 +2169,7 @@ function stopNarration() { narr.active = false; narr.paused = false; narr.prep =
 function togglePlay() {
   if (!hasBook()) { toast('Open a book first.'); return }
   if (isEpub()) { toast('Read aloud works in PDFs for now.'); return }
+  if (hasNoText() && !narr.active) return;
   if (narr.active) return pauseNarration();
   // Resume where it paused while the page is still in view; otherwise start at the page on screen.
   if (narr.prep) { const place = currentPlace(); if (Math.abs(place.page - narr.page) > 1) { narr.prep = null } }
