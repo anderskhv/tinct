@@ -6,13 +6,13 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008rel5';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008rel6';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
-import {renderBookMetadata} from './book-metadata.js?v=20261008own';
+import {renderBookMetadata} from './book-metadata.js?v=20261008rel6';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
-import { paperCover } from './add-to-tinct.js?v=20261008own';
-import { fitHeroTitle } from './hero-title.js?v=20261008own';
+import { paperCover } from './add-to-tinct.js?v=20261008rel6';
+import { fitHeroTitle } from './hero-title.js?v=20261008rel6';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);

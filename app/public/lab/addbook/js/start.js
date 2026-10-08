@@ -1,7 +1,7 @@
 // Tinct · Add a book: the start page. Two doors: your own book (PDF or EPUB, opened
 // privately and kept privately in your account) and free public-domain books (search;
 // download from the source library, then open the file here).
-import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261008rel5';
+import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261008rel6';
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const params = new URLSearchParams(location.search);
@@ -89,7 +89,7 @@ $('abChips').innerHTML = CHIPS.map(c => `<button type="button" class="ab-chip" d
 let worker = null, ready = false, request = 0, limit = 12, lastQuery = '', pendingQuery = null;
 function startWorker() {
   if (worker) return;
-  try { worker = new Worker(new URL('search-worker.js?v=20261008rel5', import.meta.url), { type: 'module' }) }
+  try { worker = new Worker(new URL('search-worker.js?v=20261008rel6', import.meta.url), { type: 'module' }) }
   catch { $('abCatalogStatus').textContent = 'Search is not available in this browser.'; return }
   worker.onmessage = ({ data }) => {
     if (data.type === 'ready') {
