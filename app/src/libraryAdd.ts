@@ -14,8 +14,8 @@
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
-import { ADD_BOOK_IDB_NAME } from './services/storage'
-import { userBookReaderUrl, USER_BOOKS_SHELF_URL } from './lab/userBook/userBookId'
+import { USER_BOOKS_SHELF_URL } from './lab/userBook/userBookId'
+import { readOwnShelf } from './lab/userBook/ownShelf'
 
 export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
 export type ImportResult =
@@ -100,6 +100,8 @@ export interface OwnBook {
   kind: 'pdf' | 'epub'
   title: string
   author: string
+  /** The book's own cover, kept on this device (a data: URL); null without one or for an account copy not on it. */
+  cover: string | null
   /** Last opened (or added) on this device or in the account. */
   at: number
   /** The reader has a saved place in it on this device: it is being read. */
@@ -107,67 +109,15 @@ export interface OwnBook {
   href: string
 }
 
-interface LocalRecord { key: string; kind: string; name?: string; title?: string; author?: string; owner?: string; addedAt?: number; openedAt?: number }
-
-async function localRecords(owner: string): Promise<LocalRecord[]> {
-  if (typeof indexedDB === 'undefined') return []
-  // Never create Add a book's database just to look in it.
-  try {
-    const list = await (indexedDB as IDBFactory & { databases?: () => Promise<Array<{ name?: string }>> }).databases?.()
-    if (list && !list.some(db => db.name === ADD_BOOK_IDB_NAME)) return []
-  } catch { /* older browsers: open below */ }
-  const db = await new Promise<IDBDatabase>((resolve, reject) => {
-    const request = indexedDB.open(ADD_BOOK_IDB_NAME, 1)
-    request.onupgradeneeded = () => { if (!request.result.objectStoreNames.contains('books')) request.result.createObjectStore('books', { keyPath: 'key' }) }
-    request.onsuccess = () => resolve(request.result)
-    request.onerror = () => reject(request.error)
-  })
-  try {
-    return await new Promise<LocalRecord[]>((resolve, reject) => {
-      const out: LocalRecord[] = []
-      const request = db.transaction('books', 'readonly').objectStore('books').openCursor()
-      request.onsuccess = () => {
-        const cursor = request.result
-        if (!cursor) { resolve(out); return }
-        const { key, kind, name, title, author, owner: recordOwner, addedAt, openedAt } = cursor.value as LocalRecord
-        if (recordOwner === owner) out.push({ key, kind, name, title, author, addedAt, openedAt })
-        cursor.continue()
-      }
-      request.onerror = () => reject(request.error)
-    })
-  } finally { db.close() }
-}
-
-function placeAt(hex: string): number | null {
-  try {
-    const place = JSON.parse(localStorage.getItem(`tinct-addbook:place:${hex}`) || 'null') as { updatedAt?: unknown } | null
-    return place && typeof place === 'object' ? (typeof place.updatedAt === 'number' ? place.updatedAt : 0) : null
-  } catch {
-    return null
-  }
-}
-
 /** This account's own books, this device's first, then the account's copies not on it. */
 export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook[]> {
   const owner = readCachedSupabaseUser()?.id
   if (!owner) return []
-  const local = await localRecords(owner).catch(() => [] as LocalRecord[])
   const out: OwnBook[] = []
   const here = new Set<string>()
-  for (const record of local) {
-    if (record.kind !== 'pdf' && record.kind !== 'epub') continue
-    here.add(record.key)
-    const hex = record.key.slice(record.key.indexOf(':') + 1)
-    const readingAt = record.kind === 'epub' ? placeAt(hex) : null
-    out.push({
-      key: record.key,
-      kind: record.kind,
-      title: record.title || (record.name || '').replace(/\.(pdf|epub)$/i, '') || 'Untitled',
-      author: record.author || '',
-      at: record.openedAt || record.addedAt || 0,
-      readingAt: readingAt === null ? null : readingAt || record.openedAt || 0,
-      href: record.kind === 'epub' ? userBookReaderUrl(hex) : USER_BOOKS_SHELF_URL,
-    })
+  for (const book of await readOwnShelf(owner)) {
+    here.add(book.key)
+    out.push({ key: book.key, kind: book.kind, title: book.title, author: book.author, cover: book.cover, at: book.at, readingAt: book.reading?.lastActiveAt ?? null, href: book.href })
   }
   const auth = await token()
   if (auth) {
@@ -178,7 +128,7 @@ export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook
         const key = `${book.type}:${String(book.sha256 || '').slice(0, 24)}`
         if (!book.sha256 || here.has(key)) continue
         here.add(key)
-        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: USER_BOOKS_SHELF_URL })
+        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', cover: null, at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: USER_BOOKS_SHELF_URL })
       }
     } catch { /* this device's books still show */ }
   }

@@ -9,8 +9,10 @@
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008rel5';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
-import {renderBookMetadata} from './book-metadata.js?v=20261008rel5';
-import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel5';
+import {renderBookMetadata} from './book-metadata.js?v=20261008own';
+import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
+import { paperCover } from './add-to-tinct.js?v=20261008own';
+import { fitHeroTitle } from './hero-title.js?v=20261008own';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -103,7 +105,7 @@ function bindingFor(book) {
 // decoded public images only, never a personal shelf snapshot or reading data.
 const readyArtwork = new Map();
 function prepareArtwork(book) {
-  const cover = coverAsset(book.bookId, book.cover);
+  const cover = book.own ? bookCover(book) : coverAsset(book.bookId, book.cover);
   const key = cover || book.bookId;
   if (!readyArtwork.has(key)) {
     const img = new Image();
@@ -150,8 +152,23 @@ function spineStyle(b) {
   return { name, colour, textured: SPINE_TEXTURES, spine: `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}${colour}`, reflection: `${texture}${colour}`, title: '', gilt: '' };
 }
 
+/**
+ * A reader's own book (b.own, src/lab/userBook/ownShelf.ts) stands on the table like
+ * any book: its own cover (a data: URL kept on this device), else a paper cover with
+ * its title, as My shelf draws it.
+ */
+const ownPaper = new Map();
+function ownPaperCover(b) {
+  const key = `${b.bookId}\n${b.title}\n${b.author || ''}`;
+  if (!ownPaper.has(key)) { let url = ''; try { url = paperCover(b.title, b.author || '', 'epub').toDataURL('image/jpeg', 0.9); } catch {} ownPaper.set(key, url); }
+  return ownPaper.get(key);
+}
+function bookCover(b) {
+  return b.own ? (b.cover || ownPaperCover(b)) : coverAsset(b.bookId, b.cover);
+}
+
 function bookMarkup(b, i) {
-  const cover = coverAsset(b.bookId, b.cover);
+  const cover = bookCover(b);
   const s = spineStyle(b);
   return `
     <button class="rt-b${b.linked ? ' is-linked' : ''}" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${s.colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
@@ -240,7 +257,11 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
  let view=null,currentTable=null;
  function render(next){
   if(currentTable&&currentTable.reading.map(b=>b.bookId).join()===next.reading.map(b=>b.bookId).join()){
-   next.reading.forEach((b,i)=>Object.assign(currentTable.reading[i],b));view.refresh();return;
+   next.reading.forEach((b,i)=>{
+    // An own book's cover arrives with the fresh read (the fast-paint snapshot keeps none).
+    const before=bookCover(currentTable.reading[i]);Object.assign(currentTable.reading[i],b);const after=bookCover(currentTable.reading[i]);
+    if(after&&after!==before){const box=view.querySelector(`.rt-b[data-i="${i}"]`),img=box?.querySelector('.rt-front img');if(img){img.src=after;box.style.setProperty('--cover',`url('${after}')`);}}
+   });view.refresh();return;
   }
   const selected=view?.dataset.current||initial?.bookId;
   view?.dispose?.();view?.remove();currentTable={...next,reading:next.reading.map(b=>({...b}))};
@@ -287,7 +308,10 @@ function wire(view, table, demo, keepBookId, options={}) {
   }
   // Name the book in the confirmation: the × sits beside neighbouring spines,
   // so a generic question could confirm removing a book the reader never chose.
-  remove.onclick=e=>{e.stopPropagation();const b=table.reading[current];dialog.dataset.book=b.bookId;view.querySelector('#rt-remove-heading').textContent=`Remove ${b.title} from currently reading?`;dialog.showModal();};
+  remove.onclick=e=>{e.stopPropagation();const b=table.reading[current];dialog.dataset.book=b.bookId;view.querySelector('#rt-remove-heading').textContent=`Remove ${b.title} from currently reading?`;
+    // An own book stays under Your own books on My shelf, not Saved for later.
+    dialog.querySelector('p').textContent=b.own?'It stays on My shelf under Your own books, and your place is kept.':'It stays on My shelf under Saved for later, and your place is kept.';
+    dialog.showModal();};
   dialog.addEventListener('click',e=>{e.stopPropagation();if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
   view.querySelector('#rt-remove-cancel').onclick=()=>dialog.close();
   dialog.addEventListener('close',()=>remove.focus({preventScroll:true}));
@@ -314,6 +338,8 @@ function wire(view, table, demo, keepBookId, options={}) {
     const base = r.height - H * 0.05;
     stage.style.perspectiveOrigin = `50% ${Math.round(base - H * 0.42)}px`;
     layout(true);
+    const shownBook = table.reading[current];
+    if (shownBook && shown !== -1) fitHeroTitle($('rt-title'), shownBook.title);
   }
 
   /**
@@ -372,9 +398,9 @@ function wire(view, table, demo, keepBookId, options={}) {
     options.onSelection?.({bookId:b.bookId});
     // Public artwork only: the reader can warm the selected cover first without
     // loading another library, reading private caches, or touching positions.
-    try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
+    try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].filter(book=>!book.own).slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
     const set = () => {
-      $('rt-title').textContent = b.title;
+      fitHeroTitle($('rt-title'), b.title);
       // A linked book the reader has not started: its question, and Read opens its introduction.
       view.classList.toggle('is-linked', !!b.linked);
       $('rt-continue').firstChild.textContent = b.linked ? 'Read' : 'Continue';
@@ -382,7 +408,9 @@ function wire(view, table, demo, keepBookId, options={}) {
       remove.setAttribute('aria-label',`Remove ${b.title} from currently reading`);
       $('rt-place').textContent = b.chapterLabel;
       $('rt-pct').textContent = percentLabel(b.percent);
-      setRecap(b.recap || `${b.headline}.`);
+      // An own book with no place line (its text not on this device) shows no "Where you left off".
+      $('rt-recap-box').hidden = !b.recap && !b.headline;
+      setRecap(b.recap || (b.headline ? (/[.…!?]$/.test(b.headline) ? b.headline : `${b.headline}.`) : ''));
     };
     clearTimeout(swapTimer);
     if (firstShow) set();
@@ -474,7 +502,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   // start together; sampled bindings finish before anything is revealed.
   const artwork = books.map(async (book, i) => {
     const img = book.querySelector('.rt-front img');
-    if(options.prepareCover){const canvas=document.createElement('canvas');try{await options.prepareCover(table.reading[i].bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
+    if(options.prepareCover&&!table.reading[i].own){const canvas=document.createElement('canvas');try{await options.prepareCover(table.reading[i].bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
     const [{ name, colour }] = await Promise.all([
       prepareArtwork(table.reading[i]),
       img.decode().catch(() => {}),

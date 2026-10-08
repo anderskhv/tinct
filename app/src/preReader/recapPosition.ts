@@ -33,6 +33,32 @@ export function chapterProgress(input: { paragraphIndex: number; paragraphCount:
   return 'middle'
 }
 
+/** A chapter label longer than this reads as its first sentence or words in a headline. */
+export const CONCISE_CHAPTER_CHARS = 60
+
+/**
+ * A chapter label short enough for a headline. Most labels are kept whole; a
+ * long one (an added book's chapter written as its whole opening sentence,
+ * "The First Book of the Dialogues of L. Annaeus Seneca, Addressed to
+ * Lucilius. “Why, …”") is cut at its first full stop, colon or dash after a
+ * real word (not an initial like "L."), else at the last whole word, with "…".
+ */
+export function conciseChapterLabel(label: string, max = CONCISE_CHAPTER_CHARS): string {
+  const text = String(label ?? '').replace(/\s+/g, ' ').trim()
+  if (text.length <= max) return text
+  const stop = /(?:[.:;!?]|\s[—–-])\s/g
+  for (let match = stop.exec(text); match; match = stop.exec(text)) {
+    const head = text.slice(0, match.index).replace(/[\s,]+$/, '')
+    const lastWord = head.split(' ').pop() ?? ''
+    if (/^\p{L}{1,2}$/u.test(lastWord) || /^(?:Mr|Mrs|Dr|St|Ch|No|Vol|Bk)$/i.test(lastWord)) continue
+    if (head.length >= 8 && head.length <= max) return head
+    if (head.length > max) break
+  }
+  const cut = text.slice(0, max - 1)
+  const space = cut.lastIndexOf(' ')
+  return (space > max / 2 ? cut.slice(0, space) : cut).replace(/[\s,;:.—–-]+$/, '') + '…'
+}
+
 /** The hero headline: "You’re in the middle of Proverbs 17". */
 export function positionLine(progress: ChapterProgress, chapterLabel: string): string {
   switch (progress) {

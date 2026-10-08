@@ -196,7 +196,8 @@ async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
   catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
   const author = meta.authors.join(', ');
-  await library.touch(key, { title: meta.title, author, ...(meta.cover ? { cover: meta.cover } : {}) });
+  // The cover at full size (coverV 2); a book kept with the old 180 px thumbnail is redrawn here, on its next open.
+  await library.touch(key, { title: meta.title, author, coverV: 2, ...(meta.cover ? { cover: meta.cover, coverW: meta.coverWidth } : {}) });
   if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
   if (token !== state.token) return;
   leftForTinct = true;
@@ -317,8 +318,30 @@ async function openPdf(bytes, name, key) {
   buildSheets(pdf.numPages);
   noteSession();
   buildContents();
+  keepPdfCover(pdf, key, token);
   if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
+}
+// A PDF's cover is its first page, drawn once (coverV 2) at the size Your books and the
+// library show it, after the page is open so it never delays reading.
+const PDF_COVER_WIDTH = 720;
+function keepPdfCover(pdf, key, token) {
+  setTimeout(async () => {
+    try {
+      if (token !== state.token || state.pdf !== pdf) return;
+      const rec = await library.get(key);
+      if (!rec || rec.coverV >= 2) return;
+      const page = await pdf.getPage(1);
+      const base = page.getViewport({ scale: 1 });
+      const viewport = page.getViewport({ scale: PDF_COVER_WIDTH / base.width });
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(viewport.width); canvas.height = Math.round(viewport.height);
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      await library.touch(key, { cover: canvas.toDataURL('image/jpeg', 0.86), coverW: canvas.width, coverV: 2 });
+    } catch { /* the paper cover stays */ }
+  }, 1200);
 }
 // The document's title: its metadata Title when that is a real title, else the largest
 // line(s) printed on page 1, else the file name made readable.

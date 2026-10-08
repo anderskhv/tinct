@@ -329,11 +329,16 @@ export function setAddBusy(button,stage){
  bar.style.setProperty('--p',String(addProgress(stage)));bar.dataset.stage=stage;
 }
 
-/** My shelf's own-book card: a paper cover that opens the book. */
+/** An own book's cover: its own picture (kept on this device, full size), else a paper cover. */
+export function ownCoverElement(book){
+ if(typeof book.cover==='string'&&/^data:image\/(jpeg|png|webp);base64,/.test(book.cover)){const img=document.createElement('img');img.className='cover own-cover-image';img.src=book.cover;img.alt='';img.decoding='async';return img;}
+ const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';return cover;
+}
+/** My shelf's own-book card: the book's cover (or a paper cover) that opens the book. */
 export function ownBookCard(book,el){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
- const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';open.append(cover);
+ open.append(ownCoverElement(book));
  card.append(open,el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
 }
 /** The dashed "+" tile that opens My shelf: straight to Add a book's file step. */

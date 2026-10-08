@@ -1,5 +1,6 @@
 import { tokenGroupCoverage, type GroupAlignment } from './tokenGroupCoverage'
 import { tokenizeWithEmphasis, type EmphasisWord } from './labEmphasis'
+import { alignmentKey } from '../narration/narrationCore'
 
 export interface TimedWord {
   text: string
@@ -115,6 +116,38 @@ function semanticToken(token: string): string {
 }
 
 /**
+ * Narration timings are made for the spoken text (narrationCore `spokenText`),
+ * which rewrites dashes: `went—and` is spoken `went, and` (two timed words for
+ * one painted word) and a free-standing `—` is not spoken at all. Map those
+ * timings back onto the painted tokens by their letters: a painted word takes
+ * the run of spoken words whose letters spell it (start of the first, end of
+ * the last); a painted token with no letters (a dash, a verse number) gets a
+ * zero-length time at the next spoken word. Any other difference means the
+ * timings are for different words, and none are used.
+ */
+function regroupSpokenWords(tokens: EmphasisWord[], words: TimedWord[]): TimedWord[] | undefined {
+  const spoken = words.map(word => ({ word, key: alignmentKey(word.text) })).filter(item => item.key.length > 0)
+  if (spoken.length === 0) return undefined
+  const out: TimedWord[] = []
+  let next = 0
+  for (const token of tokens) {
+    const key = isSilentVerseMarker(token.text) ? '' : alignmentKey(token.text)
+    if (key.length === 0) {
+      const at = spoken[next]?.word.start ?? spoken[spoken.length - 1].word.end
+      out.push({ text: token.text, start: at, end: at })
+      continue
+    }
+    const first = next
+    let glued = ''
+    while (next < spoken.length && glued.length < key.length) glued += spoken[next++].key
+    if (glued !== key) return undefined
+    const word = { text: token.text, start: spoken[first].word.start, end: spoken[next - 1].word.end }
+    out.push(token.emphasis ? { ...word, emphasis: true } : word)
+  }
+  return next === spoken.length ? out : undefined
+}
+
+/**
  * Word sidecars omit printed verse numbers. Insert zero-duration timing entries
  * for those silent tokens so every spoken word still addresses its painted word.
  */
@@ -122,8 +155,10 @@ export function alignTimedWordsToText(text: string, words: TimedWord[] | undefin
   if (!words?.length) return undefined
   const tokens = chapterWordsFromText(text)
   const spokenTokens = tokens.filter(token => !isSilentVerseMarker(token.text))
-  if (spokenTokens.length !== words.length) return undefined
-  if (spokenTokens.some((token, index) => semanticToken(token.text) !== semanticToken(words[index].text))) return undefined
+  if (spokenTokens.length !== words.length
+    || spokenTokens.some((token, index) => semanticToken(token.text) !== semanticToken(words[index].text))) {
+    return regroupSpokenWords(tokens, words)
+  }
   if (tokens.length === words.length) {
     return words.map((word, index) => (
       tokens[index].emphasis ? { ...word, text: tokens[index].text, emphasis: true } : { ...word, text: tokens[index].text }

@@ -423,6 +423,15 @@ describe('My shelf groups', () => {
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
   })
 
+  it('shows an own book\u2019s own cover at full size, and a paper cover without one', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'Notes', null), cover: 'data:image/jpeg;base64,AAAA' }, own('epub:bb', 'Plain', null)], el)
+    const cards = [...grid.querySelectorAll('.own-book')]
+    const image = cards.find(card => card.textContent?.includes('Notes'))!.querySelector('img.cover') as HTMLImageElement
+    expect(image.getAttribute('src')).toBe('data:image/jpeg;base64,AAAA')
+    expect(cards.find(card => card.textContent?.includes('Plain'))!.querySelector('canvas.cover')).not.toBeNull()
+  })
+
   it('opens a Currently reading heading for own books when the library has none, and shows only the + tile on an empty list', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Saved for later'))

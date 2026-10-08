@@ -335,7 +335,7 @@ async function loadAssistant(){
  assistantLoading=import(ASSISTANT_MODULE).then(()=>window.__tinctLibraryTwoAssistant.mount($('librarian-live'),{
   onClose:()=>{setMode('minimized');$('librarian').focus({preventScroll:true});},
   getBookId:()=>activeBook?.id||null,
-  getShelf:()=>{const t=window.__library2Reading;const reading=(t?.reading||[]).map(b=>b.bookId),finished=(t?.finished||[]).map(b=>b.bookId);return{reading,finished,saved:[...savedBooks].filter(id=>!reading.includes(id)&&!finished.includes(id))};},
+  getShelf:()=>{const t=window.__library2Reading;const reading=(t?.reading||[]).filter(b=>!b.own&&!String(b.bookId).startsWith('userbook-')).map(b=>b.bookId),finished=(t?.finished||[]).map(b=>b.bookId);return{reading,finished,saved:[...savedBooks].filter(id=>!reading.includes(id)&&!finished.includes(id))};},
   returnTo:location.pathname+location.search,
   openBook:async id=>{
    const book=books.find(b=>b.id===id);if(!book)return;
