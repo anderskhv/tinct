@@ -44,8 +44,21 @@ export function userBookReaderUrl(hex: string): string {
   return `/reader?${USER_BOOK_QUERY}=${encodeURIComponent(hex)}`
 }
 
-/** Where the reader's back arrow goes: Add a book, with Your books in view. */
-export const USER_BOOKS_SHELF_URL = '/lab/addbook/?mode=file#books'
+/**
+ * Where the reader's back arrow (and every "your books" link) goes: the library's My shelf,
+ * where "My private uploads" lists them and its + adds one. Add a book is no longer a page of
+ * its own (owner, 2026-10-08).
+ */
+export const USER_BOOKS_SHELF_URL = '/library#my-shelf'
+
+/**
+ * Where a kept book opens by its Add-a-book key (`pdf:<hex>` / `epub:<hex>`): a PDF in Add a
+ * book's PDF reader; an account copy not yet on this device is downloaded there first (an EPUB
+ * then continues to the Tinct reader).
+ */
+export function ownBookOpenUrl(key: string): string {
+  return `/lab/addbook/?open=${encodeURIComponent(key)}`
+}
 
 /** True when any string anywhere in `value` names a user book (analytics guard). */
 export function mentionsUserBook(value: unknown, depth = 0): boolean {

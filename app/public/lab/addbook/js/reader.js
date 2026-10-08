@@ -31,82 +31,14 @@ function applyLayout() {
 const isPhone = () => root.classList.contains('is-phone');
 
 /* ---------- Your books ---------- */
-// Files are kept in this browser (IndexedDB), tagged with the Tinct account that opened
-// them so a different reader on the same browser does not see them. Signed in, each is
-// also kept privately in that account (below, `cloud`) so it opens on other devices.
-const owner = () => window.TinctAI?.session().userId || 'guest';
-const library = {
-  open() { return new Promise((res, rej) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) },
-  async tx(mode, fn) { const db = await this.open(); return new Promise((res, rej) => { const t = db.transaction('books', mode); const out = fn(t.objectStore('books')); t.oncomplete = () => res(out?.result ?? out); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error) }) },
-  async put(rec) { try { await this.tx('readwrite', s => s.put(rec)); return true } catch { return false } },
-  async get(key) { try { const rec = await this.tx('readonly', s => s.get(key)); return rec && rec.owner === owner() ? rec : null } catch { return null } },
-  async remove(key) { try { await this.tx('readwrite', s => s.delete(key)) } catch {} },
-  async list() {
-    try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, edition, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
-    catch { return [] }
-  },
-  // Read and write in one transaction, so concurrent patches (title, cloud id) both land.
-  async touch(key, patch) { try { await this.tx('readwrite', s => { const r = s.get(key); r.onsuccess = () => { const rec = r.result; if (rec && rec.owner === owner()) s.put(Object.assign(rec, patch)) } }) } catch {} },
-};
-// The account's copies (/api/user-books via TinctAI.books), keyed like the local records:
-// kind + ':' + the first 24 hex digits of the file's SHA-256.
-const cloud = {
-  owner: null, records: new Map(), busy: new Set(),
-  keyOf: b => b.type + ':' + String(b.sha256 || '').slice(0, 24),
-  usable: () => !!window.TinctAI?.session().token,
-  mine() { if (this.owner !== owner()) { this.owner = owner(); this.records = new Map() } return this.records },
-  get(key) { return this.mine().get(key) || null },
-  async refresh() {
-    if (!this.usable()) return false;
-    try { const list = await window.TinctAI.books.list(); const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true }
-    catch { return false }
-  },
-};
-// Saves a private copy to the account in the background; quiet on reopen retries.
-async function saveToAccount(key, file, meta, { quiet = false } = {}) {
-  if (!cloud.usable() || cloud.busy.has(key)) return;
-  const known = cloud.get(key);
-  if (known) { await library.touch(key, { cloudId: known.id }); return }
-  if (file.size > window.TinctAI.books.maxBytes) { if (!quiet) toast('Kept on this device only: files over 50 MB are not saved to your account.'); return }
-  cloud.busy.add(key);
-  try {
-    const book = await window.TinctAI.books.upload(file, Object.assign({ rights: store.get('rights:' + accountId()) }, meta));
-    if (book?.sha256) cloud.get(key) || cloud.mine().set(cloud.keyOf(book), book);
-    await library.touch(key, { cloudId: book?.id || null });
-    if (!quiet) toast('Saved to your account.');
-  } catch (e) {
-    if (!quiet && e?.code === 'account_full') toast('Kept on this device only: your account’s storage for books is full.');
-  } finally { cloud.busy.delete(key) }
-}
-// Every book on the shelf: this device's, plus the account's copies not yet on it.
-async function shelf() {
-  const local = await library.list();
-  const here = new Set(local.map(r => r.key));
-  const out = local.map(r => Object.assign(r, { cloud: !!(r.cloudId || cloud.get(r.key)), local: true }));
-  for (const [key, b] of cloud.mine()) {
-    if (here.has(key)) continue;
-    out.push({ key, kind: b.type, name: b.name, title: b.title || b.name || 'Untitled', author: b.author || '', size: b.size, addedAt: Date.parse(b.createdAt) || 0, cloud: true, local: false });
-  }
-  return out.sort((a, b) => (b.openedAt || b.addedAt || 0) - (a.openedAt || a.addedAt || 0));
-}
-// Removes a book from this device and from the account.
-async function removeBook(key) {
-  const rec = await library.get(key);
-  const id = rec?.cloudId || cloud.get(key)?.id;
-  await library.remove(key);
-  store.del('place:' + key.replace(/^epub:/, ''));
-  if (!id) return true;
-  try { await window.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
-  catch { toast('Removed from this device, but not from your account. Try again.'); return false }
-}
+// Keeping, naming and saving a file is the engine shared with the library's My shelf
+// (add-engine.js): this page reads PDFs, and EPUBs leave for the Tinct reader.
+const engine = window.TinctAddEngine;
+const { owner, library, cloud, shelf, RIGHTS_COPY, accountId } = engine;
+const saveToAccount = (key, file, meta, options = {}) => engine.saveToAccount(key, file, meta, { notify: toast, ...options });
+const removeBook = key => engine.removeBook(key, { notify: toast });
 // Opening your own file needs a Tinct account (searching free books does not). The
-// rights confirmation is asked once per account, before its first file opens; the key
-// sits under tinct-addbook:, so signing out clears it with the rest.
-// RIGHTS_VERSION names this wording: a confirmation of an earlier wording is asked again,
-// and each upload records which wording was confirmed, and when, with the file.
-const RIGHTS_COPY = "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).";
-const RIGHTS_VERSION = '2026-10-08.2';
-const accountId = () => window.TinctAI?.session().userId || null;
+// rights confirmation (add-engine.js) is asked once per account, before its first file opens.
 function needsAccount() {
   if (accountId()) return false;
   window.TinctStart?.showGate?.();
@@ -128,28 +60,17 @@ function attest(fileName) {
     ok.onclick = () => { closeSheet(layer); resolve(true) };
   });
 }
-const kindOf = file => /\.epub$/i.test(file.name) || file.type === 'application/epub+zip' ? 'epub' : /\.pdf$/i.test(file.name) || file.type === 'application/pdf' ? 'pdf' : null;
-async function digest(bytes) {
-  try { const h = await crypto.subtle.digest('SHA-256', bytes); return [...new Uint8Array(h)].slice(0, 12).map(b => b.toString(16).padStart(2, '0')).join('') }
-  catch { return String(bytes.byteLength) }
-}
-const MAX_BYTES = 300 * 1024 * 1024;
 async function chooseFile(file) {
   if (!file || needsAccount()) return;
-  const kind = kindOf(file);
-  if (!kind) { toast('Choose a PDF or EPUB file.'); return }
-  if (file.size > MAX_BYTES) { toast('That file is larger than 300 MB, too big to open here.'); return }
-  const bytes = new Uint8Array(await file.arrayBuffer());
-  const key = kind + ':' + await digest(bytes);
-  const rightsKey = 'rights:' + accountId();
-  if (store.get(rightsKey)?.v !== RIGHTS_VERSION) {
+  const read = await engine.readFile(file);
+  if (read.error) { toast(read.error); return }
+  const { kind, bytes, key } = read;
+  if (!engine.rightsConfirmed()) {
     if (!await attest(file.name)) return;
-    store.set(rightsKey, { at: new Date().toISOString(), v: RIGHTS_VERSION });
+    engine.confirmRights();
   }
   stopNarration();
-  const now = Date.now();
-  const existing = await library.get(key);
-  const saved = await library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || nameTitle(file.name), author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
+  const saved = await engine.keepFile(file, read, nameTitle(file.name));
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
   // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
   if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
@@ -185,23 +106,17 @@ async function openStored(key) {
 // this browser's copy and converts it to Tinct's own pages. Here: refuse what it cannot
 // open (DRM, not an EPUB), name the book on the shelf, and send the account copy before
 // leaving the page (bounded: a slow upload finishes on the next open).
-const ACCOUNT_COPY_WAIT_MS = 10000;
 async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
   const token = ++state.token;
   showReader();
   closeAllPopups();
   $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
-  let meta;
-  try { meta = await TinctEpub.metadata(bytes, { fallbackTitle: name.replace(/\.epub$/i, '') }) }
-  catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
-  if (token !== state.token) return;
-  const author = meta.authors.join(', ');
-  // The cover at full size (coverV 2); a book kept with the old 180 px thumbnail is redrawn here, on its next open.
-  await library.touch(key, { title: meta.title, author, coverV: 2, ...(meta.cover ? { cover: meta.cover, coverW: meta.coverWidth } : {}) });
-  if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
+  let opened;
+  try { opened = await engine.prepareEpub(bytes, name, key, upload, { quiet, notify: toast }) }
+  catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e.message)}</div>`; return }
   if (token !== state.token) return;
   leftForTinct = true;
-  location.assign('/reader?userBook=' + encodeURIComponent(key.slice('epub:'.length)));
+  location.assign(opened.href);
 }
 // Back from the reader may restore this page as it was left ("Opening…"): show Your books.
 let leftForTinct = false;
