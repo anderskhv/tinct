@@ -2861,6 +2861,102 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "EN",
       "DA"
     ]
+  },
+  {
+    "id": "the-sovereign-child",
+    "title": "The Sovereign Child",
+    "author": "Aaron Stupple with Logan Chipkin",
+    "tradition": "American",
+    "year": "2025",
+    "ySort": 2025,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 200,
+    "blurb": "Parenting without rules, argued from a theory of knowledge.",
+    "themes": [
+      "parenting",
+      "autonomy",
+      "epistemology"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "lords-of-the-cosmos",
+    "title": "Lords of the Cosmos",
+    "author": "Arjun Khemani and Logan Chipkin",
+    "year": "2025",
+    "ySort": 2025.1,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 265,
+    "blurb": "From cosmic monotony to the Enlightenment, a history of everything told through knowledge.",
+    "themes": [
+      "progress",
+      "optimism",
+      "enlightenment"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "bold-conjectures-volume-1",
+    "title": "Bold Conjectures, Volume I",
+    "author": "Logan Chipkin (ed.)",
+    "year": "2025",
+    "ySort": 2025.2,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 50,
+    "blurb": "David Deutsch in conversation, 2012–2024.",
+    "themes": [
+      "quantum-theory",
+      "epistemology",
+      "interviews"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "bold-conjectures-volume-2",
+    "title": "Bold Conjectures, Volume II",
+    "author": "Logan Chipkin (ed.)",
+    "year": "2026",
+    "ySort": 2026,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 215,
+    "blurb": "Physicists on what is still unsettled in fundamental physics.",
+    "themes": [
+      "physics",
+      "quantum-theory",
+      "essays"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
+  },
+  {
+    "id": "the-farthest-reaches",
+    "title": "The Farthest Reaches",
+    "author": "Brett Hall",
+    "year": "2026",
+    "ySort": 2026.1,
+    "form": "philosophy",
+    "era": "2020s",
+    "hue": 330,
+    "blurb": "Why people are the most important entities in the universe.",
+    "themes": [
+      "personhood",
+      "universality",
+      "epistemology"
+    ],
+    "shelves": [
+      "critical-rationalism"
+    ]
   }
 ]
 
@@ -3024,6 +3120,11 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "title": "Adventure",
     "sub": "Journeys, wagers and the open sea",
     "hue": 60
+  },
+  "critical-rationalism": {
+    "title": "Critical Rationalism",
+    "sub": "Popper, Deutsch and how knowledge grows",
+    "hue": 175
   }
 }
 
@@ -3038,7 +3139,8 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "aristotle",
       "stoics",
       "christian-philosophy",
-      "modern-philosophy"
+      "modern-philosophy",
+      "critical-rationalism"
     ]
   },
   {
@@ -3193,7 +3295,12 @@ export const LIBRARY_ERAS = {
   "contemporary": {
     "id": "contemporary",
     "label": "20th Century & Beyond",
-    "range": "1900 –"
+    "range": "1900 – 2019"
+  },
+  "2020s": {
+    "id": "2020s",
+    "label": "2020s",
+    "range": "2020 –"
   }
 } as const
 

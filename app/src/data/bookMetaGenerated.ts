@@ -610,4 +610,34 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'Sense and Sensibility',
     author: 'Jane Austen',
   },
+  'the-sovereign-child': {
+    title: 'Read The Sovereign Child Free Online | Tinct',
+    description: 'Read The Sovereign Child free, no ads, with an AI reading companion. On Tinct with the publisher\'s permission.',
+    bookName: 'The Sovereign Child',
+    author: 'Aaron Stupple with Logan Chipkin',
+  },
+  'lords-of-the-cosmos': {
+    title: 'Read Lords of the Cosmos Free Online | Tinct',
+    description: 'Read Lords of the Cosmos free, no ads, with an AI reading companion. On Tinct with the publisher\'s permission.',
+    bookName: 'Lords of the Cosmos',
+    author: 'Arjun Khemani and Logan Chipkin',
+  },
+  'bold-conjectures-volume-1': {
+    title: 'Read Bold Conjectures, Volume I Free Online | Tinct',
+    description: 'Read Bold Conjectures, Volume I free, no ads, with an AI reading companion. On Tinct with the publisher\'s permission.',
+    bookName: 'Bold Conjectures, Volume I',
+    author: 'Logan Chipkin (ed.)',
+  },
+  'bold-conjectures-volume-2': {
+    title: 'Read Bold Conjectures, Volume II Free Online | Tinct',
+    description: 'Read Bold Conjectures, Volume II free, no ads, with an AI reading companion. On Tinct with the publisher\'s permission.',
+    bookName: 'Bold Conjectures, Volume II',
+    author: 'Logan Chipkin (ed.)',
+  },
+  'the-farthest-reaches': {
+    title: 'Read The Farthest Reaches Free Online | Tinct',
+    description: 'Read The Farthest Reaches free, no ads, with an AI reading companion. On Tinct with the publisher\'s permission.',
+    bookName: 'The Farthest Reaches',
+    author: 'Brett Hall',
+  },
 }
