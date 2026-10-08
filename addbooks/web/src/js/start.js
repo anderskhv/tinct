@@ -1,6 +1,7 @@
 // Tinct · Add a book: the start page. Two doors: your own book (PDF or EPUB, opened
 // privately and kept privately in your account) and free public-domain books (search;
 // download from the source library, then open the file here).
+import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261008add';
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const params = new URLSearchParams(location.search);
@@ -167,6 +168,12 @@ function boot() {
   const toShelf = location.hash === '#books';
   if (toShelf) history.replaceState(null, '', location.pathname + location.search);
   renderAccount(); renderShelf({ reveal: toShelf });
+  // A file chosen in the library's "Add a PDF or EPUB" pop-up: the same steps as one chosen here.
+  if (fileOnly && params.has(HANDOFF_PARAM)) {
+    params.delete(HANDOFF_PARAM);
+    history.replaceState(history.state, '', location.pathname + (params.toString() ? '?' + params : '') + location.hash);
+    void takeHandoff().then(file => { if (file) window.TinctReader.chooseFile(file) });
+  }
   // The file step: the file picker (or, signed out, the account gate) has the focus; no catalogue is loaded.
   if (fileOnly) { if (!toShelf) ($('abDrop').hidden ? $('abCreate') : $('abDrop')).focus({ preventScroll: true }); return }
   const q = params.get('q');
