@@ -6,8 +6,9 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel6';
-import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
+import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel5';
+import {normalize,includedWork} from '../addbook/js/search.js?v=20261008srch';
+import {addToTinctEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -254,40 +255,253 @@ export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
  return bar;
 }
 
+// ---- Result rows (approved search layout, 2026-10-08) ----
+// Both groups list rows: the title, then the author (with " · tr. <translator>" and
+// " · +N editions" when known); a small outlined pill just left of the button (the
+// source library for "Not yet in Tinct", the Modern English / Audio editions for a
+// Tinct book); the button on the right (Add, or Read for a Tinct book). Tapping the
+// row (not the button) opens its details in place, full width: a description where
+// the data has one, then Written / Translation / Length / Source / Note where known.
+// Tap again or Escape closes them. Nothing is fetched for the details.
+/** "Includes On Anger": the work a query asks for, printed inside this collection (search.js includedWork). */
+export const includesText=title=>title?`Includes ${title}`:'';
+/** "+1 edition" / "+3 editions": the other editions grouped under a row. */
+export const editionCount=n=>n>0?`+${n} ${n===1?'edition':'editions'}`:'';
+/** "Gutenberg", "Wikisource": the pill's short name of a catalogue work's library. */
+export const sourceShort=work=>work?.editions?.[0]?.source||'';
+const unique=list=>[...new Set(list.filter(Boolean))];
+/** A year as the catalogue gives it: negative years are BC. */
+export const yearText=year=>Number.isFinite(year)?(year<0?`${-year} BC`:String(year)):'';
+/** "428–348 BC", "4 BC – AD 65", "1775–1817": only when both years are known. */
+export function lifespan(person){
+ const born=person?.birthYear,died=person?.deathYear;
+ if(!Number.isFinite(born)||!Number.isFinite(died))return '';
+ if(born<0&&died<0)return `${-born}–${-died} BC`;
+ if(born<0)return `${-born} BC – AD ${died}`;
+ return `${born}–${died}`;
+}
+/**
+ * When a catalogue work was written: its first-published year, only when that is no later
+ * than its author's death (Wikisource sometimes gives the year of the English edition).
+ */
+export function writtenYear(work){
+ const year=work?.firstPublishedYear,died=work?.authors?.[0]?.deathYear;
+ return Number.isFinite(year)&&Number.isFinite(died)&&year<=died?yearText(year):'';
+}
+/** What a "Not yet in Tinct" row shows. */
+export function freeRowFacts(work){
+ const row=freeRow(work),translators=unique((work.translators||[]).map(person=>person.name));
+ return {title:row.title,author:row.author,translator:translators.join(', '),editions:editionCount((work.alternates||[]).length),includes:work.includes||'',
+  pills:[sourceShort(work)].filter(Boolean),description:'',
+  facts:[['Written',writtenYear(work)],['Translation',translators.join(', ')],['Source',row.source],['Note',work.subtitle||'']].filter(([,value])=>value)};
+}
+/** What a Tinct book's row shows (`length`: the library's reading time for it). */
+export function tinctRowFacts(book,{length='',query=''}={}){
+ const facts=bookFacts(book),translators=unique(readableEditions(book).map(edition=>edition.translator));
+ return {title:book.title||'',author:book.author||'',translator:translators.join(', '),editions:'',includes:query?includedWork(book.title,book.author,query):'',
+  pills:[facts.modern?'Modern English':'',facts.audio?'Audio':''].filter(Boolean),description:book.summary||'',
+  facts:[['Written',book.displayYear||''],['Translation',translators.join(', ')],['Length',length],['Source',book.public?.sourceName||'']].filter(([,value])=>value)};
+}
+let rowCount=0;
+/** Open or close a row's details. */
+export function setRowExpanded(row,open){
+ const toggle=row?.querySelector(':scope > .row-toggle'),details=row?.querySelector(':scope > .row-details');
+ if(!toggle||!details)return;
+ toggle.setAttribute('aria-expanded',String(open));details.hidden=!open;row.classList.toggle('is-open',open);
+}
+/**
+ * One result row (an <li>): the row toggle (a button with aria-expanded) holding `lead`
+ * (a Tinct book's small cover) and the two lines, the pills, the `action` button, and the
+ * details it opens. `key` names the row for the author card's chips.
+ */
+export function resultRow({el,facts,action,lead=null,key,className}){
+ const row=el('li',`result-row ${className}`);row.dataset.rowKey=key;
+ const toggle=el('button','row-toggle');toggle.type='button';toggle.setAttribute('aria-expanded','false');
+ const id=`row-details-${++rowCount}`;toggle.setAttribute('aria-controls',id);
+ const text=el('span','row-text');
+ const by=el('span','row-author');by.append(el('span','row-by',facts.author));
+ for(const extra of [facts.translator?`tr. ${facts.translator}`:'',facts.editions])if(extra)by.append(el('span','row-extra',` · ${extra}`));
+ if(facts.includes)by.append(el('span','row-includes',` · ${includesText(facts.includes)}`));
+ text.append(el('span','row-title',facts.title));if(facts.author||facts.translator||facts.editions||facts.includes)text.append(by);
+ if(lead)toggle.append(lead);toggle.append(text);
+ const pills=el('span','row-pills');for(const pill of facts.pills)pills.append(el('span','source-pill',pill));
+ const details=el('div','row-details');details.id=id;details.hidden=true;
+ if(facts.description)details.append(el('p','row-description',facts.description));
+ if(facts.facts.length){const grid=el('dl','row-facts');for(const [label,value] of facts.facts){const item=el('div');item.append(el('dt','',label),el('dd','',value));grid.append(item);}details.append(grid);}
+ row.append(toggle,pills,action,details);
+ row.addEventListener('click',event=>{if(event.target.closest('.free-add,.tinct-open,.row-details'))return;setRowExpanded(row,toggle.getAttribute('aria-expanded')!=='true');});
+ row.addEventListener('keydown',event=>{if(event.key!=='Escape'||toggle.getAttribute('aria-expanded')!=='true')return;event.preventDefault();event.stopPropagation();setRowExpanded(row,false);toggle.focus({preventScroll:true});});
+ return row;
+}
+/**
+ * A Tinct book's row in a search with a query: `cover` (its small painted cover, also where the
+ * opening book flies from) inside the row toggle, and Read, which opens the book as its cover does.
+ */
+export function tinctRow(book,{el,cover,onOpen,length='',query=''}){
+ const read=el('button','tinct-open','Read');read.type='button';read.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);read.onclick=()=>onOpen(book,cover);
+ const thumb=el('span','row-cover');thumb.append(cover);
+ const row=resultRow({el,facts:tinctRowFacts(book,{length,query}),action:read,lead:thumb,key:'book:'+book.id,className:'search-result tinct-row'});
+ row.dataset.book=book.id;return row;
+}
+
+// ---- The author card: the query names an author ----
+const SUFFIXES=new Set(['minor','maior','major','elder','younger','the','jr','sr']);
+const words=text=>normalize(String(text||'')).split(' ').filter(Boolean);
+/** The word a name is filed under: the first of "Surname, Given", else the last (without "minor", "the younger"…). */
+function surnameOf(name){
+ const text=String(name||'');
+ if(text.includes(','))return words(text.split(',')[0])[0]||'';
+ const list=words(text);while(list.length>1&&SUFFIXES.has(list[list.length-1]))list.pop();return list[list.length-1]||'';
+}
+/** A query names this person: every query word is a word of one of their names, and the surname is one of them (or the query is that whole name). */
+function namesPerson(terms,names){
+ return names.some(name=>{const list=words(name);return terms.every(term=>list.includes(term))&&(terms.includes(surnameOf(name))||list.length===terms.length);});
+}
+/** People in the results, one entry per person: "Seneca" and "Lucius Annaeus Seneca" are one; Henry and William James are two. */
+function gatherPeople(entries){
+ const people=[];
+ const subset=(a,b)=>a.every(word=>b.includes(word));
+ for(const {person,item} of entries){
+  const name=person.name||'';const list=words(name),surname=surnameOf(name);if(!surname)continue;
+  const years=p=>Number.isFinite(p.birthYear)&&Number.isFinite(p.deathYear)?`${p.birthYear}/${p.deathYear}`:'';
+  let found=people.find(p=>p.surname===surname&&(subset(list,p.words)||subset(p.words,list)||(years(person)&&years(person)===p.years)));
+  if(!found){found={surname,words:list,years:years(person),names:[],records:[],items:new Set()};people.push(found);}
+  if(!found.years&&years(person))found.years=years(person);
+  found.names.push(name,...(person.aliases||[]));found.records.push(person);found.items.add(item);
+ }
+ return people;
+}
+/**
+ * The author a query clearly names, or null: someone whose name the query is (see namesPerson),
+ * who wrote the first result and at least two of the results (`tinct`: library books shown,
+ * `free`: the catalogue's own results, in its ranking). Returns {name, names, lifespan, inTinct,
+ * works}: `works` are their best-known works shown, at most five, as {key, title} (`key` names
+ * the row a chip opens). The catalogue ranks an author's books by fame; a collection's works
+ * (the worker's `contains`, each with the fame of its Wikidata work) stand in for the collection
+ * and point to its row ("On the Shortness of Life" opens Minor Dialogues).
+ */
+export function findAuthor({query,tinct=[],free=[],notYet=[],tinctBooks=[]}){
+ const terms=words(query).filter(term=>!['a','an','the','of','and'].includes(term));
+ if(!terms.length||terms.join('').length<3)return null;
+ const entries=[...tinct.map(book=>({person:{name:book.author||''},item:book})),...free.flatMap(work=>(work.authors||[]).map(person=>({person,item:work})))];
+ const people=gatherPeople(entries).filter(p=>namesPerson(terms,p.names));
+ if(!people.length)return null;
+ people.sort((a,b)=>b.items.size-a.items.size);
+ const best=people[0],first=tinct[0]||free[0];
+ if(best.items.size<2||!best.items.has(first)||(people[1]&&people[1].items.size*2>best.items.size))return null;
+ const own=book=>{const list=words(book.author);return surnameOf(book.author)===best.surname&&(list.every(w=>best.words.includes(w))||best.words.every(w=>list.includes(w)));};
+ const library=(tinctBooks.length?tinctBooks:tinct).filter(own);
+ const shownTinct=tinct.filter(book=>best.items.has(book));
+ // Each row once, in the catalogue's order (fame); rows the catalogue does not rank follow.
+ const rows=[];
+ const push=(key,title,work)=>{if(key&&title&&!rows.some(row=>row.key===key))rows.push({key,title,fame:Number.isFinite(work?.fame)?work.fame:null,contains:work?.contains||[]});};
+ for(const work of free){
+  if(!best.items.has(work))continue;
+  const book=shownTinct.find(item=>inTinct(work,[item]));
+  if(book){push('book:'+book.id,book.title,work);continue;}
+  const group=notYet.find(item=>item.id===work.id||(item.alternates||[]).some(other=>other.id===work.id));
+  if(group)push('work:'+group.id,group.title,group);
+ }
+ for(const book of shownTinct)push('book:'+book.id,book.title,null);
+ for(const work of notYet)if(best.items.has(work)||(work.authors||[]).some(person=>namesPerson(terms,[person.name,...(person.aliases||[])])))push('work:'+work.id,work.title,work);
+ const chips=[];
+ rows.forEach((row,order)=>{
+  const parts=row.contains.filter(part=>part.fame>0);
+  if(parts.length)for(const part of parts)chips.push({key:row.key,title:part.title,fame:part.fame,order});
+  else chips.push({key:row.key,title:row.title,fame:row.fame,order});
+ });
+ // By fame when every chip has one; otherwise as ranked, a collection's works by their fame in its place.
+ const known=chips.every(chip=>chip.fame!=null);
+ chips.sort((a,b)=>known?b.fame-a.fame||a.order-b.order:a.order-b.order||(b.fame??0)-(a.fame??0));
+ const works=[];
+ for(const chip of chips)if(!works.some(item=>normalize(item.title)===normalize(chip.title)))works.push({key:chip.key,title:chip.title});
+ const record=best.records.find(person=>lifespan(person))||{};
+ const tinctName=library[0]?.author||shownTinct[0]?.author;
+ const name=tinctName||(free.find(work=>best.items.has(work))?.authors||[]).find(person=>best.records.includes(person))?.name||best.names[0];
+ return {name,names:unique(best.names),lifespan:lifespan(record),inTinct:library.length,works:works.slice(0,5)};
+}
+/** "3 books in Tinct" / "1 book in Tinct". */
+export const booksInTinct=n=>n>0?`${n} ${n===1?'book':'books'} in Tinct`:'';
+/** Open a row and bring it into view (an author card's chip). */
+export function revealRow(box,key){
+ const row=[...box.querySelectorAll('.result-row')].find(item=>item.dataset.rowKey===key);
+ if(!row)return null;
+ setRowExpanded(row,true);
+ const still=matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+ row.scrollIntoView?.({block:'center',behavior:still?'auto':'smooth'});
+ row.querySelector(':scope > .row-toggle')?.focus({preventScroll:true});
+ return row;
+}
+/**
+ * The author card: portrait (`portraitFor(names)` resolves {src} or null; a plain circle until
+ * then), name, "<lifespan> · N books in Tinct" where known, and chips for their best-known works.
+ */
+export function authorCard(author,{el,box,portraitFor}){
+ const card=el('section','author-card');card.setAttribute('aria-label',author.name);
+ const portrait=el('span','author-portrait');portrait.setAttribute('aria-hidden','true');
+ const text=el('div','author-text');text.append(el('h2','author-name',author.name));
+ const subtitle=[author.lifespan,booksInTinct(author.inTinct)].filter(Boolean).join(' · ');
+ if(subtitle)text.append(el('p','author-subtitle',subtitle));
+ const head=el('div','author-head');head.append(portrait,text);card.append(head);
+ const chips=author.works.filter(work=>work.title).map(work=>[work.key,work.title]);
+ if(chips.length){
+  const list=el('div','author-works');
+  for(const [key,title] of chips){const chip=el('button','author-work',title);chip.type='button';chip.dataset.rowKey=key;chip.onclick=()=>revealRow(box,key);list.append(chip);}
+  card.append(list);
+ }
+ Promise.resolve(portraitFor?.(author.names)).then(found=>{
+  if(!found?.src)return;
+  const img=el('img');img.src=found.src;img.alt='';img.decoding='async';portrait.append(img);portrait.classList.add('has-image');
+ }).catch(()=>{});
+ return card;
+}
+
 // ---- Rendering ----
 /**
  * "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel,
  * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown;
  * `onFreeShown(n)` hears how many "Not yet in Tinct" rows were drawn, when they are.
+ * With a query, "Available in Tinct" is left out when it has no books and the catalogue
+ * has some ("Try another title or author." only when nothing is found at all), and an
+ * author card leads when the query names an author (`portraitFor` finds their portrait).
  */
-export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters,onFreeShown}){
+export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters,onFreeShown,portraitFor}){
  box.classList.add('has-groups');
  const head=text=>el('h2','search-group-head',text);
  const bar=syncSearchFilters(filterHost,{query,tinctBooks,el,onChange:onFilters});
  let shown=tinct;
  if(query.trim()){
   const f=bar?filters:NO_FILTERS;shown=filterAvailable(tinct,f);
-  box.append(head('Available in Tinct'));
-  if(shown.length)renderTinct(shown);else box.append(el('p','search-none','Try another title or author.'));
+  // The author card goes first, once the catalogue has answered (it knows the author's other works).
+  const lead=el('div','author-slot');box.append(lead);
+  // "Available in Tinct" when it has books; with none, its place waits for the catalogue.
+  const empty=el('div','search-empty');empty.hidden=true;
+  if(shown.length){box.append(head('Available in Tinct'));renderTinct(shown);}else box.append(empty);
+  const nothing=()=>{empty.replaceWith(head('Available in Tinct'),el('p','search-none','Try another title or author.'));};
   const group=el('section','free-group');group.dataset.freeGroup='pending';box.append(group);
-  if(f.modern||f.audio)group.dataset.freeGroup='0';
+  const finish=(free,notYet)=>{
+   const author=findAuthor({query,tinct:shown,free,notYet,tinctBooks});
+   if(!author){lead.remove();return;}
+   lead.replaceWith(authorCard(author,{el,box,portraitFor}));
+  };
+  if(f.modern||f.audio){group.dataset.freeGroup='0';if(!shown.length)nothing();finish([],[]);}
   else void searchFree(query,40,{language:f.language||notYetLanguage()}).then(free=>{
    if(!group.isConnected)return;
    const {notYet}=groupSearchResults({tinct,free:filterNotYet(free,f),tinctBooks});group.dataset.freeGroup=String(notYet.length);
-   if(!notYet.length)return;
+   if(!notYet.length){if(!shown.length)nothing();finish(filterNotYet(free,f),[]);return;}
+   empty.remove();
    onFreeShown?.(notYet.length);
    group.append(head('Not yet in Tinct'));const list=el('ol','free-list');
    for(const work of notYet){
-    const row=freeRow(work),item=el('li','free-row'),text=el('span','free-text');
-    const line=el('span','free-line');line.append(el('b','',row.title));if(row.author)line.append(document.createTextNode(' · '+row.author));
-    text.append(line,el('small','',row.source));
-    const add=el('button','free-add','Add');add.type='button';add.dataset.work=work.id;add.setAttribute('aria-label',`Add ${row.title} to Tinct`);
+    const add=el('button','free-add','Add');add.type='button';add.dataset.work=work.id;add.setAttribute('aria-label',`Add ${work.title} to Tinct`);
     add.onclick=()=>onAdd(work,add);
-    item.append(text,add);list.append(item);
+    const item=resultRow({el,facts:freeRowFacts(work),action:add,key:'work:'+work.id,className:'free-row'});item.dataset.work=work.id;
+    list.append(item);
     if(addingWork===work.id)setAddBusy(add,addingStage||'start');
    }
    group.append(list);
-  }).catch(()=>{group.dataset.freeGroup='0';});
+   finish(filterNotYet(free,f),notYet);
+  }).catch(()=>{group.dataset.freeGroup='0';if(group.isConnected&&!shown.length)nothing();lead.remove();});
  }else renderTinct(tinct);
  const file=el('div','file-box');file.append(el('p','','Have it as a file?'));
  const pick=el('a','file-add','Add a PDF or EPUB');pick.href=ADD_FILE_PAGE;file.append(fileEntry(pick));box.append(file);

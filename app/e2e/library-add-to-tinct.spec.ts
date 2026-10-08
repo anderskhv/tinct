@@ -80,6 +80,11 @@ async function search(page: Page, query: string) {
   await page.locator('#search-input').fill(query)
 }
 
+/** Each "Not yet in Tinct" row as "Title · Author" (the title line and the author's name on the line under it). */
+async function freeLines(page: Page) {
+  return page.locator('#search-results .free-row').evaluateAll(rows => rows.map(row => `${row.querySelector('.row-title')?.textContent} · ${row.querySelector('.row-by')?.textContent}`))
+}
+
 /** As the reading bridge does when Supabase signs the reader in or out on this page. */
 async function setAuth(page: Page, signedIn: boolean) {
   await page.evaluate(value => {
@@ -111,11 +116,11 @@ test.describe('library search', () => {
     expect(titles).toContain('Emma') // an added book is "Available in Tinct", with its paper cover
     const rows = results.locator('.free-row')
     expect(await rows.count()).toBeGreaterThan(0)
-    const lines = await rows.locator('.free-line').allTextContents()
+    const lines = await freeLines(page)
     expect(lines).not.toContain('Pride and Prejudice · Jane Austen') // the Tinct book itself; adaptations may stay
     expect(lines.some(line => /^Emma ·/.test(line))).toBe(false)
     expect(lines.every(line => line.includes('·'))).toBe(true)
-    await expect(rows.first().locator('small')).toHaveText(/Project Gutenberg|Wikisource|Standard Ebooks/)
+    await expect(rows.first().locator('.source-pill')).toHaveText(/^(Gutenberg|Wikisource|Standard Ebooks)$/)
     await expect(rows.first().locator('.free-add')).toHaveText('Add')
     const file = results.locator('.file-box')
     await expect(file).toContainText('Have it as a file?')
@@ -135,7 +140,7 @@ test.describe('library search', () => {
     const results = page.locator('#search-results')
     await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
     expect(await results.locator('.search-result span').allTextContents()).toContain('Faust, Part One')
-    const lines = await results.locator('.free-row .free-line').allTextContents()
+    const lines = await freeLines(page)
     expect(lines.length).toBeGreaterThan(0)
     expect(lines.filter(line => /Max Brand/.test(line))).toEqual([])
     expect(lines).toContain('The Tragical History of Doctor Faustus · Christopher Marlowe')
@@ -240,7 +245,7 @@ test.describe('library search', () => {
     await expect(results.locator('.search-result').first()).toContainText('Wuthering Heights')
     await expect(page.locator('#search-label')).toHaveText('1 book found')
     await expect(results.locator('.free-group')).not.toHaveAttribute('data-free-group', 'pending', { timeout: 60_000 })
-    const lines = await results.locator('.free-row .free-line').allTextContents()
+    const lines = await freeLines(page)
     expect(lines.filter(line => /^(The )?Wuthering Heights\b.* · Emily Brontë$/.test(line))).toEqual([])
     await shot(page, 'search-typo')
   })
@@ -282,6 +287,119 @@ test.describe('library search', () => {
     await expect(results.locator('.search-group-head, .free-group, .file-box')).toHaveCount(0)
     await expect(page.locator('#search-add-file')).toBeHidden()
     await expect(page.locator('#sign-in')).toHaveText('Sign in')
+  })
+})
+
+test.describe('search layout (approved 2026-10-08)', () => {
+  test('"seneca": an author card, no empty "Available in Tinct", rows with a source pill left of Add, details open in place', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
+    await search(page, 'seneca')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    // Nothing of Seneca's is in Tinct: that heading and its line are left out.
+    await expect(results.locator('.search-group-head')).toHaveText(['Not yet in Tinct'])
+    await expect(results.locator('.search-none')).toHaveCount(0)
+    const card = results.locator('.author-card')
+    await expect(card).toBeVisible()
+    await expect(card.locator('.author-name')).toHaveText('Seneca')
+    await expect(card.locator('.author-subtitle')).toHaveText('4 BC – AD 65')
+    const chips = card.locator('.author-work')
+    expect(await chips.count()).toBeGreaterThan(1)
+    expect(await chips.count()).toBeLessThanOrEqual(5)
+    // Best-known first: the Moral Letters, then a work inside Minor Dialogues (its Wikidata fame), which opens that row.
+    expect((await chips.allTextContents()).slice(0, 2)).toEqual(['Moral letters to Lucilius', 'On the Shortness of Life'])
+    await expect(chips.nth(1)).toHaveAttribute('data-row-key', 'work:pg:64576')
+    const row = results.locator('.free-row').first()
+    const pill = row.locator('.source-pill')
+    await expect(pill).toHaveText(/^(Gutenberg|Wikisource)$/)
+    const add = row.locator('.free-add')
+    const [p, a] = [(await pill.boundingBox())!, (await add.boundingBox())!]
+    expect(p.x + p.width).toBeLessThanOrEqual(a.x)
+    expect(a.x - (p.x + p.width)).toBeLessThan(24)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+    await shot(page, 'search-layout-seneca')
+    // Tapping the row (not Add) opens its details in place; Add stays where it was.
+    const toggle = row.locator('.row-toggle')
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    await toggle.click()
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    await expect(row.locator('.row-details')).toBeVisible()
+    await expect(row.locator('.row-details dt').first()).toBeVisible()
+    const after = (await add.boundingBox())!
+    expect(Math.abs(after.x - a.x)).toBeLessThan(1)
+    expect(Math.abs(after.y - a.y)).toBeLessThan(1)
+    expect(await row.evaluate(element => Math.round(element.getBoundingClientRect().width))).toBe(await results.locator('.free-list').evaluate(element => Math.round(element.getBoundingClientRect().width)))
+    await shot(page, 'search-layout-seneca-open')
+    // Escape closes the details, not the search.
+    await page.keyboard.press('Escape')
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    await expect(page.locator('#search-panel')).toBeVisible()
+    // A chip opens its work's row.
+    await chips.nth(1).click()
+    const key = await chips.nth(1).getAttribute('data-row-key')
+    await expect(results.locator(`.result-row[data-row-key="${key}"] .row-toggle`)).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  test('"plato": the author card with the portrait and books in Tinct, Tinct rows with edition pills and Read', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
+    await search(page, 'plato')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    await expect(results.locator('.search-group-head')).toHaveText(['Available in Tinct', 'Not yet in Tinct'])
+    const card = results.locator('.author-card')
+    await expect(card.locator('.author-name')).toHaveText('Plato')
+    await expect(card.locator('.author-subtitle')).toHaveText(/^428–348 BC · \d+ books in Tinct$/)
+    await expect(card.locator('.author-portrait img')).toHaveAttribute('src', /plato/)
+    await expect(card.locator('.author-work').first()).toHaveText('The Republic')
+    const row = results.locator('.tinct-row').first()
+    await expect(row.locator('.row-title')).toHaveText('The Republic')
+    await expect(row.locator('.row-author')).toHaveText('Plato · tr. Benjamin Jowett')
+    await expect(row.locator('.source-pill')).toHaveText(['Modern English', 'Audio'])
+    await expect(row.locator('.tinct-open')).toHaveText('Read')
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+    await page.waitForTimeout(800) // the covers paint
+    await shot(page, 'search-layout-plato')
+    // Keyboard: the row is a button with aria-expanded.
+    await row.locator('.row-toggle').focus()
+    await page.keyboard.press('Enter')
+    await expect(row.locator('.row-toggle')).toHaveAttribute('aria-expanded', 'true')
+    await expect(row.locator('.row-description')).toBeVisible()
+    await shot(page, 'search-layout-plato-open')
+    await page.keyboard.press('Enter')
+    await expect(row.locator('.row-toggle')).toHaveAttribute('aria-expanded', 'false')
+    // Read opens the book, as its cover did.
+    await row.locator('.tinct-open').click()
+    await expect(page.locator('#book-overlay')).toBeVisible()
+  })
+
+  test('"seneca on anger", "seneca medea": the collection that holds the work, first, saying "Includes <work>"', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
+    await search(page, 'seneca on anger')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    const first = results.locator('.free-row').first()
+    await expect(first.locator('.row-title')).toHaveText('Minor Dialogues, Together With the Dialogue on Clemency')
+    await expect(first.locator('.row-includes')).toHaveText(' · Includes On Anger')
+    await expect(results.locator('.author-card')).toHaveCount(0)
+    await shot(page, 'search-layout-seneca-on-anger')
+    await page.locator('#search-input').fill('seneca medea')
+    await expect(results.locator('.free-row').first().locator('.row-title')).toHaveText('The Tragedies of Seneca', { timeout: 60_000 })
+    await expect(results.locator('.free-row').first().locator('.row-includes')).toHaveText(' · Includes Medea')
+    await page.locator('#search-input').fill('seneca letters from a stoic')
+    await expect(results.locator('.free-row').first().locator('.row-title')).toHaveText('Moral letters to Lucilius', { timeout: 60_000 })
+  })
+
+  test('the × at the start of the search bar closes search, as Cancel does', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: false })
+    await page.locator('#search-toggle').click()
+    const close = page.locator('#search-close')
+    await expect(close).toBeVisible()
+    await expect(close).toHaveAttribute('aria-label', 'Close search')
+    const [x, input] = [(await close.boundingBox())!, (await page.locator('#search-input').boundingBox())!]
+    expect(x.x + x.width).toBeLessThanOrEqual(input.x)
+    await close.click()
+    await expect(page.locator('#search-panel')).toBeHidden()
+    await expect(page.locator('#search-toggle')).toBeFocused()
   })
 })
 

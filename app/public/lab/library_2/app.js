@@ -4,8 +4,8 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261008rel6';
-import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits} from './authors.js?v=20260930nocap';
+import {mountBookshelf} from './bookshelf.js?v=20261008srch';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261008srch';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
 import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel6';
@@ -14,8 +14,8 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel6';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261008rel6';
-import {librarySearch} from './library-search.js?v=20261008rel4';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261008srch';
+import {librarySearch} from './library-search.js?v=20261008srch';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -52,6 +52,8 @@ const coverObserver=typeof IntersectionObserver==='undefined'?null:new Intersect
 if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
 function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=books.find(b=>b.id===meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
+/** A search row's small cover: painted like the shelf covers; the opening book flies from it. */
+function rowCover(book){const c=el('canvas','cover');c.dataset.book=book.id;paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);return c;}
 function coverButton(book,cls='book-card cover-button'){const b=el('button',cls);b.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);const c=el('canvas','cover');c.dataset.book=book.id;b.append(c);b.addEventListener('click',()=>openBook(book,c));paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);if(cls!=='book-card cover-button'){b.append(coverMetadata(book));return b;}
  // Shelf covers carry a + for Want to read, beside (not inside) the cover button.
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
@@ -127,12 +129,12 @@ function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden
 const tinctSearch=librarySearch(books);
 export function filterBooks(query){return tinctSearch.filter(query);}
 const foundLabel=n=>`${n} ${n===1?'book':'books'} found`;
-function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
+function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>{if(q.trim()&&addEnabled()){const rows=el('ol','tinct-list');list.forEach(book=>rows.append(tinctRow(book,{el,cover:rowCover(book),onOpen:openBook,length:readingTime(book),query:q})));box.append(rows);return;}list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});};
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
  // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them,
  // and counts the "Not yet in Tinct" rows too once they are drawn (every book the panel lists).
  // What the catalogue knows of each book (popularity, the author's other names) ranks them as the catalogue would; asked once per book.
- if(addEnabled()){void borrowFromCatalogue(books).then(map=>{if(tinctSearch.lend(map)&&searchOpen&&!openedFromSearch)renderResults();});const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,addingStage,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults,onFreeShown:n=>{if(q&&$('search-input').value===q)$('search-label').textContent=foundLabel(shown.length+n);}});if(q)$('search-label').textContent=foundLabel(shown.length);return;}
+ if(addEnabled()){void borrowFromCatalogue(books).then(map=>{if(tinctSearch.lend(map)&&searchOpen&&!openedFromSearch)renderResults();});const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,addingStage,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults,portraitFor:authorImageFor,onFreeShown:n=>{if(q&&$('search-input').value===q)$('search-label').textContent=foundLabel(shown.length+n);}});if(q)$('search-label').textContent=foundLabel(shown.length);return;}
  renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}
@@ -161,7 +163,7 @@ async function addWork(work,button){
 syncSearchAddFile($('search-add-file'));
 // The top bar's + (beside search): the add-a-book flow, as My shelf's "+ Add a book".
 syncLibraryAdd($('library-add'),()=>setSearch(true));
-$('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>setSearch(false);$('search-input').oninput=renderResults;
+$('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>setSearch(false);$('search-close').onclick=()=>setSearch(false);$('search-input').oninput=renderResults;
 
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
 const editionChoices=new Map();

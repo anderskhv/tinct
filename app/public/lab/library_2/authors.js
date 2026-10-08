@@ -56,3 +56,13 @@ export async function renderImageCredits(target, provided) {
   }
   target.append(list);
 }
+/** An author's portrait from the library's author images, by any of their names (`names`), or null. */
+export async function authorImageFor(names) {
+  const key = name => String(name || '').toLowerCase().normalize('NFKD').replace(/\p{M}/gu, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  const wanted = new Set((names || []).map(key).filter(Boolean));
+  if (!wanted.size) return null;
+  try { await loadAuthorFlap(''); } catch { return null; }
+  const manifest = await authorManifest;
+  const image = (manifest?.images || []).find(item => !item.bookOnly && wanted.has(key(item.authorName)));
+  return image ? { src: image.publicPath } : null;
+}
