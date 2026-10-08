@@ -42,10 +42,8 @@ jobs:
             TEST_BOOK="$book" ARTIFACT_DIR="$ARTIFACT_DIR/$book" node scripts/check-reviewed-characters.cjs
           done
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: crime-release-acceptance
           path: app/artifacts/crime-release
   production-content:
@@ -75,9 +73,7 @@ jobs:
             TEST_BOOK="$book" ARTIFACT_DIR="$ARTIFACT_DIR/$book" node scripts/check-reviewed-characters.cjs
           done
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: crime-production-acceptance
           path: app/artifacts/crime-production

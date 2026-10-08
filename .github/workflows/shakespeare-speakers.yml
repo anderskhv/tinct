@@ -67,9 +67,7 @@ jobs:
           SHAKESPEARE_LIVE: ${{ github.event_name == 'push' && '1' || '0' }}
         run: node scripts/check-shakespeare-speakers.mjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: shakespeare-speakers
           path: app/artifacts/shakespeare-speakers

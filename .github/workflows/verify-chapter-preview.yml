@@ -37,10 +37,8 @@ jobs:
       - name: Verify page-edge hyphenation with chapter actions
         run: node scripts/check-hyphenation-hardening.mjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: chapter-preview-built
           path: |
             app/artifacts/chapter-preview-built
@@ -69,9 +67,7 @@ jobs:
           ARTIFACT_DIR: artifacts/chapter-preview-production
         run: node scripts/check-chapter-preview.cjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: chapter-preview-production
           path: app/artifacts/chapter-preview-production

@@ -100,7 +100,6 @@ jobs:
           git push -f origin audio-highlight-ledger
 
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         with:
           name: audio-highlight-ledger
           path: ledger/

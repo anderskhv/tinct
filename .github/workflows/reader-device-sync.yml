@@ -29,9 +29,7 @@ jobs:
       - name: Verify two independent devices with isolated account services
         run: node scripts/check-reader-device-sync.mjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: reader-device-sync
           path: app/artifacts/reader-device-sync

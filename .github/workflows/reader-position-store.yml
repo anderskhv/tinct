@@ -27,9 +27,7 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - run: node scripts/check-reader-position-store.mjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: reader-position-store
           path: app/artifacts/reader-position-store

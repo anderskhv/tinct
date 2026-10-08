@@ -23,7 +23,6 @@ jobs:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
         run: node scripts/check-grok-provider.mjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
           name: grok-provider-acceptance

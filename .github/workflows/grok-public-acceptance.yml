@@ -38,10 +38,8 @@ jobs:
           READER_LIVE: '1'
         run: node scripts/check-reader-fold.mjs
       - uses: actions/upload-artifact@v4
-        continue-on-error: true
         if: always()
         with:
-          retention-days: 3
           name: grok-public-acceptance
           path: |
             app/artifacts/grok-openings
