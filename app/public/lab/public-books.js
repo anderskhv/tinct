@@ -27,11 +27,12 @@ export function addToTinctEnabled(storage, signedIn) {
 }
 
 /**
- * The switch for paid Modern English editions of added books: while false, the
- * offer, the edition and its chapter states show only on devices with the
- * internal flag. The Worker has its own kill switch (PUBLIC_BOOK_MODERN_EDITIONS).
+ * The switch for paid Modern English editions of added books: on for everyone
+ * (Anders, 2026-10-08). Set false to show the offer, the edition and its chapter
+ * states only on devices with the internal flag again. The Worker has its own
+ * kill switch (PUBLIC_BOOK_MODERN_EDITIONS).
  */
-export const MODERN_EDITIONS_FOR_EVERYONE = false
+export const MODERN_EDITIONS_FOR_EVERYONE = true
 
 /** Whether this device sees Modern English editions of added books. */
 export function modernEditionsEnabled(storage) {

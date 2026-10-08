@@ -333,7 +333,7 @@ describe('uploads', () => {
       get: async (key: string) => objects.has(key) ? { body: objects.get(key), httpMetadata: { contentType: 'image/jpeg' } } : null,
       delete: async (key: string) => { objects.delete(key) },
     }
-    const env = { ...on, USER_BOOKS: bucket }
+    const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: bucket }
     await post(store, A, { visibility: 'everyone' }, env)
     const upload = await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: A, body: jpegWithExif() as BodyInit }, env)
     const { profile } = await upload.json() as { profile: { picture: { kind: string; url: string; review: string } } }
@@ -349,6 +349,50 @@ describe('uploads', () => {
     // Choosing a set removes the stored photo.
     await post(store, A, { picture: { kind: 'set', value: 'stoic' } }, env)
     expect(objects.size).toBe(0)
+  })
+})
+
+describe('photo uploads at launch (SOCIAL_PHOTO_UPLOADS not "1")', () => {
+  function bucket() {
+    const objects = new Map<string, Uint8Array>()
+    return {
+      objects,
+      put: async (key: string, value: Uint8Array) => { objects.set(key, value) },
+      get: async (key: string) => objects.has(key) ? { body: objects.get(key), httpMetadata: { contentType: 'image/jpeg' } } : null,
+      delete: async (key: string) => { objects.delete(key) },
+    }
+  }
+  const jpeg = () => new Uint8Array([0xff, 0xd8, 0xff, 0xc0, 0x00, 0x11, 0x08, 0x02, 0x00, 0x02, 0x00, 0x03, 0x01, 0x22, 0x00, 0x02, 0x11, 0x01, 0x03, 0x11, 0x01, 0xff, 0xda, 0x00, 0x08, 0x01, 0x01, 0x00, 0x00, 0x3f, 0x00, 0x12, 0x34, 0xff, 0xd9])
+
+  it.each([undefined, '0', 'true'])('refuses a picture or background upload with a 404 (var %s), stores nothing and reads nothing', async value => {
+    const store = new MemoryStore(); seed(store)
+    const r2 = bucket()
+    const env: Record<string, unknown> = { ...on, USER_BOOKS: r2 }
+    if (value !== undefined) env.SOCIAL_PHOTO_UPLOADS = value
+    await post(store, A, { visibility: 'everyone' }, env)
+    const before = store.calls
+    for (const slot of ['picture', 'background']) {
+      const res = await call(store, `/api/profile/image?slot=${slot}`, { method: 'POST', as: A, body: jpeg() as BodyInit }, env)
+      expect(res.status).toBe(404)
+    }
+    expect(store.calls).toBe(before)
+    expect(r2.objects.size).toBe(0)
+    expect(store.profiles.get(A)!.picture_kind).not.toBe('upload')
+    expect(store.profiles.get(A)!.background_kind).not.toBe('upload')
+    // A picture or background of kind upload cannot be chosen through the profile either.
+    expect((await post(store, A, { picture: { kind: 'upload', value: 'abc' } }, env)).status).toBe(422)
+    expect((await post(store, A, { background: { kind: 'upload', value: 'abc' } }, env)).status).toBe(422)
+  })
+
+  it('the Google photo still works', async () => {
+    const store = new MemoryStore(); seed(store)
+    const r2 = bucket()
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(jpeg() as BodyInit, { headers: { 'content-type': 'image/jpeg' } })))
+    const res = await call(store, '/api/profile/google-photo', { method: 'POST', as: B }, { ...on, USER_BOOKS: r2 })
+    expect(res.status).toBe(200)
+    const { profile } = await res.json() as { profile: { picture: { kind: string } } }
+    expect(profile.picture.kind).toBe('google')
+    expect(r2.objects.size).toBe(1)
   })
 })
 

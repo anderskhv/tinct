@@ -31,7 +31,7 @@ async function boot(page, scenario) {
       localStorage.setItem('tinct-lab-highlights-tap-cleanup-v1','1')
       localStorage.setItem('tinct-lab-highlights',JSON.stringify([s.highlight]))
     }
-    const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, shakespeareLayout: s.layout, theme: s.theme || 'book' }
+    const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, fontSizeExplicit: true, shakespeareLayout: s.layout, theme: s.theme || 'book' }
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: s.edition, compareOpen: true, compareEdition: s.edition === 'original-en' ? 'modern-en' : 'original-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: s.edition, compareEditionKey: s.edition === 'original-en' ? 'modern-en' : 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)

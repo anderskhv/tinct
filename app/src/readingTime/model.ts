@@ -8,6 +8,7 @@
  * reading, and later profiles and the leaderboard) is computed from the ledger
  * rows by `readingTimeStats`.
  */
+import { isUserBookId } from '../lab/userBook/userBookId'
 
 /** At most one heartbeat per reader in this window (the Worker's gate). */
 export const BEAT_MIN_GAP_MS = 50_000
@@ -17,6 +18,11 @@ export const BEAT_MAX_SECONDS = 60
 export const DAILY_CAP_SECONDS = 16 * 3600
 /** Book id of time counted before the ledger existed. Not a day's reading. */
 export const EARLIER_BOOK_ID = '_earlier'
+/**
+ * The one book id all of a reader's own books (`userbook-<hex>`) are recorded
+ * under: their time counts, their ids never reach the account (privateBook.ts).
+ */
+export const PRIVATE_BOOK_ID = 'private'
 /** The device tally (`reading-year-*`) started counting on this day. */
 export const TALLY_STARTED_DAY = '2026-09-30'
 /** A flush (offline or signed-out time) reaches back at most this many days. */
@@ -43,6 +49,11 @@ export function isDay(value: unknown): value is string {
 
 export function isLedgerBookId(value: unknown): value is string {
   return typeof value === 'string' && BOOK.test(value)
+}
+
+/** The book id the ledger records: an own book (`userbook-<hex>`) becomes the private bucket. */
+export function ledgerBookId(bookId: string): string {
+  return isUserBookId(bookId) ? PRIVATE_BOOK_ID : bookId
 }
 
 /** The reader's own calendar date, YYYY-MM-DD, in the device's time zone. */
@@ -99,7 +110,8 @@ export function parseBeat(raw: unknown, nowMs: number): Beat | null {
   if (!raw || typeof raw !== 'object') return null
   const body = raw as Record<string, unknown>
   if (!plausibleToday(body.day, nowMs) || !isLedgerBookId(body.bookId)) return null
-  return { day: body.day as string, bookId: body.bookId as string, read: seconds(body.read), listen: seconds(body.listen), playing: body.playing === true }
+  // An own book's id is never stored, even from an older client: it is the private bucket.
+  return { day: body.day as string, bookId: ledgerBookId(body.bookId as string), read: seconds(body.read), listen: seconds(body.listen), playing: body.playing === true }
 }
 
 /**
@@ -139,8 +151,9 @@ export function parseFlush(raw: unknown, nowMs: number): Flush | null {
     if (!isDay(entry.day) || !isLedgerBookId(entry.bookId)) return null
     const age = daysBetween(entry.day as string, today)
     if (age < -1 || age > FLUSH_MAX_AGE_DAYS) continue
-    const key = `${entry.day}|${entry.bookId}`
-    const prev = merged.get(key) ?? { day: entry.day as string, bookId: entry.bookId as string, read: 0, listen: 0 }
+    const bookId = ledgerBookId(entry.bookId as string)
+    const key = `${entry.day}|${bookId}`
+    const prev = merged.get(key) ?? { day: entry.day as string, bookId, read: 0, listen: 0 }
     prev.read = Math.min(DAILY_CAP_SECONDS, prev.read + seconds(entry.read))
     prev.listen = Math.min(DAILY_CAP_SECONDS, prev.listen + seconds(entry.listen))
     merged.set(key, prev)

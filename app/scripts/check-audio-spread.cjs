@@ -49,7 +49,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   }
   window.Audio=SilentAudio;
   HTMLMediaElement.prototype.play=async()=>{};
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'web-en',fontFamily:'literata',fontSize:1.8,theme:'dark'}));
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'web-en',fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark'}));
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:location.search.includes('character-test')?413:410,paragraphIndex:0,wordIndex:0,page:0}}));
  });
  const p=await context.newPage();p.setDefaultTimeout(30000);const errors=[];p.on('pageerror',e=>errors.push(e.message));

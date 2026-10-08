@@ -37,7 +37,7 @@ export interface ShareDeps {
 }
 
 /** Bump when the drawing changes, so cached images are redrawn. */
-export const SHARE_RENDER_VERSION = '7'
+export const SHARE_RENDER_VERSION = '8'
 export const SHARE_CREATE_PER_MINUTE = 10
 export const SHARE_PREVIEW_PER_MINUTE = 40
 const IMAGE_CACHE = 'public, max-age=86400'
@@ -77,7 +77,13 @@ export function parseShareInput(raw: Record<string, unknown>): ShareRecordInput 
   const format = FORMATS.includes(raw.format as 'phone') ? raw.format as 'phone' | 'desktop' : null
   const flag = (value: unknown) => value === true || value === '1' || value === 1
   if (!bookId || !editionKey || chapterNumber === null || chapterNumber < 1 || paragraphIndex === null || fromWord === null || endParagraphIndex === null || toWord === null || !look || !format) return null
-  return { bookId, editionKey, chapterNumber, paragraphIndex, fromWord, endParagraphIndex, toWord, look, format, context: flag(raw.context), tagline: flag(raw.tagline) }
+  return {
+    bookId, editionKey, chapterNumber, paragraphIndex, fromWord, endParagraphIndex, toWord, look, format,
+    context: flag(raw.context), tagline: flag(raw.tagline),
+    // Older clients send neither: justified (the reader's default) with the highlight colour.
+    align: raw.align === 'left' ? 'left' : 'justify',
+    highlight: raw.highlight === undefined ? true : flag(raw.highlight),
+  }
 }
 
 export interface LoadedShare {
@@ -111,7 +117,7 @@ export async function loadShareContent(env: ShareEnv, origin: string, input: Sha
 }
 
 function optionsOf(input: ShareRecordInput, format: ShareFormat): ShareOptions {
-  const options: ShareOptions = { format, look: input.look, context: input.context, tagline: input.tagline }
+  const options: ShareOptions = { format, look: input.look, context: input.context, tagline: input.tagline, align: input.align, highlight: input.highlight }
   // The link preview of a quote set as a series opens on its first card.
   if (format === 'og' && !input.context) options.cardFormat = input.format
   return options
@@ -273,12 +279,10 @@ export async function handleSharePage(request: Request, env: ShareEnv, ctx: Exec
   const loaded = await loadShareContent(env, url.origin, record)
   if (!loaded) return notFound()
   const quote = buildPassage(loaded.content.paragraphs, loaded.content.range, false).map(paragraph => paragraph.tokens.map(token => token.text).join(' '))
-  // A quote set as a series of cards: the page shows all of it as text.
-  let series = false
-  if (!record.context) {
-    const { shareCardCount } = await import('../lib/shareRender')
-    series = await shareCardCount(env.ASSETS, url.origin, loaded.content, optionsOf(record, record.format)).then(count => count > 1, () => false)
-  }
+  // A share set as a series of cards (quote cards, or pages with surrounding
+  // text): the page shows all of the quote as text.
+  const { shareCardCount } = await import('../lib/shareRender')
+  const series = await shareCardCount(env.ASSETS, url.origin, loaded.content, optionsOf(record, record.format)).then(count => count > 1, () => false)
   const html = shareLinkPage({
     origin: url.origin, record,
     text: quote.join(' '),

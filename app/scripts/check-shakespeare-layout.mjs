@@ -27,7 +27,7 @@ async function boot(page, scenario) {
   await page.addInitScript(s => {
     if (sessionStorage.getItem('qa:shakespeare')) return
     sessionStorage.setItem('qa:shakespeare', '1')
-    const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, shakespeareLayout: s.layout }
+    const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, fontSizeExplicit: true, shakespeareLayout: s.layout }
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en', compareEdition: 'modern-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)

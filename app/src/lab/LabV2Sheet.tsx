@@ -326,7 +326,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   max={LAB_MAX_FONT_SIZE}
                   step={0.1}
                   value={prefs.fontSize}
-                  onChange={event => onPrefs({ ...prefs, fontSize: Number(event.target.value) })}
+                  onChange={event => onPrefs({ ...prefs, fontSize: Number(event.target.value), fontSizeExplicit: true })}
                 />
                 <span className="lab-v2-size-large" aria-hidden="true">A</span>
               </div>

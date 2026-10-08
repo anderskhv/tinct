@@ -2197,6 +2197,9 @@
 .lab-verse-line {
   display: block;
   text-align: start;
+  /* Never inherit a justified last line from a page tail that continues
+     (`.is-continued[data-tail-full]`): each verse line ends its own block. */
+  text-align-last: auto;
   text-justify: auto;
   padding-left: 1.5em;
   text-indent: -1.5em;
@@ -2239,6 +2242,11 @@
   line-height: 0;
   font-weight: 600;
   margin-left: 0;
+  /* With the narrow no-break space after it (LAB_VERSE_SEPARATOR) this is
+     the number's fixed room: about a fifth of an em that a justified line
+     never stretches, so the number stays with its verse. Inside the number's
+     word span, whose own background paints highlights here, so no slit. */
+  margin-right: 0.18em;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }
@@ -2774,6 +2782,9 @@
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 0.92rem;
   font-style: italic;
+  /* Italic figures lean past their advance ("Ezra 9"): the label clips at its
+     padding box, so a little room on the right keeps the last glyph whole. */
+  padding-right: 0.14em;
 }
 
 .lab-header-chevron {
@@ -3576,8 +3587,8 @@
 }
 
 .lab.is-desktop .lab-header {
-  height: 72px;
-  min-height: 72px;
+  height: 56px;
+  min-height: 56px;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr) 48px;
@@ -3600,7 +3611,7 @@
   min-width: 0;
   max-width: min(320px, 42vw);
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 1;
 }
 
@@ -3610,16 +3621,23 @@
 }
 
 .lab.is-desktop .lab-header-chapter {
-  min-height: 39px;
+  /* The chapter is what the pill is for: the book title truncates first. */
+  flex: 0 0 auto;
+  min-height: 32px;
   max-width: min(420px, 46vw);
-  gap: 8px;
-  padding: 5px 13px 6px 16px;
+  gap: 7px;
+  padding: 3px 11px 4px 14px;
   background: rgba(219, 209, 190, .64);
 }
 
+.lab.is-desktop.is-night .lab-header-chapter {
+  background: var(--lab-surface);
+}
+
 .lab.is-desktop .lab-header-chapter-label {
-  font-size: 20px;
-  line-height: 1.15;
+  font-size: 17px;
+  /* Room for old-style figures' descenders inside the clipping box. */
+  line-height: 1.35;
 }
 
 .lab.is-desktop .lab-header-controls {
@@ -4115,7 +4133,10 @@
 
 .lab.is-night.is-desktop .lab-page-wrap {
   background: color-mix(in srgb, var(--lab-paper) 97%, white);
-  border-color: rgba(222, 199, 165, .1);
+  /* No visible frame on dark paper: a hairline round the leaf read as a box,
+     not a book. Transparent, not removed, so the leaf's geometry and every
+     measured page are identical in both themes. */
+  border-color: transparent;
 }
 
 
@@ -6681,11 +6702,16 @@
   color: var(--lab-paper);
 }
 
-/* Desktop uses measured leaves; all rules are scoped away from the phone. */
+/* Desktop uses measured leaves; all rules are scoped away from the phone.
+   Top 12 / bottom 30 give each leaf one more line than 20/48 (owner
+   feedback, 8 Oct 2026). The bottom margin holds the folio (footers below:
+   bottom 6px, ~17px tall, clear of the last line's box) or, at a full final
+   leaf, the compact docked chapter-end row. The measure box uses the same
+   insets, so pagination fits exactly the displayed box. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap {
   --desktop-pad-x: calc(clamp(28px, 3vw, 64px) * var(--lab-reader-margin-scale, 1));
-  --desktop-pad-top: 24px;
-  --desktop-pad-bottom: 62px;
+  --desktop-pad-top: 12px;
+  --desktop-pad-bottom: 30px;
   --desktop-gutter: 56px;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage {
@@ -6780,7 +6806,7 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-header-controls .lab-super {
   border-color: transparent; background: transparent; box-shadow: none;
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap { --desktop-pad-bottom: 62px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap { --desktop-pad-bottom: 30px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 68px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { right: 30px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.is-inline-hearing .lab-hearing-word.is-current { background: #dccbaa; color: var(--lab-ink); text-decoration: none; }
@@ -6834,12 +6860,17 @@
 
 
 /* Reader polish: footer space is part of each leaf; book progress is in the frame. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 108px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 108px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 69px; pointer-events: auto; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 69px; }
+/* The space under the leaf is the same with the audio dock open or closed,
+   so opening it never re-paginates (and never moves the reader's place).
+   Closed, the progress line sits just under the leaf; open, the dock takes
+   the bottom and the line rises to sit between the dock and the leaf. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 92px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 92px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 52px; pointer-events: auto; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 58px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { bottom: 6px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers {
-  position: absolute; left: var(--desktop-pad-x); right: var(--desktop-pad-x); bottom: 14px;
+  position: absolute; left: var(--desktop-pad-x); right: var(--desktop-pad-x); bottom: 6px;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--desktop-gutter);
   color: var(--lab-ink-muted); font: 11px/1.4 'IBM Plex Mono', monospace; pointer-events: none;
 }
@@ -7075,6 +7106,10 @@
 .lab.is-desktop[data-chrome-version="v2"] { background:var(--lab-paper); }
 .lab.is-desktop[data-chrome-version="v2"] .lab-body,
 .lab.is-desktop[data-chrome-version="v2"] .lab-page-wrap { background:var(--lab-paper); }
+/* Dark: the leaf has no frame line (see .lab.is-night.is-desktop .lab-page-wrap);
+   the desk a shade below the paper is what separates the book from it. */
+.lab.is-desktop.is-night[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece),
+.lab.is-desktop.is-night[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece) .lab-body { background: color-mix(in srgb, var(--lab-paper) 78%, #000); }
 /* Paint the binding on the whole sheet, independent of text/terminal-card
    height. This is decoration only: no reader or pagination geometry changes. */
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
@@ -7116,6 +7151,12 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 12px 36px rgb(0 0 0 / .18);
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { opacity:.6; font-family:var(--lab-font-reader); font-size:12px; }
+/* Folios and chapter progress as the phone sets its progress line: the
+   reading face, 12px, muted. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers,
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-progress-info {
+  font-family: var(--lab-font-reader); font-size: 12px; color: var(--lab-ink-muted); letter-spacing: .02em;
+}
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers > span { gap:20px; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-handle] { cursor:grab; touch-action:none; user-select:none; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window] { position:fixed!important; margin:0!important; box-sizing:border-box; max-height:calc(100dvh - 32px); min-height:0; max-width:calc(100vw - 32px); border-radius:16px; }
@@ -7235,7 +7276,13 @@
 /* A full final leaf keeps its prose. Its controls use the reserved footer
    instead of pushing a handful of words onto another leaf. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-col:has(> .lab-chapter-end.is-docked) { position: relative; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-measure-page:has(> .lab-chapter-end.is-docked) { position: relative; }
+/* Docked in the slim folio margin, the row is set compact: 26px boxes (the
+   paginator measures this same class against the margin). The hit area
+   reaches past the box without moving it, so the target stays ~40px. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 2px 0 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked .lab-chapter-end-actions button { position: relative; min-height: 26px; padding: 0; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked .lab-chapter-end-actions button::after { content: ''; position: absolute; inset: -4px 0 -10px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col:first-child > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:first-child,
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col-next > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:last-child { visibility: hidden; }
 
@@ -7339,11 +7386,12 @@
 .lab[data-chrome-version="v2"] .lab-book-switcher-library:focus-visible{outline:2px solid var(--lab-ink);outline-offset:-4px}
 
 /* Desktop: back to the library, icon only, top left — the same 42px disc and
-   ink as Play and the t on the right, and it dims with them after a turn. */
+   ink as Play and the t on the right, and it dims with them after a turn.
+   Centred in the 56px desktop header. */
 .lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-library-back {
   position: absolute;
   left: 24px;
-  top: 15px;
+  top: 7px;
   width: 42px;
   height: 42px;
   padding: 0;

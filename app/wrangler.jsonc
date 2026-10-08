@@ -45,6 +45,10 @@
     // Profiles (social ship 2, src/worker/routes/profiles.ts). "1" turns them on, only after
     // supabase/migrations/20261008_profiles.sql has run. Off: no profile route, page or marker exists.
     "SOCIAL_PROFILES": "0",
+    // Uploaded profile photos and backgrounds (POST /api/profile/image). Not at launch (Anders,
+    // 8 Oct 2026): pictures are a library set or cover detail, the initial or the Google photo.
+    // Anything but "1" refuses uploads with a 404; the editor offers none.
+    "SOCIAL_PHOTO_UPLOADS": "0",
     // Social (ship 3, src/worker/routes/social.ts): follows, the Friends/Everyone leaderboard,
     // tinct.app/@handle pages, Find, reports, the reading card and /admin/social. "1" turns it on
     // only together with SOCIAL_PROFILES "1", and only after supabase/migrations/20261008_social.sql

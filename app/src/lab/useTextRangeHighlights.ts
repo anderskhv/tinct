@@ -156,6 +156,22 @@ function schedulePaint(mounted: Mounted): void {
  * underneath the text in every engine, plus fractional edge joins. These
  * absolute, noninteractive layers never affect text metrics or selection.
  */
+/**
+ * A hyphen the reader draws as generated content (the page-edge fragment's
+ * `::after`, a planned break's soft hyphen after `.lab-syl`) is not text, so a
+ * Range's rects stop short of it and a highlight left it bare at the line's
+ * end. The element's own boxes include its pseudo-content: add those of every
+ * such element the range covers.
+ */
+export function generatedHyphenRects(line: Element, range: Range): DOMRect[] {
+  const rects: DOMRect[] = []
+  for (const el of line.querySelectorAll('.lab-word-fragment, .lab-syl')) {
+    try { if (!range.intersectsNode(el)) continue } catch { continue }
+    rects.push(...el.getClientRects())
+  }
+  return rects
+}
+
 function paintRanges(mounted: Mounted): void {
   const { root } = mounted
   mounted.layers.splice(0).forEach(layer => layer.remove())
@@ -163,7 +179,7 @@ function paintRanges(mounted: Mounted): void {
   for (const { line, color, range } of mounted.runs) {
     if (typeof range.getClientRects !== 'function' || !line.isConnected) continue
     const box = line.getBoundingClientRect(), fontSize = parseFloat(getComputedStyle(line).fontSize)
-    const rects = [...range.getClientRects()]
+    const rects = [...range.getClientRects(), ...generatedHyphenRects(line, range)]
     const paint = [...highlightRows(rects, fontSize).map(r => ({ left: r.left, top: r.top, width: r.right - r.left, height: r.bottom - r.top, seam: false })), ...highlightSeams(rects, fontSize, 1 / (window.devicePixelRatio || 1)).map(r => ({ ...r, seam: true }))]
     for (const seam of paint) {
       const layer = document.createElement('span')

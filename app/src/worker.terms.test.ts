@@ -1,7 +1,7 @@
 /**
- * /terms is published with the AI allowance (src/aiAllowanceSwitch.ts):
- * off, a 404 that nothing links to; on, served like /privacy and linked from
- * the /about and /privacy footers. The shipped value is pinned off in
+ * /terms is published on its own (Anders, 2026-10-08): served like /privacy
+ * and linked wherever /privacy is linked, whether the AI allowance switch
+ * (src/aiAllowanceSwitch.ts) is off or on. The shipped value is pinned off in
  * worker/lib/aiAllowance.test.ts; here a copy is flipped to test both states.
  */
 import { readFileSync } from 'node:fs'
@@ -10,10 +10,11 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 const switchState = vi.hoisted(() => ({ on: false }))
 vi.mock('./aiAllowanceSwitch', () => ({ get AI_ALLOWANCE_ENFORCED() { return switchState.on } }))
 
-import { handleSeoAndStaticRequest, termsPublished, withTermsLink } from './worker/routes/seo'
+import { handleSeoAndStaticRequest } from './worker/routes/seo'
 
 const PAGES: Record<string, string> = {
   '/about': 'public/about.html',
+  '/credits': 'public/credits.html',
   '/privacy': 'public/privacy.html',
   '/terms': 'public/terms.html',
   '/404.html': 'public/404.html',
@@ -42,39 +43,9 @@ const footer = (html: string) => html.slice(html.lastIndexOf('<footer') >= 0 ? h
 
 afterEach(() => { switchState.on = false })
 
-describe('/terms while the AI allowance is off', () => {
-  it.each(['/terms', '/terms/', '/terms.html'])('%s answers exactly as when no terms.html existed, and the file is never read', async pathname => {
-    const target = env()
-    const response = await get(pathname, target)
-    expect(target.asked.some(path => path.startsWith('/terms'))).toBe(false)
-    // The same request against assets without terms.html (main before this branch).
-    const withoutFile = env()
-    const missing = { ...withoutFile, ASSETS: { fetch: async (request: Request) => new URL(request.url).pathname.startsWith('/terms') ? new Response('nf', { status: 404 }) : withoutFile.ASSETS.fetch(request) } }
-    const expected = await get(pathname, missing as never)
-    expect(response.status).toBe(404)
-    expect(response.status).toBe(expected.status)
-    expect([...response.headers.entries()].sort()).toEqual([...expected.headers.entries()].sort())
-    const body = await response.text()
-    expect(body).toBe(await expected.text())
-    expect(body).not.toContain('Terms of Service')
-  })
-
-  it('is linked from nowhere: /about and /privacy keep their footers', async () => {
-    expect(termsPublished()).toBe(false)
-    for (const pathname of ['/about', '/privacy']) {
-      const html = await (await get(pathname)).text()
-      expect(html).not.toContain('href="/terms"')
-    }
-    // Nor in the shipped files, the sitemap or Add a book.
-    for (const file of ['public/about.html', 'public/privacy.html', 'public/story.html', 'public/sitemap.xml', 'public/lab/addbook/js/reader.js', 'public/lab/library_2/index.html']) {
-      expect(readFileSync(file, 'utf8'), file).not.toMatch(/tinct\.app\/terms|href="\/terms/)
-    }
-  })
-})
-
-describe('/terms once the AI allowance is on', () => {
+describe.each([false, true])('/terms with the AI allowance switch %s', on => {
   it('is served like /privacy: same short public cache, same security headers and CSP', async () => {
-    switchState.on = true
+    switchState.on = on
     const [privacy, terms] = await Promise.all([get('/privacy'), get('/terms')])
     expect(terms.status).toBe(200)
     expect(terms.headers.get('Location')).toBeNull()
@@ -87,27 +58,22 @@ describe('/terms once the AI allowance is on', () => {
     expect(html).toContain('id="section-4"')
   })
 
-  it('is linked once from the /about and /privacy footers', async () => {
-    switchState.on = true
+  it('is linked once from the /about, /credits and /privacy footers, next to Privacy', async () => {
+    switchState.on = on
     const about = await (await get('/about')).text()
     expect(footer(about)).toContain('<a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">')
+    const credits = await (await get('/credits')).text()
+    expect(footer(credits)).toContain('<a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">')
     const privacy = await (await get('/privacy')).text()
     expect(footer(privacy)).toMatch(/<a href="\/about">About<\/a>\s*<a href="\/terms">Terms<\/a>\s*<a href="mailto:contact@tinct\.app">Contact<\/a>/)
-    for (const html of [about, privacy]) expect(html.match(/href="\/terms"/g)).toHaveLength(1)
+    for (const html of [about, credits, privacy]) expect(html.match(/href="\/terms"/g)).toHaveLength(1)
   })
 })
 
-describe('withTermsLink', () => {
-  it('finds the footers it edits in the shipped pages (a footer change must update it)', () => {
-    for (const [pathname, file] of [['/about', 'public/about.html'], ['/privacy', 'public/privacy.html']]) {
-      const html = readFileSync(file, 'utf8')
-      expect(withTermsLink(html, pathname, true), file).not.toBe(html)
-      expect(withTermsLink(html, pathname, false)).toBe(html)
+describe('/terms links in the shipped files', () => {
+  it('about, credits and privacy carry the Terms link in the files themselves, not added at request time', () => {
+    for (const file of ['public/about.html', 'public/credits.html', 'public/privacy.html']) {
+      expect(footer(readFileSync(file, 'utf8')), file).toContain('href="/terms"')
     }
-  })
-
-  it('leaves other pages alone', () => {
-    const html = '<a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">x</a>'
-    expect(withTermsLink(html, '/story', true)).toBe(html)
   })
 })

@@ -101,7 +101,8 @@ import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
-import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, startModernCheckout, useLabModernEdition } from './labModernEdition'
+import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition } from './labModernEdition'
+import { cancelModernCheckout } from './labModernEditionApi'
 import { isPublicBookId, modernEditionsEnabled } from '../../public/lab/public-books.js'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
@@ -112,6 +113,7 @@ import {
   bibleEditions,
   labFontFamilyCss,
   labReadingFont,
+  labDesktopDefaultFontSize,
   labFootProgress,
   labBookPageEstimate,
   labPageFolio,
@@ -154,7 +156,7 @@ import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
@@ -449,6 +451,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
   const voicePanelSurface = !showPhoneChrome
   const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
+  // Back from Checkout without paying: the buyer's own session is ended at once, so the
+  // book is not held from other buyers until it lapses (the Worker checks it is theirs).
+  useEffect(() => {
+    const back = modernReturnForPage()
+    if (back?.kind !== 'cancel') return
+    void readSupabaseAccessToken().then(token => token ? cancelModernCheckout(back.bookId, token) : false).catch(() => false)
+  }, [])
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
   // A user book opens at its own saved place (userBookStore.ts), never the
@@ -522,7 +531,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const phoneShakespeare = isPhone && isShakespeare && isShakespearePhone()
   const flowingShakespeare = phoneShakespeare && prefs.shakespeareLayout === 'flowing'
   const readingAlignment = prefs.alignmentExplicit === false ? (isShakespeare ? 'left' : 'justify') : prefs.alignment
-  const displayPrefs = { ...prefs, alignment: readingAlignment }
+  // A desktop reader who never set a size reads at the size for their window
+  // (labDesktopDefaultFontSize); a size they chose is kept exactly.
+  const [desktopDefaultFontSize, setDesktopDefaultFontSize] = useState(() => labDesktopDefaultFontSize(typeof window === 'undefined' ? 0 : window.innerWidth))
+  const readingFontSize = appearanceProfile === 'desktop' && !prefs.fontSizeExplicit ? desktopDefaultFontSize : prefs.fontSize
+  const displayPrefs = { ...prefs, alignment: readingAlignment, fontSize: readingFontSize }
   const readingFont = labReadingFont(prefs.fontFamily)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const desktopAppearance = useDesktopAppearance()
@@ -813,6 +826,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     editionKey: prefs.primaryEdition,
     chapterNumber: book.chapterNumber,
     pending: !!book.modernPending,
+    // Signed in, the status carries an offer only for Premium (trial included).
+    readToken: signedIn ? readSupabaseAccessToken : undefined,
     // Back from a completed purchase: read the edition just bought.
     onPurchased: () => {
       const registered = getBook(modernBookId)
@@ -829,8 +844,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       const url = await startModernCheckout(modernBookId, book.chapterNumber, token)
       markPendingPurchase(modernBookId)
       window.location.assign(url)
-    } catch {
+    } catch (error) {
       setModernCheckoutBusy(false)
+      // Premium only (trial included): the account sheet, with its Premium offer, says the rest.
+      if (error instanceof Error && error.message === MODERN_PREMIUM_REQUIRED) setSuperSheet('account')
     }
   }, [modernBookId, book.chapterNumber])
   const [readingPageIndex, setReadingPageIndex] = useState(
@@ -1068,8 +1085,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     restoreView: restoreLabVoiceView,
     getTheme: () => resolvedDarkMode ? 'dark' : 'light',
     setTheme: theme => updatePrefs({ ...prefs, theme, darkMode: theme === 'dark' }),
-    getFontSize: () => prefs.fontSize,
-    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize }),
+    getFontSize: () => readingFontSize,
+    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize, fontSizeExplicit: true }),
     getAudioSpeed: () => listenSpeedRef.current,
     setAudioSpeed: speed => {
       listenSpeedRef.current = speed
@@ -1246,10 +1263,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     bookId: book.bookId || 'bible',
     chapter: book.chapterNumber,
     page: readingPageIndex,
-    // A user book is not counted in the reading year.
+    // A user book is not counted in the reading year (no pages, no device
+    // time); with the reading-time ledger on, its time counts under the one
+    // private bucket, never its id.
     onCover: privateBook || Boolean(chapterCoverTitle),
-    paused: privateBook || tocOpen,
+    paused: tocOpen,
     listeningRef: listenPlayingRef,
+    privateBook,
   })
   // Warm narration ahead of the reader: the chapter's opening on arrival, the
   // next chapter's opening when the reader nears the end of this one.
@@ -1730,6 +1750,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       const phone = readPhoneSurface(layoutOverride)
       setIsPhone(phone)
       setShowPhoneChrome(readPhoneFooter(layoutOverride, phone))
+      setDesktopDefaultFontSize(labDesktopDefaultFontSize(window.innerWidth))
     }
     sync()
     const mq = typeof window.matchMedia === 'function' ? window.matchMedia(PHONE_QUERY) : null
@@ -1749,12 +1770,21 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const chapterKey = `${book.bookId}:${book.chapterNumber}`
   const chapterKeyRef = useRef(chapterKey)
   const chapterContentRef = useRef(readerParagraphs)
+  const chapterPagingRef = useRef(measuredPaging)
 
   useLayoutEffect(() => {
     const chapterChanged = chapterKeyRef.current !== chapterKey
     const contentChanged = chapterContentRef.current !== readerParagraphs
+    const pagingChanged = chapterPagingRef.current !== measuredPaging
     chapterKeyRef.current = chapterKey
     chapterContentRef.current = readerParagraphs
+    chapterPagingRef.current = measuredPaging
+    // Same chapter, same text, same paging: nothing this effect lays out has
+    // changed (on the desktop, a resumed phone-Compare flag clearing itself
+    // after load). Re-estimating here replaced the measured map with a draft
+    // one under the same page index, so a reload at the chapter's last page
+    // showed the page before it (check-chapter-preview, desktop Compare).
+    if (!chapterChanged && !contentChanged && !pagingChanged && pagesStableRef.current && readingPagesRef.current.length > 0) return
     if (chapterChanged || contentChanged) {
       pagesStableRef.current = false
       didBudgetPageRef.current = false
@@ -1829,7 +1859,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
-  }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
+  }, [book.bookId, book.chapterNumber, readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
     if (measuredPaging) return
@@ -1869,7 +1899,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     unmeasuredTriesRef.current = 0
     setSettleIndex(measuredPaging ? null : 0)
     settleIndexRef.current = measuredPaging ? null : 0
-  }, [readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
+  }, [readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -2466,7 +2496,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
 
   useLayoutEffect(() => {
     if (
@@ -2747,7 +2777,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     book.chapterNumber,
     editionKey,
     readingFont,
-    prefs.fontSize,
+    readingFontSize,
     readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
@@ -2776,7 +2806,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   standbyKeyRef.current = standbyKey
   const readerLayoutKey = [
     readingFont,
-    prefs.fontSize,
+    readingFontSize,
     readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
@@ -3195,7 +3225,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       const page = readingPages[readingPageIndex]
       const midBook = !!page && page.paragraphIndex > 0
       if (follow.paragraphIndex === 0 && midBook && !(listen.clipIndex === 0 && listen.currentTime < 15)) return
-      placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+      // A paragraph-level follow names no word. When the open page already
+      // begins inside that paragraph, its first word is the place: moving
+      // the place back to the paragraph's start (on the leaf before) let the
+      // next map adoption, e.g. when the transport opens, turn the reader
+      // back a leaf on Play (check-audio-spread).
+      placeRef.current = page && page.paragraphIndex === follow.paragraphIndex
+        ? { paragraphIndex: follow.paragraphIndex, wordIndex: page.from }
+        : { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
         : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
@@ -4760,7 +4797,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       data-audio-speed={String(listen.speed)}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(readingFont),
-        ['--lab-font-size' as string]: String(prefs.fontSize),
+        ['--lab-font-size' as string]: String(readingFontSize),
         ['--lab-text-align' as string]: readingAlignment,
         ['--lab-line-height' as string]: String(labLineHeight(prefs.lineSpacing)),
         ['--lab-reader-margin' as string]: typeof prefs.margins === 'number' ? `${1.55 * prefs.margins}rem` : prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
@@ -5542,7 +5579,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         active={ask.voiceActive && !callOpen}
         view={voiceLabView}
         darkMode={resolvedDarkMode}
-        fontSize={prefs.fontSize}
+        fontSize={readingFontSize}
         audioSpeed={listen.speed}
         fixtureEnabled={voiceHistoryFixture}
         onFixtureEnabled={setVoiceHistoryFixture}
@@ -5743,6 +5780,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <LabShareSheet
           target={shareTarget}
           format={isPhone ? 'phone' : 'desktop'}
+          align={readingAlignment}
           look={typeof document !== 'undefined' && document.documentElement.dataset.eink === 'true' ? 'eink' : resolvedDarkMode ? 'night' : prefs.theme === 'book' ? 'book' : 'paper'}
           onClose={() => setShareTarget(null)}
         />

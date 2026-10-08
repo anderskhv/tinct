@@ -105,3 +105,33 @@ describe('ownBooks (My shelf: Your own books)', () => {
     expect(fetchImpl).not.toHaveBeenCalled()
   })
 })
+
+describe('Modern English after an add (the reader’s status and checkout)', () => {
+  it('asks the reader’s status endpoint', async () => {
+    const { modernStatus } = await import('./libraryAdd')
+    const fetchImpl = vi.fn(async () => Response.json({ state: 'none', chapters: {}, offer: { tier: 2, cents: 499 } }))
+    expect(await modernStatus('pd-pg-158', fetchImpl as unknown as typeof fetch)).toEqual({ state: 'none', chapters: {}, offer: { tier: 2, cents: 499 } })
+    expect((fetchImpl.mock.calls[0] as unknown as [string])[0]).toBe('/api/public-books/pd-pg-158/modern-en')
+    expect(await modernStatus('pd-pg-158', (async () => new Response('', { status: 503 })) as unknown as typeof fetch)).toBeNull()
+  })
+
+  it('starts the reader’s checkout signed in and marks the purchase for the reader’s return; never signed out', async () => {
+    const { buyModern } = await import('./libraryAdd')
+    const tab = memoryStorage()
+    vi.stubGlobal('sessionStorage', tab)
+    const fetchImpl = vi.fn(async () => Response.json({ url: 'https://checkout.stripe.com/c/pay/cs_1' }))
+    await expect(buyModern('pd-pg-158', 1, fetchImpl as unknown as typeof fetch)).rejects.toThrow('signed_out')
+    expect(fetchImpl).not.toHaveBeenCalled()
+    session.current = { access_token: 'tok' }
+    expect(await buyModern('pd-pg-158', 1, fetchImpl as unknown as typeof fetch)).toBe('https://checkout.stripe.com/c/pay/cs_1')
+    const [url, init] = fetchImpl.mock.calls[0] as unknown as [string, RequestInit]
+    expect(url).toBe('/api/public-books/pd-pg-158/modern-en/checkout')
+    expect((init.headers as Record<string, string>).Authorization).toBe('Bearer tok')
+    expect(JSON.parse(String(init.body))).toEqual({ chapter: 1 })
+    expect(tab.getItem('tinct:modern-purchase')).toBe('pd-pg-158')
+    // Someone else is buying it (409): no checkout, no pending mark.
+    tab.removeItem('tinct:modern-purchase')
+    await expect(buyModern('pd-pg-158', 1, (async () => Response.json({ error: 'in_progress' }, { status: 409 })) as unknown as typeof fetch)).rejects.toThrow()
+    expect(tab.getItem('tinct:modern-purchase')).toBeNull()
+  })
+})

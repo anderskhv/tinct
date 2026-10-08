@@ -138,7 +138,7 @@ function build() {
 </tbody></table></div>
 
 
-<p class="footer"><a href="/library">Library</a><a href="/credits">Credits</a><a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
+<p class="footer"><a href="/library">Library</a><a href="/credits">Credits</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
 </div>
 </body>
 </html>
@@ -152,7 +152,7 @@ function buildCredits() {
 
 <h2>Credits</h2>
 ${creditsSection()}
-<p class="footer"><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
+<p class="footer"><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
 </div>
 </body>
 </html>

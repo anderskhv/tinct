@@ -1,7 +1,8 @@
 import { editionHold, isBookTemporarilyHeld } from '../data/editionAvailability'
 import { getBook } from '../data/bookRegistry'
 import { defaultCompareEditionKey, defaultPrimaryEditionKey } from '../data/editionDefaults'
-import { createReaderHandoffIntent, type ReaderHandoffIntent } from '../preReader/catalogue'
+import { createReaderHandoffIntent, PRE_READER_CATALOGUE, type ReaderHandoffIntent } from '../preReader/catalogue'
+import { clearPendingPurchase, markPendingPurchase, modernReturnFromParams, pendingPurchase, type ModernReturn } from './labModernEditionApi'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
 import type { LabBookPlace } from './labPosition'
@@ -12,6 +13,41 @@ export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 let pageHandoffRead = false
 let pageHandoff: ReaderHandoffIntent | null = null
 let pageSharedLink: { id: string; ref: string } | null = null
+let pageModernReturn: ModernReturn | null = null
+
+/** The Checkout return (`?book=…&modern=1|cancel`) this page was opened from, read before the URL is cleaned. */
+export function modernReturnForPage(): ModernReturn | null {
+  return pageModernReturn
+}
+
+/**
+ * The hand-off for a Checkout return: the named book at the reader's latest place in it,
+ * else its first chapter, in its default edition. Null when the book is not registered
+ * (an unknown id opens nothing).
+ */
+export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null {
+  const book = getBook(bookId)
+  if (!book) return null
+  const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
+  const first = entry?.readingStructure?.chapters?.[0]?.number
+  const chapterNumber = Number.isInteger(first) && (first as number) >= 1 ? first as number : 1
+  const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
+  return createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } })
+}
+
+/**
+ * Where a Checkout return opens: this tab's own hand-off when it names the same book
+ * (it carries the place the reader left from), else the book the return names; a
+ * return that names no registered book leaves the tab's hand-off as it was.
+ * A paid return marks the purchase, so the reader switches to the edition once it is
+ * granted (labModernEdition polls briefly); a cancelled one clears the mark.
+ */
+export function handoffForModernReturn(modernReturn: ModernReturn, stored: ReaderHandoffIntent | null): ReaderHandoffIntent | null {
+  if (modernReturn.kind === 'paid') markPendingPurchase(modernReturn.bookId)
+  else if (pendingPurchase() === modernReturn.bookId) clearPendingPurchase()
+  if (stored?.bookId === modernReturn.bookId) return stored
+  return modernReturnHandoff(modernReturn.bookId) ?? stored
+}
 
 /** The `/q/{id}` link this page was opened from, read before the URL is cleaned. */
 export function sharedLinkForPage(): { id: string; ref: string } | null {
@@ -96,10 +132,14 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
       const value = Number(params?.get(key))
       return Number.isSafeInteger(value) && value >= fallback ? value : fallback
     }
+    pageModernReturn = heldBook ? null : modernReturnFromParams(params)
     pageHandoff = heldBook && (isBookTemporarilyHeld(heldBook) || editionHold(heldBook, heldEdition))
       ? createReaderHandoffIntent({ bookId: heldBook, primaryEditionKey: heldEdition,
           savedPlace: { bookId: heldBook, chapterNumber: positive('chapter', 1), paragraphIndex: positive('paragraph', 0), wordIndex: positive('word', 0), page: 0 } })
-      : consumeLabReaderHandoff() ?? readerHandoffFromUrlParams(params)
+      : pageModernReturn
+        ? handoffForModernReturn(pageModernReturn, consumeLabReaderHandoff())
+        : consumeLabReaderHandoff() ?? readerHandoffFromUrlParams(params)
+    if (pageModernReturn && params) forgetParams(params, ['book', 'modern', 'session_id'])
     const shareId = params?.get('share')
     if (pageHandoff && shareId && /^[a-hj-km-np-z2-9]{7}$/.test(shareId)) pageSharedLink = { id: shareId, ref: (params?.get('ref') || '').slice(0, 80) }
     if (!heldBook && pageHandoff && params?.has('chapter') && readerHandoffFromUrlParams(params)) forgetDeepLinkParams(params)
@@ -113,9 +153,13 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
  * 2026-10-01), so the link's own parameters leave the URL once read.
  */
 function forgetDeepLinkParams(params: URLSearchParams): void {
+  forgetParams(params, ['book', 'edition', 'chapter', 'paragraph', 'word', 'share', 'ref'])
+}
+
+function forgetParams(params: URLSearchParams, keys: string[]): void {
   try {
     const rest = new URLSearchParams(params)
-    for (const key of ['book', 'edition', 'chapter', 'paragraph', 'word', 'share', 'ref']) rest.delete(key)
+    for (const key of keys) rest.delete(key)
     const query = rest.toString()
     window.history.replaceState(window.history.state, '', window.location.pathname + (query ? `?${query}` : '') + window.location.hash)
   } catch { /* the place still opens; only a reload would differ */ }

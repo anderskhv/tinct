@@ -6,9 +6,9 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel6';
-import {normalize,includedWork} from '../addbook/js/search.js?v=20261008rel6';
-import {addToTinctEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
+import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel7';
+import {normalize,includedWork} from '../addbook/js/search.js?v=20261008rel7';
+import {addToTinctEnabled,modernEditionsEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -25,7 +25,7 @@ export const ADD_PARAM='add';
 let worker=null,ready=null,request=0;const waiting=new Map();
 export function warmFreeSearch(){
  if(worker||!enabled())return ready;
- try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rel6',{type:'module'});}catch{worker=null;return null;}
+ try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rel7',{type:'module'});}catch{worker=null;return null;}
  ready=new Promise((resolve,reject)=>{
   worker.onmessage=({data})=>{
    if(data.type==='ready')resolve();
@@ -78,7 +78,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261008rel6';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261008rel7';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -162,6 +162,63 @@ function fileEntry(link){
   void openFileEntry(link);
  });
  return link;
+}
+
+// ---- Modern English, asked right after a catalogue book is added (Anders, 2026-10-08) ----
+// One shared edition per book: the first buyer pays, everyone after reads it. Asked only
+// when the book has none yet and the Worker offers one; never when the status cannot be
+// told in time, so opening the book is never held up. Buying is the reader's own checkout
+// (the add engine's buyModern: labModernEditionApi startModernCheckout).
+/** How long the status may take before the question is skipped. */
+export const MODERN_ASK_TIMEOUT_MS=1500;
+const MODERN_COPY={title:'Also get it in Modern English?',body:'A Modern English edition is written for you chapter by chapter, and anyone who adds this book later reads it too.',buy:'Get Modern English',later:'Not now'};
+/** Cents as the reader shows them (labModernEditionApi formatModernPrice). */
+export const modernPrice=cents=>`$${(cents/100).toFixed(2)}`;
+/** The question to ask for a status (the Worker's /modern-en), or null: only a book with no edition yet and an offer. */
+export function modernAsk(status){
+ const cents=status?.offer?.cents;
+ if(status?.state!=='none'||typeof cents!=='number'||!Number.isFinite(cents)||cents<=0)return null;
+ return {cents,price:modernPrice(cents)};
+}
+/** Whether this reader may be asked: signed in, Add to Tinct on, and Modern English on for the device. */
+export const modernAskAllowed=()=>signedIn()&&enabled()&&modernEditionsEnabled();
+/**
+ * After an add: the question to ask for `bookId`, or null (not allowed, no offer, already
+ * bought or being bought, the status failed, or it took longer than `timeoutMs`).
+ */
+export async function modernOfferAfterAdd(bookId,{allowed=modernAskAllowed,status=id=>addEngine().then(api=>api.modernStatus?api.modernStatus(id):null),timeoutMs=MODERN_ASK_TIMEOUT_MS}={}){
+ if(!allowed())return null;
+ let timer;
+ const late=new Promise(resolve=>{timer=setTimeout(()=>resolve(null),timeoutMs);});
+ try{return modernAsk(await Promise.race([Promise.resolve().then(()=>status(bookId)).catch(()=>null),late]));}
+ catch{return null;}
+ finally{clearTimeout(timer);}
+}
+/**
+ * The question, over the library (the "Your own book" pop-up's styling, with its own
+ * modern-ask-* classes to restyle). Resolves 'buy' or 'later' (Not now, Escape, a tap
+ * outside).
+ */
+export function askModernEdition(offer){
+ document.querySelector('.modern-ask-layer')?.remove();
+ const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+ const layer=make('div','own-file-layer modern-ask-layer');layer.dataset.testid='modern-ask';
+ const box=make('div','own-file-dialog modern-ask-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','modern-ask-title');
+ const title=make('h2','modern-ask-title',MODERN_COPY.title);title.id='modern-ask-title';
+ const later=make('button','own-file-cancel modern-ask-later',MODERN_COPY.later);later.type='button';
+ const buy=make('button','own-file-choose modern-ask-buy',`${MODERN_COPY.buy} · ${offer.price}`);buy.type='button';
+ const actions=make('div','own-file-actions modern-ask-actions');actions.append(later,buy);
+ box.append(title,make('p','own-file-lede modern-ask-body',MODERN_COPY.body),actions);
+ layer.append(box);document.body.append(layer);
+ return new Promise(resolve=>{
+  const done=answer=>{removeEventListener('keydown',onKey,true);layer.remove();resolve(answer);};
+  const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();done('later');}};
+  addEventListener('keydown',onKey,true);
+  layer.addEventListener('click',event=>{if(event.target===layer)done('later');});
+  later.onclick=()=>done('later');
+  buy.onclick=()=>done('buy');
+  buy.focus({preventScroll:true});
+ });
 }
 
 // ---- Paper covers ----

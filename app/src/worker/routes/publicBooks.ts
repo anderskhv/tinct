@@ -578,7 +578,7 @@ export async function handlePublicBooks(request: Request, env: PublicBooksEnv, d
   if (request.method === 'GET' && parts.length === 2 && parts[1] === 'cover' && isPublicBookId(parts[0])) return serveCover(request, bucket, parts[0])
   if (parts.length >= 2 && parts[1] === 'modern-en' && isPublicBookId(parts[0])) {
     return handleModernEdition(request, env as ModernEnv, parts[0], parts.slice(2), {
-      verifyUser: deps.verifyUser, checkRateLimit: deps.checkRateLimit, waitUntil: deps.waitUntil, ...deps.modern,
+      verifyUser: deps.verifyUser, checkRateLimit: deps.checkRateLimit, waitUntil: deps.waitUntil, premiumAccess: deps.premiumAccess, ...deps.modern,
     })
   }
   if (parts[0] !== 'import') return reply({ error: 'Not found' }, 404, request)

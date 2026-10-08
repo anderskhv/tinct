@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { lineatedProseJoins, lineSlice, proseJoins, proseRuns, registerLineatedChapter, registerLoadedChapter, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
-import { LabPassage } from './LabPassage'
+import { LabPassage, runContinuesParagraph } from './LabPassage'
 import { measuredDesktopPages } from './LabDesktopPaginator'
 import { labMeasureJoinInto, labMeasureParagraphInto } from './labMeasureParagraph'
 import { chapterPageSegments, chapterPagesCover, readingPageLines, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
@@ -139,7 +139,7 @@ describe('joined source paragraphs keep their indexes', () => {
       follow={{ kind: 'none' }} followParagraphs={paragraphs.map((text, index) => ({ index, text }))} markedIndexes={new Set([2])} readingPage={page} />)
     const lines = [...screen.getByTestId('lab-reading-stage').querySelectorAll(':scope > .lab-hearing-line')]
     expect(lines).toHaveLength(2)
-    expect(lines[0].textContent).toBe('1\u00a0Wine is a mocker, and strong drink a brawler. 2\u00a0A king sits to judge, sifting evil with his eyes.')
+    expect(lines[0].textContent).toBe('1\u202fWine is a mocker, and strong drink a brawler. 2\u202fA king sits to judge, sifting evil with his eyes.')
     expect(lines[0].className).toContain('is-marked')
     expect(lines[0].querySelectorAll('.lab-prose-join')).toHaveLength(3)
     expect(lines[0].querySelector('#lab-p-2')?.classList.contains('lab-prose-join')).toBe(true)
@@ -147,7 +147,7 @@ describe('joined source paragraphs keep their indexes', () => {
       .map(word => `${word.getAttribute('data-paragraph-index')}:${word.getAttribute('data-word-index')}`)
     const expected = paragraphs.slice(0, 4).flatMap((text, paragraphIndex) => tokenizeHearingWords(text).map((_, wordIndex) => `${paragraphIndex}:${wordIndex}`))
     expect(words).toEqual(expected)
-    expect(lines[1].textContent?.startsWith('3\u00a0Then the king')).toBe(true)
+    expect(lines[1].textContent?.startsWith('3\u202fThen the king')).toBe(true)
     expect(lines[1].querySelector('.lab-prose-join')).toBeNull()
   })
 
@@ -165,11 +165,25 @@ describe('joined source paragraphs keep their indexes', () => {
     expect(painted[0].classList.contains('is-continued')).toBe(true)
   })
 
+  it('never justifies the last line of a paragraph that ends in verse-paired Compare, where joined lines are rows', () => {
+    const first = tokenizeHearingWords(paragraphs[0]).length
+    const page: ChapterHearingPage = { paragraphIndex: 0, from: 0, to: first, segments: [{ paragraphIndex: 0, from: 0, to: first }] }
+    const lines = readingPageLines(paragraphs, page)
+    // Joined inline, the verse run goes on; as rows, the paragraph has ended.
+    expect(runContinuesParagraph(paragraphs, lines, [0])).toBe(true)
+    expect(runContinuesParagraph(paragraphs, lines, [0], false)).toBe(false)
+    render(<LabPassage chapterTitle="Proverbs 20" paragraphs={paragraphs} compareParagraphs={paragraphs} compare alignCompare mode="reading"
+      follow={{ kind: 'none' }} followParagraphs={[]} markedIndexes={new Set()} readingPage={page} />)
+    const painted = [...screen.getByTestId('lab-reading-stage').querySelectorAll('.lab-hearing-line')]
+    expect(painted.length).toBeGreaterThan(0)
+    expect(painted.some(line => line.classList.contains('is-continued'))).toBe(false)
+  })
+
   it('measures a joined line with the markup it paints with', () => {
     const p = document.createElement('p')
     labMeasureParagraphInto(p, tokenizeHearingWords(paragraphs[0]), { text: paragraphs[0], from: 0 })
     labMeasureJoinInto(p, tokenizeHearingWords(paragraphs[1]), { text: paragraphs[1], from: 0 })
-    expect(p.textContent).toBe('1\u00a0Wine is a mocker, and strong drink a brawler.')
+    expect(p.textContent).toBe('1\u202fWine is a mocker, and strong drink a brawler.')
     expect(p.querySelector(':scope > .lab-prose-join')).not.toBeNull()
   })
 

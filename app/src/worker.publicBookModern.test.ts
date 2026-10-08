@@ -2,7 +2,7 @@
 // Stripe call is made: the generator, Stripe and Supabase are all stand-ins.
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handlePublicBooks, handlePublicEditionData, type PublicBooksDeps } from './worker/routes/publicBooks'
-import { grantModernEdition, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
+import { grantModernEdition, releaseModernCheckout, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
 import { handleWebhook } from './worker/routes/billing'
 import {
   HOLD_MS,
@@ -235,10 +235,121 @@ describe('purchase guard', () => {
     expect((await readJob(t.r2.bucket, BOOK))!.job.sessionId).toBe('cs_a')
   })
 
+  it('Checkout returns to the book in the reader: paid with its session id, cancelled with modern=cancel', async () => {
+    const t = setup()
+    await t.buy('a')
+    expect(t.stripe.created[0].get('success_url')).toBe(`https://tinct.app/reader?book=${BOOK}&modern=1&session_id={CHECKOUT_SESSION_ID}`)
+    expect(t.stripe.created[0].get('cancel_url')).toBe(`https://tinct.app/reader?book=${BOOK}&modern=cancel`)
+  })
+
+  it('the cancel return expires the buyer’s own open session and frees the book at once', async () => {
+    const t = setup()
+    await t.buy('a')
+    const cancel = (token: string) => t.call(`/api/public-books/${BOOK}/modern-en/cancel`, { token, method: 'POST' })
+    expect((await cancel('')).status).toBe(401)
+    // Another reader cannot release someone else's checkout.
+    expect(await (await cancel('b')).json()).toEqual({ released: false })
+    expect(t.stripe.expired).toEqual([])
+    expect((await t.status()).state).toBe('checkout')
+    expect(await (await cancel('a')).json()).toEqual({ released: true })
+    expect(t.stripe.expired).toEqual(['cs_test_1'])
+    expect(await t.status()).toMatchObject({ state: 'none', offer: { tier: 2, cents: 499 } })
+    expect((await t.buy('b')).status).toBe(200)
+    // Nothing to release once the book is free, or once it is paid.
+    expect(await (await cancel('a')).json()).toEqual({ released: false })
+    expect((await t.grant('cs_test_2', { supabase_user_id: OTHER })).outcome).toBe('granted')
+    expect(await (await cancel('b')).json()).toEqual({ released: false })
+    expect((await t.status()).state).toBe('paid')
+  })
+
+  it('the cancel return keeps the hold when the session can no longer be expired (it may have just been paid)', async () => {
+    const t = setup()
+    await t.buy('a')
+    t.stripe.sessions.get('cs_test_1')!.status = 'complete'
+    expect(await (await t.call(`/api/public-books/${BOOK}/modern-en/cancel`, { token: 'a', method: 'POST' })).json()).toEqual({ released: false })
+    expect(t.stripe.expired).toEqual([])
+    expect((await t.status()).state).toBe('checkout')
+  })
+
+  it('an expired or failed checkout releases only its own hold', async () => {
+    const t = setup()
+    await t.buy('a')
+    const session = (id: string) => ({ id, metadata: { type: 'modern_edition', book_id: BOOK, supabase_user_id: USER } })
+    expect(await releaseModernCheckout(t.env, session('cs_other'))).toBe('ignored')
+    expect((await t.status()).state).toBe('checkout')
+    expect(await releaseModernCheckout(t.env, { id: 'cs_test_1', metadata: { book_id: '../x' } })).toBe('ignored')
+    expect(await releaseModernCheckout(t.env, session('cs_test_1'))).toBe('released')
+    expect((await t.status()).state).toBe('none')
+    expect(await releaseModernCheckout(t.env, session('cs_test_1'))).toBe('ignored')
+    await t.grant('cs_paid_1')
+    expect(await releaseModernCheckout(t.env, session('cs_paid_1'))).toBe('ignored')
+    expect((await t.status()).state).toBe('paid')
+  })
+
   it('is not offered for a reader’s private book (not an added public book)', async () => {
     const t = setup()
     const response = await t.call('/api/public-books/userbook-abc/modern-en')
     expect(response.status).toBe(404)
+  })
+})
+
+// Modern English purchase is for Premium readers only, the 30-day trial included
+// (Anders, 2026-10-08; lib/aiAllowance.ts hasPremiumAccess, read by the Worker as premiumAccess).
+describe('Premium only', () => {
+  // Reader a: a free account past its trial. Reader b: Premium or in the trial.
+  const freeAndPremium = (t: ReturnType<typeof setup>) => { t.deps.premiumAccess = async id => id !== USER }
+  const statusAs = async (t: ReturnType<typeof setup>, token?: string) =>
+    (await t.call(`/api/public-books/${BOOK}/modern-en`, { token })).json() as Promise<{ state: string; offer: { tier: number; cents: number } | null }>
+
+  it('shows no offer to a signed-in free account past its trial, and the offer to Premium or the trial', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    expect((await statusAs(t, 'a')).offer).toBeNull()
+    expect((await statusAs(t, 'b')).offer).toEqual({ tier: 2, cents: modernTierCents(2) })
+    // Not signed in: unchanged (the reader shows no offer until a reader signs in).
+    expect((await statusAs(t)).offer).toEqual({ tier: 2, cents: modernTierCents(2) })
+  })
+
+  it('the priority answer carries no offer for a free account either', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    const response = await t.call(`/api/public-books/${BOOK}/modern-en/priority`, { token: 'a', json: { chapter: 2 } })
+    expect(response.status).toBe(200)
+    expect(((await response.json()) as { offer: unknown }).offer).toBeNull()
+  })
+
+  it('refuses checkout to a free account past its trial with the Premium 402, before any hold or Stripe call', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    const refused = await t.buy('a')
+    expect(refused.status).toBe(402)
+    expect(await refused.json()).toEqual({ error: 'premium_required' })
+    expect(t.stripe.created).toHaveLength(0)
+    expect(await readJob(t.r2.bucket, BOOK)).toBeNull()
+    // Premium (or the trial) buys as before.
+    const bought = await t.buy('b')
+    expect(bought.status).toBe(200)
+    expect(t.stripe.created).toHaveLength(1)
+  })
+
+  it('refuses checkout when Premium cannot be told (fails closed)', async () => {
+    const t = setup()
+    t.deps.premiumAccess = async () => null
+    expect((await t.buy('a')).status).toBe(503)
+    t.deps.premiumAccess = async () => { throw new Error('down') }
+    expect((await t.buy('a')).status).toBe(503)
+    expect(t.stripe.created).toHaveLength(0)
+    expect((await statusAs(t, 'a')).offer).toBeNull()
+  })
+
+  it('a free account still reads an edition someone already bought', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    await t.grant('cs_a')
+    expect(await statusAs(t, 'a')).toMatchObject({ state: 'paid', offer: null })
+    const edition = await handlePublicEditionData(new Request(`https://tinct.app/data/editions/${BOOK}-modern-en.json`, { headers: { Authorization: 'Bearer a' } }), t.env)
+    expect(edition!.status).toBe(200)
+    expect(((await edition!.json()) as { chapters: unknown[] }).chapters).toHaveLength(SOURCE.length)
   })
 })
 
@@ -266,7 +377,7 @@ describe('webhook grant', () => {
     }))
     const env = { STRIPE_WEBHOOK_SECRET: 'whsec_1', SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'srk' }
     const hooks = { modernEdition: (session: { id: string; metadata?: Record<string, string>; payment_intent?: string | null }) => grantModernEdition(t.env, session, { now: () => t.clock.t, generator: t.generator }) }
-    const event = { type: 'checkout.session.completed', data: { object: { id: 'cs_paid', payment_intent: 'pi_1', metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '3', supabase_user_id: USER } } } }
+    const event = { type: 'checkout.session.completed', data: { object: { id: 'cs_paid', payment_intent: 'pi_1', payment_status: 'paid', metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '3', supabase_user_id: USER } } } }
     for (let i = 0; i < 3; i++) {
       const payload = JSON.stringify(event)
       const response = await handleWebhook(new Request('https://tinct.app/api/webhook', { method: 'POST', body: payload, headers: { 'stripe-signature': await sign(payload) } }), env, undefined, hooks)
@@ -282,10 +393,71 @@ describe('webhook grant', () => {
     expect(t.stripe.refunds).toHaveLength(0)
   })
 
+  /** Supabase payments inserts, recorded; a repeated session id is a conflict (409), as the table's unique key. */
+  const paymentsStub = () => {
+    const inserts: Array<Record<string, unknown>> = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).includes('/rest/v1/payments')) {
+        const row = JSON.parse(String(init?.body)) as Record<string, unknown>
+        const dup = inserts.some(r => r.stripe_session_id === row.stripe_session_id)
+        inserts.push(row)
+        return new Response(dup ? 'dup' : null, { status: dup ? 409 : 201 })
+      }
+      return Response.json({})
+    }))
+    return inserts
+  }
+  const webhookEnv = { STRIPE_WEBHOOK_SECRET: 'whsec_1', SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'srk' }
+  const modernHooks = (t: ReturnType<typeof setup>) => ({
+    modernEdition: (session: { id: string; metadata?: Record<string, string>; payment_intent?: string | null }) => grantModernEdition(t.env, session, { now: () => t.clock.t, generator: t.generator }),
+    modernRelease: (session: { id: string; metadata?: Record<string, string> }) => releaseModernCheckout(t.env, session),
+  })
+  const deliver = async (type: string, object: Record<string, unknown>, hooks: Parameters<typeof handleWebhook>[3]) => {
+    const payload = JSON.stringify({ type, data: { object } })
+    return handleWebhook(new Request('https://tinct.app/api/webhook', { method: 'POST', body: payload, headers: { 'stripe-signature': await sign(payload) } }), webhookEnv, undefined, hooks)
+  }
+  const sessionObject = (id: string, payment_status: string) => ({ id, payment_intent: `pi_${id}`, payment_status, metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '3', supabase_user_id: USER } })
+
+  it('grants nothing for a completed checkout whose delayed payment has not cleared, then grants when it succeeds', async () => {
+    const t = setup()
+    const inserts = paymentsStub()
+    await t.buy('a')
+    expect((await deliver('checkout.session.completed', sessionObject('cs_test_1', 'unpaid'), modernHooks(t))).status).toBe(200)
+    expect(inserts).toHaveLength(0)
+    expect((await t.status()).state).toBe('checkout')
+    expect(t.r2.json(`public-books/${BOOK}/meta.json`).book.editions.map((e: { key: string }) => e.key)).toEqual(['original-en'])
+    expect((await deliver('checkout.session.async_payment_succeeded', sessionObject('cs_test_1', 'paid'), modernHooks(t))).status).toBe(200)
+    expect((await t.status()).state).toBe('paid')
+    expect(inserts).toEqual([expect.objectContaining({ stripe_session_id: 'cs_test_1', amount_cents: 499, type: 'modern_edition', status: 'completed' })])
+    expect(t.r2.json(`public-books/${BOOK}/meta.json`).book.editions.map((e: { key: string }) => e.key)).toEqual(['original-en', 'modern-en'])
+  })
+
+  it('a failed delayed payment grants nothing and frees the book', async () => {
+    const t = setup()
+    const inserts = paymentsStub()
+    await t.buy('a')
+    await deliver('checkout.session.completed', sessionObject('cs_test_1', 'unpaid'), modernHooks(t))
+    expect((await deliver('checkout.session.async_payment_failed', sessionObject('cs_test_1', 'unpaid'), modernHooks(t))).status).toBe(200)
+    expect(inserts).toHaveLength(0)
+    expect(await t.status()).toMatchObject({ state: 'none', offer: { tier: 2, cents: 499 } })
+  })
+
+  it('an expired checkout frees the book at once, not after the 35-minute hold', async () => {
+    const t = setup()
+    paymentsStub()
+    await t.buy('a')
+    expect((await t.buy('b')).status).toBe(409)
+    expect((await deliver('checkout.session.expired', sessionObject('cs_test_1', 'unpaid'), modernHooks(t))).status).toBe(200)
+    expect((await t.buy('b')).status).toBe(200)
+    // Other products' expired sessions are left alone, and an unwired release fails so Stripe retries.
+    expect((await deliver('checkout.session.expired', { id: 'cs_pack', metadata: { type: 'chat_pack' } }, {})).status).toBe(200)
+    expect((await deliver('checkout.session.expired', sessionObject('cs_test_2', 'unpaid'), {})).status).toBe(503)
+  })
+
   it('fails (so Stripe retries) when the grant is not wired', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => Response.json({})))
     const env = { STRIPE_WEBHOOK_SECRET: 'whsec_1', SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'srk' }
-    const payload = JSON.stringify({ type: 'checkout.session.completed', data: { object: { id: 'cs_x', metadata: { type: 'modern_edition', book_id: BOOK, supabase_user_id: USER } } } })
+    const payload = JSON.stringify({ type: 'checkout.session.completed', data: { object: { id: 'cs_x', payment_status: 'paid', metadata: { type: 'modern_edition', book_id: BOOK, supabase_user_id: USER } } } })
     const response = await handleWebhook(new Request('https://tinct.app/api/webhook', { method: 'POST', body: payload, headers: { 'stripe-signature': await sign(payload) } }), env)
     expect(response.status).toBe(503)
   })

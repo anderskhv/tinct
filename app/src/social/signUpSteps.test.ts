@@ -120,6 +120,11 @@ describe('sign-up with profiles on', () => {
     expect(mode()).toBe('profile')
     expect(document.querySelector('[data-social-steps]')!.textContent).toBe('2 of 3')
     expect(document.querySelector<HTMLInputElement>('[name=profileName]')!.value).toBe('New')
+    // No photo uploads at launch: sets and the initial only.
+    expect(document.querySelector('[aria-label="Upload your own picture"]')).toBeNull()
+    expect(document.querySelector('.social-step input[type=file]')).toBeNull()
+    expect(document.querySelector('[data-mode-copy="profile"]')!.textContent).not.toMatch(/upload/i)
+    expect(document.querySelectorAll('.social-pictures button').length).toBe(4)
     // Friends is preselected.
     expect(document.querySelector('.social-tick[data-value="friends"]')!.getAttribute('aria-checked')).toBe('true')
     document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()

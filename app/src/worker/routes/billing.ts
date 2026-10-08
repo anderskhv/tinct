@@ -246,12 +246,33 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
 }
 
 /** A completed Checkout session, as the webhook hands it to a product's grant. */
-export type CheckoutSessionObject = { id: string; metadata?: Record<string, string>; customer?: string; payment_intent?: string | null }
+export type CheckoutSessionObject = { id: string; metadata?: Record<string, string>; customer?: string; payment_intent?: string | null; payment_status?: string }
 
 /** Products granted outside this file. Each grant must be idempotent: Stripe redelivers events. */
 export interface WebhookHooks {
   /** A paid Modern English edition (routes/publicBookModern.ts). 'refunded': the book was already paid for, so this payment was refunded. */
   modernEdition?: (session: CheckoutSessionObject) => Promise<{ outcome: 'granted' | 'already' | 'refunded' | 'invalid'; amountCents: number }>
+  /** A Modern English checkout that ended unpaid (expired, or its delayed payment failed): its hold on the book is released. */
+  modernRelease?: (session: CheckoutSessionObject) => Promise<unknown>
+}
+
+/**
+ * A Modern English edition is granted only for a session Stripe reports as paid
+ * (checkout.session.completed with payment_status 'paid', or a delayed payment that
+ * succeeded); a completed session still awaiting a delayed payment grants nothing yet.
+ */
+async function grantModernSession(env: BillingEnv, obj: CheckoutSessionObject, userId: string, hooks: WebhookHooks): Promise<Response | null> {
+  if (obj.payment_status !== 'paid') return null
+  // Without the grant wired in, fail so Stripe redelivers once it is.
+  if (!hooks.modernEdition) return new Response('Not configured', { status: 503 })
+  const grant = await hooks.modernEdition(obj)
+  if (grant.outcome === 'invalid') return null
+  const paymentRes = await supabaseInsert(env, 'payments', {
+    user_id: userId, stripe_session_id: obj.id, amount_cents: grant.amountCents,
+    type: 'modern_edition', status: grant.outcome === 'refunded' ? 'refunded' : 'completed',
+  })
+  if (paymentRes.status !== 409 && !paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
+  return null
 }
 
 /**
@@ -300,7 +321,7 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
 
   const event = JSON.parse(rawBody) as {
     type: string
-    data: { object: { id: string; metadata?: Record<string, string>; customer?: string; subscription?: string; current_period_end?: number; status?: string; payment_intent?: string | null } }
+    data: { object: { id: string; metadata?: Record<string, string>; customer?: string; subscription?: string; current_period_end?: number; status?: string; payment_intent?: string | null; payment_status?: string } }
   }
   const obj = event.data.object
 
@@ -361,15 +382,8 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
         if (!creditRes.ok) return new Response('Top-up credit failed', { status: 500 })
         break
       } else if (type === 'modern_edition') {
-        // Without the grant wired in, fail so Stripe redelivers once it is.
-        if (!hooks.modernEdition) return new Response('Not configured', { status: 503 })
-        const grant = await hooks.modernEdition(obj)
-        if (grant.outcome === 'invalid') break
-        const paymentRes = await supabaseInsert(env, 'payments', {
-          user_id: userId, stripe_session_id: obj.id, amount_cents: grant.amountCents,
-          type, status: grant.outcome === 'refunded' ? 'refunded' : 'completed',
-        })
-        if (paymentRes.status !== 409 && !paymentRes.ok) return new Response('Payment insert failed', { status: 500 })
+        const failed = await grantModernSession(env, obj, userId, hooks)
+        if (failed) return failed
         break
       }
 
@@ -378,6 +392,24 @@ export async function handleWebhook(request: Request, env: BillingEnv, ctx?: Exe
         amount_cents: parseInt(obj.metadata?.amount_cents || '0', 10),
         type: type || 'unknown', status: 'completed',
       })
+      break
+    }
+
+    case 'checkout.session.async_payment_succeeded': {
+      // A delayed payment (e.g. a bank debit) cleared: only Modern English waits for it.
+      const userId = obj.metadata?.supabase_user_id
+      if (obj.metadata?.type !== 'modern_edition' || !userId || !isValidUUID(userId)) break
+      const failed = await grantModernSession(env, obj, userId, hooks)
+      if (failed) return failed
+      break
+    }
+
+    case 'checkout.session.async_payment_failed':
+    case 'checkout.session.expired': {
+      // Unpaid: the book's hold for this session is released so others can buy it.
+      if (obj.metadata?.type !== 'modern_edition') break
+      if (!hooks.modernRelease) return new Response('Not configured', { status: 503 })
+      await hooks.modernRelease(obj)
       break
     }
 

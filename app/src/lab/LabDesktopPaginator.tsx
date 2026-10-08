@@ -435,8 +435,16 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const lastFits = fits(chapterPageSegments(pages[pages.length - 1]), pages.length === 1, true)
             // The bottom padding is already reserved for folios. Only borrow
             // it if the complete action row fits; the matching folio is hidden.
-            const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 16
-            endInFooter = !comparison && !lastFits && !!end && end.getBoundingClientRect().height <= footerSpace
+            // The row is measured as it is shown there (is-docked: compact),
+            // below its 2px top margin and 1px clear of the leaf's edge.
+            const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 3
+            let dockedHeight = Infinity
+            if (end) {
+              end.classList.add('is-docked')
+              dockedHeight = end.getBoundingClientRect().height
+              end.classList.remove('is-docked')
+            }
+            endInFooter = !comparison && !lastFits && !!end && dockedHeight <= footerSpace
             if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true), cleanPageStarts(source), lineStarts)
           }
           if (end) end.hidden = true

@@ -72,7 +72,7 @@ for(const engine of [chromium,webkit]){
    sessionStorage.setItem('device-fixture-seeded','1')
    localStorage.setItem(authKey,JSON.stringify({access_token:token,refresh_token:'fixture',expires_at:exp,expires_in:3600,token_type:'bearer',user}))
    localStorage.setItem('tinct-lab-position',JSON.stringify(position))
-   localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'book',fontFamily:'garamond',fontSize:1.3,primaryEdition:'web-en'}))
+   localStorage.setItem('tinct-lab-prefs',JSON.stringify({theme:'book',fontFamily:'garamond',fontSize:1.3,fontSizeExplicit:true,primaryEdition:'web-en'}))
    localStorage.setItem('tinct-lab-highlights',note)
    localStorage.setItem('tinct:chat-history:bible',JSON.stringify(phone?[oldChat,newChat]:[oldChat]))
    if(phone)sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:923,paragraphIndex:1,wordIndex:0,page:0}}))

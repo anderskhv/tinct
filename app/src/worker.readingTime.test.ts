@@ -207,6 +207,32 @@ describe('the one-time merge of yearly totals', () => {
   })
 })
 
+describe('a reader’s own books', () => {
+  it('a beat or flush naming an own book (userbook-<hex>) is recorded under the private bucket, never the id', async () => {
+    const { table, calls } = fakeSupabase()
+    const clock = { now: NOW }
+    const d = deps(clock)
+    expect((await handleReadingTime(beat({ bookId: 'private' }), on, d)).status).toBe(200)
+    clock.now += BEAT_MIN_GAP_MS
+    expect((await handleReadingTime(beat({ bookId: 'userbook-0123456789abcdef01234567' }), on, d)).status).toBe(200)
+    const flush = { flushId: 'flush-own-1', entries: [
+      { day: '2026-10-06', bookId: 'userbook-0123456789abcdef01234567', read: 300, listen: 0 },
+      { day: '2026-10-06', bookId: 'userbook-fedcba9876543210fedcba98', read: 0, listen: 200 },
+      { day: '2026-10-06', bookId: 'pd-en-abc', read: 100, listen: 0 },
+    ], earlier: 0 }
+    expect((await handleReadingTime(post('/api/reading-time/flush', flush), on, d)).status).toBe(200)
+    expect(table.find(row => row.day === '2026-10-07' && row.book_id === 'private')?.read_seconds).toBe(120)
+    expect(table.find(row => row.day === '2026-10-06' && row.book_id === 'private')).toMatchObject({ read_seconds: 300, listen_seconds: 200 })
+    // Added public-domain books keep their own id.
+    expect(table.find(row => row.book_id === 'pd-en-abc')?.read_seconds).toBe(100)
+    expect(JSON.stringify(table)).not.toContain('userbook-')
+    expect(calls.join('\n')).not.toContain('userbook-')
+    // The reader's own summary carries the bucket, not the id.
+    const summary = await (await handleReadingTime(get('/api/reading-time'), on, d)).json() as { rows: Array<{ bookId: string }> }
+    expect(summary.rows.map(row => row.bookId)).toContain('private')
+  })
+})
+
 describe('before the migration has run', () => {
   it('answers 503 on every ledger route and never throws', async () => {
     fakeSupabase({ missing: true })

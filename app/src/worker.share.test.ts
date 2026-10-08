@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { resetBookRetrievalCache } from './worker/lib/bookRetrieval'
 import { editionLicence } from './data/editionLicences'
 import { editionCredit, handleShareApi, handleSharePage, parseShareInput, type ShareEnv } from './worker/routes/share'
-import type { ShareRecord, ShareRecordInput } from './worker/shareRecord'
+import { readShareFlags, shareFlags, type ShareRecord, type ShareRecordInput } from './worker/shareRecord'
 import { getBook } from './data/bookRegistry'
 
 // The drawing is shareLayout's (tested there); here, how many cards a share is.
@@ -135,7 +135,7 @@ describe('share links', () => {
     expect(content).toMatchObject({ bookTitle: 'Frankenstein', chapterLabel: 'Chapter 5' })
     // The image carries no edition line.
     expect(content).not.toHaveProperty('credit')
-    expect(options).toEqual({ format: 'phone', look: 'paper', context: true, tagline: true })
+    expect(options).toEqual({ format: 'phone', look: 'paper', context: true, tagline: true, align: 'justify', highlight: true })
     expect(response.headers.get('x-share-cards')).toBe('1')
   })
 
@@ -151,7 +151,7 @@ describe('share links', () => {
       expect(response.headers.get('x-share-cards')).toBe('3')
       expect(response.headers.get('access-control-expose-headers')).toBe('X-Share-Cards')
       expect(render.mock.calls[0][4]).toBe(drawn)
-      expect(render.mock.calls[0][3]).toEqual({ format: 'phone', look: 'paper', context: false, tagline: true })
+      expect(render.mock.calls[0][3]).toEqual({ format: 'phone', look: 'paper', context: false, tagline: true, align: 'justify', highlight: true })
     }
     expect(store.rows.size).toBe(0)
   })
@@ -200,18 +200,22 @@ describe('/q/{id}', () => {
     const { id } = await (await handleShareApi(post({ ...valid, context: false, format: 'desktop' }), env, ctx, deps)).json() as { id: string }
     const html = await (await handleSharePage(new Request(`https://tinct.app/q/${id}`), env, ctx))!.text()
     expect(cardCount).toHaveBeenCalledTimes(1)
-    expect((cardCount.mock.calls[0] as unknown[])[3]).toEqual({ format: 'desktop', look: 'paper', context: false, tagline: true })
+    expect((cardCount.mock.calls[0] as unknown[])[3]).toEqual({ format: 'desktop', look: 'paper', context: false, tagline: true, align: 'justify', highlight: true })
     expect(html).toContain('<blockquote><p>The different accidents of life are not so changeable as the feelings of human nature. I…</p></blockquote>')
     expect(html).not.toContain('/image.png')
     expect(html).toContain(`<meta property="og:image" content="https://tinct.app/q/${id}/og.png">`)
     // The link preview is drawn from the series' first card.
     await handleSharePage(new Request(`https://tinct.app/q/${id}/og.png`), env, ctx)
-    expect((render.mock.calls[0] as unknown[])[3]).toEqual({ format: 'og', look: 'paper', context: false, tagline: true, cardFormat: 'desktop' })
-    // With surrounding text there is no series to count.
+    expect((render.mock.calls[0] as unknown[])[3]).toEqual({ format: 'og', look: 'paper', context: false, tagline: true, align: 'justify', highlight: true, cardFormat: 'desktop' })
+    // With surrounding text, a long highlight is a series of pages too: shown as text.
     cardCount.mockClear()
+    const pages = await (await handleShareApi(post(valid), env, ctx, deps)).json() as { id: string }
+    expect(await (await handleSharePage(new Request(`https://tinct.app/q/${pages.id}`), env, ctx))!.text()).toContain('<blockquote>')
+    expect((cardCount.mock.calls[0] as unknown[])[3]).toMatchObject({ context: true })
+    // One page: the image.
+    cards.count = 1
     const page = await (await handleShareApi(post(valid), env, ctx, deps)).json() as { id: string }
     expect(await (await handleSharePage(new Request(`https://tinct.app/q/${page.id}`), env, ctx))!.text()).toContain('/image.png')
-    expect(cardCount).not.toHaveBeenCalled()
   })
 
   it('serves the link preview and the shared image', async () => {
@@ -234,9 +238,23 @@ describe('/q/{id}', () => {
 })
 
 describe('share input and credit', () => {
+  it('stores the drawing flags in the existing tagline column, reading old rows as before', () => {
+    // Rows written before the flags: 0 or 1, the highlight colour on and justified.
+    expect(readShareFlags(0)).toEqual({ tagline: false, highlight: true, align: 'justify' })
+    expect(readShareFlags(1)).toEqual({ tagline: true, highlight: true, align: 'justify' })
+    for (const tagline of [false, true]) for (const highlight of [false, true]) for (const align of ['justify', 'left'] as const) {
+      expect(readShareFlags(shareFlags({ tagline, highlight, align }))).toEqual({ tagline, highlight, align })
+    }
+    expect(shareFlags({ tagline: true, highlight: true, align: 'justify' })).toBe(1)
+  })
+
   it('parses query-string and JSON shapes alike', () => {
     expect(parseShareInput({ ...valid, chapterNumber: '9', context: '0', tagline: '1' })).toMatchObject({ chapterNumber: 9, context: false, tagline: true })
     expect(parseShareInput({ ...valid, bookId: '../x' })).toBeNull()
+    // The reader's alignment and the highlight colour: older clients send neither.
+    expect(parseShareInput(valid)).toMatchObject({ align: 'justify', highlight: true })
+    expect(parseShareInput({ ...valid, align: 'left', highlight: '0' })).toMatchObject({ align: 'left', highlight: false })
+    expect(parseShareInput({ ...valid, align: 'center', highlight: '1' })).toMatchObject({ align: 'justify', highlight: true })
     expect(parseShareInput({ ...valid, look: 'book' })).toMatchObject({ look: 'book' })
     expect(parseShareInput({ ...valid, look: 'sepia' })).toBeNull()
   })

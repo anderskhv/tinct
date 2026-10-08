@@ -457,6 +457,16 @@ export function isLabVerseMarker(text: string): boolean {
   return LAB_VERSE_MARKER_RE.test(text)
 }
 
+/**
+ * The space painted between a verse number and its first word: a narrow
+ * no-break space (U+202F). No-break, so the number never ends a line; and not
+ * a justification opportunity, so a justified line never stretches it. A plain
+ * no-break space stretched with every other space and set the number apart
+ * from its verse on a loose line ("¹     Even a young man", Anders, iPhone,
+ * 8 Oct 2026). Every renderer and measurer uses this one character.
+ */
+export const LAB_VERSE_SEPARATOR = '\u202f'
+
 const LAB_SUPERSCRIPT_DIGIT: Record<string, string> = {
   '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9',
   '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9',

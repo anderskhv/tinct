@@ -1,5 +1,5 @@
 import { editionHold } from '../data/editionAvailability'
-import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from '../data/audioAvailability'
+import { isAudioHeld, isBookDiscoverable, isBookSearchable, isEditionDiscoverable } from '../data/audioAvailability'
 import { BOOKS } from '../data/bookRegistry'
 import { isEditionWithheld } from '../data/withheldEditions'
 import {
@@ -114,6 +114,8 @@ export interface PreReaderEditionViewModel {
 
 export interface PreReaderBookViewModel {
   discoveryAvailable?: boolean
+  /** Found by a typed search, even while held from the shelves (SEARCH_ONLY_BOOKS). */
+  searchAvailable?: boolean
   id: string
   title: string
   author: string
@@ -373,6 +375,7 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
       optionalPreface: true,
     },
     discoveryAvailable: isBookDiscoverable(book.id),
+    searchAvailable: isBookSearchable(book.id),
     catalogueIndex,
   }
 }
@@ -456,7 +459,7 @@ export function searchPreReaderBooks(
   catalogue: PreReaderCatalogue = PRE_READER_CATALOGUE,
 ): PreReaderBookViewModel[] {
   if (!query.trim()) return catalogue.books.filter(book => book.discoveryAvailable !== false)
-  return catalogue.books.filter(book => book.discoveryAvailable !== false)
+  return catalogue.books.filter(book => (book.searchAvailable ?? book.discoveryAvailable) !== false)
     .map(book => ({ book, score: searchScore(book, query) }))
     .filter(result => result.score > 0)
     .sort((a, b) => b.score - a.score || a.book.catalogueIndex - b.book.catalogueIndex)

@@ -5,7 +5,7 @@
  *
  * Step 1 (create account): "1 of 3", one password field with show/hide, the
  *   new consent line under the button, stored with its wording version.
- * Step 2 (your profile): picture (a set, the initial, or + to upload), name
+ * Step 2 (your profile): picture (a set or the initial; no uploads at launch), name
  *   (prefilled), who can see your reading (Friends preselected). Continue, or
  *   Skip (Only me).
  * Step 3: "Modern English or human translations?" sets New books open in.
@@ -31,10 +31,8 @@ import {
   fetchOwnProfile,
   paintAvatar,
   rememberNewBooksOpenIn,
-  resizePhoto,
   saveProfile,
   socialProfilesOn,
-  uploadProfileImage,
   type OwnProfile,
 } from './socialClient'
 
@@ -58,7 +56,6 @@ const STYLE = `
 .social-pictures{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .social-pictures button{width:44px;height:44px;padding:0;border:0;border-radius:50%;cursor:pointer;background:transparent}
 .social-pictures button[aria-pressed=true] .tinct-avatar{box-shadow:0 0 0 2px #f6f1e6,0 0 0 3.5px #332e27}
-.social-pictures .social-upload{border:1.5px dashed #a59d8f;color:#6b6458;font-size:20px;line-height:1}
 .tinct-avatar{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background-color:#18241a;background-repeat:no-repeat;color:#e8d59e;font:500 18px/1 var(--serif);box-shadow:0 0 0 1px #ddd4c3;overflow:hidden}
 .tinct-avatar[data-kind=initial]{background-image:linear-gradient(150deg,#2a3a2a,#18241a)}
 .social-step .auth-field input{font-size:16px}
@@ -223,13 +220,11 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     : pictureForBook(null)
   if (picture.kind === 'initial' && !hint) picture = { kind: 'set', value: sets[0].id }
   let visibility: Visibility = 'friends'
-  let uploaded = false
 
   const pictures = el('div', { className: 'social-pictures' })
   const pictureButtons: HTMLButtonElement[] = []
   const choosePicture = (button: HTMLButtonElement, next: { kind: PictureKind; value: string | null }) => {
     picture = next
-    uploaded = next.kind === 'upload'
     pictureButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)))
   }
   const addPicture = (label: string, next: { kind: PictureKind; value: string | null }) => {
@@ -246,29 +241,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   for (const set of sets) addPicture(`Picture: ${set.label}`, { kind: 'set', value: set.id })
   const initial = addPicture('Picture: your initial', { kind: 'initial', value: null })
   nameInput.addEventListener('input', () => paintAvatar(initial.avatar, pictureView('initial', null, nameInput.value || profile.name), token))
-  const file = el('input', { type: 'file', accept: 'image/*', hidden: true })
-  const upload = el('button', { type: 'button', className: 'social-upload', ariaLabel: 'Upload your own picture' }, '+')
-  upload.addEventListener('click', () => file.click())
-  const uploadNote = el('p', { className: 'social-note', hidden: true }, 'Uploads show to others after a quick check.')
-  file.addEventListener('change', async () => {
-    const chosen = file.files?.[0]
-    if (!chosen) return
-    hooks.setStatus('Adding your picture…')
-    const resized = await resizePhoto(chosen, 'picture')
-    const saved = resized ? await uploadProfileImage(token, 'picture', resized) : null
-    if (!saved?.ok) { hooks.setStatus((saved && !saved.ok && saved.message) || 'That picture could not be added. Try another.', 'error'); return }
-    hooks.setStatus()
-    profile = saved.profile
-    upload.textContent = ''
-    const avatar = el('span')
-    upload.append(avatar)
-    paintAvatar(avatar, pictureView(profile.picture.kind, null, profile.name, profile.picture.url), token)
-    upload.classList.remove('social-upload')
-    choosePicture(upload, { kind: 'upload', value: null })
-    uploadNote.hidden = false
-  })
-  pictureButtons.push(upload)
-  pictures.append(upload, file)
+  // No photo uploads at launch (8 Oct 2026): a set, a cover detail or the initial.
 
   const everyoneNote = el('p', { className: 'social-note', hidden: true }, 'Everyone starts once you confirm your email. Until then, friends can see you.')
   const visibilityList = tickList<Visibility>('Who can see your reading', [
@@ -284,7 +257,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const skipButton = el('button', { type: 'button', className: 'social-skip', dataset: { socialSkip: '' } }, 'Skip')
   const step2 = el('div', { className: 'social-step', dataset: { modeCopy: 'profile' }, hidden: true },
     el('h1', {}, 'Your profile'),
-    el('span', { className: 'social-label' }, 'Picture'), pictures, uploadNote,
+    el('span', { className: 'social-label' }, 'Picture'), pictures,
     el('label', { className: 'auth-field' }, 'Name', nameInput),
     el('span', { className: 'social-label' }, 'Who can see your reading'), visibilityList, everyoneNote,
     continueButton, skipButton)
@@ -308,7 +281,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     busy(true)
     hooks.setStatus()
     const body: Record<string, unknown> = { ...consentBody, name: nameInput.value, visibility, setUp: true }
-    if (!uploaded) body.picture = picture
+    body.picture = picture
     // A set brings its background with it.
     if (picture.kind === 'set') body.background = { kind: 'set', value: picture.value }
     const saved = await saveProfile(token, body)

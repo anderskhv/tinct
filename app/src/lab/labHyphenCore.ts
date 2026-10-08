@@ -14,6 +14,13 @@ export const HYPHEN_MIN_HEAD = 2
 export const HYPHEN_MIN_TAIL = 3
 /** Shorter than this and a break is never worth it. */
 export const HYPHEN_MIN_WORD = HYPHEN_MIN_HEAD + HYPHEN_MIN_TAIL
+/**
+ * A capitalised word shorter than this is left whole. Capitals are no bar to
+ * a break ("Ar-mies", "Be-hold", "Is-rael"), but a short one is usually a
+ * name, and "Ju-dah" or "Sa-rah" split across two lines reads worse than the
+ * looser line it saves.
+ */
+export const HYPHEN_MIN_CAPITALISED = 6
 
 export interface Hyphenator { hyphenate: (word: string) => string[] }
 
@@ -39,6 +46,11 @@ export function dictionaryBreaks(engine: Hyphenator, token: string, guess: ((wor
   if (/[-‐‑–—]/.test(token)) return []
   const piece = core(token)
   if (!piece || piece.text.length < HYPHEN_MIN_WORD) return []
+  // An all-caps word ("LORD", "HOLINESS") is a title or an abbreviation, never
+  // broken; a short capitalised one is usually a name (HYPHEN_MIN_CAPITALISED).
+  const letters = piece.text.replace(/['’]/g, '')
+  if (letters === letters.toUpperCase() && letters !== letters.toLowerCase()) return []
+  if (letters[0] !== letters[0].toLowerCase() && letters.length < HYPHEN_MIN_CAPITALISED) return []
   let parts: string[]
   try { parts = engine.hyphenate(piece.text) } catch { return [] }
   // A word the patterns do not break at all (a name, often: "Zechariah",

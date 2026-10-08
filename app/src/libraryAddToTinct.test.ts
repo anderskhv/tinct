@@ -189,7 +189,7 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel6')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel7')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
@@ -713,6 +713,86 @@ describe('Your own book pop-up (the search field +, "Add a PDF or EPUB")', () =>
     addToTinct.syncLibraryAdd(button, open)
     button.click()
     expect(open).toHaveBeenCalledTimes(2)
+  })
+})
+
+describe('Modern English, asked right after an add', () => {
+  const none = { state: 'none', chapters: {}, offer: { tier: 2, cents: 499 } }
+  const yes = () => true
+  afterEach(() => { document.documentElement.classList.remove('signed-in'); localStorage.removeItem(INTERNAL_KEY); document.querySelector('.modern-ask-layer')?.remove(); vi.useRealTimers() })
+
+  it('asks only for a book with no edition yet and an offer', () => {
+    expect(addToTinct.modernAsk(none)).toEqual({ cents: 499, price: '$4.99' })
+    expect(addToTinct.modernAsk({ ...none, offer: { tier: 4, cents: 1199 } })).toEqual({ cents: 1199, price: '$11.99' })
+    expect(addToTinct.modernAsk({ ...none, state: 'paid' })).toBeNull()
+    expect(addToTinct.modernAsk({ ...none, state: 'complete' })).toBeNull()
+    expect(addToTinct.modernAsk({ ...none, state: 'checkout' })).toBeNull() // someone is buying it now
+    expect(addToTinct.modernAsk({ ...none, offer: null })).toBeNull()
+    expect(addToTinct.modernAsk({ ...none, offer: { tier: 1, cents: 0 } })).toBeNull()
+    expect(addToTinct.modernAsk(null)).toBeNull()
+  })
+
+  it('none with an offer: ask; paid, complete, no offer or a failed status: do not', async () => {
+    const after = (status: unknown) => addToTinct.modernOfferAfterAdd('pd-pg-158', { allowed: yes, status: async () => status })
+    expect(await after(none)).toEqual({ cents: 499, price: '$4.99' })
+    expect(await after({ ...none, state: 'paid', offer: null })).toBeNull()
+    expect(await after({ ...none, state: 'complete', offer: null })).toBeNull()
+    expect(await after({ ...none, offer: null })).toBeNull()
+    expect(await after(null)).toBeNull() // the engine's status could not be told
+    expect(await addToTinct.modernOfferAfterAdd('pd-pg-158', { allowed: yes, status: async () => { throw new Error('offline') } })).toBeNull()
+    expect(await addToTinct.modernOfferAfterAdd('pd-pg-158', { allowed: yes, status: () => { throw new Error('engine') } })).toBeNull()
+  })
+
+  it('skips the question when the status takes longer than 1.5 s', async () => {
+    expect(addToTinct.MODERN_ASK_TIMEOUT_MS).toBe(1500)
+    vi.useFakeTimers()
+    let answer: (value: unknown) => void = () => {}
+    const slow = addToTinct.modernOfferAfterAdd('pd-pg-158', { allowed: yes, status: () => new Promise(resolve => { answer = resolve }) })
+    await vi.advanceTimersByTimeAsync(1499)
+    answer(none) // just in time
+    expect(await slow).toEqual({ cents: 499, price: '$4.99' })
+    const late = addToTinct.modernOfferAfterAdd('pd-pg-158', { allowed: yes, status: () => new Promise(resolve => { setTimeout(() => resolve(none), 1600) }) })
+    await vi.advanceTimersByTimeAsync(1500)
+    expect(await late).toBeNull()
+  })
+
+  it('never asks a signed-out reader, and never asks for the status without leave', async () => {
+    const status = vi.fn(async () => none)
+    expect(addToTinct.modernAskAllowed()).toBe(false)
+    expect(await addToTinct.modernOfferAfterAdd('pd-pg-158', { status })).toBeNull()
+    localStorage.setItem(INTERNAL_KEY, '1') // an internal device signed out: still no account to buy with
+    expect(addToTinct.modernAskAllowed()).toBe(false)
+    expect(await addToTinct.modernOfferAfterAdd('pd-pg-158', { status })).toBeNull()
+    expect(await addToTinct.modernOfferAfterAdd('pd-pg-158', { allowed: () => false, status })).toBeNull()
+    expect(status).not.toHaveBeenCalled()
+    localStorage.removeItem(INTERNAL_KEY)
+    document.documentElement.classList.add('signed-in') // any signed-in reader, no internal flag
+    expect(addToTinct.modernAskAllowed()).toBe(true)
+    expect(await addToTinct.modernOfferAfterAdd('pd-pg-158', { status })).toEqual({ cents: 499, price: '$4.99' })
+    expect(status).toHaveBeenCalledWith('pd-pg-158')
+  })
+
+  it('the question: title, one sentence, the price on the primary button; Not now, Escape and a tap outside answer later', async () => {
+    const asked = addToTinct.askModernEdition({ cents: 499, price: '$4.99' })
+    const layer = document.querySelector('[data-testid="modern-ask"]') as HTMLElement
+    expect(layer.querySelector('[role="dialog"]')?.getAttribute('aria-modal')).toBe('true')
+    expect(layer.querySelector('h2')?.textContent).toBe('Also get it in Modern English?')
+    expect(layer.querySelector('.modern-ask-body')?.textContent).toBe('A Modern English edition is written for you chapter by chapter, and anyone who adds this book later reads it too.')
+    expect([...layer.querySelectorAll('button')].map(b => b.textContent)).toEqual(['Not now', 'Get Modern English · $4.99'])
+    expect(document.activeElement).toBe(layer.querySelector('.modern-ask-buy'))
+    ;(layer.querySelector('.modern-ask-buy') as HTMLButtonElement).click()
+    expect(await asked).toBe('buy')
+    expect(document.querySelector('.modern-ask-layer')).toBeNull()
+    for (const answer of [
+      () => (document.querySelector('.modern-ask-later') as HTMLButtonElement).click(),
+      () => dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })),
+      () => (document.querySelector('.modern-ask-layer') as HTMLElement).click(),
+    ]) {
+      const again = addToTinct.askModernEdition({ cents: 499, price: '$4.99' })
+      answer()
+      expect(await again).toBe('later')
+      expect(document.querySelector('.modern-ask-layer')).toBeNull()
+    }
   })
 })
 

@@ -97,3 +97,34 @@ describe('the reader’s tally with the switch', () => {
     expect(readPending(null)).toEqual({ [localDay()]: { odyssey: { read: 30, listen: 0 } } })
   })
 })
+
+describe('a reader’s own book (private)', () => {
+  const OWN = 'userbook-0123456789abcdef01234567'
+  function mountOwnBook() {
+    const listeningRef = { current: false }
+    // As LabApp mounts it for an own book: no pages (onCover), the private flag.
+    return renderHook(() => useLabReadingYear({ userId: null, bookId: OWN, chapter: 1, page: 0, onCover: true, paused: false, listeningRef, privateBook: true }))
+  }
+
+  it('off: counted nowhere, exactly as before (no yearly tally, nothing pending)', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: false })))
+    mountOwnBook()
+    await act(async () => { await Promise.resolve(); await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(60_000) })
+    const year = new Date().getFullYear()
+    expect(readingYearTotals(readLocalReadingYear(year, null)).seconds).toBe(0)
+    expect(readPending(null)).toEqual({})
+  })
+
+  it('on: its time counts under the one private bucket, never the own book’s id', async () => {
+    vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'Date'] })
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
+    mountOwnBook()
+    await act(async () => { await Promise.resolve(); await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(30_000) })
+    expect(readPending(null)).toEqual({ [localDay()]: { private: { read: 30, listen: 0 } } })
+    expect(JSON.stringify({ ...localStorage })).not.toContain('userbook-')
+    expect(beatPayload(readPending(null), localDay(), 'private', false)).toMatchObject({ bookId: 'private', read: 30 })
+  })
+})

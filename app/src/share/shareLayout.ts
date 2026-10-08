@@ -1,12 +1,15 @@
 /**
  * Share a highlight as an image: page layout (docs/share-quote/SPEC.md).
  *
- * The image is the reader's own page: justified EB Garamond, the highlight
- * bold on the gold highlight colour, everything else greyed, opening one
- * sentence before the highlight. Fitting follows the spec in order: reader
- * size on one page; (desktop) reader size across the spread; shrink the body
- * in 1% steps to 75%; then keep 75% and cut the highlight at a sentence with
- * "…". The words themselves are never changed.
+ * The image is the reader's own page: EB Garamond set as the reader sets it
+ * (justified and hyphenated, or left-aligned), the highlight bold on the gold
+ * highlight colour (or plain, with the colour off), the opening sentence
+ * before it greyed. Nothing after the highlight is drawn. A highlight too
+ * long for one page at reader size is never fitted into a two-page spread or
+ * shrunk onto one page: it becomes a series of single pages (up to
+ * SERIES_MAX_CARDS) at reader size. Only past that are the pages set smaller
+ * (to 75%), and only past that is the highlight cut at a sentence with "…".
+ * The words themselves are never changed.
  *
  * Geometry mirrors docs/share-quote/mockup.html (its `cqw` values times the
  * image width). Pure: fonts come in as metrics, output is positioned runs
@@ -55,6 +58,10 @@ export interface ShareOptions {
    * card's text, ending in "…".
    */
   cardFormat?: 'phone' | 'desktop'
+  /** The reader's alignment: justified (hyphenated in English) or left. Default: justified. */
+  align?: 'justify' | 'left'
+  /** Draw the highlight colour behind the highlighted words. Default: on. */
+  highlight?: boolean
 }
 
 export const SHARE_TAGLINE = 'Read free at tinct.app'
@@ -62,8 +69,6 @@ export const SHARE_ELLIPSIS = '…'
 export const SHARE_SCALE_FLOOR = 0.75
 const LINE_HEIGHT = 1.52
 const PARAGRAPH_GAP = 0.55
-/** Following paragraphs laid out after the highlight; the page cuts them off. */
-const FOLLOWING_PARAGRAPHS = 8
 
 // ---------------------------------------------------------------------------
 // Superscript digits (Bible verse numbers, note markers)
@@ -210,9 +215,10 @@ function withTrailingEllipsis(token: Token): Token {
 /**
  * The passage for the page. With context: from one sentence before the
  * highlight (the start of the sentence the highlight begins in, or the
- * sentence before when it begins on a sentence) through the highlight and on
- * into the following paragraphs. Without: the highlight alone, with "…"
- * where it begins or ends mid-sentence.
+ * sentence before when it begins on a sentence) through the highlight, and
+ * nothing after it: no trailing context, so no partial line of the next
+ * paragraph under the highlight ("…" when the highlight stops mid-sentence).
+ * Without: the highlight alone, with "…" where it begins or ends mid-sentence.
  */
 export function buildPassage(paragraphs: string[], range: ShareRange, context: boolean): Paragraph[] {
   const all = paragraphs.map(tokenizeParagraph)
@@ -256,12 +262,14 @@ export function buildPassage(paragraphs: string[], range: ShareRange, context: b
       }
     }
   }
-  const lastParagraph = Math.min(marked.length - 1, range.endParagraphIndex + FOLLOWING_PARAGRAPHS)
-  for (let p = startParagraph; p <= lastParagraph; p++) {
-    const tokens = p === startParagraph ? marked[p].slice(startWord) : marked[p]
+  for (let p = startParagraph; p <= range.endParagraphIndex; p++) {
+    const tokens = marked[p].slice(p === startParagraph ? startWord : 0, p === range.endParagraphIndex ? range.toWord : undefined)
     if (tokens.length) out.push({ tokens: [...tokens] })
   }
-  if (startWord > 0 && out.length) out[0].tokens[0] = withLeadingEllipsis(out[0].tokens[0])
+  if (!out.length) return out
+  if (startWord > 0) out[0].tokens[0] = withLeadingEllipsis(out[0].tokens[0])
+  const last = out[out.length - 1].tokens
+  if (!last[last.length - 1].sentenceEnd) last[last.length - 1] = withTrailingEllipsis(last[last.length - 1])
   return out
 }
 
@@ -529,13 +537,14 @@ function phoneFrame(): ShareFrame {
   return { canvas: { width: 1080, height: 1350 }, padding, header, footer, text: { x: padding.side, y: top, width: 1080 - 2 * padding.side, height: bottom - top }, baseSize: 5.9 * cq }
 }
 
-function desktopFrame(spread: boolean): ShareFrame {
+/** The desktop image: one paper page, centred (never a two-page spread). */
+function desktopFrame(): ShareFrame {
   const cq = 1600 / 100
   const padding = { top: 2.4 * cq, side: 3 * cq, bottom: 1.6 * cq }
   const header = { size: 2.3 * cq, align: 'center' as const, boxHeight: 2.3 * cq * NORMAL_LINE, gap: 1.8 * cq }
   const footer = { size: 1.55 * cq, padTop: 1.1 * cq, boxHeight: 1.55 * cq * NORMAL_LINE }
   const contentWidth = 1600 - 2 * padding.side
-  const pageWidth = spread ? contentWidth : contentWidth * 0.56
+  const pageWidth = contentWidth * 0.56
   const pageX = padding.side + (contentWidth - pageWidth) / 2
   const pageY = padding.top + header.boxHeight + header.gap
   const pageBottom = 1000 - padding.bottom - footer.boxHeight - footer.padTop
@@ -547,7 +556,7 @@ function desktopFrame(spread: boolean): ShareFrame {
     width: pageWidth - 2 * page.padSide,
     height: page.height - page.padTop - page.padBottom - numbers.padTop - numbers.boxHeight,
   }
-  return { canvas: { width: 1600, height: 1000 }, padding, header, footer, page, text, baseSize: (spread ? 1.9 : 2.15) * cq }
+  return { canvas: { width: 1600, height: 1000 }, padding, header, footer, page, text, baseSize: 2.15 * cq }
 }
 
 /** The 1.91:1 link preview: the page treatment, cropped to the highlight. */
@@ -566,15 +575,15 @@ export interface SharePage {
   content: Pick<ShareContent, 'bookTitle' | 'chapterLabel'>
   frame: ShareFrame
   layout: ColumnLayout
-  /** `quote`: the highlight alone on a card sized to it (phone and desktop images). */
-  mode: 'single' | 'spread' | 'quote'
+  /** `single`: the reader's page (or one page of a series). `quote`: the highlight alone on a card sized to it. */
+  mode: 'single' | 'quote'
   /** Body size as a fraction of the reader's size. */
   scale: number
   /** The highlight was cut at a sentence. */
   cut: boolean
-  /** Vertical offset of the text inside its box (quote alone is centred). */
+  /** Vertical offset of the text inside its box (a lone page or quote is centred). */
   offsetY: number
-  /** Desktop page numbers under each column. */
+  /** The desktop page number under the page. */
   pageNumbers: number[]
   /** One card of a series (1-based `index`). The "index/count" is the share sheet's, never drawn on the image. */
   series?: { index: number; count: number }
@@ -586,84 +595,171 @@ function steps(): number[] {
   return out
 }
 
-function boxFor(frame: ShareFrame, spread: boolean): ColumnBox {
-  if (!spread) return { width: frame.text.width, height: frame.text.height, columns: 1, gap: 0 }
-  const gap = 7 * (1600 / 100)
-  return { width: (frame.text.width - gap) / 2, height: frame.text.height, columns: 2, gap }
+/** Ragged right when the reader is left-aligned; justified (the default) otherwise. */
+function isRagged(options: ShareOptions): boolean {
+  return options.align === 'left'
+}
+
+function boxFor(frame: ShareFrame, options: ShareOptions): ColumnBox {
+  return { width: frame.text.width, height: frame.text.height, columns: 1, gap: 0, ragged: isRagged(options) }
+}
+
+/** English only, as in the reader; other languages stay unhyphenated. */
+function breaksFor(content: ShareContent, hyphenate?: ShareHyphenate): ShareHyphenate | undefined {
+  return content.language === 'en' ? hyphenate : undefined
 }
 
 /**
- * Lay out the page, following the spec's fitting order. Deterministic: the
- * same record always yields the same image.
+ * Cut the highlight at 75% so that `fits` accepts it: at the longest sentence
+ * that does, or, when not even the first sentence does, at the last whole
+ * word that does.
+ */
+function cutToFit<T>(passage: Paragraph[], attempt: (passage: Paragraph[]) => T | null): T | null {
+  const total = highlightWordCount(passage)
+  for (const keep of sentenceCutPoints(passage).reverse()) {
+    if (keep >= total) continue
+    const found = attempt(cutPassage(passage, keep))
+    if (found) return found
+  }
+  let lo = 1
+  let hi = total - 1
+  let best = attempt(cutPassage(passage, 1))
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1
+    const found = attempt(cutPassage(passage, mid))
+    if (found) { best = found; lo = mid + 1 } else hi = mid - 1
+  }
+  return best
+}
+
+/**
+ * One image (the link preview, or a quote card's last resort). With
+ * surrounding text on a phone or desktop image: the first page of the share
+ * (composeShareCards). Deterministic: the same record always yields the same image.
  */
 export function composeSharePage(content: ShareContent, options: ShareOptions, fonts: ShareFonts, hyphenate?: ShareHyphenate): SharePage {
-  // English only, as in the reader; other languages stay unhyphenated.
-  const breaks = content.language === 'en' ? hyphenate : undefined
+  if (options.context && options.format !== 'og') return composeContextPages(content, options, fonts, hyphenate)[0]
+  const breaks = breaksFor(content, hyphenate)
   let passage = buildPassage(content.paragraphs, content.range, options.context)
   if (!options.context && options.format !== 'og') {
-    const card = composeQuoteCard(content, options, fonts, passage)
+    const card = composeQuoteCard(content, options, fonts, passage, hyphenate)
     if (card) return card
   }
   if (!options.context && options.format === 'og' && options.cardFormat) {
     // A series' link preview: the first card's words, then "…".
-    const plan = planQuoteSeries(options.cardFormat, options.tagline, fonts, passage)
+    const plan = planQuoteSeries(options.cardFormat, options.tagline, fonts, passage, { ragged: isRagged(options), hyphenate: breaks })
     if (plan && plan.chunks.length > 1) passage = withTrailingEllipsisOnce(plan.chunks[0])
   }
-  const candidates: Array<{ frame: ShareFrame; spread: boolean; scales: number[] }> = options.format === 'desktop'
-    ? [{ frame: desktopFrame(false), spread: false, scales: [1] }, { frame: desktopFrame(true), spread: true, scales: steps() }]
-    : [{ frame: options.format === 'og' ? ogFrame() : phoneFrame(), spread: false, scales: steps() }]
-
-  let chosen: { frame: ShareFrame; spread: boolean; scale: number; layout: ColumnLayout; cut: boolean } | null = null
-  for (const candidate of candidates) {
-    const box = boxFor(candidate.frame, candidate.spread)
-    for (const scale of candidate.scales) {
-      const layout = layoutColumns(passage, fonts, candidate.frame.baseSize * scale, box, breaks)
-      if (layout.fits) { chosen = { ...candidate, scale, layout, cut: false }; break }
-    }
-    if (chosen) break
+  const frame = options.format === 'desktop' ? desktopFrame() : options.format === 'og' ? ogFrame() : phoneFrame()
+  const box = boxFor(frame, options)
+  let chosen: { scale: number; layout: ColumnLayout; cut: boolean } | null = null
+  for (const scale of steps()) {
+    const layout = layoutColumns(passage, fonts, frame.baseSize * scale, box, breaks)
+    if (layout.fits) { chosen = { scale, layout, cut: false }; break }
   }
   if (!chosen) {
     // Still too long at 75%: keep 75% and cut at the longest sentence that fits.
-    const last = candidates[candidates.length - 1]
-    const box = boxFor(last.frame, last.spread)
-    const size = last.frame.baseSize * SHARE_SCALE_FLOOR
-    const points = sentenceCutPoints(passage).reverse()
-    const total = highlightWordCount(passage)
-    let layout: ColumnLayout | null = null
-    for (const keep of points) {
-      if (keep >= total) continue
-      const attempt = layoutColumns(cutPassage(passage, keep), fonts, size, box, breaks)
-      if (attempt.fits) { layout = attempt; break }
-    }
-    if (!layout) {
-      // Not even the first sentence fits: cut at the last whole word that does.
-      let lo = 1
-      let hi = total - 1
-      let best = layoutColumns(cutPassage(passage, 1), fonts, size, box, breaks)
-      while (lo <= hi) {
-        const mid = (lo + hi) >> 1
-        const attempt = layoutColumns(cutPassage(passage, mid), fonts, size, box, breaks)
-        if (attempt.fits) { best = attempt; lo = mid + 1 } else hi = mid - 1
-      }
-      layout = best
-    }
-    chosen = { frame: last.frame, spread: last.spread, scale: SHARE_SCALE_FLOOR, layout, cut: true }
+    const size = frame.baseSize * SHARE_SCALE_FLOOR
+    const layout = cutToFit(passage, cut => { const attempt = layoutColumns(cut, fonts, size, box, breaks); return attempt.fits ? attempt : null })
+      ?? layoutColumns(cutPassage(passage, 1), fonts, size, box, breaks)
+    chosen = { scale: SHARE_SCALE_FLOOR, layout, cut: true }
   }
-
-  const centre = !options.context && !chosen.spread
-  const offsetY = centre ? Math.max(0, (chosen.frame.text.height - chosen.layout.usedHeight) / 2) : 0
-  const pageNumbers = options.format === 'desktop' ? estimatePageNumbers(content, chosen.spread) : []
   return {
     options,
     content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
-    frame: chosen.frame,
+    frame,
     layout: chosen.layout,
-    mode: chosen.spread ? 'spread' : 'single',
+    mode: 'single',
     scale: chosen.scale,
     cut: chosen.cut,
-    offsetY,
-    pageNumbers,
+    // Nothing follows the highlight, so the text is centred on its page.
+    offsetY: Math.max(0, (frame.text.height - chosen.layout.usedHeight) / 2),
+    pageNumbers: options.format === 'desktop' ? [estimatePageNumber(content)] : [],
   }
+}
+
+/**
+ * Split one tall column into pages `height` high, as evenly as the fewest
+ * pages allow (a page breaks between lines, as a book's does; no line is
+ * repeated or dropped). Each page's lines start at its top.
+ */
+export function paginateLayout(layout: ColumnLayout, height: number): ColumnLayout[] {
+  const { lines, lineHeight } = layout
+  if (!lines.length) return [layout]
+  const pack = (room: number): number[] => {
+    const starts: number[] = []
+    let from = 0
+    while (from < lines.length) {
+      starts.push(from)
+      let to = from + 1
+      while (to < lines.length && lines[to].top + lineHeight - lines[from].top <= room + 0.5) to++
+      from = to
+    }
+    return starts
+  }
+  const count = pack(height).length
+  // Balance: the least room per page that still needs no more pages.
+  let lo = lineHeight
+  let hi = height
+  for (let step = 0; step < 16; step++) {
+    const mid = (lo + hi) / 2
+    if (pack(mid).length <= count) hi = mid
+    else lo = mid
+  }
+  const starts = pack(hi)
+  return starts.map((from, k) => {
+    const to = starts[k + 1] ?? lines.length
+    const top = lines[from].top
+    const slice = lines.slice(from, to).map(line => ({ ...line, top: line.top - top }))
+    const placedWords = slice.reduce((sum, line) => sum + line.words.filter(word => !word.hyphen).length, 0)
+    return { lines: slice, fontSize: layout.fontSize, lineHeight, fits: true, usedHeight: slice[slice.length - 1].top + lineHeight, placedWords }
+  })
+}
+
+/**
+ * The share with surrounding text (phone or desktop): the opening sentence
+ * greyed, then the highlight, and nothing after it. One page at reader size
+ * when it fits; otherwise a series of single pages at reader size (never a
+ * spread, never shrunk to squeeze onto one page). More than SERIES_MAX_CARDS
+ * pages at reader size: SERIES_MAX_CARDS pages, set smaller in 1% steps to
+ * 75%; past that, 75% and the highlight cut at a sentence. The leading
+ * context is only ever at the top of the first page.
+ */
+export function composeContextPages(content: ShareContent, options: ShareOptions, fonts: ShareFonts, hyphenate?: ShareHyphenate): SharePage[] {
+  const breaks = breaksFor(content, hyphenate)
+  const passage = buildPassage(content.paragraphs, content.range, true)
+  const frame = options.format === 'desktop' ? desktopFrame() : phoneFrame()
+  const box = boxFor(frame, options)
+  const firstPage = estimatePageNumber(content)
+  const page = (layout: ColumnLayout, scale: number, cut: boolean, k: number, count: number): SharePage => ({
+    options,
+    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
+    frame,
+    layout,
+    mode: 'single',
+    scale,
+    cut,
+    // A lone page is centred; a series' pages all start at the top, as a book's do.
+    offsetY: count > 1 ? 0 : Math.max(0, (frame.text.height - layout.usedHeight) / 2),
+    pageNumbers: options.format === 'desktop' ? [firstPage + k] : [],
+    ...(count > 1 ? { series: { index: k + 1, count } } : {}),
+  })
+  const one = layoutColumns(passage, fonts, frame.baseSize, box, breaks)
+  if (one.fits) return [page(one, 1, false, 0, 1)]
+  const tall: ColumnBox = { ...box, height: Number.POSITIVE_INFINITY }
+  const pagesAt = (cut: Paragraph[], scale: number) => paginateLayout(layoutColumns(cut, fonts, frame.baseSize * scale, tall, breaks), box.height)
+  let plan: { scale: number; pages: ColumnLayout[]; cut: boolean } | null = null
+  for (const scale of steps()) {
+    const pages = pagesAt(passage, scale)
+    if (pages.length <= SERIES_MAX_CARDS) { plan = { scale, pages, cut: false }; break }
+  }
+  if (!plan) {
+    const pages = cutToFit(passage, cut => { const found = pagesAt(cut, SHARE_SCALE_FLOOR); return found.length <= SERIES_MAX_CARDS ? found : null })
+      ?? pagesAt(cutPassage(passage, 1), SHARE_SCALE_FLOOR)
+    plan = { scale: SHARE_SCALE_FLOOR, pages, cut: true }
+  }
+  const { pages } = plan
+  return pages.map((layout, k) => page(layout, plan.scale, plan.cut, k, pages.length))
 }
 
 // ---------------------------------------------------------------------------
@@ -706,19 +802,21 @@ function quoteFrame(spec: QuoteCardSpec, footer: boolean, height: number): Share
  * The highlight alone: the card's height follows the text, between the
  * format's shortest and tallest card. The type is as large as fits (short
  * quotes read large), down to the smallest size. No page, page number or
- * surrounding text. Null when the whole highlight does not fit even the tallest card
- * at the smallest size: the page layout then takes it (the desktop spread, or
- * the page's 75% floor and sentence cut), so a long quote never loses words
- * that the page would have shown.
+ * surrounding text. Set as the reader sets its text: justified and
+ * hyphenated (English) with each paragraph's last line left-aligned, or
+ * ragged right when the reader is left-aligned. Null when the whole highlight
+ * does not fit even the tallest card at the smallest size: a series then
+ * takes it (composeShareCards).
  */
-function composeQuoteCard(content: ShareContent, options: ShareOptions, fonts: ShareFonts, passage: Paragraph[]): SharePage | null {
+function composeQuoteCard(content: ShareContent, options: ShareOptions, fonts: ShareFonts, passage: Paragraph[], hyphenate?: ShareHyphenate): SharePage | null {
   const spec = QUOTE_CARDS[options.format === 'desktop' ? 'desktop' : 'phone']
   const hasFooter = options.tagline
   const tallest = quoteFrame(spec, hasFooter, spec.maxHeight)
-  const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: true, leading: QUOTE_LEADING }
+  const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: isRagged(options), leading: QUOTE_LEADING }
+  const breaks = breaksFor(content, hyphenate)
   let layout: ColumnLayout | null = null
   for (let size = spec.maxSize; size >= spec.minSize; size -= 1) {
-    const attempt = layoutColumns(passage, fonts, size, box)
+    const attempt = layoutColumns(passage, fonts, size, box, breaks)
     if (attempt.fits) { layout = attempt; break }
   }
   if (!layout) return null
@@ -851,24 +949,26 @@ export interface SeriesPlan {
  * SERIES_MAX_CARDS at the floor (the page layout then takes it).
  *
  * With the credit on, every card is measured with room for it, so the last
- * card (which carries it) never overflows.
+ * card (which carries it) never overflows. `set` is the reader's alignment
+ * (ragged or justified) and, for justified English, its hyphenation.
  */
-export function planQuoteSeries(format: 'phone' | 'desktop', tagline: boolean, fonts: ShareFonts, passage: Paragraph[]): SeriesPlan | null {
+export function planQuoteSeries(format: 'phone' | 'desktop', tagline: boolean, fonts: ShareFonts, passage: Paragraph[], set: { ragged: boolean; hyphenate?: ShareHyphenate } = { ragged: false }): SeriesPlan | null {
   if (!passage.length) return null
   const spec = QUOTE_CARDS[format]
   const tallest = quoteFrame(spec, tagline, spec.maxHeight)
-  const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: true, leading: QUOTE_LEADING }
+  const box: ColumnBox = { width: tallest.text.width, height: tallest.text.height, columns: 1, gap: 0, ragged: set.ragged, leading: QUOTE_LEADING }
+  const breaks = set.hyphenate
   interface AtSize { units: SeriesUnit[]; layout: (from: number, to: number) => ColumnLayout }
   const sizes = new Map<number, AtSize>()
   const at = (size: number): AtSize => {
     const known = sizes.get(size)
     if (known) return known
-    const units = seriesUnits(passage, tokens => layoutColumns([{ tokens }], fonts, size, box).fits)
+    const units = seriesUnits(passage, tokens => layoutColumns([{ tokens }], fonts, size, box, breaks).fits)
     const layouts = new Map<number, ColumnLayout>()
     const layout = (from: number, to: number) => {
       const key = from * 65536 + to
       let found = layouts.get(key)
-      if (!found) { found = layoutColumns(seriesChunk(units, from, to), fonts, size, box); layouts.set(key, found) }
+      if (!found) { found = layoutColumns(seriesChunk(units, from, to), fonts, size, box, breaks); layouts.set(key, found) }
       return found
     }
     const entry = { units, layout }
@@ -931,52 +1031,48 @@ export function planQuoteSeries(format: 'phone' | 'desktop', tagline: boolean, f
 }
 
 /**
- * The image(s) for a share. One page or card; or, for a quote too long for
- * one card, a series (planQuoteSeries): each card with the book and chapter,
- * and the credit on every card when chosen (Copy image copies one card). The
- * "1/3" is the share sheet's own label, not part of the image. The cards share one size,
- * set by the longest card's text, and each card's text starts at the same
- * place under the header.
+ * The image(s) for a share. One page or card; or, for a highlight too long
+ * for one, a series: with surrounding text, single pages at reader size
+ * (composeContextPages); without, quote cards (planQuoteSeries). Each card
+ * carries the book and chapter, and the credit when chosen (Copy image copies
+ * one card). The "1/3" is the share sheet's own label, not part of the image.
+ * Quote cards share one size, set by the longest card's text, and each
+ * card's text starts at the same place under the header.
  */
 export function composeShareCards(content: ShareContent, options: ShareOptions, fonts: ShareFonts, hyphenate?: ShareHyphenate): SharePage[] {
-  if (options.context || options.format === 'og') return [composeSharePage(content, options, fonts, hyphenate)]
+  if (options.format === 'og') return [composeSharePage(content, options, fonts, hyphenate)]
+  if (options.context) return composeContextPages(content, options, fonts, hyphenate)
   const passage = buildPassage(content.paragraphs, content.range, false)
-  const single = composeQuoteCard(content, options, fonts, passage)
+  const single = composeQuoteCard(content, options, fonts, passage, hyphenate)
   if (single) return [single]
-  const plan = planQuoteSeries(options.format, options.tagline, fonts, passage)
+  const plan = planQuoteSeries(options.format, options.tagline, fonts, passage, { ragged: isRagged(options), hyphenate: breaksFor(content, hyphenate) })
   if (!plan) return [composeSharePage(content, options, fonts, hyphenate)]
   const { spec, layouts } = plan
   const count = layouts.length
   const chrome = spec.maxHeight - quoteFrame(spec, options.tagline, spec.maxHeight).text.height
   const used = Math.max(...layouts.map(layout => layout.usedHeight))
   const height = Math.ceil(Math.min(spec.maxHeight, Math.max(spec.minHeight, chrome + used)))
-  return layouts.map((layout, k): SharePage => {
-    const credit = options.tagline
-    return {
-      options: { ...options, tagline: credit },
-      content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
-      frame: quoteFrame(spec, credit, height),
-      layout,
-      mode: 'quote',
-      scale: layout.fontSize / spec.maxSize,
-      cut: false,
-      offsetY: 0,
-      pageNumbers: [],
-      series: { index: k + 1, count },
-    }
-  })
+  return layouts.map((layout, k): SharePage => ({
+    options,
+    content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },
+    frame: quoteFrame(spec, options.tagline, height),
+    layout,
+    mode: 'quote',
+    scale: layout.fontSize / spec.maxSize,
+    cut: false,
+    offsetY: 0,
+    pageNumbers: [],
+    series: { index: k + 1, count },
+  }))
 }
 
 /**
  * The reader's page number for the passage, estimated from the words before
  * it at the desktop reader's density (about 260 words a page).
  */
-function estimatePageNumbers(content: ShareContent, spread: boolean): number[] {
+function estimatePageNumber(content: ShareContent): number {
   const counts = paragraphWordCounts(content.paragraphs)
   let before = content.range.fromWord
   for (let p = 0; p < content.range.paragraphIndex; p++) before += counts[p]
-  const page = Math.floor(before / 260) + 1
-  if (!spread) return [page]
-  const left = page % 2 === 0 ? page - 1 : page
-  return [Math.max(1, left), Math.max(2, left + 1)]
+  return Math.floor(before / 260) + 1
 }

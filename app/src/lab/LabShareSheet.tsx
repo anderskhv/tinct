@@ -7,8 +7,10 @@ import { LAB_TEE_REST } from './labSuperGlyph'
 import './labShare.css'
 
 /**
- * Share a highlight as an image (docs/share-quote/SPEC.md): a preview, two
- * remembered toggles and icon buttons. Phone: Share, Copy image and Download.
+ * Share a highlight as an image (docs/share-quote/SPEC.md): a preview, three
+ * remembered toggles (surrounding text, the highlight colour, the tinct.app
+ * credit) and icon buttons. The image is set as the reader sets its text:
+ * justified or left-aligned (`align`). Phone: Share, Copy image and Download.
  * Desktop: Copy image and Download only. The image is drawn by the Worker
  * (/api/share/preview, then /q/{id}/image.png) in the reader's own edition and
  * look; with surrounding text off it is a card sized to the quote.
@@ -59,6 +61,17 @@ function TinctMark() {
   )
 }
 
+/** A highlighter pen, struck through: the highlight colour on the image. */
+function HighlightMark() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14.5 4.5l5 5-7.5 7.5h-5v-5z" />
+      <path d="M7 17l-2.5 2.5H9" />
+      <path className="lab-share-strike" d="M4 4l16 16" />
+    </svg>
+  )
+}
+
 function DownloadIcon() {
   return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 9v4.5h10V9" /></svg>
 }
@@ -67,17 +80,19 @@ function StepIcon({ dir }: { dir: 'prev' | 'next' }) {
   return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={dir === 'prev' ? 'M10 3L5 8l5 5' : 'M6 3l5 5-5 5'} /></svg>
 }
 
-/** Surrounding text starts on; the "Read free at tinct.app" credit starts off. */
-export function readSharePrefs(): { context: boolean; tagline: boolean } {
+export interface LabSharePrefs { context: boolean; tagline: boolean; highlight: boolean }
+
+/** Surrounding text and the highlight colour start on; the "Read free at tinct.app" credit starts off. */
+export function readSharePrefs(): LabSharePrefs {
   try {
-    const raw = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}') as { context?: unknown; tagline?: unknown }
-    return { context: raw.context !== false, tagline: raw.tagline === true }
+    const raw = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}') as { context?: unknown; tagline?: unknown; highlight?: unknown }
+    return { context: raw.context !== false, tagline: raw.tagline === true, highlight: raw.highlight !== false }
   } catch {
-    return { context: true, tagline: false }
+    return { context: true, tagline: false, highlight: true }
   }
 }
 
-function writePrefs(prefs: { context: boolean; tagline: boolean }): void {
+function writePrefs(prefs: LabSharePrefs): void {
   try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)) } catch { /* remembered for this visit only */ }
 }
 
@@ -96,10 +111,12 @@ export function cardFileName(name: string, index: number, count: number): string
   return count > 1 ? `${name}-${index + 1}-of-${count}.png` : `${name}.png`
 }
 
-export function LabShareSheet({ target, look, format, onClose }: {
+export function LabShareSheet({ target, look, format, align = 'justify', onClose }: {
   target: LabShareTarget
   look: LabShareLook
   format: 'phone' | 'desktop'
+  /** The reader's text alignment (its setting, or the book's default). */
+  align?: 'justify' | 'left'
   onClose: () => void
 }) {
   const [prefs, setPrefs] = useState(readSharePrefs)
@@ -122,8 +139,8 @@ export function LabShareSheet({ target, look, format, onClose }: {
   const body = useMemo(() => ({
     bookId: target.bookId, editionKey: target.editionKey, chapterNumber: target.chapterNumber,
     paragraphIndex: target.paragraphIndex, fromWord: target.fromWord, endParagraphIndex: target.endParagraphIndex, toWord: target.toWord,
-    look, format, context: prefs.context, tagline: prefs.tagline,
-  }), [target, look, format, prefs])
+    look, format, context: prefs.context, tagline: prefs.tagline, highlight: prefs.highlight, align,
+  }), [target, look, format, prefs, align])
   const key = JSON.stringify(body)
   const previewSrc = useMemo(() => {
     const params = new URLSearchParams(Object.entries(body).map(([k, v]) => [k, typeof v === 'boolean' ? (v ? '1' : '0') : String(v)]))
@@ -212,7 +229,7 @@ export function LabShareSheet({ target, look, format, onClose }: {
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
 
-  const toggle = (name: 'context' | 'tagline') => (event: React.ChangeEvent<HTMLInputElement>) => {
+  const toggle = (name: 'context' | 'tagline' | 'highlight') => (event: React.ChangeEvent<HTMLInputElement>) => {
     const next = { ...prefs, [name]: event.target.checked }
     setPrefs(next)
     writePrefs(next)
@@ -331,6 +348,10 @@ export function LabShareSheet({ target, look, format, onClose }: {
             <label className="lab-share-chip" title="Show surrounding text">
               <input type="checkbox" checked={prefs.context} onChange={toggle('context')} aria-label="Show surrounding text" data-testid="lab-share-context" />
               <span>Surrounding text</span>
+            </label>
+            <label className="lab-share-chip is-icon" title="Highlight colour">
+              <input type="checkbox" checked={prefs.highlight} onChange={toggle('highlight')} aria-label="Highlight colour" data-testid="lab-share-highlight" />
+              <HighlightMark />
             </label>
             <label className="lab-share-chip is-icon" title='Add "Read free at tinct.app"'>
               <input type="checkbox" checked={prefs.tagline} onChange={toggle('tagline')} aria-label='Add "Read free at tinct.app"' data-testid="lab-share-tagline" />

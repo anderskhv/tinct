@@ -5,7 +5,7 @@
 // What the catalogue knows of the same book (borrowFor: popularity, the author's other names,
 // other titles) is lent once the catalogue search has loaded; until then books rank on their own.
 // Approved by Anders, 2026-10-07 (library search quality).
-import {createSearch, hydrate} from '../addbook/js/search.js?v=20261008rel6';
+import {createSearch, hydrate} from '../addbook/js/search.js?v=20261008rel7';
 
 /** A Tinct book as a catalogue work the engine can rank (`book` keeps the library's own object). */
 export function tinctWork(book, borrowed = null) {
@@ -38,14 +38,16 @@ export function createLibrarySearch(books, borrowed = {}) {
 /**
  * The library's search over a list that grows (catalogue books, added books): rebuilt when the
  * books or what they borrow change. `lend(map)` adds borrowed facts; true when anything is new.
+ * `books` is the list, or a function returning it when the list is assembled from several.
  */
 export function librarySearch(books) {
   let engine = null, key = '', borrowed = {};
-  const keyOf = () => books.map(book => `${book.id}:${(book.altTitles || []).length}`).join(',');
+  const list = typeof books === 'function' ? books : () => books;
+  const keyOf = () => list().map(book => `${book.id}:${(book.altTitles || []).length}`).join(',');
   return {
     filter(query) {
       const now = keyOf();
-      if (!engine || now !== key) { engine = createLibrarySearch(books, borrowed); key = now; }
+      if (!engine || now !== key) { engine = createLibrarySearch(list(), borrowed); key = now; }
       return engine(query);
     },
     lend(map) {

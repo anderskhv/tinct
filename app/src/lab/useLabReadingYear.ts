@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { readLabDeviceId } from './labPositionStore'
 import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear, type ReadingYearTotals } from './labReadingYear'
 import { addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
-import { localDay } from '../readingTime/model'
+import { PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
 import { supabase } from '../services/supabase'
 
 /** Reading time counts only while the reader was active this recently (or audio plays). */
@@ -33,6 +33,10 @@ async function sessionToken(userId: string): Promise<string | null> {
  * counted time goes to the ledger instead: a per-day, per-book pending store,
  * a heartbeat about once a minute, and a flush for what a heartbeat cannot
  * carry. Off (the default, or until the switch is known) nothing changes.
+ *
+ * A reader's own book (`privateBook`) is never in the device tally (no pages,
+ * no time, as before). With the ledger on, its time counts under the one
+ * opaque PRIVATE_BOOK_ID bucket: never the own book's id.
  */
 export function useLabReadingYear(input: {
   userId: string | null
@@ -42,15 +46,20 @@ export function useLabReadingYear(input: {
   onCover: boolean
   paused: boolean
   listeningRef: { current: boolean }
+  /** The reader's own book: counted only in the ledger, under the private bucket. */
+  privateBook?: boolean
 }): void {
-  const { userId, bookId, chapter, page, onCover, paused, listeningRef } = input
+  const { userId, bookId, chapter, page, onCover, paused, listeningRef, privateBook = false } = input
   const previousRef = useRef<{ bookId: string; chapter: number; page: number } | null>(null)
   const activeAtRef = useRef(Date.now())
   const dirtyRef = useRef(false)
   const userRef = useRef(userId)
   userRef.current = userId
+  const privateRef = useRef(privateBook)
+  privateRef.current = privateBook
+  // What the ledger records: an own book is the private bucket, whatever its id.
   const bookRef = useRef(bookId)
-  bookRef.current = bookId
+  bookRef.current = privateBook ? PRIVATE_BOOK_ID : ledgerBookId(bookId)
   const ledgerRef = useRef<LedgerStatus>('unknown')
   const lastBeatRef = useRef(Date.now())
   const lastFlushRef = useRef(0)
@@ -158,7 +167,7 @@ export function useLabReadingYear(input: {
           // Narration playing counts as listening, otherwise reading.
           addPending(userRef.current, localDay(), bookRef.current, listeningRef.current ? { listen: seconds } : { read: seconds })
           void beat()
-        } else add({ seconds })
+        } else if (!privateRef.current) add({ seconds })
       }
       last = now
     }, TICK_MS)

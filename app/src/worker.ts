@@ -44,7 +44,7 @@ import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
 import { handleUserBooks } from './worker/routes/userBooks'
 import { COVER_RUN_LIMIT, handlePublicBooks, handlePublicEditionData, runPublicCoverJobs } from './worker/routes/publicBooks'
-import { MODERN_EDITION_CRON, grantModernEdition, runModernEditionJobs } from './worker/routes/publicBookModern'
+import { MODERN_EDITION_CRON, grantModernEdition, releaseModernCheckout, runModernEditionJobs } from './worker/routes/publicBookModern'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import { handleEmailLink, isEmailLinkRequest } from './worker/routes/emailLinks'
@@ -364,6 +364,7 @@ export default {
       case '/api/create-checkout': return handleCreateCheckout(request, env, verifyUser, ctx)
       case '/api/webhook': return handleWebhook(request, env, ctx, {
         modernEdition: session => grantModernEdition(env, session, { waitUntil: promise => ctx.waitUntil(promise) }),
+        modernRelease: session => releaseModernCheckout(env, session),
       })
       case '/api/create-portal': return handleCreatePortal(request, env, verifyUser)
       case '/api/cancel-subscription': return handleCancelSubscription(request, env, verifyUser)

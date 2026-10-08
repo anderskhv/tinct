@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import worker from './worker'
-import { handleSocial, runLeaderboardCron, serveProfilePage, type SocialDeps } from './worker/routes/social'
+import { handleSocial, runLeaderboardCron, serveProfilePage, withAddedBooks, type SocialDeps } from './worker/routes/social'
 import { handleProfiles } from './worker/routes/profiles'
 import type { AccountRow, ProfileStore, PublicCardRow, ReaderProfileRow } from './worker/lib/profileStore'
 import type { AdminProfileRow, LedgerDayRow, ReportRow, SocialStore } from './worker/lib/socialStore'
@@ -399,6 +399,65 @@ describe('follows', () => {
     const find = await json(await api(world, '/api/social/find', A))
     expect(find.alsoReading).toEqual([expect.objectContaining({ name: 'Bea', book: 'Frankenstein', relation: 'stranger' })])
     expect(find.link).toBe('tinct.app/@anders')
+  })
+})
+
+describe('a reader’s own books are private', () => {
+  const OWN = 'userbook-0123456789abcdef01234567'
+  const PD = { id: 'pd-en-walden', title: 'Walden', author: 'Henry David Thoreau', wordCount: 110000, art: null, readingStructure: { chapters: [{ number: 1, title: 'Economy' }, { number: 2, title: 'Where I Lived' }] } }
+  const withPd = () => new Map<string, unknown>([...CATALOGUE, [PD.id, PD]]) as never
+
+  it('the leaderboard counts their time and shows "a private book", never an id or title', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 90, 'private'); world.read(B, -1, 10, 'frankenstein')
+    // A row from before the bucket existed is treated the same way.
+    world.read(C, 0, 50, OWN); world.read(C, 0, 5, 'meditations')
+    const data = await board(world, A, 'friends')
+    expect(data.entries.map((e: { name: string; book: string | null; seconds: number }) => [e.name, e.book, e.seconds])).toEqual([
+      ['Bea', 'a private book', 100 * 60], ['Carl', 'a private book', 55 * 60], ['You', null, 0],
+    ])
+    expect(JSON.stringify(data)).not.toMatch(/userbook-|"book":"private"/)
+  })
+
+  it('a profile shows "a private book" with no cover and no link; its time counts; the payload has no own-book id', async () => {
+    const world = everyoneWorld()
+    world.read(B, 0, 70, 'private'); world.read(B, -2, 20, OWN); world.read(B, -1, 30, 'frankenstein')
+    const data = await json(await api(world, '/api/social/profile/bea', A))
+    const books = data.profile.readingNow as Array<{ bookId: string; title: string; cover: string | null }>
+    expect(books.map(book => book.title)).toEqual(['a private book', 'Frankenstein'])
+    expect(books[0]).toMatchObject({ bookId: 'private', cover: null, progress: null })
+    expect(data.profile.time.last7).toBe('2 h')
+    expect(JSON.stringify(data)).not.toContain('userbook-')
+    const page = await serveProfilePage(new Request('https://tinct.app/@bea'), on as never, deps(world), 'bea')
+    const html = await page.text()
+    expect(html).toContain('a private book')
+    expect(html).not.toContain('/read/private')
+    expect(html).not.toContain('userbook-')
+    expect(html).toContain('href="/read/frankenstein"')
+  })
+
+  it('never matched for "Also reading your books"; added public-domain books are shown normally', async () => {
+    const world = everyoneWorld()
+    world.read(A, -1, 30, 'private'); world.read(A, -1, 30, OWN)
+    world.read(B, -2, 30, 'private'); world.read(C, -2, 30, OWN)
+    const none = await json(await api(world, '/api/social/find', A, {}, { catalogue: async () => withPd() }))
+    expect(none.alsoReading).toEqual([])
+    expect(JSON.stringify(none)).not.toMatch(/userbook-|private book/)
+    world.read(A, -1, 30, PD.id); world.read(D, -2, 30, PD.id)
+    const find = await json(await api(world, '/api/social/find', A, {}, { catalogue: async () => withPd() }))
+    expect(find.alsoReading).toEqual([expect.objectContaining({ name: 'Dora', book: 'Walden' })])
+    world.befriend(A, D)
+    const friends = await json(await api(world, '/api/social/board?tab=friends', A, {}, { catalogue: async () => withPd() }))
+    expect(friends.entries.find((e: { name: string }) => e.name === 'Dora')?.book).toBe('Walden')
+  })
+
+  it('the catalogue includes added public-domain books, never anything else', () => {
+    const map = withAddedBooks(CATALOGUE as never, [PD, { id: OWN, title: 'My diary' }, { id: 'frankenstein', title: 'Not this' }, null])
+    expect(map.get(PD.id)?.title).toBe('Walden')
+    expect(map.has(OWN)).toBe(false)
+    expect(map.get('frankenstein')?.title).toBe('Frankenstein')
+    expect(withAddedBooks(CATALOGUE as never, undefined).size).toBe(CATALOGUE.size)
   })
 })
 
