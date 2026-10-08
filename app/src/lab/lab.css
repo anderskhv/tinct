@@ -7375,11 +7375,11 @@
 .lab[data-chrome-version="v2"] .lab-book-switcher-library:focus-visible{outline:2px solid var(--lab-ink);outline-offset:-4px}
 
 /* Desktop: back to the library, icon only, top left — the same 42px disc and
-   ink as Play and the t on the right, and it dims with them after a turn. */
+   ink as Play and the t on the right, and it dims with them after a turn.
+   Centred in the 56px desktop header. */
 .lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-library-back {
   position: absolute;
   left: 24px;
-  /* Centred in the 56px desktop header. */
   top: 7px;
   width: 42px;
   height: 42px;
