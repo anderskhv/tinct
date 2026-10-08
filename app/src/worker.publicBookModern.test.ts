@@ -2,7 +2,7 @@
 // Stripe call is made: the generator, Stripe and Supabase are all stand-ins.
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handlePublicBooks, handlePublicEditionData, type PublicBooksDeps } from './worker/routes/publicBooks'
-import { grantModernEdition, releaseModernCheckout, runModernBook, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
+import { grantModernEdition, handleModernDiagnostics, releaseModernCheckout, runModernBook, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
 import { handleWebhook } from './worker/routes/billing'
 import gorgiasExcerpt from './worker/__fixtures__/gorgias-excerpt.json'
 import {
@@ -27,6 +27,11 @@ import {
   publicFailures,
   BACKOFF_5XX_MS,
   SLOW_AFTER_429_MS,
+  chunkLimit,
+  modernMaxTokens,
+  modernUserMessage,
+  MODERN_SYSTEM_PROMPT,
+  FAILED_REVIVAL,
   MODERN_TIERS,
   modernStep,
   modernTierCents,
@@ -874,7 +879,7 @@ describe('never the original text as Modern English', () => {
     expect(data.modern.written[3]).toBeUndefined()
   })
 
-  it('asks the model with the source under its own key, and never takes the source handed back for an answer', async () => {
+  it('asks the model with the source as numbered plain paragraphs, and never takes the source handed back for an answer', async () => {
     const bodies: string[] = []
     const reply = (content: unknown) => (async (_url: string | URL | Request, init?: RequestInit) => {
       bodies.push(String(init?.body))
@@ -886,9 +891,14 @@ describe('never the original text as Modern English', () => {
     expect(checkChunk([LONG[0]], await xaiModernGenerator('k', { fetchImpl: reply({ source: [LONG[0]] }) })(input))).toEqual({ failure: 'echo' })
     expect(await xaiModernGenerator('k', { fetchImpl: reply({ source: ['[m]'] }) })(input)).toEqual(['[m]'])
     expect(await xaiModernGenerator('k', { fetchImpl: reply({ paragraphs: ['[m]'] }) })(input)).toEqual(['[m]'])
-    const user = JSON.parse(bodies[0]).messages[1].content as string
-    expect(user).toContain(JSON.stringify({ source: [LONG[0]] }))
+    const body = JSON.parse(bodies[0]) as { messages: Array<{ content: string }>; max_tokens: number; temperature: number }
+    const user = body.messages[1].content
+    // Not a JSON object the model could hand back as its reply (2026-10-08: longer chunks came back unchanged).
+    expect(user).toContain(`[1] ${LONG[0]}`)
+    expect(user).not.toContain('{"source"')
     expect(user).not.toContain('{"paragraphs"')
+    // Room for the whole rendering.
+    expect(body.max_tokens).toBeGreaterThanOrEqual(100 * 2)
   })
 
   /** A paid job as the pipeline left it before the check: every chapter ready, the whole edition written. */
@@ -1118,5 +1128,103 @@ describe('failures: reasons, provider back-off, replies, real Gorgias text', () 
     await updateJob(t.r2.bucket, BOOK, job => job && { ...job, chapters: job.chapters.map(c => c.number === 4 ? { ...c, state: 'failed' as const, retryAt: t.clock.t + 1 } : c) })
     await t.status()
     expect((await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 4)!.state).toBe('failed')
+  })
+})
+
+// ===== 2026-10-08: the opening chunk was rendered, the larger chunks after it came back unchanged =====
+
+describe('larger chunks handed back', () => {
+  const wordsOf = (paragraphs: string[]) => paragraphs.join(' ').split(/\s+/).filter(Boolean).length
+  /** Echoes any chunk over 400 source words, renders smaller ones: the production pattern. */
+  const bigEcho = (sizes: number[]): ModernGenerator => async input => {
+    sizes.push(wordsOf(input.paragraphs))
+    return wordsOf(input.paragraphs) > 400 ? input.paragraphs : input.paragraphs.map(p => `[m] ${p}`)
+  }
+
+  it('the prompt asks for a rewriting into today’s English, without the copy-inviting rules', () => {
+    expect(MODERN_SYSTEM_PROMPT).not.toMatch(/soften period language|copy it from the source|rather than paraphrase/i)
+    expect(MODERN_SYSTEM_PROMPT).toMatch(/today/)
+    const input = { title: 'Gorgias', author: 'Plato', chapterTitle: 'Introduction', paragraphs: ['First paragraph.', 'Second paragraph.'] }
+    expect(modernUserMessage(input)).toBe('Book: Gorgias by Plato\nChapter: Introduction\nSource paragraphs to rewrite (2):\n\n[1] First paragraph.\n\n[2] Second paragraph.')
+    expect(modernMaxTokens({ ...input, paragraphs: [LONG.slice(0, 9).join(' ')] })).toBe(Math.ceil(900 * 2.5) + 500)
+  })
+
+  it('a chunk handed back is tried again at half the size, down to the opening size, and the chapter completes', async () => {
+    const sizes: number[] = []
+    const t = setup({ generator: bigEcho(sizes), switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    const results: string[] = []
+    for (let i = 0; i < 60 && results.at(-1) !== 'complete'; i++) results.push(await stepOf(t, 'runner-a'))
+    expect(results.at(-1)).toBe('complete')
+    expect(results).not.toContain('failed')
+    // 900 handed back → 450 (400 written) → grows to 562 (500 handed back) → 350 ...: never a counted failure.
+    expect(sizes.slice(0, 5)).toEqual([300, 900, 400, 500, 300])
+    const job = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!
+    expect(job).toMatchObject({ state: 'ready', attempts: 0 })
+    expect((await edition(t)).chapters[2].paragraphs).toEqual(LONG.map(p => `[m] ${p}`))
+  })
+
+  it('a chunk size cut after an echo grows back as chunks are written', async () => {
+    let echoes = 1
+    const sizes: number[] = []
+    const generator: ModernGenerator = async input => {
+      sizes.push(wordsOf(input.paragraphs))
+      if (wordsOf(input.paragraphs) > 400 && echoes > 0) { echoes--; return input.paragraphs }
+      return input.paragraphs.map(p => `[m] ${p}`)
+    }
+    const t = setup({ generator, switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    for (let i = 0; i < 8; i++) await stepOf(t, 'runner-a')
+    // opening 300, 900 handed back, then 400 (limit 450), 500 (562), 700 (703): back up towards CHUNK_WORDS.
+    expect(sizes.slice(0, 5)).toEqual([300, 900, 400, 500, 700])
+  })
+
+  it('an echo at the smallest size counts as a failure, and the refused reply is kept for admins only', async () => {
+    const t = setup({ generator: async input => input.paragraphs, switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    expect(await stepOf(t, 'runner-a')).toBe('failed')
+    const three = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!
+    expect(three).toMatchObject({ attempts: 1, lastReject: { reason: 'echo', chunkWords: 350 } })
+    expect(three.lastReject!.sample.length).toBeLessThanOrEqual(200)
+    expect(three.lastReject!.sample).toContain('P0 word')
+    // Not in the public status.
+    const status = await t.status()
+    expect(JSON.stringify(status)).not.toContain('P0 word')
+    expect(JSON.stringify(status)).not.toContain('lastReject')
+    // The admin route: site admins only.
+    const ask = (admin: boolean) => handleModernDiagnostics(new Request(`https://tinct.app/api/admin/modern-diagnostics?book=${BOOK}`), t.env, async () => admin)
+    expect((await ask(false)).status).toBe(403)
+    const diagnostics = await (await ask(true)).json() as { chapters: Array<{ number: number; lastReject: { sample: string; chunkWords: number } | null }> }
+    expect(diagnostics.chapters.find(c => c.number === 3)!.lastReject).toMatchObject({ chunkWords: 350 })
+    expect(diagnostics.chapters.find(c => c.number === 3)!.lastReject!.sample).toContain('P0 word')
+  })
+
+  it('the opening and chunk sizes', () => {
+    expect(chunkLimit(0, [], 900)).toBe(350)
+    expect(chunkLimit(5, ['a', 'a', 'a', 'a', 'a'], 450)).toBe(450)
+    expect(chunkLimit(5, ['a', 'a', 'a', 'a', 'a'], 100)).toBe(350)
+    expect(chunkLimit(5, ['a', 'a', 'a', 'a', null], 900)).toBe(350)
+  })
+
+  it('after deploy, failed and failing chapters get a fresh go once, keeping what was written', async () => {
+    const t = setup({ switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await updateJob(t.r2.bucket, BOOK, job => job && {
+      ...job, revived: FAILED_REVIVAL - 1,
+      chapters: job.chapters.map(c => c.number === 3 ? { ...c, state: 'queued' as const, attempts: 3, ranges: [[0, 1]] as Array<[number, number]> }
+        : c.number === 4 ? { ...c, state: 'failed' as const, attempts: 4, rounds: 1, retryAt: t.clock.t + 60_000 } : c),
+    })
+    await t.status()
+    const job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.revived).toBe(FAILED_REVIVAL)
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'queued', attempts: 0, ranges: [[0, 1]] })
+    expect(job.chapters.find(c => c.number === 4)).toMatchObject({ state: 'queued', attempts: 0 })
   })
 })
