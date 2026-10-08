@@ -64,6 +64,8 @@ export interface LabCatchUpDeps {
 
 /** 40 words plus the structured entry call's own few tokens. */
 export const CATCH_UP_MAX_TOKENS = 160
+/** A compact block of earlier chapters: 70 words plus the entry call's tokens. */
+export const CATCH_UP_BLOCK_MAX_TOKENS = 240
 /** About 8K tokens of source per entry; long units are sampled evenly across their chapters. */
 export const CATCH_UP_MAX_PASSAGE_CHARS = 32_000
 /** Every request, cached or not: a long timeline is many cheap lookups. */
@@ -74,14 +76,28 @@ const MAX_BODY_BYTES = 4_096
 const MAX_TITLE_CHARS = 120
 const MAX_CHAPTER_NUMBER = 10_000
 
-export const CATCH_UP_SYSTEM_PROMPT = [
-  'You write one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book.',
-  'Summarise the passage below in two short plain declarative sentences in the present tense, at most 40 words in all.',
+const CATCH_UP_RULES = [
   'Use only the passage. Do not go beyond it: no later events, no outcomes, no foreshadowing, and nothing you know about this book from elsewhere. The passage ends where the reader has read to.',
   'A long passage is sampled: parts of each chapter are left out. Cover the whole span evenly, not only its opening.',
   'For non-narrative text (proverbs, letters, essays, laws, poems) state the main points instead of events.',
   'No praise, no interpretation, no advice, no preamble, no headings, no bullet points, and no quotation marks around the answer.',
   RECAP_ENTRY_INSTRUCTION,
+]
+
+/**
+ * The compact block that opens the timeline: every chapter before the last
+ * two the reader finished (`catchUpPlan`), in one entry.
+ */
+export const CATCH_UP_BLOCK_SYSTEM_PROMPT = [
+  'You write the opening entry of a "catch me up" timeline that a returning reader scrolls before they continue a book: one compact recap of the earlier chapters. The chapters after these get entries of their own, so this entry only needs to set them up.',
+  'Summarise the passage below in at most three short plain declarative sentences in the present tense, at most 70 words in all: the main people, the situation and the turns that matter for what follows, in order. Leave out minor episodes.',
+  ...CATCH_UP_RULES,
+].join('\n')
+
+export const CATCH_UP_SYSTEM_PROMPT = [
+  'You write one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book.',
+  'Summarise the passage below in two short plain declarative sentences in the present tense, at most 40 words in all.',
+  ...CATCH_UP_RULES,
 ].join('\n')
 
 function labGuestIp(request: Request): string {
@@ -247,7 +263,10 @@ export async function handleLabCatchUp(
     ? `The reader has read all of ${unit.title}.`
     : `The reader is part-way through ${unit.title}; the passage ends with the last chapter they finished.`
   const content = `Location: ${where}. ${status}\n\nPassage:\n\n${passage}\n\nWrite the catch-up entry.`
-  const estimate = estimateAiCostMicros({ inputChars: CATCH_UP_SYSTEM_PROMPT.length + content.length, maxTokens: CATCH_UP_MAX_TOKENS })
+  const block = unit.kind === 'range'
+  const system = block ? CATCH_UP_BLOCK_SYSTEM_PROMPT : CATCH_UP_SYSTEM_PROMPT
+  const maxTokens = block ? CATCH_UP_BLOCK_MAX_TOKENS : CATCH_UP_MAX_TOKENS
+  const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   // Cached and prepared entries above cost nothing and are always served.
   if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
@@ -258,8 +277,8 @@ export async function handleLabCatchUp(
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({
       model: RECAP_FAST_MODEL,
-      max_tokens: CATCH_UP_MAX_TOKENS,
-      system: CATCH_UP_SYSTEM_PROMPT,
+      max_tokens: maxTokens,
+      system,
       messages: [{ role: 'user', content }],
       ...RECAP_ENTRY_TOOL_PAYLOAD,
     }, apiKey)

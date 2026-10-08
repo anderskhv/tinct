@@ -12,19 +12,18 @@
  *    run of chapters sharing that part;
  *  - everything else: one unit per chapter.
  *
- * Scope (`catchUpPlan`):
- *  - a collection of separate works (the Bible, a short-story collection;
- *    `catchUpSeparateWorks`): only the work the reader is in, chapter by
- *    chapter. Earlier works are other books and are never recapped;
- *  - a book with parts: every earlier part as one folded entry, then the
- *    current part chapter by chapter;
- *  - everything else: every earlier chapter.
- * The timeline always ends with the current chapter through the reader's
- * paragraph via `/api/lab-recap`. Nothing past the reader's place is ever
- * requested.
+ * Scope (`catchUpPlan`): the chapters before the current one, in reading
+ * order; for a collection of separate works (the Bible, a short-story
+ * collection; `catchUpSeparateWorks`) only those of the work the reader is in
+ * (earlier works are other books and are never recapped). Of those:
+ *  - the last CATCH_UP_RECENT_CHAPTERS (two) get an entry each, chapter by chapter;
+ *  - everything before them is one compact block (a `range` unit, `chs-<from>-<to>`),
+ *    or a plain chapter entry when it is a single chapter.
+ * The current chapter and anything after it are never included or requested:
+ * the timeline ends at "You are here" (Anders, 8 Oct 2026).
  */
 import type { Section } from './types'
-import { briefRecapHasEnoughText, type LabRecapRequest } from './recapSummary'
+import type { LabRecapRequest } from './recapSummary'
 import { contentsBooks } from './lab/labContents'
 
 export const CATCH_UP_ROUTE = '/api/lab-catch-up'
@@ -33,7 +32,11 @@ export const CATCH_UP_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 /** Unit ids are slugs: `book-2-kings`, `part-book-two-1805`, `ch-12`. */
 export const CATCH_UP_UNIT_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,95}$/
 
-export type CatchUpUnitKind = 'book' | 'part' | 'chapter'
+/** `range`: a compact block of consecutive chapters (`chs-<from>-<to>`), only ever asked for by id. */
+export type CatchUpUnitKind = 'book' | 'part' | 'chapter' | 'range'
+
+/** The chapters just before the current one that keep an entry each; earlier ones are one block. */
+export const CATCH_UP_RECENT_CHAPTERS = 2
 
 export interface CatchUpChapter { number: number; title: string }
 
@@ -138,6 +141,7 @@ export function catchUpUnits(input: { title: string; chapters: CatchUpChapter[];
 export type CatchUpEntry =
   /** `folded`: an earlier part, shown as one line that opens on tap. */
   | { key: string; kind: 'unit'; title: string; request: CatchUpRequest; chapters: number[]; folded?: boolean }
+  /** The current chapter so far via `/api/lab-recap`: no longer produced by `catchUpPlan` (the current chapter is never recapped). */
   | { key: string; kind: 'current'; title: string; request: LabRecapRequest }
 
 /** Library forms whose chapters are separate works (`libraryTaxonomy.ts`). */
@@ -157,13 +161,31 @@ export function catchUpChapterUnitId(chapterNumber: number): string {
   return `ch-${chapterNumber}`
 }
 
+/** The id of a compact block: chapters `from` through `to`, in reading order. */
+export function catchUpRangeUnitId(from: number, to: number): string {
+  return `chs-${from}-${to}`
+}
+
+/** A block's title from its first and last chapters' own titles. */
+export function catchUpRangeTitle(first: CatchUpChapter, last: CatchUpChapter): string {
+  return first.number === last.number ? first.title : `${first.title} – ${last.title}`
+}
+
 /**
- * The unit a request names: one of the book's units, or a single chapter by
- * `ch-<number>`. The Worker and the client resolve ids the same way.
+ * The unit a request names: one of the book's units, a single chapter by
+ * `ch-<number>`, or a block of chapters by `chs-<from>-<to>`. The Worker and
+ * the client resolve ids the same way.
  */
 export function catchUpFindUnit(units: CatchUpUnit[], chapters: CatchUpChapter[], unitId: string): CatchUpUnit | null {
   const unit = units.find(item => item.id === unitId)
   if (unit) return unit
+  const range = /^chs-(\d+)-(\d+)$/.exec(unitId)
+  if (range) {
+    const from = chapters.findIndex(item => item.number === Number(range[1]))
+    const to = chapters.findIndex(item => item.number === Number(range[2]))
+    if (from < 0 || to < from) return null
+    return { id: unitId, kind: 'range', title: catchUpRangeTitle(chapters[from], chapters[to]), chapters: chapters.slice(from, to + 1).map(item => item.number) }
+  }
   const match = /^ch-(\d+)$/.exec(unitId)
   if (!match) return null
   const chapter = chapters.find(item => item.number === Number(match[1]))
@@ -171,9 +193,9 @@ export function catchUpFindUnit(units: CatchUpUnit[], chapters: CatchUpChapter[]
 }
 
 /**
- * The timeline, oldest first (scope: see the header). The unit the reader is
- * in contributes each of its earlier chapters as its own entry, then the
- * current chapter through their paragraph.
+ * The timeline, oldest first (scope: see the header): one compact block for
+ * the earlier chapters, then the last CATCH_UP_RECENT_CHAPTERS before the
+ * current one, chapter by chapter. Never the current chapter or later.
  */
 export function catchUpPlan(input: {
   bookId: string
@@ -182,64 +204,45 @@ export function catchUpPlan(input: {
   units: CatchUpUnit[]
   chapters: CatchUpChapter[]
   chapterNumber: number
-  paragraphIndex: number
-  completed: boolean
+  /** The reader's place in the current chapter. Not recapped (the current chapter never is); kept for callers. */
+  paragraphIndex?: number
+  completed?: boolean
   /** A collection of separate works (`catchUpSeparateWorks`): nothing before the current work. */
   separateWorks?: boolean
-  /**
-   * The current chapter's paragraphs, when loaded. With them, the "so far"
-   * entry is left out until the reader has read enough narrative to summarise
-   * (`briefRecapHasEnoughText`): a heading, an address and a date are not a
-   * chapter's events. Without them the entry is kept and the Worker decides.
-   */
+  /** The current chapter's paragraphs; unused now that the current chapter is never recapped. */
   currentParagraphs?: readonly string[] | null
+  /** How many chapters before the current one keep an entry each (CATCH_UP_RECENT_CHAPTERS). */
+  recent?: number
 }): CatchUpEntry[] {
-  const order = new Map(input.chapters.map((chapter, index) => [chapter.number, index]))
-  const here = order.get(input.chapterNumber)
-  if (here === undefined) return []
+  const here = input.chapters.findIndex(chapter => chapter.number === input.chapterNumber)
+  if (here < 0) return []
   const base = { bookId: input.bookId, editionKey: input.editionKey, ...(input.bookTitle ? { bookTitle: input.bookTitle } : {}) }
-  const hasParts = input.units.some(unit => unit.kind === 'part')
-  const titles = new Map(input.chapters.map(chapter => [chapter.number, chapter.title]))
-  const entries: CatchUpEntry[] = []
-  for (const unit of input.units) {
-    const before = unit.chapters.filter(n => (order.get(n) ?? Infinity) < here)
-    if (!before.length) continue
-    if (unit.chapters.includes(input.chapterNumber)) {
-      // The unit the reader is in: chapter by chapter up to their chapter.
-      for (const n of before) {
-        const unitId = catchUpChapterUnitId(n)
-        entries.push({ key: unitId, kind: 'unit', title: titles.get(n) ?? unit.title, chapters: [n], request: { ...base, unitId } })
-      }
-      continue
-    }
-    // Earlier works of a collection are other books, never recapped here.
-    if (input.separateWorks) continue
-    if (before.length !== unit.chapters.length) continue
-    entries.push({
-      key: unit.id,
-      kind: 'unit',
-      title: unit.title,
-      chapters: before,
-      request: { ...base, unitId: unit.id },
-      ...(hasParts ? { folded: true } : {}),
-    })
+  // Strictly before the current chapter, in reading order.
+  let earlier = input.chapters.slice(0, here)
+  if (input.separateWorks) {
+    // Only the work the reader is in.
+    const work = input.units.find(unit => unit.chapters.includes(input.chapterNumber))
+    const inWork = new Set(work?.chapters ?? [input.chapterNumber])
+    let start = earlier.length
+    while (start > 0 && inWork.has(earlier[start - 1].number)) start--
+    earlier = earlier.slice(start)
   }
-  const current = input.chapters[here]
-  if (input.currentParagraphs?.length && !briefRecapHasEnoughText({
-    paragraphs: input.currentParagraphs, paragraphIndex: input.paragraphIndex, completed: input.completed,
-  })) return entries
-  entries.push({
-    key: `here:${input.chapterNumber}:${input.paragraphIndex}`,
-    kind: 'current',
-    title: current.title,
-    request: {
-      ...base,
-      chapterNumber: input.chapterNumber,
-      paragraphIndex: Math.max(0, Math.floor(input.paragraphIndex) || 0),
-      completed: input.completed,
-      brief: true,
-    },
-  })
+  const recentCount = Math.max(0, Math.floor(input.recent ?? CATCH_UP_RECENT_CHAPTERS))
+  const split = Math.max(0, earlier.length - recentCount)
+  const block = earlier.slice(0, split)
+  const recent = earlier.slice(split)
+  const chapterEntry = (chapter: CatchUpChapter): CatchUpEntry => {
+    const unitId = catchUpChapterUnitId(chapter.number)
+    return { key: unitId, kind: 'unit', title: chapter.title, chapters: [chapter.number], request: { ...base, unitId } }
+  }
+  const entries: CatchUpEntry[] = []
+  if (block.length === 1) entries.push(chapterEntry(block[0]))
+  else if (block.length > 1) {
+    const first = block[0], last = block[block.length - 1]
+    const unitId = catchUpRangeUnitId(first.number, last.number)
+    entries.push({ key: unitId, kind: 'unit', title: catchUpRangeTitle(first, last), chapters: block.map(chapter => chapter.number), request: { ...base, unitId } })
+  }
+  for (const chapter of recent) entries.push(chapterEntry(chapter))
   return entries
 }
 

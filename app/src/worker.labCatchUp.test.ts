@@ -7,6 +7,9 @@ import {
   CATCH_UP_LOOKUP_RATE_LIMIT_PER_MINUTE,
   CATCH_UP_MAX_PASSAGE_CHARS,
   CATCH_UP_MAX_TOKENS,
+  CATCH_UP_BLOCK_MAX_TOKENS,
+  CATCH_UP_BLOCK_SYSTEM_PROMPT,
+  CATCH_UP_SYSTEM_PROMPT,
   buildCatchUpPassage,
   handleLabCatchUp,
   parseCatchUpRequest,
@@ -182,6 +185,37 @@ describe('POST /api/lab-catch-up', () => {
     await Promise.all(pending)
     expect([...cache.entries.keys()]).toEqual([`https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/ch-4/end`])
     expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-99' }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic })).status).toBe(400)
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+  })
+
+  it('a compact block (`chs-<from>-<to>`) covers exactly those chapters in one call, with the block prompt; nothing after it is read', async () => {
+    const { ctx, pending } = makeContext()
+    const cache = fakeCache()
+    const fetchAnthropic = anthropicOk('Anna arrives; Levin mows; the races begin.')
+    const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
+    const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'chs-1-3' }), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+    expect(response.status).toBe(200)
+    expect(await response.json()).toMatchObject({ unitId: 'chs-1-3', title: 'Part 1, Chapter 1 – Part 2, Chapter 1', chapters: [1, 2, 3], complete: true })
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+    const payload = (fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>])[0]
+    expect(payload.system).toBe(CATCH_UP_BLOCK_SYSTEM_PROMPT)
+    expect(payload.max_tokens).toBe(CATCH_UP_BLOCK_MAX_TOKENS)
+    const content = (payload.messages as Array<{ content: string }>)[0].content
+    expect(content).toContain('Anna arrives')
+    expect(content).toContain('The races begin')
+    expect(content).not.toContain('Vronsky')
+    expect(content).not.toContain('LATER SECRET')
+    expect(env.ASSETS.fetched.some(path => path.endsWith('ch0004.json') || path.endsWith('ch0005.json'))).toBe(false)
+    await Promise.all(pending)
+    expect([...cache.entries.keys()]).toEqual([`https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/chs-1-3/end`])
+    // Single chapters keep the short entry prompt.
+    const single = anthropicOk('Vronsky falls from his horse.')
+    await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-4' }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic: single })
+    expect((single.mock.calls[0] as unknown as [Record<string, unknown>])[0]).toMatchObject({ system: CATCH_UP_SYSTEM_PROMPT, max_tokens: CATCH_UP_MAX_TOKENS })
+    // A reversed or unknown range is refused, never widened.
+    for (const unitId of ['chs-3-1', 'chs-1-99', 'chs-0-2']) {
+      expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic })).status).toBe(400)
+    }
     expect(fetchAnthropic).toHaveBeenCalledTimes(1)
   })
 

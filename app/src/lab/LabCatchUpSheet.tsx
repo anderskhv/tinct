@@ -26,9 +26,9 @@ export interface LabCatchUpSheetProps {
   sections?: Section[]
   chapterNumber: number
   paragraphIndex: number
-  /** The reader finished the current chapter (the "so far" entry then covers all of it). */
+  /** The reader finished the current chapter. The current chapter is never recapped either way (`catchUpPlan`). */
   completed: boolean
-  /** The current chapter's paragraphs in `editionKey`; with them, a "so far" entry is only asked for once there is narrative to summarise. */
+  /** The current chapter's paragraphs in `editionKey` (unused by the plan: the current chapter is never recapped). */
   paragraphs?: readonly string[]
   /** The book's library form (`libraryTaxonomy.ts`); a collection of separate works is recapped one work at a time. */
   form?: string | null
