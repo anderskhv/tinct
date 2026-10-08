@@ -5,6 +5,8 @@
  *   GET  /api/public-books/{id}/modern-en           state, per-chapter states, and the offer (if any)
  *   POST /api/public-books/{id}/modern-en/checkout  { chapter } → { url } (signed in): Stripe Checkout
  *   POST /api/public-books/{id}/modern-en/priority  { chapter }: a reader opened a chapter not yet written
+ *   POST /api/public-books/{id}/modern-en/cancel    (signed in) the buyer came back from Checkout without paying:
+ *                                                   their own open session is expired and the hold released
  *   GET  /data/editions/{id}-modern-en.json         the edition (finished chapters modern, the rest original)
  *
  * Kill switch: PUBLIC_BOOK_MODERN_EDITIONS=1 offers purchases and runs
@@ -281,8 +283,11 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
   params.set('mode', 'payment')
   params.set('line_items[0][price]', priceId)
   params.set('line_items[0][quantity]', '1')
-  params.set('success_url', `${origin}/reader`)
-  params.set('cancel_url', `${origin}/reader`)
+  // The return names the book, so the reader opens it (and switches to the edition once
+  // granted) in whatever tab or browser Checkout ends in (labModernReturn.ts).
+  const book = encodeURIComponent(bookId)
+  params.set('success_url', `${origin}/reader?book=${book}&modern=1&session_id={CHECKOUT_SESSION_ID}`)
+  params.set('cancel_url', `${origin}/reader?book=${book}&modern=cancel`)
   params.set('expires_at', String(Math.floor(now() / 1000) + SESSION_EXPIRES_S))
   if (env.STRIPE_AUTOMATIC_TAX === 'on') {
     params.set('automatic_tax[enabled]', 'true')
@@ -307,6 +312,51 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
     return reply({ error: 'in_progress' }, 409, request)
   }
   return reply({ url: session.url }, 200, request)
+}
+
+/**
+ * The buyer came back from Checkout without paying (the cancel return). Only the
+ * caller's own session, as Stripe records it, is ended: it is expired first (so it can
+ * no longer be paid), then the hold on the book is released for other buyers.
+ */
+async function cancelCheckout(request: Request, env: ModernEnv, bucket: R2Bucket, bookId: string, deps: ModernDeps): Promise<Response> {
+  const user = await deps.verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (!await deps.checkRateLimit(`public-modern-checkout:${user.id}`, undefined, CHECKOUT_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+  const now = deps.now ?? Date.now
+  const stripeFetch = deps.stripeFetch ?? fetch
+  const current = await readJob(bucket, bookId)
+  const job = current?.job
+  if (!job || job.state !== 'checkout' || !holdLive(job, now()) || !/^cs_[A-Za-z0-9_]+$/.test(job.sessionId) || !env.STRIPE_SECRET_KEY) return reply({ released: false }, 200, request)
+  const sessionId = job.sessionId
+  const open = await stripeFetch(`https://api.stripe.com/v1/checkout/sessions/${sessionId}`, { headers: stripeHeaders(env) })
+    .then(r => r.ok ? r.json() as Promise<{ status?: string; metadata?: Record<string, string> }> : null).catch(() => null)
+  if (open?.metadata?.supabase_user_id !== user.id || open.metadata?.book_id !== bookId) return reply({ released: false }, 200, request)
+  if (open.status === 'open') {
+    const expired = await stripeFetch(`https://api.stripe.com/v1/checkout/sessions/${sessionId}/expire`, { method: 'POST', headers: stripeHeaders(env) })
+      .then(r => r.ok).catch(() => false)
+    // Not expired (it may have just been paid): the hold stays until the webhook decides.
+    if (!expired) return reply({ released: false }, 200, request)
+  } else if (open.status !== 'expired') {
+    return reply({ released: false }, 200, request)
+  }
+  await releaseHold(bucket, bookId, sessionId)
+  return reply({ released: true }, 200, request)
+}
+
+/**
+ * checkout.session.expired and checkout.session.async_payment_failed for a Modern
+ * English edition: that session's hold on the book is released (never a paid job's,
+ * nor another session's). Idempotent.
+ */
+export async function releaseModernCheckout(env: ModernEnv, session: CheckoutSessionObject): Promise<'released' | 'ignored'> {
+  const bookId = session.metadata?.book_id || ''
+  const bucket = bucketOf(env)
+  if (!isPublicBookId(bookId) || !bucket) return 'ignored'
+  const current = await readJob(bucket, bookId)
+  if (!current || current.job.state !== 'checkout' || current.job.sessionId !== session.id) return 'ignored'
+  await releaseHold(bucket, bookId, session.id)
+  return 'released'
 }
 
 async function priority(request: Request, env: ModernEnv, bucket: R2Bucket, bookId: string, meta: StoredMeta, deps: ModernDeps): Promise<Response> {
@@ -338,6 +388,7 @@ export async function handleModernEdition(request: Request, env: ModernEnv, book
     return reply(statusBody(env, meta, job, now()), 200, request)
   }
   if (request.method === 'POST' && rest.length === 1 && rest[0] === 'checkout') return checkout(request, env, bucket, bookId, meta, deps)
+  if (request.method === 'POST' && rest.length === 1 && rest[0] === 'cancel') return cancelCheckout(request, env, bucket, bookId, deps)
   if (request.method === 'POST' && rest.length === 1 && rest[0] === 'priority') {
     if (!modernSwitchOn(env)) return reply({ error: 'Not found' }, 404, request)
     return priority(request, env, bucket, bookId, meta, deps)
