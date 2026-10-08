@@ -14,7 +14,7 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel6';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261008rel6';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel6';
 import {librarySearch} from './library-search.js?v=20261008rel6';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
@@ -155,7 +155,15 @@ async function addWork(work,button){
   if(!result.ok){if(result.reason==='signed_out'){signIn();return;}if(result.reason==='premium_required'){location.assign(PREMIUM_PAGE);return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
   try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
-  document.body.classList.add('leaving');location.assign(await readerDestination(book,null));
+  // Modern English (add-to-tinct.js): asked only when the book has none yet and the answer came in time.
+  const ask=modernOfferAfterAdd(entry.id);
+  const href=await readerDestination(book,null);
+  const offer=await ask;
+  if(offer&&await askModernEdition(offer)==='buy'){
+   // The reader's checkout. Stripe returns to /reader, which opens this book (readerDestination's hand-off) and switches to the edition once paid.
+   try{const url=await (await addEngine()).buyModern(entry.id,entry.readingStructure?.chapters?.[0]?.number??1);document.body.classList.add('leaving');location.assign(url);return;}catch{}
+  }
+  document.body.classList.add('leaving');location.assign(href);
  }catch{document.body.classList.remove('leaving');notice(ADD_FAILURES.failed);}
  finally{if(!document.body.classList.contains('leaving'))setAddBusy(addButton(work.id),null);addingWork=null;addingStage=null;}
 }

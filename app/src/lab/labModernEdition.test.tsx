@@ -65,12 +65,12 @@ describe('Modern English edition in the reader', () => {
     expect(JSON.parse(String(fetchImpl.mock.calls[2][1]?.body))).toEqual({ chapter: 4 })
   })
 
-  it('shows a bought edition only on devices with the internal flag', () => {
-    registerPublicBook(bookFromEntry(entry('pd-pg-90')))
-    expect(getBook('pd-pg-90')?.editions.map(e => e.key)).toEqual(['original-en'])
-    localStorage.setItem('tinct:internal', '1')
+  it('shows a bought edition on every device, with or without the internal flag', () => {
     registerPublicBook(bookFromEntry(entry('pd-pg-90')))
     expect(getBook('pd-pg-90')?.editions.map(e => e.key)).toEqual(['original-en', 'modern-en'])
+    localStorage.setItem('tinct:internal', '1')
+    registerPublicBook(bookFromEntry(entry('pd-pg-91')))
+    expect(getBook('pd-pg-91')?.editions.map(e => e.key)).toEqual(['original-en', 'modern-en'])
   })
 
   it('Contents shows each chapter’s state while the edition is being written', () => {

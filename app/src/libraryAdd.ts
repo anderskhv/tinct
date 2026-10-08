@@ -16,6 +16,7 @@ import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { USER_BOOKS_SHELF_URL } from './lab/userBook/userBookId'
 import { readOwnShelf } from './lab/userBook/ownShelf'
+import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 
 export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
 export type ImportResult =
@@ -93,6 +94,27 @@ export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean |
   }
 }
 
+// ===== Modern English, asked right after an add (add-to-tinct.js modernOfferAfterAdd) =====
+
+/** The book's Modern English edition: its state and offer, as the reader asks (labModernEditionApi). Null when it cannot be told. */
+export function modernStatus(bookId: string, fetchImpl: typeof fetch = fetch): Promise<ModernStatus | null> {
+  return fetchModernStatus(bookId, fetchImpl)
+}
+
+/**
+ * The reader's own checkout for the edition (LabApp buyModernEdition): Stripe
+ * Checkout for this book, anchored at `chapter`, and the pending-purchase mark
+ * the reader reads on its return to switch to the edition. Resolves to the
+ * Checkout URL; rejects when it cannot start (signed out, already held or paid).
+ */
+export async function buyModern(bookId: string, chapter: number, fetchImpl: typeof fetch = fetch): Promise<string> {
+  const auth = await token()
+  if (!auth) throw new Error('signed_out')
+  const url = await startModernCheckout(bookId, chapter, auth, fetchImpl)
+  markPendingPurchase(bookId)
+  return url
+}
+
 // ===== Your own books =====
 
 export interface OwnBook {
@@ -135,4 +157,4 @@ export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook
   return out.sort((a, b) => b.at - a.at)
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd }
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern }

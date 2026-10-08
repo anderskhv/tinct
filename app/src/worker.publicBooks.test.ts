@@ -659,7 +659,7 @@ describe('painted covers: backfill, claims, spines and switches', () => {
     expect(coverContentType(new TextEncoder().encode('RIFF\0\0\0\0WEBPVP8 '))).toBe('image/webp')
   })
 
-  it('switches: Modern English and painted covers on in wrangler.jsonc, AI classification left off; Modern English stays internal-only, Add to Tinct is for signed-in readers', async () => {
+  it('switches: Modern English and painted covers on in wrangler.jsonc, AI classification left off; Modern English for everyone, Add to Tinct is for signed-in readers', async () => {
     // jsdom gives import.meta.url no file scheme here; vitest runs from app/.
     const source = readFileSync(resolve(process.cwd(), 'wrangler.jsonc'), 'utf8')
     const config = JSON.parse(source.split('\n').filter(line => !/^\s*\/\//.test(line)).join('\n')) as { vars: Record<string, string>; triggers: { crons: string[] } }
@@ -668,14 +668,13 @@ describe('painted covers: backfill, claims, spines and switches', () => {
     expect(config.vars.PUBLIC_BOOK_AI_CLASSIFY).toBeUndefined()
     expect(config.triggers.crons).toContain('*/10 * * * *')
     const client = await import('../public/lab/public-books.js')
-    expect(client.MODERN_EDITIONS_FOR_EVERYONE).toBe(false)
+    expect(client.MODERN_EDITIONS_FOR_EVERYONE).toBe(true)
     expect('ADD_TO_TINCT_FOR_EVERYONE' in client).toBe(false) // a signed-in gate, not a switch
     const store = (internal: boolean) => ({ getItem: (key: string) => (internal && key === 'tinct:internal' ? '1' : null), setItem: () => {}, removeItem: () => {} })
-    expect(client.modernEditionsEnabled(store(false))).toBe(false)
+    expect(client.modernEditionsEnabled(store(false))).toBe(true)
     expect(client.modernEditionsEnabled(store(true))).toBe(true)
     expect(client.addToTinctEnabled(store(false), false)).toBe(false)
-    // Signed-in readers get Add to Tinct; Modern English stays internal-only.
+    // Signed-in readers get Add to Tinct; Modern English is for every device (Anders, 2026-10-08).
     expect(client.addToTinctEnabled(store(false), true)).toBe(true)
-    expect(client.modernEditionsEnabled(store(false))).toBe(false)
   })
 })

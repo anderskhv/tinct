@@ -11,7 +11,7 @@ const launchOptions = executablePath ? { executablePath } : {}
 
 export default defineConfig({
   testDir: './',
-  testMatch: ['library-add-to-tinct.spec.ts'],
+  testMatch: ['library-add-to-tinct.spec.ts', 'library-modern-offer.spec.ts'],
   fullyParallel: false,
   retries: 0,
   workers: 1,
