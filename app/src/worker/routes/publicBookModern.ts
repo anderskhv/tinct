@@ -3,11 +3,17 @@
  * shared by everyone (lib/modernEdition.ts holds the job model).
  *
  *   GET  /api/public-books/{id}/modern-en           state, per-chapter states, and the offer (if any)
- *   POST /api/public-books/{id}/modern-en/checkout  { chapter } → { url } (signed in): Stripe Checkout
+ *   POST /api/public-books/{id}/modern-en/checkout  { chapter } → { url } (signed in, Premium or the 30-day
+ *                                                   trial; 402 premium_required otherwise): Stripe Checkout
  *   POST /api/public-books/{id}/modern-en/priority  { chapter }: a reader opened a chapter not yet written
  *   POST /api/public-books/{id}/modern-en/cancel    (signed in) the buyer came back from Checkout without paying:
  *                                                   their own open session is expired and the hold released
  *   GET  /data/editions/{id}-modern-en.json         the edition (finished chapters modern, the rest original)
+ *
+ * Who may buy (Anders, 2026-10-08): Premium readers, the 30-day trial included
+ * (lib/aiAllowance.ts hasPremiumAccess). A signed-in account without it is
+ * offered nothing (the status carries no offer when it sends its token) and
+ * its checkout is refused with 402. Anyone can read an edition already bought.
  *
  * Kill switch: PUBLIC_BOOK_MODERN_EDITIONS=1 offers purchases and runs
  * generation; otherwise nothing is offered or generated (an edition already
@@ -73,6 +79,8 @@ export interface ModernDeps {
   stripeFetch?: typeof fetch
   /** Replaces the Supabase-backed customer lookup (tests). */
   ensureCustomer?: (user: { id: string; email: string }) => Promise<{ id: string } | { error: string }>
+  /** Premium or in the 30-day trial (lib/aiAllowance.ts loadPremiumAccess); null when unknown. Buying is Premium only; without it, nobody may buy. */
+  premiumAccess?: (userId: string) => Promise<boolean | null>
 }
 
 /** The background batch: every ten minutes, chapters left on any paid edition are written. */
@@ -114,9 +122,26 @@ function offerFor(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: 
   return modernPriceId(env, tier) ? { tier, cents: modernTierCents(tier) } : null
 }
 
-function statusBody(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number) {
+function statusBody(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number, canBuy = true) {
   const state = !job ? 'none' : job.state === 'paid' ? (jobComplete(job) ? 'complete' : 'paid') : holdLive(job, now) ? 'checkout' : 'none'
-  return { state, chapters: publicChapterStates(job, now), offer: offerFor(env, meta, job, now) }
+  return { state, chapters: publicChapterStates(job, now), offer: canBuy ? offerFor(env, meta, job, now) : null }
+}
+
+/** Premium (trial included) for the signed-in account; null when unknown. Never throws. */
+async function buyerPremium(userId: string, deps: ModernDeps): Promise<boolean | null> {
+  return deps.premiumAccess ? deps.premiumAccess(userId).catch(() => null) : null
+}
+
+/**
+ * The status as this reader may see it: a signed-in account that sends its
+ * token and is neither Premium nor in its trial gets no offer. Premium is
+ * looked up only when there is an offer to show.
+ */
+async function statusFor(request: Request, env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number, deps: ModernDeps) {
+  if (!offerFor(env, meta, job, now) || !request.headers.get('Authorization')) return statusBody(env, meta, job, now)
+  const user = await deps.verifyUser(request).catch(() => null)
+  if (!user || !isValidUUID(user.id)) return statusBody(env, meta, job, now)
+  return statusBody(env, meta, job, now, await buyerPremium(user.id, deps) === true)
 }
 
 // ===== Generation =====
@@ -252,6 +277,10 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
   const user = await deps.verifyUser(request)
   if (!user || !isValidUUID(user.id) || !user.email) return reply({ error: 'Unauthorized' }, 401, request)
   if (!await deps.checkRateLimit(`public-modern-checkout:${user.id}`, undefined, CHECKOUT_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+  // Premium (or the 30-day trial) only, like adding a book: the same 402 (publicBooks.ts PREMIUM_REQUIRED).
+  const premium = await buyerPremium(user.id, deps)
+  if (premium === null) return reply({ error: 'unavailable' }, 503, request)
+  if (!premium) return reply({ error: 'premium_required' }, 402, request)
   let chapter: number | null = null
   try { const n = Number((await request.json() as { chapter?: unknown }).chapter); chapter = Number.isInteger(n) && n >= 0 ? n : null } catch { chapter = null }
   const now = deps.now ?? Date.now
@@ -372,7 +401,7 @@ async function priority(request: Request, env: ModernEnv, bucket: R2Bucket, book
     return next === current || next.priority.join() === current.priority.join() ? null : { ...next, updatedAt: now() }
   })
   if (job?.state === 'paid' && !jobComplete(job)) kick(env, bookId, deps)
-  return reply(statusBody(env, meta, job, now()), 200, request)
+  return reply(await statusFor(request, env, meta, job, now(), deps), 200, request)
 }
 
 /** `/api/public-books/{id}/modern-en[/…]`. */
@@ -385,7 +414,7 @@ export async function handleModernEdition(request: Request, env: ModernEnv, book
   if (request.method === 'GET' && rest.length === 0) {
     const job = (await readJob(bucket, bookId))?.job ?? null
     if (job?.state === 'paid' && !jobComplete(job)) kick(env, bookId, deps)
-    return reply(statusBody(env, meta, job, now()), 200, request)
+    return reply(await statusFor(request, env, meta, job, now(), deps), 200, request)
   }
   if (request.method === 'POST' && rest.length === 1 && rest[0] === 'checkout') return checkout(request, env, bucket, bookId, meta, deps)
   if (request.method === 'POST' && rest.length === 1 && rest[0] === 'cancel') return cancelCheckout(request, env, bucket, bookId, deps)

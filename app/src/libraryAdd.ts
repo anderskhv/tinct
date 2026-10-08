@@ -98,7 +98,7 @@ export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean |
 
 /** The book's Modern English edition: its state and offer, as the reader asks (labModernEditionApi). Null when it cannot be told. */
 export function modernStatus(bookId: string, fetchImpl: typeof fetch = fetch): Promise<ModernStatus | null> {
-  return fetchModernStatus(bookId, fetchImpl)
+  return token().then(auth => fetchModernStatus(bookId, fetchImpl, auth))
 }
 
 /**

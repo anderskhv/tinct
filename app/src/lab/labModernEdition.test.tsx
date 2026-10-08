@@ -8,6 +8,7 @@ import {
   formatModernPrice,
   modernChapterPending,
   modernPollDelay,
+  MODERN_PREMIUM_REQUIRED,
   prioritiseModernChapter,
   startModernCheckout,
 } from './labModernEdition'
@@ -63,6 +64,24 @@ describe('Modern English edition in the reader', () => {
       '/api/public-books/pd-pg-1/modern-en', '/api/public-books/pd-pg-1/modern-en/priority', '/api/public-books/pd-pg-1/modern-en/checkout',
     ])
     expect(JSON.parse(String(fetchImpl.mock.calls[2][1]?.body))).toEqual({ chapter: 4 })
+  })
+
+  // Premium only, the trial included (2026-10-08): signed in, the status is asked with the
+  // reader's token so a free account past its trial gets no offer; its checkout is a 402.
+  it('sends a signed-in reader’s token with the status and the priority, and none when signed out', async () => {
+    const fetchImpl = vi.fn(async (_url: string, _init?: RequestInit) => Response.json({ state: 'none', chapters: {}, offer: null }))
+    await fetchModernStatus('pd-pg-1', fetchImpl, 'tok')
+    await prioritiseModernChapter('pd-pg-1', 4, fetchImpl, 'tok')
+    await fetchModernStatus('pd-pg-1', fetchImpl)
+    const auth = fetchImpl.mock.calls.map(call => new Headers(call[1]?.headers).get('Authorization'))
+    expect(auth).toEqual(['Bearer tok', 'Bearer tok', null])
+  })
+
+  it('tells a Premium refusal (402) from any other failed checkout', async () => {
+    const refused = vi.fn(async () => Response.json({ error: 'premium_required' }, { status: 402 }))
+    await expect(startModernCheckout('pd-pg-1', 4, 'tok', refused)).rejects.toThrow(MODERN_PREMIUM_REQUIRED)
+    const failed = vi.fn(async () => Response.json({ error: 'in_progress' }, { status: 409 }))
+    await expect(startModernCheckout('pd-pg-1', 4, 'tok', failed)).rejects.toThrow('checkout')
   })
 
   it('shows a bought edition on every device, with or without the internal flag', () => {

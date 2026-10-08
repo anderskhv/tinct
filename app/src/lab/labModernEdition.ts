@@ -12,7 +12,7 @@ import type { EditionData } from '../types'
 import { refreshPublicBook } from '../utils/publicBooks'
 import { clearPendingPurchase, fetchModernStatus, MODERN_EDITION_KEY, pendingPurchase, prioritiseModernChapter, type ModernStatus } from './labModernEditionApi'
 
-export { fetchModernStatus, formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, prioritiseModernChapter, startModernCheckout } from './labModernEditionApi'
+export { fetchModernStatus, formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, prioritiseModernChapter, startModernCheckout } from './labModernEditionApi'
 export type { ModernChapterState, ModernStatus } from './labModernEditionApi'
 
 /**
@@ -53,10 +53,12 @@ export function modernPollDelay(status: ModernStatus | null, waiting: boolean, p
  * The reader's hook. `pending` is true while the chapter on screen came in its
  * original text (LabSource.modernPending). Returns the edition's status, a
  * counter that changes when that chapter is ready (the reader reloads it in
- * place), and whether to show the "being prepared" line.
+ * place), and whether to show the "being prepared" line. `readToken` (signed
+ * in) sends the reader's token, so the offer comes only to readers who may buy.
  */
-export function useLabModernEdition({ enabled, bookId, editionKey, chapterNumber, pending, onPurchased }: {
+export function useLabModernEdition({ enabled, bookId, editionKey, chapterNumber, pending, onPurchased, readToken }: {
   enabled: boolean; bookId: string; editionKey: string; chapterNumber: number; pending: boolean; onPurchased: () => void
+  readToken?: () => Promise<string | null>
 }): { status: ModernStatus | null; refresh: number; preparing: boolean } {
   const [status, setStatus] = useState<ModernStatus | null>(null)
   const [refresh, setRefresh] = useState(0)
@@ -76,7 +78,8 @@ export function useLabModernEdition({ enabled, bookId, editionKey, chapterNumber
     let timer: ReturnType<typeof setTimeout> | undefined
     let purchasePolls = 0
     const tick = async () => {
-      const next = await fetchModernStatus(bookId)
+      const token = readToken ? await readToken().catch(() => null) : null
+      const next = await fetchModernStatus(bookId, fetch, token)
       if (cancelled) return
       if (next) setStatus(next)
       let purchasePending = pendingPurchase() === bookId
@@ -92,7 +95,7 @@ export function useLabModernEdition({ enabled, bookId, editionKey, chapterNumber
     }
     void tick()
     return () => { cancelled = true; if (timer) clearTimeout(timer) }
-  }, [enabled, bookId])
+  }, [enabled, bookId, readToken])
 
   // A chapter opened before it was written jumps the queue, and is watched until ready.
   useEffect(() => {
@@ -100,7 +103,8 @@ export function useLabModernEdition({ enabled, bookId, editionKey, chapterNumber
     let cancelled = false
     let timer: ReturnType<typeof setTimeout> | undefined
     const watch = async (first: boolean) => {
-      const next = first ? await prioritiseModernChapter(bookId, chapterNumber) : await fetchModernStatus(bookId)
+      const token = readToken ? await readToken().catch(() => null) : null
+      const next = first ? await prioritiseModernChapter(bookId, chapterNumber, fetch, token) : await fetchModernStatus(bookId, fetch, token)
       if (cancelled) return
       if (next) setStatus(next)
       if (next?.chapters[String(chapterNumber)] === 'ready') {
@@ -112,7 +116,7 @@ export function useLabModernEdition({ enabled, bookId, editionKey, chapterNumber
     }
     void watch(true)
     return () => { cancelled = true; if (timer) clearTimeout(timer) }
-  }, [reading, pending, bookId, chapterNumber])
+  }, [reading, pending, bookId, chapterNumber, readToken])
 
   return { status: enabled ? status : null, refresh, preparing: waiting }
 }

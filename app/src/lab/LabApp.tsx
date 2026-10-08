@@ -101,7 +101,7 @@ import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
-import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, startModernCheckout, useLabModernEdition } from './labModernEdition'
+import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition } from './labModernEdition'
 import { cancelModernCheckout } from './labModernEditionApi'
 import { isPublicBookId, modernEditionsEnabled } from '../../public/lab/public-books.js'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
@@ -826,6 +826,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     editionKey: prefs.primaryEdition,
     chapterNumber: book.chapterNumber,
     pending: !!book.modernPending,
+    // Signed in, the status carries an offer only for Premium (trial included).
+    readToken: signedIn ? readSupabaseAccessToken : undefined,
     // Back from a completed purchase: read the edition just bought.
     onPurchased: () => {
       const registered = getBook(modernBookId)
@@ -842,8 +844,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       const url = await startModernCheckout(modernBookId, book.chapterNumber, token)
       markPendingPurchase(modernBookId)
       window.location.assign(url)
-    } catch {
+    } catch (error) {
       setModernCheckoutBusy(false)
+      // Premium only (trial included): the account sheet, with its Premium offer, says the rest.
+      if (error instanceof Error && error.message === MODERN_PREMIUM_REQUIRED) setSuperSheet('account')
     }
   }, [modernBookId, book.chapterNumber])
   const [readingPageIndex, setReadingPageIndex] = useState(

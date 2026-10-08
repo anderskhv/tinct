@@ -293,6 +293,66 @@ describe('purchase guard', () => {
   })
 })
 
+// Modern English purchase is for Premium readers only, the 30-day trial included
+// (Anders, 2026-10-08; lib/aiAllowance.ts hasPremiumAccess, read by the Worker as premiumAccess).
+describe('Premium only', () => {
+  // Reader a: a free account past its trial. Reader b: Premium or in the trial.
+  const freeAndPremium = (t: ReturnType<typeof setup>) => { t.deps.premiumAccess = async id => id !== USER }
+  const statusAs = async (t: ReturnType<typeof setup>, token?: string) =>
+    (await t.call(`/api/public-books/${BOOK}/modern-en`, { token })).json() as Promise<{ state: string; offer: { tier: number; cents: number } | null }>
+
+  it('shows no offer to a signed-in free account past its trial, and the offer to Premium or the trial', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    expect((await statusAs(t, 'a')).offer).toBeNull()
+    expect((await statusAs(t, 'b')).offer).toEqual({ tier: 2, cents: modernTierCents(2) })
+    // Not signed in: unchanged (the reader shows no offer until a reader signs in).
+    expect((await statusAs(t)).offer).toEqual({ tier: 2, cents: modernTierCents(2) })
+  })
+
+  it('the priority answer carries no offer for a free account either', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    const response = await t.call(`/api/public-books/${BOOK}/modern-en/priority`, { token: 'a', json: { chapter: 2 } })
+    expect(response.status).toBe(200)
+    expect(((await response.json()) as { offer: unknown }).offer).toBeNull()
+  })
+
+  it('refuses checkout to a free account past its trial with the Premium 402, before any hold or Stripe call', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    const refused = await t.buy('a')
+    expect(refused.status).toBe(402)
+    expect(await refused.json()).toEqual({ error: 'premium_required' })
+    expect(t.stripe.created).toHaveLength(0)
+    expect(await readJob(t.r2.bucket, BOOK)).toBeNull()
+    // Premium (or the trial) buys as before.
+    const bought = await t.buy('b')
+    expect(bought.status).toBe(200)
+    expect(t.stripe.created).toHaveLength(1)
+  })
+
+  it('refuses checkout when Premium cannot be told (fails closed)', async () => {
+    const t = setup()
+    t.deps.premiumAccess = async () => null
+    expect((await t.buy('a')).status).toBe(503)
+    t.deps.premiumAccess = async () => { throw new Error('down') }
+    expect((await t.buy('a')).status).toBe(503)
+    expect(t.stripe.created).toHaveLength(0)
+    expect((await statusAs(t, 'a')).offer).toBeNull()
+  })
+
+  it('a free account still reads an edition someone already bought', async () => {
+    const t = setup()
+    freeAndPremium(t)
+    await t.grant('cs_a')
+    expect(await statusAs(t, 'a')).toMatchObject({ state: 'paid', offer: null })
+    const edition = await handlePublicEditionData(new Request(`https://tinct.app/data/editions/${BOOK}-modern-en.json`, { headers: { Authorization: 'Bearer a' } }), t.env)
+    expect(edition!.status).toBe(200)
+    expect(((await edition!.json()) as { chapters: unknown[] }).chapters).toHaveLength(SOURCE.length)
+  })
+})
+
 describe('webhook grant', () => {
   const sign = async (payload: string) => {
     const timestamp = Math.floor(Date.now() / 1000)

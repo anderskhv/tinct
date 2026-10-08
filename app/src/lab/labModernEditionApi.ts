@@ -26,9 +26,12 @@ function parseStatus(value: unknown): ModernStatus | null {
   return { state: data.state, chapters: data.chapters, offer }
 }
 
-export async function fetchModernStatus(bookId: string, fetchImpl: FetchLike = fetch): Promise<ModernStatus | null> {
+/** A signed-in reader's token, so the offer is shown only to readers who may buy (Premium or the trial). */
+const authHeaders = (token?: string | null): Record<string, string> => token ? { Authorization: `Bearer ${token}` } : {}
+
+export async function fetchModernStatus(bookId: string, fetchImpl: FetchLike = fetch, token?: string | null): Promise<ModernStatus | null> {
   try {
-    const response = await fetchImpl(statusUrl(bookId), { cache: 'no-store' })
+    const response = await fetchImpl(statusUrl(bookId), { cache: 'no-store', headers: authHeaders(token) })
     return response.ok ? parseStatus(await response.json()) : null
   } catch {
     return null
@@ -36,14 +39,17 @@ export async function fetchModernStatus(bookId: string, fetchImpl: FetchLike = f
 }
 
 /** A reader opened a chapter not yet written: it goes to the front of the queue. */
-export async function prioritiseModernChapter(bookId: string, chapter: number, fetchImpl: FetchLike = fetch): Promise<ModernStatus | null> {
+export async function prioritiseModernChapter(bookId: string, chapter: number, fetchImpl: FetchLike = fetch, token?: string | null): Promise<ModernStatus | null> {
   try {
-    const response = await fetchImpl(statusUrl(bookId, '/priority'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chapter }) })
+    const response = await fetchImpl(statusUrl(bookId, '/priority'), { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders(token) }, body: JSON.stringify({ chapter }) })
     return response.ok ? parseStatus(await response.json()) : null
   } catch {
     return null
   }
 }
+
+/** Thrown by startModernCheckout when the account is neither Premium nor in its trial (402). */
+export const MODERN_PREMIUM_REQUIRED = 'premium_required'
 
 /** Starts Stripe Checkout; resolves to the Checkout URL. The Worker picks the price. */
 export async function startModernCheckout(bookId: string, chapter: number, token: string, fetchImpl: FetchLike = fetch): Promise<string> {
@@ -53,6 +59,7 @@ export async function startModernCheckout(bookId: string, chapter: number, token
     body: JSON.stringify({ chapter }),
   })
   const data = await response.json().catch(() => ({})) as { url?: unknown }
+  if (response.status === 402) throw new Error(MODERN_PREMIUM_REQUIRED)
   if (!response.ok || typeof data.url !== 'string' || !data.url.startsWith('https://')) throw new Error('checkout')
   return data.url
 }
