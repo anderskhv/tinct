@@ -47,7 +47,7 @@ export interface ShareOptions {
   look: ShareLook
   /** Show surrounding text (greyed). */
   context: boolean
-  /** Add "Read free at tinct.app" (on a series of cards, the last card only). */
+  /** Add "Read free at tinct.app" (on a series of cards, on every card: each is copied on its own). */
   tagline: boolean
   /**
    * The link preview (`og`) of a quote shown alone: the format of the shared
@@ -576,7 +576,7 @@ export interface SharePage {
   offsetY: number
   /** Desktop page numbers under each column. */
   pageNumbers: number[]
-  /** One card of a series (1-based `index`), drawn with a quiet "index/count". */
+  /** One card of a series (1-based `index`). The "index/count" is the share sheet's, never drawn on the image. */
   series?: { index: number; count: number }
 }
 
@@ -932,8 +932,9 @@ export function planQuoteSeries(format: 'phone' | 'desktop', tagline: boolean, f
 
 /**
  * The image(s) for a share. One page or card; or, for a quote too long for
- * one card, a series (planQuoteSeries): each card with the book and chapter
- * and a quiet "1/3", the credit on the last only. The cards share one size,
+ * one card, a series (planQuoteSeries): each card with the book and chapter,
+ * and the credit on every card when chosen (Copy image copies one card). The
+ * "1/3" is the share sheet's own label, not part of the image. The cards share one size,
  * set by the longest card's text, and each card's text starts at the same
  * place under the header.
  */
@@ -950,7 +951,7 @@ export function composeShareCards(content: ShareContent, options: ShareOptions, 
   const used = Math.max(...layouts.map(layout => layout.usedHeight))
   const height = Math.ceil(Math.min(spec.maxHeight, Math.max(spec.minHeight, chrome + used)))
   return layouts.map((layout, k): SharePage => {
-    const credit = options.tagline && k === count - 1
+    const credit = options.tagline
     return {
       options: { ...options, tagline: credit },
       content: { bookTitle: content.bookTitle, chapterLabel: content.chapterLabel },

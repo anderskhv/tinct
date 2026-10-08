@@ -22,8 +22,9 @@ import './labShare.css'
  *
  * A quote too long for one card is a numbered series of up to four cards
  * (shareLayout `composeShareCards`). The Worker says how many on every image
- * (`X-Share-Cards`); the preview then swipes between them with a small "1/3".
- * Copy image copies the card in view, Download saves every card
+ * (`X-Share-Cards`); the preview then moves between them by swipe, the
+ * Previous/Next arrows or the arrow keys, with a small "1/3" that is the
+ * sheet's own label (never drawn on the image). Copy image copies the card in view, Download saves every card
  * (`…-1-of-3.png`), and Share passes all of them in one share.
  */
 
@@ -60,6 +61,10 @@ function TinctMark() {
 
 function DownloadIcon() {
   return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 9v4.5h10V9" /></svg>
+}
+
+function StepIcon({ dir }: { dir: 'prev' | 'next' }) {
+  return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={dir === 'prev' ? 'M10 3L5 8l5 5' : 'M6 3l5 5-5 5'} /></svg>
 }
 
 /** Surrounding text starts on; the "Read free at tinct.app" credit starts off. */
@@ -110,6 +115,9 @@ export function LabShareSheet({ target, look, format, onClose }: {
   const [cardIndex, setCardIndex] = useState(0)
   const pending = useRef<Promise<Created | null> | null>(null)
   const dialog = useRef<HTMLDivElement>(null)
+  const cardsRow = useRef<HTMLDivElement>(null)
+  // The card an arrow is scrolling to: the counter holds on it until the row arrives.
+  const scrollTarget = useRef<{ index: number; until: number } | null>(null)
 
   const body = useMemo(() => ({
     bookId: target.bookId, editionKey: target.editionKey, chapterNumber: target.chapterNumber,
@@ -123,7 +131,8 @@ export function LabShareSheet({ target, look, format, onClose }: {
   }, [body])
 
   useEffect(() => { trackFunnel('share_sheet_opened', { book_id: target.bookId, format, look }) }, [target.bookId, format, look])
-  useEffect(() => { setPreviewLoaded(false); setCardIndex(0) }, [previewSrc])
+  // A new image (a toggle changed) keeps the card in view where the series allows.
+  useEffect(() => { setPreviewLoaded(false) }, [previewSrc])
   // The image(s) themselves, ready for Share…, Copy image and Download (no write).
   useEffect(() => {
     let active = true
@@ -139,8 +148,27 @@ export function LabShareSheet({ target, look, format, onClose }: {
     return () => { active = false }
   }, [previewSrc])
   const previewBlobs = preview?.src === previewSrc ? preview.blobs : null
-  const cards = cardCount?.src === previewSrc ? cardCount.count : 1
+  // While a toggle's new image loads, the previous count holds, so the row stays put.
+  const cards = cardCount?.count ?? 1
   const shownCard = Math.min(cardIndex, cards - 1)
+
+  const showCard = useCallback((index: number, smooth = true) => {
+    const next = Math.max(0, Math.min(cards - 1, index))
+    setCardIndex(next)
+    const row = cardsRow.current
+    if (row && row.clientWidth > 0) {
+      const left = next * row.clientWidth
+      scrollTarget.current = smooth ? { index: next, until: Date.now() + 1000 } : null
+      if (typeof row.scrollTo === 'function') row.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' })
+      else row.scrollLeft = left
+    }
+  }, [cards])
+  const showCardRef = useRef(showCard)
+  showCardRef.current = showCard
+  const shownCardRef = useRef(shownCard)
+  shownCardRef.current = shownCard
+  // A row that (re)mounts, or a count that shrinks, starts on the card in view.
+  useEffect(() => { if (cards > 1) showCardRef.current(shownCardRef.current, false) }, [cards])
 
   const create = useCallback((): Promise<Created | null> => {
     if (created?.key === key) return Promise.resolve(created)
@@ -172,7 +200,14 @@ export function LabShareSheet({ target, look, format, onClose }: {
 
   useEffect(() => {
     dialog.current?.focus()
-    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose() }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { onClose(); return }
+      // Arrow keys move between the cards of a series (not in a text field).
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+      if (event.target instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName) && (event.target as HTMLInputElement).type !== 'checkbox') return
+      event.preventDefault()
+      showCardRef.current(shownCardRef.current + (event.key === 'ArrowRight' ? 1 : -1))
+    }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
@@ -258,6 +293,9 @@ export function LabShareSheet({ target, look, format, onClose }: {
 
   const onCardsScroll = (event: React.UIEvent<HTMLDivElement>) => {
     const { scrollLeft, clientWidth } = event.currentTarget
+    const target = scrollTarget.current
+    if (target && Date.now() < target.until && Math.abs(scrollLeft / clientWidth - target.index) > 0.05) return
+    scrollTarget.current = null
     if (clientWidth > 0) setCardIndex(Math.max(0, Math.min(cards - 1, Math.round(scrollLeft / clientWidth))))
   }
 
@@ -275,12 +313,14 @@ export function LabShareSheet({ target, look, format, onClose }: {
         <div className={`lab-share-preview${previewLoaded ? ' is-loaded' : ''}${cards > 1 ? ' is-series' : ''}`} style={{ aspectRatio: String(previewRatio) }}>
           {cards > 1 ? (
             <>
-              <div className="lab-share-cards" onScroll={onCardsScroll} tabIndex={0} data-testid="lab-share-cards">
+              <div className="lab-share-cards" ref={cardsRow} onScroll={onCardsScroll} tabIndex={0} data-testid="lab-share-cards">
                 {Array.from({ length: cards }, (_, k) => (
                   <img key={k} src={k === 0 ? previewSrc : cardSrc(previewSrc, k + 1)} alt="Preview of the image" data-testid={k === 0 ? 'lab-share-preview' : undefined} onLoad={k === 0 ? onPreviewLoad : undefined} />
                 ))}
               </div>
               <span className="lab-share-count" data-testid="lab-share-count">{shownCard + 1}/{cards}</span>
+              <button type="button" className="lab-share-step is-prev" aria-label="Previous" title="Previous" disabled={shownCard === 0} onClick={() => showCard(shownCard - 1)} data-testid="lab-share-prev"><StepIcon dir="prev" /></button>
+              <button type="button" className="lab-share-step is-next" aria-label="Next" title="Next" disabled={shownCard >= cards - 1} onClick={() => showCard(shownCard + 1)} data-testid="lab-share-next"><StepIcon dir="next" /></button>
             </>
           ) : (
             <img src={previewSrc} alt="Preview of the image" data-testid="lab-share-preview" onLoad={onPreviewLoad} />
