@@ -1,20 +1,25 @@
 // Catalogue search off the main thread. The ranking is the search engine's own
 // (addbooks/site/search.js, copied in at build time as ./search.js).
-import { createSearch, hydrate, borrowFor } from './search.js?v=20261008rel4';
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor } from './search.js?v=20261008rank1';
 let search = null, byId = null, catalogue = null;
-// The page shows a slim copy of each work; editions carry only what a result card needs.
+// The page shows a slim copy of each work; editions carry only what a result card needs. Other
+// titles and the Wikidata work let the library tell a copy of one of its books (public-books.js).
 const slim = w => ({ id: w.id, page: w.page, title: w.title, subtitle: w.subtitle, authors: w.authors, translators: w.translators, language: w.language, onTinct: w.onTinct, tinctIds: w.tinctIds, firstPublishedYear: w.firstPublishedYear,
+  altTitles: [...new Set([...w.altTitles, ...altTitlesFor(w.title, w.authors.map(p => p.name).join(' '))])], wikidata: w.wikidata || null,
   editions: w.editions.slice(0, 1).map(e => ({ source: e.source, sourceUrl: e.sourceUrl, epubUrl: e.epubUrl, licence: e.licence })) });
+// Work priors (Wikidata work, sitelinks, English name): without them the catalogue ranks as before.
+const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261008rank1', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
 self.onmessage = async ({ data }) => {
   try {
     if (data.type === 'load') {
+      const priors = loadPriors();
       const response = await fetch(new URL('../data/catalog.json.gz', import.meta.url));
       if (!response.ok) throw new Error('catalogue missing');
       // Some hosts already decode .gz files in transit; only gunzip bytes that are still gzip.
       const bytes = new Uint8Array(await response.arrayBuffer());
       const gz = bytes[0] === 0x1f && bytes[1] === 0x8b;
       const catalog = gz ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).json() : JSON.parse(new TextDecoder().decode(bytes));
-      const works = hydrate(catalog.works);
+      const works = applyPriors(hydrate(catalog.works), await priors);
       // Slim records keep authors on the work only; the ranking reads them from editions.
       for (const w of works) for (const e of w.editions) { if (!e.authors.length) e.authors = w.authors; if (!e.translators.length) e.translators = w.translators; if (!e.title) e.title = w.title }
       search = createSearch(works);

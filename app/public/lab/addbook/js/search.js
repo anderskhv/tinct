@@ -52,6 +52,21 @@ export const ALT_TITLES = [
   [/^oedipus (rex|tyrannus|the king|king of thebes)$/, /sophocles/, ['Oedipus Rex', 'Oedipus the King', 'Oedipus Tyrannus']],
   [/^(the )?(manual|enchiridion|handbook)$/, /epictetus/, ['Enchiridion', 'The Handbook']],
   [/^the federalist( papers)?$/, /hamilton|madison|publius|various/, ['The Federalist Papers', 'The Federalist']],
+  // Seneca's letters: Penguin's selection is "Letters from a Stoic"; the Latin and the older English names.
+  [/^(moral letters to lucilius|epistulae morales( ad lucilium)?|(the )?epistles of (lucius annaeus )?seneca|letters to lucilius)\b/, /seneca/,
+    ['Letters from a Stoic', 'Moral Letters to Lucilius', 'Epistulae Morales ad Lucilium', 'Moral Epistles', 'Letters to Lucilius']],
+  [/^((the )?meditations|(the )?thoughts)( of( the emperor)? marcus( aurelius)?( antoninus)?)?$|^marcus aurelius$/, /marcus aurelius/, ['Meditations', 'To Himself']],
+  [/^(on|of) the nature of things$|^de rerum natura$/, /lucretius/, ['On the Nature of Things', 'De Rerum Natura']],
+  [/^(the )?city of god\b|^de civitate dei\b/, /augustin/, ['The City of God', 'De Civitate Dei']],
+  [/^(the )?consolation of philosophy$|^de (philosophiae )?consolatione( philosophiae)?$/, /boethius|boet/, ['The Consolation of Philosophy', 'De Consolatione Philosophiae']],
+  [/^(the )?prince$|^il principe$/, /machiavel/, ['The Prince', 'Il Principe']],
+  [/^(the )?analects\b/, /confucius/, ['The Analects', 'Lunyu']],
+  [/^(the )?nicomachean ethics\b/, /aristotle/, ['Nicomachean Ethics', 'Ethics']],
+  [/^(pascals )?pensees$|^(the )?thoughts of blaise pascal$/, /pascal/, ['Pensées', 'Thoughts']],
+  [/^(the )?sorrows of young werther$|^die leiden des jungen werthers?\b/, /goethe/, ['The Sorrows of Young Werther', 'Werther']],
+  [/^(les )?fleurs du mal$|^(the )?flowers of evil$/, /baudelaire/, ['The Flowers of Evil', 'Les Fleurs du mal']],
+  [/^(a )?discourse (on|of) (the )?method\b|^discours de la methode\b/, /descartes/, ['Discourse on the Method', 'Discours de la méthode']],
+  [/^(the )?social contract$|^du contrat social\b/, /rousseau/, ['The Social Contract', 'Du contrat social']],
 ];
 /** The curated other titles of a work, from its title and author names. */
 const ANY_ALT_TITLE = new RegExp(ALT_TITLES.map(([titleRe]) => titleRe.source).join('|'));
@@ -96,6 +111,32 @@ export function hydrate(works) {
   }
   return works;
 }
+/**
+ * Work priors (addbooks/scripts/build-work-priors.mjs, shipped as data/work-priors.json): for each
+ * catalogue work Wikidata identifies, the work it is an edition of (`wikidata`, so editions in other
+ * sources and translations are known to be one work), the number of Wikimedia sites with a page on
+ * that work (`sitelinks`, a fame signal for works without Gutenberg downloads, such as Wikisource's
+ * Moral Letters to Lucilius) and the work's English name, kept as another title. Missing priors leave
+ * the catalogue as it was. Returns `works`.
+ */
+export function applyPriors(works, priors) {
+  const table = priors?.works;
+  if (!table) return works;
+  for (const w of works) {
+    const p = table[w.id];
+    if (!p) continue;
+    w.wikidata = p[0]; w.sitelinks = p[1] || 0;
+    if (p[2] && !(w.altTitles ||= []).includes(p[2])) w.altTitles.push(p[2]);
+  }
+  return works;
+}
+/**
+ * How well known a work is, on the scale of log10 Gutenberg downloads: its downloads, or its
+ * Wikimedia sitelinks when they say more. Fitted on the 1,430 Gutenberg works the priors link
+ * (2026-10-08): the median work with 3 sitelinks has about 10^2.9 downloads, with 10 about 10^3.2,
+ * with 20-40 about 10^3.4-3.9 and with 80+ about 10^4.3, so 2.4 + 0.9 log10(1 + sitelinks).
+ */
+export const fame = w => Math.max(Math.log10(1 + (w.popularity || 0)), w.sitelinks > 0 ? 2.4 + 0.9 * Math.log10(1 + w.sitelinks) : 0);
 /**
  * What Tinct's own books borrow from the catalogue works that are the same book, so the
  * library ranks them with this engine as the catalogue would: the best-read copy's popularity,
@@ -148,12 +189,16 @@ export function borrowFor(books, works) {
 //      Counted only when that one name holds at least two of a query's words ("frederick faust"):
 //      a single word found only there is dropped, so "faust" does not list Max Brand's westerns.
 // Every query word must be found somewhere; a work's tier is that of its best-placed word.
-// Within a tier: English first when no language is chosen, then a score of popularity plus
+// Within a tier: English first when no language is chosen, then a score of fame (Gutenberg
+// downloads, or Wikimedia sitelinks from the work priors when they say more; see fame) plus
 // the share of the query's words the title holds, the share found in the author's own name
 // ("shakespeare sonnets" puts Shakespeare's Sonnets above other sonnets), and a bonus when a
 // title is exactly the query (an author's own book, for their name, counts as title and exact),
 // so "meditations marcus" puts Meditations by Marcus Aurelius above small editions titled "Marcus Aurelius".
 // A volume or part ("Vol. 2 (of 6)", "Part 3") loses a little unless the query asks for one.
+// For an author's name, a book other authors share, or one by someone with that middle name, loses
+// SHARED_PENALTY, and Gutenberg's indexes
+// and quotation selections of an author rank last in the tier (see INDEX).
 // A respelling of a person's own name among their other names ("Tchekhov" for Anton Chekhov,
 // a near spelling of the name) counts as their name; a pen name stays tier 5.
 const TITLE = 1, AUTHOR = 2, OTHER = 3;
@@ -165,6 +210,19 @@ const ALIAS_TIER = 5, INDEX_TIER = 4.9;
 // A title that is exactly the query ("La divina commedia") outweighs a 300-fold popularity gap.
 const EXACT_TITLE = 2.5;
 const AUTHOR_COVER = 3, VOLUME_PENALTY = 1.5;
+// For an author's name, a book several authors share (an anthology, a selection with commentary,
+// an adaptation) ranks below the author's own books.
+const SHARED_PENALTY = 2;
+// Gutenberg's own lists of a library (its indexes, quotation and picture selections) come last in their tier.
+// The words a person is called by: the first and last of their name, without "minor", "the elder"…
+// ("Plato", "Pliny", "Seneca", "Austen"), not a middle name ("Homer" in Charles Homer Haskins).
+const SUFFIX = new Set(['minor', 'maior', 'major', 'elder', 'younger', 'the', 'jr', 'sr']);
+function nameEnds(list) {
+  const name = list.slice();
+  while (name.length > 1 && SUFFIX.has(name[name.length - 1])) name.pop();
+  return name.length ? [name[0], name[name.length - 1]] : [];
+}
+const INDEX = /^(index of (the )?project gutenberg|quotes and images from|widgers quotations from)\b/;
 const VOLUME = /\b(vol(ume)?s?\.?|part|book|tome|chapters?|series)\s+([0-9]+|[ivxlc]+|one|two|three|four|five)\b|\(of \d+\)/i;
 const ASKS_FOR_VOLUME = /\b(vol|volume|part|book|tome|chapter|series|\d+)\b/;
 export function createSearch(works) {
@@ -215,7 +273,8 @@ export function createSearch(works) {
     for (const t of spelled) add(t, id);
     const title = core(norm(w.title || ''));
     return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(norm(t))))],
-      author: new Set([...authors.flatMap(p => words(p.name)), ...spelled]), volume: VOLUME.test(w.title), index: /^index of (the )?project gutenberg/.test(title)};
+      author: new Set([...authors.flatMap(p => words(p.name)), ...spelled]), volume: VOLUME.test(w.title), index: INDEX.test(title),
+      shared: new Set(authors.map(p => p.name)).size > 1, ownName: new Set([...authors.flatMap(p => nameEnds(words(p.name))), ...spelled])};
   });
   normCache.clear(); spelling.clear();
   const expansionCache = new Map();
@@ -301,7 +360,9 @@ export function createSearch(works) {
       const exact = !!normalized && doc.titles.includes(normalized);
       if (exact || (normalized && doc.titles.some(t => t.startsWith(normalized + ' ')))) tier = 1;
       const byAuthor = terms.length > 0 && terms.every(t => doc.author.has(t));
-      ranked.push({id, tier, cover, authorCover, exact, byAuthor, index: doc.index, volume: doc.volume});
+      // A book by someone the query only names in passing (a middle name) is not the author's own.
+      const ownName = byAuthor && terms.some(t => doc.ownName.has(t));
+      ranked.push({id, tier, cover, authorCover, exact, byAuthor, ownName, index: doc.index, volume: doc.volume, shared: doc.shared});
     }
     // The query is an author's name when more matching works carry it as their author's own
     // name than as a title ("dostoevsky", "jane austen"; not "faust"): then the author's books
@@ -314,7 +375,8 @@ export function createSearch(works) {
       const w = works[r.id];
       r.english = preferEnglish && w.language.includes('en') ? 1 : 0;
       r.score = 3 * r.cover / Math.max(1, terms.length) + AUTHOR_COVER * r.authorCover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : 0)
-        - (r.volume && !askedVolume ? VOLUME_PENALTY : 0) + Math.log10(1 + w.popularity) + (w.quality === 'clean' ? 0.4 : 0);
+        - (r.volume && !askedVolume ? VOLUME_PENALTY : 0) - (authorQuery && r.byAuthor && (r.shared || !r.ownName) ? SHARED_PENALTY : 0)
+        + fame(w) + (w.quality === 'clean' ? 0.4 : 0);
     }
     ranked.sort((a, b) => a.tier - b.tier || b.english - a.english || b.score - a.score
       || works[a.id].title.localeCompare(works[b.id].title) || works[a.id].id.localeCompare(works[b.id].id));

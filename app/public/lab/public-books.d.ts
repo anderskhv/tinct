@@ -16,6 +16,10 @@ export interface CatalogueWork {
   firstPublishedYear?: number | null
   onTinct?: boolean
   tinctIds?: string[]
+  /** Other titles of the work (the catalogue's and the engine's curated ones), as the search worker sends them. */
+  altTitles?: string[]
+  /** The Wikidata work this is an edition of (work priors), as the search worker sends it. */
+  wikidata?: string | null
   editions: CatalogueEdition[]
 }
 export interface PublicPlacement {
@@ -44,6 +48,7 @@ export function looseTitle(title: string): { base: string; part: string | null }
 export function looseTitleAuthorKey(title: string, author: string): string
 export const REGISTRY_GUTENBERG_IDS: Record<string, string>
 export function inTinct(work: CatalogueWork, tinctBooks: Array<{ id: string; title: string; author: string; public?: { workId?: string } }>): boolean
+export function groupEditions<W extends CatalogueWork>(free: W[], tinctBooks?: Array<{ id: string; title: string; author: string }>, accept?: (work: W) => boolean): Array<W & { alternates: W[] }>
 export function groupSearchResults<T>(input: { tinct: T[]; free: CatalogueWork[]; tinctBooks: Array<{ id: string; title: string; author: string }>; limit?: number }): { available: T[]; notYet: CatalogueWork[] }
 export function freeRow(work: CatalogueWork): { title: string; author: string; source: string }
 export function mergePublicBooks<C extends { books: Array<{ id: string }>; houses?: unknown[] }>(catalogue: C, entries: Array<{ id: string; shelfIds?: string[]; placement?: PublicPlacement[] }>): C

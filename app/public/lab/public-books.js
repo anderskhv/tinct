@@ -165,12 +165,27 @@ export function looseTitle(title) {
     .replace(/^(the )?((most|excellent|lamentable|tragical|famous|true|strange|tragic|comical|pleasant) )*(tragedy|tragedie|comedy|history|historie|life|case|chronicle history)( and death)? of (the )?/, '')
   return { base, part: number ? (PART_NUMBERS[number] || ROMAN[number] || number) : null }
 }
-/** Is `work` a copy of the Tinct `book`: the same loose title by an author of the same surname, and the same part when the book is one. */
+/**
+ * Is `work` a copy of the Tinct `book`: the same loose title, under its title or one of its other
+ * titles (`altTitles`: "Thoughts of Marcus Aurelius" is also Meditations), by an author of the same
+ * surname, and the same part when the book is one. A title naming the author ("The Confessions of
+ * St. Augustine", "The Republic of Plato") is the same title.
+ */
 function sameCopy(work, book) {
-  const a = looseTitle(work.title), b = looseTitle(book.title)
-  if (!a.base || a.base !== b.base || (b.part !== null && a.part !== b.part)) return false
+  const b = looseTitle(book.title)
   const surname = authorKey(book.author)
-  return (work.authors?.length ? work.authors : [{ name: '' }]).some(person => sameSurname(authorKey(person.name), surname))
+  // The surname, or a word of the name ("of Hippo, Saint Augustine" is Augustine).
+  const byAuthor = person => sameSurname(authorKey(person.name), surname) || (!!surname && normalizeText(person.name).split(' ').includes(surname))
+  if (!b.base || !(work.authors?.length ? work.authors : [{ name: '' }]).some(byAuthor)) return false
+  return [work.title, ...(work.altTitles || [])].some(title => {
+    const a = looseTitle(title)
+    return a.base && withoutAuthor(a.base, surname) === b.base && (b.part === null || a.part === b.part)
+  })
+}
+/** "confessions of saint augustine" → "confessions" for the surname "augustine". */
+function withoutAuthor(base, surname) {
+  const at = base.lastIndexOf(' of ')
+  return at > 0 && surname && base.slice(at + 4).split(' ').includes(surname) ? base.slice(0, at) : base
 }
 /** The same surname, or a respelling of a long one ("Dostoyevsky" for Dostoevsky): at most two edits, same first letter. */
 function sameSurname(a, b) {
@@ -217,20 +232,35 @@ export function inTinct(work, tinctBooks) {
 /**
  * The two search groups: "Available in Tinct" (the library's own matches, unchanged)
  * and "Not yet in Tinct" (importable catalogue works not already in Tinct, each book once:
- * a second copy with the same loose title and author is left out).
+ * a second copy with the same loose title and author is left out, and so is another edition
+ * of the same Wikidata work, `wikidata` from the catalogue's work priors: the best-ranked edition
+ * stands for the work, so searching another edition's own title still finds that edition first).
  */
 export function groupSearchResults({ tinct, free, tinctBooks, limit = 8 }) {
-  const seen = new Set()
-  const notYet = []
-  for (const work of free || []) {
-    if (notYet.length >= limit) break
-    const copy = looseTitleAuthorKey(work.title, work.authors?.[0]?.name || '')
-    if (seen.has(work.id) || seen.has(copy) || !importableWork(work) || inTinct(work, tinctBooks)) continue
-    seen.add(work.id)
-    seen.add(copy)
-    notYet.push(work)
-  }
+  const notYet = groupEditions(free, tinctBooks, importableWork).slice(0, limit)
   return { available: tinct, notYet }
+}
+
+/**
+ * Catalogue works in their order, one per book (data-level grouping, not yet shown in the UI):
+ * a later work with the same id, loose title and first author, or Wikidata work as an earlier one
+ * joins it as one of its `alternates` (each returned work is a copy carrying them). Works in Tinct,
+ * and works `accept` refuses (e.g. not importable), are skipped without claiming their book, so
+ * another translation of a Tinct book stays listed.
+ */
+export function groupEditions(free, tinctBooks = [], accept = () => true) {
+  const seen = new Map()
+  const out = []
+  for (const work of free || []) {
+    if (!work || !accept(work) || inTinct(work, tinctBooks)) continue
+    const keys = [work.id, looseTitleAuthorKey(work.title, work.authors?.[0]?.name || ''), work.wikidata ? 'wd:' + work.wikidata : null].filter(Boolean)
+    const first = keys.map(key => seen.get(key)).find(Boolean)
+    if (first) { if (first.id !== work.id && !first.alternates.some(other => other.id === work.id)) first.alternates.push(work); for (const key of keys) if (!seen.has(key)) seen.set(key, first); continue }
+    const group = { ...work, alternates: [] }
+    for (const key of keys) seen.set(key, group)
+    out.push(group)
+  }
+  return out
 }
 
 /** One result row's text: title · author, and the source library. */

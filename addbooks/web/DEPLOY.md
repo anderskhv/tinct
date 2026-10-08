@@ -20,7 +20,15 @@ From the repository root:
 node addbooks/scripts/test-search.mjs     # ranking checks against the real catalogue
 ```
 
-The output is `addbooks/site/data/index.json.gz`. It is gitignored. Copyright gate: every
+The output is `addbooks/site/data/index.json.gz`. It is gitignored.
+
+Work priors (search ranking): `NODE_USE_ENV_PROXY=1 node addbooks/scripts/build-work-priors.mjs`
+asks Wikidata (CC0, about 450 small SPARQL queries, cached in `addbooks/.cache/wikidata/`) which
+work each Wikisource or Gutenberg-linked catalogue work is an edition of, how many Wikimedia sites
+have a page on it, and its English name. It writes `addbooks/web/src/data/work-priors.json`
+(~300 KB, committed), which `build.mjs` ships beside the catalogue; the search worker ranks with it
+(`applyPriors` in `search.js`) and searches without it if it is missing. Rebuild it when the
+catalogue is rebuilt. Copyright gate: every
 creator died more than 70 years ago, or the text is anonymous and from before 1900.
 
 ## 2. tinct.app/lab/addbook
