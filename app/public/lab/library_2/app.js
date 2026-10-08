@@ -12,7 +12,7 @@ import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduc
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel4';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008orb';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261008rel4';
 import {librarySearch} from './library-search.js?v=20261008rel4';
@@ -274,24 +274,21 @@ $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
 // One persistent particle sphere follows a single interpolated position. There
 // is no second orb to cross-fade, and chat never lays it over its controls.
 let mode='minimized',orbMotion=null,drag=null;
-// Minimized, the librarian is "tucked" (A · Tuck): a capsule half under the left
-// or right wall, drawn by the #librarian-goo SVG and joined to the wall by goo.
-// The button is then only its pointer target. It docks on the sides only and
+// Minimized, the librarian is "tucked" (A · Tuck): the dotted orb alone, floating
+// just inside the left or right wall (no capsule or chat icon since 2026-10-08).
+// The button is the orb's pointer target. It docks on the sides only and
 // slides along them; `dock` is where it rests, kept for the whole visit.
-// The right wall is the edge of the fixed layer (inside the scrollbar gutter); measured once per size.
-let wallWidth=0;const wallW=()=>wallWidth||(wallWidth=$('librarian-goo').getBoundingClientRect().width||innerWidth);
-// While the page scrolls the docked capsule shrinks to TUCK.scrollDock (the icon
-// fades), and grows back TUCK.scrollIdle ms after the last scroll event.
+// The right wall is the layout viewport's edge (inside the scrollbar gutter); measured once per size.
+let wallWidth=0;const wallW=()=>wallWidth||(wallWidth=document.documentElement.clientWidth||innerWidth);
+// While the page scrolls the docked orb shrinks to TUCK.scrollDock, and grows
+// back TUCK.scrollIdle ms after the last scroll event.
 let scrolling=false,scrollTimer=0;const dockSize=()=>scrolling?TUCK.scrollDock:TUCK.dock;
 addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>{scrolling=false;if(isTucked())runTuck();},TUCK.scrollIdle);if(!scrolling){scrolling=true;if(isTucked())runTuck();}},{passive:true});
 let dock={side:'right',y:tuckRestY(innerHeight*.43+26,innerHeight)},orbPosition={x:0,y:0,size:52};
 let tuck=tuckAt(dock.side,dock.y,wallW(),dockSize()),tuckFrame=0,tuckLast=0;
-// goo-face is an unfiltered copy of the body drawn over the goo, so the capsule
-// edge stays crisp and the dot stays visible if a browser drops the SVG filter.
-const goo={svg:$('librarian-goo'),body:$('goo-body'),face:$('goo-face'),anchor:$('goo-anchor'),necks:['goo-n1','goo-n2','goo-n3'].map($)};
 function placeOrb(p){orbPosition={...p};const b=$('librarian');b.style.width=p.size+'px';b.style.height=p.size+'px';b.style.transform=`translate3d(${p.x}px,${p.y}px,0)`;if(reduced.matches)drawOrb(0);}
 const isTucked=()=>mode==='minimized'&&$('librarian').classList.contains('tuck');
-// The capsule steps aside wherever an open panel would put it over the panel's text and
+// The orb steps aside wherever an open panel would put it over the panel's text and
 // controls: the search results and their Add buttons, and the book's tour slip,
 // introduction and reader (phone widths; on desktop they stop short of the wall). It fades
 // out, takes no pointer or focus, and is back when the panel closes. Reduced motion /
@@ -301,25 +298,24 @@ function coveringPanels(){const list=[];if(searchOpen)list.push($('search-panel'
 function syncLibrarianAway(){const away=coveringPanels().some(r=>tuckCovers(dock.side,wallW(),r));const root=document.documentElement;if(root.classList.contains('librarian-away')===away)return;root.classList.toggle('librarian-away',away);const b=$('librarian');if(away){b.setAttribute('aria-hidden','true');b.tabIndex=-1;}else{b.removeAttribute('aria-hidden');b.tabIndex=mode==='minimized'?0:-1;}}
 // Checked when the book's animations come to rest (drawBook at 0 or 1), once per frame at most.
 let awayFrame=0;function scheduleLibrarianAway(){if(!awayFrame)awayFrame=requestAnimationFrame(()=>{awayFrame=0;syncLibrarianAway();});}
-function renderTuck(){const s=tuckShape(tuck,wallW()),b=$('librarian'),set=(e,a)=>{for(const k in a)e.setAttribute(k,a[k].toFixed(2));};const body={x:s.body.x,y:s.body.y,width:s.body.w,height:s.body.h,rx:s.body.r};set(goo.body,body);set(goo.face,body);set(goo.anchor,{cx:s.anchor.cx,cy:s.anchor.cy,r:s.anchor.r});s.necks.forEach((n,i)=>set(goo.necks[i],n));b.style.width=s.hit.w+'px';b.style.height=s.hit.h+'px';b.style.transform=`translate3d(${s.hit.x}px,${s.hit.y}px,0)`;const vars={'--orb-scale':(s.orb.size/TUCK.orb.free).toFixed(3),'--orb-room':s.orb.opacity.toFixed(3),'--orb-dx':s.orb.dx.toFixed(2)+'px','--orb-dy':s.orb.dy.toFixed(2)+'px','--icon-opacity':s.icon.opacity.toFixed(3),'--icon-dx':s.icon.dx.toFixed(2)+'px','--icon-dy':s.icon.dy.toFixed(2)+'px'};for(const k in vars)b.style.setProperty(k,vars[k]);b.dataset.edge=tuck.attached?tuck.side:'none';if(reduced.matches)drawOrb(0);}
+function renderTuck(){const s=tuckShape(tuck,wallW()),b=$('librarian'),k=s.orb.size/TUCK.free.w;b.style.width=s.hit.w+'px';b.style.height=s.hit.h+'px';b.style.transform=`translate3d(${s.hit.x}px,${s.hit.y}px,0)`;b.style.setProperty('--orb-sx',(k*s.orb.sx).toFixed(3));b.style.setProperty('--orb-sy',(k*s.orb.sy).toFixed(3));b.dataset.edge=tuck.attached?tuck.side:'none';if(reduced.matches)drawOrb(0);}
 // Fixed 60 Hz steps, so the springs feel the same on 120 Hz screens.
 function tuckTick(now){tuckFrame=0;if(!isTucked())return;const held=drag?.active&&drag.moved?{x:drag.p.x-drag.off.x,y:drag.p.y-drag.off.y}:null;const steps=reduced.matches?1:clamp(Math.round((now-tuckLast)/16.7),1,4);tuckLast=now;for(let i=0;i<steps;i++)tuck=tuckStep(tuck,{W:wallW(),H:innerHeight,drag:held,restY:dock.y,reduced:reduced.matches,dock:dockSize()});if(!held&&tuckSettled(tuck,wallW(),dock.y,dockSize()))tuck=tuckAt(tuck.side,dock.y,wallW(),dockSize());else if(held||!reduced.matches)tuckFrame=requestAnimationFrame(tuckTick);if(!held&&tuck.attached)dock.side=tuck.side;renderTuck();}
 function runTuck(){if(!tuckFrame){tuckLast=performance.now()-16.7;tuckFrame=requestAnimationFrame(tuckTick);}}
 function stopTuck(){cancelAnimationFrame(tuckFrame);tuckFrame=0;}
-function showGoo(on){goo.svg.classList.toggle('off',!on);}
 // Put it back at rest without motion (first paint, layout and resize).
 function snapTuck(){if(!isTucked()||drag?.active)return;stopTuck();tuck=tuckAt(dock.side,dock.y,wallW(),dockSize());renderTuck();}
 // The orb leaves the panel as a free dot beside its wall, then the springs draw
 // it in, so it re-attaches with the same squash as a hand release.
 function tuckReturnTarget(){const r=TUCK.free.w/2,cx=dock.side==="right"?wallW()-r-36:r+36;return {x:cx-r,y:dock.y-r,size:TUCK.free.w};}
-function enterTuck(){const b=$('librarian'),r=orbPosition.size/2,cx=orbPosition.x+r,inward=dock.side==='right'?3:-3;b.classList.add('tuck');tuck={...tuckAt(dock.side,dock.y,wallW(),dockSize()),attached:false,x:cx,y:orbPosition.y+r,w:TUCK.free.w,h:TUCK.free.h,ar:0,vx:inward};tuck.ay=tuck.y;showGoo(true);renderTuck();runTuck();}
+function enterTuck(){const b=$('librarian'),r=orbPosition.size/2,cx=orbPosition.x+r,inward=dock.side==='right'?3:-3;b.classList.add('tuck');tuck={...tuckAt(dock.side,dock.y,wallW(),dockSize()),attached:false,x:cx,y:orbPosition.y+r,w:TUCK.free.w,h:TUCK.free.h,ar:0,vx:inward};tuck.ay=tuck.y;renderTuck();runTuck();}
 function moveOrbTo(t){if(t)moveOrb(t);}
 function placeOrbAt(t){if(t)placeOrb(t);}
 function orbTarget(){const host=$(`librarian-${mode}`)?.querySelector('.orb-space');if(!host)return null;const space=host.getBoundingClientRect();const size=Math.min(space.height,space.width,240);return {x:space.x+(space.width-size)/2,y:space.y+(space.height-size)/2,size};}
 function moveOrb(target,done){if(orbMotion)cancelAnimationFrame(orbMotion);const from={...orbPosition},start=performance.now();function frame(now){const t=reduced.matches?1:clamp((now-start)/450,0,1);placeOrb(orbFrame(from,target,t));if(t<1)orbMotion=requestAnimationFrame(frame);else{orbMotion=null;done?.();}}orbMotion=requestAnimationFrame(frame);}
 function updateLibrarianContext(){$('librarian-question').textContent=activeBook?'Can I help you prepare your reading of the book?':'Want help finding a book?';}
 let panelLastRect={x:20,y:80};
-function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;const b=$('librarian');if(next!=='minimized'){if(b.classList.contains('tuck')){stopTuck();drag=null;const s=Math.min(tuck.w,tuck.h);b.classList.remove('tuck');placeOrb({x:tuck.x-s/2,y:tuck.y-s/2,size:s});}showGoo(false);b.classList.remove('returning');b.classList.add('expanded');b.dataset.edge='none';}syncLock();if(next==='minimized'&&!b.classList.contains('tuck')){b.classList.add('returning');b.dataset.edge='none';const finish=()=>{b.classList.remove('expanded','returning');enterTuck();};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(tuckReturnTarget(),finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrbTo(orbTarget()));}updateLibrarianContext();}
+function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;const b=$('librarian');if(next!=='minimized'){if(b.classList.contains('tuck')){stopTuck();drag=null;const s=Math.min(tuck.w,tuck.h);b.classList.remove('tuck');placeOrb({x:tuck.x-s/2,y:tuck.y-s/2,size:s});}b.classList.remove('returning');b.classList.add('expanded');b.dataset.edge='none';}syncLock();if(next==='minimized'&&!b.classList.contains('tuck')){b.classList.add('returning');b.dataset.edge='none';const finish=()=>{b.classList.remove('expanded','returning');enterTuck();};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(tuckReturnTarget(),finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrbTo(orbTarget()));}updateLibrarianContext();}
 let assistant=null,assistantLoading=null;
 const ASSISTANT_MODULE='/lab/library-2-assistant.js?v=20261001shelf';
 // Fetch the librarian's code while the page is idle, so Chat and Talk open without that wait.
