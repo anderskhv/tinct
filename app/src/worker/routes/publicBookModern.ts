@@ -5,7 +5,7 @@
  *   GET  /api/public-books/{id}/modern-en           state, per-chapter states, and the offer (if any)
  *   POST /api/public-books/{id}/modern-en/checkout  { chapter } → { url } (signed in, Premium or the 30-day
  *                                                   trial; 402 premium_required otherwise): Stripe Checkout
- *   POST /api/public-books/{id}/modern-en/priority  { chapter }: a reader opened a chapter not yet written
+ *   POST /api/public-books/{id}/modern-en/priority  { chapter, paragraph? }: a reader is waiting there (written next)
  *   POST /api/public-books/{id}/modern-en/cancel    (signed in) the buyer came back from Checkout without paying:
  *                                                   their own open session is expired and the hold released
  *   GET  /data/editions/{id}-modern-en.json         the edition (finished chapters modern, the rest original)
@@ -44,9 +44,11 @@ import {
   paidJob,
   prioritise,
   publicChapterStates,
+  publicProgress,
   purchaseOpen,
   readJob,
   releaseHold,
+  releaseRunner,
   updateJob,
   wholeKey,
   xaiModernGenerator,
@@ -124,7 +126,12 @@ function offerFor(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: 
 
 function statusBody(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number, canBuy = true) {
   const state = !job ? 'none' : job.state === 'paid' ? (jobComplete(job) ? 'complete' : 'paid') : holdLive(job, now) ? 'checkout' : 'none'
-  return { state, chapters: publicChapterStates(job, now), offer: canBuy ? offerFor(env, meta, job, now) : null }
+  const totals = Object.fromEntries(meta.entry.readingStructure.chapters.map(c => [c.number, c.paragraphCount]))
+  return {
+    state, chapters: publicChapterStates(job, now), offer: canBuy ? offerFor(env, meta, job, now) : null,
+    // While the edition is being written: how far each chapter is, and an estimate of when it is done.
+    ...(state === 'paid' ? { progress: publicProgress(job, totals) } : {}),
+  }
 }
 
 /** Premium (trial included) for the signed-in account; null when unknown. Never throws. */
@@ -160,11 +167,23 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
   let source: Promise<Array<{ number: number; title: string; paragraphs: string[] }>> | null = null
   const loadSource = () => source ??= readJson<{ chapters: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)).then(data => data?.chapters ?? [])
   const worker = async () => {
+    // Each runner has its own id: it keeps its chapter from chunk to chunk and hands it back when it stops.
+    const owner = crypto.randomUUID()
     let failures = 0
-    while (now() < options.deadline) {
-      const result = await modernStep(bucket, { bookId, title: meta.book.title, author: meta.book.author, source: loadSource, generate: options.generate, now })
-      if (result === 'idle' || result === 'complete') return
-      if (result === 'failed' && ++failures >= 3) return
+    let longest = 0
+    try {
+      while (now() < options.deadline) {
+        // Never start a chunk that would not finish in time (a request's waitUntil is cut off): it would be paid for and lost.
+        if (longest && options.deadline - now() < longest) return
+        const began = now()
+        const result = await modernStep(bucket, { bookId, title: meta.book.title, author: meta.book.author, source: loadSource, generate: options.generate, now, owner })
+        longest = Math.max(longest, now() - began)
+        if (result === 'idle' || result === 'complete') return
+        if (result === 'failed') { if (++failures >= 3) return } else failures = 0
+      }
+    } finally {
+      // Handing the chapter back lets the next request or cron go on at once, not after the lease lapses.
+      await releaseRunner(bucket, bookId, owner, now()).catch(() => {})
     }
   }
   await Promise.all(Array.from({ length: MAX_PARALLEL }, worker))
@@ -179,11 +198,12 @@ export async function runModernEditionJobs(env: ModernEnv, options: { budgetMs: 
   const deadline = now() + options.budgetMs
   const page = await bucket.list({ prefix: MODERN_JOB_PREFIX, limit: 20 })
   let books = 0
-  for (const object of page.objects) {
+  const ids = page.objects.map((object: { key: string }) => object.key.slice(MODERN_JOB_PREFIX.length)).filter((id: string) => isPublicBookId(id))
+  for (const [i, bookId] of ids.entries()) {
     if (now() >= deadline) break
-    const bookId = object.key.slice(MODERN_JOB_PREFIX.length)
-    if (!isPublicBookId(bookId)) continue
-    await runModernBook(env, bookId, { deadline, generate, now })
+    // An equal share of what is left for each book still to go: one long book never starves the rest.
+    const share = Math.min(deadline, now() + (deadline - now()) / (ids.length - i))
+    await runModernBook(env, bookId, { deadline: share, generate, now })
     books++
   }
   return books
@@ -392,13 +412,20 @@ async function priority(request: Request, env: ModernEnv, bucket: R2Bucket, book
   const ip = request.headers.get('cf-connecting-ip') || 'unknown'
   if (!await deps.checkRateLimit(`public-modern-priority:${ip}`, undefined, PRIORITY_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
   let chapter = NaN
-  try { chapter = Number((await request.json() as { chapter?: unknown }).chapter) } catch { /* below */ }
+  let paragraph: number | undefined
+  try {
+    const body = await request.json() as { chapter?: unknown; paragraph?: unknown }
+    chapter = Number(body.chapter)
+    const p = Number(body.paragraph)
+    paragraph = body.paragraph !== undefined && Number.isInteger(p) && p >= 0 ? p : undefined
+  } catch { /* below */ }
   if (!Number.isInteger(chapter)) return reply({ error: 'bad_request' }, 400, request)
   const now = deps.now ?? Date.now
+  const focusOf = (job: ModernJob) => job.chapters.find(c => c.number === chapter)?.focus ?? 0
   const { job } = await updateJob(bucket, bookId, current => {
     if (current?.state !== 'paid') return null
-    const next = prioritise(current, chapter)
-    return next === current || next.priority.join() === current.priority.join() ? null : { ...next, updatedAt: now() }
+    const next = prioritise(current, chapter, paragraph)
+    return next === current || (next.priority.join() === current.priority.join() && focusOf(next) === focusOf(current)) ? null : { ...next, updatedAt: now() }
   })
   if (job?.state === 'paid' && !jobComplete(job)) kick(env, bookId, deps)
   return reply(await statusFor(request, env, meta, job, now(), deps), 200, request)

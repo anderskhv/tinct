@@ -64,8 +64,10 @@ jobs:
           VOICE_PERSONA=male node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
       - name: Save voice capture acceptance
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: voice-capture-acceptance
           path: app/artifacts/voice-capture
       - name: Verify sign-in completion without real accounts
@@ -73,8 +75,10 @@ jobs:
         run: node scripts/check-sign-in.mjs
       - name: Save sign-in acceptance
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: sign-in-acceptance
           path: app/artifacts/sign-in
       - name: Verify reader panels and selection
@@ -88,8 +92,10 @@ jobs:
         run: node scripts/check-book-transition.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: reader-panels-acceptance
           path: |
             app/artifacts/reader-panels
@@ -107,8 +113,10 @@ jobs:
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-page-break-lines.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: library-preparation-acceptance
           path: |
             app/artifacts/shakespeare-layout
@@ -153,8 +161,10 @@ jobs:
       - name: Verify inline audio loading silently
         run: node scripts/check-inline-audio-loading.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: inline-audio-loading
           path: app/artifacts/inline-audio-loading
       - run: node scripts/check-featured-preview.mjs
@@ -162,14 +172,18 @@ jobs:
         run: READER_MENU_ONLY=1 node scripts/check-reader-panels.mjs
       - name: Save menu design screenshots
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: menu-design-acceptance
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: featured-preview-acceptance
           path: app/artifacts/featured-preview

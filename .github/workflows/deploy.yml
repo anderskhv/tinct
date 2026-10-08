@@ -178,8 +178,10 @@ jobs:
           TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
         run: node scripts/check-omarchy.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: omarchy-production-acceptance
           path: app/artifacts/omarchy
       - name: Verify inline audio loading silently
@@ -188,8 +190,10 @@ jobs:
           TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
         run: node scripts/check-inline-audio-loading.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: inline-audio-loading
           path: app/artifacts/inline-audio-loading
       - name: Verify reader panels and selection
@@ -208,8 +212,10 @@ jobs:
         run: node scripts/check-book-transition.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: reader-panels-acceptance
           path: |
             app/artifacts/reader-panels
@@ -244,8 +250,10 @@ jobs:
         run: node scripts/check-edition-holds-production.cjs
       - name: Save pre-promote acceptance artifacts
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: pre-promote-acceptance
           path: |
             app/artifacts/shakespeare-layout
@@ -293,8 +301,10 @@ jobs:
         run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
       - name: Save production sign-in acceptance
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: sign-in-acceptance
           path: app/artifacts/sign-in
       - name: Verify real Grok microphone recovery silently
@@ -310,8 +320,10 @@ jobs:
       - name: Verify public cinematic library
         run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: production-library-preparation
           path: |
             app/artifacts/brand

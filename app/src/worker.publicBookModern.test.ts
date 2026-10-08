@@ -2,13 +2,21 @@
 // Stripe call is made: the generator, Stripe and Supabase are all stand-ins.
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handlePublicBooks, handlePublicEditionData, type PublicBooksDeps } from './worker/routes/publicBooks'
-import { grantModernEdition, releaseModernCheckout, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
+import { grantModernEdition, releaseModernCheckout, runModernBook, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
 import { handleWebhook } from './worker/routes/billing'
 import {
+  CHUNK_WORDS,
+  FAILED_RETRY_MS,
   HOLD_MS,
   LEASE_MS,
   MAX_ATTEMPTS,
   MAX_PARALLEL,
+  MAX_ROUNDS,
+  OPENING_WORDS,
+  chunkStart,
+  nextChunk,
+  publicProgress,
+  writtenRanges,
   MODERN_TIERS,
   modernStep,
   modernTierCents,
@@ -18,6 +26,7 @@ import {
   prioritise,
   publicChapterStates,
   readJob,
+  updateJob,
   validChunk,
   workOrder,
   type ModernGenerator,
@@ -134,7 +143,7 @@ function setup(options: { switchOn?: boolean; prices?: Record<string, string>; n
   const status = async () => (await call(`/api/public-books/${BOOK}/modern-en`)).json() as Promise<{ state: string; chapters: Record<string, string>; offer: { tier: number; cents: number } | null }>
   const buy = (token: string, chapter = 3) => call(`/api/public-books/${BOOK}/modern-en/checkout`, { token, json: { chapter } })
   const grant = (sessionId: string, metadata: Record<string, string> = {}) => grantModernEdition(env, { id: sessionId, payment_intent: `pi_${sessionId}`, metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '3', supabase_user_id: USER, ...metadata } }, { now: () => clock.t, generator, stripeFetch, waitUntil: p => { waits.push(p) } })
-  return { r2, env, deps, clock, stripe, call, status, buy, grant, calls, generator }
+  return { r2, env, deps, clock, stripe, call, status, buy, grant, calls, generator, waits }
 }
 
 afterEach(() => vi.unstubAllGlobals())
@@ -508,7 +517,9 @@ describe('job ordering', () => {
 describe('generation', () => {
   it('writes every chapter, resumably, and serves finished chapters in place of the original', async () => {
     const t = setup()
-    await t.grant('cs_a')
+    // Granted without the request's own burst of work: these steps are the only runner, so
+    // which step finishes the book is not a race with a background runner (see the next test).
+    await grantQuiet(t)
     const source = async () => SOURCE
     const step = () => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source, generate: t.generator, now: () => t.clock.t })
     expect(await step()).toBe('chapter-ready')
@@ -529,6 +540,24 @@ describe('generation', () => {
     expect(t.r2.objects.has(`public-books/modern-jobs/${BOOK}`)).toBe(false)
     // Each chapter was asked for exactly once: nothing generated twice.
     expect(t.calls).toHaveLength(5)
+  })
+
+  it('the grant’s own burst and another runner at the same time write each chapter once and finish the book', async () => {
+    const t = setup()
+    // The grant starts a runner after its response (waitUntil); a second one (a status request, the cron) steps alongside.
+    await t.grant('cs_a')
+    expect(t.waits).toHaveLength(1)
+    const step = () => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source: async () => SOURCE, generate: t.generator, now: () => t.clock.t })
+    const results: string[] = []
+    const alongside = (async () => { for (let i = 0; i < 10 && results.at(-1) !== 'complete'; i++) results.push(await step()) })()
+    await Promise.all([...t.waits, alongside])
+    // Either runner may finish the book; while the other holds both chapters in hand, a step is 'idle'.
+    expect((await t.status()).state).toBe('complete')
+    expect(t.calls).toHaveLength(5)
+    const whole = await (await handlePublicEditionData(new Request(`https://tinct.app/data/editions/${BOOK}-modern-en.json`), t.env))!.json() as { chapters: Array<{ paragraphs: string[] }> }
+    expect(whole.chapters.every(c => c.paragraphs.every(p => p.startsWith('[m] ')))).toBe(true)
+    const job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.chapters.every(c => c.state === 'ready' && c.leaseBy === undefined)).toBe(true)
   })
 
   it('rejects output that drops, merges or truncates paragraphs', () => {
@@ -568,5 +597,228 @@ describe('generation', () => {
     const now = () => ticking.t++
     expect(await runModernEditionJobs(t.env, { budgetMs: 10_000, generator: modernise, now })).toBe(1)
     expect((await t.status()).state).toBe('complete')
+  })
+})
+
+// ===== Long chapters (Gorgias: two chapters, one of them about 36,000 words) =====
+
+/** Chapter 3 made long: 60 paragraphs of 100 words. */
+const LONG = Array.from({ length: 60 }, (_, i) => `P${i} ${'word '.repeat(99).trim()}`)
+const longSource = () => SOURCE.map(c => c.number === 3 ? { ...c, paragraphs: LONG } : c)
+const wordsIn = (paragraphs: string[]) => paragraphs.join(' ').split(/\s+/).filter(Boolean).length
+
+function useLong(t: ReturnType<typeof setup>) {
+  void t.r2.bucket.put(`public-books/${BOOK}/original-en.json`, JSON.stringify({ chapters: longSource() }))
+}
+/** Granted with no request burst of its own (no generator in the grant), so each test drives the work. */
+const grantQuiet = (t: ReturnType<typeof setup>, chapter = 3) => grantModernEdition(t.env, { id: 'cs_long', metadata: { type: 'modern_edition', book_id: BOOK, chapter: String(chapter) } }, { now: () => t.clock.t })
+const stepOf = (t: ReturnType<typeof setup>, owner?: string, generate: ModernGenerator = t.generator) => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source: async () => longSource(), generate, now: () => t.clock.t, owner })
+/** Only chapter 3 left to write. */
+const onlyChapterThree = (t: ReturnType<typeof setup>) => updateJob(t.r2.bucket, BOOK, job => job && { ...job, chapters: job.chapters.map(c => c.number === 3 ? c : { ...c, state: 'ready' as const }) })
+const edition = async (t: ReturnType<typeof setup>) => (await (await handlePublicEditionData(new Request(`https://tinct.app/data/editions/${BOOK}-modern-en.json`), t.env))!.json()) as { chapters: Array<{ paragraphs: string[] }>; modern: { complete: boolean; chapters: Record<string, string>; written: Record<string, Array<[number, number]>> } }
+type Progress = { chapters: Record<string, { done: number; total: number | null; ranges: Array<[number, number]>; startsIn: number | null; eta: number | null }>; wordsPerMinute: number | null }
+const progressOf = async (t: ReturnType<typeof setup>) => ((await t.status()) as unknown as { progress: Progress }).progress
+
+describe('long chapters', () => {
+  it('chunks: the opening is short, then CHUNK_WORDS, from the focus to the end and then from the start', () => {
+    const slots: Array<string | null> = LONG.map(() => null)
+    expect(chunkStart(60, slots)).toBe(0)
+    const opening = nextChunk(LONG, 0, slots)
+    expect(wordsIn(opening)).toBeLessThanOrEqual(OPENING_WORDS)
+    opening.forEach((_, i) => { slots[i] = 'm' })
+    const next = nextChunk(LONG, opening.length, slots)
+    expect(wordsIn(next)).toBeLessThanOrEqual(CHUNK_WORDS)
+    expect(next.length).toBeGreaterThan(opening.length)
+    // A reader waiting at paragraph 40: written from there (a short chunk again), stopping before written text.
+    expect(chunkStart(60, slots, 40)).toBe(40)
+    expect(wordsIn(nextChunk(LONG, 40, slots))).toBeLessThanOrEqual(OPENING_WORDS)
+    for (let i = 40; i < 60; i++) slots[i] = 'm'
+    expect(chunkStart(60, slots, 40)).toBe(opening.length)
+    expect(nextChunk(LONG, 38, slots)).toEqual([LONG[38], LONG[39]])
+    expect(writtenRanges(slots)).toEqual([[0, opening.length], [40, 60]])
+  })
+
+  it('one runner writes a long chapter chunk after chunk without waiting for its own lease, each paragraph once', async () => {
+    const t = setup()
+    useLong(t)
+    await grantQuiet(t)
+    const results: string[] = []
+    for (let i = 0; i < 20 && results.at(-1) !== 'chapter-ready'; i++) results.push(await stepOf(t, 'runner-a'))
+    // The clock never moved: before the fix the second step was 'idle' until the lease lapsed (3 minutes).
+    expect(results.at(-1)).toBe('chapter-ready')
+    expect(results).not.toContain('idle')
+    expect(t.calls.flat()).toEqual(LONG)
+    expect(wordsIn(t.calls[0])).toBeLessThanOrEqual(OPENING_WORDS)
+    for (const call of t.calls.slice(1)) expect(wordsIn(call)).toBeLessThanOrEqual(CHUNK_WORDS)
+    const data = await edition(t)
+    expect(data.chapters[2].paragraphs).toEqual(LONG.map(p => `[m] ${p}`))
+    expect(data.modern.chapters[3]).toBe('ready')
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.part.json`)).toBe(false)
+  })
+
+  it('a runner that stops hands its chapter back, and the next runner goes on at once from the saved chunks', async () => {
+    const clock = { t: Date.UTC(2026, 9, 8) }
+    const sent: string[][] = []
+    const generator: ModernGenerator = async input => { clock.t += 4000; sent.push(input.paragraphs); return modernise(input) }
+    const t = setup({ now: clock, generator, switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    const deadline = clock.t + 10_000
+    await runModernBook(t.env, BOOK, { deadline, generate: generator, now: () => clock.t })
+    // 4 s a chunk: the third would end past the deadline, so it is never started (it would be cut off and lost).
+    expect(sent).toHaveLength(2)
+    expect(clock.t).toBeLessThanOrEqual(deadline)
+    const job = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!
+    expect(job.state).toBe('queued')
+    expect(job.leaseBy).toBeUndefined()
+    expect(job.ranges).toEqual([[0, sent.flat().length]])
+    expect((await t.status()).chapters[3]).toBe('preparing')
+    // A request a moment later (no lease to wait out) carries on where the last one stopped.
+    await runModernBook(t.env, BOOK, { deadline: clock.t + 10_000, generate: generator, now: () => clock.t })
+    expect(sent).toHaveLength(4)
+    while ((await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!.state !== 'ready') {
+      await runModernBook(t.env, BOOK, { deadline: clock.t + 10_000, generate: generator, now: () => clock.t })
+    }
+    expect(sent.flat()).toEqual(LONG)
+  })
+
+  it('a second runner on the same chapter (a lapsed lease) never doubles or drops a chunk', async () => {
+    const t = setup()
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    let open: () => void = () => {}
+    const gate = new Promise<void>(resolve => { open = resolve })
+    let first = true
+    const slow: ModernGenerator = async input => { if (first) { first = false; await gate } return input.paragraphs.map(p => `[slow] ${p}`) }
+    const stalled = stepOf(t, 'runner-a', slow)
+    await new Promise(resolve => setTimeout(resolve, 0))
+    t.clock.t += LEASE_MS + 1
+    expect(await stepOf(t, 'runner-b')).toBe('progress')
+    open()
+    expect(await stalled).toBe('progress')
+    let result = ''
+    for (let i = 0; i < 20 && result !== 'complete'; i++) result = await stepOf(t, 'runner-b')
+    expect(result).toBe('complete')
+    // Runner A's late chunk was dropped: every paragraph is runner B's, in place, once.
+    expect((await edition(t)).chapters[2].paragraphs).toEqual(LONG.map(p => `[m] ${p}`))
+    expect(t.calls.flat()).toEqual(LONG)
+  })
+
+  it('a reader waiting mid-chapter is written first from there, and the edition says which paragraphs are Modern English', async () => {
+    const t = setup()
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    await updateJob(t.r2.bucket, BOOK, job => job && prioritise(job, 3, 30))
+    expect(await stepOf(t, 'runner-a')).toBe('progress')
+    expect(t.calls[0][0]).toBe(LONG[30])
+    const end = 30 + t.calls[0].length
+    const data = await edition(t)
+    expect(data.modern.written[3]).toEqual([[30, end]])
+    expect(data.chapters[2].paragraphs[30]).toBe(`[m] ${LONG[30]}`)
+    expect(data.chapters[2].paragraphs[29]).toBe(LONG[29])
+    expect(data.chapters[2].paragraphs[end]).toBe(LONG[end])
+    expect(data.chapters[2].paragraphs).toHaveLength(60)
+    const progress = await progressOf(t)
+    expect(progress.chapters[3]).toMatchObject({ done: end - 30, total: 60, ranges: [[30, end]] })
+    // On to the chapter's end, then from its start.
+    let result = ''
+    for (let i = 0; i < 20 && result !== 'complete'; i++) result = await stepOf(t, 'runner-a')
+    expect(t.calls.flat()).toEqual([...LONG.slice(30), ...LONG.slice(0, 30)])
+  })
+
+  it('the priority request records where the reader is waiting', async () => {
+    // The request's own burst of work never finishes here, so the record is read as the request left it.
+    const t = setup({ generator: () => new Promise(() => {}) })
+    useLong(t)
+    await grantQuiet(t)
+    const response = await t.call(`/api/public-books/${BOOK}/modern-en/priority`, { json: { chapter: 3, paragraph: 45 } })
+    expect(response.status).toBe(200)
+    const job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.priority[0]).toBe(3)
+    expect(job.chapters.find(c => c.number === 3)!.focus).toBe(45)
+    // A bad paragraph is ignored, never stored.
+    await t.call(`/api/public-books/${BOOK}/modern-en/priority`, { json: { chapter: 3, paragraph: -2 } })
+    expect((await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!.focus).toBe(45)
+  })
+
+  it('a chunk that fails now and then does not fail a long chapter (failures count only in a row)', async () => {
+    let n = 0
+    const flaky: ModernGenerator = async input => (++n % 2 === 0 ? ['bad'] : modernise(input))
+    const t = setup({ generator: flaky })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    let result = ''
+    for (let i = 0; i < 40 && result !== 'complete'; i++) result = await stepOf(t, 'runner-a')
+    expect(result).toBe('complete')
+    expect(n).toBeGreaterThan(MAX_ATTEMPTS * 2)
+  })
+
+  it('a failed chapter is tried again later, a bounded number of times, and shows no state meanwhile', async () => {
+    const t = setup({ generator: async () => ['too short'] })
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    for (let i = 0; i < MAX_ATTEMPTS; i++) expect(await stepOf(t)).toBe('failed')
+    let job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'failed', rounds: 1, retryAt: t.clock.t + FAILED_RETRY_MS })
+    expect(publicChapterStates(job, t.clock.t)[3]).toBeUndefined()
+    expect(await stepOf(t)).toBe('idle')
+    t.clock.t += FAILED_RETRY_MS
+    expect(nextChapter(job, t.clock.t)).toBe(3)
+    for (let round = 2; round <= MAX_ROUNDS; round++) {
+      for (let i = 0; i < MAX_ATTEMPTS; i++) expect(await stepOf(t)).toBe('failed')
+      t.clock.t += FAILED_RETRY_MS
+    }
+    job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'failed', rounds: MAX_ROUNDS })
+    expect(nextChapter(job, t.clock.t + FAILED_RETRY_MS)).toBeNull()
+  })
+
+  it('reports progress and an estimate from the pace so far, book-level only', async () => {
+    const clock = { t: Date.UTC(2026, 9, 8) }
+    // 100 words a second of model time.
+    const timed: ModernGenerator = async input => { clock.t += wordsIn(input.paragraphs) * 10; return modernise(input) }
+    const t = setup({ now: clock, generator: timed, switchOn: false })
+    useLong(t)
+    await grantQuiet(t)
+    const before = await progressOf(t)
+    expect(before.wordsPerMinute).toBeNull()
+    expect(before.chapters[3]).toMatchObject({ done: 0, eta: null })
+    await stepOf(t, 'runner-a')
+    await stepOf(t, 'runner-a')
+    const status = await t.status() as unknown as Record<string, unknown> & { progress: Progress }
+    expect(Object.keys(status).sort()).toEqual(['chapters', 'offer', 'progress', 'state'])
+    expect(status.progress.wordsPerMinute).toBe(6000)
+    const three = status.progress.chapters[3]
+    const written = three.ranges.reduce((sum, [a, b]) => sum + wordsIn(LONG.slice(a, b)), 0)
+    expect(three).toMatchObject({ total: 60, startsIn: 0, eta: Math.round((6000 - written) / 100) })
+    expect(status.progress.chapters[4].startsIn).toBe(0)
+    // The short chapters share the second runner, one after another: chapter 2 comes last (4 x 25 words at 100 a second).
+    expect(status.progress.chapters[2]).toMatchObject({ startsIn: 1, eta: 1 })
+    expect(JSON.stringify(status)).not.toMatch(/runner|leaseBy|sessionId|cs_/)
+  })
+
+  it('an older part file (a written prefix) is picked up where it stopped', async () => {
+    const t = setup()
+    useLong(t)
+    await grantQuiet(t)
+    await onlyChapterThree(t)
+    await t.r2.bucket.put(`public-books/${BOOK}/modern-en/ch-3.part.json`, JSON.stringify({ paragraphs: LONG.slice(0, 5).map(p => `[m] ${p}`) }))
+    await updateJob(t.r2.bucket, BOOK, job => job && { ...job, chapters: job.chapters.map(c => c.number === 3 ? { ...c, state: 'preparing' as const, leaseUntil: t.clock.t - 1 } : c) })
+    expect(await stepOf(t)).toBe('progress')
+    expect(t.calls[0][0]).toBe(LONG[5])
+    expect(wordsIn(t.calls[0])).toBeGreaterThan(OPENING_WORDS)
+  })
+
+  it('progress for a job not started yet takes the chapter sizes from the book', () => {
+    const job = paidJob({ bookId: BOOK, tier: 1, sessionId: 'cs', chapters: [1, 2], anchor: 1, now: 0 })
+    expect(publicProgress(job, { 1: 126, 2: 1119 })).toEqual({
+      chapters: { 1: { done: 0, total: 126, ranges: [], startsIn: null, eta: null }, 2: { done: 0, total: 1119, ranges: [], startsIn: null, eta: null } },
+      wordsPerMinute: null,
+    })
   })
 })

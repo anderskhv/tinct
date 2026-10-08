@@ -39,7 +39,9 @@ jobs:
           VERIFY_FORCE_MESSAGE=1 VOICE_PERSONA=female node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
           VOICE_PERSONA=male node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: voice-room-acceptance
           path: app/artifacts/voice-capture

@@ -29,8 +29,10 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - run: node scripts/check-reader-fold.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: grok-reader-and-opening-plan
           path: |
             app/artifacts/reader-fold

@@ -57,8 +57,10 @@ jobs:
           git diff --cached --quiet || git commit -m "content: integrate pinned Symposium completeness assets and maps"
           git push origin HEAD:codex/symposium-publication-20260925
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: symposium-release-acceptance
           path: |
             books/wip/symposium-publication-20260925
