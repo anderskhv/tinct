@@ -1755,12 +1755,21 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const chapterKey = `${book.bookId}:${book.chapterNumber}`
   const chapterKeyRef = useRef(chapterKey)
   const chapterContentRef = useRef(readerParagraphs)
+  const chapterPagingRef = useRef(measuredPaging)
 
   useLayoutEffect(() => {
     const chapterChanged = chapterKeyRef.current !== chapterKey
     const contentChanged = chapterContentRef.current !== readerParagraphs
+    const pagingChanged = chapterPagingRef.current !== measuredPaging
     chapterKeyRef.current = chapterKey
     chapterContentRef.current = readerParagraphs
+    chapterPagingRef.current = measuredPaging
+    // Same chapter, same text, same paging: nothing this effect lays out has
+    // changed (on the desktop, a resumed phone-Compare flag clearing itself
+    // after load). Re-estimating here replaced the measured map with a draft
+    // one under the same page index, so a reload at the chapter's last page
+    // showed the page before it (check-chapter-preview, desktop Compare).
+    if (!chapterChanged && !contentChanged && !pagingChanged && pagesStableRef.current && readingPagesRef.current.length > 0) return
     if (chapterChanged || contentChanged) {
       pagesStableRef.current = false
       didBudgetPageRef.current = false
@@ -3201,7 +3210,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       const page = readingPages[readingPageIndex]
       const midBook = !!page && page.paragraphIndex > 0
       if (follow.paragraphIndex === 0 && midBook && !(listen.clipIndex === 0 && listen.currentTime < 15)) return
-      placeRef.current = { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
+      // A paragraph-level follow names no word. When the open page already
+      // begins inside that paragraph, its first word is the place: moving
+      // the place back to the paragraph's start (on the leaf before) let the
+      // next map adoption, e.g. when the transport opens, turn the reader
+      // back a leaf on Play (check-audio-spread).
+      placeRef.current = page && page.paragraphIndex === follow.paragraphIndex
+        ? { paragraphIndex: follow.paragraphIndex, wordIndex: page.from }
+        : { paragraphIndex: follow.paragraphIndex, wordIndex: 0 }
       const followAlreadyVisible = showPhoneChrome
         ? !!page && page.paragraphIndex === follow.paragraphIndex
         : (followOnReadingPage(follow, readingPages, readingPageIndex) || desktopSpread && !openingOnRight && followOnReadingPage(follow, readingPages, readingPageIndex + 1))
