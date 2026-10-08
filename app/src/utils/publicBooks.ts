@@ -13,6 +13,7 @@ import { PRE_READER_CATALOGUE, type PreReaderBookViewModel } from '../preReader/
 import type { QuickBookCatalogueEntry } from '../preReader/quickBookSwitcher'
 import type { Book, Edition } from '../types'
 import { apiUrl } from './apiUrl'
+import { modernReturnFromParams } from '../lab/labModernEditionApi'
 import { isPublicBookId, modernEditionsEnabled, PUBLIC_BOOKS_INDEX_URL } from '../../public/lab/public-books.js'
 
 export { isPublicBookId }
@@ -159,14 +160,19 @@ export function mentionsPublicBook(...raw: Array<string | null | undefined>): bo
  * hand-off or the saved places name one (one small index request; nothing
  * otherwise). Never throws; a failure leaves the reader's usual fallbacks.
  */
-export async function preloadPublicBooksForReader(fetchImpl: typeof fetch = fetch): Promise<void> {
+export async function preloadPublicBooksForReader(fetchImpl: typeof fetch = fetch, search: string = typeof location === 'undefined' ? '' : location.search): Promise<void> {
+  // A Checkout return (`?book=pd-…&modern=…`, labModernEditionApi) opens that book,
+  // in this tab or any other: it is registered first, on its own.
+  const returned = modernReturnFromParams(new URLSearchParams(search))
+  const named = returned ? ensurePublicBook(returned.bookId, fetchImpl).catch(() => {}) : null
   let raw: Array<string | null> = []
-  try { raw = [sessionStorage.getItem('tinct:lab-reader-handoff'), localStorage.getItem('tinct-lab-position')] } catch { return }
-  if (!mentionsPublicBook(...raw)) return
+  try { raw = [sessionStorage.getItem('tinct:lab-reader-handoff'), localStorage.getItem('tinct-lab-position')] } catch { await named; return }
+  if (!mentionsPublicBook(...raw)) { await named; return }
   try {
     const response = await fetchImpl(apiUrl(PUBLIC_BOOKS_INDEX_URL))
     if (!response.ok) return
     const data = await response.json() as { books?: PublicEntry[] }
     for (const entry of data.books ?? []) if (isPublicBookId(entry?.id)) registerPublicBook(bookFromEntry(entry), entry)
   } catch { /* the reader falls back as for any unknown book */ }
+  await named
 }

@@ -93,6 +93,25 @@ async function setAuth(page: Page, signedIn: boolean) {
   }, signedIn)
 }
 
+/**
+ * A signed-in Premium or trial reader's file entry: the "Your own book" pop-up over the
+ * library (no page change), whose button opens the file picker; the chosen file goes on
+ * to Add a book's file step (its upload flow, handed the file).
+ */
+async function expectOwnBookPopUp(page: Page) {
+  const dialog = page.locator('[data-testid="own-file-dialog"]')
+  await expect(dialog).toBeVisible()
+  await expect(dialog.locator('[role="dialog"]')).toHaveAttribute('aria-modal', 'true')
+  await expect(dialog.locator('h2')).toHaveText('Your own book')
+  const choose = dialog.locator('.own-file-choose')
+  await expect(choose).toHaveText('Choose a PDF or EPUB')
+  await expect(choose).toBeFocused()
+  expect(new URL(page.url()).pathname).toBe('/library')
+  const [chooser] = await Promise.all([page.waitForEvent('filechooser'), choose.click()])
+  await chooser.setFiles({ name: 'notes.epub', mimeType: 'application/epub+zip', buffer: Buffer.from('PK fixture') })
+  await page.waitForURL(/\/lab\/addbook\/\?mode=file&handoff=1$/)
+}
+
 async function expectNoAddToTinct(page: Page) {
   const results = page.locator('#search-results')
   await expect(results.locator('.search-result').first()).toBeVisible()
@@ -192,7 +211,7 @@ test.describe('library search', () => {
     await expect(row.locator('.free-progress')).toHaveCount(0)
   })
 
-  test('the + in the search field goes straight to the PDF or EPUB step, clear of Cancel', async ({ page }) => {
+  test('the + in the search field opens the "Your own book" pop-up for a PDF or EPUB, clear of Cancel', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true })
     await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
     await page.locator('#search-toggle').click()
@@ -209,7 +228,7 @@ test.describe('library search', () => {
     await expect(page.locator('.file-box a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
     await shot(page, 'search-add-file')
     await plus.click()
-    await page.waitForURL(/\/lab\/addbook\/\?mode=file$/)
+    await expectOwnBookPopUp(page)
   })
 
   test('the librarian orb steps aside while search is open wherever it would cover the results', async ({ page }) => {
@@ -452,12 +471,13 @@ test.describe('Premium (adding books is Premium or the 30-day trial)', () => {
     await page.waitForURL(/\/sign-in\?mode=account/)
   })
 
-  test('Premium or trial: the file box opens Add a book\'s file step', async ({ page }) => {
+  test('Premium or trial: the file box opens the "Your own book" pop-up, then Add a book\'s file step', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true, premium: true })
     await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
     await page.locator('#search-toggle').click()
+    await expect(page.locator('#search-results .file-box a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
     await page.locator('#search-results .file-box a').click()
-    await page.waitForURL(/\/lab\/addbook\/\?mode=file$/)
+    await expectOwnBookPopUp(page)
   })
 })
 

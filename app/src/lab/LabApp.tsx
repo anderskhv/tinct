@@ -102,6 +102,7 @@ import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
 import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, startModernCheckout, useLabModernEdition } from './labModernEdition'
+import { cancelModernCheckout } from './labModernEditionApi'
 import { isPublicBookId, modernEditionsEnabled } from '../../public/lab/public-books.js'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
@@ -155,7 +156,7 @@ import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
@@ -450,6 +451,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
   const voicePanelSurface = !showPhoneChrome
   const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
+  // Back from Checkout without paying: the buyer's own session is ended at once, so the
+  // book is not held from other buyers until it lapses (the Worker checks it is theirs).
+  useEffect(() => {
+    const back = modernReturnForPage()
+    if (back?.kind !== 'cancel') return
+    void readSupabaseAccessToken().then(token => token ? cancelModernCheckout(back.bookId, token) : false).catch(() => false)
+  }, [])
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
   // A user book opens at its own saved place (userBookStore.ts), never the

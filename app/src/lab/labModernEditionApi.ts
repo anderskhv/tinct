@@ -4,6 +4,7 @@
  * edition loader, so the library's add engine (src/libraryAdd.ts) can ask the
  * same questions and start the same checkout as the reader (labModernEdition.ts).
  */
+import { isPublicBookId } from '../../public/lab/public-books.js'
 import { apiUrl } from '../utils/apiUrl'
 
 export const MODERN_EDITION_KEY = 'modern-en'
@@ -68,4 +69,35 @@ export function pendingPurchase(): string | null {
 }
 export function clearPendingPurchase(): void {
   try { sessionStorage.removeItem(PENDING_PURCHASE_KEY) } catch { /* nothing to clear */ }
+}
+
+/** The buyer came back from Checkout without paying: their own open session is ended and the hold released (the Worker checks it is theirs). */
+const cancelSent = new Set<string>()
+export async function cancelModernCheckout(bookId: string, token: string, fetchImpl: FetchLike = fetch): Promise<boolean> {
+  // Once per page and book (React StrictMode runs the reader's effect twice).
+  if (cancelSent.has(bookId)) return false
+  cancelSent.add(bookId)
+  try {
+    const response = await fetchImpl(statusUrl(bookId, '/cancel'), { method: 'POST', headers: { Authorization: `Bearer ${token}` } })
+    const data = await response.json().catch(() => ({})) as { released?: unknown }
+    return response.ok && data.released === true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Stripe Checkout's return to the reader (worker/routes/publicBookModern.ts):
+ * `/reader?book=<id>&modern=1&session_id=cs_...` once paid, `/reader?book=<id>&modern=cancel`
+ * when the buyer went back. Only an added public book's id is accepted (opening a
+ * book is all it does); anything else is not a return.
+ */
+export interface ModernReturn { bookId: string; kind: 'paid' | 'cancel'; sessionId: string | null }
+const CHECKOUT_SESSION_ID = /^cs_[A-Za-z0-9_]{1,250}$/
+export function modernReturnFromParams(params: URLSearchParams | null | undefined): ModernReturn | null {
+  const bookId = params?.get('book')
+  const modern = params?.get('modern')
+  if (!bookId || !isPublicBookId(bookId) || (modern !== '1' && modern !== 'cancel')) return null
+  const sessionId = params?.get('session_id') ?? ''
+  return { bookId, kind: modern === '1' ? 'paid' : 'cancel', sessionId: modern === '1' && CHECKOUT_SESSION_ID.test(sessionId) ? sessionId : null }
 }
