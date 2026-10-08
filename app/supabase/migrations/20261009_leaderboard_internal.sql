@@ -35,15 +35,16 @@ update public.reader_profiles rp
    and (lower(split_part(u.email, '@', 2)) ~ '(^|\.)example\.(com|net|org)$'
      or lower(split_part(u.email, '@', 2)) ~ '\.(test|example|invalid|localhost)$');
 
--- 2. The view (same definition as 20261008_profiles.sql, plus `internal`) ------
+-- 2. The view (as live since 8 Oct: only uploaded pictures wait for approval;
+--    a Google photo shows at once, per privacy notice v3.1), plus `internal` ---
 create or replace view public.public_profile_cards
 with (security_invoker = true) as
 select
   rp.id,
   rp.handle,
   rp.display_name,
-  case when rp.picture_kind in ('upload', 'google') and rp.picture_review <> 'approved' then 'initial' else rp.picture_kind end as picture_kind,
-  case when rp.picture_kind in ('upload', 'google') and rp.picture_review <> 'approved' then null else rp.picture_value end as picture_value,
+  case when rp.picture_kind = 'upload' and rp.picture_review <> 'approved' then 'initial' else rp.picture_kind end as picture_kind,
+  case when rp.picture_kind = 'upload' and rp.picture_review <> 'approved' then null else rp.picture_value end as picture_value,
   case when rp.background_kind = 'upload' and rp.background_review <> 'approved' then 'library' else rp.background_kind end as background_kind,
   case when rp.background_kind = 'upload' and rp.background_review <> 'approved' then null else rp.background_value end as background_value,
   case when rp.visibility = 'everyone' and p.email_confirmed_at is null then 'friends' else rp.visibility end as visibility,
