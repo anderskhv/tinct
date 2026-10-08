@@ -114,6 +114,12 @@ export interface EditionData {
    * is by an unnamed writer, never the book's credit (an editor, a list).
    */
   collection?: boolean
+  /**
+   * A play whose speeches open on their speaker ("NORA. Hide the Christmas
+   * Tree…"), as Tinct's own plays are set: the reader sets each speaker as a
+   * label (labVerseLines.ts). Absent for every other book.
+   */
+  speakers?: boolean
   /** Present when only a chapter window is loaded for fast initial render. */
   windowed?: {
     complete: false

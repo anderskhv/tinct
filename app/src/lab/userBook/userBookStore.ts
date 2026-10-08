@@ -11,9 +11,9 @@
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
 import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
-import { readUserBookPlace, type UserBookPlace } from './userBookPlace'
-import { usableUserEdition, type UserBookEdition } from './userEdition'
-import { healChapterAuthors } from './chapterAuthors'
+import { readUserBookPlace, storedPlaceConverter, type UserBookPlace } from './userBookPlace'
+import { LEGACY_EDITION_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_CONVERTERS, USER_EDITION_FORMAT, usableUserEdition, type UserBookEdition } from './userEdition'
+import { healUserEdition } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
@@ -137,7 +137,9 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     try {
       // The converter loads only for a book not converted on this device yet.
       const { convertEpub } = await import('./epubEdition')
-      const converted = await convertEpub(new Uint8Array(record.bytes), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, '') })
+      // Under the rules it was first converted with: a book already read keeps its chapters, paragraphs and places.
+      const rules = conversionRules(record.edition, storedPlaceConverter(hex))
+      const converted = await convertEpub(new Uint8Array(record.bytes), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, ''), rules })
       edition = converted.edition
       data = converted.images
     } catch (error) {
@@ -149,11 +151,10 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     }
     // A browser that cannot keep it converts again next time; reading goes on.
     await keepEdition(key, owner, edition, data).catch(() => {})
-  } else {
-    // Converted before bylines were read: who wrote each chapter, from the stored
-    // text, in memory only. Its chapters and every reading place stay as they are.
-    edition = healChapterAuthors(edition)
   }
+  // What an earlier conversion lacks that changes no chapter or paragraph (bylines, the
+  // author's name, a one-chapter book's title), from the stored text, in memory only.
+  edition = healUserEdition(edition)
   // Blobs made now, in memory, from the kept bytes: each reader load draws from fresh object URLs.
   const images = new Map<string, Blob>([...data].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
   // A cover kept before full-size covers (a 180 px thumbnail, or none drawn) is drawn
@@ -164,6 +165,21 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   }
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
   return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover } }
+}
+
+/**
+ * The rules a book is converted again with (userEdition.ts): those of its
+ * stored conversion, when it has one (kept, but missing a picture); else
+ * those its saved place was read under, a place saved before the place
+ * recorded them being a place in a conversion made before
+ * USER_EDITION_CONVERTER; else the current rules, for a book never read here.
+ */
+export function conversionRules(stored: unknown, placeConverter: number | null | undefined): number {
+  const edition = stored as Partial<UserBookEdition> | null | undefined
+  if (edition && edition.format === USER_EDITION_FORMAT && typeof edition.converter === 'number' && USER_EDITION_CONVERTERS.includes(edition.converter)) return edition.converter
+  if (placeConverter === undefined) return USER_EDITION_CONVERTER
+  if (placeConverter !== null && USER_EDITION_CONVERTERS.includes(placeConverter)) return placeConverter
+  return LEGACY_EDITION_CONVERTER
 }
 
 const COVER_HEAL_DELAY_MS = 1500

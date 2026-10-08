@@ -598,7 +598,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   // Subheadings, list items and links travel beside the text, as in a reader's own book.
   registerChapterStructure(entry)
   registerChapterStructure(compareChapter)
-  if (registryBook.author === 'William Shakespeare') {
+  // A play set with its speakers in its speeches (Shakespeare, or a play a reader added: EditionData.speakers).
+  if (registryBook.author === 'William Shakespeare' || primaryData.speakers || compareData?.speakers) {
     registerShakespeareSpeakers(entry.paragraphs)
     registerShakespeareSpeakers(compareParagraphs)
   }

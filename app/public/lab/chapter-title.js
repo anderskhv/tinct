@@ -237,6 +237,13 @@ export function normalizeChapterTitle(title, options = {}) {
   const english = languageOf(options.language) === 'en'
   const written = title.replace(/\s+/g, ' ').trim()
   if (!written) return title
+  // A title and a numbered part of it, joined by the EPUB converter ("BOOK ONE: 1805, CHAPTER II",
+  // "I. A SCANDAL IN BOHEMIA, PART II"): each in house style -> "Book 1: 1805, Chapter 2".
+  const joined = written.match(new RegExp(`^(.*[^\\s,]),\\s+((?:${labelPattern(english)})\\.?\\s+(?:\\d{1,4}|[IVXLC]+|[ivxlc]+))\\.?$`, 'iu'))
+  if (joined && /\p{L}/u.test(joined[1])) {
+    const label = readLabel(joined[2], english)
+    if (label && label.length === joined[2].length) return `${normalizeChapterTitle(joined[1], options)}, ${label.text}`
+  }
   // A heading's trailing comma or semicolon belongs to the printed line, not the title ("TO THE FIRST BOOK,").
   const original = (withoutPrintMarks(written) || written).replace(/\s*[,;]+$/, '') || written
   const shouting = !hasLower(original)

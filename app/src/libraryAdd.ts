@@ -17,6 +17,7 @@ import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { ownBookOpenUrl } from './lab/userBook/userBookId'
 import { readOwnShelf } from './lab/userBook/ownShelf'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
+import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
 
 export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
 export type ImportResult =
@@ -61,11 +62,12 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
     if (!source.ok) return { ok: false, reason: failureFor(source.status, undefined) }
     const bytes = new Uint8Array(await source.arrayBuffer())
     options.onStage?.('convert')
-    let chapters: Array<{ number: number; title: string; paragraphs: string[] }>
+    let chapters: PublicChapterUpload[]
     try {
       const { epubToEdition } = await import('./lab/userBook/epubEdition')
       // Titles as the file writes them: the Worker checks them against the EPUB, then sets them in house style.
-      chapters = (await epubToEdition(bytes, { sourceTitles: true })).chapters
+      // Text, verse and headings only: an added book shows no pictures (a picture's caption stays as text).
+      chapters = publicChapters((await epubToEdition(bytes, { sourceTitles: true })).chapters)
     } catch {
       return { ok: false, reason: 'unreadable' }
     }
