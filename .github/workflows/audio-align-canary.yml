@@ -118,6 +118,7 @@ jobs:
             > "$ARTIFACT_DIR/billing.txt" 2>&1 || true
 
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
           name: audio-align-canary-${{ github.run_id }}

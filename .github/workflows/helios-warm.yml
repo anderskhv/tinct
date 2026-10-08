@@ -46,7 +46,9 @@ jobs:
           npx esbuild scripts/warm-helios.mjs --bundle --platform=node --format=esm --outfile=/tmp/tinct-warm-helios.mjs
           node /tmp/tinct-warm-helios.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: helios-warm-summary
           path: app/artifacts/helios-warm

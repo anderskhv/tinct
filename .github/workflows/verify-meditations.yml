@@ -43,8 +43,10 @@ jobs:
           ARTIFACT_DIR: artifacts/meditations-release
         run: node scripts/check-reviewed-characters.cjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: meditations-release-acceptance
           path: app/artifacts/meditations-release
   production-content:
@@ -72,7 +74,9 @@ jobs:
           ARTIFACT_DIR: artifacts/meditations-production
         run: node scripts/check-reviewed-characters.cjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: meditations-production-acceptance
           path: app/artifacts/meditations-production

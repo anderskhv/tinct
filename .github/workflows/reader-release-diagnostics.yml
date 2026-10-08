@@ -27,7 +27,9 @@ jobs:
       - run: node scripts/check-warmup-navigation.mjs
       - run: node scripts/check-omarchy.mjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: reader-release-network
           path: app/artifacts/omarchy

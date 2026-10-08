@@ -62,6 +62,7 @@ jobs:
             --apply
 
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always() && hashFiles('guard-report.json') != ''
         with:
           name: gpu-guard-report

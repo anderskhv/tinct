@@ -38,8 +38,10 @@ jobs:
           ARTIFACT_DIR: artifacts/web-revelation-release
         run: node scripts/check-web-revelation.cjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: web-revelation-release-acceptance
           path: app/artifacts/web-revelation-release
   production-content:
@@ -66,7 +68,9 @@ jobs:
           ARTIFACT_DIR: artifacts/web-revelation-production
         run: node scripts/check-web-revelation.cjs
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         if: always()
         with:
+          retention-days: 3
           name: web-revelation-production-acceptance
           path: app/artifacts/web-revelation-production
