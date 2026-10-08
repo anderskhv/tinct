@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { start } from './serve.mjs';
 import { makeEpub } from './make-epub.mjs';
+import { shelfSignIn, addFile } from './shelf.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const REPO = join(HERE, '../../..');
@@ -72,19 +73,10 @@ async function run(browser, { ownBooks }) {
   });
   const p = await ctx.newPage();
   p.on('request', r => seen.push({ url: r.url(), body: r.postData() || '' }));
-  await p.goto(BASE);
-  await p.evaluate(([key]) => localStorage.setItem(key, JSON.stringify({ access_token: 'test-token', refresh_token: 'refresh-test-token', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'u-test', email: 'reader@example.com' } })), [SESSION_KEY]);
-  await p.reload();
-  await p.waitForSelector('#doorOwn');
-  const chooser = p.waitForEvent('filechooser');
-  await p.click('#abDrop');
-  await (await chooser).setFiles(EPUB);
-  await Promise.race([p.waitForSelector('#attestBox', { timeout: 30000 }), p.waitForURL(READER_URL, { timeout: 30000 })]);
-  if (!READER_URL.test(p.url()) && await p.$('#attestBox')) {
-    const copy = await p.evaluate(() => document.querySelector('#attestBox').closest('label').textContent.trim());
-    if (ownBooks) check('the rights checkbox covers listening and responsibility', /read and listen to it in Tinct/.test(copy) && /responsible for what I upload and share/.test(copy), { copy });
-    await p.check('#attestBox'); await p.click('#attestOk');
-  }
+  // Own books are added on the library's My shelf (its + pop-up; Add a book's start page is retired, 2026-10-08).
+  await shelfSignIn(p, ORIGIN);
+  const rights = await addFile(p, ORIGIN, EPUB);
+  if (rights && ownBooks) check('the rights checkbox covers listening and responsibility', /read and listen to it in Tinct/.test(rights.text) && /responsible for what I upload and share/.test(rights.text), { copy: rights.text });
   await p.waitForURL(READER_URL, { timeout: 30000 });
   await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length > 1, null, { timeout: 30000 });
   await p.waitForTimeout(1500);

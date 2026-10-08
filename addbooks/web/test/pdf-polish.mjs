@@ -10,6 +10,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { start } from './serve.mjs';
 import { pdfFixtures } from './make-pdf.mjs';
+import { shelfSignIn, addFile } from './shelf.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const REPO = join(HERE, '../../..');
@@ -36,21 +37,13 @@ async function page(browser, viewport) {
   await p.addInitScript(() => document.addEventListener('securitypolicyviolation', e => console.error('CSP violation: ' + e.violatedDirective + ' ' + e.blockedURI)));
   return { ctx, p, problems };
 }
-// Add a book's start page is retired (2026-10-08): files are added on the library's My shelf,
-// stood in by serve.mjs's /__shelf-add (the same engine, add-engine.js), and open at their address.
-const SHELF_ADD = `${ORIGIN}/__shelf-add`;
+// Add a book's start page is retired (2026-10-08): files are added with My shelf's + pop-up
+// (serve.mjs's stand-in for My shelf, with the library's own code; shelf.mjs), and open at their address.
 async function signIn(p) {
-  await p.goto(SHELF_ADD);
-  await p.evaluate(key => localStorage.setItem(key, JSON.stringify({ access_token: 'test-token', refresh_token: 'refresh-test-token', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'u-test', email: 'reader@example.com' } })), SESSION_KEY);
-  await p.reload();
-  await p.waitForSelector('#status:text("ready")');
+  await shelfSignIn(p, ORIGIN);
 }
 async function openFile(p, file) {
-  if (p.url() !== SHELF_ADD) { await p.goto(SHELF_ADD); await p.waitForSelector('#status:text("ready")') }
-  await p.setInputFiles('#file', file);
-  await p.waitForSelector('#attestBox, .pdf-sheet', { timeout: 30000 });
-  const box = await p.$('#attestBox');
-  if (box) { await box.check(); await p.click('#attestOk') }
+  await addFile(p, ORIGIN, file);
   await ready(p);
 }
 async function ready(p) {
