@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -537,5 +537,32 @@ describe('the phone surface media query', () => {
     expect(matches(1180, 820)).toBe(false)
     expect(matches(1440, 900)).toBe(false)
     expect(matches(1024, 1366)).toBe(true)
+  })
+})
+
+describe('labNeedsGestureAudioUnlock (opening Chat must not take a phone\'s headphones)', () => {
+  const MAC_CHROME = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
+  const MAC_SAFARI = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
+  const WIN = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
+  const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
+  const IPAD = 'Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1'
+  const ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36'
+
+  it('never unlocks on a desktop with a fine pointer (Mac, Windows), even with a touch-capable screen', () => {
+    for (const userAgent of [MAC_CHROME, MAC_SAFARI, WIN]) {
+      expect(labNeedsGestureAudioUnlock({ userAgent, maxTouchPoints: 0, primaryCoarse: false, primaryHoverNone: false })).toBe(false)
+    }
+    // A Windows touch laptop whose primary pointer is still the trackpad.
+    expect(labNeedsGestureAudioUnlock({ userAgent: WIN, maxTouchPoints: 10, primaryCoarse: false, primaryHoverNone: false })).toBe(false)
+    expect(labNeedsGestureAudioUnlock({})).toBe(false)
+  })
+
+  it('unlocks on iPhone, iPad (including iPadOS reporting a Mac) and touch-first devices', () => {
+    expect(labNeedsGestureAudioUnlock({ userAgent: IPHONE, maxTouchPoints: 5 })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: IPAD, maxTouchPoints: 5 })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: MAC_SAFARI, maxTouchPoints: 5, primaryCoarse: false, primaryHoverNone: false })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: ANDROID, maxTouchPoints: 5, primaryCoarse: true, primaryHoverNone: true })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryCoarse: true })).toBe(true)
+    expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryHoverNone: true })).toBe(true)
   })
 })

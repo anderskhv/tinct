@@ -97,6 +97,29 @@ export function isIosHandheldUserAgent(userAgent: string): boolean {
   return /iPhone|iPod/i.test(userAgent)
 }
 
+/**
+ * Whether opening a companion should unlock the narration element inside the
+ * tap (`useLabListen.unlockPlayback`). Only iOS/iPadOS and touch-first devices
+ * need it: their WebKit refuses play() outside a gesture. A desktop with a
+ * fine pointer never does, and there the muted unlock still starts audio
+ * output, which can pull shared Bluetooth headphones (AirPods automatic
+ * switching) away from a phone and stop its music (owner report, 2026-10-08).
+ */
+export function labNeedsGestureAudioUnlock(input: {
+  userAgent?: string
+  maxTouchPoints?: number
+  /** `(pointer: coarse)`: the primary pointer is a finger. */
+  primaryCoarse?: boolean
+  /** `(hover: none)`: the primary pointer cannot hover. */
+  primaryHoverNone?: boolean
+}): boolean {
+  const ua = input.userAgent ?? ''
+  if (isIosHandheldUserAgent(ua) || /iPad/i.test(ua)) return true
+  // iPadOS Safari reports a Mac user agent; only touch tells it apart.
+  if (/Macintosh/i.test(ua) && (input.maxTouchPoints ?? 0) > 1) return true
+  return !!input.primaryCoarse || !!input.primaryHoverNone
+}
+
 export function isLabPhoneSurface(input: {
   override?: LabLayoutHint
   matchMediaPhone?: boolean
