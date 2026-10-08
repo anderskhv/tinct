@@ -42,6 +42,9 @@ import {
   modernTierCents,
   modernTierFor,
   needsAudit,
+  FAILED_REVIVAL,
+  publicFailures,
+  reviveFailedChapters,
   paidJob,
   prioritise,
   publicChapterStates,
@@ -132,7 +135,7 @@ function statusBody(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now
   return {
     state, chapters: publicChapterStates(job, now), offer: canBuy ? offerFor(env, meta, job, now) : null,
     // While the edition is being written: how far each chapter is, and an estimate of when it is done.
-    ...(state === 'paid' ? { progress: publicProgress(job, totals) } : {}),
+    ...(state === 'paid' ? { progress: publicProgress(job, totals), failures: publicFailures(job, now) } : {}),
   }
 }
 
@@ -160,7 +163,13 @@ async function statusFor(request: Request, env: ModernEnv, meta: StoredMeta, job
  * is the source handed back is discarded and queued again (lib/modernEdition.ts
  * repairEchoedEdition). Returns the job as it now stands.
  */
-async function auditedJob(bucket: R2Bucket, bookId: string, meta: StoredMeta, job: ModernJob | null, now: number): Promise<ModernJob | null> {
+async function auditedJob(bucket: R2Bucket, bookId: string, meta: StoredMeta, checked: ModernJob | null, now: number): Promise<ModernJob | null> {
+  let job = checked
+  // Chapters left failed before failure reasons were recorded go again now (lib reviveFailedChapters).
+  if (job?.state === 'paid' && job.revived !== FAILED_REVIVAL) {
+    await reviveFailedChapters(bucket, bookId, now)
+    job = (await readJob(bucket, bookId))?.job ?? null
+  }
   if (!needsAudit(job)) return job
   const source = (await readJson<{ chapters?: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)))?.chapters
   if (!source?.length) return job
@@ -194,7 +203,8 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
         const began = now()
         const result = await modernStep(bucket, { bookId, title: meta.book.title, author: meta.book.author, source: loadSource, generate: options.generate, now, owner })
         longest = Math.max(longest, now() - began)
-        if (result === 'idle' || result === 'complete') return
+        // 'backoff': the provider asked us to wait (429/5xx); the next request or the cron goes on after it.
+        if (result === 'idle' || result === 'complete' || result === 'backoff') return
         if (result === 'failed') { if (++failures >= 3) return } else failures = 0
       }
     } finally {
