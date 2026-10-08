@@ -334,6 +334,39 @@ describe('chapter titles of an added book', () => {
     // Not renamed "Section N": the check saw the file's own words.
     expect(data.chapters.map(c => c.title)).toEqual(titles)
   })
+
+  it('are read together, and the printed contents is not published, even from an older converter', async () => {
+    // Shaped like Seneca's Minor Dialogues (Gutenberg 64576): a printed CONTENTS, then headings sharing boilerplate.
+    const heading = (ordinal: string, to: string, name: string) => `THE ${ordinal} BOOK OF THE DIALOGUES OF L. ANNAEUS SENECA, ADDRESSED TO ${to}. ${name}`
+    const docs: Array<[string, string[]]> = [
+      ['CONTENTS.', ['PAGE', 'Of Providence 1', 'Of Anger. I. 48', '" II. 76', 'Of Consolation. To Marcia 162']],
+      [heading('FIRST', 'LUCILIUS', '“WHY, WHEN A PROVIDENCE EXISTS, ANY MISFORTUNES BEFALL GOOD MEN;” OR, “OF PROVIDENCE”'), PARAGRAPHS[0]],
+      [heading('THIRD', 'NOVATUS', 'OF ANGER. Book I.'), PARAGRAPHS[1]],
+      [heading('FOURTH', 'NOVATUS', 'OF ANGER. Book II.'), ['My first book, Novatus, had a more abundant subject: for carriages roll easily down hill.']],
+      [heading('SIXTH', 'MARCIA', 'OF CONSOLATION.'), ['Did I not know, Marcia, that you have as little of a woman’s weakness of mind as of her other vices.']],
+    ]
+    const page = (title: string, paras: string[]) => `<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>t</title></head><body><h2>${title}</h2>${paras.map(p => `<p>${p}</p>`).join('')}</body></html>`
+    const epub = zipFiles([
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'],
+      ['OEBPS/content.opf', `<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">x</dc:identifier><dc:title>Minor Dialogues</dc:title><dc:creator>Seneca</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>${docs.map((_, i) => `<item id="c${i}" href="c${i}.xhtml" media-type="application/xhtml+xml"/>`).join('')}</manifest><spine>${docs.map((_, i) => `<itemref idref="c${i}"/>`).join('')}</spine></package>`],
+      ['OEBPS/nav.xhtml', `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><body><nav epub:type="toc"><ol>${docs.map(([title], i) => `<li><a href="c${i}.xhtml">${title}</a></li>`).join('')}</ol></nav></body></html>`],
+      ...docs.map(([title, paras], i): [string, string] => [`OEBPS/c${i}.xhtml`, page(title, paras)]),
+    ])
+    const t = setup({ epub })
+    await t.prepare('pg:99999')
+    // An older converter sent the printed contents as a chapter of its own.
+    const committed = await t.convertAndCommit('pd-pg-99999', chapters => {
+      if (!chapters.some(c => c.title === 'CONTENTS.')) chapters.unshift({ number: 0, title: 'CONTENTS.', paragraphs: docs[0][1] })
+      chapters.forEach((c, i) => { c.number = i + 1 })
+    })
+    expect(committed.status).toBe(201)
+    const data = await (await handlePublicEditionData(new Request('https://tinct.app/data/editions/pd-pg-99999-original-en.json'), t.env))!.json() as { chapters: Array<{ number: number; title: string; paragraphs: string[] }> }
+    // One "Of Consolation" needs no addressee to tell it apart.
+    expect(data.chapters.map(c => c.title)).toEqual(['Of Providence', 'Of Anger, Book 1', 'Of Anger, Book 2', 'Of Consolation'])
+    expect(data.chapters.map(c => c.number)).toEqual([1, 2, 3, 4])
+    expect(JSON.stringify(data)).not.toMatch(/Of Providence 1|PAGE/)
+  })
 })
 
 describe('verification against the downloaded EPUB', () => {
