@@ -1,0 +1,97 @@
+{
+  "status": "PROPOSAL — no taxonomy or registry file edited",
+  "baseline": "app/src/data/libraryTaxonomy.ts at origin/main 02c613d8364fc2b37782ea143b3cb92cc9970e06",
+  "house": {
+    "id": "philosophy",
+    "change": "append \"critical-rationalism\" to LIBRARY_HOUSES[philosophy].shelves, after \"modern-philosophy\""
+  },
+  "shelf": {
+    "id": "critical-rationalism",
+    "title": "Critical Rationalism",
+    "sub": "Popper, Deutsch and how knowledge grows",
+    "hue": 175,
+    "description": "Contemporary books in the tradition of Karl Popper and David Deutsch, which holds that all knowledge grows by conjecture and criticism. Here the idea is applied to physics, history, parenting and what a person is.",
+    "members": [
+      "the-sovereign-child",
+      "lords-of-the-cosmos",
+      "bold-conjectures-volume-1",
+      "bold-conjectures-volume-2",
+      "the-farthest-reaches"
+    ],
+    "memberOrder": "publication order: The Sovereign Child (2025), Lords of the Cosmos (2025), Bold Conjectures I (2025), Bold Conjectures II (2026), The Farthest Reaches (2026)"
+  },
+  "books": [
+    {
+      "id": "the-sovereign-child",
+      "title": "The Sovereign Child",
+      "author": "Aaron Stupple",
+      "tradition": "American",
+      "year": "2025",
+      "ySort": 2025,
+      "form": "philosophy",
+      "era": "contemporary",
+      "hue": 200,
+      "blurb": "Parenting without rules, argued from a theory of knowledge.",
+      "themes": ["parenting", "autonomy", "epistemology"],
+      "shelves": ["critical-rationalism"]
+    },
+    {
+      "id": "lords-of-the-cosmos",
+      "title": "Lords of the Cosmos",
+      "author": "Arjun Khemani and Logan Chipkin",
+      "year": "2025",
+      "ySort": 2025,
+      "form": "philosophy",
+      "era": "contemporary",
+      "hue": 265,
+      "blurb": "From cosmic monotony to the Enlightenment, a history of everything told through knowledge.",
+      "themes": ["progress", "optimism", "enlightenment"],
+      "shelves": ["critical-rationalism"]
+    },
+    {
+      "id": "bold-conjectures-volume-1",
+      "title": "Bold Conjectures, Volume I",
+      "author": "Logan Chipkin (ed.)",
+      "year": "2025",
+      "ySort": 2025,
+      "form": "philosophy",
+      "era": "contemporary",
+      "hue": 50,
+      "blurb": "David Deutsch in conversation, 2012–2024.",
+      "themes": ["quantum-theory", "epistemology", "interviews"],
+      "shelves": ["critical-rationalism"]
+    },
+    {
+      "id": "bold-conjectures-volume-2",
+      "title": "Bold Conjectures, Volume II",
+      "author": "Logan Chipkin (ed.)",
+      "year": "2026",
+      "ySort": 2026,
+      "form": "philosophy",
+      "era": "contemporary",
+      "hue": 215,
+      "blurb": "Physicists on what is still unsettled in fundamental physics.",
+      "themes": ["physics", "quantum-theory", "essays"],
+      "shelves": ["critical-rationalism"]
+    },
+    {
+      "id": "the-farthest-reaches",
+      "title": "The Farthest Reaches",
+      "author": "Brett Hall",
+      "year": "2026",
+      "ySort": 2026,
+      "form": "philosophy",
+      "era": "contemporary",
+      "hue": 330,
+      "blurb": "Why people are the most important entities in the universe.",
+      "themes": ["personhood", "universality", "epistemology"],
+      "shelves": ["critical-rationalism"]
+    }
+  ],
+  "openDecisions": [
+    "Era: the owner asked for '2020s'. LIBRARY_ERAS has antiquity / medieval / early-modern / modern (19th c.) / contemporary (1900–). Proposed: 'contemporary'. If Anders wants a separate 21st-century era, that is a taxonomy change for Codex with its own label and range.",
+    "Form: all five are proposed as 'philosophy'. Bold Conjectures II is physics essays and Volume I is interviews; LIBRARY_FORMS has no 'essays' or 'science' form, and adding one is a filter change.",
+    "Canon/list memberships: none proposed. These are new books with no reading-list evidence.",
+    "Tradition: 'American' for Stupple (he lives in Western Massachusetts, per About the Author). Omitted for the others: the books do not state a nationality, and co-authored and edited volumes have none."
+  ]
+}
