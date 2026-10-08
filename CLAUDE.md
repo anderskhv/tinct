@@ -222,7 +222,7 @@ These rules exist because their absence caused recurring sync bugs (B1, B19, B21
 
 ## Book Addition Workflow
 
-Read [the mandatory book-task workflow](books/BOOK-TASK-WORKFLOW.md) and [current adding-book strategy](books/README.md). Claude completes and pushes the isolated content package; Codex handles registry, app integration and publication. The old inline checklist is superseded.
+Read [the mandatory book-task workflow](books/BOOK-TASK-WORKFLOW.md) and [current adding-book strategy](books/README.md). Claude completes and pushes the isolated content package, then (when assigned) handles registry, app integration and publication. Claude owns integration and publication since 2026-10-08; Codex is retired. The old inline checklist is superseded.
 
 ---
 
@@ -241,7 +241,7 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Kids Editions Dropped]** — Permanently out of scope. Never generate, reference, or discuss children's editions.
 - **[Landing Page Auth Redirect — P0]** — Signed-in users must NEVER see the landing page. Auth-check script at top of `app/public/landing.html` inspects the Supabase session token and redirects to `/read` before render. Any regression is a P0 bug.
 - **[User Journeys v1]** — Two paths. Journey A (direct-to-book / SEO): edition picker → reader → state-aware top banner → end-of-chapter-1 progress prompt → sign-up → TierChooser. Journey B (library-first): landing → library → 3-step Book Onboarding → TierChooser → reader. Four locked principles: no hard gates, don't describe local storage, no-downside Premium (defaulted), three tiers always. URL parsing: `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Account Onboarding (6-step tour) is optional, available from Settings — NOT critical path.
-- **[Book-task scope — 2026-09-24]** — Follow `books/BOOK-TASK-WORKFLOW.md`: isolated content artifacts only; Codex owns code, live integration and publication. Explicit separate coding assignments remain allowed.
+- **[Book-task scope — 2026-09-24]** — Follow `books/BOOK-TASK-WORKFLOW.md`: isolated content artifacts only; integration and publication are a separate assigned step. Since 2026-10-08 Claude owns that step too (Codex retired).
 - **[Open Audit Items]** — Awaiting Anders: (1) make R2 bucket private + bind to worker via `env.R2_BUCKET.get()`; (2) convert hero images to WebP (~800 KB gzip savings); (3) `React.lazy()` SettingsSheet/PricingModal/UsageDashboard/BookStore/TierChooser (~30-40 KB deferred); (4) minify static JSON via Vite plugin (~10-15 KB).
 - **[Angle Iteration — FUTURE, not built]** — When user submits a reading angle, AI responds conversationally and iterates over a few turns before lock-in. Free tier gets ~5 messages of this as taste of the AI companion (in-book chat remains Premium). Logged to `BACKLOG.md`.
 
