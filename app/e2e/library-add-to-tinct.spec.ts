@@ -1,6 +1,9 @@
 import { expect, test, type Page } from '@playwright/test'
 import { mkdirSync } from 'node:fs'
 import { join } from 'node:path'
+// A real (one-page) PDF: Add a book's engine opens a PDF before keeping it and refuses one that
+// does not open (fix/pdf-qa-1008), so a stand-in byte string is no longer kept.
+import { makePdf } from '../../addbooks/web/test/make-pdf.mjs'
 
 /**
  * Add to Tinct (approved D1/D2, 2026-10-06) in the library: the search's
@@ -116,7 +119,7 @@ async function expectOwnBookPopUp(page: Page) {
   await expect(choose).toBeFocused()
   expect(new URL(page.url()).pathname).toBe('/library')
   const [chooser] = await Promise.all([page.waitForEvent('filechooser'), choose.click()])
-  await chooser.setFiles({ name: 'notes.pdf', mimeType: 'application/pdf', buffer: Buffer.from('%PDF-1.4 fixture') })
+  await chooser.setFiles({ name: 'notes.pdf', mimeType: 'application/pdf', buffer: Buffer.from(makePdf({ pages: [{ lines: [{ x: 72, y: 700, size: 12, font: 'Times-Roman', text: 'Lecture notes' }] }] })) })
   // The first file on this account: the rights confirmation, in the same pop-up, still on the library.
   await expect(dialog.locator('[role="dialog"]')).toHaveAttribute('data-step', 'rights', { timeout: 15_000 })
   await expect(dialog.locator('.own-file-rights')).toHaveText(RIGHTS)
