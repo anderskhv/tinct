@@ -410,14 +410,20 @@ html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pendin
 .search-language option{color:#1c1a14;background:#eee7d0}
 @media(max-width:699px){.search-filters{gap:6px;margin-bottom:16px}.search-filter{padding:7px 12px;min-height:38px;font-size:12.5px}.search-language{padding-right:28px}}
 /* A · Tuck: minimized, the librarian is the dotted orb alone (2026-10-08: no capsule,
-   no chat icon). The button is the orb's pointer target; a soft shadow halo behind the
-   dots and a drop shadow on them keep it readable over light and dark rooms. The orb
-   flying back from the panel (.returning) looks the same. */
-html #librarian.tuck,html #librarian.tuck[data-edge],html #librarian.returning{padding:0;border-radius:50%;background:radial-gradient(closest-side,#0a110d70,#0a110d38 62%,#0a110d00);box-shadow:none;backdrop-filter:none}
+   no chat icon) on a round disc of the scrolled top bar's glass (#header.scrolled:
+   translucent dark with a backdrop blur), so it reads over light and dark rooms.
+   The button is the orb's pointer target; app.js sizes and squashes the disc
+   (--disc-w/--disc-h) and the dots (--orb-sx/--orb-sy) with the orb. The orb flying
+   back from the panel (.returning) wears the same disc. */
+html #librarian.tuck,html #librarian.tuck[data-edge],html #librarian.returning{padding:0;border-radius:50%;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+html #librarian.returning{padding:4px}
 html #librarian.tuck{transition:none}
 #librarian.tuck::after,#librarian.returning::after{display:none}
-#librarian.tuck #orb{position:absolute;left:50%;top:50%;width:50px;height:50px;margin:-25px 0 0 -25px;transform:scale(var(--orb-sx,.88),var(--orb-sy,.88))}
-#librarian.tuck #orb,#librarian.returning #orb{filter:drop-shadow(0 1px 1.5px #000c) drop-shadow(0 2px 6px #0007)}
+#librarian.tuck::before,#librarian.returning::before{content:'';position:absolute;left:50%;top:50%;width:var(--disc-w,44px);height:var(--disc-h,44px);transform:translate(-50%,-50%);border-radius:50%;background:#10201755;-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);pointer-events:none}
+#librarian.returning::before{width:100%;height:100%}
+#librarian.tuck #orb{position:absolute;left:50%;top:50%;width:50px;height:50px;margin:-25px 0 0 -25px;transform:scale(var(--orb-sx,.74),var(--orb-sy,.74))}
+#librarian.returning #orb{position:relative}
+#librarian.tuck #orb,#librarian.returning #orb{filter:drop-shadow(0 1px 1.5px #000c)}
 /* Search open (app.js syncLibrarianAway): the tucked orb steps aside where it would cover results. */
 /* It fades out; it is back at once when search closes. */
 html.librarian-away #librarian.tuck{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility 0s .18s}
