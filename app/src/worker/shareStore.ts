@@ -8,9 +8,14 @@ import { DurableObject } from 'cloudflare:workers'
  * The public record is the passage and how it was drawn. `creator_id` is kept
  * privately for analytics, is never returned by `get`, and is cleared when
  * the account is deleted (`forgetCreator`).
+ *
+ * The `tagline` column holds the drawing flags (no new column): bit 0 the
+ * tinct.app credit, bit 1 the highlight colour turned off, bit 2 the reader
+ * left-aligned. Rows written before the flags read as before: 0 or 1, with
+ * the highlight colour and justified text.
  */
 
-import { SHARE_ID_ALPHABET as ID_ALPHABET, SHARE_ID_PATTERN, type ShareRecord, type ShareRecordInput } from './shareRecord'
+import { SHARE_ID_ALPHABET as ID_ALPHABET, SHARE_ID_PATTERN, readShareFlags, shareFlags, type ShareRecord, type ShareRecordInput } from './shareRecord'
 
 export type { ShareRecord, ShareRecordInput } from './shareRecord'
 
@@ -48,7 +53,7 @@ export class ShareStore extends DurableObject {
         'INSERT INTO shares VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
         id, createdAt, input.bookId, input.editionKey, input.chapterNumber,
         input.paragraphIndex, input.fromWord, input.endParagraphIndex, input.toWord,
-        input.look, input.format, input.context ? 1 : 0, input.tagline ? 1 : 0, creatorId,
+        input.look, input.format, input.context ? 1 : 0, shareFlags(input), creatorId,
       )
       return { ...input, id, createdAt }
     }
@@ -62,7 +67,7 @@ export class ShareStore extends DurableObject {
     return {
       id: row.id, createdAt: row.created_at, bookId: row.book_id, editionKey: row.edition_key, chapterNumber: row.chapter,
       paragraphIndex: row.paragraph, fromWord: row.from_word, endParagraphIndex: row.end_paragraph, toWord: row.to_word,
-      look: row.look as ShareRecord['look'], format: row.format as ShareRecord['format'], context: row.context === 1, tagline: row.tagline === 1,
+      look: row.look as ShareRecord['look'], format: row.format as ShareRecord['format'], context: row.context === 1, ...readShareFlags(row.tagline),
     }
   }
 

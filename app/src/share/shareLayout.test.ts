@@ -16,6 +16,8 @@ import {
   SHARE_ELLIPSIS,
   SHARE_TAGLINE,
   buildPassage,
+  layoutColumns,
+
   composeShareCards,
   composeSharePage,
   isValidShareRange,
@@ -100,33 +102,53 @@ describe('share highlight: fitting (SPEC.md order)', () => {
     expect(placedHighlight(desktop)).toBe(shareRangeText(paragraphs, SHORT))
   })
 
-  it('moves a long highlight to the spread and shrinks it, never below 75%', () => {
-    const page = composeSharePage(content(LONG), options('desktop'), fonts)
-    expect(page.mode).toBe('spread')
-    expect(page.cut).toBe(false)
-    expect(page.scale).toBeLessThan(0.9)
-    expect(page.scale).toBeGreaterThanOrEqual(0.75)
-    expect(placedHighlight(page)).toBe(shareRangeText(paragraphs, LONG))
-    expect(page.pageNumbers).toHaveLength(2)
-  })
+  it('never fits a long highlight into a two-page spread: it becomes single pages at reader size', () => {
+    for (const format of ['phone', 'desktop'] as const) {
+      const cards = composeShareCards(content(LONG), options(format), fonts)
+      expect(cards.length).toBeGreaterThan(1)
+      expect(cards.length).toBeLessThanOrEqual(SERIES_MAX_CARDS)
+      cards.forEach((card, k) => {
+        // Desktop at reader size; the phone's smaller page needs more than four at reader size, so all four are set a little smaller.
+        expect(card).toMatchObject({ mode: 'single', scale: cards[0].scale, cut: false, series: { index: k + 1, count: cards.length } })
+        if (format === 'desktop') expect(card.scale).toBe(1)
+        else expect(card.scale).toBeGreaterThanOrEqual(0.75)
+        expect(card.frame.canvas).toEqual(format === 'phone' ? { width: 1080, height: 1350 } : { width: 1600, height: 1000 })
+        expect(card.layout.fontSize).toBeCloseTo(card.frame.baseSize * card.scale, 6)
 
-  it('cuts an over-long highlight at a sentence at 75%, without changing the words', () => {
-    for (const format of ['phone', 'desktop', 'og'] as const) {
-      const page = composeSharePage(content(OVER), options(format), fonts)
-      expect(page.cut).toBe(true)
-      expect(page.scale).toBe(0.75)
-      const shown = placedHighlight(page)
-      expect(shown.endsWith(SHARE_ELLIPSIS)).toBe(true)
-      const words = shown.slice(0, -1)
-      expect(shareRangeText(paragraphs, OVER).startsWith(words)).toBe(true)
-      expect(/[.!?]["”’)]*$/.test(words)).toBe(true)
+        expect(card.layout.usedHeight).toBeLessThanOrEqual(card.frame.text.height + 0.5)
+        if (format === 'desktop') {
+          // One page, never the two-page spread, numbered on from the first.
+          expect(card.frame.page!.width).toBeLessThan(card.frame.canvas.width * 0.6)
+          expect(card.pageNumbers).toEqual([cards[0].pageNumbers[0] + k])
+          expect(renderShareSvg(card, fonts)).not.toContain('linearGradient')
+        }
+      })
+      // Every highlighted word, once, in order.
+      expect(cards.map(placedHighlight).join(' ')).toBe(shareRangeText(paragraphs, LONG))
+      // One image is the series' first page.
+      expect(composeSharePage(content(LONG), options(format), fonts).layout).toEqual(cards[0].layout)
     }
   })
 
-  it('never shrinks the single desktop page; it goes to the spread instead', () => {
-    const page = composeSharePage(content(LONG), options('desktop', { tagline: false }), fonts)
-    expect(page.mode).toBe('spread')
-    expect(page.frame.canvas).toEqual({ width: 1600, height: 1000 })
+  it('cuts an over-long highlight at a sentence at 75%, without changing the words', () => {
+    // Phone and desktop: past four pages even at 75%, the four pages are cut. The link preview: one image.
+    const all = paragraphs.slice(0, 12)
+    const hugeRange: ShareRange = { paragraphIndex: 0, fromWord: 0, endParagraphIndex: all.length - 1, toWord: tokenizeParagraph(all[all.length - 1]).length }
+    const huge: ShareContent = { ...content(OVER), paragraphs: all, range: hugeRange }
+    const cases: Array<[ReturnType<typeof composeSharePage>[], string]> = [
+      [[composeSharePage(content(OVER), options('og'), fonts)], shareRangeText(paragraphs, OVER)],
+      [composeShareCards(huge, options('phone'), fonts), shareRangeText(all, hugeRange)],
+      [composeShareCards(huge, options('desktop'), fonts), shareRangeText(all, hugeRange)],
+    ]
+    for (const [pages, text] of cases) {
+      expect(pages.length).toBeLessThanOrEqual(SERIES_MAX_CARDS)
+      for (const page of pages) expect(page).toMatchObject({ cut: true, scale: 0.75 })
+      const shown = pages.map(placedHighlight).join(' ')
+      expect(shown.endsWith(SHARE_ELLIPSIS)).toBe(true)
+      const words = shown.slice(0, -1)
+      expect(text.startsWith(words)).toBe(true)
+      expect(/[.!?]["”’)]*$/.test(words)).toBe(true)
+    }
   })
 
   it('centres a quote shown alone in the link preview', () => {
@@ -198,11 +220,10 @@ describe('share highlight: the quote card (surrounding text off)', () => {
   // One image only (composeSharePage). The share itself sets such a quote as a
   // series of cards (composeShareCards, below); this page is its last resort.
   it('as one image, hands a quote too long for the card to the page, which never loses more words', () => {
-    // Desktop: the spread shows all of it, as before the card existed.
-    const desktop = composeSharePage(content(LONG), options('desktop', { context: false }), fonts)
-    expect(desktop.mode).toBe('spread')
-    expect(desktop.cut).toBe(false)
-    expect(placedHighlight(desktop)).toBe(shareRangeText(paragraphs, LONG))
+    // Desktop: the single page, never a spread.
+    const desktop = composeSharePage(content(OVER), options('desktop', { context: false }), fonts)
+    expect(desktop.mode).toBe('single')
+    expect(desktop.frame.page!.width).toBeLessThan(desktop.frame.canvas.width * 0.6)
     // Over-long anywhere: the page's 75% floor and sentence cut.
     for (const format of ['phone', 'desktop'] as const) {
       const page = composeSharePage(content(OVER), options(format, { context: false }), fonts)
@@ -333,7 +354,9 @@ describe('share highlight: hyphenation (the phone reader plan)', () => {
   const COMMANDMENT: ShareRange = { paragraphIndex: 2, fromWord: 27, endParagraphIndex: 2, toWord: 35 }
   // Verses 1–11: long enough for the desktop spread.
   const HEAVENS: ShareRange = { paragraphIndex: 1, fromWord: 0, endParagraphIndex: 2, toWord: tokenizeParagraph(psalm[2]).length }
-  const page = (language: string | undefined, extra: Partial<ShareOptions> = {}, hyphenate?: (word: string) => number[], format: ShareOptions['format'] = 'phone') => psalmPage(VERSE_7, language, extra, hyphenate, format)
+  // Verses 7 and 8 on one desktop page (verse 7 alone is two lines there, now nothing follows the highlight).
+  const DESKTOP_PAGE: ShareRange = { paragraphIndex: 2, fromWord: 0, endParagraphIndex: 2, toWord: 53 }
+  const page = (language: string | undefined, extra: Partial<ShareOptions> = {}, hyphenate?: (word: string) => number[], format: ShareOptions['format'] = 'phone') => psalmPage(format === 'desktop' ? DESKTOP_PAGE : VERSE_7, language, extra, hyphenate, format)
   // What the Worker uses; the same breaks as the phone reader's (checked below).
   const breaks = englishShareBreaks
   type Composed = ReturnType<typeof composeSharePage>
@@ -440,8 +463,18 @@ describe('share highlight: hyphenation (the phone reader plan)', () => {
   })
 
   it('hyphenates loose justified lines on the Psalms 19 page, as the phone reader does', () => {
-    const before = page('en')
-    const after = page('en', {}, breaks)
+    // Anders's page as it was drawn before trailing context was dropped: verse 7
+    // highlighted, the rest of the paragraph greyed after it. The page itself
+    // now stops at the highlight; this keeps the hyphenation check on a full
+    // page of the reader's own text.
+    const reference = page('en')
+    const tokens = tokenizeParagraph(psalm[2]).slice(VERSE_7.toWord)
+    const passage = [...buildPassage(psalm, VERSE_7, true)]
+    passage[passage.length - 1] = { tokens: [...passage[passage.length - 1].tokens, ...tokens] }
+    const box = { width: reference.frame.text.width, height: reference.frame.text.height, columns: 1, gap: 0 }
+    const fullPage = (hyphenate?: (word: string) => number[]): Composed => ({ ...reference, layout: layoutColumns(passage, fonts, reference.frame.baseSize, box, hyphenate) })
+    const before = fullPage()
+    const after = fullPage(breaks)
     // Loose: a gap wider than the reader plan's threshold (0.55em, space included; a
     // normal space in this face is 0.2em).
     const loose = (composed: Composed) => widestGaps(composed).filter(gap => gap > SHARE_HYPHEN_GAP_EM).length
@@ -451,8 +484,9 @@ describe('share highlight: hyphenation (the phone reader plan)', () => {
     expect(Math.max(...widestGaps(after))).toBeLessThanOrEqual(SHARE_HYPHEN_GAP_EM)
     expect(after.layout.lines.filter(line => line.words[line.words.length - 1].hyphen).length).toBeGreaterThanOrEqual(2)
     expectReaderRules(before, after)
-    // The whole highlight is placed (its opening verse number is the page's own).
+    // The whole highlight is placed (its opening verse number is the page's own), on the page as drawn too.
     expect(rejoined(after, hl => hl)).toEqual(shareRangeText(psalm, VERSE_7).split(' '))
+    expect(rejoined(page('en', {}, breaks), hl => hl)).toEqual(shareRangeText(psalm, VERSE_7).split(' '))
   })
 
   it('draws the hyphen at each break', () => {
@@ -463,27 +497,27 @@ describe('share highlight: hyphenation (the phone reader plan)', () => {
     for (const head of heads) expect(svg).toContain(`>${head.text}</text>`)
   })
 
-  it('hyphenates the desktop page and spread too, and leaves the quote card and other languages alone', () => {
+  const hyphenated = (composed: Composed) => composed.layout.lines.some(line => line.words.some(word => word.hyphen))
+
+  it('hyphenates the desktop page, every page of a series and the justified quote card, and leaves other languages alone', () => {
     const desktop = page('en', {}, breaks, 'desktop')
     expect(desktop.mode).toBe('single')
-    expect(desktop.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(true)
+    expect(hyphenated(desktop)).toBe(true)
     expectReaderRules(page('en', {}, undefined, 'desktop'), desktop)
-    const spread = psalmPage(HEAVENS, 'en', {}, breaks, 'desktop')
-    expect(spread.mode).toBe('spread')
-    expect(spread.cut).toBe(false)
-    expect(spread.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(true)
-    expectReaderRules(psalmPage(HEAVENS, 'en', {}, undefined, 'desktop'), spread)
-    // The quote card, one or a series, stays ragged right and unhyphenated.
+    // A series of single pages (never a spread), hyphenated as the reader is.
+    const series = composeShareCards(psalmContent('en', HEAVENS), options('desktop', { tagline: false }), fonts, breaks)
+    expect(series.length).toBeGreaterThan(1)
+    expect(series.every(composed => composed.mode === 'single' && !composed.cut)).toBe(true)
+    expect(series.some(hyphenated)).toBe(true)
+    // The quote card, one or a series, is justified like the reader, so it is hyphenated too.
     for (const format of ['phone', 'desktop'] as const) {
-      const card = page('en', { context: false }, breaks, format)
-      expect(card.mode).toBe('quote')
-      for (const composed of [card, ...composeShareCards(psalmContent('en', HEAVENS), options(format, { context: false }), fonts, breaks)]) {
-        expect(composed.mode).toBe('quote')
-        expect(composed.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(false)
-      }
+      const cards = [page('en', { context: false }, breaks, format), ...composeShareCards(psalmContent('en', HEAVENS), options(format, { context: false }), fonts, breaks)]
+      expect(cards.every(composed => composed.mode === 'quote')).toBe(true)
+      expect(cards.some(hyphenated)).toBe(true)
     }
     for (const language of ['da', undefined]) {
-      expect(page(language, {}, breaks).layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(false)
+      expect(hyphenated(page(language, {}, breaks))).toBe(false)
+      expect(hyphenated(page(language, { context: false }, breaks))).toBe(false)
     }
   })
 })
@@ -553,9 +587,69 @@ describe('share highlight: a series of cards for a long quote', () => {
     expect(rest).toEqual([])
     expect(card.series).toBeUndefined()
     expect(renderShareSvg(card, fonts)).not.toMatch(/>\d\/\d<\/text>/)
-    expect(composeShareCards(content(LONG), options('desktop'), fonts).map(page => page.mode)).toEqual(['spread'])
     expect(composeShareCards(content(SHORT), options('phone'), fonts).map(page => page.mode)).toEqual(['single'])
-    expect(composeShareCards(notesContent, options('phone'), fonts)).toHaveLength(1)
+    expect(composeShareCards(content(SHORT), options('phone'), fonts)[0].series).toBeUndefined()
+    // A long highlight with surrounding text: single pages, never a spread.
+    for (const format of ['phone', 'desktop'] as const) {
+      const pages = composeShareCards(notesContent, options(format), fonts)
+      expect(pages.length).toBeGreaterThan(1)
+      expect(pages.every(page => page.mode === 'single')).toBe(true)
+    }
+  })
+
+  it('with surrounding text, sets Anders’s long highlight as single pages: context only at the very start, nothing after the highlight', () => {
+    const quote = shareRangeText(notes.paragraphs, NOTES).split(' ')
+    for (const format of ['phone', 'desktop'] as const) for (const tagline of [false, true]) {
+      const pages = composeShareCards(notesContent, options(format, { tagline }), fonts, englishShareBreaks)
+      expect(pages.length).toBeGreaterThanOrEqual(2)
+      expect(pages.length).toBeLessThanOrEqual(SERIES_MAX_CARDS)
+      const placed = pages.map(page => page.layout.lines.flatMap(line => line.words))
+      pages.forEach((page, k) => {
+        expect(page.mode).toBe('single')
+        expect(page.series).toEqual({ index: k + 1, count: pages.length })
+        // One size on every page: the reader's, or no smaller than 75% of it.
+        expect(page.layout.fontSize).toBe(pages[0].layout.fontSize)
+        expect(page.scale).toBeGreaterThanOrEqual(0.75)
+        expect(page.cut).toBe(false)
+        expect(page.layout.usedHeight).toBeLessThanOrEqual(page.frame.text.height + 0.5)
+        expect(page.offsetY).toBe(0)
+        // Continuation pages are all highlight: no context line, and no rule or fold drawn.
+        if (k > 0) expect(placed[k].every(word => word.hl)).toBe(true)
+        const svg = renderShareSvg(page, fonts)
+        expect(svg).not.toContain('linearGradient')
+        expect(svg).not.toContain('<line')
+        expect(svg.includes(SHARE_TAGLINE)).toBe(tagline)
+      })
+      // The leading context opens the first page.
+      expect(placed[0][0].hl).toBe(false)
+      // The last page ends on the highlight's last word: no trailing context line.
+      const last = placed[placed.length - 1]
+      expect(last[last.length - 1]).toMatchObject({ hl: true, text: 'piano-key!' })
+      // Every highlighted word in order, once (a word broken at a line end rejoined).
+      const shown: string[] = []
+      let head = ''
+      for (const word of placed.flat()) {
+        if (!word.hl) continue
+        if (word.hyphen) { head = word.text.slice(0, -1); continue }
+        shown.push(head + word.text)
+        head = ''
+      }
+      expect(shown).toEqual(quote)
+    }
+  })
+
+  it('draws no trailing context after a highlight, ending mid-sentence with "…"', () => {
+    const tokens = buildPassage(paragraphs, SHORT, true).flatMap(paragraph => paragraph.tokens)
+    expect(tokens[tokens.length - 1]).toMatchObject({ text: 'heart.', hl: true })
+    const mid = buildPassage(paragraphs, { ...SHORT, toWord: SHORT.toWord - 1 }, true).flatMap(paragraph => paragraph.tokens)
+    expect(mid[mid.length - 1]).toMatchObject({ text: `my${SHARE_ELLIPSIS}`, hl: true })
+    for (const format of ['phone', 'desktop', 'og'] as const) {
+      const page = composeSharePage(content(SHORT), options(format), fonts)
+      const placed = page.layout.lines.flatMap(line => line.words)
+      expect(placed[placed.length - 1].hl).toBe(true)
+      // A lone page is centred, now nothing follows the highlight.
+      expect(page.offsetY).toBeGreaterThan(0)
+    }
   })
 
   it('splits a sentence too long for one card at its clauses, still losing no words', () => {
@@ -612,5 +706,65 @@ describe('share highlight: a series of cards for a long quote', () => {
     // A single card's preview is as before.
     const single = composeSharePage(content(SHORT), options('og', { context: false, cardFormat: 'phone' }), fonts)
     expect(cardWords(single)).toEqual(cardWords(composeSharePage(content(SHORT), options('og', { context: false }), fonts)))
+  })
+})
+
+describe('share highlight: follows the reader (alignment, highlight colour)', () => {
+  const MEDIUM: ShareRange = { paragraphIndex: 3, fromWord: 0, endParagraphIndex: 3, toWord: tokenizeParagraph(paragraphs[3]).length }
+  const english = (range: ShareRange): ShareContent => ({ ...content(range), language: 'en' })
+  /** Whether each line's last word reaches the right edge of the text box. */
+  const reachesEdge = (page: ReturnType<typeof composeSharePage>) => page.layout.lines.map(line => {
+    const last = line.words[line.words.length - 1]
+    return Math.abs(last.x + last.width - page.frame.text.width) < 0.5
+  })
+
+  beforeAll(async () => { await loadHyphenator('en') })
+
+  it('justifies the card (hyphenated, each paragraph’s last line left) when the reader is justified', () => {
+    for (const format of ['phone', 'desktop'] as const) for (const context of [false, true]) {
+      for (const align of [undefined, 'justify'] as const) {
+        const page = composeSharePage(english(MEDIUM), options(format, { context, align }), fonts, englishShareBreaks)
+        const edges = reachesEdge(page)
+        // Every line but the paragraph's last reaches the right edge; the last is set left.
+        expect(edges.slice(0, -1).every(Boolean)).toBe(true)
+        expect(edges[edges.length - 1]).toBe(false)
+        expect(page.layout.lines[page.layout.lines.length - 1].words[0].x).toBe(0)
+      }
+    }
+    // The justified card breaks loose lines as the reader does.
+    const cards = [MEDIUM, LONG].flatMap(range => composeShareCards(english(range), options('phone', { context: false }), fonts, englishShareBreaks))
+    expect(cards.some(card => card.layout.lines.some(line => line.words.some(word => word.hyphen)))).toBe(true)
+  })
+
+  it('sets the card left-aligned, unhyphenated, when the reader is left-aligned', () => {
+    for (const format of ['phone', 'desktop'] as const) for (const context of [false, true]) {
+      const pages = [MEDIUM, LONG].flatMap(range => composeShareCards(english(range), options(format, { context, align: 'left' }), fonts, englishShareBreaks))
+      for (const page of pages) {
+        expect(page.layout.lines.some(line => line.words.some(word => word.hyphen))).toBe(false)
+        // Ragged right: normal word spaces only.
+        for (const line of page.layout.lines) for (let k = 0; k + 1 < line.words.length; k++) {
+          const gap = line.words[k + 1].x - line.words[k].x - line.words[k].width
+          expect(gap / page.layout.fontSize).toBeLessThan(0.3)
+        }
+      }
+      expect(pages.some(page => reachesEdge(page).slice(0, -1).some(edge => !edge))).toBe(true)
+    }
+  })
+
+  it('draws no highlight colour when it is turned off, keeping the words and their weight', () => {
+    for (const look of ['paper', 'night'] as const) for (const context of [false, true]) for (const format of ['phone', 'desktop', 'og'] as const) {
+      const on = renderShareSvg(composeSharePage(content(SHORT), options(format, { look, context }), fonts), fonts)
+      const off = renderShareSvg(composeSharePage(content(SHORT), options(format, { look, context, highlight: false }), fonts), fonts)
+      expect(on).toContain(`fill="${SHARE_PALETTES[look].highlight}"/>`)
+      expect(off).not.toContain(`fill="${SHARE_PALETTES[look].highlight}"`)
+      expect(off).toContain('font-weight="600"')
+      expect(off.match(/<text /g)?.length).toBe(on.match(/<text /g)?.length)
+    }
+    // Every card of a series, too.
+    for (const context of [false, true]) {
+      const cards = composeShareCards(content(LONG), options('phone', { context, highlight: false }), fonts)
+      expect(cards.length).toBeGreaterThan(1)
+      for (const card of cards) expect(renderShareSvg(card, fonts)).not.toContain(`fill="${SHARE_PALETTES.paper.highlight}"`)
+    }
   })
 })

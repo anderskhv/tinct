@@ -5765,6 +5765,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <LabShareSheet
           target={shareTarget}
           format={isPhone ? 'phone' : 'desktop'}
+          align={readingAlignment}
           look={typeof document !== 'undefined' && document.documentElement.dataset.eink === 'true' ? 'eink' : resolvedDarkMode ? 'night' : prefs.theme === 'book' ? 'book' : 'paper'}
           onClose={() => setShareTarget(null)}
         />

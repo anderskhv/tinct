@@ -21,14 +21,13 @@ export interface SharePalette {
   highlight: string
   edge: string
   shadow: string
-  fold: string
 }
 
 export const SHARE_PALETTES: Record<ShareLook, SharePalette> = {
-  paper: { paper: '#ece7db', ink: '#0b0b0b', muted: '#6a6256', faint: '#8b8275', context: '#a39a8c', highlight: '#dcca98', edge: 'rgba(60,45,25,0.10)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
-  book: { paper: '#e7dcc7', ink: '#201a13', muted: '#675b4b', faint: '#796c59', context: '#a3957f', highlight: '#dcca98', edge: 'rgba(60,45,25,0.12)', shadow: 'rgba(60,45,25,0.10)', fold: '60,45,25' },
-  night: { paper: '#171411', ink: '#bdb3a7', muted: '#8f857a', faint: '#776e65', context: '#5f574e', highlight: '#5c4a2e', edge: 'rgba(255,240,220,0.08)', shadow: 'rgba(0,0,0,0.35)', fold: '0,0,0' },
-  eink: { paper: '#ffffff', ink: '#111111', muted: '#444444', faint: '#555555', context: '#9a9a9a', highlight: '#dcca98', edge: 'rgba(0,0,0,0.25)', shadow: 'rgba(0,0,0,0)', fold: '0,0,0' },
+  paper: { paper: '#ece7db', ink: '#0b0b0b', muted: '#6a6256', faint: '#8b8275', context: '#a39a8c', highlight: '#dcca98', edge: 'rgba(60,45,25,0.10)', shadow: 'rgba(60,45,25,0.10)' },
+  book: { paper: '#e7dcc7', ink: '#201a13', muted: '#675b4b', faint: '#796c59', context: '#a3957f', highlight: '#dcca98', edge: 'rgba(60,45,25,0.12)', shadow: 'rgba(60,45,25,0.10)' },
+  night: { paper: '#171411', ink: '#bdb3a7', muted: '#8f857a', faint: '#776e65', context: '#5f574e', highlight: '#5c4a2e', edge: 'rgba(255,240,220,0.08)', shadow: 'rgba(0,0,0,0.35)' },
+  eink: { paper: '#ffffff', ink: '#111111', muted: '#444444', faint: '#555555', context: '#9a9a9a', highlight: '#dcca98', edge: 'rgba(0,0,0,0.25)', shadow: 'rgba(0,0,0,0)' },
 }
 
 const FAMILY = 'EB Garamond'
@@ -74,16 +73,12 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
   if (frame.page) {
     const pg = frame.page
     const blur = width / 100 * 0.8
-    parts.push(`<defs><filter id="s" x="-5%" y="-5%" width="110%" height="115%"><feGaussianBlur stdDeviation="${n(blur)}"/></filter>`)
-    if (page.mode === 'spread') parts.push(`<linearGradient id="f" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="rgb(${palette.fold})" stop-opacity="0"/><stop offset="0.45" stop-color="rgb(${palette.fold})" stop-opacity="0.07"/><stop offset="0.5" stop-color="rgb(${palette.fold})" stop-opacity="0.11"/><stop offset="0.55" stop-color="rgb(${palette.fold})" stop-opacity="0.07"/><stop offset="1" stop-color="rgb(${palette.fold})" stop-opacity="0"/></linearGradient>`)
-    parts.push('</defs>')
+    parts.push(`<defs><filter id="s" x="-5%" y="-5%" width="110%" height="115%"><feGaussianBlur stdDeviation="${n(blur)}"/></filter></defs>`)
     parts.push(`<rect x="${n(pg.x)}" y="${n(pg.y + width / 100 * 0.6)}" width="${n(pg.width)}" height="${n(pg.height)}" fill="${palette.shadow}" filter="url(#s)"/>`)
     parts.push(`<rect x="${n(pg.x)}" y="${n(pg.y)}" width="${n(pg.width)}" height="${n(pg.height)}" fill="${palette.paper}" stroke="${palette.edge}" stroke-width="1"/>`)
-    if (page.mode === 'spread') {
-      const foldWidth = width / 100 * 3
-      parts.push(`<rect x="${n(pg.x + pg.width / 2 - foldWidth / 2)}" y="${n(pg.y)}" width="${n(foldWidth)}" height="${n(pg.height)}" fill="url(#f)"/>`)
-    }
   }
+  // The highlight colour behind the highlighted words, unless the sharer turned it off.
+  const drawHighlight = page.options.highlight !== false
 
   // Header: book · chapter, passive muted italic.
   const header = frame.header
@@ -114,7 +109,7 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
     const baseline = top + halfLeading + ascent * size
     // Highlight background: one run per stretch of consecutive highlighted words.
     let runStart = -1
-    for (let i = 0; i <= line.words.length; i++) {
+    for (let i = 0; drawHighlight && i <= line.words.length; i++) {
       const word = line.words[i]
       if (word?.hl && runStart < 0) runStart = i
       if ((!word || !word.hl) && runStart >= 0) {

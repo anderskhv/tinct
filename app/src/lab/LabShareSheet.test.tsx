@@ -79,6 +79,40 @@ describe('LabShareSheet', () => {
     expect(screen.getByRole('checkbox', { name: 'Add "Read free at tinct.app"' })).toBeTruthy()
   })
 
+  it('draws the highlight colour until the reader turns it off, then remembers it', async () => {
+    const calls = mockFetch()
+    render(<LabShareSheet target={target} look="paper" format="phone" onClose={() => {}} />)
+    await settle()
+    const toggle = screen.getByRole('checkbox', { name: 'Highlight colour' }) as HTMLInputElement
+    expect(toggle.checked).toBe(true)
+    expect(calls.find(call => call.url.includes('/api/share/preview'))!.url).toMatch(/[?&]highlight=1(&|$)/)
+    // An icon toggle, labelled only by its aria-label and title.
+    const chip = toggle.closest('label')!
+    expect(chip.textContent).toBe('')
+    expect(chip.querySelector('svg')).not.toBeNull()
+    expect(chip.getAttribute('title')).toBe('Highlight colour')
+    fireEvent.click(toggle)
+    await settle()
+    expect(calls.some(call => call.url.includes('/api/share/preview') && /[?&]highlight=0(&|$)/.test(call.url))).toBe(true)
+    expect(JSON.parse(localStorage.getItem('tinct:share-prefs')!)).toEqual({ context: true, tagline: false, highlight: false })
+    cleanup()
+    render(<LabShareSheet target={target} look="paper" format="phone" onClose={() => {}} />)
+    await settle()
+    expect((screen.getByRole('checkbox', { name: 'Highlight colour' }) as HTMLInputElement).checked).toBe(false)
+  })
+
+  it('sets the image as the reader sets its text: justified by default, left when the reader is', async () => {
+    const calls = mockFetch()
+    render(<LabShareSheet target={target} look="paper" format="phone" onClose={() => {}} />)
+    await settle()
+    expect(calls.find(call => call.url.includes('/api/share/preview'))!.url).toMatch(/[?&]align=justify(&|$)/)
+    cleanup()
+    const left = mockFetch()
+    render(<LabShareSheet target={target} look="paper" format="phone" align="left" onClose={() => {}} />)
+    await settle()
+    expect(left.find(call => call.url.includes('/api/share/preview'))!.url).toMatch(/[?&]align=left(&|$)/)
+  })
+
   it('leaves the tinct.app credit off until the reader turns it on, then remembers it', async () => {
     const calls = mockFetch()
     localStorage.clear()
@@ -95,7 +129,7 @@ describe('LabShareSheet', () => {
     expect(chip.querySelector('svg')).not.toBeNull()
     expect(chip.getAttribute('title')).toBe('Add "Read free at tinct.app"')
     fireEvent.click(tagline)
-    expect(JSON.parse(localStorage.getItem('tinct:share-prefs')!)).toEqual({ context: true, tagline: true })
+    expect(JSON.parse(localStorage.getItem('tinct:share-prefs')!)).toEqual({ context: true, tagline: true, highlight: true })
     cleanup()
     render(<LabShareSheet target={target} look="book" format="phone" onClose={() => {}} />)
     await settle()
@@ -216,6 +250,19 @@ describe('LabShareSheet', () => {
       const images = [...screen.getByTestId('lab-share-cards').querySelectorAll('img')]
       expect(images.every(img => /[?&]tagline=1(&|$)/.test(img.getAttribute('src') ?? ''))).toBe(true)
       expect(calls.some(call => /[?&]tagline=1(&|$)/.test(call.url))).toBe(true)
+    })
+
+    it('keeps the card in view when the highlight colour toggle redraws the images', async () => {
+      const calls = mockFetch(3)
+      render(<LabShareSheet target={target} look="paper" format="desktop" onClose={() => {}} />)
+      await settle(300)
+      fireEvent.click(screen.getByTestId('lab-share-next'))
+      fireEvent.click(screen.getByTestId('lab-share-highlight'))
+      await settle(300)
+      expect(screen.getByTestId('lab-share-count').textContent).toBe('2/3')
+      const images = [...screen.getByTestId('lab-share-cards').querySelectorAll('img')]
+      expect(images.every(img => /[?&]highlight=0(&|$)/.test(img.getAttribute('src') ?? ''))).toBe(true)
+      expect(calls.some(call => /[?&]highlight=0(&|$)/.test(call.url))).toBe(true)
     })
 
     it('copies the card in view', async () => {
