@@ -2197,6 +2197,9 @@
 .lab-verse-line {
   display: block;
   text-align: start;
+  /* Never inherit a justified last line from a page tail that continues
+     (`.is-continued[data-tail-full]`): each verse line ends its own block. */
+  text-align-last: auto;
   text-justify: auto;
   padding-left: 1.5em;
   text-indent: -1.5em;

@@ -332,10 +332,16 @@ function joinedLines(run: number[], body: (lineIndex: number) => ReactNode, memb
     : <Fragment key={lineIndex}>{' '}<span className="lab-prose-join" {...member?.(lineIndex)}>{body(lineIndex)}</span></Fragment>)
 }
 
-/** The visual paragraph goes on to the next page: justify its last line like any interior one. */
-function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphIndex?: number; from?: number; words: Array<{ text: string; fragment?: boolean }> }>, run: number[]): boolean {
+/**
+ * The visual paragraph goes on to the next page: justify its last line like
+ * any interior one. A following poetry line continues it only where joined
+ * lines are painted inline (`joins`); verse-paired Compare paints each source
+ * line as its own row, so there a paragraph that ends is set ragged like any
+ * other paragraph end, never stretched to the margin.
+ */
+export function runContinuesParagraph(paragraphs: string[], lines: Array<{ paragraphIndex?: number; from?: number; words: Array<{ text: string; fragment?: boolean }> }>, run: number[], joins = true): boolean {
   const last = lines[run[run.length - 1]]
-  return lineContinuesParagraph(paragraphs, last) || sliceRunContinues(paragraphs, lineSlice(last))
+  return lineContinuesParagraph(paragraphs, last) || (joins && sliceRunContinues(paragraphs, lineSlice(last)))
 }
 
 function renderPlainWords(lines: ReturnType<typeof readingPageLines>, paragraphs: string[], usePlans = false) {
@@ -1082,7 +1088,7 @@ export function LabPassage({
                       'lab-hearing-line' + paragraphKindClass(paragraphs[paragraphIndex], pageLines[lineIndex].from ?? readingPage?.from) + hyphenPlanClass(paragraphs[paragraphIndex], usePlans),
                       gridRows && sliceJoinsPrevious(paragraphs, slices[lineIndex - 1], slices[lineIndex]) ? 'is-joined-row' : '',
                       inlineHearingPaint && follow.kind === 'paragraph' && anyParagraph(index => follow.paragraphIndex === index) ? 'is-paragraph-current' : '',
-                      runContinuesParagraph(paragraphs, pageLines, run) ? 'is-continued' : '',
+                      runContinuesParagraph(paragraphs, pageLines, run, !gridRows) ? 'is-continued' : '',
                       anyParagraph(index => markedIndexes.has(index)) ? 'is-marked' : '',
                       anyParagraph(index => focusParagraph === index) ? 'is-focus' : '',
                       anyParagraph(index => discussedParagraph === index) ? 'is-discussed' : '',
